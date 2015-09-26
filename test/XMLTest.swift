@@ -15,15 +15,19 @@
 
 
 //parserDidStartDocument:
+//init storage variables
 //parserDidEndDocument:
 //parser:didStartElement:namespaceURI:qualifiedName:attributes:
+//parser:foundCharacters:
 //parser:didEndElement:namespaceURI:qualifiedName:
+
+//less important:
+
 //parser:didStartMappingPrefix:toURI:
 //parser:didEndMappingPrefix:
 //parser:resolveExternalEntityName:systemID:
 //parser:parseErrorOccurred:
 //parser:validationErrorOccurred:
-//parser:foundCharacters:
 
 
 
