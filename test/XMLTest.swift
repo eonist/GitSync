@@ -3,6 +3,8 @@
 //https://github.com/tadija/AEXML
 //xmlparser lib: https://github.com/Mozharovsky/XMLParser
 //try this tut http://www.ihartdevelopers.com/xml-parsing-using-nsxmlparser-in-swift/
+
+//ok so here is how the xml parser works. it runs through an xml displayObjectContainer and triggers the different elements in the doc. the element, the content, 
 import Foundation
 import Cocoa
 
