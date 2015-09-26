@@ -9,18 +9,21 @@
 //so to access the different parts you need to store the different parts in dictionaries and arrays. 
 
 
-
-
-
-
+//the consept:
 
 //parserDidStartDocument:
-//init storage variables
+	//init objects
 //parserDidEndDocument:
+	//return objects
 //parser:didStartElement:namespaceURI:qualifiedName:attributes:
+	//init the string to be stored
 //parser:foundCharacters:
+	//append string
 //parser:didEndElement:namespaceURI:qualifiedName:
-
+	//append objects
+	
+	
+	
 //less important:
 
 //parser:didStartMappingPrefix:toURI:
