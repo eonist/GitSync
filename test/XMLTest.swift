@@ -16,6 +16,12 @@
 
 
 
+//access an attribute:
+//in didStartElement method;
+
+if element.isEqualToString("enclosure") {
+        var imgLink = attributeDict["url"] as String
+    }
 
 
 
