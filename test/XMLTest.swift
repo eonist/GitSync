@@ -14,6 +14,24 @@
 
 
 
+//parserDidStartDocument:
+//parserDidEndDocument:
+//parser:didStartElement:namespaceURI:qualifiedName:attributes:
+//parser:didEndElement:namespaceURI:qualifiedName:
+//parser:didStartMappingPrefix:toURI:
+//parser:didEndMappingPrefix:
+//parser:resolveExternalEntityName:systemID:
+//parser:parseErrorOccurred:
+//parser:validationErrorOccurred:
+//parser:foundCharacters:
+
+
+
+
+
+
+
+
 
 
 //access an attribute:
