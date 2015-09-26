@@ -3,6 +3,7 @@
 //https://github.com/tadija/AEXML
 //xmlparser lib: https://github.com/Mozharovsky/XMLParser
 //try this tut http://www.ihartdevelopers.com/xml-parsing-using-nsxmlparser-in-swift/
+//great explination of how nsxml works https://medium.com/@lucascerro/understanding-nsxmlparser-in-swift-xcode-6-3-1-7c96ff6c65bc
 
 //ok so here is how the xml parser works. it runs through an xml displayObjectContainer and triggers the different elements in the doc. the element, the content.
 //so to access the different parts you need to store the different parts in dictionaries and arrays. 
