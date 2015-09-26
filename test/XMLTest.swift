@@ -9,6 +9,27 @@ var err: NSError?
 let content = String.stringWithContentsOfFile(path, encoding: NSUTF8StringEncoding, error: &err)
 
 
+//get filepath
+The NSXMLDocument usage would look like:
+
+let fm = NSFileManager.defaultManager()
+var err : NSError?
+let userDirectory = fm.URLForDirectory(.UserDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false, error: &err)
+if err != nil {
+  // ...
+}
+
+if let path = userDirectory?.URLByAppendingPathComponent("someFile.xml") {
+  NSXMLDocument(contentsOfURL: configURL, options: 0, error: &err)
+  if err != nil {
+    // ...
+  }
+
+  if let rootNode = config?.rootElement() {
+    // ...
+  }
+}
+
 //try the bellow:
 
 class CategoryParser: NSObject, NSXMLParserDelegate {
