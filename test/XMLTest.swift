@@ -11,11 +11,12 @@
 
 //the consept:
 
-//parserDidStartDocument:
+//parserDidStartDocument: 
 	//init objects
 //parserDidEndDocument:
 	//return objects
-//parser:didStartElement:namespaceURI:qualifiedName:attributes:
+//parser:didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject])
+
 	//init the string to be stored
 //parser:foundCharacters:
 	//append string
