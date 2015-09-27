@@ -46,18 +46,19 @@ if(child.hasComplexContent()) item["xml"] = child;
 var root:Dictionary = [:]//create an empty dictionary
 var depth:Int = 0;//current node depth
 var nodes:Dictionary = root
-var parentNodes:Dictionary = parentNodes
+var parentNodes:Dictionary?
 var stringContent:String = ""//init the string to be stored
 var prevElementName:String = ""
 var curOpenElementName:String = ""
 var hasClosed = false//has child closed
 
 func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject]){	
-	if(parentNodes[elementName] == nil){//if there is no array accociated with elementName, then add a new array to store children with the elementName
+	if(nodes[elementName] == nil){//if there is no array accociated with elementName, then add a new array to store children with the elementName
 		var children:Array = []//list of children, create a new array to store all children with elementName
-		parentNodes[elementName] = children//create a new key/value pair to store all children with elementName
+		nodes[elementName] = children//create a new key/value pair to store all children with elementName
 	}else{//an array for elementName already exists, 
 		//add the 
+		//do not set parent to current node etc
 	}
 	if(hasClosed == false){//means that your still inside a child
 		//add a dictionary for key "content"
