@@ -55,18 +55,17 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 	if(currentNode[elementName] == nil){//if there is no array accociated with elementName, then add a new array to store children with the elementName
 		var children:Array = []//create a new array to store all children with elementName
 		currentNode[elementName] = children//create a new key/value pair to store all children with elementName
-		var element:Dictionary = attributes//add attributes to the dictionary :TODO: make sure this value isnt nil
-		currentNode[elementName].append(element)//add the element to the parent with the key of elementName
-		currentNode = element//set the new current node to the current element
 	}else{//an array for elementName already exists, 
 		//add the 
-		
 	}
 	if(hasClosed == false){//means that your still inside a child
 		
 	}else(hasClosed == true){//means that you have moved to the next child
 	
 	}
+	var element:Dictionary = attributes//add attributes to the dictionary :TODO: make sure this value isnt nil
+	currentNode[elementName].append(element)//add the element to the parent with the key of elementName
+	currentNode = element//set the new current node to the current element
 	//depth++;//incriment the depth
 	//curOpenElementName == elementName
 }
