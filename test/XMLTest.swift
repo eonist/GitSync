@@ -71,7 +71,7 @@ func parser(didEndElement elementName: String,namespaceURI: String?,qualifiedNam
 		stringContent = ""//empty the string
 	}
 	if (elementName == curOpenElemntName){
-	
+		//close the child
 	}
 	depth--;
 }
