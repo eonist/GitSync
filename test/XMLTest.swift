@@ -11,6 +11,8 @@
 
 //the consept:
 
+var dict:Dictionary = []
+
 //parserDidStartDocument: 
 	//init objects
 //parserDidEndDocument:
