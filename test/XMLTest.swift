@@ -20,6 +20,12 @@ categories["category"][0]//{color:green,name:"tinits",content:{item:[{auther:joh
 //i guess optional chaining would suite the bellow line well:
 categories["category"][0]["content"]["item"][0]["content"]//"well designed car"
 
+//here is how it works:
+//1. dictionaries store arrays of xml nodes of the same name
+//2. dictionaries inside an array item store attributes and content of the xml node
+//3. xml node content is stored in the dictionary under the key "content"
+//4. content is stored as a string if its just text or as a dictonary with arrays of xml children (begin again from 1)
+
 //this is how you handle xml attr:
 for each(var attribute:XML in attributes) item[attribute.localName()] = attribute.toString();
 //this is how you add the content of the child:
