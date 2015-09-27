@@ -45,16 +45,16 @@ if(child.hasComplexContent()) item["xml"] = child;
 //in swift:
 var root:Dictionary = [:]//create an empty dictionary
 var depth:Int = 0;//current node depth
-var currentNode:Dictionary = root
+var parentNodes:Dictionary = root
 var stringContent:String = ""//init the string to be stored
 var prevElementName:String = ""
 var curOpenElementName:String = ""
 var hasClosed = false//has child closed
 
 func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject]){	
-	if(currentNode[elementName] == nil){//if there is no array accociated with elementName, then add a new array to store children with the elementName
+	if(parentNodes[elementName] == nil){//if there is no array accociated with elementName, then add a new array to store children with the elementName
 		var children:Array = []//create a new array to store all children with elementName
-		currentNode[elementName] = children//create a new key/value pair to store all children with elementName
+		parentNodes[elementName] = children//create a new key/value pair to store all children with elementName
 	}else{//an array for elementName already exists, 
 		//add the 
 	}
@@ -64,8 +64,8 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 	
 	}
 	var element:Dictionary = attributes//add attributes to the dictionary :TODO: make sure this value isnt nil
-	currentNode[elementName].append(element)//add the element to the parent with the key of elementName
-	currentNode = element//set the new current node to the current element
+	parentNodes[elementName].append(element)//add the element to the parent with the key of elementName
+	parentNodes = element//set the new current node to the current element
 	//depth++;//incriment the depth
 	//curOpenElementName == elementName
 }
@@ -77,7 +77,7 @@ func parser(foundCharacters: string: String?){
 func parser(didEndElement elementName: String,namespaceURI: String?,qualifiedName qName: String){
 	//append objects
 	if (stringContent.isEmpty == false){
-		currentNode[elementName][currentNode[elementName].count-1]["content"] = stringContent// :TODO: you should probably use a pointer ref here research further
+		parentNodes[elementName][parentNodes[elementName].count-1]["content"] = stringContent// :TODO: you should probably use a pointer ref here research further
 		stringContent = ""//empty the string
 	}else{//had nomcontent or complex content
 		
