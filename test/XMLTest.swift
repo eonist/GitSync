@@ -9,8 +9,14 @@
 //so to access the different parts you need to store the different parts in dictionaries and arrays. 
 
 
-//the consept: 
+//the concept: 
 //TODO: what if you combine array and dictionary to: settingsXml["picture"][2]["file"][0]["content"]
+
+
+//if you have an attr named value and content needs to be inside value then:
+
+
+
 var dict:Dictionary = [String:String]()
 
 
