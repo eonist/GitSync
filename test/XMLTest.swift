@@ -37,6 +37,7 @@ var root:Dictionary = [String:String]()
 
 //parser:didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject])
 	//init the string to be stored
+	root[elementName] = 
 	
 //parser:foundCharacters: string: String?
 	//append string
