@@ -52,7 +52,6 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 	if(currentNode[elementName] == nil){//if there is no array accociated with elementName, then add a new array to store children with the elementName
 		var children:Array = []//create a new array to store all children with elementName
 		currentNode[elementName] = children//create a new key/value pair to store all children with elementName
-		currentNode[elementName].append(element)//add the element
 	}else{//an array for elementName already exists, 
 	
 	}
@@ -63,7 +62,8 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 	}
 	element = attributes//add attributes to the dictionary :TODO: make sure this value isnt nil
 	currentNode[elementName].append(element)//add the element
-	depth++;//incriment the depth
+	currentNode = element//set the new current node to the current element
+	//depth++;//incriment the depth
 	curOpenElementName == elementName
 }
 func parser(foundCharacters: string: String?){
@@ -84,7 +84,7 @@ func parser(didEndElement elementName: String,namespaceURI: String?,qualifiedNam
 		
 		hasClosed = true//current node was closed
 	}
-	depth--;
+	//depth--;
 }
 	
 //less important:
