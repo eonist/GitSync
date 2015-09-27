@@ -43,8 +43,8 @@ for each(var attribute:XML in attributes) item[attribute.localName()] = attribut
 if(child.hasComplexContent()) item["xml"] = child;
 
 //in swift:
-var root:Dictionary = [:]//create an empty dictionary
-var depth:Int = 0;//current node depth
+var root:Array = []//create an empty dictionary
+//var depth:Int = 0;//current node depth
 var nodes:Dictionary = root
 var parentNodes:Dictionary?
 var stringContent:String = ""//init the string to be stored
