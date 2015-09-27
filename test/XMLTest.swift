@@ -53,7 +53,7 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 		parentNodes[elementName] = children//create a new key/value pair to store all children with elementName
 		var currentChild:Dictionary = attributes//add attributes to the dictionary :TODO: make sure this value isnt nil
 		currentChild["content"] = [:]//create the content key
-		nodes[elementName].append(currentChild)//add the node to the parent with the key of elementName
+		parentNodes[elementName].append(currentChild)//add the node to the parent with the key of elementName
 	}else{//an array for elementName already exists, so this item must be a sibbling
 		//add the 
 		//do not set parent to current node etc
