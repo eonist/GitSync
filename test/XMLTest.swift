@@ -26,6 +26,10 @@
 <test>
 </test>
 
+
+//here is the deal if an item closes then the parent should be set one level up
+//if an item does not close then...
+
 //NOTE: if you have an attr named content and the child value needs to be inside content then to differentiate the two you need to rename the attr to somethin unique, this is out of the scope for this method though, so in that case just dont parse xmls with attr named content, if you do have to do it then just wrap this method into another with this extended functionality.
 //this is how you should navigate the result:
 root["categories"][0]["content"]["category"][0]["color"]//"green" that is an attribute value of color
