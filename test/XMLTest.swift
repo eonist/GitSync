@@ -76,6 +76,8 @@ func parser(didEndElement elementName: String,namespaceURI: String?,qualifiedNam
 	if (stringContent.isEmpty == false){
 		currentNode[elementName][currentNode[elementName].count-1]["content"] = stringContent// :TODO: you should probably use a pointer ref here research further
 		stringContent = ""//empty the string
+	}else{//had nomcontent or complex content
+		
 	}
 	if (elementName == curOpenElemntName){
 		//close the child
