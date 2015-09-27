@@ -57,18 +57,19 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 	currentNode[elementName].append(element)
 	depth++;//incriment the depth
 }
-func parser:foundCharacters: string: String?
+func parser(foundCharacters: string: String?){
 	//append string
 	//if this is called then the element has a string in its body
 	stringContent += foundCharacters
-//parser:didEndElement elementName: String,namespaceURI: String?,qualifiedName qName: Strin
+}
+func parser(didEndElement elementName: String,namespaceURI: String?,qualifiedName qName: String){
 	//append objects
 	if (stringContent.isEmpty == false){
 		currentNode[elementName][currentNode[elementName].count-1]["content"] = stringContent// :TODO: you should probably use a pointer ref here research further
 		stringContent = ""
 	}
 	depth--;
-	
+}
 	
 //less important:
 //parserDidStartDocument: 
