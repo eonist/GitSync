@@ -11,7 +11,7 @@
 
 //the consept:
 
-var dict:Dictionary = []
+var dict:Dictionary = [String:String]()
 
 //parserDidStartDocument: 
 	//init objects
