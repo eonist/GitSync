@@ -44,7 +44,8 @@ var root:Dictionary = [:]//create an empty dictionary
 var depth:Int = 0;//current node depth
 var currentNode:Dictionary = root
 var stringContent:String = ""//init the string to be stored
-var prevElementName:String = "";
+var prevElementName:String = ""
+var curOpenElementName:String = ""
 func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject]){	
 	if(currentNode[elementName] == nil){
 		var children:Array = []//create a new array to store all children with elementName
@@ -56,7 +57,7 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 	var element:Dictionary = attributes//make sure this value isnt nil
 	currentNode[elementName].append(element)
 	depth++;//incriment the depth
-	prevElementName == 
+	curOpenElementName == elementName
 }
 func parser(foundCharacters: string: String?){
 	//append string
@@ -69,7 +70,9 @@ func parser(didEndElement elementName: String,namespaceURI: String?,qualifiedNam
 		currentNode[elementName][currentNode[elementName].count-1]["content"] = stringContent// :TODO: you should probably use a pointer ref here research further
 		stringContent = ""//empty the string
 	}
-	elementName = 
+	if (elementName == curOpenElemntName){
+	
+	}
 	depth--;
 }
 	
