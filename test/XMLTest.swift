@@ -1,7 +1,7 @@
 //xml parsing test
 //https://developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/NSXMLParserDelegate_Protocol/index.html#//apple_ref/occ/intfm/NSXMLParserDelegate/parser:foundCharacters:
 //https://github.com/tadija/AEXML
-//xmlparser lib: https://github.com/Mozharovsky/XMLParser
+//xmlparser lib: https://github.com/Mozharovsky/XMLParser. (doesnt support attributes)
 //try this tut http://www.ihartdevelopers.com/xml-parsing-using-nsxmlparser-in-swift/
 //great explination of how nsxml works https://medium.com/@lucascerro/understanding-nsxmlparser-in-swift-xcode-6-3-1-7c96ff6c65bc
 
@@ -10,7 +10,7 @@
 
 
 //the consept: 
-//TODO: what if you combine array and dictionary to: settingsXml["picture"][2]["file"]["0"]["content"]
+//TODO: what if you combine array and dictionary to: settingsXml["picture"][2]["file"][0]["content"]
 var dict:Dictionary = [String:String]()
 
 
