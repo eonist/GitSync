@@ -64,7 +64,7 @@ var stringContent:String?
 //parser:didEndElement elementName: String,namespaceURI: String?,qualifiedName qName: Strin
 	//append objects
 	if (stringContent != nil){
-		if currentNode[elementName][currentNode[elementName].count-1]["content"]?
+		currentNode[elementName][currentNode[elementName].count-1]["content"] 
 	}
 	depth--;
 	
