@@ -17,6 +17,7 @@
 		<item color:"blue" type:"car"></item>
 		<item>text goes here</item>
 		<item/>
+		<container/>
 	</category>
 	<category/>
 </categories>
@@ -41,11 +42,16 @@ if(child.hasComplexContent()) item["xml"] = child;
 //in swift:
 var root:Dictionary = []
 var depth:Int = 0;//current node depth
+previous
 
 //parser:didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject])
 	//init the string to be stored
-	var children:Array = []
-	root[elementName] = children//create an empty array
+	
+	if(root[elementName] == nil){
+		var children:Array = []
+		root[elementName] = children//create an empty array
+	}
+	
 	depth++
 //parser:foundCharacters: string: String?
 	//append string
