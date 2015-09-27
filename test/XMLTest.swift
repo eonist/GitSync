@@ -13,6 +13,7 @@
 //TODO: what if you combine array and dictionary to: settingsXml["picture"][2]["file"][0]["content"]
 
 <categories>
+	<category/>
 	<category>
 		<item color:"blue" type:"car"></item>
 		<item>text goes here</item>
@@ -47,9 +48,9 @@ var curOpenElementName:String = ""
 var hasClosed = false//has child closed
 
 func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject]){	
-	if(nodes[elementName] == nil){//if there is no array accociated with elementName, then add a new array to store children with the elementName
+	if(parentNodes[elementName] == nil){//if there is no array accociated with elementName, then add a new array to store children with the elementName
 		var children:Array = []//list of children, create a new array to store all children with elementName
-		parentNodes[elementName] = children//create a new key/value pair to store all children with elementName
+		nodes[elementName] = children//create a new key/value pair to store all children with elementName
 	}else{//an array for elementName already exists, 
 		//add the 
 		//do not set parent to current node etc
@@ -59,10 +60,11 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 	}else(hasClosed == true){//means that you have moved to the next child
 	
 	}
-	var node:Dictionary = attributes//add attributes to the dictionary :TODO: make sure this value isnt nil
+	var currentNodes:Dictionary = attributes//add attributes to the dictionary :TODO: make sure this value isnt nil
 	node["content"] = [:]//create the content key
-	parentNodes[elementName].append(node)//add the node to the parent with the key of elementName
-	parentNodes = node["content"]//set the new parentnode to node 
+	nodes[elementName].append(node)//add the node to the parent with the key of elementName
+	nodes = node["content"]//set the new parentnode to node 
+	parentNodes = nodes
 	//depth++;//incriment the depth
 	//curOpenElementName == elementName
 }
