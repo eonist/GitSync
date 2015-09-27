@@ -48,8 +48,8 @@ var dict:Dictionary = [String:String]()
 //in didStartElement method;
 
 if element.isEqualToString("enclosure") {
-        var imgLink = attributeDict["url"] as String
-    }
+  var imgLink = attributeDict["url"] as String
+}
 
 
 
