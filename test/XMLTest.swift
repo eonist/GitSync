@@ -14,14 +14,17 @@
 
 
 //NOTE: if you have an attr named value and content needs to be inside value then to differentiate the two you need to rename the attr to somethin unique, this is out of the scope for this method though, so in that case just dont parse xmls with attr named value, if you do have to do it then just wrap this method into another with this extended functionality.
-
+//this is how you should navigate the result:
 categories["category"][0]["content"][0]["color"]//green
 categories["category"][0]//{color:green,name:"tinits",value:{content:complexXmlData,attr:nil}
 categories["category"][0][["content"]
 
 //this is how you handle xml attr:
 for each(var attribute:XML in attributes) item[attribute.localName()] = attribute.toString();
+//this is how you add the content of the child:
+if(child.hasComplexContent()) item["xml"] = child;
 
+//in swift:
 var dict:Dictionary = [String:String]()
 
 
