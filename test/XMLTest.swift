@@ -29,7 +29,7 @@
 root["categories"][0]["content"]["category"][0]["color"]//"green" that is an attribute value of color
 root["categories"][0]["content"]["category"][0]//{color:green,name:"tinits",content:{item:[{auther:john,age:2,content:"well designed car"},{},{}]}
 //i guess optional chaining would suite the bellow line well:
-root["categories"]["content"][0]["category"]["content"][0]["item"][0]["content"]//"well designed car"
+root["categories"][0]["content"]["category"][0]["content"]["item"][0]["content"]//"well designed car"
 
 //here is how it works:
 //1. dictionaries store arrays of xml nodes of the same name
