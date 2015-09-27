@@ -15,7 +15,8 @@
 
 //if you have an attr named value and content needs to be inside value then to differentiate the two you need to:
 categories["category"][0]["color"]//green
-categories["category"][0]//{color:green,name:"tinits",value:
+categories["category"][0]//{color:green,name:"tinits",value:{content:complexXmlData,attr:nil}
+categories["category"][0]["value"]["content"]
 
 var dict:Dictionary = [String:String]()
 
