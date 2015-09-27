@@ -12,7 +12,9 @@
 //the concept: 
 //TODO: what if you combine array and dictionary to: settingsXml["picture"][2]["file"][0]["content"]
 
-
+<categories>
+	<category>
+<categories/>
 //NOTE: if you have an attr named content and the child value needs to be inside content then to differentiate the two you need to rename the attr to somethin unique, this is out of the scope for this method though, so in that case just dont parse xmls with attr named content, if you do have to do it then just wrap this method into another with this extended functionality.
 //this is how you should navigate the result:
 root["categories"][0]categories["category"][0]["color"]//"green" that is an attribute value of color
@@ -39,11 +41,12 @@ var depth:Int = 0;
 	//init the string to be stored
 	var children:Array = []
 	root[elementName] = children//create an empty array
+	depth++
 //parser:foundCharacters: string: String?
 	//append string
 //parser:didEndElement elementName: String,namespaceURI: String?,qualifiedName qName: Strin
 	//append objects
-	
+	depth--
 	
 	
 //less important:
