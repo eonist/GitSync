@@ -39,7 +39,7 @@
 //here is the deal if an item closes then the parent should be set one level back
 //if an item opens then you set this element as the parent
 //now how do you get one level back again?? just think about in the sense of an multi dim array
-
+//you do it by keeping teack of the over all multi dim array depth index. dont think about the dictionaries, 
 
 
 
