@@ -13,10 +13,10 @@
 //TODO: what if you combine array and dictionary to: settingsXml["picture"][2]["file"][0]["content"]
 
 
-//if you have an attr named value and content needs to be inside value then to differentiate the two you need to:
-categories["category"]["value"][""][0]["color"]//green
+//NOTE: if you have an attr named value and content needs to be inside value then to differentiate the two you need to rename the attr to somethin unique, this is out of the scope for this method though, so in that case just dont parse xmls with attr named value, if you do have to do it then just wrap this method into another with this extended functionality.
+categories["category"][0]["content"][0]["color"]//green
 categories["category"][0]//{color:green,name:"tinits",value:{content:complexXmlData,attr:nil}
-categories["category"][0]["value"]["content"]
+categories["category"][0][["content"]
 
 var dict:Dictionary = [String:String]()
 
