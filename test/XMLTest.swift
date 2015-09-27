@@ -26,10 +26,10 @@
 
 //NOTE: if you have an attr named content and the child value needs to be inside content then to differentiate the two you need to rename the attr to somethin unique, this is out of the scope for this method though, so in that case just dont parse xmls with attr named content, if you do have to do it then just wrap this method into another with this extended functionality.
 //this is how you should navigate the result:
-root[0]["content"]["categories"][0]["content"]["category"][0]["color"]//"green" that is an attribute value of color
-root[0]["content"]["categories"][0]["content"]["category"][0]//{color:green,name:"tinits",content:{item:[{auther:john,age:2,content:"well designed car"},{},{}]}
+root["categories"][0]["content"]["category"][0]["color"]//"green" that is an attribute value of color
+root["categories"][0]["content"]["category"][0]//{color:green,name:"tinits",content:{item:[{auther:john,age:2,content:"well designed car"},{},{}]}
 //i guess optional chaining would suite the bellow line well:
-root[0]["content"]["categories"][0]["content"]["category"][0]["content"]["item"][0]["content"]//"well designed car"
+root["categories"][0]["content"]["category"][0]["content"]["item"][0]["content"]//"well designed car"
 
 //here is how it works:
 //1. dictionaries store arrays of xml nodes of the same name
@@ -37,16 +37,10 @@ root[0]["content"]["categories"][0]["content"]["category"][0]["content"]["item"]
 //3. xml node content is stored in the dictionary under the key "content"
 //4. content is stored as a string if its just text or as a dictonary with arrays of xml children (begin again from 1)
 
-//this is how you handle xml attr:
-for each(var attribute:XML in attributes) item[attribute.localName()] = attribute.toString();
-//this is how you add the content of the child:
-if(child.hasComplexContent()) item["xml"] = child;
-
 //in swift:
-var root:Array = []//create an empty dictionary
 //var depth:Int = 0;//current node depth
-var nodes:Dictionary = root
-var parentNodes:Dictionary?
+var nodes:Dictionary = [:]
+var parentNodes:Dictionary = [:]
 var stringContent:String = ""//init the string to be stored
 var prevElementName:String = ""
 var curOpenElementName:String = ""
