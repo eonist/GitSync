@@ -45,7 +45,8 @@ if(child.hasComplexContent()) item["xml"] = child;
 //in swift:
 var root:Dictionary = [:]//create an empty dictionary
 var depth:Int = 0;//current node depth
-var parentNodes:Dictionary = root
+var nodes:Dictionary = root
+var parentNodes:Dictionary = parentNodes
 var stringContent:String = ""//init the string to be stored
 var prevElementName:String = ""
 var curOpenElementName:String = ""
