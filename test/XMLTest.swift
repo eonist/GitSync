@@ -26,10 +26,10 @@
 
 //NOTE: if you have an attr named content and the child value needs to be inside content then to differentiate the two you need to rename the attr to somethin unique, this is out of the scope for this method though, so in that case just dont parse xmls with attr named content, if you do have to do it then just wrap this method into another with this extended functionality.
 //this is how you should navigate the result:
-root["categories"][0]["content"]["category"][0]["color"]//"green" that is an attribute value of color
-root["categories"][0]["content"]["category"][0]//{color:green,name:"tinits",content:{item:[{auther:john,age:2,content:"well designed car"},{},{}]}
+root[0]["content"]["categories"][0]["content"]["category"][0]["color"]//"green" that is an attribute value of color
+root[0]["content"]["categories"][0]["content"]["category"][0]//{color:green,name:"tinits",content:{item:[{auther:john,age:2,content:"well designed car"},{},{}]}
 //i guess optional chaining would suite the bellow line well:
-root["categories"][0]["content"]["category"][0]["content"]["item"][0]["content"]//"well designed car"
+root[0]["content"]["categories"][0]["content"]["category"][0]["content"]["item"][0]["content"]//"well designed car"
 
 //here is how it works:
 //1. dictionaries store arrays of xml nodes of the same name
@@ -53,9 +53,9 @@ var curOpenElementName:String = ""
 var hasClosed = false//has child closed
 
 func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject]){	
-	if(nodes[elementName] == nil){//if there is no array accociated with elementName, then add a new array to store children with the elementName
+	if(parentNodes[elementName] == nil){//if there is no array accociated with elementName, then add a new array to store children with the elementName
 		var children:Array = []//list of children, create a new array to store all children with elementName
-		nodes[elementName] = children//create a new key/value pair to store all children with elementName
+		parentNodes[elementName] = children//create a new key/value pair to store all children with elementName
 	}else{//an array for elementName already exists, 
 		//add the 
 		//do not set parent to current node etc
