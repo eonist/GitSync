@@ -13,7 +13,7 @@
 //TODO: what if you combine array and dictionary to: settingsXml["picture"][2]["file"][0]["content"]
 
 <categories>
-	<category/>
+	<category/>//if a sibling closes and moves to the next then did end elemnt is called
 	<category/>
 	<category>
 		<item color:"blue" type:"car"></item>
