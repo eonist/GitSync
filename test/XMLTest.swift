@@ -21,6 +21,9 @@
 	</category>
 	<category/>
 </categories>
+<test>
+</test>
+
 //NOTE: if you have an attr named content and the child value needs to be inside content then to differentiate the two you need to rename the attr to somethin unique, this is out of the scope for this method though, so in that case just dont parse xmls with attr named content, if you do have to do it then just wrap this method into another with this extended functionality.
 //this is how you should navigate the result:
 root["categories"][0]["category"][0]["color"]//"green" that is an attribute value of color
@@ -53,7 +56,7 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 		var children:Array = []//create a new array to store all children with elementName
 		currentNode[elementName] = children//create a new key/value pair to store all children with elementName
 	}else{//an array for elementName already exists, 
-	
+		
 	}
 	if(hasClosed == false){//means that your still inside a child
 		
