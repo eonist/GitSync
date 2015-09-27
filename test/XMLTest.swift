@@ -14,6 +14,7 @@
 
 <categories>
 	<category/>
+	<category/>
 	<category>
 		<item color:"blue" type:"car"></item>
 		<item>text goes here</item>
