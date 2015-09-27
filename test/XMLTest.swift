@@ -9,8 +9,8 @@
 //so to access the different parts you need to store the different parts in dictionaries and arrays. 
 
 
-//the consept:
-
+//the consept: 
+//TODO: what if you combine array and dictionary to: settingsXml["picture"][2]["file"]["0"]["content"]
 var dict:Dictionary = [String:String]()
 
 
