@@ -13,12 +13,10 @@
 
 var dict:Dictionary = [String:String]()
 
-//parserDidStartDocument: 
-	//init objects
-//parserDidEndDocument:
-	//return objects
+
 //parser:didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject])
 	//init the string to be stored
+	
 //parser:foundCharacters: string: String?
 	//append string
 //parser:didEndElement elementName: String,namespaceURI: String?,qualifiedName qName: Strin
@@ -27,7 +25,10 @@ var dict:Dictionary = [String:String]()
 	
 	
 //less important:
-
+//parserDidStartDocument: 
+	//init objects
+//parserDidEndDocument:
+	//return objects
 //parser:didStartMappingPrefix:toURI:
 //parser:didEndMappingPrefix:
 //parser:resolveExternalEntityName:systemID:
