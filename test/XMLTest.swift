@@ -13,8 +13,8 @@
 //TODO: what if you combine array and dictionary to: settingsXml["picture"][2]["file"][0]["content"]
 
 
-//if you have an attr named value and content needs to be inside value then:
-
+//if you have an attr named value and content needs to be inside value then to differentiate the two you need to:
+categories["category"][0]
 
 
 var dict:Dictionary = [String:String]()
