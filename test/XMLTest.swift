@@ -44,9 +44,8 @@ var root:Dictionary = [:]//create an empty dictionary
 var depth:Int = 0;//current node depth
 var currentNode:Dictionary = root
 var stringContent:String = ""
-//parser:didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject])
+func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject]){
 	//init the string to be stored
-	
 	if(currentNode[elementName] == nil){
 		var children:Array = []//create a new array to store all children with elementName
 		currentNode[elementName] = children//create a new key/value pair to store all children with elementName
@@ -57,7 +56,8 @@ var stringContent:String = ""
 	var element:Dictionary = attributes//make sure this value isnt nil
 	currentNode[elementName].append(element)
 	depth++;//incriment the depth
-//parser:foundCharacters: string: String?
+}
+func parser:foundCharacters: string: String?
 	//append string
 	//if this is called then the element has a string in its body
 	stringContent += foundCharacters
