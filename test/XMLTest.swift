@@ -43,9 +43,10 @@ if(child.hasComplexContent()) item["xml"] = child;
 var root:Dictionary = [:]//create an empty dictionary
 var depth:Int = 0;//current node depth
 var currentNode:Dictionary = root
-var stringContent:String = ""
+var stringContent:String = ""//init the string to be stored
+var prevElementName:String = "";
 func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject]){
-	//init the string to be stored
+	
 	if(currentNode[elementName] == nil){
 		var children:Array = []//create a new array to store all children with elementName
 		currentNode[elementName] = children//create a new key/value pair to store all children with elementName
@@ -66,7 +67,7 @@ func parser(didEndElement elementName: String,namespaceURI: String?,qualifiedNam
 	//append objects
 	if (stringContent.isEmpty == false){
 		currentNode[elementName][currentNode[elementName].count-1]["content"] = stringContent// :TODO: you should probably use a pointer ref here research further
-		stringContent = ""
+		stringContent = ""//empty the string
 	}
 	depth--;
 }
