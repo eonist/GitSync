@@ -51,12 +51,15 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 	if(parentNodes[elementName] == nil){//if there is no array accociated with elementName, then add a new array to store children with the elementName
 		var children:Array = []//list of children, create a new array to store all children with elementName
 		parentNodes[elementName] = children//create a new key/value pair to store all children with elementName
+		var currentChild:Dictionary = attributes//add attributes to the dictionary :TODO: make sure this value isnt nil
+		currentChild["content"] = [:]//create the content key
+		nodes[elementName].append(currentChild)//add the node to the parent with the key of elementName
 	}else{//an array for elementName already exists, so this item must be a sibbling
 		//add the 
 		//do not set parent to current node etc
 		var currentChild:Dictionary = attributes//add attributes to the dictionary :TODO: make sure this value isnt nil
 		currentChild["content"] = [:]//create the content key
-		parentNodes[elementName].append(node)//add the node to the parent with the key of elementName
+		parentNodes[elementName].append(currentChild)//add the node to the parent with the key of elementName
 
 	}
 	if(hasClosed == false){//means that your still inside a child
@@ -64,13 +67,7 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 	}else(hasClosed == true){//means that you have moved to the next child
 	
 	}
-	var currentNodes:Dictionary = attributes//add attributes to the dictionary :TODO: make sure this value isnt nil
-	node["content"] = [:]//create the content key
-	nodes[elementName].append(node)//add the node to the parent with the key of elementName
-	nodes = node["content"]//set the new parentnode to node 
-	parentNodes = nodes
-	//depth++;//incriment the depth
-	//curOpenElementName == elementName
+	
 }
 func parser(foundCharacters: string: String?){
 	//append string
