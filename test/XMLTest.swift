@@ -43,7 +43,7 @@ if(child.hasComplexContent()) item["xml"] = child;
 var root:Dictionary = [:]//create an empty dictionary
 var depth:Int = 0;//current node depth
 var currentNode:Dictionary = root
-
+var stringContent:String?
 //parser:didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject])
 	//init the string to be stored
 	
@@ -55,13 +55,17 @@ var currentNode:Dictionary = root
 	
 	}
 	var element:Dictionary = attributes//make sure this value isnt nil
+	
 	currentNode[elementName].append(element)
-	depth++//incriment th 
+	depth++;//incriment the depth
 //parser:foundCharacters: string: String?
 	//append string
+	//if this is called then the element has a string in its body
+	stringContent += foundCharacters
 //parser:didEndElement elementName: String,namespaceURI: String?,qualifiedName qName: Strin
 	//append objects
-	depth--
+	stringContent != nil ? 
+	depth--;
 	
 	
 //less important:
