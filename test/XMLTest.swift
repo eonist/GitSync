@@ -40,14 +40,14 @@ root["categories"][0]["content"]["category"][0]["content"]["item"][0]["content"]
 //in swift:
 //var depth:Int = 0;//current node depth
 var nodes:Dictionary = [:]
-var parentNodes:Dictionary = [:]
+var parentNodes:Dictionary = nodes
 var stringContent:String = ""//init the string to be stored
 var prevElementName:String = ""
 var curOpenElementName:String = ""
 var hasClosed = false//has child closed
 
 func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject]){	
-	if(parentNodes[elementName] == nil){//if there is no array accociated with elementName, then add a new array to store children with the elementName
+	if(nodes[elementName] == nil){//if there is no array accociated with elementName, then add a new array to store children with the elementName
 		var children:Array = []//list of children, create a new array to store all children with elementName
 		parentNodes[elementName] = children//create a new key/value pair to store all children with elementName
 	}else{//an array for elementName already exists, 
