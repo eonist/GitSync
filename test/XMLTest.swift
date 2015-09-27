@@ -15,8 +15,8 @@
 
 //NOTE: if you have an attr named value and content needs to be inside value then to differentiate the two you need to rename the attr to somethin unique, this is out of the scope for this method though, so in that case just dont parse xmls with attr named value, if you do have to do it then just wrap this method into another with this extended functionality.
 //this is how you should navigate the result:
-categories["category"][0]["content"][0]["color"]//green
-categories["category"][0]//{color:green,name:"tinits",value:{content:complexXmlData,attr:nil}
+categories["category"][0]["color"]//"green" that is an attribute value of color
+categories["category"][0]//{color:green,name:"tinits",content:{}
 categories["category"][0][["content"]
 
 //this is how you handle xml attr:
