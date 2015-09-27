@@ -53,7 +53,7 @@ var hasClosed = false//has child closed
 
 func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject]){	
 	if(parentNodes[elementName] == nil){//if there is no array accociated with elementName, then add a new array to store children with the elementName
-		var children:Array = []//create a new array to store all children with elementName
+		var children:Array = []//list of children, create a new array to store all children with elementName
 		parentNodes[elementName] = children//create a new key/value pair to store all children with elementName
 	}else{//an array for elementName already exists, 
 		//add the 
