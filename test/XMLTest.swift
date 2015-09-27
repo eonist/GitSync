@@ -47,7 +47,7 @@ var stringContent:String = ""//init the string to be stored
 var prevElementName:String = ""
 var curOpenElementName:String = ""
 func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject]){	
-	if(currentNode[elementName] == nil){
+	if(currentNode[elementName] == nil){//if there is no array accociated with elementName, then add a new array to store children with the elementName
 		var children:Array = []//create a new array to store all children with elementName
 		currentNode[elementName] = children//create a new key/value pair to store all children with elementName
 	
