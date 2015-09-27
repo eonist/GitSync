@@ -56,8 +56,10 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 	}else{//an array for elementName already exists, 
 	
 	}
-	if(hasClosed){//
+	if(hasClosed == false){//means that your still inside a child
 		
+	}else{//means that you have moved to the next child
+	
 	}
 	element = attributes//add attributes to the dictionary :TODO: make sure this value isnt nil
 	currentNode[elementName].append(element)//add the element
