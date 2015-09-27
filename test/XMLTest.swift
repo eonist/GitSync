@@ -63,9 +63,10 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 	}else(hasClosed == true){//means that you have moved to the next child
 	
 	}
-	var element:Dictionary = attributes//add attributes to the dictionary :TODO: make sure this value isnt nil
-	parentNodes[elementName].append(element)//add the element to the parent with the key of elementName
-	parentNodes = element//set the new current node to the current element
+	var node:Dictionary = attributes//add attributes to the dictionary :TODO: make sure this value isnt nil
+	node["content"] =
+	parentNodes[elementName].append(node)//add the node to the parent with the key of elementName
+	parentNodes = node//set the new current node to the current element
 	//depth++;//incriment the depth
 	//curOpenElementName == elementName
 }
