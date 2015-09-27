@@ -50,6 +50,8 @@ var currentNode:Dictionary = root
 	if(currentNode[elementName] == nil){
 		var children:Array = []//create a new array to store all children with elementName
 		currentNode[elementName] = children//create a new key/value pair to store all children with elementName
+	}else{//an array for elementName already exists, 
+	
 	}
 	
 	depth++
