@@ -14,9 +14,10 @@
 
 <categories>
 	<category>
-		<item></item>
-		<item></item>
+		<item color:"blue" type:"car"></item>
+		<item>text goes here</item>
 		<item/>
+	</category>
 	<category/>
 </categories>
 //NOTE: if you have an attr named content and the child value needs to be inside content then to differentiate the two you need to rename the attr to somethin unique, this is out of the scope for this method though, so in that case just dont parse xmls with attr named content, if you do have to do it then just wrap this method into another with this extended functionality.
