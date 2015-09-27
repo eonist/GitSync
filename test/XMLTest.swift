@@ -47,7 +47,7 @@ var stringContent:String = ""//init the string to be stored
 var prevElementName:String = ""
 var curOpenElementName:String = ""
 var hasClosed = false//has child closed
-var element:Dictionary?
+
 func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject]){	
 	if(currentNode[elementName] == nil){//if there is no array accociated with elementName, then add a new array to store children with the elementName
 		var children:Array = []//create a new array to store all children with elementName
@@ -60,11 +60,11 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 	}else(hasClosed == true){//means that you have moved to the next child
 	
 	}
-	element = attributes//add attributes to the dictionary :TODO: make sure this value isnt nil
-	currentNode[elementName].append(element)//add the element
+	var element:Dictionary = attributes//add attributes to the dictionary :TODO: make sure this value isnt nil
+	currentNode[elementName].append(element)//add the element to the parent with the key of elementName
 	currentNode = element//set the new current node to the current element
 	//depth++;//incriment the depth
-	curOpenElementName == elementName
+	//curOpenElementName == elementName
 }
 func parser(foundCharacters: string: String?){
 	//append string
