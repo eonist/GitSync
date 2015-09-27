@@ -23,10 +23,10 @@
 </categories>
 //NOTE: if you have an attr named content and the child value needs to be inside content then to differentiate the two you need to rename the attr to somethin unique, this is out of the scope for this method though, so in that case just dont parse xmls with attr named content, if you do have to do it then just wrap this method into another with this extended functionality.
 //this is how you should navigate the result:
-root["categories"][0]categories["category"][0]["color"]//"green" that is an attribute value of color
-root["categories"][0]categories["category"][0]//{color:green,name:"tinits",content:{item:[{auther:john,age:2,content:"well designed car"},{},{}]}
+root["categories"][0]["category"][0]["color"]//"green" that is an attribute value of color
+root["categories"][0]["category"][0]//{color:green,name:"tinits",content:{item:[{auther:john,age:2,content:"well designed car"},{},{}]}
 //i guess optional chaining would suite the bellow line well:
-root["categories"][0]categories["category"][0]["content"]["item"][0]["content"]//"well designed car"
+root["categories"][0]["category"][0]["content"]["item"][0]["content"]//"well designed car"
 
 //here is how it works:
 //1. dictionaries store arrays of xml nodes of the same name
@@ -40,7 +40,7 @@ for each(var attribute:XML in attributes) item[attribute.localName()] = attribut
 if(child.hasComplexContent()) item["xml"] = child;
 
 //in swift:
-var root:Dictionary = []
+var root:Dictionary = [:]//create an empty dictionary
 var depth:Int = 0;//current node depth
 var currentNode:Dictionary = root
 
@@ -50,9 +50,13 @@ var currentNode:Dictionary = root
 	if(currentNode[elementName] == nil){
 		var children:Array = []//create a new array to store all children with elementName
 		currentNode[elementName] = children//create a new key/value pair to store all children with elementName
+	
 	}else{//an array for elementName already exists, 
 	
 	}
+	var element:Dictionary = [:]
+	element +=
+	currentNode[elementName].append(element)
 	
 	depth++
 //parser:foundCharacters: string: String?
