@@ -59,7 +59,7 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 		//add the 
 	}
 	if(hasClosed == false){//means that your still inside a child
-		
+		//add a dictionary for key "content"
 	}else(hasClosed == true){//means that you have moved to the next child
 	
 	}
