@@ -32,7 +32,7 @@ for each(var attribute:XML in attributes) item[attribute.localName()] = attribut
 if(child.hasComplexContent()) item["xml"] = child;
 
 //in swift:
-var dict:Dictionary = [String:String]()
+var root:Dictionary = [String:String]()
 
 
 //parser:didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject])
