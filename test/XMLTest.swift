@@ -16,11 +16,10 @@
 //parserDidEndDocument:
 	//return objects
 //parser:didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject])
-
 	//init the string to be stored
 //parser:foundCharacters: string: String?
 	//append string
-//parser:didEndElement:namespaceURI:qualifiedName:
+//parser:didEndElement elementName: String,namespaceURI: String?,qualifiedName qName: Strin
 	//append objects
 	
 	
