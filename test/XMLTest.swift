@@ -40,7 +40,7 @@ root["categories"][0]["content"]["category"][0]["content"]["item"][0]["content"]
 
 //in swift:
 //var depth:Int = 0;//current node depth
-var nodes:Dictionary = [:]
+var nodes:Dictionary = [:]//current nodes
 var parentNodes:Dictionary = nodes
 var stringContent:String = ""//init the string to be stored
 var prevElementName:String = ""
@@ -54,6 +54,8 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 		var currentChild:Dictionary = attributes//add attributes to the dictionary :TODO: make sure this value isnt nil
 		currentChild["content"] = [:]//create the content key
 		parentNodes[elementName].append(currentChild)//add the node to the parent with the key of elementName
+		parentNodes = nodes
+		nodes = currentChild["content"]
 	}else{//an array for elementName already exists, so this item must be a sibbling
 		//add the 
 		//do not set parent to current node etc
@@ -62,6 +64,7 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 		parentNodes[elementName].append(currentChild)//add the node to the parent with the key of elementName
 
 	}
+	
 	if(hasClosed == false){//means that your still inside a child
 		//add a dictionary for key "content"
 	}else(hasClosed == true){//means that you have moved to the next child
