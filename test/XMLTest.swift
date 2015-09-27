@@ -46,7 +46,7 @@ var currentNode:Dictionary = root
 var stringContent:String = ""//init the string to be stored
 var prevElementName:String = ""
 var curOpenElementName:String = ""
-var hasClosed = true
+var hasClosed = false//has child closed
 var element:Dictionary?
 func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject]){	
 	if(currentNode[elementName] == nil){//if there is no array accociated with elementName, then add a new array to store children with the elementName
@@ -54,6 +54,9 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 		currentNode[elementName] = children//create a new key/value pair to store all children with elementName
 		currentNode[elementName].append(element)//add the element
 	}else{//an array for elementName already exists, 
+	
+	}
+	if(hasClosed){
 	
 	}
 	element = attributes//add attributes to the dictionary :TODO: make sure this value isnt nil
