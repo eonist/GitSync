@@ -29,9 +29,21 @@
 
 
 
-//solution:
-//here is the deal if an item closes then the parent should be set one level up
+
+
+
+
+
+
+//solution: (continue here)
+//here is the deal if an item closes then the parent should be set one level back
 //if an item opens then you set this element as the parent
+//now how do you get one level back again?? just think about in the sense of an multi dim array
+
+
+
+
+
 
 
 
@@ -42,7 +54,7 @@
 //this is how you should navigate the result:
 root["categories"][0]["content"]["category"][0]["color"]//"green" that is an attribute value of color
 root["categories"][0]["content"]["category"][0]//{color:green,name:"tinits",content:{item:[{auther:john,age:2,content:"well designed car"},{},{}]}
-//i guess optional chaining would suite the bellow line well:
+//i guess optional chaining would suit the bellow line well:
 root["categories"][0]["content"]["category"][0]["content"]["item"][0]["content"]//"well designed car"
 
 //here is how it works:
