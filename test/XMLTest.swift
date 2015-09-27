@@ -42,14 +42,14 @@ if(child.hasComplexContent()) item["xml"] = child;
 //in swift:
 var root:Dictionary = []
 var depth:Int = 0;//current node depth
-previous
+var currentNode:Dictionary = root
 
 //parser:didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject])
 	//init the string to be stored
 	
-	if(root[elementName] == nil){
-		var children:Array = []
-		root[elementName] = children//create an empty array
+	if(currentNode[elementName] == nil){
+		var children:Array = []//create a new array to store all children with elementName
+		currentNode[elementName] = children//create a new key/value pair to store all children with elementName
 	}
 	
 	depth++
