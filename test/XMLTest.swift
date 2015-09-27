@@ -54,11 +54,9 @@ var currentNode:Dictionary = root
 	}else{//an array for elementName already exists, 
 	
 	}
-	var element:Dictionary = [:]
-	element +=
+	var element:Dictionary = attributes//make sure this value isnt nil
 	currentNode[elementName].append(element)
-	
-	depth++
+	depth++//incriment th 
 //parser:foundCharacters: string: String?
 	//append string
 //parser:didEndElement elementName: String,namespaceURI: String?,qualifiedName qName: Strin
