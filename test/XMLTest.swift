@@ -56,6 +56,7 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 	var element:Dictionary = attributes//make sure this value isnt nil
 	currentNode[elementName].append(element)
 	depth++;//incriment the depth
+	prevElementName == 
 }
 func parser(foundCharacters: string: String?){
 	//append string
@@ -68,7 +69,7 @@ func parser(didEndElement elementName: String,namespaceURI: String?,qualifiedNam
 		currentNode[elementName][currentNode[elementName].count-1]["content"] = stringContent// :TODO: you should probably use a pointer ref here research further
 		stringContent = ""//empty the string
 	}
-	prevElementName 
+	elementName = 
 	depth--;
 }
 	
