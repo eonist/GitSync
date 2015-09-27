@@ -43,7 +43,7 @@ if(child.hasComplexContent()) item["xml"] = child;
 var root:Dictionary = [:]//create an empty dictionary
 var depth:Int = 0;//current node depth
 var currentNode:Dictionary = root
-var stringContent:String?
+var stringContent:String = ""
 //parser:didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject])
 	//init the string to be stored
 	
@@ -63,8 +63,9 @@ var stringContent:String?
 	stringContent += foundCharacters
 //parser:didEndElement elementName: String,namespaceURI: String?,qualifiedName qName: Strin
 	//append objects
-	if (stringContent != nil){
-		currentNode[elementName][currentNode[elementName].count-1]["content"] 
+	if (stringContent.isEmpty == false){
+		currentNode[elementName][currentNode[elementName].count-1]["content"] = stringContent// :TODO: you should probably use a pointer ref here research further
+		stringContent = ""
 	}
 	depth--;
 	
