@@ -55,7 +55,6 @@ var stringContent:String?
 	
 	}
 	var element:Dictionary = attributes//make sure this value isnt nil
-	
 	currentNode[elementName].append(element)
 	depth++;//incriment the depth
 //parser:foundCharacters: string: String?
@@ -64,7 +63,9 @@ var stringContent:String?
 	stringContent += foundCharacters
 //parser:didEndElement elementName: String,namespaceURI: String?,qualifiedName qName: Strin
 	//append objects
-	stringContent != nil ? 
+	if (stringContent != nil){
+		currentNode[elementName][currentNode[elementName].count-1]
+	}
 	depth--;
 	
 	
