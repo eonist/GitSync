@@ -18,7 +18,7 @@
 //parser:didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject])
 
 	//init the string to be stored
-//parser:foundCharacters:
+//parser:foundCharacters: string: String?
 	//append string
 //parser:didEndElement:namespaceURI:qualifiedName:
 	//append objects
