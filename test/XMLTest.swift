@@ -32,12 +32,13 @@ for each(var attribute:XML in attributes) item[attribute.localName()] = attribut
 if(child.hasComplexContent()) item["xml"] = child;
 
 //in swift:
-var root:Dictionary = [String:String]()
+var root:Dictionary = []
 
 
 //parser:didStartElement elementName: String,namespaceURI: String?,qualifiedName: String?,attributes attributeDict: [NSObject : AnyObject])
 	//init the string to be stored
-	root[elementName] = []//create an empty array
+	var children:Array = []
+	root[elementName] = children//create an empty array
 //parser:foundCharacters: string: String?
 	//append string
 //parser:didEndElement elementName: String,namespaceURI: String?,qualifiedName qName: Strin
