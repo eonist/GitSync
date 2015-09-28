@@ -105,6 +105,7 @@ func enter(nodeName:String,attributes:Dictionary){
 	if(hasClosed){//means the item is an sibling
 	
 	}else{//means you stepped into a subnode
+		
 		prevEnteredParents.append(parent)
 	}
 	prevEnteredNodeName = nodeName
