@@ -107,8 +107,7 @@ func enter(nodeName:String,attributes:Dictionary){
 	}else{//means you stepped into a subnode
 		var tempParent:Dictionary = prevEnteredParents.last[nodeName]
 		if(tempParent[elementName] == nil){//siblings of the same node name does not exist
-			var tempArray:Array = []
-			tempParent[nodename] = tempArray
+			tempParent[nodename] = []//create and add an array to store siblings of the same nodeName
 		}else{//siblings of the same node name already exist
 			//then you dont need to create the sibling array of same node name 
 		}
