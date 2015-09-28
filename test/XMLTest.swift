@@ -111,7 +111,7 @@ var hasClosed = false//you step into an xml so this must be false
 var prevEnteredNodeName:String?
 var root:Dictionary = ["content":[:]]
 var openParents:Array = [root["content"]]//flat list of previous entered parents aka openParents
-var tempNode:Dictionary
+var tempNode:Dictionary//this may not be needed to be declared here, if you have the parent you can get to this aswell
 func enter(nodeName:String,attributes:Dictionary){
 	var tempParent:Dictionary = openParents.last
 	tempParent[nodename] = tempParent[nodename] == nil ? [] : tempParent[nodename]//siblings of the same node name does not exist, create and add an array to store siblings of the same nodeName
