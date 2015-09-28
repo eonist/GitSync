@@ -12,27 +12,6 @@
 //the concept: 
 //TODO: what if you combine array and dictionary to: settingsXml["picture"][2]["file"][0]["content"]
 
-<categories>
-	<category/>//if a sibling closes and moves to the next then did end elemnt is called
-	<category/>
-	<category>
-		<item color:"blue" type:"car"></item>
-		<item>text goes here</item>
-		<item/>
-		<container/>
-	</category>
-	<category/>
-</categories>
-<test>
-</test>
-
-
-
-
-
-
-
-
 
 
 //solution: (continue here)
@@ -42,14 +21,82 @@
 //you do it by keeping teack of the over all multi dim array depth index. dont think about the dictionaries, 
 //you need to keep track of where you are
 
-curLoc = 
+curentKeyDepth = []
+curIndexDepth = []
 
 
+//when you enter an element
+	curentKeyDepth.append(elementName)
+	curIndexDepth.append(children.count-1)//last index
+	//you also need to assume that you will maybe enter into a child in the next call to this method
+	//so you need to set this node as the parent
+//when you exit an element
+	curentKeyDepth.removeLast()
+	//if you exit an element and the elementName equals the parentNodeName aka category etc
+		//then that means you are back one level
+		curIndexDepth.removeLast()
+	//else if you exit an element and the elementName is the same name as lasEnteredElementName 
+		//then that means you closed 
+		
 
 
+<categories>
+	<category></category>//if a sibling closes and moves to the next then did end elemnt is called
+	</category>
+	<category>
+		<item color:"blue" type:"car"></item>
+		<item>text goes here</item>
+		<item/>
+		<movie/>
+		<picture>img.jpg</picture>
+	<category/>
+</categories>
+<test>
+</test>
 
 
+<media>
+	<book>
+		<novel/>
+		<biography/>
+	</book>
+	<music>
+		<cd/>
+		<cassette/>
+	</music>
+	<film>
+		<dvd/>
+		<vhs/>
+		<blueray/>
+		<dvd>
+				movie.mkv
+		</dvd>
+	</film>
+<media>
 
+/*Solution:*/
+
+//this would be so much easier to do recursivly, so why not think recursivly?
+// :TODO: setup the final result and try to make a parser that makes it into xml, could help in giving you a new idea on how to solve this
+// :TODO: then you apply the same idea but by using flags etc
+// :TODO: i think the best idea is to use an indexDepth  
+
+//indeciesOfUnClosedElements
+
+//enter element
+	//if the hasClosed flag is true
+		//then that means the item is an sibling
+	//else
+		//then that means the element is inside the parent element
+//exit element
+	//if the elementName is the same as lastEnteredElementName 
+		//then that means you closed the element you just entered (no children)
+	//else 
+		//then that means you exit an elemnt back one level (had children)
+		//remove last index in the curIndexDepth array
+		
+//Note: you may not need to keep track of curKeyDepth, since when you exit you also get the name of that exit node, yes this is true
+//Note: but you do need to keep track of where you are multi dim array wise
 
 
 //NOTE: if you have an attr named content and the child value needs to be inside content then to differentiate the two you need to rename the attr to somethin unique, this is out of the scope for this method though, so in that case just dont parse xmls with attr named content, if you do have to do it then just wrap this method into another with this extended functionality.
