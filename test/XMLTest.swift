@@ -65,20 +65,7 @@ curIndexDepth = []
 	//else 
 		//then that means you exit an elemnt back one level (had children)
 		//remove last index in the indeciesOfOpenNodes array
-		
-<categories>
-	<category></category>//if a sibling closes and moves to the next then did end elemnt is called
-	</category>
-	<category>
-		<item color:"blue" type:"car"></item>
-		<item>text goes here</item>
-		<item/>
-		<movie/>
-		<picture>img.jpg</picture>
-	<category/>
-</categories>
-<test>
-</test>
+
 
 
 <media>
@@ -99,6 +86,20 @@ curIndexDepth = []
 		</dvd>
 	</film>
 <media>
+		
+<categories>
+	<category></category>//if a sibling closes and moves to the next then did end elemnt is called
+	</category>
+	<category>
+		<item color:"blue" type:"car"></item>
+		<item>text goes here</item>
+		<item/>
+		<movie/>
+		<picture>img.jpg</picture>
+	<category/>
+</categories>
+<test>
+</test>
 
 var hasClosed = false//you step into an xml so this must be false
 var prevEnteredNodeName:String?
