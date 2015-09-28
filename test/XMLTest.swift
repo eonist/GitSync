@@ -124,7 +124,7 @@ func read(characters:String){
 	stringContent += characters
 }
 func exit(nodeName:String){
-	if(nodeName == prevEnteredNodeName && ){//means you closed the element you just entered (no children,but has potential string content)
+	if(nodeName == prevEnteredNodeName && !hasClosed){//means you closed the element you just entered (no children,but has potential string content)
 		if(!stringContent.isEmpty){
 			tempNode["content"] = stringContent
 		}
