@@ -103,7 +103,7 @@ var root:Dictionary = ["content":[:]]
 var prevEnteredParents:Array = [root["content"]]//flat list of previous entered parents
 func enter(nodeName:String,attributes:Dictionary){
 	if(hasClosed){//means the item is an sibling
-		
+		//
 	}else{//means you stepped into a subnode
 		var tempParent:Dictionary = prevEnteredParents.last[nodeName]
 		if(tempParent[elementName] == nil){//siblings of the same node name does not exist
