@@ -99,11 +99,13 @@ curIndexDepth = []
 		//remove last index in the indeciesOfOpenNodes array
 var hasClosed = true
 var prevEnteredNodeName:String?
+var parent:Dictionary = [:]
+var prevEnteredParents:Array = []
 func enter(nodeName:String,attributes:Dictionary){
 	if(hasClosed){
 	
 	}else{
-	
+		prevEnteredParents.append(parent)
 	}
 	prevEnteredNodeName = nodeName
 }
