@@ -82,6 +82,7 @@ curIndexDepth = []
 // :TODO: i think the best idea is to use an indexDepth  
 
 //indeciesOfOpenNodes
+//prevEnteredParents
 
 //enter element
 	//if the hasClosed flag is true
