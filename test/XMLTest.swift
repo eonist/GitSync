@@ -102,7 +102,7 @@ var prevEnteredNodeName:String?
 var parent:Dictionary = [:]
 var prevEnteredParents:Array = []//flat list of previous entered parents
 func enter(nodeName:String,attributes:Dictionary){
-	if(hasClosed){means the item is an sibling
+	if(hasClosed){//means the item is an sibling
 	
 	}else{//means you stepped into a subnode
 		prevEnteredParents.append(parent)
