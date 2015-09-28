@@ -115,7 +115,7 @@ func read(){
 }
 func exit(nodeName:String){
 	if(nodeName == prevEnteredNodeName){//means you closed the element you just entered (no children)
-	
+		//parent.content[nodeName].append(node)//add the node to the parent
 	}else{//means you exit an elemnt back one level (had children)
 		prevEnteredParents.removeLast()
 	}
@@ -164,15 +164,12 @@ func parser(didStartElement elementName: String,namespaceURI: String?,qualifiedN
 		var currentChild:Dictionary = attributes//add attributes to the dictionary :TODO: make sure this value isnt nil
 		currentChild["content"] = [:]//create the content key
 		parentNodes[elementName].append(currentChild)//add the node to the parent with the key of elementName
-
 	}
-	
 	if(hasClosed == false){//means that your still inside a child
 		//add a dictionary for key "content"
 	}else(hasClosed == true){//means that you have moved to the next child
 	
 	}
-	
 }
 func parser(foundCharacters: string: String?){
 	//append string
