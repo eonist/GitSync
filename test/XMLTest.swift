@@ -100,7 +100,7 @@ curIndexDepth = []
 var hasClosed = true
 var prevEnteredNodeName:String?
 var root:Dictionary = ["content":[:]]
-var parent:Dictionary = parent["content"]
+var parent:Dictionary = parent["content"]//parent must always be the content dictionary
 var prevEnteredParents:Array = [parent]//flat list of previous entered parents
 func enter(nodeName:String,attributes:Dictionary){
 	if(hasClosed){//means the item is an sibling
@@ -115,7 +115,8 @@ func enter(nodeName:String,attributes:Dictionary){
 		}
 		var tempNode:Dictionary = attributes
 		tempNode["content"] = nil
-		tempParent[nodeName].append(tempNode)//add the node to the parent.content.
+		tempParent[nodeName].append(tempNode)//add the node to the parent.content.[nodeName]
+		prevEnteredParents.append(tempNode["content"])//parent must always be the content dictionary
 	}
 	prevEnteredNodeName = nodeName
 	hasClosed = false
