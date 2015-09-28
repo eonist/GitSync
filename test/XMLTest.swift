@@ -101,6 +101,10 @@ curIndexDepth = []
 <test>
 </test>
 
+
+
+
+
 var hasClosed = false//you step into an xml so this must be false
 var prevEnteredNodeName:String?
 var root:Dictionary = ["content":[:]]
