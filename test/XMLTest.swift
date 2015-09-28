@@ -106,11 +106,10 @@ func enter(nodeName:String,attributes:Dictionary){
 	tempParent[nodename] = tempParent[nodename] == nil ? [] : tempParent[nodename]//siblings of the same node name does not exist, create and add an array to store siblings of the same nodeName
 	var tempNode:Dictionary = attributes
 	tempNode["content"] = [:]//this can potentially be String, but then you just set it to string later
+	tempParent[nodename].append(tempNode["content"])
 	if(hasClosed){//means the item is an sibling
-		//
-		tempParent[nodename].append
+		//which means you dont add the parent to the partList
 	}else{//means you stepped into a subnode
-		tempParent[nodeName].append(tempNode)//add the node to the parent.content.[nodeName]
 		prevEnteredParents.append(tempNode["content"])//parent must always be the content dictionary
 	}
 	prevEnteredNodeName = nodeName
