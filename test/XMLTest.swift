@@ -102,16 +102,14 @@ var prevEnteredNodeName:String?
 var root:Dictionary = ["content":[:]]
 var prevEnteredParents:Array = [root["content"]]//flat list of previous entered parents
 func enter(nodeName:String,attributes:Dictionary){
+	var tempParent:Dictionary = prevEnteredParents.last[nodeName]
+	tempParent[nodename] = tempParent[nodename] == nil ? [] : tempParent[nodename]//siblings of the same node name does not exist, create and add an array to store siblings of the same nodeName
+	var tempNode:Dictionary = attributes
+	tempNode["content"] = [:]//this can potentially be String, but then you just set it to string later
 	if(hasClosed){//means the item is an sibling
 		//
+		tempParent[nodename].append
 	}else{//means you stepped into a subnode
-		var tempParent:Dictionary = prevEnteredParents.last[nodeName]
-		if(tempParent[nodename] == nil){
-			tempParent[nodename] = []//
-		}
-		tempParent[nodename] = tempParent[nodename] == nil ? [] : tempParent[nodename]//siblings of the same node name does not exist, create and add an array to store siblings of the same nodeName
-		var tempNode:Dictionary = attributes
-		tempNode["content"] = [:]//this can potentially be String, but then you just set it to string later
 		tempParent[nodeName].append(tempNode)//add the node to the parent.content.[nodeName]
 		prevEnteredParents.append(tempNode["content"])//parent must always be the content dictionary
 	}
