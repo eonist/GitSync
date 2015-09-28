@@ -115,7 +115,7 @@ func enter(nodeName:String,attributes:Dictionary){
 		}
 		var tempNode:Dictionary = attributes
 		tempNode["content"] = nil
-		tempParent[nodeName].append(parent)
+		tempParent[nodeName].append(tempNode)//add the node to the parent.content.
 	}
 	prevEnteredNodeName = nodeName
 	hasClosed = false
