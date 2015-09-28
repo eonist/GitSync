@@ -100,8 +100,7 @@ curIndexDepth = []
 var hasClosed = true
 var prevEnteredNodeName:String?
 var root:Dictionary = ["content":[:]]
-var parent:Dictionary = parent["content"]//parent must always be the content dictionary
-var prevEnteredParents:Array = [parent]//flat list of previous entered parents
+var prevEnteredParents:Array = [root["content"]]//flat list of previous entered parents
 func enter(nodeName:String,attributes:Dictionary){
 	if(hasClosed){//means the item is an sibling
 		
