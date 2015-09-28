@@ -81,19 +81,35 @@ curIndexDepth = []
 // :TODO: then you apply the same idea but by using flags etc
 // :TODO: i think the best idea is to use an indexDepth  
 
-//indeciesOfUnClosedElements
+//indeciesOfOpenNodes
 
 //enter element
 	//if the hasClosed flag is true
 		//then that means the item is an sibling
 	//else
-		//then that means the element is inside the parent element
+		//then that means you stepped into a subnode
+		//add last index in the currentNode to the indeciesOfOpenNodes array
+		
 //exit element
 	//if the elementName is the same as lastEnteredElementName 
 		//then that means you closed the element you just entered (no children)
 	//else 
 		//then that means you exit an elemnt back one level (had children)
-		//remove last index in the curIndexDepth array
+		//remove last index in the indeciesOfOpenNodes array
+var hasClosed = false
+var prevEnteredNodeName:String?
+func enter(nodeName:String,attributes:Dictionary){
+	
+	prevEnteredNodeName = nodeName
+}
+func read(){
+	
+}
+func exit(nodeName:String){
+	
+	
+}
+
 		
 //Note: you may not need to keep track of curKeyDepth, since when you exit you also get the name of that exit node, yes this is true
 //Note: but you do need to keep track of where you are multi dim array wise
