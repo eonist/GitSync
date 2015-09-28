@@ -100,7 +100,7 @@ curIndexDepth = []
 var hasClosed = true
 var prevEnteredNodeName:String?
 var parent:Dictionary = [:]
-var prevEnteredParents:Array = []
+var prevEnteredParents:Array = []//flat list of previous entered parents
 func enter(nodeName:String,attributes:Dictionary){
 	if(hasClosed){
 	
@@ -116,7 +116,7 @@ func exit(nodeName:String){
 	if(nodeName == prevEnteredNodeName){
 	
 	}else{
-	
+		prevEnteredParents.removeLast()
 	}
 	
 }
