@@ -116,7 +116,7 @@ var tempNode:Dictionary
 func enter(nodeName:String,attributes:Dictionary){
 	var tempParent:Dictionary = openParents.last
 	tempParent[nodename] = tempParent[nodename] == nil ? [] : tempParent[nodename]//siblings of the same node name does not exist, create and add an array to store siblings of the same nodeName
-	tempNode = attributes
+	tempNode = ["attributes":attributes]
 	tempNode["content"] = [:]//this can potentially be String, but then you just set it to string in the exit method
 	tempParent[nodename].append(tempNode["content"])
 	if(hasClosed){//means the item is an sibling
