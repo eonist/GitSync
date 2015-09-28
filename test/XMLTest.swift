@@ -102,9 +102,9 @@ var prevEnteredNodeName:String?
 var parent:Dictionary = [:]
 var prevEnteredParents:Array = []//flat list of previous entered parents
 func enter(nodeName:String,attributes:Dictionary){
-	if(hasClosed){
+	if(hasClosed){means the item is an sibling
 	
-	}else{
+	}else{//means you stepped into a subnode
 		prevEnteredParents.append(parent)
 	}
 	prevEnteredNodeName = nodeName
@@ -113,9 +113,9 @@ func read(){
 	
 }
 func exit(nodeName:String){
-	if(nodeName == prevEnteredNodeName){
+	if(nodeName == prevEnteredNodeName){//means you closed the element you just entered (no children)
 	
-	}else{
+	}else{//means you exit an elemnt back one level (had children)
 		prevEnteredParents.removeLast()
 	}
 	
