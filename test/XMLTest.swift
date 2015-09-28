@@ -107,8 +107,8 @@ func enter(nodeName:String,attributes:Dictionary){
 		
 	}else{//means you stepped into a subnode
 		var tempParent:Dictionary = prevEnteredParents.last[nodeName]
-		var tempSiblings:Array = []
-		var tempNode:Dictionary = [nodename:tempSiblings]
+		var tempNode:Dictionary = attributes
+		tempNode["content"] = nil
 		
 		prevEnteredParents.append(parent)
 	}
