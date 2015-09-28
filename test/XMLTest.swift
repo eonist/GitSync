@@ -99,7 +99,7 @@ curIndexDepth = []
 var hasClosed = true
 var prevEnteredNodeName:String?
 func enter(nodeName:String,attributes:Dictionary){
-	if(){
+	if(hasClosed){
 	
 	}else{
 	
@@ -110,7 +110,7 @@ func read(){
 	
 }
 func exit(nodeName:String){
-	if(){
+	if(nodeName == prevEnteredNodeName){
 	
 	}else{
 	
