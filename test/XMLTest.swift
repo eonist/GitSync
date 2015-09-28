@@ -99,13 +99,16 @@ curIndexDepth = []
 		//remove last index in the indeciesOfOpenNodes array
 var hasClosed = true
 var prevEnteredNodeName:String?
-var parent:Dictionary = [:]
+var root:Dictionary = ["content":[:]]
+var parent:Dictionary = parent["content"]
 var prevEnteredParents:Array = [parent]//flat list of previous entered parents
 func enter(nodeName:String,attributes:Dictionary){
 	if(hasClosed){//means the item is an sibling
 		
 	}else{//means you stepped into a subnode
-		prevEnteredParents.last[]
+		var tempParent:Dictionary = prevEnteredParents.last[nodeName]
+		var tempNode:Dictionary = [nodename:[]]
+		
 		prevEnteredParents.append(parent)
 	}
 	prevEnteredNodeName = nodeName
