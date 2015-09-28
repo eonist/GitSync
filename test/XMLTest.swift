@@ -101,7 +101,7 @@ curIndexDepth = []
 <test>
 </test>
 
-
+//idea written from my iPhone: you can use attr keys with the name content by creating a dictionary that only contains two value key pairs: attributes and content 
 
 
 
