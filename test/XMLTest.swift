@@ -109,12 +109,13 @@ func enter(nodeName:String,attributes:Dictionary){
 		var tempParent:Dictionary = prevEnteredParents.last[nodeName]
 		if(tempParent[elementName] == nil){//siblings of the same node name does not exist
 			var tempArray:Array = []
-			tempParent[nodename]
+			tempParent[nodename] = tempArray
+		}else{//siblings of the same node name already exist
+		
 		}
 		var tempNode:Dictionary = attributes
 		tempNode["content"] = nil
-		
-		prevEnteredParents.append(parent)
+		tempParent[nodeName].append(parent)
 	}
 	prevEnteredNodeName = nodeName
 	hasClosed = false
