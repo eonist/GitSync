@@ -88,7 +88,7 @@ curIndexDepth = []
 <media>
 		
 <categories>
-	<category></category>//if a sibling closes and moves to the next then did end elemnt is called
+	<category>text goes here</category>//if a sibling closes and moves to the next then did end elemnt is called
 	</category>
 	<category>
 		<item color:"blue" type:"car"></item>
