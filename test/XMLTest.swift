@@ -50,7 +50,7 @@ curIndexDepth = []
 // :TODO: i think the best idea is to use an indexDepth  
 
 //indeciesOfOpenNodes
-//prevEnteredParents
+//openParents
 
 //enter element
 	//if the hasClosed flag is true
@@ -100,21 +100,21 @@ curIndexDepth = []
 	</film>
 <media>
 
-var hasClosed = true
+var hasClosed = false//you step into an xml so this must be false
 var prevEnteredNodeName:String?
 var root:Dictionary = ["content":[:]]
-var prevEnteredParents:Array = [root["content"]]//flat list of previous entered parents
+var openParents:Array = [root["content"]]//flat list of previous entered parents aka openParents
 var tempNode:Dictionary
 func enter(nodeName:String,attributes:Dictionary){
-	var tempParent:Dictionary = prevEnteredParents.last
+	var tempParent:Dictionary = openParents.last
 	tempParent[nodename] = tempParent[nodename] == nil ? [] : tempParent[nodename]//siblings of the same node name does not exist, create and add an array to store siblings of the same nodeName
 	tempNode = attributes
-	tempNode["content"] = [:]//this can potentially be String, but then you just set it to string later
+	tempNode["content"] = [:]//this can potentially be String, but then you just set it to string in the exit method
 	tempParent[nodename].append(tempNode["content"])
 	if(hasClosed){//means the item is an sibling
-		//which means you dont add the parent to the partList
+		//which means you dont add the parent to the parentList
 	}else{//means you stepped into a subnode
-		prevEnteredParents.append(tempNode["content"])//parent must always be the content dictionary
+		openParents.append(tempNode["content"])//parent must always be the content dictionary
 	}
 	prevEnteredNodeName = nodeName
 	hasClosed = false
@@ -128,7 +128,7 @@ func exit(nodeName:String){
 			tempNode["content"] = stringContent
 		}
 	}else{//means you exit an elemnt back one level (had children)
-		prevEnteredParents.removeLast()
+		openParents.removeLast()//you close a parent
 	}
 	hasClosed = true
 }
