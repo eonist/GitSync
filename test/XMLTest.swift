@@ -104,7 +104,6 @@ curIndexDepth = []
 
 
 //idea written from my iPhone: 
-//you can use attr keys with the name content by creating a dictionary that only contains two value key pairs: attributes and content 
 //then later implement a class to hold the different values, dynamic properties etc, and getContent for the content but later
 
 
@@ -142,7 +141,7 @@ func exit(nodeName:String){
 }
 
 root["content"]["categories"][0]["content"]["category"][0]["attributes"]["color"]//"green" that is an attribute value of color
-root["content"]["categories"][0]["content"]["category"][0]//{color:green,name:"tinits",content:{item:[{auther:john,age:2,content:"well designed car"},{},{}]}
+root["content"]["categories"][0]["content"]["category"][0]//{attributes:{color:green,name:"tinits"},content:{item:[{auther:john,age:2,content:"well designed car"},{},{}]}
 root["content"]["categories"][0]["content"]["category"][0]["content"]["item"][0]["content"]//"well designed car" //i guess optional chaining would suit the bellow line well:
 
 //Note: you may not need to keep track of curKeyDepth, since when you exit you also get the name of that exit node, yes this is true
