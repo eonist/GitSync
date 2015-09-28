@@ -88,7 +88,7 @@ curIndexDepth = []
 <media>
 		
 <categories>
-	<category>text goes here</category>//if a sibling closes and moves to the next then did end elemnt is called
+	<category>text goes here</category><!--if a sibling closes and moves to the next then did end elemnt is called-->
 	</category>
 	<category>
 		<item color:"blue" type:"car"></item>
@@ -141,7 +141,7 @@ func exit(nodeName:String){
 	hasClosed = true
 }
 
-root["content"]["categories"][0]["content"]["category"][0]["color"]//"green" that is an attribute value of color
+root["content"]["categories"][0]["content"]["category"][0]["attributes"]["color"]//"green" that is an attribute value of color
 root["content"]["categories"][0]["content"]["category"][0]//{color:green,name:"tinits",content:{item:[{auther:john,age:2,content:"well designed car"},{},{}]}
 root["content"]["categories"][0]["content"]["category"][0]["content"]["item"][0]["content"]//"well designed car" //i guess optional chaining would suit the bellow line well:
 
