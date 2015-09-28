@@ -114,7 +114,7 @@ func enter(nodeName:String,attributes:Dictionary){
 			//then you dont need to create the sibling array of same node name 
 		}
 		var tempNode:Dictionary = attributes
-		tempNode["content"] = nil//you dont know its content yet
+		tempNode["content"] = [:]//this can potentially be String, but then you just set it to string later
 		tempParent[nodeName].append(tempNode)//add the node to the parent.content.[nodeName]
 		prevEnteredParents.append(tempNode["content"])//parent must always be the content dictionary
 	}
