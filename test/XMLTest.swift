@@ -96,17 +96,25 @@ curIndexDepth = []
 	//else 
 		//then that means you exit an elemnt back one level (had children)
 		//remove last index in the indeciesOfOpenNodes array
-var hasClosed = false
+var hasClosed = true
 var prevEnteredNodeName:String?
 func enter(nodeName:String,attributes:Dictionary){
+	if(){
 	
+	}else{
+	
+	}
 	prevEnteredNodeName = nodeName
 }
 func read(){
 	
 }
 func exit(nodeName:String){
+	if(){
 	
+	}else{
+	
+	}
 	
 }
 
