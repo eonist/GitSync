@@ -40,6 +40,32 @@ curIndexDepth = []
 		
 
 
+
+
+/*Solution:*/
+
+//this would be so much easier to do recursivly, so why not think recursivly?
+// :TODO: setup the final result and try to make a parser that makes it into xml, could help in giving you a new idea on how to solve this
+// :TODO: then you apply the same idea but by using flags etc
+// :TODO: i think the best idea is to use an indexDepth  
+
+//indeciesOfOpenNodes
+//prevEnteredParents
+
+//enter element
+	//if the hasClosed flag is true
+		//then that means the item is an sibling
+	//else
+		//then that means you stepped into a subnode
+		//add last index in the currentNode to the indeciesOfOpenNodes array
+		
+//exit element
+	//if the elementName is the same as lastEnteredElementName 
+		//then that means you closed the element you just entered (no children)
+	//else 
+		//then that means you exit an elemnt back one level (had children)
+		//remove last index in the indeciesOfOpenNodes array
+		
 <categories>
 	<category></category>//if a sibling closes and moves to the next then did end elemnt is called
 	</category>
@@ -74,36 +100,13 @@ curIndexDepth = []
 	</film>
 <media>
 
-/*Solution:*/
-
-//this would be so much easier to do recursivly, so why not think recursivly?
-// :TODO: setup the final result and try to make a parser that makes it into xml, could help in giving you a new idea on how to solve this
-// :TODO: then you apply the same idea but by using flags etc
-// :TODO: i think the best idea is to use an indexDepth  
-
-//indeciesOfOpenNodes
-//prevEnteredParents
-
-//enter element
-	//if the hasClosed flag is true
-		//then that means the item is an sibling
-	//else
-		//then that means you stepped into a subnode
-		//add last index in the currentNode to the indeciesOfOpenNodes array
-		
-//exit element
-	//if the elementName is the same as lastEnteredElementName 
-		//then that means you closed the element you just entered (no children)
-	//else 
-		//then that means you exit an elemnt back one level (had children)
-		//remove last index in the indeciesOfOpenNodes array
 var hasClosed = true
 var prevEnteredNodeName:String?
 var root:Dictionary = ["content":[:]]
 var prevEnteredParents:Array = [root["content"]]//flat list of previous entered parents
 var tempNode:Dictionary
 func enter(nodeName:String,attributes:Dictionary){
-	var tempParent:Dictionary = prevEnteredParents.last[nodeName]
+	var tempParent:Dictionary = prevEnteredParents.last
 	tempParent[nodename] = tempParent[nodename] == nil ? [] : tempParent[nodename]//siblings of the same node name does not exist, create and add an array to store siblings of the same nodeName
 	tempNode = attributes
 	tempNode["content"] = [:]//this can potentially be String, but then you just set it to string later
@@ -130,17 +133,16 @@ func exit(nodeName:String){
 	hasClosed = true
 }
 
-		
+root["content"]["categories"][0]["content"]["category"][0]["color"]//"green" that is an attribute value of color
+root["content"]["categories"][0]["content"]["category"][0]//{color:green,name:"tinits",content:{item:[{auther:john,age:2,content:"well designed car"},{},{}]}
+root["content"]["categories"][0]["content"]["category"][0]["content"]["item"][0]["content"]//"well designed car" //i guess optional chaining would suit the bellow line well:
+
 //Note: you may not need to keep track of curKeyDepth, since when you exit you also get the name of that exit node, yes this is true
 //Note: but you do need to keep track of where you are multi dim array wise
 
 
 //NOTE: if you have an attr named content and the child value needs to be inside content then to differentiate the two you need to rename the attr to somethin unique, this is out of the scope for this method though, so in that case just dont parse xmls with attr named content, if you do have to do it then just wrap this method into another with this extended functionality.
 //this is how you should navigate the result:
-root["content"]["categories"][0]["content"]["category"][0]["color"]//"green" that is an attribute value of color
-root["content"]["categories"][0]["content"]["category"][0]//{color:green,name:"tinits",content:{item:[{auther:john,age:2,content:"well designed car"},{},{}]}
-//i guess optional chaining would suit the bellow line well:
-root["content"]["categories"][0]["content"]["category"][0]["content"]["item"][0]["content"]//"well designed car"
 
 //here is how it works:
 //1. dictionaries store arrays of xml nodes of the same name
