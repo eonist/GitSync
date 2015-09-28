@@ -101,10 +101,11 @@ var hasClosed = true
 var prevEnteredNodeName:String?
 var root:Dictionary = ["content":[:]]
 var prevEnteredParents:Array = [root["content"]]//flat list of previous entered parents
+var tempNode:Dictionary
 func enter(nodeName:String,attributes:Dictionary){
 	var tempParent:Dictionary = prevEnteredParents.last[nodeName]
 	tempParent[nodename] = tempParent[nodename] == nil ? [] : tempParent[nodename]//siblings of the same node name does not exist, create and add an array to store siblings of the same nodeName
-	var tempNode:Dictionary = attributes
+	tempNode = attributes
 	tempNode["content"] = [:]//this can potentially be String, but then you just set it to string later
 	tempParent[nodename].append(tempNode["content"])
 	if(hasClosed){//means the item is an sibling
@@ -115,12 +116,14 @@ func enter(nodeName:String,attributes:Dictionary){
 	prevEnteredNodeName = nodeName
 	hasClosed = false
 }
-func read(){
-	
+func read(characters:String){
+	stringContent += characters
 }
 func exit(nodeName:String){
-	if(nodeName == prevEnteredNodeName){//means you closed the element you just entered (no children)
-		//parent.content[nodeName].append(node)//add the node to the parent
+	if(nodeName == prevEnteredNodeName){//means you closed the element you just entered (no children,but has potential string content)
+		if(!stringContent.isEmpty){
+			tempNode["content"] = stringContent
+		}
 	}else{//means you exit an elemnt back one level (had children)
 		prevEnteredParents.removeLast()
 	}
