@@ -17,14 +17,14 @@ class GitSync{
 	 * This is called on every interval
 	 * NOTE: while testing you can call this manually, since idle will only work when you run it from an .app
 	 */
-	func handle_interval(){
+	func handleInterval(){
 		//print( "handle_interval()")
 		let repo_list = RepoUtil.compile_repo_list(repo_file_path) --try to avoid calling this on every intervall, its nice to be able to update on the fly, be carefull though
 		let currentTimeInMin to (currentTime / 60) --divide the seconds by 60 seconds to get minutes
 		//print ("currentTimeInMin: " + currentTimeInMin)
 		for repoItem in repoList{//iterate over every repo item
-			if (currentTimeInMin % (repoItem) = 0) then handle_commit_interval(repo_item, "master") //is true every time spesified by the user
-			if (currentTimeInMin % (interval of repo_item) = 0) then handle_push_interval(repo_item, "master") //is true every time spesified by the user
+			if (currentTimeInMin % (repoItem["interval"]) = 0) then handle_commit_interval(repo_item, "master") //is true every time spesified by the user
+			if (currentTimeInMin % (repoItem["interval"]) = 0) then handle_push_interval(repo_item, "master") //is true every time spesified by the user
 		}
 		set current_time to current_time + the_interval //increment the interval (in seconds)
 	}
