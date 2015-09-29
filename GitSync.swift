@@ -19,8 +19,8 @@ class GitSync{
 	 */
 	func handleInterval(){
 		//print( "handle_interval()")
-		let repo_list = RepoUtil.compile_repo_list(repo_file_path) --try to avoid calling this on every intervall, its nice to be able to update on the fly, be carefull though
-		let currentTimeInMin to (currentTime / 60) --divide the seconds by 60 seconds to get minutes
+		let repo_list = RepoUtil.compileRepoList(repoFilePath) //try to avoid calling this on every intervall, its nice to be able to update on the fly, be carefull though
+		let currentTimeInMin to (currentTime / 60) //divide the seconds by 60 seconds to get minutes
 		//print ("currentTimeInMin: " + currentTimeInMin)
 		for (repoItem in repoList){//iterate over every repo item
 			if (currentTimeInMin % (repoItem["interval"]) = 0) { handleCommitInterval(repo_item, "master") } //is true every time spesified by the user
@@ -35,9 +35,9 @@ class GitSync{
 		//log "GitSync's handle_commit_interval() a repo with remote path: " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
 		if (GitAsserter.hasUnmergedPaths(repoItem["localPath"])) { //Asserts if there are unmerged paths that needs resolvment
 			//log tab & "has unmerged paths to resolve"
-			MergeUtil resolveMergeConflicts(local_path of repo_item, branch, GitParser's unmerged_files(local_path of repo_item)) //Asserts if there are unmerged paths that needs resolvment
+			MergeUtil.resolveMergeConflicts(repoItem["localPath"], branch, GitParser.unmergedFiles(repoItem["localPath"])) //Asserts if there are unmerged paths that needs resolvment
 		}
-		log do_commit(local_path of repo_item) //if there were no commits false will be returned
+		//log do_commit(local_path of repo_item) //if there were no commits false will be returned
 		//log "has_commited: " & has_commited
 	}
 	/*
