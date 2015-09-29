@@ -17,9 +17,9 @@ class RepoUtils{
 		var theRepoList to []
 		for (var i:Int; i++; i < numChildren){
 			let child = children[i]
-			let local_path to child["@"]["local-path"] //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
+			let localPath to child["@"]["local-path"] //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
 			//continue here:
-			let local_path = ShellUtils.run("echo " + "'" + local_path + "'" + " | sed 's/ /\\\\ /g'")//--Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths. 
+			let localPath = ShellUtils.run("echo " + "'" + localPath + "'" + " | sed 's/ /\\\\ /g'")//--Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths. 
 			"remote-path"
 			let remotePath: String = child["@"]["remote_path"]
 			remotePath = RegExpModifier.replace(remotePath,"^https://.+$","")//support for partial and full url, strip away the https://, since this will be added later
@@ -32,7 +32,7 @@ class RepoUtils{
 			let interval: String = child["@"]["interval"]//default is 1min
 			let remoteAccountName: String = child["@"]["remote-account-name"]
 			set key_value_pairs to {local_path:local_path, remote_path:remote_path, keychain_item_name:keychain_item_name, interval:interval} --remote_account_name:remote_account_name,commit_int:commit_int, push_int:push_int--TODO: shouldnt the line bellow be sudo acociative list? or does the record style list work as is?, if you dont need to iterate over the values, you may use record
-			set the_repo_list to ListModifier's add_list(the_repo_list, key_value_pairs)
+			set the_repo_list += []
 		}
 		return theRepoList
 	}
