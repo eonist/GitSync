@@ -10,7 +10,7 @@ class RepoUtils{
 	/**
 	 * 
 	 */
-	func compileRepoList(filePath:String)
+	func compileRepoList(filePath:String)->{
 		let xml:String = XMLParser.data(filePath)
 		let children:Array = xml["."]["repositories"][0]["."]["repository"]
 		let numChildren:Int = children.count //number of xml children in xml root element
@@ -28,8 +28,8 @@ class RepoUtils{
 			//set pull_int to XMLParser's attribute_value_by_name(theXMLChild, "pull-interval-in-minutes") --default is 30min
 			let interval: String = child["@"]["interval"]//default is 1min
 			let remoteAccountName: String = child["@"]["remote-account-name"]
-			set key_value_pairs to {local_path:local_path, remote_path:remote_path, keychain_item_name:keychain_item_name, interval:interval} //remote_account_name:remote_account_name,commit_int:commit_int, push_int:push_int--TODO: shouldnt the line bellow be sudo acociative list? or does the record style list work as is?, if you dont need to iterate over the values, you may use record
-			set theRepoList += ["localPath":localPath,"remotePath":remotePath,"keychainItemName":keychainItemName]
+			let key_value_pairs to {local_path:local_path, remote_path:remote_path, keychain_item_name:keychain_item_name, interval:interval} //remote_account_name:remote_account_name,commit_int:commit_int, push_int:push_int--TODO: shouldnt the line bellow be sudo acociative list? or does the record style list work as is?, if you dont need to iterate over the values, you may use record
+			theRepoList += ["localPath":localPath,"remotePath":remotePath,"keychainItemName":keychainItemName,"interval":interval,"remoteAccountName":remoteAccountName]
 		}
 		return theRepoList
 	}
