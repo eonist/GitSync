@@ -6,9 +6,12 @@
 class GitSync{
 
 }
-class RepoUtils{
+class RepoUtils{//Utility methods for parsing the repository.xml file
 	/**
-	 * 
+	 * Returns a list with repo values derived from an XML file
+ 	 * @param file_path 
+ 	 * TODO: if the interval values is not set, then use default values
+	 * TODO: test if the full/partly file path still works?
 	 */
 	func compileRepoList(filePath:String)->Array{
 		let xml:String = XMLParser.data(filePath)
