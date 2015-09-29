@@ -18,19 +18,13 @@ class RepoUtils{
 		for (var i:Int; i++; i < numChildren){
 			let child = children[i]
 			let local_path to child["@"]["local-path"] //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
-			
 			//continue here:
 			let local_path = ShellUtils.run("echo " + "'" + local_path + "'" + " | sed 's/ /\\\\ /g'")//--Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths. 
 			"remote-path"
 			let remote_path: String = child["@"]["remote_path"]
+			remotePath = RegExpModifier.replace(remotePath,"^https://.+$","")//support for partial and full url, strip away the https://, since this will be added later
+			print( remote_path)
 			
-			RegExpModifier.replace(remotePath,"^https://.+$","")
-			
-			set is_full_url to RegExpUtil's has_match(remote_path, "^https://.+$") --support for partial and full url
-			if is_full_url = true then
-				set remote_path to text 9 thru (length of remote_path) of remote_path --strip away the https://, since this will be added later
-			end if
-			--log remote_path
 			set keychain_item_name to XMLParser's attribute_value_by_name(theXMLChild, "keychain-item-name")
 			--set commit_int to XMLParser's attribute_value_by_name(theXMLChild, "commit-interval-in-minutes") --defualt is 5min
 			--set push_int to XMLParser's attribute_value_by_name(theXMLChild, "push-interval-in-minutes") --defualt is 10min
