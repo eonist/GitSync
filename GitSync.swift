@@ -13,6 +13,11 @@ class GitSync{
 		print( "handle_interval()")
 		let repo_list = RepoUtil.compile_repo_list(repo_file_path) --try to avoid calling this on every intervall, its nice to be able to update on the fly, be carefull though
 		let current_time_in_min to (current_time / 60) --divide the seconds by 60 seconds to get minutes
+		
+		
+		//continue here
+		
+		
 		log "current_time_in_min: " & current_time_in_min
 		repeat with repo_item in repo_list --iterate over every repo item
 			if (current_time_in_min mod (interval of repo_item) = 0) then handle_commit_interval(repo_item, "master") --is true every time spesified by the user
