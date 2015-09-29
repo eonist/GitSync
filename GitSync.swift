@@ -4,6 +4,14 @@
 //import utils/string/regexp/RegExpModifier.swift
 
 class GitSync{
+	//Properties:
+	property current_time : 0 --keeps track of the time passed, remember to reset this value pn every init
+	property the_interval : 60 --static value, increases the time by this value on every interval--TODO: rename to "frequncy"
+	property repo_list : null --Stores all values the in repositories.xml, remember to reset this value pn every init
+	property repo_file_path : ""
+	property options : {"keep local version", "keep remote version", "keep mix of both versions", "open local version", "open remote version", "open mix of both versions", "keep all local versions", "keep all remote versions", "keep all local and remote versions", "open all local versions", "open all remote versions", "open all mixed versions"}
+	set current_time to 0 --always reset this value on init, applescript has persistent values
+
 	/*
 	 * Handles the process of comitting, pushing for multiple repositories
 	 * This is called on every interval
