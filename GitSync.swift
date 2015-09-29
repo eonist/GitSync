@@ -10,7 +10,7 @@ class GitSync{
 	var repoList:Array = null //Stores all values the in repositories.xml, remember to reset this value pn every init
 	let repoFilePath:String = ""
 	let options = ["keep local version", "keep remote version", "keep mix of both versions", "open local version", "open remote version", "open mix of both versions", "keep all local versions", "keep all remote versions", "keep all local and remote versions", "open all local versions", "open all remote versions", "open all mixed versions"]
-	var currentTime:Int = 0 --always reset this value on init, applescript has persistent values
+	var currentTime:Int = 0 //always reset this value on init, applescript has persistent values
 
 	/*
 	 * Handles the process of comitting, pushing for multiple repositories
@@ -18,20 +18,15 @@ class GitSync{
 	 * NOTE: while testing you can call this manually, since idle will only work when you run it from an .app
 	 */
 	func handle_interval(){
-		print( "handle_interval()")
+		//print( "handle_interval()")
 		let repo_list = RepoUtil.compile_repo_list(repo_file_path) --try to avoid calling this on every intervall, its nice to be able to update on the fly, be carefull though
-		let current_time_in_min to (current_time / 60) --divide the seconds by 60 seconds to get minutes
-		
-		
-		//continue here
-		
-		
-		log "current_time_in_min: " & current_time_in_min
-		repeat with repo_item in repo_list --iterate over every repo item
-			if (current_time_in_min mod (interval of repo_item) = 0) then handle_commit_interval(repo_item, "master") --is true every time spesified by the user
-			if (current_time_in_min mod (interval of repo_item) = 0) then handle_push_interval(repo_item, "master") --is true every time spesified by the user
-		end repeat
-		set current_time to current_time + the_interval --increment the interval (in seconds)
+		let currentTimeInMin to (currentTime / 60) --divide the seconds by 60 seconds to get minutes
+		//print ("currentTimeInMin: " + currentTimeInMin)
+		for repoItem in repoList{//iterate over every repo item
+			if (currentTimeInMin mod (interval of repo_item) = 0) then handle_commit_interval(repo_item, "master") //is true every time spesified by the user
+			if (currentTimeInMin mod (interval of repo_item) = 0) then handle_push_interval(repo_item, "master") //is true every time spesified by the user
+		}
+		set current_time to current_time + the_interval //increment the interval (in seconds)
 	}
 }
 class RepoUtils{//Utility methods for parsing the repository.xml file
