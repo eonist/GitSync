@@ -1,3 +1,5 @@
+//import utils/xml/XMLParser.swift
+//import utils/misc/shell/ShellUtils.swift
 class GitSync{
 
 }
@@ -15,9 +17,10 @@ class RepoUtils{
 			let local_path to child["@"]["local-path"] //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
 			
 			//continue here:
-			
-			set local_path to do shell script "echo " & quoted form of local_path & " | sed 's/ /\\\\ /g'" --Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths. 
-			set remote_path to XMLParser's attribute_value_by_name(theXMLChild, "remote-path")
+			let local_path = ShellUtils.run("echo " + "'" + local_path + "'" + " | sed 's/ /\\\\ /g'")//--Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths. 
+			"remote-path"
+			let remote_path: String = child["@"]["remote_path"]
+	
 			set is_full_url to RegExpUtil's has_match(remote_path, "^https://.+$") --support for partial and full url
 			if is_full_url = true then
 				set remote_path to text 9 thru (length of remote_path) of remote_path --strip away the https://, since this will be added later
