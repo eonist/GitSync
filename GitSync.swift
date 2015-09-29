@@ -19,14 +19,14 @@ class GitSync{
 	 */
 	func handleInterval(){
 		//print( "handle_interval()")
-		let repo_list = RepoUtil.compileRepoList(repoFilePath) //try to avoid calling this on every intervall, its nice to be able to update on the fly, be carefull though
+		repoList = RepoUtil.compileRepoList(repoFilePath) //try to avoid calling this on every intervall, its nice to be able to update on the fly, be carefull though
 		let currentTimeInMin to (currentTime / 60) //divide the seconds by 60 seconds to get minutes
 		//print ("currentTimeInMin: " + currentTimeInMin)
 		for (repoItem in repoList){//iterate over every repo item
 			if (currentTimeInMin % (repoItem["interval"]) = 0) { handleCommitInterval(repo_item, "master") } //is true every time spesified by the user
 			if (currentTimeInMin % (repoItem["interval"]) = 0) { handlePushInterval(repo_item, "master") }//is true every time spesified by the user
 		}
-		set current_time to current_time + the_interval //increment the interval (in seconds)
+		current_time += theInterval //increment the interval (in seconds)
 	}
 	/*
 	 * Handles the process of making a commit for a single repository
