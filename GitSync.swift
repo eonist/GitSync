@@ -24,7 +24,7 @@ class RepoUtils{
 			"remote-path"
 			let remote_path: String = child["@"]["remote_path"]
 			
-			RegExpModifier.replace()
+			RegExpModifier.replace(remotePath,"^https://.+$",)
 			
 			set is_full_url to RegExpUtil's has_match(remote_path, "^https://.+$") --support for partial and full url
 			if is_full_url = true then
