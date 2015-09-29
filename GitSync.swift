@@ -33,7 +33,7 @@ class GitSync{
 	 */
 	func handleCommitInterval(repo_item, branch){
 		//log "GitSync's handle_commit_interval() a repo with remote path: " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
-		if (GitAsserter's has_unmerged_paths(local_path of repo_item)) {then} //Asserts if there are unmerged paths that needs resolvment
+		if (GitAsserter's hasUnmergedPaths(local_path of repo_item)) {then} //Asserts if there are unmerged paths that needs resolvment
 			//log tab & "has unmerged paths to resolve"
 			my MergeUtil's resolve_merge_conflicts(local_path of repo_item, branch, GitParser's unmerged_files(local_path of repo_item)) //Asserts if there are unmerged paths that needs resolvment
 		}
