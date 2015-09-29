@@ -23,8 +23,8 @@ class GitSync{
 		let currentTimeInMin to (currentTime / 60) --divide the seconds by 60 seconds to get minutes
 		//print ("currentTimeInMin: " + currentTimeInMin)
 		for repoItem in repoList{//iterate over every repo item
-			if (currentTimeInMin mod (interval of repo_item) = 0) then handle_commit_interval(repo_item, "master") //is true every time spesified by the user
-			if (currentTimeInMin mod (interval of repo_item) = 0) then handle_push_interval(repo_item, "master") //is true every time spesified by the user
+			if (currentTimeInMin % (repoItem) = 0) then handle_commit_interval(repo_item, "master") //is true every time spesified by the user
+			if (currentTimeInMin % (interval of repo_item) = 0) then handle_push_interval(repo_item, "master") //is true every time spesified by the user
 		}
 		set current_time to current_time + the_interval //increment the interval (in seconds)
 	}
