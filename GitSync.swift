@@ -4,7 +4,22 @@
 //import utils/string/regexp/RegExpModifier.swift
 
 class GitSync{
-
+	/*
+	 * Handles the process of comitting, pushing for multiple repositories
+	 * This is called on every interval
+	 * NOTE: while testing you can call this manually, since idle will only work when you run it from an .app
+	 */
+	func handle_interval(){
+		print( "handle_interval()")
+		let repo_list = RepoUtil.compile_repo_list(repo_file_path) --try to avoid calling this on every intervall, its nice to be able to update on the fly, be carefull though
+		let current_time_in_min to (current_time / 60) --divide the seconds by 60 seconds to get minutes
+		log "current_time_in_min: " & current_time_in_min
+		repeat with repo_item in repo_list --iterate over every repo item
+			if (current_time_in_min mod (interval of repo_item) = 0) then handle_commit_interval(repo_item, "master") --is true every time spesified by the user
+			if (current_time_in_min mod (interval of repo_item) = 0) then handle_push_interval(repo_item, "master") --is true every time spesified by the user
+		end repeat
+		set current_time to current_time + the_interval --increment the interval (in seconds)
+	}
 }
 class RepoUtils{//Utility methods for parsing the repository.xml file
 	/**
