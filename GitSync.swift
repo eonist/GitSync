@@ -28,43 +28,41 @@ class GitSync{
 		}
 		set current_time to current_time + the_interval //increment the interval (in seconds)
 	}
+	/*
+	 * Handles the process of making a commit for a single repository
+	 */
+	func handleCommit_interval(repo_item, branch){
+		log "GitSync's handle_commit_interval() a repo with remote path: " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
+		if (GitAsserter's has_unmerged_paths(local_path of repo_item)) then --Asserts if there are unmerged paths that needs resolvment
+			log tab & "has unmerged paths to resolve"
+			my MergeUtil's resolve_merge_conflicts(local_path of repo_item, branch, GitParser's unmerged_files(local_path of repo_item)) --Asserts if there are unmerged paths that needs resolvment
+		end if
+		log do_commit(local_path of repo_item) --if there were no commits false will be returned
+		--log "has_commited: " & has_commited
+	}
+	/*
+	 * Handles the process of making a push for a single repository
+	 * NOTE: We must always merge the remote branch into the local branch before we push our changes. 
+	 * NOTE: this method performs a "manual pull" on every interval
+	 * TODO: contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
+	 */
+	func handle_push_interval(repo_item, branch){
+		log ("GitSync's handle_push_interval()")
+		my MergeUtil's manual_merge((local_path of repo_item), (remote_path of repo_item), branch) --commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
+		set has_local_commits to GitAsserter's has_local_commits((local_path of repo_item), branch) --TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
+		if (has_local_commits) then --only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
+			set the_keychain_item_name to (keychain_item_name of repo_item)
+			log "the_keychain_item_name: " & the_keychain_item_name
+			set keychain_data to KeychainParser's keychain_data(keychain_item_name of repo_item)
+			set keychain_password to the_password of keychain_data
+			log "keychain_password: " & keychain_password
+			set remote_account_name to account_name of keychain_data
+			log "remote_account_name: " & remote_account_name
+			set push_call_back to GitModifier's push(local_path of repo_item, remote_path of repo_item, remote_account_name, keychain_password, branch)
+			log "push_call_back: " & push_call_back
+		end if
+	}
 }
-(*
- * Handles the process of making a commit for a single repository
- *)
-on handle_commit_interval(repo_item, branch)
-	log "GitSync's handle_commit_interval() a repo with remote path: " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
-	if (GitAsserter's has_unmerged_paths(local_path of repo_item)) then --Asserts if there are unmerged paths that needs resolvment
-		log tab & "has unmerged paths to resolve"
-		my MergeUtil's resolve_merge_conflicts(local_path of repo_item, branch, GitParser's unmerged_files(local_path of repo_item)) --Asserts if there are unmerged paths that needs resolvment
-	end if
-	log do_commit(local_path of repo_item) --if there were no commits false will be returned
-	--log "has_commited: " & has_commited
-end handle_commit_interval
-(*
- * Handles the process of making a push for a single repository
- * NOTE: We must always merge the remote branch into the local branch before we push our changes. 
- * NOTE: this method performs a "manual pull" on every interval
- * TODO: contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
- *)
-on handle_push_interval(repo_item, branch)
-	log ("GitSync's handle_push_interval()")
-	my MergeUtil's manual_merge((local_path of repo_item), (remote_path of repo_item), branch) --commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
-	set has_local_commits to GitAsserter's has_local_commits((local_path of repo_item), branch) --TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
-	if (has_local_commits) then --only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
-		set the_keychain_item_name to (keychain_item_name of repo_item)
-		log "the_keychain_item_name: " & the_keychain_item_name
-		set keychain_data to KeychainParser's keychain_data(keychain_item_name of repo_item)
-		set keychain_password to the_password of keychain_data
-		log "keychain_password: " & keychain_password
-		set remote_account_name to account_name of keychain_data
-		log "remote_account_name: " & remote_account_name
-		set push_call_back to GitModifier's push(local_path of repo_item, remote_path of repo_item, remote_account_name, keychain_password, branch)
-		log "push_call_back: " & push_call_back
-	end if
-end handle_push_interval
-
-
 
 class RepoUtils{//Utility methods for parsing the repository.xml file
 	/**
