@@ -23,7 +23,9 @@ class RepoUtils{
 			let local_path = ShellUtils.run("echo " + "'" + local_path + "'" + " | sed 's/ /\\\\ /g'")//--Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths. 
 			"remote-path"
 			let remote_path: String = child["@"]["remote_path"]
-	
+			
+			RegExpModifier.replace()
+			
 			set is_full_url to RegExpUtil's has_match(remote_path, "^https://.+$") --support for partial and full url
 			if is_full_url = true then
 				set remote_path to text 9 thru (length of remote_path) of remote_path --strip away the https://, since this will be added later
