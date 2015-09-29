@@ -10,11 +10,11 @@ class RepoUtils{
 	/**
 	 * 
 	 */
-	func compileRepoList(filePath:String)->{
+	func compileRepoList(filePath:String)->Array{
 		let xml:String = XMLParser.data(filePath)
 		let children:Array = xml["."]["repositories"][0]["."]["repository"]
 		let numChildren:Int = children.count //number of xml children in xml root element
-		var theRepoList to []
+		var theRepoList:Array to []
 		for (var i:Int; i++; i < numChildren){
 			let child = children[i]
 			let localPath to child["@"]["local-path"] //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
