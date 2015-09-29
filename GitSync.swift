@@ -1,6 +1,7 @@
 //import utils/xml/XMLParser.swift
 //import utils/misc/shell/ShellUtils.swift
-//import RegExpParser.swift
+//import utils/string/regexp/RegExpParser.swift
+//import utils/string/regexp/RegExpModifier.swift
 
 class GitSync{
 
