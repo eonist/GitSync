@@ -130,8 +130,10 @@ class MergeUtils{
 			switch selected{
 				case options[0]//keep local version
 					GitModifier's check_out(local_repo_path, "--ours", unmerged_file)
-				case 3...8
-					printin("range from 3 to 8")
+				case options[1]//keep remote version
+					GitModifier's check_out(local_repo_path, "--theirs", unmerged_file)
+				case options[2]//keep mix of both versions
+					GitModifier's check_out(local_repo_path, branch, unmerged_file)
 				default
 					break;
 			}
