@@ -10,4 +10,7 @@ Cloud storage: | 5GB w/ ICloud | 1GB/month | -
 Image support: | No | Yes | Yes
 Folder structure: | Yes | Yes | yes 
 PDF support: | No | Yes | Yes
-Markdown support: | Yes | 
+Markdown support: | Yes | Yes | No
+Third party editor: | Yes | Yes | No
+
+*pictures and pdfs are discouraged in git, since their data structures are not suitable for version control systems
