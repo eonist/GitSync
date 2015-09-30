@@ -121,11 +121,6 @@ class MergeUtils{
 	func handleMergeConflictDialog(selected:String, unmergedFile:String, localRepoPath:String, branch:String, unmergedFiles:Array){
 		//log "handle_merge_conflict_dialog()"
 		//print("MergeUtil's handle_merge_conflict_dialog(): " & (item 1 of the_action))
-		
-		
-		
-		//continue here
-		
 		//last_selected_action = selected
 		switch selected{
 			case options[0]//keep local version
@@ -161,9 +156,6 @@ class MergeUtils{
 			default
 				break;
 		}
-	
-		
-		
 	}
 }
 /*
