@@ -134,6 +134,24 @@ class MergeUtils{
 					GitModifier's check_out(local_repo_path, "--theirs", unmerged_file)
 				case options[2]//keep mix of both versions
 					GitModifier's check_out(local_repo_path, branch, unmerged_file)
+				case options[3]//open local version
+					
+				case options[4]//open remote version
+					
+				case options[5]//
+					
+				case options[6]//
+					
+				case options[7]//
+					
+				case options[8]//
+					
+				case options[9]//
+				
+				case options[10]//
+					
+				case options[11]//
+					
 				default
 					break;
 			}
