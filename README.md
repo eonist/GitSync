@@ -1,4 +1,4 @@
-# GitSyncOSX
+# GitSync
 
 Feature  | GitSync | Evernote | MacJournal 
 ---------------- | :----------: | :----------:| :-------:
