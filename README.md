@@ -7,12 +7,12 @@ Auto syncs devices | X | X |
 Cloud storage | 5GB w/ iCloud | unlimted | 
 Monthly bandwidth | unlimited | 1GB/month | 
 Folder structure | X | X | X 
-Markdown support | X | X | 
-Third party editor*** | X | X | 
 IOS support | X | X | X
 OSX support | X | X | X
 Backup support | X | X | X
 Password security  | X | X | X
+Markdown support | X | X | 
+Third party editor*** | X | X | 
 Requires mac**** | X |   | X
 Git support | X |   |  
 Team collaboration | X |   | X
