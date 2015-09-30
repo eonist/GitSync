@@ -37,7 +37,7 @@ class GitSync{
 			//log tab & "has unmerged paths to resolve"
 			MergeUtil.resolveMergeConflicts(repoItem["localPath"], branch, GitParser.unMergedFiles(repoItem["localPath"])) //Asserts if there are unmerged paths that needs resolvment
 		}
-		//log do_commit(local_path of repo_item) //if there were no commits false will be returned
+		do_commit(local_path of repo_item) //if there were no commits false will be returned
 		//log "has_commited: " & has_commited
 	}
 	/*
