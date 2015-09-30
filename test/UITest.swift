@@ -17,3 +17,6 @@ func pressedAction(sender: UIButton!) {
   NSLog("you clicked on button %@", sender.tag)
 }
 
+
+
+//list for ios, may work for osx aswell: http://viperxgames.blogspot.no/2014/11/add-uitableview-programmatically-in.html
