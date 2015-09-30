@@ -1,5 +1,5 @@
 //test creating buttons,lists,checkbuttons,textfields, etc to the view
-
+//NOTE: all Ui elements from apple https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIKit_Framework/index.html#classes
 //Button
 /**
  * multiple uibuttons and eventlistener: https://discussions.apple.com/thread/2349976?start=0&tstart=0
