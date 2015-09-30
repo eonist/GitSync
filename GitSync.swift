@@ -91,3 +91,19 @@ class RepoUtils{//Utility methods for parsing the repository.xml file
 		return theRepoList
 	}
 }
+
+class MergeUtils{
+	/*
+ 	 * Promts the user with a list of options to aid in resolving merge conflicts
+ 	 * @param branch: the branch you tried to merge into
+ 	 */
+	on resolve_merge_conflicts(local_repo_path, branch, unmerged_files)
+		//log "resolve_merge_conflicts()"
+		//log ("MergeUtil's resolve_merge_conflicts()")
+		repeat with unmerged_file in unmerged_files
+			set last_selected_action to first item in options --you may want to make this a "property" to store the last item more permenantly
+			set the_action to choose from list options with title "Resolve merge conflict in:" with prompt unmerged_file & ":" default items {last_selected_action} cancel button name "Exit" --promt user with list of options, title: Merge conflict in: unmerged_file
+			handle_merge_conflict_dialog(the_action, unmerged_file, local_repo_path, branch, unmerged_files)
+		end repeat
+	end resolve_merge_conflicts
+}
