@@ -105,18 +105,21 @@ class MergeUtils{
 			let theAction to choose from list options with title "Resolve merge conflict in:" with prompt unMergedFile & ":" default items {lastSelectedAction} cancel button name "Exit" //promt user with list of options, title: Merge conflict in: unmerged_file
 			handle_merge_conflict_dialog(the_action, unMergedFile, localRepoPath, branch, unMergedFiles)
 
-			let listWindow = ListWindow(options,headerTitle:"Resolve merge conflict in:",title:unMergedFile + ":",lastSelected:lastSelectedAction,cancelButtonName:"Exit")//promt user with list of options, title: Merge conflict in: unmerged_file
-			listWindow.addTarget(self, action: "complete:", forControlEvents: .complete)
+			let listWindow = ListWindow(options,headerTitle:"Resolve merge conflict in: ",title:unMergedFile + ":",lastSelected:lastSelectedAction,cancelButtonName:"Exit")//promt user with list of options, title: Merge conflict in: unmerged_file
+			listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
 			func complete(sender: Window!) {
-			   // do your stuff here 
-			  print("Complete: " + sender.tag)
+			   //do your stuff here
+			   print("Complete: " + sender.tag)
 			}
 			
 		}
 	}
 }
 class ListWindow : Window{
-	func init(list:Array,headerTitle:"Resolve merge conflict in:",title:unMergedFile + ":",lastSelected:lastSelectedAction,cancelButtonName:"Exit"){
+	/**
+	 * 
+	 */
+	func init(list:Array,headerTitle:String,title:String ,lastSelected:String,cancelButtonName:String){
 	
 	}
 }
