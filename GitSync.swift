@@ -109,7 +109,7 @@ class MergeUtils{
 	func complete(sender: ListWindow!) {
 	   print("Complete: " + sender.tag)
 	   if(sender.didComplete){
-			handle_merge_conflict_dialog(sender.didComplete, sender.selected, unMergedFile, localRepoPath, branch, unMergedFiles)
+			handleMergeConflictDialog(sender.didComplete, sender.selected, unMergedFile, localRepoPath, branch, unMergedFiles)
 	   }else{
 	   	//TODO: do the git merge --abort here to revert to the state you were in before the merge attempt, you may also want to display a dialog to informnthe user in which state the files are now.
 	   }
@@ -124,7 +124,7 @@ class MergeUtils{
 		//last_selected_action = selected
 		switch selected{
 			case options[0]//keep local version
-				GitModifier's check_out(local_repo_path, "--ours", unmerged_file)
+				GitModifier's check_out(local_repo_path, "--ours", unmerged_file)//continue here
 			case options[1]//keep remote version
 				GitModifier's check_out(local_repo_path, "--theirs", unmerged_file)
 			case options[2]//keep mix of both versions
