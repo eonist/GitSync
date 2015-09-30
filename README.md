@@ -1,5 +1,5 @@
 # GitSyncOSX
-GitSync in swift
+GitSync in .swift
 
 
 Feature  | GitSync | Evernote | MacJournal 
@@ -13,5 +13,5 @@ PDF support: | No** | Yes | Yes
 Markdown support: | Yes | Yes | No
 Third party editor: | Yes | Yes | No
 
-*Free if you use GitHub for public projects, or if you use BitBucket for private projects
-**Pictures and pdfs contain data structures that are not suitable for version control systems
+\*Free if you use GitHub for public projects, or if you use BitBucket for private projects. 
+\**Pictures and pdfs contain data structures that are not suitable for version control systems
