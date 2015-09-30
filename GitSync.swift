@@ -126,6 +126,9 @@ class MergeUtils{
 		//continue here
 		
 		
+		
+		if(didComplete){
+	   	
 			//last_selected_action = selected
 			switch selected{
 				case options[0]//keep local version
@@ -153,47 +156,14 @@ class MergeUtils{
 					GitModifier's check_out(local_repo_path, "--ours", "*")
 					FileUtil's open_files(FileParser's full_hsf_paths(local_repo_path, unmerged_files))
 				case options[10]//open all remote versions
-					
+					GitModifier's check_out(local_repo_path, "--theirs", "*")
+					FileUtil's open_files(FileParser's full_hsf_paths(local_repo_path, unmerged_files))
 				case options[11]//open all mixed versions
-					
+					GitModifier's check_out(local_repo_path, branch, "*")
+					FileUtil's open_files(FileParser's full_hsf_paths(local_repo_path, unmerged_files))
 				default
 					break;
 			}
-		
-		if(didComplete){
-	   	set selected_item to item 1 of the_action
-			set last_selected_action to selected_item
-			if selected_item is item 1 of options then --keep local version
-				GitModifier's check_out(local_repo_path, "--ours", unmerged_file)
-			else if selected_item is item 2 of options then --keep remote version
-				GitModifier's check_out(local_repo_path, "--theirs", unmerged_file)
-			else if selected_item is item 3 of options then --keep mix of both versions
-				GitModifier's check_out(local_repo_path, branch, unmerged_file)
-			else if selected_item is item 4 of options then --open local version
-				GitModifier's check_out(local_repo_path, "--ours", unmerged_file)
-				FileUtil's open_file(local_repo_path & unmerged_file)
-			else if selected_item is item 5 of options then --open remote version
-				GitModifier's check_out(local_repo_path, "--theirs", unmerged_file)
-				FileUtil's open_file(local_repo_path & unmerged_file)
-			else if selected_item is item 6 of options then --open mix of both versions
-				GitModifier's check_out(local_repo_path, branch, unmerged_file)
-				FileUtil's open_file(local_repo_path & unmerged_file)
-			else if selected_item is item 7 of options then --keep all local versions
-				GitModifier's check_out(local_repo_path, "--ours", "*")
-			else if selected_item is item 8 of options then --keep all remote versions
-				GitModifier's check_out(local_repo_path, "--theirs", "*")
-			else if selected_item is item 9 of options then --keep all local and remote versions
-				GitModifier's check_out(local_repo_path, branch, "*")
-			else if selected_item is item 10 of options then --open all local versions
-				GitModifier's check_out(local_repo_path, "--ours", "*")
-				FileUtil's open_files(FileParser's full_hsf_paths(local_repo_path, unmerged_files))
-			else if selected_item is item 11 of options then --open all remote versions
-				GitModifier's check_out(local_repo_path, "--theirs", "*")
-				FileUtil's open_files(FileParser's full_hsf_paths(local_repo_path, unmerged_files))
-			else if selected_item is item 12 of options then --open all mixed versions
-				GitModifier's check_out(local_repo_path, branch, "*")
-				FileUtil's open_files(FileParser's full_hsf_paths(local_repo_path, unmerged_files))
-			end if
 	   }else{
 	   	//TODO: do the git merge --abort here to revert to the state you were in before the merge attempt, you may also want to display a dialog to informnthe user in which state the files are now.
 	   }
