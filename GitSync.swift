@@ -105,7 +105,7 @@ class MergeUtils{
 			let theAction to choose from list options with title "Resolve merge conflict in:" with prompt unMergedFile & ":" default items {lastSelectedAction} cancel button name "Exit" //promt user with list of options, title: Merge conflict in: unmerged_file
 			handle_merge_conflict_dialog(the_action, unMergedFile, localRepoPath, branch, unMergedFiles)
 
-			let listWindow = ListWindow(options,headerTitle:"Resolve merge conflict in: ",title:unMergedFile + ":",lastSelected:lastSelectedAction,cancelButtonName:"Exit")//promt user with list of options, title: Merge conflict in: unmerged_file
+			let listWindow = ListWindow(options,headerTitle:"Resolve merge conflict in: ",title:unMergedFile + ":",selected:lastSelectedAction,cancelButtonName:"Exit")//promt user with list of options, title: Merge conflict in: unmerged_file
 			listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
 			func complete(sender: Window!) {
 			   //do your stuff here
@@ -127,22 +127,32 @@ class ListWindow : Window{
 	/**
 	 * 
 	 */
-	func init(list:Array,headerTitle:String,title:String ,lastSelected:String,cancelButtonName:String){
+	func init(list:Array,headerTitle:String,title:String ,selected:String,cancelButtonName:String){
+		self.list = list
+		self.title = title
+		self.selected = selected
+		self.view.title = headerTitle
+		self.cancelButtonName = cancelButtonName
 		createContent()
 		addTargets()
 	}
 	func createContent(){
 		
 		//list here	
+		let list = List(list:Array,selected:String)
 	
 		let okButton = UIButton()
 		okButton.setTitle("OK", forState: .Normal)
 		okButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
 		okButton.frame = CGRectMake(15, 50, 300, 500)
-		self.view.addSubview( okButton)
+		self.view.addSubview(okButton)
 		
 		//exit button here
-		
+		let exitButton = UIButton()
+		exitButton.setTitle("OK", forState: .Normal)
+		exitButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
+		exitButton.frame = CGRectMake(15, 50, 300, 500)
+		self.view.addSubview(exitButton)
 		 
 		
 		//align the ui items
@@ -156,7 +166,7 @@ class ListWindow : Window{
 	   // do your stuff here 
 	  print("you clicked on button %@" + sender.tag)
 	  if(sender.tag == "ok"){
-	  	//dispatch complete event with ok, and choice
+	  	//dispatch complete event with ok, and selected choice
 	  }else{//exit
 	  	//dispatch complete event with exit 
 	  }
