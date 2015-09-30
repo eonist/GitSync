@@ -107,7 +107,7 @@ class MergeUtils{
 			func complete(sender: ListWindow!) {
 			   //do your stuff here
 			   print("Complete: " + sender.tag)
-			   handle_merge_conflict_dialog(the_action, unMergedFile, localRepoPath, branch, unMergedFiles)
+			   handle_merge_conflict_dialog(sender.didComplete, unMergedFile, localRepoPath, branch, unMergedFiles)
 			   
 			}
 			
@@ -117,10 +117,10 @@ class MergeUtils{
  	 * Handles the choice made in the merge conflict dialog
  	 * TODO: test the open file clauses
  	 */
-	func handleMergeConflictDialog(the_action, unmerged_file, local_repo_path, branch, unmerged_files)
+	func handleMergeConflictDialog(didComplete:Boolean, unmergedFile:String, localRepoPath:String, branch:String, unmergedFiles:Array)
 		//log "handle_merge_conflict_dialog()"
 		//log ("MergeUtil's handle_merge_conflict_dialog(): " & (item 1 of the_action))
-		if(sender.didComplete){
+		if(didComplete){
 	   	set selected_item to item 1 of the_action
 			set last_selected_action to selected_item
 			if selected_item is item 1 of options then --keep local version
