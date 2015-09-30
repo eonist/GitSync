@@ -107,9 +107,10 @@ class MergeUtils{
 			func complete(sender: ListWindow!) {
 			   //do your stuff here
 			   print("Complete: " + sender.tag)
+			   handle_merge_conflict_dialog(the_action, unMergedFile, localRepoPath, branch, unMergedFiles)
 			   
 			}
-			handle_merge_conflict_dialog(the_action, unMergedFile, localRepoPath, branch, unMergedFiles)
+			
 		}
 	}
 	/*
@@ -117,20 +118,10 @@ class MergeUtils{
  	 * TODO: test the open file clauses
  	 */
 	func handleMergeConflictDialog(the_action, unmerged_file, local_repo_path, branch, unmerged_files)
-		--log "handle_merge_conflict_dialog()"
-		log ("MergeUtil's handle_merge_conflict_dialog(): " & (item 1 of the_action))
+		//log "handle_merge_conflict_dialog()"
+		//log ("MergeUtil's handle_merge_conflict_dialog(): " & (item 1 of the_action))
 		if(sender.didComplete){
-	   
-	   }else{
-	   	//TODO: do the git merge --abort here to revert to the state you were in before the merge attempt, you may also want to display a dialog to informnthe user in which state the files are now.
-	   }
-
-		
-		if the_action is false then --exit
-			--error number -128 -- User canceled
-			--TODO: do the git merge --abort here to revert to the state you were in before the merge attempt, you may also want to display a dialog to informnthe user in which state the files are now.
-		else
-			set selected_item to item 1 of the_action
+	   	set selected_item to item 1 of the_action
 			set last_selected_action to selected_item
 			if selected_item is item 1 of options then --keep local version
 				GitModifier's check_out(local_repo_path, "--ours", unmerged_file)
@@ -163,8 +154,10 @@ class MergeUtils{
 				GitModifier's check_out(local_repo_path, branch, "*")
 				FileUtil's open_files(FileParser's full_hsf_paths(local_repo_path, unmerged_files))
 			end if
-		end if
-	end handle_merge_conflict_dialog
+	   }else{
+	   	//TODO: do the git merge --abort here to revert to the state you were in before the merge attempt, you may also want to display a dialog to informnthe user in which state the files are now.
+	   }
+	}
 }
 /*
  * single choice list window
