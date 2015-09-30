@@ -129,9 +129,9 @@ class ListWindow : Window{
 	 */
 	func init(list:Array,headerTitle:String,title:String ,selected:String,cancelButtonName:String){
 		self.list = list
-		self.title = title
+		self.headerTitle = headerTitle
+		view.title = headerTitle
 		self.selected = selected
-		self.view.title = headerTitle
 		self.cancelButtonName = cancelButtonName
 		createContent()
 		addTargets()
@@ -139,8 +139,9 @@ class ListWindow : Window{
 	func createContent(){
 		
 		//list here	
-		let list = List(list:Array,selected:String)
-	
+		let list = List(list:self.list,selected:selected)
+		self.view.addSubview(list)
+		
 		let okButton = UIButton()
 		okButton.setTitle("OK", forState: .Normal)
 		okButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
