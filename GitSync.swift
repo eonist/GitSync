@@ -97,19 +97,18 @@ class MergeUtils{
  	 * Promts the user with a list of options to aid in resolving merge conflicts
  	 * @param branch: the branch you tried to merge into
  	 */
-	on resolveMergeConflicts(localRepoPath, branch, unMergedFiles)
+	func resolveMergeConflicts(localRepoPath, branch, unMergedFiles){
 		//log "resolve_merge_conflicts()"
 		//log ("MergeUtil's resolve_merge_conflicts()")
 		for( unMergedFile in unMergedFiles){;
 			let lastSelectedAction:String = options.first //you may want to make this a "property" to store the last item more permenantly
-			set theAction to choose from list options with title "Resolve merge conflict in:" with prompt unMergedFile & ":" default items {lastSelectedAction} cancel button name "Exit" //promt user with list of options, title: Merge conflict in: unmerged_file
+			let theAction to choose from list options with title "Resolve merge conflict in:" with prompt unMergedFile & ":" default items {lastSelectedAction} cancel button name "Exit" //promt user with list of options, title: Merge conflict in: unmerged_file
 			handle_merge_conflict_dialog(the_action, unMergedFile, localRepoPath, branch, unMergedFiles)
 			
 		}
-	end resolve_merge_conflicts
+	}
 }
-
-
+class 
 
 
 
