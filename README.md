@@ -3,7 +3,7 @@
 Feature  | GitSync | Evernote | MacJournal 
 ---------------- | :----------: | :----------:| :-------:
 Price | Free* | 29$/yr | 59$ 
-Auto syncs devices | X | X | No
+Auto syncs devices | X | X | 
 Cloud storage | 5GB w/ iCloud | unlimted | 
 Monthly bandwidth | unlimited | 1GB/month | 
 Image support** |  | X | X
