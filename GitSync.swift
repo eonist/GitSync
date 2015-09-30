@@ -117,9 +117,15 @@ class MergeUtils{
  	 * Handles the choice made in the merge conflict dialog
  	 * TODO: test the open file clauses
  	 */
-	func handleMergeConflictDialog(didComplete:Boolean, selected:String, unmergedFile:String, localRepoPath:String, branch:String, unmergedFiles:Array)
+	func handleMergeConflictDialog(didComplete:Boolean, selected:String, unmergedFile:String, localRepoPath:String, branch:String, unmergedFiles:Array){
 		//log "handle_merge_conflict_dialog()"
 		//print("MergeUtil's handle_merge_conflict_dialog(): " & (item 1 of the_action))
+		
+		
+		
+		//continue here
+		
+		
 		
 		switch someVal{
 			case 1
