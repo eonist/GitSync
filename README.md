@@ -13,5 +13,5 @@ PDF support: | No** | Yes | Yes
 Markdown support: | Yes | Yes | No
 Third party editor: | Yes | Yes | No
 
-*Free of you use GitHub for public projects, or Free if you use BitBucket for private projects
+*Free if you use GitHub for public projects, or if you use BitBucket for private projects
 **Pictures and pdfs contain data structures that are not suitable for version control systems
