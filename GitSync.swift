@@ -106,16 +106,16 @@ class MergeUtils{
 			handle_merge_conflict_dialog(the_action, unMergedFile, localRepoPath, branch, unMergedFiles)
 
 			let listWindow = ListWindow(options,headerTitle:"Resolve merge conflict in:",title:unMergedFile + ":",lastSelected:lastSelectedAction,cancelButtonName:"Exit")//promt user with list of options, title: Merge conflict in: unmerged_file
-			listWindow.addTarget(self, action: "pressedAction:", forControlEvents: .complete)
-			func pressedAction(sender: UIButton!) {
+			listWindow.addTarget(self, action: "complete:", forControlEvents: .complete)
+			func complete(sender: Window!) {
 			   // do your stuff here 
-			  NSLog("you clicked on button %@", sender.tag)
+			  print("Complete: " + sender.tag)
 			}
 			
 		}
 	}
 }
-class ListWindow{
+class ListWindow : Window{
 	func init(){
 	
 	}
