@@ -1,6 +1,9 @@
 //test creating buttons,lists,checkbuttons,textfields, etc to the view
 
 //Button
+/**
+ * multiple uibuttons and eventlistener: https://discussions.apple.com/thread/2349976?start=0&tstart=0
+ */
 let myButton = UIButton()
 myButton.setTitle("Hai Touch Me", forState: .Normal)
 myButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
