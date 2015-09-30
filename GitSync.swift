@@ -104,8 +104,9 @@ class MergeUtils{
 			let lastSelectedAction:String = options.first //you may want to make this a "property" to store the last item more permenantly
 			let theAction to choose from list options with title "Resolve merge conflict in:" with prompt unMergedFile & ":" default items {lastSelectedAction} cancel button name "Exit" //promt user with list of options, title: Merge conflict in: unmerged_file
 			handle_merge_conflict_dialog(the_action, unMergedFile, localRepoPath, branch, unMergedFiles)
-			myButton.addTarget(self, action: "pressedAction:", forControlEvents: .TouchUpInside)
-			let listWindow = ListWindow(options,headerTitle:"Resolve merge conflict in:",title:unMergedFile + ":",lastSelected:lastSelectedAction)
+
+			let listWindow = ListWindow(options,headerTitle:"Resolve merge conflict in:",title:unMergedFile + ":",lastSelected:lastSelectedAction,cancelButtonName:"Exit")//promt user with list of options, title: Merge conflict in: unmerged_file
+			listWindow.addTarget(self, action: "pressedAction:", forControlEvents: .complete)
 			func pressedAction(sender: UIButton!) {
 			   // do your stuff here 
 			  NSLog("you clicked on button %@", sender.tag)
