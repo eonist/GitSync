@@ -142,6 +142,10 @@ class ListWindow : Window{
 		let list = List(list:self.list,selected:selected)
 		self.view.addSubview(list)
 		
+		let buttonSection:Section = Section()
+		self.view.addSubview(exitButton)
+		buttonSection
+		
 		let okButton = UIButton()
 		okButton.setTitle("OK", forState: .Normal)
 		okButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
