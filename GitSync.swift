@@ -115,6 +115,9 @@ class MergeUtils{
 		}
 	}
 }
+/*
+ * single choice list window
+ */
 class ListWindow : Window{
 	var list:Array
 	var headerTitle:String
@@ -125,7 +128,38 @@ class ListWindow : Window{
 	 * 
 	 */
 	func init(list:Array,headerTitle:String,title:String ,lastSelected:String,cancelButtonName:String){
+		createContent()
+		addTargets()
+	}
+	func createContent(){
+		
+		//list here	
 	
+		let okButton = UIButton()
+		okButton.setTitle("OK", forState: .Normal)
+		okButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
+		okButton.frame = CGRectMake(15, 50, 300, 500)
+		self.view.addSubview( okButton)
+		
+		//exit button here
+		
+		 
+		
+		//align the ui items
+	}
+	//
+	func addTargets(){
+		okButton.addTarget(self, action: "pressedAction:", forControlEvents: .TouchUpInside)
+	}
+	//delegate handlers
+	func pressedAction(sender: UIButton!) {
+	   // do your stuff here 
+	  print("you clicked on button %@" + sender.tag)
+	  if(sender.tag == "ok"){
+	  	//dispatch complete event with ok, and choice
+	  }else{//exit
+	  	//dispatch complete event with exit 
+	  }
 	}
 }
 
