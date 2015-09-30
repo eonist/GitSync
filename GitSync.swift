@@ -116,7 +116,7 @@ class MergeUtils{
 	}
 }
 class ListWindow : Window{
-	func init(){
+	func init(list:Array,headerTitle:"Resolve merge conflict in:",title:unMergedFile + ":",lastSelected:lastSelectedAction,cancelButtonName:"Exit"){
 	
 	}
 }
