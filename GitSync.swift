@@ -104,20 +104,21 @@ class MergeUtils{
 			let lastSelectedAction:String = options.first //you may want to make this a "property" to store the last item more permenantly
 			let listWindow = ListWindow(options,headerTitle:"Resolve merge conflict in: ",title:unMergedFile + ":",selected:lastSelectedAction,cancelButtonName:"Exit")//promt user with list of options, title: Merge conflict in: unmerged_file
 			listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
-			func complete(sender: ListWindow!) {
-			   //do your stuff here
-			   print("Complete: " + sender.tag)
-			   handle_merge_conflict_dialog(sender.didComplete, sender.selected, unMergedFile, localRepoPath, branch, unMergedFiles)
-			   
-			}
-			
 		}
+	}
+	func complete(sender: ListWindow!) {
+	   print("Complete: " + sender.tag)
+	   if(sender.didComplete){
+			handle_merge_conflict_dialog(sender.didComplete, sender.selected, unMergedFile, localRepoPath, branch, unMergedFiles)
+	   }else{
+	   	//TODO: do the git merge --abort here to revert to the state you were in before the merge attempt, you may also want to display a dialog to informnthe user in which state the files are now.
+	   }
 	}
 	/*
  	 * Handles the choice made in the merge conflict dialog
  	 * TODO: test the open file clauses
  	 */
-	func handleMergeConflictDialog(didComplete:Boolean, selected:String, unmergedFile:String, localRepoPath:String, branch:String, unmergedFiles:Array){
+	func handleMergeConflictDialog(selected:String, unmergedFile:String, localRepoPath:String, branch:String, unmergedFiles:Array){
 		//log "handle_merge_conflict_dialog()"
 		//print("MergeUtil's handle_merge_conflict_dialog(): " & (item 1 of the_action))
 		
@@ -125,48 +126,44 @@ class MergeUtils{
 		
 		//continue here
 		
+		//last_selected_action = selected
+		switch selected{
+			case options[0]//keep local version
+				GitModifier's check_out(local_repo_path, "--ours", unmerged_file)
+			case options[1]//keep remote version
+				GitModifier's check_out(local_repo_path, "--theirs", unmerged_file)
+			case options[2]//keep mix of both versions
+				GitModifier's check_out(local_repo_path, branch, unmerged_file)
+			case options[3]//open local version
+				GitModifier's check_out(local_repo_path, "--ours", unmerged_file)
+				FileUtil's open_file(local_repo_path & unmerged_file)
+			case options[4]//open remote version
+				GitModifier's check_out(local_repo_path, "--theirs", unmerged_file)
+				FileUtil's open_file(local_repo_path & unmerged_file)
+			case options[5]//open mix of both versions
+				GitModifier's check_out(local_repo_path, branch, unmerged_file)
+				FileUtil's open_file(local_repo_path & unmerged_file)
+			case options[6]//keep all local versions
+				GitModifier's check_out(local_repo_path, "--ours", "*")
+			case options[7]//keep all remote versions
+				GitModifier's check_out(local_repo_path, "--theirs", "*")
+			case options[8]//keep all local and remote versions
+				GitModifier's check_out(local_repo_path, branch, "*")
+			case options[9]//open all local versions
+				GitModifier's check_out(local_repo_path, "--ours", "*")
+				FileUtil's open_files(FileParser's full_hsf_paths(local_repo_path, unmerged_files))
+			case options[10]//open all remote versions
+				GitModifier's check_out(local_repo_path, "--theirs", "*")
+				FileUtil's open_files(FileParser's full_hsf_paths(local_repo_path, unmerged_files))
+			case options[11]//open all mixed versions
+				GitModifier's check_out(local_repo_path, branch, "*")
+				FileUtil's open_files(FileParser's full_hsf_paths(local_repo_path, unmerged_files))
+			default
+				break;
+		}
+	
 		
 		
-		if(didComplete){
-	   	
-			//last_selected_action = selected
-			switch selected{
-				case options[0]//keep local version
-					GitModifier's check_out(local_repo_path, "--ours", unmerged_file)
-				case options[1]//keep remote version
-					GitModifier's check_out(local_repo_path, "--theirs", unmerged_file)
-				case options[2]//keep mix of both versions
-					GitModifier's check_out(local_repo_path, branch, unmerged_file)
-				case options[3]//open local version
-					GitModifier's check_out(local_repo_path, "--ours", unmerged_file)
-					FileUtil's open_file(local_repo_path & unmerged_file)
-				case options[4]//open remote version
-					GitModifier's check_out(local_repo_path, "--theirs", unmerged_file)
-					FileUtil's open_file(local_repo_path & unmerged_file)
-				case options[5]//open mix of both versions
-					GitModifier's check_out(local_repo_path, branch, unmerged_file)
-					FileUtil's open_file(local_repo_path & unmerged_file)
-				case options[6]//keep all local versions
-					GitModifier's check_out(local_repo_path, "--ours", "*")
-				case options[7]//keep all remote versions
-					GitModifier's check_out(local_repo_path, "--theirs", "*")
-				case options[8]//keep all local and remote versions
-					GitModifier's check_out(local_repo_path, branch, "*")
-				case options[9]//open all local versions
-					GitModifier's check_out(local_repo_path, "--ours", "*")
-					FileUtil's open_files(FileParser's full_hsf_paths(local_repo_path, unmerged_files))
-				case options[10]//open all remote versions
-					GitModifier's check_out(local_repo_path, "--theirs", "*")
-					FileUtil's open_files(FileParser's full_hsf_paths(local_repo_path, unmerged_files))
-				case options[11]//open all mixed versions
-					GitModifier's check_out(local_repo_path, branch, "*")
-					FileUtil's open_files(FileParser's full_hsf_paths(local_repo_path, unmerged_files))
-				default
-					break;
-			}
-	   }else{
-	   	//TODO: do the git merge --abort here to revert to the state you were in before the merge attempt, you may also want to display a dialog to informnthe user in which state the files are now.
-	   }
 	}
 }
 /*
