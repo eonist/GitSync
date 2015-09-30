@@ -143,27 +143,28 @@ class ListWindow : Window{
 		let list = List(list:self.list,selected:selected)
 		self.view.addSubview(list)
 		
-		let buttonSection:Section = Section()
-		self.view.addSubview(buttonSection)
+		//container for the buttons
+		let buttonContainer:Container = Container(240,60)
+		self.view.addSubview(buttonContainer)
 		
 		let okButton = UIButton()
 		okButton.setTitle("OK", forState: .Normal)
 		okButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
-		okButton.frame = CGRectMake(15, 50, 300, 500)
-		buttonSection.addChild(okButton)
+		okButton.frame = CGRectMake(0, 0, 120, 40)
+		buttonContainer.addChild(okButton)
 		
 		//exit button here
 		let exitButton = UIButton()
 		exitButton.setTitle(cancelButtonName, forState: .Normal)
 		exitButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
-		exitButton.frame = CGRectMake(15, 50, 300, 500)
-		buttonSection.addChild(exitButton)
+		exitButton.frame = CGRectMake(0, 0, 120, 40)
+		buttonContainer.addChild(exitButton)
 		 
-		
 		//align the ui items
-		list.align = .CENTERED
-		buttonSection.align = .CENTERED
-		
+		list.align = .CENTER
+		buttonContainer.align = .CENTER
+		okButton.align = .CENTER_LEFT
+		exitButton.align = .CENTER_RIGHT
 	}
 	// 
 	func addTargets(){
