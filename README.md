@@ -19,8 +19,8 @@ Git support | Yes | No | No
 Incremental history: | Yes | No | No
 Backup support: | Yes | Yes | Yes
 Live writing: | Yes | No | No
-Team collaboration: Yes | No | No
-Password security : | Yes | Yes | Yes
+Team collaboration: Yes | No | - [x]
+Password security : | Yes | Yes | - [ ]
 
 \*Free if you use GitHub for public projects, or if you use BitBucket for private projects  
 \*\*Pictures and pdfs contain data structures that are not suitable for version control systems  
