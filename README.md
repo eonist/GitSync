@@ -18,7 +18,7 @@ Git support | X |   |
 Incremental history | X |   |  
 Backup support | X | X | X
 Live writing | X |   |  
-Team collaboration X |   | X
+Team collaboration | X |   | X
 Password security  | X | X | X
 Private server | X |  | X
 Private network | X |   | X
