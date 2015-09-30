@@ -20,3 +20,7 @@ func pressedAction(sender: UIButton!) {
 
 
 //list for ios, may work for osx aswell: http://viperxgames.blogspot.no/2014/11/add-uitableview-programmatically-in.html
+
+//osx
+//https://developer.apple.com/library/mac/samplecode/TableViewPlayground/Introduction/Intro.html#//apple_ref/doc/uid/DTS40010727
+//https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/TableView/Introduction/Introduction.html
