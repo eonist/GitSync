@@ -114,7 +114,7 @@ class MergeUtils{
 		}
 	}
 }
-class DisplayDialog{
+class ListWindow{
 	func init(){
 	
 	}
