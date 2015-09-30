@@ -22,7 +22,6 @@ Team collaboration X |   | X
 Password security  | X | X | X
 Private server | X |  | X
 Private network | X |   | X
-Privacy | | |
 
 \*Free if you use GitHub for public projects, or if you use BitBucket for private projects  
 \*\*Pictures and pdfs contain data structures that are not suitable for version control systems  
