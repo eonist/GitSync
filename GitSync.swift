@@ -128,8 +128,8 @@ class MergeUtils{
 		
 			//last_selected_action = selected
 			switch selected{
-				case 1
-					printin("one")
+				case options[0]//keep local version
+					GitModifier's check_out(local_repo_path, "--ours", unmerged_file)
 				case 3...8
 					printin("range from 3 to 8")
 				default
