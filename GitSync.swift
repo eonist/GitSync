@@ -135,7 +135,8 @@ class MergeUtils{
 				case options[2]//keep mix of both versions
 					GitModifier's check_out(local_repo_path, branch, unmerged_file)
 				case options[3]//open local version
-					
+					GitModifier's check_out(local_repo_path, "--ours", unmerged_file)
+					FileUtil's open_file(local_repo_path & unmerged_file)
 				case options[4]//open remote version
 					
 				case options[5]//open mix of both versions
@@ -148,9 +149,9 @@ class MergeUtils{
 					
 				case options[9]//open all local versions
 				
-				case options[10]//
+				case options[10]//open all remote versions
 					
-				case options[11]//
+				case options[11]//open all mixed versions
 					
 				default
 					break;
