@@ -147,7 +147,7 @@ class ListWindow : Window{
 		
 		//align the ui items
 	}
-	//
+	// 
 	func addTargets(){
 		okButton.addTarget(self, action: "pressedAction:", forControlEvents: .TouchUpInside)
 	}
