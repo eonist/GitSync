@@ -138,15 +138,15 @@ class MergeUtils{
 					
 				case options[4]//open remote version
 					
-				case options[5]//
+				case options[5]//open mix of both versions
 					
-				case options[6]//
+				case options[6]//keep all local versions
 					
-				case options[7]//
+				case options[7]//keep all remote versions
 					
-				case options[8]//
+				case options[8]//keep all local and remote versions
 					
-				case options[9]//
+				case options[9]//open all local versions
 				
 				case options[10]//
 					
