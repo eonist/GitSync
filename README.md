@@ -10,3 +10,4 @@ Cloud storage: | 5GB w/ ICloud | 1GB/month | -
 Image support: | No | Yes | Yes
 Folder structure: | Yes | Yes | yes 
 PDF support: | No | Yes | Yes
+Markdown support: | Yes | 
