@@ -20,10 +20,10 @@ Incremental history: | Yes | No | No
 Backup support: | Yes | Yes | Yes
 Live writing: | Yes | No | No
 Team collaboration: Yes | No | No
-Password security : Yes | Yes | Yes
+Password security : | Yes | Yes | Yes
 
 \*Free if you use GitHub for public projects, or if you use BitBucket for private projects  
 \*\*Pictures and pdfs contain data structures that are not suitable for version control systems  
 \*\*\*A mac is required when syncing data across devices. Is not required to be on 24/7. 
 
-The free app Pages can be used as an Editor, but [Textastic](http://www.textastic.org) (9$) is a much better editor
+The free app Pages can be used as an Editor, but [Textastic](http://www.textasticapp.com) (9$) is a much better editor
