@@ -116,6 +116,11 @@ class MergeUtils{
 	}
 }
 class ListWindow : Window{
+	var list:Array
+	var headerTitle:String
+	var title:String
+	var lastSelected:String
+	var cancelButtonName:String
 	/**
 	 * 
 	 */
