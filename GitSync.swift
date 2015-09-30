@@ -127,10 +127,11 @@ class ListWindow : Window{
 	/**
 	 * 
 	 */
-	func init(list:Array,headerTitle:String,title:String ,selected:String,cancelButtonName:String){
+	override func init(list:Array,headerTitle:String,title:String ,selected:String,cancelButtonName:String){
+		init(width:300,height:800,headerTitle:headerTitle)
 		self.list = list
 		self.headerTitle = headerTitle
-		view.title = headerTitle
+		self.title = title
 		self.selected = selected
 		self.cancelButtonName = cancelButtonName
 		createContent()
@@ -143,24 +144,26 @@ class ListWindow : Window{
 		self.view.addSubview(list)
 		
 		let buttonSection:Section = Section()
-		self.view.addSubview(exitButton)
-		buttonSection
+		self.view.addSubview(buttonSection)
 		
 		let okButton = UIButton()
 		okButton.setTitle("OK", forState: .Normal)
 		okButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
 		okButton.frame = CGRectMake(15, 50, 300, 500)
-		self.view.addSubview(okButton)
+		buttonSection.addChild(okButton)
 		
 		//exit button here
 		let exitButton = UIButton()
-		exitButton.setTitle("OK", forState: .Normal)
+		exitButton.setTitle(cancelButtonName, forState: .Normal)
 		exitButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
 		exitButton.frame = CGRectMake(15, 50, 300, 500)
-		self.view.addSubview(exitButton)
+		buttonSection.addChild(exitButton)
 		 
 		
 		//align the ui items
+		list.align = .CENTERED
+		buttonSection.align = .CENTERED
+		
 	}
 	// 
 	func addTargets(){
