@@ -105,7 +105,7 @@ class MergeUtils{
 			let theAction to choose from list options with title "Resolve merge conflict in:" with prompt unMergedFile & ":" default items {lastSelectedAction} cancel button name "Exit" //promt user with list of options, title: Merge conflict in: unmerged_file
 			handle_merge_conflict_dialog(the_action, unMergedFile, localRepoPath, branch, unMergedFiles)
 			myButton.addTarget(self, action: "pressedAction:", forControlEvents: .TouchUpInside)
-
+			let lis
 			func pressedAction(sender: UIButton!) {
 			   // do your stuff here 
 			  NSLog("you clicked on button %@", sender.tag)
