@@ -102,16 +102,13 @@ class MergeUtils{
 		//log ("MergeUtil's resolve_merge_conflicts()")
 		for( unMergedFile in unMergedFiles){;
 			let lastSelectedAction:String = options.first //you may want to make this a "property" to store the last item more permenantly
-			let theAction to choose from list options with title "Resolve merge conflict in:" with prompt unMergedFile & ":" default items {lastSelectedAction} cancel button name "Exit" //promt user with list of options, title: Merge conflict in: unmerged_file
-			handle_merge_conflict_dialog(the_action, unMergedFile, localRepoPath, branch, unMergedFiles)
-
 			let listWindow = ListWindow(options,headerTitle:"Resolve merge conflict in: ",title:unMergedFile + ":",selected:lastSelectedAction,cancelButtonName:"Exit")//promt user with list of options, title: Merge conflict in: unmerged_file
 			listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
-			func complete(sender: Window!) {
+			func complete(sender: ListWindow!) {
 			   //do your stuff here
 			   print("Complete: " + sender.tag)
 			}
-			
+			handle_merge_conflict_dialog(the_action, unMergedFile, localRepoPath, branch, unMergedFiles)
 		}
 	}
 }
@@ -140,7 +137,7 @@ class ListWindow : Window{
 	func createContent(){
 		
 		//list here	
-		let list = List(list:self.list,selected:selected)
+		let list = List(list:self.list,selected:selected,multiSelect:false)
 		self.view.addSubview(list)
 		
 		//container for the buttons
