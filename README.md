@@ -21,6 +21,7 @@ Backup support: | Yes | Yes | Yes
 Live writing: | Yes | No | No
 Team collaboration: Yes | No | - [x]
 Password security : | Yes | Yes | - [ ]
+Private server: Yes | No | Yes
 
 \*Free if you use GitHub for public projects, or if you use BitBucket for private projects  
 \*\*Pictures and pdfs contain data structures that are not suitable for version control systems  
