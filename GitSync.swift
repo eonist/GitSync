@@ -126,15 +126,15 @@ class MergeUtils{
 		//continue here
 		
 		
-		
-		switch someVal{
-			case 1
-				printin("one")
-			case 3...8
-				printin("range from 3 to 8")
-			default
-				break;
-		}
+			//last_selected_action = selected
+			switch selected{
+				case 1
+					printin("one")
+				case 3...8
+					printin("range from 3 to 8")
+				default
+					break;
+			}
 		
 		if(didComplete){
 	   	set selected_item to item 1 of the_action
