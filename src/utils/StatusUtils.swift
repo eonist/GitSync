@@ -37,28 +37,28 @@ class StatusUtils{
 			set theStatusParts to RegExpUtil's match(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") --returns 3 capturing groups, 
 			//--log "length of theStatusParts: " & (length of theStatusParts)
 			//--log theStatusParts
-			if ((theStatusParts.second) == " ") { //--aka " M", remember that the second item is the first capturing group
-				set cmd = theStatusParts.third //--Changes not staged for commit:
-				var state to "Changes not staged for commit" //-- you need to add them
-			else //-- Changes to be committed--aka "M " or  "??" or "UU"
-				set cmd to theStatusParts.third //--rename cmd to type
+			if (theStatusParts.second == " ") { //--aka " M", remember that the second item is the first capturing group
+				var cmd = theStatusParts.third //--Changes not staged for commit:
+				state = "Changes not staged for commit" //-- you need to add them
+			}else{ //-- Changes to be committed--aka "M " or  "??" or "UU"
+				cmd = theStatusParts.third //--rename cmd to type
 				//--log "cmd: " & cmd
-				if (cmd == "??") then
+				if (cmd == "??"){
 					state = "Untracked files"
-				else if (cmd == "UU") then //--Unmerged path
+				}else if (cmd == "UU") { //--Unmerged path
 					//--log "Unmerged path"
 					state = "Unmerged path"
-				else
-					set state = "Changes to be committed" //--this is when the file is ready to be commited
-				end if
-			end if
-			let file_name = theStatusParts.fourth
+				}else{
+					state = "Changes to be committed" //--this is when the file is ready to be commited
+				}
+			}
+			let fileName = theStatusParts.fourth
 			//--log "state: " & state & ", cmd: " & cmd & ", file_name: " & file_name --logs the file named added changed etc
 			let statusItem to ["state":state, "cmd":cmd, "fileName":fileName] //--store the individual parts in an accociative
 			transformedList += statusItem //--add a record to a list
-		end repeat
+		}
 		return transformed_list
-	end transform_status_list
+	}
 	/*
 	 * Iterates over the status items and "git add" the item unless it's already added (aka "staged for commit")
 	 * NOTE: if the status list is empty then there is nothing to process
