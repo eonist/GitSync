@@ -7,18 +7,18 @@ class StatusUtils{
 	 * NOTE: you may use short staus, but you must interpret the message if the state has an empty space infront of it
 	 */
 	func generateStatusList(localRepoPath){
-		set theStatus = GitParser's status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
+		set theStatus = GitParser.status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
 		//--log tab & "theStatus: " & theStatus
 		set theStatus_list = TextParsers.paragraph(theStatus) //--store each line as items in a list
 		set transformedList = []
 		if (theStatusList.count > 0) {
-			set transformedList to my transformStatusList(theStatusList)
+			set transformedList = transformStatusList(theStatusList)
 		}else{
 			//--log "nothing to commit, working directory clean"// --this is the status msg if there has happened nothing new since last, but also if you have commits that are ready for push to origin
 		}
 		//--log "len of theStatus_list: " & (length of theStatusList)
 		//--log transformedList
-		return transformed_list
+		return transformedList
 	}
 	/*
  	 * Transforms the "compact git status list" by adding more context to each item (a list with acociative lists, aka records)
@@ -67,22 +67,22 @@ class StatusUtils{
 	 */
 	func processStatusList(localRepoPath, statusList){
 		//--log "process_status_list()"
-		for statusItem in statusList
+		for (statusItem in statusList){
 			//--log "len of status_item: " & (length of statusItem)
 			//--set cmd to cmd of status_item
 			if (statusItem["state"] = "Untracked files") { //--this is when there exists a new file
 				//log tab & "1. " & "Untracked files"
-				GitModifier's add(localRepoPath, statusItem["fileName"]) //--add the file to the next commit
+				GitModifier.add(localRepoPath, statusItem["fileName"]) //--add the file to the next commit
 			}else if (state = "Changes not staged for commit"){ //--this is when you have not added a file that has changed to the next commit
 				//log tab & "2. " & "Changes not staged for commit"
-				GitModifier's add(localRepoPath, statusItem["fileName"]) //--add the file to the next commit
+				GitModifier.add(localRepoPath, statusItem["fileName"]) //--add the file to the next commit
 			}else if (statusItem["state"] = "Changes to be committed" ){ //--this is when you have added a file to the next commit, but not commited it
 				//log tab & "3. " & "Changes to be committed" --do nothing here
 			}else if statusItem["state"] = "Unmerged path" ){ //--This is when you have files that have to be resolved first, but eventually added aswell
 				//log tab & "4. " & "Unmerged path"
-				GitModifier's add(localRepoPath, file_name) //--add the file to the next commit
+				GitModifier.add(localRepoPath, statusItem["fileName"]) //--add the file to the next commit
 			}
-		end repeat
+		}
 	}
 }
 /*
