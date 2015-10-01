@@ -34,7 +34,7 @@ class StatusUtils{
 		set transformedList = []
 		for (theStatusItem in theStatusList){ 
 			//--log "the_status_item: " & the_status_item
-			set theStatusParts to RegExpUtil's match(the_status_item, "^( )*([MARDU?]{1,2}) (.+)$") --returns 3 capturing groups, 
+			set theStatusParts to RegExpUtil's match(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") --returns 3 capturing groups, 
 			//--log "length of theStatusParts: " & (length of theStatusParts)
 			//--log theStatusParts
 			if ((theStatusParts.second) == " ") { //--aka " M", remember that the second item is the first capturing group
@@ -55,7 +55,7 @@ class StatusUtils{
 			let file_name = theStatusParts.fourth
 			//--log "state: " & state & ", cmd: " & cmd & ", file_name: " & file_name --logs the file named added changed etc
 			let statusItem to ["state":state, "cmd":cmd, "fileName":fileName] //--store the individual parts in an accociative
-			let transformedList to ListModifier's add_list(transformedList, statusItem) //--add a record to a list
+			transformedList += statusItem //--add a record to a list
 		end repeat
 		return transformed_list
 	end transform_status_list
