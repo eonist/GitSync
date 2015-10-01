@@ -37,20 +37,20 @@ class StatusUtils{
 			set theStatusParts to RegExpUtil's match(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") --returns 3 capturing groups, 
 			//--log "length of theStatusParts: " & (length of theStatusParts)
 			//--log theStatusParts
-			let statusItem to ["state":"", "cmd":"", "fileName":""] //--store the individual parts in an accociative
+			let statusItem = ["state":"", "cmd":"", "fileName":""] //--store the individual parts in an accociative
 			if (theStatusParts.second == " ") { //--aka " M", remember that the second item is the first capturing group
 				statusItem["cmd"] = theStatusParts.third //--Changes not staged for commit:
-				state = "Changes not staged for commit" //-- you need to add them
+				statusItem["state"] = "Changes not staged for commit" //-- you need to add them
 			}else{ //-- Changes to be committed--aka "M " or  "??" or "UU"
-				cmd = theStatusParts.third //--rename cmd to type
+				statusItem["cmd"] = theStatusParts.third //--rename cmd to type
 				//--log "cmd: " & cmd
-				if (cmd == "??"){
-					state = "Untracked files"
-				}else if (cmd == "UU") { //--Unmerged path
+				if (statusItem["cmd"] == "??"){
+					statusItem["state"] = "Untracked files"
+				}else if (statusItem["cmd"] == "UU") { //--Unmerged path
 					//--log "Unmerged path"
-					state = "Unmerged path"
+					statusItem["state"] = "Unmerged path"
 				}else{
-					state = "Changes to be committed" //--this is when the file is ready to be commited
+					statusItem["state"] = "Changes to be committed" //--this is when the file is ready to be commited
 				}
 			}
 			let fileName = theStatusParts.fourth
