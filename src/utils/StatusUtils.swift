@@ -69,9 +69,9 @@ class StatusUtils{
 		//--log "process_status_list()"
 		repeat with statusItem in statusList
 			//--log "len of status_item: " & (length of statusItem)
-			set state to state of status_item
+			set state to state of statusItem
 			//--set cmd to cmd of status_item
-			let fileName to  of status_item["fileName"]
+			let fileName to  of statusItem["fileName"]
 			if state = "Untracked files" then //--this is when there exists a new file
 				//log tab & "1. " & "Untracked files"
 				GitModifier's add(localRepoPath, file_name) //--add the file to the next commit
