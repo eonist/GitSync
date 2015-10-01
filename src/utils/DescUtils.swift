@@ -13,15 +13,15 @@ class DescUtil{
 	
 	
 	
-		set descText to ""
-		set modifiedItems to {}
-		set deletedItems to {}
-		set addedItems to {}
-		repeat with status_item in status_list
-			if (cmd of status_item is "D") then set deletedItems to ListModifier's add_list(deletedItems, status_item) --add a record to a list
-			if (cmd of status_item is "M") then set modifiedItems to ListModifier's add_list(modifiedItems, status_item) --add a record to a list
-			if (cmd of status_item is "??") then set addedItems to ListModifier's add_list(addedItems, status_item) --add a record to a list
-			if (cmd of status_item is "UU") then set modifiedItems to ListModifier's add_list(modifiedItems, status_item) --add a record to a list
+		set descText = ""
+		set modifiedItems = []
+		set deletedItems = []
+		set addedItems = []
+		for in with statusItem in status_list
+			if (cmd of statusItem is "D") { set deletedItems to ListModifier's add_list(deletedItems, statusItem) }//--add a record to a list
+			if (cmd of statusItem is "M") { set modifiedItems to ListModifier's add_list(modifiedItems, statusItem) }//--add a record to a list
+			if (cmd of statusItem is "??") { set addedItems to ListModifier's add_list(addedItems, statusItem) }//--add a record to a list
+			if (cmd of statusItem is "UU") { set modifiedItems to ListModifier's add_list(modifiedItems, statusItem) }//--add a record to a list
 		end repeat
 		set descText to descText & description_paragraph(addedItems, "Added ") & return --add an extra line break at the end "paragraph like"
 		set descText to descText & description_paragraph(deletedItems, "Deleted ") & return
