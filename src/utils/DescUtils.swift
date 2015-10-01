@@ -33,12 +33,12 @@ class DescUtil{
 	 */
 	func descriptionParagraph(theList, prefixText){
 		var descText to ""
-		if (length of the_list > 0) {
+		if (theList.count > 0) {
 			set theSuffix to " file"
-			if (theList.count > 1) then set the_suffix to the_suffix & "s" --multiple
-			set descText to descText & prefix_text & length of the_list & the_suffix & ":" & return
+			if (theList.count > 1) then theSuffix += "s" //--multiple
+			descText += prefixText + theList.count + theSuffix + ":" & "\n"
 			repeat with the_item in the_list
-				set descText to descText & (file_name of the_item) & return
+				descText += (theItem["fileName"]) + "\n"
 			end repeat
 		}
 		return descText
