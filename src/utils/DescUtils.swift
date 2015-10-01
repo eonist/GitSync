@@ -23,15 +23,15 @@ class DescUtil{
 			if (statusItem["cmd"] == "??") { addedItems.append(statusItem) }//--add a record to a list
 			if (statusItem["cmd"] == "UU") { modifiedItems.append( statusItem) }//--add a record to a list
 		}
-		set descText to descText & description_paragraph(addedItems, "Added ") & return --add an extra line break at the end "paragraph like"
-		set descText to descText & description_paragraph(deletedItems, "Deleted ") & return
-		set descText to descText & description_paragraph(modifiedItems, "Modified ")
+		descText += descriptionParagraph(addedItems, "Added ") + "\n" //--add an extra line break at the end "paragraph like"
+		descText += descriptionParagraph(deletedItems, "Deleted ") + "\n"
+		descText += descriptionParagraph(modifiedItems, "Modified ")
 		return descText
 	}
 	/*
 	 * Returns a paragraph with a detailed description for Deleted, added and modified files
 	 */
-	func description_paragraph(the_list, prefix_text){
+	func descriptionParagraph(the_list, prefix_text){
 		set descText to ""
 		if (length of the_list > 0) {
 			set the_suffix to " file"
