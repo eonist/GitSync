@@ -16,35 +16,35 @@ class CommitUtil{
 		for statusItem in statusList
 		//	let cmd to cmd of status_item --TODO: rename to type or status_type
 			if (statusItem["cmd"] = "M") {
-				set numOfModifiedFiles to numOfModifiedFiles + 1
+				 numOfModifiedFiles to numOfModifiedFiles + 1
 			}else if (statusItem["cmd"] = "D") {
-				set numOfDeletedFiles to numOfDeletedFiles + 1
+				 numOfDeletedFiles to numOfDeletedFiles + 1
 			}else if (statusItem["cmd"] = "A") {
-				set numOfNewFiles to numOfNewFiles + 1
+				 numOfNewFiles to numOfNewFiles + 1
 			}else if (statusItem["cmd"] = "R") {// --This command seems to never be triggered in git
-				set numOfDeletedFiles to numOfDeletedFiles + 1
+				 numOfDeletedFiles to numOfDeletedFiles + 1
 			}else if (statusItem["cmd"] = "??") {// --untracked files,
-				set numOfNewFiles to numOfNewFiles + 1
+				 numOfNewFiles to numOfNewFiles + 1
 			}else if (statusItem["cmd"] = "UU") {// --unmerged files,
-				set numOfModifiedFiles to numOfModifiedFiles + 1
+				 numOfModifiedFiles to numOfModifiedFiles + 1
 			}
 		end repeat
-		set commit_msg to ""
-		if (numOfNewFiles > 0) then
-			set commit_msg to commit_msg & "New files added: " & numOfNewFiles
+		set commitMessage to ""
+		if (numOfNewFiles > 0) {
+			 commitMessage to commitMessage & "New files added: " & numOfNewFiles
 		end if
 		if (numOfModifiedFiles > 0) then
-			if (length of commit_msg > 0) then set commit_msg to commit_msg & ", " --append comma
-			set commit_msg to commit_msg & "Files modified: " & numOfModifiedFiles
+			if (length of commitMessage > 0) then set commitMessage to commitMessage & ", " --append comma
+			 commitMessage to commitMessage & "Files modified: " & numOfModifiedFiles
 		end if
 		if (numOfDeletedFiles > 0) then
-			if (length of commit_msg > 0) then set commit_msg to commit_msg & ", " --append comma
-			set commit_msg to commit_msg & "Files deleted: " & numOfDeletedFiles
+			if (length of commitMessage > 0) then set commitMessage to commitMessage & ", " --append comma
+			 commitMessage to commitMessage & "Files deleted: " & numOfDeletedFiles
 		end if
 		if (numOfDeletedFiles > 0) then
-			if (length of commit_msg > 0) then set commit_msg to commit_msg & ", " --append comma
-			set commit_msg to commit_msg & "Files renamed: " & numOfDeletedFiles
+			if (length of commitMessage > 0) then set commitMessage to commitMessage & ", " --append comma
+			 commitMessage to commitMessage & "Files renamed: " & numOfDeletedFiles
 		end if
-		return commit_msg
+		return commitMessage
 	}
 }
