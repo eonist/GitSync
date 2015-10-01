@@ -6,13 +6,6 @@ class DescUtil{
 	 * Returns a "Git Commit Message Description" derived from a "git status list" with "status items records"
 	 */
 	func sequenceDescription(statusList){
-	
-	
-	
-		//continue here
-	
-	
-	
 		var descText:String = ""
 		var modifiedItems:Array = []
 		var deletedItems:Array = []
@@ -35,11 +28,11 @@ class DescUtil{
 		var descText to ""
 		if (theList.count > 0) {
 			set theSuffix to " file"
-			if (theList.count > 1) then theSuffix += "s" //--multiple
+			if (theList.count > 1) { theSuffix += "s" }//--multiple
 			descText += prefixText + theList.count + theSuffix + ":" & "\n"
-			repeat with the_item in the_list
-				descText += (theItem["fileName"]) + "\n"
-			end repeat
+			for (theItem in theList){
+				descText += theItem["fileName"] + "\n"
+			}
 		}
 		return descText
 	}
