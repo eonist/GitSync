@@ -34,7 +34,7 @@ class StatusUtils{
 		set transformedList = []
 		for (theStatusItem in theStatusList){ 
 			//--log "the_status_item: " & the_status_item
-			set theStatusParts to RegExpUtil's match(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") --returns 3 capturing groups, 
+			set theStatusParts to RegExpParser.match(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups, 
 			//--log "length of theStatusParts: " & (length of theStatusParts)
 			//--log theStatusParts
 			let statusItem = ["state":"", "cmd":"", "fileName":""] //--store the individual parts in an accociative
@@ -53,9 +53,8 @@ class StatusUtils{
 					statusItem["state"] = "Changes to be committed" //--this is when the file is ready to be commited
 				}
 			}
-			let fileName = theStatusParts.fourth
+			statusItem["fileName"] = theStatusParts.fourth
 			//--log "state: " & state & ", cmd: " & cmd & ", file_name: " & file_name --logs the file named added changed etc
-
 			transformedList += statusItem //--add a record to a list
 		}
 		return transformed_list
