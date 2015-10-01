@@ -6,7 +6,7 @@ class StatusUtils{
 	 * Returns a descriptive status list of the current git changes
 	 * NOTE: you may use short staus, but you must interpret the message if the state has an empty space infront of it
 	 */
-	func generateStatusList(localRepoPath){
+	func generateStatusList(localRepoPath)->Array{
 		set theStatus = GitParser.status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
 		//--log tab & "theStatus: " & theStatus
 		set theStatus_list = TextParsers.paragraph(theStatus) //--store each line as items in a list
@@ -30,7 +30,7 @@ class StatusUtils{
 	 * @Param: theStatusList is a list with status messages like: {"?? test.txt"," M index.html","A home.html"}
 	 * NOTE: can also be "UU" unmerged paths
  	 */
-	func transform_status_list(theStatusList){
+	func transform_status_list(theStatusList)->Array{
 		set transformedList = []
 		for (theStatusItem in theStatusList){ 
 			//--log "the_status_item: " & the_status_item
@@ -57,7 +57,7 @@ class StatusUtils{
 			//--log "state: " & state & ", cmd: " & cmd & ", file_name: " & file_name --logs the file named added changed etc
 			transformedList += statusItem //--add a record to a list
 		}
-		return transformed_list
+		return transformedList
 	}
 	/*
 	 * Iterates over the status items and "git add" the item unless it's already added (aka "staged for commit")
