@@ -7,17 +7,17 @@ class StatusUtils{
 	 * NOTE: you may use short staus, but you must interpret the message if the state has an empty space infront of it
 	 */
 	func generateStatusList(localRepoPath){
-		set the_status to GitParser's status(localRepoPath, "-s") -- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
-		--log tab & "the_status: " & the_status
-		set the_status_list to TextParser's every_paragraph(the_status) --store each line as items in a list
-		set transformed_list to {}
-		if (length of the_status_list > 0) then
-			set transformed_list to my transform_status_list(the_status_list)
+		set theStatus to GitParser's status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
+		--log tab & "theStatus: " & theStatus
+		set theStatus_list to TextParsers.paragraph(theStatus) //--store each line as items in a list
+		set transformedList to {}
+		if (theStatusList.count > 0) {
+			set transformedList to my transform_status_list(theStatusList)
 		else
-			--log "nothing to commit, working directory clean" --this is the status msg if there has happened nothing new since last, but also if you have commits that are ready for push to origin
+			--log "nothing to commit, working directory clean"// --this is the status msg if there has happened nothing new since last, but also if you have commits that are ready for push to origin
 		end if
-		--log "len of the_status_list: " & (length of the_status_list)
-		--log transformed_list
+		--log "len of theStatus_list: " & (length of theStatusList)
+		--log transformedList
 		return transformed_list
 	}
 	/*
