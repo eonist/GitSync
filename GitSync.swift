@@ -82,7 +82,6 @@ class GitSync{
 			//log tab & "commit_msg_title: " & commit_msg_title
 			let commitMsgDesc = DescUtil.sequenceDescription(statusList) //--sequence commit msg description for the commit
 			//log tab & "commit_msg_desc: " & commit_msg_desc
-			
 			do {//--try to make a git commit
 				try let commitResult to GitModifiers.commit(localRepoPath, commitMsgTitle, commitMsgDesc) //--commit
 			   //log tab & "commit_result: " & commit_result
@@ -124,7 +123,6 @@ class RepoUtils{//Utility methods for parsing the repository.xml file
 		return theRepoList
 	}
 }
-
 class MergeUtils{
 	/*
  	 * Promts the user with a list of options to aid in resolving merge conflicts
