@@ -77,14 +77,14 @@ class GitSync{
 		if (statusList.count > 0) {
 			//log tab & "there is something to add or commit"
 			//--log tab & "length of status_list: " & (length of statusList)
-			my StatusUtil's process_status_list(localRepoPath, statusList) //--process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del
-			set commit_msg_title to my CommitUtil's sequence_commit_msg_title(statusList) //--sequence commit msg title for the commit
+			StatusUtils.processStatusList(localRepoPath, statusList) //--process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del
+			set commitMsgTitle = CommitUtils.sequenceCommitMsgTitle(statusList) //--sequence commit msg title for the commit
 			//log tab & "commit_msg_title: " & commit_msg_title
-			set commit_msg_desc to my DescUtil's sequence_description(statusList) //--sequence commit msg description for the commit
+			let commitMsgDesc = DescUtil.sequenceDescription(statusList) //--sequence commit msg description for the commit
 			//log tab & "commit_msg_desc: " & commit_msg_desc
 			
-			do {--try to make a git commit
-				try set commit_result to GitModifier's commit(localRepoPath, commit_msg_title, commit_msg_desc) //--commit
+			do {//--try to make a git commit
+				try let commitResult to GitModifiers.commit(localRepoPath, commitMsgTitle, commitMsgDesc) //--commit
 			   //log tab & "commit_result: " & commit_result
 			} catch let error as NSError {
 			    print ("Error: \(error.domain)")
@@ -192,7 +192,8 @@ class MergeUtils{
 	}
 }
 /*
- * single choice list window
+ * single choice list window, similar to applescript's "choose from list" Dialog Window
+ * Todo: rename to ChooseFromListWinow?
  */
 class ListWindow : Window{
 	var list:Array
