@@ -9,41 +9,41 @@ class CommitUtil{
 	 * NOTE: In place of Renamed, Git first deletes the file then says its untracked
     */
 	func sequenceCommitMsgTitle(statusList){
-		set num_of_new_files to 0
-		set num_of_modified_files to 0
-		set num_of_deleted_files to 0
-		set num_of_renamed_files to 0
+		set numOfNewFiles to 0
+		set numOfModifiedFiles to 0
+		set numOfDeletedFiles to 0
+		set numOfDeletedFiles to 0
 		repeat with status_item in status_list
 			set cmd to cmd of status_item --TODO: rename to type or status_type
 			if (cmd = "M") then
-				set num_of_modified_files to num_of_modified_files + 1
+				set numOfModifiedFiles to numOfModifiedFiles + 1
 			else if (cmd = "D") then
-				set num_of_deleted_files to num_of_deleted_files + 1
+				set numOfDeletedFiles to numOfDeletedFiles + 1
 			else if (cmd = "A") then
-				set num_of_new_files to num_of_new_files + 1
+				set numOfNewFiles to numOfNewFiles + 1
 			else if (cmd = "R") then --This command seems to never be triggered in git
-				set num_of_renamed_files to num_of_renamed_files + 1
+				set numOfDeletedFiles to numOfDeletedFiles + 1
 			else if (cmd = "??") then --untracked files,
-				set num_of_new_files to num_of_new_files + 1
+				set numOfNewFiles to numOfNewFiles + 1
 			else if (cmd = "UU") then --unmerged files,
-				set num_of_modified_files to num_of_modified_files + 1
+				set numOfModifiedFiles to numOfModifiedFiles + 1
 			end if
 		end repeat
 		set commit_msg to ""
-		if (num_of_new_files > 0) then
-			set commit_msg to commit_msg & "New files added: " & num_of_new_files
+		if (numOfNewFiles > 0) then
+			set commit_msg to commit_msg & "New files added: " & numOfNewFiles
 		end if
-		if (num_of_modified_files > 0) then
+		if (numOfModifiedFiles > 0) then
 			if (length of commit_msg > 0) then set commit_msg to commit_msg & ", " --append comma
-			set commit_msg to commit_msg & "Files modified: " & num_of_modified_files
+			set commit_msg to commit_msg & "Files modified: " & numOfModifiedFiles
 		end if
-		if (num_of_deleted_files > 0) then
+		if (numOfDeletedFiles > 0) then
 			if (length of commit_msg > 0) then set commit_msg to commit_msg & ", " --append comma
-			set commit_msg to commit_msg & "Files deleted: " & num_of_deleted_files
+			set commit_msg to commit_msg & "Files deleted: " & numOfDeletedFiles
 		end if
-		if (num_of_renamed_files > 0) then
+		if (numOfDeletedFiles > 0) then
 			if (length of commit_msg > 0) then set commit_msg to commit_msg & ", " --append comma
-			set commit_msg to commit_msg & "Files renamed: " & num_of_renamed_files
+			set commit_msg to commit_msg & "Files renamed: " & numOfDeletedFiles
 		end if
 		return commit_msg
 	}
