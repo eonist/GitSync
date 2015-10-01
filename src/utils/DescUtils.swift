@@ -18,10 +18,10 @@ class DescUtil{
 		set deletedItems = []
 		set addedItems = []
 		for in with statusItem in status_list
-			if (statusItem["cmd"] is "D") { set deletedItems to ListModifier's add_list(deletedItems, statusItem) }//--add a record to a list
-			if (statusItem["cmd"] is "M") { set modifiedItems to ListModifier's add_list(modifiedItems, statusItem) }//--add a record to a list
-			if (statusItem["cmd"] is "??") { set addedItems to ListModifier's add_list(addedItems, statusItem) }//--add a record to a list
-			if (statusItem["cmd"] is "UU") { set modifiedItems to ListModifier's add_list(modifiedItems, statusItem) }//--add a record to a list
+			if (statusItem["cmd"] is "D") { deletedItems.append(statusItem) }//--add a record to a list
+			if (statusItem["cmd"] is "M") { modifiedItems.append( statusItem) }//--add a record to a list
+			if (statusItem["cmd"] is "??") { addedItems.append(statusItem) }//--add a record to a list
+			if (statusItem["cmd"] is "UU") { modifiedItems.append( statusItem) }//--add a record to a list
 		end repeat
 		set descText to descText & description_paragraph(addedItems, "Added ") & return --add an extra line break at the end "paragraph like"
 		set descText to descText & description_paragraph(deletedItems, "Deleted ") & return
