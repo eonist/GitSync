@@ -65,7 +65,7 @@ class StatusUtils{
 	 * NOTE: even if a file is removed, its status needs to be added to the next commit
 	 * TODO: Squash some of the states together with if or or or etc
 	 */
-	func process_status_list(localRepoPath, status_list){
+	func processStatusList(localRepoPath, status_list){
 		--log "process_status_list()"
 		repeat with status_item in status_list
 			--log "len of status_item: " & (length of status_item)
