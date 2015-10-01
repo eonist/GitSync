@@ -95,7 +95,6 @@ class GitSync{
 		}
 	}
 }
-
 class RepoUtils{//Utility methods for parsing the repository.xml file
 	/**
 	 * Returns a list with repo values derived from an XML file
