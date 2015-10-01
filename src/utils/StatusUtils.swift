@@ -39,7 +39,7 @@ class StatusUtils{
 			//--log theStatusParts
 			let statusItem to ["state":"", "cmd":"", "fileName":""] //--store the individual parts in an accociative
 			if (theStatusParts.second == " ") { //--aka " M", remember that the second item is the first capturing group
-				var cmd = theStatusParts.third //--Changes not staged for commit:
+				statusItem["cmd"] = theStatusParts.third //--Changes not staged for commit:
 				state = "Changes not staged for commit" //-- you need to add them
 			}else{ //-- Changes to be committed--aka "M " or  "??" or "UU"
 				cmd = theStatusParts.third //--rename cmd to type
