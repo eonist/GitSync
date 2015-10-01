@@ -16,17 +16,17 @@ class CommitUtil{
 		for statusItem in statusList
 		//	let cmd to cmd of status_item --TODO: rename to type or status_type
 			if (statusItem["cmd"] = "M") {
-				 numOfModifiedFiles to numOfModifiedFiles + 1
+				 numOfModifiedFiles +=  1
 			}else if (statusItem["cmd"] = "D") {
-				 numOfDeletedFiles to numOfDeletedFiles + 1
+				 numOfDeletedFiles +=  1
 			}else if (statusItem["cmd"] = "A") {
-				 numOfNewFiles to numOfNewFiles + 1
+				 numOfNewFiles +=  1
 			}else if (statusItem["cmd"] = "R") {// --This command seems to never be triggered in git
-				 numOfDeletedFiles to numOfDeletedFiles + 1
+				 numOfDeletedFiles +=  1
 			}else if (statusItem["cmd"] = "??") {// --untracked files,
-				 numOfNewFiles to numOfNewFiles + 1
+				 numOfNewFiles += 1
 			}else if (statusItem["cmd"] = "UU") {// --unmerged files,
-				 numOfModifiedFiles to numOfModifiedFiles + 1
+				 numOfModifiedFiles += 1
 			}
 		end repeat
 		set commitMessage to ""
