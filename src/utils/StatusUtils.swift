@@ -31,8 +31,8 @@ class StatusUtils{
 	 * NOTE: can also be "UU" unmerged paths
  	 */
 	func transform_status_list(theStatusList){
-		set transformed_list = {}
-		for (the_status_item in theStatusList){ 
+		set transformedList = []
+		for (theStatusItem in theStatusList){ 
 			//--log "the_status_item: " & the_status_item
 			set theStatusParts to RegExpUtil's match(the_status_item, "^( )*([MARDU?]{1,2}) (.+)$") --returns 3 capturing groups, 
 			//--log "length of theStatusParts: " & (length of theStatusParts)
