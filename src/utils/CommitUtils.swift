@@ -32,19 +32,25 @@ class CommitUtil{
 		set commitMessage to ""
 		if (numOfNewFiles > 0) {
 			 commitMessage to commitMessage & "New files added: " & numOfNewFiles
-		end if
-		if (numOfModifiedFiles > 0) then
-			if (length of commitMessage > 0) then set commitMessage to commitMessage & ", " --append comma
+		}
+		if (numOfModifiedFiles > 0) {
+			if (commitMessage.count > 0) then set commitMessage to commitMessage & ", " //--append comma
 			 commitMessage to commitMessage & "Files modified: " & numOfModifiedFiles
-		end if
-		if (numOfDeletedFiles > 0) then
-			if (length of commitMessage > 0) then set commitMessage to commitMessage & ", " --append comma
+		}
+		if (numOfDeletedFiles > 0) {
+			if (commitMessage.count > 0) { set commitMessage to commitMessage & ", " //--append comma
 			 commitMessage to commitMessage & "Files deleted: " & numOfDeletedFiles
-		end if
-		if (numOfDeletedFiles > 0) then
-			if (length of commitMessage > 0) then set commitMessage to commitMessage & ", " --append comma
+		}
+		if (numOfDeletedFiles > 0) {
+			if (commitMessage.count > 0) then set commitMessage to commitMessage & ", "// --append comma
 			 commitMessage to commitMessage & "Files renamed: " & numOfDeletedFiles
-		end if
+		}
 		return commitMessage
 	}
 }
+
+
+
+
+
+
