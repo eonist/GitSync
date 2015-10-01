@@ -9,12 +9,12 @@ class CommitUtil{
 	 * NOTE: In place of Renamed, Git first deletes the file then says its untracked
     */
 	func sequenceCommitMsgTitle(statusList){
-		set numOfNewFiles to 0
-		set numOfModifiedFiles to 0
-		set numOfDeletedFiles to 0
-		set numOfDeletedFiles to 0
-		repeat with status_item in status_list
-			set cmd to cmd of status_item --TODO: rename to type or status_type
+		set numOfNewFiles = 0
+		set numOfModifiedFiles = 0
+		set numOfDeletedFiles = 0
+		set numOfDeletedFiles = 0
+		for statusItem in statusList
+			let cmd to cmd of status_item --TODO: rename to type or status_type
 			if (cmd = "M") then
 				set numOfModifiedFiles to numOfModifiedFiles + 1
 			else if (cmd = "D") then
