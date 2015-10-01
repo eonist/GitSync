@@ -8,7 +8,7 @@ class CommitUtil{
 	 * NOTE: C,I,R seems to never be triggered, COPIED,IGNORED,REMOVED,
 	 * NOTE: In place of Renamed, Git first deletes the file then says its untracked
     */
-	func sequence_commit_msg_title(status_list){
+	func sequenceCommitMsgTitle(statusList){
 		set num_of_new_files to 0
 		set num_of_modified_files to 0
 		set num_of_deleted_files to 0
