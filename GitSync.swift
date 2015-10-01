@@ -82,12 +82,14 @@ class GitSync{
 			//log tab & "commit_msg_title: " & commit_msg_title
 			set commit_msg_desc to my DescUtil's sequence_description(statusList) //--sequence commit msg description for the commit
 			//log tab & "commit_msg_desc: " & commit_msg_desc
-			try --try to make a git commit
-				set commit_result to GitModifier's commit(localRepoPath, commit_msg_title, commit_msg_desc) //--commit
-				//log tab & "commit_result: " & commit_result
-			on error errMsg
-				//log tab & "----------------ERROR:-----------------" & errMsg
-			end try
+			
+			do {--try to make a git commit
+				try set commit_result to GitModifier's commit(localRepoPath, commit_msg_title, commit_msg_desc) //--commit
+			   //log tab & "commit_result: " & commit_result
+			} catch let error as NSError {
+			    print ("Error: \(error.domain)")
+				 //log tab & "----------------ERROR:-----------------" & errMsg
+			}
 			return true //--return true to indicate that the commit completed
 		}else{
 			//log tab & "nothing to add or commit"
