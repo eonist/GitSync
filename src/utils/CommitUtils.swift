@@ -14,20 +14,20 @@ class CommitUtil{
 		set numOfDeletedFiles = 0
 		set numOfDeletedFiles = 0
 		for statusItem in statusList
-			let cmd to cmd of status_item --TODO: rename to type or status_type
-			if (cmd = "M") then
+		//	let cmd to cmd of status_item --TODO: rename to type or status_type
+			if (statusItem["cmd"] = "M") {
 				set numOfModifiedFiles to numOfModifiedFiles + 1
-			else if (cmd = "D") then
+			}else if (statusItem["cmd"] = "D") {
 				set numOfDeletedFiles to numOfDeletedFiles + 1
-			else if (cmd = "A") then
+			}else if (statusItem["cmd"] = "A") {
 				set numOfNewFiles to numOfNewFiles + 1
-			else if (cmd = "R") then --This command seems to never be triggered in git
+			}else if (statusItem["cmd"] = "R") {// --This command seems to never be triggered in git
 				set numOfDeletedFiles to numOfDeletedFiles + 1
-			else if (cmd = "??") then --untracked files,
+			}else if (statusItem["cmd"] = "??") {// --untracked files,
 				set numOfNewFiles to numOfNewFiles + 1
-			else if (cmd = "UU") then --unmerged files,
+			}else if (statusItem["cmd"] = "UU") {// --unmerged files,
 				set numOfModifiedFiles to numOfModifiedFiles + 1
-			end if
+			}
 		end repeat
 		set commit_msg to ""
 		if (numOfNewFiles > 0) then
