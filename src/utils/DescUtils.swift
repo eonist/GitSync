@@ -17,7 +17,7 @@ class DescUtil{
 		set modifiedItems:Array = []
 		set deletedItems:Array = []
 		set addedItems:Array = []
-		for in with statusItem in status_list{
+		for statusItem in statusList{
 			if (statusItem["cmd"] == "D") { deletedItems.append(statusItem) }//--add a record to a list
 			if (statusItem["cmd"] == "M") { modifiedItems.append( statusItem) }//--add a record to a list
 			if (statusItem["cmd"] == "??") { addedItems.append(statusItem) }//--add a record to a list
@@ -31,7 +31,7 @@ class DescUtil{
 	/*
 	 * Returns a paragraph with a detailed description for Deleted, added and modified files
 	 */
-	func descriptionParagraph(the_list, prefix_text){
+	func descriptionParagraph(theList, prefixText){
 		set descText to ""
 		if (length of the_list > 0) {
 			set the_suffix to " file"
