@@ -7,12 +7,12 @@ class StatusUtils{
 	 * NOTE: you may use short staus, but you must interpret the message if the state has an empty space infront of it
 	 */
 	func generateStatusList(localRepoPath){
-		set theStatus to GitParser's status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
+		set theStatus = GitParser's status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
 		//--log tab & "theStatus: " & theStatus
-		set theStatus_list to TextParsers.paragraph(theStatus) //--store each line as items in a list
-		set transformedList to {}
+		set theStatus_list = TextParsers.paragraph(theStatus) //--store each line as items in a list
+		set transformedList = []
 		if (theStatusList.count > 0) {
-			set transformedList to my transform_status_list(theStatusList)
+			set transformedList to my transformStatusList(theStatusList)
 		}else{
 			//--log "nothing to commit, working directory clean"// --this is the status msg if there has happened nothing new since last, but also if you have commits that are ready for push to origin
 		}
@@ -27,35 +27,35 @@ class StatusUtils{
  	 * NOTE: the space infront of the capetalized char indicates Changes not staged for commit:
  	 * NOTE: Returns = renamed, M = modified, A = addedto index, D = deleted, ?? = untracked file
 	 * NOTE: the state can be:  "Changes not staged for commit" , "Untracked files" , "Changes to be committed"
-	 * @Param: the_status_list is a list with status messages like: {"?? test.txt"," M index.html","A home.html"}
+	 * @Param: theStatusList is a list with status messages like: {"?? test.txt"," M index.html","A home.html"}
 	 * NOTE: can also be "UU" unmerged paths
  	 */
-	func transform_status_list(the_status_list){
-		set transformed_list to {}
-		repeat with the_status_item in the_status_list
-			--log "the_status_item: " & the_status_item
-			set the_status_parts to RegExpUtil's match(the_status_item, "^( )*([MARDU?]{1,2}) (.+)$") --returns 3 capturing groups, 
-			--log "length of the_status_parts: " & (length of the_status_parts)
-			--log the_status_parts
-			if ((second item in the_status_parts) = " ") then --aka " M", remember that the second item is the first capturing group
-				set cmd to third item in the_status_parts --Changes not staged for commit:
-				set state to "Changes not staged for commit" -- you need to add them
-			else -- Changes to be committed--aka "M " or  "??" or "UU"
-				set cmd to third item in the_status_parts --rename cmd to type
-				--log "cmd: " & cmd
-				if (cmd = "??") then
-					set state to "Untracked files"
-				else if (cmd = "UU") then --Unmerged path
-					--log "Unmerged path"
-					set state to "Unmerged path"
+	func transform_status_list(theStatusList){
+		set transformed_list = {}
+		for (the_status_item in theStatusList){ 
+			//--log "the_status_item: " & the_status_item
+			set theStatusParts to RegExpUtil's match(the_status_item, "^( )*([MARDU?]{1,2}) (.+)$") --returns 3 capturing groups, 
+			//--log "length of theStatusParts: " & (length of theStatusParts)
+			//--log theStatusParts
+			if ((theStatusParts.second) == " ") { //--aka " M", remember that the second item is the first capturing group
+				set cmd = theStatusParts.third //--Changes not staged for commit:
+				var state to "Changes not staged for commit" //-- you need to add them
+			else //-- Changes to be committed--aka "M " or  "??" or "UU"
+				set cmd to theStatusParts.third //--rename cmd to type
+				//--log "cmd: " & cmd
+				if (cmd == "??") then
+					state = "Untracked files"
+				else if (cmd == "UU") then //--Unmerged path
+					//--log "Unmerged path"
+					state = "Unmerged path"
 				else
-					set state to "Changes to be committed" --this is when the file is ready to be commited
+					set state = "Changes to be committed" //--this is when the file is ready to be commited
 				end if
 			end if
-			set file_name to the fourth item in the_status_parts
-			--log "state: " & state & ", cmd: " & cmd & ", file_name: " & file_name --logs the file named added changed etc
-			set status_item to {state:state, cmd:cmd, file_name:file_name} --store the individual parts in an accociative
-			set transformed_list to ListModifier's add_list(transformed_list, status_item) --add a record to a list
+			let file_name = theStatusParts.fourth
+			//--log "state: " & state & ", cmd: " & cmd & ", file_name: " & file_name --logs the file named added changed etc
+			let statusItem to ["state":state, "cmd":cmd, "fileName":fileName] //--store the individual parts in an accociative
+			let transformedList to ListModifier's add_list(transformedList, statusItem) //--add a record to a list
 		end repeat
 		return transformed_list
 	end transform_status_list
