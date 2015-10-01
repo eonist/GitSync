@@ -37,7 +37,7 @@ class StatusUtils{
 			set theStatusParts to RegExpUtil's match(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") --returns 3 capturing groups, 
 			//--log "length of theStatusParts: " & (length of theStatusParts)
 			//--log theStatusParts
-			let statusItem to ["state":state, "cmd":cmd, "fileName":fileName] //--store the individual parts in an accociative
+			let statusItem to ["state":"", "cmd":"", "fileName":""] //--store the individual parts in an accociative
 			if (theStatusParts.second == " ") { //--aka " M", remember that the second item is the first capturing group
 				var cmd = theStatusParts.third //--Changes not staged for commit:
 				state = "Changes not staged for commit" //-- you need to add them
