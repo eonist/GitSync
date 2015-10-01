@@ -13,16 +13,16 @@ class DescUtil{
 	
 	
 	
-		set descText = ""
-		set modifiedItems = []
-		set deletedItems = []
-		set addedItems = []
-		for in with statusItem in status_list
+		set descText:String = ""
+		set modifiedItems:Array = []
+		set deletedItems:Array = []
+		set addedItems:Array = []
+		for in with statusItem in status_list{
 			if (statusItem["cmd"] is "D") { deletedItems.append(statusItem) }//--add a record to a list
 			if (statusItem["cmd"] is "M") { modifiedItems.append( statusItem) }//--add a record to a list
 			if (statusItem["cmd"] is "??") { addedItems.append(statusItem) }//--add a record to a list
 			if (statusItem["cmd"] is "UU") { modifiedItems.append( statusItem) }//--add a record to a list
-		end repeat
+		}
 		set descText to descText & description_paragraph(addedItems, "Added ") & return --add an extra line break at the end "paragraph like"
 		set descText to descText & description_paragraph(deletedItems, "Deleted ") & return
 		set descText to descText & description_paragraph(modifiedItems, "Modified ")
