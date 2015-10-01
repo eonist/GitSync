@@ -13,10 +13,10 @@ class DescUtil{
 	
 	
 	
-		set descText:String = ""
-		set modifiedItems:Array = []
-		set deletedItems:Array = []
-		set addedItems:Array = []
+		var descText:String = ""
+		var modifiedItems:Array = []
+		var deletedItems:Array = []
+		var addedItems:Array = []
 		for statusItem in statusList{
 			if (statusItem["cmd"] == "D") { deletedItems.append(statusItem) }//--add a record to a list
 			if (statusItem["cmd"] == "M") { modifiedItems.append( statusItem) }//--add a record to a list
@@ -32,10 +32,10 @@ class DescUtil{
 	 * Returns a paragraph with a detailed description for Deleted, added and modified files
 	 */
 	func descriptionParagraph(theList, prefixText){
-		set descText to ""
+		var descText to ""
 		if (length of the_list > 0) {
-			set the_suffix to " file"
-			if (length of the_list > 1) then set the_suffix to the_suffix & "s" --multiple
+			set theSuffix to " file"
+			if (theList.count > 1) then set the_suffix to the_suffix & "s" --multiple
 			set descText to descText & prefix_text & length of the_list & the_suffix & ":" & return
 			repeat with the_item in the_list
 				set descText to descText & (file_name of the_item) & return
