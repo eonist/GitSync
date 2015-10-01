@@ -9,11 +9,11 @@ class CommitUtil{
 	 * NOTE: In place of Renamed, Git first deletes the file then says its untracked
     */
 	func sequenceCommitMsgTitle(statusList){
-		set numOfNewFiles = 0
-		set numOfModifiedFiles = 0
-		set numOfDeletedFiles = 0
-		set numOfDeletedFiles = 0
-		for statusItem in statusList
+		var numOfNewFiles:Int = 0
+		var numOfModifiedFiles:Int = 0
+		var numOfDeletedFiles:Int = 0
+		var numOfDeletedFiles:Int = 0
+		for (statusItem in statusList){
 		//	let cmd to cmd of status_item --TODO: rename to type or status_type
 			if (statusItem["cmd"] = "M") {
 				 numOfModifiedFiles +=  1
@@ -28,22 +28,22 @@ class CommitUtil{
 			}else if (statusItem["cmd"] = "UU") {// --unmerged files,
 				 numOfModifiedFiles += 1
 			}
-		end repeat
-		set commitMessage to ""
+		}
+		set commitMessage:String to ""
 		if (numOfNewFiles > 0) {
-			 commitMessage +=  "New files added: " + numOfNewFiles
+			commitMessage +=  "New files added: " + numOfNewFiles
 		}
 		if (numOfModifiedFiles > 0) {
-			if (commitMessage.count > 0) {  commitMessage = commitMessage & ", " }//--append comma
-			 commitMessage = += "Files modified: " + numOfModifiedFiles
+			if (commitMessage.count > 0) {  commitMessage +=  ", " }//--append comma
+			commitMessage = += "Files modified: " + numOfModifiedFiles
 		}
 		if (numOfDeletedFiles > 0) {
 			if (commitMessage.count > 0) {  commitMessage += ", " }//--append comma
-			 commitMessage +=  "Files deleted: " + numOfDeletedFiles
+			commitMessage +=  "Files deleted: " + numOfDeletedFiles
 		}
 		if (numOfDeletedFiles > 0) {
 			if (commitMessage.count > 0) {  commitMessage +=  ", "}// --append comma
-			 commitMessage +=  "Files renamed: " + numOfDeletedFiles
+			commitMessage +=  "Files renamed: " + numOfDeletedFiles
 		}
 		return commitMessage
 	}
