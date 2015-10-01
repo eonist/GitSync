@@ -6,27 +6,7 @@ class StatusUtils{
 	 * Returns a descriptive status list of the current git changes
 	 * NOTE: you may use short staus, but you must interpret the message if the state has an empty space infront of it
 	 */
-	func generate_status_list(localRepoPath){
-		
-		
-		
-		
-		
-		
-		
-		//continue here 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		//also move internal classes to a folder structure in the project, this is not a library or an applescript that needs to be one file
-		
+	func generateStatusList(localRepoPath){
 		set the_status to GitParser's status(localRepoPath, "-s") -- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
 		--log tab & "the_status: " & the_status
 		set the_status_list to TextParser's every_paragraph(the_status) --store each line as items in a list
