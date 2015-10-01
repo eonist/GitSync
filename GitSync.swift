@@ -37,7 +37,7 @@ class GitSync{
 			//log tab & "has unmerged paths to resolve"
 			MergeUtil.resolveMergeConflicts(repoItem["localPath"], branch, GitParser.unMergedFiles(repoItem["localPath"])) //Asserts if there are unmerged paths that needs resolvment
 		}
-		do_commit(local_path of repo_item) //if there were no commits false will be returned
+		doCommit(local_path of repo_item) //if there were no commits false will be returned
 		//log "has_commited: " & has_commited
 	}
 	/*
@@ -61,6 +61,38 @@ class GitSync{
 			set push_call_back to GitModifier's push(local_path of repo_item, remote_path of repo_item, remote_account_name, keychain_password, branch)
 			log "push_call_back: " & push_call_back
 		end if
+	}
+	/*
+	 * This method generates a git status list,and asserts if a commit is due, and if so, compiles a commit message and then tries to commit
+	 * Returns true if a commit was made, false if no commit was made or an error occured
+	 * NOTE: checks git staus, then adds changes to the index, then compiles a commit message, then commits the changes, and is now ready for a push
+	 * NOTE: only commits if there is something to commit
+	 * TODO: add branch parameter to this call
+	 * NOTE: this a purly local method, does not need to communicate with remote servers etc..
+	 */
+	func doCommit(localRepoPath){
+		//log ("GitSync's do_commit()")
+		//--log "do_commit"
+		set statusList:Array = StatusUtils.generateStatusList(localRepoPath) //--get current status
+		if (statusList.count > 0) {
+			//log tab & "there is something to add or commit"
+			//--log tab & "length of status_list: " & (length of statusList)
+			my StatusUtil's process_status_list(localRepoPath, statusList) //--process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del
+			set commit_msg_title to my CommitUtil's sequence_commit_msg_title(statusList) //--sequence commit msg title for the commit
+			//log tab & "commit_msg_title: " & commit_msg_title
+			set commit_msg_desc to my DescUtil's sequence_description(statusList) //--sequence commit msg description for the commit
+			//log tab & "commit_msg_desc: " & commit_msg_desc
+			try --try to make a git commit
+				set commit_result to GitModifier's commit(localRepoPath, commit_msg_title, commit_msg_desc) //--commit
+				//log tab & "commit_result: " & commit_result
+			on error errMsg
+				//log tab & "----------------ERROR:-----------------" & errMsg
+			end try
+			return true //--return true to indicate that the commit completed
+		}else{
+			//log tab & "nothing to add or commit"
+			return false //--break the flow since there is nothing to commit or process
+		}
 	}
 }
 
@@ -124,35 +156,35 @@ class MergeUtils{
 		//last_selected_action = selected
 		switch selected{
 			case options[0]//keep local version
-				GitModifier's check_out(local_repo_path, "--ours", unmerged_file)//continue here
+				GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)//continue here
 			case options[1]//keep remote version
-				GitModifier's check_out(local_repo_path, "--theirs", unmerged_file)
+				GitModifier.checkOut(localRepoPath, "--theirs", unmergedFile)
 			case options[2]//keep mix of both versions
-				GitModifier's check_out(local_repo_path, branch, unmerged_file)
+				GitModifier.checkOut(localRepoPath, branch, unmergedFile)
 			case options[3]//open local version
-				GitModifier's check_out(local_repo_path, "--ours", unmerged_file)
-				FileUtil's open_file(local_repo_path & unmerged_file)
+				GitModifier's check_out(localRepoPath, "--ours", unmergedFile)
+				FileUtils.openFile(localRepoPath + unmergedFile)
 			case options[4]//open remote version
-				GitModifier's check_out(local_repo_path, "--theirs", unmerged_file)
-				FileUtil's open_file(local_repo_path & unmerged_file)
+				GitModifier.checkOut(localRepoPath, "--theirs", unmergedFile)
+				FileUtils.openFile(localRepoPath + unmergedFile)
 			case options[5]//open mix of both versions
-				GitModifier's check_out(local_repo_path, branch, unmerged_file)
-				FileUtil's open_file(local_repo_path & unmerged_file)
+				GitModifier.checkOut(localRepoPath, branch, unmergedFile)
+				FileUtils.(localRepoPath + unmergedFile)
 			case options[6]//keep all local versions
-				GitModifier's check_out(local_repo_path, "--ours", "*")
+				GitModifier.checkOut(localRepoPath, "--ours", "*")
 			case options[7]//keep all remote versions
-				GitModifier's check_out(local_repo_path, "--theirs", "*")
+				GitModifier.checkOut(localRepoPath, "--theirs", "*")
 			case options[8]//keep all local and remote versions
-				GitModifier's check_out(local_repo_path, branch, "*")
+				GitModifier.checkOut(localRepoPath, branch, "*")
 			case options[9]//open all local versions
-				GitModifier's check_out(local_repo_path, "--ours", "*")
-				FileUtil's open_files(FileParser's full_hsf_paths(local_repo_path, unmerged_files))
+				GitModifier.checkOut(localRepoPath, "--ours", "*")
+				FileUtils.openFiles(localRepoPath+unmergedFiles)
 			case options[10]//open all remote versions
-				GitModifier's check_out(local_repo_path, "--theirs", "*")
-				FileUtil's open_files(FileParser's full_hsf_paths(local_repo_path, unmerged_files))
+				GitModifier.checkOut(localRepoPath, "--theirs", "*")
+				FileUtils.openFiles(localRepoPath+ unmergedFiles)
 			case options[11]//open all mixed versions
-				GitModifier's check_out(local_repo_path, branch, "*")
-				FileUtil's open_files(FileParser's full_hsf_paths(local_repo_path, unmerged_files))
+				GitModifier.checkOut(localRepoPath, branch, "*")
+				FileUtils.openFiles(localRepoPath+ unmergedFiles)
 			default
 				break;
 		}
