@@ -79,12 +79,12 @@ class GitSync{
 			//log tab & "there is something to add or commit"
 			//--log tab & "length of status_list: " & (length of statusList)
 			StatusUtils.processStatusList(localRepoPath, statusList) //--process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del
-			set commitMsgTitle = CommitUtils.sequenceCommitMsgTitle(statusList) //--sequence commit msg title for the commit
+			let commitMsgTitle:String = CommitUtils.sequenceCommitMsgTitle(statusList) //--sequence commit msg title for the commit
 			//log tab & "commit_msg_title: " & commit_msg_title
-			let commitMsgDesc = DescUtil.sequenceDescription(statusList) //--sequence commit msg description for the commit
+			let commitMsgDesc:String = DescUtil.sequenceDescription(statusList) //--sequence commit msg description for the commit
 			//log tab & "commit_msg_desc: " & commit_msg_desc
 			do{//--try to make a git commit
-				try let commitResult to GitModifiers.commit(localRepoPath, commitMsgTitle, commitMsgDesc) //--commit
+				try let commitResult = GitModifiers.commit(localRepoPath, commitMsgTitle, commitMsgDesc) //--commit
 			   //log tab & "commit_result: " & commit_result
 			}catch let error as NSError{
 			    print ("Error: \(error.domain)")
