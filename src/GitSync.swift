@@ -11,22 +11,29 @@ class GitSync{
 	let repoFilePath:String = ""
 	let options = ["keep local version", "keep remote version", "keep mix of both versions", "open local version", "open remote version", "open mix of both versions", "keep all local versions", "keep all remote versions", "keep all local and remote versions", "open all local versions", "open all remote versions", "open all mixed versions"]
 	var currentTime:Int = 0 //always reset this value on init, applescript has persistent values
-
 	/*
-	 * Handles the process of comitting, pushing for multiple repositories
+	 * Initialize the app, toggles between debug and deploy mode depending fromwhich file type it is run from
+	 */
+	func initialize(){
+		repoFilePath = "~/repo.xml"
+		var timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "update", userInfo: nil, repeats: true)
+	}
+	/* Handles the process of comitting, pushing for multiple repositories
 	 * This is called on every interval
+	 * NOTE: this will only be called from an .app mode aka "deploy mode" / "production mode"
 	 * NOTE: while testing you can call this manually, since idle will only work when you run it from an .app
 	 */
-	func handleInterval(){
+	func update(){
+		if (!ShellUtils hasInternetConnection()) { return }//no internet? then return
 		//print( "handle_interval()")
 		repoList = RepoUtil.compileRepoList(repoFilePath) //try to avoid calling this on every intervall, its nice to be able to update on the fly, be carefull though
 		let currentTimeInMin to (currentTime / 60) //divide the seconds by 60 seconds to get minutes
 		//print ("currentTimeInMin: " + currentTimeInMin)
 		for (repoItem in repoList){//iterate over every repo item
-			if (currentTimeInMin % (repoItem["interval"]) = 0) { handleCommitInterval(repo_item, "master") } //is true every time spesified by the user
-			if (currentTimeInMin % (repoItem["interval"]) = 0) { handlePushInterval(repo_item, "master") }//is true every time spesified by the user
+			if (currentTimeInMin % (repoItem["interval"]) = 0) { handleCommitInterval(repoItem, "master") } //is true every time spesified by the user
+			if (currentTimeInMin % (repoItem["interval"]) = 0) { handlePushInterval(repoItem, "master") }//is true every time spesified by the user
 		}
-		current_time += theInterval //increment the interval (in seconds)
+		currentTime += theInterval //increment the interval (in seconds)
 	}
 	/*
 	 * Handles the process of making a commit for a single repository
@@ -37,7 +44,7 @@ class GitSync{
 			//log tab & "has unmerged paths to resolve"
 			MergeUtil.resolveMergeConflicts(repoItem["localPath"], branch, GitParser.unMergedFiles(repoItem["localPath"])) //Asserts if there are unmerged paths that needs resolvment
 		}
-		doCommit(local_path of repo_item) //if there were no commits false will be returned
+		doCommit(repoItem["localPath"]) //if there were no commits false will be returned
 		//log "has_commited: " & has_commited
 	}
 	/*
@@ -46,21 +53,15 @@ class GitSync{
 	 * NOTE: this method performs a "manual pull" on every interval
 	 * TODO: contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
 	 */
-	func handlePushInterval(repo_item, branch){
-		log ("GitSync's handle_push_interval()")
-		my MergeUtil's manual_merge((local_path of repo_item), (remote_path of repo_item), branch) --commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
-		set has_local_commits to GitAsserter's has_local_commits((local_path of repo_item), branch) --TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
-		if (has_local_commits) then --only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
-			set the_keychain_item_name to (keychain_item_name of repo_item)
-			log "the_keychain_item_name: " & the_keychain_item_name
-			set keychain_data to KeychainParser's keychain_data(keychain_item_name of repo_item)
-			set keychain_password to the_password of keychain_data
-			log "keychain_password: " & keychain_password
-			set remote_account_name to account_name of keychain_data
-			log "remote_account_name: " & remote_account_name
-			set push_call_back to GitModifier's push(local_path of repo_item, remote_path of repo_item, remote_account_name, keychain_password, branch)
-			log "push_call_back: " & push_call_back
-		end if
+	func handlePushInterval(repoItem, branch){
+		//log ("GitSync's handle_push_interval()")
+		MergeUtils.manualMerge((repoItem["localPath"]), (  repoItem["remotePath"]), branch) //--commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
+		let hasLocalCommits = GitAsserters.hasLocalCommits((repoItem["localPath"]), branch) //--TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
+		if (has_local_commits) { //--only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
+			let keychainData = KeychainParsers.keychainData(repoItem["keychainItemName"])
+			let pushCallBack = GitModifiers.push(repoItem["localPath"], repoItem["remotePath"], keychainData["accountName"], keychainData["the_password"], branch)
+			//log "push_call_back: " & push_call_back
+		}
 	}
 	/*
 	 * This method generates a git status list,and asserts if a commit is due, and if so, compiles a commit message and then tries to commit
