@@ -34,7 +34,7 @@ class StatusUtils{
 		set transformedList = []
 		for (theStatusItem in theStatusList){ 
 			//--log "the_status_item: " & the_status_item
-			set theStatusParts to RegExpParser.match(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups, 
+			set theStatusParts = RegExpParser.match(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups, 
 			//--log "length of theStatusParts: " & (length of theStatusParts)
 			//--log theStatusParts
 			let statusItem = ["state":"", "cmd":"", "fileName":""] //--store the individual parts in an accociative
@@ -63,7 +63,7 @@ class StatusUtils{
 	 * Iterates over the status items and "git add" the item unless it's already added (aka "staged for commit")
 	 * NOTE: if the status list is empty then there is nothing to process
 	 * NOTE: even if a file is removed, its status needs to be added to the next commit
-	 * TODO: Squash some of the states together with if or or or etc
+	 * TODO: Squash some of the states together with if or or or etc..
 	 */
 	func processStatusList(localRepoPath, statusList){
 		//--log "process_status_list()"
