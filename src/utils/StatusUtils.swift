@@ -31,7 +31,7 @@ class StatusUtils{
 	 * NOTE: can also be "UU" unmerged paths
  	 */
 	func transform_status_list(theStatusList){
-		set transformed_list = {}
+		var transformedList:Array = []
 		for (the_status_item in theStatusList){ 
 			//--log "the_status_item: " & the_status_item
 			set theStatusParts to RegExpUtil's match(the_status_item, "^( )*([MARDU?]{1,2}) (.+)$") --returns 3 capturing groups, 
@@ -55,7 +55,10 @@ class StatusUtils{
 			let file_name = theStatusParts.fourth
 			//--log "state: " & state & ", cmd: " & cmd & ", file_name: " & file_name --logs the file named added changed etc
 			let statusItem to ["state":state, "cmd":cmd, "fileName":fileName] //--store the individual parts in an accociative
-			let transformedList to ListModifier's add_list(transformedList, statusItem) //--add a record to a list
+			
+			//continue here
+			
+			let transformedList = ListModifier's add_list(transformedList, statusItem) //--add a record to a list
 		end repeat
 		return transformed_list
 	end transform_status_list
