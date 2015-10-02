@@ -14,8 +14,8 @@ class GitSync{
 	/*
 	 * Initialize the app, toggles between debug and deploy mode depending fromwhich file type it is run from
 	 */
-	func initialize(){
-		repoFilePath = "~/repo.xml"
+	func init(){
+		repoFilePath = FileParser.resourcePath() + "repo.xml"
 		var timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "update", userInfo: nil, repeats: true)
 	}
 	/* Handles the process of comitting, pushing for multiple repositories
