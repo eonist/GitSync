@@ -55,7 +55,7 @@ class GitSync{
 	 */
 	func handlePushInterval(repoItem:Dictionary, branch:String){
 		//log ("GitSync's handle_push_interval()")
-		MergeUtils.manualMerge((repoItem["localPath"]), (  repoItem["remotePath"]), branch) //--commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
+		MergeUtils.manualMerge(repoItem["localPath"], repoItem["remotePath"], branch) //--commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
 		let hasLocalCommits = GitAsserter.hasLocalCommits(repoItem["localPath"], branch) //--TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
 		if (hasLocalCommits) { //--only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
 			let keychainData = KeychainParser.keychainData(repoItem["keychainItemName"])
