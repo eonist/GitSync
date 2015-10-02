@@ -3,6 +3,11 @@
 //import utils/string/regexp/RegExpParser.swift
 //import utils/string/regexp/RegExpModifier.swift
 
+//continue here
+//read swift conventions
+//read import conventions
+
+
 class GitSync{
 	//Properties:
 	let currentTime:Int = 0 //keeps track of the time passed, remember to reset this value pn every init
