@@ -71,10 +71,10 @@ class GitSync{
 	 * TODO: add branch parameter to this call
 	 * NOTE: this a purly local method, does not need to communicate with remote servers etc..
 	 */
-	func doCommit(localRepoPath:String){
+	func doCommit(localRepoPath:String)->Bool{
 		//log ("GitSync's do_commit()")
 		//--log "do_commit"
-		set statusList:Array = StatusUtils.generateStatusList(localRepoPath) //--get current status
+		let statusList:Array = StatusUtils.generateStatusList(localRepoPath) //--get current status
 		if (statusList.count > 0) {
 			//log tab & "there is something to add or commit"
 			//--log tab & "length of status_list: " & (length of statusList)
@@ -84,7 +84,7 @@ class GitSync{
 			let commitMsgDesc:String = DescUtil.sequenceDescription(statusList) //--sequence commit msg description for the commit
 			//log tab & "commit_msg_desc: " & commit_msg_desc
 			do{//--try to make a git commit
-				try let commitResult = GitModifiers.commit(localRepoPath, commitMsgTitle, commitMsgDesc) //--commit
+				try let commitResult:String = GitModifiers.commit(localRepoPath, commitMsgTitle, commitMsgDesc) //--commit
 			   //log tab & "commit_result: " & commit_result
 			}catch let error as NSError{
 			    print ("Error: \(error.domain)")
