@@ -24,7 +24,7 @@ class GitSync{
 	 * NOTE: while testing you can call this manually, since idle will only work when you run it from an .app
 	 */
 	func update(){
-		if (!ShellUtils.hasInternetConnection()) { return }//no internet? then return
+		if (!NetworkAsserter.isConnectedToInternet()) { return }//no internet? then return
 		//print( "handle_interval()")
 		repoList = RepoUtil.compileRepoList(repoFilePath) //try to avoid calling this on every intervall, its nice to be able to update on the fly, be carefull though
 		let currentTimeInMin to (currentTime / 60) //divide the seconds by 60 seconds to get minutes
