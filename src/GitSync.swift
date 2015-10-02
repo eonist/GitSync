@@ -56,7 +56,7 @@ class GitSync{
 	func handlePushInterval(repoItem, branch){
 		//log ("GitSync's handle_push_interval()")
 		MergeUtils.manualMerge((repoItem["localPath"]), (  repoItem["remotePath"]), branch) //--commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
-		let hasLocalCommits = GitAsserter.hasLocalCommits((repoItem["localPath"]), branch) //--TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
+		let hasLocalCommits = GitAsserter.hasLocalCommits(repoItem["localPath"], branch) //--TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
 		if (has_local_commits) { //--only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
 			let keychainData = KeychainParser.keychainData(repoItem["keychainItemName"])
 			let pushCallBack = GitModifier.push(repoItem["localPath"], repoItem["remotePath"], keychainData["accountName"], keychainData["the_password"], branch)
@@ -83,10 +83,10 @@ class GitSync{
 			//log tab & "commit_msg_title: " & commit_msg_title
 			let commitMsgDesc = DescUtil.sequenceDescription(statusList) //--sequence commit msg description for the commit
 			//log tab & "commit_msg_desc: " & commit_msg_desc
-			do {//--try to make a git commit
+			do{//--try to make a git commit
 				try let commitResult to GitModifiers.commit(localRepoPath, commitMsgTitle, commitMsgDesc) //--commit
 			   //log tab & "commit_result: " & commit_result
-			} catch let error as NSError {
+			}catch let error as NSError{
 			    print ("Error: \(error.domain)")
 				 //log tab & "----------------ERROR:-----------------" & errMsg
 			}
