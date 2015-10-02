@@ -56,10 +56,10 @@ class GitSync{
 	func handlePushInterval(repoItem, branch){
 		//log ("GitSync's handle_push_interval()")
 		MergeUtils.manualMerge((repoItem["localPath"]), (  repoItem["remotePath"]), branch) //--commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
-		let hasLocalCommits = GitAsserters.hasLocalCommits((repoItem["localPath"]), branch) //--TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
+		let hasLocalCommits = GitAsserter.hasLocalCommits((repoItem["localPath"]), branch) //--TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
 		if (has_local_commits) { //--only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
-			let keychainData = KeychainParsers.keychainData(repoItem["keychainItemName"])
-			let pushCallBack = GitModifiers.push(repoItem["localPath"], repoItem["remotePath"], keychainData["accountName"], keychainData["the_password"], branch)
+			let keychainData = KeychainParser.keychainData(repoItem["keychainItemName"])
+			let pushCallBack = GitModifier.push(repoItem["localPath"], repoItem["remotePath"], keychainData["accountName"], keychainData["the_password"], branch)
 			//log "push_call_back: " & push_call_back
 		}
 	}
