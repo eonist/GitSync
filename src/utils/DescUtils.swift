@@ -11,6 +11,19 @@ class DescUtil{
 		var deletedItems:Array = []
 		var addedItems:Array = []
 		for statusItem in statusList{
+			switch statusItem["cmd"]{
+				case "D"
+					deletedItems.append(statusItem)
+				case "M"
+					modifiedItems.append(statusItem)
+				case "??"
+					addedItems.append(statusItem)
+				case "UU"
+					modifiedItems.append(statusItem)
+				default
+					//throw error
+					break;
+			}
 			if (statusItem["cmd"] == "D") { deletedItems.append(statusItem) }//--add a record to a list
 			if (statusItem["cmd"] == "M") { modifiedItems.append(statusItem) }//--add a record to a list
 			if (statusItem["cmd"] == "??") { addedItems.append(statusItem) }//--add a record to a list
