@@ -35,7 +35,7 @@ class DescUtil{
 			set theSuffix:String = " file"
 			if (theList.count > 1) { theSuffix += "s" }//--multiple
 			descText += prefixText + theList.count + theSuffix + ":" + "\n"
-			for (theItem in theList){
+			for (theItem in theList as! [Dictionary]){
 				descText += theItem["fileName"] + "\n"
 			}
 		}
