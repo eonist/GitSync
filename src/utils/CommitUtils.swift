@@ -33,11 +33,10 @@ class CommitUtil{
 					break;
 			}
 		}
-		set commitMessage:String to ""
+		var commitMessage:String = ""
 		if (numOfNewFiles > 0) {
 			commitMessage +=  "New files added: " + numOfNewFiles
 		}
-		
 		if (numOfModifiedFiles > 0) {
 			if (commitMessage.count > 0) {  commitMessage +=  ", " }//--append comma
 			commitMessage = += "Files modified: " + numOfModifiedFiles
@@ -53,9 +52,3 @@ class CommitUtil{
 		return commitMessage
 	}
 }
-
-
-
-
-
-
