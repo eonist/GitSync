@@ -28,13 +28,13 @@ class GitSync{
 	 * NOTE: this will only be called from an .app mode aka "deploy mode" / "production mode"
 	 * NOTE: while testing you can call this manually, since idle will only work when you run it from an .app
 	 */
-	func update(){
+	func handleInterval(){
 		if (!NetworkAsserter.isConnectedToInternet()) { return }//no internet? then return
 		//print( "handle_interval()")
 		repoList = RepoUtil.compileRepoList(repoFilePath) //try to avoid calling this on every intervall, its nice to be able to update on the fly, be carefull though
 		let currentTimeInMin to (currentTime / 60) //divide the seconds by 60 seconds to get minutes
 		//print ("currentTimeInMin: " + currentTimeInMin)
-		for (repoItem in repoList){//iterate over every repo item
+		for (repoItem in repoList as! [Dictionary]){//iterate over every repo item
 			if (currentTimeInMin % (repoItem["interval"]) = 0) { handleCommitInterval(repoItem, "master") } //is true every time spesified by the user
 			if (currentTimeInMin % (repoItem["interval"]) = 0) { handlePushInterval(repoItem, "master") }//is true every time spesified by the user
 		}
@@ -61,10 +61,10 @@ class GitSync{
 	func handlePushInterval(repoItem:Dictionary, branch:String){
 		//log ("GitSync's handle_push_interval()")
 		MergeUtils.manualMerge(repoItem["localPath"], repoItem["remotePath"], branch) //--commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
-		let hasLocalCommits = GitAsserter.hasLocalCommits(repoItem["localPath"], branch) //--TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
+		let hasLocalCommits:Bool = GitAsserter.hasLocalCommits(repoItem["localPath"], branch) //--TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
 		if (hasLocalCommits) { //--only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
-			let keychainData = KeychainParser.keychainData(repoItem["keychainItemName"])
-			let pushCallBack = GitModifier.push(repoItem["localPath"], repoItem["remotePath"], keychainData["accountName"], keychainData["the_password"], branch)
+			let keychainData:Dictionary = KeychainParser.keychainData(repoItem["keychainItemName"])
+			let pushCallBack:String = GitModifier.push(repoItem["localPath"], repoItem["remotePath"], keychainData["accountName"], keychainData["the_password"], branch)
 			//log "push_call_back: " & push_call_back
 		}
 	}
@@ -92,7 +92,7 @@ class GitSync{
 				try let commitResult:String = GitModifiers.commit(localRepoPath, commitMsgTitle, commitMsgDesc) //--commit
 			   //log tab & "commit_result: " & commit_result
 			}catch let error as NSError{
-			    print ("Error: \(error.domain)")
+			    print ("Error: \(error.type)")
 				 //log tab & "----------------ERROR:-----------------" & errMsg
 			}
 			return true //--return true to indicate that the commit completed
