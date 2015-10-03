@@ -17,39 +17,27 @@ class CommitUtil{
 		//	let cmd to cmd of status_item --TODO: rename to type or status_type
 			switch variable{
 				case "M"
-					
+					numOfModifiedFiles +=  1
 				case "D"
-				
+					numOfDeletedFiles +=  1
 				case "A"
-				
-				
-				case "R"
-				
-				case "??"
-				
-				case "UU"
-					
+					numOfNewFiles +=  1
+				case "R" // --This command seems to never be triggered in git
+					numOfDeletedFiles +=  1
+				case "??"// --untracked files,
+					numOfNewFiles += 1
+				case "UU"// --unmerged files,
+					numOfModifiedFiles += 1
 				default
+					//throw error
 					break;
-			}
-			if (statusItem["cmd"] = "M") {
-				 numOfModifiedFiles +=  1
-			}else if (statusItem["cmd"] = "D") {
-				 numOfDeletedFiles +=  1
-			}else if (statusItem["cmd"] = "A") {
-				 numOfNewFiles +=  1
-			}else if (statusItem["cmd"] = "R") {// --This command seems to never be triggered in git
-				 numOfDeletedFiles +=  1
-			}else if (statusItem["cmd"] = "??") {// --untracked files,
-				 numOfNewFiles += 1
-			}else if (statusItem["cmd"] = "UU") {// --unmerged files,
-				 numOfModifiedFiles += 1
 			}
 		}
 		set commitMessage:String to ""
 		if (numOfNewFiles > 0) {
 			commitMessage +=  "New files added: " + numOfNewFiles
 		}
+		
 		if (numOfModifiedFiles > 0) {
 			if (commitMessage.count > 0) {  commitMessage +=  ", " }//--append comma
 			commitMessage = += "Files modified: " + numOfModifiedFiles
