@@ -8,7 +8,7 @@ class MergeUtils{
 		//log ("MergeUtil's resolve_merge_conflicts()")
 		for( unMergedFile in unMergedFiles){;
 			let lastSelectedAction:String = options.first //you may want to make this a "property" to store the last item more permenantly
-			let listWindow = ListWindow(options,headerTitle:"Resolve merge conflict in: ",title:unMergedFile + ":",selected:lastSelectedAction,cancelButtonName:"Exit")//promt user with list of options, title: Merge conflict in: unmerged_file
+			let listWindow:ListWindow = ListWindow(options,headerTitle:"Resolve merge conflict in: ",title:unMergedFile + ":",selected:lastSelectedAction,cancelButtonName:"Exit")//promt user with list of options, title: Merge conflict in: unmerged_file
 			listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
 		}
 	}
@@ -30,7 +30,7 @@ class MergeUtils{
 		//last_selected_action = selected
 		switch selected{
 			case options[0]//keep local version
-				GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)//continue here
+				GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)
 			case options[1]//keep remote version
 				GitModifier.checkOut(localRepoPath, "--theirs", unmergedFile)
 			case options[2]//keep mix of both versions
