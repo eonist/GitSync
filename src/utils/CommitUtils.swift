@@ -15,6 +15,14 @@ class CommitUtil{
 		var numOfDeletedFiles:Int = 0
 		for (statusItem in statusList){
 		//	let cmd to cmd of status_item --TODO: rename to type or status_type
+			switch variable{
+				case 
+					
+				case 
+					
+				default
+					break;
+			}
 			if (statusItem["cmd"] = "M") {
 				 numOfModifiedFiles +=  1
 			}else if (statusItem["cmd"] = "D") {
