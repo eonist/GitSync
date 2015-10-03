@@ -7,12 +7,12 @@ class StatusUtils{
 	 * NOTE: you may use short staus, but you must interpret the message if the state has an empty space infront of it
 	 */
 	func generateStatusList(localRepoPath)->Array{
-		set theStatus = GitParser.status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
+		let theStatus:String = GitParser.status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
 		//--log tab & "theStatus: " & theStatus
-		set theStatus_list = TextParsers.paragraph(theStatus) //--store each line as items in a list
-		set transformedList = []
+		let theStatusList:Array = TextParsers.paragraphs(theStatus) //--store each line as items in a list
+		var transformedList:Array = []
 		if (theStatusList.count > 0) {
-			set transformedList = transformStatusList(theStatusList)
+			transformedList = transformStatusList(theStatusList)
 		}else{
 			//--log "nothing to commit, working directory clean"// --this is the status msg if there has happened nothing new since last, but also if you have commits that are ready for push to origin
 		}
