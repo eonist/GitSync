@@ -21,7 +21,7 @@ class GitSync{
 	 */
 	func init(){
 		repoFilePath = FileParser.resourcePath() + "repo.xml"
-		var timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "update", userInfo: nil, repeats: true)
+		var timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "handleInterval", userInfo: nil, repeats: true)
 	}
 	/* Handles the process of comitting, pushing for multiple repositories
 	 * This is called on every interval
