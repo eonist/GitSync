@@ -65,11 +65,24 @@ class StatusUtils{
 	 * NOTE: even if a file is removed, its status needs to be added to the next commit
 	 * TODO: Squash some of the states together with if or or or etc..
 	 */
-	func processStatusList(localRepoPath, statusList){
+	func processStatusList(localRepoPath:String, statusList:String){
 		//--log "process_status_list()"
 		for (statusItem in statusList){
 			//--log "len of status_item: " & (length of statusItem)
 			//--set cmd to cmd of status_item
+			switch variable{
+				case "Untracked files"//--this is when there exists a new file
+					
+				case "Changes not staged for commit"
+				
+				case "Changes to be committed"
+				
+				case "Unmerged path"
+					
+				default
+					break;
+			}
+			
 			if (statusItem["state"] = "Untracked files") { //--this is when there exists a new file
 				//log tab & "1. " & "Untracked files"
 				GitModifier.add(localRepoPath, statusItem["fileName"]) //--add the file to the next commit
