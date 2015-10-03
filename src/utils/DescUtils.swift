@@ -12,22 +12,14 @@ class DescUtil{
 		var addedItems:Array = []
 		for statusItem in statusList{
 			switch statusItem["cmd"]{
-				case "D"
-					deletedItems.append(statusItem)
-				case "M"
-					modifiedItems.append(statusItem)
-				case "??"
-					addedItems.append(statusItem)
-				case "UU"
-					modifiedItems.append(statusItem)
+				case "D" deletedItems.append(statusItem) //--add a record to a list
+				case "M" modifiedItems.append(statusItem)//--add a record to a list
+				case "??" addedItems.append(statusItem)//--add a record to a list
+				case "UU" modifiedItems.append(statusItem)//--add a record to a list
 				default
 					//throw error
 					break;
 			}
-			if (statusItem["cmd"] == "D") { deletedItems.append(statusItem) }//--add a record to a list
-			if (statusItem["cmd"] == "M") { modifiedItems.append(statusItem) }//--add a record to a list
-			if (statusItem["cmd"] == "??") { addedItems.append(statusItem) }//--add a record to a list
-			if (statusItem["cmd"] == "UU") { modifiedItems.append(statusItem) }//--add a record to a list
 		}
 		descText += descriptionParagraph(addedItems, "Added ") + "\n" //--add an extra line break at the end "paragraph like"
 		descText += descriptionParagraph(deletedItems, "Deleted ") + "\n"
