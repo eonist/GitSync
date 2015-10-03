@@ -5,7 +5,7 @@ class DescUtil{
 	/*
 	 * Returns a "Git Commit Message Description" derived from a "git status list" with "status items records"
 	 */
-	func sequenceDescription(statusList)->String{
+	func sequenceDescription(statusList:Array)->String{
 		var descText:String = ""
 		var modifiedItems:Array = []
 		var deletedItems:Array = []
@@ -37,5 +37,3 @@ class DescUtil{
 		return descText
 	}
 }
-
-
