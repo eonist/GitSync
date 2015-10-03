@@ -16,9 +16,18 @@ class CommitUtil{
 		for (statusItem in statusList){
 		//	let cmd to cmd of status_item --TODO: rename to type or status_type
 			switch variable{
-				case 
+				case "M"
 					
-				case 
+				case "D"
+				
+				case "A"
+				
+				
+				case "R"
+				
+				case "??"
+				
+				case "UU"
 					
 				default
 					break;
