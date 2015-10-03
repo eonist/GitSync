@@ -31,22 +31,22 @@ class StatusUtils{
 	 * NOTE: can also be "UU" unmerged paths
  	 */
 	func transformStatusList(theStatusList)->Array{
-		set transformedList = []
+		set transformedList:Array = []
 		for (theStatusItem in theStatusList){ 
 			//--log "the_status_item: " & the_status_item
 			let theStatusParts:Array = RegExpParser.match(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups, 
 			//--log "length of theStatusParts: " & (length of theStatusParts)
 			//--log theStatusParts
-			let statusItem = ["state":"", "cmd":"", "fileName":""] //--store the individual parts in an accociative
+			let statusItem:Dictionary = ["state":"", "cmd":"", "fileName":""] //--store the individual parts in an accociative
 			if (theStatusParts.second == " ") { //--aka " M", remember that the second item is the first capturing group
 				statusItem["cmd"] = theStatusParts.third //--Changes not staged for commit:
 				statusItem["state"] = "Changes not staged for commit" //-- you Pneed to add them
 			}else{ //-- Changes to be committed--aka "M " or  "??" or "UU"
 				statusItem["cmd"] = theStatusParts.third //--rename cmd to type
 				//--log "cmd: " & cmd
-				if (statusItem["cmd"] == "??"){
+				if(statusItem["cmd"] == "??"){
 					statusItem["state"] = "Untracked files"
-				}else if (statusItem["cmd"] == "UU") { //--Unmerged path
+				}else if(statusItem["cmd"] == "UU") { //--Unmerged path
 					//--log "Unmerged path"
 					statusItem["state"] = "Unmerged path"
 				}else{
