@@ -29,10 +29,10 @@ class DescUtil{
 	/*
 	 * Returns a paragraph with a detailed description for Deleted, added and modified files
 	 */
-	func descriptionParagraph(theList, prefixText)->String{
-		var descText to ""
+	func descriptionParagraph(theList:Array, prefixText:String)->String{
+		var descText:String = ""
 		if (theList.count > 0) {
-			set theSuffix to " file"
+			set theSuffix:String = " file"
 			if (theList.count > 1) { theSuffix += "s" }//--multiple
 			descText += prefixText + theList.count + theSuffix + ":" + "\n"
 			for (theItem in theList){
