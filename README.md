@@ -1,5 +1,7 @@
 # GitSync
 
+**Use GitHub like you use ICloud**, but with all the benefits of a full fledged version control system
+
 [Download GitSync v0.9.5.2](https://github.com/eonist/GitSync/releases/download/0%2C9%2C5.2/GitSync.app.zip)  
 
 Feature  | GitSync | Evernote | MacJournal 
