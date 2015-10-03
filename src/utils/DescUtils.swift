@@ -10,7 +10,7 @@ class DescUtil{
 		var modifiedItems:Array = []
 		var deletedItems:Array = []
 		var addedItems:Array = []
-		for statusItem in statusList{
+		for statusItem in statusList as! [Dictionary]{
 			switch statusItem["cmd"]{
 				case "D" deletedItems.append(statusItem) //--add a record to a list
 				case "M" modifiedItems.append(statusItem)//--add a record to a list
