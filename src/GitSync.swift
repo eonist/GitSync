@@ -43,7 +43,7 @@ class GitSync{
 	/*
 	 * Handles the process of making a commit for a single repository
 	 */
-	func handleCommitInterval(repoItem:Dictionary, branch:String){
+	func handleCommitInterval(repoItem:Dictionary, _ branch:String){
 		//log "GitSync's handle_commit_interval() a repo with remote path: " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
 		if (GitAsserter.hasUnmMergedPaths(repoItem["localPath"])) { //Asserts if there are unmerged paths that needs resolvment
 			//log tab & "has unmerged paths to resolve"
@@ -58,7 +58,7 @@ class GitSync{
 	 * NOTE: this method performs a "manual pull" on every interval
 	 * TODO: contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
 	 */
-	func handlePushInterval(repoItem:Dictionary, branch:String){
+	func handlePushInterval(repoItem:Dictionary, _ branch:String){
 		//log ("GitSync's handle_push_interval()")
 		MergeUtils.manualMerge(repoItem["localPath"], repoItem["remotePath"], branch) //--commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
 		let hasLocalCommits:Bool = GitAsserter.hasLocalCommits(repoItem["localPath"], branch) //--TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
