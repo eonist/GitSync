@@ -14,7 +14,6 @@ class GitSync{
 	let theInterval:Int = 60 //static value, increases the time by this value on every interval--TODO: rename to "frequncy"
 	var repoList:Array = null //Stores all values the in repositories.xml, remember to reset this value pn every init
 	let repoFilePath:String = ""
-	let opts = enum{case}
 	let options = ["keep local version", "keep remote version", "keep mix of both versions", "open local version", "open remote version", "open mix of both versions", "keep all local versions", "keep all remote versions", "keep all local and remote versions", "open all local versions", "open all remote versions", "open all mixed versions"]
 	var currentTime:Int = 0 //always reset this value on init, applescript has persistent values
 	/*
