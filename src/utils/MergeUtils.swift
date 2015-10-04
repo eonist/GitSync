@@ -3,7 +3,7 @@ class MergeUtils{
  	 * Promts the user with a list of options to aid in resolving merge conflicts
  	 * @param branch: the branch you tried to merge into
  	 */
-	func resolveMergeConflicts(localRepoPath, branch, unMergedFiles){
+	func resolveMergeConflicts(localRepoPath:String, _ branch:String, _ unMergedFiles:Array){
 		//log "resolve_merge_conflicts()"
 		//log ("MergeUtil's resolve_merge_conflicts()")
 		for( unMergedFile in unMergedFiles){;
@@ -12,7 +12,7 @@ class MergeUtils{
 			listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
 		}
 	}
-	func complete(sender: ListWindow!) {
+	func complete(sender:ListWindow!) {
 	   print("Complete: " + sender.tag)
 	   if(sender.didComplete){
 			handleMergeConflictDialog(sender.didComplete, sender.selected, unMergedFile, localRepoPath, branch, unMergedFiles)
@@ -24,7 +24,7 @@ class MergeUtils{
  	 * Handles the choice made in the merge conflict dialog
  	 * TODO: test the open file clauses
  	 */
-	func handleMergeConflictDialog(selected:String, unmergedFile:String, localRepoPath:String, branch:String, unmergedFiles:Array){
+	func handleMergeConflictDialog(selected:String, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:Array){
 		//log "handle_merge_conflict_dialog()"
 		//print("MergeUtil's handle_merge_conflict_dialog(): " & (item 1 of the_action))
 		//last_selected_action = selected
