@@ -6,7 +6,7 @@ class StatusUtils{
 	 * Returns a descriptive status list of the current git changes
 	 * NOTE: you may use short staus, but you must interpret the message if the state has an empty space infront of it
 	 */
-	func generateStatusList(localRepoPath)->Array{
+	func generateStatusList(localRepoPath:String)->Array{
 		let theStatus:String = GitParser.status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
 		//--log tab & "theStatus: " & theStatus
 		let theStatusList:Array = TextParsers.paragraphs(theStatus) //--store each line as items in a list
@@ -30,7 +30,7 @@ class StatusUtils{
 	 * @Param: theStatusList is a list with status messages like: {"?? test.txt"," M index.html","A home.html"}
 	 * NOTE: can also be "UU" unmerged paths
  	 */
-	func transformStatusList(theStatusList)->Array{
+	func transformStatusList(theStatusList:Array)->Array{
 		set transformedList:Array = []
 		for (theStatusItem in theStatusList){ 
 			//--log "the_status_item: " & the_status_item
@@ -65,7 +65,7 @@ class StatusUtils{
 	 * NOTE: even if a file is removed, its status needs to be added to the next commit
 	 * TODO: Squash some of the states together with if or or or etc..
 	 */
-	func processStatusList(localRepoPath:String, statusList:String){
+	func processStatusList(localRepoPath:String, _ statusList:String){
 		//--log "process_status_list()"
 		for (statusItem in statusList){
 			//--log "len of status_item: " & (length of statusItem)
