@@ -8,7 +8,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         
         let view = FlippedView(frame: NSRect(x: 0, y: 0, width: 200, height: 200))
-        window!.contentView = (view)
+        window!.contentView = (view)//add the view directly to the window so that we can use the flipped view correctly
 
         let buttonX:Int = 0
         let buttonY:Int = 40//Int(window.frame.size.height)-30-20
