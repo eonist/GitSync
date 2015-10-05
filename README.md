@@ -1,6 +1,6 @@
 # GitSync
 
-**Use GitHub like you use ICloud**, but with all the benefits of a full fledged version control system
+**Use GitHub like you use ICloud** (with all the benefits of git)
 
 ![gitsync_logo_128](https://cloud.githubusercontent.com/assets/11816788/10293816/eba3231c-6bb6-11e5-9e0b-6aec9cc165c5.png)
 
