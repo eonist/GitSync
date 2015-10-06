@@ -5,7 +5,7 @@ class DataSource:NSObject, NSTableViewDataSource{
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return nameArray.count;
     }
-    func tableView(objectValueForTableColumn:NSTableColumn,row:Int)->Any{
+    func tableView(tableColumn: NSTableColumn?, row: Int)->AnyObject?{
         return nameArray[row]
     }
     
