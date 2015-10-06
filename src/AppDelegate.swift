@@ -70,8 +70,9 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         //tableContainer.autoresizingMask = NSAutoresizingMaskOptions.
         
         let tableView = NSTableView(frame: tableContainer.frame)
+        let dataSource = DataSource()
+        tableView.setDataSource(dataSource)
         
-        //[[ alloc] initWithFrame:tableContainer.frame];
 
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //NSAutoresizingMaskOptions.ViewHeightSizable)
         
@@ -81,8 +82,6 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         tableView.addTableColumn(column)
         
         //tableView.setDataSource(self)
-        let dataSource = DataSource()
-        tableView.setDataSource(dataSource)
         
         tableView.setDelegate(self)
         
