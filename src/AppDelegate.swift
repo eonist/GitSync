@@ -109,7 +109,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
     }
 }
 class DataSource:NSTableViewDataSource{
-    func numberOfRowsInTableView:(NSTableView *)tableView {
+    func numberOfRowsInTableView:():int {
         return nameArray.count;
     }
 
