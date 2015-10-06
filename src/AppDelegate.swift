@@ -109,10 +109,15 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
     }
 }
 class DataSource:NSTableViewDataSource{
-    func numberOfRowsInTableView:():int {
-        return nameArray.count;
+    let tableData:Array = ["March","April","May"]
+    @objc func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+        return tableData.count;
     }
-
+    
+    @objc func tableView(tableView: NSTableView, objectValueForTableColumn tableColumn: NSTableColumn?, row: Int) -> AnyObject?{
+        
+        
+    }
 }
 
 
