@@ -78,7 +78,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //NSAutoresizingMaskOptions.ViewHeightSizable)
         
         let column = NSTableColumn(identifier: "1")
-        column.headerCell.title = "Header Title"
+        column.headerCell.title = "Header Title here"
         
         tableView.addTableColumn(column)
         
@@ -87,7 +87,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         tableView.setDelegate(self)
         
         tableContainer.documentView = tableView
-        
+        tableContainer.hasVerticalScroller = true
         view.addSubview(tableContainer)
     }
     /*
