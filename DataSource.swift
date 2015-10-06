@@ -1,11 +1,11 @@
 import Cocoa
 import Foundation
-class DataSource:NSObject, NSTableViewDataSource{
+class DataSource:NSTableViewDataSource{
     let nameArray:Array = ["March","April","May"]
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return nameArray.count;
     }
-    func tableView(tableView: NSTableView, objectValueForTableColumn tableColumn: NSTableColumn?, row: Int)->AnyObject?{
+    func tableView(tableView: NSTableView,objectValueForTableColumn tableColumn: NSTableColumn?,row: Int) -> AnyObject?{
         return nameArray[row]
     }
 
