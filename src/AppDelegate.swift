@@ -78,6 +78,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         column.headerCell.title = "Header Title"
         
         tableView.addTableColumn(column)
+        
+        tableView.setDataSource(self)
+        
+        tableView.setDelegate(self)
         //[ ];
     }
     /*
