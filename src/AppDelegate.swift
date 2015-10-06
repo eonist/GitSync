@@ -82,7 +82,10 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         tableView.setDataSource(self)
         
         tableView.setDelegate(self)
-        //[ ];
+        
+        tableContainer.documentView = tableView
+        
+        view.addSubview(tableContainer)
     }
     /*
      * When the application closes
