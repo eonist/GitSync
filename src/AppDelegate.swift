@@ -64,15 +64,14 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
      */
     func createList(){
         //NSTableView
-        let tableData:Array = ["March","April","May"]
         //NSScrollView * tableContainer = [[NSScrollView alloc] initWithFrame:firstView.bounds];
         let tableContainer = NSScrollView(frame: view.bounds)
         //[tableContainer setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
         //tableContainer.autoresizingMask = NSAutoresizingMaskOptions.
         
         let tableView = NSTableView(frame: tableContainer.frame)
-        var dataSource = NSTableViewDataSource.
-        //tableView.setDataSource(aSource: NSTableViewDataSource?)
+        let dataSource = DataSource()
+        tableView.setDataSource(dataSource)
         //[[ alloc] initWithFrame:tableContainer.frame];
 
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //NSAutoresizingMaskOptions.ViewHeightSizable)
@@ -108,19 +107,12 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         return _stdlib_getDemangledTypeName(obj).componentsSeparatedByString(".").last!
     }
 }
-class DataSource:NSTableViewDataSource{
+class DataSource:NSTableView, NSTableViewDataSource{
     let nameArray:Array = ["March","April","May"]
     @objc func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return nameArray.count;
     }
     
-    @objc func tableView(tableView: NSTableView, objectValueForTableColumn tableColumn: NSTableColumn?, row: Int) -> AnyObject?{
-        
-        
-    }
-    func tableView(objectValueForTableColumn:NSTableColumn,row:NSInteger){
-        
-    }
 
     
     //tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
