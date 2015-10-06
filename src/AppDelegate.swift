@@ -63,8 +63,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      */
     func createList(){
         //NSTableView
-        let tableData = [[NSMutableArray alloc]initWithObjects:@"March",@"April",@"May", nil];
-
+        let tableData:Array = ["March","April","May"]
+        
     }
     /*
      * When the application closes
