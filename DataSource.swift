@@ -1,6 +1,6 @@
 import Cocoa
 import Foundation
-class DataSource:NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTableViewDelegate{
+class DataSource:NSObject, NSTableViewDataSource{
     let nameArray:Array = ["March","April","May"]
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return nameArray.count;
