@@ -5,9 +5,10 @@ class DataSource:NSTableView, NSTableViewDataSource{
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return nameArray.count;
     }
-    func 
+    func objectValueForColumn(row:int)
     
-    
+    // (id)tableView:(NSTableView *)aTable objectValueForColumn:(NSTableColumn *)aCol row:(int)aRow;
+
     //tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     
 }
