@@ -23,9 +23,9 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         view = FlippedView(frame: NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height))
         window!.contentView = (view)
-        createButtons()
+        //createButtons()
         //createTextField()
-        //createList()
+        createList()
         
         // let theView:CustomView = CustomView(frame:NSRect(x: 0, y: 0, width: 300, height: 300))
         
