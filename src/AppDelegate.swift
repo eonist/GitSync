@@ -64,6 +64,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func createList(){
         //NSTableView
         let tableData:Array = ["March","April","May"]
+        //NSScrollView * tableContainer = [[NSScrollView alloc] initWithFrame:firstView.bounds];
+        let tableContainer = NSScrollView(frame: view.bounds)
+        
         
     }
     /*
