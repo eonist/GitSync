@@ -107,17 +107,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         return _stdlib_getDemangledTypeName(obj).componentsSeparatedByString(".").last!
     }
 }
-class DataSource:NSTableView, NSTableViewDataSource{
-    let nameArray:Array = ["March","April","May"]
-    public func numberOfRowsInTableView(tableView: NSTableView) -> Int {
-        return nameArray.count;
-    }
-    
 
-    
-    //tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    
-}
 
 
 
