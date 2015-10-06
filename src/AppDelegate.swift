@@ -66,7 +66,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let tableData:Array = ["March","April","May"]
         //NSScrollView * tableContainer = [[NSScrollView alloc] initWithFrame:firstView.bounds];
         let tableContainer = NSScrollView(frame: view.bounds)
-        
+        //[tableContainer setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
+        tableContainer.setAutoresizingMask(NSViewWidthSizable)// | NSViewHeightSizable
         
     }
     /*
