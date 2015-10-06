@@ -72,12 +72,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let tableView = NSTableView(frame: tableContainer.frame)
         //[[ alloc] initWithFrame:tableContainer.frame];
 
-        tableView.autoresizingMask = NSAutoresizingMaskOptions.Element// | NSAutoresizingMaskOptions.NSViewHeightSizable
+        tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //NSAutoresizingMaskOptions.ViewHeightSizable)
         
         let column = NSTableColumn(identifier: "1")
         column.headerCell.title = "Header Title"
         
-        //[tableView addTableColumn:column];
+        tableView.addTableColumn(column)
+        //[ ];
     }
     /*
      * When the application closes
