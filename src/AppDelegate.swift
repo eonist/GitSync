@@ -8,7 +8,6 @@ import Foundation
 class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTableViewDelegate {
     static var width = 400//Static variable, reachable on a class level
     static var height = 600
-    
     var window: NSWindow? //= NSWindow(contentRect: NSRect(x: 30, y: 30, width: 200, height: 200), styleMask: NSBorderlessWindowMask, backing: .Buffered, `defer`: false)
     var view:FlippedView = FlippedView(frame: NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height))
     /**
@@ -53,9 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
      */
     func createTextField(){
         let textField = NSTextField(frame: NSRect(x: 0, y: 130, width: 100, height: 20))
-        
         textField.stringValue = "Test"
-        
         view.addSubview(textField)
         print("Hello world again")
     }
