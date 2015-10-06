@@ -81,7 +81,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         
         tableView.addTableColumn(column)
         
-        tableView.setDataSource(self)
+        //tableView.setDataSource(self)
         
         tableView.setDelegate(self)
         
