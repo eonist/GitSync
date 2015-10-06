@@ -3,16 +3,16 @@ import Foundation
 
 @NSApplicationMain/*<-required by the application*/
 /*
-* The class for the application
-*/
+ * The class for the application
+ */
 class AppDelegate: NSObject, NSApplicationDelegate {
     static var width = 400//Static variable, reachable on a class level
     static var height = 600
     var window: NSWindow? //= NSWindow(contentRect: NSRect(x: 30, y: 30, width: 200, height: 200), styleMask: NSBorderlessWindowMask, backing: .Buffered, `defer`: false)
     var view:FlippedView = FlippedView(frame: NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height))
     /**
-    * Initializes your application
-    */
+     * Initializes your application
+     */
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         view = FlippedView(frame: NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height))
         window!.contentView = (view)
@@ -32,8 +32,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     //MARK: - Create UI
     /*
-    * NSButton
-    */
+     * NSButton
+     */
     func createButtons(){
         let buttonX:Int = 0
         let buttonY:Int = 40//Int(window.frame.size.height)-30-20
@@ -48,8 +48,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         button.action = "myAction:"
     }
     /*
-    * NSTextField
-    */
+     * NSTextField
+     */
     func createTextField(){
         let textField = NSTextField(frame: NSRect(x: 0, y: 130, width: 100, height: 20))
         
@@ -59,14 +59,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         print("Hello world again")
     }
     /*
-    * NSTableView
-    */
+     * NSTableView
+     */
     func createList(){
         //NSTableView
     }
     /*
-    * When the application closes
-    */
+     * When the application closes
+     */
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
