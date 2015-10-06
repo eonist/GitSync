@@ -1,8 +1,9 @@
+import Cocoa
 import Foundation
-
-class FlippedView{
-    func test(){
-        
-        print("hello world")
+class FlippedView: NSView {
+    override var flipped:Bool {
+        get {
+            return true
+        }
     }
 }
