@@ -8,6 +8,13 @@ import Foundation
 class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTableViewDelegate {
     static var width = 400//Static variable, reachable on a class level
     static var height = 600
+    /*
+    override var tableData:Array<String> {
+        get {
+            return ["March","April","May"]
+        }
+    }
+*/
     var window: NSWindow? //= NSWindow(contentRect: NSRect(x: 30, y: 30, width: 200, height: 200), styleMask: NSBorderlessWindowMask, backing: .Buffered, `defer`: false)
     var view:FlippedView = FlippedView(frame: NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height))
     /**
