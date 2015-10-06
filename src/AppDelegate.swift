@@ -69,6 +69,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //[tableContainer setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
         //tableContainer.autoresizingMask = NSAutoresizingMaskOptions.
         
+        let tableView = NSTableView(frame: tableContainer.frame)
+        //[[ alloc] initWithFrame:tableContainer.frame];
+
+        tableView.autoresizingMask = NSAutoresizingMaskOptions.Element// | NSAutoresizingMaskOptions.NSViewHeightSizable
         
         let column = NSTableColumn(identifier: "1")
         column.headerCell.title = "Header Title"
