@@ -108,7 +108,12 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         return _stdlib_getDemangledTypeName(obj).componentsSeparatedByString(".").last!
     }
 }
+class DataSource:NSTableViewDataSource{
+    func numberOfRowsInTableView:(NSTableView *)tableView {
+        return nameArray.count;
+    }
 
+}
 
 
 
