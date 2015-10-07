@@ -6,6 +6,8 @@
 
 [Download GitSync v0.9.5.3](https://github.com/eonist/GitSync/releases/tag/0.9.5.3) 
 
+test
+
 Feature  | GitSync | Evernote | MacJournal 
 ------------------ | :----------: | :----------:| :-------:
 Price | Free | 29$/yr | 59$ 
