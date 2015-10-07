@@ -66,7 +66,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         //[tableContainer setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
         //tableContainer.autoresizingMask = NSAutoresizingMaskOptions.
         
-        let tableView = NSTableView(frame: tableContainer.frame)//CustomTableView(frame: tableContainer.frame)//
+        let tableView = CustomTableView(frame: tableContainer.frame)//
         //let dataSource = DataSource()
         
         
@@ -121,14 +121,4 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
     }
 
 }
-
-
-class FlippedView:NSView {//Organizes your view from top to bottom
-    override var flipped:Bool {
-        get {
-            return true
-        }
-    }
-}
-
 
