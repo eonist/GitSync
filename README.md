@@ -4,7 +4,7 @@
 
 ![gitsync_logo_128](https://cloud.githubusercontent.com/assets/11816788/10293816/eba3231c-6bb6-11e5-9e0b-6aec9cc165c5.png)
 
-![Introduction Video](https://i.vimeocdn.com/video/538701317_100x75.jpg)
+[![Introduction video](https://i.vimeocdn.com/video/538701317_100x75.jpg)](https://vimeo.com/gitsync/intro)
 
 [Download GitSync v0.9.5.3](https://github.com/eonist/GitSync/releases/tag/0.9.5.3) 
 
