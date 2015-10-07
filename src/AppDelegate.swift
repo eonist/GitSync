@@ -69,13 +69,10 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         
         let column = NSTableColumn(identifier: "1")
         column.headerCell.title = "Header Title here"
-        
         tableView.addTableColumn(column)
+
         
-        //tableView.setDataSource(self)
-        
-        tableView.setDelegate(self)
-        
+        tableView.setDelegate(self)//listen for delagation events
         tableContainer.documentView = tableView
         tableContainer.hasVerticalScroller = true
         view.addSubview(tableContainer)
