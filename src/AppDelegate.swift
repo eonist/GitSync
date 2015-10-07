@@ -43,8 +43,10 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         
         
         let win = NSWindow(contentRect: NSMakeRect(0, 0, 100, 100), styleMask: NSBorderlessWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
-        
-        
+        //win.level = nsPopupw
+        win.hasShadow = false
+        win.ignoresMouseEvents = true
+        win.makeKeyAndOrderFront(self)
         // let theView:CustomView = CustomView(frame:NSRect(x: 0, y: 0, width: 300, height: 300))
         
         let frame:NSRect = NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height)
