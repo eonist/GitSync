@@ -9,7 +9,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
     //MARK: - Properties
     static var width = 400//Static variable, reachable on a class level
     static var height = 600
-    var window: NSWindow? //= NSWindow(contentRect: NSRect(x: 30, y: 30, width: 200, height: 200), styleMask: NSBorderlessWindowMask, backing: .Buffered, `defer`: false)
+    var window: NSWindow?
     var view:FlippedView = FlippedView(frame: NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height))
     //MARK: - Init
     /**
@@ -20,27 +20,9 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         window!.contentView = (view)
         //createButtons()
         //createTextField()
-        //createList()
+        createList()
         
         // init window.
-        /*
-        NSWindow *window = [[NSWindow alloc]
-            initWithContentRect:NSMakeRect(0, 0, 100, 100)
-            styleMask:NSBorderlessWindowMask
-            backing:NSBackingStoreBuffered
-            defer:NO];
-        
-        // configure window.
-        [window setLevel:NSPopUpMenuWindowLevel];
-        [window setHasShadow:NO];
-        [window setIgnoresMouseEvents:YES];
-        
-        // show window.
-        [window makeKeyAndOrderFront:self];
-        
-        */
-        
-        
         
         
         // let theView:CustomView = CustomView(frame:NSRect(x: 0, y: 0, width: 300, height: 300))
@@ -83,6 +65,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
      * Create window
      */
     func createWindow(){
+        //NSWindow(contentRect: NSRect(x: 30, y: 30, width: 200, height: 200), styleMask: NSBorderlessWindowMask, backing: .Buffered, `defer`: false)
         let win = NSWindow(contentRect: NSMakeRect(0, 0, 100, 100), styleMask: NSBorderlessWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         //win.level = nsPopupw
         win.hasShadow = false
