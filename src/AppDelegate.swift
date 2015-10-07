@@ -19,6 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         newWindow = NSWindow(contentRect: winRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         newWindow!.title = "New Window"
         newWindow!.opaque = false
+        newWindow!.hasShadow = false
         newWindow!.center()
         newWindow!.movableByWindowBackground = true
         newWindow!.backgroundColor = NSColor(calibratedHue: 0, saturation: 1.0, brightness: 0, alpha: 0.7)
