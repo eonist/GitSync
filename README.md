@@ -6,7 +6,10 @@
 
 [Download GitSync v0.9.5.3](https://github.com/eonist/GitSync/releases/tag/0.9.5.3) 
 
-test
+This is updated every minute. 
+Save the document for the change to be pushed to github
+
+Lets see how the conflict resolution dialog looks like. 
 
 Feature  | GitSync | Evernote | MacJournal 
 ------------------ | :----------: | :----------:| :-------:
