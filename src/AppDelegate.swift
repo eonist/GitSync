@@ -66,7 +66,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         //[tableContainer setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
         //tableContainer.autoresizingMask = NSAutoresizingMaskOptions.
         
-        let tableView = CustomTableView(frame: tableContainer.frame)//NSTableView(frame: tableContainer.frame)
+        let tableView = NSTableView(frame: tableContainer.frame)//CustomTableView(frame: tableContainer.frame)//
         //let dataSource = DataSource()
         
         
