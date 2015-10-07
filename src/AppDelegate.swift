@@ -67,11 +67,8 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         //tableContainer.autoresizingMask = NSAutoresizingMaskOptions.
         
         let tableView = CustomTableView(frame: tableContainer.frame)//NSTableView(frame: tableContainer.frame)//
-        let dataSource = DataSource()
-        
-        
      
-        tableView.setDataSource(dataSource)
+        tableView.setDataSource(tableView)
         //[[ alloc] initWithFrame:tableContainer.frame];
 
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //NSAutoresizingMaskOptions.ViewHeightSizable)
@@ -83,7 +80,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         
         //tableView.setDataSource(self)
         
-        tableView.setDelegate(dataSource)
+        tableView.setDelegate(self)
         
         tableContainer.documentView = tableView
         tableContainer.hasVerticalScroller = true
