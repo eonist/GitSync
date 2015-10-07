@@ -1,7 +1,7 @@
 import Foundation
 import Cocoa
 /*
- * Note: Aperantly 
+ * Note: Apparently an NSTableViewDataSource must be in the tableview it self
  */
 class CustomTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     let nameArray:Array = ["March","April","May"]
