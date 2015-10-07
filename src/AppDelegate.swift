@@ -63,7 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
      */
     func createList(){
         let tableContainer = NSScrollView(frame: view.bounds)
-        let tableView = CustomTableView(frame: NSRect(x: 0, y: 130, width: tableContainer.frame.width, height: tableContainer.frame.height))
+        let tableView = CustomTableView(frame: NSRect(x: 100, y: 100, width: 100,height:100))//tableContainer.frame.width-100, height: tableContainer.frame.height
         tableView.setDataSource(tableView)//set the datasource
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
         
