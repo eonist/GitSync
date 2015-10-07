@@ -66,18 +66,12 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         //[tableContainer setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
         //tableContainer.autoresizingMask = NSAutoresizingMaskOptions.
         
-        let tableView = CustomTableView(frame: tableContainer.frame)//
+        let tableView = CustomTableView(frame: tableContainer.frame)//NSTableView(frame: tableContainer.frame)//
         //let dataSource = DataSource()
         
         
-        
-        
-        //continue here, get data source to work from external class
-        
-        
-        
-        
-        tableView.setDataSource(self)
+     
+        tableView.setDataSource(tableView)
         //[[ alloc] initWithFrame:tableContainer.frame];
 
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //NSAutoresizingMaskOptions.ViewHeightSizable)
@@ -111,13 +105,6 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
     func classNameAsString(obj: Any) -> String {
         print(String(obj))
         return _stdlib_getDemangledTypeName(obj).componentsSeparatedByString(".").last!
-    }
-    let nameArray:Array = ["March","April","May"]
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
-        return nameArray.count;
-    }
-    func tableView(tableView: NSTableView,objectValueForTableColumn tableColumn: NSTableColumn?,row: Int) -> AnyObject?{
-        return nameArray[row]
     }
 
 }
