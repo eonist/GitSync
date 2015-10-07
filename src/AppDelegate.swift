@@ -83,7 +83,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         
         //tableView.setDataSource(self)
         
-        tableView.setDelegate(self)
+        tableView.setDelegate(dataSource)
         
         tableContainer.documentView = tableView
         tableContainer.hasVerticalScroller = true
