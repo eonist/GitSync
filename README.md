@@ -11,6 +11,12 @@ Save the document for the change to be pushed to github
 
 Lets see how the conflict resolution dialog looks like. 
 
+A
+
+Now i just changed both documents at the same time. Which one do we use? we will see in a moment.
+
+GitSync should promt us. Shortly
+
 Feature  | GitSync | Evernote | MacJournal 
 ------------------ | :----------: | :----------:| :-------:
 Price | Free | 29$/yr | 59$ 
