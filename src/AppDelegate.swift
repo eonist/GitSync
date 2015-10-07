@@ -21,6 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         //createButtons()
         //createTextField()
         createList()
+        createWindow()
         
         // init window.
         
@@ -70,7 +71,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         //win.level = nsPopupw
         win.hasShadow = false
         win.ignoresMouseEvents = true
-        win.makeKeyAndOrderFront(self)
+        win.makeKeyAndOrderFront(win)
     }
     /*
      * NSTableView
