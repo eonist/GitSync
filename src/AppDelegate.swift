@@ -66,7 +66,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         let tableView = CustomTableView(frame: NSRect(x: 100, y: 100, width: 100,height:100))//tableContainer.frame.width-100, height: tableContainer.frame.height
         tableView.setDataSource(tableView)//set the datasource
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
-        
+        tableView.usesAlternatingRowBackgroundColors = true
         let column = NSTableColumn(identifier: "1")
         column.headerCell.title = "Header Title here"
         tableView.addTableColumn(column)
