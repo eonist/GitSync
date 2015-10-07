@@ -20,7 +20,30 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         window!.contentView = (view)
         //createButtons()
         //createTextField()
-        createList()
+        //createList()
+        
+        // init window.
+        /*
+        NSWindow *window = [[NSWindow alloc]
+            initWithContentRect:NSMakeRect(0, 0, 100, 100)
+            styleMask:NSBorderlessWindowMask
+            backing:NSBackingStoreBuffered
+            defer:NO];
+        
+        // configure window.
+        [window setLevel:NSPopUpMenuWindowLevel];
+        [window setHasShadow:NO];
+        [window setIgnoresMouseEvents:YES];
+        
+        // show window.
+        [window makeKeyAndOrderFront:self];
+        
+        */
+        
+        
+        
+        let win = NSWindow(contentRect: NSMakeRect(0, 0, 100, 100), styleMask: NSBorderlessWindowMask, backing: NSBackingStoreBuffered, `defer`: <#T##Bool#>)
+        
         
         // let theView:CustomView = CustomView(frame:NSRect(x: 0, y: 0, width: 300, height: 300))
         
