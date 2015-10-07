@@ -89,7 +89,8 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         let win = NSWindow(contentRect: NSMakeRect(0, 0, 100, 100), styleMask: NSBorderlessWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         let controller = NSWindowController(window: win)
         controller.showWindow(self)
-        win.makeKeyAndOrderFront(win)
+        win.makeKeyAndOrderFront(nil)
+        //win.makeKeyAndOrderFront(win)
     }
     /*
      * NSTableView
