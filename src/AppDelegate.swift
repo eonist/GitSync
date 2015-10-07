@@ -71,11 +71,10 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         column.headerCell.title = "Header Title here"
         tableView.addTableColumn(column)
 
-        
         tableView.setDelegate(self)//listen for delagation events
         tableContainer.documentView = tableView
         tableContainer.hasVerticalScroller = true
-        view.addSubview(tableContainer)
+        view.addSubview(tableContainer)//add to the view
     }
     /*
      * When the application closes
