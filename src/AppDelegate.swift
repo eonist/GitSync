@@ -67,10 +67,16 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
      */
     func createWindow(){
         //NSWindow(contentRect: NSRect(x: 30, y: 30, width: 200, height: 200), styleMask: NSBorderlessWindowMask, backing: .Buffered, `defer`: false)
+        /*
         let win = NSWindow(contentRect: NSMakeRect(0, 0, 100, 100), styleMask: NSBorderlessWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         //win.level = nsPopupw
         win.hasShadow = false
         win.ignoresMouseEvents = true
+        win.makeKeyAndOrderFront(win)
+        */
+        let win = NSWindow(contentRect: NSMakeRect(0, 0, 100, 100), styleMask: NSBorderlessWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
+        let controller = NSWindowController(window: win)
+        controller.showWindow(self)
         win.makeKeyAndOrderFront(win)
     }
     /*
