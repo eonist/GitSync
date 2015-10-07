@@ -12,24 +12,13 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
     var window: NSWindow?
     var view:FlippedView = FlippedView(frame: NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height))
     //MARK: - Init
-    var newWindow:NSWindow?
-    func createNewWindow(){
-        //NSWindow(contentRect: NSMakeRect(0, 0, NSScreen.mainScreen()!.frame.width/2, NSScreen.mainScreen()!.frame.height/2), styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, defer: false)
-        let winRect = NSMakeRect(0, 0, NSScreen.mainScreen()!.frame.width/2, NSScreen.mainScreen()!.frame.height/2)
-        newWindow = CustomWindow(contentRect: winRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
-        newWindow!.title = "New Window"
-        newWindow!.opaque = false
-        newWindow!.hasShadow = false
-        newWindow!.center()
-        newWindow!.movableByWindowBackground = true
-        newWindow!.backgroundColor = NSColor(calibratedHue: 0, saturation: 1.0, brightness: 0, alpha: 0.7)
-        newWindow!.makeKeyAndOrderFront(nil)
-    }
+    var newWindow:NSWindow = WinUtils.win()
+    
     /**
      * Initializes your application
      */
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        createNewWindow()
+        
         
         view = FlippedView(frame: NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height))
         window!.contentView = (view)
