@@ -42,11 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         
         
         
-        let win = NSWindow(contentRect: NSMakeRect(0, 0, 100, 100), styleMask: NSBorderlessWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
-        //win.level = nsPopupw
-        win.hasShadow = false
-        win.ignoresMouseEvents = true
-        win.makeKeyAndOrderFront(self)
+        
         // let theView:CustomView = CustomView(frame:NSRect(x: 0, y: 0, width: 300, height: 300))
         
         let frame:NSRect = NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height)
@@ -84,12 +80,23 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         print("Hello world again")
     }
     /*
+     * Create window
+     */
+    func createWindow(){
+        let win = NSWindow(contentRect: NSMakeRect(0, 0, 100, 100), styleMask: NSBorderlessWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
+        //win.level = nsPopupw
+        win.hasShadow = false
+        win.ignoresMouseEvents = true
+        win.makeKeyAndOrderFront(self)
+    }
+    /*
      * NSTableView
      */
     func createList(){
         let tableContainerRect:NSRect = NSRect(x: 20, y: 20, width: 300,height:400)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
         let tableView = CustomTableView(frame: tableContainer.frame)//tableContainer.frame.width-100, height: tableContainer.frame.height
+        window?.makeFirstResponder(tableView)//focus tableView
         
         tableView.setDataSource(tableView)//set the datasource
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
