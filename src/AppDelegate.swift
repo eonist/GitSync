@@ -62,18 +62,10 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
      * NSTableView
      */
     func createList(){
-        //NSTableView
-        //NSScrollView * tableContainer = [[NSScrollView alloc] initWithFrame:firstView.bounds];
         let tableContainer = NSScrollView(frame: view.bounds)
-        //[tableContainer setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
-        //tableContainer.autoresizingMask = NSAutoresizingMaskOptions.
-        
-        let tableView = CustomTableView(frame: tableContainer.frame)//NSTableView(frame: tableContainer.frame)//
-     
-        tableView.setDataSource(tableView)
-        
-
-        tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //NSAutoresizingMaskOptions.ViewHeightSizable)
+        let tableView = CustomTableView(frame: NSRect(x: 0, y: 130, width: tableContainer.frame.width, height: tableContainer.frame.height))
+        tableView.setDataSource(tableView)//set the datasource
+        tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
         
         let column = NSTableColumn(identifier: "1")
         column.headerCell.title = "Header Title here"
