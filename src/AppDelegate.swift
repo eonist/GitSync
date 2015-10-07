@@ -6,10 +6,12 @@ import Foundation
  * The class for the application
  */
 class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTableViewDelegate {
+    //MARK: - Properties
     static var width = 400//Static variable, reachable on a class level
     static var height = 600
     var window: NSWindow? //= NSWindow(contentRect: NSRect(x: 30, y: 30, width: 200, height: 200), styleMask: NSBorderlessWindowMask, backing: .Buffered, `defer`: false)
     var view:FlippedView = FlippedView(frame: NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height))
+    //MARK: - Init
     /**
      * Initializes your application
      */
@@ -30,7 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         window!.setFrameTopLeftPoint(NSMakePoint(x, y))//Moves the window in the computer screen
         window?.title = "Test window: "//Setting the title of a window
     }
-    //MARK: - Create UI
+    //MARK: - Create Content
     /*
      * NSButton
      */
@@ -69,7 +71,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         let tableView = CustomTableView(frame: tableContainer.frame)//NSTableView(frame: tableContainer.frame)//
      
         tableView.setDataSource(tableView)
-        //[[ alloc] initWithFrame:tableContainer.frame];
+        
 
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //NSAutoresizingMaskOptions.ViewHeightSizable)
         
