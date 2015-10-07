@@ -1,5 +1,8 @@
 import Foundation
 import Cocoa
+/*
+ * Note: Aperantly 
+ */
 class CustomTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     let nameArray:Array = ["March","April","May"]
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
