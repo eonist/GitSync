@@ -15,7 +15,12 @@ A
 
 Now i just changed both documents at the same time. Which one do we use? we will see in a moment.
 
-GitSync should promt us. Shortly
+GitSync should promt us. Shortly.
+
+
+There, now we are using this version. 
+
+Thats it. 
 
 Feature  | GitSync | Evernote | MacJournal 
 ------------------ | :----------: | :----------:| :-------:
