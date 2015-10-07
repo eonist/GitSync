@@ -11,6 +11,8 @@ Save the document for the change to be pushed to github
 
 Lets see how the conflict resolution dialog looks like. 
 
+B
+
 Feature  | GitSync | Evernote | MacJournal 
 ------------------ | :----------: | :----------:| :-------:
 Price | Free | 29$/yr | 59$ 
