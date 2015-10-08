@@ -19,3 +19,18 @@ You can organize your files and the change will be reflected on to github aswell
 There we go. Pushed and ready to be viewed on github.
 
 Im here working..save
+
+This should now ...promt github to bring up the conflict resolution dialog. so that we can pick which version we want to use. Or use both.
+
+We used the local version.
+
+Now lets see if this is refelcted on github.
+
+
+Works. 
+
+Thats it for now. 
+
+Next time Ill show you how GitSync works on the IPad.
+
+Happy GitSyncing!!!
