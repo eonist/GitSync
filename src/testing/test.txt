@@ -10,3 +10,12 @@ There it is.
 
 In a moment or two the orange color will change back to gray. indicating that the change has also been pushed.
 
+Slow internet today.
+
+There we go.
+
+You can organize your files and the change will be reflected on to github aswell.
+
+There we go. Pushed and ready to be viewed on github.
+
+Im here working..save
