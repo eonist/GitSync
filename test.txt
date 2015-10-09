@@ -1,3 +1,0 @@
-hello world...takes a moment 
-
-Lets make a conflict and see how ipad deals with that
