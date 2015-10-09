@@ -6,9 +6,8 @@
 
 [Download GitSync v0.9.5.3](https://github.com/eonist/GitSync/releases/tag/0.9.5.3) 
 
+**GitSync IPad video:**  
+[![Introduction video](https://i.vimeocdn.com/video/539019703_590x332.jpg)](https://vimeo.com/gitsync/ipad)
 
 **Introduction video:**  
 [![Introduction video](https://cloud.githubusercontent.com/assets/11816788/10334588/70208aa0-6ceb-11e5-90d0-e70d997c5b9b.png)](https://vimeo.com/gitsync/intro)
-
-**GitSync IPad video:**  
-[![Introduction video](https://cloud.githubusercontent.com/assets/11816788/10334588/70208aa0-6ceb-11e5-90d0-e70d997c5b9b.png)](https://vimeo.com/gitsync/ipad)
