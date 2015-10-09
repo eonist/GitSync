@@ -1,3 +1,3 @@
-hello world...takes a moment or two..
+hello world...takes a moment 
 
-this is due to icloud
+Lets make a conflict and see how ipad deals with that
