@@ -10,3 +10,6 @@
   
 [![Introduction video](https://i.vimeocdn.com/video/539019703_590x332.jpg)](https://vimeo.com/gitsync/ipad)
 
+
+**Current working source code:**
+[Wiki](https://github.com/eonist/GitSync/)
