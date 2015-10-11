@@ -15,4 +15,5 @@
 
 
 
-[Current source code](https://github.com/eonist/GitSync/)
+[Current source code](https://github.com/eonist/GitSync/)  
+[swift-utils](https://github.com/eonist/swift-utils/)
