@@ -4,13 +4,13 @@
 
 **Mac video:** 
  
-[![Introduction video](https://i.vimeocdn.com/video/538879286_590x332.jpg)](https://vimeo.com/gitsync/intro)
+[![Introduction video](https://cloud.githubusercontent.com/assets/11816788/10416795/8eb417a6-7025-11e5-9d19-7d5436d310d6.png)
 
 
 
 **IPad video:**
   
-[![Introduction video](https://i.vimeocdn.com/video/539019703_590x332.jpg)](https://vimeo.com/gitsync/ipad)
+[![Introduction video](https://cloud.githubusercontent.com/assets/11816788/10416796/8eb5d1c2-7025-11e5-87bf-9bde8b77ce67.png)
 
 
 
