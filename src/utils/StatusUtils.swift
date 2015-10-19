@@ -77,10 +77,10 @@ class StatusUtils{
 			//--log "len of status_item: " & (length of statusItem)
 			//--set cmd to cmd of status_item
 			switch statusItem{
-				case "Untracked files"://--this is when there exists a new file
+				case "Untracked files": //--this is when there exists a new file
 					//log tab & "1. " & "Untracked files"
 					GitModifier.add(localRepoPath, statusItem["fileName"]) //--add the file to the next commit
-				case "Changes not staged for commit"://--this is when you have not added a file that has changed to the next commit
+				case "Changes not staged for commit": //--this is when you have not added a file that has changed to the next commit
 					//log tab & "2. " & "Changes not staged for commit"
 					GitModifier.add(localRepoPath, statusItem["fileName"]) //--add the file to the next commit
 				case "Changes to be committed"//--this is when you have added a file to the next commit, but not commited it
