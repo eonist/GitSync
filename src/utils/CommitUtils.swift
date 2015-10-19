@@ -8,7 +8,7 @@ class CommitUtil{
 	 * NOTE: C,I,R seems to never be triggered, COPIED,IGNORED,REMOVED,
 	 * NOTE: In place of Renamed, Git first deletes the file then says its untracked
      */
-	func sequenceCommitMsgTitle(statusList:[Dictionary<String,String>])->String{
+	class func sequenceCommitMsgTitle(statusList:[Dictionary<String,String>])->String{
 		var numOfNewFiles:Int = 0
 		var numOfModifiedFiles:Int = 0
 		var numOfDeletedFiles:Int = 0
@@ -23,7 +23,7 @@ class CommitUtil{
 				case "A":
 					numOfNewFiles +=  1
 				case "R": // --This command seems to never be triggered in git
-					numOfDeletedFiles +=  1
+					numOfRenamedFiles +=  1
 				case "??": // --untracked files,
 					numOfNewFiles += 1
 				case "UU": // --unmerged files,
@@ -39,15 +39,15 @@ class CommitUtil{
 		}
 		if (numOfModifiedFiles > 0) {
 			if (commitMessage.characters.count > 0) {  commitMessage +=  ", " }//--append comma
-			commitMessage = +=  "Files modified: " + "\(numOfModifiedFiles)"
+			commitMessage +=  "Files modified: " + "\(numOfModifiedFiles)"
 		}
 		if (numOfDeletedFiles > 0) {
 			if (commitMessage.characters.count > 0) {  commitMessage += ", " }//--append comma
 			commitMessage +=  "Files deleted: " + "\(numOfDeletedFiles)"
 		}
-		if (numOfDeletedFiles > 0) {
+		if (numOfRenamedFiles > 0) {
 			if (commitMessage.characters.count > 0) {  commitMessage +=  ", "}// --append comma
-			commitMessage +=  "Files renamed: " + "\(numOfDeletedFiles)"
+			commitMessage +=  "Files renamed: " + "\(numOfRenamedFiles)"
 		}
 		return commitMessage
 	}
