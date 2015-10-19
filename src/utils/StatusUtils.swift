@@ -31,22 +31,24 @@ class StatusUtils{
 	 * @Param: theStatusList is a list with status messages like: {"?? test.txt"," M index.html","A home.html"}
 	 * NOTE: can also be "UU" unmerged paths
  	 */
-	func transformStatusList(theStatusList:Array<String>)->Array<String>{
-		var transformedList:[String] = []
+	func transformStatusList(theStatusList:Array<String>)->[Dictionary<String,String>]{
+		var transformedList:[Dictionary<String,String>] = []
         for theStatusItem:String in theStatusList {
 			//--log "the_status_item: " & the_status_item
             let matches:[NSTextCheckingResult] = RegExpParser.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
             let theStatusParts:NSTextCheckingResult = matches[0]
-            enum StatusParts:Int{ case first = 0, second , third}
-            
+            enum StatusParts:Int{ case first = 0, second , third, fourth}
+            let second:String = RegExpUtils.value(theStatusItem,theStatusParts,StatusParts.second.rawValue)
+            let third:String = RegExpUtils.value(theStatusItem,theStatusParts,StatusParts.third.rawValue)
+            let fourth:String = RegExpUtils.value(theStatusItem,theStatusParts,StatusParts.fourth.rawValue)
 			//--log "length of theStatusParts: " & (length of theStatusParts)
 			//--log theStatusParts
-			let statusItem:Dictionary = ["state":"", "cmd":"", "fileName":""] //--store the individual parts in an accociative
-			if (theStatusParts.second == " ") { //--aka " M", remember that the second item is the first capturing group
-				statusItem["cmd"] = theStatusParts.third //--Changes not staged for commit:
+            var statusItem:Dictionary<String,String> = ["state":"", "cmd":"", "fileName":""] //--store the individual parts in an accociative
+			if (second == " ") { //--aka " M", remember that the second item is the first capturing group
+				statusItem["cmd"] = third //--Changes not staged for commit:
 				statusItem["state"] = "Changes not staged for commit" //-- you Pneed to add them
 			}else{ //-- Changes to be committed--aka "M " or  "??" or "UU"
-				statusItem["cmd"] = theStatusParts.third //--rename cmd to type
+				statusItem["cmd"] = third //--rename cmd to type
 				//--log "cmd: " & cmd
 				if(statusItem["cmd"] == "??"){
 					statusItem["state"] = "Untracked files"
@@ -57,9 +59,9 @@ class StatusUtils{
 					statusItem["state"] = "Changes to be committed" //--this is when the file is ready to be commited
 				}
 			}
-			statusItem["fileName"] = theStatusParts.fourth
+			statusItem["fileName"] = fourth
 			//--log "state: " & state & ", cmd: " & cmd & ", file_name: " & file_name --logs the file named added changed etc
-			transformedList += statusItem //--add a record to a list
+			transformedList.append(statusItem) //--add a record to a list
 		}
 		return transformedList
 	}
