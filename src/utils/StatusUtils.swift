@@ -35,12 +35,12 @@ class StatusUtils{
 		var transformedList:[String] = []
         for theStatusItem:String in theStatusList {
 			//--log "the_status_item: " & the_status_item
-            let theStatusParts:[NSTextCheckingResult] = RegExpParser.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
-            
+            let matches:[NSTextCheckingResult] = RegExpParser.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
+            let theStatusParts:NSTextCheckingResult = matches[0]
             
             enum StatusParts:Int{ case first = 0, second , third}
-            (theStatusItem as NSString).substringWithRange(theStatusParts.rangeAtIndex(StatusParts.second))
-            
+            (theStatusItem as NSString).substringWithRange(theStatusParts.rangeAtIndex(StatusParts.second.rawValue))
+            //RegExpUtils.value(str,result,enum)
 			//--log "length of theStatusParts: " & (length of theStatusParts)
 			//--log theStatusParts
 			let statusItem:Dictionary = ["state":"", "cmd":"", "fileName":""] //--store the individual parts in an accociative
