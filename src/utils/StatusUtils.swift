@@ -7,11 +7,11 @@ class StatusUtils{
 	 * Returns a descriptive status list of the current git changes
 	 * NOTE: you may use short staus, but you must interpret the message if the state has an empty space infront of it
 	 */
-	func generateStatusList(localRepoPath:String)->Array<String>{
+	func generateStatusList(localRepoPath:String)->[Dictionary<String,String>]{
 		let theStatus:String = GitParser.status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
 		//--log tab & "theStatus: " & theStatus
 		let theStatusList:Array = StringParser.paragraphs(theStatus) //--store each line as items in a list
-		var transformedList:[String] = []
+		var transformedList:[Dictionary<String,String>] = []
 		if (theStatusList.count > 0) {
 			transformedList = transformStatusList(theStatusList)
 		}else{
@@ -71,16 +71,16 @@ class StatusUtils{
 	 * NOTE: even if a file is removed, its status needs to be added to the next commit
 	 * TODO: Squash some of the states together with if or or or etc..
 	 */
-	func processStatusList(localRepoPath:String, _ statusList:String){
+	func processStatusList(localRepoPath:String, _ statusList:[Dictionary<String,String>]){
 		//--log "process_status_list()"
-		for (statusItem in statusList){
+		for statusItem in statusList{
 			//--log "len of status_item: " & (length of statusItem)
 			//--set cmd to cmd of status_item
 			switch statusItem{
-				case "Untracked files"//--this is when there exists a new file
+				case "Untracked files"://--this is when there exists a new file
 					//log tab & "1. " & "Untracked files"
 					GitModifier.add(localRepoPath, statusItem["fileName"]) //--add the file to the next commit
-				case "Changes not staged for commit"//--this is when you have not added a file that has changed to the next commit
+				case "Changes not staged for commit"://--this is when you have not added a file that has changed to the next commit
 					//log tab & "2. " & "Changes not staged for commit"
 					GitModifier.add(localRepoPath, statusItem["fileName"]) //--add the file to the next commit
 				case "Changes to be committed"//--this is when you have added a file to the next commit, but not commited it
