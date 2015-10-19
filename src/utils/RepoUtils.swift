@@ -6,11 +6,11 @@ class RepoUtils{//Utility methods for parsing the repository.xml file
 	 * TODO: test if the full/partly file path still works?
 	 */
 	func compileRepoList(filePath:String)->[Dictionary<String,String>]{
-		let xml:String = XMLParser.data(filePath)
+		let xml:Dictionary<String,Any> = XMLParser.data(filePath)
 		let children:[Dictionary<String,String>] = xml["."]!["repositories"]![0]!["."]!["repository"]!
 		let numChildren:Int = children.count //number of xml children in xml root element
 		var theRepoList:[Dictionary<String,String>] = []
-		for (var i:Int; i++; i < numChildren){
+		for var i:Int; i++; i < numChildren {
 			let child:Dictionary = children[i]
 			let localPath:String = child["@"]["local-path"] //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
 			localPath = ShellUtils.run("echo " + StringModifer.wrapWith(localPath,"'") + " | sed 's/ /\\\\ /g'")//--Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths. 
