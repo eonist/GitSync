@@ -1,18 +1,23 @@
 class MergeUtils{
+    static var options:Array<String> = ["keep local version", "keep remote version", "keep mix of both versions", "open local version", "open remote version", "open mix of both versions", "keep all local versions", "keep all remote versions", "keep all local and remote versions", "open all local versions", "open all remote versions", "open all mixed versions"]
+    //property options : {}
 	/*
  	 * Promts the user with a list of options to aid in resolving merge conflicts
  	 * @param branch: the branch you tried to merge into
  	 */
-	func resolveMergeConflicts(localRepoPath:String, _ branch:String, _ unMergedFiles:Array<String>){
+	class func resolveMergeConflicts(localRepoPath:String, _ branch:String, _ unMergedFiles:Array<String>){
 		//log "resolve_merge_conflicts()"
 		//log ("MergeUtil's resolve_merge_conflicts()")
         for unMergedFile:String in unMergedFiles {
-			let lastSelectedAction:String = options.first //you may want to make this a "property" to store the last item more permenantly
-			let listWindow:ListWindow = ListWindow(options,headerTitle:"Resolve merge conflict in: ",title:unMergedFile + ":",selected:lastSelectedAction,cancelButtonName:"Exit")//promt user with list of options, title: Merge conflict in: unmerged_file
-			listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
+			let lastSelectedAction:String = options.first! //you may want to make this a "property" to store the last item more permenantly
+			print(lastSelectedAction)
+            print(unMergedFile)
+            //let listWindow:ListWindow = ListWindow(options,headerTitle:"Resolve merge conflict in: ",title:unMergedFile + ":",selected:lastSelectedAction,cancelButtonName:"Exit")//promt user with list of options, title: Merge conflict in: unmerged_file
+			//listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
 		}
 	}
-	func complete(sender:ListWindow!) {
+    /*
+    func complete(sender:ListWindow!) {
 	   print("Complete: " + sender.tag)
 	   if(sender.didComplete){
 			handleMergeConflictDialog(sender.didComplete, sender.selected, unMergedFile, localRepoPath, branch, unMergedFiles)
@@ -20,6 +25,7 @@ class MergeUtils{
 	   	//TODO: do the git merge --abort here to revert to the state you were in before the merge attempt, you may also want to display a dialog to informnthe user in which state the files are now.
 	   }
 	}
+    */
 	/*
  	 * Handles the choice made in the merge conflict dialog
  	 * TODO: test the open file clauses
