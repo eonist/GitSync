@@ -30,42 +30,42 @@ class MergeUtils{
  	 * Handles the choice made in the merge conflict dialog
  	 * TODO: test the open file clauses
  	 */
-	func handleMergeConflictDialog(selected:String, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:Array){
+	class func handleMergeConflictDialog(selected:String, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:Array<String>){
 		//log "handle_merge_conflict_dialog()"
 		//print("MergeUtil's handle_merge_conflict_dialog(): " & (item 1 of the_action))
 		//last_selected_action = selected
 		switch selected{
-			case options[0]//keep local version
+            case options[0]://keep local version
 				GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)
-			case options[1]//keep remote version
+			case options[1]://keep remote version
 				GitModifier.checkOut(localRepoPath, "--theirs", unmergedFile)
-			case options[2]//keep mix of both versions
+			case options[2]://keep mix of both versions
 				GitModifier.checkOut(localRepoPath, branch, unmergedFile)
-			case options[3]//open local version
-				GitModifier's check_out(localRepoPath, "--ours", unmergedFile)
+			case options[3]://open local version
+				GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)
 				FileUtils.openFile(localRepoPath + unmergedFile)
-			case options[4]//open remote version
+			case options[4]://open remote version
 				GitModifier.checkOut(localRepoPath, "--theirs", unmergedFile)
 				FileUtils.openFile(localRepoPath + unmergedFile)
-			case options[5]//open mix of both versions
+			case options[5]://open mix of both versions
 				GitModifier.checkOut(localRepoPath, branch, unmergedFile)
-				FileUtils.(localRepoPath + unmergedFile)
-			case options[6]//keep all local versions
+				FileUtils.openFile(localRepoPath + unmergedFile)
+			case options[6]://keep all local versions
 				GitModifier.checkOut(localRepoPath, "--ours", "*")
-			case options[7]//keep all remote versions
+			case options[7]://keep all remote versions
 				GitModifier.checkOut(localRepoPath, "--theirs", "*")
-			case options[8]//keep all local and remote versions
+			case options[8]://keep all local and remote versions
 				GitModifier.checkOut(localRepoPath, branch, "*")
-			case options[9]//open all local versions
+			case options[9]://open all local versions
 				GitModifier.checkOut(localRepoPath, "--ours", "*")
 				FileUtils.openFiles(localRepoPath+unmergedFiles)
-			case options[10]//open all remote versions
+			case options[10]://open all remote versions
 				GitModifier.checkOut(localRepoPath, "--theirs", "*")
-				FileUtils.openFiles(localRepoPath+ unmergedFiles)
-			case options[11]//open all mixed versions
+				FileUtils.openFiles(localRepoPath + unmergedFiles)
+			case options[11]://open all mixed versions
 				GitModifier.checkOut(localRepoPath, branch, "*")
-				FileUtils.openFiles(localRepoPath+ unmergedFiles)
-			default
+				FileUtils.openFiles(localRepoPath + unmergedFiles)
+        default:
 				break;
 		}
 	}

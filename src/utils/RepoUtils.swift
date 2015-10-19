@@ -5,11 +5,11 @@ class RepoUtils{//Utility methods for parsing the repository.xml file
  	 * TODO: if the interval values is not set, then use default values
 	 * TODO: test if the full/partly file path still works?
 	 */
-	func compileRepoList(filePath:String)->Array{
+	func compileRepoList(filePath:String)->[Dictionary<String,String>]{
 		let xml:String = XMLParser.data(filePath)
-		let children:Array = xml["."]["repositories"][0]["."]["repository"]
+		let children:Array = xml["."]!["repositories"]![0]!["."]!["repository"]!
 		let numChildren:Int = children.count //number of xml children in xml root element
-		var theRepoList:Array = []
+		var theRepoList:[Dictionary<String,String>] = []
 		for (var i:Int; i++; i < numChildren){
 			let child:Dictionary = children[i]
 			let localPath:String = child["@"]["local-path"] //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
