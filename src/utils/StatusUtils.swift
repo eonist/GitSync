@@ -34,7 +34,7 @@ class StatusUtils{
 		var transformedList:[String] = []
         for theStatusItem:String in theStatusList {
 			//--log "the_status_item: " & the_status_item
-			let theStatusParts:Array = RegExpParser.match(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups, 
+			let theStatusParts = RegExpParser.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
 			//--log "length of theStatusParts: " & (length of theStatusParts)
 			//--log theStatusParts
 			let statusItem:Dictionary = ["state":"", "cmd":"", "fileName":""] //--store the individual parts in an accociative
