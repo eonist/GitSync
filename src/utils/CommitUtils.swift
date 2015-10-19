@@ -12,7 +12,7 @@ class CommitUtil{
 		var numOfNewFiles:Int = 0
 		var numOfModifiedFiles:Int = 0
 		var numOfDeletedFiles:Int = 0
-		var numOfDeletedFiles:Int = 0
+		var numOfRenamedFiles:Int = 0
 		for statusItem in statusList{
 			let cmd = statusItem["cmd"]! //--TODO: rename to type or status_type
 			switch cmd{
@@ -35,19 +35,19 @@ class CommitUtil{
 		}
 		var commitMessage:String = ""
 		if (numOfNewFiles > 0) {
-			commitMessage +=  "New files added: " + String(numOfNewFiles)
+			commitMessage +=  "New files added: " + "\(numOfNewFiles)"
 		}
 		if (numOfModifiedFiles > 0) {
-			if (commitMessage.count > 0) {  commitMessage +=  ", " }//--append comma
-			commitMessage = += "Files modified: " + numOfModifiedFiles
+			if (commitMessage.characters.count > 0) {  commitMessage +=  ", " }//--append comma
+			commitMessage = +=  "Files modified: " + "\(numOfModifiedFiles)"
 		}
 		if (numOfDeletedFiles > 0) {
-			if (commitMessage.count > 0) {  commitMessage += ", " }//--append comma
-			commitMessage +=  "Files deleted: " + numOfDeletedFiles
+			if (commitMessage.characters.count > 0) {  commitMessage += ", " }//--append comma
+			commitMessage +=  "Files deleted: " + "\(numOfDeletedFiles)"
 		}
 		if (numOfDeletedFiles > 0) {
-			if (commitMessage.count > 0) {  commitMessage +=  ", "}// --append comma
-			commitMessage +=  "Files renamed: " + numOfDeletedFiles
+			if (commitMessage.characters.count > 0) {  commitMessage +=  ", "}// --append comma
+			commitMessage +=  "Files renamed: " + "\(numOfDeletedFiles)"
 		}
 		return commitMessage
 	}
