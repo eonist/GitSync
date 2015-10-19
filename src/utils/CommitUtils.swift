@@ -35,7 +35,7 @@ class CommitUtil{
 		}
 		var commitMessage:String = ""
 		if (numOfNewFiles > 0) {
-			commitMessage +=  "New files added: " + numOfNewFiles
+			commitMessage +=  "New files added: " + String(numOfNewFiles)
 		}
 		if (numOfModifiedFiles > 0) {
 			if (commitMessage.count > 0) {  commitMessage +=  ", " }//--append comma
