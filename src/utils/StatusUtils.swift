@@ -6,11 +6,11 @@ class StatusUtils{
 	 * Returns a descriptive status list of the current git changes
 	 * NOTE: you may use short staus, but you must interpret the message if the state has an empty space infront of it
 	 */
-	func generateStatusList(localRepoPath:String)->Array{
+	func generateStatusList(localRepoPath:String)->Array<String>{
 		let theStatus:String = GitParser.status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
 		//--log tab & "theStatus: " & theStatus
 		let theStatusList:Array = StringParser.paragraphs(theStatus) //--store each line as items in a list
-		var transformedList:Array = []
+		var transformedList:[String] = []
 		if (theStatusList.count > 0) {
 			transformedList = transformStatusList(theStatusList)
 		}else{
@@ -30,8 +30,8 @@ class StatusUtils{
 	 * @Param: theStatusList is a list with status messages like: {"?? test.txt"," M index.html","A home.html"}
 	 * NOTE: can also be "UU" unmerged paths
  	 */
-	func transformStatusList(theStatusList:Array)->Array{
-		set transformedList:Array = []
+	func transformStatusList(theStatusList:Array<String>)->Array<String>{
+		var transformedList:[String] = [String]()
 		for (theStatusItem in theStatusList){ 
 			//--log "the_status_item: " & the_status_item
 			let theStatusParts:Array = RegExpParser.match(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups, 
