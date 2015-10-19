@@ -11,13 +11,22 @@ class RepoUtils{//Utility methods for parsing the repository.xml file
         let repositoriesChildren:[Dictionary<String,Any>] = rootContent["repositories"] as! [Dictionary<String,Any>]
         let firstRepositoriesChild:Dictionary<String,Any> = repositoriesChildren[0]
         let firstRepositoriesChildContent:Dictionary<String,Any> = firstRepositoriesChild["."] as! Dictionary<String,Any>
-		let firstRepositoryChildren:[Dictionary<String,Any>] = firstRepositoriesChildContent["repository"] as! [Dictionary<String,Any>]
-        let firstRepositoryChild:Dictionary<String,Any> = firstRepositoryChildren[0]
-        let children:[Dictionary<String,String>]
-        let numChildren:Int = children.count //number of xml children in xml root element
+		let repositoryChildren:[Dictionary<String,Any>] = firstRepositoriesChildContent["repository"] as! [Dictionary<String,Any>]
+        
+        let numChildren:Int = repositoryChildren.count //number of xml children in xml root element
 		var theRepoList:[Dictionary<String,String>] = []
+        
+        
+        
+        //continue here
+        //use underscore looping on the bellow
+        
+        
+        
+        
+        
 		for var i:Int; i++; i < numChildren {
-			let child:Dictionary = children[i]
+			let child:Dictionary = repositoryChildren[i]
 			let localPath:String = child["@"]["local-path"] //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
 			localPath = ShellUtils.run("echo " + StringModifer.wrapWith(localPath,"'") + " | sed 's/ /\\\\ /g'")//--Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths. 
 			let remotePath:String = child["@"]["remote_path"]
