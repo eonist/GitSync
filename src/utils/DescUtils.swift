@@ -5,18 +5,19 @@ class DescUtil{
 	/*
 	 * Returns a "Git Commit Message Description" derived from a "git status list" with "status items records"
 	 */
-	func sequenceDescription(statusList:[Dictionary<String,String>])->String{
+	class func sequenceDescription(statusList:[Dictionary<String,String>])->String{
 		var descText:String = ""
-		var modifiedItems:Array = []
-		var deletedItems:Array = []
-		var addedItems:Array = []
-		for statusItem in statusList as! [Dictionary]{
-			switch statusItem["cmd"]{
-				case "D" deletedItems.append(statusItem) //--add a record to a list
-				case "M" modifiedItems.append(statusItem)//--add a record to a list
-				case "??" addedItems.append(statusItem)//--add a record to a list
-				case "UU" modifiedItems.append(statusItem)//--add a record to a list
-				default
+		var modifiedItems:[Dictionary<String,String>] = []
+		var deletedItems:[Dictionary<String,String>] = []
+		var addedItems:[Dictionary<String,String>] = []
+        for statusItem:Dictionary<String,String> in statusList{
+            let cmd:String = statusItem["cmd"]!
+			switch cmd{
+				case "D": deletedItems.append(statusItem) //--add a record to a list
+				case "M": modifiedItems.append(statusItem)//--add a record to a list
+				case "??": addedItems.append(statusItem)//--add a record to a list
+				case "UU": modifiedItems.append(statusItem)//--add a record to a list
+				default:
 					//throw error
 					break;
 			}
