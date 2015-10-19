@@ -7,21 +7,13 @@ class RepoUtils{//Utility methods for parsing the repository.xml file
 	 */
 	func compileRepoList(filePath:String)->[Dictionary<String,String>]{
 		let xml:Dictionary<String,Any> = XMLParser.data(filePath)
-                //
         let rootContent:Dictionary<String,Any> = xml["."] as! Dictionary<String,Any>
         let repositoriesChildren:[Dictionary<String,Any>] = rootContent["repositories"] as! [Dictionary<String,Any>]
         let firstRepositoriesChild:Dictionary<String,Any> = repositoriesChildren[0]
-        
-        
-        
         let firstRepositoriesChildContent:Dictionary<String,Any> = firstRepositoriesChild["."] as! Dictionary<String,Any>
-        
-        
 		let firstRepositoryChildren:[Dictionary<String,Any>] = firstRepositoriesChildContent["repository"] as! [Dictionary<String,Any>]
         let firstRepositoryChild:Dictionary<String,Any> = firstRepositoryChildren[0]
-        
-        let children:[Dictionary<String,String>]// = ((((xml["."] as! Dictionary<String,Any>)["repositories"] as! [Dictionary<String,Any>])[0] as! Dictionary<String,Any>)["."] as! Dictionary<String,Any>)["repository"]!
-		
+        let children:[Dictionary<String,String>]
         let numChildren:Int = children.count //number of xml children in xml root element
 		var theRepoList:[Dictionary<String,String>] = []
 		for var i:Int; i++; i < numChildren {
