@@ -8,8 +8,10 @@ class RepoUtils{//Utility methods for parsing the repository.xml file
 	func compileRepoList(filePath:String)->[Dictionary<String,String>]{
 		let xml:Dictionary<String,Any> = XMLParser.data(filePath)
                 //
+        let root:
 		let children:[Dictionary<String,String>] = ((((xml["."] as! Dictionary<String,Any>)["repositories"] as! [Dictionary<String,Any>])[0] as! Dictionary<String,Any>)["."] as! Dictionary<String,Any>)["repository"]!
-		let numChildren:Int = children.count //number of xml children in xml root element
+		
+        let numChildren:Int = children.count //number of xml children in xml root element
 		var theRepoList:[Dictionary<String,String>] = []
 		for var i:Int; i++; i < numChildren {
 			let child:Dictionary = children[i]
