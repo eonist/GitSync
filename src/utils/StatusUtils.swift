@@ -1,3 +1,4 @@
+import Foundation
 /*
  * Utils for paraing the git status list
  */
@@ -34,10 +35,12 @@ class StatusUtils{
 		var transformedList:[String] = []
         for theStatusItem:String in theStatusList {
 			//--log "the_status_item: " & the_status_item
-			let theStatusParts = RegExpParser.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
-            (str as NSString).substringWithRange(match.rangeAtIndex(1))  //capturing groups from index (1 - n)
+            let theStatusParts:[NSTextCheckingResult] = RegExpParser.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
             
-            enum FolderTaskParts:Int{ case folder = 1, content }
+            
+            enum StatusParts:Int{ case first = 0, second , third}
+            (theStatusItem as NSString).substringWithRange(theStatusParts.rangeAtIndex(StatusParts.second))
+            
 			//--log "length of theStatusParts: " & (length of theStatusParts)
 			//--log theStatusParts
 			let statusItem:Dictionary = ["state":"", "cmd":"", "fileName":""] //--store the individual parts in an accociative
