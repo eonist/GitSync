@@ -8,27 +8,27 @@ class CommitUtil{
 	 * NOTE: C,I,R seems to never be triggered, COPIED,IGNORED,REMOVED,
 	 * NOTE: In place of Renamed, Git first deletes the file then says its untracked
      */
-	func sequenceCommitMsgTitle(statusList:Array)->String{
+	func sequenceCommitMsgTitle(statusList:[Dictionary<String,String>])->String{
 		var numOfNewFiles:Int = 0
 		var numOfModifiedFiles:Int = 0
 		var numOfDeletedFiles:Int = 0
 		var numOfDeletedFiles:Int = 0
-		for (statusItem in statusList){
-		//	let cmd to cmd of status_item --TODO: rename to type or status_type
-			switch variable{
-				case "M"
+		for statusItem in statusList{
+			let cmd = statusItem["cmd"]! //--TODO: rename to type or status_type
+			switch cmd{
+				case "M":
 					numOfModifiedFiles +=  1
-				case "D"
+				case "D":
 					numOfDeletedFiles +=  1
-				case "A"
+				case "A":
 					numOfNewFiles +=  1
-				case "R" // --This command seems to never be triggered in git
+				case "R": // --This command seems to never be triggered in git
 					numOfDeletedFiles +=  1
-				case "??"// --untracked files,
+				case "??": // --untracked files,
 					numOfNewFiles += 1
-				case "UU"// --unmerged files,
+				case "UU": // --unmerged files,
 					numOfModifiedFiles += 1
-				default
+				default:
 					//throw error
 					break;
 			}
