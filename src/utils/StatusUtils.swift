@@ -76,21 +76,24 @@ class StatusUtils{
         for statusItem:Dictionary<String,String> in statusList{
 			//--log "len of status_item: " & (length of statusItem)
 			//--set cmd to cmd of status_item
-			switch statusItem["state"]! {
+            let state:String = statusItem["state"]!
+            let fileName:String = statusItem["fileName"]!
+			switch state {
 				case "Untracked files": //--this is when there exists a new file
 					//log tab & "1. " & "Untracked files"
-					GitModifier.add(localRepoPath, statusItem["fileName"]) //--add the file to the next commit
+					GitModifier.add(localRepoPath, fileName) //--add the file to the next commit
 				case "Changes not staged for commit": //--this is when you have not added a file that has changed to the next commit
 					//log tab & "2. " & "Changes not staged for commit"
-					GitModifier.add(localRepoPath, statusItem["fileName"]) //--add the file to the next commit
-				case "Changes to be committed": //--this is when you have added a file to the next commit, but not commited it
+					GitModifier.add(localRepoPath, fileName) //--add the file to the next commit
+				case "Changes to be committed"://--this is when you have added a file to the next commit, but not commited it
+                    break
 					//log tab & "3. " & "Changes to be committed" --do nothing here
 				case "Unmerged path": //--This is when you have files that have to be resolved first, but eventually added aswell
 					//log tab & "4. " & "Unmerged path"
-					GitModifier.add(localRepoPath, statusItem["fileName"]) //--add the file to the next commit
-				default
+					GitModifier.add(localRepoPath, fileName) //--add the file to the next commit
+                default :
 					//throw error
-					break;
+					break
 			}
 		}
 	}
