@@ -3,10 +3,10 @@ class MergeUtils{
  	 * Promts the user with a list of options to aid in resolving merge conflicts
  	 * @param branch: the branch you tried to merge into
  	 */
-	func resolveMergeConflicts(localRepoPath:String, _ branch:String, _ unMergedFiles:Array){
+	func resolveMergeConflicts(localRepoPath:String, _ branch:String, _ unMergedFiles:Array<String>){
 		//log "resolve_merge_conflicts()"
 		//log ("MergeUtil's resolve_merge_conflicts()")
-		for( unMergedFile in unMergedFiles){;
+        for unMergedFile:String in unMergedFiles {
 			let lastSelectedAction:String = options.first //you may want to make this a "property" to store the last item more permenantly
 			let listWindow:ListWindow = ListWindow(options,headerTitle:"Resolve merge conflict in: ",title:unMergedFile + ":",selected:lastSelectedAction,cancelButtonName:"Exit")//promt user with list of options, title: Merge conflict in: unmerged_file
 			listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
