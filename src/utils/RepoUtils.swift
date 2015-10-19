@@ -11,9 +11,14 @@ class RepoUtils{//Utility methods for parsing the repository.xml file
         let rootContent:Dictionary<String,Any> = xml["."] as! Dictionary<String,Any>
         let repositoriesChildren:[Dictionary<String,Any>] = rootContent["repositories"] as! [Dictionary<String,Any>]
         let firstRepositoriesChild:Dictionary<String,Any> = repositoriesChildren[0]
-        let repositoryChildren:[Dictionary<String,Any>] = firstRepositoriesChild["."] as! [Dictionary<String,Any>]
-		let firstRepositoryChild:Dictionary<String,Any> = repositoryChildren[0]
-        let firstRepositoryChildVaue:[Dictionary<String,String>] = firstRepositoryChild["."]
+        
+        
+        
+        let firstRepositoriesChildContent:[Dictionary<String,Any>] = firstRepositoriesChild["."] as! [Dictionary<String,Any>]
+        
+        
+		let firstRepositoryChildren:Dictionary<String,Any> = firstRepositoriesChildContent["repository"]
+        let firstRepositoryChild:[Dictionary<String,String>] = firstRepositoryChildren[0]
         
         let children:[Dictionary<String,String>]// = ((((xml["."] as! Dictionary<String,Any>)["repositories"] as! [Dictionary<String,Any>])[0] as! Dictionary<String,Any>)["."] as! Dictionary<String,Any>)["repository"]!
 		
