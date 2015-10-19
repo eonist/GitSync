@@ -7,7 +7,7 @@ class CommitUtil{
 	 * @param status_list: a list with records that contain staus type, file name and state
 	 * NOTE: C,I,R seems to never be triggered, COPIED,IGNORED,REMOVED,
 	 * NOTE: In place of Renamed, Git first deletes the file then says its untracked
-    */
+     */
 	func sequenceCommitMsgTitle(statusList:Array)->String{
 		var numOfNewFiles:Int = 0
 		var numOfModifiedFiles:Int = 0
