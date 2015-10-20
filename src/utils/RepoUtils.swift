@@ -27,7 +27,8 @@ class RepoUtils{//Utility methods for parsing the repository.xml file
 			let keychainItemName:String = attr["keychain-item-name"]!
 			let interval:String = attr["interval"]!//default is 1min
 			let remoteAccountName:String = attr["remote-account-name"]!
-			theRepoList += ["localPath":localPath,"remotePath":remotePath,"keychainItemName":keychainItemName,"interval":interval,"remoteAccountName":remoteAccountName]
+            let repoItem:Dictionary<String,String> = ["localPath":localPath,"remotePath":remotePath,"keychainItemName":keychainItemName,"interval":interval,"remoteAccountName":remoteAccountName]
+			theRepoList.append(repoItem)
 		}
 		return theRepoList
 	}
