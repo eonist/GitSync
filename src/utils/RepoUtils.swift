@@ -19,14 +19,14 @@ class RepoUtils{//Utility methods for parsing the repository.xml file
         for repositoryChild:Dictionary<String,Any> in repositoryChildren{
 			//let child:Dictionary = repositoryChildren[i]
             let attr:Dictionary<String,String> = repositoryChild["@"] as! Dictionary<String,String>
-			let localPath:String = attr["local-path"]! //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
-			localPath = ShellUtils.run("echo " + StringModifer.wrapWith(localPath,"'") + " | sed 's/ /\\\\ /g'")//--Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths. 
-			let remotePath:String = child["@"]["remote_path"]
+			var localPath:String = attr["local-path"]! //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
+			localPath = ShellUtils.run("echo " + StringModifier.wrapWith(localPath,"'") + " | sed 's/ /\\\\ /g'")//--Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths.
+			var remotePath:String = attr["remote_path"]!
 			remotePath = RegExpModifier.replace(remotePath,"^https://.+$","")//support for partial and full url, strip away the https://, since this will be added later
 			//print(remotePath)
-			let keychainItemName:String = child["@"]["keychain-item-name"]
-			let interval:String = child["@"]["interval"]//default is 1min
-			let remoteAccountName:String = child["@"]["remote-account-name"]
+			let keychainItemName:String = attr["keychain-item-name"]!
+			let interval:String = attr["interval"]!//default is 1min
+			let remoteAccountName:String = attr["remote-account-name"]!
 			theRepoList += ["localPath":localPath,"remotePath":remotePath,"keychainItemName":keychainItemName,"interval":interval,"remoteAccountName":remoteAccountName]
 		}
 		return theRepoList
