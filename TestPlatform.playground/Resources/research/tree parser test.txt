@@ -1,0 +1,54 @@
+import Foundation
+
+//Ascend complete tasks
+//Decend complete tasks
+
+let str = "- [X] third" + "\n" +
+" - [X] a"+"\n" +//+
+" - [X] b"+"\n" +
+""
+
+let str = "abc\n" +
+"def\n" +
+"ghi"
+
+//todo: create a repo for this playground sans the personal files. just the code plz
+//todo: try to trace each line and then also its end and begninning
+//todo: then try to add a space as prefix to indicate child etc
+//todo: use beginning of line or non word boundry to solve the look a head problem
+
+
+//let taskFolder = "^- \\[(?:X| )\\] \\w*?" //
+
+
+//RegExpParser.match(str, taskFolder)[0]
+
+/*
+
+//2 capture groups: taskFolder and child content
+let pattern = "(" + //open capture group "task folder"
+taskFolder + // taskFolder "task-bool" and task "text"
+")" + //close capture group "task folder"
+"(" + //open capture group for child content of task folder
+".*?" + //capture child content of task folder
+")" + //open capture group for child content of task folder
+"(?=" + //open look ahead group (non-consuming)
+taskFolder + //match beginning of new line and the "task folder pattern"
+"|$" + //or match end of line
+")"//close look ahead group (non-consuming)
+let matches = RegExpParser.matches(str, pattern)
+matches.count
+//let theResult = match[0]
+
+enum TreeTaskParts:Int{
+case folder = 1, content
+}
+
+for match:NSTextCheckingResult in matches {
+match.numberOfRanges
+let folder = (str as NSString).substringWithRange(match.rangeAtIndex(TreeTaskParts.folder.rawValue))
+let content = (str as NSString).substringWithRange(match.rangeAtIndex(TreeTaskParts.content.rawValue))
+
+}
+
+*/

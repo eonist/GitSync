@@ -1,0 +1,10 @@
+
+
+let str = "abc\n" +
+" def\n" +
+" ghi"
+
+let pattern =  "^[\\n\\w ]+"
+
+RegExpParser.match(str, pattern)[0]
+
