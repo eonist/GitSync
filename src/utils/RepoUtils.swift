@@ -13,7 +13,7 @@ class RepoUtils{//Utility methods for parsing the repository.xml file
         let firstRepositoriesChildContent:Dictionary<String,Any> = firstRepositoriesChild["."] as! Dictionary<String,Any>
 		let repositoryChildren:[Dictionary<String,Any>] = firstRepositoriesChildContent["repository"] as! [Dictionary<String,Any>]
         
-        let numChildren:Int = repositoryChildren.count //number of xml children in xml root element
+        //let numChildren:Int = repositoryChildren.count //number of xml children in xml root element
 		var theRepoList:[Dictionary<String,String>] = []
 		
         for repositoryChild:Dictionary<String,Any> in repositoryChildren{
