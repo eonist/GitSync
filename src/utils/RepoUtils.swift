@@ -7,8 +7,7 @@ class RepoUtils{//Utility methods for parsing the repository.xml file
 	 * TODO: test if the full/partly file path still works?
 	 */
 	func compileRepoList(filePath:String)->[Dictionary<String,String>]{
-		let xml:Dictionary<String,Any> = XMLParser.data(filePath)
-        let children:Array<NSXMLElement> = XMLParser.rootChildren(xmlStr)
+        let children:Array<NSXMLElement> = XMLParser.rootChildrenByFilePath(filePath)
         var theRepoList:[Dictionary<String,String>] = []
         for child:NSXMLElement in children{
             let localPath:String = XMLParser.attribute(child,"local-path")! //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
