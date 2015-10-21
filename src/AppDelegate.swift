@@ -13,17 +13,16 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
     var view:FlippedView = FlippedView(frame: NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height))
     //MARK: - Init
     var newWindow:NSWindow = WinUtils.win()
-    
     /**
      * Initializes your application
      */
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        
+        print("hello world")
         
         view = FlippedView(frame: NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height))
         window!.contentView = (view)
-        //createButtons()
-        //createTextField()
+        createButtons()
+        createTextField()
         createList()
         createWindow()
         
@@ -39,11 +38,19 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         
         window!.setFrameTopLeftPoint(NSMakePoint(x, y))//Moves the window in the computer screen
         window?.title = "Test window: "//Setting the title of a window
+
+    }
+    /*
+     * When the application closes
+     */
+    func applicationWillTerminate(aNotification: NSNotification) {
+        // Insert code here to tear down your application
+        print("Good-bye world")
     }
     //MARK: - Create Content
     /*
-     * NSButton
-     */
+    * NSButton
+    */
     func createButtons(){
         let buttonX:Int = 0
         let buttonY:Int = 40//Int(window.frame.size.height)-30-20
@@ -58,17 +65,18 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         button.action = "myAction:"
     }
     /*
-     * NSTextField
-     */
+    * NSTextField
+    */
     func createTextField(){
         let textField = NSTextField(frame: NSRect(x: 0, y: 130, width: 100, height: 20))
         textField.stringValue = "Test"
         view.addSubview(textField)
         print("Hello world again")
     }
+    
     /*
-     * Create window
-     */
+    * Create window
+    */
     func createWindow(){
         //NSWindow(contentRect: NSRect(x: 30, y: 30, width: 200, height: 200), styleMask: NSBorderlessWindowMask, backing: .Buffered, `defer`: false)
         /*
@@ -85,8 +93,8 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         //win.makeKeyAndOrderFront(win)
     }
     /*
-     * NSTableView
-     */
+    * NSTableView
+    */
     func createList(){
         let tableContainerRect:NSRect = NSRect(x: 20, y: 20, width: 300,height:400)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
@@ -99,18 +107,13 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         let column = NSTableColumn(identifier: "1")
         column.headerCell.title = "Header Title here"
         tableView.addTableColumn(column)
-
+        
         tableView.setDelegate(self)//listen for delagation events
         tableContainer.documentView = tableView
         tableContainer.hasVerticalScroller = true
         view.addSubview(tableContainer)//add to the view
     }
-    /*
-     * When the application closes
-     */
-    func applicationWillTerminate(aNotification: NSNotification) {
-        // Insert code here to tear down your application
-    }
+    
     //MARK: - Event handlers:
     func myAction(obj:AnyObject!){
         print("press")
