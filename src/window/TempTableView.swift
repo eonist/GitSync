@@ -5,7 +5,7 @@ import Cocoa
  */
 class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     let monthNames:Array = ["March","April","May"]
-    let data:[Dictionary<String,String>] = []
+    let data:[Dictionary<String,String>] = [["Name":"John","Age":"19"],["Name":"Judith","Age":"22"]]
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return monthNames.count;
     }
@@ -15,7 +15,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
         // get the item for the row
-        let item = monthNames[row]
+        let item:Dictionary<String,String> = data[row]
         
         // get the NSTableCellView for the column
         let result : NSTableCellView = tableView.makeViewWithIdentifier(tableColumn!.identifier, owner: self) as! NSTableCellView
