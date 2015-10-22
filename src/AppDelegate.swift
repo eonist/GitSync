@@ -12,25 +12,15 @@ class AppDelegate: NSObject, NSApplicationDelegate{
      * Initializes your application
      */
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        print("hello world")
-        
-      
-        let winRect = NSMakeRect(0, 0, NSScreen.mainScreen()!.frame.width/2, NSScreen.mainScreen()!.frame.height/2)
+        let winRect = NSMakeRect(0, 0, NSScreen.mainScreen()!.frame.width/2, NSScreen.mainScreen()!.frame.height/2)//TODO: us ns rect?
         window = TempWin(contentRect: winRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
-        
-        
     }
     /*
      * When the application closes
      */
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
-        print("Good-bye world")
+        print("Good-bye")
     }
-    //MARK: - Create Content
-  
-
-    
-    
 }
 
