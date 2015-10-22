@@ -59,9 +59,14 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         tableView.setDataSource(tableView)//set the datasource
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
         tableView.usesAlternatingRowBackgroundColors = true
-        let column = NSTableColumn(identifier: "1")
-        column.headerCell.title = "Month names"
-        tableView.addTableColumn(column)
+        
+        let columnA = NSTableColumn(identifier: "1")
+        columnA.headerCell.title = "Month names"
+        tableView.addTableColumn(columnA)
+        
+        let columnB = NSTableColumn(identifier: "2")
+        columnB.headerCell.title = "Age"
+        tableView.addTableColumn(columnB)
         
         tableView.setDelegate(self)//listen for delagation events
         tableContainer.documentView = tableView
