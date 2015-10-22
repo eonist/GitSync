@@ -6,6 +6,22 @@ import Cocoa
  * create a table design: active toggle on the right, repo + branch name and the status indicator on the left.
  */
 class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        //add eventlisteners
+        self.target = self//event dispataches to this instance
+        self.action = "myAction:"//event dispatches to this method
+    }
+    /**
+    *
+    */
+    func myAction(){
+        
+    }
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     //let monthNames:Array = ["March","April","May"]
     let data:[Dictionary<String,String>] = [["status":"Green","remote-repo":"Gitsync", "branch":"master","active":"true"],["status":"Yellow","remote-repo":"Element", "branch":"development","active":"false"]]
     /*
@@ -32,7 +48,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     func tableView(tableView: NSTableView, mouseDownInHeaderOfTableColumn tableColumn: NSTableColumn) {
         Swift.print("Selection mouseDownInHeaderOfTableColumn")
     }
-    click
+    
     /*
     This is for custom design i guess
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
