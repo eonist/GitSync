@@ -14,8 +14,8 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         self.makeMainWindow()
         Swift.print(self.deviceDescription)
         //Swift.print(self.windowNumber)
-        Swift.print(self.screen?.deviceDescription)
-        Swift.print(self.screen!.frame)
+        //Swift.print(self.screen?.deviceDescription)
+        Swift.print(self.screen!.frame)//screen size
         //let controller = NSWindowController(window: newWindow)
         //controller.showWindow(self)
         self.center()
