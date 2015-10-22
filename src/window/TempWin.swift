@@ -79,6 +79,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
     }
     
     func myAction(obj:AnyObject!){
+        
         print("press")
         print(String(obj))
         print(classNameAsString(obj))
