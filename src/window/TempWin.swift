@@ -42,8 +42,9 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         let titles:[String] = ["Add","Remove","Info","View"]
         var buttons:Array<NSButton> = []
         
-        //todo store buttons globaly, and switch in the myaction call
-        
+        //TODO:  store buttons globaly, and switch in the myaction call
+        //TODO: create a view named container with buttons that the tableview then can pin itself to
+        //TODO: create debug button so you can test how to get the table row id of the selected row
         
         for title:String in titles{
             //Swift.print(buttonTitle)
