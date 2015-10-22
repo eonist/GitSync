@@ -1,7 +1,7 @@
 import Foundation
 import Cocoa
 
-class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
+class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
     let titles:[String] = ["Add","Remove","Info","View","test"]
     static var width = 800//Static variable, reachable on a class level
     static var height = 600
@@ -13,6 +13,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()
         Swift.print(self.deviceDescription)
+        
         //Swift.print(self.windowNumber)
         //Swift.print(self.screen?.deviceDescription)
         Swift.print(self.screen!.frame)//screen size
@@ -22,6 +23,8 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         self.contentView = view
         self.title = "GitSync"
         createContent()
+        self.delegate = self
+        
     }
     /*
     * Required by the NSWindow
