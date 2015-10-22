@@ -14,8 +14,8 @@ class AppDelegate: NSObject, NSApplicationDelegate{
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         let winRect = NSMakeRect(0, 0, NSScreen.mainScreen()!.frame.width/2, NSScreen.mainScreen()!.frame.height/2)//TODO: us ns rect?
         win = TempWin(contentRect: winRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
-        //self.window.setContentView(self.newContentView)
-        //self.window.makeKeyAndOrderFront(nil)
+        //self.win.setContentView(self.newContentView)
+        self.win!.makeKeyAndOrderFront(nil)
         //print(aNotification)
         let app:NSApplication = aNotification.object as! NSApplication
         print(app)
@@ -26,6 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate{
             //app.windowWithWindowNumber(<#T##windowNum: Int##Int#>)
         }
         app.windows[0].close()//close the initial window
+        //app.windows[1].close()//close the initial window
     }
     /*
      * When the application closes
