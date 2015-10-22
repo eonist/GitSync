@@ -18,7 +18,7 @@ class WinUtils {
         //win.center()//places the window in the center
         //win.setIsMiniaturized(false)
         //win.setTitleWithRepresentedFilename("")// method formats a filename in the title bar in a readable format
-        print(win.windowNumber)//window device a unique identifier (within an application). This is the window number, and it's returne
+        print(win.windowNumber)//window device a unique identifier (within an application). This is the window number
        
         //win.documentEdited = true //The method for marking this is setDocumentEdited:. When the window closes, its delegate can check it with isDocumentEdited to see whether the document needs to be saved.
         return win
