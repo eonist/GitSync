@@ -26,6 +26,5 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         
         // return the populated NSTableCellView
         return result
-        
     }
 }

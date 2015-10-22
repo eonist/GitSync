@@ -4,6 +4,7 @@ import Foundation
 @NSApplicationMain/*<-required by the application*/
 /*
  * The class for the application
+ * TODO: figure out how not to open the default window
  */
 class AppDelegate: NSObject, NSApplicationDelegate{
     var window:NSWindow?// = WinUtils.win()
