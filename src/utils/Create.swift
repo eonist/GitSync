@@ -27,7 +27,7 @@ class Create {
      * TODO: Figure out how to use extensions for different creation methods for this item:
      */
     class func textButton(title:String)->NSButton{
-       return textButton(title: <#T##String#>)
+       return textButton(title: title)
     }
 }
 

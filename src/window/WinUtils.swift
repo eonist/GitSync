@@ -15,6 +15,8 @@ class WinUtils {
         win.movableByWindowBackground = true
         win.backgroundColor = NSColor(calibratedHue: 0, saturation: 1.0, brightness: 0, alpha: 0.7)
         win.makeKeyAndOrderFront(nil)
+        //win.makeKeyWindow()
+        //win.makeMainWindow()
         //win.center()//places the window in the center
         //win.setIsMiniaturized(false)
         //win.update()// Subclasses of NSWindow can override this method to examine the state of the application and change their own state or appearance accordingly-enabling or disabling menus, buttons, and other controls based on the object that's selected, for example.
