@@ -15,7 +15,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         Swift.print(self.deviceDescription)
         //Swift.print(self.windowNumber)
         Swift.print(self.screen?.deviceDescription)
-        
+        Swift.print(self.screen!.frame)
         //let controller = NSWindowController(window: newWindow)
         //controller.showWindow(self)
         self.center()
@@ -72,7 +72,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         let tableContainer = NSScrollView(frame: tableContainerRect)
         let tableView = TempTableView(frame: tableContainer.frame)//tableContainer.frame.width-100, height: tableContainer.frame.height
         self.makeFirstResponder(tableView)//focus tableView,doesnt work yet
-        
+        self.initialFirstResponder = tableView
         tableView.setDataSource(tableView)//set the datasource
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
         tableView.usesAlternatingRowBackgroundColors = true
