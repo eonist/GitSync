@@ -88,7 +88,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         win.ignoresMouseEvents = true
         win.makeKeyAndOrderFront(win)
         */
-        let winRect = NSMakeRect(0, 0, NSScreen.mainScreen()!.frame.width/2, NSScreen.mainScreen()!.frame.height/2)
+        let winRect = NSMakeRect(0, 0, 100, 100)
         newWindow = NSWindow(contentRect: winRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         let controller = NSWindowController(window: newWindow)
         controller.showWindow(self)
