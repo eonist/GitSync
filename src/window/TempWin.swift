@@ -2,8 +2,8 @@ import Foundation
 import Cocoa
 
 class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
-    static var width = 400//Static variable, reachable on a class level
-    static var height = 600
+    static var width = 700//Static variable, reachable on a class level
+    static var height = 800
     var view:FlippedView = FlippedView(frame: NSRect(x: 0, y: 0, width: TempWin.width, height: TempWin.height))
     
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
@@ -51,7 +51,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
     */
     
     func createList(){
-        let tableContainerRect:NSRect = NSRect(x: 220, y: 20, width: 300,height:400)//view.bounds
+        let tableContainerRect:NSRect = NSRect(x: 120, y: 80, width: 500,height:300)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
         let tableView = TempTableView(frame: tableContainer.frame)//tableContainer.frame.width-100, height: tableContainer.frame.height
         self.makeFirstResponder(tableView)//focus tableView,doesnt work yet
