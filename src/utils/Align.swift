@@ -3,9 +3,9 @@ import Cocoa
 
 class Align {
     /**
-    *
-    */
-    class func horizontalAlignElements(elements:Array<NSView>,_ viewWidth:Int, _ yOffset:Int,_ horisontalSpacing:Int){
+     * General interface horizontal align method
+     */
+    class func horizontal(elements:Array<NSView>,_ viewWidth:Int, _ yOffset:Int,_ horisontalSpacing:Int){
         var totalWidth:Int = 0//(buttons.count * buttonWidth) + (buttonSpacing * (buttons.count-1))
         for elmnt:NSView in elements {//find the total width
             totalWidth += Int(elmnt.frame.width) + (elmnt != elements.last ? horisontalSpacing : 0)
@@ -19,7 +19,7 @@ class Align {
             let y:Int = yOffset
             
             element.setFrameOrigin(NSPoint(x: x, y: y))
-            tempX += Int(element.frame.width) + buttonSpacing
+            tempX += Int(element.frame.width) + horisontalSpacing
             
         }
     }
