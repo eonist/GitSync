@@ -9,7 +9,7 @@ class WinUtils {
         let newWindow = NSWindow(contentRect: winRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         newWindow.title = "New Window"
         newWindow.opaque = false
-        
+        //newWindow.styleMask = NSBorderlessWindowMask
         newWindow.hasShadow = true
         newWindow.center()//moves the window to the center
         newWindow.movableByWindowBackground = true
