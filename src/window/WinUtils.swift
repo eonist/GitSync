@@ -15,8 +15,8 @@ class WinUtils {
         win.movableByWindowBackground = true
         win.backgroundColor = NSColor(calibratedHue: 0, saturation: 1.0, brightness: 0, alpha: 0.7)
         win.makeKeyAndOrderFront(nil)
-        //win(true)
-        
+       
+        //win.setIsMiniaturized(false)
         return win
     }
     
