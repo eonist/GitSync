@@ -50,8 +50,6 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
             buttons.append(button)//add button to button list
         }
         Align.horizontal(buttons,TempWin.width,topPadding,buttonSpacing)
-        
-  
     }
     /*
     * NSTableView
