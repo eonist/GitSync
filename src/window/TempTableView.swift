@@ -11,7 +11,8 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     }
     
     func tableView(tableView: NSTableView,objectValueForTableColumn tableColumn: NSTableColumn?,row: Int) -> AnyObject?{
-        Swift.print("fire a")
+        Swift.print((tableColumn?.title)! + " " + (tableColumn?.identifier)!)
+        //Swift.print("fire a")
         return monthNames[row]
     }
     
