@@ -23,6 +23,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     /**
     *
     */
@@ -56,7 +57,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
             //TODO: try to add data to current selected row
             //TODO: try to add data to row 2 col id: branch
         
-        
+        //TODO: try to figure out how not to load the default appdelegate win
         
     }
     /*
