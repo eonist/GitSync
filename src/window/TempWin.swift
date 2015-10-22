@@ -57,6 +57,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         //print("buttonY: " + String(buttonY))
         
         let button = NSButton(frame: NSRect(x: buttonX, y: buttonY, width: buttonWidth, height: 30))
+        button.title = "Testing"
         //button.highlight(true)
         let buttonCell:NSButtonCell = button.cell! as! NSButtonCell
         buttonCell.bezelStyle = NSBezelStyle.SmallSquareBezelStyle//NSBezelStyle.RoundedBezelStyle
@@ -70,7 +71,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         
         let buttonTitles:[String] = ["add","remove","info","view"]
         for buttonTitle:String in buttonTitles{
-            
+            Swift.print(buttonTitle)
         }
     }
     /*
