@@ -28,8 +28,8 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
     */
     func createContent(){ 
         createButtons()
-        createTextField()
-        //createList()
+        //createTextField()
+        createList()
     }
     /*
     *
