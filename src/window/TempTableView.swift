@@ -15,8 +15,8 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     /**
     *
     */
-    func myAction(){
-        
+    func myAction(obj:AnyObject!){
+        Swift.print("My class is \((obj as! NSObject).className)")
     }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
