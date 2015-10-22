@@ -51,21 +51,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         }
         Align.horizontal(buttons,TempWin.width,topPadding,buttonSpacing)
         
-        //TODO: try to add and remove items from the Table:
-            //TODO: try to get the index of current selected row / column
-            //TODO: try to get data from current seleted row / column
-            //TODO: try to add data to current selected row
-            //TODO: try to add data to row 2 col id: branch
-            //TODO: add data from repo xml to the table
-            //TODO: this change of cell should be reflected in the xml on "enter text session complete"
-        
-        
-        
-        
-        //TODO: table changes should be reflected in the repo.xml on app exit
-        
-        //TODO: try to figure out how not to load the default appdelegate win
-        
+  
     }
     /*
     * NSTableView
