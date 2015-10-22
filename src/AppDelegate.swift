@@ -7,10 +7,10 @@ import Foundation
  */
 class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTableViewDelegate {
     //MARK: - Properties
-    static var width = 400//Static variable, reachable on a class level
-    static var height = 600
-    var window: NSWindow?
-    var view:FlippedView = FlippedView(frame: NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height))
+    //static var width = 400//Static variable, reachable on a class level
+    //static var height = 600
+    //var window: NSWindow?
+    //var view:FlippedView = FlippedView(frame: NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height))
     //MARK: - Init
     var newWindow:NSWindow?// = WinUtils.win()
     /**
@@ -20,10 +20,10 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         print("hello world")
         
         //view = FlippedView(frame: NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height))
-        window!.contentView = (view)
-        createButtons()
-        createTextField()
-        createList()
+        //window!.contentView = (view)
+        //createButtons()
+        //createTextField()
+        //createList()
         createWindow()
         
         // init window.
@@ -31,16 +31,17 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         
         // let theView:CustomView = CustomView(frame:NSRect(x: 0, y: 0, width: 300, height: 300))
         
+        /*
         let frame:NSRect = NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height)
         window?.setFrame(frame, display: true)//Resize the Window
         let x = NSScreen.mainScreen()!.visibleFrame.origin.x
         let y = NSScreen.mainScreen()!.visibleFrame.size.height//[[NSScreen mainScreen] visibleFrame].size.height
-        
+
         window!.setFrameTopLeftPoint(NSMakePoint(x, y))//Moves the window in the computer screen
         window?.center()//aligns the window to the center of the screen
         
         window?.title = "Test window: "//Setting the title of a window
-
+         */
     }
     /*
      * When the application closes
