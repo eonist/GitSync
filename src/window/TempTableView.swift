@@ -13,17 +13,9 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         self.action = "myAction:"//event dispatches to this method
         allowsColumnResizing = false
         allowsMultipleSelection = true
-        //AllowsColumnSelection:
-        //allowsEmptySelection
-        //AllowsColumnReordering:
-        /*
-        - setIntercellSpacing:
-        - intercellSpacing
-        - setRowHeight:
-        - rowHeight
-        - setBackgroundColor:
-        - backgroundColor
-        */
+        
+        
+        
     }
     /**
     *
@@ -84,3 +76,78 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     }
     */
 }
+
+
+//AllowsColumnSelection:
+//allowsEmptySelection
+//AllowsColumnReordering:
+/*
+//display attributes
+- setIntercellSpacing:
+- intercellSpacing
+- setRowHeight:
+- rowHeight
+- setBackgroundColor:
+- backgroundColor
+
+//manipulate
+addTableColumn:
+- removeTableColumn:
+- moveColumn:toColumn:
+- tableColumns
+- columnWithIdentifier:
+- tableColumnWithIdentifier:
+
+Selecting columns and rows
+- selectColumn:byExtendingSelection:
+- selectRow:byExtendingSelection:
+- deselectColumn:
+- deselectRow:
+- numberOfSelectedColumns
+- numberOfSelectedRows
+- selectedColumn
+- selectedRow
+- isColumnSelected:
+- isRowSelected:
+- selectedColumnEnumerator
+- selectedRowEnumerator
+- selectAll:
+- deselectAll:
+
+
+Getting the dimensions of the table
+- numberOfColumns
+- numberOfRows
+
+Setting grid attributes
+- setDrawsGrid:
+- drawsGrid
+- setGridColor:
+- gridColor
+
+
+Editing cells
+- editColumn:row:withEvent:select:
+- editedRow
+- editedColumn
+
+
+Layout support
+- rectOfColumn:
+- rectOfRow:
+- columnsInRect:
+- rowsInRect:
+- columnAtPoint:
+- rowAtPoint:
+- frameOfCellAtColumn:row:
+- setAutoresizesAllColumnsToFit:
+- autoresizesAllColumnsToFit
+- sizeLastColumnToFit
+- sizeToFit
+- noteNumberOfRowsChanged
+- tile
+*/
+
+
+
+
