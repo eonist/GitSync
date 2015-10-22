@@ -17,7 +17,7 @@ class Create {
     /**
      *
      */
-    class func textButton(title:String = "", width:Int = 100,_ height:Int = 30, _ x:Int = 0, _ y:Int = 0, _ bezelStyle:NSBezelStyle = NSBezelStyle.SmallSquareBezelStyle)->NSButton{
+    class func textButton(width:Int = 100,_ height:Int = 30, _ x:Int = 0, _ y:Int = 0, _ bezelStyle:NSBezelStyle = NSBezelStyle.SmallSquareBezelStyle, _ title:String = "")->NSButton{
         let button:NSButton = Create.button(width,height,x,y,bezelStyle)
         button.title = title
         return button

@@ -63,7 +63,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         var buttons:Array<NSButton> = []
         for buttonTitle:String in buttonTitles{
             //Swift.print(buttonTitle)
-            let button = Create.button(title:buttonTitle)
+            let button = Create.textButton(title:buttonTitle)
             
             
             view.addSubview(button)//Add button to view
