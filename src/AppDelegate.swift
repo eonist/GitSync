@@ -81,18 +81,13 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
     */
     func createWindow(){
         //NSWindow(contentRect: NSRect(x: 30, y: 30, width: 200, height: 200), styleMask: NSBorderlessWindowMask, backing: .Buffered, `defer`: false)
-        /*
-        let win = NSWindow(contentRect: NSMakeRect(0, 0, 100, 100), styleMask: NSBorderlessWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
-        //win.level = nsPopupw
-        win.hasShadow = false
-        win.ignoresMouseEvents = true
-        win.makeKeyAndOrderFront(win)
-        */
-        let winRect = NSMakeRect(0, 0, 100, 100)
+        
+        let winRect = NSMakeRect(0, 0, NSScreen.mainScreen()!.frame.width/2, NSScreen.mainScreen()!.frame.height/2)
         newWindow = NSWindow(contentRect: winRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         let controller = NSWindowController(window: newWindow)
         controller.showWindow(self)
         newWindow!.makeKeyAndOrderFront(nil)
+        newWindow!.center()//moves the window to the center
         //win.makeKeyAndOrderFront(win)
     }
     /*
