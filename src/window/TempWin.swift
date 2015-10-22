@@ -56,22 +56,23 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         let buttonY:Int = topPadding//Int(window.frame.size.height)-30-20
         //print("buttonY: " + String(buttonY))
         
-        let button = NSButton(frame: NSRect(x: buttonX, y: buttonY, width: buttonWidth, height: 30))
-        button.title = "Testing"
-        //button.highlight(true)
-        let buttonCell:NSButtonCell = button.cell! as! NSButtonCell
-        buttonCell.bezelStyle = NSBezelStyle.SmallSquareBezelStyle//NSBezelStyle.RoundedBezelStyle
-        
-        view.addSubview(button)//Add button to view
-        button.target = self
-        button.action = "myAction:"
-        
         //Swift.print("button.frame.width: " + "\(button.frame.width)")
         //Swift.print("button.frame.height: " + "\(button.frame.height)")
         
-        let buttonTitles:[String] = ["add","remove","info","view"]
+        let buttonTitles:[String] = ["Add","Remove","Info","View"]
+        var buttons:Array[NSButton] = 
         for buttonTitle:String in buttonTitles{
-            Swift.print(buttonTitle)
+            //Swift.print(buttonTitle)
+            let button = NSButton(frame: NSRect(x: buttonX, y: buttonY, width: buttonWidth, height: 30))
+            button.title = buttonTitle
+            //button.highlight(true)
+            let buttonCell:NSButtonCell = button.cell! as! NSButtonCell
+            buttonCell.bezelStyle = NSBezelStyle.SmallSquareBezelStyle//NSBezelStyle.RoundedBezelStyle
+            
+            view.addSubview(button)//Add button to view
+            button.target = self
+            button.action = "myAction:"
+            
         }
     }
     /*
