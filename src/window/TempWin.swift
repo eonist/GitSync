@@ -16,7 +16,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         //controller.showWindow(self)
         self.center()
         self.contentView = view
-        self.title = "GitSync 0.1"
+        self.title = "GitSync"
         createContent()
     }
     required init?(coder: NSCoder) {
