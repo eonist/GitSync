@@ -12,6 +12,9 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         super.init(contentRect: TempWin.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()
+        Swift.print(self.deviceDescription)
+        //Swift.print(self.windowNumber)
+        Swift.print(self.screen?.deviceDescription)
         
         //let controller = NSWindowController(window: newWindow)
         //controller.showWindow(self)
