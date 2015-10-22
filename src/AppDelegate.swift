@@ -58,15 +58,10 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
     * Create window
     */
     func createWindow(){
-        //NSWindow(contentRect: NSRect(x: 30, y: 30, width: 200, height: 200), styleMask: NSBorderlessWindowMask, backing: .Buffered, `defer`: false)
         
         let winRect = NSMakeRect(0, 0, NSScreen.mainScreen()!.frame.width/2, NSScreen.mainScreen()!.frame.height/2)
         newWindow = TempWin(contentRect: winRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
-        //
-        //
-        //newWindow!.makeKeyAndOrderFront(nil)
-        //newWindow!.center()//moves the window to the center
-        //win.makeKeyAndOrderFront(win)
+       
     }
    
     
