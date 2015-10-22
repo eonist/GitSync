@@ -24,7 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         createButtons()
         createTextField()
         createList()
-        createWindow()
+        //createWindow()
         
         // init window.
         
