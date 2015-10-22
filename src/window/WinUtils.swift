@@ -17,6 +17,8 @@ class WinUtils {
         win.makeKeyAndOrderFront(nil)
         //win.makeKeyWindow()
         //win.makeMainWindow()
+        win.maxSize = NSSize(width: 900,height: 900)//sets the  max size of a window
+        win.minSize = NSSize(width: 400,height: 400)//sets the  max size of a window
         //win.center()//places the window in the center
         //win.setIsMiniaturized(false)
         //win.update()// Subclasses of NSWindow can override this method to examine the state of the application and change their own state or appearance accordingly-enabling or disabling menus, buttons, and other controls based on the object that's selected, for example.
