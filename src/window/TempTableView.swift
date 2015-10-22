@@ -39,6 +39,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         
         return data[row][(tableColumn?.identifier)!]
     }
+    
     func tableViewSelectionDidChange(notification: NSNotification) {
         Swift.print("tableViewSelectionDidChange")
     }
