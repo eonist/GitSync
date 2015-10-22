@@ -49,7 +49,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         Swift.print("view.frame.size.height: " + "\(view.frame.size.height)")
         
         let buttonWidth:Int = 100
-        let buttonX:Int = = (TempWin.width/2) - (buttonWidth/2)
+        let buttonX:Int = (TempWin.width/2) - (buttonWidth/2)
         
         let topPadding:Int = 24
         let buttonSpacing:Int = 12
@@ -74,25 +74,27 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
             button.action = "myAction:"
             buttons.append(button)
         }
-        //align buttons
+        
         let totalWidth:Int = (buttons.count * buttonWidth) + (buttonSpacing * (buttons.count-1))
-        var tempX:Int = -(totalWidth/2)
-        for button:NSButton in buttons{
+        var tempX:Int = (TempWin.width/2) - (totalWidth/2)
+        
+        for button:NSButton in buttons{//align buttons
             let x:Int = tempX;
             let y:Int = topPadding
             
             button.setFrameOrigin(NSPoint(x: x,y: y))
-            tempX += buttonWidth
+            tempX += buttonWidth + buttonSpacing
+            
             
         }
         
-        let newSize:CGSize = CGSize(width: 200, height: 300)
-        let newPos:CGPoint = CGPoint(x: 40, y: 40)
+        //let newSize:CGSize = CGSize(width: 200, height: 300)
+        //let newPos:CGPoint = CGPoint(x: 40, y: 40)
         //origin: CGPoint, size: CGSize
         //let newSizeRect:CGRect = CGRect(origin: newPos, size: newSize)
         
-        (buttons[0] as NSButton).setFrameSize(newSize)
-        (buttons[0] as NSButton).setFrameOrigin(newPos)
+        //(buttons[0] as NSButton).setFrameSize(newSize)
+        //(buttons[0] as NSButton).setFrameOrigin(newPos)
     }
     /*
     * NSTableView
