@@ -58,15 +58,14 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         for buttonTitle:String in buttonTitles{
             //Swift.print(buttonTitle)
             let button = Create.textButton(title:buttonTitle)
-            
-            
             view.addSubview(button)//Add button to view
-            button.target = self
-            button.action = "myAction:"//
-            buttons.append(button)
+            button.target = self//event dispataches to this instance
+            button.action = "myAction:"//event dispatches to this method
+            buttons.append(button)//add button to button list
         }
         
         //TODO: try to add and remove items from the Table
+        //TODO: try to get the index of current selected row / column
         
         Align.horizontal(buttons,TempWin.width,topPadding,buttonSpacing)
     }
