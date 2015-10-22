@@ -68,6 +68,17 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         columnB.headerCell.title = "Age: "
         tableView.addTableColumn(columnB)
         
+        let columnC = NSTableColumn(identifier: "age")
+        columnC.headerCell.title = "Age: "
+        tableView.addTableColumn(columnC)
+        
+        let columnD = NSTableColumn(identifier: "age")
+        columnD.headerCell.title = "Age: "
+        tableView.addTableColumn(columnD)
+        
+        
+        //"status":"Green","remote-repo":"Gitsync", "branch":"master","active":"true"
+        
         tableView.setDelegate(self)//listen for delagation events
         tableContainer.documentView = tableView
         tableContainer.hasVerticalScroller = true

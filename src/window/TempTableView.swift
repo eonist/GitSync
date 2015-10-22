@@ -7,7 +7,7 @@ import Cocoa
  */
 class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     //let monthNames:Array = ["March","April","May"]
-    let data:[Dictionary<String,String>] = [["Status":"","remote-repo":"Gitsync", "branch":"master"],["name":"Judith","age":"22"]]
+    let data:[Dictionary<String,String>] = [["status":"Green","remote-repo":"Gitsync", "branch":"master","active":"true"],["status":"Yellow","remote-repo":"Element", "branch":"development","active":"false"]]
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return data.count;
     }
