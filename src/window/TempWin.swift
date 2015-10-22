@@ -19,7 +19,6 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         self.title = "Temp window"
         createContent()
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
