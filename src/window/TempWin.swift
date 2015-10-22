@@ -75,19 +75,26 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
             buttons.append(button)
         }
         
-        let totalWidth:Int = (buttons.count * buttonWidth) + (buttonSpacing * (buttons.count-1))
-        var tempX:Int = (TempWin.width/2) - (totalWidth/2)
         
         //TODO: create a general interface align method
-        //TODO: try to make 
+        //TODO: try to make
         
-        for button:NSButton in buttons{//align buttons
-            let x:Int = tempX
-            let y:Int = topPadding
+        /**
+        *
+        */
+        func alignElements(elements:Array<NSButton>,viewSize:NSSize,offset:NSPoint,horisontalSpacing:Int,){
+            let totalWidth:Int = (buttons.count * buttonWidth) + (buttonSpacing * (buttons.count-1))
+            var tempX:Int = (TempWin.width/2) - (totalWidth/2)
+           
             
-            button.setFrameOrigin(NSPoint(x: x, y: y))
-            tempX += buttonWidth + buttonSpacing
-            
+            for button:NSButton in buttons{//align buttons
+                let x:Int = tempX
+                let y:Int = topPadding
+                
+                button.setFrameOrigin(NSPoint(x: x, y: y))
+                tempX += buttonWidth + buttonSpacing
+                
+            }
         }
     }
     /*
