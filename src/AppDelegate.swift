@@ -12,7 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
     var window: NSWindow?
     var view:FlippedView = FlippedView(frame: NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height))
     //MARK: - Init
-    var newWindow:NSWindow = WinUtils.win()
+    //var newWindow:NSWindow = WinUtils.win()
     /**
      * Initializes your application
      */
@@ -37,6 +37,8 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         let y = NSScreen.mainScreen()!.visibleFrame.size.height//[[NSScreen mainScreen] visibleFrame].size.height
         
         window!.setFrameTopLeftPoint(NSMakePoint(x, y))//Moves the window in the computer screen
+        window?.center()//aligns the window to the center of the screen
+        
         window?.title = "Test window: "//Setting the title of a window
 
     }
