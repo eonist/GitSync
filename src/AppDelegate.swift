@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         print("hello world")
         
-        view = FlippedView(frame: NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height))
+        //view = FlippedView(frame: NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height))
         window!.contentView = (view)
         createButtons()
         createTextField()
