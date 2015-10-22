@@ -6,6 +6,7 @@ import Cocoa
 class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     let monthNames:Array = ["March","April","May"]
     let data:[Dictionary<String,String>] = [["Name":"John","Age":"19"],["Name":"Judith","Age":"22"]]
+    override var window:NSWindow?
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return monthNames.count;
     }
