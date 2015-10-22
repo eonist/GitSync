@@ -63,11 +63,8 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         var buttons:Array<NSButton> = []
         for buttonTitle:String in buttonTitles{
             //Swift.print(buttonTitle)
-            let button = NSButton(frame: NSRect(x: 0, y: 0, width: buttonWidth, height: 30))
-            button.title = buttonTitle
-            //button.highlight(true)
-            let buttonCell:NSButtonCell = button.cell! as! NSButtonCell
-            buttonCell.bezelStyle = NSBezelStyle.SmallSquareBezelStyle//NSBezelStyle.RoundedBezelStyle
+            let button = Create.button(title:buttonTitle)
+            
             
             view.addSubview(button)//Add button to view
             button.target = self
