@@ -49,8 +49,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         Swift.print("view.frame.size.height: " + "\(view.frame.size.height)")
         
         let buttonWidth:Int = 100
-        let tempX:Int = (TempWin.width/2) - (buttonWidth/2)
-        let buttonX:Int = tempX
+        let buttonX:Int = = (TempWin.width/2) - (buttonWidth/2)
         
         let topPadding:Int = 24
         let buttonSpacing:Int = 12
@@ -77,9 +76,14 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         }
         //align buttons
         let totalWidth:Int = (buttons.count * buttonWidth) + (buttonSpacing * (buttons.count-1))
-        
-        for button in buttons{
-            button
+        var tempX:Int = -(totalWidth/2)
+        for button:NSButton in buttons{
+            let x:Int = tempX;
+            let y:Int = topPadding
+            
+            button.setFrameOrigin(NSPoint(x: x,y: y))
+            tempX += buttonWidth
+            
         }
         
         let newSize:CGSize = CGSize(width: 200, height: 300)
