@@ -23,6 +23,7 @@ class TempWin:NSWindow{
     *
     */
     func createContent(){
+        self.contentView = (view)
         createButtons()
     }
     /*
