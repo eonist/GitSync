@@ -82,13 +82,13 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         /**
         *
         */
-        func horizontalAlignElements(elements:Array<NSButton>,viewSize:NSSize,offset:NSPoint,horisontalSpacing:Int){
+        func horizontalAlignElements(elements:Array<NSButton>,viewRect:NSRect,offset:NSPoint,horisontalSpacing:Int){
             var totalWidth:Int = 0//(buttons.count * buttonWidth) + (buttonSpacing * (buttons.count-1))
             for elmnt in elements {
-                totalWidth += Int(elmnt.frame.width) + horisontalSpacing
+                totalWidth += Int(elmnt.frame.width) + (elmnt != elements.last ? horisontalSpacing : 0)
             }
             
-            var tempX:Int = (TempWin.width/2) - (totalWidth/2)
+            var tempX:Int = (Int(viewRect.width)/2) - (totalWidth/2)
            
             
             for button:NSButton in buttons{//align buttons
