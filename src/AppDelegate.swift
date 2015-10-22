@@ -62,8 +62,8 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         
         let winRect = NSMakeRect(0, 0, NSScreen.mainScreen()!.frame.width/2, NSScreen.mainScreen()!.frame.height/2)
         newWindow = TempWin(contentRect: winRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
-        //let controller = NSWindowController(window: newWindow)
-        //controller.showWindow(self)
+        //
+        //
         //newWindow!.makeKeyAndOrderFront(nil)
         //newWindow!.center()//moves the window to the center
         //win.makeKeyAndOrderFront(win)

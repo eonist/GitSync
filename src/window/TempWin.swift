@@ -1,7 +1,7 @@
 import Foundation
 import Cocoa
 
-class TempWin:NSWindow{
+class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
     static var width = 400//Static variable, reachable on a class level
     static var height = 600
     var view:FlippedView = FlippedView(frame: NSRect(x: 0, y: 0, width: TempWin.width, height: TempWin.height))
@@ -12,6 +12,8 @@ class TempWin:NSWindow{
         super.init(contentRect: winRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         
         self.makeKeyAndOrderFront(nil)//moves the window to the front
+        //let controller = NSWindowController(window: newWindow)
+        //controller.showWindow(self)
         self.center()
         self.contentView = view
         self.title = "Temp window"
@@ -46,12 +48,12 @@ class TempWin:NSWindow{
     /*
     * NSTableView
     */
-    /*
+    
     func createList(){
         let tableContainerRect:NSRect = NSRect(x: 20, y: 20, width: 300,height:400)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
         let tableView = CustomTableView(frame: tableContainer.frame)//tableContainer.frame.width-100, height: tableContainer.frame.height
-        window?.makeFirstResponder(tableView)//focus tableView,doesnt work yet
+        self.makeFirstResponder(tableView)//focus tableView,doesnt work yet
         
         tableView.setDataSource(tableView)//set the datasource
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
@@ -65,7 +67,7 @@ class TempWin:NSWindow{
         tableContainer.hasVerticalScroller = true
         view.addSubview(tableContainer)//add to the view
     }
-    */
+    
     /*
     * NSTextField
     */
