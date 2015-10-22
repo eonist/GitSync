@@ -53,7 +53,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
     func createList(){
         let tableContainerRect:NSRect = NSRect(x: 220, y: 20, width: 300,height:400)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
-        let tableView = CustomTableView(frame: tableContainer.frame)//tableContainer.frame.width-100, height: tableContainer.frame.height
+        let tableView = TempTableView(frame: tableContainer.frame)//tableContainer.frame.width-100, height: tableContainer.frame.height
         self.makeFirstResponder(tableView)//focus tableView,doesnt work yet
         
         tableView.setDataSource(tableView)//set the datasource
