@@ -81,12 +81,12 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         }
         
         let newSize:CGSize = CGSize(width: 200, height: 300)
-        //let newPos:CGPoint = CGPoint(x: 40, y: 40)
+        let newPos:CGPoint = CGPoint(x: 40, y: 40)
         //origin: CGPoint, size: CGSize
         //let newSizeRect:CGRect = CGRect(origin: newPos, size: newSize)
         
         (buttons[0] as NSButton).setFrameSize(newSize)
-        (buttons[0] as NSButton).view.
+        (buttons[0] as NSButton).setFrameOrigin(newPos)
     }
     /*
     * NSTableView
