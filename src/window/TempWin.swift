@@ -28,6 +28,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
     */
     func createContent(){ 
         createButtons()
+        createTextField()
     }
     /*
     *
@@ -77,11 +78,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         view.addSubview(textField)
         //print("Hello world again")
     }
-    
     func myAction(obj:AnyObject!){
-        
-        Swift.print("press")
-        Swift.print(String(obj))
         Swift.print(classNameAsString(obj))
         Swift.print("My class is \((obj as! NSObject).className)")
     }
