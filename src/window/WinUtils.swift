@@ -22,6 +22,7 @@ class WinUtils {
         win.becomeMainWindow()
         win.becomeKeyWindow()
         win.makeMainWindow()
+        
         //win.orderFront(self)//ordering window:
         //win.orderBack(self)//ordering window:
         //win.center()//places the window in the center
