@@ -75,7 +75,8 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
             buttons.append(button)
         }
         
-                        
+        //TODO: try to add and remove items from the Table
+        
         Align.horizontal(buttons,TempWin.width,topPadding,buttonSpacing)
     }
     /*
