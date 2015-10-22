@@ -36,7 +36,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
     */
     func createButtons(){
         
-        //add,remove,info,view
+        //
         
         //figure out how to align buttons to view horizontally
         
@@ -52,9 +52,10 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         let tempX:Int = (TempWin.width/2) - (buttonWidth/2)
         let buttonX:Int = tempX
         
-        let 
-        let buttonY:Int = 0//Int(window.frame.size.height)-30-20
+        let topPadding:Int = 24
+        let buttonY:Int = topPadding//Int(window.frame.size.height)-30-20
         //print("buttonY: " + String(buttonY))
+        
         let button = NSButton(frame: NSRect(x: buttonX, y: buttonY, width: buttonWidth, height: 30))
         //button.highlight(true)
         let buttonCell:NSButtonCell = button.cell! as! NSButtonCell
@@ -64,9 +65,13 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         button.target = self
         button.action = "myAction:"
         
-        Swift.print("button.frame.width: " + "\(button.frame.width)")
-        Swift.print("button.frame.height: " + "\(button.frame.height)")
+        //Swift.print("button.frame.width: " + "\(button.frame.width)")
+        //Swift.print("button.frame.height: " + "\(button.frame.height)")
         
+        let buttonTitles:[String] = ["add","remove","info","view"]
+        for buttonTitle:String in buttonTitles{
+            
+        }
     }
     /*
     * NSTableView
