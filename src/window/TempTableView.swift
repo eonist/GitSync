@@ -5,6 +5,7 @@ import Cocoa
  */
 class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     let monthNames:Array = ["March","April","May"]
+    let data:[Dictionary<String,String>] = []
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return monthNames.count;
     }
