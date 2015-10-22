@@ -19,7 +19,9 @@ class WinUtils {
         //win.makeMainWindow()
         win.maxSize = NSSize(width: 900,height: 900)//sets the  max size of a window
         win.minSize = NSSize(width: 400,height: 400)//sets the  max size of a window
-        
+        win.becomeMainWindow()
+        win.becomeKeyWindow()
+        win.makeMainWindow()
         //win.orderFront(self)//ordering window:
         //win.orderBack(self)//ordering window:
         //win.center()//places the window in the center
