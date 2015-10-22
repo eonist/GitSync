@@ -25,7 +25,6 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     }
     func tableViewSelectionDidChange(notification: NSNotification) {
         Swift.print("tableViewSelectionDidChange")
-        
     }
     func tableView(tableView: NSTableView, didClickTableColumn tableColumn: NSTableColumn) {
         Swift.print("Selection didClickTableColumn")
@@ -33,7 +32,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     func tableView(tableView: NSTableView, mouseDownInHeaderOfTableColumn tableColumn: NSTableColumn) {
         Swift.print("Selection mouseDownInHeaderOfTableColumn")
     }
-    table
+    
     /*
     This is for custom design i guess
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
