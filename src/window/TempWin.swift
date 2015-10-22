@@ -40,4 +40,36 @@ class TempWin:NSWindow{
         button.target = self
         button.action = "myAction:"
     }
+    /*
+    * NSTableView
+    */
+    /*
+    func createList(){
+        let tableContainerRect:NSRect = NSRect(x: 20, y: 20, width: 300,height:400)//view.bounds
+        let tableContainer = NSScrollView(frame: tableContainerRect)
+        let tableView = CustomTableView(frame: tableContainer.frame)//tableContainer.frame.width-100, height: tableContainer.frame.height
+        window?.makeFirstResponder(tableView)//focus tableView,doesnt work yet
+        
+        tableView.setDataSource(tableView)//set the datasource
+        tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
+        tableView.usesAlternatingRowBackgroundColors = true
+        let column = NSTableColumn(identifier: "1")
+        column.headerCell.title = "Header Title here"
+        tableView.addTableColumn(column)
+        
+        tableView.setDelegate(self)//listen for delagation events
+        tableContainer.documentView = tableView
+        tableContainer.hasVerticalScroller = true
+        view.addSubview(tableContainer)//add to the view
+    }
+    */
+    /*
+    * NSTextField
+    */
+    func createTextField(){
+        let textField = NSTextField(frame: NSRect(x: 0, y: 130, width: 100, height: 20))
+        textField.stringValue = "Test"
+        view.addSubview(textField)
+        //print("Hello world again")
+    }
 }
