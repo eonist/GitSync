@@ -39,9 +39,13 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         let topPadding:Int = 24
         let buttonSpacing:Int = 12
         
-        let buttonTitles:[String] = ["Add","Remove","Info","View"]
+        let titles:[String] = ["Add","Remove","Info","View"]
         var buttons:Array<NSButton> = []
-        for buttonTitle:String in buttonTitles{
+        
+        //todo store buttons globaly, and switch in the myaction call
+        
+        
+        for buttonTitle:String in titles{
             //Swift.print(buttonTitle)
             let button = Create.textButton(title:buttonTitle)
             view.addSubview(button)//Add button to view
