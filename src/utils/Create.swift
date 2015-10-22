@@ -4,20 +4,21 @@ class Create {
     /**
      *
      */
-    class func button(width:Int = 100,_ height:Int = 30, _ x:Int = 0, _ y:Int = 0, _ style:UInt = NSBezelStyle.SmallSquareBezelStyle)->NSButton{
+    class func button(width:Int = 100,_ height:Int = 30, _ x:Int = 0, _ y:Int = 0, _ bezelStyle:NSBezelStyle = NSBezelStyle.SmallSquareBezelStyle)->NSButton{
         let button = NSButton(frame: NSRect(x: 0, y: 0, width: width, height: height))
         
         //button.highlight(true)
         let buttonCell:NSButtonCell = button.cell! as! NSButtonCell
-        buttonCell.bezelStyle = NSBezelStyle.SmallSquareBezelStyle//NSBezelStyle.RoundedBezelStyle
+        buttonCell.bezelStyle = bezelStyle//NSBezelStyle.SmallSquareBezelStyle//NSBezelStyle.RoundedBezelStyle
         
-
+        return button
+        
     }
     /**
      *
      */
-    class func textButton(width:Int = 100,_ height:Int = 30, _ x:Int = 0, _ y:Int = 0, _ style:UInt = NSBezelStyle.SmallSquareBezelStyle, title:String = "")->NSButton{
-        let button:NSButton = Create.button(width,height,x,y,style)
+    class func textButton(width:Int = 100,_ height:Int = 30, _ x:Int = 0, _ y:Int = 0, _ bezelStyle:NSBezelStyle = NSBezelStyle.SmallSquareBezelStyle, title:String = "")->NSButton{
+        let button:NSButton = Create.button(width,height,x,y,bezelStyle)
         button.title = title
         return button
     }
