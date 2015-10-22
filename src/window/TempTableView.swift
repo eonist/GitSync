@@ -23,7 +23,10 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         
         return data[row][(tableColumn?.identifier)!]
     }
-    
+    func tableViewSelectionDidChange(notification: NSNotification) {
+        Swift.print("Selection changed")
+        
+    }
     /*
     This is for custom design i guess
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
