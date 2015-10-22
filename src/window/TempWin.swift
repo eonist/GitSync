@@ -60,24 +60,22 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
         tableView.usesAlternatingRowBackgroundColors = true
         
-        let columnA = NSTableColumn(identifier: "name")
-        columnA.headerCell.title = "Name: "
+        let columnA = NSTableColumn(identifier: "status")
+        columnA.headerCell.title = "Status: "
         tableView.addTableColumn(columnA)
         
-        let columnB = NSTableColumn(identifier: "age")
-        columnB.headerCell.title = "Age: "
+        let columnB = NSTableColumn(identifier: "remote-repo")
+        columnB.headerCell.title = "Repository: "
         tableView.addTableColumn(columnB)
         
-        let columnC = NSTableColumn(identifier: "age")
-        columnC.headerCell.title = "Age: "
+        let columnC = NSTableColumn(identifier: "branch")
+        columnC.headerCell.title = "Branch: "
         tableView.addTableColumn(columnC)
         
-        let columnD = NSTableColumn(identifier: "age")
-        columnD.headerCell.title = "Age: "
+        let columnD = NSTableColumn(identifier: "active")
+        columnD.headerCell.title = "Active: "
         tableView.addTableColumn(columnD)
         
-        
-        //"status":"Green","remote-repo":"Gitsync", "branch":"master","active":"true"
         
         tableView.setDelegate(self)//listen for delagation events
         tableContainer.documentView = tableView
