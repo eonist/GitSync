@@ -10,6 +10,7 @@ class TempWin:NSWindow{
         super.init(contentRect: winRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         
         self.makeKeyAndOrderFront(nil)//moves the window to the front
+        self.center()
         createContent()
     }
     
