@@ -11,4 +11,19 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     func tableView(tableView: NSTableView,objectValueForTableColumn tableColumn: NSTableColumn?,row: Int) -> AnyObject?{
         return monthNames[row]
     }
+    
+    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        // get the item for the row
+        let item = monthNames[row]
+        
+        // get the NSTableCellView for the column
+        let result : NSTableCellView = tableView.makeViewWithIdentifier(tableColumn!.identifier, owner: self) as! NSTableCellView
+        
+        // set the string value of the text field in the NSTableCellView
+        result.textField?.stringValue = item.valueForKey(tableColumn!.identifier) as! String
+        
+        // return the populated NSTableCellView
+        return result
+        
+    }
 }
