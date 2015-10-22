@@ -17,6 +17,7 @@ class WinUtils {
         win.makeKeyAndOrderFront(nil)
         //win.center()//places the window in the center
         //win.setIsMiniaturized(false)
+        //win.update()// Subclasses of NSWindow can override this method to examine the state of the application and change their own state or appearance accordingly-enabling or disabling menus, buttons, and other controls based on the object that's selected, for example.
         //win.setTitleWithRepresentedFilename("")// method formats a filename in the title bar in a readable format
         print(win.windowNumber)//window device a unique identifier (within an application). This is the window number
        
