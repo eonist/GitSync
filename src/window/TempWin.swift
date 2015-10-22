@@ -48,16 +48,10 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         Swift.print("view.frame.size.width: " + "\(view.frame.size.width)")
         Swift.print("view.frame.size.height: " + "\(view.frame.size.height)")
         
-        let buttonWidth:Int = 100
-        //let buttonX:Int = (TempWin.width/2) - (buttonWidth/2)
-        
         let topPadding:Int = 24
         let buttonSpacing:Int = 12
-        //let buttonY:Int = topPadding//Int(window.frame.size.height)-30-20
-        //print("buttonY: " + String(buttonY))
         
-        //Swift.print("button.frame.width: " + "\(button.frame.width)")
-        //Swift.print("button.frame.height: " + "\(button.frame.height)")
+        
         
         let buttonTitles:[String] = ["Add","Remove","Info","View"]
         var buttons:Array<NSButton> = []
