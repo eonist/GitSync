@@ -79,6 +79,9 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         for button in buttons{
             button
         }
+        
+        let newSizeRect:NSRect = NSRect(x: buttonX, y: buttonY, width: buttonWidth, height: 30)
+        (buttons[0] as NSButton).setFrameSize(<#T##newSize: NSSize##NSSize#>)
     }
     /*
     * NSTableView
