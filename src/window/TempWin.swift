@@ -56,7 +56,9 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
             //TODO: try to get data from current seleted row / column
             //TODO: try to add data to current selected row
             //TODO: try to add data to row 2 col id: branch
-        //TODO: add 
+            //TODO: add data from repo xml to the table
+            //TODO: change a value in table cell
+            //TODO: this change of cell should be reflected in the xml on "enter session complete"
         
         //TODO: try to figure out how not to load the default appdelegate win
         
