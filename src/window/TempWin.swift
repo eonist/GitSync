@@ -76,6 +76,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
             buttons.append(button)
         }
         //align buttons
+        let totalWidth:Int = (buttons.count * buttonWidth) + (buttonSpacing * (buttons.count-1))
         
         for button in buttons{
             button
