@@ -45,9 +45,9 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         //todo store buttons globaly, and switch in the myaction call
         
         
-        for buttonTitle:String in titles{
+        for title:String in titles{
             //Swift.print(buttonTitle)
-            let button = Create.textButton(title:buttonTitle)
+            let button = Create.textButton(title)
             view.addSubview(button)//Add button to view
             button.target = self//event dispataches to this instance
             button.action = "myAction:"//event dispatches to this method

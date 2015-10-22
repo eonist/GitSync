@@ -15,14 +15,20 @@ class Create {
         
     }
     /**
-     * Figure out how to use extensions for different creation methods for this item:
+     *
      */
-    class func textButton(width:Int = 100,_ height:Int = 30, _ x:Int = 0, _ y:Int = 0, _ bezelStyle:NSBezelStyle = NSBezelStyle.SmallSquareBezelStyle,  title:String = "")->NSButton{
+    class func textButton(width:Int = 100, height:Int = 30,  x:Int = 0,  y:Int = 0,  bezelStyle:NSBezelStyle = NSBezelStyle.SmallSquareBezelStyle,   title:String = "")->NSButton{
         let button:NSButton = Create.button(width,height,x,y,bezelStyle)
         button.title = title
         return button
     }
-    
+    /*
+     * Convenince method for textButton call
+     * TODO: Figure out how to use extensions for different creation methods for this item:
+     */
+    class func textButton(title:String)->NSButton{
+       return textButton(title: <#T##String#>)
+    }
 }
 
 
