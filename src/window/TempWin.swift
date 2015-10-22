@@ -29,7 +29,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
     func createContent(){ 
         createButtons()
         //createTextField()
-        createList()
+        createTable()
     }
     /*
     *
@@ -79,29 +79,22 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         var tempX:Int = (TempWin.width/2) - (totalWidth/2)
         
         for button:NSButton in buttons{//align buttons
-            let x:Int = tempX;
+            let x:Int = tempX
             let y:Int = topPadding
             
-            button.setFrameOrigin(NSPoint(x: x,y: y))
+            button.setFrameOrigin(NSPoint(x: x, y: y))
             tempX += buttonWidth + buttonSpacing
             
-            
         }
-        
-        //let newSize:CGSize = CGSize(width: 200, height: 300)
-        //let newPos:CGPoint = CGPoint(x: 40, y: 40)
-        //origin: CGPoint, size: CGSize
-        //let newSizeRect:CGRect = CGRect(origin: newPos, size: newSize)
-        
-        //(buttons[0] as NSButton).setFrameSize(newSize)
-        //(buttons[0] as NSButton).setFrameOrigin(newPos)
     }
     /*
     * NSTableView
     */
     
-    func createList(){
-        let tableContainerRect:NSRect = NSRect(x: 120, y: 80, width: 500,height:300)//view.bounds
+    func createTable(){
+        let tableWidth:Int = 500
+        let tablePosX:Int = (TempWin.width/2) - (tableWidth/2)
+        let tableContainerRect:NSRect = NSRect(x: tablePosX, y: 80, width: 500,height:300)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
         let tableView = TempTableView(frame: tableContainer.frame)//tableContainer.frame.width-100, height: tableContainer.frame.height
         self.makeFirstResponder(tableView)//focus tableView,doesnt work yet
