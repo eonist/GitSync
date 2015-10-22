@@ -11,7 +11,7 @@ class WinUtils {
         newWindow.opaque = false
         
         newWindow.hasShadow = true
-        newWindow.center()
+        newWindow.center()//moves the window to the center
         newWindow.movableByWindowBackground = true
         newWindow.backgroundColor = NSColor(calibratedHue: 0, saturation: 1.0, brightness: 0, alpha: 0.7)
         newWindow.makeKeyAndOrderFront(nil)

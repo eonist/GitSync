@@ -125,6 +125,5 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         print(String(obj))
         return _stdlib_getDemangledTypeName(obj).componentsSeparatedByString(".").last!
     }
-
 }
 
