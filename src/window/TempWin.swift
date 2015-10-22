@@ -32,7 +32,13 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    /*
+    * I think this serves as a block for closing, i. promt the user to save etc
+    */
+    func windowShouldClose(sender: AnyObject) -> Bool {
+        Swift.print("windowShouldClose")
+        return true
+    }
     /**
     *
     */
