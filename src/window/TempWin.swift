@@ -2,13 +2,13 @@ import Foundation
 import Cocoa
 
 class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
-    static var width = 700//Static variable, reachable on a class level
-    static var height = 800
+    static var width = 800//Static variable, reachable on a class level
+    static var height = 600
     var view:FlippedView = FlippedView(frame: NSRect(x: 0, y: 0, width: TempWin.width, height: TempWin.height))
     
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
-        let winRect = NSMakeRect(0, 0, NSScreen.mainScreen()!.frame.width/2, NSScreen.mainScreen()!.frame.height/2)
-
+        
+        let winRect = NSRect(x: 0, y: 0, width: TempWin.width, height: TempWin.height)//NSMakeRect(0, 0, TempWin.width, TempWin.height)
         super.init(contentRect: winRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         
         self.makeKeyAndOrderFront(nil)//moves the window to the front
