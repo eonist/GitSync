@@ -35,23 +35,8 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
     *
     */
     func createButtons(){
-        
-        //
-        
-        //figure out how to align buttons to view horizontally
-        
-        Swift.print("NSScreen.mainScreen()!.frame.width: " + "\(NSScreen.mainScreen()!.frame.width)")
-        Swift.print("NSScreen.mainScreen()!.frame.height: " + "\(NSScreen.mainScreen()!.frame.height)")
-        
-        Swift.print("self.frame.size.width: " + "\(self.frame.size.width)")
-        Swift.print("self.frame.size.height : " + "\(self.frame.size.height)")
-        Swift.print("view.frame.size.width: " + "\(view.frame.size.width)")
-        Swift.print("view.frame.size.height: " + "\(view.frame.size.height)")
-        
         let topPadding:Int = 24
         let buttonSpacing:Int = 12
-        
-        
         
         let buttonTitles:[String] = ["Add","Remove","Info","View"]
         var buttons:Array<NSButton> = []
