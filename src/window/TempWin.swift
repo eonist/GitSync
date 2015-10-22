@@ -17,6 +17,9 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         self.title = "GitSync"
         createContent()
     }
+    /*
+    * Required by the NSWindow
+    */
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
