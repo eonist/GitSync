@@ -32,7 +32,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     func tableView(tableView: NSTableView, mouseDownInHeaderOfTableColumn tableColumn: NSTableColumn) {
         Swift.print("Selection mouseDownInHeaderOfTableColumn")
     }
-    
+    click
     /*
     This is for custom design i guess
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
