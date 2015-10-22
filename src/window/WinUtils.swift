@@ -3,6 +3,7 @@ import Cocoa
 class WinUtils {
     /*
      * Creates a basic window
+     * NOTE: info on everything NSWindow: http://objc.toodarkpark.net/AppKit/Classes/NSWindow.html
      */
     class func win()->NSWindow{
         let winRect = NSMakeRect(0, 0, NSScreen.mainScreen()!.frame.width/2, NSScreen.mainScreen()!.frame.height/2)
