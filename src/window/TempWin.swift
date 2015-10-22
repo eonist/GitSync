@@ -93,7 +93,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         columnD.headerCell.title = "Active: "
         tableView.addTableColumn(columnD)
         
-        tableView.setDelegate(self)//listen for delagation events
+        tableView.setDelegate(tableView)//listen for delagation events
         tableContainer.documentView = tableView
         tableContainer.hasVerticalScroller = true
         view.addSubview(tableContainer)//add to the view
