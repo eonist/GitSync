@@ -6,7 +6,7 @@ import Foundation
  * The class for the application
  */
 class AppDelegate: NSObject, NSApplicationDelegate{
-    var newWindow:NSWindow?// = WinUtils.win()
+    var window:NSWindow?// = WinUtils.win()
     /**
      * Initializes your application
      */
@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         
       
         let winRect = NSMakeRect(0, 0, NSScreen.mainScreen()!.frame.width/2, NSScreen.mainScreen()!.frame.height/2)
-        newWindow = TempWin(contentRect: winRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
+        window = TempWin(contentRect: winRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         
         
     }
