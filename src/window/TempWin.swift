@@ -76,6 +76,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
             buttons.append(button)
         }
         //align buttons
+        
         for button in buttons{
             button
         }
