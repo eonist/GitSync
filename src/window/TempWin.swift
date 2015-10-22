@@ -125,12 +125,11 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         view.addSubview(textField)
         //print("Hello world again")
     }
+    /*
+    * EventHandler for the button
+    */
     func myAction(obj:AnyObject!){
-        Swift.print(classNameAsString(obj))
+        Swift.print(ClassParser.getClass(obj))
         Swift.print("My class is \((obj as! NSObject).className)")
-    }
-    func classNameAsString(obj: Any) -> String {
-        Swift.print(String(obj))
-        return _stdlib_getDemangledTypeName(obj).componentsSeparatedByString(".").last!
     }
 }
