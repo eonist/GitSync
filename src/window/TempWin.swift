@@ -39,6 +39,9 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         
         //figure out how to align buttons to view horizontally
         
+        Swift.print("NSScreen.mainScreen()!.frame.width: " + "\(NSScreen.mainScreen()!.frame.width)")
+        Swift.print("NSScreen.mainScreen()!.frame.height: " + "\(NSScreen.mainScreen()!.frame.height)")
+        
         Swift.print("self.frame.size.width: " + "\(self.frame.size.width)")
         Swift.print("self.frame.size.height : " + "\(self.frame.size.height)")
         Swift.print("view.frame.size.width: " + "\(view.frame.size.width)")
