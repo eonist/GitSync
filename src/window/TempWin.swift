@@ -34,6 +34,13 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
     *
     */
     func createButtons(){
+        
+        //add,remove,info,view
+        
+        //figure out how to align buttons to view horizontally
+        
+        
+        
         let buttonX:Int = 0
         let buttonY:Int = 40//Int(window.frame.size.height)-30-20
         //print("buttonY: " + String(buttonY))
