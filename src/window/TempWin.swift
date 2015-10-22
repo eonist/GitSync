@@ -2,6 +2,7 @@ import Foundation
 import Cocoa
 
 class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
+    let titles:[String] = ["Add","Remove","Info","View"]
     static var width = 800//Static variable, reachable on a class level
     static var height = 600
     static var sizeRect:NSRect = NSRect(x: 0, y: 0, width: TempWin.width, height: TempWin.height)//NSMakeRect(0, 0, TempWin.width, TempWin.height)
@@ -42,7 +43,6 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         let topPadding:Int = 24
         let buttonSpacing:Int = 12
         
-        let titles:[String] = ["Add","Remove","Info","View"]
         var buttons:Array<NSButton> = []
         
         //TODO:  store buttons globaly, and switch in the myaction call
@@ -109,7 +109,21 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
     * EventHandler for the button
     */
     func myAction(obj:AnyObject!){
-        Swift.print(ClassParser.getClass(obj))
+        //Swift.print(ClassParser.getClass(obj))
         Swift.print("My class is \((obj as! NSObject).className)")
+        if let button = obj as? NSButton{
+            switch button.title{
+            case titles[0]: Swift.print("0")
+               
+            case titles[1]: Swift.print("1")
+                
+            case titles[2]: Swift.print("2")
+                
+            case titles[3]: Swift.print("3")
+                
+            default:
+                break
+            }
+        }
     }
 }
