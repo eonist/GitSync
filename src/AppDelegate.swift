@@ -5,7 +5,7 @@ import Foundation
 /*
  * The class for the application
  */
-class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTableViewDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate{
     var newWindow:NSWindow?// = WinUtils.win()
     /**
      * Initializes your application
