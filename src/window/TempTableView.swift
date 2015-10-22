@@ -3,11 +3,11 @@ import Cocoa
 /*
  * Note: Apparently an NSTableViewDataSource must be in the tableview it self
  * TODO: add the repo xml to the table
- * create a table design: 
+ * create a table design: active toggle on the right, repo + branch name and the status indicator on the left.
  */
 class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     //let monthNames:Array = ["March","April","May"]
-    let data:[Dictionary<String,String>] = [["name":"John","age":"19"],["name":"Judith","age":"22"]]
+    let data:[Dictionary<String,String>] = [["remote-repo":"Gitsync","branch":"master","":""],["name":"Judith","age":"22"]]
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return data.count;
     }
