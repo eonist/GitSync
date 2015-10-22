@@ -48,11 +48,14 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         Swift.print("view.frame.size.width: " + "\(view.frame.size.width)")
         Swift.print("view.frame.size.height: " + "\(view.frame.size.height)")
         
+        let buttonWidth:Int = 100
+        let tempX:Int = (TempWin.width/2) - (buttonWidth/2)
+        let buttonX:Int = tempX
         
-        let buttonX:Int = 0
-        let buttonY:Int = 40//Int(window.frame.size.height)-30-20
+        let 
+        let buttonY:Int = 0//Int(window.frame.size.height)-30-20
         //print("buttonY: " + String(buttonY))
-        let button = NSButton(frame: NSRect(x: buttonX, y: buttonY, width: 100, height: 30))
+        let button = NSButton(frame: NSRect(x: buttonX, y: buttonY, width: buttonWidth, height: 30))
         //button.highlight(true)
         let buttonCell:NSButtonCell = button.cell! as! NSButtonCell
         buttonCell.bezelStyle = NSBezelStyle.SmallSquareBezelStyle//NSBezelStyle.RoundedBezelStyle
