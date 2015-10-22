@@ -30,16 +30,6 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
   
 
     
-    //MARK: - Event handlers:
-    func myAction(obj:AnyObject!){
-        print("press")
-        print(String(obj))
-        print(classNameAsString(obj))
-        print("My class is \((obj as! NSObject).className)")
-    }
-    func classNameAsString(obj: Any) -> String {
-        print(String(obj))
-        return _stdlib_getDemangledTypeName(obj).componentsSeparatedByString(".").last!
-    }
+    
 }
 
