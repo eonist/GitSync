@@ -80,9 +80,9 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
         let tableContainerRect:NSRect = NSRect(x: tablePosX, y: 80, width: 500,height:300)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
         let tableView = TempTableView(frame: tableContainer.frame)//tableContainer.frame.width-100, height: tableContainer.frame.height
-        self.makeFirstResponder(tableView)//focus tableView,doesnt work yet
-        self.initialFirstResponder = tableView
-        tableView.setDataSource(tableView)//set the datasource
+        //self.makeFirstResponder(tableView)//focus tableView,doesnt work yet
+        //self.initialFirstResponder = tableView
+        tableView.setDataSource(tableView)//set the datasource IMPORTANT (this is where the data is comming from)
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
         tableView.usesAlternatingRowBackgroundColors = true
         
@@ -102,10 +102,10 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
         columnD.headerCell.title = "Active: "
         tableView.addTableColumn(columnD)
         
-        tableView.setDelegate(tableView)//listen for delagation events
+        tableView.setDelegate(tableView)//listen for delagation events IMPORTANT!
         tableContainer.documentView = tableView
         tableContainer.hasVerticalScroller = true
-        view.addSubview(tableContainer)//add to the view
+        view.addSubview(tableContainer)//add tableView to the window view
     }
     /*
     * NSTextField
