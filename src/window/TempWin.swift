@@ -63,7 +63,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
     */
     
     func createTable(){
-        let tableWidth:Int = 500
+        let tableWidth:Int = 600
         let tablePosX:Int = (TempWin.width/2) - (tableWidth/2)
         let tableContainerRect:NSRect = NSRect(x: tablePosX, y: 80, width: 500,height:300)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
@@ -109,7 +109,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
     */
     func myAction(obj:AnyObject!){
         //Swift.print(ClassParser.getClass(obj))
-        Swift.print("My class is \((obj as! NSObject).className)")
+        //Swift.print("My class is \((obj as! NSObject).className)")
         if let button = obj as? NSButton{
             switch button.title{
             case titles[0]:
