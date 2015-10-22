@@ -11,6 +11,19 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         //add eventlisteners
         self.target = self//event dispataches to this instance
         self.action = "myAction:"//event dispatches to this method
+        allowsColumnResizing = false
+        allowsMultipleSelection = true
+        //AllowsColumnSelection:
+        //allowsEmptySelection
+        //AllowsColumnReordering:
+        /*
+        - setIntercellSpacing:
+        - intercellSpacing
+        - setRowHeight:
+        - rowHeight
+        - setBackgroundColor:
+        - backgroundColor
+        */
     }
     /**
     *
@@ -18,6 +31,9 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     func myAction(obj:AnyObject!){
         Swift.print("My class is \((obj as! NSObject).className)")
     }
+    /*
+    * Requeired when overiding init
+    */
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
