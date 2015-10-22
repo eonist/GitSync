@@ -88,10 +88,16 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
         win.ignoresMouseEvents = true
         win.makeKeyAndOrderFront(win)
         */
-        let win = NSWindow(contentRect: NSMakeRect(0, 0, 100, 100), styleMask: NSBorderlessWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
-        let controller = NSWindowController(window: win)
-        controller.showWindow(self)
-        win.makeKeyAndOrderFront(nil)
+        let winRect = NSMakeRect(0, 0, NSScreen.mainScreen()!.frame.width/2, NSScreen.mainScreen()!.frame.height/2)
+        let newWindow = NSWindow(contentRect: winRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
+        newWindow.title = "New Window"
+        newWindow.opaque = false
+        
+        newWindow.hasShadow = true
+        newWindow.center()//moves the window to the center
+        newWindow.movableByWindowBackground = true
+        newWindow.backgroundColor = NSColor(calibratedHue: 0, saturation: 1.0, brightness: 0, alpha: 0.7)
+        newWindow.makeKeyAndOrderFront(nil)
         //win.makeKeyAndOrderFront(win)
     }
     /*
