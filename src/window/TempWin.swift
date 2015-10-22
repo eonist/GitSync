@@ -10,6 +10,8 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
         super.init(contentRect: TempWin.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         self.makeKeyAndOrderFront(nil)//moves the window to the front
+        self.makeMainWindow()
+        
         //let controller = NSWindowController(window: newWindow)
         //controller.showWindow(self)
         self.center()
@@ -31,6 +33,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         createButtons()
         //createTextField()
         createTable()
+        
     }
     /*
     *
