@@ -49,11 +49,11 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         Swift.print("view.frame.size.height: " + "\(view.frame.size.height)")
         
         let buttonWidth:Int = 100
-        let buttonX:Int = (TempWin.width/2) - (buttonWidth/2)
+        //let buttonX:Int = (TempWin.width/2) - (buttonWidth/2)
         
         let topPadding:Int = 24
         let buttonSpacing:Int = 12
-        let buttonY:Int = topPadding//Int(window.frame.size.height)-30-20
+        //let buttonY:Int = topPadding//Int(window.frame.size.height)-30-20
         //print("buttonY: " + String(buttonY))
         
         //Swift.print("button.frame.width: " + "\(button.frame.width)")
@@ -63,7 +63,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         var buttons:Array<NSButton> = []
         for buttonTitle:String in buttonTitles{
             //Swift.print(buttonTitle)
-            let button = NSButton(frame: NSRect(x: buttonX, y: buttonY, width: buttonWidth, height: 30))
+            let button = NSButton(frame: NSRect(x: 0, y: 0, width: buttonWidth, height: 30))
             button.title = buttonTitle
             //button.highlight(true)
             let buttonCell:NSButtonCell = button.cell! as! NSButtonCell
@@ -88,7 +88,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
                 totalWidth += Int(elmnt.frame.width) + (elmnt != elements.last ? horisontalSpacing : 0)
             }
             
-            var tempX:Int = viewWidth - (totalWidth/2)
+            var tempX:Int = (viewWidth/2) - (totalWidth/2)
            
             
             for element:NSButton in buttons{//align elements
