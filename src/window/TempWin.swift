@@ -71,7 +71,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
             
             view.addSubview(button)//Add button to view
             button.target = self
-            button.action = "myAction:"
+            button.action = "myAction:"//
             buttons.append(button)
         }
         
