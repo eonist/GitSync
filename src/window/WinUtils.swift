@@ -17,6 +17,7 @@ class WinUtils {
         win.makeKeyAndOrderFront(nil)
         //win.center()//places the window in the center
         //win.setIsMiniaturized(false)
+        //win.setTitleWithRepresentedFilename("")// method formats a filename in the title bar in a readable format
         return win
     }
     
