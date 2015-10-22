@@ -69,7 +69,8 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
             //TODO: try to get the index of current selected row / column
             //TODO: try to get data from current seleted row / column
             //TODO: try to add data to current selected row
-            //TODO:
+            //TODO: try to add data to row 2 col id: branch
+        
         
         
     }
