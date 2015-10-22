@@ -53,6 +53,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         let buttonX:Int = tempX
         
         let topPadding:Int = 24
+        let buttonSpacing:Int = 12
         let buttonY:Int = topPadding//Int(window.frame.size.height)-30-20
         //print("buttonY: " + String(buttonY))
         
@@ -60,7 +61,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         //Swift.print("button.frame.height: " + "\(button.frame.height)")
         
         let buttonTitles:[String] = ["Add","Remove","Info","View"]
-        var buttons:Array[NSButton] = 
+        var buttons:Array<NSButton> = []
         for buttonTitle:String in buttonTitles{
             //Swift.print(buttonTitle)
             let button = NSButton(frame: NSRect(x: buttonX, y: buttonY, width: buttonWidth, height: 30))
@@ -72,7 +73,11 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
             view.addSubview(button)//Add button to view
             button.target = self
             button.action = "myAction:"
-            
+            buttons.append(button)
+        }
+        //align buttons
+        for button in buttons{
+            button
         }
     }
     /*
