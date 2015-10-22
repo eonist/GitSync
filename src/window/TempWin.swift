@@ -78,6 +78,9 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         let totalWidth:Int = (buttons.count * buttonWidth) + (buttonSpacing * (buttons.count-1))
         var tempX:Int = (TempWin.width/2) - (totalWidth/2)
         
+        //TODO: create a general interface align method
+        //TODO: try to make 
+        
         for button:NSButton in buttons{//align buttons
             let x:Int = tempX
             let y:Int = topPadding
