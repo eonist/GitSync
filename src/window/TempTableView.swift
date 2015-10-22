@@ -24,8 +24,14 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         return data[row][(tableColumn?.identifier)!]
     }
     func tableViewSelectionDidChange(notification: NSNotification) {
-        Swift.print("Selection changed")
+        Swift.print("tableViewSelectionDidChange")
         
+    }
+    func tableView(tableView: NSTableView, didClickTableColumn tableColumn: NSTableColumn) {
+        Swift.print("Selection didClickTableColumn")
+    }
+    func tableView(tableView: NSTableView, mouseDownInHeaderOfTableColumn tableColumn: NSTableColumn) {
+        Swift.print("Selection mouseDownInHeaderOfTableColumn")
     }
     /*
     This is for custom design i guess
