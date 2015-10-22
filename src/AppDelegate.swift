@@ -16,7 +16,11 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         win = TempWin(contentRect: winRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         //self.window.setContentView(self.newContentView)
         //self.window.makeKeyAndOrderFront(nil)
-       print(aNotification)
+        //print(aNotification)
+        let app:NSApplication = aNotification.object as! NSApplication
+        print(app)
+        print(app.mainWindow)
+        print(app.keyWindow)
     }
     /*
      * When the application closes

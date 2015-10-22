@@ -15,11 +15,11 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
         super.init(contentRect: TempWin.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()
-        Swift.print(self.deviceDescription)
+        //Swift.print(self.deviceDescription)
         
         //Swift.print(self.windowNumber)
         //Swift.print(self.screen?.deviceDescription)
-        Swift.print(self.screen!.frame)//screen size
+        //Swift.print(self.screen!.frame)//screen size
         //let controller = NSWindowController(window: newWindow)
         //controller.showWindow(self)
         self.center()
