@@ -29,7 +29,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
     func createContent(){ 
         createButtons()
         createTextField()
-        createList()
+        //createList()
     }
     /*
     *
@@ -80,8 +80,12 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
             button
         }
         
-        let newSizeRect:NSRect = NSRect(x: buttonX, y: buttonY, width: 200, height: 30)
-        (buttons[0] as NSButton).setFrameSize(newSizeRect)
+        let newSize:CGSize = CGSize(width: 200, height: 300)
+        //let newPos:CGPoint = CGPoint(x: 40, y: 40)
+        //origin: CGPoint, size: CGSize
+        //let newSizeRect:CGRect = CGRect(origin: newPos, size: newSize)
+        
+        (buttons[0] as NSButton).setFrameSize(newSize)
     }
     /*
     * NSTableView
