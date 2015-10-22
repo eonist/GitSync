@@ -39,10 +39,10 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         
         //figure out how to align buttons to view horizontally
         
-        Swift.print("w: " + "\(self.frame.size.width)")
-        Swift.print("h: " + "\(self.frame.size.height)")
-        Swift.print("view w: " + "\(view.frame.size.width)")
-        Swift.print("view h: " + "\(view.frame.size.height)")
+        Swift.print("self.frame.size.width: " + "\(self.frame.size.width)")
+        Swift.print("self.frame.size.height : " + "\(self.frame.size.height)")
+        Swift.print("view.frame.size.width: " + "\(view.frame.size.width)")
+        Swift.print("view.frame.size.height: " + "\(view.frame.size.height)")
         
         
         let buttonX:Int = 0
@@ -57,8 +57,8 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
         button.target = self
         button.action = "myAction:"
         
-        Swift.print("button w: " + "\(button.frame.width)")
-        Swift.print("button h: " + "\(button.frame.height)")
+        Swift.print("button.frame.width: " + "\(button.frame.width)")
+        Swift.print("button.frame.height: " + "\(button.frame.height)")
         
     }
     /*
