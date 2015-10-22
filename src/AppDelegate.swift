@@ -12,7 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSTableViewDataSource,NSTable
     var window: NSWindow?
     var view:FlippedView = FlippedView(frame: NSRect(x: 0, y: 0, width: AppDelegate.width, height: AppDelegate.height))
     //MARK: - Init
-    var newWindow:NSWindow = WinUtils.win()
+    //var newWindow:NSWindow = WinUtils.win()
     /**
      * Initializes your application
      */
