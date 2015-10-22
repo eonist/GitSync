@@ -17,4 +17,5 @@ class WinUtils {
         newWindow.makeKeyAndOrderFront(nil)
         return newWindow
     }
+    
 }
