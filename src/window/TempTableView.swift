@@ -3,7 +3,7 @@ import Cocoa
 /*
  * Note: Apparently an NSTableViewDataSource must be in the tableview it self
  * TODO: add the repo xml to the table
- * create a table design
+ * create a table design: 
  */
 class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     //let monthNames:Array = ["March","April","May"]
