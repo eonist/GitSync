@@ -4,18 +4,21 @@ import Cocoa
  * Note: Apparently an NSTableViewDataSource must be in the tableview it self
  */
 class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
-    let monthNames:Array = ["March","April","May"]
-    let data:[Dictionary<String,String>] = [["Name":"John","Age":"19"],["Name":"Judith","Age":"22"]]
+    //let monthNames:Array = ["March","April","May"]
+    let data:[Dictionary<String,String>] = [["name":"John","age":"19"],["name":"Judith","age":"22"]]
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
-        return monthNames.count;
+        return data.count;
     }
     
     func tableView(tableView: NSTableView,objectValueForTableColumn tableColumn: NSTableColumn?,row: Int) -> AnyObject?{
         Swift.print((tableColumn?.title)! + " " + (tableColumn?.identifier)!)
         //Swift.print("fire a")
-        return monthNames[row]
+        
+        return data[row][(tableColumn?.identifier)!]
     }
     
+    /*
+    This is for custom design i guess
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
         Swift.print("fire b")
         // get the item for the row
@@ -30,4 +33,5 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         // return the populated NSTableCellView
         return result
     }
+    */
 }
