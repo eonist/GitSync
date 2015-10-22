@@ -8,12 +8,17 @@ import Cocoa
 class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     //let monthNames:Array = ["March","April","May"]
     let data:[Dictionary<String,String>] = [["status":"Green","remote-repo":"Gitsync", "branch":"master","active":"true"],["status":"Yellow","remote-repo":"Element", "branch":"development","active":"false"]]
+    /*
+    * Required by NSTableView
+    */
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return data.count;
     }
-    
+    /*
+    * Populates the tableview cells
+    */
     func tableView(tableView: NSTableView,objectValueForTableColumn tableColumn: NSTableColumn?,row: Int) -> AnyObject?{
-        Swift.print((tableColumn?.title)! + " " + (tableColumn?.identifier)!)
+        //Swift.print((tableColumn?.title)! + " " + (tableColumn?.identifier)!)
         //Swift.print("fire a")
         
         return data[row][(tableColumn?.identifier)!]
