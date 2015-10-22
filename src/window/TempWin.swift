@@ -80,8 +80,8 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
             button
         }
         
-        let newSizeRect:NSRect = NSRect(x: buttonX, y: buttonY, width: buttonWidth, height: 30)
-        (buttons[0] as NSButton).setFrameSize(<#T##newSize: NSSize##NSSize#>)
+        let newSizeRect:NSRect = NSRect(x: buttonX, y: buttonY, width: 200, height: 30)
+        (buttons[0] as NSButton).setFrameSize(newSizeRect)
     }
     /*
     * NSTableView
