@@ -64,8 +64,10 @@ class TempWin:NSWindow, NSApplicationDelegate,NSTableViewDelegate{
             buttons.append(button)//add button to button list
         }
         
-        //TODO: try to add and remove items from the Table
-        //TODO: try to get the index of current selected row / column
+        //TODO: try to add and remove items from the Table:
+            //TODO: try to get the index of current selected row / column
+            //TODO: try to get data from current seleted row / column
+            //TODO: etc
         
         Align.horizontal(buttons,TempWin.width,topPadding,buttonSpacing)
     }
