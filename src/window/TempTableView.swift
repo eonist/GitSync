@@ -11,10 +11,12 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     }
     
     func tableView(tableView: NSTableView,objectValueForTableColumn tableColumn: NSTableColumn?,row: Int) -> AnyObject?{
+        Swift.print("fire a")
         return monthNames[row]
     }
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        Swift.print("fire b")
         // get the item for the row
         let item:Dictionary<String,String> = data[row]
         
