@@ -9,6 +9,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return monthNames.count;
     }
+    
     func tableView(tableView: NSTableView,objectValueForTableColumn tableColumn: NSTableColumn?,row: Int) -> AnyObject?{
         return monthNames[row]
     }
@@ -21,7 +22,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         let result : NSTableCellView = tableView.makeViewWithIdentifier(tableColumn!.identifier, owner: self) as! NSTableCellView
         
         // set the string value of the text field in the NSTableCellView
-        result.textField?.stringValue = item.valueForKey(tableColumn!.identifier) as! String
+        result.textField?.stringValue = item[tableColumn!.identifier]!//(tableColumn!.identifier) as! String
         
         // return the populated NSTableCellView
         return result
