@@ -28,6 +28,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
         createContent()
         self.delegate = self
         
+        
     }
     /*
     * Required by the NSWindow
