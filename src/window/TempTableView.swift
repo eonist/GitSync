@@ -60,12 +60,11 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         Swift.print("tableViewSelectionDidChange: " + "\(selectedRow)")
         //selectColumnIndexes(<#T##indexes: NSIndexSet##NSIndexSet#>, byExtendingSelection: <#T##Bool#>)
         
-        if(selectedRow != -1){
+        if(selectedRow != -1){//-1 indicates deselection
             let selectedItem:Dictionary<String,String> = data[selectedRow]
             Swift.print(selectedItem)
             //deselectRow(selectedRow)
         }
-        
     }
     func tableView(tableView: NSTableView, didClickTableColumn tableColumn: NSTableColumn) {
         Swift.print("Selection didClickTableColumn")
