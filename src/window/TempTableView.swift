@@ -9,6 +9,9 @@ import Cocoa
  * NOTE: comprehensive but advance: https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/TableView/Introduction/Introduction.html#//apple_ref/doc/uid/10000026i-CH1-SW1
  */
 class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
+    //let monthNames:Array = ["March","April","May"]
+    let data:[Dictionary<String,String>] = [["status":"Green","remote-repo":"Gitsync", "branch":"master","active":"true"],["status":"Yellow","remote-repo":"Element", "branch":"development","active":"false"]]
+    
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         //add eventlisteners
@@ -30,8 +33,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         super.init(coder: coder)
     }
     
-    //let monthNames:Array = ["March","April","May"]
-    let data:[Dictionary<String,String>] = [["status":"Green","remote-repo":"Gitsync", "branch":"master","active":"true"],["status":"Yellow","remote-repo":"Element", "branch":"development","active":"false"]]
+   
     /*
     * Required by NSTableView
     */
@@ -55,13 +57,13 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     }
     
     func tableViewSelectionDidChange(notification: NSNotification) {
-        Swift.print("tableViewSelectionDidChange")
+        Swift.print("tableViewSelectionDidChange: " + "\(selectedRow)")
         //selectColumnIndexes(<#T##indexes: NSIndexSet##NSIndexSet#>, byExtendingSelection: <#T##Bool#>)
-        let selectedItem = self.data[(self.selectedRow)]
-        
+        /*
+        let selectedItem = self.data[selectedRow]
         Swift.print(selectedItem)
-        
         deselectRow(self.selectedRow)
+        */
     }
     func tableView(tableView: NSTableView, didClickTableColumn tableColumn: NSTableColumn) {
         Swift.print("Selection didClickTableColumn")
