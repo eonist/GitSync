@@ -3,9 +3,11 @@ import Cocoa
 
 /*
 * NOTE: Great doc about NSWin: https://www.google.no/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0CCIQFjAAahUKEwig7tP06dbIAhXlnHIKHX4EDf4&url=https%3A%2F%2Fdeveloper.apple.com%2Flibrary%2Fmac%2Fdocumentation%2FCocoa%2FReference%2FApplicationKit%2FClasses%2FNSWindow_Class%2F&usg=AFQjCNEwF-62zCVqYtHRLdEo5vTD4Oo0Fw
+* TODO: Add Broadcast/Subscribe to info win
+* TODO: Add Transmit/Receive buttons to tab-bar
 */
 class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
-    let titles:[String] = ["Add","Remove","Info","View","test"]//add Broadcast/Subscribe , Transmit/Recive
+    let titles:[String] = ["Add","Remove","Info","View","test"]
     //add a row of debug buttons bellow the tableview
     static var width = 800//Static variable, reachable on a class level
     static var height = 600
