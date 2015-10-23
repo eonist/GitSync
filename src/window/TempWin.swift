@@ -92,7 +92,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
         //self.initialFirstResponder = tableView
         tableView.setDataSource(tableView)//set the datasource IMPORTANT (this is where the data is comming from)
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
-        tableView.usesAlternatingRowBackgroundColors = true
+        //tableView.usesAlternatingRowBackgroundColors = true
         
         let columnTitles:[Dictionary<String,String>] = [["id":"status","title":"Status: "],["id":"remote-repo","title":"Repository: "],["id":"branch","title":"Branch: "],["id":"active","title":"Active: "]]
         
