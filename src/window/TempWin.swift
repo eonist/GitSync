@@ -90,8 +90,13 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
         tableView.usesAlternatingRowBackgroundColors = true
         
-        let columnTitles[Dictionary<String,String>] = [["status":"Status: "],["remote-repo":"Repository: "],["branch":"Branch: "],["active":"Active: "]]
+        let columnTitles:[Dictionary<String,String>] = [["status":"Status: "],["remote-repo":"Repository: "],["branch":"Branch: "],["active":"Active: "]]
         
+        for columnTitle in columnTitles{
+            let column = NSTableColumn(identifier: "status")
+            column.headerCell.title = "Status: "
+            tableView.addTableColumn(column)
+        }
         let columnA = NSTableColumn(identifier: "status")
         columnA.headerCell.title = "Status: "
         tableView.addTableColumn(columnA)
