@@ -90,6 +90,8 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
         tableView.usesAlternatingRowBackgroundColors = true
         
+        let columnTitles[Dictionary<String,String>] = [["status":"Status: "],["remote-repo":"Repository: "],["branch":"Branch: "],["active":"Active: "]]
+        
         let columnA = NSTableColumn(identifier: "status")
         columnA.headerCell.title = "Status: "
         tableView.addTableColumn(columnA)
@@ -104,6 +106,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
         
         let columnD = NSTableColumn(identifier: "active")
         columnD.headerCell.title = "Active: "
+        columnD.editable = false
         tableView.addTableColumn(columnD)
         
         tableView.setDelegate(tableView)//listen for delagation events IMPORTANT!
