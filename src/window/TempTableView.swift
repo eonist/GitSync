@@ -53,7 +53,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         
         let object = data[row] as Dictionary<String,String>
         if ((tableColumn!.identifier) == "active"){
-            return 3//(object[tableColumn.identifier] as? Int!)!
+            return 1//(object[tableColumn.identifier] as? Int!)!
         }
         else{
             return object[tableColumn!.identifier]
