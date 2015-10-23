@@ -30,7 +30,11 @@ class Create {
        return textButton(title: title)
     }
 }
-
+extension Create {
+    func textButton(test:Int)->NSButton{
+        return 
+    }
+}
 
 /*
 case RoundedBezelStyle
