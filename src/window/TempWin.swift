@@ -92,27 +92,12 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
         
         let columnTitles:[Dictionary<String,String>] = [["id":"status","title":"Status: "],["id":"remote-repo","title":"Repository: "],["id:":"branch","title":"Branch: "],["id":"active","title":"Active: "]]
         
-        for columnTitle in columnTitles{
-            let column = NSTableColumn(identifier: "status")
-            column.headerCell.title = "Status: "
+        for columnTitle:Dictionary<String,String> in columnTitles{
+            let column = NSTableColumn(identifier: columnTitle["id"])
+            column.headerCell.title = columnTitle["title"]
             tableView.addTableColumn(column)
+            column.editable = false
         }
-        let columnA = NSTableColumn(identifier: "status")
-        columnA.headerCell.title = "Status: "
-        tableView.addTableColumn(columnA)
-        
-        let columnB = NSTableColumn(identifier: "remote-repo")
-        columnB.headerCell.title = "Repository: "
-        tableView.addTableColumn(columnB)
-        
-        let columnC = NSTableColumn(identifier: "branch")
-        columnC.headerCell.title = "Branch: "
-        tableView.addTableColumn(columnC)
-        
-        let columnD = NSTableColumn(identifier: "active")
-        columnD.headerCell.title = "Active: "
-        columnD.editable = false
-        tableView.addTableColumn(columnD)
         
         tableView.setDelegate(tableView)//listen for delagation events IMPORTANT!
         tableContainer.documentView = tableView
