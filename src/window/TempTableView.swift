@@ -7,6 +7,7 @@ import Cocoa
  * NOTE: Great: (NSTableView class reference) https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSTableView_Class/ Google: "NSTableView class reference" for good documentation
  * NOTE: Info about NSTableView: http://objc.toodarkpark.net/AppKit/Classes/NSTableView.html#//apple_ref/occ/instm/NSTableView/delegate
  * NOTE: comprehensive but advance: https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/TableView/Introduction/Introduction.html#//apple_ref/doc/uid/10000026i-CH1-SW1
+ * NOTE: Nice interactive NSTAbleView tutorial: http://www.raywenderlich.com/87003/getting-started-with-os-x-and-swift-tutorial-part-2
  */
 class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     //let monthNames:Array = ["March","April","May"]
