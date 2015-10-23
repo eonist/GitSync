@@ -48,17 +48,15 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     * Populates the tableview cells
     */
  
-    func tableView(tableView: NSTableView!, objectValueForTableColumn tableColumn: NSTableColumn!, row: Int) -> AnyObject!{
+    func tableView(tableView: NSTableView, objectValueForTableColumn tableColumn: NSTableColumn?, row: Int) -> AnyObject?{
         //data[row][(tableColumn?.identifier)!]
         
         let object = data[row] as Dictionary<String,String>
-        if ((tableColumn.identifier) == "active")
-        {
-            return object[tableColumn.identifier] as? Int!
+        if ((tableColumn!.identifier) == "active"){
+            return 3//(object[tableColumn.identifier] as? Int!)!
         }
-        else
-        {
-            return object[tableColumn.identifier] as? String!
+        else{
+            return object[tableColumn!.identifier]
         }
     }
     
