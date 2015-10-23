@@ -4,8 +4,9 @@ import Cocoa
  * Note: Apparently an NSTableViewDataSource must be in the tableview it self
  * TODO: add the repo xml to the table
  * create a table design: active toggle on the right, repo + branch name and the status indicator on the left.
- * NOTE: Great:  https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSTableView_Class/ Google: "NSTableView class reference" for good documentation
+ * NOTE: Great: (NSTableView class reference) https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSTableView_Class/ Google: "NSTableView class reference" for good documentation
  * NOTE: Info about NSTableView: http://objc.toodarkpark.net/AppKit/Classes/NSTableView.html#//apple_ref/occ/instm/NSTableView/delegate
+ * NOTE: comprehensive but advance: https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/TableView/Introduction/Introduction.html#//apple_ref/doc/uid/10000026i-CH1-SW1
  */
 class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     override init(frame frameRect: NSRect) {
