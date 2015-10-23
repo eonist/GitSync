@@ -20,6 +20,9 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         self.action = "myAction:"//event dispatches to this method
         allowsColumnResizing = false
         allowsMultipleSelection = true
+        backgroundColor = NSColor.whiteColor()
+        usesAlternatingRowBackgroundColors = false;
+        //gridColor
     }
     /**
     *
