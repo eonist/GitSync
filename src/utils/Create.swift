@@ -32,7 +32,8 @@ class Create {
 }
 extension Create {
     func textButton(test:Int)->NSButton{
-        return 
+        print("\(test)")
+        return Create.textButton("test")
     }
 }
 
