@@ -31,9 +31,9 @@ class Create {
     }
 }
 extension Create {
-    func textButton(test:Int)->NSButton{
-        print("\(test)")
-        return Create.textButton("test")
+    class func textButton(test:Int)->NSButton{
+        print("extension test")
+        return Create.textButton(title:"test")
     }
 }
 

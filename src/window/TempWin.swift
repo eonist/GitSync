@@ -66,7 +66,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
         //TODO: create debug button so you can test how to get the table row id of the selected row
         
         for title:String in titles{
-            let button = Create.textButton(title)
+            let button = Create.textButton(2)
             view.addSubview(button)//Add button to view
             button.target = self//event dispataches to this instance
             button.action = "myAction:"//event dispatches to this method
