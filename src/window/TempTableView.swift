@@ -16,13 +16,6 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         self.action = "myAction:"//event dispatches to this method
         allowsColumnResizing = false
         allowsMultipleSelection = true
-        
-        
-        
-        
-        
-        
-        
     }
     /**
     *
@@ -64,6 +57,11 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     func tableViewSelectionDidChange(notification: NSNotification) {
         Swift.print("tableViewSelectionDidChange")
         //selectColumnIndexes(<#T##indexes: NSIndexSet##NSIndexSet#>, byExtendingSelection: <#T##Bool#>)
+        let selectedItem = self.data[(self.selectedRow)]
+        
+        Swift.print(selectedItem)
+        
+        deselectRow(self.selectedRow)
     }
     func tableView(tableView: NSTableView, didClickTableColumn tableColumn: NSTableColumn) {
         Swift.print("Selection didClickTableColumn")
