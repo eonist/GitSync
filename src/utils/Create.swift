@@ -23,15 +23,7 @@ class Create {
         return button
     }
 }
-extension Create {
-    /*
-     * Convenince method for textButton call
-     * TODO: Figure out how to use extensions for different creation methods for this item:
-     */
-    class func textButton(title:String)->NSButton{
-        return Create.textButton(title:"test")
-    }
-}
+
 
 /*
 case RoundedBezelStyle
