@@ -22,17 +22,13 @@ class Create {
         button.title = title
         return button
     }
+}
+extension Create {
     /*
      * Convenince method for textButton call
      * TODO: Figure out how to use extensions for different creation methods for this item:
      */
-    class func textButton2(title:String)->NSButton{
-       return textButton(title: title)
-    }
-}
-extension Create {
     class func textButton(title:String)->NSButton{
-        print("extension test")
         return Create.textButton(title:"test")
     }
 }
