@@ -21,12 +21,6 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         
         
         
-        //continue here: try to get to the different cells and populate them with things
-        
-        
-        
-        
-        
         
     }
     /**
@@ -62,6 +56,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     
     func tableViewSelectionDidChange(notification: NSNotification) {
         Swift.print("tableViewSelectionDidChange")
+        //selectColumnIndexes(<#T##indexes: NSIndexSet##NSIndexSet#>, byExtendingSelection: <#T##Bool#>)
     }
     func tableView(tableView: NSTableView, didClickTableColumn tableColumn: NSTableColumn) {
         Swift.print("Selection didClickTableColumn")
