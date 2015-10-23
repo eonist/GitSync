@@ -59,9 +59,11 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     func tableViewSelectionDidChange(notification: NSNotification) {
         Swift.print("tableViewSelectionDidChange: " + "\(selectedRow)")
         //selectColumnIndexes(<#T##indexes: NSIndexSet##NSIndexSet#>, byExtendingSelection: <#T##Bool#>)
-        /*
-        let selectedItem = self.data[selectedRow]
+        
+        let selectedItem:Dictionary<String,String> = data[selectedRow]
         Swift.print(selectedItem)
+        
+        /*
         deselectRow(self.selectedRow)
         */
     }
