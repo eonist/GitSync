@@ -5,7 +5,7 @@ class Align {
     /**
      * General interface horizontal align method
      */
-    class func horizontal(elements:Array<NSView>,_ viewWidth:Int = 0, xOffset:Int = 0 , _ yOffset:Int = 0,_ horisontalSpacing:Int = 0, alignType:String = "center"){
+    class func horizontal(elements:Array<NSView>, alignType:String = "center", _ viewWidth:Int = 0, xOffset:Int = 0 , _ yOffset:Int = 0,_ horisontalSpacing:Int = 0){
         var totalWidth:Int = 0//(buttons.count * buttonWidth) + (buttonSpacing * (buttons.count-1))
         for elmnt:NSView in elements {//find the total width
             totalWidth += Int(elmnt.frame.width) + (elmnt != elements.last ? horisontalSpacing : 0)
