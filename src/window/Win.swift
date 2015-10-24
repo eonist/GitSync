@@ -76,9 +76,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
             button.action = "myAction:"//event dispatches to this method
             buttons.append(button)//add button to button list
         }
-        let x = Table.leftPaddin
-        let y = EditMenu.topPadding + 
-        Align.horizontal(buttons,"left",Win.width,x,y,EditMenu.spacing )//aligns the buttons
+        let x = Table.leftPadding
+        let y = Table.topPadding + Table.height + EditMenu.topPadding
+        Align.horizontally(buttons,"left",Win.width,x,y,EditMenu.spacing)//aligns the buttons
     }
     /*
     * NSTableView
