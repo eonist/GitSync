@@ -6,16 +6,16 @@ import Cocoa
 * TODO: Add Broadcast/Subscribe to info win
 * TODO: Add Transmit/Receive buttons to tab-bar
 */
-class CustomWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
+class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     let titles:[String] = ["Add","Remove","Info","View","test"]
     //add a row of debug buttons bellow the tableview
     static var width = 800//Static variable, reachable on a class level
     static var height = 600
-    static var sizeRect:NSRect = NSRect(x: 0, y: 0, width: CustomWin.width, height: CustomWin.height)//NSMakeRect(0, 0, TempWin.width, TempWin.height)
-    var view:FlippedView = FlippedView(frame: CustomWin.sizeRect)
+    static var sizeRect:NSRect = NSRect(x: 0, y: 0, width: Win.width, height: Win.height)//NSMakeRect(0, 0, TempWin.width, TempWin.height)
+    var view:FlippedView = FlippedView(frame: Win.sizeRect)
     
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
-        super.init(contentRect: CustomWin.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
+        super.init(contentRect: Win.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         self.backgroundColor = NSColor.whiteColor()
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()//makes it the apps main menu?
@@ -75,14 +75,14 @@ class CustomWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
             button.action = "myAction:"//event dispatches to this method
             buttons.append(button)//add button to button list
         }
-        Align.horizontal(buttons,CustomWin.width,topPadding,buttonSpacing)//aligns the buttons
+        Align.horizontal(buttons,Win.width,topPadding,buttonSpacing)//aligns the buttons
     }
     /*
     * NSTableView
     */
     
     func createTable(){
-        let tableContainerRect:NSRect = NSRect(x: 0, y: 0, width: CustomTable.width,height:CustomWin.height)//view.bounds
+        let tableContainerRect:NSRect = NSRect(x: 0, y: 0, width: CustomTable.width,height:Win.height)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
         tableContainer.drawsBackground = false;
         tableContainer.borderType = NSBorderType.BezelBorder
