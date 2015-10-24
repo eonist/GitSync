@@ -77,7 +77,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
             buttons.append(button)//add button to button list
         }
         let x = Table.leftPadding
-        let y = Table.topPadding + Table.height + EditMenu.topPadding
+        let y = Win.height - Table.topPadding - EditMenu.height// + EditMenu.topPadding
         Align.horizontally(buttons,"left",Win.width,x,y,EditMenu.spacing)//aligns the buttons
     }
     /*
