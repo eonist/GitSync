@@ -11,10 +11,11 @@ import Cocoa
  */
 class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     //let monthNames:Array = ["March","April","May"]
-    let data:[Dictionary<String,String>] = [["status":"Green","remote-repo":"Gitsync", "branch":"master","active":"true"],["status":"Yellow","remote-repo":"Element", "branch":"development","active":"false"]]
+    let data:[Dictionary<String,String>]?
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
+        createContent()
         //add eventlisteners
         self.target = self//event dispataches to this instance
         self.action = "myAction:"//event dispatches to this method
@@ -23,6 +24,25 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         //backgroundColor = NSColor.greenColor()
         usesAlternatingRowBackgroundColors = false;
         //gridColor
+    }
+    
+    /**
+    *
+    */
+    func createContent(){
+        //Columns:
+        
+        let columnTitles:[Dictionary<String,String>] = [["id":"remote-repo","title":"Repository: "]]//["id":"status","title":"Status: "],,["id":"branch","title":"Branch: "],["id":"active","title":"Active: "]
+        
+        for columnTitle:Dictionary<String,String> in columnTitles{
+            //Swift.print(columnTitle["id"])
+            let column = NSTableColumn(identifier: columnTitle["id"]!)
+            column.headerCell.title = columnTitle["title"]!
+            self.addTableColumn(column)
+            column.editable = false
+        }
+        
+        
     }
     /**
     *
