@@ -47,7 +47,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
             self.addTableColumn(column)
             column.editable = false
         }
-        
+        headerView = nil
         //Rows:
         data = [["status":"Green","remote-repo":"Gitsync", "branch":"master","active":"true"],["status":"Yellow","remote-repo":"Element", "branch":"development","active":"false"]]
     }
@@ -64,7 +64,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         super.init(coder: coder)
     }
     
-   
+    
     /*
     * Required by NSTableView
     */
