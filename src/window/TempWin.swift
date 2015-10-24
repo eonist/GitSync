@@ -17,7 +17,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
         super.init(contentRect: TempWin.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         self.makeKeyAndOrderFront(nil)//moves the window to the front
-        self.makeMainWindow()
+        self.makeMainWindow()//makes it the apps main menu?
         //Swift.print(self.deviceDescription)
         
         //Swift.print(self.windowNumber)
@@ -52,7 +52,6 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
         createButtons()
         //createTextField()
         createTable()
-        
     }
     /*
     *
@@ -82,8 +81,6 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
     */
     
     func createTable(){
-        //let tableWidth:Int = 600
-        //let tablePosX:Int = (TempWin.width/2) - (tableWidth/2)
         let tableContainerRect:NSRect = NSRect(x: 0, y: 0, width: TempTableView.width,height:TempWin.height)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
         tableContainer.drawsBackground = false;
@@ -92,7 +89,6 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
         //self.initialFirstResponder = tableView
        
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
-        //tableView.usesAlternatingRowBackgroundColors = true
         
         tableContainer.documentView = tableView
         tableContainer.hasVerticalScroller = true
@@ -117,16 +113,12 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
             switch button.title{
             case titles[0]:
                 Swift.print(titles[0])
-               
             case titles[1]:
                 Swift.print(titles[1])
-                
             case titles[2]:
                 Swift.print(titles[2])
-                
             case titles[3]:
                 Swift.print(titles[3])
-                
             case titles[4]:
                 Swift.print(titles[4])
                 //do debug stuff
