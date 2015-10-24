@@ -7,7 +7,7 @@ import Cocoa
 * TODO: Add Transmit/Receive buttons to tab-bar
 */
 class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
-    let titles:[String] = ["Add","Remove","Info","View","test"]
+    let titles:[String] = ["Add","Remove"]//,"Info","View","test"
     //add a row of debug buttons bellow the tableview
     static var width = 800//Static variable, reachable on a class level
     static var height = 600
@@ -68,6 +68,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //TODO: create a view named container with buttons that the tableview then can pin itself to
         //TODO: create debug button so you can test how to get the table row id of the selected row
         
+        //create a custom button class that overides the drawing , the style it however you like. hover, press etc (Try that DrawCode app maybe?)
         for title:String in titles{
             let button = Create.textButton(title)
             //button.cell?.backgroundStyle = NSBackgroundStyle.Dark
