@@ -9,12 +9,12 @@ import Cocoa
  * NOTE: comprehensive but advance: https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/TableView/Introduction/Introduction.html#//apple_ref/doc/uid/10000026i-CH1-SW1
  * NOTE: Nice interactive NSTAbleView tutorial: http://www.raywenderlich.com/87003/getting-started-with-os-x-and-swift-tutorial-part-2
  */
-class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
+class CustomTable:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     static var width = 200
     var data:[Dictionary<String,String>]!// = [[:]]
     
     init() {
-        let rect:NSRect = NSRect(x:0, y: 0, width: TempTableView.width,height:TempWin.height)//view.bounds
+        let rect:NSRect = NSRect(x:0, y: 0, width: CustomTable.width,height:TempWin.height)//view.bounds
         
         super.init(frame: rect)
         createContent()
