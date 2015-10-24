@@ -10,7 +10,7 @@ import Cocoa
  * NOTE: Nice interactive NSTAbleView tutorial: http://www.raywenderlich.com/87003/getting-started-with-os-x-and-swift-tutorial-part-2
  */
 class Table:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
-    static var width = 200
+    static var width = 240
     static var topPadding = 12//make this into a tuple or enum or struct or or
     static var leftPadding = 12
     var data:[Dictionary<String,String>]!// = [[:]]
