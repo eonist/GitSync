@@ -25,6 +25,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //Swift.print(self.screen?.deviceDescription)
         //Swift.print(self.screen!.frame)//screen size
         //Swift.print(self.frame)//frame size
+        Swift.print(view.bounds)
         //let controller = NSWindowController(window: newWindow)
         //controller.showWindow(self)
         self.center()
@@ -82,11 +83,11 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     */
     
     func createTable(){
-        let tableContainerRect:NSRect = NSRect(x: 0, y: 0, width: CustomTable.width,height:Win.height)//view.bounds
+        let tableContainerRect:NSRect = NSRect(x: Table.leftPadding, y: Table.topPadding, width: Table.width-Table.leftPadding,height:Win.height-Table.topPadding-EditMenu.height)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
         tableContainer.drawsBackground = false;
         tableContainer.borderType = NSBorderType.BezelBorder
-        let table = CustomTable()//tableContainer.frame.width-100, height: tableContainer.frame.height
+        let table = Table()//tableContainer.frame.width-100, height: tableContainer.frame.height
         //self.makeFirstResponder(tableView)//focus tableView,doesnt work yet
         //self.initialFirstResponder = tableView
        

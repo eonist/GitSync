@@ -9,14 +9,14 @@ import Cocoa
  * NOTE: comprehensive but advance: https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/TableView/Introduction/Introduction.html#//apple_ref/doc/uid/10000026i-CH1-SW1
  * NOTE: Nice interactive NSTAbleView tutorial: http://www.raywenderlich.com/87003/getting-started-with-os-x-and-swift-tutorial-part-2
  */
-class CustomTable:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
+class Table:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     static var width = 200
     static var topPadding = 12//make this into a tuple or enum or struct or or
     static var leftPadding = 12
     var data:[Dictionary<String,String>]!// = [[:]]
     
     init() {
-        let rect:NSRect = NSRect(x:0, y: 0, width: CustomTable.width,height:CustomWin.height)//view.bounds
+        let rect:NSRect = NSRect(x:0, y: 0, width: Table.width,height:Win.height)//view.bounds
         
         super.init(frame: rect)
         createContent()
