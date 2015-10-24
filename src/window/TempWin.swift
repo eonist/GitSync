@@ -81,7 +81,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
     */
     
     func createTable(){
-        let tableWidth:Int = 600
+        //let tableWidth:Int = 600
         //let tablePosX:Int = (TempWin.width/2) - (tableWidth/2)
         let tableContainerRect:NSRect = NSRect(x: 0, y: 0, width: 500,height:300)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
