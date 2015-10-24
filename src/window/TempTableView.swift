@@ -2,7 +2,7 @@ import Foundation
 import Cocoa
 /*
  * Note: Apparently an NSTableViewDataSource must be in the tableview it self
- * TODO: add the repo xml to the table
+ * TODO: add the repo xml to the table loaded from an an repo.xml file
  * create a table design: active toggle on the right, repo + branch name and the status indicator on the left.
  * NOTE: Great: (NSTableView class reference) https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSTableView_Class/ Google: "NSTableView class reference" for good documentation
  * NOTE: Info about NSTableView: http://objc.toodarkpark.net/AppKit/Classes/NSTableView.html#//apple_ref/occ/instm/NSTableView/delegate
@@ -15,6 +15,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
+        self.setDelegate(self)//listen for delagation events IMPORTANT!
         self.setDataSource(self)//set the datasource IMPORTANT (this is where the data is comming from)
         createContent()
         //add eventlisteners

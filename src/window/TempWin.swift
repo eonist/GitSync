@@ -88,13 +88,10 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
         let tableView = TempTableView(frame: tableContainer.frame)//tableContainer.frame.width-100, height: tableContainer.frame.height
         //self.makeFirstResponder(tableView)//focus tableView,doesnt work yet
         //self.initialFirstResponder = tableView
-        tableView.setDataSource(tableView)//set the datasource IMPORTANT (this is where the data is comming from)
+       
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
         //tableView.usesAlternatingRowBackgroundColors = true
         
-       
-        
-        tableView.setDelegate(tableView)//listen for delagation events IMPORTANT!
         tableContainer.documentView = tableView
         tableContainer.hasVerticalScroller = true
         view.addSubview(tableContainer)//add tableView to the window view
