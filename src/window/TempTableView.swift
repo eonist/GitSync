@@ -43,6 +43,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
             //Swift.print(columnTitle["id"])
             let column = NSTableColumn(identifier: columnTitle["id"]!)
             column.headerCell.title = columnTitle["title"]!
+            column.hidden = true
             self.addTableColumn(column)
             column.editable = false
         }
