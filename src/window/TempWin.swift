@@ -30,8 +30,6 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
         self.title = "GitSync"
         createContent()
         self.delegate = self
-        
-        
     }
     /*
     * Required by the NSWindow
