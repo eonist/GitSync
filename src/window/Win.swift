@@ -51,9 +51,10 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createContent(){ 
-        createButtons()
+        
         //createTextField()
         createTable()
+        createButtons()
     }
     /*
     *
@@ -83,6 +84,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     */
     
     func createTable(){
+        
         let tableContainerRect:NSRect = NSRect(x: Table.leftPadding, y: Table.topPadding, width: Table.width-Table.leftPadding,height:Win.height-Table.topPadding-EditMenu.height)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
         tableContainer.drawsBackground = false;
