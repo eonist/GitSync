@@ -10,7 +10,7 @@ import Cocoa
  * NOTE: Nice interactive NSTAbleView tutorial: http://www.raywenderlich.com/87003/getting-started-with-os-x-and-swift-tutorial-part-2
  */
 class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
-    static var width = 300
+    static var width = 200
     var data:[Dictionary<String,String>]!// = [[:]]
     
     init() {
