@@ -42,8 +42,8 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         for columnTitle:Dictionary<String,String> in columnTitles{
             //Swift.print(columnTitle["id"])
             let column = NSTableColumn(identifier: columnTitle["id"]!)
-            column.headerCell.title = columnTitle["title"]!
-            column.headerCell.
+            //column.headerCell.title = columnTitle["title"]!
+            //column.headerCell = nil
             self.addTableColumn(column)
             column.editable = false
         }
