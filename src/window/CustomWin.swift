@@ -82,17 +82,17 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
     */
     
     func createTable(){
-        let tableContainerRect:NSRect = NSRect(x: 0, y: 0, width: TempTableView.width,height:TempWin.height)//view.bounds
+        let tableContainerRect:NSRect = NSRect(x: 0, y: 0, width: CustomTable.width,height:TempWin.height)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
         tableContainer.drawsBackground = false;
         tableContainer.borderType = NSBorderType.BezelBorder
-        let tableView = TempTableView()//tableContainer.frame.width-100, height: tableContainer.frame.height
+        let table = CustomTable()//tableContainer.frame.width-100, height: tableContainer.frame.height
         //self.makeFirstResponder(tableView)//focus tableView,doesnt work yet
         //self.initialFirstResponder = tableView
        
-        tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
+        table.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
         
-        tableContainer.documentView = tableView
+        tableContainer.documentView = table
         tableContainer.hasVerticalScroller = true
         view.addSubview(tableContainer)//add tableView to the window view
     }
