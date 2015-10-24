@@ -70,7 +70,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         for title:String in titles{
             let button = Create.textButton(title)
-            
+            button.layer!.backgroundColor = NSColor.redColor().CGColor;
             view.addSubview(button)//Add button to view
             button.target = self//event dispataches to this instance
             button.action = "myAction:"//event dispatches to this method
