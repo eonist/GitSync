@@ -29,6 +29,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         backgroundColor = NSColor.clearColor()//greenColor
         
         usesAlternatingRowBackgroundColors = false;
+        
         //gridColor = NSColor.blueColor()
     }
     
