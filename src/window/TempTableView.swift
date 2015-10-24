@@ -13,7 +13,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     //let monthNames:Array = ["March","April","May"]
     var data:[Dictionary<String,String>]!// = [[:]]
     
-    override init(frame frameRect: NSRect) {
+    init() {
         let tableWidth:Int = 600
         let tablePosX:Int = (TempWin.width/2) - (tableWidth/2)
         let rect:NSRect = NSRect(x: tablePosX, y: 80, width: 500,height:300)//view.bounds
