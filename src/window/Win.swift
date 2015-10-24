@@ -72,7 +72,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
             let button = Create.textButton(title)
             //button.cell?.backgroundStyle = NSBackgroundStyle.Dark
             (button.cell as! NSButtonCell).bordered = false
-            (button.cell as! NSButtonCell).backgroundColor = NSColor.redColor()
+            (button.cell as! NSButtonCell).backgroundColor = NSColor.whiteColor()
 
             view.addSubview(button)//Add button to view
             
