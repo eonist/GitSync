@@ -11,7 +11,7 @@ import Cocoa
  */
 class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     //let monthNames:Array = ["March","April","May"]
-    var data:[Dictionary<String,String>]!
+    var data:[Dictionary<String,String>] = [[:]]
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
