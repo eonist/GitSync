@@ -92,7 +92,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
         tableView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
         //tableView.usesAlternatingRowBackgroundColors = true
         
-        let columnTitles:[Dictionary<String,String>] = [["id":"status","title":"Status: "],["id":"remote-repo","title":"Repository: "],["id":"branch","title":"Branch: "],["id":"active","title":"Active: "]]
+        let columnTitles:[Dictionary<String,String>] = [["id":"remote-repo","title":"Repository: "]]//["id":"status","title":"Status: "],,["id":"branch","title":"Branch: "],["id":"active","title":"Active: "]
         
         for columnTitle:Dictionary<String,String> in columnTitles{
             //Swift.print(columnTitle["id"])
