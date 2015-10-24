@@ -11,13 +11,14 @@ import Cocoa
  */
 class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     //let monthNames:Array = ["March","April","May"]
-    var data:[Dictionary<String,String>] = [[:]]
+    var data:[Dictionary<String,String>]!// = [[:]]
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
+        createContent()
+        //add delegators
         self.setDelegate(self)//listen for delagation events IMPORTANT!
         self.setDataSource(self)//set the datasource IMPORTANT (this is where the data is comming from)
-        createContent()
         //add eventlisteners
         self.target = self//event dispataches to this instance
         self.action = "myAction:"//event dispatches to this method
@@ -25,7 +26,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         allowsMultipleSelection = true
         //backgroundColor = NSColor.greenColor()
         usesAlternatingRowBackgroundColors = false;
-        //gridColor
+        //gridColor = NSColor.blueColor()
     }
     
     /**
