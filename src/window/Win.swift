@@ -60,8 +60,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createButtons(){
-        let topPadding:Int = 24
-        let buttonSpacing:Int = 12
+        
         
         var buttons:Array<NSButton> = []
         
@@ -77,7 +76,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
             button.action = "myAction:"//event dispatches to this method
             buttons.append(button)//add button to button list
         }
-        Align.horizontal(buttons,Win.width,topPadding,buttonSpacing)//aligns the buttons
+        let x = Table.leftPaddin
+        let y = EditMenu.topPadding + 
+        Align.horizontal(buttons,"left",Win.width,x,y,EditMenu.spacing )//aligns the buttons
     }
     /*
     * NSTableView
