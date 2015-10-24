@@ -11,10 +11,11 @@ import Cocoa
  */
 class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     //let monthNames:Array = ["March","April","May"]
-    let data:[Dictionary<String,String>]?
+    var data:[Dictionary<String,String>]!
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
+        self.setDataSource(self)//set the datasource IMPORTANT (this is where the data is comming from)
         createContent()
         //add eventlisteners
         self.target = self//event dispataches to this instance
@@ -42,7 +43,8 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
             column.editable = false
         }
         
-        
+        //Rows:
+        data = [["status":"Green","remote-repo":"Gitsync", "branch":"master","active":"true"],["status":"Yellow","remote-repo":"Element", "branch":"development","active":"false"]]
     }
     /**
     *
