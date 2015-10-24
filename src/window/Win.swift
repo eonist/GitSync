@@ -70,8 +70,10 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         for title:String in titles{
             let button = Create.textButton(title)
-            button.cell?.backgroundStyle = NSBackgroundStyle.Dark
-            button.cell?.bac
+            //button.cell?.backgroundStyle = NSBackgroundStyle.Dark
+            (button.cell as! NSButtonCell).bordered = false
+            (button.cell as! NSButtonCell).backgroundColor = NSColor.redColor()
+
             view.addSubview(button)//Add button to view
             
             button.target = self//event dispataches to this instance
