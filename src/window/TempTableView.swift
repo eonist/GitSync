@@ -10,11 +10,11 @@ import Cocoa
  * NOTE: Nice interactive NSTAbleView tutorial: http://www.raywenderlich.com/87003/getting-started-with-os-x-and-swift-tutorial-part-2
  */
 class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
-    //let monthNames:Array = ["March","April","May"]
+    static var width = 800
     var data:[Dictionary<String,String>]!// = [[:]]
     
     init() {
-        let tableWidth:Int = 600
+        let tableWidth:Int = 300
         let tablePosX:Int = (TempWin.width/2) - (tableWidth/2)
         let rect:NSRect = NSRect(x: tablePosX, y: 80, width: 500,height:300)//view.bounds
         
