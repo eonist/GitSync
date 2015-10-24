@@ -23,6 +23,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
         //Swift.print(self.windowNumber)
         //Swift.print(self.screen?.deviceDescription)
         //Swift.print(self.screen!.frame)//screen size
+        //Swift.print(self.frame)//frame size
         //let controller = NSWindowController(window: newWindow)
         //controller.showWindow(self)
         self.center()

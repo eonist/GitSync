@@ -14,7 +14,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     var data:[Dictionary<String,String>]!// = [[:]]
     
     init() {
-        let tableWidth:Int = 300
+        let tableWidth:Int = 200
         let tablePosX:Int = (TempWin.width/2) - (tableWidth/2)
         let rect:NSRect = NSRect(x: tablePosX, y: 80, width: 500,height:300)//view.bounds
         
