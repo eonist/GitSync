@@ -14,7 +14,7 @@ class CustomTable:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     var data:[Dictionary<String,String>]!// = [[:]]
     
     init() {
-        let rect:NSRect = NSRect(x:0, y: 0, width: CustomTable.width,height:TempWin.height)//view.bounds
+        let rect:NSRect = NSRect(x:0, y: 0, width: CustomTable.width,height:CustomWin.height)//view.bounds
         
         super.init(frame: rect)
         createContent()
