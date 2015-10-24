@@ -11,6 +11,8 @@ import Cocoa
  */
 class CustomTable:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     static var width = 200
+    static var topPadding = 12//make this into a tuple or enum or struct or or
+    static var leftPadding = 12
     var data:[Dictionary<String,String>]!// = [[:]]
     
     init() {
