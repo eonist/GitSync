@@ -85,7 +85,7 @@ class TempWin:NSWindow, NSApplicationDelegate,NSWindowDelegate{
         let tablePosX:Int = (TempWin.width/2) - (tableWidth/2)
         let tableContainerRect:NSRect = NSRect(x: tablePosX, y: 80, width: 500,height:300)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
-        let tableView = TempTableView(frame: tableContainer.frame)//tableContainer.frame.width-100, height: tableContainer.frame.height
+        let tableView = TempTableView()//tableContainer.frame.width-100, height: tableContainer.frame.height
         //self.makeFirstResponder(tableView)//focus tableView,doesnt work yet
         //self.initialFirstResponder = tableView
        

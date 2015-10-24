@@ -14,7 +14,11 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
     var data:[Dictionary<String,String>]!// = [[:]]
     
     override init(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
+        let tableWidth:Int = 600
+        let tablePosX:Int = (TempWin.width/2) - (tableWidth/2)
+        let rect:NSRect = NSRect(x: tablePosX, y: 80, width: 500,height:300)//view.bounds
+        
+        super.init(frame: rect)
         createContent()
         //add delegators
         self.setDelegate(self)//listen for delagation events IMPORTANT!
