@@ -26,7 +26,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         self.action = "myAction:"//event dispatches to this method
         allowsColumnResizing = false
         allowsMultipleSelection = true
-        backgroundColor = NSColor.greenColor()
+        backgroundColor = NSColor.clearColor()//greenColor
         
         usesAlternatingRowBackgroundColors = false;
         //gridColor = NSColor.blueColor()
@@ -49,6 +49,7 @@ class TempTableView:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
             column.editable = false
         }
         headerView = nil//hides the header of the table
+        
         //Rows:
         data = [["status":"Green","remote-repo":"Gitsync", "branch":"master","active":"true"],["status":"Yellow","remote-repo":"Element", "branch":"development","active":"false"]]
     }
