@@ -11,13 +11,13 @@ class Align {
             totalWidth += Int(elmnt.frame.width) + (elmnt != elements.last ? horisontalSpacing : 0)
         }
         
-        var tempX:Int = 0
+        var tempX:Int = xOffset
         
         switch alignType{
             case "left":
-                tempX = 0
+                tempX += 0
             case "center":
-                tempX = (viewWidth/2) - (totalWidth/2)
+                tempX += (viewWidth/2) - (totalWidth/2)
             default:
                 break;
             
