@@ -29,16 +29,22 @@ class Panel:NSView {
         addSubview(localPathTextInput)
         localPathTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
         localPathTextInput.frame.origin.y = nameTextInput.frame.origin.y + nameTextInput.frame.height
-        
+        //browse button
         let browseButton = Create.simpleTextButton("Browse")
         addSubview(browseButton)//Add button to view
         browseButton.frame.origin.x = localPathTextInput.frame.origin.x + localPathTextInput.frame.width +  12
         browseButton.frame.origin.y = localPathTextInput.frame.origin.y
-        //TODO: add browse button
+        
         
         //Remote path: text input field
-        //Auto subscription: checkBoxButton
-        //Auto broadcast: checkBoxButton
+        let remotePathTextInput = TextInput(300,36,"Remote path: ","")
+        addSubview(remotePathTextInput)
+        remotePathTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
+        remotePathTextInput.frame.origin.y = localPathTextInput.frame.origin.y + localPathTextInput.frame.height
+        
+        
+        //Subscribe: checkBoxButton
+        //Broadcast: checkBoxButton
         //Active: checkBoxButton
         //Relay: checkBoxButton (early beta function for servers, always uses theirs update and forgoes the conflict resolution dialog)
         //keychain id:

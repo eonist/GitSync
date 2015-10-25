@@ -34,5 +34,11 @@ class Align {
             
         }
     }
+    /**
+    *
+    */
+    class func vertically(elements:Array<NSView>, _ alignType:String = "center", _ viewWidth:Int = 0, _ xOffset:Int = 0 , _ yOffset:Int = 0,_ horisontalSpacing:Int = 0){
+        
+    }
 
 }
