@@ -23,6 +23,8 @@ class Panel:NSView {
         //Auto subscription: checkBoxButton
         //Auto broadcast: checkBoxButton
         //Active: checkBoxButton
+        //Relay: checkBoxButton (early beta function for servers, always uses theirs update and forgoes the conflict resolution dialog)
+        
     }
     required init?(coder: NSCoder) {//try to get rid of this
         fatalError("init(coder:) has not been implemented")
