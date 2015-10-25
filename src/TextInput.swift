@@ -9,6 +9,7 @@ class TextInput:NSView{
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
         super.init(frame: frame)
         createContent()
+        wantsDefaultClipping = false;
     }
     /**
      * 
@@ -58,4 +59,5 @@ class TextInput:NSView{
             return true
         }
     }
+    
 }
