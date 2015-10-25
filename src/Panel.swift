@@ -6,9 +6,9 @@ class Panel:NSView {
     static var rightPadding = 12
     init() {
         let x = Table.width+Panel.leftPadding
-        let y = Table.topPadding
+        let y = Win.topPadding
         let width = Win.width-Table.width-Panel.leftPadding-Panel.rightPadding
-        let height = Win.height-Table.topPadding-EditMenu.height
+        let height = Win.height-Win.topPadding-EditMenu.height
         let rect:NSRect = NSRect(x:x, y: y, width: width,height:height)//view.bounds
         super.init(frame:rect)
         createContent()
@@ -18,6 +18,10 @@ class Panel:NSView {
     */
     func createContent(){
         //Name: text inputfield
+        let textField = NSTextField(frame: NSRect(x: 0, y: Win.topPadding, width: 100, height: 20))
+        textField.stringValue = "Name: "
+        self.addSubview(textField)
+        
         //Local Path: text input field and browse button
         //Remote path: text input field
         //Auto subscription: checkBoxButton

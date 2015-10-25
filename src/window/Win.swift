@@ -7,6 +7,7 @@ import Cocoa
 * TODO: Add Transmit/Receive buttons to tab-bar
 */
 class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
+    static var topPadding = 12//make this into a tuple or enum or struct or or
     let titles:[String] = ["Add","Remove"]//,"Info","View","test"
     //add a row of debug buttons bellow the tableview
     static var width = 800//Static variable, reachable on a class level
@@ -83,7 +84,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
             buttons.append(button)//add button to button list
         }
         let x = Table.leftPadding
-        let y = Win.height - Table.topPadding - EditMenu.height + EditMenu.topPadding + 12//<- the last one could be the header taking up space or or?
+        let y = Win.height - Win.topPadding - EditMenu.height + EditMenu.topPadding + 12//<- the last one could be the header taking up space or or?
         Align.horizontally(buttons,"left",Win.width,x,y,EditMenu.spacing)//aligns the buttons
     }
     /**
@@ -99,7 +100,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     
     func createTable(){
         
-        let tableContainerRect:NSRect = NSRect(x: Table.leftPadding, y: Table.topPadding, width: Table.width-Table.leftPadding,height:Win.height-Table.topPadding-EditMenu.height)//view.bounds
+        let tableContainerRect:NSRect = NSRect(x: Table.leftPadding, y: Win.topPadding, width: Table.width-Table.leftPadding,height:Win.height-Table.topPadding-EditMenu.height)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
         tableContainer.drawsBackground = false;
         tableContainer.borderType = NSBorderType.BezelBorder
