@@ -14,23 +14,26 @@ class Panel:NSView {
         createContent()
     }
     /**
-    *
+    * TODO: create the align methods, you need them!!!
     */
     func createContent(){
         //Name: text inputfield
         //let width:Int = 300//Int(self.frame.width) - Panel.leftPadding - Panel.rightPadding
         let nameTextInput = TextInput(300,36,"Name: ","")
-        self.addSubview(nameTextInput)
+        addSubview(nameTextInput)
         nameTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
         nameTextInput.frame.origin.y = 12
         
         //Local Path: text input field and browse button
         let localPathTextInput = TextInput(300,36,"Local path: ","")
-        self.addSubview(localPathTextInput)
+        addSubview(localPathTextInput)
         localPathTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
         localPathTextInput.frame.origin.y = nameTextInput.frame.origin.y + nameTextInput.frame.height
         
-        
+        let browseButton = Create.simpleTextButton("Browse")
+        addSubview(browseButton)//Add button to view
+        localPathTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
+        localPathTextInput.frame.origin.y = nameTextInput.frame.origin.y + nameTextInput.frame.height
         //TODO: add browse button
         
         //Remote path: text input field
