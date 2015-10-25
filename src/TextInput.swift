@@ -1,1 +1,46 @@
 import Foundation
+import Cocoa
+class TextInput:NSView{
+    init() {
+        let frame = NSRect(x: 0, y: 0, width: 200, height: 30)
+        super.init(frame: frame)
+        //createContent()
+    }
+    /**
+     * 
+     */
+    func createContent(){
+        let nameText = NSTextField(frame: NSRect(x: Win.leftPadding, y: Win.topPadding, width: 100, height: 20))
+        nameText.stringValue = "Name: "
+        nameText.editable = false
+        nameText.bordered = true
+        self.addSubview(nameText)
+        
+        let spacing = 12
+        let x = Int(nameText.frame.origin.x) + Int(nameText.frame.width) + spacing
+        let y = Win.topPadding
+        let nameInputText = NSTextField(frame: NSRect(x: x, y: y, width: 100, height: 20))
+        nameInputText.stringValue = ""
+        nameInputText.editable = true
+        nameInputText.bordered = true
+        self.addSubview(nameInputText)
+    }
+    /*
+    * Draws the background
+    */
+    override func drawRect(dirtyRect: NSRect) {
+        let pathRect = NSInsetRect(self.bounds, 1, 1);
+        let path = NSBezierPath(roundedRect:pathRect, xRadius:0, yRadius:0);
+        path.lineWidth = 1
+        NSColor.whiteColor().setFill();
+        NSColor.grayColor().setStroke();
+        path.fill()
+        path.stroke()
+    }
+    /*
+    * required by super class
+    */
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
