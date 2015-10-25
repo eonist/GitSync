@@ -32,8 +32,8 @@ class Panel:NSView {
         
         let browseButton = Create.simpleTextButton("Browse")
         addSubview(browseButton)//Add button to view
-        localPathTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
-        localPathTextInput.frame.origin.y = nameTextInput.frame.origin.y + nameTextInput.frame.height
+        browseButton.frame.origin.x = localPathTextInput.frame.origin.x + localPathTextInput.frame.width +  12
+        browseButton.frame.origin.y = localPathTextInput.frame.origin.y
         //TODO: add browse button
         
         //Remote path: text input field
