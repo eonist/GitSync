@@ -32,15 +32,15 @@ class Panel:NSView {
         //browse button
         let browseButton = Create.simpleTextButton("Browse")
         addSubview(browseButton)//Add button to view
-        browseButton.frame.origin.x = localPathTextInput.frame.origin.x + localPathTextInput.frame.width +  12
-        browseButton.frame.origin.y = localPathTextInput.frame.origin.y
+        //browseButton.frame.origin.x = localPathTextInput.frame.origin.x + localPathTextInput.frame.width +  12
+        //browseButton.frame.origin.y = localPathTextInput.frame.origin.y
         
         
         //Remote path: text input field
         let remotePathTextInput = TextInput(300,36,"Remote path: ","")
         addSubview(remotePathTextInput)
-        remotePathTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
-        remotePathTextInput.frame.origin.y = localPathTextInput.frame.origin.y + localPathTextInput.frame.height
+//        remotePathTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
+//        remotePathTextInput.frame.origin.y = localPathTextInput.frame.origin.y + localPathTextInput.frame.height
         
         
         //Subscribe: checkBoxButton

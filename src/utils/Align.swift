@@ -37,8 +37,17 @@ class Align {
     /**
     *
     */
-    class func vertically(elements:Array<NSView>, _ alignType:String = "top", _ viewHeight:Int = 0, _ xOffset:Int = 0 , _ yOffset:Int = 0,_ verticalSpacing:Int = 0){
+    class func vertically(elements:Array<NSView>, _ xOffset:Int = 0 , _ yOffset:Int = 0,_ verticalSpacing:Int = 0){
+        var tempY:Int = xOffset
         
+        for element:NSView in elements{//align elements
+            let x:Int = xOffset
+            let y:Int = tempY
+            
+            element.setFrameOrigin(NSPoint(x: x, y: y))
+            tempY += Int(element.frame.height) + verticalSpacing
+            
+        }
     }
 
 }
