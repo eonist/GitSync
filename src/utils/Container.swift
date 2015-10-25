@@ -2,7 +2,7 @@ import Foundation
 import Cocoa
 
 class Container:NSView{
-    init(_ width:Int = 200, _ height:Int = 30) {
+    init(_ width:Int = 300, _ height:Int = 30) {
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
         super.init(frame: frame)
     }
