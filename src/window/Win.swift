@@ -55,6 +55,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //createTextField()
         createTable()
         createButtons()
+        createPanel()
     }
     /*
     *
@@ -84,6 +85,12 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         let x = Table.leftPadding
         let y = Win.height - Table.topPadding - EditMenu.height + EditMenu.topPadding + 12//<- the last one could be the header taking up space or or?
         Align.horizontally(buttons,"left",Win.width,x,y,EditMenu.spacing)//aligns the buttons
+    }
+    /**
+    *
+    */
+    func createPanel(){
+        
     }
     /*
     * NSTableView
