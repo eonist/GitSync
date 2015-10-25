@@ -26,7 +26,7 @@ class Panel:NSView {
         //nameTextInput.frame.origin.y = 12
         
         //Local Path: text input field and browse button
-        let localPathContainer = Container(400,36)
+        let localPathContainer = Container(450,36)
         addSubview(localPathContainer)
         
         let localPathTextInput = TextInput(300,36,"Local path: ","")
