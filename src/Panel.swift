@@ -18,9 +18,18 @@ class Panel:NSView {
     */
     func createContent(){
         //Name: text inputfield
-        let textField = NSTextField(frame: NSRect(x: Win.leftPadding, y: Win.topPadding, width: 100, height: 20))
-        textField.stringValue = "Name: "
-        self.addSubview(textField)
+        let nameText = NSTextField(frame: NSRect(x: Win.leftPadding, y: Win.topPadding, width: 100, height: 20))
+        nameText.stringValue = "Name: "
+        nameText.editable = false
+        nameText.bordered = false
+        self.addSubview(nameText)
+        
+        let nameInputText = NSTextField(frame: NSRect(x: Win.leftPadding, y: Win.topPadding, width: 100, height: 20))
+        nameInputText.stringValue = "Name: "
+        nameInputText.editable = false
+        nameInputText.bordered = false
+        self.addSubview(nameInputText)
+        
         
         //Local Path: text input field and browse button
         //Remote path: text input field
