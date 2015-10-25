@@ -10,7 +10,7 @@ class Panel:NSView {
         
         path.lineWidth = 1
         
-        //NSColor.greenColor().setFill();
+        NSColor.whiteColor().setFill();
         NSColor.grayColor().setStroke();
         path.fill()
         path.stroke()
