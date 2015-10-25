@@ -54,7 +54,7 @@ class Table:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         headerView = nil//hides the header of the table
         
         //Rows:
-        data = [["status":"Green","remote-repo":"Gitsync", "branch":"master","active":"true"],["status":"Yellow","remote-repo":"Element", "branch":"development","active":"false"]]
+        data = [["status":"Green","remote-repo":"Gitsync", "branch":"master","active":"true"],["status":"Yellow","remote-repo":"Element", "branch":"development","active":"false"],["status":"Yellow","remote-repo":"SQLiteEdit", "branch":"development","active":"false"]]
     }
     /**
     *
