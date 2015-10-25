@@ -70,11 +70,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         //create a custom button class that overides the drawing , the style it however you like. hover, press etc (Try that DrawCode app maybe?)
         for title:String in titles{
-            let button = Create.textButton(title)
-            //button.cell?.backgroundStyle = NSBackgroundStyle.Dark
-            (button.cell as! NSButtonCell).bordered = false
-            (button.cell as! NSButtonCell).backgroundColor = NSColor.whiteColor()
-
+            let button = Create.simpleTextButton(title)
             view.addSubview(button)//Add button to view
             
             button.target = self//event dispataches to this instance
