@@ -24,10 +24,13 @@ class Panel:NSView {
         nameText.bordered = false
         self.addSubview(nameText)
         
-        let nameInputText = NSTextField(frame: NSRect(x: Win.leftPadding, y: Win.topPadding, width: 100, height: 20))
-        nameInputText.stringValue = "Name: "
-        nameInputText.editable = false
-        nameInputText.bordered = false
+        let spacing = 12
+        let x = Int(nameText.frame.origin.x) + Int(nameText.frame.width) + spacing
+        let y = Win.topPadding
+        let nameInputText = NSTextField(frame: NSRect(x: x, y: y, width: 100, height: 20))
+        nameInputText.stringValue = ""
+        nameInputText.editable = true
+        nameInputText.bordered = true
         self.addSubview(nameInputText)
         
         
