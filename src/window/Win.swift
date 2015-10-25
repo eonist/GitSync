@@ -8,6 +8,7 @@ import Cocoa
 */
 class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     static var topPadding = 12//make this into a tuple or enum or struct or or
+    static var leftPadding = 12
     let titles:[String] = ["Add","Remove"]//,"Info","View","test"
     //add a row of debug buttons bellow the tableview
     static var width = 800//Static variable, reachable on a class level

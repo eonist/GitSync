@@ -18,7 +18,7 @@ class Panel:NSView {
     */
     func createContent(){
         //Name: text inputfield
-        let textField = NSTextField(frame: NSRect(x: 0, y: Win.topPadding, width: 100, height: 20))
+        let textField = NSTextField(frame: NSRect(x: Win.leftPadding, y: Win.topPadding, width: 100, height: 20))
         textField.stringValue = "Name: "
         self.addSubview(textField)
         
@@ -45,6 +45,9 @@ class Panel:NSView {
         path.fill()
         path.stroke()
     }
+    /*
+    * This makes sure that the view draws from top left corner
+    */
     override var flipped:Bool {
         get {
             return true
