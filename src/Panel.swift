@@ -45,4 +45,9 @@ class Panel:NSView {
         path.fill()
         path.stroke()
     }
+    override var flipped:Bool {
+        get {
+            return true
+        }
+    }
 }

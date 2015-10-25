@@ -100,7 +100,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     
     func createTable(){
         
-        let tableContainerRect:NSRect = NSRect(x: Table.leftPadding, y: Win.topPadding, width: Table.width-Table.leftPadding,height:Win.height-Table.topPadding-EditMenu.height)//view.bounds
+        let tableContainerRect:NSRect = NSRect(x: Table.leftPadding, y: Win.topPadding, width: Table.width-Table.leftPadding,height:Win.height-Win.topPadding-EditMenu.height)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
         tableContainer.drawsBackground = false;
         tableContainer.borderType = NSBorderType.BezelBorder
