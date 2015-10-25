@@ -1,7 +1,11 @@
 import Foundation
 import Cocoa
 class TextInput:NSView{
-    init(_ width:Int = 200, _ height:Int = 30) {
+    var title = ""
+    var defaultInput = ""
+    init(_ width:Int = 200, _ height:Int = 30, _ title:String = "", _ defaultInput:String = "") {
+        self.title = title
+        self.defaultInput = defaultInput
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
         super.init(frame: frame)
         createContent()
