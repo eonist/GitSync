@@ -4,6 +4,14 @@ import Cocoa
 class Panel:NSView {
     static var leftPadding = 12
     static var rightPadding = 12
+    init() {
+        let x = Table.width+Table.leftPadding+24
+        let y = Table.topPadding
+        let width = Win.width-Table.width-Panel.leftPadding-Panel.rightPadding
+        let height = Win.height-Table.topPadding-EditMenu.height
+        let rect:NSRect = NSRect(x:x, y: y, width: width,height:height)//view.bounds
+        super.init(frame: rect)
+    }
     override func drawRect(dirtyRect: NSRect) {
         let pathRect = NSInsetRect(self.bounds, 1, 1);
         
