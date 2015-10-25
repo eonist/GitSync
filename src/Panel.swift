@@ -30,6 +30,7 @@ class Panel:NSView {
         localPathTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
         localPathTextInput.frame.origin.y = nameTextInput.frame.origin.y + nameTextInput.frame.height
         
+        
         //TODO: add browse button
         
         //Remote path: text input field
