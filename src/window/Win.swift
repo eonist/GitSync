@@ -52,8 +52,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     /**
     *
     */
-    func createContent(){ 
-        
+    func createContent(){
         //createTextField()
         createTable()
         createButtons()
@@ -63,8 +62,6 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createButtons(){
-        
-        
         var buttons:Array<NSButton> = []
         
         //TODO:  store buttons globaly, and switch in the myaction call
@@ -98,9 +95,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     /*
     * NSTableView
     */
-    
     func createTable(){
-        
         let tableContainerRect:NSRect = NSRect(x: Table.leftPadding, y: Win.topPadding, width: Table.width-Table.leftPadding,height:Win.height-Win.topPadding-EditMenu.height)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
         tableContainer.drawsBackground = false;
