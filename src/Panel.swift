@@ -39,8 +39,8 @@ class Panel:NSView {
         //Remote path: text input field
         let remotePathTextInput = TextInput(300,36,"Remote path: ","")
         addSubview(remotePathTextInput)
-//        remotePathTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
-//        remotePathTextInput.frame.origin.y = localPathTextInput.frame.origin.y + localPathTextInput.frame.height
+        //remotePathTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
+        //remotePathTextInput.frame.origin.y = localPathTextInput.frame.origin.y + localPathTextInput.frame.height
         
         
         //Subscribe: checkBoxButton
