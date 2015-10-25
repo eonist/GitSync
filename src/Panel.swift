@@ -20,7 +20,7 @@ class Panel:NSView {
         //Name: text inputfield
         let nameTextInput = TextInput()
         self.addSubview(nameTextInput)
-        
+        nameTextInput.frame.origin.x = 20
         
         //Local Path: text input field and browse button
         //Remote path: text input field
