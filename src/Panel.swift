@@ -20,7 +20,9 @@ class Panel:NSView {
         //Name: text inputfield
         //Local Path: text input field and browse button
         //Remote path: text input field
-        //
+        //Auto subscription: checkBoxButton
+        //Auto broadcast: checkBoxButton
+        //Active: checkBoxButton
     }
     required init?(coder: NSCoder) {//try to get rid of this
         fatalError("init(coder:) has not been implemented")
