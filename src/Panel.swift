@@ -17,6 +17,9 @@ class Panel:NSView {
     *
     */
     func createContent(){
+        //Name: text inputfield
+        //Local Path: text input field and browse button
+        //Remote path: text input field
         //
     }
     required init?(coder: NSCoder) {//try to get rid of this
