@@ -1,8 +1,8 @@
 import Foundation
 import Cocoa
 class TextInput:NSView{
-    init() {
-        let frame = NSRect(x: 0, y: 0, width: 200, height: 30)
+    init(_ width:Int = 200, _ height:Int = 30) {
+        let frame = NSRect(x: 0, y: 0, width: width, height: height)
         super.init(frame: frame)
         //createContent()
     }

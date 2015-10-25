@@ -18,7 +18,7 @@ class Panel:NSView {
     */
     func createContent(){
         //Name: text inputfield
-        let nameTextInput = TextInput()
+        let nameTextInput = TextInput(200,30)
         self.addSubview(nameTextInput)
         nameTextInput.frame.origin.x = 20
         
