@@ -13,7 +13,7 @@ extension Create {
     */
     class func simpleTextButton(title:String)->NSButton{
         let button = Create.textButton(title:title)
-        (button.cell as! NSButtonCell).bordered = false
+        (button.cell as! NSButtonCell).bordered = true
         (button.cell as! NSButtonCell).backgroundColor = NSColor.whiteColor()
         return button
     }
