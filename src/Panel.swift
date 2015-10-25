@@ -17,6 +17,7 @@ class Panel:NSView {
     * TODO: create the align methods, you need them!!!
     */
     func createContent(){
+        
         //Name: text inputfield
         //let width:Int = 300//Int(self.frame.width) - Panel.leftPadding - Panel.rightPadding
         let nameTextInput = TextInput(300,36,"Name: ","")
@@ -42,6 +43,8 @@ class Panel:NSView {
         //remotePathTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
         //remotePathTextInput.frame.origin.y = localPathTextInput.frame.origin.y + localPathTextInput.frame.height
         
+        
+        Align.vertically(self.subviews, Panel.leftPadding, 12, 12)
         
         //Subscribe: checkBoxButton
         //Broadcast: checkBoxButton
