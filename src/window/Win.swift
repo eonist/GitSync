@@ -90,9 +90,8 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createPanel(){
-        let tempView = Panel()
-        //tempView.drawRect(rect)
-        view.addSubview(tempView)
+        let panel = Panel()
+        view.addSubview(panel)
     }
     /*
     * NSTableView
@@ -107,9 +106,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         let table = Table()//tableContainer.frame.width-100, height: tableContainer.frame.height
         //self.makeFirstResponder(tableView)//focus tableView,doesnt work yet
         //self.initialFirstResponder = tableView
-       
         table.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable //TODO: try to get height working here to
-        
         tableContainer.documentView = table
         tableContainer.hasVerticalScroller = true
         view.addSubview(tableContainer)//add tableView to the window view
