@@ -10,7 +10,7 @@ class TextInput:NSView{
      * 
      */
     func createContent(){
-        let nameText = NSTextField(frame: NSRect(x: 0, y: 0, width: 100, height: 20))
+        let nameText = NSTextField(frame: NSRect(x: 0, y: 0, width: 144, height: 20))
         nameText.stringValue = "Name: "
         nameText.editable = false
         nameText.bordered = true
@@ -19,7 +19,7 @@ class TextInput:NSView{
         let spacing = 12
         let x = Int(nameText.frame.origin.x) + Int(nameText.frame.width) + spacing
         let y = Int(nameText.frame.origin.y)
-        let nameInputText = NSTextField(frame: NSRect(x: x, y: y, width: 100, height: 20))
+        let nameInputText = NSTextField(frame: NSRect(x: x, y: y, width: 144, height: 20))
         nameInputText.stringValue = ""
         nameInputText.editable = true
         nameInputText.bordered = true
