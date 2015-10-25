@@ -24,6 +24,10 @@ class Panel:NSView {
         nameTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
         
         //Local Path: text input field and browse button
+        let localPathTextInput = TextInput(300,40)
+        self.addSubview(localPathTextInput)
+        localPathTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
+        localPathTextInput.frame.origin.y = nameTextInput.frame.origin.y + nameTextInput.frame.height
         //Remote path: text input field
         //Auto subscription: checkBoxButton
         //Auto broadcast: checkBoxButton
