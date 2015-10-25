@@ -11,6 +11,13 @@ class Panel:NSView {
         let height = Win.height-Table.topPadding-EditMenu.height
         let rect:NSRect = NSRect(x:x, y: y, width: width,height:height)//view.bounds
         super.init(frame:rect)
+        createContent()
+    }
+    /**
+    *
+    */
+    func createContent(){
+        //
     }
     required init?(coder: NSCoder) {//try to get rid of this
         fatalError("init(coder:) has not been implemented")
