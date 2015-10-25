@@ -43,4 +43,12 @@ class TextInput:NSView{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    /*
+    * This makes sure that the view draws from top left corner
+    */
+    override var flipped:Bool {
+        get {
+            return true
+        }
+    }
 }
