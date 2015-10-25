@@ -19,7 +19,7 @@ class Panel:NSView {
     func createContent(){
         //Name: text inputfield
         //let width:Int = 300//Int(self.frame.width) - Panel.leftPadding - Panel.rightPadding
-        let nameTextInput = TextInput(300,40)
+        let nameTextInput = TextInput(300,40,"Name: ","")
         self.addSubview(nameTextInput)
         nameTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
         

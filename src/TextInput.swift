@@ -15,7 +15,7 @@ class TextInput:NSView{
      */
     func createContent(){
         let nameText = NSTextField(frame: NSRect(x: 0, y: 0, width: 144, height: 20))
-        nameText.stringValue = "Name: "
+        nameText.stringValue = title
         nameText.editable = false
         nameText.bordered = true
         self.addSubview(nameText)
@@ -24,7 +24,7 @@ class TextInput:NSView{
         let x = Int(nameText.frame.origin.x) + Int(nameText.frame.width) + spacing
         let y = Int(nameText.frame.origin.y)
         let nameInputText = NSTextField(frame: NSRect(x: x, y: y, width: 144, height: 20))
-        nameInputText.stringValue = ""
+        nameInputText.stringValue = defaultInput
         nameInputText.editable = true
         nameInputText.bordered = true
         self.addSubview(nameInputText)
