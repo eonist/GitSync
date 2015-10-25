@@ -91,6 +91,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     */
     func createPanel(){
         
+        view.addSubview(tableContainer)
     }
     /*
     * NSTableView
