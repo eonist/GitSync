@@ -21,14 +21,14 @@ class Panel:NSView {
         //let width:Int = 300//Int(self.frame.width) - Panel.leftPadding - Panel.rightPadding
         let nameTextInput = TextInput(300,36,"Name: ","")
         addSubview(nameTextInput)
-        nameTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
-        nameTextInput.frame.origin.y = 12
+        //nameTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
+        //nameTextInput.frame.origin.y = 12
         
         //Local Path: text input field and browse button
         let localPathTextInput = TextInput(300,36,"Local path: ","")
         addSubview(localPathTextInput)
-        localPathTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
-        localPathTextInput.frame.origin.y = nameTextInput.frame.origin.y + nameTextInput.frame.height
+        //localPathTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
+        //localPathTextInput.frame.origin.y = nameTextInput.frame.origin.y + nameTextInput.frame.height
         //browse button
         let browseButton = Create.simpleTextButton("Browse")
         addSubview(browseButton)//Add button to view
