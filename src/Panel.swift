@@ -2,6 +2,7 @@ import Foundation
 import Cocoa
 
 class Panel:NSView {
+    static var width = 400
     override func drawRect(dirtyRect: NSRect) {
         var pathRect = NSInsetRect(self.bounds, 1, 1);
         
