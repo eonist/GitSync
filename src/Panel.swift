@@ -18,10 +18,10 @@ class Panel:NSView {
     */
     func createContent(){
         //Name: text inputfield
-        let width:Int = Int(self.frame.width) - Panel.leftPadding - Panel.rightPadding
+        let width:Int = 300//Int(self.frame.width) - Panel.leftPadding - Panel.rightPadding
         let nameTextInput = TextInput(width,40)
         self.addSubview(nameTextInput)
-        nameTextInput.frame.origin.x = 20
+        nameTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
         
         //Local Path: text input field and browse button
         //Remote path: text input field
