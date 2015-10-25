@@ -90,7 +90,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createPanel(){
-        let rect:NSRect = NSRect(x:300, y: 0, width: Panel.width,height:Win.height)//view.bounds
+        let rect:NSRect = NSRect(x:300, y: Table.topPadding, width: Panel.width,height:Win.height-Table.topPadding-EditMenu.height)//view.bounds
         let tempView = Panel(frame: rect)
         //tempView.drawRect(rect)
         view.addSubview(tempView)

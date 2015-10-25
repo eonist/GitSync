@@ -4,14 +4,14 @@ import Cocoa
 class Panel:NSView {
     static var width = 400
     override func drawRect(dirtyRect: NSRect) {
-        var pathRect = NSInsetRect(self.bounds, 1, 1);
+        let pathRect = NSInsetRect(self.bounds, 1, 1);
         
-        var path = NSBezierPath(roundedRect:pathRect, xRadius:10, yRadius:10);
+        let path = NSBezierPath(roundedRect:pathRect, xRadius:0, yRadius:0);
         
-        path.lineWidth = 4
+        path.lineWidth = 1
         
-        NSColor.greenColor().setFill();
-        NSColor.blackColor().setStroke();
+        //NSColor.greenColor().setFill();
+        NSColor.grayColor().setStroke();
         path.fill()
         path.stroke()
         
