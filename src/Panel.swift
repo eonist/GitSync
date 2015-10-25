@@ -18,7 +18,8 @@ class Panel:NSView {
     */
     func createContent(){
         //Name: text inputfield
-        
+        let nameTextInput = TextInput()
+        self.addSubview(nameTextInput)
         
         
         //Local Path: text input field and browse button
