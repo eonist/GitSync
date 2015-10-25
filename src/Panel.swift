@@ -5,7 +5,7 @@ class Panel:NSView {
     static var leftPadding = 12
     static var rightPadding = 12
     init() {
-        let x = Table.width+Table.leftPadding+Panel.leftPadding
+        let x = Table.width+Panel.leftPadding
         let y = Table.topPadding
         let width = Win.width-Table.width-Panel.leftPadding-Panel.rightPadding
         let height = Win.height-Table.topPadding-EditMenu.height
