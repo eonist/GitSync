@@ -19,12 +19,13 @@ class Panel:NSView {
     func createContent(){
         //Name: text inputfield
         //let width:Int = 300//Int(self.frame.width) - Panel.leftPadding - Panel.rightPadding
-        let nameTextInput = TextInput(300,40,"Name: ","")
+        let nameTextInput = TextInput(300,36,"Name: ","")
         self.addSubview(nameTextInput)
         nameTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
+        nameTextInput.frame.origin.y = 12
         
         //Local Path: text input field and browse button
-        let localPathTextInput = TextInput(300,40,"Local path: ","")
+        let localPathTextInput = TextInput(300,36,"Local path: ","")
         self.addSubview(localPathTextInput)
         localPathTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
         localPathTextInput.frame.origin.y = nameTextInput.frame.origin.y + nameTextInput.frame.height

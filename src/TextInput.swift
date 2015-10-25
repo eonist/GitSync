@@ -17,7 +17,7 @@ class TextInput:NSView{
         let nameText = NSTextField(frame: NSRect(x: 0, y: 0, width: 144, height: 20))
         nameText.stringValue = title
         nameText.editable = false
-        nameText.bordered = true
+        nameText.bordered = false
         self.addSubview(nameText)
         
         let spacing = 12
