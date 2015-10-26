@@ -15,9 +15,11 @@ class Section:Container {
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
         if(fillColor != NSColor.clearColor()){
-            fillColor.setFill()
+            
            
         }
+        fillColor.setFill()
+        
          NSRectFill(dirtyRect)
         if(strokeColor != NSColor.clearColor()){
             
@@ -25,6 +27,18 @@ class Section:Container {
         }
        strokeColor.setStroke()
         
+        
+        let r:CGFloat  = CGFloat(rand() % 255) / 255.0;
+        let g:CGFloat  = CGFloat(rand() % 255) / 255.0;
+        let b:CGFloat  = CGFloat(rand() % 255) / 255.0;
+        
+        let color:CGColorRef  = CGColorCreateGenericRGB(r, g, b, 1.0);
+        
+        
+        layer?.backgroundColor = color//CGColorCreateGenericRGB(1, 0, 1, 1)
+        layer?.borderColor = CGColorCreateGenericRGB(0, 1, 0, 1)
+        layer?.borderWidth = 1
+
         
     }
     /*
