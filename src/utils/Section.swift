@@ -16,28 +16,14 @@ class Section:Container {
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
         if(fillColor != NSColor.clearColor()){
-            let r:CGFloat  = CGFloat(rand() % 255) / 255.0;
-            let g:CGFloat  = CGFloat(rand() % 255) / 255.0;
-            let b:CGFloat  = CGFloat(rand() % 255) / 255.0;
-            
-            var color:CGColorRef  = CGColorCreateGenericRGB(r, g, b, 1.0);
-            color = NSColorParser.cgColor(NSColor.greenColor())
-            
-            layer?.backgroundColor = color//CGColorCreateGenericRGB(1, 0, 1, 1)
-           
+            let fillColor = NSColorParser.cgColor(self.fillColor)
+            layer?.backgroundColor = fillColor//CGColorCreateGenericRGB(1, 0, 1, 1)
         }
         if(strokeColor != NSColor.clearColor()){
-            
-            
-            layer?.borderColor = CGColorCreateGenericRGB(0, 1, 0, 1)
+            let strokeColor = NSColorParser.cgColor(self.strokeColor)
+            layer?.borderColor = strokeColor//CGColorCreateGenericRGB(0, 1, 0, 1)
             layer?.borderWidth = 1
-            
         }
-      
-        
-        
-
-        
     }
     /*
     * Required by super class
