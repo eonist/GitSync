@@ -19,7 +19,7 @@ class Section:Container {
            
         }
         if(strokeColor != NSColor.clearColor()){
-            strokeColor.setFill()
+            strokeColor.setStroke()
             
         }
          NSRectFill(dirtyRect)
