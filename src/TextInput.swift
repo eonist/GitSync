@@ -11,9 +11,6 @@ class TextInput:NSView{
         createContent()
         
     }
-    override var wantsDefaultClipping : Bool {
-        return false
-    }
     /**
      * 
      */

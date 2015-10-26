@@ -7,12 +7,6 @@ class Container:NSView{
         super.init(frame: frame)
         
     }
-    /*
-    * Disables clipping of the view
-    */
-    override var wantsDefaultClipping : Bool {
-        return false
-    }
     override func drawRect(var dirtyRect: NSRect)  {
         
         dirtyRect = NSRect(x: 0, y: 0, width: 500, height: 500)
