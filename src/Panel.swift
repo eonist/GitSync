@@ -71,4 +71,12 @@ class Panel:NSView {
             return true
         }
     }
+    /*
+    * Disables clipping of the view
+    */
+    override var wantsDefaultClipping: Bool {
+        get {
+            return false
+        }
+    }
 }

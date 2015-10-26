@@ -6,4 +6,12 @@ class FlippedView:NSView {//Organizes your view from top to bottom
             return true
         }
     }
+    /*
+    * Disables clipping of the view
+    */
+    override var wantsDefaultClipping: Bool {
+        get {
+            return false
+        }
+    }
 }
