@@ -11,7 +11,7 @@ class Section:Container {
     */
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
-        color.setFill()
+        //color.setFill()
         NSRectFill(dirtyRect)
     }
     /*
