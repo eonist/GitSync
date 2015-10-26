@@ -16,12 +16,13 @@ class Section:Container {
         super.drawRect(dirtyRect)
         if(fillColor != NSColor.clearColor()){
             fillColor.setFill()
-            NSRectFill(dirtyRect)
+           
         }
         if(strokeColor != NSColor.clearColor()){
             strokeColor.setFill()
             
         }
+         NSRectFill(dirtyRect)
     }
     /*
     * Required by super class
