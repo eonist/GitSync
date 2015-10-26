@@ -20,12 +20,11 @@ class Section:Container {
         }
          NSRectFill(dirtyRect)
         if(strokeColor != NSColor.clearColor()){
-            strokeColor.setStroke()
+            
             
         }
+       strokeColor.setStroke()
         
-        NSColor.redColor().set()
-       
         
     }
     /*
