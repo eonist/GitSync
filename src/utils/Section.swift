@@ -18,11 +18,12 @@ class Section:Container {
             fillColor.setFill()
            
         }
+         NSRectFill(dirtyRect)
         if(strokeColor != NSColor.clearColor()){
             strokeColor.setStroke()
             
         }
-         NSRectFill(dirtyRect)
+        
     }
     /*
     * Required by super class
