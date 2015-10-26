@@ -2,8 +2,11 @@ import Foundation
 import Cocoa
 
 class Section:Container {
-    override init(_ fillColor:NSColor = NSColor.grayColor(), _ strokeColor:NSColor = nil, _ width: Int = 100, _ height: Int = 100) {
-        
+    var fillColor:NSColor = NSColor.clearColor()
+    var strokeColor:NSColor = NSColor.clearColor()
+    init(_ fillColor:NSColor = NSColor.clearColor(), _ strokeColor:NSColor = NSColor.clearColor(), _ width: Int = 100, _ height: Int = 100) {
+        self.fillColor = fillColor
+        self.strokeColor = strokeColor
         super.init(width, height)
     }
     /*
@@ -11,8 +14,14 @@ class Section:Container {
     */
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
-        //color.setFill()
-        NSRectFill(dirtyRect)
+        if(fillColor != NSColor.clearColor()){
+            fillColor.setFill()
+            NSRectFill(dirtyRect)
+        }
+        if(fillColor != NSColor.clearColor()){
+            strokeColor.setFill()
+            NSRectFill(dirtyRect)
+        }
     }
     /*
     * Required by super class
