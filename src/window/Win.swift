@@ -35,6 +35,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.title = "GitSync"
         createContent()
         self.delegate = self
+        self.view.wantsLayer = true // testing
     }
     /*
     * Required by the NSWindow
