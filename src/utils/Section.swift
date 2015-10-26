@@ -20,8 +20,8 @@ class Section:Container {
             let g:CGFloat  = CGFloat(rand() % 255) / 255.0;
             let b:CGFloat  = CGFloat(rand() % 255) / 255.0;
             
-            let color:CGColorRef  = CGColorCreateGenericRGB(r, g, b, 1.0);
-            
+            var color:CGColorRef  = CGColorCreateGenericRGB(r, g, b, 1.0);
+            color = NSColorParser.cgColor(NSColor.greenColor())
             
             layer?.backgroundColor = color//CGColorCreateGenericRGB(1, 0, 1, 1)
            
