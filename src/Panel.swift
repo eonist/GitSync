@@ -62,6 +62,7 @@ class Panel:NSView {
         NSColor.grayColor().setStroke();
         path.fill()
         path.stroke()
+        super.wantsDefaultClipping
     }
     /*
     * This makes sure that the view draws from top left corner
