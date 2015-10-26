@@ -9,10 +9,8 @@ class Container:NSView{
     /*
     * Disables clipping of the view
     */
-    override var wantsDefaultClipping: Bool {
-        get {
-            return false
-        }
+    override var wantsDefaultClipping : Bool {
+        return false
     }
     /*
     * Required by super class
