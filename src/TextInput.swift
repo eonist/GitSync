@@ -7,7 +7,7 @@ class TextInput:Section{
         self.title = title
         self.defaultInput = defaultInput
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
-        super.init(frame: frame)
+        super.init(NSColor.clearColor(), NSColor.clearColor(), width, height)
         createContent()
         
     }
@@ -31,34 +31,9 @@ class TextInput:Section{
         self.addSubview(nameInputText)
     }
     /*
-    * Draws the background
-    */
-    override func drawRect(dirtyRect: NSRect) {
-        /*
-        let pathRect = NSInsetRect(self.bounds, 1, 1);
-        let path = NSBezierPath(roundedRect:pathRect, xRadius:0, yRadius:0);
-        path.lineWidth = 1
-        NSColor.whiteColor().setFill();
-        NSColor.grayColor().setStroke();
-        path.fill()
-        path.stroke()
-        */
-        
-    }
-    /*
     * required by super class
     */
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    /*
-    * This makes sure that the view draws from top left corner
-    */
-    override var flipped:Bool {
-        get {
-            return true
-        }
-    }
-    
-    
 }
