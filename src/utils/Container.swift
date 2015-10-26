@@ -5,6 +5,7 @@ class Container:NSView{
     init(_ width:Int = 300, _ height:Int = 30) {
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
         super.init(frame: frame)
+        
     }
     /*
     * Disables clipping of the view
@@ -13,7 +14,7 @@ class Container:NSView{
         return false
     }
     override func drawRect(var dirtyRect: NSRect)  {
-        NSColor.blueColor().set()
+        
         dirtyRect = NSRect(x: 0, y: 0, width: 500, height: 500)
         super.drawRect(dirtyRect)
     }
