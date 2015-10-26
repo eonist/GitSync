@@ -1,8 +1,9 @@
 import Cocoa
 
 class Button: NSButton {
-    override init(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
+    init(_ width: Int = 100, _ height: Int = 100, _ fillColor:NSColor = NSColor.clearColor(), _ strokeColor:NSColor = NSColor.clearColor()) {
+        let frame = NSRect(x: 0, y: 0, width: width, height: height)
+        super.init(frame: frame)
         self.wantsLayer = true
     }
     override func updateLayer() {//called on init if wantsUpdateLayer is true
@@ -17,3 +18,8 @@ class Button: NSButton {
         return true
     }
 }
+
+/**
+
+
+*/
