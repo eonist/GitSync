@@ -5,12 +5,7 @@ class Create {
      *
      */
     class func button(width:Int = 100,_ height:Int = 30, _ x:Int = 0, _ y:Int = 0, _ bezelStyle:NSBezelStyle = NSBezelStyle.SmallSquareBezelStyle)->NSButton{
-        let button = NSButton(frame: NSRect(x: 0, y: 0, width: width, height: height))
-        
-        //button.highlight(true)
-        let buttonCell:NSButtonCell = button.cell! as! NSButtonCell
-        buttonCell.bezelStyle = bezelStyle//NSBezelStyle.SmallSquareBezelStyle//NSBezelStyle.RoundedBezelStyle
-        
+        let button = Button(width,height,NSColor.greenColor())
         return button
         
     }
