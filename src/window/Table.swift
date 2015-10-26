@@ -27,11 +27,11 @@ class Table:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         self.action = "myAction:"//event dispatches to this method
         allowsColumnResizing = false
         allowsMultipleSelection = true
-        backgroundColor = NSColor.clearColor()//greenColor
+        backgroundColor = NSColor.redColor()//NSColor.clearColor()//NSColor.greenColor
         
         usesAlternatingRowBackgroundColors = false;
         
-        //gridColor = NSColor.blueColor()
+        gridColor = NSColor.blueColor()
     }
     
     /**
