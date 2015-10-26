@@ -24,6 +24,9 @@ class Section:Container {
             
         }
         
+        NSColor.redColor().set()
+       
+        
     }
     /*
     * Required by super class
