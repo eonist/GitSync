@@ -23,7 +23,7 @@ class Panel:NSView {
         let nameTextInput = TextInput(300,36,"Name: ","")
         addSubview(nameTextInput)
         //Local Path: text input field and browse button
-        let localPathContainer = Container(450,36)
+        let localPathContainer = Container(250,36)
         addSubview(localPathContainer)
         
         let localPathTextInput = TextInput(300,36,"Local path: ","")
@@ -39,9 +39,6 @@ class Panel:NSView {
         //Remote path: text input field
         let remotePathTextInput = TextInput(300,36,"Remote path: ","")
         addSubview(remotePathTextInput)
-        //remotePathTextInput.frame.origin.x = CGFloat(Panel.leftPadding)
-        //remotePathTextInput.frame.origin.y = localPathTextInput.frame.origin.y + localPathTextInput.frame.height
-        
         
         Align.vertically(self.subviews, Panel.leftPadding, 12, 12)
         
