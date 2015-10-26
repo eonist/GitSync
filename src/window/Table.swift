@@ -27,7 +27,7 @@ class Table:NSTableView,NSTableViewDataSource,NSTableViewDelegate{
         self.action = "myAction:"//event dispatches to this method
         allowsColumnResizing = false
         allowsMultipleSelection = true
-        //backgroundColor = NSColor.redColor()//NSColor.clearColor()//NSColor.greenColor
+        backgroundColor = NSColor.clearColor()//NSColor.clearColor()//NSColor.greenColor
         
         usesAlternatingRowBackgroundColors = false;
         
