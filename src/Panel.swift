@@ -17,13 +17,12 @@ class Panel:NSView {
     * TODO: create the align methods, you need them!!!
     */
     func createContent(){
-        
         //Name: text inputfield
         //let width:Int = 300//Int(self.frame.width) - Panel.leftPadding - Panel.rightPadding
         let nameTextInput = TextInput(300,36,"Name: ","")
         addSubview(nameTextInput)
         //Local Path: text input field and browse button
-        let localPathContainer = Section(NSColor.grayColor(),NSColor.greenColor(),500,36)
+        let localPathContainer = Section(NSColor.grayColor(),NSColor.clearColor(),500,36)
         addSubview(localPathContainer)
         
         let localPathTextInput = TextInput(350,36,"Local path: ","")

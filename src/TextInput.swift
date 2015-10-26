@@ -1,6 +1,6 @@
 import Foundation
 import Cocoa
-class TextInput:NSView{
+class TextInput:Section{
     var title = ""
     var defaultInput = ""
     init(_ width:Int = 200, _ height:Int = 30, _ title:String = "", _ defaultInput:String = "") {
