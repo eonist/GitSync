@@ -26,7 +26,7 @@ class Panel:NSView {
         let localPathContainer = Container(350,36)
         addSubview(localPathContainer)
         
-        let localPathTextInput = TextInput(300,36,"Local path: ","")
+        let localPathTextInput = TextInput(550,36,"Local path: ","")
         localPathContainer.addSubview(localPathTextInput)
         
         //browse button
