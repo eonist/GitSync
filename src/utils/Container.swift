@@ -12,9 +12,9 @@ class Container:NSView{
     override var wantsDefaultClipping : Bool {
         return false
     }
-    override func drawRect(dirtyRect: NSRect)  {
+    override func drawRect(var dirtyRect: NSRect)  {
         NSColor.blueColor().set()
-        NSRect(x: 0, y: 0, width: 500, height: 500)
+        dirtyRect = NSRect(x: 0, y: 0, width: 500, height: 500)
         super.drawRect(dirtyRect)
     }
     /*
