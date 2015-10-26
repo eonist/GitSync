@@ -95,7 +95,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         let tableContainerRect:NSRect = NSRect(x: Table.leftPadding, y: Win.topPadding, width: Table.width-Table.leftPadding,height:Win.height-Win.topPadding-EditMenu.height)//view.bounds
         let tableContainer = NSScrollView(frame: tableContainerRect)
         tableContainer.drawsBackground = true;
-        //tableContainer.backgroundColor =
+        tableContainer.backgroundColor = NSColor.blueColor()
         tableContainer.borderType = NSBorderType.NoBorder//NSBorderType.BezelBorder
         let table = Table()//tableContainer.frame.width-100, height: tableContainer.frame.height
         //self.makeFirstResponder(tableView)//focus tableView,doesnt work yet
