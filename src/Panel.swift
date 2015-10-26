@@ -5,12 +5,14 @@ class Panel:Section {
     static var leftPadding = 12
     static var rightPadding = 12
     init() {
-        let x = Table.width+Panel.leftPadding
-        let y = Win.topPadding
+        let x:Int = Table.width+Panel.leftPadding
+        let y:Int = Win.topPadding
         let width = Win.width-Table.width-Panel.leftPadding-Panel.rightPadding
         let height = Win.height-Win.topPadding-EditMenu.height
         //let rect:NSRect = NSRect(x:x, y: y, width: width,height:height)//view.bounds
         super.init(NSColor.orangeColor(), NSColor.clearColor(), width, height)
+        super.frame.origin.x = CGFloat(x)
+        super.frame.origin.y = CGFloat(y)
         createContent()
     }
     /**
