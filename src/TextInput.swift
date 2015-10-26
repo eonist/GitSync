@@ -1,15 +1,14 @@
 import Foundation
 import Cocoa
-class TextInput:Section{
+class TextInput:NSView{
     var title = ""
     var defaultInput = ""
     init(_ width:Int = 200, _ height:Int = 30, _ title:String = "", _ defaultInput:String = "") {
         self.title = title
         self.defaultInput = defaultInput
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
-        super.init(NSColor.clearColor(), NSColor.clearColor(), width, height)
+        super.init(frame: frame)
         createContent()
-        
     }
     /**
      * 
@@ -36,4 +35,14 @@ class TextInput:Section{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    /*
+    * This makes sure that the view draws from top left corner
+    */
+    override var flipped:Bool {
+        get {
+            return true
+        }
+    }
+    
+    
 }

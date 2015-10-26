@@ -1,7 +1,7 @@
 import Foundation
 import Cocoa
 
-class Panel:NSView {
+class Panel:Section {
     static var leftPadding = 12
     static var rightPadding = 12
     init() {
