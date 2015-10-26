@@ -18,8 +18,3 @@ class Button: NSButton {
         return true
     }
 }
-
-/**
-
-
-*/
