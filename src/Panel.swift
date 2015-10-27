@@ -24,14 +24,14 @@ class Panel:Section {
         let nameTextInput = TextInput(300,36,"Name: ","")
         addSubview(nameTextInput)
         //Local Path: text input field and browse button
-        let localPathContainer = Section(NSColor.grayColor(),NSColor.clearColor(),500,36)
+        let localPathContainer = Section(NSColor.grayColor(),NSColor.clearColor(),500,24)
         addSubview(localPathContainer)
         
         let localPathTextInput = TextInput(350,36,"Local path: ","")
         localPathContainer.addSubview(localPathTextInput)
         
         //browse button
-        let browseButton = TextButton("Browse")
+        let browseButton = TextButton("Browse",100,24,Style.green)
         localPathContainer.addSubview(browseButton)//Add button to view
         browseButton.frame.origin.x = localPathTextInput.frame.origin.x + localPathTextInput.frame.width +  12
         //browseButton.frame.origin.y = localPathTextInput.frame.origin.y
