@@ -66,6 +66,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         let buttonStyle:IStyle = Style("buttonStyle",[StyleProperty("idleColor",0xFF0000),StyleProperty("overColor",0x0000FF)])
         Swift.print(buttonStyle.name)
         
+        StyleManager.styles.append(buttonStyle)
         
         let element = Element(100,100,GraphicStyle.green)
         view.addSubview(element)
