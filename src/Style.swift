@@ -15,13 +15,13 @@ class Style:IStyle{
     * // :TODO: but this method is cognativly taxing just look how long it is, makes more sense to move it to a modifier class, only simple methods should be in Type classes
     */
     func addStyleProperty(styleProperty:IStyleProperty) {
-        styleProperties.append(styleProperty)
+        styleProperties.append(styleProperty)//TODO:this method is more elaborate, it checks if the item is original, if its not throw error, implement this when its time
     }
     /**
     * Adds styleProperties
     */
     func addStyleProperties(styleProperties:Array<IStyleProperty>){
-        for styleProperty : IStyleProperty in styleProperties{ addStyleProperty(styleProperty) }
+        for styleProperty : IStyleProperty in styleProperties{addStyleProperty(styleProperty) }
     }
     /**
      * @return a style property by the name given
