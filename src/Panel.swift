@@ -10,9 +10,9 @@ class Panel:Section {
         let width = Win.width-Table.width-Panel.leftPadding-Panel.rightPadding
         let height = Win.height-Win.topPadding-EditMenu.height
         //let rect:NSRect = NSRect(x:x, y: y, width: width,height:height)//view.bounds
-        let style = GraphicStyle(Fill(NSColor.orangeColor()),Stroke(5,NSColor.blueColor()))
+        //let style = GraphicStyle(Fill(NSColor.orangeColor()),Stroke(5,NSColor.blueColor()))
         
-        super.init(width, height,style)
+        super.init(width, height/*,style*/)
         
         super.frame.origin.x = CGFloat(x)
         super.frame.origin.y = CGFloat(y)
@@ -27,8 +27,8 @@ class Panel:Section {
         let nameTextInput = TextInput(300,36,"Name: ","")
         addSubview(nameTextInput)
         //Local Path: text input field and browse button
-        let style = GraphicStyle(Fill(ColorParser.nsColor("#FF0000")!))
-        let localPathSection = Section(500,24,style)
+        //let style = GraphicStyle(Fill(ColorParser.nsColor("#FF0000")!))
+        let localPathSection = Section(500,24/*,style*/)
         addSubview(localPathSection)
         
         let localPathTextInput = TextInput(350,36,"Local path: ","")
@@ -36,7 +36,7 @@ class Panel:Section {
         
         //browse button
         let buttonStyle:IStyle = Style("buttonStyle",[StyleProperty("idleColor",0xFF0000),StyleProperty("overColor",0x0000FF)])
-        buttonStyle.name
+        Swift.print(buttonStyle.name)
         let browseButton = Button(100,24,GraphicStyle.green)//"Browse",
         localPathSection.addSubview(browseButton)//Add button to view
         browseButton.frame.origin.x = localPathTextInput.frame.origin.x + localPathTextInput.frame.width +  12

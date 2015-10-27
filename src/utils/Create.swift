@@ -4,37 +4,45 @@ class Create {
     /**
      *
      */
+    /*
     class func button(width:Int = 100,_ height:Int = 30, _ x:Int = 0, _ y:Int = 0, _ bezelStyle:NSBezelStyle = NSBezelStyle.SmallSquareBezelStyle)->NSButton{
         let button = Button(width,height,GraphicStyle.green)
         return button
         
     }
+    */
     /**
      *
      */
+    /*
     class func textButton(width:Int = 100, height:Int = 22,  x:Int = 0,  y:Int = 0,  bezelStyle:NSBezelStyle = NSBezelStyle.SmallSquareBezelStyle,   title:String = "")->NSButton{
         let button:NSButton = Create.button(width,height,x,y,bezelStyle)
         button.title = title
         return button
     }
+    */
 }
 extension Create {
     /*
     * Convenince method for textButton call
     * TODO: Figure out how to use extensions for different creation methods for this item:
     */
+    /*
     class func textButton(title:String)->NSButton{
         return Create.textButton(title:title)
     }
+*/
     /*
     * White button with gray border
     */
+    /*
     class func simpleTextButton(title:String)->NSButton{
         let button = Create.textButton(title:title)
         (button.cell as! NSButtonCell).bordered = true
         (button.cell as! NSButtonCell).backgroundColor = NSColor.whiteColor()
         return button
     }
+*/
 }
 
 /*
