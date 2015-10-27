@@ -28,10 +28,10 @@ extension IElement{
     * NOTE: this method is embedded in an extension so that class one can add functionality to Classes that cant extend Element (like NSButton)
     */
     func resolveSkin() {
-        let color:Int = style.getStyleProperty("color")!.value as! Int
-        let alpha:Double = style.getStyleProperty("alpha")!.value as! Double
+        let fillColor:Int = style.getStyleProperty("fillColor")!.value as! Int
+        let fillAlpha:Double = style.getStyleProperty("fillAlpha")!.value as! Double
         
-        let nsColor = ColorParser.nsColor(color, Float(alpha))
+        let nsColor = ColorParser.nsColor(fillColor, Float(fillAlpha))
         let cgColor = NSColorParser.cgColor(nsColor)
         
         if(nsColor != NSColor.clearColor()){/*clearColor: 0.0 white, 0.0 alpha */
