@@ -10,15 +10,7 @@ class Button: NSButton,IElement {
         self.wantsLayer = true//need for the updateLayer method to be called internally
     }
     override func updateLayer() {//called on init if wantsUpdateLayer is true
-        /*
-        if(style.fill.color != NSColor.clearColor()){
-            layer?.backgroundColor = style.fill.cgColor
-        }
-        if(style.stroke.color != NSColor.clearColor()){
-            layer?.borderColor = style.stroke.cgColor
-            layer?.borderWidth = style.stroke.width
-        }
-        */
+        resolveSkin()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
