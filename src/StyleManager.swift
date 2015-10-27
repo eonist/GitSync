@@ -11,4 +11,11 @@ class StyleManager{
         }
         return nil;
     }
+    /**
+    * Adds a style to the styleManager class
+    * @param style: IStyle
+    */
+    public function addStyle(style:IStyle):void{
+    _styles.push(style);
+    }
 }
