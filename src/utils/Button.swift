@@ -18,4 +18,7 @@ class Button: NSButton,IElement {
     override var wantsUpdateLayer:Bool{//enables the call of updateLayer
         return true
     }
+    override func mouseEntered( event: NSEvent){
+        print("entered")
+    }
 }
