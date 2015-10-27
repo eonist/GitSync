@@ -5,9 +5,17 @@ class Section:Container {//Unlike Container, section can have a style applied
     var style:IStyle
     var strokeColor:NSColor = NSColor.clearColor()
     init(_ width: Int = 100, _ height: Int = 100,style:IStyle) {
-        self.style = Style
+        self.style = style
         super.init(width, height)
         self.wantsLayer = true
+        
+        
+        
+        //continue here
+        //use updateLyer method instead
+        
+        
+        
     }
     /*
     *

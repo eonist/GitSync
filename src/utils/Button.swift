@@ -1,5 +1,6 @@
 import Cocoa
-
+//can you overide functionality with extension? if so you may be able to do the updateLayer another place for all similar graphic elements
+//research the above
 class Button: NSButton {
     var style:IStyle
     init(_ width: Int = 100, _ height: Int = 40, _ style:IStyle = Style.clear) {
