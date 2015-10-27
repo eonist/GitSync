@@ -10,17 +10,9 @@ class Element: FlippedView,IElement {
         super.init(frame: frame)
         self.wantsLayer = true//need for the updateLayer method to be called internally
     }
-    func resolveSkin() {
-        
-    }
+    
     override func updateLayer() {//called on init if wantsUpdateLayer is true
-        if(style.fill.color != NSColor.clearColor()){
-            layer?.backgroundColor = style.fill.cgColor
-        }
-        if(style.stroke.color != NSColor.clearColor()){
-            layer?.borderColor = style.stroke.cgColor
-            layer?.borderWidth = style.stroke.width
-        }
+        resolveSkin()
     }
     /*
     * Required by NSView
@@ -31,5 +23,13 @@ class Element: FlippedView,IElement {
 }
 
 extension Element{
-    
+    func resolveSkin() {
+        if(style.fill.color != NSColor.clearColor()){
+            layer?.backgroundColor = style.fill.cgColor
+        }
+        if(style.stroke.color != NSColor.clearColor()){
+            layer?.borderColor = style.stroke.cgColor
+            layer?.borderWidth = style.stroke.width
+        }
+    }
 }

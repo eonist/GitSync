@@ -1,21 +1,12 @@
 import Foundation
 import Cocoa
 
-class Section:Container {//Unlike Container, section can have a style applied
-    var style:IStyle
+class Section:Element {//Unlike Container, section can have a style applied
     init(_ style:IStyle, _ width: Int = 100, _ height: Int = 100) {
-        self.style = style
-        super.init(width, height)
-        self.wantsLayer = true
-        
-        
-        
-        //continue here
-        //use updateLyer method instead
-        
-        
-        
+        super.init(width, height, style)
+
     }
+    /*
     override func updateLayer() {//called on init if wantsUpdateLayer is true
         if(style.fill.color != NSColor.clearColor()){
             layer?.backgroundColor = style.fill.cgColor
@@ -25,6 +16,7 @@ class Section:Container {//Unlike Container, section can have a style applied
             layer?.borderWidth = style.stroke.width
         }
     }
+*/
     /*
     *
     */
