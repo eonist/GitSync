@@ -30,10 +30,8 @@ extension IElement{
     func resolveSkin() {
         //fill
         let fillColor:String = style.getStyleProperty("fillColor")!.value as! String
-        //Swift.print("fillColor: " + "\(fillColor)")
-        
         let fillAlpha:Double = style.getStyleProperty("fillAlpha")!.value as! Double
-        
+        //Swift.print("fillColor: " + "\(fillColor)")
         let nsFillColor = ColorParser.nsColor(fillColor, Float(fillAlpha))
         let cgFillColor = NSColorParser.cgColor(nsFillColor)
         
@@ -42,13 +40,11 @@ extension IElement{
             layer?.backgroundColor = cgFillColor
             
         }
-        
+        //stroke
         let lineColor:String = style.getStyleProperty("lineColor")!.value as! String
         let lineAlpha:Double = style.getStyleProperty("lineAlpha")!.value as! Double
         let lineWidth:Int = style.getStyleProperty("lineWidth")!.value as! Int
-        
         //Swift.print("lineColor: " + "\(lineColor)")
-        
         let nsLineColor = ColorParser.nsColor(lineColor, Float(lineAlpha))
         let cgLineColor = NSColorParser.cgColor(nsLineColor)
         //Swift.print(nsLineColor)
@@ -57,7 +53,6 @@ extension IElement{
             layer?.borderColor = cgLineColor
             layer?.borderWidth = CGFloat(lineWidth)
         }
-        
         //Swift.print("end of call")
     }
 }
