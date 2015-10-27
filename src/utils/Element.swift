@@ -45,8 +45,9 @@ extension IElement{
         let lineAlpha:Double = style.getStyleProperty("lineAlpha")!.value as! Double
         let lineWidth:Int = style.getStyleProperty("lineWidth")!.value as! Int
         Swift.print("lineColor: " + "\(lineColor)")
+        Swift.print("lineAlpha: " + "\(lineAlpha)")
         
-        let nsLineColor = NSColor.greenColor()//ColorParser.nsColor(lineColor, Float(lineAlpha))
+        let nsLineColor = ColorParser.nsColor(lineColor as! Int, Float(lineAlpha))
         let cgLineColor = NSColorParser.cgColor(nsLineColor)
         
         Swift.print(nsLineColor)
