@@ -1,6 +1,6 @@
 import Cocoa
 protocol IElement{
-    
+    func resolveSkin()
 }
 class Element: FlippedView,IElement {
     var style:IStyle
