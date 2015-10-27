@@ -10,7 +10,7 @@ class Button: NSButton,IElement {
         self.wantsLayer = true//need for the updateLayer method to be called internally
     }
     override func updateLayer() {//called on init if wantsUpdateLayer is true
-        resolveSkin()
+        resolveSkin()//extension method that draws the graphics
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

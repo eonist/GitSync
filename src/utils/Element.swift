@@ -11,9 +11,11 @@ class Element: FlippedView,IElement {
         super.init(frame: frame)
         self.wantsLayer = true//need for the updateLayer method to be called internally
     }
-    
-    override func updateLayer() {//called on init if wantsUpdateLayer is true
-        resolveSkin()
+    /*
+    * Called on init if wantsUpdateLayer is true
+    */
+    override func updateLayer() {
+        resolveSkin()//extension method that draws the graphics
     }
     /*
     * Required by NSView
@@ -24,6 +26,9 @@ class Element: FlippedView,IElement {
 }
 
 extension IElement{
+    /*
+    * Draws the graphics
+    */
     func resolveSkin() {
         if(style.fill.color != NSColor.clearColor()){
             layer?.backgroundColor = style.fill.cgColor
