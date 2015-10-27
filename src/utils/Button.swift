@@ -12,11 +12,11 @@ class Button: NSButton {
     }
     override func updateLayer() {//called on init if wantsUpdateLayer is true
         if(style.fill.color != NSColor.clearColor()){
-            layer?.backgroundColor = style.fill.cgColor//CGColorCreateGenericRGB(1, 0, 1, 1)
+            layer?.backgroundColor = style.fill.cgColor
         }
         if(strokeColor != NSColor.clearColor()){
             let strokeColor = NSColorParser.cgColor(self.strokeColor)
-            layer?.borderColor = strokeColor//CGColorCreateGenericRGB(0, 1, 0, 1)
+            layer?.borderColor = strokeColor
             layer?.borderWidth = 5
         }
     }
