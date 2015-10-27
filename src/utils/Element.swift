@@ -31,11 +31,11 @@ extension IElement{
         let color:Int = style.getStyleProperty("color")!.value as! Int
         let alpha:Float = style.getStyleProperty("alpha")!.value as! Float
         
-        let nsColor = ColorParser.nsColor(hex, color)
+        let nsColor = ColorParser.nsColor(color, alpha)
         let cgColor = NSColorParser.cgColor(nsColor)
         
-        if(style.fill.color != NSColor.clearColor()){
-            layer?.backgroundColor = style.fill.cgColor
+        if(nsColor != NSColor.clearColor()){/*clearColor: 0.0 white, 0.0 alpha */
+            layer?.backgroundColor = cgColor
         }
         if(style.stroke.color != NSColor.clearColor()){
             layer?.borderColor = style.stroke.cgColor
