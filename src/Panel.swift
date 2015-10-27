@@ -35,6 +35,8 @@ class Panel:Section {
         localPathSection.addSubview(localPathTextInput)
         
         //browse button
+        let buttonStyle:IStyle = Style("buttonStyle",[StyleProperty("idleColor",0xFF0000),StyleProperty("overColor",0x0000FF)])
+        buttonStyle.name
         let browseButton = TextButton("Browse",100,24,GraphicStyle.green)
         localPathSection.addSubview(browseButton)//Add button to view
         browseButton.frame.origin.x = localPathTextInput.frame.origin.x + localPathTextInput.frame.width +  12
