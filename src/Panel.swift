@@ -10,7 +10,8 @@ class Panel:Section {
         let width = Win.width-Table.width-Panel.leftPadding-Panel.rightPadding
         let height = Win.height-Win.topPadding-EditMenu.height
         //let rect:NSRect = NSRect(x:x, y: y, width: width,height:height)//view.bounds
-        super.init(NSColor.orangeColor(), NSColor.clearColor(), width, height)
+        let style = Style(Fill(NSColor.orangeColor()),Stroke(5,NSColor.blueColor()))
+        super.init(style,width, height)
         super.frame.origin.x = CGFloat(x)
         super.frame.origin.y = CGFloat(y)
         createContent()
