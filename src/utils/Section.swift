@@ -16,7 +16,7 @@ class Section:Element {//Unlike Container, section can have a style applied
             layer?.borderWidth = style.stroke.width
         }
     }
-*/
+    */
     /*
     *
     */
