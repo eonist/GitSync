@@ -8,22 +8,8 @@ class Button: NSButton,IElement {
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
         super.init(frame: frame)
         self.wantsLayer = true//need for the updateLayer method to be called internally
-        //acceptsTouchEvents = true//untest
-        
-        /*
-        NSTrackingAreaOptions focusTrackingAreaOptions = NSTrackingActiveInActiveApp;
-        focusTrackingAreaOptions |= NSTrackingMouseEnteredAndExited;
-        focusTrackingAreaOptions |= NSTrackingAssumeInside;
-        focusTrackingAreaOptions |= NSTrackingInVisibleRect;
-        
-        NSTrackingEnabledDuringMouseDrag to mine to make sure the rollover behaves still when dragging in and out of the area.
-        
-        */
-        
-        addTrackingRect(self.bounds, owner: self, userData: nil, assumeInside: true)//
+        addTrackingRect(self.bounds, owner: self, userData: nil, assumeInside: true)//This enables entered and exited events to fire //let focusTrackingAreaOptions:NSTrackingAreaOptions = [NSTrackingActiveInActiveApp,NSTrackingMouseEnteredAndExited,NSTrackingAssumeInside,NSTrackingInVisibleRect,NSTrackingEnabledDuringMouseDrag]//NSTrackingEnabledDuringMouseDrag to mine to make sure the rollover behaves still when dragging in and out of the area.
     }
-    //acceptsMouseMovedEvents
-    
     override func updateLayer() {//called on init if wantsUpdateLayer is true
         Swift.print("redraw: ")
         if(self.cell!.highlighted){
