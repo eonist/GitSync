@@ -71,7 +71,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         let elementStyle:IStyle = Style("elementStyle")
         //Fill
-        elementStyle.addStyleProperty(StyleProperty("fillColor", Colors.orange))
+        elementStyle.addStyleProperty(StyleProperty("fillColor", Colors.purple))
         elementStyle.addStyleProperty(StyleProperty("fillAlpha", 1.0))
         //Line
         elementStyle.addStyleProperty(StyleProperty("lineColor", Colors.lightGray))
@@ -79,8 +79,8 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         elementStyle.addStyleProperty(StyleProperty("lineWidth", 5))
         StyleManager.addStyle(elementStyle)
         
-        //TODO: init the element todo list
-        ColorParser.nsColor(0xFFFF00, 1)
+        
+        //ColorParser.nsColor(0xFFFF00, 1)
         
         
         Swift.print(StyleManager.getStyle("elementStyle")!.name)
