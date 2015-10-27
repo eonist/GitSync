@@ -38,8 +38,7 @@ class Panel:Section {
         let browseButton = TextButton("Browse",100,24,Style.green)
         localPathSection.addSubview(browseButton)//Add button to view
         browseButton.frame.origin.x = localPathTextInput.frame.origin.x + localPathTextInput.frame.width +  12
-        //browseButton.frame.origin.y = localPathTextInput.frame.origin.y
-        
+        (browseButton as NSButton).addTarget(self, action: "pressedAction:", forControlEvents: .TouchUpInside)
         
         //Remote path: text input field
         let remotePathTextInput = TextInput(300,36,"Remote path: ","")
