@@ -4,7 +4,7 @@ class Button: NSButton {
     var fillColor:NSColor = NSColor.clearColor()
     var strokeColor:NSColor = NSColor.clearColor()
     var style:IStyle = Style.clear
-    init(_ width: Int = 100, _ height: Int = 100, style:IStyle) {
+    init(_ width: Int = 100, _ height: Int = 100, _ style:IStyle) {
         self.style = style
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
         super.init(frame: frame)
