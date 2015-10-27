@@ -53,10 +53,18 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createContent(){
+        createElement()
         //createTextField()
-        createTable()
-        createButtons()
-        createPanel()
+        //createTable()
+        //createButtons()
+        //createPanel()
+    }
+    /**
+    *
+    */
+    func createElement(){
+        let element = Element()
+        view.addSubview(element)
     }
     /*
     *
