@@ -1,1 +1,5 @@
 import Foundation
+
+class StyleProperty {
+    
+}
