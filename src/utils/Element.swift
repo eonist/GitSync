@@ -5,7 +5,7 @@ protocol IElement:IView{
 
 class Element: FlippedView,IElement {
     var style:IGraphicStyle
-    init(_ width: Int = 100, _ height: Int = 40, _ style:IGraphicStyle = GraphicStyle.clear){
+    init(_ width: Int = 100, _ height: Int = 40, _ style:IStyle = GraphicStyle.clear){
         self.style = style
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
         super.init(frame: frame)
@@ -31,6 +31,7 @@ extension IElement{
     * NOTE: this method is embedded in an extension so that class one can add functionality to Classes that cant extend Element (like NSButton)
     */
     func resolveSkin() {
+        
         if(style.fill.color != NSColor.clearColor()){
             layer?.backgroundColor = style.fill.cgColor
         }
