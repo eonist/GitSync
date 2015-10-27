@@ -9,6 +9,21 @@ class Style:IStyle{
         self.styleProperties = styleProperties
     }
     /**
+    * Add styleProperty
+    * @Note will throw an error if a styleProperty with the same name is allready added
+    * @Note the reason that the following methods are not moved into StyleModifier is because they arent that complex, a minimal set of core methods are ok in a bean style class like this, more advance methods can go into StyleModifier
+    * // :TODO: but this method is cognativly taxing just look how long it is, makes more sense to move it to a modifier class, only simple methods should be in Type classes
+    */
+    public func addStyleProperty(styleProperty:IStyleProperty) {
+        StyleModifier.append(this, styleProperty);
+    }
+    /**
+    * Adds styleProperties
+    */
+    public function addStyleProperties(styleProperties:Array):void{
+        for each (var styleProperty : IStyleProperty in styleProperties) addStyleProperty(styleProperty);
+    }
+    /**
      * @return a style property by the name given
      * @Note returning null is fine, no need to make a EmptyStyleProperty class, or is there?
      */
