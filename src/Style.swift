@@ -8,11 +8,16 @@ class Style:IStyle{
         self.name = name
         self.styleProperties = styleProperties
     }
-    
-    func getStyleProperty(name:String)->IStyleProperty{
-        for styleProperty : IStyleProperty in _styleProperties) {
-            if(styleProperty.name == name && styleProperty.depth == depth) return styleProperty;
+    /**
+     * @return a style property by the name given
+     * @Note returning null is fine, no need to make a EmptyStyleProperty class, or is there?
+     */
+    func getStyleProperty(name:String)->IStyleProperty?{
+        for styleProperty : IStyleProperty in styleProperties {
+            if(styleProperty.name == name){
+                return styleProperty;
+            }
         }
-        return null;
+        return nil;
     }
 }
