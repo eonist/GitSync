@@ -71,12 +71,12 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         let elementStyle:IStyle = Style("elementStyle")
         //Fill
-        elementStyle.addStyleProperty(StyleProperty("fillColor",0xFF00FF))
-        elementStyle.addStyleProperty(StyleProperty("fillAlpha",1.0))
+        elementStyle.addStyleProperty(StyleProperty("fillColor", 0x0000FF))
+        elementStyle.addStyleProperty(StyleProperty("fillAlpha", 1.0))
         //Line
-        elementStyle.addStyleProperty(StyleProperty("lineColor",0x0000FF))
-        elementStyle.addStyleProperty(StyleProperty("lineAlpha",1.0))
-        elementStyle.addStyleProperty(StyleProperty("lineWidth",5))
+        elementStyle.addStyleProperty(StyleProperty("lineColor", 0x0000FF))
+        elementStyle.addStyleProperty(StyleProperty("lineAlpha", 1.0))
+        elementStyle.addStyleProperty(StyleProperty("lineWidth", 5))
         StyleManager.addStyle(elementStyle)
         
         //TODO: init the element todo list
