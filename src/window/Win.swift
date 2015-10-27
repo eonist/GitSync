@@ -80,11 +80,12 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         StyleManager.addStyle(elementStyle)
         
         //TODO: init the element todo list
+        ColorParser.nsColor(0x00FF00, 1)
         
         
         Swift.print(StyleManager.getStyle("elementStyle")!.name)
-        let element = Element(100,100,elementStyle)
-        view.addSubview(element)
+        //let element = Element(100,100,elementStyle)
+        //view.addSubview(element)
     }
     /*
     *
