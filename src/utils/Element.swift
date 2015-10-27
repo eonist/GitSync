@@ -1,6 +1,5 @@
 import Cocoa
 
-
 class Element: FlippedView,IElement {
     var style:IStyle
     init(_ width: Int = 100, _ height: Int = 40, _ style:IStyle = Style.clear){
