@@ -1,8 +1,8 @@
 import Foundation
 
 class StyleProperty {
-    var name : String;
-    var value : Any;
+    var name : String
+    var value : Any
     /**
     *
     */
