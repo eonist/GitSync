@@ -8,7 +8,7 @@ class Button: NSButton {
         self.style = style
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
         super.init(frame: frame)
-        self.wantsLayer = true
+        self.wantsLayer = true//need for the updateLayer method to be called internally
     }
     override func updateLayer() {//called on init if wantsUpdateLayer is true
         if(style.fill.color != NSColor.clearColor()){
@@ -16,7 +16,7 @@ class Button: NSButton {
         }
         if(style.stroke.color != NSColor.clearColor()){
             layer?.borderColor = style.stroke.cgColor
-            layer?.borderWidth = style.stroke.borderWidth
+            layer?.borderWidth = style.stroke.width
         }
     }
     required init?(coder: NSCoder) {
