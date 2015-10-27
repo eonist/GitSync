@@ -1,6 +1,8 @@
 import Cocoa
 protocol IElement{
     func resolveSkin()
+    var layer: CALayer?{get}
+    var style:IStyle{get}
 }
 class Element: FlippedView,IElement {
     var style:IStyle
@@ -22,7 +24,7 @@ class Element: FlippedView,IElement {
     }
 }
 
-extension Element{
+extension IElement{
     func resolveSkin() {
         if(style.fill.color != NSColor.clearColor()){
             layer?.backgroundColor = style.fill.cgColor
