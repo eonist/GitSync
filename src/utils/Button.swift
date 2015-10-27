@@ -10,23 +10,23 @@ class Button: NSButton,IElement {
         self.wantsLayer = true//need for the updateLayer method to be called internally
     }
     override func updateLayer() {//called on init if wantsUpdateLayer is true
-        Swift.print("redraw")
-        /*
-        switch ([self state]) {
-        case NSOnState :
-        // Draw on state
-        break;
-        case NSMixedState :
-        // Draw mixed state
-        break;
-        default:
-        case NSOffState :
-        ...
-        break;
+        Swift.print("redraw: ")
+        
+        switch self.state {
+            case NSOnState :// Draw on state
+                Swift.print("on")
+            case NSMixedState :// Draw mixed state
+                
+                Swift.print("mixed")
+            case NSOffState :
+                Swift.print("off")
+            default:
+                break;
+        
         }
+        
 
-
-        */
+        
         resolveSkin()//extension method that draws the graphics
     }
     required init?(coder: NSCoder) {
