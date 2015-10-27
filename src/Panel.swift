@@ -10,7 +10,7 @@ class Panel:Section {
         let width = Win.width-Table.width-Panel.leftPadding-Panel.rightPadding
         let height = Win.height-Win.topPadding-EditMenu.height
         //let rect:NSRect = NSRect(x:x, y: y, width: width,height:height)//view.bounds
-        let style = Style(Fill(NSColor.orangeColor()),Stroke(5,NSColor.blueColor()))
+        let style = GraphicStyle(Fill(NSColor.orangeColor()),Stroke(5,NSColor.blueColor()))
         
         super.init(width, height,style)
         
@@ -27,7 +27,7 @@ class Panel:Section {
         let nameTextInput = TextInput(300,36,"Name: ","")
         addSubview(nameTextInput)
         //Local Path: text input field and browse button
-        let style = Style(Fill(ColorParser.nsColor("#FF0000")!))
+        let style = GraphicStyle(Fill(ColorParser.nsColor("#FF0000")!))
         let localPathSection = Section(500,24,style)
         addSubview(localPathSection)
         
@@ -35,7 +35,7 @@ class Panel:Section {
         localPathSection.addSubview(localPathTextInput)
         
         //browse button
-        let browseButton = TextButton("Browse",100,24,Style.green)
+        let browseButton = TextButton("Browse",100,24,GraphicStyle.green)
         localPathSection.addSubview(browseButton)//Add button to view
         browseButton.frame.origin.x = localPathTextInput.frame.origin.x + localPathTextInput.frame.width +  12
         browseButton.target = self
