@@ -20,7 +20,7 @@ class Style:IStyle{
     /**
     * Adds styleProperties
     */
-    func addStyleProperties(styleProperties:Array<IStyleProperty>){
+    func addStyleProperty(styleProperties:Array<IStyleProperty>){
         for styleProperty : IStyleProperty in styleProperties{addStyleProperty(styleProperty) }
     }
     /**
