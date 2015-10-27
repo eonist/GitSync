@@ -74,18 +74,18 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         elementStyle.addStyleProperty(StyleProperty("fillColor", 0xFF0000))
         elementStyle.addStyleProperty(StyleProperty("fillAlpha", 1.0))
         //Line
-        elementStyle.addStyleProperty(StyleProperty("lineColor", 0x00FF00))
+        elementStyle.addStyleProperty(StyleProperty("lineColor", 0xFFFF00))
         elementStyle.addStyleProperty(StyleProperty("lineAlpha", 1.0))
         elementStyle.addStyleProperty(StyleProperty("lineWidth", 5))
         StyleManager.addStyle(elementStyle)
         
         //TODO: init the element todo list
-        ColorParser.nsColor(0x00FF00, 1)
+        ColorParser.nsColor(0xFFFF00, 1)
         
         
         Swift.print(StyleManager.getStyle("elementStyle")!.name)
-        //let element = Element(100,100,elementStyle)
-        //view.addSubview(element)
+        let element = Element(100,100,elementStyle)
+        view.addSubview(element)
     }
     /*
     *

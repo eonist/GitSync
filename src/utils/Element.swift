@@ -44,11 +44,19 @@ extension IElement{
         }
         
         let lineColor:Int = style.getStyleProperty("lineColor")!.value as! Int
+        let lineAlpha:Double = style.getStyleProperty("lineAlpha")!.value as! Double
+        let lineWidth:Int = style.getStyleProperty("lineWidth")!.value as! Int
         
         Swift.print("lineColor: " + "\(lineColor)")
         
         let nsLineColor = ColorParser.nsColor(lineColor, 1)
         let cgLineColor = NSColorParser.cgColor(nsLineColor)
+        //Swift.print(nsLineColor)
+        if(nsLineColor != NSColor.clearColor()){/*clearColor: 0.0 white, 0.0 alpha */
+            //Swift.print("line")
+            layer?.borderColor = cgLineColor
+            layer?.borderWidth = CGFloat(lineWidth)
+        }
         
         Swift.print("end of call")
     }
