@@ -9,7 +9,18 @@ class Button: NSButton,IElement {
         super.init(frame: frame)
         self.wantsLayer = true//need for the updateLayer method to be called internally
         //acceptsTouchEvents = true//untest
-       
+        
+        /*
+        NSTrackingAreaOptions focusTrackingAreaOptions = NSTrackingActiveInActiveApp;
+        focusTrackingAreaOptions |= NSTrackingMouseEnteredAndExited;
+        focusTrackingAreaOptions |= NSTrackingAssumeInside;
+        focusTrackingAreaOptions |= NSTrackingInVisibleRect;
+        
+        NSTrackingEnabledDuringMouseDrag to mine to make sure the rollover behaves still when dragging in and out of the area.
+        
+        */
+        
+        addTrackingRect(self.bounds, owner: self, userData: nil, assumeInside: true)//
     }
     //acceptsMouseMovedEvents
     
