@@ -3,9 +3,9 @@ import Cocoa
 class Button: NSButton {
     var fillColor:NSColor = NSColor.clearColor()
     var strokeColor:NSColor = NSColor.clearColor()
-    init(_ width: Int = 100, _ height: Int = 100, _ fillColor:NSColor = NSColor.clearColor(), _ strokeColor:NSColor = NSColor.clearColor()) {
-        self.fillColor = fillColor
-        self.strokeColor = strokeColor
+    var style:IStyle = Style.clear
+    init(_ width: Int = 100, _ height: Int = 100, style:IStyle) {
+        self.style = style
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
         super.init(frame: frame)
         self.wantsLayer = true
