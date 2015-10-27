@@ -1,10 +1,10 @@
 import Foundation
 
-class Style {
+class Style:IStyle{
     var name:String;
-    var selectors:Array
-    init(_ name:String, _ selectors:Array, _ styleProperties:Array){
+    var styleProperties:Array<IStyleProperty>
+    init(_ name:String, _ styleProperties:Array<IStyleProperty>){
         self.name = name
-        self.selectors = selectors
+        self.styleProperties = styleProperties
     }
 }

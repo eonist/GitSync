@@ -1,6 +1,6 @@
 import Foundation
 
-class StyleProperty {
+class StyleProperty:IStyleProperty {
     var name : String
     var value : Any
     /**
