@@ -19,6 +19,6 @@ class Button: NSButton,IElement {
         return true
     }
     override func mouseEntered( event: NSEvent){
-        print("entered")
+        Swift.print("entered")
     }
 }

@@ -38,12 +38,14 @@ class Panel:Section {
         let browseButton = TextButton("Browse",100,24,Style.green)
         localPathSection.addSubview(browseButton)//Add button to view
         browseButton.frame.origin.x = localPathTextInput.frame.origin.x + localPathTextInput.frame.width +  12
-        browseButton.target(self, action: "pressedAction:", forControlEvents: .TouchUpInside)
-        button.action = "myAction:"
+        browseButton.target = self
+        
+        browseButton.action = "myAction:"//event dispatches to this method
+        
         func myAction(obj:AnyObject?){
-            print("press")
+            Swift.print("press")
             if let btn = obj as? NSButton{
-                print(btn.title)
+                Swift.print(btn.title)
             }
             
         }
