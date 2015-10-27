@@ -1,9 +1,8 @@
 import Cocoa
-protocol IElement{
+protocol IElement:IView{
     func resolveSkin()
-    var layer: CALayer?{get}
-    var style:IStyle{get}
 }
+
 class Element: FlippedView,IElement {
     var style:IStyle
     init(_ width: Int = 100, _ height: Int = 40, _ style:IStyle = Style.clear){
