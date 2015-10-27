@@ -31,19 +31,27 @@ extension IElement{
         let fillColor:Int = style.getStyleProperty("fillColor")!.value as! Int
         let fillAlpha:Double = style.getStyleProperty("fillAlpha")!.value as! Double
         
-        let nsColor = ColorParser.nsColor(fillColor, Float(fillAlpha))
-        let cgColor = NSColorParser.cgColor(nsColor)
+        let nsFillColor = ColorParser.nsColor(fillColor, Float(fillAlpha))
+        let cgFillColor = NSColorParser.cgColor(nsFillColor)
         
-        if(nsColor != NSColor.clearColor()){/*clearColor: 0.0 white, 0.0 alpha */
-            layer?.backgroundColor = cgColor
-        }
-        /*
-
-        if(style.stroke.color != NSColor.clearColor()){
-            layer?.borderColor = style.stroke.cgColor
-            layer?.borderWidth = style.stroke.width
+        if(nsFillColor != NSColor.clearColor()){/*clearColor: 0.0 white, 0.0 alpha */
+            layer?.backgroundColor = cgFillColor
         }
         
-        */
+        
+        let lineColor:Int = style.getStyleProperty("lineColor")!.value as! Int
+        let lineAlpha:Double = style.getStyleProperty("lineAlpha")!.value as! Double
+        let lineWidth:Int = style.getStyleProperty("lineWidth")!.value as! Int
+        
+        let nsLineColor = ColorParser.nsColor(lineColor, Float(lineAlpha))
+        let cgLineColor = NSColorParser.cgColor(nsLineColor)
+        
+       
+        if(nsLineColor != NSColor.clearColor()){/*clearColor: 0.0 white, 0.0 alpha */
+            layer?.borderColor = cgLineColor
+            layer?.borderWidth = CGFloat(lineWidth)
+        }
+        
+        
     }
 }
