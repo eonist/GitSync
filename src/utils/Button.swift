@@ -11,7 +11,11 @@ class Button: NSButton,IElement {
     }
     override func updateLayer() {//called on init if wantsUpdateLayer is true
         Swift.print("redraw: ")
-        
+        if(self.cell!.highlighted){
+            Swift.print("pressed state")
+        }else{
+            Swift.print("unPressed state")
+        }
         /*These states can be used for toggle buttons*/
         switch self.state {
             case NSOnState :// Draw on state
