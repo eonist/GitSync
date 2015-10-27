@@ -42,13 +42,7 @@ class Panel:Section {
         
         browseButton.action = "myAction:"//event dispatches to this method
         
-        func myAction(obj:AnyObject?){
-            Swift.print("press")
-            if let btn = obj as? NSButton{
-                Swift.print(btn.title)
-            }
-            
-        }
+        
         //Remote path: text input field
         let remotePathTextInput = TextInput(300,36,"Remote path: ","")
         addSubview(remotePathTextInput)
@@ -60,6 +54,13 @@ class Panel:Section {
         //Active: checkBoxButton
         //Relay: checkBoxButton (early beta function for servers, always uses theirs update and forgoes the conflict resolution dialog)
         //keychain id:
+    }
+    func myAction(obj:AnyObject?){
+        Swift.print("press")
+        if let btn = obj as? NSButton{
+            Swift.print(btn.title)
+        }
+        
     }
     required init?(coder: NSCoder) {//try to get rid of this
         fatalError("init(coder:) has not been implemented")
