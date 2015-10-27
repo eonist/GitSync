@@ -3,7 +3,6 @@ import Cocoa
 
 class Section:Container {//Unlike Container, section can have a style applied
     var style:IStyle
-    var strokeColor:NSColor = NSColor.clearColor()
     init(_ style:IStyle, _ width: Int = 100, _ height: Int = 100) {
         self.style = style
         super.init(width, height)
