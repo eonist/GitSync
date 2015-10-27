@@ -5,7 +5,7 @@ class Create {
      *
      */
     class func button(width:Int = 100,_ height:Int = 30, _ x:Int = 0, _ y:Int = 0, _ bezelStyle:NSBezelStyle = NSBezelStyle.SmallSquareBezelStyle)->NSButton{
-        let button = Button(width,height,Style.green)
+        let button = Button(width,height,GraphicStyle.green)
         return button
         
     }
