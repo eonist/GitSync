@@ -11,7 +11,9 @@ class Panel:Section {
         let height = Win.height-Win.topPadding-EditMenu.height
         //let rect:NSRect = NSRect(x:x, y: y, width: width,height:height)//view.bounds
         let style = Style(Fill(NSColor.orangeColor()),Stroke(5,NSColor.blueColor()))
-        super.init(style,width, height)
+        
+        super.init(width, height,style)
+        
         super.frame.origin.x = CGFloat(x)
         super.frame.origin.y = CGFloat(y)
         createContent()
@@ -26,7 +28,7 @@ class Panel:Section {
         addSubview(nameTextInput)
         //Local Path: text input field and browse button
         let style = Style(Fill(NSColor.purpleColor()))
-        let localPathSection = Section(style,500,24)
+        let localPathSection = Section(500,24,style)
         addSubview(localPathSection)
         
         let localPathTextInput = TextInput(350,36,"Local path: ","")
