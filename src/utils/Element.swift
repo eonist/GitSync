@@ -38,8 +38,9 @@ extension IElement{
         let cgFillColor = NSColorParser.cgColor(nsFillColor)
         
         if(nsFillColor != NSColor.clearColor()){/*clearColor: 0.0 white, 0.0 alpha */
+            //Swift.print("fill")
             layer?.backgroundColor = cgFillColor
-            Swift.print("fill")
+            
         }
         
         //line
@@ -52,9 +53,9 @@ extension IElement{
         let nsLineColor = ColorParser.nsColor(0xFFFF00 as Int, Float(lineAlpha))
         let cgLineColor = NSColorParser.cgColor(nsLineColor)
         
-        Swift.print(nsLineColor)
+        //Swift.print(nsLineColor)
         if(nsLineColor != NSColor.clearColor()){/*clearColor: 0.0 white, 0.0 alpha */
-            Swift.print("line")
+            //Swift.print("line")
             layer?.borderColor = cgLineColor
             layer?.borderWidth = CGFloat(lineWidth)
         }
