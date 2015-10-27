@@ -12,11 +12,11 @@ class Button: NSButton,IElement {
     override func updateLayer() {//called on init if wantsUpdateLayer is true
         Swift.print("redraw: ")
         
+        /*These states can be used for toggle buttons*/
         switch self.state {
             case NSOnState :// Draw on state
                 Swift.print("on")
             case NSMixedState :// Draw mixed state
-                
                 Swift.print("mixed")
             case NSOffState :
                 Swift.print("off")
@@ -24,9 +24,6 @@ class Button: NSButton,IElement {
                 break;
         
         }
-        
-
-        
         resolveSkin()//extension method that draws the graphics
     }
     required init?(coder: NSCoder) {
