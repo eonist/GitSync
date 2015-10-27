@@ -14,10 +14,9 @@ class Button: NSButton {
         if(style.fill.color != NSColor.clearColor()){
             layer?.backgroundColor = style.fill.cgColor
         }
-        if(strokeColor != NSColor.clearColor()){
-            let strokeColor = NSColorParser.cgColor(self.strokeColor)
-            layer?.borderColor = strokeColor
-            layer?.borderWidth = 5
+        if(style.stroke.color != NSColor.clearColor()){
+            layer?.borderColor = style.stroke.cgColor
+            layer?.borderWidth = style.stroke.borderWidth
         }
     }
     required init?(coder: NSCoder) {
