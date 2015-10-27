@@ -29,7 +29,7 @@ extension IElement{
     */
     func resolveSkin() {
         let color:Int = style.getStyleProperty("color")!.value as! Int
-        let opacity:Float = style.getStyleProperty("opacity")!.value as! Float
+        let alpha:Float = style.getStyleProperty("alpha")!.value as! Float
         
         
         if(style.fill.color != NSColor.clearColor()){
