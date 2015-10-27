@@ -63,16 +63,21 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createElement(){
-        let buttonStyle:IStyle = Style("buttonStyle",[StyleProperty("idleColor",0xFF0000),StyleProperty("overColor",0x0000FF)])
-        Swift.print(buttonStyle.name)
+        //let buttonStyle:IStyle = Style("buttonStyle",[StyleProperty("idleColor",0xFF0000),StyleProperty("overColor",0x0000FF)])
+        //Swift.print(buttonStyle.name)
         
-        StyleManager.addStyle(buttonStyle)
-        
-        //init the element todo list
+        //StyleManager.addStyle(buttonStyle)
         
         
-        Swift.print(StyleManager.getStyle("buttonStyle")!.name)
-        let element = Element(100,100,GraphicStyle.green)
+        let elementStyle:IStyle = Style("elementStyle",[StyleProperty("color",0xFF0000),StyleProperty("opacity",0.0)])
+        
+        StyleManager.addStyle(elementStyle)
+        
+        //TODO: init the element todo list
+        
+        
+        Swift.print(StyleManager.getStyle("elementStyle")!.name)
+        let element = Element(100,100,elementStyle)
         view.addSubview(element)
     }
     /*
