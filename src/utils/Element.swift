@@ -32,7 +32,7 @@ extension IElement{
         let fillColor:Int = style.getStyleProperty("fillColor")!.value as! Int
         let fillAlpha:Double = style.getStyleProperty("fillAlpha")!.value as! Double
         
-        let nsFillColor = ColorParser.nsColor(fillColor, Float(fillAlpha))
+        let nsFillColor = ColorParser.nsColor(0x0000FF, Float(fillAlpha))
         let cgFillColor = NSColorParser.cgColor(nsFillColor)
         
         if(nsFillColor != NSColor.clearColor()){/*clearColor: 0.0 white, 0.0 alpha */
@@ -47,7 +47,7 @@ extension IElement{
         Swift.print("lineColor: " + "\(lineColor)")
         Swift.print("lineAlpha: " + "\(lineAlpha)")
         
-        let nsLineColor = ColorParser.nsColor(lineColor as! Int, Float(lineAlpha))
+        let nsLineColor = ColorParser.nsColor(fillColor, Float(lineAlpha))
         let cgLineColor = NSColorParser.cgColor(nsLineColor)
         
         Swift.print(nsLineColor)

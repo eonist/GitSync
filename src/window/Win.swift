@@ -71,7 +71,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         let elementStyle:IStyle = Style("elementStyle")
         //Fill
-        elementStyle.addStyleProperty(StyleProperty("fillColor",0xFF0000))
+        elementStyle.addStyleProperty(StyleProperty("fillColor",0xFF00FF))
         elementStyle.addStyleProperty(StyleProperty("fillAlpha",1.0))
         //Line
         elementStyle.addStyleProperty(StyleProperty("lineColor",0x00FF00))
