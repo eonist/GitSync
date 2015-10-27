@@ -28,6 +28,7 @@ extension IElement{
     * NOTE: this method is embedded in an extension so that class one can add functionality to Classes that cant extend Element (like NSButton)
     */
     func resolveSkin() {
+        //fill
         let fillColor:Int = style.getStyleProperty("fillColor")!.value as! Int
         let fillAlpha:Double = style.getStyleProperty("fillAlpha")!.value as! Double
         
@@ -36,9 +37,10 @@ extension IElement{
         
         if(nsFillColor != NSColor.clearColor()){/*clearColor: 0.0 white, 0.0 alpha */
             layer?.backgroundColor = cgFillColor
+            Swift.print("fill")
         }
         
-        
+        //line
         let lineColor:Int = style.getStyleProperty("lineColor")!.value as! Int
         let lineAlpha:Double = style.getStyleProperty("lineAlpha")!.value as! Double
         let lineWidth:Int = style.getStyleProperty("lineWidth")!.value as! Int
@@ -48,6 +50,7 @@ extension IElement{
         
        
         if(nsLineColor != NSColor.clearColor()){/*clearColor: 0.0 white, 0.0 alpha */
+            Swift.print("line")
             layer?.borderColor = cgLineColor
             layer?.borderWidth = CGFloat(lineWidth)
         }
