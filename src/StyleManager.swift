@@ -2,9 +2,13 @@ import Foundation
 class StyleManager{
     static var styles:Array<IStyle> = []
     
-    func getStyle(name:String):IStyle{
-        var numOfStyles:int = _styles.length;
-        for(var i:int = 0;i < numOfStyles;i++) if(IStyle(_styles[i]).name == name) return  _styles[i];
-        return null;
+    class func getStyle(name:String)->IStyle?{
+        let numOfStyles:Int = styles.count;
+        for(var i:Int = 0;i < numOfStyles;i++) {
+            if((styles[i] as IStyle).name == name) {
+                return styles[i];
+            }
+        }
+        return nil;
     }
 }
