@@ -9,7 +9,7 @@ class Button: NSButton,IElement {
         super.init(frame: frame)
         self.wantsLayer = true//need for the updateLayer method to be called internally
         //acceptsTouchEvents = true//untest
-        
+       
     }
     //acceptsMouseMovedEvents
     
