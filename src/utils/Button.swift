@@ -8,7 +8,11 @@ class Button: NSButton,IElement {
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
         super.init(frame: frame)
         self.wantsLayer = true//need for the updateLayer method to be called internally
+        //acceptsTouchEvents = true//untest
+        
     }
+    //acceptsMouseMovedEvents
+    
     override func updateLayer() {//called on init if wantsUpdateLayer is true
         Swift.print("redraw: ")
         if(self.cell!.highlighted){
