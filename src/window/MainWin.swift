@@ -6,7 +6,7 @@ import Cocoa
 * TODO: Add Broadcast/Subscribe to info win
 * TODO: Add Transmit/Receive buttons to tab-bar
 */
-class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
+class MainWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     static var topPadding = 12//make this into a tuple or enum or struct or or
     static var leftPadding = 12
     let titles:[String] = ["Add","Remove"]//,"Info","View","test"
