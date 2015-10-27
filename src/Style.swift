@@ -8,4 +8,11 @@ class Style:IStyle{
         self.name = name
         self.styleProperties = styleProperties
     }
+    
+    func getStyleProperty(name:String)->IStyleProperty{
+        for styleProperty : IStyleProperty in _styleProperties) {
+            if(styleProperty.name == name && styleProperty.depth == depth) return styleProperty;
+        }
+        return null;
+    }
 }
