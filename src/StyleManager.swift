@@ -5,11 +5,14 @@ class StyleManager{
     * Adds a style to the styleManager class
     * @param style: IStyle
     */
-    class func add(style:IStyle){
+    class func addStyle(style:IStyle){
         styles.append(style);
     }
-    class func add(styles:Array<IStyle>){
-        styles.append(style);
+    /**
+    * Adds every style in a styleCollection to the stylemanager
+    */
+    class func addStyle(styles:Array<IStyle>){
+        self.styles += styles;
     }
     
     /**
