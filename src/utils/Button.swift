@@ -38,7 +38,7 @@ class Button: NSButton,IElement {
         return true
     }
     override func mouseEntered( event: NSEvent){
-        Swift.print("entered")
+        Swift.print("entered" + "\(self.state)")
         super.mouseEntered(event)
     }
     override func mouseExited(event: NSEvent){
@@ -46,7 +46,7 @@ class Button: NSButton,IElement {
         super.mouseExited(event)
     }
     override func mouseDown(theEvent: NSEvent) {
-        Swift.print("mouseDownEvent" + "\(self.state)")
+        Swift.print("mouseDownEvent" )
         super.mouseDown(theEvent)
     }
     override func mouseUp(theEvent: NSEvent) {
