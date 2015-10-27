@@ -46,10 +46,10 @@ extension IElement{
         let lineWidth:Int = style.getStyleProperty("lineWidth")!.value as! Int
         Swift.print("lineColor: " + "\(lineColor)")
         
-        let nsLineColor = ColorParser.nsColor(lineColor, Float(lineAlpha))
+        let nsLineColor = NSColor.greenColor()//ColorParser.nsColor(lineColor, Float(lineAlpha))
         let cgLineColor = NSColorParser.cgColor(nsLineColor)
         
-       
+        Swift.print(nsLineColor)
         if(nsLineColor != NSColor.clearColor()){/*clearColor: 0.0 white, 0.0 alpha */
             Swift.print("line")
             layer?.borderColor = cgLineColor
