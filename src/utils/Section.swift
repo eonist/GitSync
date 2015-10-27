@@ -1,12 +1,11 @@
 import Foundation
 import Cocoa
 
-class Section:Container {
-    var fillColor:NSColor = NSColor.clearColor()
+class Section:Container {//Unlike Container, section can have a style applied
+    var style:IStyle
     var strokeColor:NSColor = NSColor.clearColor()
-    init(_ fillColor:NSColor = NSColor.clearColor(), _ strokeColor:NSColor = NSColor.clearColor(), _ width: Int = 100, _ height: Int = 100) {
-        self.fillColor = fillColor
-        self.strokeColor = strokeColor
+    init(_ width: Int = 100, _ height: Int = 100,style:IStyle) {
+        self.style = Style
         super.init(width, height)
         self.wantsLayer = true
     }
