@@ -68,6 +68,10 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         StyleManager.styles.append(buttonStyle)
         
+        //init the element todo list
+        
+        StyleManager.getStyle("buttonStyle")
+        Swift.print(buttonStyle.name)
         let element = Element(100,100,GraphicStyle.green)
         view.addSubview(element)
     }
