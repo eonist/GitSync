@@ -35,15 +35,14 @@ class Panel:Section {
         localPathSection.addSubview(localPathTextInput)
         
         //browse button
-        let buttonStyle:IStyle = Style("buttonStyle",[StyleProperty("idleColor",0xFF0000),StyleProperty("overColor",0x0000FF)])
-        Swift.print(buttonStyle.name)
+        /*
         let browseButton = Button(100,24,GraphicStyle.green)//"Browse",
         localPathSection.addSubview(browseButton)//Add button to view
         browseButton.frame.origin.x = localPathTextInput.frame.origin.x + localPathTextInput.frame.width +  12
         browseButton.target = self
         
         browseButton.action = "myAction:"//event dispatches to this method
-        
+        */
         
         //Remote path: text input field
         let remotePathTextInput = TextInput(300,36,"Remote path: ","")
