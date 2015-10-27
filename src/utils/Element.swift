@@ -29,9 +29,9 @@ extension IElement{
     */
     func resolveSkin() {
         let color:Int = style.getStyleProperty("color")!.value as! Int
-        let alpha:Float = style.getStyleProperty("alpha")!.value as! Float
+        let alpha:Double = style.getStyleProperty("alpha")!.value as! Double
         
-        let nsColor = ColorParser.nsColor(color, alpha)
+        let nsColor = ColorParser.nsColor(color, Float(alpha))
         let cgColor = NSColorParser.cgColor(nsColor)
         
         if(nsColor != NSColor.clearColor()){/*clearColor: 0.0 white, 0.0 alpha */
