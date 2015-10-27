@@ -62,6 +62,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createButtons(){
+        /*
         var buttons:Array<NSButton> = []
         
         //TODO:  store buttons globaly, and switch in the myaction call
@@ -70,16 +71,19 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         //create a custom button class that overides the drawing , the style it however you like. hover, press etc (Try that DrawCode app maybe?)
         for title:String in titles{
+            
             let button = Create.simpleTextButton(title)
             view.addSubview(button)//Add button to view
             
             button.target = self//event dispataches to this instance
             button.action = "myAction:"//event dispatches to this method
             buttons.append(button)//add button to button list
+
         }
         let x = Table.leftPadding
         let y = Win.height - Win.topPadding - EditMenu.height + EditMenu.topPadding + 12//<- the last one could be the header taking up space or or?
         Align.horizontally(buttons,"left",Win.width,x,y,EditMenu.spacing)//aligns the buttons
+        */
     }
     /**
     *
