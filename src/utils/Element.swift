@@ -31,6 +31,8 @@ extension IElement{
         let color:Int = style.getStyleProperty("color")!.value as! Int
         let alpha:Float = style.getStyleProperty("alpha")!.value as! Float
         
+        let nsColor = ColorParser.nsColor(hex, color)
+        let cgColor = NSColorParser.cgColor(nsColor)
         
         if(style.fill.color != NSColor.clearColor()){
             layer?.backgroundColor = style.fill.cgColor
