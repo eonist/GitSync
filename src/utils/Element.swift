@@ -4,8 +4,8 @@ protocol IElement:IView{
 }
 
 class Element: FlippedView,IElement {
-    var style:IStyle
-    init(_ width: Int = 100, _ height: Int = 40, _ style:IStyle = Style.clear){
+    var style:IGraphicStyle
+    init(_ width: Int = 100, _ height: Int = 40, _ style:IGraphicStyle = GraphicStyle.clear){
         self.style = style
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
         super.init(frame: frame)

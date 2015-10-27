@@ -1,7 +1,7 @@
 import Foundation
 
 class TextButton:Button {
-    init(_ title:String = "",_ width: Int = 100, _ height: Int = 40, _ style:IStyle = Style.clear) {
+    init(_ title:String = "",_ width: Int = 100, _ height: Int = 40, _ style:IGraphicStyle = Style.clear) {
         super.init(width, height, style)
         self.title = title
     }
