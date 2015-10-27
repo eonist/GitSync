@@ -27,7 +27,7 @@ class Panel:Section {
         let nameTextInput = TextInput(300,36,"Name: ","")
         addSubview(nameTextInput)
         //Local Path: text input field and browse button
-        let style = Style(Fill(NSColor.purpleColor()))
+        let style = Style(Fill(ColorParser.nsColor("#FF0000")!))
         let localPathSection = Section(500,24,style)
         addSubview(localPathSection)
         
