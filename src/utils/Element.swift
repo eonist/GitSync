@@ -28,6 +28,7 @@ class Element: FlippedView,IElement {
 extension IElement{
     /*
     * Draws the graphics
+    * NOTE: this method is embedded in an extension so that class one can add functionality to Classes that cant extend Element (like NSButton)
     */
     func resolveSkin() {
         if(style.fill.color != NSColor.clearColor()){
