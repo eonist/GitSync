@@ -1,7 +1,7 @@
 import Cocoa
 //can you overide functionality with extension? if so you may be able to do the updateLayer another place for all similar graphic elements
 //research the above
-class Button: NSButton,IElement {
+class Button: NSButton/*,IElement */{
     var style:IGraphicStyle
     init(_ width: Int = 100, _ height: Int = 40, _ style:IGraphicStyle = GraphicStyle.clear) {
         self.style = style
@@ -29,7 +29,7 @@ class Button: NSButton,IElement {
                 break;
         
         }
-        resolveSkin()//extension method that draws the graphics
+        //resolveSkin()//extension method that draws the graphics
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

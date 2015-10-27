@@ -37,9 +37,13 @@ extension IElement{
         if(nsColor != NSColor.clearColor()){/*clearColor: 0.0 white, 0.0 alpha */
             layer?.backgroundColor = cgColor
         }
+        /*
+
         if(style.stroke.color != NSColor.clearColor()){
             layer?.borderColor = style.stroke.cgColor
             layer?.borderWidth = style.stroke.width
         }
+        
+        */
     }
 }
