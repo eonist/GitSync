@@ -2,7 +2,7 @@ import Cocoa
 
 class Button: NSButton {
     var style:IStyle
-    init(_ width: Int = 100, _ height: Int = 100, _ style:IStyle = Style.clear) {
+    init(_ width: Int = 100, _ height: Int = 40, _ style:IStyle = Style.clear) {
         self.style = style
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
         super.init(frame: frame)

@@ -31,7 +31,7 @@ class Panel:Section {
         localPathContainer.addSubview(localPathTextInput)
         
         //browse button
-        let browseButton = Create.simpleTextButton("Browse")
+        let browseButton = TextButton("Browse")
         localPathContainer.addSubview(browseButton)//Add button to view
         browseButton.frame.origin.x = localPathTextInput.frame.origin.x + localPathTextInput.frame.width +  12
         //browseButton.frame.origin.y = localPathTextInput.frame.origin.y

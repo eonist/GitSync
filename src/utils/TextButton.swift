@@ -1,8 +1,8 @@
 import Foundation
 
 class TextButton:Button {
-    init(title:String = ""){
-        super.init()
+    init(_ title:String = "",_ width: Int = 100, _ height: Int = 40, _ style:IStyle = Style.clear) {
+        super.init(width, height, style)
         self.title = title
     }
     required init?(coder: NSCoder) {
