@@ -29,7 +29,7 @@ extension IElement{
     */
     func resolveSkin() {
         //fill
-        let fillColor:Int = style.getStyleProperty("fillColor")!.value as! Int
+        let fillColor:String = style.getStyleProperty("fillColor")!.value as! String
         //Swift.print("fillColor: " + "\(fillColor)")
         
         let fillAlpha:Double = style.getStyleProperty("fillAlpha")!.value as! Double
@@ -43,7 +43,7 @@ extension IElement{
             
         }
         
-        let lineColor:Int = style.getStyleProperty("lineColor")!.value as! Int
+        let lineColor:String = style.getStyleProperty("lineColor")!.value as! String
         let lineAlpha:Double = style.getStyleProperty("lineAlpha")!.value as! Double
         let lineWidth:Int = style.getStyleProperty("lineWidth")!.value as! Int
         
