@@ -28,7 +28,8 @@ extension IElement{
     * NOTE: this method is embedded in an extension so that class one can add functionality to Classes that cant extend Element (like NSButton)
     */
     func resolveSkin() {
-        style.styleProperties
+        let color:Int = style.getStyleProperty("color")!.value as Int
+        let color:Float = style.getStyleProperty("opacity").value as Float
         if(style.fill.color != NSColor.clearColor()){
             layer?.backgroundColor = style.fill.cgColor
         }
