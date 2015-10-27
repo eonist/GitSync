@@ -43,5 +43,13 @@ extension IElement{
             
         }
         
+        let lineColor:Int = style.getStyleProperty("lineColor")!.value as! Int
+        
+        //Swift.print("lineColor: " + "\(lineColor)")
+        
+        let nsLineColor = ColorParser.nsColor(fillColor, 1)
+        let cgLineColor = NSColorParser.cgColor(nsLineColor)
+        
+        Swift.print("whats wrong 2")
     }
 }
