@@ -1,5 +1,5 @@
 import Foundation
 
-protocol IStyle{
-    
+protocol IStyle {
+    var name:String {get}
 }
