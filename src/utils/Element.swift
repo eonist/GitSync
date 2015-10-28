@@ -42,7 +42,7 @@ extension IElement {
     * NOTE: this method is embedded in an extension so that class one can add functionality to Classes that cant extend Element (like NSButton)
     */
     func resolveSkin() {
-        Swift.print("resolveSkin")
+        Swift.print("resolveSkin: " + "\(String(self))")
         //print("Obj name: " + "\((self as! NSObject).className)")
         //print("Obj name: " + "\(String(self))")
         let classType:String = getClassType()
@@ -67,6 +67,6 @@ extension IElement {
         
         let nsFillColor = ColorParser.nsColor(fillColor, Float(fillAlpha))//fill
         let nsLineColor = ColorParser.nsColor(lineColor, Float(lineAlpha))//line
-        ViewModifier.applyColor(layer!, nsFillColor, nsLineColor, lineWidth)
+        ViewModifier.applyColor(self, nsFillColor, nsLineColor, lineWidth)
     }
 }
