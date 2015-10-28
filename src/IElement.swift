@@ -1,5 +1,5 @@
 import Foundation
-protocol IElement:IView{
+protocol IElement:class, IView{
     func resolveSkin()
     var style:IStyle{get}
     func setStyle(style:IStyle)
