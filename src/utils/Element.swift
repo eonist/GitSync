@@ -32,7 +32,7 @@ extension IElement{
         //TODO: Figure out what css like "over color" is named as a Style.name, the use this namingconvention when you create your test styles
         //TODO: add this GraphicModifier.applyProperties to your code
         
-        style = StyleManager.getStyle("element")!
+        self.style = StyleManager.getStyle("element")!
         
         //fill
         let fillColor:String = style.getStyleProperty("fillColor")!.value as! String
