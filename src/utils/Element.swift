@@ -12,7 +12,7 @@ class Element: FlippedView,IElement {
     */
     override func updateLayer() {
         Swift.print("Obj name: " + "\((self as! NSObject).className)")
-        Swift.print("Obj name: " + "\(String(self))")
+        Swift.print("Obj name: " + "\(String(Element))")
         resolveSkin()//extension method that draws the graphics
     }
     /*
