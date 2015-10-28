@@ -84,7 +84,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         
         //Swift.print(StyleManager.getStyle("element")!.name)
-        let element = Element(100,100,elementStyle)
+        let element = Element(100,100)
         view.addSubview(element)
     }
     /*
