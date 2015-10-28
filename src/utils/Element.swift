@@ -1,9 +1,8 @@
 import Cocoa
 
 class Element: FlippedView,IElement {
-    var style:IStyle
-    init(_ width: Int = 100, _ height: Int = 40, _ style:IStyle = Style.clear){
-        self.style = style
+    var style:IStyle = Style.clear
+    init(_ width: Int = 100, _ height: Int = 40){
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
         super.init(frame: frame)
         self.wantsLayer = true//need for the updateLayer method to be called internally
@@ -33,7 +32,7 @@ extension IElement{
         //TODO: Figure out what css like "over color" is named as a Style.name, the use this namingconvention when you create your test styles
         //TODO: add this GraphicModifier.applyProperties to your code
         
-        
+        style = StyleManager.getStyle("element")!
         
         //fill
         let fillColor:String = style.getStyleProperty("fillColor")!.value as! String
