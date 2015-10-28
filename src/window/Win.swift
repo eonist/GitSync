@@ -67,7 +67,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //Swift.print(buttonStyle.name)
         
         //idle style:
-        let idleStyleSelector:ISelector = Selector("Element",[],"",[""])
+        let idleStyleSelector:ISelector = Selector("Element",[],"",[SkinStates.none])
         let idleStyle:IStyle = Style("idleStyle",[],idleStyleSelector)
         idleStyle.addStyleProperty(StyleProperty("fillcolor", Colors.purple))
         idleStyle.addStyleProperty(StyleProperty("fillalpha", 1.0))
@@ -77,7 +77,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         StyleManager.addStyle(idleStyle)
         
         //down style:
-        let downStyleSelector:ISelector = Selector("Element",[],"",["down"])
+        let downStyleSelector:ISelector = Selector("Element",[],"",[SkinStates.down])
         let downStyle:IStyle = Style("downStyle",[],downStyleSelector)
         downStyle.addStyleProperty(StyleProperty("downfillcolor", Colors.lightBlue))
         downStyle.addStyleProperty(StyleProperty("downfillalpha", 1.0))
