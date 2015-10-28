@@ -85,7 +85,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         elementStyle.addStyleProperty(StyleProperty("downlinewidth", 5))
         StyleManager.addStyle(elementStyle)
         
+        //TODO: there is a problem with the bellow code that it removes some styleProperties from the element style fix this
         
+        /*
         var buttonStyle:IStyle = Style("Button")
         buttonStyle = StyleModifier.clone(elementStyle,"Button")
         StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("fillcolor", Colors.orange))
@@ -93,7 +95,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("linecolor", Colors.red))
         StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("downlinecolor", Colors.darkGray))
         StyleManager.addStyle(buttonStyle)
-        
+        */
         //ColorParser.nsColor(0xFFFF00, 1)
         
         
