@@ -71,20 +71,32 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         let elementStyle:IStyle = Style("Element")
         
-        let downStyleSelector:ISelector = Selector("Element",[],"",["down"])
+        
         //Fill
         elementStyle.addStyleProperty(StyleProperty("fillcolor", Colors.purple))
-        elementStyle.addStyleProperty(StyleProperty("downfillcolor", Colors.lightBlue))
+        
         elementStyle.addStyleProperty(StyleProperty("fillalpha", 1.0))
         elementStyle.addStyleProperty(StyleProperty("downfillalpha", 1.0))
         
         //Line
         elementStyle.addStyleProperty(StyleProperty("linecolor", Colors.lightGray))
-        elementStyle.addStyleProperty(StyleProperty("downlinecolor", Colors.darkGray))
+        
         elementStyle.addStyleProperty(StyleProperty("linealpha", 1.0))
-        elementStyle.addStyleProperty(StyleProperty("downlinealpha", 1.0))
+        
         elementStyle.addStyleProperty(StyleProperty("linewidth", 5))
+        
+        
+        
+        //idle style:
+        let idleStyleSelector:ISelector = Selector("Element",[],"",[""])
+        
+        //down style:
+        let downStyleSelector:ISelector = Selector("Element",[],"",["down"])
+        elementStyle.addStyleProperty(StyleProperty("downfillcolor", Colors.lightBlue))
+        elementStyle.addStyleProperty(StyleProperty("downlinecolor", Colors.darkGray))
+        elementStyle.addStyleProperty(StyleProperty("downlinealpha", 1.0))
         elementStyle.addStyleProperty(StyleProperty("downlinewidth", 5))
+        
         StyleManager.addStyle(elementStyle)
         
         //TODO: there is a problem with the bellow code that it removes some styleProperties from the element style fix this
