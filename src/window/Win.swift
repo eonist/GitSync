@@ -92,28 +92,18 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("downfillcolor", Colors.lightBlue))
         StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("linecolor", Colors.red))
         StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("downlinecolor", Colors.darkGray))
-        
-        
-        //Line
-        buttonStyle.addStyleProperty(StyleProperty("linecolor", Colors.red))
-        buttonStyle.addStyleProperty(StyleProperty("downlinecolor", Colors.darkGray))
-        buttonStyle.addStyleProperty(StyleProperty("linealpha", 1.0))
-        buttonStyle.addStyleProperty(StyleProperty("downlinealpha", 1.0))
-        buttonStyle.addStyleProperty(StyleProperty("linewidth", 5))
-        buttonStyle.addStyleProperty(StyleProperty("downlinewidth", 5))
-       
         StyleManager.addStyle(buttonStyle)
         
         //ColorParser.nsColor(0xFFFF00, 1)
         
         
         //Swift.print(StyleManager.getStyle("element")!.name)
-        //let element = Element(100,100)
-        //view.addSubview(element)
+        let element = Element(100,100)
+        view.addSubview(element)
         
         
-        let button = Button(100,36)//"Browse",
-        view.addSubview(button)//Add button to view
+        //let button = Button(100,36)//"Browse",
+        //view.addSubview(button)//Add button to view
         //button.frame.origin.x = element.frame.origin.x + element.frame.width +  12
         
         
