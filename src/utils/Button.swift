@@ -14,8 +14,10 @@ class Button: NSButton,IElement{
         Swift.print("redraw: ")
         if(self.cell!.highlighted){
             Swift.print("pressed state")
+            skinState = SkinStates.down
         }else{
             Swift.print("unPressed state")
+            skinState = SkinStates.none
         }
         /*These states can be used for toggle buttons*/
         switch self.state {
@@ -29,7 +31,7 @@ class Button: NSButton,IElement{
                 break;
         
         }
-        //resolveSkin()//extension method that draws the graphics
+        resolveSkin()//extension method that draws the graphics
     }
     func setStyle(style:IStyle){
         self.style = style
