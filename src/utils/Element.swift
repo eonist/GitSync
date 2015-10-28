@@ -13,6 +13,9 @@ class Element: FlippedView,IElement {
     override func updateLayer() {
         resolveSkin()//extension method that draws the graphics
     }
+    func setStyle(style:IStyle){
+        self.style = style
+    }
     /*
     * Required by NSView
     */
@@ -26,13 +29,13 @@ extension IElement{
     * Draws the graphics
     * NOTE: this method is embedded in an extension so that class one can add functionality to Classes that cant extend Element (like NSButton)
     */
-    mutating func resolveSkin() {
+    func resolveSkin() {
         
         
         //TODO: Figure out what css like "over color" is named as a Style.name, the use this namingconvention when you create your test styles
         //TODO: add this GraphicModifier.applyProperties to your code
         
-        self.style = StyleManager.getStyle("element")!
+        setStyle(StyleManager.getStyle("element")!)
         
         //fill
         let fillColor:String = style.getStyleProperty("fillColor")!.value as! String
