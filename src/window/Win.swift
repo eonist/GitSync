@@ -81,8 +81,8 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         elementStyle.addStyleProperty(StyleProperty("downlinecolor", Colors.darkGray))
         elementStyle.addStyleProperty(StyleProperty("linealpha", 1.0))
         elementStyle.addStyleProperty(StyleProperty("downlinealpha", 1.0))
-        elementStyle.addStyleProperty(StyleProperty("linewidth", 5))
-        elementStyle.addStyleProperty(StyleProperty("downlinewidth", 5))
+        elementStyle.addStyleProperty(StyleProperty("linewidth", 15))
+        elementStyle.addStyleProperty(StyleProperty("downlinewidth", 15))
         StyleManager.addStyle(elementStyle)
         
         //TODO: there is a problem with the bellow code that it removes some styleProperties from the element style fix this
@@ -100,7 +100,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         
         //Swift.print(StyleManager.getStyle("element")!.name)
-        let element = Element(100,100)
+        let element = Element(400,400)
         view.addSubview(element)
         
         
