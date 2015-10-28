@@ -2,7 +2,7 @@ import Cocoa
 
 class Element: FlippedView,IElement {
     var style:IStyle = Style.clear
-    var skinState:String = ""
+    var skinState:String = SkinStates.none
     init(_ width: Int = 100, _ height: Int = 40){
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
         super.init(frame: frame)
@@ -45,17 +45,22 @@ extension IElement{
         //print("Obj name: " + "\((self as! NSObject).className)")
         //print("Obj name: " + "\(String(self))")
         setStyle(StyleManager.getStyle(getClassType())!)
-        let fillColor:String = style.getStyleProperty("fillColor")!.value as! String
-        let fillAlpha:Double = style.getStyleProperty("fillAlpha")!.value as! Double
-        let lineColor:String = style.getStyleProperty("lineColor")!.value as! String
-        let lineAlpha:Double = style.getStyleProperty("lineAlpha")!.value as! Double
-        let lineWidth:Int = style.getStyleProperty("lineWidth")!.value as! Int
+        var fillColor:String = style.getStyleProperty("fillColor")!.value as! String
+        var fillAlpha:Double = style.getStyleProperty("fillAlpha")!.value as! Double
+        var lineColor:String = style.getStyleProperty("lineColor")!.value as! String
+        var lineAlpha:Double = style.getStyleProperty("lineAlpha")!.value as! Double
+        var lineWidth:Int = style.getStyleProperty("lineWidth")!.value as! Int
 
         switch skinState{
             case SkinStates.none:
                 Swift.print("none")
             case SkinStates.down:
                 Swift.print("down")
+                fillColor = style.getStyleProperty("downFillColor")!.value as! String
+                fillAlpha = style.getStyleProperty("downFillAlpha")!.value as! Double
+                lineColor = style.getStyleProperty("downLineColor")!.value as! String
+                lineAlpha = style.getStyleProperty("downLineAlpha")!.value as! Double
+                lineWidth = style.getStyleProperty("downLineWidth")!.value as! Int
             default:
                 break;
         }
