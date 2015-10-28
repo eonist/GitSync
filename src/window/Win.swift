@@ -71,7 +71,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         let elementStyle:IStyle = Style("Element")
         
-        
+        let downStyleSelector:ISelector = Selector("Element",[],"",["down"])
         //Fill
         elementStyle.addStyleProperty(StyleProperty("fillcolor", Colors.purple))
         elementStyle.addStyleProperty(StyleProperty("downfillcolor", Colors.lightBlue))
