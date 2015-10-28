@@ -69,7 +69,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //StyleManager.addStyle(buttonStyle)
         
         
-        let elementStyle:IStyle = Style("elementStyle")
+        let elementStyle:IStyle = Style("element")
         //Fill
         elementStyle.addStyleProperty(StyleProperty("fillColor", Colors.purple))
         elementStyle.addStyleProperty(StyleProperty("fillAlpha", 1.0))
@@ -83,7 +83,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //ColorParser.nsColor(0xFFFF00, 1)
         
         
-        Swift.print(StyleManager.getStyle("elementStyle")!.name)
+        //Swift.print(StyleManager.getStyle("element")!.name)
         let element = Element(100,100,elementStyle)
         view.addSubview(element)
     }
