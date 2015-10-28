@@ -86,6 +86,22 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         StyleManager.addStyle(elementStyle)
         
         
+        let buttonStyle:IStyle = Style("Button")
+        //Fill
+        elementStyle.addStyleProperty(StyleProperty("fillColor", Colors.purple))
+        elementStyle.addStyleProperty(StyleProperty("downFillColor", Colors.lightBlue))
+        elementStyle.addStyleProperty(StyleProperty("fillAlpha", 1.0))
+        elementStyle.addStyleProperty(StyleProperty("downFillAlpha", 1.0))
+        
+        //Line
+        elementStyle.addStyleProperty(StyleProperty("lineColor", Colors.lightGray))
+        elementStyle.addStyleProperty(StyleProperty("downLineColor", Colors.darkGray))
+        elementStyle.addStyleProperty(StyleProperty("lineAlpha", 1.0))
+        elementStyle.addStyleProperty(StyleProperty("downLineAlpha", 1.0))
+        elementStyle.addStyleProperty(StyleProperty("lineWidth", 5))
+        elementStyle.addStyleProperty(StyleProperty("downLineWidth", 5))
+        StyleManager.addStyle(buttonStyle)
+        
         //ColorParser.nsColor(0xFFFF00, 1)
         
         
@@ -94,7 +110,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         view.addSubview(element)
         
         
-        let button = Button(100,24,GraphicStyle.green)//"Browse",
+        let button = Button(100,24)//"Browse",
         view.addSubview(button)//Add button to view
         button.frame.origin.x = element.frame.origin.x + element.frame.width +  12
         
