@@ -34,7 +34,6 @@ extension IElement{
     */
     func resolveSkin() {
         
-        
         //TODO: Figure out what css like "over color" is named as a Style.name, the use this namingconvention when you create your test styles
         //TODO: add this GraphicModifier.applyProperties to your code
         
@@ -45,27 +44,13 @@ extension IElement{
         let fillAlpha:Double = style.getStyleProperty("fillAlpha")!.value as! Double
         //Swift.print("fillColor: " + "\(fillColor)")
         let nsFillColor = ColorParser.nsColor(fillColor, Float(fillAlpha))
-        let cgFillColor = NSColorParser.cgColor(nsFillColor)
-        
-        if(nsFillColor != NSColor.clearColor()){/*clearColor: 0.0 white, 0.0 alpha */
-            //Swift.print("fill")
-            layer?.backgroundColor = cgFillColor
-            
-        }
         
         //stroke
         let lineColor:String = style.getStyleProperty("lineColor")!.value as! String
         let lineAlpha:Double = style.getStyleProperty("lineAlpha")!.value as! Double
         let lineWidth:Int = style.getStyleProperty("lineWidth")!.value as! Int
-        //Swift.print("lineColor: " + "\(lineColor)")
         let nsLineColor = ColorParser.nsColor(lineColor, Float(lineAlpha))
-        let cgLineColor = NSColorParser.cgColor(nsLineColor)
-        //Swift.print(nsLineColor)
-        if(nsLineColor != NSColor.clearColor()){/*clearColor: 0.0 white, 0.0 alpha */
-            //Swift.print("line")
-            layer?.borderColor = cgLineColor
-            layer?.borderWidth = CGFloat(lineWidth)
-        }
-        //Swift.print("end of call")
+        
+        ViewModifier.applyColor(layer, nsFillColor, nsLineColor, lineWidth)
     }
 }
