@@ -44,8 +44,11 @@ extension IElement{
     func resolveSkin() {
         //print("Obj name: " + "\((self as! NSObject).className)")
         //print("Obj name: " + "\(String(self))")
-        setStyle(StyleManager.getStyle(getClassType())!)
+        let classType:String = getClassType()
+        Swift.print("classType: " + classType)
+        setStyle(StyleManager.getStyle(classType)!)
        
+        /*
         switch skinState{
             case SkinStates.none:
                 Swift.print("none")
@@ -54,6 +57,7 @@ extension IElement{
             default:
                 break;
         }
+        */
         let fillColor:String = style.getStyleProperty(skinState + "FillColor")!.value as! String
         let fillAlpha:Double = style.getStyleProperty(skinState + "FillAlpha")!.value as! Double
         let lineColor:String = style.getStyleProperty(skinState + "LineColor")!.value as! String
