@@ -82,15 +82,25 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         elementStyle.addStyleProperty(StyleProperty("linealpha", 1.0))
         elementStyle.addStyleProperty(StyleProperty("downlinealpha", 1.0))
         elementStyle.addStyleProperty(StyleProperty("linewidth", 5))
-        elementStyle.addStyleProperty(StyleProperty("downlineWidth", 5))
+        elementStyle.addStyleProperty(StyleProperty("downlinewidth", 5))
         StyleManager.addStyle(elementStyle)
         
         
         var buttonStyle:IStyle = Style("Button")
         buttonStyle = StyleModifier.clone(elementStyle,"Button")
         StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("fillcolor", Colors.orange))
+        StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("downfillcolor", Colors.lightBlue))
         StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("linecolor", Colors.red))
-        StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("linewidth", 5))
+        StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("downlinecolor", Colors.darkGray))
+        
+        
+        //Line
+        buttonStyle.addStyleProperty(StyleProperty("linecolor", Colors.red))
+        buttonStyle.addStyleProperty(StyleProperty("downlinecolor", Colors.darkGray))
+        buttonStyle.addStyleProperty(StyleProperty("linealpha", 1.0))
+        buttonStyle.addStyleProperty(StyleProperty("downlinealpha", 1.0))
+        buttonStyle.addStyleProperty(StyleProperty("linewidth", 5))
+        buttonStyle.addStyleProperty(StyleProperty("downlinewidth", 5))
        
         StyleManager.addStyle(buttonStyle)
         
