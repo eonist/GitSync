@@ -87,6 +87,8 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         
         let buttonStyle:IStyle = Style("Button")
+        buttonStyle = StyleMod
+        /*
         //Fill
         buttonStyle.addStyleProperty(StyleProperty("fillcolor", Colors.orange))
         buttonStyle.addStyleProperty(StyleProperty("downfillcolor", Colors.lightBlue))
@@ -100,6 +102,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         buttonStyle.addStyleProperty(StyleProperty("downlinealpha", 1.0))
         buttonStyle.addStyleProperty(StyleProperty("linewidth", 5))
         buttonStyle.addStyleProperty(StyleProperty("downlinewidth", 5))
+        */
         StyleManager.addStyle(buttonStyle)
         
         //ColorParser.nsColor(0xFFFF00, 1)
