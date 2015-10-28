@@ -13,6 +13,9 @@ class Element: FlippedView,IElement {
     override func updateLayer() {
         resolveSkin()//extension method that draws the graphics
     }
+    /*
+    * Temp until you can access syle from an extension
+    */
     func setStyle(style:IStyle){
         self.style = style
     }
