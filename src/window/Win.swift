@@ -102,6 +102,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         //Swift.print(StyleManager.getStyle("element")!.name)
         let element = Element(100,100)
+        element.skinState = SkinStates.down
         view.addSubview(element)
         
         
