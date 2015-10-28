@@ -74,7 +74,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         elementStyle.addStyleProperty(StyleProperty("fillColor", Colors.purple))
         elementStyle.addStyleProperty(StyleProperty("downFillColor", Colors.lightBlue))
         elementStyle.addStyleProperty(StyleProperty("fillAlpha", 1.0))
-        elementStyle.addStyleProperty(StyleProperty("downAlpha", 1.0))
+        elementStyle.addStyleProperty(StyleProperty("downFillAlpha", 1.0))
         
         //Line
         elementStyle.addStyleProperty(StyleProperty("lineColor", Colors.lightGray))

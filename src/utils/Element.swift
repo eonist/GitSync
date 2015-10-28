@@ -2,7 +2,7 @@ import Cocoa
 
 class Element: FlippedView,IElement {
     var style:IStyle = Style.clear
-    var skinState:String = SkinStates.none
+    var skinState:String = SkinStates.down
     init(_ width: Int = 100, _ height: Int = 40){
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
         super.init(frame: frame)
