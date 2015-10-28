@@ -58,11 +58,11 @@ extension IElement{
                 Swift.print("none")
             case SkinStates.down:
                 Swift.print("down")
-                fillColor = style.getStyleProperty("downFillColor")!.value as! String
-                fillAlpha = style.getStyleProperty("downFillAlpha")!.value as! Double
-                lineColor = style.getStyleProperty("downLineColor")!.value as! String
-                lineAlpha = style.getStyleProperty("downLineAlpha")!.value as! Double
-                lineWidth = style.getStyleProperty("downLineWidth")!.value as! Int
+                fillColor = style.getStyleProperty("FillColor")!.value as! String
+                fillAlpha = style.getStyleProperty("FillAlpha")!.value as! Double
+                lineColor = style.getStyleProperty("LineColor")!.value as! String
+                lineAlpha = style.getStyleProperty("LineAlpha")!.value as! Double
+                lineWidth = style.getStyleProperty("LineWidth")!.value as! Int
             default:
                 break;
         }
