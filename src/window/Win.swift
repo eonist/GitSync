@@ -88,18 +88,18 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         let buttonStyle:IStyle = Style("Button")
         //Fill
-        elementStyle.addStyleProperty(StyleProperty("fillColor", Colors.purple))
-        elementStyle.addStyleProperty(StyleProperty("downFillColor", Colors.lightBlue))
-        elementStyle.addStyleProperty(StyleProperty("fillAlpha", 1.0))
-        elementStyle.addStyleProperty(StyleProperty("downFillAlpha", 1.0))
+        buttonStyle.addStyleProperty(StyleProperty("fillColor", Colors.orange))
+        buttonStyle.addStyleProperty(StyleProperty("downFillColor", Colors.lightBlue))
+        buttonStyle.addStyleProperty(StyleProperty("fillAlpha", 1.0))
+        buttonStyle.addStyleProperty(StyleProperty("downFillAlpha", 1.0))
         
         //Line
-        elementStyle.addStyleProperty(StyleProperty("lineColor", Colors.lightGray))
-        elementStyle.addStyleProperty(StyleProperty("downLineColor", Colors.darkGray))
-        elementStyle.addStyleProperty(StyleProperty("lineAlpha", 1.0))
-        elementStyle.addStyleProperty(StyleProperty("downLineAlpha", 1.0))
-        elementStyle.addStyleProperty(StyleProperty("lineWidth", 5))
-        elementStyle.addStyleProperty(StyleProperty("downLineWidth", 5))
+        buttonStyle.addStyleProperty(StyleProperty("lineColor", Colors.red))
+        buttonStyle.addStyleProperty(StyleProperty("downLineColor", Colors.darkGray))
+        buttonStyle.addStyleProperty(StyleProperty("lineAlpha", 1.0))
+        buttonStyle.addStyleProperty(StyleProperty("downLineAlpha", 1.0))
+        buttonStyle.addStyleProperty(StyleProperty("lineWidth", 5))
+        buttonStyle.addStyleProperty(StyleProperty("downLineWidth", 5))
         StyleManager.addStyle(buttonStyle)
         
         //ColorParser.nsColor(0xFFFF00, 1)
