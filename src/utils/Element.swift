@@ -50,7 +50,9 @@ extension IElement{
         var lineColor:String = style.getStyleProperty("lineColor")!.value as! String
         var lineAlpha:Double = style.getStyleProperty("lineAlpha")!.value as! Double
         var lineWidth:Int = style.getStyleProperty("lineWidth")!.value as! Int
-
+        
+        //TODO: find the code that creates the styleprop names like: downFillColor or create one
+        
         switch skinState{
             case SkinStates.none:
                 Swift.print("none")
