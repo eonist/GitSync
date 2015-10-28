@@ -46,7 +46,7 @@ extension IElement{
         //print("Obj name: " + "\(String(self))")
         setStyle(StyleManager.getStyle(getClassType())!)
         
-        
+        switch 
         //fill
         let fillColor:String = style.getStyleProperty("fillColor")!.value as! String
         let fillAlpha:Double = style.getStyleProperty("fillAlpha")!.value as! Double
