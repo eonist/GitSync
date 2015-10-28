@@ -86,8 +86,8 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         StyleManager.addStyle(elementStyle)
         
         
-        let buttonStyle:IStyle = Style("Button")
-        buttonStyle = StyleMod
+        var buttonStyle:IStyle = Style("Button")
+        buttonStyle = StyleModifier.clone(elementStyle,"Button")
         /*
         //Fill
         buttonStyle.addStyleProperty(StyleProperty("fillcolor", Colors.orange))
@@ -109,12 +109,12 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         
         //Swift.print(StyleManager.getStyle("element")!.name)
-        let element = Element(100,100)
-        view.addSubview(element)
+        //let element = Element(100,100)
+        //view.addSubview(element)
         
         
-        //let button = Button(100,24)//"Browse",
-        //view.addSubview(button)//Add button to view
+        let button = Button(100,36)//"Browse",
+        view.addSubview(button)//Add button to view
         //button.frame.origin.x = element.frame.origin.x + element.frame.width +  12
         
         
