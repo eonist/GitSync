@@ -1,5 +1,5 @@
 import Foundation
-class StyleUtils {
+class StyleModifier {
     /**
      * Clones a style
      * CSSParser.as, StyleHeritageResolver.as uses this function
