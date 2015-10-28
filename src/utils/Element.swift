@@ -59,14 +59,9 @@ extension IElement{
         let lineColor:String = style.getStyleProperty(skinState + "LineColor")!.value as! String
         let lineAlpha:Double = style.getStyleProperty(skinState + "LineAlpha")!.value as! Double
         let lineWidth:Int = style.getStyleProperty(skinState + "LineWidth")!.value as! Int
-        //fill
         
-        //Swift.print("fillColor: " + "\(fillColor)")
-        let nsFillColor = ColorParser.nsColor(fillColor, Float(fillAlpha))
-        
-        //stroke
-        let nsLineColor = ColorParser.nsColor(lineColor, Float(lineAlpha))
-        
+        let nsFillColor = ColorParser.nsColor(fillColor, Float(fillAlpha))//fill
+        let nsLineColor = ColorParser.nsColor(lineColor, Float(lineAlpha))//line
         ViewModifier.applyColor(layer!, nsFillColor, nsLineColor, lineWidth)
     }
 }
