@@ -11,8 +11,6 @@ class Element: FlippedView,IElement {
     * Called on init if wantsUpdateLayer is true
     */
     override func updateLayer() {
-        Swift.print("Obj name: " + "\((self as! NSObject).className)")
-        Swift.print("Obj name: " + "\(String(typeof(self)))")
         resolveSkin()//extension method that draws the graphics
     }
     /*
@@ -27,7 +25,7 @@ class Element: FlippedView,IElement {
     * @Note override this function in the first subClass and that subclass will be the class type for other sub-classes
     */
     func getClassType()->String{
-        return String(Element);
+        return String(Element)
     }
     /*
     * Required by NSView
@@ -45,7 +43,7 @@ extension IElement{
     func resolveSkin() {
         //print("Obj name: " + "\((self as! NSObject).className)")
         //print("Obj name: " + "\(String(self))")
-        setStyle(StyleManager.getStyle("element")!)
+        setStyle(StyleManager.getStyle(getClassType())!)
         
         
         //fill
