@@ -51,6 +51,6 @@ extension IElement{
         let lineWidth:Int = style.getStyleProperty("lineWidth")!.value as! Int
         let nsLineColor = ColorParser.nsColor(lineColor, Float(lineAlpha))
         
-        ViewModifier.applyColor(layer, nsFillColor, nsLineColor, lineWidth)
+        ViewModifier.applyColor(layer!, nsFillColor, nsLineColor, lineWidth)
     }
 }
