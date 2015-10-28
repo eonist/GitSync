@@ -26,7 +26,7 @@ extension IElement{
     * Draws the graphics
     * NOTE: this method is embedded in an extension so that class one can add functionality to Classes that cant extend Element (like NSButton)
     */
-    func resolveSkin() {
+    mutating func resolveSkin() {
         
         
         //TODO: Figure out what css like "over color" is named as a Style.name, the use this namingconvention when you create your test styles
