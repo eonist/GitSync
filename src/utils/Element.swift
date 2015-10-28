@@ -45,18 +45,26 @@ extension IElement{
         //print("Obj name: " + "\((self as! NSObject).className)")
         //print("Obj name: " + "\(String(self))")
         setStyle(StyleManager.getStyle(getClassType())!)
-        
-        switch 
-        //fill
         let fillColor:String = style.getStyleProperty("fillColor")!.value as! String
         let fillAlpha:Double = style.getStyleProperty("fillAlpha")!.value as! Double
+        let lineColor:String = style.getStyleProperty("lineColor")!.value as! String
+        let lineAlpha:Double = style.getStyleProperty("lineAlpha")!.value as! Double
+        let lineWidth:Int = style.getStyleProperty("lineWidth")!.value as! Int
+
+        switch skinState{
+            case SkinStates.none:
+                Swift.print("none")
+            case SkinStates.down:
+                Swift.print("down")
+            default:
+                break;
+        }
+        //fill
+        
         //Swift.print("fillColor: " + "\(fillColor)")
         let nsFillColor = ColorParser.nsColor(fillColor, Float(fillAlpha))
         
         //stroke
-        let lineColor:String = style.getStyleProperty("lineColor")!.value as! String
-        let lineAlpha:Double = style.getStyleProperty("lineAlpha")!.value as! Double
-        let lineWidth:Int = style.getStyleProperty("lineWidth")!.value as! Int
         let nsLineColor = ColorParser.nsColor(lineColor, Float(lineAlpha))
         
         ViewModifier.applyColor(layer!, nsFillColor, nsLineColor, lineWidth)
