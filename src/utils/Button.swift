@@ -2,9 +2,9 @@ import Cocoa
 //can you overide functionality with extension? if so you may be able to do the updateLayer another place for all similar graphic elements
 //research the above
 class Button: NSButton/*,IElement */{
-    var style:IGraphicStyle
-    init(_ width: Int = 100, _ height: Int = 40, _ style:IGraphicStyle = GraphicStyle.clear) {
-        self.style = style
+    var style:IStyle = Style.clear
+    var skinState:String = SkinStates.none
+    init(_ width: Int = 100, _ height: Int = 40) {
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
         super.init(frame: frame)
         self.wantsLayer = true//need for the updateLayer method to be called internally
@@ -30,6 +30,9 @@ class Button: NSButton/*,IElement */{
         
         }
         //resolveSkin()//extension method that draws the graphics
+    }
+    func setStyle(style:IStyle){
+        self.style = style
     }
     func getClassType()->String{
         return String(Button)
