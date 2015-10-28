@@ -69,21 +69,21 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //idle style:
         let idleStyleSelector:ISelector = Selector("Element",[],"",[SkinStates.none])
         let idleStyle:IStyle = Style("idleStyle",[],idleStyleSelector)
-        idleStyle.addStyleProperty(StyleProperty("fillcolor", Colors.purple))
-        idleStyle.addStyleProperty(StyleProperty("fillalpha", 1.0))
-        idleStyle.addStyleProperty(StyleProperty("linecolor", Colors.lightGray))
-        idleStyle.addStyleProperty(StyleProperty("linealpha", 1.0))
-        idleStyle.addStyleProperty(StyleProperty("linewidth", 5))
+        idleStyle.addStyleProperty(StyleProperty("fillColor", Colors.purple))
+        idleStyle.addStyleProperty(StyleProperty("fillAlpha", 1.0))
+        idleStyle.addStyleProperty(StyleProperty("lineColor", Colors.lightGray))
+        idleStyle.addStyleProperty(StyleProperty("lineAlpha", 1.0))
+        idleStyle.addStyleProperty(StyleProperty("lineWidth", 5))
         StyleManager.addStyle(idleStyle)
         
         //down style:
         let downStyleSelector:ISelector = Selector("Element",[],"",[SkinStates.down])
         let downStyle:IStyle = Style("downStyle",[],downStyleSelector)
-        downStyle.addStyleProperty(StyleProperty("downfillcolor", Colors.lightBlue))
-        downStyle.addStyleProperty(StyleProperty("downfillalpha", 1.0))
-        downStyle.addStyleProperty(StyleProperty("downlinecolor", Colors.darkGray))
-        downStyle.addStyleProperty(StyleProperty("downlinealpha", 1.0))
-        downStyle.addStyleProperty(StyleProperty("downlinewidth", 5))
+        downStyle.addStyleProperty(StyleProperty("fillColor", Colors.lightBlue))
+        downStyle.addStyleProperty(StyleProperty("fillAlpha", 1.0))
+        downStyle.addStyleProperty(StyleProperty("lineColor", Colors.darkGray))
+        downStyle.addStyleProperty(StyleProperty("lineAlpha", 1.0))
+        downStyle.addStyleProperty(StyleProperty("lineWidth", 5))
         StyleManager.addStyle(downStyle)
         
         //TODO: there is a problem with the bellow code that it removes some styleProperties from the element style fix this
