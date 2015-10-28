@@ -15,22 +15,15 @@ class StyleUtils {
     /**
     *
     */
-    class func overrideStyleProperty(style:IStyle, styleProperty:IStyleProperty){
-        var stylePropertiesLength:Int = style.styleProperties.count;
+    class func overrideStyleProperty(inout style:IStyle, styleProperty:IStyleProperty){// :TODO: argument should only be a styleProperty
+        let stylePropertiesLength:Int = style.styleProperties.count;
         for (var i:Int=0; i<stylePropertiesLength; i++) { // :TODO: use fore each
-            if(IStyleProperty(style.styleProperties[i]).name == styleProperty.name){
+            if((style.styleProperties[i] as IStyleProperty).name == styleProperty.name){
                 style.styleProperties[i] = styleProperty;
-                return;
+                break//was return
             }
         }
         Swift.print("\(String(style))"+" PROPERTY BY THE NAME OF "+styleProperty.name+" WAS NOT FOUND IN THE PROPERTIES ")//this should throw error
     }
 }
 
-
-/**
-*
-*/
-public static function overrideStyleProperty(style:IStyle, styleProperty:IStyleProperty):void {// :TODO: argument should only be a styleProperty
-    
-}
