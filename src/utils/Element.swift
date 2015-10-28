@@ -45,27 +45,21 @@ extension IElement{
         //print("Obj name: " + "\((self as! NSObject).className)")
         //print("Obj name: " + "\(String(self))")
         setStyle(StyleManager.getStyle(getClassType())!)
-        var fillColor:String = style.getStyleProperty("fillColor")!.value as! String
-        var fillAlpha:Double = style.getStyleProperty("fillAlpha")!.value as! Double
-        var lineColor:String = style.getStyleProperty("lineColor")!.value as! String
-        var lineAlpha:Double = style.getStyleProperty("lineAlpha")!.value as! Double
-        var lineWidth:Int = style.getStyleProperty("lineWidth")!.value as! Int
-        
-        //TODO: find the code that creates the styleprop names like: downFillColor or create one
-        
+       
         switch skinState{
             case SkinStates.none:
                 Swift.print("none")
             case SkinStates.down:
                 Swift.print("down")
-                fillColor = style.getStyleProperty("FillColor")!.value as! String
-                fillAlpha = style.getStyleProperty("FillAlpha")!.value as! Double
-                lineColor = style.getStyleProperty("LineColor")!.value as! String
-                lineAlpha = style.getStyleProperty("LineAlpha")!.value as! Double
-                lineWidth = style.getStyleProperty("LineWidth")!.value as! Int
+                
             default:
                 break;
         }
+        var fillColor:String = style.getStyleProperty(skinState + "FillColor")!.value as! String
+        var fillAlpha:Double = style.getStyleProperty(skinState + "FillAlpha")!.value as! Double
+        var lineColor:String = style.getStyleProperty(skinState + "LineColor")!.value as! String
+        var lineAlpha:Double = style.getStyleProperty(skinState + "LineAlpha")!.value as! Double
+        var lineWidth:Int = style.getStyleProperty(skinState + "LineWidth")!.value as! Int
         //fill
         
         //Swift.print("fillColor: " + "\(fillColor)")
