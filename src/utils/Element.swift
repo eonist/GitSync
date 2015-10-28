@@ -67,6 +67,6 @@ extension IElement {
         
         let nsFillColor = ColorParser.nsColor(fillColor, Float(fillAlpha))//fill
         let nsLineColor = ColorParser.nsColor(lineColor, Float(lineAlpha))//line
-        ViewModifier.applyColor(self, nsFillColor, nsLineColor, lineWidth)
+        ViewModifier.applyColor(self as! NSView, nsFillColor, nsLineColor, lineWidth)
     }
 }
