@@ -106,11 +106,16 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         view.addSubview(element)//it seems NSViews arent drawn until they are added to a subview. interesting
         
         
-        //let button = Button(100,36)//"Browse",
-        //view.addSubview(button)//Add button to view
-        //button.frame.origin.x = element.frame.origin.x + element.frame.width +  12
+        //TODO: Get the new stuff working with button
         
         
+        /*
+        let button = Button(100,36)//"Browse",
+        view.addSubview(button)//Add button to view
+        button.frame.origin.x = element.frame.origin.x + element.frame.width +  12
+        
+        
+        */
     }
     /*
     *
