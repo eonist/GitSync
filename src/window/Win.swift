@@ -69,7 +69,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //StyleManager.addStyle(buttonStyle)
         
         
-        let elementStyle:IStyle = Style("element")
+        let elementStyle:IStyle = Style("Element")
         //Fill
         elementStyle.addStyleProperty(StyleProperty("fillColor", Colors.purple))
         elementStyle.addStyleProperty(StyleProperty("fillAlpha", 1.0))
