@@ -88,21 +88,10 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         var buttonStyle:IStyle = Style("Button")
         buttonStyle = StyleModifier.clone(elementStyle,"Button")
-        /*
-        //Fill
-        buttonStyle.addStyleProperty(StyleProperty("fillcolor", Colors.orange))
-        buttonStyle.addStyleProperty(StyleProperty("downfillcolor", Colors.lightBlue))
-        buttonStyle.addStyleProperty(StyleProperty("fillalpha", 1.0))
-        buttonStyle.addStyleProperty(StyleProperty("downfillalpha", 1.0))
-        
-        //Line
-        buttonStyle.addStyleProperty(StyleProperty("linecolor", Colors.red))
-        buttonStyle.addStyleProperty(StyleProperty("downlinecolor", Colors.darkGray))
-        buttonStyle.addStyleProperty(StyleProperty("linealpha", 1.0))
-        buttonStyle.addStyleProperty(StyleProperty("downlinealpha", 1.0))
-        buttonStyle.addStyleProperty(StyleProperty("linewidth", 5))
-        buttonStyle.addStyleProperty(StyleProperty("downlinewidth", 5))
-        */
+        StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("fillcolor", Colors.orange))
+        StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("linecolor", Colors.red))
+        StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("linewidth", 5))
+       
         StyleManager.addStyle(buttonStyle)
         
         //ColorParser.nsColor(0xFFFF00, 1)
