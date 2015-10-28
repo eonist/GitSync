@@ -71,48 +71,48 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         let elementStyle:IStyle = Style("Element")
         //Fill
-        elementStyle.addStyleProperty(StyleProperty("fillColor", Colors.purple))
-        elementStyle.addStyleProperty(StyleProperty("downFillColor", Colors.lightBlue))
-        elementStyle.addStyleProperty(StyleProperty("fillAlpha", 1.0))
-        elementStyle.addStyleProperty(StyleProperty("downFillAlpha", 1.0))
+        elementStyle.addStyleProperty(StyleProperty("fillcolor", Colors.purple))
+        elementStyle.addStyleProperty(StyleProperty("downfillcolor", Colors.lightBlue))
+        elementStyle.addStyleProperty(StyleProperty("fillalpha", 1.0))
+        elementStyle.addStyleProperty(StyleProperty("downfillalpha", 1.0))
         
         //Line
-        elementStyle.addStyleProperty(StyleProperty("lineColor", Colors.lightGray))
-        elementStyle.addStyleProperty(StyleProperty("downLineColor", Colors.darkGray))
-        elementStyle.addStyleProperty(StyleProperty("lineAlpha", 1.0))
-        elementStyle.addStyleProperty(StyleProperty("downLineAlpha", 1.0))
-        elementStyle.addStyleProperty(StyleProperty("lineWidth", 5))
-        elementStyle.addStyleProperty(StyleProperty("downLineWidth", 5))
+        elementStyle.addStyleProperty(StyleProperty("linecolor", Colors.lightGray))
+        elementStyle.addStyleProperty(StyleProperty("downlinecolor", Colors.darkGray))
+        elementStyle.addStyleProperty(StyleProperty("linealpha", 1.0))
+        elementStyle.addStyleProperty(StyleProperty("downlinealpha", 1.0))
+        elementStyle.addStyleProperty(StyleProperty("linewidth", 5))
+        elementStyle.addStyleProperty(StyleProperty("downlineWidth", 5))
         StyleManager.addStyle(elementStyle)
         
         
         let buttonStyle:IStyle = Style("Button")
         //Fill
-        buttonStyle.addStyleProperty(StyleProperty("fillColor", Colors.orange))
-        buttonStyle.addStyleProperty(StyleProperty("downFillColor", Colors.lightBlue))
-        buttonStyle.addStyleProperty(StyleProperty("fillAlpha", 1.0))
-        buttonStyle.addStyleProperty(StyleProperty("downFillAlpha", 1.0))
+        buttonStyle.addStyleProperty(StyleProperty("fillcolor", Colors.orange))
+        buttonStyle.addStyleProperty(StyleProperty("downfillcolor", Colors.lightBlue))
+        buttonStyle.addStyleProperty(StyleProperty("fillalpha", 1.0))
+        buttonStyle.addStyleProperty(StyleProperty("downfillalpha", 1.0))
         
         //Line
-        buttonStyle.addStyleProperty(StyleProperty("lineColor", Colors.red))
-        buttonStyle.addStyleProperty(StyleProperty("downLineColor", Colors.darkGray))
-        buttonStyle.addStyleProperty(StyleProperty("lineAlpha", 1.0))
-        buttonStyle.addStyleProperty(StyleProperty("downLineAlpha", 1.0))
-        buttonStyle.addStyleProperty(StyleProperty("lineWidth", 5))
-        buttonStyle.addStyleProperty(StyleProperty("downLineWidth", 5))
+        buttonStyle.addStyleProperty(StyleProperty("linecolor", Colors.red))
+        buttonStyle.addStyleProperty(StyleProperty("downlinecolor", Colors.darkGray))
+        buttonStyle.addStyleProperty(StyleProperty("linealpha", 1.0))
+        buttonStyle.addStyleProperty(StyleProperty("downlinealpha", 1.0))
+        buttonStyle.addStyleProperty(StyleProperty("linewidth", 5))
+        buttonStyle.addStyleProperty(StyleProperty("downlinewidth", 5))
         StyleManager.addStyle(buttonStyle)
         
         //ColorParser.nsColor(0xFFFF00, 1)
         
         
         //Swift.print(StyleManager.getStyle("element")!.name)
-        let element = Element(100,100)
-        view.addSubview(element)
+        //let element = Element(100,100)
+        //view.addSubview(element)
         
         
         let button = Button(100,24)//"Browse",
         view.addSubview(button)//Add button to view
-        button.frame.origin.x = element.frame.origin.x + element.frame.width +  12
+        //button.frame.origin.x = element.frame.origin.x + element.frame.width +  12
         
         
     }
