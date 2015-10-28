@@ -41,7 +41,7 @@ extension IElement{
     * Draws the graphics
     * NOTE: this method is embedded in an extension so that class one can add functionality to Classes that cant extend Element (like NSButton)
     */
-    func resolveSkin() {
+    mutating func resolveSkin() {
         Swift.print("resolveSkin")
         //print("Obj name: " + "\((self as! NSObject).className)")
         //print("Obj name: " + "\(String(self))")

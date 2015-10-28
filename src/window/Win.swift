@@ -106,12 +106,12 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         
         //Swift.print(StyleManager.getStyle("element")!.name)
-        //let element = Element(100,100)
-        //view.addSubview(element)
+        let element = Element(100,100)
+        view.addSubview(element)
         
         
-        let button = Button(100,24)//"Browse",
-        view.addSubview(button)//Add button to view
+        //let button = Button(100,24)//"Browse",
+        //view.addSubview(button)//Add button to view
         //button.frame.origin.x = element.frame.origin.x + element.frame.width +  12
         
         
