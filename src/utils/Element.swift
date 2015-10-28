@@ -11,6 +11,8 @@ class Element: FlippedView,IElement {
     * Called on init if wantsUpdateLayer is true
     */
     override func updateLayer() {
+        Swift.print("Obj name: " + "\((self as! NSObject).className)")
+        Swift.print("Obj name: " + "\(String(self))")
         resolveSkin()//extension method that draws the graphics
     }
     /*
@@ -33,8 +35,8 @@ extension IElement{
     * NOTE: this method is embedded in an extension so that class one can add functionality to Classes that cant extend Element (like NSButton)
     */
     func resolveSkin() {
-        print("Obj name: " + "\((self as! NSObject).className)")
-        print("Obj name: " + "\(String(self))")
+        //print("Obj name: " + "\((self as! NSObject).className)")
+        //print("Obj name: " + "\(String(self))")
         setStyle(StyleManager.getStyle("element")!)
         
         
