@@ -85,9 +85,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         downStyle.addStyleProperty(StyleProperty("lineAlpha", 1.0))
         downStyle.addStyleProperty(StyleProperty("lineWidth", 5))
         StyleManager.addStyle(downStyle)
-        
-        //TODO: there is a problem with the bellow code that it removes some styleProperties from the element style fix this
-        
+       
         /*
         var buttonStyle:IStyle = Style("Button")
         buttonStyle = StyleModifier.clone(elementStyle,"Button")
@@ -99,6 +97,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         */
         //ColorParser.nsColor(0xFFFF00, 1)
         
+        let buttonStyle:IStyle = Style("buttonStyle")
+        
+        StyleManager.addStyle(buttonStyle)
         
         //Swift.print(StyleManager.getStyle("element")!.name)
         let element = Element(100,100)
