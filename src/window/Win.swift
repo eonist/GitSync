@@ -122,8 +122,11 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         
         
+        /*
         let button = Button(100,36)//"Browse",
         view.addSubview(button)//Add button to view
+        */
+        
         //button.frame.origin.x = element.frame.origin.x + element.frame.width +  12
         
     }
