@@ -98,20 +98,23 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //ColorParser.nsColor(0xFFFF00, 1)
         
         //button
+        /*
+        
         var idleButtonStyle:IStyle = Style("idleButtonStyle",[StyleProperty("fillcolor", Colors.green)],Selector("Button"))
         StyleModifier.merge(&idleButtonStyle, idleStyle)
         StyleManager.addStyle(idleButtonStyle)
         var downButtonStyle:IStyle = Style("downButtonStyle",[StyleProperty("fillcolor", Colors.yellow)],Selector("Button",[],"",["down"]))
         StyleModifier.merge(&downButtonStyle, downStyle)
         StyleManager.addStyle(downButtonStyle)
+        */
         
         //Swift.print(StyleManager.getStyle("element")!.name)
         
-        /*
+        
         let element = Element(100,100)
         element.skinState = SkinStates.none//SkinStates.down
         view.addSubview(element)//it seems NSViews arent drawn until they are added to a subview. interesting
-        */
+
         
         
         //continue here tomorrow
