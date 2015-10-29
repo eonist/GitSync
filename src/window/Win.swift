@@ -101,7 +101,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         var idleButtonStyle:IStyle = Style("idleButtonStyle",[StyleProperty("fillcolor", Colors.green)],Selector("Button"))
         StyleModifier.merge(&idleButtonStyle, idleStyle)
         StyleManager.addStyle(idleButtonStyle)
-        var downButtonStyle:IStyle = Style("downButtonStyle",[StyleProperty("fillcolor", Colors.yellow)],Selector("Button",[],))
+        var downButtonStyle:IStyle = Style("downButtonStyle",[StyleProperty("fillcolor", Colors.yellow)],Selector("Button",[],"",["down"]))
         StyleModifier.merge(&downButtonStyle, downStyle)
         StyleManager.addStyle(downButtonStyle)
         
