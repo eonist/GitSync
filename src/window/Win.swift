@@ -106,9 +106,12 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         StyleManager.addStyle(downButtonStyle)
         
         //Swift.print(StyleManager.getStyle("element")!.name)
+        
+        /*
         let element = Element(100,100)
         element.skinState = SkinStates.none//SkinStates.down
         view.addSubview(element)//it seems NSViews arent drawn until they are added to a subview. interesting
+        */
         
         
         //continue here tomorrow
@@ -119,16 +122,10 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         
         
-        
-        
-        
-        /*
         let button = Button(100,36)//"Browse",
         view.addSubview(button)//Add button to view
-        button.frame.origin.x = element.frame.origin.x + element.frame.width +  12
+        //button.frame.origin.x = element.frame.origin.x + element.frame.width +  12
         
-        
-        */
     }
     /*
     *
