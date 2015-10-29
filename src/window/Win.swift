@@ -122,7 +122,8 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //TODO: you need to create a base style that you clone, and merge in to others that you need
         //TODO: Get the new stuff working with button, 
         
-        
+        Swift.print("Color:")
+        Swift.print(ColorParser.nsColor(255, 0.0,  0.0))
         
         
         /*
