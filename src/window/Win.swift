@@ -124,7 +124,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         Swift.print("Color:")
         Swift.print(ColorParser.nsColor(255, 0.0,  0.0))
-        
+        Swift.print(NSColor.redColor())
         
         /*
         let button = Button(100,36)//"Browse",
