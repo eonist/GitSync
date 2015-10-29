@@ -97,9 +97,13 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         */
         //ColorParser.nsColor(0xFFFF00, 1)
         
-        let buttonStyle:IStyle = Style("buttonStyle")
-        
-        StyleManager.addStyle(buttonStyle)
+        //button
+        var idleButtonStyle:IStyle = Style("idleButtonStyle")
+        StyleModifier.merge(&idleButtonStyle, idleStyle)
+        StyleManager.addStyle(idleButtonStyle)
+        var downButtonStyle:IStyle = Style("downButtonStyle")
+        StyleModifier.merge(&downButtonStyle, downStyle)
+        StyleManager.addStyle(downButtonStyle)
         
         //Swift.print(StyleManager.getStyle("element")!.name)
         let element = Element(100,100)
