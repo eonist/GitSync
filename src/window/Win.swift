@@ -111,7 +111,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //Swift.print(StyleManager.getStyle("element")!.name)
         
         
-        let element = Element(100,100)
+        let element = Element(400,400)
         element.skinState = SkinStates.none//SkinStates.down
         view.addSubview(element)//it seems NSViews arent drawn until they are added to a subview. interesting
 
