@@ -106,10 +106,6 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         view.addSubview(element)//it seems NSViews arent drawn until they are added to a subview. interesting
         
         
-        
-        
-        
-        
         //continue here tomorrow
         
         //TODO: you need to create a base style that you clone, and merge in to others that you need
