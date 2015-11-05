@@ -104,6 +104,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         StyleManager.addStyle(downStyle)
         /**/
         
+         /*
         //idle
         let buttonIdleSelector:ISelector = Selector("Button",[],"",[SkinStates.none])
         var buttonIdleStyle:IStyle = Style("buttonIdleStyle",[], buttonIdleSelector)
@@ -117,14 +118,14 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         buttonDownStyle = StyleModifier.clone(downStyle,"buttonDownStyle")
         StyleModifier.overrideStyleProperty(&buttonDownStyle, StyleProperty("downLineColor", Colors.darkGray))
         StyleModifier.overrideStyleProperty(&buttonDownStyle, StyleProperty("downFillColor", Colors.lightBlue))
-        
+        */
         
         
         /**/
         //ColorParser.nsColor(0xFFFF00, 1)
         
         //button
-        /*
+        
         
         var idleButtonStyle:IStyle = Style("idleButtonStyle",[StyleProperty("fillcolor", Colors.green)],Selector("Button"))
         StyleModifier.merge(&idleButtonStyle, idleStyle)
@@ -132,7 +133,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         var downButtonStyle:IStyle = Style("downButtonStyle",[StyleProperty("fillcolor", Colors.yellow)],Selector("Button",[],"",["down"]))
         StyleModifier.merge(&downButtonStyle, downStyle)
         StyleManager.addStyle(downButtonStyle)
-        */
+        /**/
         
         //Swift.print(StyleManager.getStyle("element")!.name)
         
