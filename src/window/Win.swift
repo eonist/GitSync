@@ -66,6 +66,13 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //let buttonStyle:IStyle = Style("buttonStyle",[StyleProperty("idleColor",0xFF0000),StyleProperty("overColor",0x0000FF)])
         //Swift.print(buttonStyle.name)
         
+        
+        //gradientStyle
+        let idleStyle2Selctor:ISelector = Selector("Element",[],"",[SkinStates.none])
+        let idleStyle2:IStyle = Style("idleStyle2",[],idleStyle2Selctor)
+        idleStyle2.addStyleProperty(StyleProperty("fillColor", Colors.purple))
+        idleStyle2.addStyleProperty(StyleProperty("lineWidth", 12))
+        
         //idle style:
         /**
         *
