@@ -1,3 +1,6 @@
+[GitSyncOSX progress](https://github.com/eonist/GitSyncOSX/wiki/GitSyncOSX-Progress)   
+
+
 [GitSync v0.9.54](https://github.com/eonist/GitSync/releases/tag/0.9.54) 
 
 
