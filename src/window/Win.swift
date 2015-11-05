@@ -68,6 +68,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         
         //gradientStyle
+        /*
         let idleStyle2Selctor:ISelector = Selector("Element",[],"",[SkinStates.none])
         let idleStyle2:IStyle = Style("idleStyle2",[],idleStyle2Selctor)
         idleStyle2.addStyleProperty(StyleProperty("fillGradientColorA", Colors.lightGray))
@@ -76,12 +77,12 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         idleStyle2.addStyleProperty(StyleProperty("lineColor", Colors.lightGray))
         idleStyle2.addStyleProperty(StyleProperty("lineAlpha", 1.0))
         StyleManager.addStyle(idleStyle2)
-        
+        */
         //idle style:
         /**
          *
          */
-        /*
+       
         let idleStyleSelector:ISelector = Selector("Element",[],"",[SkinStates.none])
         let idleStyle:IStyle = Style("idleStyle",[],idleStyleSelector)
         idleStyle.addStyleProperty(StyleProperty("fillColor", Colors.purple))
@@ -90,9 +91,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         idleStyle.addStyleProperty(StyleProperty("lineAlpha", 1.0))
         idleStyle.addStyleProperty(StyleProperty("lineWidth", 12))
         StyleManager.addStyle(idleStyle)
-        */
+         /**/
         //down style:
-        /*
+        
         let downStyleSelector:ISelector = Selector("Element",[],"",[SkinStates.down])
         let downStyle:IStyle = Style("downStyle",[],downStyleSelector)
         downStyle.addStyleProperty(StyleProperty("fillColor", Colors.lightBlue))
@@ -101,8 +102,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         downStyle.addStyleProperty(StyleProperty("lineAlpha", 1.0))
         downStyle.addStyleProperty(StyleProperty("lineWidth", 5))
         StyleManager.addStyle(downStyle)
-        */
-        /*
+        /**/
+        
+        let buttonSelector:ISelector = Selector("Button",[],"",[SkinStates.Idle])
         var buttonStyle:IStyle = Style("Button")
         buttonStyle = StyleModifier.clone(elementStyle,"Button")
         StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("fillcolor", Colors.orange))
@@ -110,7 +112,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("linecolor", Colors.red))
         StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("downlinecolor", Colors.darkGray))
         StyleManager.addStyle(buttonStyle)
-        */
+        /**/
         //ColorParser.nsColor(0xFFFF00, 1)
         
         //button
@@ -127,10 +129,11 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //Swift.print(StyleManager.getStyle("element")!.name)
         
         
+        /*
         let element = Element(400,400)
         element.skinState = SkinStates.none//SkinStates.down
         view.addSubview(element)//it seems NSViews arent drawn until they are added to a subview. interesting
-
+        */
         
         
         //continue here tomorrow
