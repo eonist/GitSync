@@ -67,6 +67,10 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //Swift.print(buttonStyle.name)
         
         //idle style:
+        /**
+        *
+        */
+        
         let idleStyleSelector:ISelector = Selector("Element",[],"",[SkinStates.none])
         let idleStyle:IStyle = Style("idleStyle",[],idleStyleSelector)
         idleStyle.addStyleProperty(StyleProperty("fillColor", Colors.purple))
