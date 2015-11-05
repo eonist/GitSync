@@ -70,7 +70,6 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //gradientStyle
         let idleStyle2Selctor:ISelector = Selector("Element",[],"",[SkinStates.none])
         let idleStyle2:IStyle = Style("idleStyle2",[],idleStyle2Selctor)
-        //idleStyle2.addStyleProperty(StyleProperty("fillGradientType", "linear"))
         idleStyle2.addStyleProperty(StyleProperty("fillGradientColorA", Colors.lightGray))
         idleStyle2.addStyleProperty(StyleProperty("fillGradientColorB", Colors.purple))
         idleStyle2.addStyleProperty(StyleProperty("lineWidth", 12))
