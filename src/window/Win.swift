@@ -104,14 +104,22 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         StyleManager.addStyle(downStyle)
         /**/
         
+        //idle
         let buttonIdleSelector:ISelector = Selector("Button",[],"",[SkinStates.none])
-        var buttonStyle:IStyle = Style("buttonIdleStyle",[], buttonIdleSelector)
-        buttonStyle = StyleModifier.clone(idleStyle,"buttonIdleStyle")
-        StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("fillcolor", Colors.orange))
-        StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("downfillcolor", Colors.lightBlue))
-        StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("linecolor", Colors.red))
-        StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("downlinecolor", Colors.darkGray))
-        StyleManager.addStyle(buttonStyle)
+        var buttonIdleStyle:IStyle = Style("buttonIdleStyle",[], buttonIdleSelector)
+        buttonIdleStyle = StyleModifier.clone(idleStyle,"buttonIdleStyle")
+        StyleModifier.overrideStyleProperty(&buttonIdleStyle, StyleProperty("fillcolor", Colors.orange))
+        StyleModifier.overrideStyleProperty(&buttonIdleStyle, StyleProperty("linecolor", Colors.red))
+        StyleManager.addStyle(buttonIdleStyle)
+        //down
+        let buttonDownSelector:ISelector = Selector("Button",[],"",[SkinStates.down])
+        var buttonDownStyle:IStyle = Style("buttonIdleStyle",[], buttonDownSelector)
+        buttonDownStyle = StyleModifier.clone(downStyle,"buttonIdleStyle")
+        StyleModifier.overrideStyleProperty(&buttonDownStyle, StyleProperty("downlinecolor", Colors.darkGray))
+        StyleModifier.overrideStyleProperty(&buttonDownStyle, StyleProperty("downfillcolor", Colors.lightBlue))
+        
+        
+        
         /**/
         //ColorParser.nsColor(0xFFFF00, 1)
         
