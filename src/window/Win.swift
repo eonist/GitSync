@@ -76,13 +76,13 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         idleStyle2.addStyleProperty(StyleProperty("lineWidth", 12))
         idleStyle2.addStyleProperty(StyleProperty("lineColor", Colors.lightGray))
         idleStyle2.addStyleProperty(StyleProperty("lineAlpha", 1.0))
-        
+        StyleManager.addStyle(idleStyle2)
         
         //idle style:
         /**
          *
          */
-        
+        /*
         let idleStyleSelector:ISelector = Selector("Element",[],"",[SkinStates.none])
         let idleStyle:IStyle = Style("idleStyle",[],idleStyleSelector)
         idleStyle.addStyleProperty(StyleProperty("fillColor", Colors.purple))
@@ -91,8 +91,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         idleStyle.addStyleProperty(StyleProperty("lineAlpha", 1.0))
         idleStyle.addStyleProperty(StyleProperty("lineWidth", 12))
         StyleManager.addStyle(idleStyle)
-        
+        */
         //down style:
+        /*
         let downStyleSelector:ISelector = Selector("Element",[],"",[SkinStates.down])
         let downStyle:IStyle = Style("downStyle",[],downStyleSelector)
         downStyle.addStyleProperty(StyleProperty("fillColor", Colors.lightBlue))
@@ -101,7 +102,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         downStyle.addStyleProperty(StyleProperty("lineAlpha", 1.0))
         downStyle.addStyleProperty(StyleProperty("lineWidth", 5))
         StyleManager.addStyle(downStyle)
-       
+        */
         /*
         var buttonStyle:IStyle = Style("Button")
         buttonStyle = StyleModifier.clone(elementStyle,"Button")
