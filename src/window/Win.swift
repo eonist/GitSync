@@ -73,7 +73,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         idleStyle.addStyleProperty(StyleProperty("fillAlpha", 1.0))
         idleStyle.addStyleProperty(StyleProperty("lineColor", Colors.lightGray))
         idleStyle.addStyleProperty(StyleProperty("lineAlpha", 1.0))
-        idleStyle.addStyleProperty(StyleProperty("lineWidth", 5))
+        idleStyle.addStyleProperty(StyleProperty("lineWidth", 12))
         StyleManager.addStyle(idleStyle)
         
         //down style:
