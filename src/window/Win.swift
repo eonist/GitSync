@@ -104,9 +104,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         StyleManager.addStyle(downStyle)
         /**/
         
-        let buttonSelector:ISelector = Selector("Button",[],"",[SkinStates.Idle])
-        var buttonStyle:IStyle = Style("Button")
-        buttonStyle = StyleModifier.clone(elementStyle,"Button")
+        let buttonIdleSelector:ISelector = Selector("Button",[],"",[SkinStates.none])
+        var buttonStyle:IStyle = Style("buttonIdleStyle",[], buttonIdleSelector)
+        buttonStyle = StyleModifier.clone(idleStyle,"buttonIdleStyle")
         StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("fillcolor", Colors.orange))
         StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("downfillcolor", Colors.lightBlue))
         StyleModifier.overrideStyleProperty(&buttonStyle, StyleProperty("linecolor", Colors.red))
