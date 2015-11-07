@@ -27,7 +27,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //Swift.print(self.screen?.deviceDescription)
         //Swift.print(self.screen!.frame)//screen size
         //Swift.print(self.frame)//frame size
-        Swift.print(view.bounds)
+        //Swift.print(view.bounds)
         //let controller = NSWindowController(window: newWindow)
         //controller.showWindow(self)
         self.center()
@@ -53,11 +53,19 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createContent(){
-        createElement()
+        createStyles()
+        //createElement()
         //createTextField()
         //createTable()
         //createButtons()
         //createPanel()
+    }
+    /**
+     *
+     */
+    func createStyles(){
+        //"Button{fill:red;} CheckButton{line:blue;}"
+        //CSSParser.styleCollection("[RadioButton,CheckButton]Icon{fill:red;}")
     }
     /**
     *
@@ -147,10 +155,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         */
         
         
-        //continue here tomorrow
         
-        //TODO: you need to create a base style that you clone, and merge in to others that you need
-        //TODO: Get the new stuff working with button, 
         
         
         
