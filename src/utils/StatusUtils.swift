@@ -35,12 +35,12 @@ class StatusUtils{
 		var transformedList:[Dictionary<String,String>] = []
         for theStatusItem:String in theStatusList {
 			//--log "the_status_item: " & the_status_item
-            let matches:[NSTextCheckingResult] = RegExpParser.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
+            let matches:[NSTextCheckingResult] = RegExp.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
             let theStatusParts:NSTextCheckingResult = matches[0]
             enum StatusParts:Int{ case first = 0, second , third, fourth}
-            let second:String = RegExpUtils.value(theStatusItem,theStatusParts,StatusParts.second.rawValue)
-            let third:String = RegExpUtils.value(theStatusItem,theStatusParts,StatusParts.third.rawValue)
-            let fourth:String = RegExpUtils.value(theStatusItem,theStatusParts,StatusParts.fourth.rawValue)
+            let second:String = RegExp.value(theStatusItem,theStatusParts,StatusParts.second.rawValue)
+            let third:String = RegExp.value(theStatusItem,theStatusParts,StatusParts.third.rawValue)
+            let fourth:String = RegExp.value(theStatusItem,theStatusParts,StatusParts.fourth.rawValue)
 			//--log "length of theStatusParts: " & (length of theStatusParts)
 			//--log theStatusParts
             var statusItem:Dictionary<String,String> = ["state":"", "cmd":"", "fileName":""] //--store the individual parts in an accociative
