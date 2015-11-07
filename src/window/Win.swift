@@ -121,9 +121,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         */
         
         
-        /**/
-        //ColorParser.nsColor(0xFFFF00, 1)
-        
+       
         //button
         
         
