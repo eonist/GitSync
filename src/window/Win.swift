@@ -65,7 +65,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
      */
     func createStyles(){
         //"Button{fill:red;} CheckButton{line:blue;}"
-        //CSSParser.styleCollection("[RadioButton,CheckButton]Icon{fill:red;}")
+        CSSParser.styleCollection("[RadioButton,CheckButton]Icon{fill:red;}")
     }
     /**
     *

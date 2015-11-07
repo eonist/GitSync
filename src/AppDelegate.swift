@@ -24,7 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         //print(app.mainWindow)
         //print(app.keyWindow)
         for w in app.windows{
-            print("windowNumber: " + "\(w.windowNumber)")
+            //print("windowNumber: " + "\(w.windowNumber)")
             //app.windowWithWindowNumber(<#T##windowNum: Int##Int#>)//this is how you can manage windows
         }
         app.windows[0].close()//close the initial window
