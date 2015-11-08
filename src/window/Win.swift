@@ -68,6 +68,10 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         let styleCollection:IStyleCollection = CSSParser.styleCollection("Section[Button,Slider]Arrow{fill:red;}")
         Swift.print("styleCollection.styles.count: " + "\(styleCollection.styles.count)")
         StyleCollectionParser.describe(styleCollection)
+        
+        let element = Element(400,400)
+        element.skinState = SkinStates.none//SkinStates.down
+        view.addSubview(element)//it seems NSViews arent drawn until they are added to a subview. interesting
     }
     /**
     *
