@@ -66,7 +66,8 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
      */
     func testElement(){
         let section = Section(500,500)
-        let element = Element(400,400,section)
+        let subSection = Section(500,500,section)
+        let element = Element(400,400,subSection)
         let parents = ElementParser.parents(element)
         Swift.print("parents.count: " + "\(parents.count)")
         
