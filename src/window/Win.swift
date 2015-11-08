@@ -65,7 +65,8 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
      */
     func createStyles(){
         //"Button{fill:red;} CheckButton{line:blue;}"
-        CSSParser.styleCollection("[RadioButton,CheckButton]Icon{fill:red;}")
+        let styleCollection:IStyleCollection = CSSParser.styleCollection("[RadioButton,CheckButton]Icon{fill:red;}")
+        styleCollection
     }
     /**
     *
@@ -92,7 +93,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
          */
        
         let idleStyleSelector:ISelector = Selector("Element",[],"",[SkinStates.none])
-        let idleStyle:IStyle = Style("idleStyle",[],idleStyleSelector)
+        let idleStyle:IStyle = Style("idleStyle",[idleStyleSelector],[])
         idleStyle.addStyleProperty(StyleProperty("fillColor", Colors.purple))
         idleStyle.addStyleProperty(StyleProperty("fillAlpha", 1.0))
         idleStyle.addStyleProperty(StyleProperty("lineColor", Colors.lightGray))
@@ -103,7 +104,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //down style:
         
         let downStyleSelector:ISelector = Selector("Element",[],"",[SkinStates.down])
-        let downStyle:IStyle = Style("downStyle",[],downStyleSelector)
+        let downStyle:IStyle = Style("downStyle",[downStyleSelector],[])
         downStyle.addStyleProperty(StyleProperty("fillColor", Colors.lightBlue))
         downStyle.addStyleProperty(StyleProperty("fillAlpha", 1.0))
         downStyle.addStyleProperty(StyleProperty("lineColor", Colors.darkGray))
@@ -133,12 +134,12 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //button
         
         
-        var idleButtonStyle:IStyle = Style("idleButtonStyle",[StyleProperty("fillcolor", Colors.green)],Selector("Button"))
+        var idleButtonStyle:IStyle = Style("idleButtonStyle",[Selector("Button")],[StyleProperty("fillcolor", Colors.green)])
         idleButtonStyle.addStyleProperty(StyleProperty("fillGradientColorA", Colors.lightGray))
         idleButtonStyle.addStyleProperty(StyleProperty("fillGradientColorB", Colors.purple))
         StyleModifier.merge(&idleButtonStyle, idleStyle)
         StyleManager.addStyle(idleButtonStyle)
-        var downButtonStyle:IStyle = Style("downButtonStyle",[StyleProperty("fillcolor", Colors.yellow)],Selector("Button",[],"",["down"]))
+        var downButtonStyle:IStyle = Style("downButtonStyle",[Selector("Button",[],"",["down"])],[StyleProperty("fillcolor", Colors.yellow)])
         downButtonStyle.addStyleProperty(StyleProperty("fillGradientColorA", Colors.orange))
         downButtonStyle.addStyleProperty(StyleProperty("fillGradientColorB", Colors.lightGray))
         StyleModifier.merge(&downButtonStyle, downStyle)
