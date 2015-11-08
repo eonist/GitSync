@@ -69,7 +69,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         Swift.print("styleCollection.styles.count: " + "\(styleCollection.styles.count)")
         StyleCollectionParser.describe(styleCollection)
         let container = Container(500,500)
-        let element = Element(400,400,self)
+        let element = Element(400,400,container)
         element.skinState = SkinStates.none//SkinStates.down
         view.addSubview(element)//it seems NSViews arent drawn until they are added to a subview. interesting
     }
