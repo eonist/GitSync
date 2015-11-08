@@ -82,6 +82,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
      *
      */
     func testElement(){
+        /*
         let section = Section(500,500)
         let subSection = Section(500,500,section)
         let element = Element(400,400,subSection)
@@ -93,7 +94,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         //Swift.print("parents.count: " + "\(parents.count)")
         
-        
+        */
         
         
         
@@ -179,7 +180,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
        
         //button
         
-        
+        /*
         var idleButtonStyle:IStyle = Style("idleButtonStyle",[Selector("Button")],[StyleProperty("fillcolor", Colors.green)])
         idleButtonStyle.addStyleProperty(StyleProperty("fillGradientColorA", Colors.lightGray))
         idleButtonStyle.addStyleProperty(StyleProperty("fillGradientColorB", Colors.purple))
@@ -190,7 +191,8 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         downButtonStyle.addStyleProperty(StyleProperty("fillGradientColorB", Colors.lightGray))
         StyleModifier.merge(&downButtonStyle, downStyle)
         StyleManager.addStyle(downButtonStyle)
-        /**/
+        
+         */
         
         //Swift.print(StyleManager.getStyle("element")!.name)
         
@@ -205,10 +207,10 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         
         
-        
+        /*
         let button = Button(100,36)//"Browse",
         view.addSubview(button)//Add button to view
-        
+        */
         
         //button.frame.origin.x = element.frame.origin.x + element.frame.width +  12
         
@@ -244,8 +246,10 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createPanel(){
+        /*
         let panel = Panel()
         view.addSubview(panel)
+        */
     }
     /*
     * NSTableView
