@@ -53,13 +53,24 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createContent(){
-        testElement()
+        testSkin()
+        //testElement()
         //createStyles()
         //createElement()
         //createTextField()
         //createTable()
         //createButtons()
         //createPanel()
+    }
+    /**
+     *
+     */
+    func testSkin(){
+        //"Button{fill:red;} CheckButton{line:blue;}"
+        let styleCollection:IStyleCollection = CSSParser.styleCollection("Section[Button,Slider]Arrow{fill:red;}")
+        StyleManager.addStyle(idleStyle2)
+        //let element = Element(400,400)
+        //view.addSubview(element)
     }
     /**
      *
