@@ -80,7 +80,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         
         
-        //continue here: Try to implement skins and try to make some GUI items
+        //continue here: Try to implement skins and try to make some GUI items with skins and cool design
         
         
         
