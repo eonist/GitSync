@@ -69,9 +69,13 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         let subSection = Section(500,500,section)
         let element = Element(400,400,subSection)
         //view.addSubview(element)
-        let parents = ElementParser.parents(element)
+        //let parents = ElementParser.parents(element)
+        let querrySelectors:Array = ElementParser.selectors(element);// :TODO: possibly move up in scope for optimizing
+        Swift.print("querrySelectors.count: " + "\(querrySelectors.count)")
         
-        Swift.print("parents.count: " + "\(parents.count)")
+        //Swift.print("STACK: " + SelectorParser.string(querrySelectors));
+        
+        //Swift.print("parents.count: " + "\(parents.count)")
         
     }
     /**
