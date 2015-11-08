@@ -53,7 +53,8 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createContent(){
-        createStyles()
+        testElement()
+        //createStyles()
         //createElement()
         //createTextField()
         //createTable()
@@ -63,15 +64,22 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     /**
      *
      */
+    func testElement(){
+        let section = Section(500,500)
+        let element = Element(400,400,section)
+        let parents = ElementParser.parents(element)
+        Swift.print("parents.count: " + "\(parents.count)")
+        
+    }
+    /**
+     *
+     */
     func createStyles(){
         //"Button{fill:red;} CheckButton{line:blue;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection("Section[Button,Slider]Arrow{fill:red;}")
         Swift.print("styleCollection.styles.count: " + "\(styleCollection.styles.count)")
         StyleCollectionParser.describe(styleCollection)
-        let container = Container(500,500)
-        let element = Element(400,400,container)
-        element.skinState = SkinStates.none//SkinStates.down
-        view.addSubview(element)//it seems NSViews arent drawn until they are added to a subview. interesting
+        
     }
     /**
     *
