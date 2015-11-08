@@ -65,8 +65,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
      */
     func createStyles(){
         //"Button{fill:red;} CheckButton{line:blue;}"
-        let styleCollection:IStyleCollection = CSSParser.styleCollection("Button{fill:red;}")
+        let styleCollection:IStyleCollection = CSSParser.styleCollection("Button:down{fill:red;}")
         Swift.print("styleCollection.styles.count: " + "\(styleCollection.styles.count)")
+        StyleCollectionParser.describe(styleCollection)
     }
     /**
     *
