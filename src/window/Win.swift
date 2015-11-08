@@ -68,7 +68,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         let section = Section(500,500)
         let subSection = Section(500,500,section)
         let element = Element(400,400,subSection)
+        //view.addSubview(element)
         let parents = ElementParser.parents(element)
+        
         Swift.print("parents.count: " + "\(parents.count)")
         
     }
