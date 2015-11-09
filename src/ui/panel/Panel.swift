@@ -1,6 +1,6 @@
 import Foundation
 import Cocoa
-
+/*
 class Panel:Section {
     static var leftPadding = 12
     static var rightPadding = 12
@@ -81,3 +81,4 @@ class Panel:Section {
         return false
     }
 }
+*/
