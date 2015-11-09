@@ -74,7 +74,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         view.addSubview(element)
         
         
-        //continue here: add skin
+        
         
     }
     /**
