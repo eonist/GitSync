@@ -67,7 +67,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
      */
     func testSkin(){
         //"Button{fill:red;} CheckButton{line:blue;}"
-        let css:String = "Element{fill:\(Colors.RED);fill-alpha:1.0;}"
+        let css:String = "Element{fill:red;fill-alpha:1.0;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let element = Element(200,200)
