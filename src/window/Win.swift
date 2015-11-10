@@ -67,7 +67,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
      */
     func testSkin(){
         //"Button{fill:red;} CheckButton{line:blue;}"
-        let css:String = "Element{fill:\(Colors.red);fill-alpha:1.0;}"
+        let css:String = "Element{fill:\(Colors.RED);fill-alpha:1.0;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let element = Element(200,200)
@@ -140,9 +140,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
        
         let idleStyleSelector:ISelector = Selector("Element",[],"",[SkinStates.none])
         let idleStyle:IStyle = Style("idleStyle",[idleStyleSelector],[])
-        idleStyle.addStyleProperty(StyleProperty("fillColor", Colors.purple))
+        idleStyle.addStyleProperty(StyleProperty("fillColor", Colors.PURPLE))
         idleStyle.addStyleProperty(StyleProperty("fillAlpha", 1.0))
-        idleStyle.addStyleProperty(StyleProperty("lineColor", Colors.lightGray))
+        idleStyle.addStyleProperty(StyleProperty("lineColor", Colors.LIGHTGRAY))
         idleStyle.addStyleProperty(StyleProperty("lineAlpha", 1.0))
         idleStyle.addStyleProperty(StyleProperty("lineWidth", 12))
         StyleManager.addStyle(idleStyle)
@@ -151,9 +151,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         let downStyleSelector:ISelector = Selector("Element",[],"",[SkinStates.down])
         let downStyle:IStyle = Style("downStyle",[downStyleSelector],[])
-        downStyle.addStyleProperty(StyleProperty("fillColor", Colors.lightBlue))
+        downStyle.addStyleProperty(StyleProperty("fillColor", Colors.LIGHTBLUE))
         downStyle.addStyleProperty(StyleProperty("fillAlpha", 1.0))
-        downStyle.addStyleProperty(StyleProperty("lineColor", Colors.darkGray))
+        downStyle.addStyleProperty(StyleProperty("lineColor", Colors.DARKGRAY))
         downStyle.addStyleProperty(StyleProperty("lineAlpha", 1.0))
         downStyle.addStyleProperty(StyleProperty("lineWidth", 5))
         StyleManager.addStyle(downStyle)
