@@ -74,13 +74,6 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         view.addSubview(element)
         
         
-        
-        
-        //continue here, ready the fillet css code
-        
-        
-        
-        
     }
     /**
      *
