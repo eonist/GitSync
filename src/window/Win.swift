@@ -18,7 +18,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
         super.init(contentRect: Win.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
-        self.backgroundColor = NSColor.whiteColor()
+        self.backgroundColor = NSColor.clearColor()
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()//makes it the apps main menu?
         //Swift.print(self.deviceDescription)
