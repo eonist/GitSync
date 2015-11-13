@@ -311,10 +311,12 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     
 }
 class GraphicsTest:FlippedView{
+    
     /**
      *
      */
     override func drawRect(dirtyRect: NSRect) {
+        Swift.print("drawRect")
         let graphics:Graphics = Graphics()
         var path:CGPath = CGPathParser.rect(200,200)//Shapes
         CGPathModifier.translate(&path,20,20)//Transformations
