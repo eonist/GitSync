@@ -51,10 +51,22 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         return true
     }
     /**
+     *
+     */
+    func drawRect(){
+        let graphics:Graphics = Graphics()
+        var path:CGPath = CGPathParser.rect(200,200)//Shapes
+        CGPathModifier.translate(&path,20,20)//Transformations
+        graphics.line(12)//Stylize the line
+        graphics.fill(NSColor.blueColor())//Stylize the fill
+        graphics.draw(path)//draw everything
+    }
+    
+    /**
     *
     */
     func createContent(){
-        testSkin()
+        //testSkin()
         //testElement()
         //createStyles()
         //createElement()
