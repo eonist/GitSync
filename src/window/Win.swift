@@ -74,8 +74,8 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         let element = Element(200,200)
         view.addSubview(element)
         
-        //let blob = Blob(150,150)
-        //view.addSubview(blob)
+        let blob = Blob(150,150)
+        view.addSubview(blob)
     }
     /**
      *
