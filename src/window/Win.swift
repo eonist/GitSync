@@ -74,7 +74,6 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         let element = Element(200,200)
         view.addSubview(element)
         
-        
     }
     /**
      *
