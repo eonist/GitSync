@@ -310,7 +310,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     }
     
 }
-class GraphicsTest:Container{
+class GraphicsTest:FlippedView{
     /**
      *
      */
@@ -321,5 +321,6 @@ class GraphicsTest:Container{
         graphics.line(12)//Stylize the line
         graphics.fill(NSColor.blueColor())//Stylize the fill
         graphics.draw(path)//draw everything
+        //super.drawRect(dirtyRect)
     }
 }
