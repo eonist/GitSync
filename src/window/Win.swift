@@ -69,14 +69,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //createButtons()
         //createPanel()
     }
-    func createGraphics() {
-        let graphics:Graphics = Graphics()
-        var path:CGPath = CGPathParser.rect(200,200)//Shapes
-        CGPathModifier.translate(&path,20,20)//Transformations
-        graphics.line(12)//Stylize the line
-        graphics.fill(NSColor.blueColor())//Stylize the fill
-        graphics.draw(path)//draw everything
-    }
+    
     /**
      *
      */
@@ -315,4 +308,17 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         }
     }
     
+}
+class GraphicsTest:Container{
+    /**
+     * 
+     */
+    override func drawRect(dirtyRect: NSRect) {
+        let graphics:Graphics = Graphics()
+        var path:CGPath = CGPathParser.rect(200,200)//Shapes
+        CGPathModifier.translate(&path,20,20)//Transformations
+        graphics.line(12)//Stylize the line
+        graphics.fill(NSColor.blueColor())//Stylize the fill
+        graphics.draw(path)//draw everything
+    }
 }
