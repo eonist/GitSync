@@ -333,6 +333,7 @@ class GraphicsTest:FlippedView{
         //graphics.line(12)//Stylize the line
         graphics.fill(NSColor.blueColor())//Stylize the fill
         graphics.draw(path)//draw everything
+        CGContextEndTransparencyLayer(graphics.context);
         super.drawRect(dirtyRect)
     }
 }
