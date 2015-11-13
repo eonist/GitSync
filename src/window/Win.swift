@@ -327,7 +327,9 @@ class GraphicsTest:FlippedView{
      */
     override func drawRect(dirtyRect: NSRect) {
         Swift.print("drawRect")
+        
         let graphics:Graphics = Graphics()
+        CGContextBeginTransparencyLayer(graphics.context, nil);//required to get the clear call to work properly
         var path:CGPath = CGPathParser.rect(200,200)//Shapes
         CGPathModifier.translate(&path,120,20)//Transformations
         //graphics.line(12)//Stylize the line
