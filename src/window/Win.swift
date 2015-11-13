@@ -59,7 +59,8 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createContent(){
-        createGraphics()
+        let graphicsTest = GraphicsTest()
+        view.addSubview(graphicsTest)
         //testSkin()
         //testElement()
         //createStyles()
@@ -311,7 +312,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
 }
 class GraphicsTest:Container{
     /**
-     * 
+     *
      */
     override func drawRect(dirtyRect: NSRect) {
         let graphics:Graphics = Graphics()
