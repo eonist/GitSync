@@ -352,18 +352,6 @@ class GraphicsTest:Graphic{
      */
     override func drawRect(dirtyRect: NSRect) {
         Swift.print("GraphicsTest.drawRect: " + "\(hasClear)")
-        
-        
-        //super.drawRect(dirtyRect)
-        
-        
-        
-        //super.drawRect(dirtyRect)
-    }
-    /**
-     *
-     */
-    func draw(){
         if(!hasClear){
             var path:CGPath = CGPathParser.rect(CGFloat(width),CGFloat(height))//Shapes
             CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
@@ -373,6 +361,13 @@ class GraphicsTest:Graphic{
             graphics.draw(path)//draw everything
             hasClear = false;
         }
+        //super.drawRect(dirtyRect)
+    }
+    /**
+     *
+     */
+    func draw(){
+        
     }
     /**
      *
