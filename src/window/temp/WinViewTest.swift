@@ -14,6 +14,7 @@ class SkinLayer:Graphic{//container class that hold the decorator structure.
         var grapix:IGrapixDecorator = Grapix()
         grapix = RectGrapix(grapix)
         grapix = RoundRectGrapix(grapix)
+        grapix = GradientGrapix(grapix)
         
         CGContextEndTransparencyLayer(grapix.getGrapix().graphics.context)//end the transperancy-layer
     }
@@ -96,7 +97,8 @@ class RoundRectGrapix:GrapixDecorator{//adds round-rectangular path
         super.init(decoratable)
     }
     override func drawFill() {
-        getGrapix().path = CGPathParser.rect(CGFloat(150), CGFloat(50))//Shapes
+        getGrapix().path = CGPathParser.roundRect(0,0,CGFloat(w), CGFloat(h),CGFloat(fillet.topLeft), CGFloat(fillet.topRight), CGFloat(fillet.bottomLeft), CGFloat(fillet.bottomRight))//Shapes
+        //getGrapix().path = CGPathParser.rect(CGFloat(150), CGFloat(50))//Shapes
     }
 }
 class GradientGrapix:GrapixDecorator{//adds Gradient fill
