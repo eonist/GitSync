@@ -36,6 +36,7 @@ class Grapix:IGrapixDecorator{//base class for decorators
     var path:CGPath = CGPathCreateMutable()
     init(){
         graphics = Graphics()
+        CGContextBeginTransparencyLayer(graphics.context, nil);
     }
     /**
      *
