@@ -314,7 +314,8 @@ class GraphicsTest:FlippedView{
     var x:Int
     var y:Int
     var color:NSColor
-    init(_ x:Int = 0, _ y:Int = 0,_ width:Int = 400, _ height:Int = 400, _ color:NSColor = NSColor.blueColor()) {
+    override var wantsDefaultClipping:Bool{return true}
+    init(_ x:Int = 0, _ y:Int = 0,_ width:Int = 100, _ height:Int = 100, _ color:NSColor = NSColor.blueColor()) {
         self.x = x
         self.y = y
         self.color = color
@@ -323,6 +324,7 @@ class GraphicsTest:FlippedView{
         self.wantsLayer = false//this avoids calling drawLayer() and enables drawingRect()
         
     }
+    
     /*
     * Required by super class
     */
