@@ -10,8 +10,9 @@ class WinView:FlippedView{
      */
     func createContent(){
         //testGraphic()
-        testSkin()
+        //testSkin()
     }
+    
     /**
      *
      */
