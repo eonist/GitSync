@@ -1,5 +1,9 @@
 import Cocoa
 
+
+//Continue here, add gradient and interaction with a button that changes the SkinLayer in a meaningfull way
+
+
 class WinViewTest:FlippedView {
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override func drawRect(dirtyRect: NSRect) {
