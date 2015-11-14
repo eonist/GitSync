@@ -10,6 +10,7 @@ import Cocoa
 //this way you can also limit the extending of NSView to only Skin and Element
 
 //Try to optimize the process a bit
+//implmiment the Gradient to see it work
 
 
 class WinViewTest:FlippedView {
