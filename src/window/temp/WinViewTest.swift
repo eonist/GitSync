@@ -3,13 +3,8 @@ import Cocoa
 class WinViewTest:FlippedView {
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override func drawRect(dirtyRect: NSRect) {
-        createContent()
-    }
-    /**
-     *
-     */
-    func createContent(){
-        
+        let skinLayer:SkinLayer = SkinLayer()
+        addSubview(skinLayer)
     }
 }
 class SkinLayer:Graphic{//container class that hold the decorator structure.
@@ -22,11 +17,15 @@ class SkinLayer:Graphic{//container class that hold the decorator structure.
 }
 protocol IGrapixDecorator{
     func getGrapix() -> Grapix
+    func fill()
 }
 class GrapixDecorator:IGrapixDecorator{
     var decoratable:IGrapixDecorator
     init(_ decoratable:IGrapixDecorator){
         self.decoratable = decoratable
+    }
+    func fill(){
+        
     }
     func getGrapix() -> Grapix{
         return self.decoratable.getGrapix()
@@ -41,6 +40,13 @@ class Grapix:IGrapixDecorator{//base class for decorators
     /**
      *
      */
+    func fill(){
+        GraphicModifier.applyProperties(getGrapix().graphics, FillStyle(NSColor.purpleColor())/*, lineStyle*/)//apply style
+        GraphicModifier.stylize(getGrapix().path,getGrapix().graphics)//realize style on the graphic
+    }
+    /**
+     *
+     */
     func getGrapix()->Grapix{
         return self
     }
@@ -49,8 +55,7 @@ class RectGrapix:GrapixDecorator{//adds rectangular path
     override init(_ decoratable: IGrapixDecorator) {
         super.init(decoratable)
         getGrapix().path = CGPathParser.rect(CGFloat(100), CGFloat(100))//Shapes
-        GraphicModifier.applyProperties(getGrapix().graphics, FillStyle(NSColor.purpleColor())/*, lineStyle*/)//apply style
-        GraphicModifier.stylize(getGrapix().path,getGrapix().graphics)//realize style on the graphic
+        
     }
 }
 class RoundRectGrapix{//adds round-rectangular path
