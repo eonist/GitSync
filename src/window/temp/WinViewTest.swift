@@ -12,16 +12,24 @@ class WinViewTest:FlippedView {
         
     }
 }
-class SkinLayer:NSView{//class RoundRectGrapix{//adds round-rectangular path
-    init(){
+class SkinLayer:Graphic{//container class that hold the decorator structure.
+    override func drawRect(dirtyRect: NSRect) {
+        Swift.print("SkinLayer.drawRect() ")
+        //create the structure here
+        var grapix = Grapix()
         
     }
 }
+protocol IGrapixDecorator{
     
 }
-class Grapix{//base class for decorators
+class GrapixDecorator{
+    
+}
+class Grapix:IGrapixDecorator{//base class for decorators
+    var graphics:Graphics
     init(){
-        
+        graphics = Graphics()
     }
 }
 class RectGrapix{//adds rectangular path
