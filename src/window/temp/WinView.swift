@@ -47,7 +47,7 @@ class WinView:FlippedView{
         StyleManager.addStyle(styleCollection.styles)
         let element = Element(200,200)
         self.addSubview(element)
-        element.clear(true)
+        //element.clear(true)
         //let blob = Blob(150,250)
         //view.addSubview(blob)
     }
