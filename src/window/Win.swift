@@ -381,3 +381,13 @@ class GraphicsTest:Graphic{
         Swift.print("GraphicsTest.clear() post")
     }
 }
+
+class WinView:FlippedView{
+    init(){
+        
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
