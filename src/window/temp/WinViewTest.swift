@@ -12,6 +12,13 @@ class WinViewTest:FlippedView {
         
     }
 }
+class SkinLayer:NSView{//class RoundRectGrapix{//adds round-rectangular path
+    init(){
+        
+    }
+}
+    
+}
 class Grapix{//base class for decorators
     init(){
         
@@ -27,7 +34,7 @@ class RoundRectGrapix{//adds round-rectangular path
         
     }
 }
-class GradientGrapix{//adds Gradient fill 
+class GradientGrapix{//adds Gradient fill
     init(){
         
     }
