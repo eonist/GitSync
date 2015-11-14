@@ -51,11 +51,6 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         return true
     }
     /**
-     *
-     */
-    
-    
-    /**
     *
     */
     func createContent(){
@@ -329,13 +324,13 @@ class GraphicsTest:FlippedView{
         Swift.print("drawRect")
         
         let graphics:Graphics = Graphics()
-        CGContextBeginTransparencyLayer(graphics.context, nil);//required to get the clear call to work properly
+        
         var path:CGPath = CGPathParser.rect(200,200)//Shapes
         CGPathModifier.translate(&path,120,20)//Transformations
         //graphics.line(12)//Stylize the line
         graphics.fill(NSColor.blueColor())//Stylize the fill
         graphics.draw(path)//draw everything
-        CGContextEndTransparencyLayer(graphics.context);
+        
         super.drawRect(dirtyRect)
     }
 }
