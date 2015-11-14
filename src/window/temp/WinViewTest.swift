@@ -2,6 +2,8 @@ import Cocoa
 
 
 //Continue here, add GradientDecorator , CircleDecorator, DropShadowDecorator, others?
+//then think throguh how you want to name things. 
+//then move code into Element
 
 
 class WinViewTest:FlippedView {
