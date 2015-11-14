@@ -63,9 +63,16 @@ class RectGrapix:GrapixDecorator{//adds rectangular path
         super.fill()
     }
 }
-class RoundRectGrapix{//adds round-rectangular path
-    init(){
-        
+class RoundRectGrapix:GrapixDecorator{//adds round-rectangular path
+    override init(_ decoratable: IGrapixDecorator) {
+        super.init(decoratable)
+        fill()
+    }
+    override func fill() {
+        CGContextClearRect(getGrapix().graphics.context, NSMakeRect(0, 0, 500, 500))
+
+        getGrapix().path = CGPathParser.rect(CGFloat(50), CGFloat(50))//Shapes
+        super.fill()
     }
 }
 class GradientGrapix{//adds Gradient fill
