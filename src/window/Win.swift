@@ -337,7 +337,13 @@ class GraphicsTest:Graphic{
         Swift.print("GraphicsTest.drawRect: " + "\(hasClear)")
         if(!hasClear){
             color = NSColor.blueColor()
-            CGContextClearRect(graphics.context, NSMakeRect(0, 0, 400, 400))
+            var path:CGPath = CGPathParser.rect(CGFloat(width/2),CGFloat(height/2))//Shapes
+            CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
+            //graphics.line(12)//Stylize the line
+            
+            graphics.fill(color)//Stylize the fill
+            graphics.draw(path)//draw everything
+            //CGContextClearRect(graphics.context, NSMakeRect(0, 0, 400, 400))
         }else{
             color = NSColor.redColor()
             var path:CGPath = CGPathParser.rect(CGFloat(width),CGFloat(height))//Shapes
@@ -360,7 +366,8 @@ class GraphicsTest:Graphic{
         //drawRect(frame)
         //needsDisplay = true
         hasClear = true
-        drawRect(NSMakeRect(0, 0, 100, 100))
+        //drawRect(NSMakeRect(0, 0, 100, 100))
+        needsDisplay = true
         hasClear = false
         Swift.print("GraphicsTest.clear() post")
     }
