@@ -319,8 +319,8 @@ class GraphicsTest:Graphic{
         self.height = height
         self.color = color
         super.init()
-        //self.wantsLayer = false//this avoids calling drawLayer() and enables drawingRect()
-        //needsDisplay = true;
+        self.wantsLayer = false//this avoids calling drawLayer() and enables drawingRect()
+        needsDisplay = true;
         //Swift.print("graphics: " + String(graphics.context))
     }
     
@@ -337,13 +337,7 @@ class GraphicsTest:Graphic{
         Swift.print("GraphicsTest.drawRect: " + "\(hasClear)")
         if(!hasClear){
             color = NSColor.blueColor()
-            color = NSColor.redColor()
-            var path:CGPath = CGPathParser.rect(CGFloat(width),CGFloat(height))//Shapes
-            CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
-            //graphics.line(12)//Stylize the line
-            
-            graphics.fill(color)//Stylize the fill
-            graphics.draw(path)//draw everything
+            CGContextClearRect(graphics.context, NSMakeRect(0, 0, 400, 400))
         }else{
             color = NSColor.redColor()
             var path:CGPath = CGPathParser.rect(CGFloat(width),CGFloat(height))//Shapes
