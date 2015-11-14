@@ -71,8 +71,10 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     func testGraphic(){
         let a = GraphicsTest(0,0,200,200)
         view.addSubview(a)
+        a.draw()
         let b = GraphicsTest(50,50,200,200,NSColor.purpleColor())
         view.addSubview(b)
+        b.draw()
         //b.clear()
         
         
@@ -351,15 +353,7 @@ class GraphicsTest:Graphic{
     override func drawRect(dirtyRect: NSRect) {
         Swift.print("GraphicsTest.drawRect: " + "\(hasClear)")
         
-        if(!hasClear){
-            var path:CGPath = CGPathParser.rect(CGFloat(width),CGFloat(height))//Shapes
-            CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
-            //graphics.line(12)//Stylize the line
-            Swift.print("graphics: " + String(graphics.context))
-            graphics.fill(color)//Stylize the fill
-            graphics.draw(path)//draw everything
-            hasClear = false;
-        }
+        
         //super.drawRect(dirtyRect)
         
         
@@ -369,12 +363,26 @@ class GraphicsTest:Graphic{
     /**
      *
      */
+    func draw(){
+        if(!hasClear){
+            var path:CGPath = CGPathParser.rect(CGFloat(width),CGFloat(height))//Shapes
+            CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
+            //graphics.line(12)//Stylize the line
+            Swift.print("graphics: " + String(graphics.context))
+            graphics.fill(color)//Stylize the fill
+            graphics.draw(path)//draw everything
+            hasClear = false;
+        }
+    }
+    /**
+     *
+     */
     func clear(){
         Swift.print("GraphicsTest.clear() pre")
         hasClear = true
         //drawRect(frame)
         //needsDisplay = true
-        self.drawRect(NSMakeRect(0, 0, 100, 100))
+        self.draw()//drawRect(NSMakeRect(0, 0, 100, 100))
         Swift.print("GraphicsTest.clear() post")
     }
 }
