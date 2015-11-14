@@ -111,6 +111,7 @@ class GradientGrapix:GrapixDecorator{//adds Gradient fill
         super.init(decoratable)
     }
     override func beginFill() {
-        GraphicModifier.applyProperties(getGrapix().graphics, FillStyle(NSColor.orangeColor())/*, lineStyle*/)//apply style
+        let randomColor:NSColor = ColorUtils.randomColor()
+        GraphicModifier.applyProperties(getGrapix().graphics, FillStyle(randomColor)/*, lineStyle*/)//apply style
     }
 }
