@@ -333,7 +333,7 @@ class GraphicsTest:FlippedView{
      *
      */
     override func drawRect(dirtyRect: NSRect) {
-        Swift.print("drawRect")
+        Swift.print("drawRect: " + hasClear)
         if(!hasClear){
             let graphics:Graphics = Graphics()
             
