@@ -14,7 +14,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     static var width = 800//Static variable, reachable on a class level
     static var height = 600
     static var sizeRect:NSRect = NSRect(x: 0, y: 0, width: Win.width, height: Win.height)//NSMakeRect(0, 0, TempWin.width, TempWin.height)
-    var view:FlippedView = FlippedView(frame: Win.sizeRect)
+    var view:WinView = WinView(frame: Win.sizeRect)//FlippedView(frame: Win.sizeRect)
     
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
         super.init(contentRect: Win.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
@@ -54,9 +54,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createContent(){
-        //testGraphic()
+        
 
-        testSkin()
+        //testSkin()
         //testElement()
         //createStyles()
         //createElement()
@@ -65,31 +65,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //createButtons()
         //createPanel()
     }
-    /**
-     *
-     */
-    func testGraphic(){
-        let a = GraphicsTest(0,0,200,200)
-        
-        view.addSubview(a)
-        
-        
-        //continue here, you need modell your classes so that when drawRect is called, graphics is created, so that graphics is attached to that NSView
-        
-        /*
-        let b = GraphicsTest(50,50,200,200,NSColor.purpleColor())
-        view.addSubview(b)
-        b.draw()
-        */
-        //b.clear()
-        
-        
-        
-        
-        //continue here: it seems needsDisplay = true, isnt imidiate, using drawRect() seems to work better
-        //try to get this working with shape
-        
-    }
+
     /**
      *
      */
@@ -383,12 +359,7 @@ class GraphicsTest:Graphic{
 }
 
 class WinView:FlippedView{
-    init(){
-        super.init(frame: NSMakeRect(0, 0, 100, 100))
-    }
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    
     override func drawRect(dirtyRect: NSRect) {
         createContent()
     }
@@ -396,6 +367,31 @@ class WinView:FlippedView{
      *
      */
     func createContent(){
+        testGraphic()
+    }
+    /**
+     *
+     */
+    func testGraphic(){
+        let a = GraphicsTest(0,0,200,200)
+        
+        self.addSubview(a)
+        
+        
+        //continue here, you need modell your classes so that when drawRect is called, graphics is created, so that graphics is attached to that NSView
+        
+        /*
+        let b = GraphicsTest(50,50,200,200,NSColor.purpleColor())
+        view.addSubview(b)
+        b.draw()
+        */
+        //b.clear()
+        
+        
+        
+        
+        //continue here: it seems needsDisplay = true, isnt imidiate, using drawRect() seems to work better
+        //try to get this working with shape
         
     }
 }
