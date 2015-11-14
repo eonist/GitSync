@@ -337,10 +337,8 @@ class GraphicsTest:Graphic{
      */
     override func drawRect(dirtyRect: NSRect) {
         Swift.print("drawRect: " + "\(hasClear)")
+        super.drawRect(dirtyRect)
         if(!hasClear){
-            
-            
-            
             var path:CGPath = CGPathParser.rect(CGFloat(width),CGFloat(height))//Shapes
             CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
             //graphics.line(12)//Stylize the line
