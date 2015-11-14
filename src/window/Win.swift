@@ -100,7 +100,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         StyleManager.addStyle(styleCollection.styles)
         let element = Element(200,200)
         view.addSubview(element)
-        
+        element.clear(true)
         //let blob = Blob(150,250)
         //view.addSubview(blob)
     }
