@@ -336,9 +336,9 @@ class GraphicsTest:Graphic{
     override func drawRect(dirtyRect: NSRect) {
         Swift.print("GraphicsTest.drawRect: " + "\(hasClear)")
         if(!hasClear){
-            color = NSColor.redColor()
-        }else{
             color = NSColor.blueColor()
+        }else{
+            color = NSColor.redColor()
         }
         var path:CGPath = CGPathParser.rect(CGFloat(width),CGFloat(height))//Shapes
         CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
