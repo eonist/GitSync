@@ -314,7 +314,7 @@ class GraphicsTest:FlippedView{
     var x:Int
     var y:Int
     var color:NSColor
-    override var wantsDefaultClipping:Bool{return false}
+    override var wantsDefaultClipping:Bool{return true}
     init(_ x:Int = 0, _ y:Int = 0,_ width:Int = 100, _ height:Int = 100, _ color:NSColor = NSColor.blueColor()) {
         self.x = x
         self.y = y
