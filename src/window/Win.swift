@@ -54,10 +54,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createContent(){
-        //testGraphic()
-       
-        
-        testSkin()
+        testGraphic()
+
+        //testSkin()
         //testElement()
         //createStyles()
         //createElement()
