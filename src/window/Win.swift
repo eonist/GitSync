@@ -74,7 +74,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         let b = GraphicsTest(50,50,200,200,NSColor.purpleColor())
         view.addSubview(b)
         b.clear()
-        b.clear()
+        
     }
     /**
      *
