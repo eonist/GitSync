@@ -97,7 +97,8 @@ class RoundRectGrapix:GrapixDecorator{//adds round-rectangular path
         super.init(decoratable)
     }
     override func drawFill() {
-        getGrapix().path = CGPathParser.roundRect(0,0,CGFloat(w), CGFloat(h),CGFloat(fillet.topLeft), CGFloat(fillet.topRight), CGFloat(fillet.bottomLeft), CGFloat(fillet.bottomRight))//Shapes
+        let fillet:Fillet = Fillet(20)
+        getGrapix().path = CGPathParser.roundRect(0,0,CGFloat(200), CGFloat(200),CGFloat(fillet.topLeft), CGFloat(fillet.topRight), CGFloat(fillet.bottomLeft), CGFloat(fillet.bottomRight))//Shapes
         //getGrapix().path = CGPathParser.rect(CGFloat(150), CGFloat(50))//Shapes
     }
 }
