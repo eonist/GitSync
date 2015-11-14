@@ -74,7 +74,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         view.addSubview(a)
         
         
-        //continue here, you need modell your classes so that when drawRect is called, graphics is created
+        //continue here, you need modell your classes so that when drawRect is called, graphics is created, so that graphics is attached to that NSView
         
         /*
         let b = GraphicsTest(50,50,200,200,NSColor.purpleColor())
