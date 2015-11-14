@@ -92,11 +92,10 @@ class RectGrapix:GrapixDecorator{//adds rectangular path
 class RoundRectGrapix:GrapixDecorator{//adds round-rectangular path
     override init(_ decoratable: IGrapixDecorator) {
         super.init(decoratable)
-        fill()
     }
     override func fill() {
         Swift.print("RoundRectGrapix.fill()")
-        CGContextClearRect(getGrapix().graphics.context, CGContextGetClipBoundingBox(getGrapix().graphics.context))//clear previouse drawings
+        
         super.beginFill()
         
         super.stylizeFill()
