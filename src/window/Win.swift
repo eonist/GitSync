@@ -353,10 +353,9 @@ class GraphicsTest:Graphic{
         Swift.print("GraphicsTest.clear() pre")
         
         //drawRect(frame)
-        
+        needsDisplay = true
         //drawRect(NSMakeRect(0, 0, 100, 100))
         hasClear = true
-        needsDisplay = true
         Swift.print("GraphicsTest.clear() post")
     }
 }
