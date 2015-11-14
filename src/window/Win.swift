@@ -337,6 +337,7 @@ class GraphicsTest:Graphic{
         Swift.print("GraphicsTest.drawRect: " + "\(hasClear)")
         if(!hasClear){
             color = NSColor.blueColor()
+            color = NSColor.redColor()
             var path:CGPath = CGPathParser.rect(CGFloat(width),CGFloat(height))//Shapes
             CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
             //graphics.line(12)//Stylize the line
@@ -351,6 +352,7 @@ class GraphicsTest:Graphic{
             
             graphics.fill(color)//Stylize the fill
             graphics.draw(path)//draw everything
+            
         }
         
         //super.drawRect(dirtyRect)
