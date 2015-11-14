@@ -73,6 +73,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         view.addSubview(a)
         let b = GraphicsTest(50,50,200,200,NSColor.purpleColor())
         view.addSubview(b)
+        b.clear()
     }
     /**
      *
@@ -340,7 +341,7 @@ class GraphicsTest:Graphic{
      *
      */
     override func drawRect(dirtyRect: NSRect) {
-        Swift.print("drawRect: " + "\(hasClear)")
+        Swift.print("GraphicsTest.drawRect: " + "\(hasClear)")
         super.drawRect(dirtyRect)
         if(!hasClear){
             var path:CGPath = CGPathParser.rect(CGFloat(width),CGFloat(height))//Shapes
