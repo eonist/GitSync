@@ -16,7 +16,7 @@ class SkinLayer:Graphic{//container class that hold the decorator structure.
     override func drawRect(dirtyRect: NSRect) {
         Swift.print("SkinLayer.drawRect() ")
         //create the structure here
-        var grapix = Grapix()
+        var grapix:IGrapixDecorator = Grapix()
         
     }
 }
@@ -31,9 +31,10 @@ class Grapix:IGrapixDecorator{//base class for decorators
     init(){
         graphics = Graphics()
     }
+    
 }
 class RectGrapix{//adds rectangular path
-    init(){
+    init(decoratable:IGrapixDecorator){
         
     }
 }
