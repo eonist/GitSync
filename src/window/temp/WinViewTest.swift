@@ -21,6 +21,9 @@ class SkinLayer:Graphic{//container class that hold the decorator structure.
 protocol IGrapixDecorator{
     func getGrapix() -> Grapix
     func fill()
+    func beginFill()
+    func drawFill()
+    func stylizeFill()
 }
 class GrapixDecorator:IGrapixDecorator{
     var decoratable:IGrapixDecorator
@@ -28,13 +31,16 @@ class GrapixDecorator:IGrapixDecorator{
         self.decoratable = decoratable
     }
     func fill(){
-        beginFill()
+        decoratable.fill()
     }
     func beginFill(){
         decoratable.beginFill()
     }
     func drawFill(){
-        decoratable.drawFill(()
+        decoratable.drawFill()
+    }
+    func stylizeFill(){
+        decoratable.stylizeFill()
     }
     func getGrapix() -> Grapix{
         return self.decoratable.getGrapix()
@@ -53,7 +59,7 @@ class Grapix:IGrapixDecorator{//base class for decorators
     func fill(){
         beginFill()
         drawFill()
-        stylize()
+        stylizeFill()
     }
     /**
      *
@@ -64,7 +70,7 @@ class Grapix:IGrapixDecorator{//base class for decorators
     func drawFill(){
         //
     }
-    func stylize(){
+    func stylizeFill(){
         GraphicModifier.stylize(getGrapix().path,getGrapix().graphics)//realize style on the graphic
     }
     /**
