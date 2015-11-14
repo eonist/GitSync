@@ -384,10 +384,18 @@ class GraphicsTest:Graphic{
 
 class WinView:FlippedView{
     init(){
-        
+        super.init(frame: NSMakeRect(0, 0, 100, 100))
     }
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    override func drawRect(dirtyRect: NSRect) {
+        createContent()
+    }
+    /**
+     *
+     */
+    func createContent(){
+        
     }
 }
