@@ -9,8 +9,8 @@ class WinView:FlippedView{
      *
      */
     func createContent(){
-        //testGraphic()
-        testSkin()
+        testGraphic()
+        //testSkin()
     }
     /**
      *
@@ -19,7 +19,7 @@ class WinView:FlippedView{
         let a = GraphicsTest(0,0,200,200)
         
         self.addSubview(a)
-        a.clear()
+        
         
         //continue here, you need modell your classes so that when drawRect is called, graphics is created, so that graphics is attached to that NSView
         
