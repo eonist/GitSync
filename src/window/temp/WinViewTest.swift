@@ -1,7 +1,7 @@
 import Cocoa
 
 
-//Continue here, add gradient and interaction with a button that changes the SkinLayer in a meaningfull way
+//Continue here, add GradientDecorator , CircleDecorator, DropShadowDecorator, others?
 
 
 class WinViewTest:FlippedView {
