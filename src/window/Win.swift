@@ -322,7 +322,7 @@ class GraphicsTest:FlippedView{
         self.width = width
         self.height = height
         self.color = color
-        super.init(frame: NSRect(x: 0, y: 0, width: 0, height: 0))
+        super.init(frame: NSRect(x: 0, y: 0, width: 100, height: 100))
         self.wantsLayer = false//this avoids calling drawLayer() and enables drawingRect()
     }
     
@@ -341,7 +341,7 @@ class GraphicsTest:FlippedView{
             
             let graphics:Graphics = Graphics()
             
-            var path:CGPath = CGPathParser.rect(200,200)//Shapes
+            var path:CGPath = CGPathParser.rect(width,height)//Shapes
             CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
             //graphics.line(12)//Stylize the line
             graphics.fill(color)//Stylize the fill
