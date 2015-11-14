@@ -54,9 +54,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createContent(){
-        let a = GraphicsTest()
+        let a = GraphicsTest(0,0,200,200)
         view.addSubview(a)
-        let b = GraphicsTest(50,50,500,500,NSColor.purpleColor())
+        let b = GraphicsTest(50,50,200,200,NSColor.purpleColor())
         view.addSubview(b)
         //b.clear()
         
@@ -341,7 +341,7 @@ class GraphicsTest:FlippedView{
             
             let graphics:Graphics = Graphics()
             
-            var path:CGPath = CGPathParser.rect(width,height)//Shapes
+            var path:CGPath = CGPathParser.rect(CGFloat(width),CGFloat(height))//Shapes
             CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
             //graphics.line(12)//Stylize the line
             graphics.fill(color)//Stylize the fill
