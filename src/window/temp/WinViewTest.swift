@@ -95,13 +95,6 @@ class RoundRectGrapix:GrapixDecorator{//adds round-rectangular path
     override init(_ decoratable: IGrapixDecorator) {
         super.init(decoratable)
     }
-    override func fill() {
-        Swift.print("RoundRectGrapix.fill()")
-        
-        super.beginFill()
-        
-        super.stylizeFill()
-    }
     override func drawFill() {
         getGrapix().path = CGPathParser.rect(CGFloat(150), CGFloat(50))//Shapes
     }
@@ -109,11 +102,8 @@ class RoundRectGrapix:GrapixDecorator{//adds round-rectangular path
 class GradientGrapix:GrapixDecorator{//adds Gradient fill
     override init(_ decoratable: IGrapixDecorator) {
         super.init(decoratable)
-        fill()
     }
-    override func fill() {
-        super.beginFill()
-        super.drawFill()
-        
+    override func beginFill() {
+        GraphicModifier.applyProperties(getGrapix().graphics, FillStyle(NSColor.orangeColor())/*, lineStyle*/)//apply style
     }
 }
