@@ -13,6 +13,7 @@ class SkinLayer:Graphic{//container class that hold the decorator structure.
         //create the structure here
         var grapix:IGrapixDecorator = Grapix()
         grapix = RectGrapix(grapix)
+        CGContextEndTransparencyLayer(grapix.getGrapix().graphics.context)
     }
 }
 protocol IGrapixDecorator{
