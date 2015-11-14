@@ -13,7 +13,9 @@ class SkinLayer:Graphic{//container class that hold the decorator structure.
         //create the structure here
         var grapix:IGrapixDecorator = Grapix()
         grapix = RectGrapix(grapix)
-        CGContextEndTransparencyLayer(grapix.getGrapix().graphics.context)
+        grapix = RoundRectGrapix(grapix)
+        
+        CGContextEndTransparencyLayer(grapix.getGrapix().graphics.context)//end the transperancy-layer
     }
 }
 protocol IGrapixDecorator{
@@ -37,7 +39,7 @@ class Grapix:IGrapixDecorator{//base class for decorators
     var path:CGPath = CGPathCreateMutable()
     init(){
         graphics = Graphics()
-        CGContextBeginTransparencyLayer(graphics.context, nil);
+        CGContextBeginTransparencyLayer(graphics.context, nil);//begin the transperancy-layer
     }
     /**
      *
@@ -69,8 +71,7 @@ class RoundRectGrapix:GrapixDecorator{//adds round-rectangular path
         fill()
     }
     override func fill() {
-        CGContextClearRect(getGrapix().graphics.context, NSMakeRect(0, 0, 500, 500))
-
+        CGContextClearRect(getGrapix().graphics.context, NSMakeRect(0, 0, 500, 500))//clear previouse drawings
         getGrapix().path = CGPathParser.rect(CGFloat(50), CGFloat(50))//Shapes
         super.fill()
     }
