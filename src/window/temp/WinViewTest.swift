@@ -7,6 +7,7 @@ import Cocoa
 
 //I think its cool that it worked, but is it performant? I mean what about setting up all the decorations 
 //and then calling an initialize method that would run trhough all the different calls and make the graphic one time, not many like now
+//this way you can also limit the extending of NSView to only Skin and Element
 
 //Try to optimize the process a bit
 
