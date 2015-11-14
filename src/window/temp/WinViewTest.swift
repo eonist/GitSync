@@ -5,6 +5,8 @@ import Cocoa
 //then think throguh how you want to name things. 
 //then move code into Element
 
+//I think its cool that it worked, but is it performant? I mean what about setting up all the decorations and then calling the 
+
 
 class WinViewTest:FlippedView {
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
