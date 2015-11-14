@@ -321,7 +321,7 @@ class GraphicsTest:Graphic{
         super.init()
         //self.wantsLayer = false//this avoids calling drawLayer() and enables drawingRect()
         //needsDisplay = true;
-        Swift.print("graphics: " + String(graphics.context))
+        //Swift.print("graphics: " + String(graphics.context))
     }
     
     /*
@@ -351,10 +351,12 @@ class GraphicsTest:Graphic{
      */
     func clear(){
         Swift.print("GraphicsTest.clear() pre")
-        hasClear = true
+        
         //drawRect(frame)
-        //needsDisplay = true
-        drawRect(NSMakeRect(0, 0, 100, 100))
+        
+        //drawRect(NSMakeRect(0, 0, 100, 100))
+        hasClear = true
+        needsDisplay = true
         Swift.print("GraphicsTest.clear() post")
     }
 }
