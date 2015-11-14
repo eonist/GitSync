@@ -54,8 +54,11 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createContent(){
-        let graphicsTest = GraphicsTest()
-        view.addSubview(graphicsTest)
+        let a = GraphicsTest()
+        view.addSubview(a)
+        let b = GraphicsTest(50,50,500,500,NSColor.purpleColor())
+        view.addSubview(b)
+        
         //testSkin()
         //testElement()
         //createStyles()
