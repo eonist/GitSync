@@ -58,7 +58,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         view.addSubview(a)
         let b = GraphicsTest(50,50,500,500,NSColor.purpleColor())
         view.addSubview(b)
-        b.clear()
+        //b.clear()
         
         //testSkin()
         //testElement()
@@ -349,7 +349,7 @@ class GraphicsTest:FlippedView{
         
         
         
-        super.drawRect(dirtyRect)
+        //super.drawRect(dirtyRect)
     }
     /**
      *
