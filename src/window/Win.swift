@@ -73,7 +73,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         view.addSubview(a)
         let b = GraphicsTest(50,50,200,200,NSColor.purpleColor())
         view.addSubview(b)
-        b.clear()
+        //b.clear()
         
     }
     /**
@@ -343,7 +343,7 @@ class GraphicsTest:Graphic{
      */
     override func drawRect(dirtyRect: NSRect) {
         Swift.print("GraphicsTest.drawRect: " + "\(hasClear)")
-        super.drawRect(dirtyRect)
+        
         if(!hasClear){
             var path:CGPath = CGPathParser.rect(CGFloat(width),CGFloat(height))//Shapes
             CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
@@ -352,7 +352,7 @@ class GraphicsTest:Graphic{
             graphics.draw(path)//draw everything
             hasClear = false;
         }
-        
+        //super.drawRect(dirtyRect)
         
         
         
@@ -365,7 +365,8 @@ class GraphicsTest:Graphic{
         Swift.print("GraphicsTest.clear() pre")
         hasClear = true
         //drawRect(frame)
-        needsDisplay = true
+        //needsDisplay = true
+        self.drawRect(NSMakeRect(0, 0, 100, 100))
         Swift.print("GraphicsTest.clear() post")
     }
 }
