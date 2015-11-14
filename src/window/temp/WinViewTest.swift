@@ -28,6 +28,9 @@ class GrapixDecorator:IGrapixDecorator{
         self.decoratable = decoratable
     }
     func fill(){
+        beginFill()
+    }
+    func beginFill(){
         decoratable.fill()
     }
     func getGrapix() -> Grapix{
@@ -46,6 +49,7 @@ class Grapix:IGrapixDecorator{//base class for decorators
      */
     func fill(){
         beginFill()
+        drawFill()
         stylize()
     }
     /**
@@ -53,6 +57,9 @@ class Grapix:IGrapixDecorator{//base class for decorators
      */
     func beginFill(){
         GraphicModifier.applyProperties(getGrapix().graphics, FillStyle(NSColor.purpleColor())/*, lineStyle*/)//apply style
+    }
+    func drawFill(){
+        
     }
     func stylize(){
         GraphicModifier.stylize(getGrapix().path,getGrapix().graphics)//realize style on the graphic
