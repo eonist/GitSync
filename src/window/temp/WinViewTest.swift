@@ -12,3 +12,23 @@ class WinViewTest:FlippedView {
         
     }
 }
+class Grapix{//base class for decorators
+    init(){
+        
+    }
+}
+class RectGrapix{//adds rectangular path
+    init(){
+        
+    }
+}
+class RoundRectGrapix{//adds round-rectangular path
+    init(){
+        
+    }
+}
+class GradientGrapix{//adds Gradient fill 
+    init(){
+        
+    }
+}
