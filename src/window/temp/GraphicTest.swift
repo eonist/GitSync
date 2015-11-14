@@ -17,7 +17,6 @@ class GraphicsTest:Graphic{
         super.init()
         self.wantsLayer = false//this avoids calling drawLayer() and enables drawingRect()
         needsDisplay = true;
-        graphics.fill(color)//Stylize the fill
         //Swift.print("graphics: " + String(graphics.context))
     }
     
@@ -36,7 +35,7 @@ class GraphicsTest:Graphic{
         CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
         //graphics.line(12)//Stylize the line
         
-        
+        graphics.fill(color)//Stylize the fill
         graphics.draw(path)//draw everything
         
         //super.drawRect(dirtyRect)
