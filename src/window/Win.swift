@@ -75,6 +75,12 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         view.addSubview(b)
         //b.clear()
         
+        
+        
+        
+        //continue here: it seems needsDisplay = true, isnt imidiate, using drawRect() seems to work better
+        //try to get this working with shape
+        
     }
     /**
      *
