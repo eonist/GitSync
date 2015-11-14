@@ -46,7 +46,6 @@ class Grapix:IGrapixDecorator{//base class for decorators
      */
     func fill(){
         GraphicModifier.applyProperties(getGrapix().graphics, FillStyle(NSColor.purpleColor())/*, lineStyle*/)//apply style
-        GraphicModifier.stylize(getGrapix().path,getGrapix().graphics)//realize style on the graphic
     }
     /**
      *
