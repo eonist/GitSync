@@ -56,7 +56,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     func createContent(){
         testGraphic()
 
-        testSkin()
+        //testSkin()
         //testElement()
         //createStyles()
         //createElement()
@@ -336,6 +336,7 @@ class GraphicsTest:Graphic{
         self.color = color
         super.init()
         self.wantsLayer = false//this avoids calling drawLayer() and enables drawingRect()
+        let tempGraphics = graphics
     }
     
     /*
