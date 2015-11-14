@@ -54,9 +54,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createContent(){
-        testGraphic()
+        //testGraphic()
 
-        //testSkin()
+        testSkin()
         //testElement()
         //createStyles()
         //createElement()
@@ -74,13 +74,14 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         let b = GraphicsTest(50,50,200,200,NSColor.purpleColor())
         view.addSubview(b)
         b.clear()
+        b.clear()
     }
     /**
      *
      */
     func testSkin(){
         //"Button{fill:red;} CheckButton{line:blue;}"
-        let css:String = "Blob{fill:green;fill-alpha:1.0;corner-radius:10px;}"//Element{fill:red;fill-alpha:1.0;}
+        let css:String = "Element{fill:red;fill-alpha:1.0;}"//"Blob{fill:green;fill-alpha:1.0;corner-radius:10px;}"//
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         //let element = Element(200,200)
