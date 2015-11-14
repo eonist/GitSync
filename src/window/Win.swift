@@ -70,11 +70,14 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
      */
     func testGraphic(){
         let a = GraphicsTest(0,0,200,200)
-        view.addSubview(a)
         a.draw()
+        view.addSubview(a)
+        
+        /*
         let b = GraphicsTest(50,50,200,200,NSColor.purpleColor())
         view.addSubview(b)
         b.draw()
+        */
         //b.clear()
         
         
@@ -338,7 +341,8 @@ class GraphicsTest:Graphic{
         self.color = color
         super.init()
         self.wantsLayer = false//this avoids calling drawLayer() and enables drawingRect()
-        
+        //needsDisplay = true;
+        drawRect(NSMakeRect(0, 0, 100, 100))
     }
     
     /*
@@ -367,7 +371,7 @@ class GraphicsTest:Graphic{
      *
      */
     func draw(){
-        
+        Swift.print("GraphicsTest.draw()")
     }
     /**
      *
