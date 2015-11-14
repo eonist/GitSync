@@ -1,7 +1,7 @@
 import Cocoa
 
 class WinView:FlippedView{
-    
+    override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override func drawRect(dirtyRect: NSRect) {
         createContent()
     }
@@ -16,7 +16,7 @@ class WinView:FlippedView{
      *
      */
     func testGraphic(){
-        let a = GraphicsTest(0,0,200,200)
+        let a = GraphicsTest(0,0,300,300)
         
         self.addSubview(a)
         

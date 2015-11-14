@@ -1,7 +1,6 @@
 import Cocoa
 
 class GraphicsTest:Graphic{
-    var hasClear:Bool = false
     var x:Int
     var y:Int
     var width:Int
@@ -29,7 +28,7 @@ class GraphicsTest:Graphic{
      *
      */
     override func drawRect(dirtyRect: NSRect) {
-        Swift.print("GraphicsTest.drawRect: " + "\(hasClear)")
+        Swift.print("GraphicsTest.drawRect: " )
         var path:CGPath = CGPathParser.rect(CGFloat(width/2),CGFloat(height/2))//Shapes
         CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
         //graphics.line(12)//Stylize the line
