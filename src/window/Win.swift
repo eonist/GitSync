@@ -336,7 +336,7 @@ class GraphicsTest:Graphic{
         self.color = color
         super.init()
         self.wantsLayer = false//this avoids calling drawLayer() and enables drawingRect()
-        let tempGraphics = graphics
+        
     }
     
     /*
@@ -355,6 +355,7 @@ class GraphicsTest:Graphic{
             var path:CGPath = CGPathParser.rect(CGFloat(width),CGFloat(height))//Shapes
             CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
             //graphics.line(12)//Stylize the line
+            Swift.print("graphics: " + String(graphics.context))
             graphics.fill(color)//Stylize the fill
             graphics.draw(path)//draw everything
             hasClear = false;
