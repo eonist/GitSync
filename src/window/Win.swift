@@ -335,9 +335,9 @@ class GraphicsTest:FlippedView{
     override func drawRect(dirtyRect: NSRect) {
         Swift.print("drawRect: " + "\(hasClear)")
         if(!hasClear){
-            Swift.print("Graphics.begin")
+            
             let graphics:Graphics = Graphics()
-            Swift.print("Graphics.end")
+            
             var path:CGPath = CGPathParser.rect(200,200)//Shapes
             CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
             //graphics.line(12)//Stylize the line
