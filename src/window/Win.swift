@@ -54,9 +54,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     *
     */
     func createContent(){
-        //testGraphic()
+        testGraphic()
 
-        testSkin()
+        //testSkin()
         //testElement()
         //createStyles()
         //createElement()
@@ -362,9 +362,10 @@ class GraphicsTest:Graphic{
      *
      */
     func clear(){
-        Swift.print("clear()")
+        Swift.print("GraphicsTest.clear() pre")
         hasClear = true
         //drawRect(frame)
         needsDisplay = true
+        Swift.print("GraphicsTest.clear() post")
     }
 }
