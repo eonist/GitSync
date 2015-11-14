@@ -25,7 +25,7 @@ class GrapixDecorator:IGrapixDecorator{
         self.decoratable = decoratable
     }
     func fill(){
-        
+        decoratable.fill()
     }
     func getGrapix() -> Grapix{
         return self.decoratable.getGrapix()
@@ -54,8 +54,11 @@ class Grapix:IGrapixDecorator{//base class for decorators
 class RectGrapix:GrapixDecorator{//adds rectangular path
     override init(_ decoratable: IGrapixDecorator) {
         super.init(decoratable)
+        fill()
+    }
+    override func fill() {
         getGrapix().path = CGPathParser.rect(CGFloat(100), CGFloat(100))//Shapes
-        
+        super.fill()
     }
 }
 class RoundRectGrapix{//adds round-rectangular path
