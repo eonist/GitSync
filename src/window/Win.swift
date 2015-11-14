@@ -336,14 +336,16 @@ class GraphicsTest:Graphic{
     override func drawRect(dirtyRect: NSRect) {
         Swift.print("GraphicsTest.drawRect: " + "\(hasClear)")
         if(!hasClear){
-            var path:CGPath = CGPathParser.rect(CGFloat(width),CGFloat(height))//Shapes
-            CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
-            //graphics.line(12)//Stylize the line
-            
-            graphics.fill(color)//Stylize the fill
-            graphics.draw(path)//draw everything
-            hasClear = false;
+            color = NSColor.redColor()
+        }else{
+            color = NSColor.blueColor()
         }
+        var path:CGPath = CGPathParser.rect(CGFloat(width),CGFloat(height))//Shapes
+        CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
+        //graphics.line(12)//Stylize the line
+        
+        graphics.fill(color)//Stylize the fill
+        graphics.draw(path)//draw everything
         //super.drawRect(dirtyRect)
     }
     /**
@@ -353,9 +355,10 @@ class GraphicsTest:Graphic{
         Swift.print("GraphicsTest.clear() pre")
         
         //drawRect(frame)
-        needsDisplay = true
-        //drawRect(NSMakeRect(0, 0, 100, 100))
+        //needsDisplay = true
         hasClear = true
+        drawRect(NSMakeRect(0, 0, 100, 100))
+        hasClear = false
         Swift.print("GraphicsTest.clear() post")
     }
 }
