@@ -17,26 +17,35 @@ class SkinLayer:Graphic{//container class that hold the decorator structure.
         Swift.print("SkinLayer.drawRect() ")
         //create the structure here
         var grapix:IGrapixDecorator = Grapix()
-        
+        grapix = RectGrapix(grapix)
     }
 }
 protocol IGrapixDecorator{
-    
+    func getGrapix() -> Grapix
 }
-class GrapixDecorator{
-    
+class GrapixDecorator:IGrapixDecorator{
+    var decoratable:IGrapixDecorator
+    init(_ decoratable:IGrapixDecorator){
+        self.decoratable = decoratable
+    }
+    func getGrapix() -> Grapix{
+        return self.decoratable.getGrapix()
+    }
 }
 class Grapix:IGrapixDecorator{//base class for decorators
     var graphics:Graphics
     init(){
         graphics = Graphics()
     }
-    
-}
-class RectGrapix{//adds rectangular path
-    init(decoratable:IGrapixDecorator){
-        
+    /**
+     *
+     */
+    func getGrapix()->Grapix{
+        return self
     }
+}
+class RectGrapix:GrapixDecorator{//adds rectangular path
+    
 }
 class RoundRectGrapix{//adds round-rectangular path
     init(){
