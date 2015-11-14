@@ -321,6 +321,7 @@ class GraphicsTest:Graphic{
         super.init()
         //self.wantsLayer = false//this avoids calling drawLayer() and enables drawingRect()
         //needsDisplay = true;
+        Swift.print("graphics: " + String(graphics.context))
     }
     
     /*
@@ -338,7 +339,7 @@ class GraphicsTest:Graphic{
             var path:CGPath = CGPathParser.rect(CGFloat(width),CGFloat(height))//Shapes
             CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
             //graphics.line(12)//Stylize the line
-            Swift.print("graphics: " + String(graphics.context))
+            
             graphics.fill(color)//Stylize the fill
             graphics.draw(path)//draw everything
             hasClear = false;
@@ -376,7 +377,7 @@ class WinView:FlippedView{
         let a = GraphicsTest(0,0,200,200)
         
         self.addSubview(a)
-        
+        a.clear()
         
         //continue here, you need modell your classes so that when drawRect is called, graphics is created, so that graphics is attached to that NSView
         
