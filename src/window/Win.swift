@@ -309,7 +309,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     }
     
 }
-class GraphicsTest:FlippedView{
+class GraphicsTest:Graphic{
     var hasClear:Bool = false
     var x:Int
     var y:Int
@@ -322,7 +322,7 @@ class GraphicsTest:FlippedView{
         self.width = width
         self.height = height
         self.color = color
-        super.init(frame: NSRect(x: 0, y: 0, width: 100, height: 100))
+        super.init()
         self.wantsLayer = false//this avoids calling drawLayer() and enables drawingRect()
     }
     
@@ -339,7 +339,7 @@ class GraphicsTest:FlippedView{
         Swift.print("drawRect: " + "\(hasClear)")
         if(!hasClear){
             
-            let graphics:Graphics = Graphics()
+            
             
             var path:CGPath = CGPathParser.rect(CGFloat(width),CGFloat(height))//Shapes
             CGPathModifier.translate(&path,CGFloat(x),CGFloat(y))//Transformations
