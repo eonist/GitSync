@@ -343,7 +343,6 @@ class GraphicsTest:Graphic{
             
             graphics.fill(color)//Stylize the fill
             graphics.draw(path)//draw everything
-            //CGContextClearRect(graphics.context, NSMakeRect(0, 0, 400, 400))
         }else{
             color = NSColor.redColor()
             var path:CGPath = CGPathParser.rect(CGFloat(width),CGFloat(height))//Shapes
