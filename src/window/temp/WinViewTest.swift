@@ -61,6 +61,7 @@ class RectGrapix:GrapixDecorator{//adds rectangular path
         fill()
     }
     override func fill() {
+        Swift.print("RectGrapix.fill()")
         getGrapix().path = CGPathParser.rect(CGFloat(100), CGFloat(100))//Shapes
         super.fill()
     }
@@ -71,8 +72,9 @@ class RoundRectGrapix:GrapixDecorator{//adds round-rectangular path
         fill()
     }
     override func fill() {
+        Swift.print("RoundRectGrapix.fill()")
         CGContextClearRect(getGrapix().graphics.context, NSMakeRect(0, 0, 500, 500))//clear previouse drawings
-        getGrapix().path = CGPathParser.rect(CGFloat(50), CGFloat(50))//Shapes
+        getGrapix().path = CGPathParser.rect(CGFloat(150), CGFloat(50))//Shapes
         super.fill()
     }
 }
