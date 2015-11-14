@@ -341,7 +341,7 @@ class GraphicsTest:Graphic{
         self.color = color
         super.init()
         self.wantsLayer = false//this avoids calling drawLayer() and enables drawingRect()
-        //needsDisplay = true;
+        needsDisplay = true;
         drawRect(NSMakeRect(0, 0, 100, 100))
     }
     
