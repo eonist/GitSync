@@ -100,12 +100,18 @@ class RoundRectGrapix:GrapixDecorator{//adds round-rectangular path
         Swift.print("RoundRectGrapix.fill()")
         CGContextClearRect(getGrapix().graphics.context, CGContextGetClipBoundingBox(getGrapix().graphics.context))//clear previouse drawings
         super.beginFill()
-        getGrapix().path = CGPathParser.rect(CGFloat(150), CGFloat(50))//Shapes
+        drawFill()
         super.stylizeFill()
     }
 }
-class GradientGrapix{//adds Gradient fill
-    init(){
+class GradientGrapix:GrapixDecorator{//adds Gradient fill
+    override init(_ decoratable: IGrapixDecorator) {
+        super.init(decoratable)
+        fill()
+    }
+    override func fill() {
+        super.beginFill()
+        super.drawFill()
         
     }
 }
