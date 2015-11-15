@@ -28,7 +28,7 @@ class SkinLayer:Graphic{//container class that hold the decorator structure.
         grapix = RectGrapix(grapix)
         grapix = RoundRectGrapix(grapix)
         grapix = GradientGrapix(grapix)
-        grapix.initialize()
+        grapix.initialize()//runs trough all the different calls and makes the graphic in one go.
     }
 }
 protocol IGrapixDecorator{
