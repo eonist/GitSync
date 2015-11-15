@@ -27,7 +27,14 @@ class WinView:FlippedView{
         //let blob = Blob(150,250)
         //view.addSubview(blob)
         
+        
+        
+        
         //continue here: try to get gradient working from the css
+        
+        
+        
+        
     }
     /**
      *
