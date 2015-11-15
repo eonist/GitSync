@@ -3,8 +3,8 @@ import Cocoa
 class WinView:FlippedView{
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override func drawRect(dirtyRect: NSRect) {
-        //createContent()
-        ColorParser.nsColor("0x000000")
+        createContent()
+        
     }
     /**
      *
