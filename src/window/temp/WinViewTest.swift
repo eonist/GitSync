@@ -27,7 +27,7 @@ class SkinLayer:Graphic{//container class that hold the decorator structure.
         var grapix:IGrapixDecorator = Grapix()
         grapix = RectGrapix(grapix)
         grapix = RoundRectGrapix(grapix)
-        //grapix = GradientGrapix(grapix)
+        grapix = GradientGrapix(grapix)
         grapix.initialize()
     }
 }
@@ -39,7 +39,7 @@ protocol IGrapixDecorator{
     func stylizeFill()
     func initialize()
 }
-class GrapixDecorator:IGrapixDecorator{
+class GrapixDecorator:AbstractGrapixDecorator{
     var decoratable:IGrapixDecorator
     init(_ decoratable:IGrapixDecorator){
         self.decoratable = decoratable
@@ -63,6 +63,21 @@ class GrapixDecorator:IGrapixDecorator{
     }
     func getGrapix() -> Grapix{
         return self.decoratable.getGrapix()
+    }
+}
+class AbstractGrapixDecorator:IGrapixDecorator{
+    func initialize(){
+    }
+    func fill(){
+    }
+    func beginFill(){
+    }
+    func drawFill(){
+    }
+    func stylizeFill(){
+    }
+    func getGrapix() -> Grapix{
+        fatalError("Must be overridden in subClass")
     }
 }
 //TODO: make an abstractDecorator that holds all the decorator methods
