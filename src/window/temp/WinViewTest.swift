@@ -29,14 +29,11 @@ class SkinLayer:Graphic{//container class that hold the decorator structure.
         grapix = RoundRectGrapix(grapix)
         grapix = GradientGrapix(grapix)
         grapix.initialize()
-        
-        CGContextEndTransparencyLayer(grapix.getGrapix().graphics.context)//end the transperancy-layer
     }
 }
 protocol IGrapixDecorator{
     func getGrapix() -> Grapix
     func fill()
-    func clear()
     func beginFill()
     func drawFill()
     func stylizeFill()
@@ -46,19 +43,14 @@ class GrapixDecorator:IGrapixDecorator{
     var decoratable:IGrapixDecorator
     init(_ decoratable:IGrapixDecorator){
         self.decoratable = decoratable
-        fill()
     }
     func initialize(){
-        
+        fill()
     }
     func fill(){
-        clear()
         beginFill()
         drawFill()
         stylizeFill()
-    }
-    func clear(){
-        decoratable.clear()
     }
     func beginFill(){
         decoratable.beginFill()
@@ -78,13 +70,12 @@ class Grapix:IGrapixDecorator{//base class for decorators
     var path:CGPath = CGPathCreateMutable()
     init(){
         graphics = Graphics()
-        CGContextBeginTransparencyLayer(graphics.context, nil);//begin the transperancy-layer
+    }
+    func initialize() {
+        fill()
     }
     func fill(){
         //
-    }
-    func clear(){
-        CGContextClearRect(getGrapix().graphics.context, CGContextGetClipBoundingBox(getGrapix().graphics.context))//clear previouse drawings
     }
     func beginFill(){
         GraphicModifier.applyProperties(getGrapix().graphics, FillStyle(NSColor.purpleColor())/*, lineStyle*/)//apply style
