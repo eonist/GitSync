@@ -28,6 +28,7 @@ class SkinLayer:Graphic{//container class that hold the decorator structure.
         grapix = RectGrapix(grapix)
         grapix = RoundRectGrapix(grapix)
         grapix = GradientGrapix(grapix)
+        grapix = CircleGrapix(grapix)
         grapix.initialize()//runs trough all the different calls and makes the graphic in one go.
     }
 }
@@ -105,12 +106,16 @@ class RoundRectGrapix:GrapixDecorator{//adds round-rectangular path
     override func drawFill() {
         let fillet:Fillet = Fillet(20)
         getGrapix().path = CGPathParser.roundRect(0,0,CGFloat(200), CGFloat(200),CGFloat(fillet.topLeft), CGFloat(fillet.topRight), CGFloat(fillet.bottomLeft), CGFloat(fillet.bottomRight))//Shapes
-        //getGrapix().path = CGPathParser.rect(CGFloat(150), CGFloat(50))//Shapes
     }
 }
 class GradientGrapix:GrapixDecorator{//adds Gradient fill
     override func beginFill() {
         let randomColor:NSColor = NSColor.orangeColor()//ColorUtils.randomColor()
         GraphicModifier.applyProperties(getGrapix().graphics, FillStyle(randomColor)/*, lineStyle*/)//apply style
+    }
+}
+class CircleGrapix:GrapixDecorator{//adds Gradient fill
+    override func drawFill() {
+        getGrapix().path = CGPathParser.circle(50,50,50)
     }
 }
