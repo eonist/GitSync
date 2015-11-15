@@ -97,17 +97,11 @@ class Grapix:AbstractGrapixDecorator{//base class for decorators
     }
 }
 class RectGrapix:GrapixDecorator{//adds rectangular path
-    override init(_ decoratable: IGrapixDecorator) {
-        super.init(decoratable)
-    }
     override func drawFill() {
         getGrapix().path = CGPathParser.rect(CGFloat(100), CGFloat(100))//Shapes
     }
 }
 class RoundRectGrapix:GrapixDecorator{//adds round-rectangular path
-    override init(_ decoratable: IGrapixDecorator) {
-        super.init(decoratable)
-    }
     override func drawFill() {
         let fillet:Fillet = Fillet(20)
         getGrapix().path = CGPathParser.roundRect(0,0,CGFloat(200), CGFloat(200),CGFloat(fillet.topLeft), CGFloat(fillet.topRight), CGFloat(fillet.bottomLeft), CGFloat(fillet.bottomRight))//Shapes
@@ -115,9 +109,6 @@ class RoundRectGrapix:GrapixDecorator{//adds round-rectangular path
     }
 }
 class GradientGrapix:GrapixDecorator{//adds Gradient fill
-    override init(_ decoratable: IGrapixDecorator) {
-        super.init(decoratable)
-    }
     override func beginFill() {
         let randomColor:NSColor = NSColor.orangeColor()//ColorUtils.randomColor()
         GraphicModifier.applyProperties(getGrapix().graphics, FillStyle(randomColor)/*, lineStyle*/)//apply style
