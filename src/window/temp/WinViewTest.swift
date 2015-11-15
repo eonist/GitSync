@@ -44,24 +44,24 @@ class GrapixDecorator:AbstractGrapixDecorator{
     init(_ decoratable:IGrapixDecorator){
         self.decoratable = decoratable
     }
-    func initialize(){
+    override func initialize(){
         fill()
     }
-    func fill(){
+    override func fill(){
         beginFill()
         drawFill()
         stylizeFill()
     }
-    func beginFill(){
+    override func beginFill(){
         decoratable.beginFill()
     }
-    func drawFill(){
+    override func drawFill(){
         decoratable.drawFill()
     }
-    func stylizeFill(){
+    override func stylizeFill(){
         decoratable.stylizeFill()
     }
-    func getGrapix() -> Grapix{
+    override func getGrapix() -> Grapix{
         return self.decoratable.getGrapix()
     }
 }
@@ -82,28 +82,17 @@ class AbstractGrapixDecorator:IGrapixDecorator{
 }
 //TODO: make an abstractDecorator that holds all the decorator methods
 
-class Grapix:IGrapixDecorator{//base class for decorators
+class Grapix:AbstractGrapixDecorator{//base class for decorators
     lazy var graphics:Graphics = Graphics()
     var path:CGPath = CGPathCreateMutable()
-    func initialize() {
-        
-    }
-    func fill(){
-        //
-    }
-    func beginFill(){
+    
+    override func beginFill(){
         GraphicModifier.applyProperties(getGrapix().graphics, FillStyle(NSColor.purpleColor())/*, lineStyle*/)//apply style
     }
-    func drawFill(){
-        //
-    }
-    func stylizeFill(){
+    override func stylizeFill(){
         GraphicModifier.stylize(getGrapix().path,getGrapix().graphics)//realize style on the graphic
     }
-    /**
-     *
-     */
-    func getGrapix()->Grapix{
+    override func getGrapix()->Grapix{
         return self
     }
 }
