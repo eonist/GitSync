@@ -81,7 +81,7 @@ class AbstractGrapixDecorator:IGrapixDecorator{
         fatalError("Must be overridden in subClass")
     }
 }
-//TODO: make an abstractDecorator that holds all the decorator methods
+//TODO: make an 
 
 class Grapix:AbstractGrapixDecorator{//base class for decorators
     lazy var graphics:Graphics = Graphics()
