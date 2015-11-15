@@ -2,6 +2,7 @@ import Cocoa
 
 
 
+//shape
 
 
 class WinViewTest:FlippedView {
