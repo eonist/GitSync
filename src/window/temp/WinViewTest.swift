@@ -16,10 +16,8 @@ import Cocoa
 class WinViewTest:FlippedView {
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override func drawRect(dirtyRect: NSRect) {
-        //let skinLayer:SkinLayer = SkinLayer()
-        //addSubview(skinLayer)
-        ColorParser.nsColor("0xFF0000")
-        ColorParser.nsColor(0x0000FF)
+        let skinLayer:SkinLayer = SkinLayer()
+        addSubview(skinLayer)
     }
 }
 class SkinLayer:Graphic{//container class that hold the decorator structure.
