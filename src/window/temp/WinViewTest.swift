@@ -28,6 +28,7 @@ class SkinLayer:Graphic{//container class that hold the decorator structure.
         grapix = RectGrapix(grapix)
         grapix = RoundRectGrapix(grapix)
         grapix = GradientGrapix(grapix)
+        grapix.initialize()
         
         CGContextEndTransparencyLayer(grapix.getGrapix().graphics.context)//end the transperancy-layer
     }
@@ -39,12 +40,16 @@ protocol IGrapixDecorator{
     func beginFill()
     func drawFill()
     func stylizeFill()
+    func initialize()
 }
 class GrapixDecorator:IGrapixDecorator{
     var decoratable:IGrapixDecorator
     init(_ decoratable:IGrapixDecorator){
         self.decoratable = decoratable
         fill()
+    }
+    func initialize(){
+        
     }
     func fill(){
         clear()
