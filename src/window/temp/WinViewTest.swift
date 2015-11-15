@@ -3,7 +3,7 @@ import Cocoa
 
 
 //Shape
-//RoundRectShaoe
+//RoundRectShape
 //RectShape
 //CircleShape
 //GradientShape
