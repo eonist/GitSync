@@ -14,7 +14,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     static var width = 800//Static variable, reachable on a class level
     static var height = 600
     static var sizeRect:NSRect = NSRect(x: 0, y: 0, width: Win.width, height: Win.height)//NSMakeRect(0, 0, TempWin.width, TempWin.height)
-    var view = WinViewTest(frame: Win.sizeRect)//WinView(frame: Win.sizeRect)//FlippedView(frame: Win.sizeRect)
+    var view = WinView(frame: Win.sizeRect)//WinViewTest(frame: Win.sizeRect)//,FlippedView(frame: Win.sizeRect)
     
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
         super.init(contentRect: Win.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
