@@ -2,11 +2,15 @@ import Cocoa
 
 
 
-//Shape
-//RoundRectShape
-//RectShape
-//CircleShape
-//GradientShape
+//Graphic
+//RoundRectGraphic
+//RectGraphic
+//CircleGraphic
+//GradientGraphic
+//IGraphic
+//AbstractGraphicDecorator
+//GraphicDecorator
+
 
 
 class WinViewTest:FlippedView {
