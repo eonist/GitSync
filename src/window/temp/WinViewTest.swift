@@ -65,14 +65,13 @@ class GrapixDecorator:IGrapixDecorator{
         return self.decoratable.getGrapix()
     }
 }
+//TODO: make an abstractDecorator that holds all the decorator methods
+
 class Grapix:IGrapixDecorator{//base class for decorators
-    var graphics:Graphics
+    lazy var graphics:Graphics = Graphics()
     var path:CGPath = CGPathCreateMutable()
-    init(){
-        graphics = Graphics()
-    }
     func initialize() {
-        fill()
+        
     }
     func fill(){
         //
