@@ -27,7 +27,7 @@ class SkinLayer:Graphic{//container class that hold the decorator structure.
         var grapix:IGrapixDecorator = Grapix()
         grapix = RectGrapix(grapix)
         grapix = RoundRectGrapix(grapix)
-        grapix = GradientGrapix(grapix)
+        //grapix = GradientGrapix(grapix)
         grapix.initialize()
     }
 }
