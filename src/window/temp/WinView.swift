@@ -20,10 +20,14 @@ class WinView:FlippedView{
     func testRotation(){
         let circle = Graphic()
         addSubview(circle)
-        
+        //red circle
         CGPathAddPath(circle.path, nil, CGPathParser.circle(25,25,25))
         CGPathModifier.translate(&circle.path,CGFloat(100),CGFloat(100))//Transformations
         circle.graphics.fill(NSColor.redColor())
+        //yellow circle
+        CGPathAddPath(circle.path, nil, CGPathParser.circle(25,25,25))
+        circle.graphics.fill(NSColor.yellowColor())
+        
         circle.graphics.draw(circle.path)
         
         let position = PointParser.polarPoint(50,Trig.pi/4)
