@@ -21,7 +21,7 @@ class WinView:FlippedView{
         let circle = Graphic()
         addSubview(circle)
         //red circle
-        CGPathAddPath(circle.path, nil, CGPathParser.circle(25,25,25))
+        circle.path.add(CGPathParser.circle(25,25,25))
         CGPathModifier.translate(&circle.path,CGFloat(100),CGFloat(100))//Transformations
         circle.graphics.fill(NSColor.redColor())
         circle.graphics.draw(circle.path)
