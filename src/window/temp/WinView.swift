@@ -28,11 +28,12 @@ class WinView:FlippedView{
         //yellow circle
         circle.path = CGPathParser.circle(25,25,25)
         circle.graphics.fill(NSColor.yellowColor())
+        
+        let position = PointParser.polarPoint(50,Trig.pi/1)
+        Swift.print(String(position))
+        CGPathModifier.translate(&circle.path,CGFloat(100)+CGFloat(position.x),CGFloat(100)+CGFloat(position.y))//Transformations
         circle.graphics.draw(circle.path)
         
-        
-        let position = PointParser.polarPoint(50,Trig.pi/4)
-        Swift.print(String(position))
     }
     /**
      *
