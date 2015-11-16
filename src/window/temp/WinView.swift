@@ -23,7 +23,7 @@ class WinView:FlippedView{
         rect.path = CGPathParser.circle(25,25,25)
         rect.graphics.fill(NSColor.redColor())
         rect.graphics.draw(rect.path)
-        rect.x
+        rect.frame = NSRect(x: 20,y: 20,width: 100,height: 100)
     }
     /**
      *
