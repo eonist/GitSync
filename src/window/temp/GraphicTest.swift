@@ -6,7 +6,7 @@ class GraphicsTest:Graphic{
     var width:Int
     var height:Int
     var color:NSColor
-    var path:CGPath
+    //var path:CGPath
     init(_ x:Int = 0, _ y:Int = 0,_ width:Int = 100, _ height:Int = 100, _ color:NSColor = NSColor.blueColor()) {
         self.x = x
         self.y = y
