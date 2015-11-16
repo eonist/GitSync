@@ -30,7 +30,13 @@ class WinView:FlippedView{
         circle.graphics.fill(NSColor.yellowColor())
         Swift.print(Trig.pi)
         Swift.print(String(Trig.pi*2))
-        let position = PointParser.polarPoint(100,Trig.pi/8)
+        
+        
+        //Continue here something is wrong, check your math, atan2?
+        
+        
+        
+        let position = PointParser.polarPoint(100,0)
         Swift.print(String(position))
         CGPathModifier.translate(&circle.path,CGFloat(position.x),CGFloat(position.y))//Transformations
         circle.graphics.draw(circle.path)
