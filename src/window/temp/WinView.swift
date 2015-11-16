@@ -25,6 +25,10 @@ class WinView:FlippedView{
         let element = Element(200,200)
         self.addSubview(element)
         
+        
+        //continue here, implement GradientGraphic.swift
+        
+        
         //let blob = Blob(150,250)
         //view.addSubview(blob)
         
