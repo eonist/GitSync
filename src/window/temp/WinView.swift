@@ -26,7 +26,7 @@ class WinView:FlippedView{
         self.addSubview(element)
         
         
-        //continue here, implement GradientGraphic.swift
+        //continue here, impliment support for correct rotation
         
         
         //let blob = Blob(150,250)
