@@ -25,7 +25,8 @@ class WinView:FlippedView{
         circle.graphics.fill(NSColor.redColor())
         circle.graphics.draw(circle.path)
         
-        let position:(Double,Double) = PointParser.polarPoint(<#T##radius: Double##Double#>, )
+        let position = PointParser.polarPoint(100,Trig.pi/4)
+        Swift.print(String(position))
     }
     /**
      *
