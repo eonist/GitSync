@@ -18,12 +18,12 @@ class WinView:FlippedView{
      *
      */
     func testRotation(){
-        let rect = Graphic(frame: NSRect(x: 0, y: 0, width: 100, height: 100))
+        let rect = Graphic()
         addSubview(rect)
         rect.path = CGPathParser.circle(25,25,25)
         rect.graphics.fill(NSColor.redColor())
         rect.graphics.draw(rect.path)
-     
+        
         
     }
     /**
