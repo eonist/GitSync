@@ -22,7 +22,7 @@ class WinView:FlippedView{
         addSubview(circle)
         //red circle
         circle.path.add(CGPathParser.circle(25,0,0))
-        CGPathModifier.translate(&circle.path,CGFloat(100),CGFloat(100))//Transformations
+        //CGPathModifier.translate(&circle.path,CGFloat(100),CGFloat(100))//Transformations
         circle.graphics.fill(NSColor.redColor())
         circle.graphics.draw(circle.path)
         //yellow circle
@@ -30,9 +30,9 @@ class WinView:FlippedView{
         circle.graphics.fill(NSColor.yellowColor())
         Swift.print(Trig.pi)
         Swift.print(String(Trig.pi*2))
-        let position = PointParser.polarPoint(100,Trig.pi/2)
+        let position = PointParser.polarPoint(100,Trig.pi/8)
         Swift.print(String(position))
-        CGPathModifier.translate(&circle.path,CGFloat(100)+CGFloat(position.x),CGFloat(100)+CGFloat(position.y))//Transformations
+        CGPathModifier.translate(&circle.path,CGFloat(position.x),CGFloat(position.y))//Transformations
         circle.graphics.draw(circle.path)
         
     }
