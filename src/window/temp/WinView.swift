@@ -21,18 +21,11 @@ class WinView:FlippedView{
         let css:String = "Element{fill:purple;fill-alpha:1.0;corner-radius:10px;}"//"Blob{fill:green;fill-alpha:1.0;corner-radius:10px;}"//
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
-        let element = Element(200,200)
-        self.addSubview(element)
+        //let element = Element(200,200)
+        //self.addSubview(element)
         //element.clear(true)
         //let blob = Blob(150,250)
         //view.addSubview(blob)
-        
-        
-        
-        
-        //continue here: try to get gradient working from the css
-        
-        
         
         
     }
