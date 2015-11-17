@@ -32,7 +32,8 @@ class WinView:FlippedView{
         Swift.print(String(Trig.pi*2))
         let position = PointParser.polarPoint(100,-Trig.pi*2)
         let p:CGPoint = CGPointMake(0, 0)
-        DegreesToRadian(180)
+        
+        
         Swift.print(String(position))
         CGPathModifier.translate(&circle.path,CGFloat(position.x),CGFloat(position.y))//Transformations
         circle.graphics.draw(circle.path)
