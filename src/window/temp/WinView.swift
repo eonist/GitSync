@@ -34,7 +34,7 @@ class WinView:FlippedView{
         Swift.print(String(Trig.pi*2))
         let position = PointParser.polarPoint(100,-Trig.pi/4*3)
         let pos = CGPointMake(CGFloat(position.x), CGFloat(position.y))
-        let newPos = startPos.add(pos)
+        let newPos = startPos + pos
         
         
       
