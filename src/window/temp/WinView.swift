@@ -10,8 +10,8 @@ class WinView:FlippedView{
      *
      */
     func createContent(){
-        testRotation()
-        //testSkin()
+        //testRotation()
+        testSkin()
         //testGraphic()
     }
     /**
@@ -35,8 +35,6 @@ class WinView:FlippedView{
         let position = PointParser.polarPoint(100,-Trig.pi/4*3)
         let pos = CGPoint(position.x, position.y)
         let newPos = startPos + pos
-        
-        
       
         Swift.print(String(newPos))
         CGPathModifier.translate(&circle.path,newPos.x,newPos.y)//Transformations
