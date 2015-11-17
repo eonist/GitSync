@@ -31,7 +31,7 @@ class WinView:FlippedView{
         Swift.print(Trig.pi)
         Swift.print(String(Trig.pi*2))
         let position = PointParser.polarPoint(100,Trig.pi)
-        
+        let pos = CGPointMake(CGFloat(position.x), CGFloat(position.y))
         
         // Convert polar to cartesian
         /*
