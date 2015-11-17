@@ -41,11 +41,9 @@ class WinView:FlippedView{
         Swift.print(p)
         */
         
-        
         Swift.print(String(position))
         CGPathModifier.translate(&circle.path,CGFloat(position.x),CGFloat(position.y))//Transformations
         circle.graphics.draw(circle.path)
-        
     }
     /**
      *
