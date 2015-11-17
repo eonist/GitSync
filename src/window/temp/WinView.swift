@@ -33,6 +33,10 @@ class WinView:FlippedView{
         let position = PointParser.polarPoint(100,-Trig.pi*2)
         let p:CGPoint = CGPointMake(0, 0)
         
+        // Convert polar to cartesian
+        let x = radius * cosf(theta)
+        let y = radius * sinf(theta)
+        
         
         Swift.print(String(position))
         CGPathModifier.translate(&circle.path,CGFloat(position.x),CGFloat(position.y))//Transformations
