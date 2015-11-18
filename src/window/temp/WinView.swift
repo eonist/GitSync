@@ -61,6 +61,14 @@ class WinView:FlippedView{
         
         
         
+        //continue here:
+        
+        //find the test shapes from before, the code for it
+        
+        // try to implement the fillet classes with alignment, maybe they work better
+        
+        //implement masking or clipping of the line
+        
         
         
         //let blob = Blob(150,250)
