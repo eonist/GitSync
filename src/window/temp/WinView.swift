@@ -62,11 +62,6 @@ class WinView:FlippedView{
         
         
         
-        //continue here, impliment support for lineStyle in the css
-        
-        
-        
-        
         
         //let blob = Blob(150,250)
         //view.addSubview(blob)
