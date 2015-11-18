@@ -54,7 +54,12 @@ class WinView:FlippedView{
         self.addSubview(element)
         
         
-        //continue here, impliment support for correct rotation
+        
+        
+        //continue here, impliment support for lineStyle in the css
+        
+        
+        
         
         
         //let blob = Blob(150,250)
