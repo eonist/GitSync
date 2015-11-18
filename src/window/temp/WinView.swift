@@ -47,7 +47,7 @@ class WinView:FlippedView{
     func testSkin(){
         //"Button{fill:red;} CheckButton{line:blue;}"
         //fill:purple;fill-alpha:1.0;corner-radius:10px;fill:linear-gradient(top,red,blue);
-        let css:String = "Element{fill:red;}"//"Blob{fill:green;fill-alpha:1.0;corner-radius:10px;}"//
+        let css:String = "Element{fill:purple;fill-alpha:1.0;}"//"Blob{fill:green;fill-alpha:1.0;corner-radius:10px;}"//
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let element = Element(200,200)
