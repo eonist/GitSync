@@ -27,6 +27,7 @@ class WinView:FlippedView{
         CGPathModifier.translate(&circle.path,startPos.x,startPos.y)//Transformations
         circle.graphics.fill(NSColor.redColor())
         circle.graphics.draw(circle.path)
+        
         //yellow circle
         circle.path = CGPathParser.circle(25,0,0)
         circle.graphics.fill(NSColor.yellowColor())
