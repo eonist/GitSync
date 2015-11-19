@@ -60,21 +60,6 @@ class WinView:FlippedView{
         self.addSubview(element)
         
         
-        
-        //continue here:
-        
-        // try to implement the fillet classes with alignment, maybe they work better
-        
-        //find the test shapes from before, the code for it
-        
-            //you may need to add support for id in th styleResolver code
-        
-        
-        
-        //implement masking or clipping of the line
-        
-        
-        
         //let blob = Blob(150,250)
         //view.addSubview(blob)
         
