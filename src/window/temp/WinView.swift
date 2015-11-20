@@ -19,12 +19,20 @@ class WinView:FlippedView{
      * NSTextField
      */
     func createTextField(){
-        //let textField = NSTextField(frame: NSRect(x: 0, y: 130, width: 100, height: 20))
         let text = NSText(frame: NSRect(x: 0, y: 130, width: 100, height: 20))
         text.string = "Testing text"
         text.selectable = false
-        //textField.stringValue = "Test"
+        text.drawsBackground = true
+        text.backgroundColor = NSColor.greenColor()
+        //text.rulerVisible = true
         self.addSubview(text)
+        
+        //text.richText
+        
+        //let textField = NSTextField(frame: NSRect(x: 0, y: 130, width: 100, height: 20))
+        
+        //textField.stringValue = "Test"
+        
         //self.addSubview(textField)
         //print("Hello world again")
     }
