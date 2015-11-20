@@ -24,7 +24,7 @@ class WinView:FlippedView{
         text.selectable = false
         text.drawsBackground = true
         text.backgroundColor = NSColor.greenColor()
-        //text.rulerVisible = true
+        //text.rulerVisible = true/*only available via subclassing*/
         self.addSubview(text)
         
         //text.richText
