@@ -19,6 +19,7 @@ class WinView:FlippedView{
      * NSTextField
      */
     func createTextField(){
+        /*NSFont *font;*/
         let text = NSText(frame: NSRect(x: 0, y: 130, width: 100, height: 20))
         text.string = "Testing text"
         text.selectable = false
