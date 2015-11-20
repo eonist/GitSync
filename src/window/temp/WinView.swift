@@ -19,9 +19,9 @@ class WinView:FlippedView{
     }
     func testTextElement(){
         //textColor
-        let css:String = "Text{size:12px;color:red;selectable:false;align:left;backgroundColor:blue;background:true;}"//"Text{selectable:false;}"//
+        let css:String = "Text{selectable:false;}"//size:12px;color:red;align:left;backgroundColor:blue;background:true;
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
-        let temp = styleCollection.getStyle("Text")?.getStyleProperty("selectable")?.value
+        let temp = styleCollection.getStyle("Text")?.getStyleProperty("selectable")!.value
         Swift.print("temp.dynamicType: " + "\(temp)")
         //StyleManager.addStyle(styleCollection.styles)
         //let text = Text(200,200,"Hello world")
