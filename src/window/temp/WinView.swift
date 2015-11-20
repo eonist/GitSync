@@ -22,10 +22,10 @@ class WinView:FlippedView{
         let css:String = "Text{size:12px;color:red;selectable:false;align:left;backgroundColor:blue;background:true;}"//"Text{selectable:false;}"//
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         let temp = styleCollection.getStyle("Text")?.getStyleProperty("selectable")?.value
-        Swift.print("temp.dynamicType: " + "\(temp.dynamicType)")
-        StyleManager.addStyle(styleCollection.styles)
-        let text = Text(200,200,"Hello world")
-        self.addSubview(text)
+        Swift.print("temp.dynamicType: " + "\(temp)")
+        //StyleManager.addStyle(styleCollection.styles)
+        //let text = Text(200,200,"Hello world")
+        //self.addSubview(text)
     }
     func testSkin(){
         /*
