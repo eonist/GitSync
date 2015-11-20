@@ -24,7 +24,9 @@ class WinView:FlippedView{
         let temp = styleCollection.getStyle("Text")?.getStyleProperty("selectable")?.value
         Swift.print("temp.dynamicType: " + "\(temp!.dynamicType)")
         
-        //figure out whats making the variable into a string when it should be a bool
+        
+        //Continue here: figure out whats making the variable into a string when it should be a bool
+        
         
         //StyleManager.addStyle(styleCollection.styles)
         //let text = Text(200,200,"Hello world")
