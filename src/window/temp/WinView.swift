@@ -10,9 +10,19 @@ class WinView:FlippedView{
      *
      */
     func createContent(){
+        createTextField()
         //testRotation()
-        testSkin()
+        //testSkin()
         //testGraphic()
+    }
+    /*
+     * NSTextField
+     */
+    func createTextField(){
+        let textField = NSTextField(frame: NSRect(x: 0, y: 130, width: 100, height: 20))
+        textField.stringValue = "Test"
+        self.addSubview(textField)
+        //print("Hello world again")
     }
     /**
      *
