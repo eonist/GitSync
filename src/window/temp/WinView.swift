@@ -19,7 +19,8 @@ class WinView:FlippedView{
         
     }
     func testTextElement(){
-        let css:String = "Element{size:12px;color:red;selectable:false;align:left;}"
+        //textColor
+        let css:String = "Text{size:12px;color:red;selectable:false;align:left;backgroundColor:blue;background:true;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let text = Text(200,200,"Hello world")
