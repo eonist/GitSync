@@ -6,15 +6,11 @@ class WinView:FlippedView{
         createContent()
         
     }
-    /**
-     *
-     */
     func createContent(){
-        
+        testTextElement()
         //testRotation()
-        testSkin()
+        //testSkin()
         //testGraphic()
-        
         
         //add the textformat class
         //add code to csspropparser
@@ -23,37 +19,9 @@ class WinView:FlippedView{
         //run tests
         
     }
-    
-    /**
-     *
-     */
-    func testRotation(){
-        let circle = Graphic()
-        addSubview(circle)
-        //red circle
-        circle.path.add(CGPathParser.circle(25,0,0))
-        let startPos = CGPoint(100,100)
+    func testTextElement(){
         
-        CGPathModifier.translate(&circle.path,startPos.x,startPos.y)//Transformations
-        circle.graphics.fill(NSColor.redColor())
-        circle.graphics.draw(circle.path)
-        
-        //yellow circle
-        circle.path = CGPathParser.circle(25,0,0)
-        circle.graphics.fill(NSColor.yellowColor())
-        Swift.print(Trig.pi)
-        Swift.print(String(Trig.pi*2))
-        let position = CGPoint.polarPoint(100,CGFloat(-Trig.pi/4*3))
-        let pos = CGPoint(position.x, position.y)
-        let newPos = startPos + pos
-      
-        Swift.print(String(newPos))
-        CGPathModifier.translate(&circle.path,newPos.x,newPos.y)//Transformations
-        circle.graphics.draw(circle.path)
     }
-    /**
-     *
-     */
     func testSkin(){
         /*
         line:white9;
@@ -78,6 +46,31 @@ class WinView:FlippedView{
         
         
     }
+    func testRotation(){
+        let circle = Graphic()
+        addSubview(circle)
+        //red circle
+        circle.path.add(CGPathParser.circle(25,0,0))
+        let startPos = CGPoint(100,100)
+        
+        CGPathModifier.translate(&circle.path,startPos.x,startPos.y)//Transformations
+        circle.graphics.fill(NSColor.redColor())
+        circle.graphics.draw(circle.path)
+        
+        //yellow circle
+        circle.path = CGPathParser.circle(25,0,0)
+        circle.graphics.fill(NSColor.yellowColor())
+        Swift.print(Trig.pi)
+        Swift.print(String(Trig.pi*2))
+        let position = CGPoint.polarPoint(100,CGFloat(-Trig.pi/4*3))
+        let pos = CGPoint(position.x, position.y)
+        let newPos = startPos + pos
+      
+        Swift.print(String(newPos))
+        CGPathModifier.translate(&circle.path,newPos.x,newPos.y)//Transformations
+        circle.graphics.draw(circle.path)
+    }
+    
     /**
      *
      */
