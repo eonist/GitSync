@@ -4,7 +4,6 @@ class WinView:FlippedView{
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override func drawRect(dirtyRect: NSRect) {
         createContent()
-        
     }
     func createContent(){
         testTextElement()
@@ -20,7 +19,11 @@ class WinView:FlippedView{
         
     }
     func testTextElement(){
-        
+        let css:String = "Element{}"
+        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
+        StyleManager.addStyle(styleCollection.styles)
+        let text = Text(200,200,"Hello world")
+        self.addSubview(text)
     }
     func testSkin(){
         /*
