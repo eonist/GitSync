@@ -12,8 +12,16 @@ class WinView:FlippedView{
     func createContent(){
         
         //testRotation()
-        //testSkin()
+        testSkin()
         //testGraphic()
+        
+        
+        //add the textformat class
+        //add code to csspropparser
+        //add code to stylepropparser
+        //add TextSkin, ITextSkin
+        //run tests
+        
     }
     
     /**
