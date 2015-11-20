@@ -21,9 +21,9 @@ class WinView:FlippedView{
         //textColor
         let css:String = "Text{selectable:false;}"//size:12px;color:red;align:left;backgroundColor:blue;background:true;
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
-        let temp = styleCollection.getStyle("Text")?.getStyleProperty("selectable")!.value
-        Swift.print("temp.dynamicType: " + "\(temp)")
-        //StyleManager.addStyle(styleCollection.styles)
+        let temp = styleCollection.getStyle("Text")?.getStyleProperty("selectable")?.value
+        Swift.print("temp.dynamicType: " + "\(temp!)")
+        StyleManager.addStyle(styleCollection.styles)
         //let text = Text(200,200,"Hello world")
         //self.addSubview(text)
     }
