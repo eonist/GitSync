@@ -19,11 +19,11 @@ class WinView:FlippedView{
     }
     func testTextElement(){
         //textColor
-        let css:String = "Text{size:12px;color:red;selectable:false;align:left;backgroundColor:blue;background:true;}"
+        let css:String = "Text{selectable:false;}"//
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
-        StyleManager.addStyle(styleCollection.styles)
-        let text = Text(200,200,"Hello world")
-        self.addSubview(text)
+        //StyleManager.addStyle(styleCollection.styles)
+        //let text = Text(200,200,"Hello world")
+        //self.addSubview(text)
     }
     func testSkin(){
         /*
