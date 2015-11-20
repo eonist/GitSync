@@ -6,7 +6,7 @@ class WinView:FlippedView{
         createContent()
     }
     func createContent(){
-        //testTextElement()
+        testTextElement()
         //testRotation()
         //testSkin()
         //testGraphic()
