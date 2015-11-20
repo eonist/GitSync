@@ -16,7 +16,6 @@ class WinView:FlippedView{
         //add code to stylepropparser
         //add TextSkin, ITextSkin
         //run tests
-        
     }
     func testTextElement(){
         //textColor
