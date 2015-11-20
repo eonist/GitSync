@@ -27,7 +27,8 @@ class WinView:FlippedView{
         text.backgroundColor = NSColor.greenColor()
         text.alignment = NSTextAlignment.Center
         text.textColor = NSColor.orangeColor()
-        text.
+        //text.maxSize
+        //text.minSize
         //text.rulerVisible = true/*only available via subclassing*/
         self.addSubview(text)
         
