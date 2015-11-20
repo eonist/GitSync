@@ -10,37 +10,12 @@ class WinView:FlippedView{
      *
      */
     func createContent(){
-        createTextField()
+        
         //testRotation()
         //testSkin()
         //testGraphic()
     }
-    /*
-     * NSTextField
-     */
-    func createTextField(){
-        /*NSFont *font;*/
-        let text = NSText(frame: NSRect(x: 0, y: 130, width: 100, height: 20))
-        text.string = "Testing text"
-        text.selectable = false
-        text.drawsBackground = true
-        text.backgroundColor = NSColor.greenColor()
-        text.alignment = NSTextAlignment.Center
-        text.textColor = NSColor.orangeColor()
-        //text.maxSize
-        //text.minSize
-        //text.rulerVisible = true/*only available via subclassing*/
-        self.addSubview(text)
-        
-        //text.richText
-        
-        //let textField = NSTextField(frame: NSRect(x: 0, y: 130, width: 100, height: 20))
-        
-        //textField.stringValue = "Test"
-        
-        //self.addSubview(textField)
-        //print("Hello world again")
-    }
+    
     /**
      *
      */
