@@ -25,7 +25,7 @@ class WinView:FlippedView{
         //Swift.print("temp.dynamicType: " + "\(temp!.dynamicType)")
        
         StyleManager.addStyle(styleCollection.styles)
-        let text = Text(800,50,"Hello world")
+        let text = Text(800,100,"Hello world")
         self.addSubview(text)
     }
     func testSkin(){
