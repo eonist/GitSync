@@ -19,18 +19,14 @@ class WinView:FlippedView{
     }
     func testTextElement(){
         //textColor
-        let css:String = "Text{selectable:false;}"//size:12px;color:red;align:left;backgroundColor:blue;background:true;
+        let css:String = "Text{selectable:false;size:12px;textColor:red;align:left;backgroundColor:blue;background:true;}"//
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
-        let temp = styleCollection.getStyle("Text")?.getStyleProperty("selectable")?.value
-        Swift.print("temp.dynamicType: " + "\(temp!.dynamicType)")
-        
-        
-        //Continue here: figure out whats making the variable into a string when it should be a bool
-        
-        
-        //StyleManager.addStyle(styleCollection.styles)
-        //let text = Text(200,200,"Hello world")
-        //self.addSubview(text)
+        //let temp = styleCollection.getStyle("Text")?.getStyleProperty("selectable")?.value
+        //Swift.print("temp.dynamicType: " + "\(temp!.dynamicType)")
+       
+        StyleManager.addStyle(styleCollection.styles)
+        let text = Text(200,200,"Hello world")
+        self.addSubview(text)
     }
     func testSkin(){
         /*
