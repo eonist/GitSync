@@ -6,7 +6,8 @@ class WinView:FlippedView{
         createContent()
     }
     func createContent(){
-        testTextElement()
+        testButton()
+        //testTextElement()
         //testRotation()
         //testSkin()
         //testGraphic()
@@ -16,6 +17,14 @@ class WinView:FlippedView{
         //add code to stylepropparser
         //add TextSkin, ITextSkin
         //run tests
+    }
+    func testButton(){
+        let css:String = "Button{fill:red;}"//
+        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
+        StyleManager.addStyle(styleCollection.styles)
+        let button = Button(200,40)
+        self.addSubview(button)
+
     }
     func testTextElement(){
         //textColor
