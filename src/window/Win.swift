@@ -33,7 +33,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //controller.showWindow(self)
         self.center()
         self.contentView = view
-        self.title = "Element"
+        self.title = "GitSync"
         createContent()
         self.delegate = self
     }

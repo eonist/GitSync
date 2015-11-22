@@ -16,11 +16,19 @@ class WinView:FlippedView{
     }
     */
     func createContent(){
-        testButton()
+        testTextButton()
+        //testButton()
         //testTextElement()
         //testRotation()
         //testSkin()
         //testGraphic()
+    }
+    func testTextButton(){
+        let css:String = "Button{fill:red;}Button:over{fill:yellow;}Button:down{fill:green;}"//
+        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
+        StyleManager.addStyle(styleCollection.styles)
+        let textButton = TextButton("Hello world",200,40)
+        self.addSubview(textButton)
     }
     func testButton(){
         let css:String = "Button{fill:red;}Button:over{fill:yellow;}Button:down{fill:green;}"//
