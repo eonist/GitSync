@@ -25,7 +25,7 @@ class WinView:FlippedView{
     }
     func testTextButton(){
         var css:String = "TextButton{fill:red;}TextButton:over{fill:yellow;}TextButton:down{fill:green;}"//
-        let textCSS:String = "Text{font:Lucida Grande;selectable:false;size:22px;color:blue;align:center;backgroundColor:orange;background:false;}Text:down{color:red;}"//
+        let textCSS:String = "Text{font:Lucida Grande;selectable:false;size:22px;color:blue;align:center;backgroundColor:orange;background:false;}Text:down{color:white;}"//
         css += textCSS
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
