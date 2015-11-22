@@ -21,12 +21,6 @@ class WinView:FlippedView{
         //testRotation()
         //testSkin()
         //testGraphic()
-        
-        //add the textformat class
-        //add code to csspropparser
-        //add code to stylepropparser
-        //add TextSkin, ITextSkin
-        //run tests
     }
     func testButton(){
         let css:String = "Button{fill:red;}Button:over{fill:yellow;}Button:down{fill:green;}"//
