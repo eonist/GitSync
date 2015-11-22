@@ -24,10 +24,12 @@ class WinView:FlippedView{
         //testGraphic()
     }
     func testTextButton(){
-        let css:String = "TextButton{fill:red;}TextButton:over{fill:yellow;}Button:down{fill:green;}"//
+        var css:String = "TextButton{fill:red;}TextButton:over{fill:yellow;}Button:down{fill:green;}"//
+        let textCSS:String = "Text{font:Lucida Grande;selectable:false;size:22px;color:blue;align:center;backgroundColor:orange;background:false;}"//
+        css += textCSS
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
-        let textButton = TextButton("Hello world",200,40)
+        let textButton = TextButton("Hello world",300,80)
         self.addSubview(textButton)
     }
     func testButton(){
