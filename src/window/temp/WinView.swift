@@ -27,6 +27,9 @@ class WinView:FlippedView{
         var css:String = "TextButton{fill:red;}TextButton:over{fill:yellow;}TextButton:down{fill:green;}"
         let textCSS:String = "Text{font:Lucida Grande;selectable:false;size:22px;color:blue;align:center;backgroundColor:orange;background:false;}Text:down{color:white;}"//
         css += textCSS
+        
+        //TODO: add the code that does the styleCollection creation for you
+        
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let textButton = TextButton("Hello world",200,80)
