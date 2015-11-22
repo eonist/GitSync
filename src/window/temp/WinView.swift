@@ -29,7 +29,7 @@ class WinView:FlippedView{
         css += textCSS
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
-        let textButton = TextButton("Hello world",300,80)
+        let textButton = TextButton("Hello world",200,80)
         self.addSubview(textButton)
     }
     func testButton(){
