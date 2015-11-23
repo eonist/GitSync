@@ -24,7 +24,7 @@ class WinView:FlippedView{
         //testGraphic()
     }
     override func mouseDown(theEvent: NSEvent) {
-        Swift.print("WinView.mouseDown")
+        Swift.print("WinView.mouseDown() type: " + String(theEvent.type) + "" + theEvent.)
         super.mouseDown(theEvent)
     }
     func testTextButton(){
