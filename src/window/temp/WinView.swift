@@ -25,6 +25,7 @@ class WinView:FlippedView{
     }
     override func mouseDown(theEvent: NSEvent) {
         Swift.print("WinView.mouseDown")
+        super.mouseDown(theEvent)
     }
     func testTextButton(){
         var css:String = "TextButton{fill:red;}TextButton:over{fill:yellow;}TextButton:down{fill:green;}"
