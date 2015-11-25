@@ -35,7 +35,9 @@ class WinView:FlippedView{
         textButton = TextButton("Hello world",200,80)
         self.addSubview(textButton!)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: nil)
+        let a = TextButton("",100,100)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: a)
     }
     func onButtonDown(sender: AnyObject) {
         let textButton:TextButton = (sender as! NSNotification).object as! TextButton
