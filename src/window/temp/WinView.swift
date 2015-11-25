@@ -33,6 +33,8 @@ class WinView:FlippedView{
         StyleManager.addStyle(css)
         let textButton = TextButton("Hello world",200,80)
         self.addSubview(textButton)
+        
+        
     }
     func testButton(){
         let css:String = "Button{fill:red;}Button:over{fill:yellow;}Button:down{fill:green;}"//
