@@ -37,7 +37,10 @@ class WinView:FlippedView{
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: nil)
     }
     func onButtonDown(sender: AnyObject) {
-        Swift.print("WinView.onButtonDown() Sender: " + String(sender))
+        Swift.print(String((sender as! NSNotification).object))
+        Swift.print(String((sender as! NSNotification).name))
+        Swift.print(String((sender as! NSNotification).userInfo))
+        //Swift.print("WinView.onButtonDown() Sender: " + String(sender))
     }
     func testButton(){
         let css:String = "Button{fill:red;}Button:over{fill:yellow;}Button:down{fill:green;}"//
