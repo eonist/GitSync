@@ -27,16 +27,23 @@ class WinView:FlippedView{
         Swift.print("WinView.mouseDown() type: " + String(theEvent.type.rawValue) + " " + String(theEvent))
         super.mouseDown(theEvent)
     }
+    var textButton:TextButton?
     func testTextButton(){
         var css:String = "TextButton{fill:red;}TextButton:over{fill:yellow;}TextButton:down{fill:green;}"
          css += "Text{font:Lucida Grande;selectable:false;size:22px;color:blue;align:center;backgroundColor:orange;background:false;}Text:down{color:white;}"//
         StyleManager.addStyle(css)
-        let textButton = TextButton("Hello world",200,80)
-        self.addSubview(textButton)
+        textButton = TextButton("Hello world",200,80)
+        self.addSubview(textButton!)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: nil)
     }
     func onButtonDown(sender: AnyObject) {
+        let textButton:TextButton = (sender as! NSNotification).object as! TextButton
+        if(textButton === self.textButton!){
+           Swift.print("Is correct textButton")
+        }
+    
+    
         Swift.print(String((sender as! NSNotification).object))
         Swift.print(String((sender as! NSNotification).name))//buttonEventDown
         Swift.print(String((sender as! NSNotification).userInfo))//nil
