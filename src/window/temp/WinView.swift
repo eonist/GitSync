@@ -28,7 +28,7 @@ class WinView:FlippedView{
      *
      */
     func gradientTest(){
-        let css:String = "Element{fill:red;fill-alpha:0.5;line:blue;line-alpha:0.5;line-thickness:20px;corner-radius:10px;line-offset-type:center;}"//"Blob{fill:green;fill-alpha:1.0;corner-radius:10px;}"//
+        let css:String = "Element{fill:linear-gradient(top,#FFFEFE,#E8E8E8);fill-alpha:0.5;line:blue;line-alpha:0.5;line-thickness:1px;corner-radius:4px;line-offset-type:center;}"//"Blob{fill:green;fill-alpha:1.0;corner-radius:10px;}"//
         StyleManager.addStyle(css)
         let element = Element(200,200,50,50)
         self.addSubview(element)
