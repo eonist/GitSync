@@ -38,8 +38,8 @@ class WinView:FlippedView{
     }
     func onButtonDown(sender: AnyObject) {
         Swift.print(String((sender as! NSNotification).object))
-        Swift.print(String((sender as! NSNotification).name))
-        Swift.print(String((sender as! NSNotification).userInfo))
+        Swift.print(String((sender as! NSNotification).name))//buttonEventDown
+        Swift.print(String((sender as! NSNotification).userInfo))//nil
         //Swift.print("WinView.onButtonDown() Sender: " + String(sender))
     }
     func testButton(){
