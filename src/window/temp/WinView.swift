@@ -16,12 +16,23 @@ class WinView:FlippedView{
     }
     */
     func createContent(){
-        testTextButton()
+        gradientTest()
+        //testTextButton()
         //testButton()
         //testTextElement()
         //testRotation()
         //testSkin()
         //testGraphic()
+    }
+    /**
+     *
+     */
+    func gradientTest(){
+        let css:String = "Element{fill:red;fill-alpha:0.5;line:blue;line-alpha:0.5;line-thickness:20px;corner-radius:10px;line-offset-type:center;}"//"Blob{fill:green;fill-alpha:1.0;corner-radius:10px;}"//
+        StyleManager.addStyle(css)
+        let element = Element(200,200,50,50)
+        self.addSubview(element)
+
     }
     override func mouseDown(theEvent: NSEvent) {
         Swift.print("WinView.mouseDown() type: " + String(theEvent.type.rawValue) + " " + String(theEvent))
@@ -34,9 +45,6 @@ class WinView:FlippedView{
         StyleManager.addStyle(css)
         textButton = TextButton("Hello world",200,80)
         self.addSubview(textButton!)
-        
-        let a = TextButton("",100,100)
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: self)
     }
     func onButtonDown(sender: AnyObject) {
