@@ -26,11 +26,13 @@ class WinView:FlippedView{
         //testGraphic()
     }
     func gradientBoxTest(){
+        //create a visual feedback test with a line, corners as circles etc
+            //test different rotations
         //for p1:
             //rotate all corners from the center to the negative rotation value
             //Measure which point has the lowest y value.
                 //measure the distance between this y value and the center y value
-            //
+            //use this distance to find the p1 and p2
     }
     /**
      *
