@@ -27,7 +27,10 @@ class WinView:FlippedView{
     }
     func gradientBoxTest(){
         //for p1:
-            //rotate all corners to the 
+            //rotate all corners from the center to the negative rotation value
+            //Measure which point has the lowest y value.
+                //this point 
+            //
     }
     /**
      *
