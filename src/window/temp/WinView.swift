@@ -29,7 +29,7 @@ class WinView:FlippedView{
         //for p1:
             //rotate all corners from the center to the negative rotation value
             //Measure which point has the lowest y value.
-                //this point 
+                //measure the distance between this y value and the center y value
             //
     }
     /**
