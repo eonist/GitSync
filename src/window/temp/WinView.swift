@@ -16,6 +16,7 @@ class WinView:FlippedView{
     }
     */
     func createContent(){
+        //gradientBoxTest()
         gradientTest()
         //testTextButton()
         //testButton()
