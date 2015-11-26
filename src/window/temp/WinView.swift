@@ -40,7 +40,7 @@ class WinView:FlippedView{
         Swift.print("gradient.locations.count: " + "\(gradient.locations.count)")
         */
         StyleManager.addStyle(css)
-        let element = Element(96,24,50,50)
+        let element = Element(196,54,50,50)
         self.addSubview(element)
 
     }
