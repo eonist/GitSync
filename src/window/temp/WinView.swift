@@ -16,14 +16,18 @@ class WinView:FlippedView{
     }
     */
     func createContent(){
-        //gradientBoxTest()
-        gradientTest()
+        gradientBoxTest()
+        //gradientTest()
         //testTextButton()
         //testButton()
         //testTextElement()
         //testRotation()
         //testSkin()
         //testGraphic()
+    }
+    func gradientBoxTest(){
+        //for p1:
+            //rotate all corners to the 
     }
     /**
      *
