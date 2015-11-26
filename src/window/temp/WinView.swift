@@ -26,6 +26,9 @@ class WinView:FlippedView{
         //testGraphic()
     }
     func gradientBoxTest(){
+        //look through the books real quick on gradient (10-15 min)
+            //check w3c for info on the gradient box
+            //google gradient box
         //create a visual feedback test with a line, corners as circles etc
             //test different rotations
         //for p1:
