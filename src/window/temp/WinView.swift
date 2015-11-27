@@ -31,7 +31,7 @@ class WinView:FlippedView{
         line.initialize()
     }
     func cricleTest(){
-        let circle = CircleGraphic(10,BaseGraphic(FillStyle(NSColor.redColor())))
+        let circle = CircleGraphic(10)
         circle.setPosition(CGPoint(50,50))
         circle.initialize()
     }
