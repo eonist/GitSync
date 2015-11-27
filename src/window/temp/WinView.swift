@@ -33,7 +33,7 @@ class WinView:FlippedView{
         circle.initialize()
         
         
-        //
+        //do the basegraphic installments and test if everything works, then make a rect in this method
         
         
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
