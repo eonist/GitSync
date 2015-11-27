@@ -84,7 +84,7 @@ class WinView:FlippedView{
     }
     override func mouseDown(theEvent: NSEvent) {
         Swift.print("WinView.mouseDown() type: " + String(theEvent.type.rawValue) + " " + String(theEvent))
-        element?.needsDisplay = true
+        self.needsDisplay = true
         super.mouseDown(theEvent)
     }
     var textButton:TextButton?
