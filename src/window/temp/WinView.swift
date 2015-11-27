@@ -27,7 +27,7 @@ class WinView:FlippedView{
     }
     func lineTest(){
         let line = LineGraphic(CGPoint(20,20),CGPoint(50,50))
-        //circle.setPosition(CGPoint(50,50))
+        line.setPosition(CGPoint(150,150))
         line.initialize()
     }
     func cricleTest(){
