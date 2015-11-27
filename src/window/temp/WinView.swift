@@ -13,6 +13,7 @@ class WinView:FlippedView{
     
     override func drawRect(dirtyRect: NSRect) {
         gradientBoxTest()
+        lineTest()
     }
     
     func createContent(){
@@ -25,9 +26,16 @@ class WinView:FlippedView{
         //testSkin()
         //testGraphic()
     }
+    /**
+     *
+     */
+    func lineTest(){
+        
+    }
+    /**
+     *
+     */
     func gradientBoxTest(){
-        
-        
         let circle = CircleGraphic(10,BaseGraphic(FillStyle(NSColor.redColor())))
         circle.setPosition(CGPoint(50,50))
         circle.initialize()
