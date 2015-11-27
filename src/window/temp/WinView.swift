@@ -1,6 +1,7 @@
 import Cocoa
 
 class WinView:FlippedView{
+    var element:Element?
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -77,12 +78,13 @@ class WinView:FlippedView{
         Swift.print("gradient.locations.count: " + "\(gradient.locations.count)")
         */
         StyleManager.addStyle(css)
-        let element = Element(196,54,0,0)
-        self.addSubview(element)
+        element = Element(196,54,0,0)
+        self.addSubview(element!)
 
     }
     override func mouseDown(theEvent: NSEvent) {
         Swift.print("WinView.mouseDown() type: " + String(theEvent.type.rawValue) + " " + String(theEvent))
+        element?.needsDisplay = true
         super.mouseDown(theEvent)
     }
     var textButton:TextButton?
