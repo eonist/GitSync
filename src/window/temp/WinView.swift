@@ -16,7 +16,6 @@ class WinView:FlippedView{
         lineTest()
     }
     func createContent(){
-        
         //gradientTest()
         //testTextButton()
         //testButton()
@@ -24,6 +23,9 @@ class WinView:FlippedView{
         //testRotation()
         //testSkin()
         //testGraphic()
+    }
+    func testRect(){
+        
     }
     func lineTest(){
         let line = LineGraphic(CGPoint(20,20),CGPoint(50,50))
