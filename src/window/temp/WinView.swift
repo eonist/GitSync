@@ -32,6 +32,11 @@ class WinView:FlippedView{
     }
     func cricleTest(){
         let circle = CircleGraphic(10)
+        
+        
+        //continue here: remove x,y from BaseGraphic, Circle,Rect,Ellipse should hold these values
+        
+        
         circle.setPosition(CGPoint(50,50))
         circle.initialize()
     }
