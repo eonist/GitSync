@@ -10,11 +10,12 @@ class WinView:FlippedView{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    /*
-    override func drawRect(dirtyRect: NSRect) {
     
+    override func drawRect(dirtyRect: NSRect) {
+        let circleGraphic = CircleGraphic(100,FillStyle(NSColor.redColor()))
+        circleGraphic.initialize()
     }
-    */
+    
     func createContent(){
         gradientBoxTest()
         //gradientTest()
