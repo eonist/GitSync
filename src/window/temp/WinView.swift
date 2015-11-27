@@ -13,7 +13,8 @@ class WinView:FlippedView{
     
     override func drawRect(dirtyRect: NSRect) {
         //gradientBoxTest()
-        lineTest()
+        //lineTest()
+        testRect()
     }
     func createContent(){
         //gradientTest()
@@ -25,7 +26,9 @@ class WinView:FlippedView{
         //testGraphic()
     }
     func testRect(){
-        
+        let rect = RectGraphic()
+        //line.setPosition(CGPoint(150,150))
+        rect.initialize()
     }
     func lineTest(){
         let line = LineGraphic(CGPoint(20,20),CGPoint(50,50))
