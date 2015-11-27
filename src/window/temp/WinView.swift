@@ -16,7 +16,7 @@ class WinView:FlippedView{
         Swift.print("WinView.drawRect()")
         //gradientBoxTest()
         //lineTest()
-        testRect()
+        //testRect()
     }
     func createContent(){
         gradientTest()
