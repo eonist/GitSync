@@ -29,9 +29,11 @@ class WinView:FlippedView{
         
         
         let circle = CircleGraphic(10,FillStyle(NSColor.redColor()))
-        
         circle.setPosition(CGPoint(50,50))
         circle.initialize()
+        
+        
+        //
         
         
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
