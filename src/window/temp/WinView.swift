@@ -15,7 +15,6 @@ class WinView:FlippedView{
         //gradientBoxTest()
         lineTest()
     }
-    
     func createContent(){
         
         //gradientTest()
@@ -27,7 +26,7 @@ class WinView:FlippedView{
         //testGraphic()
     }
     func lineTest(){
-        let line = LineGraphic(CGPoint(20,20),CGPoint(50,50),BaseGraphic(nil,LineStyle()))
+        let line = LineGraphic(CGPoint(20,20),CGPoint(50,50))
         //circle.setPosition(CGPoint(50,50))
         line.initialize()
     }
