@@ -12,11 +12,11 @@ class WinView:FlippedView{
     }
     
     override func drawRect(dirtyRect: NSRect) {
-    
+        gradientBoxTest()
     }
     
     func createContent(){
-        gradientBoxTest()
+        
         //gradientTest()
         //testTextButton()
         //testButton()
