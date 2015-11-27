@@ -28,7 +28,7 @@ class WinView:FlippedView{
     func gradientBoxTest(){
         
         
-        let circleGraphic = CircleGraphic(100)
+        let circleGraphic = CircleGraphic(100,FillStyle(NSColor.redColor()))
         circleGraphic.initialize()
         
         
