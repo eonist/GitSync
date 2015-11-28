@@ -53,7 +53,7 @@ class WinView:FlippedView{
         
         for corner:CGPoint in cgRect.corners{
             //Swift.print(corner)
-            let circle = CircleGraphic(10,BaseGraphic(FillStyle(NSColor.greenColor())))
+            let circle = CircleGraphic(10)
             circle.setPosition(corner)
             circle.initialize()
         }
