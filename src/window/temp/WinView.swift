@@ -50,7 +50,8 @@ class WinView:FlippedView{
     }
     func gradientBoxTest(){
         
-        let rect = RectGraphic(300,300)
+        let rect = RectGraphic(200,100)
+        rect.setPosition(CGPoint(100,100))
         rect.initialize()
                
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
