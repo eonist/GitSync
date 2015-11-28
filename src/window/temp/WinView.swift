@@ -59,9 +59,13 @@ class WinView:FlippedView{
         //}
         
         let circle = CircleGraphic(10,BaseGraphic(FillStyle(NSColor.yellowColor())))
-        circle.setPosition(CGPoint(cgRect.topLeft.x,cgRect.topLeft.y))
+        //circle.setPosition(CGPoint(cgRect.topLeft.x,cgRect.topLeft.y))
         circle.initialize()
         
+        Swift.print(cgRect.topLeft)
+        
+        
+        Swift.print(cgRect.topRight)
         let c2 = CircleGraphic(10,BaseGraphic(FillStyle(NSColor.greenColor())))
         c2.setPosition(CGPoint(cgRect.topRight.x,cgRect.topRight.y))
         c2.initialize()
