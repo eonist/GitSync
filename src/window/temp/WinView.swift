@@ -15,6 +15,11 @@ class WinView:FlippedView{
     override func drawRect(dirtyRect: NSRect) {
         Swift.print("WinView.drawRect()")
         gradientBoxTest()
+        
+        
+        //continue here: research wantsToDraw method, can you get cgcontext in this method? 
+        
+        
         //lineTest()
         //rectTest()
         //cricleTest()
