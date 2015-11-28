@@ -53,13 +53,19 @@ class WinView:FlippedView{
         let cgRect:CGRect = CGRect(rect.getGraphic().x,rect.getGraphic().y,rect.width,rect.height)
         Swift.print(cgRect.corners.count)
         
-        for corner:CGPoint in cgRect.corners{
-            Swift.print(corner)
-            let circle = CircleGraphic(10,BaseGraphic(FillStyle(NSColor.yellowColor())))
-            circle.setPosition(CGPoint(corner.x,corner.y))
-            circle.initialize()
-        }
-               
+        //for corner:CGPoint in cgRect.corners{
+            //Swift.print(corner)
+            
+        //}
+        
+        let circle = CircleGraphic(10,BaseGraphic(FillStyle(NSColor.yellowColor())))
+        circle.setPosition(CGPoint(cgRect.topLeft.x,cgRect.topLeft.y))
+        circle.initialize()
+        
+        let c2 = CircleGraphic(10,BaseGraphic(FillStyle(NSColor.greenColor())))
+        c2.setPosition(CGPoint(cgRect.topRight.x,cgRect.topRight.y))
+        c2.initialize()
+        
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
         
         //create a visual feedback test with a line, corners as circles etc
