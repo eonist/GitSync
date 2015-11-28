@@ -41,10 +41,6 @@ class WinView:FlippedView{
     func cricleTest(){
         let circle = CircleGraphic(10)
         
-        
-        //continue here: remove x,y from BaseGraphic, Circle,Rect,Ellipse should hold these values
-        
-        
         circle.setPosition(CGPoint(50,50))
         circle.initialize()
     }
@@ -53,6 +49,13 @@ class WinView:FlippedView{
         let rect = RectGraphic(200,100)
         rect.setPosition(CGPoint(100,100))
         rect.initialize()
+        
+        
+        for _ in 0...5{
+            let circle = CircleGraphic(10)
+            circle.setPosition(CGPoint(50,50))
+            circle.initialize()
+        }
                
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
         
