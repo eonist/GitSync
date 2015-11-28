@@ -50,10 +50,10 @@ class WinView:FlippedView{
         rect.setPosition(CGPoint(100,100))
         rect.initialize()
         
-        
-        for _ in 0...5{
+        let cgRect:CGRect = CGRect(rect.getGraphic().x,rect.getGraphic().y,rect.width,rect.height)
+        for corner:CGPoint in cgRect.corners{
             let circle = CircleGraphic(10)
-            circle.setPosition(CGPoint(50,50))
+            circle.setPosition(CGPoint(corner.x,corner.y))
             circle.initialize()
         }
                
