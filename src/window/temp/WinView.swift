@@ -48,7 +48,7 @@ class WinView:FlippedView{
         rect.setPosition(CGPoint(100,100))
         rect.initialize()
         
-        let cgRect:CGRect = CGRect(rect.getGraphic().x,rect.getGraphic().y,rect.width,rect.height)
+        let cgRect:CGRect = CGRect(rect.getPosition().x,rect.getPosition().y,rect.width,rect.height)
         Swift.print(cgRect.corners.count)
         
         for corner:CGPoint in cgRect.corners{
