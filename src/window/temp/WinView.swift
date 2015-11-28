@@ -47,7 +47,7 @@ class WinView:FlippedView{
     func gradientBoxTest(){
         
         let rect = RectGraphic(200,100)
-        rect.setPosition(CGPoint(100,100))
+        //rect.setPosition(CGPoint(100,100))
         rect.initialize()
         
         let cgRect:CGRect = CGRect(rect.getGraphic().x,rect.getGraphic().y,rect.width,rect.height)
@@ -58,16 +58,16 @@ class WinView:FlippedView{
             
         //}
         
-        let circle = CircleGraphic(10,BaseGraphic(FillStyle(NSColor.yellowColor())))
+        //let circle = CircleGraphic(10,BaseGraphic(FillStyle(NSColor.yellowColor())))
         //circle.setPosition(CGPoint(cgRect.topLeft.x,cgRect.topLeft.y))
-        circle.initialize()
+        //circle.initialize()
         
-        Swift.print(cgRect.topLeft)
+        //Swift.print(cgRect.topLeft)
         
         
         Swift.print(cgRect.topRight)
         let c2 = CircleGraphic(10,BaseGraphic(FillStyle(NSColor.greenColor())))
-        c2.setPosition(CGPoint(cgRect.topRight.x,cgRect.topRight.y))
+        c2.setPosition(CGPoint(200,0))
         c2.initialize()
         
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
