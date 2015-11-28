@@ -14,9 +14,10 @@ class WinView:FlippedView{
     
     override func drawRect(dirtyRect: NSRect) {
         Swift.print("WinView.drawRect()")
-        //gradientBoxTest()
+        gradientBoxTest()
         //lineTest()
-        //testRect()
+        //rectTest()
+        //cricleTest()
     }
     func createContent(){
         //gradientTest()
@@ -24,10 +25,10 @@ class WinView:FlippedView{
         //testButton()
         //testTextElement()
         //testRotation()
-        testSkin()
+        //testSkin()
         //testGraphic()
     }
-    func testRect(){
+    func rectTest(){
         let rect = RectGraphic(300,300)
         //line.setPosition(CGPoint(150,150))
         rect.initialize()
@@ -49,7 +50,8 @@ class WinView:FlippedView{
     }
     func gradientBoxTest(){
         
-        
+        let rect = RectGraphic(300,300)
+        rect.initialize()
                
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
         
