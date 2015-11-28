@@ -40,8 +40,6 @@ class WinView:FlippedView{
     }
     func cricleTest(){
         let circle = CircleGraphic(10)
-        
-        circle.graphics.setPosition(CGPoint(50,50))
         circle.initialize()
     }
     func gradientBoxTest(){
@@ -67,7 +65,6 @@ class WinView:FlippedView{
         
         Swift.print(cgRect.topRight)
         let c2 = CircleGraphic(10,BaseGraphic(FillStyle(NSColor.greenColor())))
-        c2.setPosition(CGPoint(30,00))
         Swift.print(c2.getGraphic().y)
         c2.initialize()
         
