@@ -67,7 +67,8 @@ class WinView:FlippedView{
         
         Swift.print(cgRect.topRight)
         let c2 = CircleGraphic(10,BaseGraphic(FillStyle(NSColor.greenColor())))
-        c2.setPosition(CGPoint(200,0))
+        c2.setPosition(CGPoint(300,00))
+        Swift.print(c2.getGraphic().y)
         c2.initialize()
         
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
