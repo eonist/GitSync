@@ -52,13 +52,13 @@ class GradientBoxTest:View {
         //within q3
         
         //within q4
-        
+        var p:CGPoint!
         switch true{
             case CGFloatRangeAsserter.contained(q1, angle):
                 Swift.print("Q1")
                 let slope = PointParser.slope(cgRect.center, polarPoint)
                 let x = PointParser.x(cgRect.center, cgRect.top.y, slope)
-                let p = CGPoint(x,cgRect.top.y)
+                p = CGPoint(x,cgRect.top.y)
                 Swift.print("P: " + String(p))
             case CGFloatRangeAsserter.contained(q2, angle):
                 Swift.print("Q2")
@@ -71,7 +71,10 @@ class GradientBoxTest:View {
                 break;
         }
         
-        
+        let pCircle = CircleGraphic(10,NSColor.whiteColor())
+        pCircle.setPosition(p)
+        pCircle.initialize()
+
         
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
         
