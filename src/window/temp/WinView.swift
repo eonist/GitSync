@@ -80,7 +80,7 @@ class WinView:FlippedView{
         textButton.setPosition(CGPoint(20,20))
         
         
-        //continue here: margin-top
+        //continue here: start testing margin-top with a rect shape 
         
         
         self.addSubview(textButton!)
