@@ -30,9 +30,7 @@ class GradientBoxTest:View {
         let line = LineGraphic(cgRect.center,polarPoint)
         line.initialize()
         
-        Swift.print("cgRect.topLeft: " + "\(cgRect.topLeft)")
-        let temp = PointParser.directionalAxisDistance(cgRect.center, cgRect.topLeft, angle)
-        Swift.print(temp)
+        
         
         
         let q1A = Trig.angle(cgRect.center, cgRect.topLeft)
@@ -56,10 +54,15 @@ class GradientBoxTest:View {
         switch true{
             case CGFloatRangeAsserter.contained(q1, angle):
                 Swift.print("Q1")
+                //Swift.print("cgRect.topLeft: " + "\(cgRect.topLeft)")
+                let temp = PointParser.directionalAxisDistance(cgRect.center, cgRect.topLeft, angle)
+                Swift.print(temp)
+                /*
                 let slope = PointParser.slope(cgRect.center, polarPoint)
                 let x = PointParser.x(cgRect.center, cgRect.top.y, slope)
                 p = CGPoint(x,cgRect.top.y)
-                Swift.print("P: " + String(p))
+                */
+            
             case CGFloatRangeAsserter.contained(q2, angle):
                 Swift.print("Q2")
             case CGFloatRangeAsserter.contained(Trig.b, angle):
@@ -70,6 +73,8 @@ class GradientBoxTest:View {
                 Swift.print("Deal with exact angles here")
                 break;
         }
+        
+        Swift.print("P: " + String(p))
         
         let pCircle = CircleGraphic(5,NSColor.redColor())
         pCircle.setPosition(p)
