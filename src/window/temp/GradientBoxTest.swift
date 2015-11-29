@@ -31,40 +31,16 @@ class GradientBoxTest:View {
         line.initialize()
         
         
-        //continue here: it finally works, add the other quadrants and your good!
-        
-
        
-
-        var cornerPoint:CGPoint = CGPoint()
-        switch true{
-            case CGFloatRangeAsserter.within(Trig.tl, angle):
-                Swift.print("Q1")
-                cornerPoint = rect.topLeft
-            case CGFloatRangeAsserter.within(Trig.tr, angle):
-                Swift.print("Q2")
-                cornerPoint = rect.topRight
-            case CGFloatRangeAsserter.within(Trig.br, angle):
-                Swift.print("Q3")
-                cornerPoint = rect.bottomRight
-            case CGFloatRangeAsserter.within(Trig.bl, angle):
-                Swift.print("Q4")
-                cornerPoint = rect.bottomLeft
-            default:
-                fatalError("Angle is out of the allowed range (-π to π): " + "\(angle)")
-                break;
-        }
+        let points = GradientBoxUtils.points(rect, angle)
         
+        let startCircle = CircleGraphic(5,NSColor.greenColor())
+        startCircle.setPosition(points.start)
+        startCircle.initialize()
         
-        let distPoint = PointParser.directionalAxisDistance(rect.center, cornerPoint, angle)
-        Swift.print("distPoint: " + String(distPoint))
-        let p:CGPoint = rect.center.polarPoint(distPoint.x, angle)
-        
-        Swift.print("P: " + String(p))
-        
-        let pCircle = CircleGraphic(5,NSColor.redColor())
-        pCircle.setPosition(p)
-        pCircle.initialize()
+        let endCircle = CircleGraphic(5,NSColor.redColor())
+        endCircle.setPosition(points.end)
+        endCircle.initialize()
 
         
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
@@ -83,7 +59,7 @@ class GradientBoxUtils{
     /**
      *
      */
-    class func points(rect:CGRect,angle:CGFloat)->(start:CGPoint,end:CGPoint){
+    class func points(rect:CGRect,_ angle:CGFloat)->(start:CGPoint,end:CGPoint){
         var cornerPoint:CGPoint = CGPoint()
         switch true{
         case CGFloatRangeAsserter.within(Trig.tl, angle):
@@ -112,7 +88,8 @@ class GradientBoxUtils{
         
         let start:CGPoint = rect.center.polarPoint(-distPoint.x, angle)
         
+        Swift.print("start: " + String(start))
         
-        return (end,start)
+        return (start,end)
     }
 }
