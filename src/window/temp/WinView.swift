@@ -17,7 +17,7 @@ class WinView:FlippedView{
         //rectTest()
         //cricleTest()
         let gradientBoxTest:NSView = GradientBoxTest()
-        addSubview(gradientBoxTest)
+        self.addSubview(gradientBoxTest)
     }
     func createContent(){
         
