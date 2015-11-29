@@ -22,8 +22,8 @@ class WinView:FlippedView{
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
         //gradientTest()
-        testTextButton()
-        //testButton()
+        //testTextButton()
+        testButton()
         //testTextElement()
         //testRotation()
         //testSkin()
@@ -43,9 +43,7 @@ class WinView:FlippedView{
         let circle = CircleGraphic(10)
         circle.initialize()
     }
-    func gradientBoxTest(){
-        
-    }
+    
     /**
      *
      */
