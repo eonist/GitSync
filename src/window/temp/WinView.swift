@@ -10,10 +10,6 @@ class WinView:FlippedView{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    override func viewWillDraw() {
-        Swift.print("WinView.viewWillDraw")
-        rectTest()
-    }
     override func drawRect(dirtyRect: NSRect) {
         Swift.print("WinView.drawRect()")
         gradientBoxTest()
@@ -54,6 +50,8 @@ class WinView:FlippedView{
         let cgRect:CGRect = CGRect(rect.getPosition().x,rect.getPosition().y,rect.width,rect.height)
         Swift.print(cgRect.corners.count)
         
+        
+        
         for corner:CGPoint in cgRect.corners{
             //Swift.print(corner)
             let circle = CircleGraphic(10)
@@ -65,9 +63,12 @@ class WinView:FlippedView{
         centerCircle.setPosition(cgRect.center)
         centerCircle.initialize()
         
-        let polarPoint = cgRect.center.polarPoint(100, -135*㎭)
+        let angle = -135*㎭
+        let polarPoint = cgRect.center.polarPoint(100, angle)
         let line = LineGraphic(cgRect.center,polarPoint)
         line.initialize()
+        
+        PointParser.relativeDirectionalAxisDifference(cgRect.center, cgRect.topLeft, angle)
         
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
         
