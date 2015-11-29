@@ -37,9 +37,10 @@ class GradientBoxTest:View {
         
         //q1 = angle from TL to TR
         //q2 = angle from TR to BR
-        //q3 = angle from BR to 
+        //q3 = angle from BR to BL
+        //q4 = angle from BL to TL
         //within q1
-        
+            //
         //within q2
         
         //within q3
