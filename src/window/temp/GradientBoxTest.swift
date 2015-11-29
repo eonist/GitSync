@@ -50,20 +50,11 @@ class GradientBoxTest:View {
         //within q3
         
         //within q4
-        var p:CGPoint = CGPoint()
+        var cornerPoint:CGPoint = CGPoint()
         switch true{
             case CGFloatRangeAsserter.within(q1, angle):
                 Swift.print("Q1")
-                //Swift.print("cgRect.topLeft: " + "\(cgRect.topLeft)")
-                let temp = PointParser.directionalAxisDistance(cgRect.center, cgRect.topLeft, angle)
-                Swift.print(temp)
-                p = cgRect.center.polarPoint(temp.x, angle)
-                /*
-                let slope = PointParser.slope(cgRect.center, polarPoint)
-                let x = PointParser.x(cgRect.center, cgRect.top.y, slope)
-                p = CGPoint(x,cgRect.top.y)
-                */
-            
+                cornerPoint = cgRect.topLeft
             case CGFloatRangeAsserter.contained(q2, angle):
                 Swift.print("Q2")
             case CGFloatRangeAsserter.contained(Trig.b, angle):
@@ -74,6 +65,11 @@ class GradientBoxTest:View {
                 Swift.print("Deal with exact angles here")
                 break;
         }
+        
+        
+        let distPoint = PointParser.directionalAxisDistance(cgRect.center, cornerPoint, angle)
+        Swift.print(distPoint)
+        let p:CGPoint = cgRect.center.polarPoint(distPoint.x, angle)
         
         Swift.print("P: " + String(p))
         
