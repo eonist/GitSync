@@ -48,7 +48,7 @@ class GradientBoxTest:View {
         //within q4
         
         
-        //to find the intersections you need to solve a right angled triangle with 1 known side and 3 known angles
+        //to find the intersections you need to solve a right angled triangle with 0 known side and 3 known angles
         
         
         
