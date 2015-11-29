@@ -2,7 +2,7 @@ import Cocoa
 
 class GradientBoxTest:View {
     override func drawRect(dirtyRect: NSRect) {
-        Swift.print("WinView.drawRect()")
+        Swift.print("GradientBoxTest.drawRect()")
         createContent()
     }
     func createContent(){

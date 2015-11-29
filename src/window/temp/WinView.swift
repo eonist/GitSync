@@ -12,6 +12,8 @@ class WinView:FlippedView{
     }
     override func drawRect(dirtyRect: NSRect) {
         Swift.print("WinView.drawRect()")
+        let gradientBoxTest = GradientBoxTest()
+        addSubview(gradientBoxTest)
         //gradientBoxTest()
         
         //lineTest()
@@ -19,8 +21,7 @@ class WinView:FlippedView{
         //cricleTest()
     }
     func createContent(){
-        let gradientBoxTest = GradientBoxTest()
-        addSubview(gradientBoxTest)
+        
         //gradientTest()
         //testTextButton()
         //testButton()
