@@ -52,7 +52,7 @@ class GradientBoxTest:View {
         //within q3
         
         //within q4
-        var p:CGPoint!
+        var p:CGPoint = CGPoint()
         switch true{
             case CGFloatRangeAsserter.contained(q1, angle):
                 Swift.print("Q1")
@@ -71,7 +71,7 @@ class GradientBoxTest:View {
                 break;
         }
         
-        let pCircle = CircleGraphic(10,NSColor.whiteColor())
+        let pCircle = CircleGraphic(5,NSColor.magentaColor())
         pCircle.setPosition(p)
         pCircle.initialize()
 
