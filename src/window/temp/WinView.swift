@@ -69,44 +69,7 @@ class WinView:FlippedView{
         let line = LineGraphic(cgRect.center,polarPoint)
         line.initialize()
         
-        /*TopLeft*/
-        let leveledTopLeftPoint:CGPoint = PointModifier.safeRotatePoint(cgRect.center, cgRect.topLeft, -angle)
-        //PointParser.relativeDirectionalAxisDifference(cgRect.center, cgRect.topLeft, angle)
-        
-        let leveledTopLeftCircle = CircleGraphic(10,NSColor.purpleColor())
-        leveledTopLeftCircle.setPosition(leveledTopLeftPoint)
-        leveledTopLeftCircle.initialize()
-        
-        /*TopRight*/
-        let leveledTopRightPoint:CGPoint = PointModifier.safeRotatePoint(cgRect.center, cgRect.topRight, -angle)
-        
-        let leveledTopRightCircle = CircleGraphic(10,NSColor.orangeColor())
-        leveledTopRightCircle.setPosition(leveledTopRightPoint)
-        leveledTopRightCircle.initialize()
-        
-        /*BottomRight*/
-        let leveledBottomRightPoint:CGPoint = PointModifier.safeRotatePoint(cgRect.center, cgRect.bottomRight, -angle)
-        
-        let leveledBottomRightCircle = CircleGraphic(10,NSColor.yellowColor())
-        leveledBottomRightCircle.setPosition(leveledBottomRightPoint)
-        leveledBottomRightCircle.initialize()
-        
-        /*BottomLeft*/
-        let leveledBottomLeftPoint:CGPoint = PointModifier.safeRotatePoint(cgRect.center, cgRect.bottomLeft, -angle)
-        
-        let leveledBottomLeftCircle = CircleGraphic(10,NSColor.grayColor())
-        leveledBottomLeftCircle.setPosition(leveledBottomLeftPoint)
-        leveledBottomLeftCircle.initialize()
-        
-        //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
-        
-        //create a visual feedback test with a line, corners as circles etc
-            //test different rotations
-        //for p1:
-            //rotate all corners from the center to the negative rotation value
-            //Measure which point has the lowest y value.
-                //measure the distance between this y value and the center y value
-            //use this distance to find the p1 and p2
+        PointParser.directionalAxisDistance(<#T##pivot: CGPoint##CGPoint#>, <#T##point: CGPoint##CGPoint#>, rotation: <#T##CGFloat#>)
         
     }
     /**
