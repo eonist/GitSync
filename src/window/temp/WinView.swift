@@ -69,8 +69,9 @@ class WinView:FlippedView{
         let line = LineGraphic(cgRect.center,polarPoint)
         line.initialize()
         
-        let temp = PointParser.directionalAxisDistance(cgRect.center, cgRect.topLeft, rotation: angle)
-        Swift.print(temp.y)
+        Swift.print("cgRect.topLeft: " + "\(cgRect.topLeft)")
+        let temp = PointParser.directionalAxisDifference(cgRect.center, cgRect.topLeft, angle)
+        Swift.print(temp)
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
         
         //create a visual feedback test with a line, corners as circles etc
