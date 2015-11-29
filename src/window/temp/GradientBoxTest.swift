@@ -35,7 +35,17 @@ class GradientBoxTest:View {
         Swift.print(temp)
         
         
-        //if angle is 
+        //q1 = angle from TL to TR
+        //q2 = angle from TR to BR
+        //q3 = angle from BR to 
+        //within q1
+        
+        //within q2
+        
+        //within q3
+        
+        //within q4
+        
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
         
         //create a visual feedback test with a line, corners as circles etc
