@@ -6,7 +6,7 @@ class GradientBoxTest:View {
         drawContent()
     }
     func drawContent(){
-        let rect = RectGraphic(200,100)
+        let rect = RectGraphic(200,100,NSColor.lightGrayColor())
         rect.setPosition(CGPoint(100,100))
         rect.initialize()
         
@@ -71,7 +71,7 @@ class GradientBoxTest:View {
                 break;
         }
         
-        let pCircle = CircleGraphic(5,NSColor.magentaColor())
+        let pCircle = CircleGraphic(5,NSColor.redColor())
         pCircle.setPosition(p)
         pCircle.initialize()
 
