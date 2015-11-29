@@ -24,7 +24,7 @@ class GradientBoxTest:View {
         centerCircle.setPosition(cgRect.center)
         centerCircle.initialize()
         
-        let angle = -100*㎭
+        let angle = -90*㎭
         Swift.print("angle: " + "\(angle)")
         let polarPoint = cgRect.center.polarPoint(150, angle)
         let line = LineGraphic(cgRect.center,polarPoint)
@@ -33,8 +33,8 @@ class GradientBoxTest:View {
         
         
         
-        let q1A = //Trig.angle(cgRect.center, cgRect.topLeft)
-        let q1B = //Trig.angle(cgRect.center, cgRect.top)
+        let q1A = -180*㎭//Trig.angle(cgRect.center, cgRect.topLeft)
+        let q1B = -90*㎭//Trig.angle(cgRect.center, cgRect.top)
         let q1 = (q1A,q1B)
         
         let q2A = Trig.angle(cgRect.center, cgRect.topLeft)
@@ -52,7 +52,7 @@ class GradientBoxTest:View {
         //within q4
         var p:CGPoint = CGPoint()
         switch true{
-            case CGFloatRangeAsserter.contained(q1, angle):
+            case CGFloatRangeAsserter.within(q1, angle):
                 Swift.print("Q1")
                 //Swift.print("cgRect.topLeft: " + "\(cgRect.topLeft)")
                 let temp = PointParser.directionalAxisDistance(cgRect.center, cgRect.topLeft, angle)
