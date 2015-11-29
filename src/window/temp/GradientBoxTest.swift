@@ -57,6 +57,7 @@ class GradientBoxTest:View {
                 //Swift.print("cgRect.topLeft: " + "\(cgRect.topLeft)")
                 let temp = PointParser.directionalAxisDistance(cgRect.center, cgRect.topLeft, angle)
                 Swift.print(temp)
+                p = cgRect.center.polarPoint(temp.x, angle)
                 /*
                 let slope = PointParser.slope(cgRect.center, polarPoint)
                 let x = PointParser.x(cgRect.center, cgRect.top.y, slope)
