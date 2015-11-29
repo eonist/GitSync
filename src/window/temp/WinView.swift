@@ -65,7 +65,7 @@ class WinView:FlippedView{
         
         let angle = -135*㎭
         Swift.print("angle: " + "\(angle)")
-        let polarPoint = cgRect.center.polarPoint(100, angle)
+        let polarPoint = cgRect.center.polarPoint(150, angle)
         let line = LineGraphic(cgRect.center,polarPoint)
         line.initialize()
         
