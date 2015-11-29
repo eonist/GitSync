@@ -19,8 +19,8 @@ class WinView:FlippedView{
         
     }
     func createContent(){
-        let gradientBoxTest:NSView = GradientBoxTest(frame: NSRect(0,0,100,100))
-        self.addSubview(gradientBoxTest)
+        let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
+        addSubview(gradientBoxTest)
         //gradientTest()
         //testTextButton()
         //testButton()
