@@ -12,6 +12,7 @@ class WinView:FlippedView{
     }
     override func viewWillDraw() {
         Swift.print("WinView.viewWillDraw")
+        rectTest()
     }
     override func drawRect(dirtyRect: NSRect) {
         Swift.print("WinView.drawRect()")
