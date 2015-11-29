@@ -69,18 +69,34 @@ class WinView:FlippedView{
         let line = LineGraphic(cgRect.center,polarPoint)
         line.initialize()
         
-        let leveledTopLeftPoint:CGPoint = PointModifier.safeRotatePoint(cgRect.center, cgRect.topLeft, angle)
+        /*TopLeft*/
+        let leveledTopLeftPoint:CGPoint = PointModifier.safeRotatePoint(cgRect.center, cgRect.topLeft, -angle)
         //PointParser.relativeDirectionalAxisDifference(cgRect.center, cgRect.topLeft, angle)
         
         let leveledTopLeftCircle = CircleGraphic(10,NSColor.purpleColor())
         leveledTopLeftCircle.setPosition(leveledTopLeftPoint)
         leveledTopLeftCircle.initialize()
         
-        let leveledTopRightPoint:CGPoint = PointModifier.safeRotatePoint(cgRect.center, cgRect.topRight, angle)
+        /*TopRight*/
+        let leveledTopRightPoint:CGPoint = PointModifier.safeRotatePoint(cgRect.center, cgRect.topRight, -angle)
         
         let leveledTopRightCircle = CircleGraphic(10,NSColor.orangeColor())
         leveledTopRightCircle.setPosition(leveledTopRightPoint)
         leveledTopRightCircle.initialize()
+        
+        /*BottomRight*/
+        let leveledBottomRightPoint:CGPoint = PointModifier.safeRotatePoint(cgRect.center, cgRect.bottomRight, -angle)
+        
+        let leveledBottomRightCircle = CircleGraphic(10,NSColor.yellowColor())
+        leveledBottomRightCircle.setPosition(leveledBottomRightPoint)
+        leveledBottomRightCircle.initialize()
+        
+        /*BottomLeft*/
+        let leveledBottomLeftPoint:CGPoint = PointModifier.safeRotatePoint(cgRect.center, cgRect.bottomLeft, -angle)
+        
+        let leveledBottomLeftCircle = CircleGraphic(10,NSColor.grayColor())
+        leveledBottomLeftCircle.setPosition(leveledBottomLeftPoint)
+        leveledBottomLeftCircle.initialize()
         
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
         
