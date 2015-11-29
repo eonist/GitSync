@@ -1,5 +1,7 @@
 import Cocoa
-
+/**
+ * Testing class for the GradientBox, which is now working 100%
+ */
 class GradientBoxTest:View {
     override func drawRect(dirtyRect: NSRect) {
         //Swift.print("GradientBoxTest.drawRect()")
@@ -29,8 +31,6 @@ class GradientBoxTest:View {
         let polarPoint = rect.center.polarPoint(150, angle)
         let line = LineGraphic(rect.center,polarPoint)
         line.initialize()
-        
-        
        
         let points = GradientBoxUtils.points(rect, angle)
         
@@ -41,53 +41,6 @@ class GradientBoxTest:View {
         let endCircle = CircleGraphic(5,NSColor.redColor())
         endCircle.setPosition(points.end)
         endCircle.initialize()
-
-        
-        //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
-        
-        //create a visual feedback test with a line, corners as circles etc
-        //test different rotations
-        //for p1:
-        //rotate all corners from the center to the negative rotation value
-        //Measure which point has the lowest y value.
-        //measure the distance between this y value and the center y value
-        //use this distance to find the p1 and p2
     }
 }
 
-class GradientBoxUtils{
-    /**
-     *
-     */
-    class func points(rect:CGRect,_ angle:CGFloat)->(start:CGPoint,end:CGPoint){
-        var cornerPoint:CGPoint = CGPoint()
-        switch true{
-        case CGFloatRangeAsserter.within(Trig.tl, angle):
-            Swift.print("Q1")
-            cornerPoint = rect.topLeft
-        case CGFloatRangeAsserter.within(Trig.tr, angle):
-            Swift.print("Q2")
-            cornerPoint = rect.topRight
-        case CGFloatRangeAsserter.within(Trig.br, angle):
-            Swift.print("Q3")
-            cornerPoint = rect.bottomRight
-        case CGFloatRangeAsserter.within(Trig.bl, angle):
-            Swift.print("Q4")
-            cornerPoint = rect.bottomLeft
-        default:
-            fatalError("Angle is out of the allowed range (-π to π): " + "\(angle)")
-            break;
-        }
-        
-        
-        let distPoint = PointParser.directionalAxisDistance(rect.center, cornerPoint, angle)
-        Swift.print("distPoint: " + String(distPoint))
-        let end:CGPoint = rect.center.polarPoint(distPoint.x, angle)
-        Swift.print("end: " + String(end))
-        
-        let start:CGPoint = rect.center.polarPoint(distPoint.x, -angle)
-        Swift.print("start: " + String(start))
-        
-        return (start,end)
-    }
-}
