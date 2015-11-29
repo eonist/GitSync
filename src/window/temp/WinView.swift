@@ -80,7 +80,7 @@ class WinView:FlippedView{
         textButton.setPosition(CGPoint(20,20))
         
         
-        //continue here: margin-top,dropshadow,nsevent with userinfo
+        //continue here: margin-top
         
         
         self.addSubview(textButton!)
