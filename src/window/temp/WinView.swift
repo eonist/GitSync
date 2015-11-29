@@ -69,14 +69,14 @@ class WinView:FlippedView{
         let line = LineGraphic(cgRect.center,polarPoint)
         line.initialize()
         
-        let leveledTopLeftPoint:CGPoint = PointModifier.safeRotatePoint(cgRect.center, cgRect.topLeft, -angle)
+        let leveledTopLeftPoint:CGPoint = PointModifier.safeRotatePoint(cgRect.center, cgRect.topLeft, angle)
         //PointParser.relativeDirectionalAxisDifference(cgRect.center, cgRect.topLeft, angle)
         
         let leveledTopLeftCircle = CircleGraphic(10,NSColor.purpleColor())
         leveledTopLeftCircle.setPosition(leveledTopLeftPoint)
         leveledTopLeftCircle.initialize()
         
-        let leveledTopRightPoint:CGPoint = PointModifier.safeRotatePoint(cgRect.center, cgRect.topRight, -angle)
+        let leveledTopRightPoint:CGPoint = PointModifier.safeRotatePoint(cgRect.center, cgRect.topRight, angle)
         
         let leveledTopRightCircle = CircleGraphic(10,NSColor.orangeColor())
         leveledTopRightCircle.setPosition(leveledTopRightPoint)
