@@ -69,7 +69,17 @@ class WinView:FlippedView{
         let line = LineGraphic(cgRect.center,polarPoint)
         line.initialize()
         
-        PointParser.directionalAxisDistance(<#T##pivot: CGPoint##CGPoint#>, <#T##point: CGPoint##CGPoint#>, rotation: <#T##CGFloat#>)
+        let temp = PointParser.directionalAxisDistance(cgRect.center, cgRect.topLeft, rotation: angle)
+        Swift.print(temp.y)
+        //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
+        
+        //create a visual feedback test with a line, corners as circles etc
+            //test different rotations
+        //for p1:
+            //rotate all corners from the center to the negative rotation value
+            //Measure which point has the lowest y value.
+                //measure the distance between this y value and the center y value
+            //use this distance to find the p1 and p2
         
     }
     /**
