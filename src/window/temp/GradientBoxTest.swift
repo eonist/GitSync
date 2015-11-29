@@ -1,5 +1,5 @@
 import Foundation
 
-class GradientBoxTest {
+class GradientBoxTest:View {
 
 }
