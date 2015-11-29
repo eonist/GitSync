@@ -2,6 +2,7 @@ import Cocoa
 
 class GradientBoxTest:View {
     override init(frame frameRect: NSRect) {
+        Swift.print("GradientBoxTest.init()")
         super.init(frame: frameRect)
     }
     required init?(coder: NSCoder) {
