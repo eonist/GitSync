@@ -46,16 +46,20 @@ class GradientBoxTest:View {
         //within q3
         
         //within q4
-        /*
-        switch angle{
-        case Trig.top:
-            printin("one")
-        case 3...8:
-            printin("range from 3 to 8")
-        default:
-            break;
+        
+        switch true{
+            case CGFloatRangeAsserter.contained(Trig.t, angle):
+                Swift.print("top")
+            case CGFloatRangeAsserter.contained(Trig.r, angle):
+                Swift.print("right")
+            case CGFloatRangeAsserter.contained(Trig.b, angle):
+                Swift.print("bottom")
+            case CGFloatRangeAsserter.contained(Trig.l, angle):
+                Swift.print("left")
+            default:
+                break;
         }
-        */
+        
         
         
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
