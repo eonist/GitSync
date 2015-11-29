@@ -35,7 +35,9 @@ class GradientBoxTest:View {
         Swift.print(temp)
         
         
-        //q1 = angle from TL to TR
+        let q1A = Trig.angle(cgRect.center, cgRect.topLeft)
+        let q1B = Trig.angle(cgRect.center, cgRect.top)
+        let 
         //q2 = angle from TR to BR
         //q3 = angle from BR to BL
         //q4 = angle from BL to TL
