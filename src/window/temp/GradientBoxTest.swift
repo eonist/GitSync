@@ -78,3 +78,7 @@ class GradientBoxTest:View {
         //use this distance to find the p1 and p2
     }
 }
+
+class GradientBoxUtils{
+    
+}
