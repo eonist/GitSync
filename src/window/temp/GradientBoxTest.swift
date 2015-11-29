@@ -24,14 +24,14 @@ class GradientBoxTest:View {
         centerCircle.setPosition(cgRect.center)
         centerCircle.initialize()
         
-        let angle = -135*㎭
+        let angle = -100*㎭
         Swift.print("angle: " + "\(angle)")
         let polarPoint = cgRect.center.polarPoint(150, angle)
         let line = LineGraphic(cgRect.center,polarPoint)
         line.initialize()
         
         Swift.print("cgRect.topLeft: " + "\(cgRect.topLeft)")
-        let temp = PointParser.directionalAxisDifference(cgRect.center, cgRect.topLeft, angle)
+        let temp = PointParser.directionalAxisDistance(cgRect.center, cgRect.topLeft, angle)
         Swift.print(temp)
         
         
@@ -40,15 +40,12 @@ class GradientBoxTest:View {
         //q3 = angle from BR to BL
         //q4 = angle from BL to TL
         //within q1
-            //
+        
         //within q2
         
         //within q3
         
         //within q4
-        
-        
-        //to find the intersections you need to solve a right angled triangle with 0 known side and 3 known angles
         
         
         
