@@ -24,7 +24,7 @@ class GradientBoxTest:View {
         centerCircle.setPosition(cgRect.center)
         centerCircle.initialize()
         
-        let angle = -90*㎭
+        let angle = -50*㎭
         Swift.print("angle: " + "\(angle)")
         let polarPoint = cgRect.center.polarPoint(150, angle)
         let line = LineGraphic(cgRect.center,polarPoint)
@@ -33,13 +33,11 @@ class GradientBoxTest:View {
         
         //continue here: it finally works, add the other quadrants and your good!
         
-        let q1A = -180*㎭//Trig.angle(cgRect.center, cgRect.topLeft)
-        let q1B = -90*㎭//Trig.angle(cgRect.center, cgRect.top)
-        let q1 = (q1A,q1B)
+
+        let q1:(CGFloat,CGFloat) = (-180*㎭,-90*㎭)
         
-        let q2A = Trig.angle(cgRect.center, cgRect.topLeft)
-        let q2B = Trig.angle(cgRect.center, cgRect.top)
-        let q2 = (q2A,q2B)
+        
+        let q2:(CGFloat,CGFloat) = (-90*㎭,0)
         //q2 = angle from TR to BR
         //q3 = angle from BR to BL
         //q4 = angle from BL to TL
@@ -55,8 +53,9 @@ class GradientBoxTest:View {
             case CGFloatRangeAsserter.within(q1, angle):
                 Swift.print("Q1")
                 cornerPoint = cgRect.topLeft
-            case CGFloatRangeAsserter.contained(q2, angle):
+            case CGFloatRangeAsserter.within(q2, angle):
                 Swift.print("Q2")
+                cornerPoint = cgRect.topLeft
             case CGFloatRangeAsserter.contained(Trig.b, angle):
                 Swift.print("bottom")
             case CGFloatRangeAsserter.contained(Trig.l, angle):
