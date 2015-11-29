@@ -38,16 +38,7 @@ class GradientBoxTest:View {
         let q2:(CGFloat,CGFloat) = (-90*㎭,0)
         let q3:(CGFloat,CGFloat) = (0,90*㎭)
         let q4:(CGFloat,CGFloat) = (90*㎭,180*㎭)
-        //q2 = angle from TR to BR
-        //q3 = angle from BR to BL
-        //q4 = angle from BL to TL
-        //within q1
-        
-        //within q2
-        
-        //within q3
-        
-        //within q4
+
         var cornerPoint:CGPoint = CGPoint()
         switch true{
             case CGFloatRangeAsserter.within(q1, angle):
