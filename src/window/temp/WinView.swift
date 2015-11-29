@@ -52,8 +52,8 @@ class WinView:FlippedView{
     func gradientTest(){
         //
         //
-        let css:String = "Element{fill:linear-gradient(top,#BCD5EE 1 0.0087,#98B5E0 1 0.0607,#A8D6EF 1 1);line:gray;line-alpha:0.6;line-thickness:1px;corner-radius:4px;line-offset-type:center;}"//"Blob{fill:green;fill-alpha:1.0;corner-radius:10px;}"//
-        //let css:String = "Element{fill:linear-gradient(left,green,yellow);}"
+        //let css:String = "Element{fill:linear-gradient(top,#BCD5EE 1 0.0087,#98B5E0 1 0.0607,#A8D6EF 1 1);line:gray;line-alpha:0.6;line-thickness:1px;corner-radius:4px;line-offset-type:center;}"//"Blob{fill:green;fill-alpha:1.0;corner-radius:10px;}"//
+        let css:String = "Element{fill:linear-gradient(left,green,yellow,red);}"
         /*
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         let styleProperty = styleCollection.getStyle("Element")?.getStyleProperty("fill")
