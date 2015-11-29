@@ -35,9 +35,9 @@ class GradientBoxTest:View {
         
 
         let q1:(CGFloat,CGFloat) = (-180*㎭,-90*㎭)
-        
-        
         let q2:(CGFloat,CGFloat) = (-90*㎭,0)
+        let q3:(CGFloat,CGFloat) = (0,90*㎭)
+        let q4:(CGFloat,CGFloat) = (90*㎭,180*㎭)
         //q2 = angle from TR to BR
         //q3 = angle from BR to BL
         //q4 = angle from BL to TL
