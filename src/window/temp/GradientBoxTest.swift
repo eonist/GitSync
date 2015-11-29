@@ -57,6 +57,7 @@ class GradientBoxTest:View {
             case CGFloatRangeAsserter.contained(Trig.l, angle):
                 Swift.print("left")
             default:
+                Swift.print("Deal with 90degree angles here")
                 break;
         }
         
