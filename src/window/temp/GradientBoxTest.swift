@@ -33,8 +33,8 @@ class GradientBoxTest:View {
         
         
         
-        let q1A = Trig.angle(cgRect.center, cgRect.topLeft)
-        let q1B = Trig.angle(cgRect.center, cgRect.top)
+        let q1A = //Trig.angle(cgRect.center, cgRect.topLeft)
+        let q1B = //Trig.angle(cgRect.center, cgRect.top)
         let q1 = (q1A,q1B)
         
         let q2A = Trig.angle(cgRect.center, cgRect.topLeft)
