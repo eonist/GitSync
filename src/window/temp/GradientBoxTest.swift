@@ -80,5 +80,11 @@ class GradientBoxTest:View {
 }
 
 class GradientBoxUtils{
-    
+    /**
+     *
+     */
+    class func points()->(start:CGPoint,end:CGPoint){
+        
+        return (CGPoint(),CGPoint())
+    }
 }
