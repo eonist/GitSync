@@ -17,9 +17,6 @@ class WinView:FlippedView{
         gradientBoxTest()
         
         
-        //continue here: research wantsToDisplay method, can you get cgcontext in this method?
-        
-        
         //lineTest()
         //rectTest()
         //cricleTest()
@@ -63,19 +60,7 @@ class WinView:FlippedView{
             circle.initialize()
         }
         
-        
-        
-        //Swift.print(cgRect.topLeft)
-        
-        /*
-        
-        Swift.print(cgRect.topRight)
-        let c2 = CircleGraphic(10,BaseGraphic(FillStyle(NSColor.greenColor())))
-        c2.setPosition(CGPoint(30,0))
-        Swift.print(c2.getGraphic().y)
-        c2.initialize()
-        */
-        
+                
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
         
         //create a visual feedback test with a line, corners as circles etc
