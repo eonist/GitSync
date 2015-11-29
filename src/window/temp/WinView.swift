@@ -17,7 +17,7 @@ class WinView:FlippedView{
         gradientBoxTest()
         
         
-        //continue here: research wantsToDisplay method, can you get cgcontext in this method? 
+        //continue here: research wantsToDisplay method, can you get cgcontext in this method?
         
         
         //lineTest()
