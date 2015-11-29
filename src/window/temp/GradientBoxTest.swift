@@ -2,7 +2,7 @@ import Cocoa
 
 class GradientBoxTest:View {
     override func drawRect(dirtyRect: NSRect) {
-        Swift.print("GradientBoxTest.drawRect()")
+        //Swift.print("GradientBoxTest.drawRect()")
         drawContent()
     }
     func drawContent(){
@@ -56,6 +56,7 @@ class GradientBoxTest:View {
         switch true{
             case CGFloatRangeAsserter.contained(q1, angle):
                 Swift.print("Q1")
+            
             case CGFloatRangeAsserter.contained(q2, angle):
                 Swift.print("Q2")
             case CGFloatRangeAsserter.contained(Trig.b, angle):
@@ -63,7 +64,7 @@ class GradientBoxTest:View {
             case CGFloatRangeAsserter.contained(Trig.l, angle):
                 Swift.print("left")
             default:
-                Swift.print("Deal with 90degree angles here")
+                Swift.print("Deal with exact angles here")
                 break;
         }
         
