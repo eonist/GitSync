@@ -67,8 +67,9 @@ class WinView:FlippedView{
         let polarPoint = cgRect.center.polarPoint(100, angle)
         let line = LineGraphic(cgRect.center,polarPoint)
         line.initialize()
+        let leveledPoint:CGPoint = PointModifier.safeRotatePoint(cgRect.center, cgRect.topLeft, angle)
+        //PointParser.relativeDirectionalAxisDifference(cgRect.center, cgRect.topLeft, angle)
         
-        PointParser.relativeDirectionalAxisDifference(cgRect.center, cgRect.topLeft, angle)
         
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
         
