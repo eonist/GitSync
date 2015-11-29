@@ -20,7 +20,7 @@ class WinView:FlippedView{
     func createContent(){
         let gradientBoxTest = GradientBoxTest()
         addSubview(gradientBoxTest)
-        //gradientTest()
+        gradientTest()
         //testTextButton()
         //testButton()
         //testTextElement()
