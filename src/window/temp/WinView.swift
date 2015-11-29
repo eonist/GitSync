@@ -64,8 +64,9 @@ class WinView:FlippedView{
         centerCircle.setPosition(cgRect.center)
         centerCircle.initialize()
         
-        let polarPoint = cgRect.center.polarPoint(100, -π/4)
+        let polarPoint = cgRect.center.polarPoint(100, -π*(1/4))
         let line = LineGraphic(cgRect.center,polarPoint)
+        line.initialize()
         
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
         
