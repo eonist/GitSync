@@ -57,7 +57,9 @@ class GradientBoxTest:View {
             case CGFloatRangeAsserter.contained(q1, angle):
                 Swift.print("Q1")
                 let slope = PointParser.slope(cgRect.center, polarPoint)
-                let 
+                let x = PointParser.x(cgRect.center, cgRect.top.y, slope)
+                let p = CGPoint(x,cgRect.top.y)
+                Swift.print("P: " + String(p))
             case CGFloatRangeAsserter.contained(q2, angle):
                 Swift.print("Q2")
             case CGFloatRangeAsserter.contained(Trig.b, angle):
