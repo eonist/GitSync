@@ -24,7 +24,7 @@ class GradientBoxTest:View {
         centerCircle.setPosition(cgRect.center)
         centerCircle.initialize()
         
-        let angle = -10*㎭
+        let angle = 20*㎭
         Swift.print("angle: " + "\(angle)")
         let polarPoint = cgRect.center.polarPoint(150, angle)
         let line = LineGraphic(cgRect.center,polarPoint)
@@ -57,11 +57,13 @@ class GradientBoxTest:View {
                 Swift.print("Q2")
                 cornerPoint = cgRect.topRight
             case CGFloatRangeAsserter.contained(Trig.b, angle):
-                Swift.print("bottom")
+                Swift.print("Q3")
+                cornerPoint = cgRect.bottomRight
             case CGFloatRangeAsserter.contained(Trig.l, angle):
-                Swift.print("left")
+                Swift.print("Q4")
+                cornerPoint = cgRect.bottomLeft
             default:
-                Swift.print("Deal with exact angles here")
+                fatalError("Angle is out of the allowed range (-π to π): " + "\(angle)")
                 break;
         }
         
