@@ -82,6 +82,7 @@ class WinView:FlippedView{
         
         //continue here: margin-top,dropshadow,nsevent with userinfo
         
+        
         self.addSubview(textButton!)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: self)
     }
