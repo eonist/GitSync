@@ -31,7 +31,7 @@ class GradientBoxTest:View {
         line.initialize()
         
         
-        
+        //continue here: it finally works, add the other quadrants and your good!
         
         let q1A = -180*㎭//Trig.angle(cgRect.center, cgRect.topLeft)
         let q1B = -90*㎭//Trig.angle(cgRect.center, cgRect.top)
