@@ -60,7 +60,7 @@ class WinView:FlippedView{
             circle.initialize()
         }
         
-        let circle = CircleGraphic(10)
+        let circle = CircleGraphic(10,NSColor.blueColor())
         circle.setPosition(corner)
         circle.initialize()
         
