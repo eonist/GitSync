@@ -11,7 +11,9 @@ class WinView:FlippedView{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    override func viewWillDraw() {
+        Swift.print("WinView.viewWillDraw")
+    }
     override func drawRect(dirtyRect: NSRect) {
         Swift.print("WinView.drawRect()")
         gradientBoxTest()
