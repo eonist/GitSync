@@ -1,11 +1,17 @@
 import Cocoa
 
 class GradientBoxTest:View {
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     override func drawRect(dirtyRect: NSRect) {
         Swift.print("GradientBoxTest.drawRect()")
-        createContent()
+        drawContent()
     }
-    func createContent(){
+    func drawContent(){
         let rect = RectGraphic(200,100)
         rect.setPosition(CGPoint(100,100))
         rect.initialize()
