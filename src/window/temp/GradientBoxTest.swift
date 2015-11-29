@@ -1,6 +1,6 @@
 import Cocoa
 
-class GradientBoxTest:View {
+class GradientBoxTest:FlippedView {
     override init(frame frameRect: NSRect) {
         Swift.print("GradientBoxTest.init()")
         super.init(frame: frameRect)
