@@ -24,7 +24,7 @@ class GradientBoxTest:View {
         centerCircle.setPosition(cgRect.center)
         centerCircle.initialize()
         
-        let angle = 180*㎭
+        let angle = -120*㎭
         Swift.print("angle: " + "\(angle)")
         let polarPoint = cgRect.center.polarPoint(150, angle)
         let line = LineGraphic(cgRect.center,polarPoint)
@@ -34,23 +34,20 @@ class GradientBoxTest:View {
         //continue here: it finally works, add the other quadrants and your good!
         
 
-        let q1:(CGFloat,CGFloat) = (-180*㎭,-90*㎭)
-        let q2:(CGFloat,CGFloat) = (-90*㎭,0)
-        let q3:(CGFloat,CGFloat) = (0,90*㎭)
-        let q4:(CGFloat,CGFloat) = (90*㎭,180*㎭)
+       
 
         var cornerPoint:CGPoint = CGPoint()
         switch true{
-            case CGFloatRangeAsserter.within(q1, angle):
+            case CGFloatRangeAsserter.within(Trig.tl, angle):
                 Swift.print("Q1")
                 cornerPoint = cgRect.topLeft
-            case CGFloatRangeAsserter.within(q2, angle):
+            case CGFloatRangeAsserter.within(Trig.tr, angle):
                 Swift.print("Q2")
                 cornerPoint = cgRect.topRight
-            case CGFloatRangeAsserter.within(q3, angle):
+            case CGFloatRangeAsserter.within(Trig.br, angle):
                 Swift.print("Q3")
                 cornerPoint = cgRect.bottomRight
-            case CGFloatRangeAsserter.within(q4, angle):
+            case CGFloatRangeAsserter.within(Trig.bl, angle):
                 Swift.print("Q4")
                 cornerPoint = cgRect.bottomLeft
             default:
