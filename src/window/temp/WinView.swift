@@ -64,12 +64,17 @@ class WinView:FlippedView{
         centerCircle.initialize()
         
         let angle = -135*㎭
+        Swift.print("angle: " + "\(angle)")
         let polarPoint = cgRect.center.polarPoint(100, angle)
         let line = LineGraphic(cgRect.center,polarPoint)
         line.initialize()
+        
         let leveledPoint:CGPoint = PointModifier.safeRotatePoint(cgRect.center, cgRect.topLeft, angle)
         //PointParser.relativeDirectionalAxisDifference(cgRect.center, cgRect.topLeft, angle)
         
+        let leveledCircle = CircleGraphic(10,NSColor.purpleColor())
+        leveledCircle.setPosition(leveledPoint)
+        leveledCircle.initialize()
         
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
         
