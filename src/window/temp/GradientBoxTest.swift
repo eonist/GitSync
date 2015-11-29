@@ -47,6 +47,15 @@ class GradientBoxTest:View {
         
         //within q4
         
+        switch angle{
+        case Trig.top:
+            printin("one")
+        case 3...8:
+            printin("range from 3 to 8")
+        default:
+            break;
+        }
+        
         
         
         //create Line and Circle And Rect for easy testing, and document it wells, and it must be simple to add styles to them
