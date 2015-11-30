@@ -101,7 +101,13 @@ class WinView:FlippedView{
     }
     func testSkin(){
         
-        //try margin with the text element
+        
+        
+        
+        //Continue here: try margin with the text element, implement align in the TextSkin, make it work with the new textfield class etc
+        
+        
+        
         
         /*
         line:white9;
