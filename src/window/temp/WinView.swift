@@ -112,7 +112,7 @@ class WinView:FlippedView{
         //fill:linear-gradient(top,red,blue);
         //line-alpha:1.0;
         //var css:String = "Element{fill:red;fill-alpha:0.5;line:blue;line-alpha:0.5;line-thickness:20px;corner-radius:10px;line-offset-type:center;}"//"Blob{fill:green;fill-alpha:1.0;corner-radius:10px;}"//
-        let css = "Element{fill:red;margin:20px;}"
+        let css = "Element{fill:red;margin-top:20px;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let element = Element(200,200,0,0)
