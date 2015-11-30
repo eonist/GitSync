@@ -1,6 +1,11 @@
 import Foundation
 
-class GraphicShapeTest {
+class GraphicShapeTest:View {
+    override func drawRect(dirtyRect: NSRect) {
+        //lineTest()
+        //rectTest()
+        //cricleTest()
+    }
     func rectTest(){
         let rect = RectGraphic(300,300)
         //line.setPosition(CGPoint(150,150))
