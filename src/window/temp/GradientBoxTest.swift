@@ -34,11 +34,11 @@ class GradientBoxTest:View {
        
         let points = GradientBoxUtils.points(rect, angle)
         
-        let startCircle = CircleGraphic(5,NSColor.greenColor())
+        var startCircle = CircleGraphic(5,NSColor.greenColor())
         startCircle.setPosition(points.start)
         startCircle.initialize()
         
-        let endCircle = CircleGraphic(5,NSColor.redColor())
+        var endCircle = CircleGraphic(5,NSColor.redColor())
         endCircle.setPosition(points.end)
         endCircle.initialize()
     }
