@@ -82,7 +82,7 @@ class WinView:FlippedView{
         //Swift.print("WinView.onButtonDown() Sender: " + String(sender))
     }
     func testButton(){
-        let css:String = "Button{fill:red;}Button:over{fill:yellow;}Button:down{fill:green;margin-top:10px;}"//
+        let css:String = "Button{fill:red;margin-top:10px;}Button:over{fill:yellow;}Button:down{fill:green;}"//
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let button = Button(200,40)
