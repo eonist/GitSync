@@ -17,12 +17,12 @@ class GradientBoxTest:View {
         
         for corner:CGPoint in rect.corners{
             //Swift.print(corner)
-            var circle = CircleGraphic(10)
+            let circle = CircleGraphic(10)
             circle.setPosition(corner)
             circle.initialize()
         }
         
-        var centerCircle = CircleGraphic(10,NSColor.blueColor())
+        let centerCircle = CircleGraphic(10,NSColor.blueColor())
         centerCircle.setPosition(rect.center)
         centerCircle.initialize()
         
@@ -34,11 +34,11 @@ class GradientBoxTest:View {
        
         let points = GradientBoxUtils.points(rect, angle)
         
-        var startCircle = CircleGraphic(5,NSColor.greenColor())
+        let startCircle = CircleGraphic(5,NSColor.greenColor())
         startCircle.setPosition(points.start)
         startCircle.initialize()
         
-        var endCircle = CircleGraphic(5,NSColor.redColor())
+        let endCircle = CircleGraphic(5,NSColor.redColor())
         endCircle.setPosition(points.end)
         endCircle.initialize()
     }
