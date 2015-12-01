@@ -22,9 +22,9 @@ class WinView:FlippedView{
         //gradientTest()
         //testTextButton()
         //testButton()
-        //testTextElement()
+        testTextElement()
         //testRotation()
-        testSkin()
+        //testSkin()
         //testGraphic()
     }
    
