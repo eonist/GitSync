@@ -20,9 +20,9 @@ class WinView:FlippedView{
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
         //gradientTest()
-        //testTextButton()
+        testTextButton()
         //testButton()
-        testTextElement()
+        //testTextElement()
         //testRotation()
         //testSkin()
         //testGraphic()
@@ -59,7 +59,7 @@ class WinView:FlippedView{
         var css:String = "TextButton{fill:linear-gradient(top,#FFFEFE,#E8E8E8);line:gray;line-alpha:0.6;line-thickness:1px;corner-radius:4px;line-offset-type:center;}"
         css += "TextButton:down{fill:linear-gradient(top,#BCD5EE 1 0.0087,#BAD4EE 1 0.0371,#B4CEEB 1 0.0473,#A8C4E7 1 0.0546,#98B6E0 1 0.0605,#98B5E0 1 0.0607,#96B4DF 1 0.2707,#8EB0DD 1 0.3632,#81A9DA 1 0.4324,#6EA0D6 1 0.4855,#538ECB 1 0.5087,#8ABBE3 1 0.8283,#A8D6EF 1 1);line:gray;line-alpha:0.9;line-thickness:1px;corner-radius:4px;line-offset-type:center;}"
         //var css:String = "TextButton{fill:red;}TextButton:over{fill:yellow;}TextButton:down{fill:green;}"
-        css += "Text{font:Lucida Grande;selectable:false;size:12px;color:gray;align:center;backgroundColor:orange;background:false;}Text:down{color:black;}"//
+        css += "Text{font:Lucida Grande;selectable:false;size:12px;color:gray;align:center;backgroundColor:orange;background:false;}Text:down{color:black;margin-top:10px}"//
         StyleManager.addStyle(css)
         textButton = TextButton("Button",96,24)
         textButton.setPosition(CGPoint(20,20))
@@ -90,7 +90,7 @@ class WinView:FlippedView{
     }
     func testTextElement(){
         //textColor
-        let css:String = "Text{font:Lucida Grande;selectable:false;size:22px;color:blue;align:center;backgroundColor:orange;background:true;margin-top:10px;}"//
+        let css:String = "Text{font:Lucida Grande;selectable:false;size:22px;color:blue;align:center;backgroundColor:orange;background:true;margin-top:10px;margin-left:10px;}"//
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         //let temp = styleCollection.getStyle("Text")?.getStyleProperty("selectable")?.value
         //Swift.print("temp.dynamicType: " + "\(temp!.dynamicType)")
