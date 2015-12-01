@@ -8,15 +8,11 @@ protocol IPosition{
 }
 
 extension IPosition{
-    var x:CGFloat{get{return self.position.x} set{self.position.x = newValue}}
-    var y:CGFloat{get{return self.position.y} set{self.position.y = newValue}}
     mutating func setPosition(position:CGPoint){
-        self.position.x = position.x
-        self.position.y = position.y
+        Swift.print(position)
+        self.position = position
     }
 }
-
-
 
 class A:IPosition{
     var position:CGPoint = CGPoint(x: 0, y: 0)
@@ -51,13 +47,8 @@ class WinView:FlippedView{
         //testButton()
         //testTextElement()
         //testRotation()
-        //testSkin()
+        testSkin()
         //testGraphic()
-
-        let a = A()
-
-
-        (a as IPosition).setPosition(CGPoint(x: 2, y: 2))
     }
    
     
