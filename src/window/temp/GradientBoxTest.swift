@@ -8,7 +8,7 @@ class GradientBoxTest:View {
         drawContent()
     }
     func drawContent(){
-        let rectGraphic = RectGraphic(200,100,NSColor.lightGrayColor())
+        var rectGraphic = RectGraphic(200,100,NSColor.lightGrayColor())
         rectGraphic.setPosition(CGPoint(100,100))
         rectGraphic.initialize()
         
@@ -17,12 +17,12 @@ class GradientBoxTest:View {
         
         for corner:CGPoint in rect.corners{
             //Swift.print(corner)
-            let circle = CircleGraphic(10)
+            var circle = CircleGraphic(10)
             circle.setPosition(corner)
             circle.initialize()
         }
         
-        let centerCircle = CircleGraphic(10,NSColor.blueColor())
+        var centerCircle = CircleGraphic(10,NSColor.blueColor())
         centerCircle.setPosition(rect.center)
         centerCircle.initialize()
         
