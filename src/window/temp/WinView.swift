@@ -21,10 +21,10 @@ class WinView:FlippedView{
         //addSubview(gradientBoxTest)
         //gradientTest()
         //testTextButton()
-        testButton()
+        //testButton()
         //testTextElement()
         //testRotation()
-        //testSkin()
+        testSkin()
         //testGraphic()
     }
    
@@ -82,7 +82,7 @@ class WinView:FlippedView{
         //Swift.print("WinView.onButtonDown() Sender: " + String(sender))
     }
     func testButton(){
-        let css:String = "Button{fill:red;margin-top:10px;}Button:over{fill:yellow;}Button:down{fill:green;}"//
+        let css:String = "Button{fill:red;}Button:over{fill:yellow;}Button:down{fill:green;}"//
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let button = Button(200,40)
@@ -121,7 +121,7 @@ class WinView:FlippedView{
         //fill:linear-gradient(top,red,blue);
         //line-alpha:1.0;
         //var css:String = "Element{fill:red;fill-alpha:0.5;line:blue;line-alpha:0.5;line-thickness:20px;corner-radius:10px;line-offset-type:center;}"//"Blob{fill:green;fill-alpha:1.0;corner-radius:10px;}"//
-        let css = "Element{fill:red;margin-top:20px;}"
+        let css = "Element{fill:linear-gradient(top,blue,red);margin-top:20px;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let element = Element(200,200,0,0)
