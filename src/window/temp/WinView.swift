@@ -1,28 +1,5 @@
 import Cocoa
 
-//Continue here: test a protocol with out extension, can you do setSomeVar on a let var?
-
-protocol IPosition{
-    var position:CGPoint{get set}
-    func setPosition(position:CGPoint)
-}
-
-extension IPosition{
-    mutating func setPosition(position:CGPoint){
-        Swift.print(position)
-        self.position = position
-    }
-}
-
-class A:IPosition{
-    var position:CGPoint = CGPoint(x: 0, y: 0)
-    
-}
-
-
-
-
-
 class WinView:FlippedView{
     var element:Element?
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
