@@ -20,8 +20,8 @@ class WinView:FlippedView{
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
         //gradientTest()
-        testTextButton()
-        //testButton()
+        //testTextButton()
+        testButton()
         //testTextElement()
         //testRotation()
         //testSkin()
@@ -82,7 +82,7 @@ class WinView:FlippedView{
         //Swift.print("WinView.onButtonDown() Sender: " + String(sender))
     }
     func testButton(){
-        let css:String = "Button{fill:red;}Button:over{fill:yellow;}Button:down{fill:green;}"//
+        let css:String = "Button{fill:red;}Button:over{fill:yellow;}Button:down{fill:green;margin-top:10px;}"//
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let button = Button(200,40)
