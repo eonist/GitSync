@@ -8,11 +8,15 @@ protocol IPosition{
 }
 
 extension IPosition{
+    var x:CGFloat{get{return self.position.x} set{self.position.x = newValue}}
+    var y:CGFloat{get{return self.position.y} set{self.position.y = newValue}}
     mutating func setPosition(position:CGPoint){
-        Swift.print(position)
-        self.position = position
+        self.position.x = position.x
+        self.position.y = position.y
     }
 }
+
+
 
 class A:IPosition{
     var position:CGPoint = CGPoint(x: 0, y: 0)
