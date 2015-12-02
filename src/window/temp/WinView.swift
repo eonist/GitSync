@@ -38,6 +38,9 @@ class WinView:FlippedView{
         let btn1 = SelectButton(200,40)
         //btn1.setPosition(CGPoint(0,0))
         self.addSubview(btn1)
+        
+        //continue here: try to add this observer via a method, to figure out the problem with SelectGroup
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: btn1)
         
         let btn2 = SelectButton(200,40)
@@ -102,10 +105,11 @@ class WinView:FlippedView{
     func onButtonDown(sender: AnyObject) {
         Swift.print("WinView.onButtonDown() ")
         //let textButton:Button = (sender as! NSNotification).object as! Button
+        /*
         if((sender as! NSNotification).object === self.textButton!){
            Swift.print("sender.object === self.textButton")
         }
-    
+        */
     
         Swift.print("object: " + String((sender as! NSNotification).object))
         Swift.print("name: " + String((sender as! NSNotification).name))//buttonEventDown
