@@ -17,13 +17,13 @@ class WinView:FlippedView{
         
     }
     func createContent(){
-        let testSelectGroup = TestSelectGroup(frame: NSRect(0,0,100,100))
-        addSubview(testSelectGroup)
+        //let testSelectGroup = TestSelectGroup(frame: NSRect(0,0,100,100))
+        //addSubview(testSelectGroup)
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
         //gradientTest()
         //testTextButton()
-        //testButton()
+        testButton()
         //testTextElement()
         //testRotation()
         //testSkin()
