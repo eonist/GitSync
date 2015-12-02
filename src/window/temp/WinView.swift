@@ -101,13 +101,13 @@ class WinView:FlippedView{
         Swift.print("WinView.onButtonDown() ")
         let textButton:TextButton = (sender as! NSNotification).object as! TextButton
         if(textButton === self.textButton!){
-           Swift.print("Is correct textButton")
+           Swift.print("sender.object === self.textButton")
         }
     
     
-        Swift.print(String((sender as! NSNotification).object))
-        Swift.print(String((sender as! NSNotification).name))//buttonEventDown
-        Swift.print(String((sender as! NSNotification).userInfo))//nil
+        Swift.print("object: " + String((sender as! NSNotification).object))
+        Swift.print("name: " + String((sender as! NSNotification).name))//buttonEventDown
+        Swift.print("userInfo: " + String((sender as! NSNotification).userInfo))//nil
         //Swift.print("WinView.onButtonDown() Sender: " + String(sender))
     }
     func testButton(){
