@@ -8,15 +8,17 @@ class TestSelectGroup :FlippedView{
         createContent()
     }
     func createContent(){
-        let css:String = "SelectButton{fill:red;}SelectButton:over{fill:yellow;}SelectButton:down{fill:green;}"//
+        let css:String = "Button{fill:red;}Button:over{fill:yellow;}Button:down{fill:green;}"//
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
-        let btn1 = SelectButton(200,40)
+        let btn1 = Button(200,40)
         self.addSubview(btn1)
         
+        /*
         let btn2 = SelectButton(200,40)
         btn2.setPosition(CGPoint(0,60))
         self.addSubview(btn2)
+        */
         
         /* 
         let selectGroup = SelectGroup([btn1,btn2])
