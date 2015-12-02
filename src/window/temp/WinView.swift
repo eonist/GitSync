@@ -114,6 +114,9 @@ class WinView:FlippedView{
         StyleManager.addStyle(styleCollection.styles)
         let button = Button(200,40)
         self.addSubview(button)
+        
+        //continue here: you have to define a hit area for the mouseDown action for the button
+        
     }
     func testTextElement(){
         //textColor
