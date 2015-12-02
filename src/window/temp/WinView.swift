@@ -1,5 +1,5 @@
 import Cocoa
-class NotificationTest:NSView{
+class NotificationTest{
     
     /**
      *
