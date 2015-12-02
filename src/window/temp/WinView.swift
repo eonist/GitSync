@@ -63,9 +63,9 @@ class WinView:FlippedView{
         
         //continue here: try to add this observer via a method, to figure out the problem with SelectGroup
         //test(btn1)
-        let notificationTest = NotificationTest()
-        addSubview(notificationTest)
-        notificationTest.test(btn1)
+        //let notificationTest = NotificationTest()
+        //addSubview(notificationTest)
+        //notificationTest.test(btn1)
         
         
         let btn2 = SelectButton(200,40)
