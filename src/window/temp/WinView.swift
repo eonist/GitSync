@@ -1,8 +1,6 @@
 import Cocoa
-class NotificationTest:NSObject{
-    override init(){
-        
-    }
+class NotificationTest:NSResponder{
+    
     /**
      *
      */
