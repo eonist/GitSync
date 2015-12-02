@@ -52,7 +52,6 @@ class WinView:FlippedView{
         //testSkin()
         //testGraphic()
     }
-   
     func testSelectGroup(){
         let css:String = "SelectButton{fill:red;}SelectButton:over{fill:yellow;}SelectButton:down{fill:green;}SelectButton:selected{fill:blue;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
