@@ -95,7 +95,7 @@ class WinView:FlippedView{
         
         
         self.addSubview(textButton!)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: textButton)
     }
     func onButtonDown(sender: AnyObject) {
         Swift.print("WinView.onButtonDown() ")
