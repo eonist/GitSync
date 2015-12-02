@@ -1,6 +1,6 @@
 import Foundation
 
-class TestSelectGroup :View{
+class TestSelectGroup :FlippedView{
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     override init(frame frameRect: NSRect) {
