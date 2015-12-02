@@ -32,13 +32,14 @@ class WinView:FlippedView{
     }
    
     func testSelectGroup(){
-        let css:String = "Button{fill:red;}Button:over{fill:yellow;}Button:down{fill:green;}"//
+        var css:String = "Button{fill:red;}Button:over{fill:yellow;}Button:down{fill:green;}"//
+        css += "SelectButton{fill:red;margin-top:60px;}SelectButton:over{fill:yellow;margin-top:60px;}SelectButton:down{fill:green;margin-top:60px;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let btn1 = Button(200,40)
         self.addSubview(btn1)
         
-        let btn2 = Button(200,40)
+        let btn2 = SelectButton(200,40)
         btn2.setPosition(CGPoint(0,0))
         self.addSubview(btn2)
         
