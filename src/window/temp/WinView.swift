@@ -7,7 +7,7 @@ class NotificationTest:NSView{
     func test(btn:Button){
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: btn)
     }
-    func onButtonDown(sender: AnyObject) {
+    @objc func onButtonDown(sender: AnyObject) {
         Swift.print("WinView.onButtonDown() ")
         //let textButton:Button = (sender as! NSNotification).object as! Button
         /*
