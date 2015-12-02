@@ -1,15 +1,20 @@
 import Foundation
 
 class TestSelectGroup :View{
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         createContent()
     }
     func createContent(){
-        
+        let css:String = "Button{fill:red;}Button:over{fill:yellow;}Button:down{fill:green;}"//
+        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
+        StyleManager.addStyle(styleCollection.styles)
+        let button = Button(200,40)
+        self.addSubview(button)
     }
 
-    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    
 
     /*
      * let radioButtonGroup = RadioButtonGroup([rb1,rb2, rb3]);
