@@ -17,19 +17,39 @@ class WinView:FlippedView{
         
     }
     func createContent(){
+        testSelectGroup()
         //let testSelectGroup = TestSelectGroup(frame: NSRect(0,0,100,100))
         //addSubview(testSelectGroup)
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
         //gradientTest()
         //testTextButton()
-        testButton()
+        //testButton()
         //testTextElement()
         //testRotation()
         //testSkin()
         //testGraphic()
     }
    
+    func testSelectGroup(){
+        let css:String = "SelectButton{fill:red;}SelectButton:over{fill:yellow;}SelectButton:down{fill:green;}"//
+        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
+        StyleManager.addStyle(styleCollection.styles)
+        let btn1 = SelectButton(200,40)
+        self.addSubview(btn1)
+        
+        let btn2 = SelectButton(200,40)
+        btn2.setPosition(CGPoint(0,60))
+        self.addSubview(btn2)
+        
+        /*
+        let selectGroup = SelectGroup([btn1,btn2])
+        NSNotificationCenter.defaultCenter().addObserver(selectGroup, selector: "onSelect:", name: SelectGroupEvent.select, object: nil)
+        func onSelect(sender: AnyObject) {
+        Swift.print("TestSelectGroup.onSelect: " + String((sender as! NSNotification).object))/* as ISelectable).isSelected*/
+        }
+        */
+    }
     
     /**
      *
