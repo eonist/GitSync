@@ -47,7 +47,7 @@ class WinView:FlippedView{
         
         
         let selectGroup = SelectGroup([btn1,btn2])
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "onSelect:", name: SelectGroupEvent.select, object: selectGroup)
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "onSelect:", name: SelectGroupEvent.select, object: nil)
         func onSelect(sender: AnyObject) {
             Swift.print("TestSelectGroup.onSelect()")
             //Swift.print("TestSelectGroup.onSelect: " + String((sender as! NSNotification).object))/* as ISelectable).isSelected*/
@@ -116,9 +116,6 @@ class WinView:FlippedView{
         let button = Button(200,40)
         //button.setPosition(CGPoint(120,120))
         self.addSubview(button)
-        
-        //continue here: you have to define a hit area for the mouseDown action for the button
-        
     }
     func testTextElement(){
         //textColor
