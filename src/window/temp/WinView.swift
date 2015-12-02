@@ -17,13 +17,13 @@ class WinView:FlippedView{
         
     }
     func createContent(){
-        testSelectGroup()
+        //testSelectGroup()
         //let testSelectGroup = TestSelectGroup(frame: NSRect(0,0,100,100))
         //addSubview(testSelectGroup)
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
         //gradientTest()
-        //testTextButton()
+        testTextButton()
         //testButton()
         //testTextElement()
         //testRotation()
@@ -36,7 +36,7 @@ class WinView:FlippedView{
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let btn1 = Button(200,40)
-        btn1.setPosition(CGPoint(0,0))
+        //btn1.setPosition(CGPoint(0,0))
         self.addSubview(btn1)
         
         /*
