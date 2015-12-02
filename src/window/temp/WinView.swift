@@ -85,9 +85,9 @@ class WinView:FlippedView{
         Swift.print("TestSelectGroup.onSelect()")
         Swift.print("TestSelectGroup.onSelect: " + String(notification.object))/* as ISelectable).isSelected*/
         
-        //selected should be blue
+        //selected should be blue (see old css code)
         //deselect should work
-        //
+        //try 3 buttons
         
     }
     /**
