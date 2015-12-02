@@ -11,8 +11,8 @@ class TestSelectGroup :FlippedView{
         let css:String = "Button{fill:red;}Button:over{fill:yellow;}Button:down{fill:green;}"//
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
-        let button = Button(200,40)
-        self.addSubview(button)
+        let btn1 = Button(200,40)
+        self.addSubview(btn1)
     }
 
     
