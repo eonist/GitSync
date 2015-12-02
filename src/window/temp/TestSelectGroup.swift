@@ -19,6 +19,10 @@ class TestSelectGroup :FlippedView{
         self.addSubview(btn2)
         
         let selectGroup = SelectGroup([btn1,btn2])
+        NSNotificationCenter.defaultCenter().addObserver(selectGroup, selector: "onSelect:", name: SelectGroupEvent.select, object: nil)
+        func onSelect(sender: AnyObject) {
+            Swift.print("TestSelectGroup.onSelect: " + String((sender as! NSNotification).object))/* as ISelectable).isSelected*/
+        }
     }
 
     
