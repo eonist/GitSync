@@ -113,7 +113,7 @@ class WinView:FlippedView{
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let button = Button(200,40)
-        button.setPosition(CGPoint(120,120))
+        //button.setPosition(CGPoint(120,120))
         self.addSubview(button)
         
         //continue here: you have to define a hit area for the mouseDown action for the button
