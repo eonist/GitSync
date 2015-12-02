@@ -39,7 +39,7 @@ class WinView:FlippedView{
         self.addSubview(btn1)
         
         let btn2 = Button(200,40)
-        btn2.setPosition(CGPoint(0,60))
+        btn2.setPosition(CGPoint(0,0))
         self.addSubview(btn2)
         
         /*
