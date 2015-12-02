@@ -7,7 +7,7 @@ class NotificationTest{
     func test(btn:Button){
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: btn)
     }
-    @objc func onButtonDown(sender: AnyObject) {
+    @objc func onButtonDown(notification: NSNotification) {
         Swift.print("WinView.onButtonDown() ")
         //let textButton:Button = (sender as! NSNotification).object as! Button
         /*
@@ -16,9 +16,9 @@ class NotificationTest{
         }
         */
         
-        Swift.print("object: " + String((sender as! NSNotification).object))
-        Swift.print("name: " + String((sender as! NSNotification).name))//buttonEventDown
-        Swift.print("userInfo: " + String((sender as! NSNotification).userInfo))//nil
+        Swift.print("object: " + String((notification as NSNotification).object))
+        Swift.print("name: " + String((notification as NSNotification).name))//buttonEventDown
+        Swift.print("userInfo: " + String((notification as NSNotification).userInfo))//nil
         //Swift.print("WinView.onButtonDown() Sender: " + String(sender))
     }
 }
