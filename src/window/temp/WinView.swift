@@ -1,5 +1,26 @@
 import Cocoa
-
+class NotificationTest{
+    /**
+     *
+     */
+    func test(btn:Button){
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: btn)
+    }
+    func onButtonDown(sender: AnyObject) {
+        Swift.print("WinView.onButtonDown() ")
+        //let textButton:Button = (sender as! NSNotification).object as! Button
+        /*
+        if((sender as! NSNotification).object === self.textButton!){
+        Swift.print("sender.object === self.textButton")
+        }
+        */
+        
+        Swift.print("object: " + String((sender as! NSNotification).object))
+        Swift.print("name: " + String((sender as! NSNotification).name))//buttonEventDown
+        Swift.print("userInfo: " + String((sender as! NSNotification).userInfo))//nil
+        //Swift.print("WinView.onButtonDown() Sender: " + String(sender))
+    }
+}
 class WinView:FlippedView{
     var element:Element?
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
@@ -40,7 +61,9 @@ class WinView:FlippedView{
         self.addSubview(btn1)
         
         //continue here: try to add this observer via a method, to figure out the problem with SelectGroup
-        test(btn1)
+        //test(btn1)
+        let notificationTest = NotificationTest()
+        notificationTest.test(btn1)
         
         
         let btn2 = SelectButton(200,40)
