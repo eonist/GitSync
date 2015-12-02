@@ -47,9 +47,10 @@ class WinView:FlippedView{
         
         
         let selectGroup = SelectGroup([btn1,btn2])
-        NSNotificationCenter.defaultCenter().addObserver(selectGroup, selector: "onSelect:", name: SelectGroupEvent.select, object: nil)
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "onSelect:", name: SelectGroupEvent.select, object: selectGroup)
         func onSelect(sender: AnyObject) {
-        Swift.print("TestSelectGroup.onSelect: " + String((sender as! NSNotification).object))/* as ISelectable).isSelected*/
+            Swift.print("TestSelectGroup.onSelect()")
+            //Swift.print("TestSelectGroup.onSelect: " + String((sender as! NSNotification).object))/* as ISelectable).isSelected*/
         }
         /**/
     }
