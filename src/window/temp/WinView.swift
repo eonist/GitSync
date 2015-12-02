@@ -78,9 +78,9 @@ class WinView:FlippedView{
         let selectGroup = SelectGroup([btn1,btn2])
         addSubview(selectGroup)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onSelect:", name: SelectGroupEvent.select, object: selectGroup)
-        func onSelect(notification: NSNotification) {
+        dynamic private func onSelect(notification: NSNotification) {
             Swift.print("TestSelectGroup.onSelect()")
-            Swift.print("TestSelectGroup.onSelect: " + String(notification.object))/* as ISelectable).isSelected*/
+            //Swift.print("TestSelectGroup.onSelect: " + String(notification.object))/* as ISelectable).isSelected*/
         }
         /**/
     }
