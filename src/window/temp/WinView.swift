@@ -1,5 +1,5 @@
 import Cocoa
-class NotificationTest:NSResponder{
+class NotificationTest:NSView{
     
     /**
      *
@@ -7,7 +7,7 @@ class NotificationTest:NSResponder{
     func test(btn:Button){
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: btn)
     }
-    dynamic private func onButtonDown(notification: NSNotification) {
+    func onButtonDown(notification: NSNotification) {
         Swift.print("NotificationTest.onButtonDown() ")
         //let textButton:Button = (sender as! NSNotification).object as! Button
         /*
@@ -64,7 +64,7 @@ class WinView:FlippedView{
         //continue here: try to add this observer via a method, to figure out the problem with SelectGroup
         //test(btn1)
         let notificationTest = NotificationTest()
-        //addSubview(notificationTest)
+        addSubview(notificationTest)
         notificationTest.test(btn1)
         
         
