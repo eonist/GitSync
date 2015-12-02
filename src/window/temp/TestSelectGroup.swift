@@ -17,6 +17,8 @@ class TestSelectGroup :FlippedView{
         let btn2 = Button(200,40)
         btn2.setPosition(CGPoint(0,60))
         self.addSubview(btn2)
+        
+        let selectGroup = 
     }
 
     
