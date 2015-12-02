@@ -17,13 +17,13 @@ class WinView:FlippedView{
         
     }
     func createContent(){
-        testSelectGroup()
+        //testSelectGroup()
         //let testSelectGroup = TestSelectGroup(frame: NSRect(0,0,100,100))
         //addSubview(testSelectGroup)
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
         //gradientTest()
-        //testTextButton()
+        testTextButton()
         //testButton()
     
         //testRotation()
@@ -95,9 +95,10 @@ class WinView:FlippedView{
         
         
         self.addSubview(textButton!)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: self)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: nil)
     }
     func onButtonDown(sender: AnyObject) {
+        Swift.print("WinView.onButtonDown() ")
         let textButton:TextButton = (sender as! NSNotification).object as! TextButton
         if(textButton === self.textButton!){
            Swift.print("Is correct textButton")
