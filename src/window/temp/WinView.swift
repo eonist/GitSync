@@ -39,9 +39,9 @@ class WinView:FlippedView{
         
     }
     func createContent(){
-        testSelectGroup()
-        //let testSelectGroup = TestSelectGroup(frame: NSRect(0,0,100,100))
-        //addSubview(testSelectGroup)
+        //testSelectGroup()
+        let testSelectGroup = TestSelectGroup(frame: NSRect(0,0,200,200))
+        addSubview(testSelectGroup)
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
         //gradientTest()
