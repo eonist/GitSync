@@ -39,7 +39,8 @@ class WinView:FlippedView{
         
     }
     func createContent(){
-        testSelectGroup()
+        testTabBar()
+        //testSelectGroup()
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
         //gradientTest()
@@ -49,6 +50,14 @@ class WinView:FlippedView{
         //testRotation()
         //testSkin()
         //testGraphic()
+    }
+    func testTabBar(){
+        let css:String = "SelectButton{fill:red;}"
+        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
+        StyleManager.addStyle(styleCollection.styles)
+        let btn1 = SelectButton(200,40)
+        //btn1.setPosition(CGPoint(0,0))
+        self.addSubview(btn1)
     }
     func testSelectGroup(){
         let css:String = "SelectButton{fill:red;}SelectButton:over{fill:yellow;}SelectButton:down{fill:green;}SelectButton:selected{fill:blue;}"
