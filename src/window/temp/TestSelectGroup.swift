@@ -1,6 +1,7 @@
 import Foundation
 
-class TestSelectGroup :View{
+class TestSelectGroup :FlippedView{
+    override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -37,6 +38,7 @@ class TestSelectGroup :View{
         
 
     }
+
     func onSelect(notification: NSNotification) {
         Swift.print("TestSelectGroup.onSelect()")
         Swift.print("TestSelectGroup.onSelect: " + String(notification.object))/* as ISelectable).isSelected*/
@@ -46,7 +48,6 @@ class TestSelectGroup :View{
         //try 3 buttons
         
     }
-    
 
     /*
      * let radioButtonGroup = RadioButtonGroup([rb1,rb2, rb3]);
