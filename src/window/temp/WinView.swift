@@ -52,16 +52,16 @@ class WinView:FlippedView{
         //testSkin()
         //testGraphic()
     }
-    /**
-     *
-     */
     func styleTesting(){
         var css = "Element#first{fill:red;}"
         css += "Element#second{fill:blue;}"
-        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
-        StyleManager.addStyle(styleCollection.styles)
+        css += "Element#third{fill:yellow;}"
+        css += "Element#fourth{fill:green;}"
+        StyleManager.addStyle(css)
         self.addSubview(Element(50,50,nil,"first"))
         self.addSubview(Element(50,50,0,50,nil,"second"))
+        self.addSubview(Element(50,50,50,0,nil,"third"))
+        self.addSubview(Element(50,50,50,50,nil,"fourth"))
     }
     func testTabBar(){
         var css:String = "SelectButton#first{fill:silver;}"//corner-radius:4px 0px 4px 0px;line:gray;line-offset-type:outside;line-thickness:1px;
