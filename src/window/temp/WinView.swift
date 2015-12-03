@@ -52,8 +52,10 @@ class WinView:FlippedView{
         //testGraphic()
     }
     func testTabBar(){
-        let css:String = "SelectButton{fill:silver;line:gray;line-offset-type:outside;line-thickness:1px;corner-radius:14px;}"
+        let css:String = "SelectButton{fill:silver;line:gray;line-offset-type:outside;line-thickness:1px;corner-radius:4px 0px 4px 0px;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
+        let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
+        Swift.print("styleProperty?.value" + String(styleProperty!.value))
         StyleManager.addStyle(styleCollection.styles)
         let btn1 = SelectButton(200,40)
         btn1.setPosition(CGPoint(20,20))
