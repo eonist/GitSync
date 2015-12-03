@@ -56,7 +56,7 @@ class WinView:FlippedView{
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
         let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
-        Swift.print("styleProperty.value: " + String(styleProperty!.value))
+        //Swift.print("styleProperty.value: " + String(styleProperty!.value))
         StyleManager.addStyle(styleCollection.styles)
         let btn1 = SelectButton(200,40)
         btn1.setPosition(CGPoint(20,20))
