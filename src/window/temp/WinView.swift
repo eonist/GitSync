@@ -53,11 +53,11 @@ class WinView:FlippedView{
         //testGraphic()
     }
     func styleTesting(){
-        var css = "Element{corner-radius-top-left:20px;}"
-        css += "Element#first{fill:red;}"
-        css += "Element#second{fill:blue;}"
-        css += "Element#third{fill:yellow;}"
-        css += "Element#fourth{fill:green;}"
+        var css = ""
+        css += "Element#first{fill:red;corner-radius-top-left:40px;}"
+        css += "Element#second{fill:blue;corner-radius-bottom-left:40px;}"
+        css += "Element#third{fill:yellow;corner-radius-top-right:40px;}"
+        css += "Element#fourth{fill:green;corner-radius-bottom-right:40px;}"
         StyleManager.addStyle(css)
         self.addSubview(Element(150,150,nil,"first"))
         self.addSubview(Element(150,150,0,150,nil,"second"))
