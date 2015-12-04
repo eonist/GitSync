@@ -205,12 +205,16 @@ class WinView:FlippedView{
         //textColor
         let css:String = "Text{font:Lucida Grande;selectable:false;size:22px;color:blue;align:center;backgroundColor:orange;background:true;margin-top:10px;margin-left:10px;}"//
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
+        let fontName = styleCollection.getStyle("Text")?.getStyleProperty("font")?.value
+        Swift.print("Font name: " + "\(fontName)")
         //let temp = styleCollection.getStyle("Text")?.getStyleProperty("selectable")?.value
         //Swift.print("temp.dynamicType: " + "\(temp!.dynamicType)")
        
+        /*
         StyleManager.addStyle(styleCollection.styles)
         let text = Text(200,40,"Hello world")
         self.addSubview(text)
+        */
     }
     func testSkin(){
         
