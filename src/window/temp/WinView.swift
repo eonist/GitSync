@@ -91,11 +91,11 @@ class WinView:FlippedView{
         self.addSubview(btn1)
         
         let btn2 = SelectTextButton("second",64,24,false,nil,"second")
-        btn2.setPosition(CGPoint(74,20))
+        btn2.setPosition(CGPoint(54,20))
         self.addSubview(btn2)
         
         let btn3 = SelectTextButton("third",64,24,false,nil,"third")
-        btn3.setPosition(CGPoint(138,20))
+        btn3.setPosition(CGPoint(108,20))
         self.addSubview(btn3)
         
         addSubview(SelectGroup([btn1,btn2,btn3],btn2));
