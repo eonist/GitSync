@@ -66,8 +66,7 @@ class WinView:FlippedView{
         
         let btn2 = Button(200,40,nil,"second")
         btn2.setPosition(CGPoint(120,20))
-        self.addSubview(btn2)
-        
+        self.addSubview(btn2, positioned: NSWindowOrderingMode.Above, relativeTo: btn1)
     }
     func styleTesting(){
         var css = ""
