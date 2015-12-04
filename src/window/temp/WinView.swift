@@ -65,10 +65,10 @@ class WinView:FlippedView{
         self.addSubview(Element(150,150,150,150,nil,"fourth"))
     }
     func testTabBar(){
-        var css:String = "SelectButton{line:gray;line-offset-type:outside;line-thickness:10px;}"//
-        css += "SelectButton#first{fill:yellow;corner-radius:10px 0px 10px 0px;}"
+        var css:String = "SelectButton{line:grey7;line-offset-type:outside;line-thickness:1px;}"//
+        css += "SelectButton#first{fill:yellow;corner-radius:4px 0px 4px 0px;}"
         css += "SelectButton#second{fill:green;corner-radius:0px 0px 0px 0px;line-offset-type-right,line-offset-type-left:inside;}"//
-        css += "SelectButton#third{fill:orange;corner-radius:0px 10px 0px 10px;}"//
+        css += "SelectButton#third{fill:orange;corner-radius:0px 4px 0px 4px;}"//
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
