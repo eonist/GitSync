@@ -55,6 +55,7 @@ class WinView:FlippedView{
     func testOverlapping(){
         var css = ""
         css += "Button#first{fill:red;}"
+        css += "Button#first:over{fill:yellow;fill-alpha:0.2;}"
         css += "Button#second{fill:blue;}"
         StyleManager.addStyle(css)
         let btn1 = Button(200,40,nil,"first")
