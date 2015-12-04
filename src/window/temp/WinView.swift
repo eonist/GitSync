@@ -25,10 +25,10 @@ class NotificationTest:NSView{
 class WinView:FlippedView{
     var element:Element?
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
-    override var wantsUpdateLayer:Bool{return false;}
+    //override var wantsUpdateLayer:Bool{return false;}
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
-        wantsLayer = true
+        //wantsLayer = true
         createContent()
     }
     required init?(coder: NSCoder) {
@@ -57,7 +57,7 @@ class WinView:FlippedView{
     func testOverlapping(){
         var css = ""
         css += "Button#first{fill:red;}"
-        css += "Button#first:over{fill:yellow;fill-alpha:0.2;}"
+        //css += "Button#first:over{fill:yellow;fill-alpha:0.2;}"
         css += "Button#second{fill:blue;}"
         StyleManager.addStyle(css)
         let btn1 = Button(200,40,nil,"first")
