@@ -40,14 +40,14 @@ class WinView:FlippedView{
     }
     func createContent(){
         //styleTesting()
-        testTabBar()
+        //testTabBar()
         //testSelectGroup()
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
         //gradientTest()
         //testTextButton()
         //testButton()
-    
+        testTextElement()
         //testRotation()
         //testSkin()
         //testGraphic()
@@ -66,24 +66,25 @@ class WinView:FlippedView{
     }
     func testTabBar(){
         
-        var css:String = "SelectButton{fill:linear-gradient(top,#FFFEFE,#E8E8E8);line:grey7;line-offset-type:outside;line-thickness:1px;}"//
-        css += "SelectButton#first{corner-radius:4px 0px 4px 0px;}"
-        css += "SelectButton#second{corner-radius:0px 0px 0px 0px;line-offset-type-right,line-offset-type-left:inside;}"//
-        css += "SelectButton#third{corner-radius:0px 4px 0px 4px;}"//
+        var css:String = "SelectTextButton{fill:linear-gradient(top,#FFFEFE,#E8E8E8);line:grey7;line-offset-type:outside;line-thickness:1px;}"//
+        css += "SelectTextButton#first{corner-radius:4px 0px 4px 0px;}"
+        css += "SelectTextButton#second{corner-radius:0px 0px 0px 0px;line-offset-type-right,line-offset-type-left:inside;}"//
+        css += "SelectTextButton#third{corner-radius:0px 4px 0px 4px;}"//
+        css += "Text{font:Lucida Grande;selectable:false;size:12px;color:gray;align:center;backgroundColor:orange;background:false;margin-top:4px;}Text:down{color:black;}"//
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
         //Swift.print("styleProperty.value: " + String(styleProperty!.value))
         StyleManager.addStyle(styleCollection.styles)
-        let btn1 = SelectButton(64,24,false,nil,"first")
+        let btn1 = SelectTextButton("first",64,24,false,nil,"first")
         btn1.setPosition(CGPoint(10,20))
         self.addSubview(btn1)
         
-        let btn2 = SelectButton(64,24,false,nil,"second")
+        let btn2 = SelectTextButton("second",64,24,false,nil,"second")
         btn2.setPosition(CGPoint(74,20))
         self.addSubview(btn2)
         
-        let btn3 = SelectButton(64,24,false,nil,"third")
+        let btn3 = SelectTextButton("third",64,24,false,nil,"third")
         btn3.setPosition(CGPoint(138,20))
         self.addSubview(btn3)
     }
