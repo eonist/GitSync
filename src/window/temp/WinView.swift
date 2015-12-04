@@ -67,9 +67,8 @@ class WinView:FlippedView{
     func testTabBar(){
         
         //continue here: maybe implement height with the Text element
-        //Continue here: make parenting work with element
+        //continue here: make parenting work with element
         //and turn off mouseHover -> skin update if there is no update
-        //add the selectgroup stuff to toggle the btns accordingly
         
         var css:String = "SelectTextButton{fill:linear-gradient(top,#FFFEFE,#E8E8E8);line:grey7;line-offset-type:outside;line-thickness:1px;}"//
         css += "SelectTextButton#first{corner-radius:4px 0px 4px 0px;}"
