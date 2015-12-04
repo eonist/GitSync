@@ -34,9 +34,7 @@ class WinView:FlippedView{
     }
     override func drawRect(dirtyRect: NSRect) {
         //Swift.print("WinView.drawRect()")
-        //gradientBoxTest()
-        
-        
+        //gradientBoxTest() 
     }
     func createContent(){
         testOverlapping()
