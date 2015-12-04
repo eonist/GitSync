@@ -69,6 +69,8 @@ class WinView:FlippedView{
         //continue here: maybe implement height with the Text element
         //continue here: make parenting work with element
         //and turn off mouseHover -> skin update if there is no update
+        //dropshadow
+        //fix the mouseover exit problem, try overlapping shapes to see whats wrong
         
         var css:String = "SelectTextButton{fill:linear-gradient(top,#FFFEFE,#E8E8E8);line:grey7;line-offset-type:outside;line-thickness:1px;}"//
         css += "SelectTextButton#first{corner-radius:4px 0px 4px 0px;}"
