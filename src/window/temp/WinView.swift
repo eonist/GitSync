@@ -41,7 +41,7 @@ class WinView:FlippedView{
     func createContent(){
         testOverlapping()
         //styleTesting()
-        testTabBar()
+        //testTabBar()
         //testSelectGroup()
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
@@ -58,11 +58,11 @@ class WinView:FlippedView{
         css += "Button#first{fill:red;}"
         css += "Button#second{fill:blue;}"
         StyleManager.addStyle(css)
-        let btn1 = Button(200,40)
+        let btn1 = Button(200,40,nil,"first")
         btn1.setPosition(CGPoint(20,20))
         self.addSubview(btn1)
         
-        let btn2 = Button(200,40)
+        let btn2 = Button(200,40,nil,"second")
         btn2.setPosition(CGPoint(120,20))
         self.addSubview(btn2)
         
