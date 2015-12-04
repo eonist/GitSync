@@ -40,12 +40,12 @@ class WinView:FlippedView{
     }
     func createContent(){
         //styleTesting()
-        //testTabBar()
+        testTabBar()
         //testSelectGroup()
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
         //gradientTest()
-        testTextButton()
+        //testTextButton()
         //testButton()
         //testTextElement()
         //testRotation()
@@ -71,6 +71,7 @@ class WinView:FlippedView{
         css += "SelectTextButton#second{corner-radius:0px 0px 0px 0px;line-offset-type-right,line-offset-type-left:inside;}"//
         css += "SelectTextButton#third{corner-radius:0px 4px 0px 4px;}"//
         css += "Text{font:Lucida Grande;selectable:false;size:12px;color:gray;align:center;backgroundColor:orange;background:false;margin-top:4px;}Text:down{color:black;}"//
+        css += "SelectTextButton:selected Text{color:white;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
