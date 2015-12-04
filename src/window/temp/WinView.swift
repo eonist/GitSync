@@ -76,15 +76,15 @@ class WinView:FlippedView{
         //Swift.print("styleProperty.value: " + String(styleProperty!.value))
         StyleManager.addStyle(styleCollection.styles)
         let btn1 = SelectButton(64,24,false,nil,"first")
-        btn1.setPosition(CGPoint(0,20))
+        btn1.setPosition(CGPoint(10,20))
         self.addSubview(btn1)
         
         let btn2 = SelectButton(64,24,false,nil,"second")
-        btn2.setPosition(CGPoint(128,20))
+        btn2.setPosition(CGPoint(74,20))
         self.addSubview(btn2)
         
         let btn3 = SelectButton(64,24,false,nil,"third")
-        btn3.setPosition(CGPoint(192,20))
+        btn3.setPosition(CGPoint(138,20))
         self.addSubview(btn3)
     }
     func testSelectGroup(){
