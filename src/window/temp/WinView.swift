@@ -65,25 +65,25 @@ class WinView:FlippedView{
         self.addSubview(Element(150,150,150,150,nil,"fourth"))
     }
     func testTabBar(){
-        var css:String = "SelectButton{line:gray;line-offset-type:outside;line-thickness:1px;}"//
-        css += "SelectButton#first{fill:yellow;corner-radius:4px 0px 4px 0px;}"
+        var css:String = "SelectButton{line:gray;line-offset-type:outside;line-thickness:10px;}"//
+        css += "SelectButton#first{fill:yellow;corner-radius:10px 0px 10px 0px;}"
         css += "SelectButton#second{fill:green;corner-radius:0px 0px 0px 0px;}"//
-        css += "SelectButton#third{fill:orange;corner-radius:0px 4px 0px 4px;}"//
+        css += "SelectButton#third{fill:orange;corner-radius:0px 10px 0px 10px;}"//
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
         //Swift.print("styleProperty.value: " + String(styleProperty!.value))
         StyleManager.addStyle(styleCollection.styles)
         let btn1 = SelectButton(200,40,false,nil,"first")
-        btn1.setPosition(CGPoint(20,20))
+        btn1.setPosition(CGPoint(0,20))
         self.addSubview(btn1)
         
         let btn2 = SelectButton(200,40,false,nil,"second")
-        btn2.setPosition(CGPoint(240,20))
+        btn2.setPosition(CGPoint(200,20))
         self.addSubview(btn2)
         
         let btn3 = SelectButton(200,40,false,nil,"third")
-        btn3.setPosition(CGPoint(460,20))
+        btn3.setPosition(CGPoint(400,20))
         self.addSubview(btn3)
     }
     func testSelectGroup(){
