@@ -66,11 +66,14 @@ class WinView:FlippedView{
     }
     func testTabBar(){
         
+        //continue here: maybe implement height with the Text element
+        
+        
         var css:String = "SelectTextButton{fill:linear-gradient(top,#FFFEFE,#E8E8E8);line:grey7;line-offset-type:outside;line-thickness:1px;}"//
         css += "SelectTextButton#first{corner-radius:4px 0px 4px 0px;}"
         css += "SelectTextButton#second{corner-radius:0px 0px 0px 0px;line-offset-type-right,line-offset-type-left:inside;}"//
         css += "SelectTextButton#third{corner-radius:0px 4px 0px 4px;}"//
-        css += "Text{font:Lucida Grande;selectable:false;size:12px;color:gray;align:center;backgroundColor:orange;background:false;margin-top:4px;}Text:down{color:black;}"//
+        css += "SelectTextButton Text{font:Lucida Grande;selectable:false;size:12px;color:gray;align:center;backgroundColor:orange;background:false;margin-top:4px;}Text:down{color:black;}"//
         css += "SelectTextButton:selected Text{color:white;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
