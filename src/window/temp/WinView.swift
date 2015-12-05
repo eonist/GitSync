@@ -66,7 +66,7 @@ class WinView:FlippedView{
         //dropshadow
         //fix the mouseover exit problem, try overlapping shapes to see whats wrong
         
-        var css:String = "SelectTextButton{fill:linear-gradient(top,#FFFEFE,#E8E8E8);line:grey7;line-offset-type:center;line-thickness:4px;}"//
+        var css:String = "SelectTextButton{fill:linear-gradient(top,#FFFEFE,#E8E8E8);line:grey7;line-offset-type:outside;line-thickness:1px;}"//
         css += "SelectTextButton#first{corner-radius:4px 0px 4px 0px;}"
         css += "SelectTextButton#second{corner-radius:0px 0px 0px 0px;line-offset-type-right,line-offset-type-left:inside;}"//
         css += "SelectTextButton#third{corner-radius:0px 4px 0px 4px;}"//
