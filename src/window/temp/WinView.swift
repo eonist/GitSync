@@ -93,7 +93,7 @@ class WinView:FlippedView{
         btn3.setPosition(CGPoint(138,20))
         self.addSubview(btn3)
         
-        addSubview(SelectGroup([btn1,btn2,btn3],btn2));
+        addSubview(SelectGroup([btn1,btn2,btn3],btn3));
     }
     func testSelectGroup(){
         let css:String = "SelectButton{fill:red;}SelectButton:over{fill:yellow;}SelectButton:down{fill:green;}SelectButton:selected{fill:blue;}"
