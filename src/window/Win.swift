@@ -14,10 +14,12 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     static var width = 800//Static variable, reachable on a class level
     static var height = 600
     static var sizeRect:NSRect = NSRect(x: 0, y: 0, width: Win.width, height: Win.height)//NSMakeRect(0, 0, TempWin.width, TempWin.height)
-    var view = WinView(frame: Win.sizeRect)//WinViewTest(frame: Win.sizeRect)//,FlippedView(frame: Win.sizeRect)
+    //todo you could add the bellow as lazy?
+    lazy var view = WinView(frame: Win.sizeRect)//WinViewTest(frame: Win.sizeRect)//,FlippedView(frame: Win.sizeRect)
     
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
         super.init(contentRect: Win.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
+        self.contentView!.wantsLayer = true;
         self.backgroundColor = NSColor.whiteColor()
         self.opaque = true
         self.makeKeyAndOrderFront(nil)//moves the window to the front
@@ -32,7 +34,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //let controller = NSWindowController(window: newWindow)
         //controller.showWindow(self)
         self.center()
+        view.wantsLayer = true;
         self.contentView = view
+        
         self.title = "GitSync"
         createContent()
         self.delegate = self
