@@ -13,8 +13,8 @@ class WinView:FlippedView{
         fatalError("init(coder:) has not been implemented")
     }
     override func drawRect(dirtyRect: NSRect) {
-        Swift.print("WinView.drawRect()")
-        super.drawRect(dirtyRect)
+        //Swift.print("WinView.drawRect()")
+        //super.drawRect(dirtyRect)
         //gradientBoxTest()
     }
     func createContent(){
