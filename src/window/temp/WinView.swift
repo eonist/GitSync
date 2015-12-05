@@ -1,27 +1,5 @@
 import Cocoa
-class NotificationTest:NSView{
-    
-    /**
-     *
-     */
-    func test(btn:Button){
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: btn)
-    }
-    func onButtonDown(notification: NSNotification) {
-        Swift.print("NotificationTest.onButtonDown() ")
-        //let textButton:Button = (sender as! NSNotification).object as! Button
-        /*
-        if((sender as! NSNotification).object === self.textButton!){
-        Swift.print("sender.object === self.textButton")
-        }
-        */
-        
-        Swift.print("object: " + String((notification as NSNotification).object))
-        Swift.print("name: " + String((notification as NSNotification).name))//buttonEventDown
-        Swift.print("userInfo: " + String((notification as NSNotification).userInfo))//nil
-        //Swift.print("WinView.onButtonDown() Sender: " + String(sender))
-    }
-}
+
 class WinView:FlippedView{
     var element:Element?
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
@@ -40,9 +18,9 @@ class WinView:FlippedView{
         //gradientBoxTest()
     }
     func createContent(){
-        testOverlapping()
+        //testOverlapping()
         //styleTesting()
-        //testTabBar()
+        testTabBar()
         //testSelectGroup()
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
@@ -321,5 +299,28 @@ class WinView:FlippedView{
         //continue here: it seems needsDisplay = true, isnt imidiate, using drawRect() seems to work better
         //try to get this working with shape
         
+    }
+}
+class NotificationTest:NSView{
+    
+    /**
+     *
+     */
+    func test(btn:Button){
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: btn)
+    }
+    func onButtonDown(notification: NSNotification) {
+        Swift.print("NotificationTest.onButtonDown() ")
+        //let textButton:Button = (sender as! NSNotification).object as! Button
+        /*
+        if((sender as! NSNotification).object === self.textButton!){
+        Swift.print("sender.object === self.textButton")
+        }
+        */
+        
+        Swift.print("object: " + String((notification as NSNotification).object))
+        Swift.print("name: " + String((notification as NSNotification).name))//buttonEventDown
+        Swift.print("userInfo: " + String((notification as NSNotification).userInfo))//nil
+        //Swift.print("WinView.onButtonDown() Sender: " + String(sender))
     }
 }
