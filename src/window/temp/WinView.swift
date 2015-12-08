@@ -42,6 +42,10 @@ class WinView:FlippedView{
         StyleManager.addStyle(styleCollection.styles)
         let element = Element(200,200,0,0)
         self.addSubview(element)
+        
+        
+        //continue here: add the dropshadow dekorator to the graphicdecoratable system, add the dropshadow code to the graphics class in side an if clause
+        
     }
     /**
      *
