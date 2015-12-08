@@ -40,7 +40,7 @@ class WinView:FlippedView{
      */
     func testDropShadow(){
         var css = "Element{fill:red;}"
-        css += "Element{drop-shadow:drop-shadow(12px 45 #000000 0.2 48 48 2 2 false);}"
+        css += "Element{drop-shadow:drop-shadow(12px 90 #000000 0.2 48 48 2 2 false);}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         let styleProperty = styleCollection.getStyle("Element")?.getStyleProperty("drop-shadow")
         Swift.print("styleProperty.value: " + String(styleProperty!.value))
@@ -52,7 +52,7 @@ class WinView:FlippedView{
         //continue here: 
         
         //0. add some css code with a dropshadow and see if the DropShadow class works
-        //1. add the dropshadow dekorator to the graphicdecoratable system, 
+        //1. add the dropshadow decorator to the graphicdecoratable system, 
         //2. add the dropshadow code to the graphics class in side an if clause
         
     }
