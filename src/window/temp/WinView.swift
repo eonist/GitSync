@@ -18,7 +18,7 @@ class WinView:FlippedView{
         //gradientBoxTest()
     }
     func createContent(){
-        Swift.print(UIntParser.digit(9, 2))
+        
         //Swift.print(ColorParser.hexColor(NSColor.redColor()))
         //testDropShadow()
         //testOverlapping()
