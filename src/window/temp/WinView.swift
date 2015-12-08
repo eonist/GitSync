@@ -39,13 +39,19 @@ class WinView:FlippedView{
      *
      */
     func testDropShadow(){
+        
+        
+        
+        //Continue here: ok you got dropshadow to work!!!!, but you really got to sort out the problem with the clipping of the shape, because shadow needs an unclipped view
+        
+        
         var css = "Element{fill:red;}"
-        css += "Element{drop-shadow:drop-shadow(112px 45 #000000 0.9 48 48 2 2 false);}"
+        css += "Element{drop-shadow:drop-shadow(12px 90 #000000 0.2 48 48 2 2 false);}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         //let styleProperty = styleCollection.getStyle("Element")?.getStyleProperty("drop-shadow")
         //Swift.print("styleProperty.value: " + String(styleProperty!.value))
         StyleManager.addStyle(styleCollection.styles)
-        let element = Element(100,100,0,0)
+        let element = Element(200,200,0,0)
         self.addSubview(element)
         
         
