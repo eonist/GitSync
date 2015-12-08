@@ -41,7 +41,7 @@ class WinView:FlippedView{
     func testDropShadow(){
         
         
-        
+        //actually implement the inset shadow first since this doesnt depend on the clipping to be fixed first.
         //Continue here: ok you got dropshadow to work!!!!, but you really got to sort out the problem with the clipping of the shape, because shadow needs an unclipped view
         
         
