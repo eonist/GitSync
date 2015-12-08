@@ -38,6 +38,7 @@ class WinView:FlippedView{
      */
     func testDropShadow(){
         let css = "Element{fill:red;}"
+        
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let element = Element(200,200,0,0)
