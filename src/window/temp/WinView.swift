@@ -46,6 +46,7 @@ class WinView:FlippedView{
         
         //continue here: 
         
+        //0. add some css code with a dropshadow and see if the DropShadow class works
         //1. add the dropshadow dekorator to the graphicdecoratable system, 
         //2. add the dropshadow code to the graphics class in side an if clause
         
