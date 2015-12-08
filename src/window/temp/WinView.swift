@@ -19,8 +19,8 @@ class WinView:FlippedView{
     }
     func createContent(){
         
-        Swift.print(ColorParser.hexColor(NSColor.redColor()))
-        //testDropShadow()
+       
+        testDropShadow()
         //testOverlapping()
         //styleTesting()
         //testTabBar()
