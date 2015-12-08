@@ -44,7 +44,10 @@ class WinView:FlippedView{
         self.addSubview(element)
         
         
-        //continue here: add the dropshadow dekorator to the graphicdecoratable system, add the dropshadow code to the graphics class in side an if clause
+        //continue here: 
+        
+        //1. add the dropshadow dekorator to the graphicdecoratable system, 
+        //2. add the dropshadow code to the graphics class in side an if clause
         
     }
     /**
