@@ -18,9 +18,10 @@ class WinView:FlippedView{
         //gradientBoxTest()
     }
     func createContent(){
+        testDropShadow()
         //testOverlapping()
         //styleTesting()
-        testTabBar()
+        //testTabBar()
         //testSelectGroup()
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
@@ -32,6 +33,15 @@ class WinView:FlippedView{
         //testSkin()
         //testGraphic()
     }
+    /**
+     *
+     */
+    func testDropShadow(){
+        
+    }
+    /**
+     *
+     */
     func testOverlapping(){
         var css = ""
         css += "Button#first{fill:red;}"
