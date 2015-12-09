@@ -46,12 +46,12 @@ class WinView:FlippedView{
         
         
         var css = "Element{fill:red;}"
-        css += "Element{drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);}"
+        css += "Element{drop-shadow:drop-shadow(0px 0 #000000 0.4 14 14 1 2 true);}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         //let styleProperty = styleCollection.getStyle("Element")?.getStyleProperty("drop-shadow")
         //Swift.print("styleProperty.value: " + String(styleProperty!.value))
         StyleManager.addStyle(styleCollection.styles)
-        let element = Element(200,200,0,0)
+        let element = Element(200,200,10,10)
         self.addSubview(element)
         
         
