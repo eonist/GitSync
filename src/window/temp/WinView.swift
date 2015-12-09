@@ -20,10 +20,10 @@ class WinView:FlippedView{
     func createContent(){
         
        
-        testDropShadow()
+        //testDropShadow()
         //testOverlapping()
         //styleTesting()
-        //testTabBar()
+        testTabBar()
         //testSelectGroup()
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
@@ -108,7 +108,7 @@ class WinView:FlippedView{
         css += "SelectTextButton:selected Text{color:white;}"
         css += "SelectTextButton:selected{fill:linear-gradient(top,grey9,grey8);}"
 
-        
+        //drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);/*Used for TabBar*/
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
