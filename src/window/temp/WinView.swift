@@ -20,10 +20,10 @@ class WinView:FlippedView{
     func createContent(){
         
        
-        testDropShadow()
+        //testDropShadow()
         //testOverlapping()
         //styleTesting()
-        //testTabBar()
+        testTabBar()
         //testSelectGroup()
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
