@@ -106,7 +106,7 @@ class WinView:FlippedView{
         css += "SelectTextButton Text{font:Lucida Grande;selectable:false;size:12px;color:gray;align:center;backgroundColor:orange;background:false;margin-top:5px;}"//
         css += "Text:down{color:black;}"
         css += "SelectTextButton:selected Text{color:white;}"
-        css += "SelectTextButton:selected{fill:linear-gradient(top,grey9,grey8);drop-shadow:drop-shadow(0px 0 #000000 0.9 14 14 1 2 true);}"
+        css += "SelectTextButton:selected{fill:linear-gradient(top,grey9,grey8);drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);}"
 
       
         
