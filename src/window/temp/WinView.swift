@@ -39,11 +39,7 @@ class WinView:FlippedView{
      *
      */
     func testDropShadow(){
-        
-        
-        //actually implement the inset shadow first since this doesnt depend on the clipping to be fixed first.
-        //Continue here: ok you got dropshadow to work!!!!, but you really got to sort out the problem with the clipping of the shape, because shadow needs an unclipped view
-        
+    
         
         var css = "Element{fill:red;line:blue;line-offset-type:center;line-thickness:15px;}"
         css += "Element{drop-shadow:drop-shadow(0px 0 #000000 0.4 14 14 1 2 true);}"
@@ -53,14 +49,7 @@ class WinView:FlippedView{
         StyleManager.addStyle(styleCollection.styles)
         let element = Element(200,200,20,20)
         self.addSubview(element)
-        
-        
-        //continue here: 
-        
-        //0. add some css code with a dropshadow and see if the DropShadow class works
-        //1. add the dropshadow decorator to the graphicdecoratable system,
-        //2. add the dropshadow code to the graphics class in side an if clause
-        
+
     }
     /**
      *
