@@ -39,7 +39,7 @@ class WinView:FlippedView{
      *
      */
     func testDropShadow(){
-    
+        
         
         var css = "Element{fill:red;line:blue;line-offset-type:center;line-thickness:15px;}"
         css += "Element{drop-shadow:drop-shadow(0px 0 #000000 0.4 14 14 1 2 true);}"
