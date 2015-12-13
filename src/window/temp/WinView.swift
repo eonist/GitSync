@@ -38,7 +38,7 @@ class WinView:FlippedView{
     func testCALayer(){
         //create an nsview with the right wants layer etc implementations
         let rootView = View2()
-        
+        self.addSubview(rootView)
         //add calayer to this nsview
         
         //setup overlapping etc. 
