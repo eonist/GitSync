@@ -48,7 +48,11 @@ class WinView:FlippedView{
         
         //test mouse enter exit etc for diferent layers etc. 
         
-        //create a new graphic class with line 
+        //create a new graphic class with line and fill in seperate layers and also with an outer shadow and inner shadow support
+        
+        //start implementing outside/inside/center drawing
+        
+        
     }
     func testDropShadow(){
         
