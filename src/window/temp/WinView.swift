@@ -18,10 +18,10 @@ class WinView:FlippedView{
         //gradientBoxTest()
     }
     func createContent(){
-        
+        testCALayer()
        
         //testDropShadow()
-        testOverlapping()
+        //testOverlapping()
         //styleTesting()
         //testTabBar()
         //testSelectGroup()
@@ -35,9 +35,21 @@ class WinView:FlippedView{
         //testSkin()
         //testGraphic()
     }
-    /**
-     *
-     */
+    func testCALayer(){
+        //create an nsview
+        
+        //add calayer to this nsview
+        
+        //setup overlapping etc. 
+        
+        //test refreshing a partly overlapping sibling
+        
+        //test hittesting the different layers, blocking etc
+        
+        //test mouse enter exit etc for diferent layers etc. 
+        
+        //create a new graphic class with line 
+    }
     func testDropShadow(){
         
         
@@ -51,9 +63,6 @@ class WinView:FlippedView{
         self.addSubview(element)
 
     }
-    /**
-     *
-     */
     func testOverlapping(){
         var css = ""
         css += "Button#first{fill:red;}"
