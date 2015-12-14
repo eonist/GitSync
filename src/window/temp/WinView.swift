@@ -42,6 +42,8 @@ class WinView:FlippedView{
         let a = TempNSView(frame:NSRect(0,0,200,200))
         addSubview(a)
         
+        let b = TempNSView(frame:NSRect(50,50,200,200))
+        addSubview(b)
     }
     func testCALayer(){
         //create an nsview with the right wants layer etc implementations
