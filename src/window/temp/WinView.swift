@@ -18,10 +18,11 @@ class WinView:FlippedView{
         //gradientBoxTest()
     }
     func createContent(){
+        testOverLappingNSViews()
         //testCALayer()
        
         //testDropShadow()
-        testOverlapping()
+        //testOverlapping()
         //styleTesting()
         //testTabBar()
         //testSelectGroup()
@@ -34,6 +35,10 @@ class WinView:FlippedView{
         //testRotation()
         //testSkin()
         //testGraphic()
+    }
+    
+    func testOverLappingNSViews(){
+        //
     }
     func testCALayer(){
         //create an nsview with the right wants layer etc implementations
