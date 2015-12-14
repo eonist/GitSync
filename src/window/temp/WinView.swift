@@ -39,7 +39,7 @@ class WinView:FlippedView{
     
     func testOverLappingNSViews(){
         //TODO: Create 2 NSViews that overlap, add trackingarea to both, and have them overlap, which gets the mouse enter?
-        let a = TempNSView()
+        let a = TempNSView(frame:NSRect(0,0,200,200))
         addSubview(a)
         
     }
