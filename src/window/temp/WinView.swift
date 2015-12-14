@@ -18,10 +18,10 @@ class WinView:FlippedView{
         //gradientBoxTest()
     }
     func createContent(){
-        testCALayer()
+        //testCALayer()
        
         //testDropShadow()
-        //testOverlapping()
+        testOverlapping()
         //styleTesting()
         //testTabBar()
         //testSelectGroup()
