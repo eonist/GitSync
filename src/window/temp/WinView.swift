@@ -18,7 +18,7 @@ class WinView:FlippedView{
         //gradientBoxTest()
     }
     func createContent(){
-        testOverLappingNSViews()
+        //testOverLappingNSViews()
         //testCALayer()
        
         //testDropShadow()
