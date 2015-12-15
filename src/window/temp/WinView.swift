@@ -22,8 +22,8 @@ class WinView:FlippedView{
         testLayerBackedElement()
         //Continue here:
         
-        //0. figure out how you setup fill and stroke shape in the old Element code
-        //1. then make the GraphicSkin with a stroke and a fill CALayer
+        
+        //1. then make the BaseGraphic2 with a stroke and a fill CALayer's
         //2. get the outer shadow to work on the layer and the inner shadow to work on the fill only
         //3. start making other Elements
 
