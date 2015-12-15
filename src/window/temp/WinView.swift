@@ -42,11 +42,11 @@ class WinView:FlippedView{
      */
     func testInteractiveView(){
         let a = TempInteractiveView(frame:NSRect(50,50,100,100))
-        //a.name = "a"
+        a.name = "a"
         addSubview(a)
         
         let b = TempInteractiveView(frame:NSRect(100,100,100,100))
-        //b.name = "b"
+        b.name = "b"
         addSubview(b)
         
         //start implementing the new mouseOver mouseOut code in a new View class named InteractiveView, this will also easy the creation of the Button Element
