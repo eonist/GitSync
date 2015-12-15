@@ -18,6 +18,7 @@ class WinView:FlippedView{
         //gradientBoxTest()
     }
     func createContent(){
+        testLayerBackedElement()
         //Continue here:
         
         //0. figure out how you setup fill and stroke shape in the old Element code
@@ -27,12 +28,12 @@ class WinView:FlippedView{
 
         //testInteractiveView()
         //testOverLappingNSViews()
-        //testCALayer()
+        testCALayer()
        
         //testDropShadow()
         //testOverlapping()
         //styleTesting()
-        testTabBar()
+        //testTabBar()
         //testSelectGroup()
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
@@ -43,6 +44,12 @@ class WinView:FlippedView{
         //testRotation()
         //testSkin()
         //testGraphic()
+    }
+    /**
+     *
+     */
+    func testLayerBackedElement(){
+        
     }
     /**
      *
