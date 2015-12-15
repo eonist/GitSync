@@ -29,12 +29,12 @@ class WinView:FlippedView{
         
 
         
-        testInteractiveView()
+        //testInteractiveView()
         //testOverLappingNSViews()
         //testCALayer()
        
         //testDropShadow()
-        //testOverlapping()
+        testOverlapping()
         //styleTesting()
         //testTabBar()
         //testSelectGroup()
