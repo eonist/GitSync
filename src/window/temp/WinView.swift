@@ -41,7 +41,7 @@ class WinView:FlippedView{
      *
      */
     func testInteractiveView(){
-        let a = InteractiveView(frame:NSRect(50,50,100,100))
+        let a = TempInteractiveView(frame:NSRect(50,50,100,100))
         //a.name = "a"
         addSubview(a)
         
