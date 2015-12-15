@@ -6,7 +6,7 @@ class WinView:FlippedView{
     //override var wantsUpdateLayer:Bool{return false;}
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
-        //wantsLayer = true
+        wantsLayer = true
         createContent()
     }
     required init?(coder: NSCoder) {
