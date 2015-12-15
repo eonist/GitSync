@@ -18,6 +18,7 @@ class WinView:FlippedView{
         //gradientBoxTest()
     }
     func createContent(){
+        
         testLayerBackedElement()
         //Continue here:
         
@@ -49,7 +50,11 @@ class WinView:FlippedView{
      *
      */
     func testLayerBackedElement(){
-        
+        let css = "Element{fill:red;}"
+        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
+        StyleManager.addStyle(styleCollection.styles)
+        let element = Element(200,200,0,0)
+        self.addSubview(element)
     }
     /**
      *
