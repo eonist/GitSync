@@ -21,7 +21,7 @@ class WinView:FlippedView{
         
         testLayerBackedElement()
         //Continue here:
-        
+        CAGradientLayer
         
         //1. then make the BaseGraphic2 with a stroke and a fill CALayer's (we could use CAShapeLayer, but we need CGCOntext to get the gradientstroke)
         //2. get the outer shadow to work on the layer and the inner shadow to work on the fill only
