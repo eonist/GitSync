@@ -28,7 +28,7 @@ class WinView:FlippedView{
 
         //testInteractiveView()
         //testOverLappingNSViews()
-        testCALayer()
+        //testCALayer()
        
         //testDropShadow()
         //testOverlapping()
