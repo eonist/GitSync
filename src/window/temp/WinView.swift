@@ -18,7 +18,7 @@ class WinView:FlippedView{
         //gradientBoxTest()
     }
     func createContent(){
-        
+        testInteractiveView()
         //testOverLappingNSViews()
         //testCALayer()
        
@@ -37,7 +37,16 @@ class WinView:FlippedView{
         //testSkin()
         //testGraphic()
     }
-    
+    /**
+     *
+     */
+    func testInteractiveView(){
+        
+        
+        //start implementing the new mouseOver mouseOut code in a new View class named InteractiveView, this will also easy the creation of the Button Element
+        
+        
+    }
     func testOverLappingNSViews(){
         //TODO: Create 2 NSViews that overlap, add trackingarea to both, and have them overlap, which gets the mouse enter?
         let a = TempNSView(frame:NSRect(0,0,100,100))
