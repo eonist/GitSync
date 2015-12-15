@@ -51,7 +51,7 @@ class WinView:FlippedView{
      */
     func testLayerBackedElement(){
         //line:blue;line-offset-type:center;line-thickness:15px;
-        let css = "Element{}"
+        let css = "Element{fill:blue;fill-alpha:0.2;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let element = Element(200,200,0,0)
