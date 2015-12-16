@@ -58,9 +58,9 @@ class WinView:FlippedView{
         
         //a. Keep in mind that you need to support the new size scheme somehow. Circle and line etc. or maybe walk away from this?
         //b. you need to somehow figure out a way to work with the stroke in the new frame-clipping scheme. Think this one through
-        //c. 
+        //c.
         
-        let css = "Element{fill:blue;fill-alpha:1;line:orange;line-offset-type:center;line-thickness:20px;}"
+        let css = "Element{fill:blue;fill-alpha:1;line:orange;line-offset-type:outside;line-thickness:20px;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let element = Element(200,200,0,0)
