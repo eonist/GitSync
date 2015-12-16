@@ -15,6 +15,7 @@ class GraphicsTest:Graphic{
         self.color = color
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
         super.init()
+        lineStyle = LineStyle(15)
         frame = NSRect(x: x,y: y,width: width,height: height)
         //self.wantsLayer = true//this avoids calling drawLayer() and enables drawingRect()
         //needsDisplay = true;
@@ -44,7 +45,7 @@ class GraphicsTest:Graphic{
         fillShape.graphics.fill(color)//Stylize the fill
         fillShape.graphics.draw(thePath)//draw everything
         
-        fillShape.graphics.line(15)//Stylize the line
+        fillShape.graphics.line(lineStyle!.thickness)//Stylize the line
         fillShape.graphics.draw(thePath)//draw everything
         
         //super.drawRect(dirtyRect)
