@@ -30,7 +30,7 @@ class WinView:FlippedView{
 
         //testInteractiveView()
         //testOverLappingNSViews()
-        testCALayer()
+        //testCALayer()
        
         //testDropShadow()
         //testOverlapping()
@@ -45,7 +45,7 @@ class WinView:FlippedView{
         //testTextElement()
         //testRotation()
         //testSkin()
-        //testGraphic()
+        testGraphic()
     }
     func graphicsTest(){
         
