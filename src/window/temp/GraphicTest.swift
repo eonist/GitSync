@@ -26,7 +26,10 @@ class GraphicsTest:Graphic{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    override func layout() {
+    /**
+     *
+     */
+    override func drawRect(dirtyRect: NSRect) {
         Swift.print("GraphicsTest.drawRect: " )
         
         CGPathModifier.translate(&thePath,CGFloat(x),CGFloat(y))//Transformations
@@ -34,26 +37,7 @@ class GraphicsTest:Graphic{
         
         graphics.fill(color)//Stylize the fill
         graphics.draw(thePath)//draw everything
+        
+        //super.drawRect(dirtyRect)
     }
-    /*
-    override func drawLayer(layer: CALayer, inContext ctx: CGContext) {
-    
-    }
-    */
-    /**
-     *
-     */
-    /*
-    override func drawRect(dirtyRect: NSRect) {
-    Swift.print("GraphicsTest.drawRect: " )
-    
-    CGPathModifier.translate(&thePath,CGFloat(x),CGFloat(y))//Transformations
-    //graphics.line(12)//Stylize the line
-    
-    graphics.fill(color)//Stylize the fill
-    graphics.draw(thePath)//draw everything
-    
-    //super.drawRect(dirtyRect)
-    }
-    */
 }
