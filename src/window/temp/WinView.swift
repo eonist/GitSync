@@ -20,7 +20,7 @@ class WinView:FlippedView{
     }
     func createContent(){
         
-        testLayerBackedElement()
+        //testLayerBackedElement()
         
         
         //Continue here:
@@ -44,7 +44,7 @@ class WinView:FlippedView{
         //testTextElement()
         //testRotation()
         //testSkin()
-        //testGraphic()
+        testGraphic()
     }
     func graphicsTest(){
         
