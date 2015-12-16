@@ -16,7 +16,7 @@ class WinView:FlippedView{
         //Swift.print("WinView.drawRect()")
         //super.drawRect(dirtyRect)
         //gradientBoxTest()
-        graphicsTest()
+        //graphicsTest()
     }
     func createContent(){
         
@@ -44,7 +44,7 @@ class WinView:FlippedView{
         //testTextElement()
         //testRotation()
         //testSkin()
-        //testGraphic()
+        testGraphic()
     }
     func graphicsTest(){
         
@@ -416,7 +416,7 @@ class WinView:FlippedView{
         //TODO: DO some research into stroking center with quartz and outside. Before restoring to your default method
         
         
-        let a = GraphicsTest(50,50,200,200)
+        let a = GraphicsTest(0,0,100,100)
         
         self.addSubview(a)
         

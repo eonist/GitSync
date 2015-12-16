@@ -44,7 +44,7 @@ class GraphicsTest:Graphic{
         fillShape.graphics.fill(color)//Stylize the fill
         fillShape.graphics.draw(thePath)//draw everything
         
-        lineShape.graphics.line(99)//Stylize the line
+        lineShape.graphics.line(10)//Stylize the line
         lineShape.graphics.draw(thePath)//draw everything
         
         //super.drawRect(dirtyRect)
