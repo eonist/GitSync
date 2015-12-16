@@ -42,7 +42,9 @@ class GraphicsTest:Graphic{
         
         
         fillShape.graphics.fill(color)//Stylize the fill
-        //fillShape.graphics.draw(thePath)//draw everything
+        
+        fillShape.graphics.draw(thePath)//draw everything
+        fillShape.graphics.stopFill()
         
         fillShape.graphics.line(15)//Stylize the line
         fillShape.graphics.draw(thePath)//draw everything
