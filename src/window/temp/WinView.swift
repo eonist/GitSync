@@ -16,7 +16,7 @@ class WinView:FlippedView{
         //Swift.print("WinView.drawRect()")
         //super.drawRect(dirtyRect)
         //gradientBoxTest()
-        graphicsTest()
+        //graphicsTest()
     }
     func createContent(){
         
@@ -44,7 +44,7 @@ class WinView:FlippedView{
         //testTextElement()
         //testRotation()
         //testSkin()
-        //testGraphic()
+        testGraphic()
     }
     func graphicsTest(){
         
@@ -412,7 +412,7 @@ class WinView:FlippedView{
     func testGraphic(){
         
         
-        //NOTE: Quartz strokes center by default. 
+        //NOTE: Quartz strokes center by default.
         //TODO: DO some research into stroking center with quartz and outside. Before restoring to your default method
         
         
