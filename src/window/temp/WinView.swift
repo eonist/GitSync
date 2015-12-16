@@ -402,6 +402,12 @@ class WinView:FlippedView{
      *
      */
     func testGraphic(){
+        
+        
+        //NOTE: Quartz strokes inside by default. 
+        //TODO: DO some research into stroking center with quartz and outside. Before restoring to your default method
+        
+        
         let a = GraphicsTest(50,50,200,200)
         
         self.addSubview(a)
