@@ -39,13 +39,13 @@ class GraphicsTest:Graphic{
     override func drawRect(dirtyRect: NSRect) {
         Swift.print("GraphicsTest.drawRect: " )
         
-        //CGPathModifier.translate(&thePath,CGFloat(x),CGFloat(y))//Transformations
+        CGPathModifier.translate(&thePath,CGFloat(25),CGFloat(25))//Transformations
         
         
         fillShape.graphics.fill(color)//Stylize the fill
         fillShape.graphics.draw(thePath)//draw everything
         
-        alignGraphic(self)
+        //alignGraphic(self)
         lineShape.graphics.line(lineStyle!.thickness)//Stylize the line
         lineShape.graphics.draw(thePath)//draw everything
         
