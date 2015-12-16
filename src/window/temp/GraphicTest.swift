@@ -14,7 +14,7 @@ class GraphicsTest:Graphic{
         self.height = height
         self.color = color
         self.thePath = CGPathParser.rect(CGFloat(200/*width/2*/),CGFloat(200/*height/2*/))//Shapes
-        super.init()
+        super.init(frame:NSRect(x,y,width,height))
         //self.wantsLayer = true//this avoids calling drawLayer() and enables drawingRect()
         //needsDisplay = true;
         //Swift.print("graphics: " + String(graphics.context))
