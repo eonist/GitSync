@@ -421,7 +421,7 @@ class WinView:FlippedView{
         
         
         let a = GraphicsTest(0,0,100,100)
-        
+        a.lineOffsetType = OffsetType(OffsetType.inside)
         self.addSubview(a)
         
         /*
@@ -439,7 +439,7 @@ class WinView:FlippedView{
         //graphic.frame.width
         //graphic.frame.height
         //graphic.lineOffsetType
-        if(){
+        if(graphic.lineOffsetType.top == OffsetType.inside){
             
         }
     }
