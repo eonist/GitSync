@@ -16,7 +16,7 @@ class WinView:FlippedView{
         //Swift.print("WinView.drawRect()")
         //super.drawRect(dirtyRect)
         //gradientBoxTest()
-        //graphicsTest()
+        graphicsTest()
     }
     func createContent(){
         
@@ -44,7 +44,7 @@ class WinView:FlippedView{
         //testTextElement()
         //testRotation()
         //testSkin()
-        testGraphic()
+        //testGraphic()
     }
     func graphicsTest(){
         
