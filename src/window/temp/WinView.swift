@@ -414,7 +414,7 @@ class WinView:FlippedView{
     /**
      *
      */
-    func  {
+    func testGraphic(){
         
         
         //NOTE: Quartz strokes center by default.
