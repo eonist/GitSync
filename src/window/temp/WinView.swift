@@ -70,7 +70,9 @@ class WinView:FlippedView{
         /*
         
         
-        //TODO: Test drawing a rect with 1px stroke
+        //Take a look at the old code, is the stroke align straight forward?
+        //If it is then just implement this with 
+        
         //TODO: do some testing into a Graphic class that can dynamically increase the frame of the lineShape to fit its stroke, 
         //TODO: it also needs to have Math.floor method that ensures that it handles the "half sizes" properly
         //TODO: If you stroke a shape with 1px, it should reside inside, if you stroke it with 2px it shoud reside both outside and inside by 1px. etc, 3px, should be 1px inside 2 px outside. etc.
@@ -78,6 +80,8 @@ class WinView:FlippedView{
         //TODO: you need to make a system that makes it possible to position and resize the Graphic's lineShape as if it was set to 0,0 (we are doing all this because we need to support gradient-line)
         //TODO: do some CSS testing to see if you got it right or wrong
         //TODO: fire up the old project and see if you got it right
+            //install java
+            //re-install FDT
         //TODO: render the old shapes in retina
         
         
