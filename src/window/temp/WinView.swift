@@ -439,6 +439,7 @@ class WinView:FlippedView{
         //graphic.frame.width
         //graphic.frame.height
         //graphic.lineOffsetType
+        //graphic.lineStyle!.thickness
         if(graphic.lineOffsetType == OffsetType(OffsetType.inside)){/*Asserts if all props of the lineOffsetType is of the inside type*/
             
         }
