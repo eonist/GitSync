@@ -16,7 +16,7 @@ class WinView:FlippedView{
         //Swift.print("WinView.drawRect()")
         //super.drawRect(dirtyRect)
         //gradientBoxTest()
-        //graphicsTest()
+        graphicsTest()
     }
     func createContent(){
         
@@ -44,15 +44,15 @@ class WinView:FlippedView{
         //testTextElement()
         //testRotation()
         //testSkin()
-        testGraphic()
+        //testGraphic()
     }
     func graphicsTest(){
         
         var thePath = CGPathParser.rect(100,100)//Shapes
-        CGPathModifier.translate(&thePath,CGFloat(50),CGFloat(50))//Transformations
+        CGPathModifier.translate(&thePath,CGFloat(0),CGFloat(0))//Transformations
         let graphics = Graphics()
         graphics.line(15,NSColor.blueColor())//Stylize the line
-        graphics.fill(NSColor.orangeColor())//Stylize the fill
+        graphics.fill(NSColor.orangeColor().alpha(0.5))//Stylize the fill
         graphics.draw(thePath)//draw everything
     }
     func testLayerBackedElement(){
