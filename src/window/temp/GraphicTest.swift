@@ -14,12 +14,17 @@ class GraphicsTest:Graphic{
         self.height = height
         self.color = color
         self.thePath = CGPathParser.rect(CGFloat(200/*width/2*/),CGFloat(200/*height/2*/))//Shapes
-        super.init(frame:NSRect(x,y,width,height))
+        super.init(frame:NSRect(x: x,y: y,width: width,height: height))
         //self.wantsLayer = true//this avoids calling drawLayer() and enables drawingRect()
         //needsDisplay = true;
         //Swift.print("graphics: " + String(graphics.context))
     }
-    
+    /*
+    override func displayLayer(layer: CALayer) {
+    //try
+    Swift.print("displayLayer")
+    }
+    */
     /*
     * Required by super class
     */
