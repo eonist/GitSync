@@ -71,7 +71,8 @@ class WinView:FlippedView{
         
         
         //Take a look at the old code, is the stroke align straight forward?
-        //If it is then just implement this with the current Shape class. (offset of the frame )
+        //If it is then just implement this with the current Shape class. (offset of the frame in the lineShape etc)
+        //you need the Utils method that changes the lineshape position and frame according to LineOffsetParams
         
         //TODO: do some testing into a Graphic class that can dynamically increase the frame of the lineShape to fit its stroke, 
         //TODO: it also needs to have Math.floor method that ensures that it handles the "half sizes" properly
