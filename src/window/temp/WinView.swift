@@ -70,6 +70,7 @@ class WinView:FlippedView{
         //TODO: you need to make a system that makes it possible to position and resize the Graphic's lineShape as if it was set to 0,0 (we are doing all this because we need to support gradient-line)
         //TODO: do some CSS testing to see if you got it right or wrong
         //TODO: fire up the old project and see if you got it right
+        //TODO: render the old shapes in retina
         
         
         
