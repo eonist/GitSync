@@ -41,7 +41,6 @@ class GraphicsTest:Graphic{
         
         CGPathModifier.translate(&thePath,CGFloat(25),CGFloat(25))//Transformations
         
-        
         /*
         fillShape.graphics.fill(color)//Stylize the fill
         fillShape.graphics.draw(thePath)//draw everything
@@ -63,7 +62,6 @@ class GraphicsTest:Graphic{
         if(graphic.lineOffsetType == OffsetType(OffsetType.inside)){/*Asserts if all props of the lineOffsetType is of the inside type*/
             let offsetRect = rect.outset(thickness/2, thickness/2)
             graphic.fillShape.frame = NSRect(0,0,50,50)
-            
             Swift.print("offsetRect: " + "\(offsetRect)")
         }
     }
