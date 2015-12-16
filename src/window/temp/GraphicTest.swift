@@ -42,8 +42,10 @@ class GraphicsTest:Graphic{
         CGPathModifier.translate(&thePath,CGFloat(25),CGFloat(25))//Transformations
         
         
+        /*
         fillShape.graphics.fill(color)//Stylize the fill
         fillShape.graphics.draw(thePath)//draw everything
+        */
         
         //alignGraphic(self)
         lineShape.graphics.line(lineStyle!.thickness)//Stylize the line
