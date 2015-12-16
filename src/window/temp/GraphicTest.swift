@@ -15,8 +15,8 @@ class GraphicsTest:Graphic{
         self.color = color
         self.thePath = CGPathParser.rect(CGFloat(width/2),CGFloat(height/2))//Shapes
         super.init()
-        self.wantsLayer = false//this avoids calling drawLayer() and enables drawingRect()
-        needsDisplay = true;
+        //self.wantsLayer = true//this avoids calling drawLayer() and enables drawingRect()
+        //needsDisplay = true;
         //Swift.print("graphics: " + String(graphics.context))
     }
     
@@ -26,10 +26,7 @@ class GraphicsTest:Graphic{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    /**
-     *
-     */
-    override func drawRect(dirtyRect: NSRect) {
+    override func drawLayer(layer: CALayer, inContext ctx: CGContext) {
         Swift.print("GraphicsTest.drawRect: " )
         
         CGPathModifier.translate(&thePath,CGFloat(x),CGFloat(y))//Transformations
@@ -37,7 +34,21 @@ class GraphicsTest:Graphic{
         
         graphics.fill(color)//Stylize the fill
         graphics.draw(thePath)//draw everything
-        
-        //super.drawRect(dirtyRect)
     }
+    /**
+     *
+     */
+    /*
+    override func drawRect(dirtyRect: NSRect) {
+    Swift.print("GraphicsTest.drawRect: " )
+    
+    CGPathModifier.translate(&thePath,CGFloat(x),CGFloat(y))//Transformations
+    //graphics.line(12)//Stylize the line
+    
+    graphics.fill(color)//Stylize the fill
+    graphics.draw(thePath)//draw everything
+    
+    //super.drawRect(dirtyRect)
+    }
+    */
 }
