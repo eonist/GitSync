@@ -444,7 +444,7 @@ class WinView:FlippedView{
         let thickness:CGFloat = graphic.lineStyle!.thickness
         let rect:CGRect = graphic.frame
         if(graphic.lineOffsetType == OffsetType(OffsetType.inside)){/*Asserts if all props of the lineOffsetType is of the inside type*/
-            let offsetRect = rect.offsetBy(dx: thickness/2, dy: thickness/2)
+            let offsetRect = rect.insetBy(dx: -thickness/2, dy: -thickness/2)
             Swift.print("offsetRect: " + "\(offsetRect)")
         }
     }
