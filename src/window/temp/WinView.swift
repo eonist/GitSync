@@ -439,7 +439,7 @@ class WinView:FlippedView{
         //graphic.frame.width
         //graphic.frame.height
         //graphic.lineOffsetType
-        if(graphic.lineOffsetType.top == OffsetType.inside){
+        if(graphic.lineOffsetType == OffsetType.inside){
             
         }
     }
