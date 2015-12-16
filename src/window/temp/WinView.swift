@@ -346,6 +346,7 @@ class WinView:FlippedView{
         
     }
     func testRotation(){
+        /*
         let circle = Graphic()
         addSubview(circle)
         //red circle
@@ -368,6 +369,7 @@ class WinView:FlippedView{
         Swift.print(String(newPos))
         CGPathModifier.translate(&circle.path,newPos.x,newPos.y)//Transformations
         circle.graphics.draw(circle.path)
+        */
     }
     
     /**

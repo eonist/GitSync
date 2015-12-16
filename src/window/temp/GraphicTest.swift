@@ -40,8 +40,8 @@ class GraphicsTest:Graphic{
         CGPathModifier.translate(&thePath,CGFloat(x),CGFloat(y))//Transformations
         //graphics.line(12)//Stylize the line
         
-        graphics.fill(color)//Stylize the fill
-        graphics.draw(thePath)//draw everything
+        fillShape.graphics.fill(color)//Stylize the fill
+        fillShape.graphics.draw(thePath)//draw everything
         
         //super.drawRect(dirtyRect)
     }
