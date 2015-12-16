@@ -24,9 +24,7 @@ class WinView:FlippedView{
         
         //Continue here:
         
-        //1. then make the BaseGraphic2 with a stroke and a fill CALayer's (we could use CAShapeLayer, but we need CGCOntext to get the gradientstroke and CAGradientLayer only supports linear gradient for now)
-        //2. get the outer shadow to work on the layer and the inner shadow to work on the fill only
-        //3. start making other Elements
+        
 
         //testInteractiveView()
         //testOverLappingNSViews()
@@ -51,7 +49,17 @@ class WinView:FlippedView{
      *
      */
     func testLayerBackedElement(){
-        //
+        
+        //Coninue here: 
+        
+        //1. then make the BaseGraphic2 with a stroke and a fill CALayer's (we could use CAShapeLayer, but we need CGCOntext to get the gradientstroke and CAGradientLayer only supports linear gradient for now)
+        //2. get the outer shadow to work on the layer and the inner shadow to work on the fill only
+        //3. start making other Elements
+        
+        //a. Keep in mind that you need to support the new size scheme somehow. Circle and line etc. or maybe walk away from this?
+        //b. you need to somehow figure out a way to work with the stroke in the new frame-clipping scheme. Think this one through
+        //c. 
+        
         let css = "Element{fill:blue;fill-alpha:1;line:orange;line-offset-type:center;line-thickness:20px;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
