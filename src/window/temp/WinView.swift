@@ -53,7 +53,7 @@ class WinView:FlippedView{
         let color = NSColor.orangeColor()
         let graphics = Graphics()
         graphics.fill(color)//Stylize the fill
-        graphics.line(5)//Stylize the line
+        graphics.line(15,NSColor.blueColor())//Stylize the line
         graphics.draw(thePath)//draw everything
     }
     func testLayerBackedElement(){
