@@ -435,6 +435,14 @@ class WinView:FlippedView{
         //try to get this working with shape
         
     }
+    func alignGraphic(graphic:Graphic){
+        //graphic.frame.width
+        //graphic.frame.height
+        //graphic.lineOffsetType
+        if(){
+            
+        }
+    }
 }
 class NotificationTest:NSView{
     
