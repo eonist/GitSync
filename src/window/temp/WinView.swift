@@ -20,8 +20,19 @@ class WinView:FlippedView{
     }
     func createContent(){
         
-        //testLayerBackedElement()
+        testLayerBackedElement()
         
+        //continue here:
+        
+        /*
+        let layerA = CALayer()
+        //layerA.bounds = CGRectMake(0, 0, 100, 100);//this doesnt matter
+        layerA.frame = CGRectMake(20, 20, 100, 100);
+        layerA.masksToBounds = false//finally it works
+        //layerA.position = CGPointMake(10, 10);
+        layerA.backgroundColor = NSColor.greenColor().CGColor
+        layer!.addSublayer(layerA)
+        */
         
         //Continue here:
         
@@ -29,7 +40,7 @@ class WinView:FlippedView{
 
         //testInteractiveView()
         //testOverLappingNSViews()
-        testCALayer()
+        //testCALayer()
        
         //testDropShadow()
         //testOverlapping()
