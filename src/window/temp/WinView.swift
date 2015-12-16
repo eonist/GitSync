@@ -49,11 +49,11 @@ class WinView:FlippedView{
     func graphicsTest(){
         
         var thePath = CGPathParser.rect(100,100)//Shapes
-        CGPathModifier.translate(&thePath,CGFloat(50),CGFloat(50))//Transformations
+        CGPathModifier.translate(&thePath,CGFloat(0),CGFloat(0))//Transformations
         let color = NSColor.orangeColor()
         let graphics = Graphics()
-        graphics.fill(color)//Stylize the fill
         graphics.line(15,NSColor.blueColor())//Stylize the line
+        //graphics.fill(color)//Stylize the fill
         graphics.draw(thePath)//draw everything
     }
     func testLayerBackedElement(){
