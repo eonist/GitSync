@@ -44,17 +44,17 @@ class WinView:FlippedView{
         //testTextElement()
         //testRotation()
         //testSkin()
-        testGraphic()
+        //testGraphic()
     }
     func graphicsTest(){
-        CGPathModifier.translate(&thePath,CGFloat(x),CGFloat(y))//Transformations
         
-        
-        fillShape.graphics.fill(color)//Stylize the fill
-        fillShape.graphics.draw(thePath)//draw everything
-        
-        lineShape.graphics.line(99)//Stylize the line
-        lineShape.graphics.draw(thePath)//draw everything
+        var thePath = CGPathParser.rect(100,100)//Shapes
+        CGPathModifier.translate(&thePath,CGFloat(50),CGFloat(50))//Transformations
+        let color = NSColor.orangeColor()
+        let graphics = Graphics()
+        graphics.fill(color)//Stylize the fill
+        graphics.line(5)//Stylize the line
+        graphics.draw(thePath)//draw everything
     }
     func testLayerBackedElement(){
         
