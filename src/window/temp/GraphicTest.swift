@@ -7,7 +7,7 @@ class GraphicsTest:Graphic{
     var height:Int
     var color:NSColor
     var thePath:CGMutablePath
-    init(_ x:Int = 0, _ y:Int = 0,_ width:Int = 100, _ height:Int = 100, _ color:NSColor = NSColor.whiteColor()) {
+    init(_ x:Int = 0, _ y:Int = 0,_ width:Int = 100, _ height:Int = 100, _ color:NSColor = NSColor.blueColor()) {
         self.x = x
         self.y = y
         self.width = width
@@ -42,10 +42,10 @@ class GraphicsTest:Graphic{
         
         
         fillShape.graphics.fill(color)//Stylize the fill
-        fillShape.graphics.draw(thePath)//draw everything
+        //fillShape.graphics.draw(thePath)//draw everything
         
-        lineShape.graphics.line(15)//Stylize the line
-        lineShape.graphics.draw(thePath)//draw everything
+        fillShape.graphics.line(15)//Stylize the line
+        fillShape.graphics.draw(thePath)//draw everything
         
         //super.drawRect(dirtyRect)
     }
