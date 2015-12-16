@@ -39,15 +39,30 @@ class GraphicsTest:Graphic{
     override func drawRect(dirtyRect: NSRect) {
         Swift.print("GraphicsTest.drawRect: " )
         
-        CGPathModifier.translate(&thePath,CGFloat(x),CGFloat(y))//Transformations
+        //CGPathModifier.translate(&thePath,CGFloat(x),CGFloat(y))//Transformations
         
         
         fillShape.graphics.fill(color)//Stylize the fill
         fillShape.graphics.draw(thePath)//draw everything
         
-        fillShape.graphics.line(lineStyle!.thickness)//Stylize the line
-        fillShape.graphics.draw(thePath)//draw everything
+        alignGraphic(self)
+        lineShape.graphics.line(lineStyle!.thickness)//Stylize the line
+        lineShape.graphics.draw(thePath)//draw everything
         
         //super.drawRect(dirtyRect)
+    }
+    func alignGraphic(graphic:Graphic){
+        //graphic.frame.width
+        //graphic.frame.height
+        //graphic.lineOffsetType
+        //graphic.lineStyle!.thickness
+        let thickness:CGFloat = graphic.lineStyle!.thickness
+        let rect:CGRect = graphic.frame
+        if(graphic.lineOffsetType == OffsetType(OffsetType.inside)){/*Asserts if all props of the lineOffsetType is of the inside type*/
+            let offsetRect = rect.outset(thickness/2, thickness/2)
+            graphic.fillShape.frame = NSRect(0,0,50,50)
+            
+            Swift.print("offsetRect: " + "\(offsetRect)")
+        }
     }
 }

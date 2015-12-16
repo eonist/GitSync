@@ -423,7 +423,7 @@ class WinView:FlippedView{
         let a = GraphicsTest(0,0,100,100)
         a.lineOffsetType = OffsetType(OffsetType.inside)
         self.addSubview(a)
-        alignGraphic(a)
+        //alignGraphic(a)
         
         /*
         let b = GraphicsTest(50,50,200,200,NSColor.purpleColor())
@@ -436,20 +436,7 @@ class WinView:FlippedView{
         //try to get this working with shape
         
     }
-    func alignGraphic(graphic:Graphic){
-        //graphic.frame.width
-        //graphic.frame.height
-        //graphic.lineOffsetType
-        //graphic.lineStyle!.thickness
-        let thickness:CGFloat = graphic.lineStyle!.thickness
-        let rect:CGRect = graphic.frame
-        if(graphic.lineOffsetType == OffsetType(OffsetType.inside)){/*Asserts if all props of the lineOffsetType is of the inside type*/
-            let offsetRect = rect.outset(thickness/2, thickness/2)
-            graphic.fillShape.frame = NSRect(0,0,50,50)
-            
-            Swift.print("offsetRect: " + "\(offsetRect)")
-        }
-    }
+    
 }
 class NotificationTest:NSView{
     
