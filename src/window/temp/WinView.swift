@@ -376,7 +376,7 @@ class WinView:FlippedView{
      *
      */
     func testGraphic(){
-        let a = GraphicsTest(0,0,100,100)
+        let a = GraphicsTest(50,50,200,200)
         
         self.addSubview(a)
         
