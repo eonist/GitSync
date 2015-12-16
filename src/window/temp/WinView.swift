@@ -60,14 +60,14 @@ class WinView:FlippedView{
         //b. you need to somehow figure out a way to work with the stroke in the new frame-clipping scheme. Think this one through
         
         /*
-        
+        If
 
         */
         
-        let css = "Element{fill:blue;fill-alpha:1;line:orange;line-offset-type:center;line-thickness:20px;}"
+        let css = "Element{fill:blue;fill-alpha:1;line:orange;line-offset-type:center;line-thickness:1px;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
-        let element = Element(200,200,0,0)
+        let element = Element(200,200,50,50)
         self.addSubview(element)
     }
     /**
