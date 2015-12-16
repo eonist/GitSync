@@ -66,7 +66,9 @@ class WinView:FlippedView{
         //TODO: it also needs to have Math.floor method that ensures that it handles the "half sizes" properly
         //TODO: If you stroke a shape with 1px, it should reside inside, if you stroke it with 2px it shoud reside both outside and inside by 1px. etc, 3px, should be 1px inside 2 px outside. etc.
         //TODO: tesst if the frame and the bounds are the same in Graphic
-        //TODO: you need to make a system that makes it possible to position and resize Graphic 
+        //TODO: you need to make a system that makes it possible to position and resize the Graphic's lineShape as if it was set to 0,0 (we are doing all this because we need to support gradient-line)
+        
+        
         
 
         */
