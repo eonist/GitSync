@@ -412,7 +412,7 @@ class WinView:FlippedView{
     func testGraphic(){
         
         
-        //NOTE: Quartz strokes inside by default. 
+        //NOTE: Quartz strokes center by default. 
         //TODO: DO some research into stroking center with quartz and outside. Before restoring to your default method
         
         
