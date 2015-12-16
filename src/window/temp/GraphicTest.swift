@@ -16,6 +16,7 @@ class GraphicsTest:Graphic{
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
         super.init()
         lineStyle = LineStyle(15)
+        fillStyle = FillStyle(NSColor.orangeColor())
         //frame = NSRect(x: x,y: y,width: width,height: height)
         //self.wantsLayer = true//this avoids calling drawLayer() and enables drawingRect()
         //needsDisplay = true;
