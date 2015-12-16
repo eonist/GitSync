@@ -13,7 +13,7 @@ class GraphicsTest:Graphic{
         self.width = width
         self.height = height
         self.color = color
-        self.thePath = CGPathParser.rect(CGFloat(width/2),CGFloat(height/2))//Shapes
+        self.thePath = CGPathParser.rect(CGFloat(200/*width/2*/),CGFloat(200/*height/2*/))//Shapes
         super.init()
         //self.wantsLayer = true//this avoids calling drawLayer() and enables drawingRect()
         //needsDisplay = true;
