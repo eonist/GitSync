@@ -15,10 +15,12 @@ class GraphicsTest:Graphic{
         self.color = color
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
         let offsetType:OffsetType = OffsetType()
+        /*
         offsetType.top = OffsetType.outside
         offsetType.bottom = OffsetType.center
         offsetType.left = OffsetType.center
         offsetType.right = OffsetType.center
+        */
         super.init(FillStyle(NSColor.yellowColor().alpha(0.5)),LineStyle(20,NSColor.blueColor().alpha(0.5)),offsetType)
         
         //frame = NSRect(x: x,y: y,width: width,height: height)
@@ -28,7 +30,7 @@ class GraphicsTest:Graphic{
         
         //a.masksToBounds = false
         
-        let rect:CGRect = CGRect(00,00,200,200)
+        let rect:CGRect = CGRect(100,100,200,200)
         
         fillShape.path = CGRect(0,0,rect.width,rect.height).path/*Draws in the local coordinate space of the shape*/
         fillShape.frame = rect/*,position and set the size of the frame*/
