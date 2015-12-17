@@ -424,6 +424,15 @@ class WinView:FlippedView{
         let a = GraphicsTest(0,0,100,100)
         a.lineOffsetType = OffsetType(OffsetType.inside)
         self.addSubview(a)
+        
+        let a:Shape = fillShape//TempShape()
+        a.path = CGPathParser.rect(CGFloat(50/*/2*/),CGFloat(50/*/2*/))/*Draws in the local coordinate space of the shape*/
+        a.frame = CGRect(12,12,50,50);/*,position and set the size of the frame*/
+        
+        
+        a.display()
+        
+        
         //alignGraphic(a)
         
         /*

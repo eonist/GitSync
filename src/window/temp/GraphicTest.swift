@@ -32,28 +32,7 @@ class GraphicsTest:Graphic{
     /*
     * Required by super class
     */
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    /**
-     *
-     */
-    override func drawRect(dirtyRect: NSRect) {
-        Swift.print("GraphicsTest.drawRect: " )
-        
-        CGPathModifier.translate(&thePath,CGFloat(25),CGFloat(25))//Transformations
-        
-        /*
-        fillShape.graphics.fill(color)//Stylize the fill
-        fillShape.graphics.draw(thePath)//draw everything
-        */
-        
-        //alignGraphic(self)
-        lineShape.graphics.line(lineStyle!.thickness)//Stylize the line
-        lineShape.graphics.draw(thePath)//draw everything
-        
-        //super.drawRect(dirtyRect)
-    }
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func alignGraphic(graphic:Graphic){
         //graphic.frame.width
         //graphic.frame.height
