@@ -14,7 +14,7 @@ class GraphicsTest:Graphic{
         self.height = height
         self.color = color
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
-        super.init(FillStyle(NSColor.whiteColor()),LineStyle(20,NSColor.blackColor()),OffsetType(OffsetType.center))
+        super.init(FillStyle(NSColor.whiteColor()),LineStyle(20,NSColor.blackColor()),OffsetType(OffsetType.outside))
         
         //frame = NSRect(x: x,y: y,width: width,height: height)
         //self.wantsLayer = true//this avoids calling drawLayer() and enables drawingRect()
@@ -58,15 +58,14 @@ class GraphicsTest:Graphic{
             graphic.lineShape.frame = offsetRect
             let linePath = CGPathModifier.translate(&graphic.fillShape.path, thickness/2, thickness/2)/*move the path half the thickness left and down*/
             graphic.lineShape.path = linePath
-            
         }else if(graphic.lineOffsetType == OffsetType(OffsetType.inside)){
             let offsetRect = rect.inset(thickness/2, thickness/2)
             Swift.print("offsetRect: " + "\(offsetRect)")
             graphic.lineShape.frame = graphic.fillShape.frame
             graphic.lineShape.path = offsetRect.path
         }else{//outside
-            let frameOffsetRect = rect.inset(thickness, thickness)
-            let lineOffsetRect = rect.inset(thickness/2, thickness/2)
+            let frameOffsetRect = rect.outset(thickness, thickness)
+            let lineOffsetRect = rect.outset(thickness/2, thickness/2)
             graphic.lineShape.frame = frameOffsetRect
             graphic.lineShape.path = lineOffsetRect.path
         }
