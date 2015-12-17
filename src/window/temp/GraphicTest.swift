@@ -76,19 +76,27 @@ private class RectGraphicUtil {
     
 }
 private class Utils{
+    class func topLeftCorner(rect:CGRect,_ lineStyle:ILineStyle,_ offsetType:OffsetType,_ cornerType:String)->(line:CGPoint,frame:CGPoint){
+        let leftOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.left))
+        let topOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.top))
+        return (CGPoint(),CGPoint())
+    }
+    class func bottomRightCorner(rect:CGRect,_ lineStyle:ILineStyle,_ offsetType:OffsetType,_ cornerType:String)->(line:CGPoint,frame:CGPoint){
+        return (CGPoint(),CGPoint())
+    }
     /**
      *
      */
     class func corner(rect:CGRect,_ lineStyle:ILineStyle,_ offsetType:OffsetType,_ cornerType:String)->(line:CGPoint,frame:CGPoint){
         var rectangle = offsetRect(rect, lineStyle, offsetType)/*:(lineRect:CGRect, frameRect:CGRect)*/
         
-        let topOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.top))
+        
         let bottomOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.bottom))
-        let leftOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.left))
+        
         let rightOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.right))
         
         
-        return (CGPoint(leftOffsetRect.lineRect.x,leftOffsetRect.lineRect.y), CGPoint(leftOffsetRect.frameRect.x,leftOffsetRect.frameRect.y))
+        return (CGPoint(leftOffsetRect.lineRect.x,topOffsetRect.lineRect.y), CGPoint(leftOffsetRect.frameRect.x,topOffsetRect.frameRect.y))
     }
     /**
      * Returns a Tuple with "frame and line rects" by offsetting @param rect with @param lineOffset
