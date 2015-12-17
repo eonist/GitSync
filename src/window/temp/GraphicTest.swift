@@ -25,7 +25,7 @@ class GraphicsTest:Graphic{
         Swift.print("layer!.contentsScale: " + "\(layer!.contentsScale)")
         let rect:CGRect = CGRect(50,50,100,100)
         
-        fillShape.path = rect.path/*Draws in the local coordinate space of the shape*/
+        fillShape.path = CGRect(0,0,rect.width,rect.height).path/*Draws in the local coordinate space of the shape*/
         fillShape.frame = rect/*,position and set the size of the frame*/
         fillShape.display()
         alignStroke(self)
@@ -67,7 +67,9 @@ class GraphicsTest:Graphic{
             graphic.lineShape.path = offsetRect.path
         }else{//outside
             let frameOffsetRect = rect.outset(thickness, thickness)
+            Swift.print("frameOffsetRect: " + "\(frameOffsetRect)")
             let lineOffsetRect = rect.outset(thickness/2, thickness/2)
+            Swift.print("lineOffsetRect: " + "\(lineOffsetRect)")
             graphic.lineShape.frame = frameOffsetRect
             graphic.lineShape.path = lineOffsetRect.path
         }
