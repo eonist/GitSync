@@ -56,11 +56,15 @@ private class RectGraphicUtil {
         //print("topLeft: " + String(topLeft));
         let bottomRight = Utils.corner(rect, lineStyle,offsetType,Alignment.bottomRight);//cornerPoint(rect, Alignment.BOTTOM_RIGHT, offsetType.right, offsetType.bottom, lineStyle);
         //print("bottomRight: " + String(bottomRight));
-        let x:CGFloat = topLeft.x;
-        let y:CGFloat = topLeft.y;
-        let width:CGFloat = bottomRight.x - topLeft.x;
-        let height:CGFloat = bottomRight.y - topLeft.y;
-        return CGRect(x, y, width, height);
+        func convert(tl:CGPoint,_ br:CGPoint)->CGRect{
+            let x:CGFloat = tl.x;
+            let y:CGFloat = tl.y;
+            let width:CGFloat = br.x - tl.x;
+            let height:CGFloat = br.y - tl.y;
+            return CGRect(x, y, width, height);
+        }
+        let lineRect:CGRect = convert()
+        return
     }
     
 }
