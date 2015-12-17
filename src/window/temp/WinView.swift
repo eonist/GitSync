@@ -431,10 +431,14 @@ class WinView:FlippedView{
         r = r.outset(10,10)
         Swift.print("r: " + "\(r)")
         
+        var a = CGRect(0,0,100,100)
+        
         func convertSpace(p:CGPoint, _ from:CGRect, _ to:CGRect)->CGRect{
+            
             return CGRect()
         }
-        
+        let convertedPoint = convertSpace(a.topLeft,a,r)
+        Swift.print("convertedPoint: " + "\(convertedPoint)")//should print 10,10
         //alignGraphic(a)
         
         /*
