@@ -97,3 +97,14 @@ class GraphicsTest:Graphic{
         }
     }
 }
+
+private class RectGraphicUtil{
+    /**
+     *
+     */
+    func offsetRect(rect:CGRect, _ lineStyle:ILineStyle, _ offsetType:OffsetType)->CGRect {
+        
+        return CGRect()
+    }
+}
+
