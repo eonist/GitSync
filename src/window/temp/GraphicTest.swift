@@ -14,7 +14,7 @@ class GraphicsTest:Graphic{
         self.height = height
         self.color = color
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
-        super.init(FillStyle(NSColor.whiteColor()),LineStyle(40,NSColor.blackColor()),OffsetType(OffsetType.center))
+        super.init(FillStyle(NSColor.whiteColor()),LineStyle(20,NSColor.blackColor()),OffsetType(OffsetType.center))
         
         //frame = NSRect(x: x,y: y,width: width,height: height)
         //self.wantsLayer = true//this avoids calling drawLayer() and enables drawingRect()
@@ -26,7 +26,7 @@ class GraphicsTest:Graphic{
         fillShape.path = CGPathParser.rect(CGFloat(100/*/2*/),CGFloat(100/*/2*/))/*Draws in the local coordinate space of the shape*/
         fillShape.frame = CGRect(0,0,100,100);/*,position and set the size of the frame*/
         fillShape.display()
-        //alignStroke(self)
+        alignStroke(self)
         
         
         //fix the blurry edge problem with some research
@@ -34,8 +34,7 @@ class GraphicsTest:Graphic{
         
         //draw the lineShape
         
-        lineShape.path = CGPathParser.rect(CGFloat(100/*/2*/),CGFloat(100/*/2*/))/*Draws in the local coordinate space of the shape*/
-        lineShape.frame = CGRect(0,0,100,100);/*,position and set the size of the frame*/
+        
         lineShape.display()
         
         Swift.print("lineShape.contentsScale: " + "\(lineShape.contentsScale)")
