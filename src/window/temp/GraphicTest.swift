@@ -57,17 +57,11 @@ class GraphicsTest:Graphic{
 }
 private class RectGraphicUtil {
     /**
-     *
+     * 
      */
-    class func corner(cornerType:String, rect:CGRect,_ lineStyle:ILineStyle,_ offsetType:OffsetType)->CGPoint{
-        var rectangle:(CGRect,CGRect)
-        
-        if(offsetType.right == OffsetType.outside) {  }
-        else if(offsetType.left == OffsetType.outside) {  }
-        else if(offsetType.bottom == OffsetType.outside) {  }
-        else {rectangle = offsetRect(rect, lineStyle, offsetType)}
-        
-        return rectangle[cornerType];
+    class func corner(cornerType:String, rect:CGRect,_ lineStyle:ILineStyle,_ offsetType:OffsetType)->(line:CGPoint,frame:CGPoint){
+        var rectangle = offsetRect(rect, lineStyle, offsetType)/*:(lineRect:CGRect, frameRect:CGRect)*/
+        return (rectangle.lineRect[cornerType], rectangle.frameRect[cornerType])
     }
     /**
      * Returns a Tuple with "frame and line rects" by offsetting @param rect with @param lineOffset
