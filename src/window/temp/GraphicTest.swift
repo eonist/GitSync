@@ -20,6 +20,20 @@ class GraphicsTest:Graphic{
         //self.wantsLayer = true//this avoids calling drawLayer() and enables drawingRect()
         //needsDisplay = true;
         //Swift.print("graphics: " + String(graphics.context))
+        
+        //continue here:
+        
+        //move this into the GraphicTest class
+        //start making the alignment classes for the stroke, maybe you should base the stroke path on the fillpath
+        //remember that the Graphic class shouldnt do any path drawing etc. this is the task of the subclass or utility methods
+        
+        let a:Shape = fillShape//TempShape()
+        a.path = CGPathParser.rect(CGFloat(50/*/2*/),CGFloat(50/*/2*/))//Shapes
+        //a.frame = CGRect(120,120,50,50);
+        
+        layer?.addSublayer(a)
+        a.display()
+        //a.masksToBounds = false
     }
     /*
     override func displayLayer(layer: CALayer) {
