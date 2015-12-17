@@ -20,7 +20,7 @@ class WinView:FlippedView{
     }
     func createContent(){
         
-        //testLayerBackedElement()
+        testLayerBackedElement()
         
         
         
@@ -45,7 +45,7 @@ class WinView:FlippedView{
         //testTextElement()
         //testRotation()
         //testSkin()
-        testGraphic()
+        //testGraphic()
     }
     func graphicsTest(){
         
@@ -58,16 +58,13 @@ class WinView:FlippedView{
     }
     func testLayerBackedElement(){
         
-       
+    
         
         
-
-        
-        
-        let css = "Element{fill:blue;fill-alpha:1;line:orange;line-offset-type:center;line-thickness:1px;}"
+        let css = "Element{fill:blue;fill-alpha:1;line:orange;line-offset-type:center;line-thickness:20px;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
-        let element = Element(200,200,50,50)
+        let element = Element(200,200,100,100)
         self.addSubview(element)
     }
     /**
