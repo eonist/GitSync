@@ -16,12 +16,12 @@ class GraphicsTest:Graphic{
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
         let offsetType:OffsetType = OffsetType(OffsetType.center)
         
-        /*
+        
         offsetType.top = OffsetType.inside
         offsetType.bottom = OffsetType.outside
-        offsetType.left = OffsetType.center
-        offsetType.right = OffsetType.inside
-        */
+        offsetType.left = OffsetType.inside
+        offsetType.right = OffsetType.outside
+        /**/
         /**/
         super.init(FillStyle(NSColor.yellowColor().alpha(0.5)),LineStyle(20,NSColor.blueColor().alpha(0.5)),offsetType)
         
@@ -134,7 +134,7 @@ private class Utils{
             lineRect = rect.copy()//CGRect(0,0,rect.width,rect.height) + CGPoint(thickness/2, thickness/2)
         }else if(offsetType == OffsetType(OffsetType.inside)){/*inside*/
             frameRect = rect.copy()/*frame*/
-            lineRect = rect.inset(thickness/2, thickness/2)//CGRect(0,0,rect.width,rect.height).inset(thickness/2, thickness/2) /*line*/
+            lineRect = rect.outset(thickness/2, thickness/2)//CGRect(0,0,rect.width,rect.height).inset(thickness/2, thickness/2) /*line*/
         }else{/*outside*/
             frameRect = rect.outset(thickness, thickness) /*frame*/
             lineRect = rect.outset(thickness/2, thickness/2)//CGRect(-thickness/2,-thickness/2,rect.width+thickness,rect.height+thickness)/*line, you expand the rect in the 0,0 coordinatespace*/
