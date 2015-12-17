@@ -34,30 +34,24 @@ class GraphicsTest:Graphic{
         lineShape.path = offsetRects.lineRect.path
         lineShape.display()/*draw the lineShape*/
         Swift.print("lineShape.contentsScale: " + "\(lineShape.contentsScale)")
-    }
-    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by super class*/
-    /**
-     * NOTE: this is for offseting rectangle
-     * NOTE: The fill.frame is the position and location of the Graphic (the frame of the graphic is a ZeroRect, with no clipping)
-     * NOTE: The path in fill.path is the path that line.path will be based on
-     */
-    func alignStroke(graphic:Graphic){
         
         //continue here
             //return a tuple with (frameRect and pathRect)
-        //Mimic the current RectUtil setup
-        //support all the different left right top bottom etc. 
+            //Mimic the current RectUtil setup
+        //support all the different left right top bottom etc.
         //write a note that you can optimize by storing halfsizes etc
         //test in the current element framework with a simple shape
         //the move on to do the same to round rect and circle and ellipse
-        //add support for positioning 
+        //add support for positioning
         //test with the tabbar example
         //move on
+        
     }
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by super class*/
 }
 private class RectGraphicUtil {
     /**
-     * 
+     *
      */
     class func corner(cornerType:String, rect:CGRect,_ lineStyle:ILineStyle,_ offsetType:OffsetType)->(line:CGPoint,frame:CGPoint){
         var rectangle = offsetRect(rect, lineStyle, offsetType)/*:(lineRect:CGRect, frameRect:CGRect)*/
