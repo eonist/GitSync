@@ -22,7 +22,7 @@ class GraphicsTest:Graphic{
         //Swift.print("graphics: " + String(graphics.context))
         
         //a.masksToBounds = false
-        
+        Swift.print("layer!.contentsScale: " + "\(layer!.contentsScale)")
         fillShape.path = CGPathParser.rect(CGFloat(100/*/2*/),CGFloat(100/*/2*/))/*Draws in the local coordinate space of the shape*/
         fillShape.frame = CGRect(0,0,100,100);/*,position and set the size of the frame*/
         fillShape.display()
@@ -33,9 +33,12 @@ class GraphicsTest:Graphic{
         
         
         //draw the lineShape
+        lineShape.contentsScale = 2.0
         lineShape.path = CGPathParser.rect(CGFloat(100/*/2*/),CGFloat(100/*/2*/))/*Draws in the local coordinate space of the shape*/
         lineShape.frame = CGRect(0,0,100,100);/*,position and set the size of the frame*/
         lineShape.display()
+        
+        Swift.print("lineShape.contentsScale: " + "\(lineShape.contentsScale)")
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by super class*/
     /**
