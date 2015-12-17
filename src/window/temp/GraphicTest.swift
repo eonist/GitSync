@@ -73,11 +73,11 @@ private class RectGraphicUtil {
         let frameRect:CGRect = convert(topLeft.frame,bottomRight.frame)
         return (lineRect,frameRect)
     }
-    
 }
 private class Utils{
     /**
      * NOTE: only supports topLeft and bottomRight
+     * TODO: This code isnt Optimized, to optimize see the old code. (Requires individual side calculation and also some sides use the same math so some sides can be squasehd etc. Also reuse similar math etc)
      */
     class func corner(rect:CGRect,_ lineStyle:ILineStyle,_ offsetType:OffsetType,_ cornerType:String)->(line:CGPoint,frame:CGPoint){
         if(cornerType == Alignment.topLeft){
