@@ -62,13 +62,23 @@ class GraphicsTest:Graphic{
         
         
         
+        
+}
+
+private class RectGraphicUtil{
+    /**
+     *
+     */
+    func offsetRect(rect:CGRect, _ lineStyle:ILineStyle, _ offsetType:OffsetType)->(lineRect:CGRect, frameRect:CGRect) {
+        var lineRect:CGRect = CGRect()
+        var fillRect:CGRect = CGRect()
         //graphic.frame.width
         //graphic.frame.height
         //graphic.lineOffsetType
         //graphic.lineStyle!.thickness
         let thickness:CGFloat = graphic.lineStyle!.thickness
         let rect:CGRect = graphic.fillShape.frame
-        if(graphic.lineOffsetType == OffsetType(OffsetType.center)){/*Asserts if all props of the lineOffsetType is of the center type*/
+        if(offsetType == OffsetType(OffsetType.center)){/*Asserts if all props of the lineOffsetType is of the center type*/
             /*frame*/
             let offsetRect = rect.outset(thickness/2, thickness/2)
             Swift.print("offsetRect: " + "\(offsetRect)")
@@ -95,16 +105,9 @@ class GraphicsTest:Graphic{
             
             graphic.lineShape.path = lineOffsetRect.path
         }
-    }
-}
-
-private class RectGraphicUtil{
-    /**
-     *
-     */
-    func offsetRect(rect:CGRect, _ lineStyle:ILineStyle, _ offsetType:OffsetType)->CGRect {
+    
         
-        return CGRect()
+        return (CGRect(),CGRect())
     }
 }
 
