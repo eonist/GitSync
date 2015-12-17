@@ -58,14 +58,14 @@ class GraphicsTest:Graphic{
             let offsetRect = rect.outset(thickness/2, thickness/2)
             Swift.print("offsetRect: " + "\(offsetRect)")
             graphic.lineShape.frame = offsetRect
-            graphic.lineShape.path = graphic.fillShape.path.copy
+            graphic.lineShape.path = graphic.fillShape.path.copy()
             
             graphic.lineShape.path = CGPathModifier.translate(&graphic.lineShape.path, thickness/2, thickness/2)/*move the path half the thickness left and down*/
             //graphic.lineShape.path = linePath//graphic.fillShape.path
         }else if(graphic.lineOffsetType == OffsetType(OffsetType.inside)){
-            let offsetRect = rect.inset(thickness/2, thickness/2)
-            Swift.print("offsetRect: " + "\(offsetRect)")
             graphic.lineShape.frame = graphic.fillShape.frame
+            let offsetRect = CGRect(0,0,rect.width,rect.height).inset(thickness/2, thickness/2)
+            Swift.print("offsetRect: " + "\(offsetRect)")
             graphic.lineShape.path = offsetRect.path
         }else{//outside
             
