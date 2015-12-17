@@ -48,6 +48,20 @@ class GraphicsTest:Graphic{
      * NOTE: The path in fill.path is the path that line.path will be based on
      */
     func alignStroke(graphic:Graphic){
+        
+        //continue here
+        //return a tuple with (frameRect and pathRect)
+        //Mimic the current RectUtil setup
+        //support all the different left right top bottom etc. 
+        //write a note that you can optimize by storing halfsizes etc
+        //test in the current element framework with a simple shape
+        //the move on to do the same to round rect and circle and ellipse
+        //add support for positioning 
+        //test with the tabbar example
+        //move on
+        
+        
+        
         //graphic.frame.width
         //graphic.frame.height
         //graphic.lineOffsetType
