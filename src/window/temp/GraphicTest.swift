@@ -33,7 +33,7 @@ class GraphicsTest:Graphic{
         
         
         //draw the lineShape
-        lineShape.contentsScale = 2.0/*The default value of this property is 1.0. For layers attached to a view, the view changes the scale factor automatically to a value that is appropriate for the current screen. For layers you create and manage yourself, you must set the value of this property yourself based on the resolution of the screen and the content you are providing. Core Animation uses the value you specify as a cue to determine how to render your content.*/
+        
         lineShape.path = CGPathParser.rect(CGFloat(100/*/2*/),CGFloat(100/*/2*/))/*Draws in the local coordinate space of the shape*/
         lineShape.frame = CGRect(0,0,100,100);/*,position and set the size of the frame*/
         lineShape.display()
