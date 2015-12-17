@@ -14,7 +14,7 @@ class GraphicsTest:Graphic{
         self.height = height
         self.color = color
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
-        super.init(FillStyle(NSColor.yellowColor().alpha(0.5)),LineStyle(20,NSColor.blueColor().alpha(0.5)),OffsetType(OffsetType.outside))
+        super.init(FillStyle(NSColor.yellowColor().alpha(0.5)),LineStyle(20,NSColor.blueColor().alpha(0.5)),OffsetType(OffsetType.center))
         
         //frame = NSRect(x: x,y: y,width: width,height: height)
         //self.wantsLayer = true//this avoids calling drawLayer() and enables drawingRect()
@@ -70,7 +70,7 @@ class GraphicsTest:Graphic{
             let frameOffsetRect = rect.outset(thickness, thickness)
             Swift.print("frameOffsetRect: " + "\(frameOffsetRect)")
             graphic.lineShape.frame = frameOffsetRect
-            let lineOffsetRect = CGRect(thickness/2,thickness/2,thickness,thickness)
+            let lineOffsetRect = CGRect(thickness/2,thickness/2,rect.width+thickness,rect.height+thickness)/*you expand the rect in the 0,0 coordinatespace*/
             Swift.print("lineOffsetRect: " + "\(lineOffsetRect)")
             
             graphic.lineShape.path = lineOffsetRect.path
