@@ -29,7 +29,7 @@ class GraphicsTest:Graphic{
         alignStroke(self)
         
         //draw the lineShape
-        
+        lineShape.display()
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by super class*/
     /**
@@ -48,7 +48,7 @@ class GraphicsTest:Graphic{
             Swift.print("offsetRect: " + "\(offsetRect)")
             graphic.lineShape.frame = offsetRect
             
-            //graphic.lineShape.path =
+            graphic.lineShape.path = graphic.fillShape.path
             
         }
     }
