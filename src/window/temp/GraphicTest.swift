@@ -68,12 +68,12 @@ class GraphicsTest:Graphic{
         }else{//outside
             
             let frameOffsetRect = rect.outset(thickness, thickness)
-            Swift.print("rect: " + "\(rect)")
             Swift.print("frameOffsetRect: " + "\(frameOffsetRect)")
-            let lineOffsetRect = rect.outset(thickness/2, thickness/2)
-            Swift.print("lineOffsetRect: " + "\(lineOffsetRect)")
             graphic.lineShape.frame = frameOffsetRect
-            graphic.lineShape.path = CGRect(0,0,lineOffsetRect.width,lineOffsetRect.height).path
+            let lineOffsetRect = CGRect(thickness/2,thickness/2,thickness,thickness)
+            Swift.print("lineOffsetRect: " + "\(lineOffsetRect)")
+            
+            graphic.lineShape.path = lineOffsetRect.path
         }
     }
 }
