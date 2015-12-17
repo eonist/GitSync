@@ -421,12 +421,13 @@ class WinView:FlippedView{
         //TODO: DO some research into stroking center with quartz and outside. Before restoring to your default method
         
         
-        /*
+        
         let a = GraphicsTest(0,0,100,100)
         a.lineOffsetType = OffsetType(OffsetType.inside)
         self.addSubview(a)
-        */
+
         
+        /*
         var r = CGRect(0,0,100,100)
         r = r.outset(10,10)
         Swift.print("r: " + "\(r)")
@@ -434,11 +435,14 @@ class WinView:FlippedView{
         var a = CGRect(0,0,100,100)
         
         func pointToSpace(p:CGPoint, _ from:CGRect, _ to:CGRect)->CGPoint{
-            let difference = PointParser.difference(to.topLeft,from.topLeft)
-            return difference
+        let difference = PointParser.difference(to.topLeft,from.topLeft)
+        return difference
         }
         let convertedPoint = pointToSpace(a.topLeft,a,r)
         Swift.print("convertedPoint: " + "\(convertedPoint)")//should print 10,10
+        */
+        
+        
         //alignGraphic(a)
         
         /*

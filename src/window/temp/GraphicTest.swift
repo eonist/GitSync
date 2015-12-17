@@ -76,9 +76,11 @@ private class Converter{
     /**
      *
      */
-    class func convertSpace(p:CGPoint, _ from:CGRect, _ to:CGRect)->CGRect{
-        return CGRect()
+    class func pointToSpace(p:CGPoint, _ from:CGRect, _ to:CGRect)->CGPoint{
+        let difference = PointParser.difference(to.topLeft,from.topLeft)
+        return difference
     }
+    
     /**
      * Converts topLeft corner and topRight corner to a CGRect instance
      */
