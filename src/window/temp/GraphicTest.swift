@@ -57,6 +57,25 @@ class GraphicsTest:Graphic{
 }
 private class RectGraphicUtil {
     /**
+     *
+     */
+    class func corner(cornerType:String, rect:CGRect,_ lineStyle:ILineStyle,_ offsetType:OffsetType)->CGPoint{
+        var rectangle:CGRect = rect.clone()
+        rectangle.x = lineStyle.thickness/2;
+        rectangle.y = lineStyle.thickness/2;
+        if(offsetType.right == OffsetType.outside) { rectangle.width = rectangle.width + lineStyle.thickness }
+        else if(offsetType.left == OffsetType.outside) { rectangle.width = rectangle.width + lineStyle.thickness }
+        if(offsetType.bottom == OffsetType.outside) { rectangle.height += lineStyle.thickness }
+        if(offsetType.left == OffsetType.inside) { rectangle.x = -lineStyle.thickness/2 }
+        if((offsetType.right == OffsetType.inside) && (offsetType.left == OffsetType.inside)) { rectangle.width = rectangle.width + lineStyle.thickness }
+        if(offsetType.top == OffsetType.inside) { rectangle.y = -lineStyle.thickness/2 }
+        if(offsetType.bottom == OffsetType.inside) { rectangle.height = rectangle.height + lineStyle.thickness }
+        //temp fix, needs more research
+        if(offsetType.left == OffsetType.center){rectangle.x = 0;rectangle.y = 0;}
+        //temp fix, needs more researchcg
+        return rectangle[cornerType];
+    }
+    /**
      * Returns a Tuple with "frame and line rects" by offsetting @param rect with @param lineOffset
      */
     class func offsetRect(rect:CGRect, _ lineStyle:ILineStyle, _ offsetType:OffsetType)->(lineRect:CGRect, frameRect:CGRect) {
