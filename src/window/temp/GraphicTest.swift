@@ -86,9 +86,9 @@ private class Utils{
         let bottomOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.bottom))
         let leftOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.left))
         let rightOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.right))
-                
         
-        return (rectangle.lineRect[cornerType], rectangle.frameRect[cornerType])
+        
+        return (CGPoint(leftOffsetRect.lineRect.x,leftOffsetRect.lineRect.y), CGPoint(leftOffsetRect.frameRect.x,leftOffsetRect.frameRect.y))
     }
     /**
      * Returns a Tuple with "frame and line rects" by offsetting @param rect with @param lineOffset
