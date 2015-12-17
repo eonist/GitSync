@@ -29,7 +29,9 @@ class GraphicsTest:Graphic{
         fillShape.frame = rect/*,position and set the size of the frame*/
         fillShape.display()
         //alignStroke(self)
-        RectGraphicUtil.offsetRect(fillShape.frame, lineShape.lineStyle!, lineOffsetType)
+        let offsetRects = RectGraphicUtil.offsetRect(fillShape.frame, lineShape.lineStyle!, lineOffsetType)
+        lineShape.frame = offsetRects.frameRect
+        lineShape.path = offsetRects.lineRect.path
         lineShape.display()/*draw the lineShape*/
         Swift.print("lineShape.contentsScale: " + "\(lineShape.contentsScale)")
     }
