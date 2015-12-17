@@ -59,9 +59,9 @@ private class RectGraphicUtil {
      */
     class func offsetRect(rect:CGRect, _ lineStyle:ILineStyle, _ offsetType:OffsetType)->(lineRect:CGRect, frameRect:CGRect) {
         let topLeft = Utils.corner(rect, lineStyle,offsetType,Alignment.topLeft);//cornerPoint(rect, Alignment.TOP_LEFT, offsetType.left, offsetType.top, lineStyle);
-        //print("topLeft: " + String(topLeft));
+        print("topLeft: " + String(topLeft));
         let bottomRight = Utils.corner(rect, lineStyle,offsetType,Alignment.bottomRight);//cornerPoint(rect, Alignment.BOTTOM_RIGHT, offsetType.right, offsetType.bottom, lineStyle);
-        //print("bottomRight: " + String(bottomRight));
+        print("bottomRight: " + String(bottomRight));
         func convert(tl:CGPoint,_ br:CGPoint)->CGRect{
             let x:CGFloat = tl.x;
             let y:CGFloat = tl.y;
@@ -76,27 +76,19 @@ private class RectGraphicUtil {
     
 }
 private class Utils{
-    class func topLeftCorner(rect:CGRect,_ lineStyle:ILineStyle,_ offsetType:OffsetType,_ cornerType:String)->(line:CGPoint,frame:CGPoint){
-        let leftOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.left))
-        let topOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.top))
-        return (CGPoint(),CGPoint())
-    }
-    class func bottomRightCorner(rect:CGRect,_ lineStyle:ILineStyle,_ offsetType:OffsetType,_ cornerType:String)->(line:CGPoint,frame:CGPoint){
-        return (CGPoint(),CGPoint())
-    }
     /**
-     *
+     * NOTE: only supports topLeft and bottomRight
      */
     class func corner(rect:CGRect,_ lineStyle:ILineStyle,_ offsetType:OffsetType,_ cornerType:String)->(line:CGPoint,frame:CGPoint){
-        var rectangle = offsetRect(rect, lineStyle, offsetType)/*:(lineRect:CGRect, frameRect:CGRect)*/
-        
-        
-        let bottomOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.bottom))
-        
-        let rightOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.right))
-        
-        
-        return (CGPoint(leftOffsetRect.lineRect.x,topOffsetRect.lineRect.y), CGPoint(leftOffsetRect.frameRect.x,topOffsetRect.frameRect.y))
+        if(cornerType == Alignment.topLeft){
+            let leftOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.left))
+            let topOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.top))
+            return (CGPoint(leftOffsetRect.lineRect.x,topOffsetRect.lineRect.y), CGPoint(leftOffsetRect.frameRect.x,topOffsetRect.frameRect.y))
+        }else{
+            let bottomOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.bottom))
+            let rightOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.right))
+            return (CGPoint(rightOffsetRect.lineRect.x,bottomOffsetRect.lineRect.y), CGPoint(rightOffsetRect.frameRect.x,bottomOffsetRect.frameRect.y))
+        }
     }
     /**
      * Returns a Tuple with "frame and line rects" by offsetting @param rect with @param lineOffset
