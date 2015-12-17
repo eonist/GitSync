@@ -31,7 +31,8 @@ class GraphicsTest:Graphic{
         
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by super class*/
-    func alignGraphic(graphic:Graphic){
+    
+    func alignGraphic(graphic:Graphic,path:CGPath){
         //graphic.frame.width
         //graphic.frame.height
         //graphic.lineOffsetType
