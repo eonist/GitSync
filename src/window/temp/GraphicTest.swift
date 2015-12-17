@@ -28,17 +28,9 @@ class GraphicsTest:Graphic{
         fillShape.path = CGRect(0,0,rect.width,rect.height).path/*Draws in the local coordinate space of the shape*/
         fillShape.frame = rect/*,position and set the size of the frame*/
         fillShape.display()
-        alignStroke(self)
-        
-        
-        //fix the blurry edge problem with some research
-        
-        
-        //draw the lineShape
-        
-        
-        lineShape.display()
-        
+        //alignStroke(self)
+        RectGraphicUtil.offsetRect(fillShape.frame, lineShape.lineStyle!, lineOffsetType)
+        lineShape.display()/*draw the lineShape*/
         Swift.print("lineShape.contentsScale: " + "\(lineShape.contentsScale)")
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by super class*/
