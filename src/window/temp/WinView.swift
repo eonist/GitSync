@@ -403,7 +403,7 @@ class WinView:FlippedView{
         
         //continue here:
         
-        //TODO:implement inset = hide, center = display, outside = display
+        
         //TODO:try to implement RoundRect aswell
         //TODO:implement with Element
         //TODO:test with a basic Element

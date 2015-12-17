@@ -16,12 +16,12 @@ class GraphicsTest:Graphic{
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
         let offsetType:OffsetType = OffsetType(OffsetType.center)
         
-        
+        /*
         offsetType.top = OffsetType.inside
         offsetType.bottom = OffsetType.outside
         offsetType.left = OffsetType.inside
         offsetType.right = OffsetType.outside
-        /**/
+        */
         /**/
         super.init(FillStyle(NSColor.yellowColor().alpha(0.5)),LineStyle(20,NSColor.blueColor().alpha(0.5)),offsetType)
         
@@ -61,6 +61,7 @@ private class RectGraphicUtil {
     /**
      * Returns a Tuple with "frame and line rects" by offsetting @param rect with @param lineOffset
      * NOTE: works with different side offsetType (left,right,top,bottom)
+     * NOTE: inset = hidden, center = visible, outside = visible
      */
     class func offsetRect(rect:CGRect, _ lineStyle:ILineStyle, _ offsetType:OffsetType)->(lineRect:CGRect, frameRect:CGRect) {
         let topLeft = Utils.corner(rect, lineStyle,offsetType,Alignment.topLeft);//cornerPoint(rect, Alignment.TOP_LEFT, offsetType.left, offsetType.top, lineStyle);
