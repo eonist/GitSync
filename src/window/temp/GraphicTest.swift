@@ -50,10 +50,25 @@ class GraphicsTest:Graphic{
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by super class*/
 }
 private class RectGraphicUtil {
+    
+    class func offsetRect(rect:CGRect, _ lineStyle:ILineStyle, _ offsetType:OffsetType)->CGRect {
+        let topLeft = Utils.corner(rect, lineStyle,offsetType,Alignment.topLeft);//cornerPoint(rect, Alignment.TOP_LEFT, offsetType.left, offsetType.top, lineStyle);
+        //print("topLeft: " + String(topLeft));
+        let bottomRight = Utils.corner(rect, lineStyle,offsetType,Alignment.bottomRight);//cornerPoint(rect, Alignment.BOTTOM_RIGHT, offsetType.right, offsetType.bottom, lineStyle);
+        //print("bottomRight: " + String(bottomRight));
+        let x:CGFloat = topLeft.x;
+        let y:CGFloat = topLeft.y;
+        let width:CGFloat = bottomRight.x - topLeft.x;
+        let height:CGFloat = bottomRight.y - topLeft.y;
+        return CGRect(x, y, width, height);
+    }
+    
+}
+private class Utils{
     /**
      *
      */
-    class func corner(cornerType:String, rect:CGRect,_ lineStyle:ILineStyle,_ offsetType:OffsetType)->(line:CGPoint,frame:CGPoint){
+    class func corner(rect:CGRect,_ lineStyle:ILineStyle,_ offsetType:OffsetType,_ cornerType:String)->(line:CGPoint,frame:CGPoint){
         var rectangle = offsetRect(rect, lineStyle, offsetType)/*:(lineRect:CGRect, frameRect:CGRect)*/
         return (rectangle.lineRect[cornerType], rectangle.frameRect[cornerType])
     }
