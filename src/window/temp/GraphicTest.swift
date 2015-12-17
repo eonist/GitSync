@@ -22,11 +22,12 @@ class GraphicsTest:Graphic{
         //Swift.print("graphics: " + String(graphics.context))
         
         //a.masksToBounds = false
-        let a:Shape = fillShape//TempShape()
-        a.path = CGPathParser.rect(CGFloat(100/*/2*/),CGFloat(100/*/2*/))/*Draws in the local coordinate space of the shape*/
-        a.frame = CGRect(0,0,100,100);/*,position and set the size of the frame*/
-        a.display()
-        alignGraphic(self)
+        
+        fillShape.path = CGPathParser.rect(CGFloat(100/*/2*/),CGFloat(100/*/2*/))/*Draws in the local coordinate space of the shape*/
+        fillShape.frame = CGRect(0,0,100,100);/*,position and set the size of the frame*/
+        fillShape.display()
+        alignStroke(self)
+        
         //draw the lineShape
         
     }
@@ -35,7 +36,7 @@ class GraphicsTest:Graphic{
      * NOTE: The fill.frame is the position and location of the Graphic (the frame of the graphic is a ZeroRect, with no clipping)
      * NOTE: The path in fill.path is the path that line.path will be based on
      */
-    func alignGraphic(graphic:Graphic){
+    func alignStroke(graphic:Graphic){
         //graphic.frame.width
         //graphic.frame.height
         //graphic.lineOffsetType
@@ -44,8 +45,9 @@ class GraphicsTest:Graphic{
         let rect:CGRect = graphic.fillShape.frame
         if(graphic.lineOffsetType == OffsetType(OffsetType.center)){/*Asserts if all props of the lineOffsetType is of the center type*/
             let offsetRect = rect.outset(thickness/2, thickness/2)
-            
             Swift.print("offsetRect: " + "\(offsetRect)")
+            graphic.lineShape.frame = offsetRect
+            
         }
     }
 }
