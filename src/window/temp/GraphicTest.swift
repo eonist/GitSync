@@ -53,6 +53,7 @@ class GraphicsTest:Graphic{
         }else if(graphic.lineOffsetType == OffsetType(OffsetType.inside)){
             let offsetRect = rect.inset(thickness/2, thickness/2)
             Swift.print("offsetRect: " + "\(offsetRect)")
+            graphic.lineShape.frame = graphic.fillShape.frame
         }
     }
 }
