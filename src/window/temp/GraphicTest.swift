@@ -74,8 +74,8 @@ private class Converter{
     /**
      *
      */
-    class func convertSpace(from:CGRect, _ to:CGRect){
-        
+    class func convertSpace(from:CGRect, _ to:CGRect)->CGRect{
+        return 
     }
     /**
      * Converts topLeft corner and topRight corner to a CGRect instance
