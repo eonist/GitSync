@@ -14,7 +14,7 @@ class GraphicsTest:Graphic{
         self.height = height
         self.color = color
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
-        let offsetType:OffsetType = OffsetType(OffsetType.center)
+        let offsetType:OffsetType = OffsetType(OffsetType.inside)
         /*
         offsetType.top = OffsetType.outside
         offsetType.bottom = OffsetType.center
