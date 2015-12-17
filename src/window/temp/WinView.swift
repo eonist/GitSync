@@ -434,8 +434,9 @@ class WinView:FlippedView{
         var a = CGRect(0,0,100,100)
         
         func pointToSpace(p:CGPoint, _ from:CGRect, _ to:CGRect)->CGRect{
-            from.topLeft
-            PointParser.difference(<#T##p1: CGPoint##CGPoint#>, <#T##p2: CGPoint##CGPoint#>)
+            
+            let difference = PointParser.difference(from.topLeft, to.topLeft)
+            Swift.print("difference: " + "\(difference)")
             return CGRect()
         }
         let convertedPoint = pointToSpace(a.topLeft,a,r)
