@@ -23,8 +23,10 @@ class GraphicsTest:Graphic{
         
         //a.masksToBounds = false
         Swift.print("layer!.contentsScale: " + "\(layer!.contentsScale)")
-        fillShape.path = CGPathParser.rect(CGFloat(100/*/2*/),CGFloat(100/*/2*/))/*Draws in the local coordinate space of the shape*/
-        fillShape.frame = CGRect(0,0,100,100);/*,position and set the size of the frame*/
+        let rect:CGRect = CGRect(50,50,100,100)
+        
+        fillShape.path = rect.path/*Draws in the local coordinate space of the shape*/
+        fillShape.frame = rect/*,position and set the size of the frame*/
         fillShape.display()
         alignStroke(self)
         
