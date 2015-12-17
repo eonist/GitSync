@@ -401,7 +401,14 @@ class WinView:FlippedView{
         //b. you need to somehow figure out a way to work with the stroke in the new frame-clipping scheme. Think this one through
     
         
-        //TODO: tesst if the frame and the bounds are the same in Graphic
+        //continue here:
+        
+        //TODO:implement inset = hide, center = display, outside = display
+        //TODO:try to implement RoundRect aswell
+        //TODO:implement with Element
+        //TODO:test with a basic Element
+        //TODO:test Element with cornerRadius
+        //TODO:test TabBar
         
         
         
