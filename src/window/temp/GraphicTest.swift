@@ -64,6 +64,11 @@ class GraphicsTest:Graphic{
             Swift.print("offsetRect: " + "\(offsetRect)")
             graphic.lineShape.frame = graphic.fillShape.frame
             graphic.lineShape.path = offsetRect.path
+        }else{//outside
+            let frameOffsetRect = rect.inset(thickness, thickness)
+            let lineOffsetRect = rect.inset(thickness/2, thickness/2)
+            graphic.lineShape.frame = frameOffsetRect
+            graphic.lineShape.path = lineOffsetRect.path
         }
     }
 }
