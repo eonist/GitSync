@@ -69,10 +69,13 @@ private class RectGraphicUtil {
         let thickness:CGFloat = lineStyle.thickness
         if(offsetType == OffsetType(OffsetType.center)){/*Asserts if all props of the lineOffsetType is of the center type*/
             frameRect = rect.outset(thickness/2, thickness/2)/*frame*/
-            lineRect = CGRect(0,0,rect.width,rect.height)
-            lineRect += CGPoint(thickness/2, thickness/2)
-            Swift.print("lineRect: " + "\(lineRect)")
+            lineRect = CGRect(0,0,rect.width,rect.height) + CGPoint(thickness/2, thickness/2)
         }else if(offsetType == OffsetType(OffsetType.inside)){/*inside*/
+            
+            
+            //continue cleaning up the bellow code:
+            
+            
             /*frame*/
             frameRect = rect
             /*path*/
