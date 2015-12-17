@@ -29,7 +29,7 @@ class GraphicsTest:Graphic{
         
         let a:Shape = fillShape//TempShape()
         a.path = CGPathParser.rect(CGFloat(50/*/2*/),CGFloat(50/*/2*/))//Shapes
-        //a.frame = CGRect(120,120,50,50);
+        a.frame = CGRect(12,12,50,50);
         
         
         a.display()
