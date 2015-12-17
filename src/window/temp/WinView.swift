@@ -425,7 +425,7 @@ class WinView:FlippedView{
         a.lineOffsetType = OffsetType(OffsetType.inside)
         self.addSubview(a)
         
-       
+        
         
         //alignGraphic(a)
         
