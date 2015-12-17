@@ -61,7 +61,7 @@ class GraphicsTest:Graphic{
 
 private class RectGraphicUtil {
     /**
-     *
+     * Returns a Tuple with "frame and line rects" by offsetting @param rect with @param lineOffset
      */
     class func offsetRect(rect:CGRect, _ lineStyle:ILineStyle, _ offsetType:OffsetType)->(lineRect:CGRect, frameRect:CGRect) {
         var lineRect:CGRect = CGRect()
@@ -71,30 +71,12 @@ private class RectGraphicUtil {
             frameRect = rect.outset(thickness/2, thickness/2)/*frame*/
             lineRect = CGRect(0,0,rect.width,rect.height) + CGPoint(thickness/2, thickness/2)
         }else if(offsetType == OffsetType(OffsetType.inside)){/*inside*/
-            
-            
-            //continue cleaning up the bellow code:
-            
-            
-            /*frame*/
-            frameRect = rect
-            /*path*/
-            let offsetRect = CGRect(0,0,rect.width,rect.height).inset(thickness/2, thickness/2)
-            Swift.print("offsetRect: " + "\(offsetRect)")
-            lineRect = offsetRect
+            frameRect = rect/*frame*/
+            lineRect = CGRect(0,0,rect.width,rect.height).inset(thickness/2, thickness/2) /*line*/
         }else{/*outside*/
-            /*frame*/
-            let frameOffsetRect = rect.outset(thickness, thickness)
-            Swift.print("frameOffsetRect: " + "\(frameOffsetRect)")
-            frameRect = frameOffsetRect
-            /*path*/
-            let lineOffsetRect = CGRect(thickness/2,thickness/2,rect.width+thickness,rect.height+thickness)/*you expand the rect in the 0,0 coordinatespace*/
-            Swift.print("lineOffsetRect: " + "\(lineOffsetRect)")
-            
-            lineRect = lineOffsetRect
+            frameRect = rect.outset(thickness, thickness) /*frame*/
+            lineRect = CGRect(thickness/2,thickness/2,rect.width+thickness,rect.height+thickness)/*line, you expand the rect in the 0,0 coordinatespace*/
         }
-        
-        
         return (lineRect,frameRect)
     }
 }
