@@ -19,7 +19,7 @@ class GraphicsTest:Graphic{
         offsetType.bottom = OffsetType.center
         offsetType.left = OffsetType.center
         offsetType.right = OffsetType.center
-        super.init(FillStyle(NSColor.yellowColor().alpha(0.5)),LineStyle(20,NSColor.blueColor().alpha(0.5)),offsetType)
+        super.init(FillStyle(NSColor.yellowColor().alpha(0.5)),LineStyle(50,NSColor.blueColor().alpha(0.5)),offsetType)
         
         //frame = NSRect(x: x,y: y,width: width,height: height)
         //self.wantsLayer = true//this avoids calling drawLayer() and enables drawingRect()
@@ -27,8 +27,8 @@ class GraphicsTest:Graphic{
         //Swift.print("graphics: " + String(graphics.context))
         
         //a.masksToBounds = false
-        Swift.print("layer!.contentsScale: " + "\(layer!.contentsScale)")
-        let rect:CGRect = CGRect(50,50,200,200)
+        
+        let rect:CGRect = CGRect(100,100,200,200)
         
         fillShape.path = CGRect(0,0,rect.width,rect.height).path/*Draws in the local coordinate space of the shape*/
         fillShape.frame = rect/*,position and set the size of the frame*/
@@ -38,7 +38,7 @@ class GraphicsTest:Graphic{
         lineShape.frame = offsetRects.frameRect
         lineShape.path = offsetRects.lineRect.path
         lineShape.display()/*draw the lineShape*/
-        Swift.print("lineShape.contentsScale: " + "\(lineShape.contentsScale)")
+        
         
         //continue here
             //return a tuple with (frameRect and pathRect)
@@ -61,8 +61,10 @@ private class RectGraphicUtil {
     class func offsetRect(rect:CGRect, _ lineStyle:ILineStyle, _ offsetType:OffsetType)->(lineRect:CGRect, frameRect:CGRect) {
         let topLeft = Utils.corner(rect, lineStyle,offsetType,Alignment.topLeft);//cornerPoint(rect, Alignment.TOP_LEFT, offsetType.left, offsetType.top, lineStyle);
         print("topLeft.frame: " + String(topLeft.frame));
+        print("topLeft.line: " + String(topLeft.line));
         let bottomRight = Utils.corner(rect, lineStyle,offsetType,Alignment.bottomRight);//cornerPoint(rect, Alignment.BOTTOM_RIGHT, offsetType.right, offsetType.bottom, lineStyle);
         print("bottomRight.frame: " + String(bottomRight.frame));
+        print("bottomRight.line: " + String(bottomRight.line));
         func convert(tl:CGPoint,_ br:CGPoint)->CGRect{
             let x:CGFloat = tl.x;
             let y:CGFloat = tl.y;
