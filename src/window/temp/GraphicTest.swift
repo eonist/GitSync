@@ -36,7 +36,7 @@ class GraphicsTest:Graphic{
         
         fillShape.path = CGRect(0,0,rect.width,rect.height).path/*Draws in the local coordinate space of the shape*/
         fillShape.frame = rect/*,position and set the size of the frame*/
-        fillShape.display()
+        fillShape.display()/*draw the fileShape*/
         //alignStroke(self)
         let offsetRects = RectGraphicUtil.offsetRect(fillShape.frame, lineShape.lineStyle!, lineOffsetType)
         lineShape.frame = offsetRects.frameRect
