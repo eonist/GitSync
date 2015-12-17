@@ -61,7 +61,7 @@ class WinView:FlippedView{
     
         
         
-        let css = "Element{fill:blue;fill-alpha:1;line:orange;line-alpha:0.5;line-offset-type:center;line-thickness:20px;}"
+        let css = "Element{fill:orange;fill-alpha:0.5;line:blue;line-alpha:0.5;line-offset-type:center;line-thickness:20px;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let element = Element(200,200,100,100)
