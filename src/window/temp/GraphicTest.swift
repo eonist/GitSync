@@ -14,7 +14,7 @@ class GraphicsTest:Graphic{
         self.height = height
         self.color = color
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
-        super.init(FillStyle(NSColor.yellowColor().alpha(0.5)),LineStyle(20,NSColor.blueColor().alpha(0.5)),OffsetType(OffsetType.center))
+        super.init(FillStyle(NSColor.yellowColor().alpha(0.5)),LineStyle(20,NSColor.blueColor().alpha(0.5)),OffsetType(OffsetType.inside))
         
         //frame = NSRect(x: x,y: y,width: width,height: height)
         //self.wantsLayer = true//this avoids calling drawLayer() and enables drawingRect()
@@ -39,7 +39,6 @@ class GraphicsTest:Graphic{
             //return a tuple with (frameRect and pathRect)
             //Mimic the current RectUtil setup
         //support all the different left right top bottom etc.
-        //write a note that you can optimize by storing halfsizes etc
         //test in the current element framework with a simple shape
         //the move on to do the same to round rect and circle and ellipse
         //add support for positioning
@@ -50,9 +49,6 @@ class GraphicsTest:Graphic{
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by super class*/
 }
 private class RectGraphicUtil {
-    
-    
-    
     /**
      * Returns a Tuple with "frame and line rects" by offsetting @param rect with @param lineOffset
      * NOTE: works with different side offsetType (left,right,top,bottom)
@@ -77,7 +73,7 @@ private class RectGraphicUtil {
 private class Utils{
     /**
      * NOTE: only supports topLeft and bottomRight
-     * TODO: This code isnt Optimized, to optimize see the old code. (Requires individual side calculation and also some sides use the same math so some sides can be squasehd etc. Also reuse similar math etc)
+     * TODO: This code isnt Optimized, to optimize see the old code. (Requires individual side calculation and also some sides use the same math so some sides can be squasehd etc. Also reuse similar math etc) you can optimize by storing halfsizes etc
      */
     class func corner(rect:CGRect,_ lineStyle:ILineStyle,_ offsetType:OffsetType,_ cornerType:String)->(line:CGPoint,frame:CGPoint){
         if(cornerType == Alignment.topLeft){
