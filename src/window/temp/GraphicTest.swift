@@ -82,7 +82,7 @@ private class Utils{
     class func corner(rect:CGRect,_ lineStyle:ILineStyle,_ offsetType:OffsetType,_ cornerType:String)->(line:CGPoint,frame:CGPoint){
         var rectangle = offsetRect(rect, lineStyle, offsetType)/*:(lineRect:CGRect, frameRect:CGRect)*/
         
-        let topRect = offsetRect(rect, lineStyle, OffsetType())
+        let topOffsetRect = offsetRect(rect, lineStyle, OffsetType(OffsetType.outside))
         if(offsetType.right == OffsetType.outside) { rectangle.width = rectangle.width + lineStyle.thickness }
         else if(offsetType.left == OffsetType.outside) { rectangle.width = rectangle.width + lineStyle.thickness }
         else if(offsetType.top == OffsetType.outside) { rectangle.height += lineStyle.thickness }
