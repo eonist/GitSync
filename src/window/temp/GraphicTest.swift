@@ -23,25 +23,28 @@ class GraphicsTest:Graphic{
         
         //a.masksToBounds = false
         let a:Shape = fillShape//TempShape()
-        a.path = CGPathParser.rect(CGFloat(50/*/2*/),CGFloat(50/*/2*/))/*Draws in the local coordinate space of the shape*/
-        a.frame = CGRect(12,12,50,50);/*,position and set the size of the frame*/
-        
-        
+        a.path = CGPathParser.rect(CGFloat(100/*/2*/),CGFloat(100/*/2*/))/*Draws in the local coordinate space of the shape*/
+        a.frame = CGRect(0,0,100,100);/*,position and set the size of the frame*/
         a.display()
+        alignGraphic(self)
+        //draw the lineShape
         
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by super class*/
-    
-    func alignGraphic(graphic:Graphic,path:CGPath){
+    /**
+     * NOTE: The fill.frame is the position and location of the Graphic (the frame of the graphic is a ZeroRect, with no clipping)
+     * NOTE: The path in fill.path is the path that line.path will be based on
+     */
+    func alignGraphic(graphic:Graphic){
         //graphic.frame.width
         //graphic.frame.height
         //graphic.lineOffsetType
         //graphic.lineStyle!.thickness
         let thickness:CGFloat = graphic.lineStyle!.thickness
-        let rect:CGRect = graphic.frame
+        let rect:CGRect = graphic.fillShape.frame
         if(graphic.lineOffsetType == OffsetType(OffsetType.inside)){/*Asserts if all props of the lineOffsetType is of the inside type*/
             let offsetRect = rect.outset(thickness/2, thickness/2)
-            graphic.fillShape.frame = NSRect(0,0,50,50)
+            
             Swift.print("offsetRect: " + "\(offsetRect)")
         }
     }
