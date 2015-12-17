@@ -84,8 +84,8 @@ private class Utils{
      */
     class func corner(rect:CGRect,_ lineStyle:ILineStyle,_ offsetType:OffsetType,_ cornerType:String)->(line:CGPoint,frame:CGPoint){
         if(cornerType == Alignment.topLeft){
-            let leftOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.left))
             let topOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.top))
+            let leftOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.left))
             return (CGPoint(leftOffsetRect.lineRect.x,topOffsetRect.lineRect.y), CGPoint(leftOffsetRect.frameRect.x,topOffsetRect.frameRect.y))
         }else{/*bottomRight*/
             let bottomOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.bottom))
