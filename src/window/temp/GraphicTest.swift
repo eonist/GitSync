@@ -14,7 +14,7 @@ class GraphicsTest:Graphic{
         self.height = height
         self.color = color
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
-        let offsetType:OffsetType = OffsetType()
+        let offsetType:OffsetType = OffsetType(OffsetType.center)
         /*
         offsetType.top = OffsetType.outside
         offsetType.bottom = OffsetType.center
@@ -120,9 +120,9 @@ private class Utils{
         let thickness:CGFloat = lineStyle.thickness
         if(offsetType == OffsetType(OffsetType.center)){/*Asserts if all props of the lineOffsetType is of the center type*/
             frameRect = rect.outset(thickness/2, thickness/2)/*frame*/
-            lineRect = CGRect(0,0,rect.width,rect.height) + CGPoint(thickness/2, thickness/2)
+            lineRect = rect.copy()//CGRect(0,0,rect.width,rect.height) + CGPoint(thickness/2, thickness/2)
         }else if(offsetType == OffsetType(OffsetType.inside)){/*inside*/
-            frameRect = rect/*frame*/
+            frameRect = rect.copy()/*frame*/
             lineRect = rect.inset(thickness/2, thickness/2)//CGRect(0,0,rect.width,rect.height).inset(thickness/2, thickness/2) /*line*/
         }else{/*outside*/
             frameRect = rect.outset(thickness, thickness) /*frame*/
