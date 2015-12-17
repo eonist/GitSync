@@ -68,7 +68,9 @@ private class RectGraphicUtil {
         print("bottomRight.frame: " + String(bottomRight.frame));
         print("bottomRight.line: " + String(bottomRight.line));
         let frameRect:CGRect = Converter.convert(topLeft.frame,bottomRight.frame)
-        let lineRect:CGRect = Converter.convert(topLeft.line,bottomRight.line)
+        let convertedTopLeftPoint = Converter.pointToSpace(topLeft.line,rect,frameRect)
+        let convertedBottomRightPoint = Converter.pointToSpace(bottomRight.line,rect,frameRect)
+        let lineRect:CGRect = Converter.convert(convertedTopLeftPoint,convertedBottomRightPoint)
         return (lineRect,frameRect)
     }
 }
