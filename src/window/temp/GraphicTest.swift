@@ -69,7 +69,9 @@ private class RectGraphicUtil {
         print("bottomRight.line: " + String(bottomRight.line));
         let frameRect:CGRect = Converter.convert(topLeft.frame,bottomRight.frame)
         let convertedTopLeftPoint = Converter.pointToSpace(topLeft.line,rect,frameRect)
+        Swift.print("convertedTopLeftPoint: " + "\(convertedTopLeftPoint)")
         let convertedBottomRightPoint = Converter.pointToSpace(bottomRight.line,rect,frameRect)
+        Swift.print("convertedBottomRightPoint: " + "\(convertedBottomRightPoint)")
         let lineRect:CGRect = Converter.convert(convertedTopLeftPoint,convertedBottomRightPoint)
         return (lineRect,frameRect)
     }
@@ -80,7 +82,8 @@ private class Converter{
      */
     class func pointToSpace(p:CGPoint, _ from:CGRect, _ to:CGRect)->CGPoint{
         let difference = PointParser.difference(to.topLeft,from.topLeft)
-        return difference
+        Swift.print("difference: " + "\(difference)")
+        return p + difference
     }
     
     /**
