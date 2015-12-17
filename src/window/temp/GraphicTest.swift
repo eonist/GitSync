@@ -22,17 +22,15 @@ class GraphicsTest:Graphic{
         //Swift.print("graphics: " + String(graphics.context))
         
         //a.masksToBounds = false
+        let a:Shape = fillShape//TempShape()
+        a.path = CGPathParser.rect(CGFloat(50/*/2*/),CGFloat(50/*/2*/))/*Draws in the local coordinate space of the shape*/
+        a.frame = CGRect(12,12,50,50);/*,position and set the size of the frame*/
+        
+        
+        a.display()
+        
     }
-    /*
-    override func displayLayer(layer: CALayer) {
-    //try
-    Swift.print("displayLayer")
-    }
-    */
-    /*
-    * Required by super class
-    */
-    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by super class*/
     func alignGraphic(graphic:Graphic){
         //graphic.frame.width
         //graphic.frame.height
