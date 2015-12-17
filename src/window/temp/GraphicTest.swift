@@ -53,12 +53,8 @@ class GraphicsTest:Graphic{
         //add support for positioning 
         //test with the tabbar example
         //move on
-        
     }
-    
-        
 }
-
 private class RectGraphicUtil {
     /**
      * Returns a Tuple with "frame and line rects" by offsetting @param rect with @param lineOffset
