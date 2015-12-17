@@ -122,7 +122,7 @@ private class Utils{
             lineRect = CGRect(0,0,rect.width,rect.height).inset(thickness/2, thickness/2) /*line*/
         }else{/*outside*/
             frameRect = rect.outset(thickness, thickness) /*frame*/
-            lineRect = CGRect(thickness/2,thickness/2,rect.width+thickness,rect.height+thickness)/*line, you expand the rect in the 0,0 coordinatespace*/
+            lineRect = CGRect(-thickness/2,-thickness/2,rect.width+thickness,rect.height+thickness)/*line, you expand the rect in the 0,0 coordinatespace*/
         }
         return (lineRect,frameRect)
     }

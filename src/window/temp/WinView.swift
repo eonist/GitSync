@@ -421,11 +421,15 @@ class WinView:FlippedView{
         //TODO: DO some research into stroking center with quartz and outside. Before restoring to your default method
         
         
+        /*
         let a = GraphicsTest(0,0,100,100)
         a.lineOffsetType = OffsetType(OffsetType.inside)
         self.addSubview(a)
+        */
         
-        
+        var r = CGRect(0,0,100,100)
+        r = r.outset(10,10)
+        Swift.print("r: " + "\(r)")
         
         //alignGraphic(a)
         
