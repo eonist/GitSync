@@ -20,7 +20,7 @@ class WinView:FlippedView{
     }
     func createContent(){
         
-        testLayerBackedElement()
+        //testLayerBackedElement()
         //testGraphic()
         
         
@@ -30,7 +30,7 @@ class WinView:FlippedView{
 
         //testInteractiveView()
         //testOverLappingNSViews()
-        //testCALayer()
+        testCALayer()
        
         //testDropShadow()
         //testOverlapping()
