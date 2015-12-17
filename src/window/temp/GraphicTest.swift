@@ -31,7 +31,7 @@ class GraphicsTest:Graphic{
         a.path = CGPathParser.rect(CGFloat(50/*/2*/),CGFloat(50/*/2*/))//Shapes
         //a.frame = CGRect(120,120,50,50);
         
-        layer?.addSublayer(a)
+        
         a.display()
         //a.masksToBounds = false
     }
