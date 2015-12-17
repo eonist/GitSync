@@ -73,7 +73,7 @@ class WinView:FlippedView{
         
         
         
-        
+        //continue here: think of a way to inject all your drawing code into lineShape and fillShape
         
         //1. get the outer shadow to work on the layer and the inner shadow to work on the fill only
         //2. start making other Elements
