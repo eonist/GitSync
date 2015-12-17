@@ -60,16 +60,16 @@ class GraphicsTest:Graphic{
         //test with the tabbar example
         //move on
         
-        
-        
+    }
+    
         
 }
 
-private class RectGraphicUtil{
+private class RectGraphicUtil {
     /**
      *
      */
-    func offsetRect(rect:CGRect, _ lineStyle:ILineStyle, _ offsetType:OffsetType)->(lineRect:CGRect, frameRect:CGRect) {
+    class func offsetRect(rect:CGRect, _ lineStyle:ILineStyle, _ offsetType:OffsetType)->(lineRect:CGRect, frameRect:CGRect) {
         var lineRect:CGRect = CGRect()
         var frameRect:CGRect = CGRect()
         //graphic.frame.width
@@ -93,21 +93,20 @@ private class RectGraphicUtil{
             /*path*/
             let offsetRect = CGRect(0,0,rect.width,rect.height).inset(thickness/2, thickness/2)
             Swift.print("offsetRect: " + "\(offsetRect)")
-            graphic.lineShape.path = offsetRect.path
+            lineRect = offsetRect
         }else{/*outside*/
             /*frame*/
             let frameOffsetRect = rect.outset(thickness, thickness)
             Swift.print("frameOffsetRect: " + "\(frameOffsetRect)")
-            graphic.lineShape.frame = frameOffsetRect
+            frameRect = frameOffsetRect
             /*path*/
             let lineOffsetRect = CGRect(thickness/2,thickness/2,rect.width+thickness,rect.height+thickness)/*you expand the rect in the 0,0 coordinatespace*/
             Swift.print("lineOffsetRect: " + "\(lineOffsetRect)")
             
-            graphic.lineShape.path = lineOffsetRect.path
+            lineRect = lineOffsetRect
         }
-    
         
-        return (CGRect(),CGRect())
+        
+        return (lineRect,frameRect)
     }
 }
-
