@@ -87,7 +87,8 @@ private class Utils{
         }else{/*bottomRight*/
             let bottomOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.bottom))
             let rightOffsetRect = offsetRect(rect, lineStyle, OffsetType(offsetType.right))
-            return (CGPoint(rightOffsetRect.lineRect.x,bottomOffsetRect.lineRect.y), bottomOffsetRect.frameRect.corner[Alignment.bottomRight])
+            bottomOffsetRect.frameRect[Alignment.bottomRight].distance(<#T##p: CGPoint##CGPoint#>)
+            return (CGPoint(rightOffsetRect.lineRect.x,bottomOffsetRect.lineRect.y), )
         }
     }
     /**
