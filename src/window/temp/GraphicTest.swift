@@ -55,24 +55,27 @@ class GraphicsTest:Graphic{
         let thickness:CGFloat = graphic.lineStyle!.thickness
         let rect:CGRect = graphic.fillShape.frame
         if(graphic.lineOffsetType == OffsetType(OffsetType.center)){/*Asserts if all props of the lineOffsetType is of the center type*/
+            /*frame*/
             let offsetRect = rect.outset(thickness/2, thickness/2)
             Swift.print("offsetRect: " + "\(offsetRect)")
             graphic.lineShape.frame = offsetRect
+            /*path*/
             graphic.lineShape.path = graphic.fillShape.path.copy()
-            
             graphic.lineShape.path = CGPathModifier.translate(&graphic.lineShape.path, thickness/2, thickness/2)/*move the path half the thickness left and down*/
             //graphic.lineShape.path = linePath//graphic.fillShape.path
-        }else if(graphic.lineOffsetType == OffsetType(OffsetType.inside)){
+        }else if(graphic.lineOffsetType == OffsetType(OffsetType.inside)){/*inside*/
+            /*frame*/
             graphic.lineShape.frame = graphic.fillShape.frame
+            /*path*/
             let offsetRect = CGRect(0,0,rect.width,rect.height).inset(thickness/2, thickness/2)
             Swift.print("offsetRect: " + "\(offsetRect)")
             graphic.lineShape.path = offsetRect.path
-        }else{//outside
-            
+        }else{/*outside*/
+            /*frame*/
             let frameOffsetRect = rect.outset(thickness, thickness)
             Swift.print("frameOffsetRect: " + "\(frameOffsetRect)")
             graphic.lineShape.frame = frameOffsetRect
-            /**/
+            /*path*/
             let lineOffsetRect = CGRect(thickness/2,thickness/2,rect.width+thickness,rect.height+thickness)/*you expand the rect in the 0,0 coordinatespace*/
             Swift.print("lineOffsetRect: " + "\(lineOffsetRect)")
             
