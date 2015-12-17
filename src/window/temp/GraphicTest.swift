@@ -65,17 +65,23 @@ private class RectGraphicUtil {
         let bottomRight = Utils.corner(rect, lineStyle,offsetType,Alignment.bottomRight);//cornerPoint(rect, Alignment.BOTTOM_RIGHT, offsetType.right, offsetType.bottom, lineStyle);
         print("bottomRight.frame: " + String(bottomRight.frame));
         print("bottomRight.line: " + String(bottomRight.line));
-        func convert(tl:CGPoint,_ br:CGPoint)->CGRect{
-            let x:CGFloat = tl.x;
-            let y:CGFloat = tl.y;
-            let width:CGFloat = br.x - tl.x;
-            let height:CGFloat = br.y - tl.y;
-            return CGRect(x, y, width, height);
-        }
-        let lineRect:CGRect = convert(topLeft.line,bottomRight.line)
-        let frameRect:CGRect = convert(topLeft.frame,bottomRight.frame)
+        let frameRect:CGRect = Converter.convert(topLeft.frame,bottomRight.frame)
+        let lineRect:CGRect = Converter.convert(topLeft.line,bottomRight.line)
         return (lineRect,frameRect)
     }
+}
+private class Converter{
+    /**
+     * Converts topLeft corner and topRight corner to a CGRect instance
+     */
+    class func convert(tl:CGPoint,_ br:CGPoint)->CGRect{
+        let x:CGFloat = tl.x;
+        let y:CGFloat = tl.y;
+        let width:CGFloat = br.x - tl.x;
+        let height:CGFloat = br.y - tl.y;
+        return CGRect(x, y, width, height);
+    }
+
 }
 private class Utils{
     /**
