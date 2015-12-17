@@ -50,6 +50,9 @@ class GraphicsTest:Graphic{
             let linePath = CGPathModifier.translate(&graphic.fillShape.path, thickness/2, thickness/2)
             graphic.lineShape.path = linePath
             
+        }else if(graphic.lineOffsetType == OffsetType(OffsetType.inside)){
+            let offsetRect = rect.inset(thickness/2, thickness/2)
+            Swift.print("offsetRect: " + "\(offsetRect)")
         }
     }
 }
