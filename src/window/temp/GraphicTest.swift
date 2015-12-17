@@ -72,6 +72,12 @@ private class RectGraphicUtil {
 }
 private class Converter{
     /**
+     *
+     */
+    class func convertSpace(from:CGRect, _ to:CGRect){
+        
+    }
+    /**
      * Converts topLeft corner and topRight corner to a CGRect instance
      */
     class func convert(tl:CGPoint,_ br:CGPoint)->CGRect{
@@ -81,7 +87,6 @@ private class Converter{
         let height:CGFloat = br.y - tl.y;
         return CGRect(x, y, width, height);
     }
-
 }
 private class Utils{
     /**
