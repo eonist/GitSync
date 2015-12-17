@@ -425,7 +425,8 @@ class WinView:FlippedView{
         let a = GraphicsTest(0,0,100,100)
         a.lineOffsetType = OffsetType(OffsetType.inside)
         self.addSubview(a)
-
+        
+        
         
         /*
         var r = CGRect(0,0,100,100)
