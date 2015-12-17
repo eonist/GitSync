@@ -71,18 +71,17 @@ private class RectGraphicUtil{
      */
     func offsetRect(rect:CGRect, _ lineStyle:ILineStyle, _ offsetType:OffsetType)->(lineRect:CGRect, frameRect:CGRect) {
         var lineRect:CGRect = CGRect()
-        var fillRect:CGRect = CGRect()
+        var frameRect:CGRect = CGRect()
         //graphic.frame.width
         //graphic.frame.height
         //graphic.lineOffsetType
         //graphic.lineStyle!.thickness
-        let thickness:CGFloat = graphic.lineStyle!.thickness
-        let rect:CGRect = graphic.fillShape.frame
+        let thickness:CGFloat = lineStyle.thickness
         if(offsetType == OffsetType(OffsetType.center)){/*Asserts if all props of the lineOffsetType is of the center type*/
             /*frame*/
             let offsetRect = rect.outset(thickness/2, thickness/2)
             Swift.print("offsetRect: " + "\(offsetRect)")
-            graphic.lineShape.frame = offsetRect
+            lineRect = offsetRect
             /*path*/
             graphic.lineShape.path = graphic.fillShape.path.copy()
             graphic.lineShape.path = CGPathModifier.translate(&graphic.lineShape.path, thickness/2, thickness/2)/*move the path half the thickness left and down*/
