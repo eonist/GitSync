@@ -72,8 +72,10 @@ private class RectGraphicUtil {
         Swift.print("convertedTopLeftPoint: " + "\(convertedTopLeftPoint)")
         let convertedBottomRightPoint = Converter.pointToSpace(bottomRight.line,rect,frameRect)
         Swift.print("convertedBottomRightPoint: " + "\(convertedBottomRightPoint)")
-        let lineRect:CGRect = Converter.convert(convertedTopLeftPoint,convertedBottomRightPoint)
-        Swift.print("lineRect: " + "\(lineRect)")
+        var lineRect:CGRect = Converter.convert(convertedTopLeftPoint,convertedBottomRightPoint)
+        Swift.print("lineRect: before" + "\(lineRect)")
+        lineRect -= topLeft.line
+        Swift.print("lineRect: after" + "\(lineRect)")
         return (lineRect,frameRect)
     }
 }
