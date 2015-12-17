@@ -51,7 +51,13 @@ class GraphicsTest:Graphic{
 }
 private class RectGraphicUtil {
     
-    class func offsetRect(rect:CGRect, _ lineStyle:ILineStyle, _ offsetType:OffsetType)->CGRect {
+    
+    
+    /**
+     * Returns a Tuple with "frame and line rects" by offsetting @param rect with @param lineOffset
+     * NOTE: works with different side offsetType (left,right,top,bottom)
+     */
+    class func offsetRect(rect:CGRect, _ lineStyle:ILineStyle, _ offsetType:OffsetType)->(lineRect:CGRect, frameRect:CGRect) {
         let topLeft = Utils.corner(rect, lineStyle,offsetType,Alignment.topLeft);//cornerPoint(rect, Alignment.TOP_LEFT, offsetType.left, offsetType.top, lineStyle);
         //print("topLeft: " + String(topLeft));
         let bottomRight = Utils.corner(rect, lineStyle,offsetType,Alignment.bottomRight);//cornerPoint(rect, Alignment.BOTTOM_RIGHT, offsetType.right, offsetType.bottom, lineStyle);
@@ -63,8 +69,9 @@ private class RectGraphicUtil {
             let height:CGFloat = br.y - tl.y;
             return CGRect(x, y, width, height);
         }
-        let lineRect:CGRect = convert()
-        return
+        let lineRect:CGRect = convert(topLeft.line,bottomRight.line)
+        let frameRect:CGRect = convert(topLeft.frame,bottomRight.frame)
+        return (lineRect,frameRect)
     }
     
 }
@@ -78,6 +85,7 @@ private class Utils{
     }
     /**
      * Returns a Tuple with "frame and line rects" by offsetting @param rect with @param lineOffset
+     * NOTE: only works when all sides are of the same offsetType
      */
     class func offsetRect(rect:CGRect, _ lineStyle:ILineStyle, _ offsetType:OffsetType)->(lineRect:CGRect, frameRect:CGRect) {
         var lineRect:CGRect = CGRect()
