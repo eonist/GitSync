@@ -7,14 +7,19 @@ class GraphicsTest:Graphic{
     var height:Int
     var color:NSColor
     var thePath:CGMutablePath
-    init(_ x:Int = 0, _ y:Int = 0,_ width:Int = 100, _ height:Int = 100, _ color:NSColor = NSColor.blueColor()) {
+    init(_ x:Int = 0, _ y:Int = 0,_ width:Int = 0, _ height:Int = 0, _ color:NSColor = NSColor.blueColor()) {
         self.x = x
         self.y = y
         self.width = width
         self.height = height
         self.color = color
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
-        super.init(FillStyle(NSColor.yellowColor().alpha(0.5)),LineStyle(20,NSColor.blueColor().alpha(0.5)),OffsetType(OffsetType.inside))
+        let offsetType:OffsetType = OffsetType()
+        offsetType.top = OffsetType.outside
+        offsetType.bottom = OffsetType.center
+        offsetType.left = OffsetType.center
+        offsetType.right = OffsetType.center
+        super.init(FillStyle(NSColor.yellowColor().alpha(0.5)),LineStyle(20,NSColor.blueColor().alpha(0.5)),offsetType)
         
         //frame = NSRect(x: x,y: y,width: width,height: height)
         //self.wantsLayer = true//this avoids calling drawLayer() and enables drawingRect()
@@ -23,7 +28,7 @@ class GraphicsTest:Graphic{
         
         //a.masksToBounds = false
         Swift.print("layer!.contentsScale: " + "\(layer!.contentsScale)")
-        let rect:CGRect = CGRect(50,50,100,100)
+        let rect:CGRect = CGRect(50,50,200,200)
         
         fillShape.path = CGRect(0,0,rect.width,rect.height).path/*Draws in the local coordinate space of the shape*/
         fillShape.frame = rect/*,position and set the size of the frame*/
