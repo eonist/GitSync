@@ -48,6 +48,8 @@ class GraphicsTest:Graphic{
             Swift.print("offsetRect: " + "\(offsetRect)")
             graphic.lineShape.frame = offsetRect
             
+            //graphic.lineShape.path =
+            
         }
     }
 }
