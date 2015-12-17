@@ -58,38 +58,11 @@ class WinView:FlippedView{
     }
     func testLayerBackedElement(){
         
-        //Coninue here: 
-        
-        //1. then make the BaseGraphic2 with a stroke and a fill CALayer's (we could use CAShapeLayer, but we need CGCOntext to get the gradientstroke and CAGradientLayer only supports linear gradient for now)
-        //2. get the outer shadow to work on the layer and the inner shadow to work on the fill only
-        //3. start making other Elements
-        
-        //a. Keep in mind that you need to support the new size scheme somehow. Circle and line etc. or maybe walk away from this?
-        //b. you need to somehow figure out a way to work with the stroke in the new frame-clipping scheme. Think this one through
-        
-        /*
-        
-        
-        //Take a look at the old code, is the stroke align straight forward?
-        //If it is then just implement this with the current Shape class. (offset of the frame in the lineShape etc)
-        //you need the Utils method that changes the lineshape position and frame according to LineOffsetParams
-        
-        //TODO: do some testing into a Graphic class that can dynamically increase the frame of the lineShape to fit its stroke, 
-        //TODO: it also needs to have Math.floor method that ensures that it handles the "half sizes" properly
-        //TODO: If you stroke a shape with 1px, it should reside inside, if you stroke it with 2px it shoud reside both outside and inside by 1px. etc, 3px, should be 1px inside 2 px outside. etc.
-        //TODO: tesst if the frame and the bounds are the same in Graphic
-        //TODO: you need to make a system that makes it possible to position and resize the Graphic's lineShape as if it was set to 0,0 (we are doing all this because we need to support gradient-line)
-        //TODO: do some CSS testing to see if you got it right or wrong
-        //TODO: fire up the old project and see if you got it right
-            //install java
-            //re-install FDT
-        //TODO: render the old shapes in retina
-        
-        
+       
         
         
 
-        */
+        
         
         let css = "Element{fill:blue;fill-alpha:1;line:orange;line-offset-type:center;line-thickness:1px;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
@@ -415,19 +388,45 @@ class WinView:FlippedView{
      *
      */
     func testGraphic(){
-        
-        
-        //NOTE: Quartz strokes center by default.
-        //TODO: DO some research into stroking center with quartz and outside. Before restoring to your default method
+        //continiue here, fire up the old project and take a look at the alignment/masking/offset algorithm, it may be usefull in the future aswell
         
         
         
+        
+        //1. then make the BaseGraphic2 with a stroke and a fill CALayer's (we could use CAShapeLayer, but we need CGCOntext to get the gradientstroke and CAGradientLayer only supports linear gradient for now)
+        //2. get the outer shadow to work on the layer and the inner shadow to work on the fill only
+        //3. start making other Elements
+        
+        //a. Keep in mind that you need to support the new size scheme somehow. Circle and line etc. or maybe walk away from this?
+        //b. you need to somehow figure out a way to work with the stroke in the new frame-clipping scheme. Think this one through
+        
+        
+        //Take a look at the old code, is the stroke align straight forward?
+        //If it is then just implement this with the current Shape class. (offset of the frame in the lineShape etc)
+        //you need the Utils method that changes the lineshape position and frame according to LineOffsetParams
+        
+        //TODO: do some testing into a Graphic class that can dynamically increase the frame of the lineShape to fit its stroke,
+        //TODO: it also needs to have Math.floor method that ensures that it handles the "half sizes" properly
+        //TODO: If you stroke a shape with 1px, it should reside inside, if you stroke it with 2px it shoud reside both outside and inside by 1px. etc, 3px, should be 1px inside 2 px outside. etc.
+        //TODO: tesst if the frame and the bounds are the same in Graphic
+        //TODO: you need to make a system that makes it possible to position and resize the Graphic's lineShape as if it was set to 0,0 (we are doing all this because we need to support gradient-line)
+        //TODO: do some CSS testing to see if you got it right or wrong
+        //TODO: fire up the old project and see if you got it right
+        //install java
+        //re-install FDT
+        //TODO: render the old shapes in retina
+        
+        
+        
+        
+
+
         let a = GraphicsTest(0,0,100,100)
         a.lineOffsetType = OffsetType(OffsetType.inside)
         self.addSubview(a)
-        
-        
-        
+
+
+
         /*
         var r = CGRect(0,0,100,100)
         r = r.outset(10,10)
