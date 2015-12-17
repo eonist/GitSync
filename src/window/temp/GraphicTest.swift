@@ -42,7 +42,7 @@ class GraphicsTest:Graphic{
         //graphic.lineStyle!.thickness
         let thickness:CGFloat = graphic.lineStyle!.thickness
         let rect:CGRect = graphic.fillShape.frame
-        if(graphic.lineOffsetType == OffsetType(OffsetType.inside)){/*Asserts if all props of the lineOffsetType is of the inside type*/
+        if(graphic.lineOffsetType == OffsetType(OffsetType.center)){/*Asserts if all props of the lineOffsetType is of the center type*/
             let offsetRect = rect.outset(thickness/2, thickness/2)
             
             Swift.print("offsetRect: " + "\(offsetRect)")
