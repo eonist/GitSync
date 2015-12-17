@@ -28,6 +28,10 @@ class GraphicsTest:Graphic{
         fillShape.display()
         //alignStroke(self)
         
+        
+        //fix the blurry edge problem with some research
+        
+        
         //draw the lineShape
         lineShape.path = CGPathParser.rect(CGFloat(100/*/2*/),CGFloat(100/*/2*/))/*Draws in the local coordinate space of the shape*/
         lineShape.frame = CGRect(0,0,100,100);/*,position and set the size of the frame*/
