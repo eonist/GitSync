@@ -21,7 +21,7 @@ class WinView:FlippedView{
     func createContent(){
         
         testLayerBackedElement()
-        
+        testGraphic()
         
         
         //Continue here:
@@ -45,7 +45,7 @@ class WinView:FlippedView{
         //testTextElement()
         //testRotation()
         //testSkin()
-        //testGraphic()
+        
     }
     func graphicsTest(){
         
@@ -67,9 +67,73 @@ class WinView:FlippedView{
         let element = Element(200,200,100,100)
         self.addSubview(element)
     }
-    /**
-     *
-     */
+    
+    func testGraphic(){
+        //continiue here,
+        
+        
+        
+        
+        
+        //1. get the outer shadow to work on the layer and the inner shadow to work on the fill only
+        //2. start making other Elements
+        
+        //a. Keep in mind that you need to support the new size scheme somehow. Circle and line etc. or maybe walk away from this?
+        //b. you need to somehow figure out a way to work with the stroke in the new frame-clipping scheme. Think this one through
+        
+        
+        //continue here:
+        
+        
+        //TODO:try to implement RoundRect aswell
+        //TODO:implement with Element
+        //TODO:test with a basic Element
+        //TODO:test Element with cornerRadius
+        //TODO:test TabBar
+        //TODO:test updating the graphic
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        let a = GraphicsTest()
+        self.addSubview(a)
+        
+        
+        
+        /*
+        var r = CGRect(0,0,100,100)
+        r = r.outset(10,10)
+        Swift.print("r: " + "\(r)")
+        
+        var a = CGRect(0,0,100,100)
+        
+        func pointToSpace(p:CGPoint, _ from:CGRect, _ to:CGRect)->CGPoint{
+        let difference = PointParser.difference(to.topLeft,from.topLeft)
+        return difference
+        }
+        let convertedPoint = pointToSpace(a.topLeft,a,r)
+        Swift.print("convertedPoint: " + "\(convertedPoint)")//should print 10,10
+        */
+        
+        
+        //alignGraphic(a)
+        
+        /*
+        let b = GraphicsTest(50,50,200,200,NSColor.purpleColor())
+        view.addSubview(b)
+        b.draw()
+        */
+        //b.clear()
+        
+        //continue here: it seems needsDisplay = true, isnt imidiate, using drawRect() seems to work better
+        //try to get this working with shape
+        
+    }
     func testInteractiveView(){
         let a = TempInteractiveView(frame:NSRect(50,50,100,100))
         a.name = "a"
@@ -381,76 +445,7 @@ class WinView:FlippedView{
         */
     }
     
-    /**
-     *
-     */
-    func testGraphic(){
-        //continiue here,
-        
-        
-        
-        
-        
-        //1. get the outer shadow to work on the layer and the inner shadow to work on the fill only
-        //2. start making other Elements
-        
-        //a. Keep in mind that you need to support the new size scheme somehow. Circle and line etc. or maybe walk away from this?
-        //b. you need to somehow figure out a way to work with the stroke in the new frame-clipping scheme. Think this one through
     
-        
-        //continue here:
-        
-        
-        //TODO:try to implement RoundRect aswell
-        //TODO:implement with Element
-        //TODO:test with a basic Element
-        //TODO:test Element with cornerRadius
-        //TODO:test TabBar
-        
-        
-        
-
-        
-        
-        
-        
-
-
-        let a = GraphicsTest(0,0,100,100)
-        a.lineOffsetType = OffsetType(OffsetType.inside)
-        self.addSubview(a)
-
-
-
-        /*
-        var r = CGRect(0,0,100,100)
-        r = r.outset(10,10)
-        Swift.print("r: " + "\(r)")
-        
-        var a = CGRect(0,0,100,100)
-        
-        func pointToSpace(p:CGPoint, _ from:CGRect, _ to:CGRect)->CGPoint{
-        let difference = PointParser.difference(to.topLeft,from.topLeft)
-        return difference
-        }
-        let convertedPoint = pointToSpace(a.topLeft,a,r)
-        Swift.print("convertedPoint: " + "\(convertedPoint)")//should print 10,10
-        */
-        
-        
-        //alignGraphic(a)
-        
-        /*
-        let b = GraphicsTest(50,50,200,200,NSColor.purpleColor())
-        view.addSubview(b)
-        b.draw()
-        */
-        //b.clear()
-        
-        //continue here: it seems needsDisplay = true, isnt imidiate, using drawRect() seems to work better
-        //try to get this working with shape
-        
-    }
     
 }
 class NotificationTest:NSView{
