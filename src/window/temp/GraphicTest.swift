@@ -14,7 +14,7 @@ class GraphicsTest:Graphic{
         self.height = height
         self.color = color
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
-        let offsetType:OffsetType = OffsetType(OffsetType.inside)
+        let offsetType:OffsetType = OffsetType(OffsetType.center)
         /*
         offsetType.top = OffsetType.outside
         offsetType.bottom = OffsetType.center
@@ -68,15 +68,16 @@ private class RectGraphicUtil {
         print("bottomRight.frame: " + String(bottomRight.frame));
         print("bottomRight.line: " + String(bottomRight.line));
         let frameRect:CGRect = Converter.convert(topLeft.frame,bottomRight.frame)
-        let convertedTopLeftPoint = Converter.pointToSpace(topLeft.line,rect,frameRect)
+        let lineRect:CGRect = Converter.convert(topLeft.line,bottomRight.line)
+        let convertedTopLeftPoint = Converter.pointToSpace(topLeft.line,lineRect,frameRect)
         Swift.print("convertedTopLeftPoint: " + "\(convertedTopLeftPoint)")
-        let convertedBottomRightPoint = Converter.pointToSpace(bottomRight.line,rect,frameRect)
+        let convertedBottomRightPoint = Converter.pointToSpace(bottomRight.line,lineRect,frameRect)
         Swift.print("convertedBottomRightPoint: " + "\(convertedBottomRightPoint)")
-        var lineRect:CGRect = Converter.convert(convertedTopLeftPoint,convertedBottomRightPoint)
-        Swift.print("lineRect: before" + "\(lineRect)")
-        lineRect -= topLeft.line
-        Swift.print("lineRect: after" + "\(lineRect)")
-        return (lineRect,frameRect)
+        var convertedLineRect:CGRect = Converter.convert(convertedTopLeftPoint,convertedBottomRightPoint)
+        Swift.print("lineRect: before" + "\(convertedLineRect)")
+        convertedLineRect -= topLeft.line
+        Swift.print("lineRect: after" + "\(convertedLineRect)")
+        return (convertedLineRect,frameRect)
     }
 }
 private class Converter{
