@@ -14,7 +14,7 @@ class GraphicsTest:Graphic{
         self.height = height
         self.color = color
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
-        super.init(FillStyle(NSColor.yellowColor().alpha(0.5)),LineStyle(20,NSColor.blueColor().alpha(0.5)),OffsetType(OffsetType.outside))
+        super.init(FillStyle(NSColor.yellowColor().alpha(0.5)),LineStyle(20,NSColor.blueColor().alpha(0.5)),OffsetType(OffsetType.center))
         
         //frame = NSRect(x: x,y: y,width: width,height: height)
         //self.wantsLayer = true//this avoids calling drawLayer() and enables drawingRect()
@@ -44,7 +44,7 @@ class GraphicsTest:Graphic{
     func alignStroke(graphic:Graphic){
         
         //continue here
-        //return a tuple with (frameRect and pathRect)
+            //return a tuple with (frameRect and pathRect)
         //Mimic the current RectUtil setup
         //support all the different left right top bottom etc. 
         //write a note that you can optimize by storing halfsizes etc
@@ -66,21 +66,10 @@ private class RectGraphicUtil {
     class func offsetRect(rect:CGRect, _ lineStyle:ILineStyle, _ offsetType:OffsetType)->(lineRect:CGRect, frameRect:CGRect) {
         var lineRect:CGRect = CGRect()
         var frameRect:CGRect = CGRect()
-        //graphic.frame.width
-        //graphic.frame.height
-        //graphic.lineOffsetType
-        //graphic.lineStyle!.thickness
         let thickness:CGFloat = lineStyle.thickness
         if(offsetType == OffsetType(OffsetType.center)){/*Asserts if all props of the lineOffsetType is of the center type*/
-            /*frame*/
-            let offsetRect = rect.outset(thickness/2, thickness/2)
-            frameRect = offsetRect
-            Swift.print("offsetRect: " + "\(offsetRect)")
+            frameRect = rect.outset(thickness/2, thickness/2)/*frame*/
             lineRect = CGRect(0,0,rect.width,rect.height)
-            /*path*/
-            //graphic.lineShape.path = graphic.fillShape.path.copy()
-            //graphic.lineShape.path = CGPathModifier.translate(&graphic.lineShape.path, thickness/2, thickness/2)/*move the path half the thickness left and down*/
-            //graphic.lineShape.path = linePath//graphic.fillShape.path
             lineRect += CGPoint(thickness/2, thickness/2)
             Swift.print("lineRect: " + "\(lineRect)")
         }else if(offsetType == OffsetType(OffsetType.inside)){/*inside*/
