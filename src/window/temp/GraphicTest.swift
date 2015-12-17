@@ -87,9 +87,9 @@ private class RectGraphicUtil{
             //graphic.lineShape.path = CGPathModifier.translate(&graphic.lineShape.path, thickness/2, thickness/2)/*move the path half the thickness left and down*/
             //graphic.lineShape.path = linePath//graphic.fillShape.path
             lineRect += CGPoint(thickness/2, thickness/2)
-        }else if(graphic.lineOffsetType == OffsetType(OffsetType.inside)){/*inside*/
+        }else if(offsetType == OffsetType(OffsetType.inside)){/*inside*/
             /*frame*/
-            graphic.lineShape.frame = graphic.fillShape.frame
+            frameRect = rect
             /*path*/
             let offsetRect = CGRect(0,0,rect.width,rect.height).inset(thickness/2, thickness/2)
             Swift.print("offsetRect: " + "\(offsetRect)")
