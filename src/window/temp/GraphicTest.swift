@@ -32,7 +32,7 @@ class GraphicsTest:Graphic{
         
         //a.masksToBounds = false
         
-        let rect:CGRect = CGRect(00,00,200,200)
+        let rect:CGRect = CGRect(100,100,200,200)
         
         fillShape.path = CGRect(0,0,rect.width,rect.height).path/*Draws in the local coordinate space of the shape*/
         fillShape.frame = rect/*,position and set the size of the frame*/

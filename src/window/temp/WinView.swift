@@ -19,9 +19,9 @@ class WinView:FlippedView{
         //graphicsTest()
     }
     func createContent(){
-        //testBorderAligment()
+        testBorderAligment()
         //testLayerBackedElement()
-        testGraphic()
+        //testGraphic()
         
         
         //Continue here:
@@ -45,6 +45,9 @@ class WinView:FlippedView{
         //testTextElement()
         //testRotation()
         //testSkin()
+        
+    }
+    func testBorderAligment(){
         
     }
     func graphicsTest(){
