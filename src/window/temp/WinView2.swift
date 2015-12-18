@@ -22,5 +22,8 @@ class WinView2:FlippedView{
     func testGraphic(){
         let a = TempGraphic()
         self.addSubview(a)
+        
+        let rect = CGRect(0,0,100,100)
+        
     }
 }
