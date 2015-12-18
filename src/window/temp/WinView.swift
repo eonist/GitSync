@@ -19,7 +19,7 @@ class WinView:FlippedView{
         //graphicsTest()
     }
     func createContent(){
-        testBorderAligment()
+        
         //testLayerBackedElement()
         //testGraphic()
         
@@ -47,9 +47,7 @@ class WinView:FlippedView{
         //testSkin()
         
     }
-    func testBorderAligment(){
-        
-    }
+
     func graphicsTest(){
         
         var thePath = CGPathParser.rect(100,100)//Shapes
