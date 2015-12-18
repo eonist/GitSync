@@ -19,9 +19,9 @@ class WinView:FlippedView{
         //graphicsTest()
     }
     func createContent(){
-        testBorderAligment()
+        //testBorderAligment()
         //testLayerBackedElement()
-        //testGraphic()
+        testGraphic()
         
         
         //Continue here:
@@ -69,25 +69,7 @@ class WinView:FlippedView{
     }
     
     func testGraphic(){
-        //continiue here,
-        
-        
-        
-        //continue here: think of a way to inject all your drawing code into lineShape and fillShape
-        
-        //1. get the outer shadow to work on the layer and the inner shadow to work on the fill only
-        //2. start making other Elements
-        
-        //a. Keep in mind that you need to support the new size scheme somehow. Circle and line etc. or maybe walk away from this?
-        //b. you need to somehow figure out a way to work with the stroke in the new frame-clipping scheme. Think this one through
-        
-        
-        //continue here:
-        
-        
-        
 
-        
         
         
         let a = GraphicsTest()
