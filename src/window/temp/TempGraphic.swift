@@ -38,9 +38,9 @@ class TempGraphic:Graphic{
         fillShape.frame = rect/*,position and set the size of the frame*/
         fillShape.display()/*draw the fileShape*/
         //alignStroke(self)
-        let offsetRects = RectGraphicUtil.offsetRect(fillShape.frame, lineShape.lineStyle!, lineOffsetType)
-        lineShape.frame = offsetRects.frameRect
-        lineShape.path = offsetRects.lineRect.path
+        let lineOffsetRect = RectGraphicUtil.lineOffsetRect(fillShape.frame, lineShape.lineStyle!, lineOffsetType)
+        
+        lineShape.path = lineOffsetRect.path
         lineShape.display()/*draw the lineShape*/
         
         
