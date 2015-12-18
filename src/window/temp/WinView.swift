@@ -19,7 +19,7 @@ class WinView:FlippedView{
         //graphicsTest()
     }
     func createContent(){
-        
+        testBorderAligment()
         //testLayerBackedElement()
         //testGraphic()
         
@@ -30,7 +30,7 @@ class WinView:FlippedView{
 
         //testInteractiveView()
         //testOverLappingNSViews()
-        testCALayer()
+        //testCALayer()
        
         //testDropShadow()
         //testOverlapping()
@@ -85,18 +85,8 @@ class WinView:FlippedView{
         //continue here:
         
         
-        //TODO:try to implement RoundRect aswell
-        //TODO:implement with Element
-        //TODO:test with a basic Element
-        //TODO:test Element with cornerRadius
-        //TODO:test TabBar
-        //TODO:test updating the graphic
         
-        
-        
-        
-        
-        
+
         
         
         
