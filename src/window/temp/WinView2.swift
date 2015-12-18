@@ -23,7 +23,7 @@ class WinView2:FlippedView{
         let a = TempGraphic()
         self.addSubview(a)
         
-        let rect = CGRect(0,0,100,100)
+        //let rect = CGRect(0,0,100,100)
         
     }
 }
