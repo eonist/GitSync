@@ -69,44 +69,7 @@ class WinView:FlippedView{
         self.addSubview(element)
     }
     
-    func testGraphic(){
-
-        
-        
-        let a = GraphicsTest()
-        self.addSubview(a)
-        
-        
-        
-        /*
-        var r = CGRect(0,0,100,100)
-        r = r.outset(10,10)
-        Swift.print("r: " + "\(r)")
-        
-        var a = CGRect(0,0,100,100)
-        
-        func pointToSpace(p:CGPoint, _ from:CGRect, _ to:CGRect)->CGPoint{
-        let difference = PointParser.difference(to.topLeft,from.topLeft)
-        return difference
-        }
-        let convertedPoint = pointToSpace(a.topLeft,a,r)
-        Swift.print("convertedPoint: " + "\(convertedPoint)")//should print 10,10
-        */
-        
-        
-        //alignGraphic(a)
-        
-        /*
-        let b = GraphicsTest(50,50,200,200,NSColor.purpleColor())
-        view.addSubview(b)
-        b.draw()
-        */
-        //b.clear()
-        
-        //continue here: it seems needsDisplay = true, isnt imidiate, using drawRect() seems to work better
-        //try to get this working with shape
-        
-    }
+    
     func testInteractiveView(){
         let a = TempInteractiveView(frame:NSRect(50,50,100,100))
         a.name = "a"

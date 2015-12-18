@@ -19,7 +19,8 @@ class WinView2:FlippedView{
         //graphicsTest()
     }
     func createContent(){
-        testBorderAligment()
+        //testBorderAligment()
+        testGraphic()
     }
     func testBorderAligment(){
         let css = "Element{fill:orange;fill-alpha:0.5;line:blue;line-alpha:0.5;line-offset-type:center;line-thickness:20px;}"
@@ -27,6 +28,9 @@ class WinView2:FlippedView{
         StyleManager.addStyle(styleCollection.styles)
         let element = Element(00,00,100,100)
         self.addSubview(element)
-
+    }
+    func testGraphic(){
+        let a = GraphicsTest()
+        self.addSubview(a)
     }
 }
