@@ -45,7 +45,7 @@ class TempGraphic:Graphic{
         lineShape.display()/*draw the lineShape*/
         
         
-        
+        frame = NSRect(0,0,50,50)
      
         
     }
