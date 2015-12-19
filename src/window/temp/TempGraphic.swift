@@ -16,12 +16,12 @@ class TempGraphic:Graphic{
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
         let offsetType:OffsetType = OffsetType(OffsetType.outside)
         
-        /*
+        
         offsetType.top = OffsetType.outside
         offsetType.bottom = OffsetType.outside
         offsetType.left = OffsetType.inside
-        offsetType.right = OffsetType.outside
-        */
+        offsetType.right = OffsetType.inside
+        /**/
         /**/
         super.init(FillStyle(NSColor.yellowColor().alpha(0.5)),LineStyle(20,NSColor.blueColor().alpha(0.5)),offsetType)
         
