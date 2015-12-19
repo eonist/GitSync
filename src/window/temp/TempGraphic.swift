@@ -56,7 +56,8 @@ class TempGraphic:Graphic{
         
         
         //continue here: you need to not using context untill you have to or forget about CALAyer for now and just use DrawRect in skin like before.
-        
+        //or wait drawing until context is ready like the initialize method.
+        //experiment with the needupdate and need layout etc. figure this out.
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by super class*/
 }
