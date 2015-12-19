@@ -45,8 +45,8 @@ class TempGraphic:Graphic{
         lineShape.display()/*draw the lineShape*/
         
         
-        frame = NSRect(0,0,50,50)
-     
+        //frame = NSRect(50,50,50,50)
+        
         
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by super class*/
