@@ -50,9 +50,8 @@ class TempGraphic:Graphic{
         
         
         
-        //continue here: implement the lineRect
-        
-        
+        fillShape.graphics.fill(fillStyle!.color)//Stylize the fill
+        lineShape.graphics.line(lineStyle!.thickness,lineStyle!.color/*,lineStyle!.lineCap, lineStyle!.lineJoin, lineStyle!.miterLimit*/)//Stylize the line
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by super class*/
 }
