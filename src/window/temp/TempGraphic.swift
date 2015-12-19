@@ -40,14 +40,14 @@ class TempGraphic:Graphic{
         fillShape.display()/*draw the fileShape*/
         //alignStroke(self)
         
-        Swift.print("offsetRect.fillRect: " + "\(offsetRect.fillRect)")
-        Swift.print("offsetRect.lineFrameRect: " + "\(offsetRect.lineFrameRect)")
+        //Swift.print("offsetRect.fillRect: " + "\(offsetRect.fillRect)")
+        //Swift.print("offsetRect.lineFrameRect: " + "\(offsetRect.lineFrameRect)")
         Swift.print("offsetRect.lineRect: " + "\(offsetRect.lineRect)")
-        /*
-        lineShape.frame = offsetRect.lineFrameRect
+        
+        lineShape.frame = NSRect(0,0,400,400)//offsetRect.lineFrameRect
         lineShape.path = offsetRect.lineRect.path
         lineShape.display()/*draw the lineShape*/
-        */
+        
         
         
         //continue here: implement the lineRect
