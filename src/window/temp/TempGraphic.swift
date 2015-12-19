@@ -41,6 +41,7 @@ class TempGraphic:Graphic{
         let lineOffsetRect = RectGraphicUtil.lineOffsetRect(fillShape.frame, lineShape.lineStyle!, lineOffsetType)
         Swift.print("lineOffsetRect: " + "\(lineOffsetRect)")
         lineShape.path = lineOffsetRect.path
+        lineShape.frame = rect
         lineShape.display()/*draw the lineShape*/
         
         
