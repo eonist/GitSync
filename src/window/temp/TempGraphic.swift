@@ -41,9 +41,9 @@ class TempGraphic:Graphic{
         //alignStroke(self)
         
         Swift.print("offsetRect.fillRect: " + "\(offsetRect.fillRect)")
-        Swift.print("offsetRect.frameRect: " + "\(offsetRect.frameRect)")
+        Swift.print("offsetRect.frameRect: " + "\(offsetRect.lineFrameRect)")
         Swift.print("offsetRect.lineRect: " + "\(offsetRect.lineRect)")
-        lineShape.frame = offsetRect.frameRect
+        lineShape.frame = offsetRect.lineFrameRect
         lineShape.path = offsetRect.lineRect.path
         lineShape.display()/*draw the lineShape*/
         
