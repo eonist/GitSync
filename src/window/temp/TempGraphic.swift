@@ -50,7 +50,7 @@ class TempGraphic:Graphic{
         */
         
         
-        //continue here: implement the lineFrameRect
+        //continue here: implement the lineRect
         
         
     }
