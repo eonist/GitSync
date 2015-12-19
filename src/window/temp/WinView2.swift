@@ -38,5 +38,7 @@ class WinView2:FlippedView{
         //b.layer!.masksToBounds = false
         /**/
         
+        let c = DelGraphic()
+        addSubView(c)
     }
 }
