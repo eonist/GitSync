@@ -14,7 +14,7 @@ class TempGraphic:Graphic{
         self.height = height
         self.color = color
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
-        let offsetType:OffsetType = OffsetType(OffsetType.inside)
+        let offsetType:OffsetType = OffsetType(OffsetType.outside)
         
         /*
         offsetType.top = OffsetType.inside
@@ -46,7 +46,7 @@ class TempGraphic:Graphic{
         lineShape.display()/*draw the lineShape*/
         
         
-        //frame = NSRect(50,50,50,50)
+        //continue here: it works, now implement support for individual side ofssettypes similarly to before
         
         
     }
