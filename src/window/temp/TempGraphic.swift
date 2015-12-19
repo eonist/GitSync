@@ -52,7 +52,7 @@ class TempGraphic:Graphic{
         
         
         
-        fillShape.graphics.fill(fillStyle.color)//Stylize the fill
+        Swift.print("fillStyle.color: " + "\(fillStyle.color)")
         lineShape.graphics.line(lineStyle.thickness,lineStyle.color/*,lineStyle!.lineCap, lineStyle!.lineJoin, lineStyle!.miterLimit*/)//Stylize the line
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by super class*/
