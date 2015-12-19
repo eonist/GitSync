@@ -14,7 +14,7 @@ class TempGraphic:Graphic{
         self.height = height
         self.color = color
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
-        let offsetType:OffsetType = OffsetType(OffsetType.center)
+        let offsetType:OffsetType = OffsetType(OffsetType.outside)
         
         /*
         offsetType.top = OffsetType.inside
@@ -45,15 +45,7 @@ class TempGraphic:Graphic{
         
         
         
-        //continue here
-        //return a tuple with (frameRect and pathRect)
-        //Mimic the current RectUtil setup
-        //support all the different left right top bottom etc.
-        //test in the current element framework with a simple shape
-        //the move on to do the same to round rect and circle and ellipse
-        //add support for positioning
-        //test with the tabbar example
-        //move on
+     
         
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by super class*/
