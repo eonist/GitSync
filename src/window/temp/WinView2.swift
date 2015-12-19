@@ -31,8 +31,9 @@ class WinView2:FlippedView{
         //let rect = CGRect(0,0,100,100)
         let b = TempGraphic()
         a.addSubview(b)
-        a.layer!.masksToBounds = false
+        
         b.frame.origin = (NSPoint(-50,50))
         b.layer!.masksToBounds = false
+        Swift.print("a.layer!.masksToBounds: " + "\(a.layer!.masksToBounds)")
     }
 }
