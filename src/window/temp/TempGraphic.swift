@@ -50,7 +50,7 @@ class TempGraphic:Graphic{
         lineShape.frame = offsetRect.lineFrameRect
         lineShape.path = offsetRect.lineRect.path
         lineShape.display()/*draw the lineShape*/
-        
+        lineShape.
         
         
         Swift.print("fillStyle.color: " + "\(fillStyle.color)")
