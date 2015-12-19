@@ -21,9 +21,11 @@ class TempGraphic:Graphic{
         offsetType.bottom = OffsetType.inside
         offsetType.left = OffsetType.outside
         offsetType.right = OffsetType.inside
+        let fillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
+        let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
         /**/
         /**/
-        super.init(FillStyle(NSColor.yellowColor().alpha(0.5)),LineStyle(20,NSColor.blueColor().alpha(0.5)),offsetType)
+        super.init(fillStyle,lineStyle,offsetType)
         
         //frame = NSRect(x: x,y: y,width: width,height: height)
         //self.wantsLayer = true//this avoids calling drawLayer() and enables drawingRect()
@@ -50,8 +52,8 @@ class TempGraphic:Graphic{
         
         
         
-        fillShape.graphics.fill(fillStyle!.color)//Stylize the fill
-        lineShape.graphics.line(lineStyle!.thickness,lineStyle!.color/*,lineStyle!.lineCap, lineStyle!.lineJoin, lineStyle!.miterLimit*/)//Stylize the line
+        fillShape.graphics.fill(fillStyle.color)//Stylize the fill
+        lineShape.graphics.line(lineStyle.thickness,lineStyle.color/*,lineStyle!.lineCap, lineStyle!.lineJoin, lineStyle!.miterLimit*/)//Stylize the line
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by super class*/
 }
