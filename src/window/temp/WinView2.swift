@@ -41,7 +41,9 @@ class WinView2:FlippedView{
         let c = DelGraphic(frame: NSRect(-20,-20,100,100))
         a.addSubview(c)
         
-        
-        
+        let textField = NSText(frame: NSRect(x: -50, y: 0, width: 200, height: 200))//set w and h to 0
+        textField.string = "Testing"
+        textField.backgroundColor = NSColor.clearColor()
+        a.addSubview(textField)
     }
 }
