@@ -17,7 +17,7 @@ class TempGraphic:Graphic{
         let offsetType:OffsetType = OffsetType(OffsetType.outside)
         
         
-        offsetType.top = OffsetType.outside
+        offsetType.top = OffsetType.inside
         offsetType.bottom = OffsetType.outside
         offsetType.left = OffsetType.inside
         offsetType.right = OffsetType.inside
