@@ -50,7 +50,7 @@ class TempGraphic:Graphic{
         */
         
         
-        //continue here: it works, now implement support for individual side ofssettypes similarly to before
+        //continue here: implement the lineFrameRect
         
         
     }
