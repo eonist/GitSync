@@ -44,7 +44,7 @@ class TempGraphic:Graphic{
         //alignStroke(self)
         
         //Swift.print("offsetRect.fillRect: " + "\(offsetRect.fillRect)")
-        Swift.print("offsetRect.lineFrameRect: " + "\(offsetRect.lineFrameRect)")
+        //Swift.print("offsetRect.lineFrameRect: " + "\(offsetRect.lineFrameRect)")
         //Swift.print("offsetRect.lineRect: " + "\(offsetRect.lineRect)")
         
         lineShape.frame = offsetRect.lineFrameRect
@@ -53,7 +53,7 @@ class TempGraphic:Graphic{
         
         
         
-        Swift.print("fillStyle.color: " + "\(fillStyle.color)")
+        //Swift.print("fillStyle.color: " + "\(fillStyle.color)")
         
         
         //continue here: you need to not using context untill you have to or forget about CALAyer for now and just use DrawRect in skin like before.
