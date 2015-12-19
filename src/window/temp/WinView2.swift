@@ -21,7 +21,8 @@ class WinView2:FlippedView{
     }
     func testGraphic(){
         let a = TempGraphic()
-        //a.frame = NSRect(0,0,100,100)
+        a.setFrameOrigin(NSPoint(100,100))
+        //a.layer!.masksToBounds = false
         Swift.print("a.frame: " + "\(a.frame)")
         Swift.print("a.layer?.frame: " + "\(a.layer?.frame)")
         self.addSubview(a)
