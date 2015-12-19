@@ -32,7 +32,7 @@ class TempGraphic:Graphic{
         
         //a.masksToBounds = false
         
-        let rect:CGRect = CGRect(0,0,200,200)
+        let rect:CGRect = CGRect(0,0,200,200)//these values will be derived from somewhere else in the future
         
         fillShape.path = CGRect(0,0,rect.width,rect.height).path/*Draws in the local coordinate space of the shape*/
         fillShape.frame = rect/*,position and set the size of the frame*/
