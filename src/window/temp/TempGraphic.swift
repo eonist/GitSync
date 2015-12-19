@@ -16,12 +16,12 @@ class TempGraphic:Graphic{
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
         let offsetType:OffsetType = OffsetType(OffsetType.outside)
         
-        
+        /*
         offsetType.top = OffsetType.inside
-        offsetType.bottom = OffsetType.outside
+        offsetType.bottom = OffsetType.inside
         offsetType.left = OffsetType.inside
         offsetType.right = OffsetType.inside
-        /**/
+        */
         /**/
         super.init(FillStyle(NSColor.yellowColor().alpha(0.5)),LineStyle(20,NSColor.blueColor().alpha(0.5)),offsetType)
         
@@ -41,10 +41,10 @@ class TempGraphic:Graphic{
         //alignStroke(self)
         
         //Swift.print("offsetRect.fillRect: " + "\(offsetRect.fillRect)")
-        //Swift.print("offsetRect.lineFrameRect: " + "\(offsetRect.lineFrameRect)")
-        Swift.print("offsetRect.lineRect: " + "\(offsetRect.lineRect)")
+        Swift.print("offsetRect.lineFrameRect: " + "\(offsetRect.lineFrameRect)")
+        //Swift.print("offsetRect.lineRect: " + "\(offsetRect.lineRect)")
         
-        lineShape.frame = NSRect(0,0,400,400)//offsetRect.lineFrameRect
+        lineShape.frame = offsetRect.lineFrameRect
         lineShape.path = offsetRect.lineRect.path
         lineShape.display()/*draw the lineShape*/
         
