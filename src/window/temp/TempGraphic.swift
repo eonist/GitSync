@@ -14,7 +14,7 @@ class TempGraphic:Graphic{
         self.height = height
         self.color = color
         self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
-        let offsetType:OffsetType = OffsetType(OffsetType.outside)
+        let offsetType:OffsetType = OffsetType(OffsetType.inside)
         
         /*
         offsetType.top = OffsetType.inside
@@ -34,15 +34,15 @@ class TempGraphic:Graphic{
         
         let rect:CGRect = CGRect(0,0,200,200)//these values will be derived from somewhere else in the future
         
-        let offsetRect = RectGraphicUtils2.offsetRect2(rect, lineShape.lineStyle!, lineOffsetType)
-        fillShape.frame = offsetRect.fill/*,position and set the size of the frame*/
+        let offsetRect = RectGraphicUtils2.offsetRect(rect, lineShape.lineStyle!, lineOffsetType)
+        fillShape.frame = offsetRect.fillRect/*,position and set the size of the frame*/
         fillShape.path = CGRect(0,0,rect.width,rect.height).path/*Draws in the local coordinate space of the shape*/
         fillShape.display()/*draw the fileShape*/
         //alignStroke(self)
         
         Swift.print("offsetRect: " + "\(offsetRect)")
-        lineShape.frame = offsetRect.frame
-        lineShape.path = offsetRect.line.path
+        lineShape.frame = offsetRect.frameRect
+        lineShape.path = offsetRect.lineRect.path
         lineShape.display()/*draw the lineShape*/
         
         
