@@ -34,9 +34,11 @@ class TempRoundRect:Graphic {
         Swift.print("offsetRect.lineFrameRect: " + "\(offsetRect.lineFrameRect)")
         Swift.print("offsetRect.lineRect: " + "\(offsetRect.lineRect)")
         */
+        let lineFillet:Fillet = FilletParser.config(fillet, lineOffsetType, lineStyle);
+        let linePath = CGPathParser.roundRect(lineOffsetRect.lineRect.x,lineOffsetRect.lineRect.y,lineOffsetRect.lineRect.width,lineOffsetRect.lineRect.height,lineFillet.topLeft, lineFillet.topRight, lineFillet.bottomLeft, lineFillet.bottomRight)
         
         lineShape.frame = lineOffsetRect.lineFrameRect
-        lineShape.path = lineOffsetRect.lineRect.path
+        lineShape.path = linePath//lineOffsetRect.lineRect.path
         lineShape.display()/*draw the lineShape*/
         
         //layer!.display()
