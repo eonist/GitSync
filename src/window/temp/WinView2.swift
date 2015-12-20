@@ -17,11 +17,14 @@ class WinView2:FlippedView{
     }
     func createContent(){
         
+        //continue here:
         
         //test gradient
         //test button with skin change
         //test tab bar example with perfect css
-        //
+        //implement the outer shadow on the Graphic it self.
+        //try to implement radial gradient as it was in the original concept
+        //make the 
         
         //testTempRoundRect()
         
