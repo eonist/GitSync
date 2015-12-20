@@ -7,17 +7,17 @@ class GraphicShapeTest:View {
         //cricleTest()
     }
     func rectTest(){
-        let rect = RectGraphic(300,300)
+        //let rect = RectGraphic(300,300)
         //line.setPosition(CGPoint(150,150))
-        rect.initialize()
+        //rect.initialize()
     }
     func lineTest(){
-        let line = LineGraphic(CGPoint(20,20),CGPoint(50,50))
+        //let line = LineGraphic(CGPoint(20,20),CGPoint(50,50))
         //line.setPosition(CGPoint(150,150))
-        line.initialize()
+        //line.initialize()
     }
     func cricleTest(){
-        let circle = CircleGraphic(10)
-        circle.initialize()
+        //let circle = CircleGraphic(10)
+        //circle.initialize()
     }
 }
