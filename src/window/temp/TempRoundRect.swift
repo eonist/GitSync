@@ -13,15 +13,19 @@ class TempRoundRect:Graphic {
         let fillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
         let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
         super.init(fillStyle,lineStyle,offsetType)
-        let width = 200
-        let height = 200
+        let x:CGFloat = 0
+        let y:CGFloat = 0
+        let width:CGFloat = 200
+        let height:CGFloat = 200
+        let fillet = Fillet(CGFloat(20))
         let rect:CGRect = CGRect(x: 0,y: 0,width: width,height: height)//these values will be derived from somewhere else in the future
         
         let fillOffsetRect = RectGraphicUtils2.fillOffsetRect(rect, self.lineStyle!, lineOffsetType)
         let lineOffsetRect = RectGraphicUtils2.lineOffsetRect(rect, self.lineStyle!, lineOffsetType)
         
         fillShape.frame = fillOffsetRect/*,position and set the size of the frame*/
-        fillShape.path = CGRect(0,0,rect.width,rect.height).path/*Draws in the local coordinate space of the shape*/
+        let path = CGPathParser.roundRect(x,y,width,height,fillet.topLeft, fillet.topRight, fillet.bottomLeft, fillet.bottomRight)//Shapes
+        fillShape.path = path/*Draws in the local coordinate space of the shape*/
         fillShape.display()/*draw the fileShape*/
         //alignStroke(self)
         
