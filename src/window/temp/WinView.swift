@@ -20,7 +20,7 @@ class WinView:FlippedView{
     }
     func createContent(){
         
-        testLayerBackedElement()
+        
         //testGraphic()
         
         
@@ -57,14 +57,7 @@ class WinView:FlippedView{
         graphics.fill(NSColor.orangeColor().alpha(0.5))//Stylize the fill
         graphics.draw(thePath)//draw everything
     }
-    func testLayerBackedElement(){
-        
-        let css = "Element{fill:orange;fill-alpha:0.5;line:blue;line-alpha:0.5;line-offset-type:center;line-thickness:20px;}"
-        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
-        StyleManager.addStyle(styleCollection.styles)
-        let element = Element(200,200,100,100)
-        self.addSubview(element)
-    }
+    
     
     
     func testInteractiveView(){
