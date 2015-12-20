@@ -33,7 +33,6 @@ class TempGraphic:Graphic{
         
         let rect:CGRect = CGRect(x: 0,y: 0,width: width,height: height)//these values will be derived from somewhere else in the future
         
-        //continue adding offset support
         
         let offsetRect = RectGraphicUtils2.offsetRect(rect, self.lineStyle!, lineOffsetType)
         fillShape.frame = offsetRect.fillFrameRect/*,position and set the size of the frame*/
@@ -41,9 +40,11 @@ class TempGraphic:Graphic{
         fillShape.display()/*draw the fileShape*/
         //alignStroke(self)
         
+        /*
         Swift.print("offsetRect.fillFrameRect: " + "\(offsetRect.fillFrameRect)")
         Swift.print("offsetRect.lineFrameRect: " + "\(offsetRect.lineFrameRect)")
         Swift.print("offsetRect.lineRect: " + "\(offsetRect.lineRect)")
+        */
         
         lineShape.frame = offsetRect.lineFrameRect
         lineShape.path = offsetRect.lineRect.path
