@@ -54,7 +54,34 @@ class TempGraphic:Graphic{
         //layer!.display()
         
         //Swift.print("fillStyle.color: " + "\(fillStyle.color)")
-        
+        lineShape.delegate = self
+        fillShape.delegate = self
+    }
+    /**
+     * This is a delegate handler method
+     */
+    override func drawLayer(layer: CALayer, inContext ctx: CGContext) {
+        Swift.print("Graphic.drawLayer(layer,inContext)")
+        if(layer === fillShape){
+            Swift.print("fillShape")
+            fillShape.graphics.context = ctx
+            
+            //TODO:you only need to call the draw method from here, the fill setting etc can be done in the decoratable classes
+            
+            fillShape.graphics.fill(fillStyle!.color)//Stylize the fill
+            //Swift.print("inside drawInContext")
+            fillShape.graphics.draw(fillShape.path)//draw everything
+            
+        }else if(layer === lineShape){
+            Swift.print("lineShape")
+            lineShape.graphics.context = ctx
+            
+            //TODO:you only need to call the draw method from here, the line setting etc can be done in the decoratable classes
+            
+            lineShape.graphics.line(lineStyle!.thickness,lineStyle!.color/*,lineStyle!.lineCap, lineStyle!.lineJoin, lineStyle!.miterLimit*/)//Stylize the line
+            lineShape.graphics.draw(lineShape.path)//draw everything
+            
+        }
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by super class*/
 }
