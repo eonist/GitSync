@@ -41,6 +41,7 @@ class WinView2:FlippedView{
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let button = Button(200,200,20,20)
+        button.skin?.decoratable.graphic.fillShape.display()
         //button.setPosition(CGPoint(120,120))
         self.addSubview(button)
     }
