@@ -31,17 +31,17 @@ class TempGraphic:Graphic{
         
         //a.masksToBounds = false
         
-        let rect:CGRect = CGRect(x: 150,y: 150,width: width,height: height)//these values will be derived from somewhere else in the future
+        let rect:CGRect = CGRect(x: 0,y: 0,width: width,height: height)//these values will be derived from somewhere else in the future
         
         //continue adding offset support
         
         let offsetRect = RectGraphicUtils2.offsetRect(rect, self.lineStyle!, lineOffsetType)
-        fillShape.frame = offsetRect.fillRect/*,position and set the size of the frame*/
+        fillShape.frame = offsetRect.fillFrameRect/*,position and set the size of the frame*/
         fillShape.path = CGRect(0,0,rect.width,rect.height).path/*Draws in the local coordinate space of the shape*/
         fillShape.display()/*draw the fileShape*/
         //alignStroke(self)
         
-        Swift.print("offsetRect.fillRect: " + "\(offsetRect.fillRect)")
+        Swift.print("offsetRect.fillFrameRect: " + "\(offsetRect.fillFrameRect)")
         Swift.print("offsetRect.lineFrameRect: " + "\(offsetRect.lineFrameRect)")
         Swift.print("offsetRect.lineRect: " + "\(offsetRect.lineRect)")
         
