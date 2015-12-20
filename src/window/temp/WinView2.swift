@@ -19,10 +19,13 @@ class WinView2:FlippedView{
         
         //continue here:
         
-        //test gradient
+            //test gradient
         //test button with skin change
-        //test tab bar example with perfect css
+        //implement the new interactiveElement approach into the button
+        //test overlapping buttons
         //implement the outer shadow on the Graphic it self.
+        //test tab bar example with perfect css
+        
         //try to implement radial gradient as it was in the original concept
         //make the Radio bullet example and post a gif brewery animation on twitter and on github
         //tomorrow implement the svg engine
