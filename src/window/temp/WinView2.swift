@@ -43,7 +43,8 @@ class WinView2:FlippedView{
     func testLayerBackedElement(){
         //fill-alpha:0.5
         //fill:red;
-        let css = "Element{fill:linear-gradient(top,red,blue);line:red;line-alpha:0.5;line-offset-type:outside;line-thickness:20px;corner-radius:20px;}"
+        //line:red;
+        let css = "Element{fill:linear-gradient(top,red,blue);line:linear-gradient(bottom,green,orange);line-alpha:0.5;line-offset-type:outside;line-thickness:20px;corner-radius:20px;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let element = Element(200,200,100,100)
