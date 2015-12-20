@@ -35,7 +35,7 @@ class TempGraphic:Graphic{
         
         //a.masksToBounds = false
         
-        let rect:CGRect = CGRect(0,0,200,200)//these values will be derived from somewhere else in the future
+        let rect:CGRect = CGRect(x: 0,y: 0,width: width,height: height)//these values will be derived from somewhere else in the future
         
         let offsetRect = RectGraphicUtils2.offsetRect(rect, self.lineStyle!, lineOffsetType)
         fillShape.frame = offsetRect.fillRect/*,position and set the size of the frame*/
