@@ -16,8 +16,8 @@ class WinView2:FlippedView{
         //Swift.print("WinView.drawRect()")
     }
     func createContent(){
-        testLayerBackedElement()
-        //testGraphic()
+        //testLayerBackedElement()
+        testGraphic()
     }
     func testLayerBackedElement(){
         let css = "Element{fill:orange;fill-alpha:0.5;line:blue;line-alpha:0.5;line-offset-type:outside;line-thickness:20px;}"
@@ -28,7 +28,7 @@ class WinView2:FlippedView{
     }
     func testGraphic(){
         let a = TempGraphic(200,200)
-        a.frame.origin = (NSPoint(100,100))
+        //a.frame.origin = (NSPoint(100,100))
         
         //Swift.print("a.frame: " + "\(a.frame)")
         //Swift.print("a.layer?.frame: " + "\(a.layer?.frame)")
@@ -36,15 +36,15 @@ class WinView2:FlippedView{
         //Swift.print("a.frame: " + "\(a.frame)")
         
         //let rect = CGRect(0,0,100,100)
-        
+        /*
         let b = TempGraphic()
         a.addSubview(b)
         //Swift.print("a.layer!.masksToBounds: " + "\(a.layer!.masksToBounds)")
         b.frame.origin = (NSPoint(-50,50))
         
         //b.layer!.masksToBounds = false
-        /**/
-        
+        */
+        /*
         let c = DelGraphic(frame: NSRect(-20,-20,100,100))
         a.addSubview(c)
         
@@ -52,6 +52,6 @@ class WinView2:FlippedView{
         textField.string = "Testing"
         textField.backgroundColor = NSColor.clearColor()
         a.addSubview(textField)
-        /**/
+        */
     }
 }
