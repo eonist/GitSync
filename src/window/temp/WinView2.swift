@@ -19,10 +19,10 @@ class WinView2:FlippedView{
         
         
         
-        testTempRoundRect()
+        //testTempRoundRect()
         
         
-        //testLayerBackedElement()
+        testLayerBackedElement()
         //testGraphic()
     }
     /**
