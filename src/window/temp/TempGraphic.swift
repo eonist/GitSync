@@ -31,7 +31,7 @@ class TempGraphic:Graphic{
         
         //a.masksToBounds = false
         
-        let rect:CGRect = CGRect(x: 50,y: 50,width: width,height: height)//these values will be derived from somewhere else in the future
+        let rect:CGRect = CGRect(x: 150,y: 150,width: width,height: height)//these values will be derived from somewhere else in the future
         
         //continue adding offset support
         
