@@ -36,7 +36,7 @@ class WinView2:FlippedView{
         //testLayerBackedElement()
         //testGraphic()
     }
-    var delGraphic:DelGraphic = DelGraphic(frame: NSRect(-20,-20,100,100))
+    //var delGraphic:DelGraphic = DelGraphic(frame: NSRect(-20,-20,100,100))
     func testButton(){
         let css:String = "Button{fill:red;}Button:over{fill:yellow;}Button:down{fill:green;}"//
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
@@ -45,15 +45,15 @@ class WinView2:FlippedView{
         
         //button.setPosition(CGPoint(120,120))
         self.addSubview(button)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: button)
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: button)
         
         
-        self.addSubview(delGraphic)
+        //self.addSubview(delGraphic)
         
     }
     func onButtonDown(sender: AnyObject) {
         Swift.print("WinView2.onButtonDown() ")
-        delGraphic.layer?.setNeedsDisplay()
+        //delGraphic.layer?.setNeedsDisplay()
         //let textButton:Button = (sender as! NSNotification).object as! Button
         /*
         if((sender as! NSNotification).object === self.textButton!){
