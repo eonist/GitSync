@@ -22,8 +22,8 @@ class TempGraphic:Graphic{
         offsetType.left = OffsetType.outside
         offsetType.right = OffsetType.inside
         */
-        let fillStyle = FillStyle(NSColor.yellowColor().alpha(1))
-        let lineStyle = LineStyle(20,NSColor.blueColor().alpha(1))
+        let fillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
+        let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
         
         /**/
         super.init(fillStyle,lineStyle,offsetType)
