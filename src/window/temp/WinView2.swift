@@ -45,6 +45,10 @@ class WinView2:FlippedView{
         //button.setPosition(CGPoint(120,120))
         self.addSubview(button)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: button)
+        
+        let c = DelGraphic(frame: NSRect(-20,-20,100,100))
+        self.addSubview(c)
+        
     }
     func onButtonDown(sender: AnyObject) {
         Swift.print("WinView2.onButtonDown() ")
@@ -77,6 +81,7 @@ class WinView2:FlippedView{
         StyleManager.addStyle(styleCollection.styles)
         let element = Element(200,200,100,100)
         self.addSubview(element)
+        
     }
     func testGraphic(){
         let a = TempGraphic(200,200)
