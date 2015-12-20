@@ -1,15 +1,11 @@
 import Cocoa
 
 class TempGraphic:Graphic{
-    var x:Int
-    var y:Int
-    var width:Int
-    var height:Int
+    var width:CGFLoat
+    var height:CGFLoat
     var color:NSColor
     var thePath:CGMutablePath
-    init(_ x:Int = 0, _ y:Int = 0,_ width:Int = 0, _ height:Int = 0, _ color:NSColor = NSColor.blueColor()) {
-        self.x = x
-        self.y = y
+    init(_ width:CGFloat = 0.0, _ height:CGFloat = 0.0, _ color:NSColor = NSColor.blueColor()) {
         self.width = width
         self.height = height
         self.color = color
