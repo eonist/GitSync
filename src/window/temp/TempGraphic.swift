@@ -41,9 +41,9 @@ class TempGraphic:Graphic{
         fillShape.display()/*draw the fileShape*/
         //alignStroke(self)
         
-        //Swift.print("offsetRect.fillRect: " + "\(offsetRect.fillRect)")
-        //Swift.print("offsetRect.lineFrameRect: " + "\(offsetRect.lineFrameRect)")
-        //Swift.print("offsetRect.lineRect: " + "\(offsetRect.lineRect)")
+        Swift.print("offsetRect.fillRect: " + "\(offsetRect.fillRect)")
+        Swift.print("offsetRect.lineFrameRect: " + "\(offsetRect.lineFrameRect)")
+        Swift.print("offsetRect.lineRect: " + "\(offsetRect.lineRect)")
         
         lineShape.frame = offsetRect.lineFrameRect
         lineShape.path = offsetRect.lineRect.path
@@ -59,9 +59,9 @@ class TempGraphic:Graphic{
      * This is a delegate handler method
      */
     override func drawLayer(layer: CALayer, inContext ctx: CGContext) {
-        Swift.print("Graphic.drawLayer(layer,inContext)")
+        //Swift.print("Graphic.drawLayer(layer,inContext)")
         if(layer === fillShape){
-            Swift.print("fillShape")
+            //Swift.print("fillShape")
             fillShape.graphics.context = ctx
             
             //TODO:you only need to call the draw method from here, the fill setting etc can be done in the decoratable classes
@@ -71,7 +71,7 @@ class TempGraphic:Graphic{
             fillShape.graphics.draw(fillShape.path)//draw everything
             
         }else if(layer === lineShape){
-            Swift.print("lineShape")
+            //Swift.print("lineShape")
             lineShape.graphics.context = ctx
             
             //TODO:you only need to call the draw method from here, the line setting etc can be done in the decoratable classes
