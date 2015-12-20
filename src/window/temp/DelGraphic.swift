@@ -2,12 +2,14 @@ import Cocoa
 
 class DelGraphic:FlippedView{
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
-    //override var wantsUpdateLayer:Bool {return false}//true enables the updateLayer to
+    override var wantsUpdateLayer:Bool {return true}//true enables the updateLayer to
     override init(frame frameRect: NSRect) {
         Swift.print("init")
         super.init(frame: frameRect)
-        self.wantsLayer = true
         layer = TempCALayer()
+        self.wantsLayer = true
+        
+        //layer?.display()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
