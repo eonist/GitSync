@@ -13,6 +13,8 @@ class TempRoundRect:Graphic {
         let fillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
         let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
         super.init(fillStyle,lineStyle,offsetType)
+        let width = 200
+        let height = 200
         let rect:CGRect = CGRect(x: 0,y: 0,width: width,height: height)//these values will be derived from somewhere else in the future
         
         let fillOffsetRect = RectGraphicUtils2.fillOffsetRect(rect, self.lineStyle!, lineOffsetType)
