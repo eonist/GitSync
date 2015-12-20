@@ -16,6 +16,10 @@ class WinView2:FlippedView{
         //Swift.print("WinView.drawRect()")
     }
     func createContent(){
+        
+        //Continue here: create a test case for the round rect. like you did for the normal rect. easier to debug this way.
+        
+        
         testLayerBackedElement()
         //testGraphic()
     }
