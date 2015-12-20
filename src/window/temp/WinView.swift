@@ -36,7 +36,7 @@ class WinView:FlippedView{
         //addSubview(gradientBoxTest)
         //gradientTest()
         //testTextButton()
-        //testButton()
+        
         //testTextElement()
         //testRotation()
         //testSkin()
@@ -282,14 +282,7 @@ class WinView:FlippedView{
         Swift.print("userInfo: " + String((sender as! NSNotification).userInfo))//nil
         //Swift.print("WinView.onButtonDown() Sender: " + String(sender))
     }
-    func testButton(){
-        let css:String = "Button{fill:red;line:blue;line-offset-type:inside;line-thickness:15px;drop-shadow:drop-shadow(0px 0 #000000 0.9 4 4 1 2 true);}Button:over{fill:yellow;drop-shadow:none;}Button:down{fill:green;drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);}"//
-        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
-        StyleManager.addStyle(styleCollection.styles)
-        let button = Button(200,200,20,20)
-        //button.setPosition(CGPoint(120,120))
-        self.addSubview(button)
-    }
+    
     func testTextElement(){
         //textColor
         let css:String = "Text{font:Lucida Grande;selectable:false;size:22px;color:blue;align:center;backgroundColor:orange;background:true;margin-top:10px;margin-left:10px;}"//

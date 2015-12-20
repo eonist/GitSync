@@ -22,6 +22,7 @@ class WinView2:FlippedView{
             //test gradient
         //test button with skin change
         //implement the new interactiveElement approach into the button
+        //test TextButton
         //test overlapping buttons
         //implement the outer shadow on the Graphic it self.
         //test tab bar example with perfect css
@@ -30,15 +31,20 @@ class WinView2:FlippedView{
         //make the Radio bullet example and post a gif brewery animation on twitter and on github
         //tomorrow implement the svg engine
         
+        testButton()
         //testTempRoundRect()
-        
-        
-        testLayerBackedElement()
+        //testLayerBackedElement()
         //testGraphic()
     }
-    /**
-    *
-    */
+    func testButton(){
+        let css:String = "Button{fill:red;line:blue;line-offset-type:inside;line-thickness:15px;drop-shadow:drop-shadow(0px 0 #000000 0.9 4 4 1 2 true);}Button:over{fill:yellow;drop-shadow:none;}Button:down{fill:green;drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);}"//
+        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
+        StyleManager.addStyle(styleCollection.styles)
+        let button = Button(200,200,20,20)
+        //button.setPosition(CGPoint(120,120))
+        self.addSubview(button)
+    }
+   
     func testTempRoundRect(){
         let a = TempRoundRect()
         self.addSubview(a)
