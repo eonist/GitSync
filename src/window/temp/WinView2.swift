@@ -28,7 +28,7 @@ class WinView2:FlippedView{
         self.addSubview(element)
     }
     func testGraphic(){
-        let a = TempGraphic()
+        let a = TempGraphic(200,200)
         a.frame.origin = (NSPoint(100,100))
         
         //Swift.print("a.frame: " + "\(a.frame)")

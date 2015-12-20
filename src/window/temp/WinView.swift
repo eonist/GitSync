@@ -22,11 +22,6 @@ class WinView:FlippedView{
         
         
         //testGraphic()
-        
-        
-        //Continue here:
-        
-        
 
         //testInteractiveView()
         //testOverLappingNSViews()

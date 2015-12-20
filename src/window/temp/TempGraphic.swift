@@ -1,15 +1,15 @@
 import Cocoa
 
 class TempGraphic:Graphic{
-    var width:CGFLoat
-    var height:CGFLoat
-    var color:NSColor
-    var thePath:CGMutablePath
-    init(_ width:CGFloat = 0.0, _ height:CGFloat = 0.0, _ color:NSColor = NSColor.blueColor()) {
+    var width:CGFloat
+    var height:CGFloat
+    //var color:NSColor
+    //var thePath:CGMutablePath
+    init(_ width:CGFloat = 0.0, _ height:CGFloat = 0.0/*, _ color:NSColor = NSColor.blueColor()*/) {
         self.width = width
         self.height = height
-        self.color = color
-        self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
+        //self.color = color
+        //self.thePath = CGPathParser.rect(CGFloat(width/*/2*/),CGFloat(height/*/2*/))//Shapes
         let offsetType:OffsetType = OffsetType(OffsetType.outside)
         
         /*
