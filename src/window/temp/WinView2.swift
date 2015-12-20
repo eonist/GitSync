@@ -31,9 +31,9 @@ class WinView2:FlippedView{
         //make the Radio bullet example and post a gif brewery animation on twitter and on github
         //tomorrow implement the svg engine
         
-        testButton()
+        //testButton()
         //testTempRoundRect()
-        //testLayerBackedElement()
+        testLayerBackedElement()
         //testGraphic()
     }
     //var delGraphic:DelGraphic = DelGraphic(frame: NSRect(-20,-20,100,100))
@@ -77,8 +77,8 @@ class WinView2:FlippedView{
         //fill-alpha:0.5
         //fill:red;
         //line:red;
-        var css = "Element{fill:linear-gradient(top,red,blue);line:linear-gradient(top,green,orange);line-alpha:0.5;line-offset-type:outside;line-thickness:20px;corner-radius:20px;}"
-        css = "Element{fill:red;}"
+        let css = "Element{fill:linear-gradient(top,red,blue);line:linear-gradient(top,green,orange);line-alpha:0.5;line-offset-type:outside;line-thickness:20px;corner-radius:20px;}"
+        //css = "Element{fill:red;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let element = Element(200,200,100,100)
