@@ -8,6 +8,7 @@ class DelGraphic:FlippedView{
         super.init(frame: frameRect)
         layer = TempCALayer()
         self.wantsLayer = true
+        layerContentsRedrawPolicy = NSViewLayerContentsRedrawPolicy.OnSetNeedsDisplay//this is new, but apple recomends it, more about it here: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreAnimation_guide/SettingUpLayerObjects/SettingUpLayerObjects.html#//apple_ref/doc/uid/TP40004514-CH13-SW4
         
         //layer?.display()
     }
