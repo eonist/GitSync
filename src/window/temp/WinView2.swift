@@ -26,6 +26,7 @@ class WinView2:FlippedView{
         testLayerBackedElement()
         //testGraphic()
     }
+    
     func testLayerBackedElement(){
         let css = "Element{fill:green;fill-alpha:0.5;line:red;line-alpha:0.5;line-offset-type:outside;line-thickness:20px;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
