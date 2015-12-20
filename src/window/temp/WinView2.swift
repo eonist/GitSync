@@ -19,14 +19,18 @@ class WinView2:FlippedView{
         
         
         
-        //Continue here: create a test case for the round rect. like you did for the normal rect. easier to debug this way.
-        
+        testTempRoundRect()
         
         
         testLayerBackedElement()
         //testGraphic()
     }
-    
+    /**
+    *
+    */
+    func testTempRoundRect(){
+        
+    }
     func testLayerBackedElement(){
         let css = "Element{fill:green;fill-alpha:0.5;line:red;line-alpha:0.5;line-offset-type:outside;line-thickness:20px;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
