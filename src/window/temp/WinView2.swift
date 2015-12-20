@@ -37,7 +37,7 @@ class WinView2:FlippedView{
         //testGraphic()
     }
     func testButton(){
-        let css:String = "Button{fill:red;line:blue;line-offset-type:inside;line-thickness:15px;drop-shadow:drop-shadow(0px 0 #000000 0.9 4 4 1 2 true);}Button:over{fill:yellow;drop-shadow:none;}Button:down{fill:green;drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);}"//
+        let css:String = "Button{fill:red;}Button:over{fill:yellow;}Button:down{fill:green;}"//
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         StyleManager.addStyle(styleCollection.styles)
         let button = Button(200,200,20,20)
