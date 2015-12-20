@@ -24,7 +24,8 @@ class WinView2:FlippedView{
         //test tab bar example with perfect css
         //implement the outer shadow on the Graphic it self.
         //try to implement radial gradient as it was in the original concept
-        //make the 
+        //make the Radio bullet example and post a gif brewery animation on twitter and on github
+        //tomorrow implement the svg engine
         
         //testTempRoundRect()
         
