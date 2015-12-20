@@ -53,7 +53,7 @@ class WinView2:FlippedView{
     }
     func onButtonDown(sender: AnyObject) {
         Swift.print("WinView2.onButtonDown() ")
-        delGraphic.layer?.display()
+        delGraphic.layer?.setNeedsDisplay()
         //let textButton:Button = (sender as! NSNotification).object as! Button
         /*
         if((sender as! NSNotification).object === self.textButton!){

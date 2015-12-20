@@ -2,13 +2,13 @@ import Cocoa
 
 class DelGraphic:FlippedView{
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
-    override var wantsUpdateLayer:Bool {return true}//true enables the updateLayer to
+    //override var wantsUpdateLayer:Bool {return true}//true enables the updateLayer to
     override init(frame frameRect: NSRect) {
         Swift.print("init")
         super.init(frame: frameRect)
         layer = TempCALayer()
         self.wantsLayer = true
-        layerContentsRedrawPolicy = NSViewLayerContentsRedrawPolicy.OnSetNeedsDisplay//this is new, but apple recomends it, more about it here: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreAnimation_guide/SettingUpLayerObjects/SettingUpLayerObjects.html#//apple_ref/doc/uid/TP40004514-CH13-SW4
+        //layerContentsRedrawPolicy = NSViewLayerContentsRedrawPolicy.OnSetNeedsDisplay//this is new, but apple recomends it, more about it here: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreAnimation_guide/SettingUpLayerObjects/SettingUpLayerObjects.html#//apple_ref/doc/uid/TP40004514-CH13-SW4
         
         //layer?.display()
     }
