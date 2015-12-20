@@ -34,7 +34,7 @@ class TempGraphic:Graphic{
         let rect:CGRect = CGRect(x: 0,y: 0,width: width,height: height)//these values will be derived from somewhere else in the future
         
         let fillOffsetRect = RectGraphicUtils2.fillOffsetRect(rect, self.lineStyle!, lineOffsetType)
-        let lineOffsetRect = RectGraphicUtils2.lineOffsetRect(rect, self.lineStyle!, lineOffsetType)
+        
         
         fillShape.frame = fillOffsetRect/*,position and set the size of the frame*/
         fillShape.path = CGRect(0,0,rect.width,rect.height).path/*Draws in the local coordinate space of the shape*/
@@ -47,8 +47,7 @@ class TempGraphic:Graphic{
         Swift.print("offsetRect.lineRect: " + "\(offsetRect.lineRect)")
         */
         
-        lineShape.frame = lineOffsetRect.lineFrameRect
-        lineShape.path = lineOffsetRect.lineRect.path
+      
         lineShape.display()/*draw the lineShape*/
         
         //layer!.display()
@@ -74,6 +73,10 @@ class TempGraphic:Graphic{
             
         }else if(layer === lineShape){
             //Swift.print("lineShape")
+            let rect:CGRect = CGRect(x: 0,y: 0,width: width,height: height)
+            let lineOffsetRect = RectGraphicUtils2.lineOffsetRect(rect, self.lineStyle!, lineOffsetType)
+            lineShape.frame = lineOffsetRect.lineFrameRect
+            lineShape.path = lineOffsetRect.lineRect.path
             lineShape.graphics.context = ctx
             
             //TODO:you only need to call the draw method from here, the line setting etc can be done in the decoratable classes
