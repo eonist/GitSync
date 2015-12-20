@@ -55,9 +55,11 @@ class WinView2:FlippedView{
         }
         */
         
+        /*
         Swift.print("object: " + String((sender as! NSNotification).object))
         Swift.print("name: " + String((sender as! NSNotification).name))//buttonEventDown
         Swift.print("userInfo: " + String((sender as! NSNotification).userInfo))//nil
+        */
         //Swift.print("WinView.onButtonDown() Sender: " + String(sender))
     }
    
