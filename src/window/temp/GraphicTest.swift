@@ -38,10 +38,12 @@ class GraphicsTest:Graphic{
         fillShape.frame = rect/*,position and set the size of the frame*/
         fillShape.display()/*draw the fileShape*/
         //alignStroke(self)
+        /*
         let offsetRects = RectGraphicUtil.offsetRect(fillShape.frame, self.lineStyle!, lineOffsetType)
         lineShape.frame = offsetRects.frameRect
         lineShape.path = offsetRects.lineRect.path
         lineShape.display()/*draw the lineShape*/
+        */
         
         
         
