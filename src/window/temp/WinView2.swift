@@ -18,6 +18,10 @@ class WinView2:FlippedView{
     func createContent(){
         
         
+        //test gradient
+        //test button with skin change
+        //test tab bar example with perfect css
+        //
         
         //testTempRoundRect()
         
