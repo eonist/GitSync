@@ -16,8 +16,8 @@ class WinView2:FlippedView{
         //Swift.print("WinView.drawRect()")
     }
     func createContent(){
-        testLayerBackedElement()
-        //testGraphic()
+        //testLayerBackedElement()
+        testGraphic()
     }
     func testLayerBackedElement(){
         let css = "Element{fill:orange;fill-alpha:0.5;line:blue;line-alpha:0.5;line-offset-type:center;line-thickness:20px;}"
