@@ -50,6 +50,7 @@ class WinView2:FlippedView{
         addSubview(a)
         a.fillShape.frame = NSRect(0,0,100,100)
         a.fillShape.path = a.fillShape.frame.path
+        a.fillShape.graphics.fill(<#T##color: NSColor##NSColor#>)
         a.fillShape.setNeedsDisplay()
     }
     func testTabBar(){
