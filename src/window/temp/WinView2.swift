@@ -49,8 +49,8 @@ class WinView2:FlippedView{
         //fill:radial-gradient(50% 20% 40% 120% 90 -1, white 1 0,white 0.33 0.4724,white 0 1);
         
         var fillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
-        let gradient:IGradient
-        gradient.rotation
+        let gradient:IGradient = Gradient([NSColor.blueColor().CGColor,NSColor.redColor().CGColor],[],GradientType.Radial,)
+
         fillStyle = GradientFillStyle(Gradient(),NSColor.clearColor());
         
         let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
