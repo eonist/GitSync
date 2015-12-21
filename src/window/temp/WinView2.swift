@@ -27,14 +27,14 @@ class WinView2:FlippedView{
             //implement the new interactiveElement approach into the button
             //test TextButton
             //test overlapping buttons
-        //implement the outer shadow on the Graphic it self.
+            //implement the outer shadow on the Graphic it self.
         //test tab bar example with perfect css
         
         //try to implement radial gradient as it was in the original concept
         //make the Radio bullet example and post a gif brewery animation on twitter and on github (maybe add a touch of animation?)
         //tomorrow implement the svg engine
        
-        testDropShadow()
+        //testDropShadow()
         //testOverlapping()
         //testTextButton()
         //testButton()
@@ -46,8 +46,8 @@ class WinView2:FlippedView{
         
         
         var css = "Element{fill:yellow;}"
-        //css += "Element{drop-shadow:drop-shadow(0px 0 #000000 0.4 14 14 1 2 true);}"//outer
-        css += "Element{drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);}"//inner
+        css += "Element{drop-shadow:drop-shadow(0px 0 #000000 0.4 14 14 1 2 false);}"//outer
+        //css += "Element{drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);}"//inner
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         //let styleProperty = styleCollection.getStyle("Element")?.getStyleProperty("drop-shadow")
         //Swift.print("styleProperty.value: " + String(styleProperty!.value))
