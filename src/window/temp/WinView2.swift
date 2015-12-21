@@ -64,7 +64,7 @@ class WinView2:FlippedView{
     override func drawLayer(layer: CALayer, inContext ctx: CGContext) {
         a.fillShape.graphics.context = ctx
         //a.fillShape.graphics.fill(a.fillStyle!.color)
-        a.fillShape.graphics.gradientFill(fillStyle.gradient)
+        a.fillShape.graphics.gradientFill((a.fillStyle as! GradientFillStyle).gradient)
         a.fillShape.graphics.draw(a.fillShape.path)
     }
     func testTabBar(){
