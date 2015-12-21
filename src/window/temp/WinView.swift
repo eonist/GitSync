@@ -35,7 +35,7 @@ class WinView:FlippedView{
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
         //gradientTest()
-        //testTextButton()
+        testTextButton()
         
         //testTextElement()
         //testRotation()
