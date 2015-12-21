@@ -34,7 +34,7 @@ class WinView2:FlippedView{
         //make the Radio bullet example and post a gif brewery animation on twitter and on github
         //tomorrow implement the svg engine
         testTextButton()
-        testButton()
+        //testButton()
         //testTempRoundRect()
         //testLayerBackedElement()
         //testGraphic()
@@ -49,7 +49,9 @@ class WinView2:FlippedView{
         StyleManager.addStyle(css)
         //btn = TextButton("",200,200)
         let textButton:TextButton = TextButton("Button",96,24)
-        //textButton.setPosition(CGPoint(20,20))
+        //
+        
+        textButton.setPosition(CGPoint(20,20))
         self.addSubview(textButton)
     }
     //var delGraphic:DelGraphic = DelGraphic(frame: NSRect(-20,-20,100,100))
