@@ -25,14 +25,16 @@ class WinView2:FlippedView{
             //test gradient
             //test button with skin change
             //implement the new interactiveElement approach into the button
-        //test TextButton
+            //test TextButton
         //test overlapping buttons
         //implement the outer shadow on the Graphic it self.
         //test tab bar example with perfect css
         
         //try to implement radial gradient as it was in the original concept
-        //make the Radio bullet example and post a gif brewery animation on twitter and on github
+        //make the Radio bullet example and post a gif brewery animation on twitter and on github (maybe add a touch of animation?)
         //tomorrow implement the svg engine
+        
+        
         testTextButton()
         //testButton()
         //testTempRoundRect()
@@ -49,7 +51,7 @@ class WinView2:FlippedView{
         StyleManager.addStyle(css)
         //btn = TextButton("",200,200)
         let textButton:TextButton = TextButton("Button",96,24)
-        //
+        
         
         textButton.setPosition(CGPoint(20,20))
         self.addSubview(textButton)
