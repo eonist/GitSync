@@ -23,8 +23,8 @@ class WinView2:FlippedView{
         
         
             //test gradient
-        //test button with skin change
-        //implement the new interactiveElement approach into the button
+            //test button with skin change
+            //implement the new interactiveElement approach into the button
         //test TextButton
         //test overlapping buttons
         //implement the outer shadow on the Graphic it self.
