@@ -29,12 +29,12 @@ class WinView:FlippedView{
        
         //testOverlapping()
         //styleTesting()
-        //testTabBar()
+        //
         //testSelectGroup()
         //let gradientBoxTest = GradientBoxTest(frame: NSRect(0,0,100,100))
         //addSubview(gradientBoxTest)
         //gradientTest()
-        testTextButton()
+        //testTextButton()
         
         //testTextElement()
         //testRotation()
@@ -112,45 +112,7 @@ class WinView:FlippedView{
         self.addSubview(Element(150,150,150,0,nil,"third"))
         self.addSubview(Element(150,150,150,150,nil,"fourth"))
     }
-    func testTabBar(){
-        
-        //continue here: maybe implement height with the Text element
-        //continue here: make parenting work with element
-        //and turn off mouseHover -> skin update if there is no update
-        //dropshadow
-        //fix the mouseover exit problem, try overlapping shapes to see whats wrong
-        
-        var css:String = "SelectTextButton{fill:linear-gradient(top,#FFFEFE,#E8E8E8);line:grey7;line-offset-type:outside;line-thickness:1px;drop-shadow:none;}"//
-        css += "SelectTextButton#first{corner-radius:4px 0px 4px 0px;}"
-        css += "SelectTextButton#second{corner-radius:0px 0px 0px 0px;line-offset-type-right,line-offset-type-left:inside;}"//
-        css += "SelectTextButton#third{corner-radius:0px 4px 0px 4px;}"//
-        css += "SelectTextButton Text{font:Lucida Grande;selectable:false;size:12px;color:gray;align:center;backgroundColor:orange;background:false;margin-top:5px;}"//
-        css += "Text:down{color:black;}"
-        css += "SelectTextButton:selected Text{color:white;}"
-        css += "SelectTextButton:selected{fill:linear-gradient(top,grey9,grey8);drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);}"
-
-      
-        
-        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
-        
-        //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
-        //Swift.print("styleProperty.value: " + String(styleProperty!.value))
-        StyleManager.addStyle(styleCollection.styles)
-        let btn1 = SelectTextButton("first",64,24,false,nil,"first")
-        btn1.setPosition(CGPoint(10,20))
-        self.addSubview(btn1)
-        
-        let btn2 = SelectTextButton("second",64,24,true,nil,"second")
-        btn2.setPosition(CGPoint(74,20))
-        self.addSubview(btn2)
-        
-        let btn3 = SelectTextButton("third",64,24,false,nil,"third")
-        btn3.setPosition(CGPoint(138,20))
-        self.addSubview(btn3)
-        
-        addSubview(SelectGroup([btn1,btn2,btn3],btn2));
-        
-    }
+    
     func testSelectGroup(){
         let css:String = "SelectButton{fill:red;}SelectButton:over{fill:yellow;}SelectButton:down{fill:green;}SelectButton:selected{fill:blue;}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
