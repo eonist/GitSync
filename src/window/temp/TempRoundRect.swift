@@ -26,7 +26,7 @@ class TempRoundRect:Graphic {
         fillShape.frame = fillOffsetRect/*,position and set the size of the frame*/
         let path = CGPathParser.roundRect(x,y,width,height,fillet.topLeft, fillet.topRight, fillet.bottomLeft, fillet.bottomRight)//Shapes
         fillShape.path = path/*Draws in the local coordinate space of the shape*/
-        fillShape.display()/*draw the fileShape*/
+        fillShape.setNeedsDisplay()/*draw the fileShape*/
         //alignStroke(self)
         
         /*
@@ -39,7 +39,7 @@ class TempRoundRect:Graphic {
         
         lineShape.frame = lineOffsetRect.lineFrameRect
         lineShape.path = linePath//lineOffsetRect.lineRect.path
-        lineShape.display()/*draw the lineShape*/
+        lineShape.setNeedsDisplay()/*draw the lineShape*/
         
         //layer!.display()
         
