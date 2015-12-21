@@ -33,13 +33,27 @@ class WinView2:FlippedView{
         //try to implement radial gradient as it was in the original concept
         //make the Radio bullet example and post a gif brewery animation on twitter and on github (maybe add a touch of animation?)
         //tomorrow implement the svg engine
-        
+       
+        testDropShadow()
         //testOverlapping()
         //testTextButton()
         //testButton()
         //testTempRoundRect()
         //testLayerBackedElement()
         //testGraphic()
+    }
+    func testDropShadow(){
+        
+        
+        var css = "Element{fill:red;line:blue;line-offset-type:outside;line-thickness:15px;}"
+        css += "Element{drop-shadow:drop-shadow(0px 0 #000000 0.4 14 14 1 2 true);}"
+        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
+        //let styleProperty = styleCollection.getStyle("Element")?.getStyleProperty("drop-shadow")
+        //Swift.print("styleProperty.value: " + String(styleProperty!.value))
+        StyleManager.addStyle(styleCollection.styles)
+        let element = Element(200,200,20,20)
+        self.addSubview(element)
+        
     }
     func testOverlapping(){
         var css = ""
