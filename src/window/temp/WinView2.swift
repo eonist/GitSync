@@ -55,6 +55,7 @@ class WinView2:FlippedView{
         a.fillShape.setNeedsDisplay()
     }
     override func drawLayer(layer: CALayer, inContext ctx: CGContext) {
+        a.fillShape.graphics.context = ctx
         a.fillShape.graphics.fill(a.fillStyle!.color)
         a.fillShape.graphics.draw(a.fillShape.path)
     }
