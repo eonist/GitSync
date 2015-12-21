@@ -26,7 +26,7 @@ class WinView2:FlippedView{
             //test button with skin change
             //implement the new interactiveElement approach into the button
             //test TextButton
-        //test overlapping buttons
+            //test overlapping buttons
         //implement the outer shadow on the Graphic it self.
         //test tab bar example with perfect css
         
@@ -34,7 +34,7 @@ class WinView2:FlippedView{
         //make the Radio bullet example and post a gif brewery animation on twitter and on github (maybe add a touch of animation?)
         //tomorrow implement the svg engine
         
-        testOverlapping()
+        //testOverlapping()
         //testTextButton()
         //testButton()
         //testTempRoundRect()
