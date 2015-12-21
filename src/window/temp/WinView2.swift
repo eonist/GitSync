@@ -51,7 +51,7 @@ class WinView2:FlippedView{
         var fillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
         let gradient = Gradient([NSColor.blueColor().CGColor,NSColor.redColor().CGColor],[],GradientType.Radial,1.5707963267949,CGPoint(0,0),CGPoint(0,0),CGSize(0,0),CGSize(1,1))
 
-        //fillStyle = GradientFillStyle(gradient,NSColor.clearColor());
+        fillStyle = GradientFillStyle(gradient,NSColor.clearColor());
         
         let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
         a = Graphic(fillStyle,lineStyle)
@@ -63,7 +63,8 @@ class WinView2:FlippedView{
     }
     override func drawLayer(layer: CALayer, inContext ctx: CGContext) {
         a.fillShape.graphics.context = ctx
-        a.fillShape.graphics.fill(a.fillStyle!.color)
+        //a.fillShape.graphics.fill(a.fillStyle!.color)
+        a.fillShape.graphics.gradientFill(fillStyle.gradient)
         a.fillShape.graphics.draw(a.fillShape.path)
     }
     func testTabBar(){
