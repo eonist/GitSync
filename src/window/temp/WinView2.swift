@@ -45,8 +45,9 @@ class WinView2:FlippedView{
     func testDropShadow(){
         
         
-        var css = "Element{fill:red;line-offset-type:outside;line-thickness:15px;}"
-        css += "Element{drop-shadow:drop-shadow(0px 0 #000000 0.4 14 14 1 2 inside);}"
+        var css = "Element{fill:yellow;line-offset-type:outside;line-thickness:15px;}"
+        //css += "Element{drop-shadow:drop-shadow(0px 0 #000000 0.4 14 14 1 2 true);}"//outer
+        css += "Element{drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);}"//inner
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         //let styleProperty = styleCollection.getStyle("Element")?.getStyleProperty("drop-shadow")
         //Swift.print("styleProperty.value: " + String(styleProperty!.value))

@@ -27,7 +27,6 @@ class WinView:FlippedView{
         //testOverLappingNSViews()
         //testCALayer()
        
-        //testDropShadow()
         //testOverlapping()
         //styleTesting()
         //testTabBar()
