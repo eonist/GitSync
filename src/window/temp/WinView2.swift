@@ -34,14 +34,27 @@ class WinView2:FlippedView{
         //make the Radio bullet example and post a gif brewery animation on twitter and on github (maybe add a touch of animation?)
         //tomorrow implement the svg engine
         
-        
-        testTextButton()
+        testOverlapping()
+        //testTextButton()
         //testButton()
         //testTempRoundRect()
         //testLayerBackedElement()
         //testGraphic()
     }
-    
+    func testOverlapping(){
+        var css = ""
+        css += "Button#first{fill:red;}"
+        css += "Button#first:over{fill:yellow;fill-alpha:0.2;}"
+        css += "Button#second{fill:blue;}"
+        StyleManager.addStyle(css)
+        let btn1 = Button(200,40,nil,"first")
+        btn1.setPosition(CGPoint(20,20))
+        self.addSubview(btn1)
+        
+        let btn2 = Button(200,40,nil,"second")
+        btn2.setPosition(CGPoint(120,20))
+        self.addSubview(btn2)
+    }
     
     func testTextButton(){
         var css:String = "TextButton{fill:linear-gradient(top,#FFFEFE,#E8E8E8);line:gray;line-alpha:0.6;line-thickness:1px;corner-radius:4px;line-offset-type:outside;}"

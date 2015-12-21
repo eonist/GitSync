@@ -112,20 +112,7 @@ class WinView:FlippedView{
         self.addSubview(element)
 
     }
-    func testOverlapping(){
-        var css = ""
-        css += "Button#first{fill:red;}"
-        css += "Button#first:over{fill:yellow;fill-alpha:0.2;}"
-        css += "Button#second{fill:blue;}"
-        StyleManager.addStyle(css)
-        let btn1 = Button(200,40,nil,"first")
-        btn1.setPosition(CGPoint(20,20))
-        self.addSubview(btn1)
-        
-        let btn2 = Button(200,40,nil,"second")
-        btn2.setPosition(CGPoint(120,20))
-        self.addSubview(btn2, positioned: NSWindowOrderingMode.Above, relativeTo: btn1)
-    }
+    
     func styleTesting(){
         var css = ""
         css += "Element#first{fill:red;corner-radius-top-left:40px;}"
