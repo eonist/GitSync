@@ -53,7 +53,7 @@ class WinView2:FlippedView{
         
         var fillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
         let gradient = Gradient([NSColor.blueColor().CGColor,NSColor.redColor().CGColor],[],GradientType.Radial,1.5707963267949,CGPoint(0,0),CGPoint(0,0),CGSize(0,0),CGSize(1,1))
-        gradient.gradientType = GradientType.Axial
+        //gradient.gradientType = GradientType.Axial
         //try to make a Linear gradient and see if that gets clipped
         
         fillStyle = GradientFillStyle(gradient,NSColor.clearColor());
