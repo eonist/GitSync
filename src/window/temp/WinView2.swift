@@ -45,6 +45,9 @@ class WinView2:FlippedView{
     }
     var a:Graphic!
     func radialGradientTest(){
+        
+        //fill:radial-gradient(50% 20% 40% 120% 90 -1, white 1 0,white 0.33 0.4724,white 0 1);
+        
         let fillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
         let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
         a = Graphic(fillStyle,lineStyle)
