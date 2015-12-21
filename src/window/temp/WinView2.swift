@@ -28,7 +28,7 @@ class WinView2:FlippedView{
             //test TextButton
             //test overlapping buttons
             //implement the outer shadow on the Graphic it self.
-        //test tab bar example with perfect css
+            //test tab bar example with perfect css
         
         //try to implement radial gradient as it was in the original concept
         //make the Radio bullet example and post a gif brewery animation on twitter and on github (maybe add a touch of animation?)
