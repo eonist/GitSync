@@ -19,6 +19,9 @@ class WinView2:FlippedView{
         
         //continue here:
         
+        
+        
+        
             //test gradient
         //test button with skin change
         //implement the new interactiveElement approach into the button
@@ -31,9 +34,9 @@ class WinView2:FlippedView{
         //make the Radio bullet example and post a gif brewery animation on twitter and on github
         //tomorrow implement the svg engine
         
-        testButton()
+        //testButton()
         //testTempRoundRect()
-        //testLayerBackedElement()
+        testLayerBackedElement()
         //testGraphic()
     }
     //var delGraphic:DelGraphic = DelGraphic(frame: NSRect(-20,-20,100,100))
