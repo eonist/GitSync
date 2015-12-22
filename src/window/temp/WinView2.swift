@@ -46,7 +46,7 @@ class WinView2:FlippedView{
         //testLayerBackedElement()
         //testGraphic()
     }
-    var rectGraphic:RectGraphic?
+    var rectGraphic:RectGraphic
     /**
      * Add args that enable disable infinite gradient etc
      */
@@ -58,23 +58,15 @@ class WinView2:FlippedView{
         let fillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
         //let gradient = Gradient([NSColor.blueColor().CGColor,NSColor.redColor().CGColor],[],GradientType.Radial,1.5707963267949,CGPoint(0,0),CGPoint(0,0),CGSize(0,0),CGSize(1,1))
         //gradient.gradientType = GradientType.Axial
-        //try to make a Linear gradient and see if that gets clipped
-        
+     
         //fillStyle = GradientFillStyle(gradient,NSColor.clearColor());
         
         //let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
-        //a = Graphic(fillStyle,nil)
         
-        //test how easy it is to create a rectGraphic etc
-        let baseGraphic:BaseGraphic = BaseGraphic(fillStyle,nil,OffsetType(OffsetType.outside))
-        
-        rectGraphic = RectGraphic(200,200,baseGraphic)
-        //baseGraphic.lineShape.delegate = self
-        baseGraphic.fillShape.delegate = rectGraphic
-        //baseGraphic.layer!.delegate = self
-        
-        addSubview(baseGraphic)
-        rectGraphic!.draw()
+        rectGraphic = RectGraphic(200,200,BaseGraphic(fillStyle))
+     
+        addSubview(rectGraphic.graphic)
+        rectGraphic.draw()
         
     
         
