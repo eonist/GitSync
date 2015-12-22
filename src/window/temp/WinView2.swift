@@ -26,7 +26,7 @@ class TempGraphix:FlippedView{
         rectGraphic.draw()
 
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -34,10 +34,10 @@ class TempGraphix:FlippedView{
 class WinView2:FlippedView{
     var element:Element?
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
-    override var wantsUpdateLayer:Bool{return false;}
+    //override var wantsUpdateLayer:Bool{return false;}
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
-        wantsLayer = true
+        //wantsLayer = false
         createContent()
     }
     required init?(coder: NSCoder) {
@@ -67,7 +67,7 @@ class WinView2:FlippedView{
         //make the Radio bullet example and post a gif brewery animation on twitter and on github (maybe add a touch of animation?)
         //tomorrow implement the svg engine
         //radialGradientTest()
-        testTabBar()
+        //testTabBar()
         //testDropShadow()
         //testOverlapping()
         //testTextButton()
