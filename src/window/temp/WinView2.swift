@@ -20,7 +20,7 @@ class TempGraphix:FlippedView{
         //test how easy it is to create a rectGraphic etc
         let baseGraphic = BaseGraphic(fillStyle,lineStyle,OffsetType(OffsetType.outside))
         let rectGraphic = RectGraphic(200,200,baseGraphic)
-        
+        baseGraphic.setDelegate(rectGraphic)
         rectGraphic.draw()
         addSubview(baseGraphic)
         
