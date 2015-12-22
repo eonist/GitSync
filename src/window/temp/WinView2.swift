@@ -61,10 +61,10 @@ class WinView2:FlippedView{
         //let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
         a = Graphic(fillStyle,nil)
         addSubview(a)
-        a.fillShape.frame = NSRect(0,0,200,200)
-        a.fillShape.path = a.fillShape.frame.path
-        a.fillShape.delegate = self
-        a.fillShape.setNeedsDisplay()
+        //a.fillShape.frame = NSRect(0,0,200,200)
+        //a.fillShape.path = a.fillShape.frame.path
+        //a.fillShape.delegate = self
+        //a.fillShape.setNeedsDisplay()
         
     }
     
