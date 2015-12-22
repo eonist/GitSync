@@ -63,8 +63,9 @@ class WinView2:FlippedView{
         addSubview(a)
         a.fillShape.frame = NSRect(0,0,200,200)
         a.fillShape.path = a.fillShape.frame.path
-        a.fillShape.delegate = a
+        a.setDelegate(a)
         a.fillShape.setNeedsDisplay()
+        
     }
     /*
     override func drawLayer(layer: CALayer, inContext ctx: CGContext) {
