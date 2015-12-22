@@ -33,12 +33,12 @@ class WinView2:FlippedView{
         //try to implement radial gradient as it was in the original concept
         //make the Radio bullet example and post a gif brewery animation on twitter and on github (maybe add a touch of animation?)
         //tomorrow implement the svg engine
-        //radialGradientTest()
+        radialGradientTest()
         //testTabBar()
         //testDropShadow()
         //testOverlapping()
         //testTextButton()
-        testButton()
+        //testButton()
         //testTempRoundRect()
         //testLayerBackedElement()
         //testGraphic()
@@ -64,8 +64,9 @@ class WinView2:FlippedView{
         //test how easy it is to create a rectGraphic etc
         let baseGraphic = BaseGraphic(fillStyle,nil)
         let rectGraphic = RectGraphic(NSRect(0,0,200,200),baseGraphic)
-        addSubview(rectGraphic.graphic)
         rectGraphic.draw()
+        addSubview(rectGraphic.graphic)
+        
         //a.fillShape.frame = NSRect(0,0,200,200)
         //a.fillShape.path = a.fillShape.frame.path
         //a.fillShape.delegate = self
