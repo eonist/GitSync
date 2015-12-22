@@ -72,6 +72,8 @@ class WinView2:FlippedView{
         //a.fillShape.delegate = self
         //a.fillShape.setNeedsDisplay()
         
+        //remove the fillShape stuff. and try the above again, with lineStyle 
+        
         //TODO: write about that redelegate a delegate to avoid extending NSObject idea. with insp from the twitter article you made about button delegation etc
     }
     
