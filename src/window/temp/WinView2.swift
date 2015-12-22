@@ -1,13 +1,5 @@
 import Cocoa
-class TempGraphix:FlippedView{
-    
-    override func drawLayer(layer: CALayer, inContext ctx: CGContext) {
-        Swift.print("TempGraphix.drawLayer")
-    }
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
+
 class WinView2:FlippedView{
     var element:Element?
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
@@ -60,7 +52,7 @@ class WinView2:FlippedView{
      */
     func radialGradientTest(){
         
-        addSubview(TempGraphix(frame: NSRect(0,0,400,400)))
+        
         
         //fill:radial-gradient(50% 20% 40% 120% 90 -1, white 1 0,white 0.33 0.4724,white 0 1);
         
