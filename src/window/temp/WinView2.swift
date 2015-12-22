@@ -64,15 +64,20 @@ class WinView2:FlippedView{
         
         //let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
         
-
+        /*
         let rectGraphic:RectGraphic = RectGraphic(200,200,fillStyle)
+        addSubview(rectGraphic.graphic)
+        rectGraphic.draw()
+        */
         
         //circle
+        let circleGraphic:CircleGraphic = CircleGraphic()
+        
         //elipse
         //line
         
-        addSubview(rectGraphic.graphic)
-        rectGraphic.draw()
+        
+        
         
     
         
