@@ -76,7 +76,7 @@ class WinView2:FlippedView{
         circleGraphic.draw()
         
         
-        
+        //TODO:Circle should have center aligned stroke
         
         //elipse
         //line
