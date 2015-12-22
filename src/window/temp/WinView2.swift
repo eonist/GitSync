@@ -43,7 +43,7 @@ class WinView2:FlippedView{
         //testLayerBackedElement()
         //testGraphic()
     }
-    var a:Graphic!
+    
     /**
      * Add args that enable disable infinite gradient etc
      */
@@ -51,7 +51,7 @@ class WinView2:FlippedView{
         
         //fill:radial-gradient(50% 20% 40% 120% 90 -1, white 1 0,white 0.33 0.4724,white 0 1);
         
-        var fillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
+        let fillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
         //let gradient = Gradient([NSColor.blueColor().CGColor,NSColor.redColor().CGColor],[],GradientType.Radial,1.5707963267949,CGPoint(0,0),CGPoint(0,0),CGSize(0,0),CGSize(1,1))
         //gradient.gradientType = GradientType.Axial
         //try to make a Linear gradient and see if that gets clipped
@@ -62,8 +62,8 @@ class WinView2:FlippedView{
         //a = Graphic(fillStyle,nil)
         
         //test how easy it is to create a rectGraphic etc
-        a = BaseGraphic(fillStyle,nil)
-        a = RectGraphic(NSRect(0,0,200,200),a).graphic
+        let baseGraphic = BaseGraphic(fillStyle,nil)
+        let a:Graphic = RectGraphic(NSRect(0,0,200,200),baseGraphic).graphic
         
         addSubview(a)
         //a.fillShape.frame = NSRect(0,0,200,200)
@@ -73,12 +73,14 @@ class WinView2:FlippedView{
         
     }
     
+    /*
     override func drawLayer(layer: CALayer, inContext ctx: CGContext) {
-        a.fillShape.graphics.context = ctx
-        a.fillShape.graphics.fill(a.fillStyle!.color.alpha(1.0))
-        //a.fillShape.graphics.gradientFill((a.fillStyle as! GradientFillStyle).gradient)
-        a.fillShape.graphics.draw(a.fillShape.path)
+    a.fillShape.graphics.context = ctx
+    a.fillShape.graphics.fill(a.fillStyle!.color.alpha(1.0))
+    //a.fillShape.graphics.gradientFill((a.fillStyle as! GradientFillStyle).gradient)
+    a.fillShape.graphics.draw(a.fillShape.path)
     }
+    */
 
     func testTabBar(){
         
