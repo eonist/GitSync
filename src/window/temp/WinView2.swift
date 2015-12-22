@@ -63,14 +63,16 @@ class WinView2:FlippedView{
         
         //test how easy it is to create a rectGraphic etc
         let baseGraphic = BaseGraphic(fillStyle,nil)
-        let a:Graphic = RectGraphic(NSRect(0,0,200,200),baseGraphic).graphic
+        let rectGraphic = RectGraphic(NSRect(0,0,200,200),baseGraphic).graphic
         
-        addSubview(a)
+        addSubview(rectGraphic.graphic)
+        rectGraphic.draw()
         //a.fillShape.frame = NSRect(0,0,200,200)
         //a.fillShape.path = a.fillShape.frame.path
         //a.fillShape.delegate = self
         //a.fillShape.setNeedsDisplay()
         
+        //TODO: write about that redelegate a delegate to avoid extending NSObject idea. with insp from the twitter article you made about button delegation etc
     }
     
     /*
