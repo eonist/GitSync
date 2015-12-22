@@ -47,7 +47,7 @@ class WinView2:FlippedView{
         //testLayerBackedElement()
         //testGraphic()
     }
-    var rectGraphic:RectGraphic!
+    
     /**
      * Add args that enable disable infinite gradient etc
      */
@@ -64,7 +64,7 @@ class WinView2:FlippedView{
         
         //let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
         
-        rectGraphic = RectGraphic(200,200,BaseGraphic(fillStyle))
+        var rectGraphic:RectGraphic = RectGraphic(200,200,BaseGraphic(fillStyle))
      
         addSubview(rectGraphic.graphic)
         rectGraphic.draw()
