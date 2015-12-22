@@ -18,8 +18,8 @@ class TempGraphix:FlippedView{
         //a = Graphic(fillStyle,nil)
         
         //test how easy it is to create a rectGraphic etc
-        let baseGraphic = BaseGraphic(fillStyle,lineStyle)
-        let rectGraphic = RectGraphic(NSRect(0,0,200,200),baseGraphic)
+        let baseGraphic = BaseGraphic(fillStyle,lineStyle,OffsetType(OffsetType.outside))
+        let rectGraphic = RectGraphic(200,200,baseGraphic)
         
         
         addSubview(baseGraphic)
