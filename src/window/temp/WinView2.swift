@@ -78,7 +78,7 @@ class WinView2:FlippedView{
         //then in the drawLayer(context,layer) method in graphic, you set the ctx and layer to the selector variable, then whatver is in the selector gets the call, 
         //this way you can have the decorator class get the delegate call withouth the messy extending of NSObject etc.
         
-        //TODO:Test your selector theory first in a local variable as this is the main benefit of this approach, if it could fix this part. 
+        //TODO:Test your selector theory first in a local variable as this is the main benefit of this approach, if it could fix this part.
     }
     
     /*
