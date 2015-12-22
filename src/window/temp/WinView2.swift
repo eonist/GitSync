@@ -3,18 +3,20 @@ import Cocoa
 class WinView2:FlippedView{
     var element:Element?
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
-    //override var wantsUpdateLayer:Bool{return false;}
+    override var wantsUpdateLayer:Bool{return false;}
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
-        //wantsLayer = true
+        wantsLayer = true
         createContent()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    /*
     override func drawRect(dirtyRect: NSRect) {
-        //Swift.print("WinView.drawRect()")
+    //Swift.print("WinView.drawRect()")
     }
+    */
     func createContent(){
         
         //continue here:
@@ -58,14 +60,14 @@ class WinView2:FlippedView{
         
         //fillStyle = GradientFillStyle(gradient,NSColor.clearColor());
         
-        //let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
+        let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
         //a = Graphic(fillStyle,nil)
         
         //test how easy it is to create a rectGraphic etc
-        let baseGraphic = BaseGraphic(fillStyle,nil)
+        let baseGraphic = BaseGraphic(fillStyle,lineStyle)
         let rectGraphic = RectGraphic(NSRect(0,0,200,200),baseGraphic)
         rectGraphic.draw()
-        addSubview(rectGraphic.graphic)
+        //addSubview(rectGraphic.graphic)
         
         //a.fillShape.frame = NSRect(0,0,200,200)
         //a.fillShape.path = a.fillShape.frame.path
