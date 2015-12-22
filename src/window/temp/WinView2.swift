@@ -26,7 +26,9 @@ class TempGraphix:FlippedView{
         rectGraphic.draw()
 
     }
-    
+    override func drawLayer(layer: CALayer, inContext ctx: CGContext) {
+        Swift.print("TempGraphix.drawLayer")
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -42,6 +44,9 @@ class WinView2:FlippedView{
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    override func drawLayer(layer: CALayer, inContext ctx: CGContext) {
+        Swift.print("WinView2.drawLayer")
     }
     /*
     override func drawRect(dirtyRect: NSRect) {
@@ -66,7 +71,7 @@ class WinView2:FlippedView{
         //try to implement radial gradient as it was in the original concept
         //make the Radio bullet example and post a gif brewery animation on twitter and on github (maybe add a touch of animation?)
         //tomorrow implement the svg engine
-        //radialGradientTest()
+        radialGradientTest()
         //testTabBar()
         //testDropShadow()
         //testOverlapping()
