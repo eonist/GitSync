@@ -58,7 +58,7 @@ class WinView2:FlippedView{
         
         //fillStyle = GradientFillStyle(gradient,NSColor.clearColor());
         
-        let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
+        //let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
         a = Graphic(fillStyle,nil)
         addSubview(a)
         a.fillShape.frame = NSRect(0,0,200,200)
