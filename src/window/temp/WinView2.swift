@@ -18,9 +18,11 @@ class TempGraphix:FlippedView{
         //a = Graphic(fillStyle,nil)
         
         //test how easy it is to create a rectGraphic etc
-        let baseGraphic:BaseGraphic = BaseGraphic(fillStyle,lineStyle,OffsetType(OffsetType.outside))
+        let baseGraphic:BaseGraphic = BaseGraphic(fillStyle,nil,OffsetType(OffsetType.outside))
         let rectGraphic:RectGraphic = RectGraphic(200,200,baseGraphic)
-        baseGraphic.setDelegate(rectGraphic)
+        //baseGraphic.lineShape.delegate = self
+        baseGraphic.fillShape.delegate = self
+        //baseGraphic.layer!.delegate = self
         rectGraphic.draw()
         addSubview(baseGraphic)
         
