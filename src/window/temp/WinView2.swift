@@ -36,23 +36,46 @@ class WinView2:FlippedView{
         //try to implement radial gradient as it was in the original concept
         //make the Radio bullet example and post a gif brewery animation on twitter and on github (maybe add a touch of animation?)
         //tomorrow implement the svg engine
-        //radialGradientTest()
+        radialGradientTest()
         //testTabBar()
         //testDropShadow()
         //testOverlapping()
         //testTextButton()
-        testButton()
+        //testButton()
         //testTempRoundRect()
         //testLayerBackedElement()
         //testGraphic()
     }
-    
+    var rectGraphic:RectGraphic?
     /**
      * Add args that enable disable infinite gradient etc
      */
     func radialGradientTest(){
         
         
+        
+        
+        let fillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
+        //let gradient = Gradient([NSColor.blueColor().CGColor,NSColor.redColor().CGColor],[],GradientType.Radial,1.5707963267949,CGPoint(0,0),CGPoint(0,0),CGSize(0,0),CGSize(1,1))
+        //gradient.gradientType = GradientType.Axial
+        //try to make a Linear gradient and see if that gets clipped
+        
+        //fillStyle = GradientFillStyle(gradient,NSColor.clearColor());
+        
+        //let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
+        //a = Graphic(fillStyle,nil)
+        
+        //test how easy it is to create a rectGraphic etc
+        let baseGraphic:BaseGraphic = BaseGraphic(fillStyle,nil,OffsetType(OffsetType.outside))
+        rectGraphic = RectGraphic(200,200,baseGraphic)
+        //baseGraphic.lineShape.delegate = self
+        baseGraphic.fillShape.delegate = rectGraphic
+        //baseGraphic.layer!.delegate = self
+        
+        addSubview(baseGraphic)
+        rectGraphic!.draw()
+        
+    
         
         //fill:radial-gradient(50% 20% 40% 120% 90 -1, white 1 0,white 0.33 0.4724,white 0 1);
         
