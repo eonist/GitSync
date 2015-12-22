@@ -1,13 +1,13 @@
 import Cocoa
 
 class WinView2:FlippedView{
-    var element:Element?
+    
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     //override var wantsUpdateLayer:Bool{return false;}
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         //wantsLayer = false
-        createContent()
+        //createContent()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
