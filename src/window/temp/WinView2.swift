@@ -63,6 +63,7 @@ class WinView2:FlippedView{
         
         //test how easy it is to create a rectGraphic etc
         a = BaseGraphic(fillStyle,nil)
+        a = RectGraphic(NSRect(0,0,200,200),a).graphic
         
         addSubview(a)
         //a.fillShape.frame = NSRect(0,0,200,200)
