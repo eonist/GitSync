@@ -72,13 +72,6 @@ class WinView2:FlippedView{
         
         //fill:radial-gradient(50% 20% 40% 120% 90 -1, white 1 0,white 0.33 0.4724,white 0 1);
         
-        //a.fillShape.frame = NSRect(0,0,200,200)
-        //a.fillShape.path = a.fillShape.frame.path
-        //a.fillShape.delegate = self
-        //a.fillShape.setNeedsDisplay()
-        
-        //remove the fillShape stuff. and try the above again, with lineStyle 
-        
         //TODO: write about that redelegate a delegate to avoid extending NSObject idea. with insp from the twitter article you made about button delegation etc
     }
     
