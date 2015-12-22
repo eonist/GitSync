@@ -75,9 +75,7 @@ class WinView2:FlippedView{
         addSubview(circleGraphic.graphic)
         circleGraphic.draw()
         
-        //continue here:
-        //get x and y working
-        //get line working
+        
         
         
         //elipse
