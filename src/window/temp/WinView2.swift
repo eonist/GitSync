@@ -1,13 +1,14 @@
 import Cocoa
 
 class WinView2:FlippedView{
-    
+    var element:Element?
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     //override var wantsUpdateLayer:Bool{return false;}
+   var rectGraphic:RectGraphic!
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         //wantsLayer = false
-        //createContent()
+        createContent()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -46,7 +47,7 @@ class WinView2:FlippedView{
         //testLayerBackedElement()
         //testGraphic()
     }
-    var rectGraphic:RectGraphic
+    
     /**
      * Add args that enable disable infinite gradient etc
      */
@@ -77,7 +78,6 @@ class WinView2:FlippedView{
         //what you do is that you setup Graphic to be the delegatee of the fillShape and the lineShape. so whenever they get a setNeedsDisplay call then this is always the delegate method beeing caled
         //then in the drawLayer(context,layer) method in graphic, you set the ctx and layer to the selector variable, then whatver is in the selector gets the call, 
         //this way you can have the decorator class get the delegate call withouth the messy extending of NSObject etc.
-        
         //TODO:Test your selector theory first in a local variable as this is the main benefit of this approach, if it could fix this part.
     }
     
