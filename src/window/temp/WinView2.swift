@@ -71,7 +71,7 @@ class WinView2:FlippedView{
         */
         
         //circle
-        let circleGraphic:CircleGraphic = CircleGraphic(50,50,100,NSColor.blueColor())
+        let circleGraphic:CircleGraphic = CircleGraphic(50,50,100,fillStyle)
         addSubview(circleGraphic.graphic)
         circleGraphic.draw()
         
