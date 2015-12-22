@@ -66,8 +66,10 @@ class WinView2:FlippedView{
         //test how easy it is to create a rectGraphic etc
         let baseGraphic = BaseGraphic(fillStyle,lineStyle)
         let rectGraphic = RectGraphic(NSRect(0,0,200,200),baseGraphic)
+        let graphic = rectGraphic.getGraphic()
+        Swift.print("graphic: " + "\(graphic)")
+        addSubview(graphic)
         rectGraphic.draw()
-        //addSubview(rectGraphic.graphic)
         
         //a.fillShape.frame = NSRect(0,0,200,200)
         //a.fillShape.path = a.fillShape.frame.path
