@@ -62,7 +62,7 @@ class WinView2:FlippedView{
      
         //fillStyle = GradientFillStyle(gradient,NSColor.clearColor());
         
-        //let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
+        let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
         
         /*
         let rectGraphic:RectGraphic = RectGraphic(200,200,fillStyle)
@@ -71,7 +71,7 @@ class WinView2:FlippedView{
         */
         
         //circle
-        let circleGraphic:CircleGraphic = CircleGraphic(50,50,100,fillStyle)
+        let circleGraphic:CircleGraphic = CircleGraphic(50,50,100,fillStyle,lineStyle)
         addSubview(circleGraphic.graphic)
         circleGraphic.draw()
         
