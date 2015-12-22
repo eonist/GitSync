@@ -73,6 +73,9 @@ class WinView2:FlippedView{
         //fill:radial-gradient(50% 20% 40% 120% 90 -1, white 1 0,white 0.33 0.4724,white 0 1);
         
         //TODO: write about that redelegate a delegate to avoid extending NSObject idea. with insp from the twitter article you made about button delegation etc
+        
+        //what you do is that you setup Graphic to be the delegatee of the fillShape and the lineShape. so whenever they get a setNeedsDisplay call then this is always the delegate method beeing caled
+        //then in the drawLayer(context,layer) method in graphic, you set the ctx and layer to the selector variable
     }
     
     /*
