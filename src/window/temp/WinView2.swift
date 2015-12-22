@@ -59,19 +59,21 @@ class WinView2:FlippedView{
         //fillStyle = GradientFillStyle(gradient,NSColor.clearColor());
         
         let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
-        a = Graphic(fillStyle,lineStyle)
+        a = Graphic(fillStyle,nil)
         addSubview(a)
         a.fillShape.frame = NSRect(0,0,200,200)
         a.fillShape.path = a.fillShape.frame.path
-        //a.fillShape.delegate = a
+        a.fillShape.delegate = a
         a.fillShape.setNeedsDisplay()
     }
+    /*
     override func drawLayer(layer: CALayer, inContext ctx: CGContext) {
         a.fillShape.graphics.context = ctx
         //a.fillShape.graphics.fill(a.fillStyle!.color)
         a.fillShape.graphics.gradientFill((a.fillStyle as! GradientFillStyle).gradient)
         a.fillShape.graphics.draw(a.fillShape.path)
     }
+*/
     func testTabBar(){
         
         //continue here: maybe implement height with the Text element
