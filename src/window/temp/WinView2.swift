@@ -45,9 +45,7 @@ class WinView2:FlippedView{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    override func drawLayer(layer: CALayer, inContext ctx: CGContext) {
-        Swift.print("WinView2.drawLayer")
-    }
+    
     /*
     override func drawRect(dirtyRect: NSRect) {
     //Swift.print("WinView.drawRect()")
