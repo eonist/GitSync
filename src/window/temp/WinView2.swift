@@ -1,10 +1,30 @@
 import Cocoa
 class TempGraphix:FlippedView{
-    init(frame frameRect: NSRect) {
+    override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
         layer!.masksToBounds = false//this is needed!!!
+        
+        
+        let fillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
+        //let gradient = Gradient([NSColor.blueColor().CGColor,NSColor.redColor().CGColor],[],GradientType.Radial,1.5707963267949,CGPoint(0,0),CGPoint(0,0),CGSize(0,0),CGSize(1,1))
+        //gradient.gradientType = GradientType.Axial
+        //try to make a Linear gradient and see if that gets clipped
+        
+        //fillStyle = GradientFillStyle(gradient,NSColor.clearColor());
+        
+        let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
+        //a = Graphic(fillStyle,nil)
+        
+        //test how easy it is to create a rectGraphic etc
+        let baseGraphic = BaseGraphic(fillStyle,lineStyle)
+        let rectGraphic = RectGraphic(NSRect(0,0,200,200),baseGraphic)
+        let graphic = rectGraphic.getGraphic()
+        Swift.print("graphic: " + "\(graphic)")
+        addSubview(graphic)
+        rectGraphic.draw()
+
     }
 
     required init?(coder: NSCoder) {
@@ -62,25 +82,9 @@ class WinView2:FlippedView{
      */
     func radialGradientTest(){
         
+        addSubview(TempGraphix(frame: NSRect(0,0,400,400)))
+        
         //fill:radial-gradient(50% 20% 40% 120% 90 -1, white 1 0,white 0.33 0.4724,white 0 1);
-        
-        let fillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
-        //let gradient = Gradient([NSColor.blueColor().CGColor,NSColor.redColor().CGColor],[],GradientType.Radial,1.5707963267949,CGPoint(0,0),CGPoint(0,0),CGSize(0,0),CGSize(1,1))
-        //gradient.gradientType = GradientType.Axial
-        //try to make a Linear gradient and see if that gets clipped
-        
-        //fillStyle = GradientFillStyle(gradient,NSColor.clearColor());
-        
-        let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
-        //a = Graphic(fillStyle,nil)
-        
-        //test how easy it is to create a rectGraphic etc
-        let baseGraphic = BaseGraphic(fillStyle,lineStyle)
-        let rectGraphic = RectGraphic(NSRect(0,0,200,200),baseGraphic)
-        let graphic = rectGraphic.getGraphic()
-        Swift.print("graphic: " + "\(graphic)")
-        addSubview(graphic)
-        rectGraphic.draw()
         
         //a.fillShape.frame = NSRect(0,0,200,200)
         //a.fillShape.path = a.fillShape.frame.path
