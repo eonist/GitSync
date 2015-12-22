@@ -63,7 +63,7 @@ class WinView2:FlippedView{
         addSubview(a)
         a.fillShape.frame = NSRect(0,0,200,200)
         a.fillShape.path = a.fillShape.frame.path
-        a.setDelegate(a)
+        
         a.fillShape.setNeedsDisplay()
         
     }
