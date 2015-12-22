@@ -74,6 +74,12 @@ class WinView2:FlippedView{
         let circleGraphic:CircleGraphic = CircleGraphic(50,50,100,NSColor.blueColor())
         addSubview(circleGraphic.graphic)
         circleGraphic.draw()
+        
+        //continue here:
+        //get x and y working
+        //get line working
+        
+        
         //elipse
         //line
         
