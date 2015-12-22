@@ -21,9 +21,9 @@ class TempGraphix:FlippedView{
         let baseGraphic = BaseGraphic(fillStyle,lineStyle,OffsetType(OffsetType.outside))
         let rectGraphic = RectGraphic(200,200,baseGraphic)
         
-        
-        addSubview(baseGraphic)
         rectGraphic.draw()
+        addSubview(baseGraphic)
+        
 
     }
     override func drawLayer(layer: CALayer, inContext ctx: CGContext) {
