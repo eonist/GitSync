@@ -46,7 +46,7 @@ class WinView2:FlippedView{
         //testLayerBackedElement()
         //testGraphic()
     }
-    
+    var rectGraphic:RectGraphic?
     /**
      * Add args that enable disable infinite gradient etc
      */
@@ -67,7 +67,7 @@ class WinView2:FlippedView{
         
         //test how easy it is to create a rectGraphic etc
         let baseGraphic:BaseGraphic = BaseGraphic(fillStyle,nil,OffsetType(OffsetType.outside))
-        var rectGraphic:RectGraphic?
+        
         rectGraphic = RectGraphic(200,200,baseGraphic)
         //baseGraphic.lineShape.delegate = self
         baseGraphic.fillShape.delegate = rectGraphic
