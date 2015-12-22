@@ -75,7 +75,10 @@ class WinView2:FlippedView{
         //TODO: write about that redelegate a delegate to avoid extending NSObject idea. with insp from the twitter article you made about button delegation etc
         
         //what you do is that you setup Graphic to be the delegatee of the fillShape and the lineShape. so whenever they get a setNeedsDisplay call then this is always the delegate method beeing caled
-        //then in the drawLayer(context,layer) method in graphic, you set the ctx and layer to the selector variable
+        //then in the drawLayer(context,layer) method in graphic, you set the ctx and layer to the selector variable, then whatver is in the selector gets the call, 
+        //this way you can have the decorator class get the delegate call withouth the messy extending of NSObject etc.
+        
+        //TODO:Test your selector theory first in a local variable as this is the main benefit of this approach, if it could fix this part. 
     }
     
     /*
