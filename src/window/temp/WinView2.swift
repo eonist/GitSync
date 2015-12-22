@@ -1,10 +1,10 @@
 import Cocoa
 
 class WinView2:FlippedView{
-    var element:Element?
+    
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     //override var wantsUpdateLayer:Bool{return false;}
-   var rectGraphic:RectGraphic!
+   
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         //wantsLayer = false
@@ -47,7 +47,7 @@ class WinView2:FlippedView{
         //testLayerBackedElement()
         //testGraphic()
     }
-    
+    var rectGraphic:RectGraphic!
     /**
      * Add args that enable disable infinite gradient etc
      */
@@ -75,15 +75,6 @@ class WinView2:FlippedView{
         
     }
     
-    /*
-    override func drawLayer(layer: CALayer, inContext ctx: CGContext) {
-    a.fillShape.graphics.context = ctx
-    a.fillShape.graphics.fill(a.fillStyle!.color.alpha(1.0))
-    //a.fillShape.graphics.gradientFill((a.fillStyle as! GradientFillStyle).gradient)
-    a.fillShape.graphics.draw(a.fillShape.path)
-    }
-    */
-
     func testTabBar(){
         
         //continue here: maybe implement height with the Text element
