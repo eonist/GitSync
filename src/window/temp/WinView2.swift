@@ -1,5 +1,16 @@
 import Cocoa
+class TempGraphix:FlippedView{
+    init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        self.wantsLayer = true/*if true then view is layer backed*/
+        layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
+        layer!.masksToBounds = false//this is needed!!!
+    }
 
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
 class WinView2:FlippedView{
     var element:Element?
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
