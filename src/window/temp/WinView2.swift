@@ -56,15 +56,15 @@ class WinView2:FlippedView{
         
         
         
-        var fillStyle:IFillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
+        let fillStyle:IFillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
+        
         let gradient = Gradient([NSColor.blueColor().CGColor,NSColor.redColor().CGColor],[],GradientType.Radial,1.5707963267949,CGPoint(0,0),CGPoint(0,0),CGSize(0,0),CGSize(1,1))
         gradient.gradientType = GradientType.Radial
-     
-        fillStyle = GradientFillStyle(gradient,NSColor.clearColor());
+        let gradientFillStyle:GradientFillStyle = GradientFillStyle(gradient,NSColor.clearColor());
         
         let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5),CGLineCap.Round)
         
-        let rectGraphic:RectGraphic = RectGraphic(0,0,200,200,fillStyle as! GradientFillStyle,lineStyle)
+        let rectGraphic:RectGraphic = RectGraphic(0,0,200,200,gradientFillStyle,nil)
         addSubview(rectGraphic.graphic)
         rectGraphic.draw()
         
