@@ -85,8 +85,6 @@ class WinView2:FlippedView{
         
         
         
-        //Continue here: What if you made a graphic framework that has a parm called uniform. Which toggles how the graphic is aligned. Uniform means that outlines go outside the 0,0 coordiante system. and if uniform is false then its drawn from the 0,0 coordiante system
-        
         
         //elipse
         //line
