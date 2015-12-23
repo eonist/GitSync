@@ -85,7 +85,8 @@ class WinView2:FlippedView{
         
         
         
-        //Continue here: 
+        //Continue here: make the line case
+        //add
         
         
         //elipse
