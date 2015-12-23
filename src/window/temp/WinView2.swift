@@ -81,7 +81,10 @@ class WinView2:FlippedView{
         
         /**/
         
-        
+        let line = LineGraphic(CGPoint(20,20),CGPoint(50,50))
+        //line.setPosition(CGPoint(150,150))
+        //line.initialize()
+        roundRect.draw()
         
         
         
