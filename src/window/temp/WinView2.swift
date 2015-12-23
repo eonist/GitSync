@@ -75,6 +75,9 @@ class WinView2:FlippedView{
         addSubview(circleGraphic.graphic)
         circleGraphic.draw()
         
+        //RoundRect
+        let roundRect:RoundRectGraphic = RoundRectGraphic()
+        
         
         //TODO:Circle should have center aligned stroke
         //TODO:check Rect3, does it do outside strokes or is there some align tech that does the css box model stuff? Since you do use Rect3 for other stuff aswell
