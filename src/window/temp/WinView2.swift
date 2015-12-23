@@ -85,6 +85,8 @@ class WinView2:FlippedView{
         
         
         
+        //Continue here: 
+        
         
         //elipse
         //line
