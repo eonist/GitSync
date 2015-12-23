@@ -70,10 +70,10 @@ class WinView2:FlippedView{
         rectGraphic.draw()
         
         
-        //circle
-        let circleGraphic:CircleGraphic = CircleGraphic(40,40,100,fillStyle,lineStyle)
-        addSubview(circleGraphic.graphic)
-        circleGraphic.draw()
+        //ellipse
+        let ellipseGraphic:EllipseGraphic = EllipseGraphic(220,200)
+        addSubview(ellipseGraphic.graphic)
+        ellipseGraphic.draw()
         
         //RoundRect
         //let roundRect:RoundRectGraphic = RoundRectGraphic(40,300,200,200,Fillet(20),fillStyle,lineStyle)
