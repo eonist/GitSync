@@ -37,7 +37,13 @@ class WinView2:FlippedView{
         //try to implement radial gradient as it was in the original concept
         //make the Radio bullet example and post a gif brewery animation on twitter and on github (maybe add a touch of animation?)
         //tomorrow implement the svg engine
-        radialGradientTest()
+        
+        
+        
+        //try to shift somethng with the array extension
+        
+        
+        //radialGradientTest()
         //testTabBar()
         //testDropShadow()
         //testOverlapping()
