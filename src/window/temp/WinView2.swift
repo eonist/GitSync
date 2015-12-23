@@ -64,7 +64,7 @@ class WinView2:FlippedView{
         
         let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5),CGLineCap.Round)
         
-        /*
+        
         
         let rectGraphic:RectGraphic = RectGraphic(300,40,200,200,fillStyle,lineStyle)
         addSubview(rectGraphic.graphic)
@@ -79,7 +79,7 @@ class WinView2:FlippedView{
         let roundRect:RoundRectGraphic = RoundRectGraphic(40,300,200,200,Fillet(50),fillStyle,lineStyle)
         addSubview(roundRect.graphic)
         roundRect.draw()
-        */
+
         
         /**/
         
