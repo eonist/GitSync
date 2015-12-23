@@ -112,10 +112,13 @@ class WinView2:FlippedView{
         
         
         
+        let css:String = "Element{fill:radial-gradient(50% 20% 40% 120% 90 0, red 1 0,green 1 1);}"//,blue 0.33 0.4724
+        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
+        StyleManager.addStyle(styleCollection.styles)
+        //let element:Element = Element(200,200)
+        //addSubview(element)
         
-    
-        
-        //fill:radial-gradient(50% 20% 40% 120% 90 -1, white 1 0,white 0.33 0.4724,white 0 1);
+        //
         
     }
     
