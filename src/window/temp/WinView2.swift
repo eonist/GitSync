@@ -62,19 +62,22 @@ class WinView2:FlippedView{
     func radialGradientTest(){
         
         
-        
-        
         //let fillStyle:IFillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
         
+        /*
         let gradient = Gradient([NSColor.blueColor().CGColor,NSColor.redColor().CGColor],[],GradientType.Radial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         gradient.gradientType = GradientType.Radial
         let gradientFillStyle:GradientFillStyle = GradientFillStyle(gradient,NSColor.clearColor());
+        */
+        
         
         //let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5),CGLineCap.Round)
         
+        /*
         let rectGraphic:RectGraphic = RectGraphic(0,0,200,200,gradientFillStyle as GradientFillStyle,nil)
         addSubview(rectGraphic.graphic)
         rectGraphic.draw()
+        */
         
         /*
         //ellipse
