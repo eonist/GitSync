@@ -128,7 +128,13 @@ class WinView2:FlippedView{
         let element:Element = Element(200,200)
         addSubview(element)
         
-        //
+        
+        
+        //Continue here, try to mimic the focal point system closer, look at old work. 
+        //think about including a dual system where you can also fully utilize the 2point 2size system aswell as the focalpoinratio system. 
+        
+        
+        
         
     }
     
