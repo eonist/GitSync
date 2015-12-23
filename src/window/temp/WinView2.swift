@@ -62,7 +62,7 @@ class WinView2:FlippedView{
      
         //fillStyle = GradientFillStyle(gradient,NSColor.clearColor());
         
-        let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
+        let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5),CGLineCap.Round)
         
         /*
         
