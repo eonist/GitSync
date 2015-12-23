@@ -76,11 +76,11 @@ class WinView2:FlippedView{
         ellipseGraphic.draw()
         
         //RoundRect
-        //let roundRect:RoundRectGraphic = RoundRectGraphic(40,300,200,200,Fillet(20),fillStyle,lineStyle)
+        let roundRect:RoundRectGraphic = RoundRectGraphic(40,300,200,200,Fillet(20),fillStyle,lineStyle)
         
         
-        //TODO:Circle should have center aligned stroke
-        //TODO:check Rect3, does it do outside strokes or is there some align tech that does the css box model stuff? Since you do use Rect3 for other stuff aswell
+        
+        
         
         
         //Continue here: What if you made a graphic framework that has a parm called uniform. Which toggles how the graphic is aligned. Uniform means that outlines go outside the 0,0 coordiante system. and if uniform is false then its drawn from the 0,0 coordiante system
