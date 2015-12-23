@@ -69,7 +69,6 @@ class WinView2:FlippedView{
         addSubview(rectGraphic.graphic)
         rectGraphic.draw()
         
-        
         //ellipse
         let ellipseGraphic:EllipseGraphic = EllipseGraphic(40,40,200,200,fillStyle,lineStyle)
         addSubview(ellipseGraphic.graphic)
@@ -79,6 +78,7 @@ class WinView2:FlippedView{
         let roundRect:RoundRectGraphic = RoundRectGraphic(40,300,200,200,Fillet(50),fillStyle,lineStyle)
         addSubview(roundRect.graphic)
         roundRect.draw()
+        
         /**/
         
         
