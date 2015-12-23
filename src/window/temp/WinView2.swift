@@ -83,7 +83,7 @@ class WinView2:FlippedView{
         
         /**/
         
-        let line = LineGraphic(CGPoint(20,20),CGPoint(150,150),lineStyle)
+        let line = LineGraphic(CGPoint(300,300),CGPoint(500,500),lineStyle)
         addSubview(line.graphic)
         line.draw()
         //line.setPosition(CGPoint(150,150))
