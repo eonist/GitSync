@@ -76,7 +76,7 @@ class WinView2:FlippedView{
         circleGraphic.draw()
         
         //RoundRect
-        let roundRect:RoundRectGraphic = RoundRectGraphic()
+        //let roundRect:RoundRectGraphic = RoundRectGraphic(40,300,200,200,Fillet(20),fillStyle,lineStyle)
         
         
         //TODO:Circle should have center aligned stroke
