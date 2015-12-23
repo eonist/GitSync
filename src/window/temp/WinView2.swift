@@ -121,6 +121,8 @@ class WinView2:FlippedView{
         Swift.print("gradient.relativeStartCenter: " + "\(gradient.relativeStartCenter)")
         Swift.print("gradient.relativeEndCenter: " + "\(gradient.relativeEndCenter)")
         Swift.print("gradient.relativeStartRadius: " + "\(gradient.relativeStartRadius)")
+        Swift.print("gradient.rotation: " + "\(gradient.rotation)")
+        
         
         StyleManager.addStyle(styleCollection.styles)
         let element:Element = Element(200,200)
