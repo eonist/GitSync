@@ -64,6 +64,7 @@ class WinView2:FlippedView{
         
         let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5))
         
+        /*
         
         let rectGraphic:RectGraphic = RectGraphic(300,40,200,200,fillStyle,lineStyle)
         addSubview(rectGraphic.graphic)
@@ -78,14 +79,14 @@ class WinView2:FlippedView{
         let roundRect:RoundRectGraphic = RoundRectGraphic(40,300,200,200,Fillet(50),fillStyle,lineStyle)
         addSubview(roundRect.graphic)
         roundRect.draw()
+        */
         
         /**/
         
-        let line = LineGraphic(CGPoint(20,20),CGPoint(50,50))
+        let line = LineGraphic(CGPoint(20,20),CGPoint(150,150),lineStyle)
+        addSubview(line.graphic)
+        line.draw()
         //line.setPosition(CGPoint(150,150))
-        //line.initialize()
-        roundRect.draw()
-        
         
         
         //Continue here: make the line case
