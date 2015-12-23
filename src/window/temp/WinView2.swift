@@ -42,6 +42,10 @@ class WinView2:FlippedView{
         
         //try to shift somethng with the array extension
         
+        var a = ["a","b","c"]
+        Swift.print("a.shift(): " + "\(a.shift())")
+        Swift.print("a: " + "\(a)")
+        
         
         //radialGradientTest()
         //testTabBar()
