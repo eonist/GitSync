@@ -58,7 +58,7 @@ class WinView2:FlippedView{
         
         //let fillStyle:IFillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
         
-        let gradient = Gradient([NSColor.blueColor().CGColor,NSColor.redColor().CGColor],[],GradientType.Radial,π/2,CGPoint(0.5,0.5),CGPoint(0,0),CGSize(1,1),CGSize(0,0))
+        let gradient = Gradient([NSColor.blueColor().CGColor,NSColor.redColor().CGColor],[],GradientType.Radial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         gradient.gradientType = GradientType.Radial
         let gradientFillStyle:GradientFillStyle = GradientFillStyle(gradient,NSColor.clearColor());
         
