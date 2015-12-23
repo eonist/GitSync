@@ -17,7 +17,7 @@ class GradientBoxTest:View {
         
         for corner:CGPoint in rect.corners{
             //Swift.print(corner)
-            let circle = EllipseGraphic(10,10)
+            let circle = EllipseGraphic(0,0,10,10)
             circle.setPosition(corner)
             //circle.initialize()
         }
