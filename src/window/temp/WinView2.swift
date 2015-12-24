@@ -103,8 +103,8 @@ class WinView2:FlippedView{
         
         
         //Continue here: make the line case
-        //add different gradients to the different shapes
-        //add gradient initializers in the Decorators
+        //TODO: add different gradients to the different shapes
+        //TODO: add gradient initializers in the Decorators
         
         
         //elipse
