@@ -117,9 +117,9 @@ class WinView2:FlippedView{
         let style:IStyle = styleCollection.getStyle("Element")!
         let styleProperty:IStyleProperty = style.getStyleProperty("fill")!
         let gradient:IGradient = styleProperty.value as! IGradient
+        gradient
         
         
-        //continue here, you may want to add a param that can set to fit the gradient inside bounding box, if false then fit the smallest axis
         
         
         /*
