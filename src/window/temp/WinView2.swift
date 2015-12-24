@@ -73,10 +73,10 @@ class WinView2:FlippedView{
         
         
         
-        //let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5),CGLineCap.Round)
+        let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5),CGLineCap.Round)
         
         
-        let rectGraphic:RectGraphic = RectGraphic(0,0,200,200,gradientFillStyle as GradientFillStyle,nil)
+        let rectGraphic:RectGraphic = RectGraphic(0,0,200,200,gradientFillStyle as GradientFillStyle,lineStyle)
         addSubview(rectGraphic.graphic)
         rectGraphic.draw()
         
