@@ -86,6 +86,17 @@ class WinView2:FlippedView{
         rectGraphic.draw()
         
         
+        //continue here
+        //implement all the ios8 gradients, look for ios9 gradients
+        //add opacity
+        //add many shapes
+        //add grid
+        //add rulers
+        //add stylelab project
+        //do twitter research (size of pic, size of gif file etc)
+        //buy domain
+        //
+        
         /*
         //ellipse
         let ellipseGraphic:EllipseGraphic = EllipseGraphic(40,40,200,200,fillStyle,lineStyle)
