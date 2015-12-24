@@ -112,7 +112,7 @@ class WinView2:FlippedView{
         
         
         
-        let css:String = "Element{fill:radial-gradient(50% 50% 100% 100% 0 -1, red 1 0,green 1 1);}"//,blue 0.33 0.4724
+        let css:String = "Element{fill:radial-gradient(50% 50% 200% 100% 0 -1, red 1 0,green 1 1);}"//,blue 0.33 0.4724
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         let style:IStyle = styleCollection.getStyle("Element")!
         let styleProperty:IStyleProperty = style.getStyleProperty("fill")!
