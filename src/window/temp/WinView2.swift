@@ -64,20 +64,20 @@ class WinView2:FlippedView{
         
         //let fillStyle:IFillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
         
-        /*
+        
         let gradient = Gradient([NSColor.blueColor().CGColor,NSColor.redColor().CGColor],[],GradientType.Radial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
-        gradient.gradientType = GradientType.Radial
+        gradient.gradientType = GradientType.Axial
         let gradientFillStyle:GradientFillStyle = GradientFillStyle(gradient,NSColor.clearColor());
-        */
+        
         
         
         //let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5),CGLineCap.Round)
         
-        /*
+        
         let rectGraphic:RectGraphic = RectGraphic(0,0,200,200,gradientFillStyle as GradientFillStyle,nil)
         addSubview(rectGraphic.graphic)
         rectGraphic.draw()
-        */
+        
         
         /*
         //ellipse
@@ -112,6 +112,7 @@ class WinView2:FlippedView{
         
         
         
+        /*
         let css:String = "Element{fill:radial-gradient(50% 50% 100% 100% 0 0, red 1 0,green 1 1);}"//,blue 0.33 0.4724
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         let style:IStyle = styleCollection.getStyle("Element")!
@@ -135,13 +136,12 @@ class WinView2:FlippedView{
         let element:Element = Element(200,200)
         addSubview(element)
         
+        */
         
         
-        //Continue here, try to mimic the focal point system closer, look at old work. 
-        //think about including a dual system where you can also fully utilize the 2point 2size system aswell as the focalpoinratio system. 
-        //Maybe you use the CGTransform after all. 
-        //maybe look into the matrix obj, or make one of your own
-        //can you achive the same result through a 2 point gradient system as you can with matrix?, experiment, make tools , an outline, and maybe a handle etc
+        
+        //TODO: think about including a dual system where you can also fully utilize the 2point 2size system aswell as the focalpoinratio system.
+        //TODO: can you achive the same result through a 2 point gradient system as you can with matrix?, experiment, make tools , an outline, and maybe a handle etc
         
         
     }
