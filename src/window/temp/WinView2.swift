@@ -67,21 +67,19 @@ class WinView2:FlippedView{
         let c1:NSColor = NSColorParser.nsColor(Gradients.redGradientStartColor)
         let c2:NSColor = NSColorParser.nsColor(Gradients.redGradientEndColor)
         
-        let gradient = Gradient([c1.CGColor,c2.CGColor],[],GradientType.Radial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
-        gradient.gradientType = GradientType.Axial
+        let gradient = Gradient([c1.CGColor,c2.CGColor],[],GradientType.Axial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         let gradientFillStyle:GradientFillStyle = GradientFillStyle(gradient,NSColor.clearColor());
         
         
-        let c3:NSColor = NSColorParser.nsColor(Gradients.tealGradientStartColor)
-        let c4:NSColor = NSColorParser.nsColor(Gradients.tealGradientEndColor)
-        let lineGradient = Gradient([c3.CGColor,c4.CGColor],[],GradientType.Radial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
-        lineGradient.gradientType = GradientType.Axial
+        let c3:NSColor = NSColorParser.nsColor(Gradients.tealGradientStartColor).alpha(0.5)
+        let c4:NSColor = NSColorParser.nsColor(Gradients.tealGradientEndColor).alpha(0.5)
+        let lineGradient = Gradient([c3.CGColor,c4.CGColor],[],GradientType.Axial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         
         let lineStyle = LineStyle(20,NSColor.blueColor().alpha(0.5),CGLineCap.Round)
         let gradientLineStyle = GradientLineStyle(lineGradient,lineStyle)
         
         
-        let rectGraphic:RectGraphic = RectGraphic(40,40,200,200,gradientFillStyle as GradientFillStyle,gradientLineStyle as GradientLineStyle ,OffsetType(OffsetType.outside))
+        let rectGraphic:RectGraphic = RectGraphic(40,40,200,200,gradientFillStyle as GradientFillStyle,gradientLineStyle as GradientLineStyle ,OffsetType(OffsetType.center))
         addSubview(rectGraphic.graphic)
         rectGraphic.draw()
         
