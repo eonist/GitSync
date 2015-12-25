@@ -119,13 +119,6 @@ class WinView2:FlippedView{
         //line.setPosition(CGPoint(150,150))
         
         
-        //Continue here: make the line case
-        //TODO: add different gradients to the different shapes
-        //TODO: add gradient initializers in the Decorators
-        
-        
-        //elipse
-        //line
         
         
         
