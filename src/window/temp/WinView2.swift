@@ -1,6 +1,6 @@
 import Cocoa
 class ABC:TestProto{
-    init(){
+    required init(){
         
     }
 }
@@ -60,8 +60,8 @@ class WinView2:FlippedView{
         //let abc = ABC()
         var classType:TestProto.Type
         classType = ABC.self
-        let temp:TestProto = classType.init()
-        Swift.print("temp: " + "\(temp)")
+        let instance:TestProto = classType.init()
+        Swift.print("instance: " + "\(instance)")
         
         
         
