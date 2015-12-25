@@ -5,7 +5,7 @@ class ABC:TestProto{
     }
 }
 protocol TestProto{
-    
+    init()
 }
 class WinView2:FlippedView{
     
@@ -57,11 +57,14 @@ class WinView2:FlippedView{
         //let c = f.copy() as! FillStyle
         //Swift.print("c.color.hex: " + "\(c.color.hex)")
         
-        let abc = ABC()
+        //let abc = ABC()
         var classType:TestProto.Type
-        classType =  = abc.self
-        let temp = classType.init()
+        classType = ABC.self
+        let temp:TestProto = classType.init()
         Swift.print("temp: " + "\(temp)")
+        
+        
+        
         
         //testTabBar()
         //testDropShadow()
