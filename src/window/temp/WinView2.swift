@@ -74,16 +74,19 @@ class WinView2:FlippedView{
         
         let fillStyle:IFillStyle = FillStyle(NSColors.lightBlue.alpha(1.0))
         
+        /*
         let c1:NSColor = NSColorParser.nsColor(Gradients.redGradientStartColor)
         Swift.print("c1: " + "\(c1)")
         let c2:NSColor = NSColorParser.nsColor(Gradients.redGradientEndColor)
         Swift.print("c2: " + "\(c2)")
-        let gradient = Gradient([Gradients.red.start.CGColor,Gradients.red.end.CGColor],[],GradientType.Axial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
+        
+        */
+        let gradient = Gradient(Gradients.red(),[],GradientType.Axial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         let gradientFillStyle:GradientFillStyle = GradientFillStyle(gradient,NSColor.clearColor());
         
         
-        let c3:NSColor = NSColorParser.nsColor(Gradients.tealGradientStartColor).alpha(0.5)
-        let c4:NSColor = NSColorParser.nsColor(Gradients.tealGradientEndColor).alpha(0.5)
+        let c3:NSColor = NSColorParser.nsColor(Gradients.tealStart).alpha(0.5)
+        let c4:NSColor = NSColorParser.nsColor(Gradients.tealEnd).alpha(0.5)
         let lineGradient = Gradient([c3.CGColor,c4.CGColor],[],GradientType.Axial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         
         let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green).alpha(0.5),CGLineCap.Round)
