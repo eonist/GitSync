@@ -101,7 +101,7 @@ class WinView2:FlippedView{
         
         //ellipse
         
-        let ellipseGraphic:EllipseGraphic = EllipseGraphic(300,40,200,200,gradientFillStyle,lineStyle)
+        let ellipseGraphic:EllipseGraphic = EllipseGraphic(300,40,200,200,gradientFillStyle,gradientLineStyle)
         addSubview(ellipseGraphic.graphic)
         ellipseGraphic.draw()
         /**/
