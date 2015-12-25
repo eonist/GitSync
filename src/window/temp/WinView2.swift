@@ -100,17 +100,18 @@ class WinView2:FlippedView{
         
         
         //ellipse
-        /*
-        let ellipseGraphic:EllipseGraphic = EllipseGraphic(300,40,200,200,fillStyle,lineStyle)
+        
+        let ellipseGraphic:EllipseGraphic = EllipseGraphic(300,40,200,200,gradientFillStyle,lineStyle)
         addSubview(ellipseGraphic.graphic)
         ellipseGraphic.draw()
-        */
+        /**/
         
+        /*
         //RoundRect
         let roundRect:RoundRectGraphic = RoundRectGraphic(40,300,200,200,Fillet(50),gradientFillStyle,gradientLineStyle)
         addSubview(roundRect.graphic)
         roundRect.draw()
-        /**/
+        */
         
         /*
         
