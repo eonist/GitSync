@@ -58,9 +58,9 @@ class WinView2:FlippedView{
         //Swift.print("c.color.hex: " + "\(c.color.hex)")
         
         //let abc = ABC()
-        var classType:TestProto.Type
+        //var classType:TestProto.Type
         
-        func test(classType:TestProto){
+        func test(classType:TestProto.Type){
             let instance:TestProto = classType.init()
             Swift.print("instance: " + "\(instance)")
             
