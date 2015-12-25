@@ -89,32 +89,27 @@ class WinView2:FlippedView{
         let gradientLineStyle = GradientLineStyle(lineGradient,lineStyle)
         
         
-        /**/
+        /*Rect*/
         let rectGraphic:RectGraphic = RectGraphic(40,40,200,200,gradientFillStyle,gradientLineStyle)/* ,OffsetType(OffsetType.center)*/
         addSubview(rectGraphic.graphic)
         rectGraphic.draw()
 
         
-        
-        
-        
-        
-        //ellipse
-        
+        /*Ellipse*/
         let ellipseGraphic:EllipseGraphic = EllipseGraphic(300,40,200,200,gradientFillStyle,gradientLineStyle)
         addSubview(ellipseGraphic.graphic)
         ellipseGraphic.draw()
         /**/
         
         
-        //RoundRect
+        /*RoundRect*/
         let roundRect:RoundRectGraphic = RoundRectGraphic(40,300,200,200,Fillet(50),gradientFillStyle,gradientLineStyle)
         addSubview(roundRect.graphic)
         roundRect.draw()
         /**/
         
         
-        
+        /*Line*/
         let line = LineGraphic(CGPoint(300,300),CGPoint(500,500),lineStyle)
         addSubview(line.graphic)
         line.draw()
