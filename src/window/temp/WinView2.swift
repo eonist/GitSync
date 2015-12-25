@@ -59,13 +59,15 @@ class WinView2:FlippedView{
         
         //let abc = ABC()
         var classType:TestProto.Type
-        classType = ABC.self
-        let instance:TestProto = classType.init()
-        Swift.print("instance: " + "\(instance)")
         
+        func test(classType:TestProto){
+            let instance:TestProto = classType.init()
+            Swift.print("instance: " + "\(instance)")
+            
+
+        }
         
-        
-        
+        test(ABC.self)
         //testTabBar()
         //testDropShadow()
         //testOverlapping()
