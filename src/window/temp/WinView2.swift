@@ -1,8 +1,11 @@
 import Cocoa
-class ABC{
+class ABC:TestProto{
     init(){
         
     }
+}
+protocol TestProto{
+    
 }
 class WinView2:FlippedView{
     
@@ -55,8 +58,9 @@ class WinView2:FlippedView{
         //Swift.print("c.color.hex: " + "\(c.color.hex)")
         
         let abc = ABC()
-        let classType:Copyable = abc.self
-        let temp = classType..init()
+        var classType:TestProto.Type
+        classType =  = abc.self
+        let temp = classType.init()
         Swift.print("temp: " + "\(temp)")
         
         //testTabBar()
