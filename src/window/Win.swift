@@ -38,7 +38,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //view.wantsLayer = true;
         self.contentView = view
         
-        self.title = "GitSync"
+        self.title = "StyleKit"//GitSync
         createContent()
         self.delegate = self
     }
