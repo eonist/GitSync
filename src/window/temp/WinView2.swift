@@ -1,5 +1,9 @@
 import Cocoa
-
+class ABC{
+    init(){
+        
+    }
+}
 class WinView2:FlippedView{
     
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
@@ -50,7 +54,7 @@ class WinView2:FlippedView{
         //let c = f.copy() as! FillStyle
         //Swift.print("c.color.hex: " + "\(c.color.hex)")
         
-        
+        let
         
         //testTabBar()
         //testDropShadow()
