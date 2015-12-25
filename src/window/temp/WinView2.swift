@@ -60,9 +60,19 @@ class WinView2:FlippedView{
      * Add args that enable disable infinite gradient etc
      */
     func radialGradientTest(){
+        //continue here
+        //implement all the ios8 gradients, look for ios9 gradients
+        //add opacity
+        //add many shapes
+        //add grid
+        //add rulers
+        //add stylelab project
+        //do twitter research (size of pic, size of gif file etc)
+        //do more research around gif animation, gif brury 3.0 any good? can it be downloaded as beta?
+        //
         
         
-        //let fillStyle:IFillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
+        let fillStyle:IFillStyle = FillStyle(NSColor.yellowColor().alpha(0.5))
         
         let c1:NSColor = NSColorParser.nsColor(Gradients.redGradientStartColor)
         let c2:NSColor = NSColorParser.nsColor(Gradients.redGradientEndColor)
@@ -79,28 +89,19 @@ class WinView2:FlippedView{
         let gradientLineStyle = GradientLineStyle(lineGradient,lineStyle)
         
         
-        let rectGraphic:RectGraphic = RectGraphic(40,40,200,200,gradientFillStyle as GradientFillStyle,gradientLineStyle as GradientLineStyle ,OffsetType(OffsetType.center))
+        let rectGraphic:RectGraphic = RectGraphic(40,40,200,200,gradientFillStyle,gradientLineStyle)/* ,OffsetType(OffsetType.center)*/
         addSubview(rectGraphic.graphic)
         rectGraphic.draw()
         
         
-        //continue here
-        //implement all the ios8 gradients, look for ios9 gradients
-        //add opacity
-        //add many shapes
-        //add grid
-        //add rulers
-        //add stylelab project
-        //do twitter research (size of pic, size of gif file etc)
-        //do more research around gif animation, gif brury 3.0 any good? can it be downloaded as beta?
-        //
         
-        /*
+        
+        
         //ellipse
         let ellipseGraphic:EllipseGraphic = EllipseGraphic(40,40,200,200,fillStyle,lineStyle)
         addSubview(ellipseGraphic.graphic)
         ellipseGraphic.draw()
-        
+        /*
         //RoundRect
         let roundRect:RoundRectGraphic = RoundRectGraphic(40,300,200,200,Fillet(50),fillStyle,lineStyle)
         addSubview(roundRect.graphic)
