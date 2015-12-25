@@ -72,7 +72,7 @@ class WinView2:FlippedView{
         //
         
         
-        let fillStyle:IFillStyle = FillStyle(NSColorParser.nsColor(Colors.lightBlue).alpha(1.0))
+        let fillStyle:IFillStyle = FillStyle(NSColors.lightBlue.alpha(1.0))
         
         let c1:NSColor = NSColorParser.nsColor(Gradients.redGradientStartColor)
         let c2:NSColor = NSColorParser.nsColor(Gradients.redGradientEndColor)
