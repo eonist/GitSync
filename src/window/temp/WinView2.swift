@@ -78,7 +78,7 @@ class WinView2:FlippedView{
         Swift.print("c1: " + "\(c1)")
         let c2:NSColor = NSColorParser.nsColor(Gradients.redGradientEndColor)
         Swift.print("c2: " + "\(c2)")
-        let gradient = Gradient([c1.CGColor,c2.CGColor],[],GradientType.Axial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
+        let gradient = Gradient([Gradients.red.start.CGColor,Gradients.red.end.CGColor],[],GradientType.Axial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         let gradientFillStyle:GradientFillStyle = GradientFillStyle(gradient,NSColor.clearColor());
         
         
@@ -94,10 +94,10 @@ class WinView2:FlippedView{
         let rectGraphic:RectGraphic = RectGraphic(40,40,200,200,gradientFillStyle,gradientLineStyle)/* ,OffsetType(OffsetType.center)*/
         addSubview(rectGraphic.graphic)
         rectGraphic.draw()
-
+        /*
         
         /*Ellipse*/
-        gradientFillStyle.gradient.colors = []
+        //gradientFillStyle.gradient.colors = []
         let ellipseGraphic:EllipseGraphic = EllipseGraphic(300,40,200,200,gradientFillStyle,gradientLineStyle)
         addSubview(ellipseGraphic.graphic)
         ellipseGraphic.draw()
@@ -120,7 +120,7 @@ class WinView2:FlippedView{
         
         //line.setPosition(CGPoint(150,150))
         
-        
+        */
         
         
         
