@@ -45,7 +45,13 @@ class WinView2:FlippedView{
         
         
         
-        radialGradientTest()
+        //radialGradientTest()
+        let f = FillStyle(Colors.red())
+        let c = f.copy() as! FillStyle
+        Swift.print("c.color.hex: " + "\(c.color.hex)")
+        
+        
+        
         //testTabBar()
         //testDropShadow()
         //testOverlapping()
