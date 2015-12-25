@@ -54,7 +54,10 @@ class WinView2:FlippedView{
         //let c = f.copy() as! FillStyle
         //Swift.print("c.color.hex: " + "\(c.color.hex)")
         
-        let
+        let abc = ABC()
+        let classType:Copyable = abc.self
+        let temp = classType..init()
+        Swift.print("temp: " + "\(temp)")
         
         //testTabBar()
         //testDropShadow()
