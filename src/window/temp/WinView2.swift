@@ -72,7 +72,7 @@ class WinView2:FlippedView{
         //
         
         
-        let fillStyle:IFillStyle = FillStyle(NSColorParser.nsColor(Colors.lightBlue).alpha(0.5))
+        let fillStyle:IFillStyle = FillStyle(NSColorParser.nsColor(Colors.lightBlue).alpha(1.0))
         
         let c1:NSColor = NSColorParser.nsColor(Gradients.redGradientStartColor)
         let c2:NSColor = NSColorParser.nsColor(Gradients.redGradientEndColor)
@@ -85,7 +85,7 @@ class WinView2:FlippedView{
         let c4:NSColor = NSColorParser.nsColor(Gradients.tealGradientEndColor).alpha(0.5)
         let lineGradient = Gradient([c3.CGColor,c4.CGColor],[],GradientType.Axial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         
-        let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.red).alpha(0.5),CGLineCap.Round)
+        let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green).alpha(0.5),CGLineCap.Round)
         let gradientLineStyle = GradientLineStyle(lineGradient,lineStyle)
         
         
@@ -101,12 +101,12 @@ class WinView2:FlippedView{
         let ellipseGraphic:EllipseGraphic = EllipseGraphic(300,40,200,200,fillStyle,lineStyle)
         addSubview(ellipseGraphic.graphic)
         ellipseGraphic.draw()
-        /*
+        
         //RoundRect
         let roundRect:RoundRectGraphic = RoundRectGraphic(40,300,200,200,Fillet(50),fillStyle,lineStyle)
         addSubview(roundRect.graphic)
         roundRect.draw()
-        */
+        /**/
         
         /*
         
