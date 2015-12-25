@@ -1,10 +1,10 @@
 import Cocoa
-class ABC:TestProto{
+class SomeClass:SomeProtocol{
     required init(){
         
     }
 }
-protocol TestProto{
+protocol SomeProtocol{
     init()
 }
 class WinView2:FlippedView{
@@ -60,14 +60,15 @@ class WinView2:FlippedView{
         //let abc = ABC()
         //var classType:TestProto.Type
         
-        func test(classType:TestProto.Type){
-            let instance:TestProto = classType.init()
+        func test(classType:SomeProtocol.Type){
+            let instance:SomeProtocol = classType.init()
             Swift.print("instance: " + "\(instance)")
             
 
         }
         
-        test(ABC.self)
+        test(SomeClass().dynamicType)//instance: SomeClass
+        test(SomeClass.self)//instance: SomeClass
         //testTabBar()
         //testDropShadow()
         //testOverlapping()
