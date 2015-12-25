@@ -94,7 +94,6 @@ class WinView2:FlippedView{
         //add rulers
         //add stylelab project
         //do twitter research (size of pic, size of gif file etc)
-        //buy domain
         //do more research around gif animation, gif brury 3.0 any good? can it be downloaded as beta?
         //
         
