@@ -113,6 +113,9 @@ class WinView2:FlippedView{
         rectGraphic.draw()
         
         
+        //complete the linefillstyle, make the example, then make the stackoverflow post
+        
+        
         /*Ellipse*/
         let lStyle:GradientLineStyle = gradientLineStyle
         let fStyle:GradientFillStyle = gradientFillStyle.copy()
