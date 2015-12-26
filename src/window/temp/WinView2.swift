@@ -51,8 +51,8 @@ class WinView2:FlippedView{
         
         
         
-        
-        radialGradientTest()
+        linearGradientTest()
+        //radialGradientTest()
         //let f = FillStyle(Colors.red())
         //let c = f.copy() as! FillStyle
         //Swift.print("c.color.hex: " + "\(c.color.hex)")
@@ -66,40 +66,30 @@ class WinView2:FlippedView{
         //testLayerBackedElement()
         //testGraphic()
     }
-    
     /**
-     * Add args that enable disable infinite gradient etc
+     *
      */
-    func radialGradientTest(){
-        //continue here
-
-        //add opacity
+    func linearGradientTest(){
         
-        //add stylelab project
-        //do twitter research (size of pic, size of gif file etc)
-        //do more research around gif animation, gif brury 3.0 any good? can it be downloaded as beta?
-        //
+        let gradient = Gradient(Gradients.red(),[],GradientType.Linear,π/2)
+        let fill:GradientFillStyle = GradientFillStyle(gradient);
         
-   
-        let gradient = Gradient(Gradients.red(),[],GradientType.Axial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
-        let fill:GradientFillStyle = GradientFillStyle(gradient,NSColor.clearColor());
-        
-        let lineGradient = Gradient(Gradients.teal(0.5),[],GradientType.Axial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
+        let lineGradient = Gradient(Gradients.teal(0.5),[],GradientType.Linear,π/2)
         let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
         let line = GradientLineStyle(lineGradient,lineStyle)
         
         /*Rect*/
-        let rectGraphic:RectGraphic = RectGraphic(40,40,200,200,fill,line)/* ,OffsetType(OffsetType.center)*/
+        let rectGraphic = RectGraphic(40,40,200,200,fill,line)
         addSubview(rectGraphic.graphic)
         rectGraphic.draw()
         
         /*Ellipse*/
-        let ellipseGraphic:EllipseGraphic = EllipseGraphic(300,40,200,200,fill.mix(Gradients.teal()),line.mix(Gradients.blue(0.5)))
+        let ellipseGraphic = EllipseGraphic(300,40,200,200,fill.mix(Gradients.teal()),line.mix(Gradients.blue(0.5)))
         addSubview(ellipseGraphic.graphic)
         ellipseGraphic.draw()
-
+        
         /*RoundRect*/
-        let roundRect:RoundRectGraphic = RoundRectGraphic(40,300,200,200,Fillet(50),fill.mix(Gradients.orange()),line.mix(Gradients.yellow(0.5)))
+        let roundRect = RoundRectGraphic(40,300,200,200,Fillet(50),fill.mix(Gradients.orange()),line.mix(Gradients.yellow(0.5)))
         addSubview(roundRect.graphic)
         roundRect.draw()
         
@@ -107,7 +97,28 @@ class WinView2:FlippedView{
         let lineGraphic = LineGraphic(CGPoint(300,300),CGPoint(500,500),line.mix(Gradients.deepPurple()))
         addSubview(lineGraphic.graphic)
         lineGraphic.draw()
-        //line.setPosition(CGPoint(150,150))
+        
+    }
+    /**
+     * Add args that enable disable infinite gradient etc
+     */
+    func radialGradientTest(){
+
+        
+   
+        let gradient = Gradient(Gradients.red(),[],GradientType.Linear,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
+        let fill:GradientFillStyle = GradientFillStyle(gradient,NSColor.clearColor());
+        
+        let lineGradient = Gradient(Gradients.teal(0.5),[],GradientType.Linear,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
+        let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
+        let line = GradientLineStyle(lineGradient,lineStyle)
+        
+        /*Rect*/
+        let rectGraphic = RectGraphic(40,40,200,200,fill,line)
+        addSubview(rectGraphic.graphic)
+        rectGraphic.draw()
+        
+        
       
         /*
         let css:String = "Element{fill:radial-gradient(50% 50% 100% 100% 0 0, red 1 0,green 1 1);}"//,blue 0.33 0.4724
