@@ -107,7 +107,7 @@ class WinView2:FlippedView{
         let line = GradientLineStyle(lineGradient,lineStyle)
         
         /*Rect*/
-        let rectGraphic = RectGraphic(40,40,200,200,fill,line)
+        let rectGraphic = RectGraphic(40,40,200,200,fill,nil)
         addSubview(rectGraphic.graphic)
         rectGraphic.draw()
         
