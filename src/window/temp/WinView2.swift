@@ -83,7 +83,7 @@ class WinView2:FlippedView{
         //
         
         
-        let fillStyle:IFillStyle = FillStyle(Colors.lightBlue().alpha(1.0))
+        //let fillStyle:IFillStyle = FillStyle(Colors.lightBlue().alpha(1.0))
         
         /*
         let c1:NSColor = NSColorParser.nsColor(Gradients.redGradientStartColor)
@@ -93,7 +93,7 @@ class WinView2:FlippedView{
         
         */
         let gradient = Gradient(Gradients.red(),[],GradientType.Axial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
-        let gradientFillStyle:GradientFillStyle = GradientFillStyle(gradient,NSColor.clearColor());
+        let fill:GradientFillStyle = GradientFillStyle(gradient,NSColor.clearColor());
         
         
         /*
@@ -103,12 +103,12 @@ class WinView2:FlippedView{
         */
         let lineGradient = Gradient(Gradients.teal(0.5),[],GradientType.Axial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         
-        let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
-        let gradientLineStyle = GradientLineStyle(lineGradient,lineStyle)
+        let line = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
+        let gradientLineStyle = GradientLineStyle(lineGradient,line)
         
         
         /*Rect*/
-        let rectGraphic:RectGraphic = RectGraphic(40,40,200,200,gradientFillStyle,gradientLineStyle)/* ,OffsetType(OffsetType.center)*/
+        let rectGraphic:RectGraphic = RectGraphic(40,40,200,200,fill,gradientLineStyle)/* ,OffsetType(OffsetType.center)*/
         addSubview(rectGraphic.graphic)
         rectGraphic.draw()
         
@@ -132,15 +132,15 @@ class WinView2:FlippedView{
         /*RoundRect*/
         lStyle = gradientLineStyle.copy()
         lStyle.gradient.colors = Gradients.yellow(0.5)
-        fStyle = gradientFillStyle.copy()
-        fStyle.gradient.colors = Gradients.orange()
+        //fStyle = gradientFillStyle.copy()
+        //fStyle.gradient.colors = Gradients.orange()
         
-        let roundRect:RoundRectGraphic = RoundRectGraphic(40,300,200,200,Fillet(50),fStyle,lStyle)
+        let roundRect:RoundRectGraphic = RoundRectGraphic(40,300,200,200,Fillet(50),fStyle.mix(Gradients.orange()),lStyle)
         addSubview(roundRect.graphic)
         roundRect.draw()
         /**/
         
-        /*
+        
         /*Line*/
         let line = LineGraphic(CGPoint(300,300),CGPoint(500,500),gradientLineStyle)
         addSubview(line.graphic)
@@ -150,7 +150,7 @@ class WinView2:FlippedView{
         
         //line.setPosition(CGPoint(150,150))
         
-        */
+        /**/
         
         
         
