@@ -52,23 +52,11 @@ class WinView2:FlippedView{
         
         
         
-        //radialGradientTest()
+        radialGradientTest()
         //let f = FillStyle(Colors.red())
         //let c = f.copy() as! FillStyle
         //Swift.print("c.color.hex: " + "\(c.color.hex)")
         
-        //let abc = ABC()
-        //var classType:TestProto.Type
-        
-        func test(classType:SomeProtocol.Type){
-            let instance:SomeProtocol = classType.init()
-            Swift.print("instance: " + "\(instance)")
-            
-
-        }
-        
-        test(SomeClass().dynamicType)//instance: SomeClass
-        test(SomeClass.self)//instance: SomeClass
         //testTabBar()
         //testDropShadow()
         //testOverlapping()
