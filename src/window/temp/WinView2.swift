@@ -70,41 +70,34 @@ class WinView2:FlippedView{
      *
      */
     func linearGradientTest(){
-        
+        /*Gradients*/
         let gradient = Gradient(Gradients.red(),[],GradientType.Linear,π/2)
-        let fill:GradientFillStyle = GradientFillStyle(gradient);
-        
         let lineGradient = Gradient(Gradients.teal(0.5),[],GradientType.Linear,π/2)
+        /*Styles*/
+        let fill:GradientFillStyle = GradientFillStyle(gradient);
         let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
         let line = GradientLineStyle(lineGradient,lineStyle)
-        
         /*Rect*/
-        let rectGraphic = RectGraphic(40,40,200,200,fill,line)
-        addSubview(rectGraphic.graphic)
-        rectGraphic.draw()
-        
+        let rect = RectGraphic(40,40,200,200,fill,line)
+        addSubview(rect.graphic)
+        rect.draw()
         /*Ellipse*/
-        let ellipseGraphic = EllipseGraphic(300,40,200,200,fill.mix(Gradients.teal()),line.mix(Gradients.blue(0.5)))
-        addSubview(ellipseGraphic.graphic)
-        ellipseGraphic.draw()
-        
+        let ellipse = EllipseGraphic(300,40,200,200,fill.mix(Gradients.teal()),line.mix(Gradients.blue(0.5)))
+        addSubview(ellipse.graphic)
+        ellipse.draw()
         /*RoundRect*/
         let roundRect = RoundRectGraphic(40,300,200,200,Fillet(50),fill.mix(Gradients.orange()),line.mix(Gradients.yellow(0.5)))
         addSubview(roundRect.graphic)
         roundRect.draw()
-        
         /*Line*/
         let lineGraphic = LineGraphic(CGPoint(300,300),CGPoint(500,500),line.mix(Gradients.deepPurple()))
         addSubview(lineGraphic.graphic)
         lineGraphic.draw()
-        
     }
     /**
      * Add args that enable disable infinite gradient etc
      */
     func radialGradientTest(){
-
-        
    
         let gradient = Gradient(Gradients.red(),[],GradientType.Linear,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         let fill:GradientFillStyle = GradientFillStyle(gradient,NSColor.clearColor());
