@@ -72,88 +72,43 @@ class WinView2:FlippedView{
      */
     func radialGradientTest(){
         //continue here
-        //implement all the ios8 gradients, look for ios9 gradients
+
         //add opacity
-        //add many shapes
-        //add grid
-        //add rulers
+        
         //add stylelab project
         //do twitter research (size of pic, size of gif file etc)
         //do more research around gif animation, gif brury 3.0 any good? can it be downloaded as beta?
         //
         
-        
-        //let fillStyle:IFillStyle = FillStyle(Colors.lightBlue().alpha(1.0))
-        
-        /*
-        let c1:NSColor = NSColorParser.nsColor(Gradients.redGradientStartColor)
-        Swift.print("c1: " + "\(c1)")
-        let c2:NSColor = NSColorParser.nsColor(Gradients.redGradientEndColor)
-        Swift.print("c2: " + "\(c2)")
-        
-        */
+   
         let gradient = Gradient(Gradients.red(),[],GradientType.Axial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         let fill:GradientFillStyle = GradientFillStyle(gradient,NSColor.clearColor());
         
-        
-        /*
-        let c3:NSColor = NSColorParser.nsColor(Gradients.tealStart).alpha(0.5)
-        let c4:NSColor = NSColorParser.nsColor(Gradients.tealEnd).alpha(0.5)
-        
-        */
         let lineGradient = Gradient(Gradients.teal(0.5),[],GradientType.Axial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
-        
-        let line = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
-        let gradientLineStyle = GradientLineStyle(lineGradient,line)
-        
+        let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
+        let line = GradientLineStyle(lineGradient,lineStyle)
         
         /*Rect*/
-        let rectGraphic:RectGraphic = RectGraphic(40,40,200,200,fill,gradientLineStyle)/* ,OffsetType(OffsetType.center)*/
+        let rectGraphic:RectGraphic = RectGraphic(40,40,200,200,fill,line)/* ,OffsetType(OffsetType.center)*/
         addSubview(rectGraphic.graphic)
         rectGraphic.draw()
         
-        
-        //complete the linefillstyle, make the example, then make the stackoverflow post
-        
-        
         /*Ellipse*/
-        var lStyle:GradientLineStyle = gradientLineStyle.copy()
-        lStyle.gradient.colors = Gradients.blue(0.5)
-        var fStyle:GradientFillStyle = gradientFillStyle.copy()
-        fStyle.gradient.colors = Gradients.teal()
-        
-        let ellipseGraphic:EllipseGraphic = EllipseGraphic(300,40,200,200,fStyle,lStyle)
+        let ellipseGraphic:EllipseGraphic = EllipseGraphic(300,40,200,200,fill.mix(Gradients.teal()),line.mix(Gradients.blue(0.5)))
         addSubview(ellipseGraphic.graphic)
         ellipseGraphic.draw()
-        /**/
-        
-        
-        
+
         /*RoundRect*/
-        lStyle = gradientLineStyle.copy()
-        lStyle.gradient.colors = Gradients.yellow(0.5)
-        //fStyle = gradientFillStyle.copy()
-        //fStyle.gradient.colors = Gradients.orange()
-        
-        let roundRect:RoundRectGraphic = RoundRectGraphic(40,300,200,200,Fillet(50),fStyle.mix(Gradients.orange()),lStyle)
+        let roundRect:RoundRectGraphic = RoundRectGraphic(40,300,200,200,Fillet(50),fill.mix(Gradients.orange()),line.mix(Gradients.yellow(0.5)))
         addSubview(roundRect.graphic)
         roundRect.draw()
-        /**/
-        
         
         /*Line*/
-        let line = LineGraphic(CGPoint(300,300),CGPoint(500,500),gradientLineStyle)
-        addSubview(line.graphic)
-        line.draw()
-
-        /**/
-        
+        let lineGraphic = LineGraphic(CGPoint(300,300),CGPoint(500,500),line.mix(Gradients.deepPurple()))
+        addSubview(lineGraphic.graphic)
+        lineGraphic.draw()
         //line.setPosition(CGPoint(150,150))
-        
-        /**/
-        
-        
-        
+      
         /*
         let css:String = "Element{fill:radial-gradient(50% 50% 100% 100% 0 0, red 1 0,green 1 1);}"//,blue 0.33 0.4724
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
