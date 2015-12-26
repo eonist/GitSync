@@ -120,7 +120,7 @@ class WinView2:FlippedView{
         var lStyle:GradientLineStyle = gradientLineStyle.copy()
         lStyle.gradient.colors = Gradients.blue(0.5)
         var fStyle:GradientFillStyle = gradientFillStyle.copy()
-        fStyle.gradient.colors = Gradients.yellow()
+        fStyle.gradient.colors = Gradients.teal()
         
         let ellipseGraphic:EllipseGraphic = EllipseGraphic(300,40,200,200,fStyle,lStyle)
         addSubview(ellipseGraphic.graphic)
@@ -131,9 +131,9 @@ class WinView2:FlippedView{
         
         /*RoundRect*/
         lStyle = gradientLineStyle.copy()
-        lStyle.gradient.colors = Gradients.silver(0.5)
+        lStyle.gradient.colors = Gradients.yellow(0.5)
         fStyle = gradientFillStyle.copy()
-        fStyle.gradient.colors = Gradients.teal()
+        fStyle.gradient.colors = Gradients.orange()
         
         let roundRect:RoundRectGraphic = RoundRectGraphic(40,300,200,200,Fillet(50),fStyle,lStyle)
         addSubview(roundRect.graphic)
