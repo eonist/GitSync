@@ -50,9 +50,9 @@ class WinView2:FlippedView{
         //try to shift somethng with the array extension
         
         
-        
+        fileTest()
         //linearGradientTest()
-        radialGradientTest()
+        //radialGradientTest()
         //let f = FillStyle(Colors.red())
         //let c = f.copy() as! FillStyle
         //Swift.print("c.color.hex: " + "\(c.color.hex)")
@@ -65,6 +65,22 @@ class WinView2:FlippedView{
         //testTempRoundRect()
         //testLayerBackedElement()
         //testGraphic()
+    }
+    /**
+     *
+     */
+    func fileTest(){
+        //open txt and store it
+        //save new txt content to a .txt file
+        //get all files in a folder
+        //convert between filepath and file url etc
+        //write a post about file parsing
+        //compare with the applescript and the old file parsing classes
+        //extension aritmetic
+        //regexp file name aritmitec
+        //load svg
+        //append file at index
+        //continue with implementing the svg classes
     }
     /**
      *
