@@ -113,7 +113,7 @@ class WinView2:FlippedView{
         //extension aritmetic
         //regexp file name aritmitec
         //load svg
-        //append file at index
+        
         //continue with implementing the svg classes
     }
     /**
