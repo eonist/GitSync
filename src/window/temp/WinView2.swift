@@ -73,6 +73,8 @@ class WinView2:FlippedView{
         //open txt and store it
         let path = "~/Desktop/del.txt"//"//Users/<path>/someFile.xml"
         
+        let fileExists = FileAsserter.exists(path)
+        Swift.print("fileExists: " + "\(fileExists)")
         let content = FileParser.content(path)
         Swift.print("content: " + "\(content)")
         
