@@ -71,6 +71,7 @@ class WinView2:FlippedView{
      */
     func fileTest(){
         //open txt and store it
+        
         //save new txt content to a .txt file
         //get all files in a folder
         //convert between filepath and file url etc
