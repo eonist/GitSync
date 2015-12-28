@@ -70,7 +70,9 @@ class WinView2:FlippedView{
      *
      */
     func svgTest(){
-        
+        let path = "~/Desktop/plus.svg".tildePath
+        let content = FileParser.content(path)
+        Swift.print("content: " + "\(content)")
     }
     /**
      *
@@ -85,8 +87,7 @@ class WinView2:FlippedView{
         
         let success = FileModifier.write(path, content: "test")
         Swift.print("success: " + "\(success)")
-        
-                
+              
         
         let content = FileParser.content(path)
         Swift.print("content: " + "\(content)")
