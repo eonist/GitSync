@@ -71,7 +71,7 @@ class WinView2:FlippedView{
      */
     func fileTest(){
         //open txt and store it
-        let path = "//Users/<path>/someFile.xml"
+        let path = "~/Desktop/del.txt"//"//Users/<path>/someFile.xml"
         
         let content = FileParser.content(path)
         Swift.print("content: " + "\(content)")
