@@ -71,8 +71,8 @@ class WinView2:FlippedView{
      */
     func fileTest(){
         //open txt and store it
-        let path = "\(NSHomeDirectory())/Desktop/del.txt"//"//Users/<path>/someFile.xml"//"\(NSHomeDirectory())/Desktop/file.txt"
-        
+        //let path = "\(NSHomeDirectory())/Desktop/del.txt"//"//Users/<path>/someFile.xml"//"\(NSHomeDirectory())/Desktop/file.txt"
+        let path = "~/Desktop/del.txt".stringByExpandingTildeInPath //let location = "~/file.txt".stringByExpandingTildeInPath
         let fileExists = FileAsserter.exists(path)
         Swift.print("fileExists: " + "\(fileExists)")
         let content = FileParser.content(path)
