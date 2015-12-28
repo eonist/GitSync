@@ -75,8 +75,15 @@ class WinView2:FlippedView{
         let path = "~/Desktop/del.txt".tildePath //let location = "~/file.txt".stringByExpandingTildeInPath
         let fileExists = FileAsserter.exists(path)
         Swift.print("fileExists: " + "\(fileExists)")
+        
+        
+        FileModifier.write(path, content: "test")
+        
+        
         let content = FileParser.content(path)
         Swift.print("content: " + "\(content)")
+        
+        
         
 
         //save new txt content to a .txt file
