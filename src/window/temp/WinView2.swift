@@ -49,8 +49,8 @@ class WinView2:FlippedView{
         
         //try to shift somethng with the array extension
         
-        
-        fileTest()
+        svgTest()
+        //fileTest()
         //linearGradientTest()
         //radialGradientTest()
         //let f = FillStyle(Colors.red())
@@ -65,6 +65,12 @@ class WinView2:FlippedView{
         //testTempRoundRect()
         //testLayerBackedElement()
         //testGraphic()
+    }
+    /**
+     *
+     */
+    func svgTest(){
+        
     }
     /**
      *
