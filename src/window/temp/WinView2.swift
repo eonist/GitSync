@@ -85,6 +85,10 @@ class WinView2:FlippedView{
         Swift.print("content: " + "\(content)")
         
         
+        /*
+        let theURL:NSURL = NSURL(fileURLWithPath: FilePathParser.appDocPath())
+        let filename = theURL.URLByAppendingPathComponent("output.txt")
+        */
         
 
         //save new txt content to a .txt file
