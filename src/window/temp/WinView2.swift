@@ -85,6 +85,20 @@ class WinView2:FlippedView{
         Swift.print("content: " + "\(content)")
         
         
+        /*open modal panel*/
+        let myFileDialog: NSOpenPanel = NSOpenPanel()
+        myFileDialog.runModal()
+        
+        // Get the path to the file chosen in the NSOpenPanel
+        let thePath = myFileDialog.URL?.path
+        
+        // Make sure that a path was chosen
+        if (thePath != nil) {
+            let theContent = FileParser.content(thePath!)
+            Swift.print("theContent: " + "\(theContent)")
+        }
+        
+        
         /*
         let theURL:NSURL = NSURL(fileURLWithPath: FilePathParser.appDocPath())
         let filename = theURL.URLByAppendingPathComponent("output.txt")
