@@ -49,7 +49,9 @@ class WinView2:FlippedView{
         
         //try to shift somethng with the array extension
         
-        svgTest()
+        
+        
+        //svgTest()
         //fileTest()
         //linearGradientTest()
         //radialGradientTest()
