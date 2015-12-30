@@ -51,7 +51,7 @@ class WinView2:FlippedView{
         
         
         
-        //svgTest()
+        svgTest()
         //fileTest()
         //linearGradientTest()
         //radialGradientTest()
