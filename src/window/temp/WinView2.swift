@@ -52,6 +52,12 @@ class WinView2:FlippedView{
         
         
         svgTest()
+        
+        
+        //continue here: make winview3.swift and start testing the SVGLib, you probably will need to look over some old notes
+        
+        
+        
         //fileTest()
         //linearGradientTest()
         //radialGradientTest()
