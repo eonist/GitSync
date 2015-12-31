@@ -20,8 +20,14 @@ class WinView3:NSView {
         let str7:String = ".3"
         let str8:String = "1."
         //let group1:String = ""
+        let g1:String = "(?=\\s|^)"/**/
+        let g2:String = "(\\d+?)"
+        let g3:String = "(?=\\.\\d|\\s|,|$)"
+        let g4:String = "((?<=\\d)\\.(?=\\d))*"
+        let g5:String = "((?<=\\d\\.)\\d+?)*"
+        let g6:String = "(?=$)"
         
-        let pattern:String = "(?=\\s|^)(\\d+?)(?=\\.\\d|\\s|,|$)((?<=\\d)\\.(?=\\d))*((?<=\\d\\.)\\d+?)*(?=$)"
+        let pattern:String = g1 + g2 + g3 + g4 + g5 + g6
         Swift.print(str.test(pattern))
         Swift.print(str2.test(pattern))
         Swift.print(str3.test(pattern))
