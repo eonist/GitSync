@@ -43,7 +43,7 @@ class WinView3:NSView {
         let part2:String = "\\-?\\d*?"/*optional minus sign followed by a digit zero or more times*/
         let part3:String = "(\\.?)"/*group 2, optional dot char*/
         let part4:String = "(($1)\\d+?)"/*group 3, if there is a match in group 1 and followed by a digit more than zero times*/
-        let part5:String = "(?=px|\\s|\\,|\\-|$)"/*group 4,the subseeding pattern must apear, but is not included in the match*/
+        let part5:String = "(?=px|\\s|\\,|\\-|$)"/*group 4,the subseeding pattern must apear, but is not included in the match, the pattern is: px*/
         let pattern:String = part1 + part2 + part3 + part4 + part5
         let stringArray:Array<String> = str.match(pattern);
         Swift.print("stringArray: " + "\(stringArray)")
