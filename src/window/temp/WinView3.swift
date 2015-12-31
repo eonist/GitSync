@@ -19,9 +19,12 @@ class WinView3:NSView {
         let content = FileParser.content(path)
         Swift.print("content: " + "\(content)")
         
+        let xmlDoc:NSXMLDocument = try! NSXMLDocument(XMLString: content!, options: 0)
+        let rootElement:NSXMLElement = xmlDoc.rootElement()!
         
-        var svg:SVG = SVGParser.svg(xml);
-        SVGModifier.scale(svg, new Point(), new Point(2,2));
-        addChild(svg);
+        let svg:SVG = SVGParser.svg(rootElement);
+        SVGParser.describeAll(svg)
+        //SVGModifier.scale(svg, CGPoint(), CGPoint(2,2));
+        //addSubview(svg);
     }
 }
