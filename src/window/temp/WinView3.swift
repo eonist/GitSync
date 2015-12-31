@@ -42,9 +42,9 @@ class WinView3:NSView {
         let part1:String = "(?<=^|\\,|\\s|px|\\b)"/*group 1*/
         let part2:String = "\\-?\\d*?"
         let part3:String = "(\\.?)"/*group 2*/
-        let part4:String = "((?1)\\d+?)"/*group 3*/
+        let part4:String = "(($1)\\d+?)"/*group 3*/
         let part5:String = "(?=px|\\s|\\,|\\-|$)"/*group 4*/
-        let pattern:String = part1 + part2 + part3 + part4
+        let pattern:String = part1 + part2 + part3 + part4 + part5
         let stringArray:Array<String> = "".match(pattern);
         Swift.print("stringArray: " + "\(stringArray)")
         //let array:Array<CGFloat> = stringArray.map {CGFloat(Double($0)!)}//<--temp fix
