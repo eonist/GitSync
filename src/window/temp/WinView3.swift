@@ -21,16 +21,16 @@ class WinView3:NSView {
         
         let xmlDoc:NSXMLDocument = try! NSXMLDocument(XMLString: content!, options: 0)
         let rootElement:NSXMLElement = xmlDoc.rootElement()!
-        Swift.print("rootElement.localName: " + "\(rootElement.localName)")
-        Swift.print("rootElement.childCount: " + "\(rootElement.childCount)")
+        //Swift.print("rootElement.localName: " + "\(rootElement.localName)")
+        //Swift.print("rootElement.childCount: " + "\(rootElement.childCount)")
         
         
         let child:NSXMLElement = XMLParser.childAt(rootElement.children!, 0)!
-        Swift.print("child.stringValue: " + "\(child.stringValue)")
-        Swift.print("child.localName: " + "\(child.localName)")
+        //Swift.print("child.stringValue: " + "\(child.stringValue)")
+        //Swift.print("child.localName: " + "\(child.localName)")
         
-        //let svg:SVG = SVGParser.svg(rootElement);
-        //SVGParser.describeAll(svg)
+        let svg:SVG = SVGParser.svg(rootElement);
+        SVGParser.describeAll(svg)
         //SVGModifier.scale(svg, CGPoint(), CGPoint(2,2));
         //addSubview(svg);
     }
