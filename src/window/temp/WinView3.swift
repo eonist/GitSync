@@ -36,11 +36,14 @@ class WinView3:NSView {
         //addSubview(svg);
     }
     func regExpTest(){
-        let part1:String = "(?<=^|\\,|\\s|px|\\b)"
+        
+        //continue here: figure out how to backref in swift, see old notes etc. Maybe write an example of this. ?
+        
+        let part1:String = "(?<=^|\\,|\\s|px|\\b)"/*group 1*/
         let part2:String = "\\-?\\d*?"
-        let part3:String = "(\\.?)"
-        let part4:String = "((?1)\\d+?)"
-        let part5:String = "(?=px|\\s|\\,|\\-|$)"
+        let part3:String = "(\\.?)"/*group 2*/
+        let part4:String = "((?1)\\d+?)"/*group 3*/
+        let part5:String = "(?=px|\\s|\\,|\\-|$)"/*group 4*/
         let pattern:String = part1 + part2 + part3 + part4
         let stringArray:Array<String> = "".match(pattern);
         Swift.print("stringArray: " + "\(stringArray)")
