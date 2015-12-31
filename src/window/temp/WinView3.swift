@@ -36,7 +36,9 @@ class WinView3:NSView {
         //addSubview(svg);
     }
     func regExpTest(){
-        let pattern:String = "(?<=^|\\,|\\s|px|\\b)\\-?\\d*?(\\.?)((?1)\\d+?)(?=px|\\s|\\,|\\-|$)"
+        let part1:String = "(?<=^|\\,|\\s|px|\\b)"
+        let part2:String =
+        let pattern:String = "\\-?\\d*?(\\.?)((?1)\\d+?)(?=px|\\s|\\,|\\-|$)"
         let stringArray:Array<String> = "".match(pattern);
         Swift.print("stringArray: " + "\(stringArray)")
         //let array:Array<CGFloat> = stringArray.map {CGFloat(Double($0)!)}//<--temp fix
