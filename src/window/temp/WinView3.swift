@@ -10,7 +10,9 @@ class WinView3:NSView {
     func createContent(){
         //continue here: make winview3.swift and start testing the SVGLib, you probably will need to look over some old notes
         //svgTest()
-        regExpBackRefTest()
+        //regExpBackRefTest()
+        let str:String = " 12 "
+        Swift.print(str.test("\\s\\d\\s"))
     }
     /**
      *
