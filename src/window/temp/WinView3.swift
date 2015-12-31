@@ -18,5 +18,10 @@ class WinView3:NSView {
         let path = "~/Desktop/icons/cross.svg".tildePath
         let content = FileParser.content(path)
         Swift.print("content: " + "\(content)")
+        
+        
+        var svg:SVG = SVGParser.svg(xml);
+        SVGModifier.scale(svg, new Point(), new Point(2,2));
+        addChild(svg);
     }
 }
