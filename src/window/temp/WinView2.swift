@@ -28,20 +28,15 @@ class WinView2:FlippedView{
             //implement the outer shadow on the Graphic it self.
             //test tab bar example with perfect css
         
+        //implement the svg engine
+        //implement the float system
         //try to implement radial gradient as it was in the original concept
         //make the Radio bullet example and post a gif brewery animation on twitter and on github (maybe add a touch of animation?)
-        //tomorrow implement the svg engine
         
         
         
-        //try to shift somethng with the array extension
         
         
-        
-        svgTest()
-        
-        
-        //continue here: make winview3.swift and start testing the SVGLib, you probably will need to look over some old notes
         
         
         
@@ -61,14 +56,7 @@ class WinView2:FlippedView{
         //testLayerBackedElement()
         //testGraphic()
     }
-    /**
-     *
-     */
-    func svgTest(){
-        let path = "~/Desktop/plus.svg".tildePath
-        let content = FileParser.content(path)
-        Swift.print("content: " + "\(content)")
-    }
+    
     /**
      *
      */
