@@ -1,26 +1,13 @@
 import Cocoa
-class SomeClass:SomeProtocol{
-    required init(){
-        
-    }
-}
-protocol SomeProtocol{
-    init()
-}
 class WinView2:FlippedView{
-    
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     //override var wantsUpdateLayer:Bool{return false;}
-   
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         //wantsLayer = false
         createContent()
     }
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     /*
     override func drawRect(dirtyRect: NSRect) {
     //Swift.print("WinView.drawRect()")
@@ -363,4 +350,12 @@ class WinView2:FlippedView{
         a.addSubview(textField)
         */
     }
+}
+class SomeClass:SomeProtocol{
+    required init(){
+        
+    }
+}
+protocol SomeProtocol{
+    init()
 }
