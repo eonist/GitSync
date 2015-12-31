@@ -19,10 +19,11 @@ class WinView3:NSView {
         let str6:String = ".10"
         let str7:String = ".3"
         let str8:String = "1."
+        let str9:String = "."
         //let group1:String = ""
         let g1:String = "(?=\\s|^)"/*must be subseeded by a space char or the begining*/
-        let g2:String = "\\d+?"/*1 or more digits*/
-        let g3:String = "(?=\\.\\d|\\s|,|$)"
+        let g2:String = "\\d+?"/*one or more digits*/
+        let g3:String = "(?=\\.\\d|\\s|,|$)"/*Must be*/
         let g4:String = "((?<=\\d)\\.(?=\\d))*"
         let g5:String = "((?<=\\d\\.)\\d+?)*"
         let g6:String = "(?=$)"
@@ -36,6 +37,7 @@ class WinView3:NSView {
         Swift.print(str6.test(pattern))
         Swift.print(str7.test(pattern))
         Swift.print(str8.test(pattern))
+        Swift.print(str9.test(pattern))
     }
     /**
      *
