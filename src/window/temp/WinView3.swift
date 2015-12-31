@@ -10,6 +10,7 @@ class WinView3:NSView {
     func createContent(){
         //continue here: make winview3.swift and start testing the SVGLib, you probably will need to look over some old notes
         svgTest()
+        regExpTest()
     }
     /**
      *
@@ -25,7 +26,7 @@ class WinView3:NSView {
         //Swift.print("rootElement.childCount: " + "\(rootElement.childCount)")
         
         
-        let child:NSXMLElement = XMLParser.childAt(rootElement.children!, 0)!
+        //let child:NSXMLElement = XMLParser.childAt(rootElement.children!, 0)!
         //Swift.print("child.stringValue: " + "\(child.stringValue)")
         //Swift.print("child.localName: " + "\(child.localName)")
         
@@ -33,5 +34,10 @@ class WinView3:NSView {
         SVGParser.describeAll(svg)
         //SVGModifier.scale(svg, CGPoint(), CGPoint(2,2));
         //addSubview(svg);
+    }
+    func regExpTest(){
+        let pattern:String = "(?<=^|\\,|\\s|px|\\b)\\-?\\d*?(\\.?)((?1)\\d+?)(?=px|\\s|\\,|\\-|$)"
+        let stringArray:Array<String> = parameters.match(pattern);
+        let array:Array<CGFloat> = stringArray.map {CGFloat(Double($0)!)}//<--temp fix
     }
 }
