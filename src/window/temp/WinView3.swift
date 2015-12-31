@@ -22,6 +22,9 @@ class WinView3:NSView {
         let xmlDoc:NSXMLDocument = try! NSXMLDocument(XMLString: content!, options: 0)
         let rootElement:NSXMLElement = xmlDoc.rootElement()!
         Swift.print("rootElement.childCount: " + "\(rootElement.childCount)")
+        Swift.print("rootElement.stringValue: " + "\(rootElement.stringValue)")
+        
+        let child:NSXMLElement = XMLParser.childAt(children, i)!
         
         let svg:SVG = SVGParser.svg(rootElement);
         SVGParser.describeAll(svg)
