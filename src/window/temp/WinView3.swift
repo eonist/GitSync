@@ -11,9 +11,24 @@ class WinView3:NSView {
         //continue here: make winview3.swift and start testing the SVGLib, you probably will need to look over some old notes
         //svgTest()
         //regExpBackRefTest()
-        let str:String = "22.3"//" 12.15 "
-        let pattern:String = "((?=\\s|^)\\d+?(?=\\.\\d|\\s|,|$))((?<=\\d)\\.(?=\\d))*((?<=\\d\\.)\\d+?)*(?=$)"
+        let str:String = "2.3"
+        let str2:String = "2"
+        let str3:String = "44"
+        let str4:String = ".10"
+        let str5:String = "20."
+        let str6:String = "22.11"
+        let str7:String = ".3"
+        let str8:String = "1."
+        //let group1:String = ""
+        let pattern:String = "(?=\\s|^)(\\d+?)(?=\\.\\d|\\s|,|$)((?<=\\d)\\.(?=\\d))*((?<=\\d\\.)\\d+?)*(?=$)"
         Swift.print(str.test(pattern))
+        Swift.print(str2.test(pattern))
+        Swift.print(str3.test(pattern))
+        Swift.print(str4.test(pattern))
+        Swift.print(str5.test(pattern))
+        Swift.print(str6.test(pattern))
+        Swift.print(str7.test(pattern))
+        Swift.print(str8.test(pattern))
     }
     /**
      *
