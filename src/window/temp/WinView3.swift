@@ -17,10 +17,11 @@ class WinView3:NSView {
     func svgTest(){
         let path = "~/Desktop/icons/cross.svg".tildePath
         let content = FileParser.content(path)
-        Swift.print("content: " + "\(content)")
+        //Swift.print("content: " + "\(content)")
         
         let xmlDoc:NSXMLDocument = try! NSXMLDocument(XMLString: content!, options: 0)
         let rootElement:NSXMLElement = xmlDoc.rootElement()!
+        Swift.print("rootElement.childCount: " + "\(rootElement.childCount)")
         
         let svg:SVG = SVGParser.svg(rootElement);
         SVGParser.describeAll(svg)
