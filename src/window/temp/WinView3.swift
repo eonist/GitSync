@@ -11,8 +11,8 @@ class WinView3:NSView {
         //continue here: make winview3.swift and start testing the SVGLib, you probably will need to look over some old notes
         //svgTest()
         //regExpBackRefTest()
-        let str:String = "ab"//" 12.15 "
-        let pattern:String = "(\\w)((\\1)\\w)"//"\\s\\d+?(\\.?)(($\\1)\\d+?)\\s"
+        let str:String = "5.3"//" 12.15 "
+        let pattern:String = "\\d(\\.?)(($1)\\d)"//"\\s\\d+?(\\.?)(($\\1)\\d+?)\\s"
         Swift.print(str.test(pattern))
     }
     /**
