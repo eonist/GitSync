@@ -12,7 +12,7 @@ class WinView3:NSView {
         //svgTest()
         //regExpBackRefTest()
         let str:String = " 12.15 "
-        Swift.print(str.test("\\s[\\d\\.]+\\s"))
+        Swift.print(str.test("\\s[\\d]+?\\s"))
     }
     /**
      *
