@@ -9,7 +9,7 @@ class WinView3:NSView {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
         //continue here: make winview3.swift and start testing the SVGLib, you probably will need to look over some old notes
-        svgTest()
+        //svgTest()
         regExpTest()
     }
     /**
@@ -37,7 +37,8 @@ class WinView3:NSView {
     }
     func regExpTest(){
         let pattern:String = "(?<=^|\\,|\\s|px|\\b)\\-?\\d*?(\\.?)((?1)\\d+?)(?=px|\\s|\\,|\\-|$)"
-        let stringArray:Array<String> = parameters.match(pattern);
-        let array:Array<CGFloat> = stringArray.map {CGFloat(Double($0)!)}//<--temp fix
+        let stringArray:Array<String> = "".match(pattern);
+        Swift.print("stringArray: " + "\(stringArray)")
+        //let array:Array<CGFloat> = stringArray.map {CGFloat(Double($0)!)}//<--temp fix
     }
 }
