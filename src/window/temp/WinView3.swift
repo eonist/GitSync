@@ -15,7 +15,7 @@ class WinView3:NSView {
      *
      */
     func svgTest(){
-        let path = "~/Desktop/plus.svg".tildePath
+        let path = "~/Desktop/icons/cross.svg".tildePath
         let content = FileParser.content(path)
         Swift.print("content: " + "\(content)")
     }
