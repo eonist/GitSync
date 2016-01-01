@@ -41,7 +41,7 @@ class WinView2:FlippedView{
         
         
         //fileTest()
-        //linearGradientTest()
+        linearGradientTest()
         //radialGradientTest()
         //let f = FillStyle(Colors.red())
         //let c = f.copy() as! FillStyle
