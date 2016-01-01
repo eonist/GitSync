@@ -113,6 +113,7 @@ class WinView2:FlippedView{
         addSubview(rect.graphic)
         rect.draw()
         /*Ellipse*/
+        /*
         let ellipse = EllipseGraphic(300,40,200,200,fill.mix(Gradients.teal()),line.mix(Gradients.blue(0.5)))
         addSubview(ellipse.graphic)
         ellipse.draw()
@@ -124,6 +125,7 @@ class WinView2:FlippedView{
         let lineGraphic = LineGraphic(CGPoint(300,300),CGPoint(500,500),line.mix(Gradients.deepPurple()))
         addSubview(lineGraphic.graphic)
         lineGraphic.draw()
+        */
     }
     /**
      * Add args that enable disable infinite gradient etc
