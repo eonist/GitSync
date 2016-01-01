@@ -49,6 +49,7 @@ class WinView3:NSView {
         //SVGParser.describeAll(svg)
         //SVGModifier.scale(svg, CGPoint(), CGPoint(2,2));
         addSubview(svg);
+        svg.fillShape.setNeedsDisplay()
         
         //continue here: try to render to view
     }
