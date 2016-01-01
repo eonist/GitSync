@@ -13,16 +13,16 @@ class WinView3:NSView {
         //regExpBackRefTest()
         let str:String = "-2.3"
         let str2:String = "-2"
-        let str3:String = "44"
-        let str4:String = "22.11"
-        let str5:String = "20."
-        let str6:String = ".10"
-        let str7:String = ".3"
-        let str8:String = "1."
-        let str9:String = "."
+        let str3:String = "-44"
+        let str4:String = "-22.11"
+        let str5:String = "-20."
+        let str6:String = "-.10"
+        let str7:String = "-.3"
+        let str8:String = "-1."
+        let str9:String = "-."
         //let group1:String = ""
         let g1:String = "(?=\\s|^|\\-)"/*must be preceeded by a space char or the begining*/
-        let g2:String = "\\d+?"/*one or more digits*/
+        let g2:String = "\\-*\\d+?"/*one or more digits*/
         let g3:String = "(?=\\.\\d|\\s|,|$)"/*Must be followed by a dot with a digit or space, comma or end*/
         let g4:String = "((?<=\\d)\\.(?=\\d))*"/*zero or one dot char that must be preceeded with a digit and subseeded wutha digit*/
         let g5:String = "((?<=\\d\\.)\\d+?)*"/*zero or more digits that must be preceeded with a digit and a char*/
