@@ -9,24 +9,11 @@ class WinView3:FlippedView {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
         
-        
-        //debugRegExpDigitPattern()
         svgTest()
+        //debugRegExpDigitPattern()
         //regExpBackRefTest()
         
     }
-    func debugRegExpDigitPattern(){
-        let testCases:Array<String> = ["2.3","2","44","22.11","-2.3","-2","-44","-22.11","20.",".10",".3","1.",".","-20.","-.10","-.3","-1.","-."]
-        
-        let g1:String = "(?=\\s|^)"/*must be preceeded by a space char or the begining*/
-        let g6:String = "(?=$)"/*followed by an end or */
-        
-        let pattern:String = g1 + RegExpPattern.digitAssertPattern + g6
-        for testCase in testCases{
-            Swift.print(testCase.test(pattern))
-        }
-    }
-    
     /**
      *
      */
@@ -52,6 +39,17 @@ class WinView3:FlippedView {
         //svg.fillShape.setNeedsDisplay()
         
         //continue here: try to render to view
+    }
+    func debugRegExpDigitPattern(){
+        let testCases:Array<String> = ["2.3","2","44","22.11","-2.3","-2","-44","-22.11","20.",".10",".3","1.",".","-20.","-.10","-.3","-1.","-."]
+        
+        let g1:String = "(?=\\s|^)"/*must be preceeded by a space char or the begining*/
+        let g6:String = "(?=$)"/*followed by an end or */
+        
+        let pattern:String = g1 + RegExpPattern.digitAssertPattern + g6
+        for testCase in testCases{
+            Swift.print(testCase.test(pattern))
+        }
     }
     func regExpBackRefTest(){
         let str:String = "86,26.288 64,48.916 41.373,26.287 -26.288,41.372 48.916,6 26.289,86.628   41.373,101.713 64,79.085 86.627,101.712 101.713,86.627 79.086,64 101.713,41.372"
