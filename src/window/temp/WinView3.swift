@@ -1,6 +1,6 @@
 import Cocoa
 
-class WinView3:NSView {
+class WinView3:FlippedView {
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -49,7 +49,7 @@ class WinView3:NSView {
         //SVGParser.describeAll(svg)
         //SVGModifier.scale(svg, CGPoint(), CGPoint(2,2));
         addSubview(svg);
-        svg.fillShape.setNeedsDisplay()
+        //svg.fillShape.setNeedsDisplay()
         
         //continue here: try to render to view
     }
