@@ -23,7 +23,7 @@ class WinView3:NSView {
         //let group1:String = ""
         let g1:String = "(?=\\s|^)"/*must be subseeded by a space char or the begining*/
         let g2:String = "\\d+?"/*one or more digits*/
-        let g3:String = "(?=\\.\\d|\\s|,|$)"/*Must be*/
+        let g3:String = "(?=\\.\\d|\\s|,|$)"/*Must be followed by a dot with either a digit*/
         let g4:String = "((?<=\\d)\\.(?=\\d))*"
         let g5:String = "((?<=\\d\\.)\\d+?)*"
         let g6:String = "(?=$)"
