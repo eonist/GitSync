@@ -11,10 +11,10 @@ class WinView3:NSView {
         //continue here: make winview3.swift and start testing the SVGLib, you probably will need to look over some old notes
         //svgTest()
         //regExpBackRefTest()
-        let testCases:Array<String> = ["2.3","2","44","22.11","20.","-2.3","-2","-44","-22.11",".10",".3","1.",".","-20.","-.10","-.3","-1.","-."]
+        let testCases:Array<String> = ["2.3","2","44","22.11","-2.3","-2","-44","-22.11","20.",".10",".3","1.",".","-20.","-.10","-.3","-1.","-."]
         
         //let group1:String = ""
-        let g1:String = "(?=\\s|^|\\-)"/*must be preceeded by a space char or the begining*/
+        let g1:String = "(?=\\s|^)"/*must be preceeded by a space char or the begining*/
         let g2:String = "\\-*\\d+?"/*optional minus sign followed by one or more digits*/
         let g3:String = "(?=\\.\\d|\\s|,|$)"/*Must be followed by a dot with a digit or space, comma or end*/
         let g4:String = "((?<=\\d)\\.(?=\\d))*"/*zero or one dot char that must be preceeded with a digit and subseeded wutha digit*/
