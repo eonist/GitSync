@@ -46,9 +46,11 @@ class WinView3:NSView {
         //Swift.print("child.localName: " + "\(child.localName)")
         
         let svg:SVG = SVGParser.svg(rootElement);
-        SVGParser.describeAll(svg)
+        //SVGParser.describeAll(svg)
         //SVGModifier.scale(svg, CGPoint(), CGPoint(2,2));
         //addSubview(svg);
+        
+        //continue here: try to render to view
     }
     func regExpBackRefTest(){
         
