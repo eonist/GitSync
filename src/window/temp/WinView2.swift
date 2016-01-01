@@ -105,9 +105,9 @@ class WinView2:FlippedView{
         let gradient = Gradient(Gradients.red(),[],GradientType.Linear,π/2)
         let lineGradient = Gradient(Gradients.teal(0.5),[],GradientType.Linear,π/2)
         /*Styles*/
-        let fill = GradientFillStyle(gradient);
+        let fill:GradientFillStyle = GradientFillStyle(gradient);
         let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
-        let line = GradientLineStyle(lineGradient,lineStyle)
+        let line:GradientLineStyle = GradientLineStyle(lineGradient,lineStyle)
         /*Rect*/
         let rect = RectGraphic(40,40,200,200,fill,line)
         addSubview(rect.graphic)
