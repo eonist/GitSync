@@ -53,8 +53,6 @@ class WinView3:NSView {
         //continue here: try to render to view
     }
     func regExpBackRefTest(){
-        
-        
         let str:String = "86,26.288 64,48.916 41.373,26.287 -26.288,41.372 48.916,6 26.289,86.628   41.373,101.713 64,79.085 86.627,101.712 101.713,86.627 79.086,64 101.713,41.372"
         let part1:String = "(?<=^|\\,|\\s|px|\\b)"/*group 1, preseeding match must aprear but is not included in the final result */
         //let part2:String = "\\-?\\d*?"/*optional minus sign followed by a digit zero or more times*/
