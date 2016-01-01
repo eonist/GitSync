@@ -11,8 +11,8 @@ class WinView3:NSView {
         
         
         //debugRegExpDigitPattern()
-        //svgTest()
-        regExpBackRefTest()
+        svgTest()
+        //regExpBackRefTest()
         
     }
     func debugRegExpDigitPattern(){
@@ -21,7 +21,7 @@ class WinView3:NSView {
         let g1:String = "(?=\\s|^)"/*must be preceeded by a space char or the begining*/
         let g6:String = "(?=$)"/*followed by an end or */
         
-        let pattern:String = g1 + digitAssertPattern + g6
+        let pattern:String = g1 + RegExpPattern.digitAssertPattern + g6
         for testCase in testCases{
             Swift.print(testCase.test(pattern))
         }
@@ -60,7 +60,7 @@ class WinView3:NSView {
         //let part3:String = "(\\.?)"/*group 2, optional dot char*/
         //let part4:String = "(($1)\\d+?)"/*group 3, if there is a match in group 1 and followed by a digit more than zero times*/
         let part5:String = "(?=px|\\s|\\,|\\-|$)"/*group 4,the subseeding pattern must apear, but is not included in the match, the pattern is: px*/
-        let pattern:String = part1 + digitAssertPattern + part5
+        let pattern:String = part1 + RegExpPattern.digitAssertPattern + part5
         let stringArray:Array<String> = str.match(pattern);
         Swift.print("stringArray: " + "\(stringArray)")
         //let array:Array<CGFloat> = stringArray.map {CGFloat(Double($0)!)}//<--temp fix
