@@ -11,8 +11,8 @@ class WinView3:NSView {
         //continue here: make winview3.swift and start testing the SVGLib, you probably will need to look over some old notes
         //svgTest()
         //regExpBackRefTest()
-        let str:String = "2.3"
-        let str2:String = "2"
+        let str:String = "-2.3"
+        let str2:String = "-2"
         let str3:String = "44"
         let str4:String = "22.11"
         let str5:String = "20."
@@ -21,12 +21,12 @@ class WinView3:NSView {
         let str8:String = "1."
         let str9:String = "."
         //let group1:String = ""
-        let g1:String = "(?=\\s|^)"/*must be subseeded by a space char or the begining*/
+        let g1:String = "(?=\\s|^|\\-)"/*must be preceeded by a space char or the begining*/
         let g2:String = "\\d+?"/*one or more digits*/
         let g3:String = "(?=\\.\\d|\\s|,|$)"/*Must be followed by a dot with a digit or space, comma or end*/
         let g4:String = "((?<=\\d)\\.(?=\\d))*"/*zero or one dot char that must be preceeded with a digit and subseeded wutha digit*/
         let g5:String = "((?<=\\d\\.)\\d+?)*"/*zero or more digits that must be preceeded with a digit and a char*/
-        let g6:String = "(?=$)"
+        let g6:String = "(?=$)"/*followed by an end or */
         
         let pattern:String = g1 + g2 + g3 + g4 + g5 + g6
         Swift.print(str.test(pattern))
