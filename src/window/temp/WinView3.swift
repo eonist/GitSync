@@ -8,7 +8,10 @@ class WinView3:FlippedView {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
-        svgTest()
+        let temp:Any = Double.NaN
+        Swift.print("temp: " + "\(temp)")
+        
+        //svgTest()
         //debugRegExpDigitPattern()
         //regExpBackRefTest()
     }
