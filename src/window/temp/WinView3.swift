@@ -11,16 +11,7 @@ class WinView3:NSView {
         //continue here: make winview3.swift and start testing the SVGLib, you probably will need to look over some old notes
         //svgTest()
         //regExpBackRefTest()
-        let str:String = "2.3"
-        let str2:String = "2"
-        let str3:String = "44"
-        let str4:String = "22.11"
-        let str5:String = "20."
-        let str6:String = ".10"
-        let str7:String = ".3"
-        let str8:String = "1."
-        let str9:String = "."
-        let testCases:Array<String> = 
+        let testCases:Array<String> = ["2.3","2","44","22.11","20.",".10",".3","1.",".","-2.3","-2","-44","-22.11","-20.","-.10","-.3","-1.","-."]
         
         //let group1:String = ""
         let g1:String = "(?=\\s|^|\\-)"/*must be preceeded by a space char or the begining*/
@@ -31,15 +22,9 @@ class WinView3:NSView {
         let g6:String = "(?=$)"/*followed by an end or */
         
         let pattern:String = g1 + g2 + g3 + g4 + g5 + g6
-        Swift.print(str.test(pattern))
-        Swift.print(str2.test(pattern))
-        Swift.print(str3.test(pattern))
-        Swift.print(str4.test(pattern))
-        Swift.print(str5.test(pattern))
-        Swift.print(str6.test(pattern))
-        Swift.print(str7.test(pattern))
-        Swift.print(str8.test(pattern))
-        Swift.print(str9.test(pattern))
+        for testCase in testCases{
+            Swift.print(testCase.test(pattern))
+        }
     }
     /**
      *
