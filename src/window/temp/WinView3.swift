@@ -21,7 +21,7 @@ class WinView3:FlippedView {
      *
      */
     func svgTest(){
-        let path = "~/Desktop/icons/cross.svg".tildePath//rect
+        let path = "~/Desktop/icons/rect.svg".tildePath//rect.svgcross.svg
         let content = FileParser.content(path)
         //Swift.print("content: " + "\(content)")
         
