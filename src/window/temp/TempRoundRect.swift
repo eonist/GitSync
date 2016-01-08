@@ -21,7 +21,7 @@ class TempRoundRect:Graphic {
         let rect:CGRect = CGRect(x: 0,y: 0,width: width,height: height)//these values will be derived from somewhere else in the future
         
         let fillOffsetRect = RectGraphicUtils.fillFrame(rect, self.lineStyle!.thickness, lineOffsetType)
-        let lineOffsetRect = RectGraphicUtils.lineOffsetRect(rect, self.lineStyle!, lineOffsetType)
+        let lineOffsetRect = RectGraphicUtils.lineOffsetRect(rect, self.lineStyle!.thickness, lineOffsetType)
         
         fillShape.frame = fillOffsetRect/*,position and set the size of the frame*/
         let path = CGPathParser.roundRect(x,y,width,height,fillet.topLeft, fillet.topRight, fillet.bottomLeft, fillet.bottomRight)//Shapes
