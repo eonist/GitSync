@@ -20,7 +20,7 @@ class TempRoundRect:Graphic {
         let fillet = Fillet(CGFloat(20))
         let rect:CGRect = CGRect(x: 0,y: 0,width: width,height: height)//these values will be derived from somewhere else in the future
         
-        let fillOffsetRect = RectGraphicUtils.fillFrame(rect, self.lineStyle!, lineOffsetType)
+        let fillOffsetRect = RectGraphicUtils.fillFrame(rect, self.lineStyle!.thickness, lineOffsetType)
         let lineOffsetRect = RectGraphicUtils.lineOffsetRect(rect, self.lineStyle!, lineOffsetType)
         
         fillShape.frame = fillOffsetRect/*,position and set the size of the frame*/
