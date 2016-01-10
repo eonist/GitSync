@@ -13,7 +13,8 @@ class WinView3:FlippedView {
         Swift.print("temp: " + "\(temp)")
         */
         
-        svgTest()
+        //svgTest()
+        SVGPathParser.parameters(<#T##parameters: String##String#>)
         //debugRegExpDigitPattern()
         //regExpBackRefTest()
     }
