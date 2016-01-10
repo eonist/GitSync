@@ -42,9 +42,7 @@ class WinView3:FlippedView {
         //SVGParser.describeAll(svg)
         SVGModifier.scale(svg, CGPoint(), CGPoint(2,2));
         addSubview(svg);
-        //svg.fillShape.setNeedsDisplay()
         
-        //continue here: try to render to view
     }
     func debugRegExpDigitPattern(){
         let testCases:Array<String> = ["2.3","2","44","22.11","-2.3","-2","-44","-22.11","20.",".10",".3","1.",".","-20.","-.10","-.3","-1.","-."]
