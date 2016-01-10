@@ -24,7 +24,7 @@ class WinView3:FlippedView {
      *
      */
     func svgTest(){
-        let path = "~/Desktop/icons/path_4.svg".tildePath//rect.svgcross.svg,rect.svg,circle.svg,cross_4.svg,line.svg,polyline.svg
+        let path = "~/Desktop/icons/search.svg".tildePath//rect.svgcross.svg,rect.svg,circle.svg,cross_4.svg,line.svg,polyline.svg
         let content = FileParser.content(path)
         //Swift.print("content: " + "\(content)")
         
@@ -40,7 +40,7 @@ class WinView3:FlippedView {
         
         let svg:SVG = SVGParser.svg(rootElement);
         //SVGParser.describeAll(svg)
-        //SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
+        SVGModifier.scale(svg, CGPoint(), CGPoint(2,2));
         addSubview(svg);
         //svg.fillShape.setNeedsDisplay()
         
