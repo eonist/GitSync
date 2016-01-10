@@ -14,7 +14,7 @@ class WinView3:FlippedView {
         */
         
         //svgTest()
-        let result = SVGPathParser.parameters("-185-4")
+        let result = SVGPathParser.parameters("3.0-185.12-89.2")//[3.0, -185.12, -89.2]
         Swift.print("result: " + "\(result)")
         //debugRegExpDigitPattern()
         //regExpBackRefTest()
