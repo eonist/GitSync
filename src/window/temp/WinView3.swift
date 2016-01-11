@@ -13,7 +13,7 @@ class WinView3:FlippedView {
         Swift.print("temp: " + "\(temp)")
         */
         
-        svgTest()
+        //svgTest()
         //let result = SVGPathParser.parameters("-75,53.571-147.029,36.822-185-89.748")//[-75.0, 53.571, -147.029, 36.822, -185.0, -89.748]
         //Swift.print("result: " + "\(result)")
 
