@@ -147,6 +147,7 @@ class WinView2:FlippedView{
         
       
         /*
+        //you should probably support absolute variables aswell not just % THink SVG and how we do it there
         let css:String = "Element{fill:radial-gradient(50% 50% 100% 100% 0 0, red 1 0,green 1 1);}"//,blue 0.33 0.4724
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         let style:IStyle = styleCollection.getStyle("Element")!
