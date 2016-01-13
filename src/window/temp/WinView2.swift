@@ -149,7 +149,7 @@ class WinView2:FlippedView{
         let fill:GradientFillStyle = GradientFillStyle(gradient);
         
         //let lineGradient = Gradient(Gradients.teal(0.5),[],GradientType.Linear,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
-        let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
+        //let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
         //let line = GradientLineStyle(lineGradient,lineStyle)
         
         /*Rect*/
