@@ -54,7 +54,8 @@ class WinView2:FlippedView{
         
         //fileTest()
         //linearGradientTest()
-        radialGradientTest()
+        radialGradientTest2()
+        //radialGradientTest()
         //let f = FillStyle(Colors.red())
         //let c = f.copy() as! FillStyle
         //Swift.print("c.color.hex: " + "\(c.color.hex)")
@@ -138,6 +139,17 @@ class WinView2:FlippedView{
         addSubview(lineGraphic.graphic)
         lineGraphic.draw()
         /**/
+    }
+    /**
+     * 
+     */
+    func radialGradientTest2(){
+        let gradient = Gradient(Gradients.red(),[],GradientType.Radial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
+        let fill:GradientFillStyle = GradientFillStyle(gradient);
+        /*Rect*/
+        let rectGraphic = RectGraphic(40,40,200,200,fill,nil)
+        addSubview(rectGraphic.graphic)
+        rectGraphic.draw()
     }
     /**
      * Add args that enable disable infinite gradient etc
