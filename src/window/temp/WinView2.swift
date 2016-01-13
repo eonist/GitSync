@@ -144,7 +144,7 @@ class WinView2:FlippedView{
      * 
      */
     func radialGradientTest2(){
-        let gradient = Gradient(Gradients.red(),[],GradientType.Radial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
+        let gradient = Gradient(Gradients.black(),[],GradientType.Radial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         let fill:GradientFillStyle = GradientFillStyle(gradient);
         /*Rect*/
         let rectGraphic = RectGraphic(40,40,200,200,fill,nil)
