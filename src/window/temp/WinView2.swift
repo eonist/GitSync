@@ -153,12 +153,10 @@ class WinView2:FlippedView{
         //let line = GradientLineStyle(lineGradient,lineStyle)
         
         /*Rect*/
-        let rectGraphic = RectGraphic(40,40,200,200,fill,lineStyle)
+        let rectGraphic = RectGraphic(40,40,200,200,fill,nil)
         addSubview(rectGraphic.graphic)
         rectGraphic.draw()
         
-        
-      
         /*
         //you should probably support absolute variables aswell not just % THink SVG and how we do it there
         let css:String = "Element{fill:radial-gradient(50% 50% 100% 100% 0 0, red 1 0,green 1 1);}"//,blue 0.33 0.4724
