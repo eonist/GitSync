@@ -143,16 +143,16 @@ class WinView2:FlippedView{
      * Add args that enable disable infinite gradient etc
      */
     func radialGradientTest(){
-   
-        let gradient = Gradient(Gradients.red(),[],GradientType.Radial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
+        let gradient = Gradient(Gradients.red(),[],GradientType.Linear,π/2)
+        //let gradient = Gradient(Gradients.red(),[],GradientType.Radial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         let fill:GradientFillStyle = GradientFillStyle(gradient,NSColor.clearColor());
         
         //let lineGradient = Gradient(Gradients.teal(0.5),[],GradientType.Linear,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
-        //let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
+        let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
         //let line = GradientLineStyle(lineGradient,lineStyle)
         
         /*Rect*/
-        let rectGraphic = RectGraphic(40,40,200,200,fill,nil)
+        let rectGraphic = RectGraphic(40,40,200,200,fill,lineStyle)
         addSubview(rectGraphic.graphic)
         rectGraphic.draw()
         
