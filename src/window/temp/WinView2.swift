@@ -137,16 +137,7 @@ class WinView2:FlippedView{
         */
         
 
-        //save new txt content to a .txt file
-        //get all files in a folder
-        //convert between filepath and file url etc
-        //write a post about file parsing
-        //compare with the applescript and the old file parsing classes
-        //extension aritmetic
-        //regexp file name aritmitec
-        //load svg
-        
-        //continue with implementing the svg classes
+       
     }
     
     /**
