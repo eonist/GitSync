@@ -84,7 +84,7 @@ class WinView2:FlippedView{
 
 //what about he gradient box, well then you access the path via graphic.path. Which will be avilable since you call draw first.
 
-//Gradient ahould also be split into two classes to derive its grradient type, and have no rot,focal point etc. focal point is done when you parse the css in cssstylepropertyparser it is then converted to a relative 2 point 2 radius radial gradient which will scale with the min radius of the bounding box, the constraint here should be similar to illustrator, todo: confirm this with a test
+//Gradient ahould also be split into two classes to derive its grradient type, and have no rot,focal point etc. focal point is done when you parse the css in cssstylepropertyparser it is then converted to a relative 2 point, 2 radius radial gradient which will scale with the min radius of the bounding box, the constraint here should be similar to illustrator, todo: confirm this with a test
         
         //you should probably support absolute variables aswell not just % THink SVG and how we do it there
         let css:String = "Element{fill:radial-gradient(50% 50% 100% 100% 0 0, red 1 0,green 1 1);}"//,blue 0.33 0.4724
