@@ -86,6 +86,8 @@ class WinView2:FlippedView{
 
         //Gradient ahould also be split into two classes to derive its grradient type, and have no rot,focal point etc. focal point is done when you parse the css in cssstylepropertyparser it is then converted to a relative 2 point, 2 radius radial gradient which will scale with the min radius of the bounding box, the constraint here should be similar to illustrator, todo: confirm this with a test
         
+        //When a radial gradient is set 
+        
         //you should probably support absolute variables aswell not just % THink SVG and how we do it there
         
         /*the sixth variable is the focal ratio in a scalar value: -1 to 1*/
