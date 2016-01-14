@@ -50,7 +50,7 @@ class WinView2:FlippedView{
         
         
         
-        
+        gradientTest()
         radialGradientTest2()
         //fileTest()
         //linearGradientTest()
@@ -68,6 +68,12 @@ class WinView2:FlippedView{
         //testTempRoundRect()
         //testLayerBackedElement()
         //testGraphic()
+    }
+    /**
+     *
+     */
+    func gradientTest(){
+        
     }
     /**
      *
