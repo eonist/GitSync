@@ -74,17 +74,17 @@ class WinView2:FlippedView{
         
         //you need to resolve the issue with GradientGraphic not beeing positionable. Consider the implications for LineGraphic, EllipseGraphic, RectGraphic, SVGAssetGraphic when you impliment this, the problem is probably that you wrap gradientgraphic around rectgraphic, could it be done the other waya round and then you would have acces to an ipositionable? You can revist this problem later if this solution works, its not dificult to implemnt theipositionable to the gradientgraphic, you could in theory even add a getter for access to the first avilable ipositionable, although then you risk not calling the parent wrapper, which shouldnt matter anyway since gradientgraphic shouldnt care about what size or position the underlying graphic is. If you need the gradient to scale then this should be set by the gradient graphic on init, as relative values. Absolute values shouldnt scale. You shouldnt use absolute values anyway. 
 
-//so this means that you actually can calculate the gradient box on gradientgraphic draw call from user, and use these values as relative percentage values for the graphics class. You then update the path and not the gradientgraphic and the gradient will follow the relative values witht the boundingbox of the path. 
+        //so this means that you actually can calculate the gradient box on gradientgraphic draw call from user, and use these values as relative percentage values for the graphics class. You then update the path and not the gradientgraphic and the gradient will follow the relative values witht the boundingbox of the path.
 
-//these relative values will also work for viewport values. So you dont have to impliment this in the graphics class. 
+        //these relative values will also work for viewport values. So you dont have to impliment this in the graphics class.
 
-//the absolute values should be supported in the graphics class, enable them with a bool var.
+        //the absolute values should be supported in the graphics class, enable them with a bool var.
 
-//wait, what about the frame offset etc? You dont have to worrie about that, you are working with relative values, and in the graphics class you work with the boundingbox of the path. 
+        //wait, what about the frame offset etc? You dont have to worrie about that, you are working with relative values, and in the graphics class you work with the boundingbox of the path.
 
-//what about he gradient box, well then you access the path via graphic.path. Which will be avilable since you call draw first.
+        //what about he gradient box, well then you access the path via graphic.path. Which will be avilable since you call draw first.
 
-//Gradient ahould also be split into two classes to derive its grradient type, and have no rot,focal point etc. focal point is done when you parse the css in cssstylepropertyparser it is then converted to a relative 2 point, 2 radius radial gradient which will scale with the min radius of the bounding box, the constraint here should be similar to illustrator, todo: confirm this with a test
+        //Gradient ahould also be split into two classes to derive its grradient type, and have no rot,focal point etc. focal point is done when you parse the css in cssstylepropertyparser it is then converted to a relative 2 point, 2 radius radial gradient which will scale with the min radius of the bounding box, the constraint here should be similar to illustrator, todo: confirm this with a test
         
         //you should probably support absolute variables aswell not just % THink SVG and how we do it there
         let css:String = "Element{fill:radial-gradient(50% 50% 100% 100% 0 0, red 1 0,green 1 1);}"//,blue 0.33 0.4724
