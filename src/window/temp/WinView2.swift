@@ -72,7 +72,7 @@ class WinView2:FlippedView{
      */
     func cssGradientTest(){
         
-        
+        //you need to resolve the issue with GradientGraphic not beeing positionable. Consider the implications for LineGraphic, EllipseGraphic, RectGraphic, SVGAssetGraphic when you impliment this
         
         //you should probably support absolute variables aswell not just % THink SVG and how we do it there
         let css:String = "Element{fill:radial-gradient(50% 50% 100% 100% 0 0, red 1 0,green 1 1);}"//,blue 0.33 0.4724
