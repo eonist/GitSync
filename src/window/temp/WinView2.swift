@@ -70,7 +70,7 @@ class WinView2:FlippedView{
         //testGraphic()
     }
     /**
-     *
+     * Gradient unit test for the Graphic framework
      */
     func gradientTest(){
         /**/let gradient = Gradient(Gradients.bw(),[],GradientType.Linear,π/2)
