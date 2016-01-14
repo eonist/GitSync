@@ -87,6 +87,9 @@ class WinView2:FlippedView{
         //Gradient ahould also be split into two classes to derive its grradient type, and have no rot,focal point etc. focal point is done when you parse the css in cssstylepropertyparser it is then converted to a relative 2 point, 2 radius radial gradient which will scale with the min radius of the bounding box, the constraint here should be similar to illustrator, todo: confirm this with a test
         
         //you should probably support absolute variables aswell not just % THink SVG and how we do it there
+        
+        /*the sixth variable is the focal ratio in a scalar value: -1 to 1*/
+        /*the fifth value is always the rotation*/
         let css:String = "Element{fill:radial-gradient(50% 50% 100% 100% 0 0, red 1 0,green 1 1);}"//,blue 0.33 0.4724
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         let style:IStyle = styleCollection.getStyle("Element")!
