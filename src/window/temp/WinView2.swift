@@ -82,7 +82,7 @@ class WinView2:FlippedView{
         
         let gradient2 = Gradient(Gradients.bw(),[],GradientType.Linear,π/1.5)
         let fill2:GradientFillStyle = GradientFillStyle(gradient2);
-        let rect2 = RectGraphic(100,0,100,100,fill2,nil)
+        let rect2 = RectGraphic(0,0,100,100,fill2,nil)
         addSubview(rect2.graphic)
         rect2.draw()
     }
