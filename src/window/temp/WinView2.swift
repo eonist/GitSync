@@ -79,6 +79,10 @@ class WinView2:FlippedView{
         let rect = RectGraphic(0,0,100,100,fill,nil)
         addSubview(rect.graphic)
         rect.draw()
+        
+        let rect2 = RectGraphic(100,0,100,100,fill,nil)
+        addSubview(rect2.graphic)
+        rect2.draw()
     }
     /**
      *
