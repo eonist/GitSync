@@ -51,7 +51,7 @@ class WinView2:FlippedView{
         
         
         gradientTest()
-        radialGradientTest2()
+        //radialGradientTest2()
         //fileTest()
         //linearGradientTest()
         
@@ -74,13 +74,9 @@ class WinView2:FlippedView{
      */
     func gradientTest(){
         let gradient = Gradient(Gradients.bw(),[],GradientType.Linear,π/2)
-        let lineGradient = Gradient(Gradients.teal(0.5),[],GradientType.Linear,π/2)
-        /*Styles*/
         let fill:GradientFillStyle = GradientFillStyle(gradient);
-        let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
-        let line:GradientLineStyle = GradientLineStyle(lineGradient,lineStyle)
-        /*Rect*/
-        let rect = RectGraphic(40,40,100,100,fill,line)
+        
+        let rect = RectGraphic(40,40,300,300,fill,nil)
         addSubview(rect.graphic)
         rect.draw()
     }
