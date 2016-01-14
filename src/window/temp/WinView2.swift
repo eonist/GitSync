@@ -71,7 +71,8 @@ class WinView2:FlippedView{
      *
      */
     func cssGradientTest(){
-        /*
+        
+        
         
         //you should probably support absolute variables aswell not just % THink SVG and how we do it there
         let css:String = "Element{fill:radial-gradient(50% 50% 100% 100% 0 0, red 1 0,green 1 1);}"//,blue 0.33 0.4724
@@ -79,8 +80,32 @@ class WinView2:FlippedView{
         let style:IStyle = styleCollection.getStyle("Element")!
         let styleProperty:IStyleProperty = style.getStyleProperty("fill")!
         let gradient:IGradient = styleProperty.value as! IGradient
+        gradient
         
+        
+        
+        
+        /*
+        Swift.print("gradient.gradientType: " + "\(gradient.gradientType)")
+        Swift.print("gradient.relativeStartCenter: " + "\(gradient.relativeStartCenter)")
+        Swift.print("gradient.relativeEndCenter: " + "\(gradient.relativeEndCenter)")
+        Swift.print("gradient.relativeStartRadius: " + "\(gradient.relativeStartRadius)")
+        Swift.print("gradient.rotation: " + "\(gradient.rotation)")
         */
+        
+        
+        StyleManager.addStyle(styleCollection.styles)
+        let element:Element = Element(200,200)
+        addSubview(element)
+        
+        
+        
+        
+        
+        //TODO: think about including a dual system where you can also fully utilize the 2point 2size system aswell as the focalpoinratio system.
+        //TODO: can you achive the same result through a 2 point gradient system as you can with matrix?, experiment, make tools , an outline, and maybe a handle etc
+        
+        
     }
     /**
      * Gradient unit test for the Graphic framework
@@ -202,39 +227,7 @@ class WinView2:FlippedView{
         addSubview(rectGraphic.graphic)
         rectGraphic.draw()
         
-        /*
-        //you should probably support absolute variables aswell not just % THink SVG and how we do it there
-        let css:String = "Element{fill:radial-gradient(50% 50% 100% 100% 0 0, red 1 0,green 1 1);}"//,blue 0.33 0.4724
-        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
-        let style:IStyle = styleCollection.getStyle("Element")!
-        let styleProperty:IStyleProperty = style.getStyleProperty("fill")!
-        let gradient:IGradient = styleProperty.value as! IGradient
-        gradient
-        
-        
-        
-        
-        /*
-        Swift.print("gradient.gradientType: " + "\(gradient.gradientType)")
-        Swift.print("gradient.relativeStartCenter: " + "\(gradient.relativeStartCenter)")
-        Swift.print("gradient.relativeEndCenter: " + "\(gradient.relativeEndCenter)")
-        Swift.print("gradient.relativeStartRadius: " + "\(gradient.relativeStartRadius)")
-        Swift.print("gradient.rotation: " + "\(gradient.rotation)")
-        */
-        
-        
-        StyleManager.addStyle(styleCollection.styles)
-        let element:Element = Element(200,200)
-        addSubview(element)
-        
-        */
-        
-        
-        
-        //TODO: think about including a dual system where you can also fully utilize the 2point 2size system aswell as the focalpoinratio system.
-        //TODO: can you achive the same result through a 2 point gradient system as you can with matrix?, experiment, make tools , an outline, and maybe a handle etc
-        
-        
+       
     }
     
     func testTabBar(){
