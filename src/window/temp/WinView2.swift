@@ -73,14 +73,14 @@ class WinView2:FlippedView{
      *
      */
     func gradientTest(){
-        let gradient = Gradient(Gradients.bw(),[],GradientType.Linear,π/2)
+        /*let gradient = Gradient(Gradients.bw(),[],GradientType.Linear,π/2)
         let fill:GradientFillStyle = GradientFillStyle(gradient);
         
         let rect = RectGraphic(0,0,100,100,fill,nil)
         addSubview(rect.graphic)
-        rect.draw()
+        rect.draw()*/
         
-        let gradient2 = Gradient(Gradients.bw(),[],GradientType.Linear,π/4)
+        let gradient2 = Gradient(Gradients.bw(),[],GradientType.Linear,π/1.5)
         let fill2:GradientFillStyle = GradientFillStyle(gradient2);
         let rect2 = RectGraphic(100,0,100,100,fill2,nil)
         addSubview(rect2.graphic)
