@@ -128,26 +128,26 @@ class WinView2:FlippedView{
      * Gradient unit test for the Graphic framework
      */
     func gradientTest(){
-        /**/let gradient = Gradient(Gradients.bw(),[],GradientType.Linear,π/2)
+        /**/let gradient = LinearGradient(Gradients.bw(),[],π/2)
         let fill:GradientFillStyle = GradientFillStyle(gradient);
         
         let rect = RectGraphic(0,0,100,100,fill,nil)
         addSubview(rect.graphic)
         rect.draw()
         
-        let gradient2 = Gradient(Gradients.bw(),[],GradientType.Linear,π/4)
+        let gradient2 = LinearGradient(Gradients.bw(),[],π/4)
         let fill2:GradientFillStyle = GradientFillStyle(gradient2);
         let rect2 = RectGraphic(100,0,100,100,fill2,nil)
         addSubview(rect2.graphic)
         rect2.draw()
         
-        let gradient3 = Gradient(Gradients.bw(),[],GradientType.Radial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
+        let gradient3 = RadialGradient(Gradients.bw(),[],π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         let fill3:GradientFillStyle = GradientFillStyle(gradient3);
         let rect3 = RectGraphic(0,100,100,100,fill3,nil)
         addSubview(rect3.graphic)
         rect3.draw()
         
-        let gradient4 = Gradient(Gradients.bw(),[],GradientType.Radial,π/4,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,-1)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
+        let gradient4 = RadialGradient(Gradients.bw(),[],π/4,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,-1)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         let fill4:GradientFillStyle = GradientFillStyle(gradient4);
         let rect4 = RectGraphic(100,100,100,100,fill4,nil)
         addSubview(rect4.graphic)
@@ -158,7 +158,7 @@ class WinView2:FlippedView{
      *
      */
     func radialGradientTest2(){
-        let gradient = Gradient(Gradients.lightBlue(),[],GradientType.Radial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
+        let gradient = RadialGradient(Gradients.lightBlue(),[],π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         let fill:GradientFillStyle = GradientFillStyle(gradient);
         /*Rect*/
         let rectGraphic = RectGraphic(40,40,200,200,fill,nil)
