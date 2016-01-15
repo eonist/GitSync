@@ -48,7 +48,7 @@ class WinView2:FlippedView{
         
 
         //cssGradientTest()
-        //gradientTest()
+        gradientTest()
         //radialGradientTest2()
         //fileTest()
         //linearGradientTest()
