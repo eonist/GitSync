@@ -179,9 +179,8 @@ class WinView2:FlippedView{
     func linearGradientTest(){
         /*Gradients*/
         let gradient = LinearGradient(Gradients.red(),[],π/2)
-        //let lineGradient = LinearGradient(Gradients.teal(0.5),[],π/2)
-        //let lineGradient = RadialGradient(Gradients.teal(0.5),[],π/2)
-        let lineGradient = RadialGradient(Gradients.teal(0.5),[],π/2,CGPoint(0.0,0.0/*-1*/)/*y is focalRatio (-1 to +1)*/,CGPoint(0.5,0.5)/*endP*/,CGSize(0,0)/*start-scale*/,CGSize(1.5,1.5)/*endScale*/)
+        let lineGradient = LinearGradient(Gradients.teal(0.5),[],π/2)
+        //let lineGradient = RadialGradient(Gradients.teal(0.5),[],π/2,CGPoint(0.0,0.0/*-1*/)/*y is focalRatio (-1 to +1)*/,CGPoint(0.5,0.5)/*endP*/,CGSize(0,0)/*start-scale*/,CGSize(1.5,1.5)/*endScale*/)
         /*Styles*/
         let fill:GradientFillStyle = GradientFillStyle(gradient);
         let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
