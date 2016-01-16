@@ -41,9 +41,9 @@ class WinView2:FlippedView{
         
         //cssGradientTest()
         //gradientTest()
-        radialGradientTest2()
+        //radialGradientTest2()
         //fileTest()
-        //linearGradientTest()
+        linearGradientTest()/*4 different shapes w/ different gradients*/
         
         //radialGradientTest()
         //let f = FillStyle(Colors.red())
