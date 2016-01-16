@@ -32,7 +32,9 @@ class WinView3:FlippedView {
         //path += "radial_gradient_polygon.svg"
         //path += "linear_gradient_stroke_polygon.svg"
         //path += "radial_gradient_stroke_polygon.svg"
-        path += "relative_linear_gradient_stroke_polygon.svg"
+        //path += "relative_linear_gradient_stroke_polygon.svg"
+        path += "radial_test.svg"
+        
         let content = FileParser.content(path.tildePath)
         //Swift.print("content: " + "\(content)")
         
@@ -51,7 +53,7 @@ class WinView3:FlippedView {
         
         let svg:SVG = SVGParser.svg(rootElement);
         //SVGParser.describeAll(svg)
-        SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
+        //SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
         addSubview(svg);
         
     }
