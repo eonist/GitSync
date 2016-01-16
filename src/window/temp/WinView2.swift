@@ -39,9 +39,9 @@ class WinView2:FlippedView{
         //Continue here test radial gradient, is it correct? from inside to outside colors, test the Graphic framework
         
         
-        cssGradientTest()
+        //cssGradientTest()
         //gradientTest()
-        //radialGradientTest2()
+        radialGradientTest2()
         //fileTest()
         //linearGradientTest()
         
@@ -134,7 +134,8 @@ class WinView2:FlippedView{
      *
      */
     func radialGradientTest2(){
-        let gradient = RadialGradient(Gradients.lightBlue(),[],π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
+        
+        let gradient = RadialGradient([NSColor.blackColor().CGColor,NSColor.whiteColor().CGColor],[],π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         let fill:GradientFillStyle = GradientFillStyle(gradient);
         /*Rect*/
         let rectGraphic = RectGraphic(40,40,200,200,fill,nil)

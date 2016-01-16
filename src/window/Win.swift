@@ -16,7 +16,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     static var sizeRect:NSRect = NSRect(x: 0, y: 0, width: Win.width, height: Win.height)//NSMakeRect(0, 0, TempWin.width, TempWin.height)
     //todo you could add the bellow as lazy?
     //lazy var view = WinView(frame: Win.sizeRect)//WinViewTest(frame: Win.sizeRect)//,FlippedView(frame: Win.sizeRect)
-    lazy var view = WinView3(frame: Win.sizeRect)
+    lazy var view = WinView2(frame: Win.sizeRect)
     
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
         super.init(contentRect: Win.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
