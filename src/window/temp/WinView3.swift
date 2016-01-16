@@ -51,7 +51,7 @@ class WinView3:FlippedView {
         
         let svg:SVG = SVGParser.svg(rootElement);
         //SVGParser.describeAll(svg)
-        //SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
+        SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
         addSubview(svg);
         
     }
