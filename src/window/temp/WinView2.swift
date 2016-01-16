@@ -36,6 +36,8 @@ class WinView2:FlippedView{
         //TODO: So what you do is that you forget about setting the value for the innermost circle, always set this to 0% or 100% or something, if you need the innermost circle bigger this is done via the matrix transform and scaling the outermost circle down
         //TODO: do a test of your RadialGradient setup, does it mimic that of what illustrator gives. do many tests to be sure, also try to apply matrix to these values to make sure this works, does the focalPoint work, can you mimic any scenario?
         
+        //Continue here test radial gradient, is it correct? from inside to outside colors, test the Graphic framework
+        
         
         cssGradientTest()
         //gradientTest()
