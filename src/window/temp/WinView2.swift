@@ -201,8 +201,8 @@ class WinView2:FlippedView{
      */
     func linearGradientTest(){
         /*Gradients*/
-        let gradient = Gradient(Gradients.red(),[],GradientType.Linear,π/2)
-        let lineGradient = Gradient(Gradients.teal(0.5),[],GradientType.Linear,π/2)
+        let gradient = LinearGradient(Gradients.red(),[],π/2)
+        let lineGradient = LinearGradient(Gradients.teal(0.5),[],π/2)
         /*Styles*/
         let fill:GradientFillStyle = GradientFillStyle(gradient);
         let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
@@ -232,7 +232,7 @@ class WinView2:FlippedView{
      */
     func radialGradientTest(){
         //let gradient = Gradient(Gradients.red(),[],GradientType.Linear,π/2)
-        let gradient = Gradient(Gradients.red(),[],GradientType.Radial,π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
+        let gradient = RadialGradient(Gradients.red(),[],π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         //let fill:FillStyle = FillStyle(NSColor.redColor())
         let fill:GradientFillStyle = GradientFillStyle(gradient);
         
