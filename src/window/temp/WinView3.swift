@@ -33,7 +33,9 @@ class WinView3:FlippedView {
         //path += "linear_gradient_stroke_polygon.svg"
         //path += "radial_gradient_stroke_polygon.svg"
         //path += "relative_linear_gradient_stroke_polygon.svg"
-        path += "radial_test.svg"
+        //path += "radial_test.svg"
+        //path += "ellipse_2.svg"
+        path += "maximize.svg"
         //path += "gradient_rect_2.svg"
         //path += "circle.svg"
         
