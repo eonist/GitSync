@@ -37,6 +37,9 @@ class WinView3:FlippedView {
         //Swift.print("rootElement.childCount: " + "\(rootElement.childCount)")
         
         
+        //continue here: fix the radial gradient color, it should now work. just set the fx to be the start and cx to be the end, then test scale, the gradient stroke
+        
+        
         //let child:NSXMLElement = XMLParser.childAt(rootElement.children!, 0)!
         //Swift.print("child.stringValue: " + "\(child.stringValue)")
         //Swift.print("child.localName: " + "\(child.localName)")
