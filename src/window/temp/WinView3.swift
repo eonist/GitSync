@@ -28,10 +28,11 @@ class WinView3:FlippedView {
         //path += "gradient_rect.svg"
         //path += "linear_gradient_polygon.svg"
         //path += "relative_linear_gradient_polygon.svg"
-        path += "relative_radial_gradient_polygon.svg"
+        //path += "relative_radial_gradient_polygon.svg"
         //path += "radial_gradient_polygon.svg"
         //path += "linear_gradient_stroke_polygon.svg"
         //path += "radial_gradient_stroke_polygon.svg"
+        path += "relative_linear_gradient_stroke_polygon.svg"
         let content = FileParser.content(path.tildePath)
         //Swift.print("content: " + "\(content)")
         
