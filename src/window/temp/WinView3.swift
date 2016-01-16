@@ -24,8 +24,10 @@ class WinView3:FlippedView {
      *
      */
     func svgTest(){
-        let path = "~/Desktop/icons/test_1-01.svg".tildePath//gradient_rect_2.svg,search.svg,rect.svg,cross.svg,rect.svg,circle.svg,cross_4.svg,line.svg,polyline.svg
-        let content = FileParser.content(path)
+        var path = "~/Desktop/icons/"//gradient_rect_2.svg,search.svg,rect.svg,cross.svg,rect.svg,circle.svg,cross_4.svg,line.svg,polyline.svg
+        path += "gradient_rect.svg"
+        //path += "test_1-01.svg"
+        let content = FileParser.content(path.tildePath)
         //Swift.print("content: " + "\(content)")
         
         let xmlDoc:NSXMLDocument = try! NSXMLDocument(XMLString: content!, options: 0)
