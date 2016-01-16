@@ -180,7 +180,8 @@ class WinView2:FlippedView{
         /*Gradients*/
         let gradient = LinearGradient(Gradients.red(),[],π/2)
         //let lineGradient = LinearGradient(Gradients.teal(0.5),[],π/2)
-        let lineGradient = RadialGradient(Gradients.teal(0.5),[],π/2,)
+        //let lineGradient = RadialGradient(Gradients.teal(0.5),[],π/2)
+        let lineGradient = RadialGradient([NSColor.blackColor().CGColor,NSColor.whiteColor().CGColor],[],π/2,CGPoint(0.0,-1)/*y is focalRatio (-1 to +1)*/,CGPoint(0.5,0.5)/*endP*/,CGSize(0,0)/*start-scale*/,CGSize(1,1)/*endScale*/)
         /*Styles*/
         let fill:GradientFillStyle = GradientFillStyle(gradient);
         let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
@@ -190,7 +191,7 @@ class WinView2:FlippedView{
         addSubview(rect.graphic)
         rect.draw()
         /*Ellipse*/
-        
+        /*
         let ellipse = EllipseGraphic(300,40,200,200,fill.mix(Gradients.teal()),line.mix(Gradients.blue(0.5)))
         addSubview(ellipse.graphic)
         ellipse.draw()
@@ -202,7 +203,7 @@ class WinView2:FlippedView{
         let lineGraphic = LineGraphic(CGPoint(300,300),CGPoint(500,500),line.mix(Gradients.deepPurple()))
         addSubview(lineGraphic.graphic)
         lineGraphic.draw()
-        /**/
+        */
     }
     
     /**
@@ -210,8 +211,7 @@ class WinView2:FlippedView{
      */
     func radialGradientTest(){
         //let gradient = Gradient(Gradients.red(),[],GradientType.Linear,π/2)
-        let gradient = RadialGradient([NSColor.blackColor().CGColor,NSColor.whiteColor().CGColor],[],π/2,CGPoint(0.0,-1)/*y is focalRatio (-1 to +1)*/,CGPoint(0.5,0.5)/*endP*/,CGSize(0,0)/*start-scale*/,CGSize(1,1)/*endScale*/)
-        //let gradient = RadialGradient(Gradients.red(),[],π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
+        let gradient = RadialGradient(Gradients.red(),[],π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
         //let fill:FillStyle = FillStyle(NSColor.redColor())
         let fill:GradientFillStyle = GradientFillStyle(gradient);
         
