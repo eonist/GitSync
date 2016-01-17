@@ -77,11 +77,13 @@ class WinView3:FlippedView {
      */
     func scale(inout svg:SVGContainer,_ pivot:CGPoint,_ scalePoint:CGPoint){
         for var i = 0; i < svg.items.count; ++i{
-            if(svg.items[i] is SVGPath){
-                Swift.print((svg.items[i] as! SVGPath).parameters)
-            }else if(svg.items[i] is SVGContainer){
-                var svgContainer:SVGContainer = svg.items[i] as! SVGContainer
-                scale(&svgContainer,pivot,scalePoint)
+             if(svg.items[i] is SVGContainer){
+                let svgContainer:SVGContainer = svg.items[i] as! SVGContainer
+                for var e = 0; e < svg.items.count; ++e{
+                    if((svg.items[i] as! SVGContainer).items[e] is SVGPath){
+                        Swift.print((svgContainer.items[e] as! SVGPath).parameters)
+                    }
+                }
             }else{
                 fatalError("no")
             }
