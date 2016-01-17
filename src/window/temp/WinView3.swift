@@ -65,11 +65,19 @@ class WinView3:FlippedView {
         //Swift.print("svg.subviews[0]: " + "\(svg.subviews[0])")
         
         //SVGModifier.describeAll(svg)
-        SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
+        //SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
         
         addSubview(svg);
         
     }
+    
+    /**
+     *
+     */
+    func scale(svg:SVG){
+        svg.items
+    }
+    
     func debugRegExpDigitPattern(){
         let testCases:Array<String> = ["2.3","2","44","22.11","-2.3","-2","-44","-22.11","20.",".10",".3","1.",".","-20.","-.10","-.3","-1.","-."]
         
