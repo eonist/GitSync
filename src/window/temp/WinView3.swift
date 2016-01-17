@@ -43,6 +43,17 @@ class WinView3:FlippedView {
         //path += "rect.svg"
         path += "cross.svg"
         
+        
+        //todos:
+        
+        //test the width after you have added to stage
+        
+        //add id to description
+        
+        //test with polygon, why does scaling this work?
+        
+        //is it because width is occupied by The view?
+        
         let content = FileParser.content(path.tildePath)
         //Swift.print("content: " + "\(content)")
         
