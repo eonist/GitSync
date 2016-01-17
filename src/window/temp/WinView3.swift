@@ -66,6 +66,7 @@ class WinView3:FlippedView {
         
         //SVGModifier.describeAll(svg)
         //SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
+        scale(svg, CGPoint(), CGPoint(4,4));
         
         addSubview(svg);
         
@@ -74,13 +75,14 @@ class WinView3:FlippedView {
     /**
      *
      */
-    func scale(svg:SVG){
-        
+    func scale(svg:SVGContainer,_ pivot:CGPoint,_ scalePoint:CGPoint){
         for var i = 0; i < svg.items.count; ++i{
-            if(svg.items[i] is SVGPolygon){
-                
+            if(svg.items[i] is SVGPath){
+                SVGPathModifier.scale(&(svg.items[i] as! SVGPath).parameters, (svg.items[i] as! SVGPath).commands, pivot, scalePoint)
             }else if(svg.items[i] is SVGContainer){
-                
+                scale(svg.items[i] as! SVGContainer,pivot,scalePoint)
+            }else{
+                fatalError("no")
             }
         }
     }
