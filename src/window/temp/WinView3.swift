@@ -67,7 +67,7 @@ class WinView3:FlippedView {
         //SVGModifier.describeAll(svg)
         SVGModifier.scale(&svg, CGPoint(), CGPoint(4,4));
         
-        addSubview(svg);
+        addSubview(svg as! SVG);
         
     }
     func debugRegExpDigitPattern(){
