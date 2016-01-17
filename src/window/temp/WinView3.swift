@@ -38,12 +38,13 @@ class WinView3:FlippedView {
         //path += "maximize.svg"
         //path += "ellipse.svg"
         //path += "circle_top_shine.svg"
-        path += "close_btn.svg"
+        //path += "close_btn.svg"
         //path += "radial_gradient_rect.svg"
         //path += "gradient_rect_2.svg"
         //path += "circle.svg"
         //path += "rect.svg"
         //path += "cross.svg"
+        path += "cross_2.svg"
         
         
         //
@@ -65,7 +66,7 @@ class WinView3:FlippedView {
         //Swift.print("svg.subviews[0]: " + "\(svg.subviews[0])")
         
         //SVGModifier.describeAll(svg)
-        SVGModifier.scale(svg, CGPoint(), CGPoint(8,8));
+        SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
         
         addSubview(svg);
         
