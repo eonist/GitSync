@@ -64,8 +64,8 @@ class WinView3:FlippedView {
         //Swift.print("svg.subviews.count: " + "\(svg.subviews.count)")
         //Swift.print("svg.subviews[0]: " + "\(svg.subviews[0])")
         
-        SVGParser.describeAll(svg)
-        //SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
+        //SVGParser.describeAll(svg)
+        SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
         //SVGUtils.dsc(svg, CGPoint(), CGPoint(4,4));
         
         addSubview(svg);
