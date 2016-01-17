@@ -26,11 +26,11 @@ class WinView3:FlippedView {
     func svgTest(){
         var path = "~/Desktop/icons/"//gradient_rect_2.svg,search.svg,rect.svg,cross.svg,rect.svg,circle.svg,cross_4.svg,line.svg,polyline.svg
         //path += "gradient_rect.svg"
-        path += "linear_gradient_polygon.svg"
+        //path += "linear_gradient_polygon.svg"
         //path += "relative_linear_gradient_polygon.svg"
         //path += "relative_radial_gradient_polygon.svg"
         //path += "radial_gradient_polygon.svg"
-        //path += "linear_gradient_stroke_polygon.svg"
+        path += "linear_gradient_stroke_polygon.svg"
         //path += "radial_gradient_stroke_polygon.svg"
         //path += "relative_linear_gradient_stroke_polygon.svg"
         //path += "radial_test.svg"
