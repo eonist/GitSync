@@ -73,8 +73,8 @@ class WinView3:FlippedView {
         //SVGParser.describeAll(svg)
         //SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
         addSubview(svg);
-        let polygon:SVGPolygon = svg.subviews[0] as! SVGPolygon
-        Swift.print("polygon.points: " + "\(polygon.points)")
+        let points = (svg.subviews[0] as! SVGPolygon).points
+        Swift.print("polygon.points: " + "\(points)")
     }
     func debugRegExpDigitPattern(){
         let testCases:Array<String> = ["2.3","2","44","22.11","-2.3","-2","-44","-22.11","20.",".10",".3","1.",".","-20.","-.10","-.3","-1.","-."]
