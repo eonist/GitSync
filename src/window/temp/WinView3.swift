@@ -55,8 +55,8 @@ class WinView3:FlippedView {
         //Swift.print("child.localName: " + "\(child.localName)")
         
         let svg:SVG = SVGParser.svg(rootElement);
-        //SVGParser.describeAll(svg)
-        SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
+        SVGParser.describeAll(svg)
+        //SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
         addSubview(svg);
         
     }
