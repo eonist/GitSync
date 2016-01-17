@@ -35,7 +35,7 @@ class WinView3:FlippedView {
         //path += "relative_linear_gradient_stroke_polygon.svg"
         //path += "radial_test.svg"
         //path += "ellipse_2.svg"
-        //path += "maximize.svg"
+        path += "maximize.svg"
         //path += "ellipse.svg"
         //path += "circle_top_shine.svg"
         //path += "close_btn.svg"
@@ -46,7 +46,8 @@ class WinView3:FlippedView {
         //path += "cross.svg"
         //path += "cross_2.svg"
         //path += "search.svg"
-        path += "line.svg"
+        //path += "line.svg"
+        //path += "ellipse_3.svg"
         
  
         let content = FileParser.content(path.tildePath)
