@@ -40,8 +40,8 @@ class WinView3:FlippedView {
         //path += "radial_gradient_rect.svg"
         //path += "gradient_rect_2.svg"
         //path += "circle.svg"
-        //path += "rect.svg"
-        path += "cross.svg"
+        path += "rect.svg"
+        //path += "cross.svg"
         
         
         //todos:
@@ -70,7 +70,6 @@ class WinView3:FlippedView {
         //Swift.print("svg.subviews.count: " + "\(svg.subviews.count)")
         //Swift.print("svg.subviews[0]: " + "\(svg.subviews[0])")
         
-        SVGModifier.desc(svg);
         SVGModifier.describeAll(svg)
         
         addSubview(svg);
