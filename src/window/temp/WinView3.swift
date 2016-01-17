@@ -80,7 +80,8 @@ class WinView3:FlippedView {
             if(svg.items[i] is SVGPath){
                 SVGPathModifier.scale(&(svg.items[i] as! SVGPath).parameters, (svg.items[i] as! SVGPath).commands, pivot, scalePoint)
             }else if(svg.items[i] is SVGContainer){
-                scale(&(svg.items[i] as! SVGContainer),pivot,scalePoint)
+                let svgContainer:SVGContainer = svg.items[i]
+                scale(&svgContainer,pivot,scalePoint)
             }else{
                 fatalError("no")
             }
