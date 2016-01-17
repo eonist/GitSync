@@ -79,6 +79,8 @@ class WinView3:FlippedView {
         for var i = 0; i < svg.items.count; ++i{
             if(svg.items[i] is SVGPolygon){
                 
+            }else if(svg.items[i] is SVGContainer){
+                
             }
         }
     }
