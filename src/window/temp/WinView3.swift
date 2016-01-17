@@ -75,7 +75,12 @@ class WinView3:FlippedView {
      *
      */
     func scale(svg:SVG){
-        svg.items
+        
+        for var i = 0; i < svg.items.count; ++i{
+            if(svg.items[i] is SVGPolygon){
+                
+            }
+        }
     }
     
     func debugRegExpDigitPattern(){
