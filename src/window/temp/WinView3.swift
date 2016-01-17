@@ -41,6 +41,7 @@ class WinView3:FlippedView {
         //path += "gradient_rect_2.svg"
         //path += "circle.svg"
         path += "rect.svg"
+        path += "cross.svg"
         
         let content = FileParser.content(path.tildePath)
         //Swift.print("content: " + "\(content)")
