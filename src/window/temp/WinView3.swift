@@ -43,9 +43,9 @@ class WinView3:FlippedView {
         //path += "gradient_rect_2.svg"
         //path += "circle.svg"
         //path += "rect.svg"
-        //path += "cross.svg"
+        path += "cross.svg"
         //path += "cross_2.svg"
-        path += "search.svg"
+        //path += "search.svg"
         
  
         let content = FileParser.content(path.tildePath)
