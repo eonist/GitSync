@@ -60,16 +60,32 @@ class WinView3:FlippedView {
         //Swift.print("child.stringValue: " + "\(child.stringValue)")
         //Swift.print("child.localName: " + "\(child.localName)")
         
-        let svg:SVG = SVGParser.svg(rootElement);
+        var svg:SVGContainer = SVGParser.svg(rootElement);
         //Swift.print("svg.subviews.count: " + "\(svg.subviews.count)")
         //Swift.print("svg.subviews[0]: " + "\(svg.subviews[0])")
         
         //SVGModifier.describeAll(svg)
-        SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
-        
+        //SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
+        scale(&svg, CGPoint(), CGPoint(4,4));
         
         addSubview(svg);
         
+    }
+    
+    /**
+     *
+     */
+    func scale(inout svg:SVGContainer,_ pivot:CGPoint,_ scalePoint:CGPoint){
+        for var i = 0; i < svg.items.count; ++i{
+            if(svg.items[i] is SVGPath){
+                Swift.print((svg.items[i] as! SVGPath).parameters)
+            }else if(svg.items[i] is SVGContainer){
+                var svgContainer:SVGContainer = svg.items[i] as! SVGContainer
+                scale(&svgContainer,pivot,scalePoint)
+            }else{
+                fatalError("no")
+            }
+        }
     }
     
     func debugRegExpDigitPattern(){
