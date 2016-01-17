@@ -50,10 +50,6 @@ class WinView3:FlippedView {
         //Swift.print("rootElement.localName: " + "\(rootElement.localName)")
         //Swift.print("rootElement.childCount: " + "\(rootElement.childCount)")
         
-        
-        
-        
-        
         //let child:NSXMLElement = XMLParser.childAt(rootElement.children!, 0)!
         //Swift.print("child.stringValue: " + "\(child.stringValue)")
         //Swift.print("child.localName: " + "\(child.localName)")
