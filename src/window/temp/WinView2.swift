@@ -20,8 +20,8 @@ class WinView2:FlippedView{
         
         
         
-        //cssGradientTest()
-        gradientTest()/*4 gradient tests*/
+        cssGradientTest()
+        //gradientTest()/*4 gradient tests*/
         //radialGradientTest2()/*single radial gradient test*/
         //fileTest()
         //linearGradientTest()/*4 different shapes w/ different gradients*/
