@@ -40,8 +40,8 @@ class WinView2:FlippedView{
         
         
         //cssGradientTest()
-        //gradientTest()
-        radialGradientTest2()
+        gradientTest()
+        //radialGradientTest2()
         //fileTest()
         //linearGradientTest()/*4 different shapes w/ different gradients*/
         
@@ -117,13 +117,13 @@ class WinView2:FlippedView{
         addSubview(rect2.graphic)
         rect2.draw()
         
-        let gradient3 = RadialGradient(Gradients.bw(),[],π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
+        let gradient3 = RadialGradient(Gradients.bw(),[],π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(0,0)/*start-scale*/,CGSize(1,1)/*endScale*/)
         let fill3:GradientFillStyle = GradientFillStyle(gradient3);
         let rect3 = RectGraphic(0,100,100,100,fill3,nil)
         addSubview(rect3.graphic)
         rect3.draw()
         
-        let gradient4 = RadialGradient(Gradients.bw(),[],π/4,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,-1)/*y-focalRatio*/,CGSize(1,1)/*start-scale*/,CGSize(0,0)/*endScale*/)
+        let gradient4 = RadialGradient(Gradients.bw(),[],π/4,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(0,0)/*start-scale*/,CGSize(1,1)/*endScale*/)
         let fill4:GradientFillStyle = GradientFillStyle(gradient4);
         let rect4 = RectGraphic(100,100,100,100,fill4,nil)
         addSubview(rect4.graphic)
