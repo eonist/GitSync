@@ -17,7 +17,9 @@ class WinView2:FlippedView{
         
         //make the IconBar
         //make the SearchBar
+        //make a window with custom svg buttons and custom white background (el capitan osx close max min button)
         //make animation examples of the above, and figure out gif and mp4 anim on twitter, use dummy account to test
+        
         //lever
         //leverSpinner
         //make anim of the above
