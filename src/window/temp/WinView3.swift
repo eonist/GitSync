@@ -22,19 +22,20 @@ class WinView3:FlippedView {
      *
      */
     func assetCSSTest(){
-        let css:String "fill:assets/svg/icons/view/icons.svg grey5;"
-        let css:String = "Element{fill:radial-gradient(50% 50% 100% 100% 90 -1, red 1 0,green 1 1);}"//,blue 0.33 0.4724
+        var path = "~/Desktop/icons/"
+        path += "search.svg"
+        let css:String = "Element{fill:fill:" + path + " grey5;}"//,blue 0.33 0.4724
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         let style:IStyle = styleCollection.getStyle("Element")!
         let styleProperty:IStyleProperty = style.getStyleProperty("fill")!
         let assetURL:String = styleProperty.value as! String
-        gradient
+        Swift.print("assetURL: " + "\(assetURL)")
         
-        
-        
+        /*
         StyleManager.addStyle(styleCollection.styles)
         let element:Element = Element(200,200)
         addSubview(element)
+        */
 
         
     }
