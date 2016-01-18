@@ -39,9 +39,9 @@ class WinView2:FlippedView{
         //Continue here test radial gradient, is it correct? from inside to outside colors, test the Graphic framework
         
         
-        cssGradientTest()
+        //cssGradientTest()
         //gradientTest()
-        //radialGradientTest2()
+        radialGradientTest2()
         //fileTest()
         //linearGradientTest()/*4 different shapes w/ different gradients*/
         
