@@ -15,9 +15,10 @@ class WinView2:FlippedView{
     */
     func createContent(){
         
-        //make the Radio bullet example and post a gif brewery animation on twitter and on github (maybe add a touch of animation?)
-        //implement the float system
         
+        //implement the float system
+        //implement layer system for the GraphicSkin
+        //make the Radio bullet example and post a gif brewery animation on twitter and on github (maybe add a touch of animation?)
         
         
         cssGradientTest()
