@@ -15,6 +15,9 @@ class WinView2:FlippedView{
     */
     func createContent(){
         
+        //make the IconBar
+        //make the SearchBar
+        //make animation examples of the above, and figure out gif and mp4 anim on twitter, use dummy account to test
         
         //implement the float system
         //implement layer system for the GraphicSkin
