@@ -18,6 +18,9 @@ class WinView2:FlippedView{
         //make the IconBar
         //make the SearchBar
         //make animation examples of the above, and figure out gif and mp4 anim on twitter, use dummy account to test
+        //lever
+        //leverSpinner
+        //make anim of the above
         
         //implement the float system
         //implement layer system for the GraphicSkin
