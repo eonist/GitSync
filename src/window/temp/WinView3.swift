@@ -28,14 +28,15 @@ class WinView3:FlippedView {
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         let style:IStyle = styleCollection.getStyle("Element")!
         let styleProperty:IStyleProperty = style.getStyleProperty("fill")!
-        let assetURL:String = styleProperty.value as! String
-        Swift.print("assetURL: " + "\(assetURL)")
+        Swift.print("styleProperty.value: " + "\(styleProperty.value)")
+        //let assetURL:String = styleProperty.value as! String
+        //Swift.print("assetURL: " + "\(assetURL)")
         
-        /*
+        
         StyleManager.addStyle(styleCollection.styles)
         let element:Element = Element(200,200)
         addSubview(element)
-        */
+        /**/
 
         
     }
