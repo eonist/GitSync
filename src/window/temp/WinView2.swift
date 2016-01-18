@@ -15,28 +15,9 @@ class WinView2:FlippedView{
     */
     func createContent(){
         
-        //continue here:
-        
-            //test gradient
-            //test button with skin change
-            //implement the new interactiveElement approach into the button
-            //test TextButton
-            //test overlapping buttons
-            //implement the outer shadow on the Graphic it self.
-            //test tab bar example with perfect css
-        
-        //implement the svg engine
-        //implement the float system
-        //try to implement radial gradient as it was in the original concept
         //make the Radio bullet example and post a gif brewery animation on twitter and on github (maybe add a touch of animation?)
+        //implement the float system
         
-        
-        
-    
-        //TODO: So what you do is that you forget about setting the value for the innermost circle, always set this to 0% or 100% or something, if you need the innermost circle bigger this is done via the matrix transform and scaling the outermost circle down
-        //TODO: do a test of your RadialGradient setup, does it mimic that of what illustrator gives. do many tests to be sure, also try to apply matrix to these values to make sure this works, does the focalPoint work, can you mimic any scenario?
-        
-        //Continue here test radial gradient, is it correct? from inside to outside colors, test the Graphic framework
         
         
         //cssGradientTest()
@@ -104,7 +85,7 @@ class WinView2:FlippedView{
      * Gradient unit test for the Graphic framework
      */
     func gradientTest(){
-        /**/let gradient = LinearGradient(Gradients.bw(),[],π/2)
+        let gradient = LinearGradient(Gradients.bw(),[],π/2)
         let fill:GradientFillStyle = GradientFillStyle(gradient);
         
         let rect = RectGraphic(0,0,100,100,fill,nil)
@@ -117,13 +98,13 @@ class WinView2:FlippedView{
         addSubview(rect2.graphic)
         rect2.draw()
         
-        let gradient3 = RadialGradient(Gradients.bw(),[],π/2,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(0,0)/*start-scale*/,CGSize(1,1)/*endScale*/)
+        let gradient3 = RadialGradient(Gradients.bw(),[],π/2,CGPoint(0.5,0.5)/*y-focalRatio*/,CGPoint(0,0)/*end p*/,CGSize(0,0)/*start-scale*/,CGSize(1,1)/*endScale*/)
         let fill3:GradientFillStyle = GradientFillStyle(gradient3);
         let rect3 = RectGraphic(0,100,100,100,fill3,nil)
         addSubview(rect3.graphic)
         rect3.draw()
         
-        let gradient4 = RadialGradient(Gradients.bw(),[],π/4,CGPoint(0.5,0.5)/*startP*/,CGPoint(0,0)/*y-focalRatio*/,CGSize(0,0)/*start-scale*/,CGSize(1,1)/*endScale*/)
+        let gradient4 = RadialGradient(Gradients.bw(),[],π/2,CGPoint(0,0)/*y-focalRatio*/,CGPoint(0.5,0.5)/*end p*/,CGSize(0,0)/*start-scale*/,CGSize(1,1)/*endScale*/)
         let fill4:GradientFillStyle = GradientFillStyle(gradient4);
         let rect4 = RectGraphic(100,100,100,100,fill4,nil)
         addSubview(rect4.graphic)
