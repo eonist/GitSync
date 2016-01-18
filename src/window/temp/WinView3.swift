@@ -33,7 +33,7 @@ class WinView3:FlippedView {
         //let assetURL:String = styleProperty.value as! String
         //Swift.print("assetURL: " + "\(assetURL)")
         
-        //continue here, figure out how you dealt with svgasset and color, 
+        //continue here, figure out how you dealt with svgasset and color, i think it has to do with assering class type is array etc
         
         StyleManager.addStyle(styleCollection.styles)
         let element:Element = Element(200,200)
