@@ -40,8 +40,8 @@ class WinView2:FlippedView{
         
         
         //cssGradientTest()
-        gradientTest()
-        //radialGradientTest2()
+        //gradientTest()
+        radialGradientTest2()
         //fileTest()
         //linearGradientTest()/*4 different shapes w/ different gradients*/
         
@@ -135,10 +135,10 @@ class WinView2:FlippedView{
      */
     func radialGradientTest2(){
         
-        let gradient = RadialGradient([NSColor.blackColor().CGColor,NSColor.whiteColor().CGColor],[],π/2,CGPoint(0.0,-1)/*y is focalRatio (-1 to +1)*/,CGPoint(0.5,0.5)/*endP*/,CGSize(0,0)/*start-scale*/,CGSize(1,1)/*endScale*/)
+        let gradient = RadialGradient([NSColor.blackColor().CGColor,NSColor.whiteColor().CGColor],[],π/2,CGPoint(0.0,0.0)/*y is focalRatio (-1 to +1)*/,CGPoint(0.5,0.5)/*endP*/,CGSize(0,0)/*start-scale*/,CGSize(1,1)/*endScale*/)
         let fill:GradientFillStyle = GradientFillStyle(gradient);
         /*Rect*/
-        let rectGraphic = RectGraphic(40,40,200,200,fill,nil)
+        let rectGraphic = RectGraphic(0,0,200,200,fill,nil)
         addSubview(rectGraphic.graphic)
         rectGraphic.draw()
     }
