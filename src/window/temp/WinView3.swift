@@ -33,13 +33,11 @@ class WinView3:FlippedView {
         //let assetURL:String = styleProperty.value as! String
         //Swift.print("assetURL: " + "\(assetURL)")
         
-        /*
+        
         StyleManager.addStyle(styleCollection.styles)
         let element:Element = Element(200,200)
         addSubview(element)
-        */
-
-        
+        /**/
     }
     /**
      *
