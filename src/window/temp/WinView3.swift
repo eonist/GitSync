@@ -10,13 +10,33 @@ class WinView3:FlippedView {
     func createContent(){
         
         
-        
+        assetCSSTest()
         svgTest()
         //let result = SVGPathParser.parameters("-75,53.571-147.029,36.822-185-89.748")//[-75.0, 53.571, -147.029, 36.822, -185.0, -89.748]
         //Swift.print("result: " + "\(result)")
 
         //debugRegExpDigitPattern()
         //regExpBackRefTest()
+    }
+    /**
+     *
+     */
+    func assetCSSTest(){
+        let css:String "fill:assets/svg/icons/view/icons.svg grey5;"
+        let css:String = "Element{fill:radial-gradient(50% 50% 100% 100% 90 -1, red 1 0,green 1 1);}"//,blue 0.33 0.4724
+        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
+        let style:IStyle = styleCollection.getStyle("Element")!
+        let styleProperty:IStyleProperty = style.getStyleProperty("fill")!
+        let assetURL:String = styleProperty.value as! String
+        gradient
+        
+        
+        
+        StyleManager.addStyle(styleCollection.styles)
+        let element:Element = Element(200,200)
+        addSubview(element)
+
+        
     }
     /**
      *
