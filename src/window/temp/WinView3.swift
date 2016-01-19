@@ -24,8 +24,7 @@ class WinView3:FlippedView {
         
         
         
-        Swift.print(ArrayAsserter.has(["e","f","g"], "f"))//true
-        Swift.print(ArrayAsserter.has(["e","f","g"], "a"))//false
+        
         
         //depthTest()
         //assetCSSTest()
