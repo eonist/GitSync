@@ -71,10 +71,10 @@ class WinView3:FlippedView {
         //path += "relative_linear_gradient_stroke_polygon.svg"
         //path += "radial_test.svg"
         //path += "ellipse_2.svg"
-        path += "maximize.svg"
+        //path += "maximize.svg"
         //path += "ellipse.svg"
         //path += "circle_top_shine.svg"
-        //path += "close_btn.svg"
+        path += "close_btn.svg"
         //path += "radial_gradient_rect.svg"
         //path += "gradient_rect_2.svg"
         //path += "circle.svg"
@@ -104,7 +104,7 @@ class WinView3:FlippedView {
         //Swift.print("svg.subviews[0]: " + "\(svg.subviews[0])")
         
         //SVGParser.describeAll(svg)
-        SVGModifier.scale(svg, CGPoint(), CGPoint(2,2));
+        SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
         //SVGUtils.dsc(svg, CGPoint(), CGPoint(2,2));
         
         //SVGModifier.offsetItems(svg, CGPoint(20,20))
