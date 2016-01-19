@@ -40,7 +40,7 @@ class WinView3:FlippedView {
      * Add depth to the framework (svgasset is useless without it, and floating wont be that hard anyways, its the last thing)
      */
     func depthTest(){
-        let css:String = "Element{fill:blue;width:64px;height:64px;}"//,blue 0.33 0.4724 //,red;fill-alpha:1,0.5;
+        let css:String = "Element{fill:blue,red;width:64px,32px;height:64px,32px;}"//,blue 0.33 0.4724 //,red;fill-alpha:1,0.5;
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         let style:IStyle = styleCollection.getStyle("Element")!
         let styleProperty:IStyleProperty = style.getStyleProperty("fill")!
