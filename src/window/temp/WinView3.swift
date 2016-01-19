@@ -26,8 +26,8 @@ class WinView3:FlippedView {
         
         
         
-        depthTest()
-        //assetCSSTest()
+        //depthTest()
+        assetCSSTest()
         //svgTest()
         
         //let result = SVGPathParser.parameters("-75,53.571-147.029,36.822-185-89.748")//[-75.0, 53.571, -147.029, 36.822, -185.0, -89.748]
@@ -54,7 +54,7 @@ class WinView3:FlippedView {
     func assetCSSTest(){
         var path = "~/Desktop/icons/"
         path += "search.svg"
-        let css:String = "Element{fill:fill:" + path + " grey5;}"//,blue 0.33 0.4724
+        let css:String = "Element{fill:" + path + " grey5;}"//,blue 0.33 0.4724
         Swift.print("css: " + "\(css)")
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         let style:IStyle = styleCollection.getStyle("Element")!
