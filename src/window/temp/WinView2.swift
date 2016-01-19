@@ -15,21 +15,8 @@ class WinView2:FlippedView{
     */
     func createContent(){
         
-        //make the IconBar
-        //make the SearchBar
-        //make a window with custom svg buttons and custom white background (el capitan osx close max min button)
-        //make animation examples of the above, and figure out gif and mp4 anim on twitter, use dummy account to test
         
-        //lever
-        //leverSpinner
-        //make anim of the above
-        
-        //implement the float system
-        //implement layer system for the GraphicSkin
-        //make the Radio bullet example and post a gif brewery animation on twitter and on github (maybe add a touch of animation?)
-        
-        
-        cssGradientTest()
+        //cssGradientTest()
         //gradientTest()/*4 gradient tests*/
         //radialGradientTest2()/*single radial gradient test*/
         //fileTest()
@@ -40,7 +27,7 @@ class WinView2:FlippedView{
         //let c = f.copy() as! FillStyle
         //Swift.print("c.color.hex: " + "\(c.color.hex)")
         
-        //testTabBar()
+        testTabBar()
         //testDropShadow()
         //testOverlapping()
         //testTextButton()
