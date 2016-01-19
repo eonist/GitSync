@@ -10,6 +10,8 @@ class WinView3:FlippedView {
     func createContent(){
         
         
+        //continue here: Add depth to the framework (svgasset is useless without it, and floating wont be that hard anyways, its the last thing)
+        
         assetCSSTest()
         //svgTest()
         //let result = SVGPathParser.parameters("-75,53.571-147.029,36.822-185-89.748")//[-75.0, 53.571, -147.029, 36.822, -185.0, -89.748]
