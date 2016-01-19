@@ -23,7 +23,8 @@ class WinView3:FlippedView {
         //make the Radio bullet example and post a gif brewery animation on twitter and on github (maybe add a touch of animation?)
         
         
-        
+        let arr = ["e","f","g"]
+        Swift.print(ArrayAsserter.has(arr, "f"))
         
         //depthTest()
         //assetCSSTest()
