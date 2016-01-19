@@ -45,7 +45,7 @@ class WinView3:FlippedView {
         let style:IStyle = styleCollection.getStyle("Element")!
         let styleProperty:IStyleProperty = style.getStyleProperty("fill")!
         let value = styleProperty.value
-        Swift.print("value: " + "\(value)")
+        Swift.print("WinView3.depthTest() value: " + "\(value)")
         
         
         
