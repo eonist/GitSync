@@ -26,7 +26,7 @@ class WinView3:FlippedView {
         
         
         
-        //depthTest()
+        depthTest()
         //assetCSSTest()
         //svgTest()
         
