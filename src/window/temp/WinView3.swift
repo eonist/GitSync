@@ -9,11 +9,11 @@ class WinView3:FlippedView {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
         
-        depthTest()
+        //depthTest()
         
         
         //assetCSSTest()
-        //svgTest()
+        svgTest()
         //let result = SVGPathParser.parameters("-75,53.571-147.029,36.822-185-89.748")//[-75.0, 53.571, -147.029, 36.822, -185.0, -89.748]
         //Swift.print("result: " + "\(result)")
 
@@ -71,7 +71,7 @@ class WinView3:FlippedView {
         //path += "relative_linear_gradient_stroke_polygon.svg"
         //path += "radial_test.svg"
         //path += "ellipse_2.svg"
-        //path += "maximize.svg"
+        path += "maximize.svg"
         //path += "ellipse.svg"
         //path += "circle_top_shine.svg"
         //path += "close_btn.svg"
@@ -84,7 +84,7 @@ class WinView3:FlippedView {
         //path += "search.svg"
         //path += "line.svg"
         //path += "ellipse_3.svg"
-        path += "roundrect.svg"
+        //path += "roundrect.svg"
         
  
         let content = FileParser.content(path.tildePath)
