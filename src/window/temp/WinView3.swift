@@ -107,6 +107,8 @@ class WinView3:FlippedView {
         //SVGModifier.scale(svg, CGPoint(), CGPoint(2,2));
         //SVGUtils.dsc(svg, CGPoint(), CGPoint(4,4));
         
+        SVGModifier.offsetItems(svg as! SVG, CGPoint(20,20))
+        
         addSubview(svg);
         
     }
