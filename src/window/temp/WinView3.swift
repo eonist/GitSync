@@ -47,8 +47,6 @@ class WinView3:FlippedView {
         let value = styleProperty.value
         Swift.print("WinView3.depthTest() value: " + "\(value)")
         
-        
-        
         StyleManager.addStyle(styleCollection.styles)
         let element:Element = Element(200,200)
         addSubview(element)
