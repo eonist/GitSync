@@ -99,7 +99,7 @@ class WinView3:FlippedView {
         //Swift.print("child.stringValue: " + "\(child.stringValue)")
         //Swift.print("child.localName: " + "\(child.localName)")
         
-        let svg:SVGContainer = SVGParser.svg(rootElement);
+        let svg:SVG = SVGParser.svg(rootElement);
         //Swift.print("svg.subviews.count: " + "\(svg.subviews.count)")
         //Swift.print("svg.subviews[0]: " + "\(svg.subviews[0])")
         
@@ -107,7 +107,7 @@ class WinView3:FlippedView {
         //SVGModifier.scale(svg, CGPoint(), CGPoint(2,2));
         //SVGUtils.dsc(svg, CGPoint(), CGPoint(4,4));
         
-        SVGModifier.offsetItems(svg as! SVG, CGPoint(20,20))
+        SVGModifier.offsetItems(svg, CGPoint(20,20))
         
         addSubview(svg);
         
