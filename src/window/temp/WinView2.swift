@@ -50,6 +50,7 @@ class WinView2:FlippedView{
         //testGraphic()
     }
     
+    //coninue here: try extending the gradient, and try tabbar as debug
     
     /**
      *
