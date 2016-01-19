@@ -87,8 +87,8 @@ class WinView3:FlippedView {
         //path += "search.svg"
         //path += "line.svg"
         //path += "ellipse_3.svg"
-        path += "roundrect.svg"
-        //path += "titlebar_buttons.svg"
+        //path += "roundrect.svg"
+        path += "titlebar_buttons.svg"
         
  
         let content = FileParser.content(path.tildePath)
