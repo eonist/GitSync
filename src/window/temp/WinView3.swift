@@ -75,7 +75,7 @@ class WinView3:FlippedView {
         //path += "ellipse.svg"
         //path += "circle_top_shine.svg"
         //path += "close_btn.svg"
-        path += "close.svg"
+        //path += "close.svg"
         //path += "close_hover.svg"
         //path += "minimize.svg"
         //path += "radial_gradient_rect.svg"
@@ -87,7 +87,8 @@ class WinView3:FlippedView {
         //path += "search.svg"
         //path += "line.svg"
         //path += "ellipse_3.svg"
-        //path += "roundrect.svg"
+        path += "roundrect.svg"
+        //path += "titlebar_buttons.svg"
         
  
         let content = FileParser.content(path.tildePath)
@@ -107,7 +108,7 @@ class WinView3:FlippedView {
         //Swift.print("svg.subviews[0]: " + "\(svg.subviews[0])")
         
         //SVGParser.describeAll(svg)
-        SVGModifier.scale(svg, CGPoint(), CGPoint(2,2));
+        //SVGModifier.scale(svg, CGPoint(), CGPoint(2,2));
         //SVGUtils.dsc(svg, CGPoint(), CGPoint(2,2));
         
         //SVGModifier.offsetItems(svg, CGPoint(20,20))
