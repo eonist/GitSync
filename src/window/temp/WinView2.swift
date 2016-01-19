@@ -14,8 +14,6 @@ class WinView2:FlippedView{
     }
     */
     func createContent(){
-        
-        
         //cssGradientTest()
         //gradientTest()/*4 gradient tests*/
         //radialGradientTest2()/*single radial gradient test*/
