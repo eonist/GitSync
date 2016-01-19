@@ -12,7 +12,7 @@ class WinView3:FlippedView {
         depthTest()
         
         
-        assetCSSTest()
+        //assetCSSTest()
         //svgTest()
         //let result = SVGPathParser.parameters("-75,53.571-147.029,36.822-185-89.748")//[-75.0, 53.571, -147.029, 36.822, -185.0, -89.748]
         //Swift.print("result: " + "\(result)")
@@ -28,8 +28,8 @@ class WinView3:FlippedView {
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         let style:IStyle = styleCollection.getStyle("Element")!
         let styleProperty:IStyleProperty = style.getStyleProperty("fill")!
-        let gradient:IGradient = styleProperty.value as! IGradient
-        gradient
+        let value = styleProperty.value
+        Swift.print("value: " + "\(value)")
         
         
         
