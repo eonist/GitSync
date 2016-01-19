@@ -9,8 +9,8 @@ class WinView3:FlippedView {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
         
+        depthTest()
         
-        //continue here: Add depth to the framework (svgasset is useless without it, and floating wont be that hard anyways, its the last thing)
         
         assetCSSTest()
         //svgTest()
@@ -21,8 +21,22 @@ class WinView3:FlippedView {
         //regExpBackRefTest()
     }
     /**
-     *
+     * Add depth to the framework (svgasset is useless without it, and floating wont be that hard anyways, its the last thing)
      */
+    func depthTest(){
+        let css:String = "Element{fill:blue,red;}"//,blue 0.33 0.4724
+        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
+        let style:IStyle = styleCollection.getStyle("Element")!
+        let styleProperty:IStyleProperty = style.getStyleProperty("fill")!
+        let gradient:IGradient = styleProperty.value as! IGradient
+        gradient
+        
+        
+        
+        StyleManager.addStyle(styleCollection.styles)
+        let element:Element = Element(200,200)
+        addSubview(element)
+    }
     func assetCSSTest(){
         var path = "~/Desktop/icons/"
         path += "search.svg"
