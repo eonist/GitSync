@@ -8,9 +8,9 @@ class WinView3:FlippedView {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
-        
+        iconBarTest()
         //depthTest()
-        assetCSSTest()
+        //assetCSSTest()
         //svgTest()
         
         //let result = SVGPathParser.parameters("-75,53.571-147.029,36.822-185-89.748")//[-75.0, 53.571, -147.029, 36.822, -185.0, -89.748]
@@ -18,6 +18,12 @@ class WinView3:FlippedView {
 
         //debugRegExpDigitPattern()
         //regExpBackRefTest()
+    }
+    /**
+     *
+     */
+    func iconBarTest(){
+        
     }
     /**
      * Add depth to the framework (svgasset is useless without it, and floating wont be that hard anyways, its the last thing)
