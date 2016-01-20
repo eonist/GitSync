@@ -24,8 +24,11 @@ class WinView3:FlippedView {
      *
      */
     func titlebarTest(){
-        var css:String = ""
-        css += ""
+        var css:String = "Button{"
+        css += "width:12px,12px;"
+        css += "height:12px,12px;"
+        css += "height:12px,12px;"
+        
         
         
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
