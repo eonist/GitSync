@@ -64,7 +64,7 @@ class WinView3:FlippedView {
     func assetCSSTest(){
         var path = "~/Desktop/icons/"
         path += "search.svg"
-        let css:String = "Element{fill:red," + path + " none;}"//,blue 0.33 0.4724,red,
+        let css:String = "Element{fill:red," + path + " green;}"//,blue 0.33 0.4724,red,
         Swift.print("css: " + "\(css)")
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         let style:IStyle = styleCollection.getStyle("Element")!
