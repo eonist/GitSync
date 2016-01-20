@@ -41,6 +41,7 @@ class WinView3:FlippedView {
      */
     func titlebarTest(){
         var css:String = "Button{width:12px,12px;height:12px,12px;margin-left:8px;margin-top:4px;}"
+        css += "Button:over{fill}"
         css += "Button#close{fill:~/Desktop/icons/titlebar/close.svg none;}"
         css += "Button#minimize{fill:~/Desktop/icons/titlebar/minimize.svg none;}"
         css += "Button#maximize{fill:~/Desktop/icons/titlebar/maximize.svg none;}"
