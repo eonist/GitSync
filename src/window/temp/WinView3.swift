@@ -40,7 +40,7 @@ class WinView3:FlippedView {
      * TODO: targeting "Button" should work even if the button has an id, there was a problem with the fill not registering
      */
     func titlebarTest(){
-        var css:String = "Button{width:12px,12px;height:12px,12px;margin-left:8px;margin-top:4px;}"
+        var css:String = "Button{width:12px,12px;height:12px,12px;margin-left:0px;margin-top:0px;}"
         css += "Button:over{fill:~/Desktop/icons/titlebar/close_hover.svg none;}"
         css += "Button#close{fill:~/Desktop/icons/titlebar/close.svg none;}"
         css += "Button#minimize{fill:~/Desktop/icons/titlebar/minimize.svg none;}"
@@ -59,10 +59,11 @@ class WinView3:FlippedView {
         
         //
         self.addSubview(closeButton)
+        closeButton.setPosition(CGPoint(8,4))
         self.addSubview(minimizeButton)
-        minimizeButton.setPosition(CGPoint(20,0))
+        minimizeButton.setPosition(CGPoint(28,4))
         self.addSubview(maximizeButton)
-        maximizeButton.setPosition(CGPoint(40,0))
+        maximizeButton.setPosition(CGPoint(48,4))
     }
     /**
      *
