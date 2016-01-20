@@ -8,7 +8,8 @@ class WinView3:FlippedView {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
-        titlebarTest()
+        marginTest()
+        //titlebarTest()
         //iconBarTest()
         //depthTest()
         //assetCSSTest()
@@ -19,6 +20,12 @@ class WinView3:FlippedView {
 
         //debugRegExpDigitPattern()
         //regExpBackRefTest()
+    }
+    /**
+     *
+     */
+    func marginTest(){
+        
     }
     /**
      * TODO: targeting "Button" should work even if the button has an id
