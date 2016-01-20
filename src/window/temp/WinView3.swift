@@ -25,19 +25,17 @@ class WinView3:FlippedView {
      */
     func titlebarTest(){
         var css:String = "Button{"
-        "assets/svg/icons/titlebar/close.svg none"
+        css += "~/Desktop/icons/titlebar/close.svg none"
         css += "width:12px,12px;"
         css += "height:12px,12px;"
         css += "}"
-        
-        
-        
+
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
         //Swift.print("styleProperty.value: " + String(styleProperty!.value))
         StyleManager.addStyle(styleCollection.styles)
-        let btn1 = SelectTextButton("first",64,24,false,nil,"first")
+        let btn1 = Button("first",64,24,false,nil,"first")
         btn1.setPosition(CGPoint(10,20))
         self.addSubview(btn1)
     }
