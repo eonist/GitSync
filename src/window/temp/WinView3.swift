@@ -25,6 +25,7 @@ class WinView3:FlippedView {
      */
     func titlebarTest(){
         var css:String = "Button{"
+        "assets/svg/icons/titlebar/close.svg none"
         css += "width:12px,12px;"
         css += "height:12px,12px;"
         css += "}"
