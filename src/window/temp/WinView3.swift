@@ -21,19 +21,20 @@ class WinView3:FlippedView {
         //regExpBackRefTest()
     }
     /**
-     *
+     * TODO: targeting "Button" should work even if the button has an id
      */
     func titlebarTest(){
         var css:String = "Button#close{"
-        css += "~/Desktop/icons/titlebar/close.svg none"
+        css += "fill:~/Desktop/icons/titlebar/close.svg none;"
         css += "width:12px,12px;"
         css += "height:12px,12px;"
         css += "}"
 
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
-        //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
-        //Swift.print("styleProperty.value: " + String(styleProperty!.value))
+        let styleProperty = styleCollection.getStyle("Button")?.getStyleProperty("fill")
+        Swift.print("styleProperty.value: " + String(styleProperty!.value))
+        
         StyleManager.addStyle(styleCollection.styles)
         let btn1 = Button(64,64,nil,"close")/*<--the w and h should be NaN, test if it supports this*/
         //btn1.setPosition(CGPoint(10,20))
