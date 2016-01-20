@@ -8,7 +8,8 @@ class WinView3:FlippedView {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
-        iconBarTest()
+        titlebarTest()
+        //iconBarTest()
         //depthTest()
         //assetCSSTest()
         //svgTest()
@@ -18,6 +19,23 @@ class WinView3:FlippedView {
 
         //debugRegExpDigitPattern()
         //regExpBackRefTest()
+    }
+    /**
+     *
+     */
+    func titlebarTest(){
+        var css:String = ""
+        css += ""
+        
+        
+        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
+        
+        //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
+        //Swift.print("styleProperty.value: " + String(styleProperty!.value))
+        StyleManager.addStyle(styleCollection.styles)
+        let btn1 = SelectTextButton("first",64,24,false,nil,"first")
+        btn1.setPosition(CGPoint(10,20))
+        self.addSubview(btn1)
     }
     /**
      *
