@@ -46,9 +46,10 @@ class WinView3:FlippedView {
         css += "margin-left:8px;"
         css += "margin-top:4px;"
         css += "}"
-        css += "Button#close{"
-        css += "fill:~/Desktop/icons/titlebar/close.svg none;"
-        css += "}"
+        css += "Button#close{fill:~/Desktop/icons/titlebar/close.svg none;}"
+        css += "Button#minimize{fill:~/Desktop/icons/titlebar/minimize.svg none;}"
+        css += "Button#minimize{fill:~/Desktop/icons/titlebar/close.svg none;}"
+        
 
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
@@ -57,6 +58,8 @@ class WinView3:FlippedView {
         
         StyleManager.addStyle(styleCollection.styles)
         let btn1 = Button(64,64,nil,"close")/*<--the w and h should be NaN, test if it supports this*/
+        let btn2 = Button(64,64,nil,"close")
+        
         //btn1.setPosition(CGPoint(10,20))
         self.addSubview(btn1)
     }
