@@ -40,12 +40,14 @@ class WinView3:FlippedView {
      * TODO: targeting "Button" should work even if the button has an id
      */
     func titlebarTest(){
-        var css:String = "Button#close{"
-        css += "fill:blue,~/Desktop/icons/titlebar/close.svg none;"
+        var css:String = "Button{"
         css += "width:12px,12px;"
         css += "height:12px,12px;"
         css += "margin-left:0px,8px;"
         css += "margin-top:0px,4px;"
+        css += "}"
+        css += "Button#close{"
+        css += "fill:~/Desktop/icons/titlebar/close.svg none;"
         css += "}"
 
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
