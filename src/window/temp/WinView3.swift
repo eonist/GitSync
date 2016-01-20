@@ -10,8 +10,8 @@ class WinView3:FlippedView {
     func createContent(){
         
         //depthTest()
-        assetCSSTest()
-        //svgTest()
+        //assetCSSTest()
+        svgTest()
         
         //let result = SVGPathParser.parameters("-75,53.571-147.029,36.822-185-89.748")//[-75.0, 53.571, -147.029, 36.822, -185.0, -89.748]
         //Swift.print("result: " + "\(result)")
@@ -78,14 +78,14 @@ class WinView3:FlippedView {
         //path += "radial_gradient_rect.svg"
         //path += "gradient_rect_2.svg"
         //path += "circle.svg"
-        //path += "rect.svg"
+        path += "rect.svg"
         //path += "cross.svg"
         //path += "cross_2.svg"
         //path += "search.svg"
         //path += "line.svg"
         //path += "ellipse_3.svg"
         //path += "roundrect.svg"
-        path += "titlebar_buttons.svg"
+        //path += "titlebar_buttons.svg"
         
  
         let content = FileParser.content(path.tildePath)
@@ -105,7 +105,8 @@ class WinView3:FlippedView {
         //Swift.print("svg.subviews[0]: " + "\(svg.subviews[0])")
         
         //SVGParser.describeAll(svg)
-        SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
+        //SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
+        SVGModifier
         //SVGUtils.dsc(svg, CGPoint(), CGPoint(2,2));
         
         //SVGModifier.offsetItems(svg, CGPoint(20,20))
