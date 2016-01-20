@@ -59,9 +59,9 @@ class WinView3:FlippedView {
         //
         self.addSubview(closeButton)
         self.addSubview(minimizeButton)
-        minimizeButton.setPosition(CGPoint(28,0))
+        minimizeButton.setPosition(CGPoint(20,0))
         self.addSubview(maximizeButton)
-        maximizeButton.setPosition(CGPoint(52,0))
+        maximizeButton.setPosition(CGPoint(40,0))
     }
     /**
      *
