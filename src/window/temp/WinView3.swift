@@ -28,6 +28,8 @@ class WinView3:FlippedView {
         css += "fill:~/Desktop/icons/titlebar/close.svg none;"
         css += "width:12px,12px;"
         css += "height:12px,12px;"
+        css += "margin-left:8px,8px;"
+        css += "margin-top:4px,4px;"
         css += "}"
 
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
