@@ -40,15 +40,10 @@ class WinView3:FlippedView {
      * TODO: targeting "Button" should work even if the button has an id, there was a problem with the fill not registering
      */
     func titlebarTest(){
-        var css:String = "Button{"
-        css += "width:12px,12px;"
-        css += "height:12px,12px;"
-        css += "margin-left:8px;"
-        css += "margin-top:4px;"
-        css += "}"
+        var css:String = "Button{width:12px,12px;height:12px,12px;margin-left:8px;margin-top:4px;}"
         css += "Button#close{fill:~/Desktop/icons/titlebar/close.svg none;}"
         css += "Button#minimize{fill:~/Desktop/icons/titlebar/minimize.svg none;}"
-        css += "Button#minimize{fill:~/Desktop/icons/titlebar/close.svg none;}"
+        css += "Button#maximize{fill:~/Desktop/icons/titlebar/maximize.svg none;}"
         
 
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
@@ -57,8 +52,9 @@ class WinView3:FlippedView {
         Swift.print("styleProperty.value: " + String(styleProperty!.value))
         
         StyleManager.addStyle(styleCollection.styles)
-        let btn1 = Button(64,64,nil,"close")/*<--the w and h should be NaN, test if it supports this*/
-        let btn2 = Button(64,64,nil,"close")
+        let closeButton = Button(64,64,nil,"close")/*<--the w and h should be NaN, test if it supports this*/
+        let minimizeButton = Button(64,64,nil,"minimize")
+        let minimizeButton = Button(64,64,nil,"minimize")
         
         //btn1.setPosition(CGPoint(10,20))
         self.addSubview(btn1)
