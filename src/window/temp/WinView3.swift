@@ -37,7 +37,7 @@ class WinView3:FlippedView {
     func assetCSSTest(){
         var path = "~/Desktop/icons/"
         path += "search.svg"
-        let css:String = "Element{fill:" + path + " blue;}"//,blue 0.33 0.4724,red,
+        let css:String = "Element{fill:red," + path + " blue;}"//,blue 0.33 0.4724,red,
         Swift.print("css: " + "\(css)")
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         let style:IStyle = styleCollection.getStyle("Element")!
@@ -49,7 +49,7 @@ class WinView3:FlippedView {
         //continue here, figure out how you dealt with svgasset and color, i think it has to do with assering class type is array etc
         
         StyleManager.addStyle(styleCollection.styles)
-        let element:Element = Element(400,400)
+        let element:Element = Element(200,200)
         addSubview(element)
         /**/
     }
