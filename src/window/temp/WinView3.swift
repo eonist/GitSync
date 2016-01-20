@@ -53,9 +53,9 @@ class WinView3:FlippedView {
         Swift.print("styleProperty.value: " + String(styleProperty!.value))
         
         StyleManager.addStyle(styleCollection.styles)
-        let closeButton = Button(64,64,nil,"close")/*<--the w and h should be NaN, test if it supports this*/
-        let minimizeButton = Button(64,64,nil,"minimize")
-        let maximizeButton = Button(64,64,nil,"maximize")
+        let closeButton = Button(12,12,nil,"close")/*<--the w and h should be NaN, test if it supports this*/
+        let minimizeButton = Button(12,12,nil,"minimize")
+        let maximizeButton = Button(12,12,nil,"maximize")
         
         //
         self.addSubview(closeButton)
