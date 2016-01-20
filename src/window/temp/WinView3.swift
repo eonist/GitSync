@@ -33,7 +33,7 @@ class WinView3:FlippedView {
         Swift.print("value: " + "\(value)")
         
         StyleManager.addStyle(styleCollection.styles)
-        let element:Element = Element(200,200)
+        let element:Element = Element(100,100)
         addSubview(element)
     }
     /**
