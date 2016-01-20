@@ -32,7 +32,7 @@ class WinView3:FlippedView {
 
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
-        let styleProperty = styleCollection.getStyle("Button")?.getStyleProperty("fill")
+        let styleProperty = styleCollection.getStyle("Button#close")?.getStyleProperty("fill")
         Swift.print("styleProperty.value: " + String(styleProperty!.value))
         
         StyleManager.addStyle(styleCollection.styles)
