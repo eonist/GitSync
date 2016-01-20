@@ -25,7 +25,16 @@ class WinView3:FlippedView {
      *
      */
     func marginTest(){
+        let css:String = "Element{fill:blue,red;width:64px,32px;height:64px,32px;margin-top:4px;}"//,blue 0.33 0.4724 //,red;fill-alpha:1,0.5;
+        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
+        let style:IStyle = styleCollection.getStyle("Element")!
+        let styleProperty:IStyleProperty = style.getStyleProperty("fill")!
+        let value = styleProperty.value
+        Swift.print("value: " + "\(value)")
         
+        StyleManager.addStyle(styleCollection.styles)
+        let element:Element = Element(200,200)
+        addSubview(element)
     }
     /**
      * TODO: targeting "Button" should work even if the button has an id
