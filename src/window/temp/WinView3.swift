@@ -38,6 +38,7 @@ class WinView3:FlippedView {
     }
     /**
      * TODO: targeting "Button" should work even if the button has an id, there was a problem with the fill not registering
+     * TODO: get the element class to work with out a width/height, derive the the width and height for the hit test area from the skin. The first depth or the bounds of every depth or or... 
      */
     func titlebarTest(){
         var css:String = "Button{width:12px,12px;height:12px,12px;margin-left:0px;margin-top:0px;}"
@@ -46,18 +47,11 @@ class WinView3:FlippedView {
         css += "Button#minimize{fill:~/Desktop/icons/titlebar/minimize.svg none;}"
         css += "Button#maximize{fill:~/Desktop/icons/titlebar/maximize.svg none;}"
         
-
-        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
-        
-        let styleProperty = styleCollection.getStyle("Button#close")?.getStyleProperty("fill")
-        Swift.print("styleProperty.value: " + String(styleProperty!.value))
-        
-        StyleManager.addStyle(styleCollection.styles)
+        StyleManager.addStyle(css)
         let closeButton = Button(12,12,nil,"close")/*<--the w and h should be NaN, test if it supports this*/
         let minimizeButton = Button(12,12,nil,"minimize")
         let maximizeButton = Button(12,12,nil,"maximize")
         
-        //
         self.addSubview(closeButton)
         closeButton.setPosition(CGPoint(8,4))
         self.addSubview(minimizeButton)
