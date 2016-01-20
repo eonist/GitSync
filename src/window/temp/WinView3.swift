@@ -22,10 +22,10 @@ class WinView3:FlippedView {
         //regExpBackRefTest()
     }
     /**
-     *
+     * TODO: not all instances of none works, test this, with the depth. first fill is none, then blue and opposite etc.
      */
     func marginTest(){
-        let css:String = "Element{fill:blue,linear-gradient(top,green,red);width:64px,32px;height:64px,32px;margin-top:0px,4px;}"//,blue 0.33 0.4724 //,red;fill-alpha:1,0.5;
+        let css:String = "Element{fill:linear-gradient(top,blue,red);width:64px;height:64px;margin-top:12px;}"//,blue 0.33 0.4724 //,red;fill-alpha:1,0.5;
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         let style:IStyle = styleCollection.getStyle("Element")!
         let styleProperty:IStyleProperty = style.getStyleProperty("fill")!
