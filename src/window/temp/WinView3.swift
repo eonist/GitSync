@@ -38,7 +38,7 @@ class WinView3:FlippedView {
     }
     /**
      * TODO: targeting "Button" should work even if the button has an id, there was a problem with the fill not registering
-     * TODO: get the element class to work with out a width/height, derive the the width and height for the hit test area from the skin. The first depth or the bounds of every depth or or... 
+     * TODO: get the element class to work with out a width/height, derive the the width and height for the hit test area from the skin. The first depth or the bounds of every depth or or...
      */
     func titlebarTest(){
         var css:String = "Button{width:12px,12px;height:12px,12px;margin-left:0px;margin-top:0px;}"
