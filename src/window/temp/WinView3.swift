@@ -42,10 +42,10 @@ class WinView3:FlippedView {
     func titlebarTest(){
         var css:String = "Button#close{"
         css += "fill:~/Desktop/icons/titlebar/close.svg none;"
-        css += "width:12px,12px;"
-        css += "height:12px,12px;"
-        css += "margin-left:8px,8px;"
-        css += "margin-top:4px,4px;"
+        css += "width:12px;"
+        css += "height:12px;"
+        css += "margin-left:0px;"
+        css += "margin-top:12px;"
         css += "}"
 
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
