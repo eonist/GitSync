@@ -27,7 +27,7 @@ class WinView3:FlippedView {
         var css:String = "Button{"
         css += "width:12px,12px;"
         css += "height:12px,12px;"
-        css += "height:12px,12px;"
+        css += "}"
         
         
         
