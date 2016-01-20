@@ -37,14 +37,14 @@ class WinView3:FlippedView {
         addSubview(element)
     }
     /**
-     * TODO: targeting "Button" should work even if the button has an id
+     * TODO: targeting "Button" should work even if the button has an id, there was a problem with the fill not registering
      */
     func titlebarTest(){
         var css:String = "Button{"
         css += "width:12px,12px;"
         css += "height:12px,12px;"
-        css += "margin-left:0px,8px;"
-        css += "margin-top:0px,4px;"
+        css += "margin-left:8px;"
+        css += "margin-top:4px;"
         css += "}"
         css += "Button#close{"
         css += "fill:~/Desktop/icons/titlebar/close.svg none;"
