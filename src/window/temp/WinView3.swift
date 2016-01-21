@@ -149,6 +149,7 @@ class WinView3:FlippedView {
         css += "corner-radius:0px;"
         css += "line-offset-type-right:inside;"
         css += "line-offset-type-left:inside;"
+        css += "line-offset-type:outside;"
         css += "}"
         
         css += "SelectButton#second:selected{"
@@ -185,14 +186,10 @@ class WinView3:FlippedView {
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
         //Swift.print("styleProperty.value: " + String(styleProperty!.value))
         StyleManager.addStyle(styleCollection.styles)
-        /*
+        /**/
         let iconButton1 = SelectButton(24,24,false,nil,"first")
         iconButton1.setPosition(CGPoint(10,20))
         self.addSubview(iconButton1)
-        */
-        
-       
-        
         
         let iconButton2 = SelectButton(24,24,false,nil,"second")
         addSubView(iconButton2)
@@ -208,8 +205,8 @@ class WinView3:FlippedView {
         /**/
         //Swift.print("---------")
         
-        let tempStyle = StyleResolver.style(iconButton2)
-        StyleParser.describe(tempStyle)/**/
+        //let tempStyle = StyleResolver.style(iconButton2)
+        //StyleParser.describe(tempStyle)/**/
         
         
         //Swift.print("---------")
