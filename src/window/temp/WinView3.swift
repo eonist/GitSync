@@ -140,6 +140,11 @@ class WinView3:FlippedView {
         css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/coverflow.svg white;"
         css += "}"
         
+        /*
+        css += "SelectButton:selected{"
+        css += "drop-shadow:<InsetShadow>,none;"
+        css += "}"
+        */
         
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
