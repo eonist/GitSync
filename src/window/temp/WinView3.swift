@@ -36,6 +36,11 @@ class WinView3:FlippedView {
         //Currently the line-offset stuff isnt deriving the correct values
         //the test should be simple, use button and a fill and a line color and the line offset variables
         
+        
+        //Continue here: the problem is ofcourse how the StyleResolver generates the style for the over state.
+        //It probably doesnt add the styleProps in the correct order. verify this with a test
+        
+        
         var css:String = "Button{"
         css += "fill:grey7;line:grey1;line-thickness:4px;"
         css += "line-offset-type:outside;"
@@ -44,6 +49,7 @@ class WinView3:FlippedView {
         css += "}"
         StyleManager.addStyle(css)
         let button:Button = Button(100,100)
+        button.setSkinState("over")
         addSubview(button)
         button.setPosition(CGPoint(20,20))
         
