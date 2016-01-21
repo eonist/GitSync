@@ -122,8 +122,8 @@ class WinView3:FlippedView {
         iconButton1.setPosition(CGPoint(10,20))
         self.addSubview(iconButton1)
         
-        let iconButton2 = addSubview(SelectButton(24,24,false,nil,"second")) as! SelectButton;
-        iconButton2.setPosition(CGPoint(10,20))
+        let iconButton2 = addSubView(SelectButton(24,24,false,nil,"second")) as! SelectButton;
+        iconButton2.setPosition(CGPoint(10+24,20))
         //let tempStyle = StyleResolver.style(iconButton1)
         //StyleParser.describe(tempStyle)
         
