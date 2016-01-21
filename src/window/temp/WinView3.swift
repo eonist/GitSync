@@ -9,6 +9,14 @@ class WinView3:FlippedView {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
         
+        
+        
+        //continue here: Try to figure out why width and height isnt derived when its set to the SelectButton only, it works if you add the id
+        //solution: the problem is that the depth isnt considered in the StyleResolver class. Implement that and your good to go, later today
+        
+
+        
+        
         styleDepthTest()
         //marginTest()
         //titlebarTest()
@@ -27,7 +35,13 @@ class WinView3:FlippedView {
      *
      */
     func styleDepthTest(){
-        let css:String = ""
+        let css:String = "Element{fill:blue,red;}"
+        StyleManager.addStyle(css)
+        let element:Element = Element(100,100)
+        addSubview(element)
+        
+        let tempStyle = StyleResolver.style(element)
+        StyleParser.describe(tempStyle)
     }
     /**
      * TODO: not all instances of none works, test this, with the depth. first fill is none, then blue and opposite etc.
@@ -89,11 +103,6 @@ class WinView3:FlippedView {
         //css += "corner-radius:4px 0px 4px 0px;"
         css += "}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
-        
-        
-        //continue here: Try to figure out why width and height isnt derived when its set to the SelectButton only, it works if you add the id
-        //solution: the problem is that the depth isnt considered in the StyleResolver class. Implement that and your good to go, later today
-        
         
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
         //Swift.print("styleProperty.value: " + String(styleProperty!.value))
