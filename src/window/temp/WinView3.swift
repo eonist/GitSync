@@ -64,7 +64,7 @@ class WinView3:FlippedView {
      */
     func iconBarTest(){
         var css:String = ""
-        css += "SelectButton{"
+        css += "SelectButton#first{"
         css += "width:24px,24px;"
         css += "height:24px,24px;"
         css += "line:grey7,none;"
@@ -90,7 +90,7 @@ class WinView3:FlippedView {
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
         //Swift.print("styleProperty.value: " + String(styleProperty!.value))
         StyleManager.addStyle(styleCollection.styles)
-        let iconButton1 = SelectButton(100,100,false,nil,"first")
+        let iconButton1 = SelectButton(120,120,false,nil,"first")
         iconButton1.setPosition(CGPoint(10,20))
         self.addSubview(iconButton1)
         
