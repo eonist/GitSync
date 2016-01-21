@@ -149,7 +149,11 @@ class WinView3:FlippedView {
         css += "corner-radius:0px;"
         css += "line-offset-type-right:inside;"
         css += "line-offset-type-left:inside;"
-        css += "line-offset-type:outside;"
+        css += "}"
+        
+        css += "SelectButton#second:over{"
+        css += "line-offset-type-right:inside;"
+        css += "line-offset-type-left:inside;"
         css += "}"
         
         css += "SelectButton#second:selected{"
