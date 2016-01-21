@@ -64,9 +64,7 @@ class WinView3:FlippedView {
      */
     func iconBarTest(){
         var css:String = ""
-        css += "SelectButton#first{"
-        css += "width:24px,24px;"
-        css += "height:24px,24px;"
+        css += "SelectButton{"
         css += "line:grey7,none;"
         css += "line-offset-type:outside;"
         css += "line-alpha:1;"
@@ -76,6 +74,8 @@ class WinView3:FlippedView {
         css += "margin-left:0px,1px;"
         css += "}"
         css += "SelectButton#first{"
+        css += "width:24px,24px;"
+        css += "height:24px,24px;"
         css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/icons.svg grey5;"
         //css += "corner-radius:4px 0px 4px 0px;"
         css += "}"
