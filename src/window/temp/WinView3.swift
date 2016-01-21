@@ -151,14 +151,15 @@ class WinView3:FlippedView {
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
         //Swift.print("styleProperty.value: " + String(styleProperty!.value))
         StyleManager.addStyle(styleCollection.styles)
+        /*
         let iconButton1 = SelectButton(24,24,false,nil,"first")
         iconButton1.setPosition(CGPoint(10,20))
         self.addSubview(iconButton1)
-        
+        */
         let iconButton2 = SelectButton(24,24,false,nil,"second")
         addSubView(iconButton2)
         iconButton2.setPosition(CGPoint(10+24+2,20))
-        
+        /*
         let iconButton3 = SelectButton(24,24,false,nil,"third")
         addSubView(iconButton3)
         iconButton3.setPosition(CGPoint(10+24+2+24,20))
@@ -166,7 +167,7 @@ class WinView3:FlippedView {
         let iconButton4 = SelectButton(24,24,false,nil,"fourth")
         addSubView(iconButton4)
         iconButton4.setPosition(CGPoint(10+24+2+24+24+1,20))
-        
+        */
         //Swift.print("---------")
         
         /*let tempStyle = StyleResolver.style(iconButton2)
