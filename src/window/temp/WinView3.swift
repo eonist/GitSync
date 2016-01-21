@@ -37,11 +37,14 @@ class WinView3:FlippedView {
     func styleDepthTest(){
         var css:String = "Element{width:24px,12px;height:24px,12px;}"
         css += "Element#first{fill:blue,green;}"
+        
+        /*
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         let styleProperty = styleCollection.getStyle("Element")?.getStyleProperty("width",1)
         Swift.print("styleProperty.value: " + String(styleProperty!.value))
         StyleManager.addStyle(styleCollection.styles)
-        
+        */
+        StyleManager.addStyle(css)
         let element:Element = Element(100,100,nil,"first")
         addSubview(element)
         
