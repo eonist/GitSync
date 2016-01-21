@@ -36,8 +36,9 @@ class WinView3:FlippedView {
      */
     func styleDepthTest(){
         let css:String = "Element{fill:blue,red;}"
+        css += "Element#{fill:blue,green;}"
         StyleManager.addStyle(css)
-        let element:Element = Element(100,100)
+        let element:Element = Element(100,100,nil,"first")
         addSubview(element)
         
         let tempStyle = StyleResolver.style(element)
