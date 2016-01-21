@@ -117,6 +117,12 @@ class WinView3:FlippedView {
         css += "line-offset-type-left:inside;"
         css += "}"
         
+        css += "SelectButton#third{"
+        css += "fill:linear-gradient(top,#FFFEFE,#E8E8E8),~/Desktop/svg/icons/view/columns.svg grey5;"
+        css += "corner-radius:0px;"
+        css += "line-offset-type-right:inside;"
+        css += "}"
+        
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
@@ -129,6 +135,10 @@ class WinView3:FlippedView {
         let iconButton2 = SelectButton(24,24,false,nil,"second")
         addSubView(iconButton2)
         iconButton2.setPosition(CGPoint(10+24+2,20))
+        
+        let iconButton3 = SelectButton(24,24,false,nil,"third")
+        addSubView(iconButton3)
+        iconButton3.setPosition(CGPoint(10+24+2+24+2,20))
         
         //Swift.print("---------")
         
