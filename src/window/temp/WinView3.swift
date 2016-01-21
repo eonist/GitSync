@@ -36,11 +36,12 @@ class WinView3:FlippedView {
         //Currently the line-offset stuff isnt deriving the correct values
         //the test should be simple, use button and a fill and a line color and the line offset variables
         
-        var css:String = "Element{fill:blue;}"
+        var css:String = "Element{fill:green;line:black;line-thickness:4px;}"
         css += ""
         StyleManager.addStyle(css)
-        let element:Element = Element(100,100)
-        addSubview(element)
+        let button:Button = Button(100,100)
+        addSubview(button)
+        button.setPosition(CGPoint(20,20))
     }
     
     /**
