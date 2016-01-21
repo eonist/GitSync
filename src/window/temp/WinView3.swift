@@ -214,15 +214,9 @@ class WinView3:FlippedView {
         
         //Swift.print("---------")
         
-        /*let btn2 = SelectTextButton("second",64,24,true,nil,"second")
-        btn2.setPosition(CGPoint(74,20))
-        self.addSubview(btn2)
+
         
-        let btn3 = SelectTextButton("third",64,24,false,nil,"third")
-        btn3.setPosition(CGPoint(138,20))
-        self.addSubview(btn3)
-        
-        addSubview(SelectGroup([btn1,btn2,btn3],btn2));*/
+        addSubview(SelectGroup([iconButton1,iconButton2,iconButton3,iconButton4],iconButton2));
     }
     /**
      * Add depth to the framework (svgasset is useless without it, and floating wont be that hard anyways, its the last thing)
