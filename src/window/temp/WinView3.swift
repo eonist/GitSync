@@ -76,7 +76,7 @@ class WinView3:FlippedView {
         css += "margin-left:0px,1px;"
         css += "}"
         css += "SelectButton#first{"
-        css += "fill:<ButtonBase>,~/Desktop/svg/icons/view/icons.svg grey5;"
+        css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/icons.svg grey5;"
         css += "corner-radius:4px 0px 4px 0px;"
         css += "}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
