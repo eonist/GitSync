@@ -148,7 +148,7 @@ class WinView3:FlippedView {
         
         let iconButton4 = SelectButton(24,24,false,nil,"fourth")
         addSubView(iconButton4)
-        iconButton4.setPosition(CGPoint(10+24+2+24+24+2,20))
+        iconButton4.setPosition(CGPoint(10+24+2+24+24+1,20))
         
         //Swift.print("---------")
         
