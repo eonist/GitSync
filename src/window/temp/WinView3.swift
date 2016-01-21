@@ -67,22 +67,20 @@ class WinView3:FlippedView {
         css += "SelectButton{"
         css += "width:24px,24px;"
         css += "height:24px,24px;"
-        
-        "line:grey7,none;"
-        "line-offset-type:outside;"
-        "line-alpha:1;"
-        "line-thickness:1px;"
-        "drop-shadow:drop-shadow(0px 0 #000000 0 0 0 0 0 false);"
-        "margin-top:0px,1px;"
-        "margin-left:0px,1px;"
-        
+        css += "line:grey7,none;"
+        css += "line-offset-type:outside;"
+        css += "line-alpha:1;"
+        css += "line-thickness:1px;"
+        css += "drop-shadow:drop-shadow(0px 0 #000000 0 0 0 0 0 false);"
+        css += "margin-top:0px,1px;"
+        css += "margin-left:0px,1px;"
         css += "}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
         //Swift.print("styleProperty.value: " + String(styleProperty!.value))
         StyleManager.addStyle(styleCollection.styles)
-        let btn1 = SelectTextButton("first",64,24,false,nil,"first")
+        let btn1 = SelectButton("first",64,24,false,nil,"first")
         btn1.setPosition(CGPoint(10,20))
         self.addSubview(btn1)
         
