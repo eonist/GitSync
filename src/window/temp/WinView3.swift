@@ -117,6 +117,10 @@ class WinView3:FlippedView {
         css += "line-offset-type-left:inside;"
         css += "}"
         
+        css += "SelectButton#first:selected{"
+        css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/icons.svg white;"
+        css += "}"
+        
         css += "SelectButton#third{"
         css += "fill:linear-gradient(top,#FFFEFE,#E8E8E8),~/Desktop/svg/icons/view/columns.svg grey5;"
         css += "corner-radius:0px;"
