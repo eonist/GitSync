@@ -39,6 +39,7 @@ class WinView3:FlippedView {
         //Continue here: the problem is ofcourse how the StyleResolver generates the style for the over state.
         //It probably doesnt add the styleProps in the correct order. verify this with a test
         
+        //continue here: you need to revisit the original idea for this. The bug is probably simple.
         
         var css:String = "Button{"
         css += "fill:grey7;line:grey1;line-thickness:4px;"
