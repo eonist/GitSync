@@ -9,20 +9,15 @@ class WinView3:FlippedView {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
         
-        
-        
-        //continue here: Try to figure out why width and height isnt derived when its set to the SelectButton only, it works if you add the id
-        //solution: the problem is that the depth isnt considered in the StyleResolver class. Implement that and your good to go, later today
-        
 
         
         
         //styleDepthTest()
         //marginTest()
         //titlebarTest()
-        //iconBarTest()
+        iconBarTest()
         //depthTest()
-        assetCSSTest()
+        //assetCSSTest()
         //svgTest()
         
         //let result = SVGPathParser.parameters("-75,53.571-147.029,36.822-185-89.748")//[-75.0, 53.571, -147.029, 36.822, -185.0, -89.748]
@@ -185,7 +180,7 @@ class WinView3:FlippedView {
         //continue here, figure out how you dealt with svgasset and color, i think it has to do with assering class type is array etc
         
         StyleManager.addStyle(styleCollection.styles)
-        let element:Element = Element(200,200)
+        let element:Element = Element(20,20)
         addSubview(element)
         /**/
     }
