@@ -109,7 +109,7 @@ class WinView3:FlippedView {
         css += "}"*/
         
         css += "SelectButton#second{"
-        css += "fill:linear-gradient(top,#FFFEFE,#E8E8E8),~/Desktop/svg/icons/view/icons.svg grey5;"
+        css += "fill:linear-gradient(top,#FFFEFE,#E8E8E8),~/Desktop/svg/icons/view/list.svg grey5;"
         css += "corner-radius:4px 0px 4px 0px;"
         css += "}"
         /* css += "SelectButton#second{"
