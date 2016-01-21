@@ -38,12 +38,17 @@ class WinView3:FlippedView {
         
         var css:String = "Button{"
         css += "fill:grey7;line:grey1;line-thickness:4px;"
+        css += "line-offset-type-right:inside;"
+        css += "line-offset-type-left:inside;"
         css += "line-offset-type:outside;"
         css += "}"
         StyleManager.addStyle(css)
         let button:Button = Button(100,100)
         addSubview(button)
         button.setPosition(CGPoint(20,20))
+        
+        let tempStyle = StyleResolver.style(button)
+        StyleParser.describe(tempStyle)
     }
     
     /**
