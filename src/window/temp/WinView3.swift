@@ -10,11 +10,11 @@ class WinView3:FlippedView {
     func createContent(){
         
         
-        stateTest()
+        //stateTest()
         //styleDepthTest()
         //marginTest()
         //titlebarTest()
-        //iconBarTest()
+        iconBarTest()
         //depthTest()
         //assetCSSTest()
         //svgTest()
