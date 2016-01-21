@@ -83,7 +83,7 @@ class WinView3:FlippedView {
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
         
-        //continue here: Try to figure out why with and height isnt derived when its set to the SelectButton only, it works if you add the id
+        //continue here: Try to figure out why width and height isnt derived when its set to the SelectButton only, it works if you add the id
         
         
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
