@@ -204,8 +204,8 @@ class WinView3:FlippedView {
         */
         //Swift.print("---------")
         
-        /*let tempStyle = StyleResolver.style(iconButton2)
-        StyleParser.describe(tempStyle)*/
+        let tempStyle = StyleResolver.style(iconButton2)
+        StyleParser.describe(tempStyle)/**/
         
         
         //Swift.print("---------")
