@@ -63,16 +63,11 @@ class WinView3:FlippedView {
      *
      */
     func iconBarTest(){
-        var css:String = "SelectTextButton{fill:linear-gradient(top,#FFFEFE,#E8E8E8);line:grey7;line-offset-type:outside;line-thickness:1px;drop-shadow:none;}"//
-        css += "SelectTextButton#first{corner-radius:4px 0px 4px 0px;}"
-        css += "SelectTextButton#second{corner-radius:0px 0px 0px 0px;line-offset-type-right,line-offset-type-left:inside;}"//
-        css += "SelectTextButton#third{corner-radius:0px 4px 0px 4px;}"//
-        css += "SelectTextButton Text{font:Lucida Grande;selectable:false;size:12px;color:gray;align:center;backgroundColor:orange;background:false;margin-top:5px;}"//
-        css += "Text:down{color:black;}"
-        css += "SelectTextButton:selected Text{color:white;}"
-        css += "SelectTextButton:selected{fill:linear-gradient(top,grey9,grey8);drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);}"
-        
-        
+        var css:String = ""
+        css += "SelectButton{"
+        css += "width:24px,24px;"
+        css += "height:24px,24px;"
+        css += "}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
@@ -82,7 +77,7 @@ class WinView3:FlippedView {
         btn1.setPosition(CGPoint(10,20))
         self.addSubview(btn1)
         
-        let btn2 = SelectTextButton("second",64,24,true,nil,"second")
+        /*let btn2 = SelectTextButton("second",64,24,true,nil,"second")
         btn2.setPosition(CGPoint(74,20))
         self.addSubview(btn2)
         
@@ -90,7 +85,7 @@ class WinView3:FlippedView {
         btn3.setPosition(CGPoint(138,20))
         self.addSubview(btn3)
         
-        addSubview(SelectGroup([btn1,btn2,btn3],btn2));
+        addSubview(SelectGroup([btn1,btn2,btn3],btn2));*/
     }
     /**
      * Add depth to the framework (svgasset is useless without it, and floating wont be that hard anyways, its the last thing)
