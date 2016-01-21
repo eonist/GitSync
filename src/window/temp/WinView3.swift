@@ -128,7 +128,7 @@ class WinView3:FlippedView {
         css += "line-offset-type:outside;"
         css += "line-alpha:1;"
         css += "line-thickness:1px;"
-        css += "drop-shadow:drop-shadow(0px 0 #000000 0 0 0 0 0 false),none;"
+        css += "drop-shadow:drop-shadow(0px 0 #FF0000 0 0 0 0 0 false),none;"
         css += "width:24px,24px;"
         css += "height:24px,24px;"
         css += "margin-top:0px,1px;"
