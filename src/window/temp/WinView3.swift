@@ -10,7 +10,7 @@ class WinView3:FlippedView {
     func createContent(){
         
         
-        //stateTest()
+        stateTest()
         //styleDepthTest()
         //marginTest()
         //titlebarTest()
@@ -48,12 +48,12 @@ class WinView3:FlippedView {
         css += "}"
         StyleManager.addStyle(css)
         let button:Button = Button(100,100)
-        button.setSkinState("over")
+        //button.setSkinState("over")
         addSubview(button)
         button.setPosition(CGPoint(20,20))
         
-        let tempStyle = StyleResolver.style(button)
-        StyleParser.describe(tempStyle)
+        //let tempStyle = StyleResolver.style(button)
+        //StyleParser.describe(tempStyle)
     }
     
     /**
