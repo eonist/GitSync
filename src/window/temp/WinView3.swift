@@ -20,10 +20,10 @@ class WinView3:FlippedView {
         //styleDepthTest()
         //marginTest()
         //titlebarTest()
-        iconBarTest()
+        //iconBarTest()
         //depthTest()
         //assetCSSTest()
-        //svgTest()
+        svgTest()
         
         //let result = SVGPathParser.parameters("-75,53.571-147.029,36.822-185-89.748")//[-75.0, 53.571, -147.029, 36.822, -185.0, -89.748]
         //Swift.print("result: " + "\(result)")
@@ -213,7 +213,7 @@ class WinView3:FlippedView {
         //path += "radial_gradient_rect.svg"
         //path += "gradient_rect_2.svg"
         //path += "circle.svg"
-        path += "rect.svg"
+        //path += "rect.svg"
         //path += "cross.svg"
         //path += "cross_2.svg"
         //path += "search.svg"
@@ -221,7 +221,7 @@ class WinView3:FlippedView {
         //path += "ellipse_3.svg"
         //path += "roundrect.svg"
         //path += "titlebar_buttons.svg"
-        
+        path = "~/Desktop/svg/icons/view/list.svg"
  
         let content = FileParser.content(path.tildePath)
         //Swift.print("content: " + "\(content)")
@@ -241,8 +241,8 @@ class WinView3:FlippedView {
         
         //SVGParser.describeAll(svg)
         
-        SVGModifier.style(svg, SVGStyle(Double(0xFF0000),1.0))
-        SVGModifier.scale(svg, CGPoint(), CGPoint(4,4));
+        //SVGModifier.style(svg, SVGStyle(Double(0xFF0000),1.0))
+        SVGModifier.scale(svg, CGPoint(), CGPoint(0.5,0.5));
         //SVGUtils.dsc(svg, CGPoint(), CGPoint(2,2));
         
         //SVGModifier.offsetItems(svg, CGPoint(20,20))
