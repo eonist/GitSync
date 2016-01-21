@@ -70,13 +70,13 @@ class WinView3:FlippedView {
         css += "line-alpha:1;"
         css += "line-thickness:1px;"
         //css += "drop-shadow:drop-shadow(0px 0 #000000 0 0 0 0 0 false);"
+        
+        css += "}"
+        css += "SelectButton#first{"
         css += "width:24px,24px;"
         css += "height:24px,24px;"
         css += "margin-top:0px,1px;"
         css += "margin-left:0px,1px;"
-        css += "}"
-        css += "SelectButton#first{"
-        
         css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/icons.svg grey5;"
         //css += "corner-radius:4px 0px 4px 0px;"
         css += "}"
@@ -84,6 +84,7 @@ class WinView3:FlippedView {
         
         
         //continue here: Try to figure out why width and height isnt derived when its set to the SelectButton only, it works if you add the id
+        //solution: the problem is that the depth isnt considered in the StyleResolver class. Implement that and your good to go, later today
         
         
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
