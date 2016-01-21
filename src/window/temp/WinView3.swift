@@ -11,11 +11,11 @@ class WinView3:FlippedView {
         
 
         
-        
+        stateTest()
         //styleDepthTest()
         //marginTest()
         //titlebarTest()
-        iconBarTest()
+        //iconBarTest()
         //depthTest()
         //assetCSSTest()
         //svgTest()
@@ -27,7 +27,7 @@ class WinView3:FlippedView {
         //regExpBackRefTest()
     }
     /**
-     *
+     * NOTE: a test that prints the style when the Element is in over state.
      */
     func stateTest(){
         
@@ -36,7 +36,11 @@ class WinView3:FlippedView {
         //Currently the line-offset stuff isnt deriving the correct values
         //the test should be simple, use button and a fill and a line color and the line offset variables
         
-        
+        var css:String = "Element{fill:blue;}"
+        css += ""
+        StyleManager.addStyle(css)
+        let element:Element = Element(100,100)
+        addSubview(element)
     }
     
     /**
