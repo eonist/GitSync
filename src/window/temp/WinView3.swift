@@ -67,6 +67,15 @@ class WinView3:FlippedView {
         css += "SelectButton{"
         css += "width:24px,24px;"
         css += "height:24px,24px;"
+        
+        "line:grey7,none;"
+        "line-offset-type:outside;"
+        "line-alpha:1;"
+        "line-thickness:1px;"
+        "drop-shadow:drop-shadow(0px 0 #000000 0 0 0 0 0 false);"
+        "margin-top:0px,1px;"
+        "margin-left:0px,1px;"
+        
         css += "}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
