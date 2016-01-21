@@ -70,12 +70,13 @@ class WinView3:FlippedView {
         css += "line-alpha:1;"
         css += "line-thickness:1px;"
         //css += "drop-shadow:drop-shadow(0px 0 #000000 0 0 0 0 0 false);"
-        css += "margin-top:0px,1px;"
-        css += "margin-left:0px,1px;"
+        
         css += "}"
         css += "SelectButton#first{"
         css += "width:24px,24px;"
         css += "height:24px,24px;"
+        css += "margin-top:0px,1px;"
+        css += "margin-left:0px,1px;"
         css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/icons.svg grey5;"
         //css += "corner-radius:4px 0px 4px 0px;"
         css += "}"
@@ -90,7 +91,7 @@ class WinView3:FlippedView {
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
         //Swift.print("styleProperty.value: " + String(styleProperty!.value))
         StyleManager.addStyle(styleCollection.styles)
-        let iconButton1 = SelectButton(120,120,false,nil,"first")
+        let iconButton1 = SelectButton(24,24,false,nil,"first")
         iconButton1.setPosition(CGPoint(10,20))
         self.addSubview(iconButton1)
         
