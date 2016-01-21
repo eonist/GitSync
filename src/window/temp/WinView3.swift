@@ -161,6 +161,7 @@ class WinView3:FlippedView {
         //Continue here: write a test that prints the style when the Element is in over state. 
         //This state should mimic the idle state if no css is defined for the over state.
         //Currently the line-offset stuff isnt deriving the correct values
+        //the test should be simple, use button and a fill and a line color and the line offset variables
         
         
         let iconButton2 = SelectButton(24,24,false,nil,"second")
