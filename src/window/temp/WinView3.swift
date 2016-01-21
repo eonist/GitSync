@@ -156,6 +156,13 @@ class WinView3:FlippedView {
         iconButton1.setPosition(CGPoint(10,20))
         self.addSubview(iconButton1)
         */
+        
+        
+        //Continue here: write a test that prints the style when the Element is in over state. 
+        //This state should mimic the idle state if no css is defined for the over state.
+        //Currently the line-offset stuff isnt deriving the correct values
+        
+        
         let iconButton2 = SelectButton(24,24,false,nil,"second")
         addSubView(iconButton2)
         iconButton2.setPosition(CGPoint(10+24+2,20))
