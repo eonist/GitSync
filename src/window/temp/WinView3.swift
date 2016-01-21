@@ -81,6 +81,12 @@ class WinView3:FlippedView {
         css += "}"
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
+        
+        //continue here: Figure out why the svg isnt scaling, 
+        //could be style resolvment isnt working, 
+        //could be something wrong with the svg size or setup like objectBouning box etc. could be something else
+        
+        
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
         //Swift.print("styleProperty.value: " + String(styleProperty!.value))
         StyleManager.addStyle(styleCollection.styles)
