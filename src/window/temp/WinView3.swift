@@ -9,9 +9,10 @@ class WinView3:FlippedView {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
         
+        styleDepthTest()
         //marginTest()
         //titlebarTest()
-        iconBarTest()
+        //iconBarTest()
         //depthTest()
         //assetCSSTest()
         //svgTest()
@@ -21,6 +22,12 @@ class WinView3:FlippedView {
 
         //debugRegExpDigitPattern()
         //regExpBackRefTest()
+    }
+    /**
+     *
+     */
+    func styleDepthTest(){
+        let css:String = ""
     }
     /**
      * TODO: not all instances of none works, test this, with the depth. first fill is none, then blue and opposite etc.
