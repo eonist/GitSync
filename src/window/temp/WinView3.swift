@@ -10,11 +10,11 @@ class WinView3:FlippedView {
     func createContent(){
         
         
-        stateTest()
+        //stateTest()
         //styleDepthTest()
         //marginTest()
         //titlebarTest()
-        //iconBarTest()
+        iconBarTest()
         //depthTest()
         //assetCSSTest()
         //svgTest()
@@ -40,6 +40,9 @@ class WinView3:FlippedView {
         //It probably doesnt add the styleProps in the correct order. verify this with a test
         
         //continue here: you need to revisit the original idea for this. The bug is probably simple.
+        
+        //I feel that the way the prepend method works now isnt the best. But it seems to be the same in the original idea. 
+        //try to make it as is and see if the problem goes away
         
         var css:String = "Button{"
         css += "fill:grey7;line:grey1;line-thickness:4px;"
@@ -194,7 +197,7 @@ class WinView3:FlippedView {
         let iconButton2 = SelectButton(24,24,false,nil,"second")
         addSubView(iconButton2)
         iconButton2.setPosition(CGPoint(10+24+2,20))
-        /*
+        
         let iconButton3 = SelectButton(24,24,false,nil,"third")
         addSubView(iconButton3)
         iconButton3.setPosition(CGPoint(10+24+2+24,20))
@@ -202,7 +205,7 @@ class WinView3:FlippedView {
         let iconButton4 = SelectButton(24,24,false,nil,"fourth")
         addSubView(iconButton4)
         iconButton4.setPosition(CGPoint(10+24+2+24+24+1,20))
-        */
+        /**/
         //Swift.print("---------")
         
         let tempStyle = StyleResolver.style(iconButton2)
