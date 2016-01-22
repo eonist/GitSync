@@ -236,6 +236,7 @@ class WinView3:FlippedView {
         
         iconButton1.setSkinState("over")
         
+        //Try to replicate in the hover state test, or strip this example down, remove line etc
         
         let tempStyle = StyleResolver.style(iconButton1)
         Swift.print("-----start----")
