@@ -29,6 +29,11 @@ class WinView3:FlippedView {
      *
      */
     func hoverTest(){
+        
+        
+        //Continue here: Make a simple test: first a button with hove color change, then add shadow, then gradient, then layers, then fillet. Fix this method
+        
+        
         var css:String = "Button{"
         css += "fill:blue;"
         css += "}"
