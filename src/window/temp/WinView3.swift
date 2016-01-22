@@ -35,11 +35,11 @@ class WinView3:FlippedView {
         
         
         var css:String = "Button{"
-        css += "fill:blue;"
+        css += "fill:linear-gradient(top,blue,red);"
         //css += "corner-radius:1px;"
         css += "}"
         css += "Button:over{"
-        css += "fill:red;"
+        css += "fill:linear-gradient(top,green,orange);"
         //css += "corner-radius:10px;"
         css += "}"
         StyleManager.addStyle(css)
