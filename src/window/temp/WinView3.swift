@@ -43,13 +43,17 @@ class WinView3:FlippedView {
         css += "Button:over{"
         //css += "fill:linear-gradient(top,green,orange);"
         css += "fill:yellow;"
-        css += "drop-shadow:drop-shadow(0px 0 #FF0000 0.0 0 0 0 0 true)"
+        css += "drop-shadow:drop-shadow(0px 0 #FF0000 0.0 0 0 0 0 true);"
         //css += "corner-radius:10px;"
         css += "}"
         StyleManager.addStyle(css)
         let button:Button = Button(100,100)
         addSubview(button)
         button.setPosition(CGPoint(20,20))
+        
+        //button.setSkinState("over")
+        //let tempStyle = StyleResolver.style(button)
+        //StyleParser.describe(tempStyle)
     }
     /**
      * NOTE: a test that prints the style when the Element is in over state.
