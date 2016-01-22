@@ -32,6 +32,7 @@ class WinView3:FlippedView {
         
         
         //Continue here: Make a simple test: first a button with hove color change, then add shadow, then gradient, then layers, then fillet. Fix this method
+        //continue here: figure out why asset decoror doesnt get the update call
         
         
         var css:String = "Button{"
