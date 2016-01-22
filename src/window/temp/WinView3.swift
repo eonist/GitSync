@@ -43,7 +43,7 @@ class WinView3:FlippedView {
         css += "Button:over{"
         //css += "fill:linear-gradient(top,green,orange);"
         css += "fill:yellow;"
-        css += "drop-shadow:drop-shadow(0px 0 #000000 0.0 0 0 0 0 true)"
+        css += "drop-shadow:drop-shadow(0px 0 #FF0000 0.0 0 0 0 0 true)"
         //css += "corner-radius:10px;"
         css += "}"
         StyleManager.addStyle(css)
