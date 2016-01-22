@@ -251,9 +251,12 @@ class WinView3:FlippedView {
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
         //Swift.print("styleProperty.value: " + String(styleProperty!.value))
         //StyleManager.addStyle(styleCollection.styles)
-         StyleManager.addStyle(css)
+        //StyleManager.addStyle(css)
         /**/
-        let iconButton1 = SelectButton(24,24,false,nil,"first")
+        StyleManager.addStyle(css)
+        let button = SelectButton(100,100,false,nil,"first")
+        addSubview(button)
+        button.setPosition(CGPoint(10,20))
         
         
         //iconButton1.setSkinState("selected")
@@ -264,10 +267,6 @@ class WinView3:FlippedView {
         Swift.print("-----start----")
         StyleParser.describe(tempStyle)/**/
         Swift.print("-----end----")*/
-        
-        
-        iconButton1.setPosition(CGPoint(10,20))
-        self.addSubview(iconButton1)
         
         /* let iconButton2 = SelectButton(24,24,false,nil,"second")
         addSubView(iconButton2)
