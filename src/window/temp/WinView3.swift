@@ -56,9 +56,9 @@ class WinView3:FlippedView {
         addSubview(button)
         button.setPosition(CGPoint(20,20))
         
-        button.setSkinState("over")
+        /* button.setSkinState("over")
         let tempStyle = StyleResolver.style(button)
-        StyleParser.describe(tempStyle)
+        StyleParser.describe(tempStyle)*/
     }
     /**
      * NOTE: a test that prints the style when the Element is in over state.
