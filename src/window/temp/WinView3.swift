@@ -9,12 +9,12 @@ class WinView3:FlippedView {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
         
-        hoverTest()
+        //hoverTest()
         //stateTest()
         //styleDepthTest()
         //marginTest()
         //titlebarTest()
-        //iconBarTest()
+        iconBarTest()
         //depthTest()
         //assetCSSTest()
         //svgTest()
@@ -179,7 +179,7 @@ class WinView3:FlippedView {
         css += "}"
         
         css += "SelectButton#first:selected{"
-        css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/icons.svg white;"
+        css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/icons.svg red;"
         css += "}"
         
         css += "SelectButton#second{"
