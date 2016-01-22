@@ -39,6 +39,7 @@ class WinView3:FlippedView {
         css += "}"
         css += "Button:over{"
         css += "fill:red;"
+        css += "corner-radius:4px;"
         css += "}"
         StyleManager.addStyle(css)
         let button:Button = Button(100,100)
