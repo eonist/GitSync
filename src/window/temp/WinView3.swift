@@ -166,7 +166,7 @@ class WinView3:FlippedView {
         //css += "line-offset-type:outside;"
         //css += "line-alpha:1;"
         //css += "line-thickness:1px;"
-        //css += "drop-shadow:drop-shadow(0px 0 #000000 0.0 0 0 0 0 true),none;"/*<--regular drop shadow seems to be buggy, debug this, using inset shadow as clear shadow for now*/
+        css += "drop-shadow:drop-shadow(0px 0 #000000 0.0 0 0 0 0 true),none;"/*<--regular drop shadow seems to be buggy, debug this, using inset shadow as clear shadow for now*/
         css += "width:24px,24px;"
         css += "height:24px,24px;"
         //css += "margin-top:0px,1px;"
@@ -178,10 +178,10 @@ class WinView3:FlippedView {
         //css += "corner-radius:4px 0px 4px 0px;"
         css += "}"
         
-        //css += "SelectButton#first:selected{"
-        //css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/icons.svg red;"
-        //css += "drop-shadow:drop-shadow(0px 0 #000000 0.0 0 0 0 0 true),none;"/*<--regular drop shadow seems to be buggy, debug this, using inset shadow as clear shadow for now*/
-        //css += "}"
+        css += "SelectButton#first:selected{"
+        css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/icons.svg red;"
+        css += "drop-shadow:drop-shadow(0px 0 #000000 0.0 0 0 0 0 true),none;"/*<--regular drop shadow seems to be buggy, debug this, using inset shadow as clear shadow for now*/
+        css += "}"
         
         /*css += "SelectButton#second{"
         css += "fill:linear-gradient(top,#FFFEFE,#E8E8E8),~/Desktop/svg/icons/view/list.svg grey5;"
@@ -234,7 +234,7 @@ class WinView3:FlippedView {
         let iconButton1 = SelectButton(24,24,false,nil,"first")
         
         
-        iconButton1.setSkinState("over")
+        iconButton1.setSkinState("selected")
         
         //Try to replicate in the hover state test, or strip this example down, remove line etc
         
