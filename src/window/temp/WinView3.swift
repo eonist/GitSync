@@ -177,7 +177,7 @@ class WinView3:FlippedView {
      *
      */
     func iconBarTest(){
-        var css:String = ""
+        var css:String = "SelectButton{"
         css += "line:grey7,none;"
         css += "line-offset-type:outside;"
         css += "line-alpha:1;"
@@ -195,16 +195,11 @@ class WinView3:FlippedView {
         css += "}"
         
         css += "SelectButton#first:selected{"
-        //css += "fill:linear-gradient(top,green,orange);"
-        //css += "fill:orange,yellow;"
         css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/icons.svg white;"
-        //css += "width:64,32px;"
-        //css += "height:64px,32px;"
-        //css += "corner-radius:10px;"
         css += "}"
         
         
-        /*css += "SelectButton#second{"
+        css += "SelectButton#second{"
         css += "fill:linear-gradient(top,#FFFEFE,#E8E8E8),~/Desktop/svg/icons/view/list.svg grey5;"
         css += "corner-radius:0px;"
         css += "line-offset-type-right:inside;"
@@ -219,7 +214,7 @@ class WinView3:FlippedView {
         css += "SelectButton#second:selected{"
         css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/list.svg white;"
         css += "}"
-        
+        /*
         css += "SelectButton#third{"
         css += "fill:linear-gradient(top,#FFFEFE,#E8E8E8),~/Desktop/svg/icons/view/columns.svg grey5;"
         css += "corner-radius:0px;"
@@ -246,27 +241,27 @@ class WinView3:FlippedView {
 
         /**/
         
-        //let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
+        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
         //Swift.print("styleProperty.value: " + String(styleProperty!.value))
-        //StyleManager.addStyle(styleCollection.styles)
-        //StyleManager.addStyle(css)
+        StyleManager.addStyle(styleCollection.styles)
         /**/
-        StyleManager.addStyle(css)
-        let button = SelectButton(100,100,false,nil,"first")
-        addSubview(button)
-        button.setPosition(CGPoint(10,20))
+        let iconButton1 = SelectButton(24,24,false,nil,"first")
         
         
         //iconButton1.setSkinState("selected")
         
         //Try to replicate in the hover state test, or strip this example down, remove line etc
         
-        /* let tempStyle = StyleResolver.style(iconButton1)
-        Swift.print("-----start----")
-        StyleParser.describe(tempStyle)/**/
-        Swift.print("-----end----")*/
+        let tempStyle = StyleResolver.style(iconButton1)
+        //Swift.print("-----start----")
+        //StyleParser.describe(tempStyle)/**/
+        //Swift.print("-----end----")
+        
+        
+        iconButton1.setPosition(CGPoint(10,20))
+        self.addSubview(iconButton1)
         
         /* let iconButton2 = SelectButton(24,24,false,nil,"second")
         addSubView(iconButton2)
