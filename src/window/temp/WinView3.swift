@@ -34,6 +34,7 @@ class WinView3:FlippedView {
         //Continue here: Make a simple test: first a button with hove color change, then add shadow, then gradient, then layers, then fillet. Fix this method
         //continue here: figure out why asset decoror doesnt get the update call
         //try to add more decorators also svg, then try depth with many combinations etc.
+        //try color at depth 0 and svg at depth 1
         
         var css:String = "Button{"
         //css += "fill:linear-gradient(top,blue,red);"
@@ -47,7 +48,7 @@ class WinView3:FlippedView {
         css += "Button:over{"
         //css += "fill:linear-gradient(top,green,orange);"
         //css += "fill:orange,yellow;"
-        css += "fill:~/Desktop/icons/search.svg red;"
+        css += "fill:~/Desktop/icons/search.svg grey5;"
         //css += "width:64,24px;"
         //css += "height:64px,24px;"
         //css += "drop-shadow:drop-shadow(0px 0 #FF0000 0.0 0 0 0 0 true);"
