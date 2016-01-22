@@ -9,12 +9,12 @@ class WinView3:FlippedView {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
         
-        hoverTest()
+        //hoverTest()
         //stateTest()
         //styleDepthTest()
         //marginTest()
         //titlebarTest()
-        //iconBarTest()
+        iconBarTest()
         //depthTest()
         //assetCSSTest()
         //svgTest()
@@ -178,27 +178,31 @@ class WinView3:FlippedView {
      */
     func iconBarTest(){
         var css:String = ""
-        css += "SelectButton{"
-        //css += "line:grey7,none;"
-        //css += "line-offset-type:outside;"
-        //css += "line-alpha:1;"
-        //css += "line-thickness:1px;"
-        //css += "drop-shadow:drop-shadow(0px 0 #000000 0.0 0 0 0 0 true),none;"/*<--regular drop shadow seems to be buggy, debug this, using inset shadow as clear shadow for now*/
-        //css += "width:24px,24px;"
-        //css += "height:24px,24px;"
-        //css += "margin-top:0px,1px;"
-        //css += "margin-left:0px,1px;"
+        css += "line:grey7,none;"
+        css += "line-offset-type:outside;"
+        css += "line-alpha:1;"
+        css += "line-thickness:1px;"
+        css += "margin-top:0px,1px;"
+        css += "margin-left:0px,1px;"
+        css += "width:24px,24px;"
+        css += "height:24px,24px;"
+        css += "drop-shadow:drop-shadow(0px 0 #FF0000 0.0 0 0 0 0 true);"
         css += "}"
         
         css += "SelectButton#first{"
         css += "fill:linear-gradient(top,#FFFEFE,#E8E8E8),~/Desktop/svg/icons/view/icons.svg grey5;"
-        //css += "corner-radius:4px 0px 4px 0px;"
+        css += "corner-radius:4px 0px 4px 0px;"
         css += "}"
         
         css += "SelectButton#first:selected{"
-        css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/icons.svg red;"
-        //css += "drop-shadow:drop-shadow(0px 0 #000000 0.0 0 0 0 0 true),none;"/*<--regular drop shadow seems to be buggy, debug this, using inset shadow as clear shadow for now*/
+        //css += "fill:linear-gradient(top,green,orange);"
+        //css += "fill:orange,yellow;"
+        css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/icons.svg white;"
+        //css += "width:64,32px;"
+        //css += "height:64px,32px;"
+        //css += "corner-radius:10px;"
         css += "}"
+        
         
         /*css += "SelectButton#second{"
         css += "fill:linear-gradient(top,#FFFEFE,#E8E8E8),~/Desktop/svg/icons/view/list.svg grey5;"
@@ -235,30 +239,31 @@ class WinView3:FlippedView {
         css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/coverflow.svg white;"
         css += "}"
         */
-        //css += "SelectButton:selected{"
-        //css += "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true),none;"
-        //css += "}"
+        css += "SelectButton:selected{"
+        css += "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);"
+        css += "}"
 
 
         /**/
         
-        let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
+        //let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
         
         //let styleProperty = styleCollection.getStyle("SelectButton")?.getStyleProperty("corner-radius")
         //Swift.print("styleProperty.value: " + String(styleProperty!.value))
-        StyleManager.addStyle(styleCollection.styles)
+        //StyleManager.addStyle(styleCollection.styles)
+         StyleManager.addStyle(css)
         /**/
         let iconButton1 = SelectButton(24,24,false,nil,"first")
         
         
-        iconButton1.setSkinState("selected")
+        //iconButton1.setSkinState("selected")
         
         //Try to replicate in the hover state test, or strip this example down, remove line etc
         
-        let tempStyle = StyleResolver.style(iconButton1)
+        /* let tempStyle = StyleResolver.style(iconButton1)
         Swift.print("-----start----")
         StyleParser.describe(tempStyle)/**/
-        Swift.print("-----end----")
+        Swift.print("-----end----")*/
         
         
         iconButton1.setPosition(CGPoint(10,20))
