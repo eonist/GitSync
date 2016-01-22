@@ -33,14 +33,14 @@ class WinView3:FlippedView {
         
         //Continue here: Make a simple test: first a button with hove color change, then add shadow, then gradient, then layers, then fillet. Fix this method
         //continue here: figure out why asset decoror doesnt get the update call
-        //try to add more decorators also svg, then try depth with many combinations etc. 
+        //try to add more decorators also svg, then try depth with many combinations etc.
         
         var css:String = "Button{"
         //css += "fill:linear-gradient(top,blue,red);"
         css += "fill:red;"
         css += "width:100px"
         css += "height:100px"
-        //css += "corner-radius:0.01px;"
+        css += "corner-radius:0.01px;"
         //css += "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);"
         css += "}"
         css += "Button:over{"
@@ -49,7 +49,7 @@ class WinView3:FlippedView {
         css += "width:64px;"
         css += "height:64px;"
         //css += "drop-shadow:drop-shadow(0px 0 #FF0000 0.0 0 0 0 0 true);"
-        //css += "corner-radius:10px;"
+        css += "corner-radius:10px;"
         css += "}"
         StyleManager.addStyle(css)
         let button:Button = Button(100,100)
