@@ -44,7 +44,7 @@ class WinView3:FlippedView {
         //css += "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);"
         css += "}"
         css += "Button:over{"
-        //css += "fill:linear-gradient(top,green,orange);"
+        css += "fill:linear-gradient(top,green,orange);"
         css += "fill:orange,purple;"
         css += "width:64px,25px;"
         css += "height:64px,25px;"
