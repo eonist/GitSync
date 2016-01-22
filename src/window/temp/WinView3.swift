@@ -166,7 +166,7 @@ class WinView3:FlippedView {
         css += "line-offset-type:outside;"
         css += "line-alpha:1;"
         css += "line-thickness:1px;"
-        css += "drop-shadow:drop-shadow(0px 0 #000000 0.0 0 0 0 0 true),none;"/*<--regular drop shadow seems to be buggy, debug this, using inset shadow as clear shadow for now*/
+        //css += "drop-shadow:drop-shadow(0px 0 #000000 0.0 0 0 0 0 true),none;"/*<--regular drop shadow seems to be buggy, debug this, using inset shadow as clear shadow for now*/
         css += "width:24px,24px;"
         css += "height:24px,24px;"
         css += "margin-top:0px,1px;"
@@ -182,7 +182,7 @@ class WinView3:FlippedView {
         css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/icons.svg red;"
         css += "}"
         
-        css += "SelectButton#second{"
+        /*css += "SelectButton#second{"
         css += "fill:linear-gradient(top,#FFFEFE,#E8E8E8),~/Desktop/svg/icons/view/list.svg grey5;"
         css += "corner-radius:0px;"
         css += "line-offset-type-right:inside;"
@@ -220,6 +220,8 @@ class WinView3:FlippedView {
         css += "SelectButton:selected{"
         css += "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true),none;"
         css += "}"
+
+        */
         /**/
         
         let styleCollection:IStyleCollection = CSSParser.styleCollection(css)
