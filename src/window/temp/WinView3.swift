@@ -31,7 +31,7 @@ class WinView3:FlippedView {
     func hoverTest(){
         
         
-        //Continue here: Make a simple test: first a button with hove color change, then add shadow, then gradient, then layers, then fillet. Fix this method
+        //Continue here: Make a simple test: first a button with hover color change, then add shadow, then gradient, then layers, then fillet. Fix this method
         //continue here: figure out why asset decoror doesnt get the update call
         //try to add more decorators also svg, then try depth with many combinations etc.
         //try color at depth 0 and svg at depth 1
@@ -39,18 +39,18 @@ class WinView3:FlippedView {
         var css:String = "Button{"
         //css += "fill:linear-gradient(top,blue,red);"
         //css += "fill:red,blue;"
-        css += "fill:~/Desktop/icons/search.svg grey9;"
-        //css += "width:100px,50px;"
-        //css += "height:100px,50px;"
+        css += "fill:green,~/Desktop/icons/search.svg grey9;"
+        css += "width:100px,50px;"
+        css += "height:100px,50px;"
         //css += "corner-radius:5px;"
         //css += "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);"
         css += "}"
         css += "Button:over{"
         //css += "fill:linear-gradient(top,green,orange);"
         //css += "fill:orange,yellow;"
-        css += "fill:~/Desktop/icons/search.svg grey5;"
-        //css += "width:64,24px;"
-        //css += "height:64px,24px;"
+        css += "fill:orange,~/Desktop/icons/search.svg grey5;"
+        css += "width:64,24px;"
+        css += "height:64px,24px;"
         //css += "drop-shadow:drop-shadow(0px 0 #FF0000 0.0 0 0 0 0 true);"
         //css += "corner-radius:10px;"
         css += "}"
