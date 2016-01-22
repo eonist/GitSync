@@ -9,12 +9,12 @@ class WinView3:FlippedView {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
         
-        //hoverTest()
+        hoverTest()
         //stateTest()
         //styleDepthTest()
         //marginTest()
         //titlebarTest()
-        iconBarTest()
+        //iconBarTest()
         //depthTest()
         //assetCSSTest()
         //svgTest()
@@ -35,16 +35,16 @@ class WinView3:FlippedView {
         
         
         var css:String = "Button{"
-        //css += "fill:linear-gradient(top,blue,red);"
-        css += "fill:red;"
-        //css += "corner-radius:1px;"
+        css += "fill:linear-gradient(top,blue,red);"
+        //css += "fill:red;"
+        css += "corner-radius:0.01px;"
         css += "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);"
         css += "}"
         css += "Button:over{"
-        //css += "fill:linear-gradient(top,green,orange);"
-        css += "fill:yellow;"
+        css += "fill:linear-gradient(top,green,orange);"
+        //css += "fill:green;"
         css += "drop-shadow:drop-shadow(0px 0 #FF0000 0.0 0 0 0 0 true);"
-        //css += "corner-radius:10px;"
+        css += "corner-radius:10px;"
         css += "}"
         StyleManager.addStyle(css)
         let button:Button = Button(100,100)
