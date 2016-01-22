@@ -9,12 +9,12 @@ class WinView3:FlippedView {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
         
-        //hoverTest()
+        hoverTest()
         //stateTest()
         //styleDepthTest()
         //marginTest()
         //titlebarTest()
-        iconBarTest()
+        //iconBarTest()
         //depthTest()
         //assetCSSTest()
         //svgTest()
@@ -166,9 +166,9 @@ class WinView3:FlippedView {
         //css += "line-offset-type:outside;"
         //css += "line-alpha:1;"
         //css += "line-thickness:1px;"
-        css += "drop-shadow:drop-shadow(0px 0 #000000 0.0 0 0 0 0 true),none;"/*<--regular drop shadow seems to be buggy, debug this, using inset shadow as clear shadow for now*/
-        css += "width:24px,24px;"
-        css += "height:24px,24px;"
+        //css += "drop-shadow:drop-shadow(0px 0 #000000 0.0 0 0 0 0 true),none;"/*<--regular drop shadow seems to be buggy, debug this, using inset shadow as clear shadow for now*/
+        //css += "width:24px,24px;"
+        //css += "height:24px,24px;"
         //css += "margin-top:0px,1px;"
         //css += "margin-left:0px,1px;"
         css += "}"
@@ -180,7 +180,7 @@ class WinView3:FlippedView {
         
         css += "SelectButton#first:selected{"
         css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/icons.svg red;"
-        css += "drop-shadow:drop-shadow(0px 0 #000000 0.0 0 0 0 0 true),none;"/*<--regular drop shadow seems to be buggy, debug this, using inset shadow as clear shadow for now*/
+        //css += "drop-shadow:drop-shadow(0px 0 #000000 0.0 0 0 0 0 true),none;"/*<--regular drop shadow seems to be buggy, debug this, using inset shadow as clear shadow for now*/
         css += "}"
         
         /*css += "SelectButton#second{"
