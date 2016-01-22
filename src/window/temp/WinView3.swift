@@ -43,6 +43,16 @@ class WinView3:FlippedView {
         //css += "width:100px,50px;"
         //css += "height:100px,50px;"
         //css += "corner-radius:5px;"
+        
+        css += "line:grey7,none;"
+        css += "line-offset-type:outside;"
+        css += "line-alpha:1;"
+        css += "line-thickness:1px;"
+        css += "margin-top:0px,1px;"
+        css += "margin-left:0px,1px;"
+        
+        css += "width:24px,24px;"
+        css += "height:24px,24px;"
         css += "drop-shadow:drop-shadow(0px 0 #FF0000 0.0 0 0 0 0 true);"
         css += "}"
         css += "SelectButton#first{"
