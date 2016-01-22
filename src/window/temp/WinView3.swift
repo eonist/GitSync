@@ -36,7 +36,7 @@ class WinView3:FlippedView {
         //try to add more decorators also svg, then try depth with many combinations etc.
         //try color at depth 0 and svg at depth 1
         
-        var css:String = "Button{"
+        var css:String = "SelectButton{"
         //css += "fill:linear-gradient(top,blue,red);"
         //css += "fill:red,blue;"
         css += "fill:linear-gradient(top,blue,red),~/Desktop/icons/search.svg grey9;"
@@ -45,7 +45,7 @@ class WinView3:FlippedView {
         css += "corner-radius:5px;"
         css += "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);"
         css += "}"
-        css += "Button:over{"
+        css += "SelectButton:selected{"
         //css += "fill:linear-gradient(top,green,orange);"
         //css += "fill:orange,yellow;"
         css += "fill:linear-gradient(top,green,orange),~/Desktop/icons/search.svg grey5;"
@@ -55,7 +55,7 @@ class WinView3:FlippedView {
         css += "corner-radius:10px;"
         css += "}"
         StyleManager.addStyle(css)
-        let button:Button = Button(100,100)
+        let button = SelectButton(100,100)
         addSubview(button)
         button.setPosition(CGPoint(20,20))
         
