@@ -254,7 +254,7 @@ class WinView3:FlippedView {
         
         //Try to replicate in the hover state test, or strip this example down, remove line etc
         
-        let tempStyle = StyleResolver.style(iconButton1)
+        //let tempStyle = StyleResolver.style(iconButton1)
         //Swift.print("-----start----")
         //StyleParser.describe(tempStyle)/**/
         //Swift.print("-----end----")
@@ -263,10 +263,10 @@ class WinView3:FlippedView {
         iconButton1.setPosition(CGPoint(10,20))
         self.addSubview(iconButton1)
         
-        /* let iconButton2 = SelectButton(24,24,false,nil,"second")
+        let iconButton2 = SelectButton(24,24,false,nil,"second")
         addSubView(iconButton2)
         iconButton2.setPosition(CGPoint(10+24+2,20))
-        
+        /*
         let iconButton3 = SelectButton(24,24,false,nil,"third")
         addSubView(iconButton3)
         iconButton3.setPosition(CGPoint(10+24+2+24,20))
@@ -281,7 +281,7 @@ class WinView3:FlippedView {
         
 
         
-        //addSubview(SelectGroup([iconButton1,iconButton2,iconButton3,iconButton4],iconButton2));
+        addSubview(SelectGroup([iconButton1,iconButton2,iconButton3,iconButton4],iconButton2));
     }
     /**
      * Add depth to the framework (svgasset is useless without it, and floating wont be that hard anyways, its the last thing)
