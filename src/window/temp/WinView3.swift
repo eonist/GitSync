@@ -214,7 +214,7 @@ class WinView3:FlippedView {
         css += "SelectButton#second:selected{"
         css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/list.svg white;"
         css += "}"
-        /*
+        
         css += "SelectButton#third{"
         css += "fill:linear-gradient(top,#FFFEFE,#E8E8E8),~/Desktop/svg/icons/view/columns.svg grey5;"
         css += "corner-radius:0px;"
@@ -224,7 +224,7 @@ class WinView3:FlippedView {
         css += "SelectButton#third:selected{"
         css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/columns.svg white;"
         css += "}"
-        
+        /*
         css += "SelectButton#fourth{"
         css += "fill:linear-gradient(top,#FFFEFE,#E8E8E8),~/Desktop/svg/icons/view/coverflow.svg grey5;"
         css += "corner-radius:0px 4px 0px 4px;"
@@ -266,11 +266,11 @@ class WinView3:FlippedView {
         let iconButton2 = SelectButton(24,24,false,nil,"second")
         addSubView(iconButton2)
         iconButton2.setPosition(CGPoint(10+24+2,20))
-        /*
+       
         let iconButton3 = SelectButton(24,24,false,nil,"third")
         addSubView(iconButton3)
         iconButton3.setPosition(CGPoint(10+24+2+24,20))
-        
+         /*
         let iconButton4 = SelectButton(24,24,false,nil,"fourth")
         addSubView(iconButton4)
         iconButton4.setPosition(CGPoint(10+24+2+24+24+1,20))*/
@@ -281,7 +281,7 @@ class WinView3:FlippedView {
         
 
         
-        addSubview(SelectGroup([iconButton1,iconButton2,iconButton3,iconButton4],iconButton2));
+        addSubview(SelectGroup([iconButton1,iconButton2,iconButton3,/*iconButton4*/],iconButton2));
     }
     /**
      * Add depth to the framework (svgasset is useless without it, and floating wont be that hard anyways, its the last thing)
