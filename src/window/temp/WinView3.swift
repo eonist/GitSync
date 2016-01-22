@@ -35,16 +35,18 @@ class WinView3:FlippedView {
         
         
         var css:String = "Button{"
-        css += "fill:linear-gradient(top,blue,red);"
-        //css += "fill:red;"
-        css += "corner-radius:0.01px;"
-        css += "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);"
+        //css += "fill:linear-gradient(top,blue,red);"
+        css += "fill:red,blue;"
+        css += "width:100px,50px;"
+        css += "height:100px,50px;"
+        //css += "corner-radius:0.01px;"
+        //css += "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);"
         css += "}"
         css += "Button:over{"
-        css += "fill:linear-gradient(top,green,orange);"
-        //css += "fill:green;"
-        css += "drop-shadow:drop-shadow(0px 0 #FF0000 0.0 0 0 0 0 true);"
-        css += "corner-radius:10px;"
+        //css += "fill:linear-gradient(top,green,orange);"
+        css += "fill:green,yellow;"
+        //css += "drop-shadow:drop-shadow(0px 0 #FF0000 0.0 0 0 0 0 true);"
+        //css += "corner-radius:10px;"
         css += "}"
         StyleManager.addStyle(css)
         let button:Button = Button(100,100)
