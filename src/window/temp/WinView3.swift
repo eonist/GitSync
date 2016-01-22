@@ -166,7 +166,7 @@ class WinView3:FlippedView {
         css += "line-offset-type:outside;"
         css += "line-alpha:1;"
         css += "line-thickness:1px;"
-        //css += "drop-shadow:drop-shadow(0px 0 #000000 0.0 0 0 0 0 true),none;"/*<--regular drop shadow seems to be buggy, debug this, using inset shadow as clear shadow for now*/
+        css += "drop-shadow:drop-shadow(0px 0 #000000 0.0 0 0 0 0 true),none;"/*<--regular drop shadow seems to be buggy, debug this, using inset shadow as clear shadow for now*/
         css += "width:24px,24px;"
         css += "height:24px,24px;"
         css += "margin-top:0px,1px;"
@@ -219,7 +219,7 @@ class WinView3:FlippedView {
         css += "}"
         */
         css += "SelectButton:selected{"
-        //css += "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true),none;"
+        css += "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true),none;"
         css += "}"
 
 
@@ -232,6 +232,17 @@ class WinView3:FlippedView {
         StyleManager.addStyle(styleCollection.styles)
         /**/
         let iconButton1 = SelectButton(24,24,false,nil,"first")
+        
+        
+        iconButton1.setSkinState("over")
+        
+        
+        let tempStyle = StyleResolver.style(iconButton1)
+        Swift.print("-----start----")
+        StyleParser.describe(tempStyle)/**/
+        Swift.print("-----end----")
+        
+        
         iconButton1.setPosition(CGPoint(10,20))
         self.addSubview(iconButton1)
         
@@ -247,13 +258,9 @@ class WinView3:FlippedView {
         addSubView(iconButton4)
         iconButton4.setPosition(CGPoint(10+24+2+24+24+1,20))*/
         /**/
-        //Swift.print("---------")
-        
-        let tempStyle = StyleResolver.style(iconButton1)
-        StyleParser.describe(tempStyle)/**/
         
         
-        //Swift.print("---------")
+        
         
 
         
