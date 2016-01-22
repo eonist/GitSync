@@ -9,12 +9,12 @@ class WinView3:FlippedView {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
         
-        
+        hoverTest()
         //stateTest()
         //styleDepthTest()
         //marginTest()
         //titlebarTest()
-        iconBarTest()
+        //iconBarTest()
         //depthTest()
         //assetCSSTest()
         //svgTest()
