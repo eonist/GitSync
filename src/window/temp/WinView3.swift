@@ -42,18 +42,19 @@ class WinView3:FlippedView {
         css += "fill:linear-gradient(top,#FFFEFE,#E8E8E8),~/Desktop/svg/icons/view/icons.svg grey5;"
         css += "width:100px,50px;"
         css += "height:100px,50px;"
-        css += "corner-radius:5px;"
-        
+        //css += "corner-radius:5px;"
         css += "drop-shadow:drop-shadow(0px 0 #FF0000 0.0 0 0 0 0 true);"
         css += "}"
-        css += "SelectButton:selected{"
+        css += "SelectButton#first:selected{"
         //css += "fill:linear-gradient(top,green,orange);"
         //css += "fill:orange,yellow;"
         css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/icons.svg red;"
         css += "width:64,32px;"
         css += "height:64px,32px;"
+        //css += "corner-radius:10px;"
+        css += "}"
+        css += "SelectButton:selected{"
         css += "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);"
-        css += "corner-radius:10px;"
         css += "}"
         StyleManager.addStyle(css)
         let button = SelectButton(100,100,false,nil,"first")
