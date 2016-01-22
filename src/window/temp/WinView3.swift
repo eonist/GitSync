@@ -26,6 +26,21 @@ class WinView3:FlippedView {
         //regExpBackRefTest()
     }
     /**
+     *
+     */
+    func hoverTest(){
+        var css:String = "Button{"
+        css += "fill:blue;"
+        css += "}"
+        css += "Button:over{"
+        css += "fill:red;"
+        css += "}"
+        StyleManager.addStyle(css)
+        let button:Button = Button(100,100)
+        addSubview(button)
+        button.setPosition(CGPoint(20,20))
+    }
+    /**
      * NOTE: a test that prints the style when the Element is in over state.
      */
     func stateTest(){
