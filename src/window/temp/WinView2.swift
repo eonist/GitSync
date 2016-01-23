@@ -318,8 +318,8 @@ class WinView2:FlippedView{
     }
    
     func testTempRoundRect(){
-        let a = TempRoundRect()
-        self.addSubview(a)
+        //let a = TempRoundRect()
+        //self.addSubview(a)
     }
     func testLayerBackedElement(){
         //fill-alpha:0.5
