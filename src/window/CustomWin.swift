@@ -2,13 +2,13 @@ import Foundation
 
 class CustomWin:Window{
     override func resolveSkin() {
-        self.contentView = WindowView(frame.width,frame.height)/*Sets the mainview of the window*/
+        self.contentView = CustomView(frame.width,frame.height)/*Sets the mainview of the window*/
     }
 }
  /*
  * TODO: You should extend the window not the view
  */
-class TestWinView:WindowView{
+class CustomView:WindowView{
     /**
      * Add content here
      */
@@ -21,7 +21,7 @@ class TestWinView:WindowView{
         //add close button, min, max
         //add event listeners to these buttons
         
-        
+        Swift.print("CustomView.resolveSkin()")
         
         let section = Section(120,40)
         addSubview(section)
