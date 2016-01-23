@@ -34,6 +34,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.hasShadow = false
         //self.backgroundColor = NSColor(calibratedHue: 0, saturation: 1.0, brightness: 0, alpha: 0.7)
         self.opaque = false
+        self.setFrame(<#T##frameRect: NSRect##NSRect#>, display: <#T##Bool#>)
         //win.setIsMiniaturized(false)
         //Swift.print(self.windowNumber)
         //Swift.print(self.screen?.deviceDescription)
