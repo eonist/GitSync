@@ -24,8 +24,8 @@ class CustomView:WindowView{
         
         Swift.print("CustomView.resolveSkin()")
         
-        let section = Section(120,40)
-        addSubview(section)
+        //let section = Section(120,40)
+        //addSubview(section)
         //let button = Button(120,40)
         //addSubview(button)
     }
