@@ -17,19 +17,20 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     //todo you could add the bellow as lazy?
     //lazy var view = WinView(frame: Win.sizeRect)//WinViewTest(frame: Win.sizeRect)//,FlippedView(frame: Win.sizeRect)
     lazy var view = WinView4(frame: Win.sizeRect)/*<--This is the main view for this Window*/
-    
+    override var canBecomeKeyWindow:Bool {return true}/*Custom windows that use the NSBorderlessWindowMask can't become key by default. Override this method so that controls in this window will be enabled.*/
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
         let styleMask:Int = NSBorderlessWindowMask/*NSBorderlessWindowMask*///NSTitledWindowMask/*A title bar*/|NSResizableWindowMask/*A resize bar, border, or box*/|NSMiniaturizableWindowMask/*A miniaturize button*/|NSClosableWindowMask/*A close button*/
         super.init(contentRect: Win.sizeRect, styleMask: styleMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         //
         self.contentView!.wantsLayer = true;
-        self.backgroundColor = NSColor.whiteColor()
-        self.opaque = true/*true == transperant*/
+        self.backgroundColor = NSColor.orangeColor()
+        //self.opaque = true/*true == transperant*/
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()//makes it the apps main menu?
         //Swift.print(self.deviceDescription)
         self.hasShadow = false
-        self.backgroundColor = NSColor(calibratedHue: 0, saturation: 1.0, brightness: 0, alpha: 0.7)
+        self.center()
+        //self.backgroundColor = NSColor(calibratedHue: 0, saturation: 1.0, brightness: 0, alpha: 0.7)
         self.opaque = false
         //win.setIsMiniaturized(false)
         //Swift.print(self.windowNumber)
@@ -47,6 +48,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         createContent()
         self.delegate = self
     }
+    
     /*
      * Required by the NSWindow
      */
