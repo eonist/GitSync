@@ -10,7 +10,7 @@ class AppDelegate: NSObject, NSApplicationDelegate{
      */
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         //.print("applicationDidFinishLaunching")
-        StyleManager.addStyle("Window{fill:blue;}")
+        StyleManager.addStyle("Window{fill:linear-gradient(top,red,blue);}")
         win = Window()/*Init the window*///Win()
         let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
         app.windows[0].close()/*close the initial non-optional default window*/
