@@ -17,7 +17,12 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     //todo you could add the bellow as lazy?
     //lazy var view = WinView(frame: Win.sizeRect)//WinViewTest(frame: Win.sizeRect)//,FlippedView(frame: Win.sizeRect)
     override var canBecomeMainWindow:Bool{return true}
-      { return YES; } - (BOOL) acceptsFirstResponder { return YES; } - (BOOL) becomeFirstResponder { return YES; } - (BOOL) resignFirstResponder { return YES; }
+    override var canBecomeKeyWindow:Bool{return true}
+    override var acceptsFirstResponder:Bool{return true}
+    
+
+    
+      //{ return YES; } - (BOOL) acceptsFirstResponder { return YES; } - (BOOL) becomeFirstResponder { return YES; } - (BOOL) resignFirstResponder { return YES; }
     lazy var view = WinView4(frame: Win.sizeRect)
     convenience init(){
         let winRect = Win.sizeRect//NSMakeRect(100, 0, 100, 100)//TODO: us ns rect?
