@@ -31,9 +31,8 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //win.makeKeyWindow()
         //win.makeMainWindow()
         //Swift.print(self.deviceDescription)
-        self.hasShadow = false
+        //self.hasShadow = false
         //self.backgroundColor = NSColor(calibratedHue: 0, saturation: 1.0, brightness: 0, alpha: 0.7)
-        self.opaque = false
 
         
         //win.setIsMiniaturized(false)
