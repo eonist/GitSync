@@ -10,7 +10,9 @@ class AppDelegate: NSObject, NSApplicationDelegate{
      */
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         //.print("applicationDidFinishLaunching")
-        StyleManager.addStyle("Window{fill:#EFEFF4;}")
+        var css = "Window{fill:#EFEFF4;}"
+        css += "Button{fill:green;}"
+        StyleManager.addStyle(css)
         win = Window()/*Init the window*///Win()
         let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
         app.windows[0].close()/*close the initial non-optional default window*/
