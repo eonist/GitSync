@@ -19,7 +19,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     lazy var view = WinView4(frame: Win.sizeRect)
     convenience init(){
         let winRect = NSMakeRect(100, 0, 100, 100)//TODO: us ns rect?
-        let styleMask:Int = NSBorderlessWindowMask|NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask
+        //let styleMask:Int = NSBorderlessWindowMask|NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask
+        let styleMask:Int = NSBorderlessWindowMask/*NSBorderlessWindowMask*///NSTitledWindowMask/*A title bar*/|NSResizableWindowMask/*A resize bar, border, or box*/|NSMiniaturizableWindowMask/*A miniaturize button*/|NSClosableWindowMask/*A close button*/
+
         self.init(contentRect: winRect, styleMask:styleMask , backing: NSBackingStoreType.Buffered, `defer`: false)
     }
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
