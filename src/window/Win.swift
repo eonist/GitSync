@@ -34,7 +34,8 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.hasShadow = false
         //self.backgroundColor = NSColor(calibratedHue: 0, saturation: 1.0, brightness: 0, alpha: 0.7)
         self.opaque = false
-        self.setFrame(<#T##frameRect: NSRect##NSRect#>, display: <#T##Bool#>)
+
+        
         //win.setIsMiniaturized(false)
         //Swift.print(self.windowNumber)
         //Swift.print(self.screen?.deviceDescription)
@@ -43,13 +44,14 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //Swift.print(view.bounds)
         //let controller = NSWindowController(window: newWindow)
         //controller.showWindow(self)
-        self.center()
+        //self.center()
         //view.wantsLayer = true;
         self.contentView = view
         
         self.title = ""//GitSync
         createContent()
         self.delegate = self
+        self.setFrame(NSMakeRect(100, 0, frame.size.width, frame.size.height), display: false)
     }
     
     /*
