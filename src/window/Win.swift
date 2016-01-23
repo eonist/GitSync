@@ -26,7 +26,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()//makes it the apps main menu?
         //Swift.print(self.deviceDescription)
-        
+        self.hasShadow = false
         //Swift.print(self.windowNumber)
         //Swift.print(self.screen?.deviceDescription)
         //Swift.print(self.screen!.frame)//screen size
