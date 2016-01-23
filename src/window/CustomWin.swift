@@ -14,6 +14,15 @@ class TestWinView:WindowView{
      */
     override func resolveSkin() {
         super.resolveSkin()
+        
+        //COntinue here: Make the window transperant
+        //make the background of the window with fillet corners
+        //make the section also have round corners but only the top corners
+        //add close button, min, max
+        //add event listeners to these buttons
+        
+        
+        
         let section = Section(120,40)
         addSubview(section)
         //let button = Button(120,40)
