@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         css += "Section{fill:green;}"
         css += "Button{fill:green;}"
         StyleManager.addStyle(css)
-        win = TestWin()/*Init the window*///Win()
+        win = CustomWin()/*Init the window*///Win()
         let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
         app.windows[0].close()/*close the initial non-optional default window*/
     }
