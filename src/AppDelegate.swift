@@ -10,9 +10,10 @@ class AppDelegate: NSObject, NSApplicationDelegate{
      */
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         //.print("applicationDidFinishLaunching")
-        var css = "Window{fill:#EFEFF4;corner-radius:4px;}"
-        css += "Section{fill:green;}"
+        var css = "Window{fill:#EFEFF4;corner-radius:4px;drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 false);}"
+        css += "Section{fill:yellow;}"
         css += "Button{fill:green;}"
+        css += ""
         StyleManager.addStyle(css)
         win = CustomWin()/*Init the window*///Win()
         let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
