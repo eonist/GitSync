@@ -16,30 +16,16 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     static var sizeRect:NSRect = NSRect(x: 0, y: 0, width: Win.width, height: Win.height)//NSMakeRect(0, 0, TempWin.width, TempWin.height)
     //todo you could add the bellow as lazy?
     //lazy var view = WinView(frame: Win.sizeRect)//WinViewTest(frame: Win.sizeRect)//,FlippedView(frame: Win.sizeRect)
-    override var canBecomeMainWindow:Bool{return true}
-    override var canBecomeKeyWindow:Bool{return true}/*If you want a titleless window to be able to become a key window, you need to create a subclass of NSWindow and override -canBecomeKeyWindow*/
-    override var acceptsFirstResponder:Bool{return true}
+    lazy var view = WinView3(frame: Win.sizeRect)
     
-    //{ return YES; } - (BOOL) acceptsFirstResponder { return YES; } - (BOOL) becomeFirstResponder { return YES; } - (BOOL) resignFirstResponder { return YES; }
-    lazy var view = WinView4(frame: Win.sizeRect)
-    convenience init(){
-        let winRect = Win.sizeRect//NSMakeRect(100, 0, 100, 100)//TODO: us ns rect?
-        //let styleMask:Int = NSBorderlessWindowMask|NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask
-        let styleMask:Int = NSBorderlessWindowMask/*NSBorderlessWindowMask*///NSTitledWindowMask/*A title bar*/|NSResizableWindowMask/*A resize bar, border, or box*/|NSMiniaturizableWindowMask/*A miniaturize button*/|NSClosableWindowMask/*A close button*/
-        self.init(contentRect: winRect, styleMask:styleMask , backing: NSBackingStoreType.Buffered, `defer`: false)
-    }
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
-        super.init(contentRect: contentRect, styleMask:aStyle , backing: bufferingType, `defer`: false)//NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask
+        super.init(contentRect: Win.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         self.contentView!.wantsLayer = true;
-        self.backgroundColor = NSColor.orangeColor()
+        self.backgroundColor = NSColor.whiteColor()
         self.opaque = true
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()//makes it the apps main menu?
         //Swift.print(self.deviceDescription)
-        
-        
-        self.movableByWindowBackground = true
-
         
         //Swift.print(self.windowNumber)
         //Swift.print(self.screen?.deviceDescription)
@@ -48,11 +34,11 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //Swift.print(view.bounds)
         //let controller = NSWindowController(window: newWindow)
         //controller.showWindow(self)
-        self.center()/*centers the window, this can also be done via setOrigin and calculating screen size etc*/
+        self.center()
         //view.wantsLayer = true;
         self.contentView = view
         
-        self.title = ""/*Set the title of the titlebar*///GitSync
+        self.title = ""//GitSync
         createContent()
         self.delegate = self
     }
