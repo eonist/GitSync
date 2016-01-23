@@ -33,7 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         }
         */
         app.windows[0].close()//close the initial window
-        //app.windows[1].close()//close the initial window
+        app.windows[1].close()//close the initial window
         
         //let stroke = Stroke()
         //stroke.testing()
