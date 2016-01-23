@@ -22,8 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         Swift.print("---")
         //self.win!.contentView!.wantsLayer = true
         //self.win.setContentView(self.newContentView)
-        self.win!.makeKeyAndOrderFront(self)/*this may be need when using non borderless windows etc*/
-        //win!.makeMainWindow()
+        
         Swift.print(aNotification)
         let app:NSApplication = aNotification.object as! NSApplication
         app.windows[0].close()/*close the initial non-optional default window*/
