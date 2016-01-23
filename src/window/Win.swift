@@ -37,7 +37,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.center()
         //view.wantsLayer = true;
         self.contentView = view
-        
+        //self.title = ""/*Sets the title of the window*/
         self.title = ""//GitSync
         createContent()
         self.delegate = self
