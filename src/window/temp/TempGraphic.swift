@@ -1,5 +1,5 @@
 import Cocoa
-
+//we now have the graphics framework so this class inst needed
 class TempGraphic:Graphic{
     var width:CGFloat
     var height:CGFloat

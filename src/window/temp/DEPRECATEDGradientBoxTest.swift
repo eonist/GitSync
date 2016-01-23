@@ -1,6 +1,6 @@
 import Cocoa
 /**
- * Testing class for the GradientBox, which is now working 100%
+ * Visual Testing class for the GradientBox, which is now working 100%
  */
 class GradientBoxTest:View {
     override func drawRect(dirtyRect: NSRect) {
