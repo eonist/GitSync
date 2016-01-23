@@ -19,11 +19,11 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     lazy var view = WinView4(frame: Win.sizeRect)/*<--This is the main view for this Window*/
     override var canBecomeKeyWindow:Bool {return true}/*Custom windows that use the NSBorderlessWindowMask can't become key by default. Override this method so that controls in this window will be enabled.*/
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
-        let styleMask:Int = NSBorderlessWindowMask/*NSBorderlessWindowMask*///NSTitledWindowMask/*A title bar*/|NSResizableWindowMask/*A resize bar, border, or box*/|NSMiniaturizableWindowMask/*A miniaturize button*/|NSClosableWindowMask/*A close button*/
+        let styleMask:Int = NSResizableWindowMask|NSTitledWindowMask//NSBorderlessWindowMask/*NSBorderlessWindowMask*///NSTitledWindowMask/*A title bar*/|NSResizableWindowMask/*A resize bar, border, or box*/|NSMiniaturizableWindowMask/*A miniaturize button*/|NSClosableWindowMask/*A close button*/
         super.init(contentRect: Win.sizeRect, styleMask: styleMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         //
         self.contentView!.wantsLayer = true;
-        self.backgroundColor = NSColor.orangeColor()
+        self.backgroundColor = NSColor.whiteColor()
         //self.opaque = true/*true == transperant*/
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()//makes it the apps main menu?
@@ -43,7 +43,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //Swift.print(view.bounds)
         //let controller = NSWindowController(window: newWindow)
         //controller.showWindow(self)
-        //self.center()
+        self.center()
         //view.wantsLayer = true;
         self.contentView = view
         
