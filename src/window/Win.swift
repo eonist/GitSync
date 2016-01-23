@@ -39,6 +39,10 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.makeMainWindow()//makes it the apps main menu?
         //Swift.print(self.deviceDescription)
         
+        
+        self.movableByWindowBackground = true
+
+        
         //Swift.print(self.windowNumber)
         //Swift.print(self.screen?.deviceDescription)
         //Swift.print(self.screen!.frame)//screen size
@@ -46,7 +50,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //Swift.print(view.bounds)
         //let controller = NSWindowController(window: newWindow)
         //controller.showWindow(self)
-        self.center()
+        //self.center()
         //view.wantsLayer = true;
         self.contentView = view
         
