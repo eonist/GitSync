@@ -20,9 +20,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     override var canBecomeKeyWindow:Bool{return true}/*If you want a titleless window to be able to become a key window, you need to create a subclass of NSWindow and override -canBecomeKeyWindow*/
     override var acceptsFirstResponder:Bool{return true}
     
-
-    
-      //{ return YES; } - (BOOL) acceptsFirstResponder { return YES; } - (BOOL) becomeFirstResponder { return YES; } - (BOOL) resignFirstResponder { return YES; }
+    //{ return YES; } - (BOOL) acceptsFirstResponder { return YES; } - (BOOL) becomeFirstResponder { return YES; } - (BOOL) resignFirstResponder { return YES; }
     lazy var view = WinView4(frame: Win.sizeRect)
     convenience init(){
         let winRect = Win.sizeRect//NSMakeRect(100, 0, 100, 100)//TODO: us ns rect?
