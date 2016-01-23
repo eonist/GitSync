@@ -12,8 +12,9 @@ class AppDelegate: NSObject, NSApplicationDelegate{
      * Initializes your application
      */
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        
-        let winRect = NSMakeRect(100, 0, NSScreen.mainScreen()!.frame.width/2, NSScreen.mainScreen()!.frame.height/2)//TODO: us ns rect?
+        //NSScreen.mainScreen()!.frame.width/2
+        //NSScreen.mainScreen()!.frame.height/2
+        let winRect = NSMakeRect(100, 0, 200, 200)//TODO: us ns rect?
         win = Win(contentRect: winRect, styleMask: NSBorderlessWindowMask|NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         //self.win!.contentView!.wantsLayer = true
         //self.win.setContentView(self.newContentView)
