@@ -22,28 +22,28 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         Swift.print("---")
         //self.win!.contentView!.wantsLayer = true
         //self.win.setContentView(self.newContentView)
-        self.win!.makeKeyAndOrderFront(self)
+        self.win!.makeKeyAndOrderFront(self)/*this may be need when using non borderless windows etc*/
         //win!.makeMainWindow()
         //print(aNotification)
         let app:NSApplication = aNotification.object as! NSApplication
         //print(app)
-        print(app.mainWindow)
+        //print(app.mainWindow)
         //print(app.keyWindow)
         
-        for w in app.windows{
-            print("windowNumber: " + "\(w.windowNumber)")
-            app.windowWithWindowNumber(w.windowNumber)//this is how you can manage windows
-        }
+        /*for w in app.windows{
+        print("windowNumber: " + "\(w.windowNumber)")
+        app.windowWithWindowNumber(w.windowNumber)//this is how you can manage windows
+        }*/
         /**/
-        Swift.print("app.windows.count: " + "\(app.windows.count)")
-        //app.windows[0].close()//close the initial window
+        //Swift.print("app.windows.count: " + "\(app.windows.count)")
+        app.windows[0].close()/*close the initial window*/
         //app.windows[1].close()//close the initial window
-        Swift.print("after close")
-        Swift.print("app.windows.count: " + "\(app.windows.count)")
-        for w in app.windows{
-            print("windowNumber: " + "\(w.windowNumber)")
-            app.windowWithWindowNumber(w.windowNumber)//this is how you can manage windows
-        }
+        //Swift.print("after close")
+        //Swift.print("app.windows.count: " + "\(app.windows.count)")
+        /*for w in app.windows{
+        print("windowNumber: " + "\(w.windowNumber)")
+        app.windowWithWindowNumber(w.windowNumber)//this is how you can manage windows
+        }*/
     }
     /*
      * When the application closes
