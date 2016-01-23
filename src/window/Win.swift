@@ -35,7 +35,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //let controller = NSWindowController(window: newWindow)
         //controller.showWindow(self)
         self.center()
-        //view.wantsLayer = true;
+        //view.wantsLayer = true;//this should be set in the iew not here
         self.contentView = view
         //self.title = ""/*Sets the title of the window*/
         self.title = ""//GitSync
