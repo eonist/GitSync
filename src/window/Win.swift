@@ -2,7 +2,7 @@ import Foundation
 import Cocoa
 
 /*
-* NOTE: Great doc about NSWin: https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSWindow_Class/
+* NOTE: Great doc about NSWin: https://www.google.no/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0CCIQFjAAahUKEwig7tP06dbIAhXlnHIKHX4EDf4&url=https%3A%2F%2Fdeveloper.apple.com%2Flibrary%2Fmac%2Fdocumentation%2FCocoa%2FReference%2FApplicationKit%2FClasses%2FNSWindow_Class%2F&usg=AFQjCNEwF-62zCVqYtHRLdEo5vTD4Oo0Fw
 * TODO: Add Broadcast/Subscribe to info win
 * TODO: Add Transmit/Receive buttons to tab-bar
 */
@@ -11,32 +11,22 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     static var leftPadding = 12
     let titles:[String] = ["Add","Remove"]//,"Info","View","test"
     //add a row of debug buttons bellow the tableview
-    static var width = 200//Static variable, reachable on a class level
-    static var height = 200
-    static var sizeRect:NSRect = NSRect(x: 100, y: 100, width: Win.width, height: Win.height)//NSMakeRect(0, 0, TempWin.width, TempWin.height)
+    static var width = 800//Static variable, reachable on a class level
+    static var height = 600
+    static var sizeRect:NSRect = NSRect(x: 0, y: 0, width: Win.width, height: Win.height)//NSMakeRect(0, 0, TempWin.width, TempWin.height)
     //todo you could add the bellow as lazy?
     //lazy var view = WinView(frame: Win.sizeRect)//WinViewTest(frame: Win.sizeRect)//,FlippedView(frame: Win.sizeRect)
-    lazy var view = WinView4(frame: Win.sizeRect)/*<--This is the main view for this Window*/
-    //override var canBecomeKeyWindow:Bool {return true}/*Custom windows that use the NSBorderlessWindowMask can't become key by default. Override this method so that controls in this window will be enabled.*/
+    lazy var view = WinView4(frame: Win.sizeRect)
+    
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
-        //let styleMask:Int = NSResizableWindowMask|NSBorderlessWindowMask//
-        let styleMask:Int = NSBorderlessWindowMask/*NSBorderlessWindowMask*///NSTitledWindowMask/*A title bar*/|NSResizableWindowMask/*A resize bar, border, or box*/|NSMiniaturizableWindowMask/*A miniaturize button*/|NSClosableWindowMask/*A close button*/
-        super.init(contentRect: Win.sizeRect, styleMask: styleMask, backing: NSBackingStoreType.Buffered, `defer`: false)
-        //
+        super.init(contentRect: Win.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         self.contentView!.wantsLayer = true;
-        self.backgroundColor = NSColor.orangeColor()
-        //self.opaque = true/*true == transperant*/
-        //self.makeKeyAndOrderFront(nil)//moves the window to the front
-        //self.makeMainWindow()//makes it the apps main menu?
-        self.movableByWindowBackground = true
-        //self.makeKeyWindow()
-        //self.makeMainWindow()
+        self.backgroundColor = NSColor.whiteColor()
+        self.opaque = true
+        self.makeKeyAndOrderFront(nil)//moves the window to the front
+        self.makeMainWindow()//makes it the apps main menu?
         //Swift.print(self.deviceDescription)
-        //self.hasShadow = false
-        //self.backgroundColor = NSColor(calibratedHue: 0, saturation: 1.0, brightness: 0, alpha: 0.7)
-
         
-        //win.setIsMiniaturized(false)
         //Swift.print(self.windowNumber)
         //Swift.print(self.screen?.deviceDescription)
         //Swift.print(self.screen!.frame)//screen size
@@ -44,16 +34,14 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //Swift.print(view.bounds)
         //let controller = NSWindowController(window: newWindow)
         //controller.showWindow(self)
-        //self.center()
+        self.center()
         //view.wantsLayer = true;
         self.contentView = view
         
         self.title = ""//GitSync
         createContent()
         self.delegate = self
-        
     }
-    
     /*
      * Required by the NSWindow
      */
