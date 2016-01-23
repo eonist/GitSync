@@ -32,8 +32,9 @@ class AppDelegate: NSObject, NSApplicationDelegate{
             //app.windowWithWindowNumber()//this is how you can manage windows
         }
         */
+        Swift.print("app.windows.count: " + "\(app.windows.count)")
         app.windows[0].close()//close the initial window
-        app.windows[1].close()//close the initial window
+        //app.windows[1].close()//close the initial window
         
         //let stroke = Stroke()
         //stroke.testing()
