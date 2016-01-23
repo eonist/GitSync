@@ -14,8 +14,9 @@ class AppDelegate: NSObject, NSApplicationDelegate{
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         //NSScreen.mainScreen()!.frame.width/2
         //NSScreen.mainScreen()!.frame.height/2
-        let winRect = NSMakeRect(100, 0, 200, 200)//TODO: us ns rect?
-        win = Win(contentRect: winRect, styleMask: NSBorderlessWindowMask|NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
+        let winRect = NSMakeRect(100, 0, 100, 100)//TODO: us ns rect?
+        let styleMask:Int = NSBorderlessWindowMask|NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask
+        win = Win(contentRect: winRect, styleMask:styleMask , backing: NSBackingStoreType.Buffered, `defer`: false)
         //self.win!.contentView!.wantsLayer = true
         //self.win.setContentView(self.newContentView)
         self.win!.makeKeyAndOrderFront(self)

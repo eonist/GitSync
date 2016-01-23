@@ -11,9 +11,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     static var leftPadding = 12
     let titles:[String] = ["Add","Remove"]//,"Info","View","test"
     //add a row of debug buttons bellow the tableview
-    static var width = 800//Static variable, reachable on a class level
-    static var height = 600
-    static var sizeRect:NSRect = NSRect(x: 0, y: 0, width: Win.width, height: Win.height)//NSMakeRect(0, 0, TempWin.width, TempWin.height)
+    static var width = 200//Static variable, reachable on a class level
+    static var height = 200
+    static var sizeRect:NSRect = NSRect(x: 100, y: 100, width: Win.width, height: Win.height)//NSMakeRect(0, 0, TempWin.width, TempWin.height)
     //todo you could add the bellow as lazy?
     //lazy var view = WinView(frame: Win.sizeRect)//WinViewTest(frame: Win.sizeRect)//,FlippedView(frame: Win.sizeRect)
     lazy var view = WinView4(frame: Win.sizeRect)/*<--This is the main view for this Window*/
