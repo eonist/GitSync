@@ -22,7 +22,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         super.init(contentRect: Win.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         self.contentView!.wantsLayer = true;
         self.backgroundColor = NSColor.whiteColor()
-        self.opaque = true
+        self.opaque = true/*true == transperant*/
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()//makes it the apps main menu?
         //Swift.print(self.deviceDescription)
