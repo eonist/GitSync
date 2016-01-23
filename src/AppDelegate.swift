@@ -14,9 +14,11 @@ class AppDelegate: NSObject, NSApplicationDelegate{
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         //NSScreen.mainScreen()!.frame.width/2
         //NSScreen.mainScreen()!.frame.height/2
+        Swift.print("applicationDidFinishLaunching")
         let winRect = NSMakeRect(100, 0, 100, 100)//TODO: us ns rect?
         let styleMask:Int = NSBorderlessWindowMask|NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask
         win = Win(contentRect: winRect, styleMask:styleMask , backing: NSBackingStoreType.Buffered, `defer`: false)
+        Swift.print("---")
         //self.win!.contentView!.wantsLayer = true
         //self.win.setContentView(self.newContentView)
         self.win!.makeKeyAndOrderFront(self)
@@ -34,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         /**/
         Swift.print("app.windows.count: " + "\(app.windows.count)")
         app.windows[0].close()//close the initial window
-        //app.windows[1].close()//close the initial window
+        app.windows[1].close()//close the initial window
         
         //let stroke = Stroke()
         //stroke.testing()
