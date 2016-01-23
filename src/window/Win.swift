@@ -50,7 +50,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //Swift.print(view.bounds)
         //let controller = NSWindowController(window: newWindow)
         //controller.showWindow(self)
-        //self.center()
+        self.center()/*centers the window, this can also be done via setOrigin and calculating screen size etc*/
         //view.wantsLayer = true;
         self.contentView = view
         
