@@ -38,8 +38,8 @@ class WinUtils {
     }
     
     /**
-    * BETA
-    */
+     * BETA
+     */
     class func removeAllSubViews(window:NSWindow){
         let views:Array<NSView> = (window.contentView?.subviews)!
         for view:NSView in views{
