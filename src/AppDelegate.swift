@@ -11,7 +11,7 @@ class AppDelegate: NSObject, NSApplicationDelegate{
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         //.print("applicationDidFinishLaunching")
         var css = "Window{fill:#EFEFF4;corner-radius:4px;}"
-        css += "Section{fill:yellow;drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 false);}"
+        css += "Section{fill:yellow;}"
         css += "Button{fill:green;}"
         css += ""
         StyleManager.addStyle(css)
