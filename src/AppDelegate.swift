@@ -10,7 +10,7 @@ class AppDelegate: NSObject, NSApplicationDelegate{
      */
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         Swift.print("applicationDidFinishLaunching")
-        win = Win()//Window(600,400)/*Init the window*///Win()
+        win = Window(600,400)/*Init the window*///Win()
         let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
         app.windows[0].close()/*close the initial non-optional default window*/
     }
