@@ -12,19 +12,9 @@ class AppDelegate: NSObject, NSApplicationDelegate{
      * Initializes your application
      */
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        //NSScreen.mainScreen()!.frame.width/2
-        //NSScreen.mainScreen()!.frame.height/2
         Swift.print("applicationDidFinishLaunching")
-        //let winRect = NSMakeRect(100, 0, 100, 100)//TODO: us ns rect?
-        //let styleMask:Int = NSBorderlessWindowMask|NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask
-        //win = Win()
-        win = Window(600,400)
-        Swift.print("---")
-        //self.win!.contentView!.wantsLayer = true
-        //self.win.setContentView(self.newContentView)
-        
-        Swift.print(aNotification)
-        let app:NSApplication = aNotification.object as! NSApplication
+        win = Window(600,400)//Win()
+        let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
         app.windows[0].close()/*close the initial non-optional default window*/
     }
     /*
