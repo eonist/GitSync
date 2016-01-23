@@ -1,5 +1,5 @@
 import Cocoa
-
+//delete this as you now have the graphics framework
 class TempRoundRect:Graphic {
     init(){
         let offsetType:OffsetType = OffsetType(OffsetType.outside)
