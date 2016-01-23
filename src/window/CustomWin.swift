@@ -15,8 +15,8 @@ class CustomView:WindowView{
     override func resolveSkin() {
         super.resolveSkin()
         
-        //Continue here: Make the window transperant
-        //make the background of the window with fillet corners
+        
+        
         //make the section also have round corners but only the top corners
         //add close button, min, max
         //add event listeners to these buttons
