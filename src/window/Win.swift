@@ -27,9 +27,11 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //self.opaque = true/*true == transperant*/
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()//makes it the apps main menu?
+        self.movableByWindowBackground = true
+        //win.makeKeyWindow()
+        //win.makeMainWindow()
         //Swift.print(self.deviceDescription)
         self.hasShadow = false
-        self.center()
         //self.backgroundColor = NSColor(calibratedHue: 0, saturation: 1.0, brightness: 0, alpha: 0.7)
         self.opaque = false
         //win.setIsMiniaturized(false)
