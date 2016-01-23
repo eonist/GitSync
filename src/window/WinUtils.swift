@@ -39,6 +39,7 @@ class WinUtils {
     
     /**
      * BETA
+     * Utilize the NSViewModifier, and make the method recursive
      */
     class func removeAllSubViews(window:NSWindow){
         let views:Array<NSView> = (window.contentView?.subviews)!
