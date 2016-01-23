@@ -17,7 +17,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     //todo you could add the bellow as lazy?
     //lazy var view = WinView(frame: Win.sizeRect)//WinViewTest(frame: Win.sizeRect)//,FlippedView(frame: Win.sizeRect)
     lazy var view = WinView4(frame: Win.sizeRect)/*<--This is the main view for this Window*/
-    //override internal var canBecomeKeyWindow:Bool {return true}/*Custom windows that use the NSBorderlessWindowMask can't become key by default. Override this method so that controls in this window will be enabled.*/
+    override internal var canBecomeKeyWindow:Bool {return true}/*Custom windows that use the NSBorderlessWindowMask can't become key by default. Override this method so that controls in this window will be enabled.*/
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
         let styleMask:Int = NSResizableWindowMask|NSBorderlessWindowMask//NSBorderlessWindowMask/*NSBorderlessWindowMask*///NSTitledWindowMask/*A title bar*/|NSResizableWindowMask/*A resize bar, border, or box*/|NSMiniaturizableWindowMask/*A miniaturize button*/|NSClosableWindowMask/*A close button*/
         super.init(contentRect: Win.sizeRect, styleMask: styleMask, backing: NSBackingStoreType.Buffered, `defer`: false)

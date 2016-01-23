@@ -26,12 +26,12 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         //print(app)
         print(app.mainWindow)
         //print(app.keyWindow)
-        /*
+        
         for w in app.windows{
-            //print("windowNumber: " + "\(w.windowNumber)")
-            //app.windowWithWindowNumber()//this is how you can manage windows
+            print("windowNumber: " + "\(w.windowNumber)")
+            app.windowWithWindowNumber(w.windowNumber)//this is how you can manage windows
         }
-        */
+        /**/
         Swift.print("app.windows.count: " + "\(app.windows.count)")
         app.windows[0].close()//close the initial window
         //app.windows[1].close()//close the initial window
