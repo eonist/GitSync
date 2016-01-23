@@ -27,8 +27,8 @@ class CustomView:WindowView{
         //remember the contentview is sort of the container to hold items. might need to add things to this instance
         
         
-        //let section = Section(120,40)
-        //addSubview(section)
+        let section = Section(120,40)
+        addSubview(section)
         //let button = Button(120,40)
         //addSubview(button)
     }
