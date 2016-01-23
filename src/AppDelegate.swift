@@ -19,8 +19,6 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         //self.win.setContentView(self.newContentView)
         self.win!.makeKeyAndOrderFront(self)
         win!.makeMainWindow()
-        win!.setFrameOrigin(CGPoint(200,200)
-        //win!.setFrame(NSMakeRect(100, 0, win!.frame.size.width, win!.frame.size.height), display: false)
         //print(aNotification)
         let app:NSApplication = aNotification.object as! NSApplication
         //print(app)
