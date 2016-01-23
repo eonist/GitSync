@@ -17,7 +17,11 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     //todo you could add the bellow as lazy?
     //lazy var view = WinView(frame: Win.sizeRect)//WinViewTest(frame: Win.sizeRect)//,FlippedView(frame: Win.sizeRect)
     lazy var view = WinView4(frame: Win.sizeRect)
-    
+    convenience init(){
+        let winRect = NSMakeRect(100, 0, 100, 100)//TODO: us ns rect?
+        let styleMask:Int = NSBorderlessWindowMask|NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask
+        self.init(contentRect: winRect, styleMask:styleMask , backing: NSBackingStoreType.Buffered, `defer`: false)
+    }
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
         super.init(contentRect: Win.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         self.contentView!.wantsLayer = true;
