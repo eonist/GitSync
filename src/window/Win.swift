@@ -51,7 +51,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.title = ""//GitSync
         createContent()
         self.delegate = self
-        self.setFrame(NSMakeRect(100, 0, frame.size.width, frame.size.height), display: false)
+        
     }
     
     /*
