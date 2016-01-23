@@ -26,9 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         //win!.makeMainWindow()
         //print(aNotification)
         let app:NSApplication = aNotification.object as! NSApplication
-        //print(app)
-        //print(app.mainWindow)
-        //print(app.keyWindow)
+       
         
         /*for w in app.windows{
         print("windowNumber: " + "\(w.windowNumber)")
