@@ -19,7 +19,9 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     lazy var view = WinView4(frame: Win.sizeRect)/*<--This is the main view for this Window*/
     
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
-        super.init(contentRect: Win.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask/*A resize bar, border, or box*/|NSMiniaturizableWindowMask/*A miniaturize button*/|NSClosableWindowMask/*A close button*/, backing: NSBackingStoreType.Buffered, `defer`: false)
+        let styleMask:Int = NSTitledWindowMask/*A title bar*/|NSResizableWindowMask/*A resize bar, border, or box*/|NSMiniaturizableWindowMask/*A miniaturize button*/|NSClosableWindowMask/*A close button*/
+        super.init(contentRect: Win.sizeRect, styleMask: styleMask, backing: NSBackingStoreType.Buffered, `defer`: false)
+        //NSBorderlessWindowMask/*NSBorderlessWindowMask*/
         self.contentView!.wantsLayer = true;
         self.backgroundColor = NSColor.whiteColor()
         self.opaque = true/*true == transperant*/
