@@ -52,7 +52,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //view.wantsLayer = true;
         self.contentView = view
         
-        self.title = ""//GitSync
+        self.title = ""/*Set the title of the titlebar*///GitSync
         createContent()
         self.delegate = self
     }
