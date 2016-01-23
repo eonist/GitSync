@@ -36,10 +36,13 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         /**/
         Swift.print("app.windows.count: " + "\(app.windows.count)")
         app.windows[0].close()//close the initial window
-        //app.windows[1].close()//close the initial window
-        
-        //let stroke = Stroke()
-        //stroke.testing()
+        app.windows[1].close()//close the initial window
+        Swift.print("after close")
+        Swift.print("app.windows.count: " + "\(app.windows.count)")
+        for w in app.windows{
+            print("windowNumber: " + "\(w.windowNumber)")
+            app.windowWithWindowNumber(w.windowNumber)//this is how you can manage windows
+        }
     }
     /*
      * When the application closes
@@ -48,6 +51,5 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         // Insert code here to tear down your application
         print("Good-bye")
     }
-    
 }
 
