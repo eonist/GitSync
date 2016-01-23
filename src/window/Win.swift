@@ -17,7 +17,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     //todo you could add the bellow as lazy?
     //lazy var view = WinView(frame: Win.sizeRect)//WinViewTest(frame: Win.sizeRect)//,FlippedView(frame: Win.sizeRect)
     override var canBecomeMainWindow:Bool{return true}
-    override var canBecomeKeyWindow:Bool{return true}
+    override var canBecomeKeyWindow:Bool{return true}/*If you want a titleless window to be able to become a key window, you need to create a subclass of NSWindow and override -canBecomeKeyWindow*/
     override var acceptsFirstResponder:Bool{return true}
     
 
