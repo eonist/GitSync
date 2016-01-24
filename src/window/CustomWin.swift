@@ -9,7 +9,7 @@ class CustomWin:Window{
  * TODO: You should extend the window not the view
  */
 class CustomView:WindowView{
-    override var allowsVibrancy:Bool{return true}
+    
     /**
      * Add content here
      */
