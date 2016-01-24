@@ -5,7 +5,9 @@ import Cocoa
  */
 
 
-//COntinue here: 
+//COntinue here: what methods is in the legacy code
+//add support for fullscreen mode
+//add on resize -> update style etc
 
 
 class CustomView:WindowView{
