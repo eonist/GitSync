@@ -10,6 +10,15 @@ class WinView4:FlippedView {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
-        Swift.print("hellow world")
+        resizeTest()
+    }
+    /**
+     * Resize test for Element
+     */
+    func resizeTest(){
+        StyleManager.addStyle("Element{fill:blue;}")
+        let element:Element = Element(100,100,nil,"first")
+        addSubview(element)
+        element.setSize(200, 100)
     }
 }
