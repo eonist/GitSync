@@ -26,6 +26,8 @@ class TranslucentWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
         visualEffectView.state = NSVisualEffectState.Active
         visualEffectView.wantsLayer = true;//this should be set in the iew not here
+        //visualEffectView.allowsVibrancy = true
+        //visualEffectView.blendingMode = NSVisualEffectBlendingModeWithinWindow,
     }
     /*
      * Required by the NSWindow
