@@ -5,13 +5,13 @@ class TranslucentWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
      *
      */
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
-        super.init(contentRect: Win.sizeRect, styleMask: NSResizableWindowMask|/*NSTitledWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask|*/NSFullSizeContentViewWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
+        super.init(contentRect: Win.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask|NSFullSizeContentViewWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         self.contentView!.wantsLayer = true;/*this can and is set in the view*/
         self.backgroundColor = NSColor.greenColor().alpha(0.2)
-        self.opaque = true
+        self.opaque = false
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()//makes it the apps main menu?
-        self.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
+        //self.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
         self.titlebarAppearsTransparent = true
         self.center()
         
@@ -26,9 +26,8 @@ class TranslucentWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
         visualEffectView.state = NSVisualEffectState.Active
         
-        //self.contentView?.addSubview(visualEffectView)
-        self.contentView = visualEffectView
-        
+        self.contentView?.addSubview(visualEffectView)
+        //self.contentView = visualEffectView
        
         
         /* self.contentView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[visualEffectView]-0-|", options: NSLayoutFormatOptions.DirectionLeadingToTrailing, metrics: nil, views: ["visualEffectView":visualEffectView]))
