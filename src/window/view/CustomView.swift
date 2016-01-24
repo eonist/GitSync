@@ -10,6 +10,7 @@ import Cocoa
 //add on resize -> update style etc
 
 class CustomView:WindowView{
+    var section:Section?
     /**
      * Add content here
      */
@@ -24,8 +25,8 @@ class CustomView:WindowView{
         //remember the contentview is sort of the container to hold items. might need to add things to this instance
         
         
-        let section = Section(frame.width,24)
-        addSubview(section)
+        section = Section(frame.width,24)
+        addSubview(section!)
         
         //let button = Button(20,20)
         //section.addSubview(button)
@@ -61,7 +62,7 @@ class CustomView:WindowView{
      */
     func setSize(size:CGSize){
         //Swift.print("CustomView.setSize() size: " + "\(size)")
-        
+        section!.sets
     }
     
     func onCloseButtonReleaseInside(sender: AnyObject) {
