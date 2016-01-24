@@ -9,9 +9,7 @@ import Cocoa
 //add support for fullscreen mode
 //add on resize -> update style etc
 
-
 class CustomView:WindowView{
-    
     /**
      * Add content here
      */
@@ -57,6 +55,14 @@ class CustomView:WindowView{
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMaximizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: maximizeButton)
         
     }
+    
+    /**
+     *
+     */
+    func setSize(size:CGSize)(){
+        Swift.print("CustomView.setSize() size: " + "\(size)")
+    }
+    
     func onCloseButtonReleaseInside(sender: AnyObject) {
         //Close window here
         //self.window?.close()//this closes the window
