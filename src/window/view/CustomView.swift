@@ -3,6 +3,11 @@ import Cocoa
 /*
  * TODO: Hook up the onWindowResize method
  */
+
+
+//COntinue here: 
+
+
 class CustomView:WindowView{
     
     /**
@@ -58,18 +63,18 @@ class CustomView:WindowView{
     /**
      *
      */
-    func onMinimizeButtonReleaseInside(){
+    func onMinimizeButtonReleaseInside(sender: AnyObject){
         //minimize the window here
         
         //NSApp.miniaturizeAll(self)//minimizes all windows in the app
-        //self.window?.miniaturize(nil)
+        self.window?.miniaturize(self)
     }
     /**
      *
      */
-    func onMaximizeButtonReleaseInside(){
+    func onMaximizeButtonReleaseInside(sender: AnyObject){
         //maximize the window here
-        //self.window?.zoom(nil)
+        self.window?.zoom(self)
     }
 }
 
