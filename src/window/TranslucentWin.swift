@@ -20,6 +20,11 @@ class TranslucentWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.title = ""//GitSync
         
         self.delegate = self
+        
+        let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 300, 180))
+        visualEffectView.material = NSVisualEffectMaterial.Dark
+        visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
+        visualEffectView.state = NSVisualEffectState.Active
     }
     /*
      * Required by the NSWindow
