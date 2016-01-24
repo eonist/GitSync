@@ -1,8 +1,8 @@
 import Cocoa
 
 /*
-* TODO: You should extend the window not the view
-*/
+ * TODO: Hook up the onWindowResize method
+ */
 class CustomView:WindowView{
     
     /**
@@ -45,22 +45,25 @@ class CustomView:WindowView{
         
         //Event stuff:
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onButtonDown:", name: ButtonEvent.down, object: closeButton)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onCloseButtonReleaseInside:", name: ButtonEvent.releaseInside, object: closeButton)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMinimizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: minimizeButton)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMaximizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: maximizeButton)
         
     }
-    func onButtonDown(sender: AnyObject) {
-        Swift.print("WinView.onButtonDown() ")
-        //let textButton:Button = (sender as! NSNotification).object as! Button
-        /*
-        if((sender as! NSNotification).object === self.textButton!){
-        Swift.print("sender.object === self.textButton")
-        }
-        */
-        
-        Swift.print("object: " + String((sender as! NSNotification).object))
-        Swift.print("name: " + String((sender as! NSNotification).name))//buttonEventDown
-        Swift.print("userInfo: " + String((sender as! NSNotification).userInfo))//nil
-        //Swift.print("WinView.onButtonDown() Sender: " + String(sender))
+    func onCloseButtonReleaseInside(sender: AnyObject) {
+        //Close window here
+    }
+    /**
+     *
+     */
+    func onMinimizeButtonReleaseInside(){
+        //minimize the window here
+    }
+    /**
+     *
+     */
+    func onMaximizeButtonReleaseInside(){
+        //maximize the window here
     }
 }
 
