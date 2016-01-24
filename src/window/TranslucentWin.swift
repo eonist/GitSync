@@ -7,7 +7,7 @@ class TranslucentWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
         super.init(contentRect: Win.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask|NSFullSizeContentViewWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         self.contentView!.wantsLayer = true;/*this can and is set in the view*/
-        self.backgroundColor = NSColor.whiteColor().alpha(0.1)
+        self.backgroundColor = NSColor.greenColor().alpha(0.1)
         self.opaque = false
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()//makes it the apps main menu?
