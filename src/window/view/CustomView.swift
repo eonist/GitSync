@@ -30,7 +30,7 @@ class CustomView:WindowView{
         
         var css:String = "Button{width:12px,12px;height:12px,12px;margin-left:0px;margin-top:0px;}"
         css += "Button:over{fill:~/Desktop/icons/titlebar/close_hover.svg none;}"
-        css += "Button#close{fill:~/Desktop/icons/titlebar/close.svg none;}"
+        css += "Button#close{fill:~/Desktop/icons/titlebar/temp.svg none;}"
         css += "Button#minimize{fill:~/Desktop/icons/titlebar/minimize.svg none;}"
         css += "Button#maximize{fill:~/Desktop/icons/titlebar/maximize.svg none;}"
         
