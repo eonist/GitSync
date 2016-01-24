@@ -23,7 +23,7 @@ class TranslucentWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
         visualEffectView.material = NSVisualEffectMaterial.AppearanceBased//Dark,MediumLight,PopOver,UltraDark,AppearanceBased,Titlebar,Menu
-        visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
+        visualEffectView.blendingMode = NSVisualEffectBlendingMode.WithinWindow
         visualEffectView.state = NSVisualEffectState.Active
         self.contentView = visualEffectView
         //visualEffectView.wantsLayer = true;//this should be set in the iew not here
