@@ -29,11 +29,18 @@ class TranslucentWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //visualEffectView.allowsVibrancy.interiorBackgroundStyle // only radable
         //visualEffectView.allowsVibrancy = true
         //visualEffectView.blendingMode = NSVisualEffectBlendingModeWithinWindow,
+        self.contentView = visualEffectView
+        
     }
     /*
      * Required by the NSWindow
      */
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+class ViewAllowsVibrancy: NSView {
+    override var allowsVibrancy: Bool {
+        return true
     }
 }
