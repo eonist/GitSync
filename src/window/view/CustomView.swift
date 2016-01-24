@@ -62,7 +62,9 @@ class CustomView:WindowView{
      */
     func setSize(size:CGSize){
         //Swift.print("CustomView.setSize() size: " + "\(size)")
-        section!.setSize(size.width, section?.height)
+        self.skin!.setSize(size.width, size.height)
+        section!.setSize(size.width, section!.height)
+        
     }
     
     func onCloseButtonReleaseInside(sender: AnyObject) {
