@@ -24,8 +24,29 @@ class CustomView:WindowView{
         
         let section = Section(120,40)
         addSubview(section)
-        let button = Button(20,20)
-        addSubview(button)
+        
+        //let button = Button(20,20)
+        //section.addSubview(button)
+        
+        var css:String = "Button{width:12px,12px;height:12px,12px;margin-left:0px;margin-top:0px;}"
+        css += "Button:over{fill:~/Desktop/icons/titlebar/close_hover.svg none;}"
+        css += "Button#close{fill:~/Desktop/icons/titlebar/close.svg none;}"
+        css += "Button#minimize{fill:~/Desktop/icons/titlebar/minimize.svg none;}"
+        css += "Button#maximize{fill:~/Desktop/icons/titlebar/maximize.svg none;}"
+        
+        StyleManager.addStyle(css)
+        let closeButton = Button(12,12,nil,"close")/*<--the w and h should be NaN, test if it supports this*/
+        let minimizeButton = Button(12,12,nil,"minimize")
+        let maximizeButton = Button(12,12,nil,"maximize")
+        
+        self.addSubview(closeButton)
+        closeButton.setPosition(CGPoint(8,4))
+        self.addSubview(minimizeButton)
+        minimizeButton.setPosition(CGPoint(28,4))
+        self.addSubview(maximizeButton)
+        maximizeButton.setPosition(CGPoint(48,4))
+        
+        
     }
 }
 
