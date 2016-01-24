@@ -21,12 +21,18 @@ class TranslucentWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         self.delegate = self
         
-        let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
+        let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 400, 400))
         visualEffectView.material = NSVisualEffectMaterial.AppearanceBased//Dark,MediumLight,PopOver,UltraDark,AppearanceBased,Titlebar,Menu
         visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
         visualEffectView.state = NSVisualEffectState.Active
         
         self.contentView?.addSubview(visualEffectView)
+        
+       
+        
+        /* self.contentView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[visualEffectView]-0-|", options: NSLayoutFormatOptions.DirectionLeadingToTrailing, metrics: nil, views: ["visualEffectView":visualEffectView]))
+        self.contentView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[visualEffectView]-0-|", options: NSLayoutFormatOptions.DirectionLeadingToTrailing, metrics: nil, views: ["visualEffectView":visualEffectView]))
+        */
         //visualEffectView.wantsLayer = true;//this should be set in the iew not here
         //visualEffectView.allowsVibrancy.interiorBackgroundStyle // only radable
         //visualEffectView.allowsVibrancy = true
