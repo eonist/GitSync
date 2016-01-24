@@ -7,8 +7,8 @@ class TranslucentWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
         super.init(contentRect: Win.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask|NSFullSizeContentViewWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         self.contentView!.wantsLayer = true;/*this can and is set in the view*/
-        self.backgroundColor = NSColor.greenColor().alpha(0.1)
-        self.opaque = false
+        //self.backgroundColor = NSColor.greenColor().alpha(0.2)
+        self.opaque = true
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()//makes it the apps main menu?
         //self.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
@@ -23,7 +23,7 @@ class TranslucentWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
         visualEffectView.material = NSVisualEffectMaterial.AppearanceBased//Dark,MediumLight,PopOver,UltraDark,AppearanceBased,Titlebar,Menu
-        visualEffectView.blendingMode = NSVisualEffectBlendingMode.WithinWindow
+        visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
         visualEffectView.state = NSVisualEffectState.Active
         self.contentView = visualEffectView
         //visualEffectView.wantsLayer = true;//this should be set in the iew not here
