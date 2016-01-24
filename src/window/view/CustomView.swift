@@ -29,10 +29,10 @@ class CustomView:WindowView{
         //section.addSubview(button)
         
         var css:String = "Button{width:12px,12px;height:12px,12px;margin-left:0px;margin-top:0px;}"
-        css += "Button:over{fill:~/Desktop/icons/titlebar/close_hover.svg none;}"
-        css += "Button#close{fill:~/Desktop/icons/titlebar/close.svg none;}"
-        css += "Button#minimize{fill:~/Desktop/icons/titlebar/minimize.svg none;}"
-        css += "Button#maximize{fill:~/Desktop/icons/titlebar/maximize.svg none;}"
+        css += "Button:over{fill:~/Desktop/icons/title_bar/close_hover.svg none;}"
+        css += "Button#close{fill:~/Desktop/icons/title_bar/close.svg none;}"
+        css += "Button#minimize{fill:~/Desktop/icons/title_bar/minimize.svg none;}"
+        css += "Button#maximize{fill:~/Desktop/icons/title_bar/maximize.svg none;}"
         
         StyleManager.addStyle(css)
         let closeButton = Button(12,12,nil,"close")/*<--the w and h should be NaN, test if it supports this*/
