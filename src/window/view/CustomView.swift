@@ -52,8 +52,8 @@ class CustomView:WindowView{
     }
     func onCloseButtonReleaseInside(sender: AnyObject) {
         //Close window here
-        self.window?.close()//this closes the window
-        NSApp.terminate(self)
+        //self.window?.close()//this closes the window
+        NSApp.terminate(self)//quits the app
     }
     /**
      *
