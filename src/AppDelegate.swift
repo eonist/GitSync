@@ -4,7 +4,7 @@ import Cocoa
  * The class for the application
  */
 class AppDelegate: NSObject, NSApplicationDelegate{
-    var win:NSWindow?// = WinUtils.win()
+    var win:NSWindow?
     /**
      * Initializes your application
      */
@@ -16,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         css += "Button{fill:green;}"
         css += ""
         StyleManager.addStyle(css)
-        win = CustomWin()/*Init the window*///Win()
+        win = TranslucentWin()//CustomWin()/*Init the window*///Win()
         let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
         app.windows[0].close()/*close the initial non-optional default window*/
     }
