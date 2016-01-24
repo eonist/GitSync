@@ -62,13 +62,14 @@ class CustomView:WindowView{
         //minimize the window here
         
         //NSApp.miniaturizeAll(self)//minimizes all windows in the app
-        self.window?.miniaturize(self)
+        //self.window?.miniaturize(nil)
     }
     /**
      *
      */
     func onMaximizeButtonReleaseInside(){
         //maximize the window here
+        //self.window?.zoom(nil)
     }
 }
 
