@@ -52,6 +52,7 @@ class CustomView:WindowView{
     }
     func onCloseButtonReleaseInside(sender: AnyObject) {
         //Close window here
+        self.window?.close()
     }
     /**
      *
