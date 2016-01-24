@@ -5,7 +5,7 @@ class TranslucentWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
      *
      */
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
-        super.init(contentRect: Win.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
+        super.init(contentRect: Win.sizeRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask|NSFullSizeContentViewWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         self.contentView!.wantsLayer = true;/*this can and is set in the view*/
         self.backgroundColor = NSColor.grayColor()
         self.opaque = true
