@@ -1,14 +1,8 @@
 import Cocoa
 
-/*
+/**
  * TODO: Hook up the onWindowResize method
  */
-
-
-//COntinue here: what methods is in the legacy code
-//add support for fullscreen mode
-//add on resize -> update style etc
-
 class CustomView:WindowView{
     var section:Section?
     /**
@@ -49,14 +43,13 @@ class CustomView:WindowView{
         self.addSubview(maximizeButton)
         maximizeButton.setPosition(CGPoint(48,4))
         
-        //Event stuff:
+        //Event listeners:
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onCloseButtonReleaseInside:", name: ButtonEvent.releaseInside, object: closeButton)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMinimizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: minimizeButton)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMaximizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: maximizeButton)
         
     }
-    
     /**
      *
      */
@@ -64,9 +57,10 @@ class CustomView:WindowView{
         //Swift.print("CustomView.setSize() size: " + "\(size)")
         self.skin!.setSize(size.width, size.height)
         section!.setSize(size.width, section!.height)
-        
     }
-    
+    /**
+     *
+     */
     func onCloseButtonReleaseInside(sender: AnyObject) {
         //Close window here
         //self.window?.close()//this closes the window
@@ -82,7 +76,7 @@ class CustomView:WindowView{
         self.window?.miniaturize(self)
     }
     /**
-     *
+     * TODO: Add support for fullscreen mode aswell
      */
     func onMaximizeButtonReleaseInside(sender: AnyObject){
         //maximize the window here
