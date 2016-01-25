@@ -76,7 +76,7 @@ class CustomView:WindowView{
         self.window?.miniaturize(self)
     }
     /**
-     * TODO: Add support for fullscreen mode aswell
+     * TODO: Add support for fullscreen mode aswell: window.setFrame(NSScreen.mainScreen()!.visibleFrame, display: true, animate: true)
      */
     func onMaximizeButtonReleaseInside(sender: AnyObject){
         //maximize the window here
