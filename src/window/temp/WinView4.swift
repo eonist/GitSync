@@ -18,7 +18,7 @@ class WinView4:FlippedView {
      */
     func floatTest(){
         StyleManager.addStyle("Element{fill:blue;}")
-        let section = Section =
+        let section = Section = 
         let box1 = Element(100,100,nil,"box1")
         let box2 = Element(100,100,nil,"box2")
     }
