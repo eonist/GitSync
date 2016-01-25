@@ -10,7 +10,17 @@ class WinView4:FlippedView {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
-        resizeTest()
+        floatTest()
+        //resizeTest()
+    }
+    /**
+     * TODO: Remember to see the legacy code for more tests
+     */
+    func floatTest(){
+        StyleManager.addStyle("Element{fill:blue;}")
+        let section = Section =
+        let box1 = Element(100,100,nil,"box1")
+        let box2 = Element(100,100,nil,"box2")
     }
     /**
      * Resize test for Element
