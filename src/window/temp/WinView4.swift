@@ -23,10 +23,10 @@ class WinView4:FlippedView {
         StyleManager.addStyle(css)
         let section = Section(400,400)
         addSubview(section)
-        let box1 = Element(100,100,nil,"box1")
-        addSubview(box1)
-        let box2 = Element(100,100,nil,"box2")
-        addSubview(box2)
+        let box1 = Element(100,100,section,"box1")
+        section.addSubview(box1)
+        let box2 = Element(100,100,section,"box2")
+        section.addSubview(box2)
     }
     /**
      * Resize test for Element
