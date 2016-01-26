@@ -25,8 +25,10 @@ class WinView4:FlippedView {
         addSubview(section)
         let box1 = Element(100,100,section,"box1")
         section.addSubview(box1)
-        //let box2 = Element(100,100,section,"box2")
-        //section.addSubview(box2)
+        let box2 = Element(100,100,section,"box2")
+        section.addSubview(box2)
+        
+        
     }
     /**
      * Resize test for Element
