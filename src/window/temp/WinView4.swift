@@ -17,13 +17,16 @@ class WinView4:FlippedView {
      * TODO: Remember to see the legacy code for more tests
      */
     func floatTest(){
-        StyleManager.addStyle("Element{fill:blue;float:left;clear:left;}")
+        var css:String = ""
+        css += "Element{fill:blue;float:left;clear:left;}"
+        css += "Element#box2{fill:red;}"
+        StyleManager.addStyle(css)
         let section = Section(400,400)
         addSubview(section)
         let box1 = Element(100,100,nil,"box1")
         addSubview(box1)
-        //let box2 = Element(100,100,nil,"box2")
-        //addSubview(box2)
+        let box2 = Element(100,100,nil,"box2")
+        addSubview(box2)
     }
     /**
      * Resize test for Element
