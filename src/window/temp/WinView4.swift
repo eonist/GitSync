@@ -28,8 +28,8 @@ class WinView4:FlippedView {
         let box2 = Element(100,100,section,"box2")
         section.addSubview(box2)
         
-        let tempStyle = StyleResolver.style(box2)
-        StyleParser.describe(tempStyle)
+        //let tempStyle = StyleResolver.style(box2)
+        //StyleParser.describe(tempStyle)
         
         
     }
