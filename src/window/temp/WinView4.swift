@@ -30,8 +30,9 @@ class WinView4:FlippedView {
         
         //let tempStyle = StyleResolver.style(box2)
         //StyleParser.describe(tempStyle)
-        
-        
+        Swift.print("-------")
+        Swift.print(ElementParser.children(section,IElement.self).count)
+        Swift.print("-------")
     }
     /**
      * Resize test for Element
