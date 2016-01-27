@@ -99,8 +99,10 @@ class WinView4:FlippedView {
         css += "}"
         
         css += "RadioBullet{"
+        css += "float:left;"
         css += "width:14px,14px,14px,14px,5px;"//,
         css += "height:14px,14px,14px,14px,5px;"//
+        css += "margin-right:12px;"
 
         /**/
         css += "line:grey7;"
@@ -126,7 +128,9 @@ class WinView4:FlippedView {
         section.addSubview(radioBullet2)
         
         
-        //try add the button, then select button, then fix the pollish later, then padding and floating etc
+        //addSubview(SelectGroup([iconButton1,iconButton2,iconButton3,iconButton4/**/],iconButton2));
+
+        //continue here: try add the button, then select button, then fix the pollish later, then padding and floating etc
     }
     /**
      * TODO: Remember to see the legacy code for more tests
