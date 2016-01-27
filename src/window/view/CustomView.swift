@@ -60,7 +60,7 @@ class CustomView:WindowView{
         css += "fill:#EFEFF4;"//bg color for win: #E8E8E8
         css += "float:left;"
         css += "clear:left;"
-        css += "width:64px;"//<---temp solution, this should be minus the padding left, test and fix this in a separate test
+        css += "width:56px;"//<---temp solution, this should be minus the padding left, test and fix this in a separate test
         css += "height:24px;"//<---same goes with this one
         css += "padding-left:9px;"
         css += "padding-top:4px;"
@@ -77,7 +77,7 @@ class CustomView:WindowView{
         css += "padding-top:0px;"
         css += "width:14px,14px,14px,14px,5px;"
         css += "height:14px,14px,14px,14px,5px;"
-        css += "margin-right:12px;"
+        css += "margin-right:6px;"
         css += "margin-left:0px,0px,0px,0px,5.5px;"
         css += "margin-top:0px,0px,0px,0px,5.5px;"
         css += "corner-radius:7px,7px,7px,7px,2.5px;"
