@@ -136,7 +136,7 @@ class WinView4:FlippedView {
         
         
         
-        var css2 = "Button{fill:blue;}"
+        var css2 = "Button{fill:blue;float:left;clear:left;}"
         css2 += "Button:down{fill:red;}"
         css2 += "Section{fill:grey;}"
         
@@ -148,7 +148,8 @@ class WinView4:FlippedView {
         
         
         
-        section.addSubView(Button(100,100))
+        section.addSubView(Button(100,100,section))
+        section.addSubView(Button(100,100,section))
         
         //continue here: try to create a new Element that doesnt extend interactive view, think how you did it with window. in fact, try using window for this just to see if it wokrs.
         
