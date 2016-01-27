@@ -18,29 +18,29 @@ class WinView4:FlippedView {
      */
     func floatTest(){
         var css:String = ""
-        css += "Element{fill:green;float:left;clear:left;}"
-        css += "Container{fill:blue;}"
+        css += "Element{float:left;clear:left;}"
+        css += "Section{fill:green;}"
         css += "Element#box1{fill:red;}"
         css += "Element#box2{fill:purple;}"
         css += "Element#box3{fill:blue;}"
         css += "Element#box4{fill:orange;}"
         css += "Element#box5{fill:grey;}"
         StyleManager.addStyle(css)
-        let container = Container(400,400)
-        addSubview(container)
-        let box1 = Element(100,100,container,"box1")
-        container.addSubview(box1)
-        let box2 = Element(100,100,container,"box2")
-        container.addSubview(box2)
-        let box3 = Element(100,100,container,"box3")
-        container.addSubview(box3)
-        let box4 = Element(100,100,container,"box4")
-        container.addSubview(box4)
-        let box5 = Element(100,100,container,"box5")
-        container.addSubview(box5)
+        let section = Section(500,500)
+        addSubview(section)
+        let box1 = Element(100,100,section,"box1")
+        section.addSubview(box1)
+        let box2 = Element(100,100,section,"box2")
+        section.addSubview(box2)
+        let box3 = Element(100,100,section,"box3")
+        section.addSubview(box3)
+        let box4 = Element(100,100,section,"box4")
+        section.addSubview(box4)
+        let box5 = Element(100,100,section,"box5")
+        section.addSubview(box5)
         
         
-        let tempStyle = StyleResolver.style(container)
+        let tempStyle = StyleResolver.style(section)
         StyleParser.describe(tempStyle)
         //Swift.print("-------")
         //Swift.print(ElementParser.children(section,IElement.self).count)
