@@ -32,13 +32,13 @@ class CustomView:WindowView{
         css += "Section#titleBar Button#minimize{fill:~/Desktop/icons/title_bar/min.svg none;}"
         css += "Section#titleBar Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"
         
-        css += "Section#boxContainer{fill:green;float:left;clear:left;padding-top:20px;padding-left:20px;}"
+        css += "Section#boxContainer{fill:green;float:left;clear:left;padding-top:20px;padding-left:20px;corner-radius:0px;}"
         css += "Element#box{fill:blue;float:left;clear:left;padding-top:0px;padding-left:0px;}"
         
         
         StyleManager.addStyle(css)
         
-        section = Section(frame.width,24,self,"titleBar")
+        section = Section(frame.width,16,self,"titleBar")
         self.addSubview(section!)
         
         let closeButton = Button(12,12,section!,"close")/*<--the w and h should be NaN, test if it supports this*/
@@ -48,7 +48,7 @@ class CustomView:WindowView{
         let maximizeButton = Button(12,12,section!,"maximize")
         section!.addSubview(maximizeButton)
         
-        let boxContainer = Section(100,100,self,"boxContainer")
+        let boxContainer = Section(200,200,self,"boxContainer")
         addSubview(boxContainer)
         
         let box = Element(100,100,boxContainer,"box")
