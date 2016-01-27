@@ -118,7 +118,7 @@ class WinView4:FlippedView {
         css += "clear:left;"
         css += "width:64px;"//<---temp solution, this should be minus the padding left, test and fix this in a separate test
         css += "height:24px;"//<---same goes with this one
-        css += "padding-left:8px;"
+        css += "padding-left:9px;"
         css += "padding-top:5px;"
         css += "drop-shadow:<InsetShadow>;"
         css += "}"
@@ -174,7 +174,7 @@ class WinView4:FlippedView {
         
         let radioBullet2 = RadioBullet(14,14,true,section)
         section.addSubview(radioBullet2)
-        //radioBullet2.setSelected(false)//<---work around for now
+        radioBullet2.setSelected(false)//<---work around for now
         
         addSubview(SelectGroup([radioBullet1,radioBullet2],radioBullet1))/**/
 
