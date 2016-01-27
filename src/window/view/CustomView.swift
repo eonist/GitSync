@@ -34,19 +34,21 @@ class CustomView:WindowView{
         
         StyleManager.addStyle(css)
         
-        section = Section(100,24)
-        self.addSubview(section!)
+        let theSection = Section(100,100)
+        self.addSubview(theSection)
         
         
-        let closeButton = Button(12,12,section!,"close")/*<--the w and h should be NaN, test if it supports this*/
-        let minimizeButton = Button(12,12,section!,"minimize")
-        let maximizeButton = Button(12,12,section!,"maximize")
+        let closeButton = Button(12,12,theSection)/*<--the w and h should be NaN, test if it supports this*/
+        theSection.addSubview(closeButton)
+        let minimizeButton = Button(12,12,theSection)
+        theSection.addSubview(minimizeButton)
+        let maximizeButton = Button(12,12,theSection)
+        theSection.addSubview(maximizeButton)
         
-        section!.addSubview(closeButton)
         //closeButton.setPosition(CGPoint(8,4))
-        section!.addSubview(minimizeButton)
+        
         //minimizeButton.setPosition(CGPoint(28,4))
-        section!.addSubview(maximizeButton)
+        
         //maximizeButton.setPosition(CGPoint(48,4))
         
         //Event listeners:
