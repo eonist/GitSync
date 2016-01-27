@@ -82,7 +82,7 @@ class WinView4:FlippedView {
         css += "}"
         /**/
         css += "RadioBulletTopShine{"
-        css +=     "fill:radial-gradient(50% 20% 120% 40% 90 -1, white 1 0,white 0.33 0.4724,white 0 1);"
+        css +=     "fill:radial-gradient(50% 20% 40% 120% 90 -1, white 1 0,white 0.33 0.4724,white 0 1);"
         css += "}"
         css += "RadioBulletBottomShine{"
         css +=     "fill:radial-gradient(50% 80% 90% 90% 0 0, white 0.70 0,white 0 1);"
@@ -105,7 +105,7 @@ class WinView4:FlippedView {
         //css += "fill:linear-gradient(bottom, #EDEDED 1 0,#EDEDED 1 0.4214,#EDEDED 1 0.4908,#F6F6F6 1 0.5605,#FDFDFD 1 0.6768,#FFFFFF 1 1);"
 
         
-        css += "fill:<RadioBulletTopShine>,orange,blue,purple,red;"
+        css += "fill:<RadioBulletBase:selected>,<RadioBulletBottomShine>,<RadioBulletTopShine>,<RadioBulletBulletShine>,#021931;"
         css += "fill-alpha:1,0,0,0,1;"
         css += "margin-left:0px,0px,0px,0px,4.5px;"
         css += "margin-top:0px,0px,0px,0px,4.5px;"
