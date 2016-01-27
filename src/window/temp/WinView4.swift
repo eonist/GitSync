@@ -20,7 +20,9 @@ class WinView4:FlippedView {
         var css:String = ""
         css += "Element{fill:green;float:left;clear:left;}"
         css += "Element#box2{fill:red;}"
-        css += "Element#box2{fill:purple;}"
+        css += "Element#box3{fill:purple;}"
+        css += "Element#box4{fill:blue;}"
+        css += "Element#box5{fill:orange;}"
         StyleManager.addStyle(css)
         let section = Section(400,400)
         addSubview(section)
@@ -28,8 +30,8 @@ class WinView4:FlippedView {
         section.addSubview(box1)
         let box2 = Element(100,100,section,"box2")
         section.addSubview(box2)
-        let box2 = Element(100,100,section,"box2")
-        section.addSubview(box2)
+        let box3 = Element(100,100,section,"box3")
+        section.addSubview(box3)
         
         
         //let tempStyle = StyleResolver.style(box2)
