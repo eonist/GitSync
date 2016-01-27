@@ -37,7 +37,7 @@ class CustomView:WindowView{
         
         StyleManager.addStyle(css)
         
-        section = Section(frame.width,24,"titleBar")
+        section = Section(frame.width,24,nil,"titleBar")
         self.addSubview(section!)
         
         let closeButton = Button(12,12,section!,"close")/*<--the w and h should be NaN, test if it supports this*/
@@ -47,7 +47,7 @@ class CustomView:WindowView{
         let maximizeButton = Button(12,12,section!,"maximize")
         section!.addSubview(maximizeButton)
         
-        let box = Element(100,100)
+        let box = Element(100,100,self,"box")
         addSubview(box)
         
         
