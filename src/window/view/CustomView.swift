@@ -25,18 +25,16 @@ class CustomView:WindowView{
         //section.addSubview(button)
         
         var css:String = ""
-        css += "Section{float:left;clear:none;padding-top:4px;padding-left:8px;}"
+        css += "Section#titleBar{float:left;clear:none;padding-top:4px;padding-left:8px;}"
         css += "Button{width:12px,12px;height:12px,12px;float:left;clear:none;margin-right:8px;margin-top:0px;padding-left:0px;padding-top:0px;}"//adding padding here shouldnt be necessary
         css += "Button:over{fill:~/Desktop/icons/title_bar/hover.svg none;}"
         css += "Button#close{fill:~/Desktop/icons/title_bar/close.svg none;}"
         css += "Button#minimize{fill:~/Desktop/icons/title_bar/min.svg none;}"
-        css += "Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"/**/
-        
+        css += "Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"
         StyleManager.addStyle(css)
         
-        section = Section(100,100)
+        section = Section(frame.width,24,"titleBar")
         self.addSubview(section!)
-        
         
         let closeButton = Button(12,12,section!,"close")/*<--the w and h should be NaN, test if it supports this*/
         section!.addSubview(closeButton)
@@ -45,14 +43,7 @@ class CustomView:WindowView{
         let maximizeButton = Button(12,12,section!,"maximize")
         section!.addSubview(maximizeButton)
         
-        //closeButton.setPosition(CGPoint(8,4))
-        
-        //minimizeButton.setPosition(CGPoint(28,4))
-        
-        //maximizeButton.setPosition(CGPoint(48,4))
-        
-        //Event listeners:
-        
+        /*Event listeners:*/
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onCloseButtonReleaseInside:", name: ButtonEvent.releaseInside, object: closeButton)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMinimizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: minimizeButton)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMaximizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: maximizeButton)
