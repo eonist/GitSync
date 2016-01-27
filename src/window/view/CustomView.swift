@@ -25,19 +25,19 @@ class CustomView:WindowView{
         //section.addSubview(button)
         
         var css:String = ""
-        css += "Section#titleBar{float:left;clear:none;padding-top:4px;padding-left:8px;}"
+        css += "Section#titleBar{float:left;clear:left;padding-top:4px;padding-left:8px;}"
         css += "Section#titleBar Button{width:12px,12px;height:12px,12px;float:left;clear:none;margin-right:8px;margin-top:0px;padding-left:0px;padding-top:0px;}"//adding padding here shouldnt be necessary
         css += "Section#titleBar Button:over{fill:~/Desktop/icons/title_bar/hover.svg none;}"
         css += "Section#titleBar Button#close{fill:~/Desktop/icons/title_bar/close.svg none;}"
         css += "Section#titleBar Button#minimize{fill:~/Desktop/icons/title_bar/min.svg none;}"
         css += "Section#titleBar Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"
         
-        css += "Section#titleBar Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"
+        css += "Element#box{fill:blue;float:left;clear:left;}"
         
         
         StyleManager.addStyle(css)
         
-        section = Section(frame.width,24,nil,"titleBar")
+        section = Section(frame.width,24,self,"titleBar")
         self.addSubview(section!)
         
         let closeButton = Button(12,12,section!,"close")/*<--the w and h should be NaN, test if it supports this*/
