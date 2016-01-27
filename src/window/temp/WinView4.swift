@@ -20,10 +20,16 @@ class WinView4:FlippedView {
      *
      */
     func radialGradientCSSTest(){
-        let css = "fill:radial-gradient(50% 50% 100% 100% 90 0.2, white 1 0,white 0 0.5);"
+        var css = ""
+        css += "Element{"
+        css += "fill:radial-gradient(50% 50% 100% 100% 90 0.2, blue 1 0,red 0 0.5);"
+        css += "}"
+        
         StyleManager.addStyle(css)
         let element = Element(100,100)
         addSubview(element)
+        
+        
     }
     /**
      *
