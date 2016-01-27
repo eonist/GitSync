@@ -88,7 +88,8 @@ class WinView4:FlippedView {
         
         
         
-        css += "fill:<RadioBulletBase:selected>,<RadioBulletBottomShine>,blue,green,#021931;"
+        css += "fill:<RadioBulletBase:selected>,purple,blue,green,red;"//#021931
+        css += "fill-alpha:1,0,0,0,0,0"
         css += "margin-left:0px,0px,0px,0px,4.5px;"
         css += "margin-top:0px,0px,0px,0px,4.5px;"
         css += "corner-radius:7px,7px,7px,7px,2.5px"
