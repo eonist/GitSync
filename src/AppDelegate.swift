@@ -18,7 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         css += ""
         StyleManager.addStyle(css)
         */
-        win = Win()//TranslucentWin()//CustomWin()//Win()//CustomWin()/*Init the window*///Win()//TranslucentWin()
+        win = CustomWin()//Win()//TranslucentWin()//CustomWin()//Win()//CustomWin()/*Init the window*///Win()//TranslucentWin()
         let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
         app.windows[0].close()/*close the initial non-optional default window*/
     }
