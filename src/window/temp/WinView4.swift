@@ -10,8 +10,8 @@ class WinView4:FlippedView {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
-        linkTest()
-        //radioBulletTest()
+        //linkTest()
+        radioBulletTest()
         //floatTest()
         //resizeTest()
     }
@@ -87,7 +87,7 @@ class WinView4:FlippedView {
         
         
         
-        css += "fill:<RadioBulletBase>,grey,red,green,#021931;"
+        css += "fill:<RadioBulletBase:selected>,<RadioBulletBottomShine>,<RadioBulletTopShine>,<RadioBulletBulletShine>,#021931;"
         css += "margin-left:0px,0px,0px,0px,4.5px;"
         css += "margin-top:0px,0px,0px,0px,4.5px;"
         css += "corner-radius:7px,7px,7px,7px,2.5px"
