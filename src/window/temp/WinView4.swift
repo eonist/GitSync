@@ -100,6 +100,7 @@ class WinView4:FlippedView {
         css += "height:19px;"
         css += "padding-left:12px;"
         css += "padding-top:5px;"
+        //css += "drop-shadow:<InsetShadow>;"
         css += "}"
         /*generics*/
         css += "RadioBulletBase{"
