@@ -123,8 +123,11 @@ class WinView4:FlippedView {
         
         //let css2 = "Button{fill:linear-gradient(bottom, green, red);width:50px;height:50px;}"
         StyleManager.addStyle(css)
-        let section = Section(500,500,nil,nil,false)
+        let section = Section(500,500)
         addSubview(section)
+        
+        
+        //continue here: try to create a new Element that doesnt extend interactive view, think how you did it with window. in fact, try using window for this just to see if it wokrs.
         
         //section.frame.origin = CGPoint(20,20)
         let radioBullet1 = Button(14,14,section)
