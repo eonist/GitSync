@@ -28,13 +28,18 @@ class WinView4:FlippedView {
         for match:NSTextCheckingResult in matches {/*Loops through the pattern*/
             //Swift.print(match.numberOfRanges)
             if(match.numberOfRanges > 0){/*match = the link name>*/
-                let linkNameSansBrackets:String = (string as NSString).substringWithRange(match.rangeAtIndex(0))/*the link name>*/
-                Swift.print("linkNameSansBrackets: " + "\(linkNameSansBrackets)")
-                Swift.print("difference: " + "\(difference)")
+                
                 var range:NSRange = match.rangeAtIndex(0)//StringRangeParser.stringRange(string, start, end)
-                difference += (replacement.count - range.length)
+                
+                Swift.print("range.location: " + "\(range.location)")
                 range.location = range.location-1+difference//add the < char
                 range.length = range.length+2//add the > char
+                difference += (replacement.count - range.length)
+                
+                let linkNameSansBrackets:String = (string as NSString).substringWithRange(range)/*the link name>*/
+                Swift.print("linkNameSansBrackets: " + "\(linkNameSansBrackets)")
+                Swift.print("difference: " + "\(difference)")
+                
                 //string.substringWithRange(range)
                 //string.replaceRange(range, with: linkedStyleProperty)
                 string = (string as NSString).stringByReplacingCharactersInRange(range, withString: replacement)
