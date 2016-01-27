@@ -116,14 +116,14 @@ class WinView4:FlippedView {
         css += "fill:#dddddd;"
         css += "float:left;"
         css += "clear:left;"
-        css += "width:52px;"
-        css += "height:19px;"
+        css += "width:64px;"//<---temp solution, this should be minus the padding left, test and fix this in a separate test
+        css += "height:24px;"//<---same goes with this one
         css += "padding-left:12px;"
         css += "padding-top:5px;"
         css += "drop-shadow:<InsetShadow>;"
         css += "}"
         /*idle*/
-        css += "RadioBullet{"
+        css += "Section RadioBullet{"
         css += "float:left;"
         css += "width:14px,14px,14px,14px,5px;"
         css += "height:14px,14px,14px,14px,5px;"
@@ -139,7 +139,7 @@ class WinView4:FlippedView {
         css += "fill-alpha:1,0,0,0,0;"
         css += "}"
         /*selected*/
-        css += "RadioBullet:selected{"
+        css += "Section RadioBullet:selected{"
         css += "fill:<RadioBulletBase:selected>,<RadioBulletBottomShine>,<RadioBulletTopShine>,<RadioBulletBulletShine>,#021931;"
         css += "fill-alpha:1,0,0,0,1;"
         css += "}"
@@ -165,14 +165,14 @@ class WinView4:FlippedView {
         
         
         //section.frame.origin = CGPoint(20,20)
-        /* let radioBullet1 = RadioBullet(14,14,true,section)
+         let radioBullet1 = RadioBullet(14,14,true,section)
         section.addSubview(radioBullet1)
         
         let radioBullet2 = RadioBullet(14,14,true,section)
         section.addSubview(radioBullet2)
-        radioBullet2.setSelected(false)//<---work around for now
+        //radioBullet2.setSelected(false)//<---work around for now
         
-        addSubview(SelectGroup([radioBullet1,radioBullet2],radioBullet1));*/
+        addSubview(SelectGroup([radioBullet1,radioBullet2],radioBullet1))/**/
 
         //continue here: try add the button, then select button, then fix the pollish later, then padding and floating etc, also use custom window, the white one!
     }
