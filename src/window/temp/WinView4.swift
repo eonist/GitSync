@@ -109,7 +109,7 @@ class WinView4:FlippedView {
         css +=     "fill:radial-gradient(50% 50% 100% 100% 90 0.2, white 1 0,white 0 0.5);"
         css += "}"
         /*idle*/
-        css += "Button{"
+        css += "RadioBullet{"
         css += "float:left;"
         css += "width:14px;"
         css += "height:14px;"
@@ -123,7 +123,7 @@ class WinView4:FlippedView {
         css += "fill-alpha:1,0,0,0,0;"
         css += "}"
         /*selected*/
-        css += "Button:selected{"
+        css += "RadioBullet:selected{"
         css += "width:14px,14px,14px,14px,5px;"
         css += "height:14px,14px,14px,14px,5px;"
         css += "margin-left:0px,0px,0px,0px,5.5px;"
@@ -136,11 +136,11 @@ class WinView4:FlippedView {
         
         
         
-        var css2 = "Button{fill:blue;float:left;clear:left;}"
+        /*var css2 = "Button{fill:blue;float:left;clear:left;}"
         css2 += "Button:down{fill:red;}"
         css2 += "Section{fill:grey;}"
         
-        StyleManager.addStyle(css2)
+        StyleManager.addStyle(css2)*/
         
         let section = Section(500,500)
         addSubview(section)
@@ -148,14 +148,14 @@ class WinView4:FlippedView {
         
         
         
-        section.addSubView(Button(100,100,section))
-        section.addSubView(Button(100,100,section))
+        /*section.addSubView(Button(100,100,section))
+        section.addSubView(Button(100,100,section))*/
         
-        //continue here: try to create a new Element that doesnt extend interactive view, think how you did it with window. in fact, try using window for this just to see if it wokrs.
+        
         
         //section.frame.origin = CGPoint(20,20)
-        //let radioBullet1 = Button(44,44)
-        //addSubview(radioBullet1)
+        let radioBullet1 = RadioBullet(44,44,false,section)
+        section.addSubview(radioBullet1)
         //let radioBullet2 = RadioBullet(14,14,false,section)
         //section.addSubview(radioBullet2)
         
