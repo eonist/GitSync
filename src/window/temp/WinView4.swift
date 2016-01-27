@@ -13,7 +13,7 @@ class WinView4:FlippedView {
         //strokeTest()
         //radialGradientCSSTest()
         //linkTest()
-        radioBulletTest()
+        //radioBulletTest()
         //floatTest()
         //resizeTest()
         buttonTest()
