@@ -57,7 +57,7 @@ class CustomView:WindowView{
         /*section*/
         css += "Section#radioBulletContainer{"
         css += "corner-radius:4px;"
-        css += "fill:#dddddd;"//bg color for win: #E8E8E8
+        css += "fill:#4CD964;"//bg color for win: #E8E8E8
         css += "float:left;"
         css += "clear:left;"
         css += "width:64px;"//<---temp solution, this should be minus the padding left, test and fix this in a separate test
