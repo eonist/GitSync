@@ -131,7 +131,7 @@ class WinView4:FlippedView {
         section.addSubview(radioBullet2)
         
         
-        addSubview(SelectGroup([iconButton1,iconButton2,iconButton3,iconButton4/**/],iconButton2));
+        addSubview(SelectGroup([radioBullet1,radioBullet2],radioBullet1));
 
         //continue here: try add the button, then select button, then fix the pollish later, then padding and floating etc, also use custom window, the white one!
     }
