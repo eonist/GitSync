@@ -19,26 +19,29 @@ class WinView4:FlippedView {
      *
      */
     func linkTest(){
-        let string = "<testing> kit cat <bob>testing<nico>"
+        let replacement:String = "purple"
+        var string = "the <testing> color is <bob> and <nico>"
         
         let matches = RegExp.matches(string, CSSLinkResolver.sansBracketPattern)
         Swift.print("matches.count: " + "\(matches.count)")
-        
+        var difference:Int = 0
         for match:NSTextCheckingResult in matches {/*Loops through the pattern*/
             //Swift.print(match.numberOfRanges)
             if(match.numberOfRanges > 0){/*match = the link name>*/
                 let linkNameSansBrackets:String = (string as NSString).substringWithRange(match.rangeAtIndex(0))/*the link name>*/
                 Swift.print("linkNameSansBrackets: " + "\(linkNameSansBrackets)")
-                
+                Swift.print("difference: " + "\(difference)")
                 var range:NSRange = match.rangeAtIndex(0)//StringRangeParser.stringRange(string, start, end)
-                range.location = range.location-1//add the < char
+                difference += (replacement.count - range.length)
+                range.location = range.location-1+difference//add the < char
                 range.length = range.length+2//add the > char
                 //string.substringWithRange(range)
                 //string.replaceRange(range, with: linkedStyleProperty)
-                
+                string = (string as NSString).stringByReplacingCharactersInRange(range, withString: replacement)
            
             }
         }
+        Swift.print("string: " + "\(string)")
     }
     /**
      * Testing radioBullet
