@@ -104,7 +104,7 @@ class WinView4:FlippedView {
 
         /**/
         css += "line:grey7;"
-        css += "line-offset-type:outside;"
+        css += "line-offset-type:outside,outside,outside,outside;"
         css += "line-alpha:1,0,0,0,0;"
         css += "line-thickness:1px,1px,1px,1px,1px;"
 
@@ -125,7 +125,7 @@ class WinView4:FlippedView {
         let radioBullet1 = Element(0,0,nil)
         section.addSubview(radioBullet1)
         
-        //the problem is that the radial gradient isnt getting the opacity values, fix this after lunch
+        
         //try add the button, then select button, then fix the pollish later, then padding and floating etc
     }
     /**
