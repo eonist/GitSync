@@ -120,13 +120,13 @@ class WinView4:FlippedView {
         css += "fill:<RadioBulletBase:selected>,<RadioBulletBottomShine>,<RadioBulletTopShine>,<RadioBulletBulletShine>,#021931;"
         css += "fill-alpha:1,0,0,0,1;"
         css += "}"
-        
-        StyleManager.addStyle(css)
+
+        StyleManager.addStyle("Button{fill:blue;}")
         let section = Section(500,500)
         addSubview(section)
         //section.frame.origin = CGPoint(20,20)
         let radioBullet1 = Button(14,14,section)
-        section.addSubview(radioBullet1)
+        addSubview(radioBullet1)
         //let radioBullet2 = RadioBullet(14,14,false,section)
         //section.addSubview(radioBullet2)
         
