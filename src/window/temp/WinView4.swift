@@ -10,9 +10,37 @@ class WinView4:FlippedView {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
-        radioBulletTest()
+        linkTest()
+        //radioBulletTest()
         //floatTest()
         //resizeTest()
+    }
+    /**
+     *
+     */
+    func linkTest(){
+        let string = "<testing>"
+        
+        let matches = RegExp.matches(string, CSSLinkResolver.sansBracketPattern)
+        Swift.print("matches.count: " + "\(matches.count)")
+        
+        for match:NSTextCheckingResult in matches {/*Loops through the pattern*/
+            //Swift.print(match.numberOfRanges)
+            if(match.numberOfRanges > 0){/*match = the link name>*/
+                let linkNameSansBrackets:String = (string as NSString).substringWithRange(match.rangeAtIndex(0))/*the link name>*/
+                Swift.print("linkNameSansBrackets: " + "\(linkNameSansBrackets)")
+                
+                //Swift.print(linkedStyleProperty)
+               
+                var range:NSRange = match.rangeAtIndex(0)//StringRangeParser.stringRange(string, start, end)
+                range.location = range.location-1//add the < char
+                range.length = range.length+2//add the > char
+                //string.substringWithRange(range)
+                //string.replaceRange(range, with: linkedStyleProperty)
+                
+           
+            }
+        }
     }
     /**
      * Testing radioBullet
