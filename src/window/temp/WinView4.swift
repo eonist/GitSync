@@ -10,8 +10,17 @@ class WinView4:FlippedView {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
-        floatTest()
+        radioBulletTest()
+        //floatTest()
         //resizeTest()
+    }
+    /**
+     * Testing radioBullet
+     */
+    func radioBulletTest(){
+        var css:String = "Element{fill:blue;}"
+        let radioBullet1 = Element()
+        
     }
     /**
      * TODO: Remember to see the legacy code for more tests
