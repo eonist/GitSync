@@ -22,6 +22,19 @@ class WinView4:FlippedView {
         css += "RadioBulletBase:selected{"
         css +=    "fill:linear-gradient(bottom, #87C2F3 1 0,#87C2F3 1 0.4214,#87C2F3 1 0.4908,#97CAF4 1 0.5147,#ADD5F6 1 0.5573,#BEDDF7 1 0.6077,#C9E3F8 1 0.67,#D0E6F9 1 0.7574,#D2E7F9 1 1);"
         css += "}"
+        
+        
+        css += "RadioBulletTopShine{"
+        css +=     "fill:radial-gradient(50% 20% 40% 120% 90 -1, white 1 0,white 0.33 0.4724,white 0 1);"
+        css += "}"
+        css += "RadioBulletBottomShine{"
+        css +=     "fill:radial-gradient(50% 80% 90% 90% 0 0, white 0.70 0,white 0 1);"
+        css += "}"
+        css += "RadioBulletBulletShine{"
+        css +=     "fill:radial-gradient(50% 50% 100% 100% 90 0.2, white 1 0,white 0 0.5);"
+        css += "}"
+        
+        
         css += "Element{"
         css += "width:14px;height:14px;"
         /*
