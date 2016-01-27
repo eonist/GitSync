@@ -111,7 +111,7 @@ class WinView4:FlippedView {
         css +=     "fill:radial-gradient(50% 50% 100% 100% 90 0.2, white 1 0,white 0 0.5);"
         css += "}"
         /*section*/
-        css += "#radioBulletContainer{"
+        css += "Section#radioBulletContainer{"
         css += "corner-radius:4px;"
         css += "fill:#dddddd;"
         css += "float:left;"
