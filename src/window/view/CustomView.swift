@@ -32,8 +32,8 @@ class CustomView:WindowView{
         css += "Section#titleBar Button#minimize{fill:~/Desktop/icons/title_bar/min.svg none;}"
         css += "Section#titleBar Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"
         
-        css += "Section#boxContainer{float:left;clear:left;}"
-        css += "Element#box{fill:blue;float:left;clear:left;}"
+        css += "Section#boxContainer{fill:green;float:left;clear:left;padding-top:20px;padding-left:20px;}"
+        css += "Element#box{fill:blue;float:left;clear:left;padding-top:0px;padding-left:0px;}"
         
         
         StyleManager.addStyle(css)
