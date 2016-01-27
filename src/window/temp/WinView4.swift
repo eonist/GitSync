@@ -16,6 +16,17 @@ class WinView4:FlippedView {
         radioBulletTest()
         //floatTest()
         //resizeTest()
+        buttonTest()
+    }
+    /**
+     *
+     */
+    func buttonTest(){
+        var css = "Button{fill:blue;}"
+        css += "Button:down{fill:red;}"
+        StyleManager.addStyle(css)
+        addSubView(Button(100,100))
+        
     }
     /**
      *
