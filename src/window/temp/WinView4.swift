@@ -111,7 +111,7 @@ class WinView4:FlippedView {
         css +=     "fill:radial-gradient(50% 50% 100% 100% 90 0.2, white 1 0,white 0 0.5);"
         css += "}"
         /*section*/
-        css += "Section{"
+        css += "#radioBulletContainer{"
         css += "corner-radius:4px;"
         css += "fill:#dddddd;"
         css += "float:left;"
@@ -123,7 +123,7 @@ class WinView4:FlippedView {
         css += "drop-shadow:<InsetShadow>;"
         css += "}"
         /*idle*/
-        css += "Section RadioBullet{"
+        css += "RadioBullet{"
         css += "float:left;"
         css += "width:14px,14px,14px,14px,5px;"
         css += "height:14px,14px,14px,14px,5px;"
@@ -139,7 +139,7 @@ class WinView4:FlippedView {
         css += "fill-alpha:1,0,0,0,0;"
         css += "}"
         /*selected*/
-        css += "Section RadioBullet:selected{"
+        css += "RadioBullet:selected{"
         css += "fill:<RadioBulletBase:selected>,<RadioBulletBottomShine>,<RadioBulletTopShine>,<RadioBulletBulletShine>,#021931;"
         css += "fill-alpha:1,0,0,0,1;"
         css += "}"
@@ -153,7 +153,7 @@ class WinView4:FlippedView {
         
         StyleManager.addStyle(css2)*/
         
-        let section = Section(500,500)
+        let section = Section(500,500,"radioBulletContainer")
         addSubview(section)
         
         
