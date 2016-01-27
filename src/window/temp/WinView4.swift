@@ -97,7 +97,7 @@ class WinView4:FlippedView {
         css +=     "fill:radial-gradient(50% 50% 100% 100% 90 0.2, white 1 0,white 0 0.5);"
         css += "}"
         /*idle*/
-        css += "RadioBullet{"
+        css += "Button{"
         css += "float:left;"
         css += "width:14px;"
         css += "height:14px;"
@@ -111,7 +111,7 @@ class WinView4:FlippedView {
         css += "fill-alpha:1,0,0,0,0;"
         css += "}"
         /*selected*/
-        css += "RadioBullet:selected{"
+        css += "Button:selected{"
         css += "width:14px,14px,14px,14px,5px;"
         css += "height:14px,14px,14px,14px,5px;"
         css += "margin-left:0px,0px,0px,0px,5.5px;"
@@ -124,14 +124,14 @@ class WinView4:FlippedView {
         StyleManager.addStyle(css)
         let section = Section(500,500)
         addSubview(section)
-        section.frame.origin = CGPoint(20,20)
-        let radioBullet1 = RadioBullet(14,14,true,section)
+        //section.frame.origin = CGPoint(20,20)
+        let radioBullet1 = Button(14,14,section)
         section.addSubview(radioBullet1)
-        let radioBullet2 = RadioBullet(14,14,false,section)
-        section.addSubview(radioBullet2)
+        //let radioBullet2 = RadioBullet(14,14,false,section)
+        //section.addSubview(radioBullet2)
         
         
-        addSubview(SelectGroup([radioBullet1,radioBullet2],radioBullet1));
+        //addSubview(SelectGroup([radioBullet1,radioBullet2],radioBullet1));
 
         //continue here: try add the button, then select button, then fix the pollish later, then padding and floating etc, also use custom window, the white one!
     }
