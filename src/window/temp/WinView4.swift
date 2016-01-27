@@ -22,7 +22,8 @@ class WinView4:FlippedView {
     func radialGradientCSSTest(){
         var css = ""
         css += "Element{"
-        css += "fill:radial-gradient(50% 50% 100% 100% 90 0.2, blue 1 0,red 0 0.5);"
+        css += "fill:radial-gradient(50% 20% 40% 120% 90 -1, white 1 0,white 0.33 0.4724,white 0 1);"
+        //css += "fill:radial-gradient(50% 50% 100% 100% 90 0.2, blue 1 0,red 0 0.5);"
         css += "}"
         
         StyleManager.addStyle(css)
