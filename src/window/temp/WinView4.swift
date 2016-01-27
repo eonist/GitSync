@@ -18,7 +18,7 @@ class WinView4:FlippedView {
      */
     func floatTest(){
         var css:String = ""
-        css += "Element{float:right;clear:none;}"
+        css += "Element{float:none;clear:none;}"
         css += "Section{fill:grey;}"
         css += "Element#box1{fill:red;}"
         css += "Element#box2{fill:purple;}"
