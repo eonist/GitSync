@@ -154,9 +154,9 @@ class WinView4:FlippedView {
         let radioBullet1 = RadioBullet(14,14,true,section)
         section.addSubview(radioBullet1)
         
-        let radioBullet2 = RadioBullet(14,14,false,section)
+        let radioBullet2 = RadioBullet(14,14,true,section)
         section.addSubview(radioBullet2)
-        
+        radioBullet2.setSelected(false)//<---work around for now
         
         addSubview(SelectGroup([radioBullet1,radioBullet2],radioBullet1));
 
