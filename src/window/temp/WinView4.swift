@@ -113,13 +113,13 @@ class WinView4:FlippedView {
         /*section*/
         css += "Section{"
         css += "corner-radius:4px;"
-        css += "fill:#dddddd;"
+        css += "fill:white;"//#dddddd
         css += "float:left;"
         css += "clear:left;"
         css += "width:64px;"//<---temp solution, this should be minus the padding left, test and fix this in a separate test
         css += "height:24px;"//<---same goes with this one
         css += "padding-left:9px;"
-        css += "padding-top:5px;"
+        css += "padding-top:4px;"
         css += "drop-shadow:<InsetShadow>;"
         css += "}"
         /*idle*/
