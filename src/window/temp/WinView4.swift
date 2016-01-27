@@ -18,15 +18,15 @@ class WinView4:FlippedView {
      */
     func floatTest(){
         var css:String = ""
-        css += "Element{fill:blue;float:left;clear:none;}"
+        css += "Element{fill:blue;float:right;clear:none;}"
         css += "Element#box2{fill:red;}"
         StyleManager.addStyle(css)
         let section = Section(400,400)
         addSubview(section)
         let box1 = Element(100,100,section,"box1")
         section.addSubview(box1)
-        let box2 = Element(100,100,section,"box2")
-        section.addSubview(box2)
+        //let box2 = Element(100,100,section,"box2")
+        //section.addSubview(box2)
         
         //Continue here: Try to align elements in a row, try to float things to the right, then clear to the right
         //look into how you center align things, see the css from the textReplacer demo app
