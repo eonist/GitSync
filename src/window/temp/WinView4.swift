@@ -12,7 +12,7 @@ class WinView4:FlippedView {
     func createContent(){
         //radialGradientCSSTest()
         //linkTest()
-        //radioBulletTest()
+        radioBulletTest()
         //floatTest()
         //resizeTest()
     }
@@ -82,7 +82,7 @@ class WinView4:FlippedView {
         css += "}"
         /**/
         css += "RadioBulletTopShine{"
-        css +=     "fill:radial-gradient(50% 20% 40% 120% 90 -1, white 1 0,white 0.33 0.4724,white 0 1);"
+        css +=     "fill:radial-gradient(50% 20% 120% 40% 90 -1, white 1 0,white 0.33 0.4724,white 0 1);"
         css += "}"
         css += "RadioBulletBottomShine{"
         css +=     "fill:radial-gradient(50% 80% 90% 90% 0 0, white 0.70 0,white 0 1);"
