@@ -26,11 +26,11 @@ class CustomView:WindowView{
         
         var css:String = ""
         css += "Section#titleBar{float:left;clear:none;padding-top:4px;padding-left:8px;}"
-        css += "Button{width:12px,12px;height:12px,12px;float:left;clear:none;margin-right:8px;margin-top:0px;padding-left:0px;padding-top:0px;}"//adding padding here shouldnt be necessary
-        css += "Button:over{fill:~/Desktop/icons/title_bar/hover.svg none;}"
-        css += "Button#close{fill:~/Desktop/icons/title_bar/close.svg none;}"
-        css += "Button#minimize{fill:~/Desktop/icons/title_bar/min.svg none;}"
-        css += "Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"
+        css += "Section#titleBar Button{width:12px,12px;height:12px,12px;float:left;clear:none;margin-right:8px;margin-top:0px;padding-left:0px;padding-top:0px;}"//adding padding here shouldnt be necessary
+        css += "Section#titleBar Button:over{fill:~/Desktop/icons/title_bar/hover.svg none;}"
+        css += "Section#titleBar Button#close{fill:~/Desktop/icons/title_bar/close.svg none;}"
+        css += "Section#titleBar Button#minimize{fill:~/Desktop/icons/title_bar/min.svg none;}"
+        css += "Section#titleBar Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"
         StyleManager.addStyle(css)
         
         section = Section(frame.width,24,"titleBar")
