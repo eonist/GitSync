@@ -10,13 +10,14 @@ class WinView4:FlippedView {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
+        //buttonTest()
         //strokeTest()
         //radialGradientCSSTest()
         //linkTest()
-        //radioBulletTest()
+        radioBulletTest()
         //floatTest()
         //resizeTest()
-        buttonTest()
+        
     }
     /**
      *
