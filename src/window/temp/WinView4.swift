@@ -22,8 +22,6 @@ class WinView4:FlippedView {
         css += "RadioBulletBase:selected{"
         css +=    "fill:linear-gradient(bottom, #87C2F3 1 0,#87C2F3 1 0.4214,#87C2F3 1 0.4908,#97CAF4 1 0.5147,#ADD5F6 1 0.5573,#BEDDF7 1 0.6077,#C9E3F8 1 0.67,#D0E6F9 1 0.7574,#D2E7F9 1 1);"
         css += "}"
-        
-        
         css += "RadioBulletTopShine{"
         css +=     "fill:radial-gradient(50% 20% 40% 120% 90 -1, white 1 0,white 0.33 0.4724,white 0 1);"
         css += "}"
@@ -36,8 +34,8 @@ class WinView4:FlippedView {
         
         
         css += "Element{"
-        css += "width:14px,5px;"
-        css += "height:14px,,5px;"
+        css += "width:14px,14px,14px,14px,5px;"
+        css += "height:14px,5px;"
         
         
         
@@ -53,10 +51,10 @@ class WinView4:FlippedView {
         
         
         
-        css += "fill:blue,red;"
+        css += "fill:<RadioBulletBase:selected>,#021931;"
         css += "margin-left:0px,4.5px;"
         css += "margin-top:0px,4.5px;"
-        //css += "corner-radius:7px;"
+        css += "corner-radius:7px,2.5px;"
         css += "}"
         StyleManager.addStyle(css)
         let radioBullet1 = Element(0,0,nil)
