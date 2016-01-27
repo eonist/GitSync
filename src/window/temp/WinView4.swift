@@ -100,6 +100,8 @@ class WinView4:FlippedView {
         let radioBullet1 = Element(0,0,nil)
         section.addSubview(radioBullet1)
         
+        //the problem is that the radial gradient isnt getting the opacity values, fix this after lunch
+        
     }
     /**
      * TODO: Remember to see the legacy code for more tests
