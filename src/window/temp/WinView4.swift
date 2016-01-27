@@ -126,7 +126,7 @@ class WinView4:FlippedView {
         section.addSubview(radioBullet1)
         
         //the problem is that the radial gradient isnt getting the opacity values, fix this after lunch
-        
+        //try add the button, then select button, then fix the pollish later, then padding and floating etc
     }
     /**
      * TODO: Remember to see the legacy code for more tests
