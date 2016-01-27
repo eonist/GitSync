@@ -65,8 +65,8 @@ class CustomView:WindowView{
         css += "padding-left:9px;"
         css += "padding-top:4px;"
         css += "drop-shadow:<InsetShadow>;"
-        css += "margin-left:20px;"
-        css += "margin-top:20px;"
+        css += "margin-left:8px;"
+        css += "margin-top:4px;"
         css += "}"
         /*idle*/
         css += "Section#radioBulletContainer RadioBullet{"
