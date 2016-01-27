@@ -121,11 +121,11 @@ class WinView4:FlippedView {
         css += "fill-alpha:1,0,0,0,1;"
         css += "}"
 
-        StyleManager.addStyle("Button{fill:blue;}")
+        StyleManager.addStyle("Button{fill:linear-gradient(bottom, green, red);width:50px;height:50px;}")
         let section = Section(500,500)
         addSubview(section)
         //section.frame.origin = CGPoint(20,20)
-        let radioBullet1 = Button(14,14,section)
+        let radioBullet1 = Button(14,14,nil)
         addSubview(radioBullet1)
         //let radioBullet2 = RadioBullet(14,14,false,section)
         //section.addSubview(radioBullet2)
