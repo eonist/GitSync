@@ -25,6 +25,7 @@ class WinView4:FlippedView {
         css += "Element#box3{fill:blue;}"
         css += "Element#box4{fill:orange;}"
         css += "Element#box5{fill:green;}"
+        
         StyleManager.addStyle(css)
         let section = Section(500,500)
         addSubview(section)
