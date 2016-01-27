@@ -32,6 +32,7 @@ class CustomView:WindowView{
         css += "Section#titleBar Button#minimize{fill:~/Desktop/icons/title_bar/min.svg none;}"
         css += "Section#titleBar Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"
         
+        css += "Section#boxContainer{float:left;clear:left;}"
         css += "Element#box{fill:blue;float:left;clear:left;}"
         
         
@@ -47,8 +48,11 @@ class CustomView:WindowView{
         let maximizeButton = Button(12,12,section!,"maximize")
         section!.addSubview(maximizeButton)
         
-        let box = Element(100,100,self,"box")
-        addSubview(box)
+        let boxContainer = Section(100,100,self,"boxContainer")
+        addSubview(boxContainer)
+        
+        let box = Element(100,100,boxContainer,"box")
+        boxContainer.addSubview(box)
         
         
         /*Event listeners:*/
