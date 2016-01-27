@@ -77,10 +77,13 @@ class CustomView:WindowView{
     }
     /**
      * TODO: Add support for fullscreen mode aswell: window.setFrame(NSScreen.mainScreen()!.visibleFrame, display: true, animate: true)
+     * TODO: add support for zooming back to normal size
      */
     func onMaximizeButtonReleaseInside(sender: AnyObject){
         //maximize the window here
         self.window?.zoom(self)
+        
     }
+    
 }
 
