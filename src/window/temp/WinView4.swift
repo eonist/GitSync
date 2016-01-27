@@ -18,8 +18,10 @@ class WinView4:FlippedView {
      * Testing radioBullet
      */
     func radioBulletTest(){
-        var css:String = "Element{fill:blue;}"
-        let radioBullet1 = Element()
+        let css:String = "Element{fill:blue;}"
+        StyleManager.addStyle(css)
+        let radioBullet1 = Element(14,14,nil)
+        addSubview(radioBullet1)
         
     }
     /**
