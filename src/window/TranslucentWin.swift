@@ -29,7 +29,6 @@ class TranslucentWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.contentView?.addSubview(visualEffectView)
         //self.contentView = visualEffectView
        
-        
         /* self.contentView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[visualEffectView]-0-|", options: NSLayoutFormatOptions.DirectionLeadingToTrailing, metrics: nil, views: ["visualEffectView":visualEffectView]))
         self.contentView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[visualEffectView]-0-|", options: NSLayoutFormatOptions.DirectionLeadingToTrailing, metrics: nil, views: ["visualEffectView":visualEffectView]))
         */
@@ -37,18 +36,12 @@ class TranslucentWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //visualEffectView.allowsVibrancy.interiorBackgroundStyle // only radable
         //visualEffectView.allowsVibrancy = true
         //visualEffectView.blendingMode = NSVisualEffectBlendingModeWithinWindow,
-
-        
+   
     }
-    /*
-     * Required by the NSWindow
-     */
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by the NSWindow*/
 }
-class ViewAllowsVibrancy: NSView {
-    override var allowsVibrancy: Bool {
-        return true
-    }
+/*class ViewAllowsVibrancy: NSView {
+override var allowsVibrancy: Bool {
+return true
 }
+}*/
