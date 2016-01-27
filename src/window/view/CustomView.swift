@@ -26,24 +26,24 @@ class CustomView:WindowView{
         
         var css:String = ""
         css += "Section{float:left;clear:none;}"
-        css += "Button{fill:red,green;width:12px,12px;height:12px,12px;float:left;clear:none;margin-left:8px,8px;margin-top:4px,4px;}"
-        /*css += "Button:over{fill:~/Desktop/icons/title_bar/hover.svg none;}"
+        css += "Button{width:12px,12px;height:12px,12px;float:left;clear:none;margin-left:8px;margin-top:4px;}"
+        css += "Button:over{fill:~/Desktop/icons/title_bar/hover.svg none;}"
         css += "Button#close{fill:~/Desktop/icons/title_bar/close.svg none;}"
         css += "Button#minimize{fill:~/Desktop/icons/title_bar/min.svg none;}"
-        css += "Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"*/
+        css += "Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"/**/
         
         StyleManager.addStyle(css)
         
-        let theSection = Section(100,100)
-        self.addSubview(theSection)
+        section = Section(100,100)
+        self.addSubview(section!)
         
         
-        let closeButton = Button(12,12,theSection)/*<--the w and h should be NaN, test if it supports this*/
-        theSection.addSubview(closeButton)
-        let minimizeButton = Button(12,12,theSection)
-        theSection.addSubview(minimizeButton)
-        let maximizeButton = Button(12,12,theSection)
-        theSection.addSubview(maximizeButton)
+        let closeButton = Button(12,12,section!,"close")/*<--the w and h should be NaN, test if it supports this*/
+        section!.addSubview(closeButton)
+        let minimizeButton = Button(12,12,section!,"minimize")
+        section!.addSubview(minimizeButton)
+        let maximizeButton = Button(12,12,section!,"maximize")
+        section!.addSubview(maximizeButton)
         
         //closeButton.setPosition(CGPoint(8,4))
         
