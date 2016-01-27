@@ -33,12 +33,13 @@ class WinView4:FlippedView {
                 
                 Swift.print("range.location: " + "\(range.location)")
                 
-                
+                range.location = range.location+difference
                 let linkNameSansBrackets:String = (string as NSString).substringWithRange(range)/*the link name>*/
-                range.location = range.location-1+difference//add the < char
+                Swift.print("linkNameSansBrackets: " + "\(linkNameSansBrackets)")
+                range.location = range.location-1//add the < char
                 range.length = range.length+2//add the > char
                 difference += (replacement.count - range.length)
-                Swift.print("linkNameSansBrackets: " + "\(linkNameSansBrackets)")
+                
                 Swift.print("difference: " + "\(difference)")
                 
                 //string.substringWithRange(range)
