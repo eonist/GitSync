@@ -19,10 +19,11 @@ class WinView4:FlippedView {
     func floatTest(){
         var css:String = ""
         css += "Element{fill:green;float:left;clear:left;}"
-        css += "Element#box2{fill:red;}"
-        css += "Element#box3{fill:purple;}"
-        css += "Element#box4{fill:blue;}"
-        css += "Element#box5{fill:orange;}"
+        css += "Element#box1{fill:red;}"
+        css += "Element#box2{fill:purple;}"
+        css += "Element#box3{fill:blue;}"
+        css += "Element#box4{fill:orange;}"
+        css += "Element#box5{fill:grey;}"
         StyleManager.addStyle(css)
         let section = Section(400,400)
         addSubview(section)
@@ -32,6 +33,10 @@ class WinView4:FlippedView {
         section.addSubview(box2)
         let box3 = Element(100,100,section,"box3")
         section.addSubview(box3)
+        let box4 = Element(100,100,section,"box4")
+        section.addSubview(box4)
+        let box5 = Element(100,100,section,"box5")
+        section.addSubview(box5)
         
         
         //let tempStyle = StyleResolver.style(box2)
