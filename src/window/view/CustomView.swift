@@ -25,7 +25,8 @@ class CustomView:WindowView{
         //let button = Button(20,20)
         //section.addSubview(button)
         
-        var css:String = "Button{width:12px,12px;height:12px,12px;margin-left:0px;margin-top:0px;}"
+        var css:String = ""
+        css += "Button{width:12px,12px;height:12px,12px;margin-left:0px;margin-top:0px;}"
         css += "Button:over{fill:~/Desktop/icons/title_bar/hover.svg none;}"
         css += "Button#close{fill:~/Desktop/icons/title_bar/close.svg none;}"
         css += "Button#minimize{fill:~/Desktop/icons/title_bar/min.svg none;}"
