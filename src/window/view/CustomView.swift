@@ -31,6 +31,10 @@ class CustomView:WindowView{
         css += "Section#titleBar Button#close{fill:~/Desktop/icons/title_bar/close.svg none;}"
         css += "Section#titleBar Button#minimize{fill:~/Desktop/icons/title_bar/min.svg none;}"
         css += "Section#titleBar Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"
+        
+        css += "Section#titleBar Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"
+        
+        
         StyleManager.addStyle(css)
         
         section = Section(frame.width,24,"titleBar")
@@ -42,6 +46,10 @@ class CustomView:WindowView{
         section!.addSubview(minimizeButton)
         let maximizeButton = Button(12,12,section!,"maximize")
         section!.addSubview(maximizeButton)
+        
+        let box = Element(100,100)
+        addSubview(box)
+        
         
         /*Event listeners:*/
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onCloseButtonReleaseInside:", name: ButtonEvent.releaseInside, object: closeButton)
