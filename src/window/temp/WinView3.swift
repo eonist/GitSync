@@ -69,7 +69,7 @@ class WinView3:FlippedView {
         //css += "corner-radius:10px;"
         css += "}"
         css += "SelectButton:selected{"
-        css += "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);"
+        css += "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);"//<--inset shadow
         css += "}"
         StyleManager.addStyle(css)
         let button = SelectButton(100,100,false,nil,"first")
