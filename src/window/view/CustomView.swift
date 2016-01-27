@@ -33,7 +33,7 @@ class CustomView:WindowView{
         css += "Section#titleBar Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"
         
         css += "Section#boxContainer{fill:green;float:left;clear:left;padding-top:20px;padding-left:20px;corner-radius:0px;}"
-        css += "Element#box{fill:blue;float:left;clear:left;padding-top:0px;padding-left:0px;}"
+        //css += "Element#box{fill:blue;float:left;clear:left;padding-top:0px;padding-left:0px;}"
         
         /*generics*/
         css += "InsetShadow{"
@@ -110,7 +110,7 @@ class CustomView:WindowView{
         let box = Element(100,100,boxContainer,"box")
         boxContainer.addSubview(box)*/
         
-        let container = Section(500,500,nil,"radioBulletContainer")
+        let container = Section(500,500,self,"radioBulletContainer")
         addSubview(container)
         
         let radioBullet1 = RadioBullet(14,14,true,container)

@@ -160,16 +160,7 @@ class WinView4:FlippedView {
         let section = Section(500,500,nil,"radioBulletContainer")
         addSubview(section)
         
-        
-        
-        
-        /*section.addSubView(Button(100,100,section))
-        section.addSubView(Button(100,100,section))*/
-        
-        
-        
-        //section.frame.origin = CGPoint(20,20)
-         let radioBullet1 = RadioBullet(14,14,true,section)
+        let radioBullet1 = RadioBullet(14,14,true,section)
         section.addSubview(radioBullet1)
         
         let radioBullet2 = RadioBullet(14,14,true,section)
@@ -178,7 +169,7 @@ class WinView4:FlippedView {
         
         addSubview(SelectGroup([radioBullet1,radioBullet2],radioBullet1))/**/
 
-        //continue here: try add the button, then select button, then fix the pollish later, then padding and floating etc, also use custom window, the white one!
+        
     }
     /**
      * TODO: Remember to see the legacy code for more tests
