@@ -55,6 +55,7 @@ class WinView4:FlippedView {
      */
     func radioBulletTest(){
         var css:String = ""
+        css += "Section{fill:grey;}"
         /**/
         css += "RadioBulletBase{"
         css +=     "fill:linear-gradient(bottom, #EDEDED 1 0,#EDEDED 1 0.4214,#EDEDED 1 0.4908,#F6F6F6 1 0.5605,#FDFDFD 1 0.6768,#FFFFFF 1 1);"
@@ -87,15 +88,17 @@ class WinView4:FlippedView {
         //css += "fill:linear-gradient(bottom, #EDEDED 1 0,#EDEDED 1 0.4214,#EDEDED 1 0.4908,#F6F6F6 1 0.5605,#FDFDFD 1 0.6768,#FFFFFF 1 1);"
 
         
-        css += "fill:<RadioBulletTopShine>,<RadioBulletBase:selected>,blue,purple,red;"
+        css += "fill:<RadioBulletTopShine>,orange,blue,purple,red;"
         css += "fill-alpha:1,0,0,0,1;"
         css += "margin-left:0px,0px,0px,0px,4.5px;"
         css += "margin-top:0px,0px,0px,0px,4.5px;"
         css += "corner-radius:7px,7px,7px,7px,2.5px;"
         css += "}"
         StyleManager.addStyle(css)
+        let section = Section(500,500)
+        addSubview(section)
         let radioBullet1 = Element(0,0,nil)
-        addSubview(radioBullet1)
+        section.addSubview(radioBullet1)
         
     }
     /**
