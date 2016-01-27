@@ -76,9 +76,7 @@ class WinView4:FlippedView {
         css += "Element{"
         css += "width:14px,14px,14px,14px,5px;"//,
         css += "height:14px,14px,14px,14px,5px;"//
-        
-        
-        
+
         /*
         css += "line:grey7;"
         css += "line-offset-type:outside;"
@@ -87,12 +85,10 @@ class WinView4:FlippedView {
         */
         //css += "fill:blue;"
         //css += "fill:linear-gradient(bottom, #EDEDED 1 0,#EDEDED 1 0.4214,#EDEDED 1 0.4908,#F6F6F6 1 0.5605,#FDFDFD 1 0.6768,#FFFFFF 1 1);"
-        
-        
-        
+
         
         css += "fill:green,grey,blue,purple,red;"//,
-        //css += "fill-alpha:1,0,0,0,0,1;"
+        css += "fill-alpha:1,0,0,0,1;"
         css += "margin-left:0px,0px,0px,0px,4.5px;"
         css += "margin-top:0px,0px,0px,0px,4.5px;"
         css += "corner-radius:7px,7px,7px,7px,2.5px;"//,
