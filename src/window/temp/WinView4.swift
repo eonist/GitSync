@@ -36,7 +36,11 @@ class WinView4:FlippedView {
         
         
         css += "Element{"
-        css += "width:14px;height:14px;"
+        css += "width:14px,14px,14px,14px,5px;"
+        css += "height:14px,14px,14px,14px,5px;"
+        
+        
+        
         /*
         css += "line:grey7;"
         css += "line-offset-type:outside;"
