@@ -34,7 +34,7 @@ class CustomView:WindowView{
         
         StyleManager.addStyle(css)
         
-        section = Section(frame.width,24)
+        section = Section(100,24)
         self.addSubview(section!)
         
         
