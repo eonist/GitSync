@@ -121,9 +121,9 @@ class WinView4:FlippedView {
         css += "fill-alpha:1,0,0,0,1;"
         css += "}"
         
-        //let css2 = "Button{fill:linear-gradient(bottom, green, red);width:50px;height:50px;}"
-        StyleManager.addStyle(css)
-        let section = Section(500,500)
+        let css2 = "Button{fill:linear-gradient(bottom, green, red);width:50px;height:50px;}"
+        StyleManager.addStyle(css2)
+        //let section = Section(500,500)
         //addSubview(section)
         
         
