@@ -26,7 +26,8 @@ class CustomView:WindowView{
         //section.addSubview(button)
         
         var css:String = ""
-        css += "Button{width:12px,12px;height:12px,12px;margin-left:0px;margin-top:0px;}"
+        css += ""
+        css += "Button{width:12px,12px;height:12px,12px;margin-left:0px;margin-top:0px;float:left;}"
         css += "Button:over{fill:~/Desktop/icons/title_bar/hover.svg none;}"
         css += "Button#close{fill:~/Desktop/icons/title_bar/close.svg none;}"
         css += "Button#minimize{fill:~/Desktop/icons/title_bar/min.svg none;}"
@@ -38,11 +39,11 @@ class CustomView:WindowView{
         let maximizeButton = Button(12,12,nil,"maximize")
         
         self.addSubview(closeButton)
-        closeButton.setPosition(CGPoint(8,4))
+        //closeButton.setPosition(CGPoint(8,4))
         self.addSubview(minimizeButton)
-        minimizeButton.setPosition(CGPoint(28,4))
+        //minimizeButton.setPosition(CGPoint(28,4))
         self.addSubview(maximizeButton)
-        maximizeButton.setPosition(CGPoint(48,4))
+        //maximizeButton.setPosition(CGPoint(48,4))
         
         //Event listeners:
         
