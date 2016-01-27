@@ -111,20 +111,24 @@ class WinView4:FlippedView {
         css +=     "fill:radial-gradient(50% 50% 100% 100% 90 0.2, white 1 0,white 0 0.5);"
         css += "}"
         /*section*/
-        css += "Section#radioBulletContainer{"
+        css += "Section{"
         css += "corner-radius:4px;"
         css += "fill:#dddddd;"
         css += "float:left;"
         css += "clear:left;"
         css += "width:64px;"//<---temp solution, this should be minus the padding left, test and fix this in a separate test
         css += "height:24px;"//<---same goes with this one
-        css += "padding-left:12px;"
+        css += "padding-left:8px;"
         css += "padding-top:5px;"
         css += "drop-shadow:<InsetShadow>;"
         css += "}"
         /*idle*/
         css += "RadioBullet{"
         css += "float:left;"
+        css += "clear:none;"
+        css += "drop-shadow:none;"
+        css += "padding-left:0px;"
+        css += "padding-top:0px;"
         css += "width:14px,14px,14px,14px,5px;"
         css += "height:14px,14px,14px,14px,5px;"
         css += "margin-right:12px;"
@@ -153,7 +157,7 @@ class WinView4:FlippedView {
         
         StyleManager.addStyle(css2)*/
         
-        let section = Section(500,500,"radioBulletContainer")
+        let section = Section(500,500)
         addSubview(section)
         
         
