@@ -98,7 +98,7 @@ class WinView4:FlippedView {
         css +=     "fill:radial-gradient(50% 50% 100% 100% 90 0.2, white 1 0,white 0 0.5);"
         css += "}"
         
-        css += "Element{"
+        css += "RadioBullet{"
         css += "width:14px,14px,14px,14px,5px;"//,
         css += "height:14px,14px,14px,14px,5px;"//
 
@@ -122,8 +122,10 @@ class WinView4:FlippedView {
         let section = Section(500,500)
         addSubview(section)
         section.frame.origin = CGPoint(20,20)
-        let radioBullet1 = Element(0,0,nil)
+        let radioBullet1 = RadioBullet(0,0,false,section)
         section.addSubview(radioBullet1)
+        let radioBullet2 = RadioBullet(0,0,false,section)
+        section.addSubview(radioBullet2)
         
         
         //try add the button, then select button, then fix the pollish later, then padding and floating etc
