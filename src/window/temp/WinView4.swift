@@ -121,6 +121,7 @@ class WinView4:FlippedView {
         StyleManager.addStyle(css)
         let section = Section(500,500)
         addSubview(section)
+        section.frame.origin = CGPoint(20,20)
         let radioBullet1 = Element(0,0,nil)
         section.addSubview(radioBullet1)
         
