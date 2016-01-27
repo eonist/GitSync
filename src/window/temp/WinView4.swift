@@ -72,7 +72,7 @@ class WinView4:FlippedView {
      */
     func radioBulletTest(){
         var css:String = ""
-        css += "Section{fill:grey;}"
+        css += "Section{fill:white;}"
         /**/
         css += "RadioBulletBase{"
         css +=     "fill:linear-gradient(bottom, #EDEDED 1 0,#EDEDED 1 0.4214,#EDEDED 1 0.4908,#F6F6F6 1 0.5605,#FDFDFD 1 0.6768,#FFFFFF 1 1);"
