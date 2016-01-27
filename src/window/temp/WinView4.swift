@@ -36,8 +36,8 @@ class WinView4:FlippedView {
         
         
         css += "Element{"
-        css += "width:14px,14px,14px,14px,5px;"
-        css += "height:14px,14px,14px,14px,5px;"
+        css += "width:14px,5px;"
+        css += "height:14px,,5px;"
         
         
         
@@ -53,8 +53,10 @@ class WinView4:FlippedView {
         
         
         
-        css += "fill:<RadioBulletBase:selected>;"
-        css += "corner-radius:7px;"
+        css += "fill:blue,red;"
+        css += "margin-left:0px,4.5px;"
+        css += "margin-top:0px,4.5px;"
+        //css += "corner-radius:7px;"
         css += "}"
         StyleManager.addStyle(css)
         let radioBullet1 = Element(0,0,nil)
