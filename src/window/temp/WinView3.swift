@@ -8,13 +8,13 @@ class WinView3:FlippedView {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
-        
+        buttonTest()
         //hoverTest()
         //stateTest()
         //styleDepthTest()
         //marginTest()
         //titlebarTest()
-        iconBarTest()
+        //iconBarTest()
         //depthTest()
         //assetCSSTest()
         //svgTest()
@@ -24,6 +24,14 @@ class WinView3:FlippedView {
 
         //debugRegExpDigitPattern()
         //regExpBackRefTest()
+    }
+    /**
+     *
+     */
+    func buttonTest(){
+        let css = "Button{fill:blue;}"
+        StyleManager.addStyle(css)
+        addSubView(Button(100,100))
     }
     /**
      *
