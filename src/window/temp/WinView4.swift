@@ -19,7 +19,7 @@ class WinView4:FlippedView {
     func floatTest(){
         var css:String = ""
         css += "Element{fill:green;float:left;clear:left;}"
-        css += "Container{fill:green;}"
+        css += "Container{fill:blue;}"
         css += "Element#box1{fill:red;}"
         css += "Element#box2{fill:purple;}"
         css += "Element#box3{fill:blue;}"
@@ -40,8 +40,8 @@ class WinView4:FlippedView {
         container.addSubview(box5)
         
         
-        //let tempStyle = StyleResolver.style(box2)
-        //StyleParser.describe(tempStyle)
+        let tempStyle = StyleResolver.style(container)
+        StyleParser.describe(tempStyle)
         //Swift.print("-------")
         //Swift.print(ElementParser.children(section,IElement.self).count)
         //Swift.print("-------")
