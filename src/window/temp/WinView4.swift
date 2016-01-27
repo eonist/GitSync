@@ -10,7 +10,7 @@ class WinView4:FlippedView {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
-        strokeTest()
+        //strokeTest()
         //radialGradientCSSTest()
         //linkTest()
         radioBulletTest()
@@ -21,7 +21,7 @@ class WinView4:FlippedView {
      *
      */
     func strokeTest(){
-        //continue here: 
+        //continue here: setup 1 element with 2 skins, try to get the inner skin to align correctly.
     }
     /**
      * TODO: See if the current way you handle radial gradient is the same as in the legacy code
@@ -114,8 +114,8 @@ class WinView4:FlippedView {
         
         css += "fill:<RadioBulletBase:selected>,<RadioBulletBottomShine>,<RadioBulletTopShine>,<RadioBulletBulletShine>,#021931;"
         
-        css += "margin-left:0px,0px,0px,0px,4.5px;"
-        css += "margin-top:0px,0px,0px,0px,4.5px;"
+        css += "margin-left:0px,0px,0px,0px,5.5px;"
+        css += "margin-top:0px,0px,0px,0px,5.5px;"
         css += "corner-radius:7px,7px,7px,7px,2.5px;"
         css += "}"
         StyleManager.addStyle(css)
