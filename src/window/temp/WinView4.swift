@@ -19,7 +19,7 @@ class WinView4:FlippedView {
      *
      */
     func linkTest(){
-        let string = "<testing>"
+        let string = "<testing> kit cat <bob>testing<nico>"
         
         let matches = RegExp.matches(string, CSSLinkResolver.sansBracketPattern)
         Swift.print("matches.count: " + "\(matches.count)")
@@ -30,8 +30,6 @@ class WinView4:FlippedView {
                 let linkNameSansBrackets:String = (string as NSString).substringWithRange(match.rangeAtIndex(0))/*the link name>*/
                 Swift.print("linkNameSansBrackets: " + "\(linkNameSansBrackets)")
                 
-                //Swift.print(linkedStyleProperty)
-               
                 var range:NSRange = match.rangeAtIndex(0)//StringRangeParser.stringRange(string, start, end)
                 range.location = range.location-1//add the < char
                 range.length = range.length+2//add the > char
