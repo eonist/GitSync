@@ -10,14 +10,14 @@ class WinView4:FlippedView {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
-        radialGradientCSSTest()
+        //radialGradientCSSTest()
         //linkTest()
         //radioBulletTest()
         //floatTest()
         //resizeTest()
     }
     /**
-     *
+     * TODO: See if the current way you handle radial gradient is the same as in the legacy code
      */
     func radialGradientCSSTest(){
         var css = ""
