@@ -27,7 +27,7 @@ class WinView5:FlippedView {
     }
     override func updateTrackingAreas() {
         Swift.print("viewA.bounds: " + "\(viewA.bounds)")
-        
+        CGPathContainsPoint(<#T##path: CGPath?##CGPath?#>, <#T##m: UnsafePointer<CGAffineTransform>##UnsafePointer<CGAffineTransform>#>, <#T##point: CGPoint##CGPoint#>, <#T##eoFill: Bool##Bool#>)
     }
     
 }
