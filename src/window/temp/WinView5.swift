@@ -15,7 +15,7 @@ class WinView5:FlippedView {
      */
     func hitTest(){
         //setup a blue box in a view (100x100) (use the view code from WindowView)
-        
+        addSubview(ViewA(100,100))
         //add a redbox in a view inside the blue view (100x100)
         
         //offset the redbox view a bit so that the entire bounds of the hirarchy becomes 150
@@ -24,7 +24,7 @@ class WinView5:FlippedView {
     }
 }
 private class ViewA:FlippedView{
-    init(_ width: CGFloat, _ height: CGFloat, _ id:String? = nil) {
+    init(_ width: CGFloat, _ height: CGFloat) {
         super.init(frame: NSRect(0,0,width,height))//<--This can be a zero rect since the children contains the actual graphics. And when you use Layer-hosted views the subchildren doesnt clip
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
