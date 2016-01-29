@@ -23,3 +23,6 @@ class WinView5:FlippedView {
         //then test what the bound is on view 1
     }
 }
+private class ViewA{
+    
+}
