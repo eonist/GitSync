@@ -41,10 +41,27 @@ private class ViewA:FlippedView{
         addSubview(blueBox.graphic)
         blueBox.draw()
         blueBox.graphic.frame.origin = CGPoint(50,50)
-        
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-private class ViewB{
-    
+
+private class ViewB:FlippedView{
+    init(_ width: CGFloat, _ height: CGFloat) {
+        super.init(frame: NSRect(0,0,width,height))//<--This can be a zero rect since the children contains the actual graphics. And when you use Layer-hosted views the subchildren doesnt clip
+        self.wantsLayer = true/*if true then view is layer backed*/
+        layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
+        layer!.masksToBounds = false//this is needed!!!
+        createContent()
+    }
+    /**
+     *
+     */
+    func createContent(){
+        Swift.print("create content")
+        let redBox = RectGraphic(200,200,NSColor.redColor())
+        addSubview(redBox.graphic)
+        redBox.draw()
+        redBox.graphic.frame.origin = CGPoint(50,50)
+    }
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
