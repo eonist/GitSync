@@ -16,7 +16,8 @@ class WinView5:FlippedView {
     func hitTest(){
         Swift.print("hitTest")
         //setup a blue box in a view (100x100) (use the view code from WindowView)
-        addSubview(ViewA(100,100))
+        let viewA = addSubView(ViewA(100,100))
+        Swift.print("viewA.bounds: " + "\(viewA.bounds)")
         //add a redbox in a view inside the blue view (100x100)
         
         //offset the redbox view a bit so that the entire bounds of the hirarchy becomes 150
@@ -61,7 +62,7 @@ private class ViewB:FlippedView{
         let redBox = RectGraphic(200,200,NSColor.redColor())
         addSubview(redBox.graphic)
         redBox.draw()
-        redBox.graphic.frame.origin = CGPoint(50,50)
+        //redBox.graphic.frame.origin = CGPoint(50,50)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
