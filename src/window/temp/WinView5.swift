@@ -37,9 +37,15 @@ private class ViewA:FlippedView{
      */
     func createContent(){
         Swift.print("create content")
-        let blueBox = RectGraphic(CGFloat(100),CGFloat(100),NSColor.blueColor()).graphic
-        self.addSubview(blueBox)
-        blueBox.draw()
+        //let blueBox = RectGraphic(CGFloat(100),CGFloat(100),NSColor.blueColor()).graphic
+        //self.addSubview(blueBox)
+        //blueBox.draw()
+        let fill:FillStyle = FillStyle(NSColor.blueColor());
+        let lineStyle = LineStyle(10,NSColorParser.nsColor(Colors.green()).alpha(0.5))
+        
+        let rect = RectGraphic(40,40,200,200,fill,lineStyle)
+        addSubview(rect.graphic)
+        rect.draw()
         //blueBox.frame.origin = CGPoint(50,50)
         
     }
