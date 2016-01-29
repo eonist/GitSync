@@ -14,6 +14,10 @@ class WinView5:FlippedView {
      *
      */
     func hitTest(){
-        //
+        //setup a blue box in a view
+        
+        //add a redbox in a view inside the blue view
+        
+        
     }
 }
