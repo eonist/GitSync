@@ -23,6 +23,19 @@ class WinView5:FlippedView {
         //then test what the bound is on view 1
     }
 }
-private class ViewA{
-    
+private class ViewA:FlippedView{
+    init(_ width: CGFloat, _ height: CGFloat, _ id:String? = nil) {
+        super.init(frame: NSRect(0,0,width,height))//<--This can be a zero rect since the children contains the actual graphics. And when you use Layer-hosted views the subchildren doesnt clip
+        self.wantsLayer = true/*if true then view is layer backed*/
+        layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
+        layer!.masksToBounds = false//this is needed!!!
+        createContent()
+    }
+    /**
+     *
+     */
+    func createContent(){
+        
+    }
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
