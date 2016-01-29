@@ -1,6 +1,7 @@
 import Cocoa
 
 class WinView5:FlippedView {
+    var viewA:NSView!
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -16,7 +17,7 @@ class WinView5:FlippedView {
     func hitTest(){
         Swift.print("hitTest")
         //setup a blue box in a view (100x100) (use the view code from WindowView)
-        let viewA = addSubView(ViewA(100,100))
+        viewA = addSubView(ViewA(100,100))
         
         //add a redbox in a view inside the blue view (100x100)
         
@@ -25,7 +26,7 @@ class WinView5:FlippedView {
         //then test what the bound is on view 1
     }
     override func updateTrackingAreas() {
-        Swift.print("self.bounds: " + "\(self.bounds)")
+        Swift.print("viewA.bounds: " + "\(viewA.bounds)")
     }
 }
 private class ViewA:FlippedView{
