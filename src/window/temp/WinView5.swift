@@ -27,7 +27,7 @@ class WinView5:FlippedView {
     }
     override func updateTrackingAreas() {
         Swift.print("viewA.bounds: " + "\(viewA.bounds)")
-        CGPath
+        
     }
     
 }
