@@ -1,5 +1,3 @@
-import Foundation
-
 import Cocoa
 
 class WinView4:FlippedView {
