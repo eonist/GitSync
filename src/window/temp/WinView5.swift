@@ -35,8 +35,8 @@ private class ViewA:FlippedView{
      *
      */
     func createContent(){
-        let blueBox = addSubView(RectGraphic(100,100,NSColor.blueColor()))
-        blueBox.frame.origin = CGPoint(50,50)
+        let blueBox = addSubView(RectGraphic(CGFloat(100),CGFloat(100),NSColor.blueColor()).graphic)
+        //blueBox.frame.origin = CGPoint(50,50)
         
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
