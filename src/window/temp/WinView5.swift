@@ -14,10 +14,12 @@ class WinView5:FlippedView {
      *
      */
     func hitTest(){
-        //setup a blue box in a view
+        //setup a blue box in a view (100x100) (use the view code from WindowView)
         
-        //add a redbox in a view inside the blue view
+        //add a redbox in a view inside the blue view (100x100)
         
+        //offset the redbox view a bit so that the entire bounds of the hirarchy becomes 150
         
+        //then test what the bound is on view 1
     }
 }
