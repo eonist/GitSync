@@ -50,6 +50,7 @@ private class ViewA:FlippedView{
         
         let viewB = ViewB(100,100)
         addSubview(viewB)
+        viewB.frame.origin = CGPoint(50,50)
     }
     private override func hitTest(aPoint: NSPoint) -> NSView? {
         Swift.print("ViewA aPoint: " + "\(aPoint)")
