@@ -90,11 +90,11 @@ private class ViewB:FlippedView{
     Swift.print("ViewB.hitTest() point: " + "\(aPoint)")
     return self
     }*/
-    override func mouseDown(theEvent: NSEvent) {
-        Swift.print("ViewB.mouseDown()")
-        Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
-        let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
-        Swift.print("theHitView: " + "\(theHitView)")
-    }
+    /*override func mouseDown(theEvent: NSEvent) {
+    Swift.print("ViewB.mouseDown()")
+    Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
+    let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
+    Swift.print("theHitView: " + "\(theHitView)")
+    }*/
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
