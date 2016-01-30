@@ -36,8 +36,8 @@ private class ViewA:FlippedView{
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
         layer!.masksToBounds = false//this is needed!!!
-        let trackingArea:NSTrackingArea = NSTrackingArea(rect: bounds, options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: self, userInfo: nil)
-        addTrackingArea(trackingArea)
+        //let trackingArea:NSTrackingArea = NSTrackingArea(rect: bounds, options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: self, userInfo: nil)
+        //addTrackingArea(trackingArea)
         createContent()
     }
     /**
@@ -50,7 +50,7 @@ private class ViewA:FlippedView{
         blueBox.draw()
         //blueBox.graphic.frame.origin = CGPoint(50,50)
         
-        viewB = ViewB(0,0)
+        viewB = ViewB(200,200)
         addSubview(viewB)
         viewB.frame.origin = CGPoint(50,50)
     }
@@ -74,8 +74,8 @@ private class ViewB:FlippedView{
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
         layer!.masksToBounds = false//this is needed!!!
-        let trackingArea:NSTrackingArea = NSTrackingArea(rect: NSRect(0,0,200,200), options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: self, userInfo: nil)
-        addTrackingArea(trackingArea)
+        //let trackingArea:NSTrackingArea = NSTrackingArea(rect: NSRect(0,0,200,200), options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: self, userInfo: nil)
+        //addTrackingArea(trackingArea)
         createContent()
     }
     /**
