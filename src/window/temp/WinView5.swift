@@ -35,7 +35,7 @@ private class ViewA:FlippedView{
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
         layer!.masksToBounds = false//this is needed!!!
-        //let trackingArea:NSTrackingArea = NSTrackingArea(rect: bounds, options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: self, userInfo: nil)
+        //let trackingArea:NSTrackingArea = NSTrackingArea(rect: NSRect(0,0,200,200), options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: self, userInfo: nil)
         //addTrackingArea(trackingArea)
         createContent()
     }
@@ -55,8 +55,8 @@ private class ViewA:FlippedView{
     }
     override func hitTest(aPoint: NSPoint) -> NSView? {
     //Swift.print("ViewA aPoint: " + "\(aPoint)")
-    viewB.hitTest(aPoint)
-    return nil
+    //viewB.hitTest(aPoint)
+    return self
     }
     override func mouseDown(theEvent: NSEvent) {
         Swift.print("ViewA.mouseDown() theEvent: " + "\(theEvent)")
