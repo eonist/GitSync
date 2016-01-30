@@ -52,9 +52,15 @@ private class ViewA:FlippedView{
         addSubview(viewB)
         viewB.frame.origin = CGPoint(50,50)
     }
-    private override func hitTest(aPoint: NSPoint) -> NSView? {
-        Swift.print("ViewA aPoint: " + "\(aPoint)")
-        return self
+    /*override func hitTest(aPoint: NSPoint) -> NSView? {
+    Swift.print("ViewA aPoint: " + "\(aPoint)")
+    return nil
+    }*/
+    override func mouseDown(theEvent: NSEvent) {
+        Swift.print("ViewA.mouseDown()")
+        //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
+        let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
+        Swift.print("theHitView: " + "\(theHitView)")
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
@@ -77,6 +83,7 @@ private class ViewB:FlippedView{
         redBox.draw()
         //redBox.graphic.frame.origin = CGPoint(50,50)
     }
+    
     private override func hitTest(aPoint: NSPoint) -> NSView? {
         Swift.print("ViewB aPoint: " + "\(aPoint)")
         return self
