@@ -16,7 +16,7 @@ class WinView5:FlippedView {
      *
      */
     func hitTesting(){
-        Swift.print("hitTest")
+        Swift.print("hitTesting")
         //setup a blue box in a view (100x100) (use the view code from WindowView)
         viewA = addSubView(ViewA(250,250))
         
