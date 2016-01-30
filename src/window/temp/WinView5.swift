@@ -60,7 +60,7 @@ private class ViewA:FlippedView{
     return nil
     }*/
     override func mouseDown(theEvent: NSEvent) {
-        Swift.print("ViewA.mouseDown()")
+        Swift.print("ViewA.mouseDown() theEvent: " + "\(theEvent)")
         //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
         //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
         //Swift.print("theHitView: " + "\(theHitView)")
