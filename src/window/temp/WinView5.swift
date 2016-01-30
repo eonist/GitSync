@@ -46,13 +46,15 @@ private class ViewA:FlippedView{
         let blueBox = RectGraphic(200,200,NSColor.blueColor())
         addSubview(blueBox.graphic)
         blueBox.draw()
-        blueBox.graphic.frame.origin = CGPoint(50,50)
+        //blueBox.graphic.frame.origin = CGPoint(50,50)
+        
+        let viewB = ViewB(100,100)
+        addSubview(viewB)
     }
     private override func hitTest(aPoint: NSPoint) -> NSView? {
         Swift.print("ViewA aPoint: " + "\(aPoint)")
         return nil
     }
-    
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
