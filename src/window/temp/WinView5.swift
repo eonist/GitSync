@@ -6,16 +6,15 @@ class WinView5:FlippedView {
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         
-        createContent()
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
-        hitTest()
+        hitTesting()
     }
     /**
      *
      */
-    func hitTest(){
+    func hitTesting(){
         Swift.print("hitTest")
         //setup a blue box in a view (100x100) (use the view code from WindowView)
         viewA = addSubView(ViewA(100,100))
@@ -38,6 +37,8 @@ private class ViewA:FlippedView{
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
         layer!.masksToBounds = false//this is needed!!!
+        let trackingArea:NSTrackingArea = NSTrackingArea(rect: bounds, options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: self, userInfo: nil)
+        addTrackingArea(trackingArea)
         createContent()
     }
     /**
@@ -50,6 +51,11 @@ private class ViewA:FlippedView{
         blueBox.draw()
         blueBox.graphic.frame.origin = CGPoint(50,50)
     }
+    private override func hitTest(aPoint: NSPoint) -> NSView? {
+        Swift.print("ViewA aPoint: " + "\(aPoint)")
+        return nil
+    }
+    
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
