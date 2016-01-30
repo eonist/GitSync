@@ -81,7 +81,7 @@ private class ViewB:FlippedView{
      */
     func createContent(){
         Swift.print("ViewB create content")
-        let redBox = RectGraphic(200,200,NSColor.redColor())
+        let redBox = RoundRectGraphic(200,200,NSColor.redColor())
         addSubview(redBox.graphic)
         redBox.draw()
         //redBox.graphic.frame.origin = CGPoint(50,50)
