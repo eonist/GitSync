@@ -50,7 +50,7 @@ private class ViewA:FlippedView{
         blueBox.draw()
         //blueBox.graphic.frame.origin = CGPoint(50,50)
         
-        viewB = ViewB(200,200)
+        viewB = ViewB(0,0)
         addSubview(viewB)
         viewB.frame.origin = CGPoint(50,50)
     }
