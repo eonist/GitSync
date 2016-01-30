@@ -54,9 +54,9 @@ private class ViewA:FlippedView{
         viewB.frame.origin = CGPoint(50,50)
     }
     override func hitTest(aPoint: NSPoint) -> NSView? {
-    //Swift.print("ViewA aPoint: " + "\(aPoint)")
-    //viewB.hitTest(aPoint)
-    return self
+        //Swift.print("ViewA aPoint: " + "\(aPoint)")
+        //viewB.hitTest(aPoint)
+        return self
     }
     override func mouseDown(theEvent: NSEvent) {
         Swift.print("ViewA.mouseDown() theEvent: " + "\(theEvent)")
