@@ -18,7 +18,7 @@ class WinView5:FlippedView {
     func hitTesting(){
         Swift.print("hitTesting")
         //setup a blue box in a view (100x100) (use the view code from WindowView)
-        viewA = ViewA(0,0)
+        viewA = ViewA(100,100)
         addSubView(viewA)
         
         //add a redbox in a view inside the blue view (100x100)
@@ -54,18 +54,7 @@ private class ViewA:FlippedView{
         addSubview(viewB)
         viewB.frame.origin = CGPoint(50,50)/**/
     }
-    override func hitTest(aPoint: NSPoint) -> NSView? {
-    Swift.print("hit")
-    //Swift.print("ViewA aPoint: " + "\(aPoint)")
-    //viewB.hitTest(aPoint)
-    return self
-    }
-     override func mouseDown(theEvent: NSEvent) {
-     Swift.print("ViewA.mouseDown() theEvent: " + "\(theEvent)")
-     //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
-     //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
-     //Swift.print("theHitView: " + "\(theHitView)")
-     }/**/
+    
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
@@ -84,20 +73,20 @@ private class ViewB:FlippedView{
      */
     func createContent(){
         Swift.print("ViewB create content")
-        let redBox = RoundRectGraphic(0,0,200,200,Fillet(50),FillStyle(NSColor.redColor()),LineStyle(5,NSColor.greenColor()),OffsetType(OffsetType.center))
+        /* let redBox = RoundRectGraphic(0,0,200,200,Fillet(50),FillStyle(NSColor.redColor()),LineStyle(5,NSColor.greenColor()),OffsetType(OffsetType.center))
         addSubview(redBox.graphic)
-        redBox.draw()
+        redBox.draw()*/
         //redBox.graphic.frame.origin = CGPoint(50,50)
     }
     override func hitTest(aPoint: NSPoint) -> NSView? {
         Swift.print("ViewB.hitTest() point: " + "\(aPoint)")
         return self
     }
-    /*override func mouseDown(theEvent: NSEvent) {
+    override func mouseDown(theEvent: NSEvent) {
     Swift.print("ViewB.mouseDown()")
     //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
     //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
     //Swift.print("theHitView: " + "\(theHitView)")
-    }*/
+    }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
