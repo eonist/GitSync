@@ -29,6 +29,8 @@ class WinView5:FlippedView {
     
 }
 private class ViewA:FlippedView{
+    var viewB:NSView!
+    
     init(_ width: CGFloat, _ height: CGFloat) {
         super.init(frame: NSRect(0,0,width,height))//<--This can be a zero rect since the children contains the actual graphics. And when you use Layer-hosted views the subchildren doesnt clip
         self.wantsLayer = true/*if true then view is layer backed*/
@@ -48,11 +50,12 @@ private class ViewA:FlippedView{
         blueBox.draw()
         //blueBox.graphic.frame.origin = CGPoint(50,50)
         
-        let viewB = ViewB(100,100)
+        viewB = ViewB(100,100)
         addSubview(viewB)
         viewB.frame.origin = CGPoint(50,50)
     }
-    /**/override func hitTest(aPoint: NSPoint) -> NSView? {
+    /**/
+    override func hitTest(aPoint: NSPoint) -> NSView? {
         Swift.print("ViewA aPoint: " + "\(aPoint)")
         return self
     }
