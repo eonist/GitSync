@@ -36,8 +36,8 @@ private class ViewA:FlippedView{
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
         layer!.masksToBounds = false//this is needed!!!
-        let trackingArea:NSTrackingArea = NSTrackingArea(rect: bounds, options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: self, userInfo: nil)
-        addTrackingArea(trackingArea)
+        /*let trackingArea:NSTrackingArea = NSTrackingArea(rect: bounds, options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: self, userInfo: nil)
+        addTrackingArea(trackingArea)*/
         createContent()
     }
     /**
@@ -54,11 +54,11 @@ private class ViewA:FlippedView{
         addSubview(viewB)
         viewB.frame.origin = CGPoint(50,50)/**/
     }
-     override func hitTest(aPoint: NSPoint) -> NSView? {
+    override func hitTest(aPoint: NSPoint) -> NSView? {
     Swift.print("hit")
     //Swift.print("ViewA aPoint: " + "\(aPoint)")
     //viewB.hitTest(aPoint)
-    return nil
+    return self
     }
      override func mouseDown(theEvent: NSEvent) {
      Swift.print("ViewA.mouseDown() theEvent: " + "\(theEvent)")
@@ -93,11 +93,11 @@ private class ViewB:FlippedView{
         Swift.print("ViewB.hitTest() point: " + "\(aPoint)")
         return self
     }
-    override func mouseDown(theEvent: NSEvent) {
+    /*override func mouseDown(theEvent: NSEvent) {
     Swift.print("ViewB.mouseDown()")
     //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
     //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
     //Swift.print("theHitView: " + "\(theHitView)")
-    }
+    }*/
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
