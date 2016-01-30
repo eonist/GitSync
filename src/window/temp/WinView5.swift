@@ -5,10 +5,11 @@ class WinView5:FlippedView {
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
-        
+        createContent()
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
+        Swift.print("init")
         hitTesting()
     }
     /**
@@ -41,7 +42,7 @@ private class ViewA:FlippedView{
      *
      */
     func createContent(){
-        Swift.print("create content")
+        Swift.print("ViewA create content")
         let blueBox = RectGraphic(200,200,NSColor.blueColor())
         addSubview(blueBox.graphic)
         blueBox.draw()
@@ -67,7 +68,7 @@ private class ViewB:FlippedView{
      *
      */
     func createContent(){
-        Swift.print("create content")
+        Swift.print("ViewB create content")
         let redBox = RectGraphic(200,200,NSColor.redColor())
         addSubview(redBox.graphic)
         redBox.draw()
