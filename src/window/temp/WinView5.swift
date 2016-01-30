@@ -18,7 +18,7 @@ class WinView5:FlippedView {
     func hitTesting(){
         Swift.print("hitTest")
         //setup a blue box in a view (100x100) (use the view code from WindowView)
-        viewA = addSubView(ViewA(100,100))
+        viewA = addSubView(ViewA(250,250))
         
         //add a redbox in a view inside the blue view (100x100)
         
@@ -50,7 +50,7 @@ private class ViewA:FlippedView{
         blueBox.draw()
         //blueBox.graphic.frame.origin = CGPoint(50,50)
         
-        viewB = ViewB(100,100)
+        viewB = ViewB(250,250)
         addSubview(viewB)
         viewB.frame.origin = CGPoint(50,50)
     }
