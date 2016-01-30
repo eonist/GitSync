@@ -25,10 +25,6 @@ class WinView5:FlippedView {
         
         //then test what the bound is on view 1
     }
-    override func updateTrackingAreas() {
-        Swift.print("viewA.bounds: " + "\(viewA.bounds)")
-        
-    }
     
 }
 private class ViewA:FlippedView{
@@ -78,7 +74,7 @@ private class ViewB:FlippedView{
         //redBox.graphic.frame.origin = CGPoint(50,50)
     }
     private override func hitTest(aPoint: NSPoint) -> NSView? {
-        Swift.print("ViewA aPoint: " + "\(aPoint)")
+        Swift.print("ViewB aPoint: " + "\(aPoint)")
         return nil
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
