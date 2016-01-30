@@ -79,7 +79,7 @@ private class ViewB:FlippedView{
     }
     private override func hitTest(aPoint: NSPoint) -> NSView? {
         Swift.print("ViewB aPoint: " + "\(aPoint)")
-        return nil
+        return self
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
