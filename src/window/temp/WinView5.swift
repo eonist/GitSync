@@ -49,22 +49,22 @@ private class ViewA:FlippedView{
         blueBox.draw()
         //blueBox.graphic.frame.origin = CGPoint(50,50)
         
-        viewB = ViewB(200,200)
+        /*viewB = ViewB(200,200)
         addSubview(viewB)
-        viewB.frame.origin = CGPoint(50,50)
+        viewB.frame.origin = CGPoint(50,50)*/
     }
-     override func hitTest(aPoint: NSPoint) -> NSView? {
-        Swift.print("hit")
+    /*override func hitTest(aPoint: NSPoint) -> NSView? {
+    Swift.print("hit")
     //Swift.print("ViewA aPoint: " + "\(aPoint)")
     //viewB.hitTest(aPoint)
     return nil
-    }/**/
-    override func mouseDown(theEvent: NSEvent) {
-        Swift.print("ViewA.mouseDown() theEvent: " + "\(theEvent)")
-        //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
-        //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
-        //Swift.print("theHitView: " + "\(theHitView)")
-    }
+    }*//**/
+     /*override func mouseDown(theEvent: NSEvent) {
+     Swift.print("ViewA.mouseDown() theEvent: " + "\(theEvent)")
+     //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
+     //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
+     //Swift.print("theHitView: " + "\(theHitView)")
+     }*/
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
@@ -88,10 +88,10 @@ private class ViewB:FlippedView{
         redBox.draw()
         //redBox.graphic.frame.origin = CGPoint(50,50)
     }
-    /*override func hitTest(aPoint: NSPoint) -> NSView? {
-    Swift.print("ViewB.hitTest() point: " + "\(aPoint)")
-    return self
-    }*/
+    override func hitTest(aPoint: NSPoint) -> NSView? {
+        Swift.print("ViewB.hitTest() point: " + "\(aPoint)")
+        return self
+    }
     override func mouseDown(theEvent: NSEvent) {
         Swift.print("ViewB.mouseDown()")
         //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
