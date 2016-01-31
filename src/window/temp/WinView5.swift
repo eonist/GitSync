@@ -123,7 +123,6 @@ class ViewB:FlippedView{
         */
     }
     
-    
     override func hitTest(aPoint: NSPoint) -> NSView? {
         //Swift.print("ViewB.hitTest() point: " + "\(aPoint)")
         //Swift.print("viewB nextResponder: " + "\(nextResponder)")
