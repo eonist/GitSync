@@ -21,11 +21,6 @@ class WinView5:FlippedView {
         viewA = ViewA(0,0)
         addSubView(viewA)
         
-        //add a redbox in a view inside the blue view (100x100)
-        
-        //offset the redbox view a bit so that the entire bounds of the hirarchy becomes 150
-        
-        //then test what the bound is on view 1
     }
 }
 private class ViewA:FlippedView{
