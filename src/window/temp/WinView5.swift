@@ -60,10 +60,7 @@ class ViewA:FlippedView{
         
         
     }
-    override func mouse(aPoint: NSPoint, inRect aRect: NSRect) -> Bool {
-        Swift.print("mouse" + "\(aPoint)")
-        return true
-    }
+    
     /*override func hitTest(aPoint: NSPoint) -> NSView? {
         Swift.print("hit")
         Swift.print("ViewA aPoint: " + "\(aPoint)")
