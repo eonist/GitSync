@@ -18,7 +18,7 @@ class WinView5:FlippedView {
     func hitTesting(){
         Swift.print("hitTesting")
         //setup a blue box in a view (100x100) (use the view code from WindowView)
-        viewA = ViewA(00,00)
+        viewA = ViewA(200,200)
         addSubView(viewA)
         
     }
@@ -59,6 +59,10 @@ class ViewA:FlippedView{
         viewB.frame.origin = CGPoint(50,50)/**/
         
         
+    }
+    override func mouse(aPoint: NSPoint, inRect aRect: NSRect) -> Bool {
+        Swift.print("mouse" + "\(aPoint)")
+        return true
     }
     /*override func hitTest(aPoint: NSPoint) -> NSView? {
         Swift.print("hit")
