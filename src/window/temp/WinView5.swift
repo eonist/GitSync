@@ -68,6 +68,7 @@ private class ViewA:FlippedView{
         //[[self nextResponder] mouseDown:theEvent];
         self.nextResponder!.mouseDown(theEvent)
         super.mouseDown(theEvent)
+        viewB.mouseDown(theEvent)
     //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
     //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
     //Swift.print("theHitView: " + "\(theHitView)")
