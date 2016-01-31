@@ -53,9 +53,7 @@ class ViewA:FlippedView{
         addSubview(viewB)
         viewB.frame.origin = CGPoint(50,50)/**/
         
-        NSEvent.addGlobalMonitorForEventsMatchingMask([.LeftMouseDownMask, .RightMouseDownMask], handler: { (event : NSEvent) -> Void in
-            Swift.print("test " + "\(event)")
-        })
+        
     }
     /*override func hitTest(aPoint: NSPoint) -> NSView? {
     Swift.print("hit")
@@ -67,7 +65,7 @@ class ViewA:FlippedView{
     override func mouseMoved(theEvent: NSEvent) {
         Swift.print("moved a")
     }
-    override func mouseDown(theEvent: NSEvent) {
+    /*override func mouseDown(theEvent: NSEvent) {
     Swift.print("ViewA.mouseDown() theEvent: " + "\(theEvent)")
     Swift.print("self.window.firstResponder: " + "\(self.window!.firstResponder)")
     Swift.print("self.nextResponder: " + "\(self.nextResponder)")
@@ -78,7 +76,7 @@ class ViewA:FlippedView{
     //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
     //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
     //Swift.print("theHitView: " + "\(theHitView)")
-    }
+    }*/
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
