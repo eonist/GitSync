@@ -25,10 +25,10 @@ class WinView5:FlippedView {
 }
 class ViewA:FlippedView{
     var viewB:ViewB!
-    override func acceptsFirstMouse(theEvent: NSEvent?) -> Bool {
-        return true
-    }
-    override var acceptsFirstResponder:Bool{return true}
+    //override func acceptsFirstMouse(theEvent: NSEvent?) -> Bool {
+        //return true
+    //}
+    //override var acceptsFirstResponder:Bool{return true}
     init(_ width: CGFloat, _ height: CGFloat) {
         super.init(frame: NSRect(0,0,width,height))//<--This can be a zero rect since the children contains the actual graphics. And when you use Layer-hosted views the subchildren doesnt clip
         self.wantsLayer = true/*if true then view is layer backed*/
@@ -38,6 +38,7 @@ class ViewA:FlippedView{
         addTrackingArea(trackingArea)*/
         createContent()
     }
+    
     /**
      *
      */
@@ -51,6 +52,8 @@ class ViewA:FlippedView{
         viewB = ViewB(200,200)
         addSubview(viewB)
         viewB.frame.origin = CGPoint(50,50)/**/
+        
+        self.window.addChildWindow(childWin:ordered:)
     }
     /*override func hitTest(aPoint: NSPoint) -> NSView? {
     Swift.print("hit")
@@ -78,7 +81,7 @@ class ViewA:FlippedView{
 }
 
 class ViewB:FlippedView{
-    override var acceptsFirstResponder:Bool{return true}
+    //override var acceptsFirstResponder:Bool{return true}
     init(_ width: CGFloat, _ height: CGFloat) {
         super.init(frame: NSRect(0,0,width,height))//<--This can be a zero rect since the children contains the actual graphics. And when you use Layer-hosted views the subchildren doesnt clip
         self.wantsLayer = true/*if true then view is layer backed*/
