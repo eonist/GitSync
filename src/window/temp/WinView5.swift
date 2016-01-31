@@ -54,15 +54,15 @@ class ViewA:FlippedView{
         blueBox.draw()*/
         //blueBox.graphic.frame.origin = CGPoint(50,50)
         
-        viewB = ViewB(200,200)
+        viewB = ViewB(00,00)
         addSubview(viewB)
         viewB.frame.origin = CGPoint(50,50)/**/
         
         
     }
     override func hitTest(aPoint: NSPoint) -> NSView? {
-        Swift.print("hit")
-        Swift.print("ViewA aPoint: " + "\(aPoint)")
+        //Swift.print("hit")
+        Swift.print("ViewA hitTest() aPoint: " + "\(aPoint)")
         return viewB.hitTest(aPoint)
         //return super.hitTest(aPoint)
         //return self
@@ -86,7 +86,7 @@ class ViewA:FlippedView{
 }
 
 class ViewB:FlippedView{
-    //override var acceptsFirstResponder:Bool{return true}
+    override internal var acceptsFirstResponder:Bool{return true}
     init(_ width: CGFloat, _ height: CGFloat) {
         super.init(frame: NSRect(0,0,width,height))//<--This can be a zero rect since the children contains the actual graphics. And when you use Layer-hosted views the subchildren doesnt clip
         self.wantsLayer = true/*if true then view is layer backed*/
