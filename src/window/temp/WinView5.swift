@@ -23,7 +23,7 @@ class WinView5:FlippedView {
         
     }
     override func hitTest(aPoint: NSPoint) -> NSView? {
-        return nil
+        return viewA.hitTest(aPoint)
     }
 }
 class ViewA:FlippedView{
@@ -58,13 +58,13 @@ class ViewA:FlippedView{
         
         
     }
-    /*override func hitTest(aPoint: NSPoint) -> NSView? {
+    override func hitTest(aPoint: NSPoint) -> NSView? {
     Swift.print("hit")
-    //Swift.print("ViewA aPoint: " + "\(aPoint)")
+    Swift.print("ViewA aPoint: " + "\(aPoint)")
     //viewB.hitTest(aPoint)
-    return super.hitTest(aPoint)
-    //return self
-    }*/
+        return super.hitTest(aPoint)
+        //return self
+    }
     override func mouseMoved(theEvent: NSEvent) {
         Swift.print("moved a")
     }
