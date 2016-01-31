@@ -52,28 +52,28 @@ class ViewA:FlippedView{
         addSubview(viewB)
         viewB.frame.origin = CGPoint(50,50)/**/
     }
-    override func hitTest(aPoint: NSPoint) -> NSView? {
-        Swift.print("hit")
-        //Swift.print("ViewA aPoint: " + "\(aPoint)")
-        //viewB.hitTest(aPoint)
-        return super.hitTest(aPoint)
-        //return self
-    }
+    /*override func hitTest(aPoint: NSPoint) -> NSView? {
+    Swift.print("hit")
+    //Swift.print("ViewA aPoint: " + "\(aPoint)")
+    //viewB.hitTest(aPoint)
+    return super.hitTest(aPoint)
+    //return self
+    }*/
     override func mouseMoved(theEvent: NSEvent) {
         Swift.print("moved a")
     }
-    override func mouseDown(theEvent: NSEvent) {
+    /*override func mouseDown(theEvent: NSEvent) {
     Swift.print("ViewA.mouseDown() theEvent: " + "\(theEvent)")
-        Swift.print("self.window.firstResponder: " + "\(self.window!.firstResponder)")
-        Swift.print("self.nextResponder: " + "\(self.nextResponder)")
-        //[[self nextResponder] mouseDown:theEvent];
-        //self.nextResponder!.mouseDown(theEvent)
-        super.mouseDown(theEvent)
-        //viewB.mouseDown(theEvent)
+    Swift.print("self.window.firstResponder: " + "\(self.window!.firstResponder)")
+    Swift.print("self.nextResponder: " + "\(self.nextResponder)")
+    //[[self nextResponder] mouseDown:theEvent];
+    //self.nextResponder!.mouseDown(theEvent)
+    super.mouseDown(theEvent)
+    //viewB.mouseDown(theEvent)
     //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
     //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
     //Swift.print("theHitView: " + "\(theHitView)")
-    }
+    }*/
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
@@ -101,17 +101,17 @@ class ViewB:FlippedView{
         redBox.draw()
         //redBox.graphic.frame.origin = CGPoint(50,50)
     }
-    override func hitTest(aPoint: NSPoint) -> NSView? {
-        Swift.print("ViewB.hitTest() point: " + "\(aPoint)")
-        Swift.print("viewB nextResponder: " + "\(nextResponder)")
-        return super.hitTest(aPoint)
-    }
-    override func mouseDown(theEvent: NSEvent) {
-        Swift.print("ViewB.mouseDown()")
-        super.mouseDown(theEvent)
-        //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
-        //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
-        //Swift.print("theHitView: " + "\(theHitView)")
-    }
+    /*override func hitTest(aPoint: NSPoint) -> NSView? {
+    Swift.print("ViewB.hitTest() point: " + "\(aPoint)")
+    Swift.print("viewB nextResponder: " + "\(nextResponder)")
+    return super.hitTest(aPoint)
+    }*/
+    /*override func mouseDown(theEvent: NSEvent) {
+    Swift.print("ViewB.mouseDown()")
+    super.mouseDown(theEvent)
+    //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
+    //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
+    //Swift.print("theHitView: " + "\(theHitView)")
+    }*/
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
