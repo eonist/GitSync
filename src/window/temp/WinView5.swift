@@ -18,7 +18,7 @@ class WinView5:FlippedView {
     func hitTesting(){
         Swift.print("hitTesting")
         //setup a blue box in a view (100x100) (use the view code from WindowView)
-        viewA = ViewA(0,0)
+        viewA = ViewA(1,1)
         addSubView(viewA)
         
         //add a redbox in a view inside the blue view (100x100)
@@ -83,6 +83,9 @@ private class ViewB:FlippedView{
         addTrackingArea(trackingArea)
         
         createContent()
+    }
+    private override func mouseMoved(theEvent: NSEvent) {
+        Swift.print("move")
     }
     /**
      *
