@@ -18,7 +18,7 @@ class WinView5:FlippedView {
     func hitTesting(){
         Swift.print("hitTesting")
         //setup a blue box in a view (100x100) (use the view code from WindowView)
-        viewA = ViewA(200,200)
+        viewA = ViewA(00,00)
         addSubView(viewA)
         
     }
@@ -33,7 +33,7 @@ class ViewA:FlippedView{
     //override func acceptsFirstMouse(theEvent: NSEvent?) -> Bool {
         //return true
     //}
-    //override var acceptsFirstResponder:Bool{return true}
+    override internal var acceptsFirstResponder:Bool{return true}
     init(_ width: CGFloat, _ height: CGFloat) {
         super.init(frame: NSRect(0,0,width,height))//<--This can be a zero rect since the children contains the actual graphics. And when you use Layer-hosted views the subchildren doesnt clip
         self.wantsLayer = true/*if true then view is layer backed*/
@@ -61,17 +61,17 @@ class ViewA:FlippedView{
         
     }
     
-    /*override func hitTest(aPoint: NSPoint) -> NSView? {
+    override func hitTest(aPoint: NSPoint) -> NSView? {
         Swift.print("hit")
         Swift.print("ViewA aPoint: " + "\(aPoint)")
         return viewB.hitTest(aPoint)
         //return super.hitTest(aPoint)
         //return self
-    }*/
+    }
     override func mouseMoved(theEvent: NSEvent) {
         Swift.print("moved a")
     }
-    /*override func mouseDown(theEvent: NSEvent) {
+    override func mouseDown(theEvent: NSEvent) {
     Swift.print("ViewA.mouseDown() theEvent: " + "\(theEvent)")
     Swift.print("self.window.firstResponder: " + "\(self.window!.firstResponder)")
     Swift.print("self.nextResponder: " + "\(self.nextResponder)")
@@ -82,7 +82,7 @@ class ViewA:FlippedView{
     //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
     //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
     //Swift.print("theHitView: " + "\(theHitView)")
-    }*/
+    }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
@@ -111,6 +111,7 @@ class ViewB:FlippedView{
         //redBox.graphic.frame.origin = CGPoint(50,50)
         
         //let win = self.window!
+        /*
         NSEvent.addLocalMonitorForEventsMatchingMask([.LeftMouseDownMask, .RightMouseDownMask], handler: { (event : NSEvent) -> NSEvent? in
             Swift.print("test " + "\(event)")
             //self.
@@ -118,6 +119,7 @@ class ViewB:FlippedView{
             Swift.print("theView: " + "\(theView)")
             return event
         })
+        */
     }
     
     
