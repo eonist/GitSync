@@ -60,7 +60,6 @@ class ViewA:FlippedView{
         
         
     }
-    
     override func hitTest(aPoint: NSPoint) -> NSView? {
         Swift.print("hit")
         Swift.print("ViewA aPoint: " + "\(aPoint)")
@@ -73,8 +72,8 @@ class ViewA:FlippedView{
     }
     override func mouseDown(theEvent: NSEvent) {
     Swift.print("ViewA.mouseDown() theEvent: " + "\(theEvent)")
-    Swift.print("self.window.firstResponder: " + "\(self.window!.firstResponder)")
-    Swift.print("self.nextResponder: " + "\(self.nextResponder)")
+    //Swift.print("self.window.firstResponder: " + "\(self.window!.firstResponder)")
+    //Swift.print("self.nextResponder: " + "\(self.nextResponder)")
     //[[self nextResponder] mouseDown:theEvent];
     //self.nextResponder!.mouseDown(theEvent)
     super.mouseDown(theEvent)
@@ -125,7 +124,7 @@ class ViewB:FlippedView{
     
     override func hitTest(aPoint: NSPoint) -> NSView? {
     Swift.print("ViewB.hitTest() point: " + "\(aPoint)")
-    Swift.print("viewB nextResponder: " + "\(nextResponder)")
+    //Swift.print("viewB nextResponder: " + "\(nextResponder)")
     return super.hitTest(aPoint)
     }
     override func mouseDown(theEvent: NSEvent) {
