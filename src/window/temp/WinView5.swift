@@ -63,6 +63,8 @@ private class ViewA:FlippedView{
     }
     override func mouseDown(theEvent: NSEvent) {
     Swift.print("ViewA.mouseDown() theEvent: " + "\(theEvent)")
+        Swift.print("self.window.firstResponder: " + "\(self.window!.firstResponder)")
+        Swift.print("self.nextResponder: " + "\(self.nextResponder)")
         //[[self nextResponder] mouseDown:theEvent];
         self.nextResponder!.mouseDown(theEvent)
         super.mouseDown(theEvent)
