@@ -140,6 +140,15 @@ class BaseView:FlippedView{
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         
+        
+        //continue here: implement interactiveView like features
+        
+        
+    }
+    override func hitTest(aPoint: NSPoint) -> NSView? {
+        for view in self.subviews{
+            
+        }
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
