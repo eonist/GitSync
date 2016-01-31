@@ -18,13 +18,13 @@ class WinView5:FlippedView {
     func hitTesting(){
         Swift.print("hitTesting")
         //setup a blue box in a view (100x100) (use the view code from WindowView)
-        viewA = ViewA(00,00)
+        viewA = ViewA(200,200)
         addSubView(viewA)
         
     }
-    override func hitTest(aPoint: NSPoint) -> NSView? {
-        return viewA.hitTest(aPoint)
-    }
+    /*override func hitTest(aPoint: NSPoint) -> NSView? {
+    return viewA.hitTest(aPoint)
+    }*/
 }
 class ViewA:FlippedView{
     var viewB:ViewB!
@@ -59,8 +59,8 @@ class ViewA:FlippedView{
         
     }
     override func hitTest(aPoint: NSPoint) -> NSView? {
-    Swift.print("hit")
-    Swift.print("ViewA aPoint: " + "\(aPoint)")
+        Swift.print("hit")
+        Swift.print("ViewA aPoint: " + "\(aPoint)")
         return viewB.hitTest(aPoint)
         //return super.hitTest(aPoint)
         //return self
