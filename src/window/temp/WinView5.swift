@@ -73,7 +73,7 @@ private class ViewA:FlippedView{
 }
 
 private class ViewB:FlippedView{
-    override var setAcceptsMouseMovedEvents:Bool{return true}
+    
     init(_ width: CGFloat, _ height: CGFloat) {
         super.init(frame: NSRect(0,0,width,height))//<--This can be a zero rect since the children contains the actual graphics. And when you use Layer-hosted views the subchildren doesnt clip
         self.wantsLayer = true/*if true then view is layer backed*/
