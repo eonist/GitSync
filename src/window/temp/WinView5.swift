@@ -18,7 +18,7 @@ class WinView5:FlippedView {
     func hitTesting(){
         Swift.print("hitTesting")
         //setup a blue box in a view (100x100) (use the view code from WindowView)
-        viewA = ViewA(200,200)
+        viewA = ViewA(00,00)
         addSubView(viewA)
         
     }
@@ -103,7 +103,14 @@ class ViewB:FlippedView{
         addSubview(redBox.graphic)
         redBox.draw()
         //redBox.graphic.frame.origin = CGPoint(50,50)
+        
+        NSEvent.addLocalMonitorForEventsMatchingMask([.LeftMouseDownMask, .RightMouseDownMask], handler: { (event : NSEvent) -> NSEvent? in
+            Swift.print("test " + "\(event)")
+            return event
+        })
     }
+    
+    
     /*override func hitTest(aPoint: NSPoint) -> NSView? {
     Swift.print("ViewB.hitTest() point: " + "\(aPoint)")
     Swift.print("viewB nextResponder: " + "\(nextResponder)")
