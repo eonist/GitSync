@@ -33,7 +33,7 @@ class ViewA:FlippedView{
     //override func acceptsFirstMouse(theEvent: NSEvent?) -> Bool {
         //return true
     //}
-    override internal var acceptsFirstResponder:Bool{return true}
+    //override internal var acceptsFirstResponder:Bool{return true}
     init(_ width: CGFloat, _ height: CGFloat) {
         super.init(frame: NSRect(0,0,width,height))//<--This can be a zero rect since the children contains the actual graphics. And when you use Layer-hosted views the subchildren doesnt clip
         self.wantsLayer = true/*if true then view is layer backed*/
@@ -86,7 +86,7 @@ class ViewA:FlippedView{
 }
 
 class ViewB:FlippedView{
-    override internal var acceptsFirstResponder:Bool{return true}
+    //override internal var acceptsFirstResponder:Bool{return true}
     init(_ width: CGFloat, _ height: CGFloat) {
         super.init(frame: NSRect(0,0,width,height))//<--This can be a zero rect since the children contains the actual graphics. And when you use Layer-hosted views the subchildren doesnt clip
         self.wantsLayer = true/*if true then view is layer backed*/
@@ -125,7 +125,7 @@ class ViewB:FlippedView{
     override func hitTest(aPoint: NSPoint) -> NSView? {
     Swift.print("ViewB.hitTest() point: " + "\(aPoint)")
     //Swift.print("viewB nextResponder: " + "\(nextResponder)")
-    return super.hitTest(aPoint)
+    return self//super.hitTest(aPoint)
     }
     override func mouseDown(theEvent: NSEvent) {
     Swift.print("ViewB.mouseDown()")
