@@ -22,6 +22,8 @@ class WinView5:FlippedView {
         addSubView(viewA)
         
     }
+    
+    
     /*override func hitTest(aPoint: NSPoint) -> NSView? {
     return viewA.hitTest(aPoint)
     }*/
