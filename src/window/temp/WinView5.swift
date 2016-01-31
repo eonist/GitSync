@@ -53,7 +53,9 @@ class ViewA:FlippedView{
         addSubview(viewB)
         viewB.frame.origin = CGPoint(50,50)/**/
         
-        self.window.addChildWindow(childWin:ordered:)
+        NSEvent.addGlobalMonitorForEventsMatchingMask([.LeftMouseDownMask, .RightMouseDownMask], handler: { (event : NSEvent) -> Void in
+            Swift.print("test")
+        })
     }
     /*override func hitTest(aPoint: NSPoint) -> NSView? {
     Swift.print("hit")
