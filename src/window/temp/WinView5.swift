@@ -1,7 +1,7 @@
 import Cocoa
 
 class WinView5:FlippedView {
-    var viewA:NSView!
+    var viewA:ViewA!
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -23,9 +23,9 @@ class WinView5:FlippedView {
         
     }
 }
-private class ViewA:FlippedView{
-    var viewB:NSView!
-    private override func acceptsFirstMouse(theEvent: NSEvent?) -> Bool {
+class ViewA:FlippedView{
+    var viewB:ViewB!
+    override func acceptsFirstMouse(theEvent: NSEvent?) -> Bool {
         return true
     }
     override var acceptsFirstResponder:Bool{return true}
@@ -58,7 +58,7 @@ private class ViewA:FlippedView{
         viewB.hitTest(aPoint)
         return self
     }
-    private override func mouseMoved(theEvent: NSEvent) {
+    override func mouseMoved(theEvent: NSEvent) {
         Swift.print("moved a")
     }
     override func mouseDown(theEvent: NSEvent) {
@@ -76,7 +76,7 @@ private class ViewA:FlippedView{
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
-private class ViewB:FlippedView{
+class ViewB:FlippedView{
     override var acceptsFirstResponder:Bool{return true}
     init(_ width: CGFloat, _ height: CGFloat) {
         super.init(frame: NSRect(0,0,width,height))//<--This can be a zero rect since the children contains the actual graphics. And when you use Layer-hosted views the subchildren doesnt clip
@@ -87,7 +87,7 @@ private class ViewB:FlippedView{
         addTrackingArea(trackingArea)
         createContent()
     }
-    private override func mouseMoved(theEvent: NSEvent) {
+    override func mouseMoved(theEvent: NSEvent) {
         Swift.print("move b")
     }
     /**
