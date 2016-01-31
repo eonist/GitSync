@@ -37,7 +37,7 @@ class Win:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.center()
         //view.wantsLayer = true;//this should be set in the iew not here
         self.contentView = view
-        makeFirstResponder(view.viewA.viewB) 
+        /*makeFirstResponder(view.viewA.viewB) */
         //self.title = ""/*Sets the title of the window*/
         self.title = ""//GitSync
         createContent()
