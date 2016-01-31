@@ -49,14 +49,15 @@ class ViewA:FlippedView{
      */
     func createContent(){
         Swift.print("ViewA create content")
-        /*let blueBox = RectGraphic(200,200,NSColor.blueColor())
+        let blueBox = RectGraphic(200,200,NSColor.blueColor())
         addSubview(blueBox.graphic)
-        blueBox.draw()*/
+        blueBox.draw()
         //blueBox.graphic.frame.origin = CGPoint(50,50)
         
         viewB = ViewB(00,00)
-        addSubview(viewB)
         viewB.frame.origin = CGPoint(50,50)/**/
+        addSubview(viewB)
+        
         
         
     }
