@@ -55,8 +55,9 @@ class ViewA:FlippedView{
     override func hitTest(aPoint: NSPoint) -> NSView? {
         Swift.print("hit")
         //Swift.print("ViewA aPoint: " + "\(aPoint)")
-        viewB.hitTest(aPoint)
-        return self
+        //viewB.hitTest(aPoint)
+        return super.hitTest(aPoint)
+        //return self
     }
     override func mouseMoved(theEvent: NSEvent) {
         Swift.print("moved a")
@@ -66,9 +67,9 @@ class ViewA:FlippedView{
         Swift.print("self.window.firstResponder: " + "\(self.window!.firstResponder)")
         Swift.print("self.nextResponder: " + "\(self.nextResponder)")
         //[[self nextResponder] mouseDown:theEvent];
-        self.nextResponder!.mouseDown(theEvent)
+        //self.nextResponder!.mouseDown(theEvent)
         super.mouseDown(theEvent)
-        viewB.mouseDown(theEvent)
+        //viewB.mouseDown(theEvent)
     //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
     //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
     //Swift.print("theHitView: " + "\(theHitView)")
@@ -103,10 +104,11 @@ class ViewB:FlippedView{
     override func hitTest(aPoint: NSPoint) -> NSView? {
         Swift.print("ViewB.hitTest() point: " + "\(aPoint)")
         Swift.print("viewB nextResponder: " + "\(nextResponder)")
-        return self
+        return super.hitTest(aPoint)
     }
     override func mouseDown(theEvent: NSEvent) {
         Swift.print("ViewB.mouseDown()")
+        super.mouseDown(theEvent)
         //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
         //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
         //Swift.print("theHitView: " + "\(theHitView)")
