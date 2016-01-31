@@ -103,10 +103,11 @@ class ViewB:FlippedView{
         addSubview(redBox.graphic)
         redBox.draw()
         //redBox.graphic.frame.origin = CGPoint(50,50)
-        
+        let testing = "testing"
         NSEvent.addLocalMonitorForEventsMatchingMask([.LeftMouseDownMask, .RightMouseDownMask], handler: { (event : NSEvent) -> NSEvent? in
             Swift.print("test " + "\(event)")
-            let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
+            //self.window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
+            Swift.print(testing)
             return event
         })
     }
