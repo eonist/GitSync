@@ -20,10 +20,7 @@ class WinView5:FlippedView {
         //setup a blue box in a view (100x100) (use the view code from WindowView)
         viewA = ViewA(00,00)
         addSubView(viewA)
-        
     }
-    
-    
     /*override func hitTest(aPoint: NSPoint) -> NSView? {
     return viewA.hitTest(aPoint)
     }*/
@@ -139,5 +136,10 @@ class ViewB:FlippedView{
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class BaseView:FlippedView{
-    
+    override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        
+    }
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
