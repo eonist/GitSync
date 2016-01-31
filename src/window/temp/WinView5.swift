@@ -63,7 +63,7 @@ class ViewA:FlippedView{
     override func hitTest(aPoint: NSPoint) -> NSView? {
         //Swift.print("hit")
         //Swift.print("ViewA hitTest() aPoint: " + "\(aPoint)")
-        return super.hitTest(aPoint)
+        return viewB.hitTest(aPoint)
         //return super.hitTest(aPoint)
         //return self
     }
@@ -87,6 +87,8 @@ class ViewA:FlippedView{
 
 class ViewB:FlippedView{
     //override internal var acceptsFirstResponder:Bool{return true}
+    var redBox:RoundRectGraphic?
+    
     init(_ width: CGFloat, _ height: CGFloat) {
         super.init(frame: NSRect(0,0,width,height))//<--This can be a zero rect since the children contains the actual graphics. And when you use Layer-hosted views the subchildren doesnt clip
         self.wantsLayer = true/*if true then view is layer backed*/
@@ -104,9 +106,9 @@ class ViewB:FlippedView{
      */
     func createContent(){
         Swift.print("ViewB create content")
-        let redBox = RoundRectGraphic(0,0,200,200,Fillet(50),FillStyle(NSColor.redColor()),LineStyle(5,NSColor.greenColor()),OffsetType(OffsetType.center))
-        addSubview(redBox.graphic)
-        redBox.draw()
+        redBox = RoundRectGraphic(0,0,200,200,Fillet(50),FillStyle(NSColor.redColor()),LineStyle(5,NSColor.greenColor()),OffsetType(OffsetType.center))
+        addSubview(redBox!.graphic)
+        redBox!.draw()
         //redBox.graphic.frame.origin = CGPoint(50,50)
         
         //let win = self.window!
@@ -123,16 +125,16 @@ class ViewB:FlippedView{
     
     
     override func hitTest(aPoint: NSPoint) -> NSView? {
-    Swift.print("ViewB.hitTest() point: " + "\(aPoint)")
-    //Swift.print("viewB nextResponder: " + "\(nextResponder)")
-    return self//super.hitTest(aPoint)
+        //Swift.print("ViewB.hitTest() point: " + "\(aPoint)")
+        //Swift.print("viewB nextResponder: " + "\(nextResponder)")
+        return self//super.hitTest(aPoint)
     }
     override func mouseDown(theEvent: NSEvent) {
-    Swift.print("ViewB.mouseDown()")
-    super.mouseDown(theEvent)
-    //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
-    //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
-    //Swift.print("theHitView: " + "\(theHitView)")
+        Swift.print("ViewB.mouseDown()")
+        super.mouseDown(theEvent)
+        //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
+        //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
+        //Swift.print("theHitView: " + "\(theHitView)")
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
