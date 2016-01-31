@@ -106,6 +106,7 @@ class ViewB:FlippedView{
         
         NSEvent.addLocalMonitorForEventsMatchingMask([.LeftMouseDownMask, .RightMouseDownMask], handler: { (event : NSEvent) -> NSEvent? in
             Swift.print("test " + "\(event)")
+            let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
             return event
         })
     }
