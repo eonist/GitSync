@@ -61,8 +61,8 @@ class ViewA:FlippedView{
     override func hitTest(aPoint: NSPoint) -> NSView? {
     Swift.print("hit")
     Swift.print("ViewA aPoint: " + "\(aPoint)")
-    //viewB.hitTest(aPoint)
-        return super.hitTest(aPoint)
+        return viewB.hitTest(aPoint)
+        //return super.hitTest(aPoint)
         //return self
     }
     override func mouseMoved(theEvent: NSEvent) {
