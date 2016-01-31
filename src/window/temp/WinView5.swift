@@ -61,7 +61,7 @@ class ViewA:FlippedView{
         
     }
     override func hitTest(aPoint: NSPoint) -> NSView? {
-        Swift.print("hit")
+        //Swift.print("hit")
         //Swift.print("ViewA hitTest() aPoint: " + "\(aPoint)")
         return viewB.hitTest(aPoint)
         //return super.hitTest(aPoint)
@@ -125,7 +125,7 @@ class ViewB:FlippedView{
     
     
     override func hitTest(aPoint: NSPoint) -> NSView? {
-        Swift.print("ViewB.hitTest() point: " + "\(aPoint)")
+        //Swift.print("ViewB.hitTest() point: " + "\(aPoint)")
         //Swift.print("viewB nextResponder: " + "\(nextResponder)")
         return nil//super.hitTest(aPoint)
     }
