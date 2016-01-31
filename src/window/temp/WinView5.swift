@@ -30,6 +30,9 @@ class WinView5:FlippedView {
 }
 private class ViewA:FlippedView{
     var viewB:NSView!
+    private override func acceptsFirstMouse(theEvent: NSEvent?) -> Bool {
+        return true
+    }
     
     init(_ width: CGFloat, _ height: CGFloat) {
         super.init(frame: NSRect(0,0,width,height))//<--This can be a zero rect since the children contains the actual graphics. And when you use Layer-hosted views the subchildren doesnt clip
