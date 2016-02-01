@@ -43,7 +43,14 @@ class ViewA:InteractiveView2{
         //Swift.print("ViewA.mouseExited()")
         super.mouseExited(event)
     }
-    
+    override func mouseOver() {
+        Swift.print("ViewA.mouseOver() ")
+        super.mouseOver()
+    }
+    override func mouseOut() {
+        Swift.print("ViewA.mouseOut() ")
+        super.mouseOut()
+    }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class ViewB:InteractiveView2{
@@ -66,6 +73,14 @@ class ViewB:InteractiveView2{
     override func mouseExited(event: NSEvent) {
         //Swift.print("ViewB.mouseExited()")
         super.mouseExited(event)
+    }
+    override func mouseOver() {
+        Swift.print("ViewB.mouseOver() ")
+        super.mouseOver()
+    }
+    override func mouseOut() {
+        Swift.print("ViewB.mouseOut() ")
+        super.mouseOut()
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
