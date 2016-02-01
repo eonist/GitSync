@@ -36,19 +36,19 @@ class ViewA:InteractiveView2{
         addSubview(viewB)
     }
     override func mouseEntered(event: NSEvent) {
-        //Swift.print("ViewA.mouseEntered()")
+        Swift.print("ViewA.mouseEntered()")
         super.mouseEntered(event)
     }
     override func mouseExited(event: NSEvent) {
-        //Swift.print("ViewA.mouseExited()")
+        Swift.print("ViewA.mouseExited()")
         super.mouseExited(event)
     }
     override func mouseOver() {
-        Swift.print("ViewA.mouseOver() ")
+        //Swift.print("ViewA.mouseOver() ")
         super.mouseOver()
     }
     override func mouseOut() {
-        Swift.print("ViewA.mouseOut() ")
+        //Swift.print("ViewA.mouseOut() ")
         super.mouseOut()
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
@@ -67,19 +67,19 @@ class ViewB:InteractiveView2{
         addSubview(skin)
     }
     override func mouseEntered(event: NSEvent) {
-        //Swift.print("ViewB.mouseEntered()")
+        Swift.print("ViewB.mouseEntered()")
         super.mouseEntered(event)
     }
     override func mouseExited(event: NSEvent) {
-        //Swift.print("ViewB.mouseExited()")
+        Swift.print("ViewB.mouseExited()")
         super.mouseExited(event)
     }
     override func mouseOver() {
-        Swift.print("ViewB.mouseOver() ")
+        //Swift.print("ViewB.mouseOver() ")
         super.mouseOver()
     }
     override func mouseOut() {
-        Swift.print("ViewB.mouseOut() ")
+        //Swift.print("ViewB.mouseOut() ")
         super.mouseOut()
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
