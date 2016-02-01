@@ -66,13 +66,12 @@ class ViewB:InteractiveView2{
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
         layer!.masksToBounds = false//this is needed!!!
-        let trackingArea:NSTrackingArea = NSTrackingArea(rect: NSRect(0,0,200,200), options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: self, userInfo: nil)
-        addTrackingArea(trackingArea)
+        
         createContent()
     }
-    override func mouseMoved(theEvent: NSEvent) {
-        Swift.print("move b")
-    }
+    /*override func mouseMoved(theEvent: NSEvent) {
+    Swift.print("move b")
+    }*/
     /**
      *
      */
@@ -83,19 +82,19 @@ class ViewB:InteractiveView2{
         redBox!.draw()
         //redBox.graphic.frame.origin = CGPoint(50,50)
     }
-    
+    /*
     override func hitTest(aPoint: NSPoint) -> NSView? {
-        //Swift.print("ViewB.hitTest() point: " + "\(aPoint)")
-        //Swift.print("viewB nextResponder: " + "\(nextResponder)")
-        return redBox!.graphic.hitTest(aPoint)//super.hitTest(aPoint)
+    //Swift.print("ViewB.hitTest() point: " + "\(aPoint)")
+    //Swift.print("viewB nextResponder: " + "\(nextResponder)")
+    return redBox!.graphic.hitTest(aPoint)//super.hitTest(aPoint)
     }
     override func mouseDown(theEvent: NSEvent) {
-        Swift.print("ViewB.mouseDown()")
-        super.mouseDown(theEvent)
-        //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
-        //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
-        //Swift.print("theHitView: " + "\(theHitView)")
-    }
+    Swift.print("ViewB.mouseDown()")
+    super.mouseDown(theEvent)
+    //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
+    //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
+    //Swift.print("theHitView: " + "\(theHitView)")
+    }*/
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class InteractiveView2:FlippedView{
@@ -105,6 +104,8 @@ class InteractiveView2:FlippedView{
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
         layer!.masksToBounds = false//this is needed!!!
+        let trackingArea:NSTrackingArea = NSTrackingArea(rect: NSRect(0,0,200,200), options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: self, userInfo: nil)
+        addTrackingArea(trackingArea)//<---this will be in the Skin class in the future and the owner will be set to Element to get interactive events etc
     }
     /**
      *
