@@ -96,6 +96,10 @@ class InteractiveView2:FlippedView{
      *
      */
     override func hitTest(aPoint: NSPoint) -> NSView? {
+        for var i = self.subviews.count-1; i > -1; --i{
+            Swift.print(i)
+        }
+        
         
         for view in self.subviews{
             let hitView = view.hitTest(aPoint)/*if true then a point was found within its hittable area*/
