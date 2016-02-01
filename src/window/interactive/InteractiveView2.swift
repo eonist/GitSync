@@ -49,6 +49,7 @@ class InteractiveView2:FlippedView{
         //Swift.print("InteractiveView.mouseEntered: " )//+ "\(viewUnderMouse)" + " self: " + "\(self)"
         hasMouseEntered = true/*optimization*/
         if(viewUnderMouse === self){mouseOver();isMouseOver = true;}//mouse move on visible view
+        
         super.mouseEntered(event)/*passes on the event to the nextResponder, NSView parents etc*/
     }
     /**
