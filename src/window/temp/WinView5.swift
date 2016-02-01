@@ -106,13 +106,14 @@ class Skin2:TrackingView{//rename to TrackingView?
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class TrackingView:FlippedView{//rename to TrackingView?
+    var trackingArea:NSTrackingArea
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     init(_ frameRect:NSRect,_ parent:NSView) {
+        trackingArea = NSTrackingArea(rect: frameRect, options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: parent, userInfo: nil)
         super.init(frame: frameRect)
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
         layer!.masksToBounds = false//this is needed!!!
-        let trackingArea:NSTrackingArea = NSTrackingArea(rect: frame, options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: parent, userInfo: nil)
         addTrackingArea(trackingArea)//<---this will be in the Skin class in the future and the owner will be set to Element to get interactive events etc
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
