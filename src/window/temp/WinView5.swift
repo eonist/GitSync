@@ -88,7 +88,7 @@ class InteractiveView2:FlippedView{
 
 //Continue here: Create a class that has a graphic and a trackingframe and also gets its parent in the init
 
-class Skin2:FlippedView{
+class Skin2:FlippedView{//rename to TrackingView?
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     init(_ frameRect:NSRect,_ parent:NSView) {
         super.init(frame: frameRect)
@@ -111,13 +111,11 @@ class Skin2:FlippedView{
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
-//then add the parent as the owner of the trackingFrame
-
 
 //try to change the size of the trackingframe aswell
 
 
-//start implementing mouseMove in the interactiveView, aswell as rollOver rollOut etc
+//continue here: aswell as rollOver rollOut etc
 
 
 
