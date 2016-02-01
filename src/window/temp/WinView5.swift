@@ -108,7 +108,7 @@ class InteractiveView2:FlippedView{
 //try to change the size of the trackingframe aswell
 
 
-//start implementing 
+//start implementing mouseMove in the interactiveView, aswell as rollOver rollOut etc
 
 
 
