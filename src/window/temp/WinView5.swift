@@ -54,10 +54,7 @@ class ViewB:InteractiveView2{
     }
     func createContent(){
         Swift.print("ViewB create content")
-        let redBox:RoundRectGraphic = RoundRectGraphic(0,0,200,200,Fillet(50),FillStyle(NSColor.redColor()),LineStyle(5,NSColor.greenColor()),OffsetType(OffsetType.center))
-        addSubview(redBox.graphic)
-        redBox.draw()
-        //redBox.graphic.frame.origin = CGPoint(50,50)
+        
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
@@ -102,8 +99,18 @@ class Skin2:FlippedView{
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
         layer!.masksToBounds = false//this is needed!!!
-        let trackingArea:NSTrackingArea = NSTrackingArea(rect: NSRect(0,0,200,200), options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: self, userInfo: nil)
+        let trackingArea:NSTrackingArea = NSTrackingArea(rect: NSRect(0,0,200,200), options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: parent, userInfo: nil)
         addTrackingArea(trackingArea)//<---this will be in the Skin class in the future and the owner will be set to Element to get interactive events etc
+        createContent()
+    }
+    /**
+     *
+     */
+    func createContent(){
+        let redBox:RoundRectGraphic = RoundRectGraphic(0,0,200,200,Fillet(50),FillStyle(NSColor.redColor()),LineStyle(5,NSColor.greenColor()),OffsetType(OffsetType.center))
+        addSubview(redBox.graphic)
+        redBox.draw()
+        //redBox.graphic.frame.origin = CGPoint(50,50)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
