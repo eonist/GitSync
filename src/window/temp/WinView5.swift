@@ -35,6 +35,14 @@ class ViewA:InteractiveView2{
         viewB.frame.origin = CGPoint(50,50)/**/
         addSubview(viewB)
     }
+    override func mouseEntered(event: NSEvent) {
+        Swift.print("ViewA.mouseEntered()")
+        super.mouseEntered(event)
+    }
+    override func mouseExited(event: NSEvent) {
+        Swift.print("ViewA.mouseExited()")
+        super.mouseExited(event)
+    }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class ViewB:InteractiveView2{
@@ -49,6 +57,14 @@ class ViewB:InteractiveView2{
         Swift.print("ViewB create content")
         let skin = SkinB(NSRect(0,0,200,200),self)
         addSubview(skin)
+    }
+    override func mouseEntered(event: NSEvent) {
+        Swift.print("ViewB.mouseEntered()")
+        super.mouseEntered(event)
+    }
+    override func mouseExited(event: NSEvent) {
+        Swift.print("ViewB.mouseExited()")
+        super.mouseExited(event)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
@@ -98,7 +114,7 @@ class InteractiveView2:FlippedView{
      * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
      */
     override func mouseEntered( event: NSEvent){
-    /Swift.print("InteractiveView2.mouseEntered: " )//+ "\(viewUnderMouse)" + " self: " + "\(self)"
+        //Swift.print("InteractiveView.mouseEntered: " )//+ "\(viewUnderMouse)" + " self: " + "\(self)"
         hasMouseEntered = true/*optimization*/
         if(viewUnderMouse === self){mouseOver();isMouseOver = true;}//mouse move on visible view
         super.mouseEntered(event)/*passes on the event to the nextResponder, NSView parents etc*/
@@ -108,7 +124,7 @@ class InteractiveView2:FlippedView{
      * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
      */
     override func mouseExited(event: NSEvent){
-        Swift.print("InteractiveView2.mouseExited:")
+        //Swift.print("InteractiveView.mouseExited:")
         hasMouseEntered = false/*optimization*/
         if(isMouseOver){mouseOut();isMouseOver = false;}
         super.mouseExited(event)/*passes on the event to the nextResponder, NSView parents etc*/
