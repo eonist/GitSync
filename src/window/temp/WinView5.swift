@@ -79,6 +79,10 @@ class InteractiveView2:FlippedView{
         Swift.print("InteractiveView2.mouseDown() " + "\(self.className)")
         super.mouseDown(theEvent)
     }
+    var viewUnderMouse:NSView?{//utility method
+        let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
+        return theHitView
+    }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
