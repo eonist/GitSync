@@ -88,15 +88,10 @@ class InteractiveView2:FlippedView{
 
 //Continue here: Create a class that has a graphic and a trackingframe and also gets its parent in the init
 
-class Skin2:FlippedView{//rename to TrackingView?
+class Skin2:TrackingView{//rename to TrackingView?
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
-    init(_ frameRect:NSRect,_ parent:NSView) {
-        super.init(frame: frameRect)
-        self.wantsLayer = true/*if true then view is layer backed*/
-        layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
-        layer!.masksToBounds = false//this is needed!!!
-        let trackingArea:NSTrackingArea = NSTrackingArea(rect: NSRect(0,0,200,200), options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: parent, userInfo: nil)
-        addTrackingArea(trackingArea)//<---this will be in the Skin class in the future and the owner will be set to Element to get interactive events etc
+    override init(_ frameRect:NSRect,_ parent:NSView) {
+        super.init(frameRect, parent)
         createContent()
     }
     /**
@@ -110,7 +105,18 @@ class Skin2:FlippedView{//rename to TrackingView?
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-
+class TrackingView:FlippedView{//rename to TrackingView?
+    override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
+    init(_ frameRect:NSRect,_ parent:NSView) {
+        super.init(frame: frameRect)
+        self.wantsLayer = true/*if true then view is layer backed*/
+        layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
+        layer!.masksToBounds = false//this is needed!!!
+        let trackingArea:NSTrackingArea = NSTrackingArea(rect: frame, options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: parent, userInfo: nil)
+        addTrackingArea(trackingArea)//<---this will be in the Skin class in the future and the owner will be set to Element to get interactive events etc
+    }
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+}
 
 
 
