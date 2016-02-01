@@ -88,68 +88,6 @@ class ViewB:InteractiveView2{
 
 //continue here: the quetion is does the parent recieve over when a child recieves over? and what are the implications of this?
 
-
-
-
-//Continue here: Create a class that has a graphic and a trackingframe and also gets its parent in the init
-
-class SkinA:TrackingView{
-    override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
-    override init(_ frameRect:NSRect,_ parent:NSView) {
-        super.init(frameRect, parent)
-        createContent()
-    }
-    func createContent(){
-        let blueBox = RectGraphic(200,200,NSColor.blueColor())
-        addSubview(blueBox.graphic)
-        blueBox.draw()
-        //blueBox.graphic.frame.origin = CGPoint(50,50)
-    }
-    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
-}
-class SkinB:TrackingView{
-    override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
-    override init(_ frameRect:NSRect,_ parent:NSView) {
-        super.init(frameRect, parent)
-        createContent()
-    }
-    func createContent(){
-        let redBox:RoundRectGraphic = RoundRectGraphic(0,0,200,200,Fillet(50),FillStyle(NSColor.redColor()),LineStyle(5,NSColor.greenColor()),OffsetType(OffsetType.center))
-        addSubview(redBox.graphic)
-        redBox.draw()
-        //redBox.graphic.frame.origin = CGPoint(50,50)
-    }
-    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
-}
-class TrackingView:FlippedView{//rename to TrackingView?
-    var trackingArea:NSTrackingArea
-    override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
-    init(_ frameRect:NSRect,_ parent:NSView) {
-        trackingArea = NSTrackingArea(rect: frameRect, options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: parent, userInfo: nil)
-        super.init(frame: frameRect)
-        self.wantsLayer = true/*if true then view is layer backed*/
-        layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
-        layer!.masksToBounds = false//this is needed!!!
-        addTrackingArea(trackingArea)//<---this will be in the Skin class in the future and the owner will be set to Element to get interactive events etc
-    }
-    /**
-     * NOTE: looping backwards is very important as its the only way to target the front-most views in the stack
-     * NOTE: why is this needed? because normal hitTesting doesnt work if the frame size is zero. or if a subView is outside the frame.
-     */
-    override func hitTest(aPoint: NSPoint) -> NSView? {
-        for var i = self.subviews.count-1; i > -1; --i{//<--you could store the count outside the loop for optimization, i dont know if this is imp in swift
-            let view = self.subviews[i]
-            let hitView = view.hitTest(aPoint)/*if true then a point was found within its hittable area*/
-            if(hitView != nil){return hitView}
-        }
-        return nil/*if no hitView is found return nil, the parent hitTest will then continue its search through its siblings etc*/
-    }
-    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
-}
-
-
-
-
 //continue here: aswell as rollOver rollOut etc, test with 2 subSkins and make TrackingView
 
 //try to change the size of the trackingframe aswell
