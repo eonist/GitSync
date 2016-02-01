@@ -99,6 +99,17 @@ class InteractiveView2:FlippedView{
 
 
 
-//
+//Continue here: Create a class that has a graphic and a trackingframe and also gets its parent in the init
+
+
+//then add the parent as the owner of the trackingFrame
+
+
+//try to change the size of the trackingframe aswell
+
+
+//start implementing 
+
+
 
 
