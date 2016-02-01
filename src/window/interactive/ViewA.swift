@@ -39,8 +39,8 @@ class ViewA:InteractiveView2{
 }
 
 class CustomEvent:NSEvent{
-    override init(){
-        super.init(eventRef: <#T##UnsafePointer<Void>#>)
+    init(inout event:NSEvent){
+        super.init(eventRef: event)
     }
 
     required init?(coder aDecoder: NSCoder) {
