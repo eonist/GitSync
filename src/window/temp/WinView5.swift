@@ -112,10 +112,14 @@ class Skin2:FlippedView{//rename to TrackingView?
 }
 
 
+
+
+
+//continue here: aswell as rollOver rollOut etc, test with 2 subSkins and make TrackingView
+
+
+
 //try to change the size of the trackingframe aswell
-
-
-//continue here: aswell as rollOver rollOut etc
 
 
 
