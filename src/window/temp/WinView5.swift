@@ -125,6 +125,18 @@ class TrackingView:FlippedView{//rename to TrackingView?
         layer!.masksToBounds = false//this is needed!!!
         addTrackingArea(trackingArea)//<---this will be in the Skin class in the future and the owner will be set to Element to get interactive events etc
     }
+    /**
+     * NOTE: looping backwards is very important as its the only way to target the front-most views in the stack
+     * NOTE: why is this needed? because normal hitTesting doesnt work if the frame size is zero. or if a subView is outside the frame.
+     */
+    override func hitTest(aPoint: NSPoint) -> NSView? {
+        for var i = self.subviews.count-1; i > -1; --i{//<--you could store the count outside the loop for optimization, i dont know if this is imp in swift
+            let view = self.subviews[i]
+            let hitView = view.hitTest(aPoint)/*if true then a point was found within its hittable area*/
+            if(hitView != nil){return hitView}
+        }
+        return nil/*if no hitView is found return nil, the parent hitTest will then continue its search through its siblings etc*/
+    }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
