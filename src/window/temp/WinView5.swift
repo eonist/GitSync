@@ -73,7 +73,7 @@ class InteractiveView2:FlippedView{
         return nil/*if no hitView is found return nil, the parent hitTest will then continue its search through its siblings etc*/
     }
     override func mouseMoved(theEvent: NSEvent) {
-        Swift.print("InteractiveView2.moved() " + "\(self.className)")
+        //Swift.print("InteractiveView2.moved() " + "\(self.className)")
     }
     override func mouseDown(theEvent: NSEvent) {
         Swift.print("InteractiveView2.mouseDown() " + "\(self.className)")
