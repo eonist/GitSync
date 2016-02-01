@@ -42,11 +42,9 @@ class ViewA:InteractiveView2{
         viewB.frame.origin = CGPoint(50,50)/**/
         addSubview(viewB)
     }
-  
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class ViewB:InteractiveView2{
-    
     init(_ width: CGFloat, _ height: CGFloat) {
         super.init(frame: NSRect(0,0,width,height))//<--This can be a zero rect since the children contains the actual graphics. And when you use Layer-hosted views the subchildren doesnt clip
         self.wantsLayer = true/*if true then view is layer backed*/
@@ -54,7 +52,6 @@ class ViewB:InteractiveView2{
         layer!.masksToBounds = false//this is needed!!!
         createContent()
     }
-
     func createContent(){
         Swift.print("ViewB create content")
         let redBox:RoundRectGraphic = RoundRectGraphic(0,0,200,200,Fillet(50),FillStyle(NSColor.redColor()),LineStyle(5,NSColor.greenColor()),OffsetType(OffsetType.center))
@@ -62,7 +59,6 @@ class ViewB:InteractiveView2{
         redBox.draw()
         //redBox.graphic.frame.origin = CGPoint(50,50)
     }
-
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class InteractiveView2:FlippedView{
@@ -72,8 +68,6 @@ class InteractiveView2:FlippedView{
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
         layer!.masksToBounds = false//this is needed!!!
-        let trackingArea:NSTrackingArea = NSTrackingArea(rect: NSRect(0,0,200,200), options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: self, userInfo: nil)
-        addTrackingArea(trackingArea)//<---this will be in the Skin class in the future and the owner will be set to Element to get interactive events etc
     }
     /**
      * NOTE: looping backwards is very important as its the only way to target the front-most views in the stack
@@ -103,8 +97,13 @@ class InteractiveView2:FlippedView{
 
 class Skin2:FlippedView{
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
-    override init(frame frameRect: NSRect) {
+    init(frame frameRect: NSRect,parent:NSView) {
         super.init(frame: frameRect)
+        self.wantsLayer = true/*if true then view is layer backed*/
+        layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
+        layer!.masksToBounds = false//this is needed!!!
+        let trackingArea:NSTrackingArea = NSTrackingArea(rect: NSRect(0,0,200,200), options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: self, userInfo: nil)
+        addTrackingArea(trackingArea)//<---this will be in the Skin class in the future and the owner will be set to Element to get interactive events etc
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
