@@ -40,7 +40,6 @@ class ViewA:InteractiveView2{
         addTrackingArea(trackingArea)*/
         createContent()
     }
-    
     /**
      *
      */
@@ -66,7 +65,6 @@ class ViewB:InteractiveView2{
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
         layer!.masksToBounds = false//this is needed!!!
-        
         createContent()
     }
     /*override func mouseMoved(theEvent: NSEvent) {
