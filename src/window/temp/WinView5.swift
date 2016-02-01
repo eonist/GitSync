@@ -93,15 +93,11 @@ class InteractiveView2:FlippedView{
         addTrackingArea(trackingArea)//<---this will be in the Skin class in the future and the owner will be set to Element to get interactive events etc
     }
     /**
-     *
+     * NOTE: looping backwards is very important as its the only way to target the front-most views in the stack
      */
     override func hitTest(aPoint: NSPoint) -> NSView? {
-        for var i = self.subviews.count-1; i > -1; --i{
-            Swift.print(i)
-        }
-        
-        
-        for view in self.subviews{
+        for var i = self.subviews.count-1; i > -1; --i{//<--you could store the count outside the loop for optimization, i dont know if this is imp in swift
+            let view = self.subviews[i]
             let hitView = view.hitTest(aPoint)/*if true then a point was found within its hittable area*/
             if(hitView != nil){return hitView}
         }
