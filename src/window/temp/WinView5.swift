@@ -24,13 +24,8 @@ class ViewA:InteractiveView2{
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
         layer!.masksToBounds = false//this is needed!!!
-        /*let trackingArea:NSTrackingArea = NSTrackingArea(rect: bounds, options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: self, userInfo: nil)
-        addTrackingArea(trackingArea)*/
         createContent()
     }
-    /**
-     *
-     */
     func createContent(){
         Swift.print("ViewA create content")
         let blueBox = RectGraphic(200,200,NSColor.blueColor())
@@ -54,7 +49,8 @@ class ViewB:InteractiveView2{
     }
     func createContent(){
         Swift.print("ViewB create content")
-        
+        let skin = Skin2(NSRect(0,0,200,200),self)
+        addSubview(skin)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
@@ -79,7 +75,7 @@ class InteractiveView2:FlippedView{
         return nil/*if no hitView is found return nil, the parent hitTest will then continue its search through its siblings etc*/
     }
     override func mouseMoved(theEvent: NSEvent) {
-        Swift.print("InteractiveView2.moved")
+        Swift.print("InteractiveView2.moved() " + "\(self.className)")
     }
     override func mouseDown(theEvent: NSEvent) {
         Swift.print("InteractiveView2.mouseDown() " + "\(self.className)")
@@ -94,7 +90,7 @@ class InteractiveView2:FlippedView{
 
 class Skin2:FlippedView{
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
-    init(frame frameRect: NSRect,parent:NSView) {
+    init(_ frameRect:NSRect,_ parent:NSView) {
         super.init(frame: frameRect)
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
