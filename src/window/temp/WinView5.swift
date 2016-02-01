@@ -147,8 +147,10 @@ class BaseView:FlippedView{
     }
     override func hitTest(aPoint: NSPoint) -> NSView? {
         for view in self.subviews{
-            
+            let hitView = view.hitTest(aPoint)
+            if(hitView != nil){return hitView}
         }
+        return hitView
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
