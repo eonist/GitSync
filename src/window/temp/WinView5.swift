@@ -77,6 +77,7 @@ class InteractiveView2:FlippedView{
     }
     /**
      * NOTE: looping backwards is very important as its the only way to target the front-most views in the stack
+     * NOTE: why is this needed? because normal hitTesting doesnt work if the frame size is zero. or if a subView is outside the frame.
      */
     override func hitTest(aPoint: NSPoint) -> NSView? {
         for var i = self.subviews.count-1; i > -1; --i{//<--you could store the count outside the loop for optimization, i dont know if this is imp in swift
@@ -95,3 +96,9 @@ class InteractiveView2:FlippedView{
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
+
+
+
+//
+
+
