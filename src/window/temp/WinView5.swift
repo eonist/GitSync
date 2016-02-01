@@ -42,6 +42,10 @@ class ViewA:InteractiveView2{
         viewB.frame.origin = CGPoint(50,50)/**/
         addSubview(viewB)
     }
+    override func mouseDown(theEvent: NSEvent) {
+        Swift.print("ViewA.mouseDown()")
+        super.mouseDown(theEvent)
+    }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class ViewB:InteractiveView2{
@@ -73,11 +77,8 @@ class ViewB:InteractiveView2{
     return redBox!.graphic.hitTest(aPoint)//super.hitTest(aPoint)
     }*/
     override func mouseDown(theEvent: NSEvent) {
-    Swift.print("ViewB.mouseDown()")
-    super.mouseDown(theEvent)
-    //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
-    //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
-    //Swift.print("theHitView: " + "\(theHitView)")
+        Swift.print("ViewB.mouseDown()")
+        super.mouseDown(theEvent)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
