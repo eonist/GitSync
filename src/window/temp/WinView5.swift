@@ -54,29 +54,9 @@ class ViewA:InteractiveView2{
         viewB = ViewB(00,00)
         viewB.frame.origin = CGPoint(50,50)/**/
         addSubview(viewB)
-        
-        
-        
-    }
-    
-    override func mouseMoved(theEvent: NSEvent) {
-        Swift.print("moved a")
-    }
-    override func mouseDown(theEvent: NSEvent) {
-    Swift.print("ViewA.mouseDown() ")
-    //Swift.print("self.window.firstResponder: " + "\(self.window!.firstResponder)")
-    //Swift.print("self.nextResponder: " + "\(self.nextResponder)")
-    //[[self nextResponder] mouseDown:theEvent];
-    //self.nextResponder!.mouseDown(theEvent)
-    super.mouseDown(theEvent)
-    //viewB.mouseDown(theEvent)
-    //Swift.print("window?.mouseLocationOutsideOfEventStream: " + "\(window?.mouseLocationOutsideOfEventStream)")
-    //let theHitView = window!.contentView?.hitTest((window?.mouseLocationOutsideOfEventStream)!)
-    //Swift.print("theHitView: " + "\(theHitView)")
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-
 class ViewB:InteractiveView2{
     //override internal var acceptsFirstResponder:Bool{return true}
     var redBox:RoundRectGraphic?
@@ -146,6 +126,13 @@ class InteractiveView2:FlippedView{
             if(hitView != nil){return hitView}
         }
         return nil/*if no hitView is found return nil, the parent hitTest will then continue its search through its siblings etc*/
+    }
+    override func mouseMoved(theEvent: NSEvent) {
+        Swift.print("InteractiveView2.moved")
+    }
+    override func mouseDown(theEvent: NSEvent) {
+        Swift.print("InteractiveView2.mouseDown() ")
+        super.mouseDown(theEvent)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
