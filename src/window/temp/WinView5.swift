@@ -49,7 +49,7 @@ class ViewB:InteractiveView2{
     }
     func createContent(){
         Swift.print("ViewB create content")
-        let skin = Skin2(NSRect(0,0,200,200),self)
+        let skin = SkinA(NSRect(0,0,200,200),self)
         addSubview(skin)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
@@ -88,15 +88,26 @@ class InteractiveView2:FlippedView{
 
 //Continue here: Create a class that has a graphic and a trackingframe and also gets its parent in the init
 
-class Skin2:TrackingView{//rename to TrackingView?
+class SkinA:TrackingView{
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override init(_ frameRect:NSRect,_ parent:NSView) {
         super.init(frameRect, parent)
         createContent()
     }
-    /**
-     *
-     */
+    func createContent(){
+        let redBox:RoundRectGraphic = RoundRectGraphic(0,0,200,200,Fillet(50),FillStyle(NSColor.redColor()),LineStyle(5,NSColor.greenColor()),OffsetType(OffsetType.center))
+        addSubview(redBox.graphic)
+        redBox.draw()
+        //redBox.graphic.frame.origin = CGPoint(50,50)
+    }
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+}
+class SkinB:TrackingView{
+    override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
+    override init(_ frameRect:NSRect,_ parent:NSView) {
+        super.init(frameRect, parent)
+        createContent()
+    }
     func createContent(){
         let redBox:RoundRectGraphic = RoundRectGraphic(0,0,200,200,Fillet(50),FillStyle(NSColor.redColor()),LineStyle(5,NSColor.greenColor()),OffsetType(OffsetType.center))
         addSubview(redBox.graphic)
