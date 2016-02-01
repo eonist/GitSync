@@ -19,8 +19,6 @@ class ViewA:InteractiveView2{
     }
     override func mouseEntered(event: NSEvent) {
         Swift.print("ViewA.mouseEntered()")
-        Swift.print("event.userData: " + "\(event.userData)")
-        Swift.print("event.self: " + "\(event.self)")
         super.mouseEntered(event)
     }
     override func mouseExited(event: NSEvent) {
