@@ -82,17 +82,6 @@ class ViewB:InteractiveView2{
         addSubview(redBox!.graphic)
         redBox!.draw()
         //redBox.graphic.frame.origin = CGPoint(50,50)
-        
-        //let win = self.window!
-        /*
-        NSEvent.addLocalMonitorForEventsMatchingMask([.LeftMouseDownMask, .RightMouseDownMask], handler: { (event : NSEvent) -> NSEvent? in
-            Swift.print("test " + "\(event)")
-            //self.
-            let theView = self.window!.contentView?.hitTest((self.window?.mouseLocationOutsideOfEventStream)!)
-            Swift.print("theView: " + "\(theView)")
-            return event
-        })
-        */
     }
     
     override func hitTest(aPoint: NSPoint) -> NSView? {
