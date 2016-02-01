@@ -28,10 +28,8 @@ class ViewA:InteractiveView2{
     }
     func createContent(){
         Swift.print("ViewA create content")
-        let blueBox = RectGraphic(200,200,NSColor.blueColor())
-        addSubview(blueBox.graphic)
-        blueBox.draw()
-        //blueBox.graphic.frame.origin = CGPoint(50,50)
+        let skin = SkinA(NSRect(0,0,200,200),self)
+        addSubview(skin)
         
         let viewB:ViewB! = ViewB(00,00)
         viewB.frame.origin = CGPoint(50,50)/**/
@@ -49,7 +47,7 @@ class ViewB:InteractiveView2{
     }
     func createContent(){
         Swift.print("ViewB create content")
-        let skin = SkinA(NSRect(0,0,200,200),self)
+        let skin = SkinB(NSRect(0,0,200,200),self)
         addSubview(skin)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
@@ -95,10 +93,10 @@ class SkinA:TrackingView{
         createContent()
     }
     func createContent(){
-        let redBox:RoundRectGraphic = RoundRectGraphic(0,0,200,200,Fillet(50),FillStyle(NSColor.redColor()),LineStyle(5,NSColor.greenColor()),OffsetType(OffsetType.center))
-        addSubview(redBox.graphic)
-        redBox.draw()
-        //redBox.graphic.frame.origin = CGPoint(50,50)
+        let blueBox = RectGraphic(200,200,NSColor.blueColor())
+        addSubview(blueBox.graphic)
+        blueBox.draw()
+        //blueBox.graphic.frame.origin = CGPoint(50,50)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
