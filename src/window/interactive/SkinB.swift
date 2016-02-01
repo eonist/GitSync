@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 
 class SkinB:TrackingView{
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view

@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 
 class TrackingView:FlippedView{//rename to TrackingView?
     var trackingArea:NSTrackingArea
