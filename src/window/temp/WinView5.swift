@@ -1,7 +1,6 @@
 import Cocoa
 
 class WinView5:FlippedView {
-    var viewA:ViewA!
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -12,25 +11,14 @@ class WinView5:FlippedView {
         Swift.print("init")
         hitTesting()
     }
-    /**
-     *
-     */
     func hitTesting(){
         Swift.print("hitTesting")
         //setup a blue box in a view (100x100) (use the view code from WindowView)
-        viewA = ViewA(00,00)
+        let viewA:ViewA = ViewA(00,00)
         addSubView(viewA)
     }
-    /*override func hitTest(aPoint: NSPoint) -> NSView? {
-    return viewA.hitTest(aPoint)
-    }*/
 }
 class ViewA:InteractiveView2{
-    var viewB:ViewB!
-    //override func acceptsFirstMouse(theEvent: NSEvent?) -> Bool {
-        //return true
-    //}
-    //override internal var acceptsFirstResponder:Bool{return true}
     init(_ width: CGFloat, _ height: CGFloat) {
         super.init(frame: NSRect(0,0,width,height))//<--This can be a zero rect since the children contains the actual graphics. And when you use Layer-hosted views the subchildren doesnt clip
         self.wantsLayer = true/*if true then view is layer backed*/
@@ -50,15 +38,13 @@ class ViewA:InteractiveView2{
         blueBox.draw()
         //blueBox.graphic.frame.origin = CGPoint(50,50)
         
-        viewB = ViewB(00,00)
+        let viewB:ViewB! = ViewB(00,00)
         viewB.frame.origin = CGPoint(50,50)/**/
         addSubview(viewB)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class ViewB:InteractiveView2{
-    //override internal var acceptsFirstResponder:Bool{return true}
-    var redBox:RoundRectGraphic?
     
     init(_ width: CGFloat, _ height: CGFloat) {
         super.init(frame: NSRect(0,0,width,height))//<--This can be a zero rect since the children contains the actual graphics. And when you use Layer-hosted views the subchildren doesnt clip
@@ -75,9 +61,9 @@ class ViewB:InteractiveView2{
      */
     func createContent(){
         Swift.print("ViewB create content")
-        redBox = RoundRectGraphic(0,0,200,200,Fillet(50),FillStyle(NSColor.redColor()),LineStyle(5,NSColor.greenColor()),OffsetType(OffsetType.center))
-        addSubview(redBox!.graphic)
-        redBox!.draw()
+        let redBox:RoundRectGraphic = RoundRectGraphic(0,0,200,200,Fillet(50),FillStyle(NSColor.redColor()),LineStyle(5,NSColor.greenColor()),OffsetType(OffsetType.center))
+        addSubview(redBox.graphic)
+        redBox.draw()
         //redBox.graphic.frame.origin = CGPoint(50,50)
     }
     /*
