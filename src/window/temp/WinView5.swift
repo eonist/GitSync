@@ -25,7 +25,7 @@ class WinView5:FlippedView {
     return viewA.hitTest(aPoint)
     }*/
 }
-class ViewA:FlippedView{
+class ViewA:InteractiveView2{
     var viewB:ViewB!
     //override func acceptsFirstMouse(theEvent: NSEvent?) -> Bool {
         //return true
@@ -58,18 +58,12 @@ class ViewA:FlippedView{
         
         
     }
-    override func hitTest(aPoint: NSPoint) -> NSView? {
-        //Swift.print("hit")
-        //Swift.print("ViewA hitTest() aPoint: " + "\(aPoint)")
-        return viewB.hitTest(aPoint)
-        //return super.hitTest(aPoint)
-        //return self
-    }
+    
     override func mouseMoved(theEvent: NSEvent) {
         Swift.print("moved a")
     }
     override func mouseDown(theEvent: NSEvent) {
-    Swift.print("ViewA.mouseDown() theEvent: ")
+    Swift.print("ViewA.mouseDown() ")
     //Swift.print("self.window.firstResponder: " + "\(self.window!.firstResponder)")
     //Swift.print("self.nextResponder: " + "\(self.nextResponder)")
     //[[self nextResponder] mouseDown:theEvent];
@@ -83,7 +77,7 @@ class ViewA:FlippedView{
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
-class ViewB:FlippedView{
+class ViewB:InteractiveView2{
     //override internal var acceptsFirstResponder:Bool{return true}
     var redBox:RoundRectGraphic?
     
@@ -139,11 +133,9 @@ class InteractiveView2:FlippedView{
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
-        
-        
-        //continue here: implement interactiveView like features
-        
-        
+        self.wantsLayer = true/*if true then view is layer backed*/
+        layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
+        layer!.masksToBounds = false//this is needed!!!
     }
     /**
      *
