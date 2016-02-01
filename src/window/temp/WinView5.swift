@@ -145,12 +145,15 @@ class BaseView:FlippedView{
         
         
     }
+    /**
+     *
+     */
     override func hitTest(aPoint: NSPoint) -> NSView? {
         for view in self.subviews{
-            let hitView = view.hitTest(aPoint)
+            let hitView = view.hitTest(aPoint)/*if true then a point was found within its hittable area*/
             if(hitView != nil){return hitView}
         }
-        return hitView
+        return nil/*if no hitView is found return nil, the parent hitTest will then continue its search through its siblings etc*/
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
