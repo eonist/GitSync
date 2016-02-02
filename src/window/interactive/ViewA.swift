@@ -19,6 +19,9 @@ class ViewA:InteractiveView2{
     }
     override func mouseEntered(event: NSEvent) {
         Swift.print("ViewA.mouseEntered()")
+        /*
+        
+        
         Swift.print("event.locationInWindow: " + "\(event.locationInWindow)")
         Swift.print("(window?.mouseLocationOutsideOfEventStream)!: " + "\((window?.mouseLocationOutsideOfEventStream)!)")
         // I just want to listen to enter events that enters the skin, not enter events that enter my children
@@ -30,6 +33,9 @@ class ViewA:InteractiveView2{
         
         let hitView = hitTest(winMousePos)
         Swift.print("hitView: " + "\(hitView)")
+        
+        
+        */
         
         
         //continue here: try the winMousePOs and the different pos stuff in view B
