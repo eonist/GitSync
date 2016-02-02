@@ -96,6 +96,13 @@ extension InteractiveView2{
         return theHitView
     }
 }
+class MouseEventType{
+    static var move:String = "mouseMove"
+    static var down:String = "mouseDown"
+    static var up:String = "mouseUp"
+    static var enter:String = "mouseEnter"
+    static var exit:String = "mouseExit"
+}
 class MouseEvent:Event{
     var pos:CGPoint
     var origin:Any?//origin sender of event
