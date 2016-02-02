@@ -21,9 +21,14 @@ class ViewB:InteractiveView2{
         //let newNSEvent = NSEvent(CGEvent: newCGEvent!)
         //Swift.print("newNSEvent: " + "\(newNSEvent)")
         
-        NSEvent.
+        
+        
+        
+        
+        
+        let mouseEvent = NSEvent.mouseEventWithType(event.type, location: event.locationInWindow, modifierFlags: <#T##NSEventModifierFlags#>, timestamp: <#T##NSTimeInterval#>, windowNumber: <#T##Int#>, context: <#T##NSGraphicsContext?#>, eventNumber: <#T##Int#>, clickCount: <#T##Int#>, pressure: <#T##Float#>)
         //int mask = 0x100;
-        let mouseEvent = NSEvent(CGEvent: event.CGEvent!)//(mouseEventWithType:NSLeftMouseDown)
+        //let mouseEvent = NSEvent(CGEvent: event.CGEvent!)//(mouseEventWithType:NSLeftMouseDown)
         
         
         
