@@ -65,11 +65,11 @@ class ViewB:InteractiveView2{
 //Search through your notes for NSEvent and MouseEnter etc.
 
 
-class CustomCGEvent:CGEvent{
-    init(_ cgEvent:CGEvent){
-        
-    }
+/*class CustomCGEvent:CGEvent{
+init(_ cgEvent:CGEvent){
+
 }
+}*/
 
 class CustomEvent:NSEvent{
     init(_ event:NSEvent, userData:String){
