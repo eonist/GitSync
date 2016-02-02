@@ -67,15 +67,14 @@ class ViewB:InteractiveView2{
 
 class InteractionUtils{
     /**
-     *
+     * This method finds the immediate origin. Aka the first descendant of current
      */
-    func immediate(current:NSView,origin:NSView){//origin may be a CALayer, test this later
-
-        var parent:NSView? = origin.superview// :TODO: seperate this into a check if its DO then that, if its Window then do that
-        while(parent != current) {//loops up the object hierarchy as long as the parent is a Element supertype
-            parent = parent!.superview
+    func immediate(current:NSView,origin:NSView)->NSView{//origin may be a CALayer, test this later
+        var view:NSView = origin// :TODO: seperate this into a check if its DO then that, if its Window then do that
+        while(view.superview != current) {//loops up the object hierarchy as long as the parent is a Element supertype
+            view = view.superview!
         }
-        return parents;
+        return view;
     }
 }
 
