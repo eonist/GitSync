@@ -23,7 +23,7 @@ class ViewB:InteractiveView2{
         
         
         
-        
+        Swift.print("event.type: " + "\(event.type)")
         
         
         let mouseEvent = NSEvent.mouseEventWithType(event.type, location: event.locationInWindow, modifierFlags: event.modifierFlags, timestamp: event.timestamp, windowNumber: event.windowNumber, context: event.context, eventNumber: event.eventNumber, clickCount: 0, pressure: 0)
