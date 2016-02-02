@@ -77,12 +77,11 @@ class InteractionUtils{
         return view;
     }
     /**
-     * this method will check if the origin of the event came from btn by walking up the hirarcy from origin.
-     * NOTE: the essence of this method is: is target equal to origin or a descendant of origin
+     * origin equals target or origin descendes from target
      * @param origin: the result of hitTest()
      * @param target: i.e button1 or slider or some other UI component.
      */
-    func withinScope(target:NSView,origin:NSView){
+    func withinScope(origin:NSView,_ target:NSView){
         target.isDescendantOf(origin)
     }
 }
