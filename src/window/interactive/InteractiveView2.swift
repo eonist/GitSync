@@ -56,7 +56,10 @@ class InteractiveView2:FlippedView{
      *
      */
     func enter(event:MouseEvent){
-        self.
+        if(self.superview is InteractiveView2){
+            event.immidiate = self
+            (self.superview as! InteractiveView2).enter(event)
+        }
     }
     /**
      *
