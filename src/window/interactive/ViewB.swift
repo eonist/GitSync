@@ -66,7 +66,12 @@ class ViewB:InteractiveView2{
 
 
 class InteractionUtils{
-    
+    /**
+     *
+     */
+    func immediate(origin:NSView){//origin may be a CALayer, test this later
+        
+    }
 }
 
 
