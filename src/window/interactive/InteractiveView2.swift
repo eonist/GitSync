@@ -29,6 +29,18 @@ class InteractiveView2:FlippedView{
         
     }
     /**
+     *
+     */
+    func releaseInside(){
+        
+    }
+    /**
+     *
+     */
+    func releaseOutside(){
+        
+    }
+    /**
      * Only fires if the mouse is over the visible part of this view
      */
     func rollOver(){
