@@ -70,12 +70,12 @@ class CustomCGEvent:CGEvent{
     var userData:String = ""
 }
 
-/*
+
 class CustomEvent:NSEvent{
     
     
     override var type:NSEventType{return NSEventType.MouseEntered}
-    override var locationInWindow:NSPoint = NSMakePoint(50,50)
+    override var locationInWindow:NSPoint = {return NSMakePoint(50,50)}
     override var modifierFlags:NSEventModifierFlags = NSEventModifierFlags.ShiftKeyMask
     override var timestamp:Int = 1
     override var windowNumber
@@ -93,4 +93,4 @@ class CustomEvent:NSEvent{
     }
 }
 
-*/
+/**/
