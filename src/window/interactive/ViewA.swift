@@ -27,7 +27,7 @@ class ViewA:InteractiveView2{
         let globalPoint:NSPoint = convertPoint(mousePos, fromView: nil)
         Swift.print("globalPoint: " + "\(globalPoint)")
         
-        //let hitView = hitTest(event.locationInWindow)
+        let hitView = hitTest(window?.mouseLocationOutsideOfEventStream)
         //Swift.print("hitView: " + "\(hitView)")
         
         
