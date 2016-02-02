@@ -96,3 +96,14 @@ extension InteractiveView2{
         return theHitView
     }
 }
+class MouseEvent:Event{
+    init(){
+        super.init()
+    }
+}
+class Event{
+    var type:String
+    init(_ type:String){
+        self.type = type
+    }
+}
