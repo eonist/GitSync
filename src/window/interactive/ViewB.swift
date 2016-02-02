@@ -78,7 +78,9 @@ class InteractionUtils{
     }
     /**
      * this method will check if the origin of the event came from btn by walking up the hirarcy from origin.
-     * @param target: usually the result of hitTest()
+     * @param origin: the result of hitTest()
+     * @param target: i.e button1 or slider or some other UI component. 
+     * NOTE the essence of this method is: is target origin or a descendant of origin
      */
     func isDescendant(target:NSView,origin:NSView){
         target.isDescendantOf(origin)
