@@ -49,9 +49,9 @@ class ViewB:InteractiveView2{
 
 
 class CustomEvent:NSEvent{
-    var event:NSEvent
-    init(event:NSEvent){
-        
+    init(_ event:NSEvent, userData:String){
+        //let cgEvent = event.CGEvent!
+        super.init(CGEvent: event.CGEvent!)!
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
