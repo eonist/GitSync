@@ -34,7 +34,7 @@ class ViewB:InteractiveView2{
         Swift.print("event.pressure: " + "\(event.pressure)")*/
         
         
-        let mouseEvent = NSEvent.mouseEventWithType(NSEventType.MouseEntered, location: NSMakePoint(50,50), modifierFlags: NSEventModifierFlags.ShiftKeyMask, timestamp: event.timestamp, windowNumber: event.windowNumber, context: event.context, eventNumber: event.eventNumber, clickCount: Int(1), pressure: Float(1.0))
+        let mouseEvent = NSEvent.mouseEventWithType(NSEventType.MouseEntered, location: NSMakePoint(50,50), modifierFlags: NSEventModifierFlags.ShiftKeyMask, timestamp: 1, windowNumber: self.window?.windowNumber, context: NSGraphicsContext.currentContext(), eventNumber: 1, clickCount: 1, pressure: Float(1.0))
         
         
         Swift.print("mouseEvent: " + "\(mouseEvent)")
