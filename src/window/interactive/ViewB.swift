@@ -69,8 +69,13 @@ class InteractionUtils{
     /**
      *
      */
-    func immediate(origin:NSView){//origin may be a CALayer, test this later
-        
+    func immediate(current:NSView,origin:NSView){//origin may be a CALayer, test this later
+
+        var parent:NSView? = origin.superview// :TODO: seperate this into a check if its DO then that, if its Window then do that
+        while(parent != current) {//loops up the object hierarchy as long as the parent is a Element supertype
+            parent = parent!.superview
+        }
+        return parents;
     }
 }
 
