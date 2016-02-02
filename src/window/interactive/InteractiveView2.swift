@@ -23,15 +23,21 @@ class InteractiveView2:FlippedView{
         return nil/*if no hitView is found return nil, the parent hitTest will then continue its search through its siblings etc*/
     }
     /**
+     *
+     */
+    func down(){
+        
+    }
+    /**
      * Only fires if the mouse is over the visible part of this view
      */
-    func mouseOver(){
+    func over(){
         /*override in subclass*/
     }
     /**
      * Only fires if the mouse is "rolls" out of the visible part of this view
      */
-    func mouseOut(){
+    func out(){
         /*override in subclass*/
     }
     override func mouseMoved(theEvent: NSEvent) {
