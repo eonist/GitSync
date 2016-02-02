@@ -69,7 +69,7 @@ class InteractionUtils{
     /**
      * This method finds the immediate origin. Aka the first descendant of current
      */
-    func immediate(current:NSView,origin:NSView)->NSView{//origin may be a CALayer, test this later
+    func immediate(current:NSView,_ origin:NSView)->NSView{//origin may be a CALayer, test this later
         var view:NSView = origin
         while(view.superview != current) {
             view = view.superview!
@@ -81,12 +81,10 @@ class InteractionUtils{
 
 
 
+//continue here: keep testing, use the hitTest to get origin.
 
 
 
-
-//Continue here: how do you work with unsafe pointer , see that gradient class or fuzzy search
-//Search through your notes for NSEvent and MouseEnter etc.
 
 /**/
 
