@@ -62,6 +62,20 @@ class ViewB:InteractiveView2{
     }*/
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
+
+
+
+class InteractionUtils{
+    
+}
+
+
+
+
+
+
+
+
 //Continue here: how do you work with unsafe pointer , see that gradient class or fuzzy search
 //Search through your notes for NSEvent and MouseEnter etc.
 
