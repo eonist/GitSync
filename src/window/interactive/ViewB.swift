@@ -44,9 +44,9 @@ class ViewB:InteractiveView2{
         //int mask = 0x100;
         //let mouseEvent = NSEvent(CGEvent: event.CGEvent!)//(mouseEventWithType:NSLeftMouseDown)
         
-        let customEvent = CustomEvent(event,"")
+        //let customEvent = CustomEvent(event,"")
         
-        super.mouseEntered(customEvent)
+        super.mouseEntered(event)
     }
     override func mouseExited(event: NSEvent) {
         Swift.print("ViewB.mouseExited()")
@@ -65,33 +65,31 @@ class ViewB:InteractiveView2{
 //Continue here: how do you work with unsafe pointer , see that gradient class or fuzzy search
 //Search through your notes for NSEvent and MouseEnter etc.
 
-/*
-class CustomCGEvent:CGEvent{
-    var userData:String = ""
-}
-*/
+/**/
 
+
+/*
 class CustomEvent:NSEvent{
-    
-    
-    override var type:NSEventType{return event.type}
-    override var locationInWindow: NSPoint { return event.locationInWindow }
-    override var modifierFlags:NSEventModifierFlags{return event.modifierFlags}
-    override var timestamp:NSTimeInterval {return event.timestamp}
-    override var windowNumber:Int{return event.windowNumber}
-    override var context:NSGraphicsContext? {return event.context}
-    override var eventNumber:Int {return event.eventNumber}
-    var event:NSEvent
-    /*Swift.print("event.clickCount: " + "\(event.clickCount)")
-    Swift.print("event.pressure: " + "\(event.pressure)")*/
-    init(_ event:NSEvent, _ userData:String){
-        //let cgEvent = event.CGEvent!
-        self.event = event
-        super.init()
-    }
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
+
+override var type:NSEventType{return event.type}
+override var locationInWindow: NSPoint { return event.locationInWindow }
+override var modifierFlags:NSEventModifierFlags{return event.modifierFlags}
+override var timestamp:NSTimeInterval {return event.timestamp}
+override var windowNumber:Int{return event.windowNumber}
+override var context:NSGraphicsContext? {return event.context}
+override var eventNumber:Int {return event.eventNumber}
+var event:NSEvent
+/*Swift.print("event.clickCount: " + "\(event.clickCount)")
+Swift.print("event.pressure: " + "\(event.pressure)")*/
+init(_ event:NSEvent, _ userData:String){
+//let cgEvent = event.CGEvent!
+self.event = event
+super.init()
+}
+required init?(coder aDecoder: NSCoder) {
+fatalError("init(coder:) has not been implemented")
+}
 }
 /**/
-/**/
+/**/*/
