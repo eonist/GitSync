@@ -46,9 +46,7 @@ class ViewB:InteractiveView2{
 //Continue here: how do you work with unsafe pointer , see that gradient class or fuzzy search
 //Search through your notes for NSEvent and MouseEnter etc.
 
-class CustomCGEvent:CGEventRef{
-    
-}
+
 
 class CustomEvent:NSEvent{
     var event:NSEvent
