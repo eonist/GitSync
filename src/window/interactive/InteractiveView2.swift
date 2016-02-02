@@ -98,8 +98,8 @@ extension InteractiveView2{
 }
 class MouseEvent:Event{
     var pos:CGPoint
-    var origin:Any?
-    var immidiate:Any?
+    var origin:Any?//origin sender of event
+    var immidiate:Any?//prev sender of event
     init(_ type:String, pos:CGPoint, origin:Any? = nil, immidiate:Any? = nil){
         self.pos = pos
         self.origin = origin
