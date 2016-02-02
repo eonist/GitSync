@@ -37,10 +37,10 @@ class ViewA:InteractiveView2{
 }
 
 //Continue here: how do you work with unsafe pointer , see that gradient class or fuzzy search
-//Search through your notes for NSEvent and MouseEnter etc. 
+//Search through your notes for NSEvent and MouseEnter etc.
 
 class CustomEvent:NSEvent{
-    init(inout event:NSEvent){
+    init(event:NSEvent){
         super.init()
     }
     
