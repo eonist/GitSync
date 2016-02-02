@@ -52,6 +52,18 @@ class InteractiveView2:FlippedView{
     func rollOut(){
         /*override in subclass*/
     }
+    /**
+     *
+     */
+    func enter(event:MouseEvent){
+        
+    }
+    /**
+     *
+     */
+    func exit(){
+        
+    }
     override func mouseMoved(theEvent: NSEvent) {
         //Swift.print("InteractiveView2.moved() " + "\(self.className)")
     }
