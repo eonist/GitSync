@@ -56,7 +56,7 @@ class InteractiveView2:FlippedView{
      *
      */
     func enter(event:MouseEvent){
-        
+        self.
     }
     /**
      *
