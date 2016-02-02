@@ -21,7 +21,7 @@ class ViewB:InteractiveView2{
         //let newNSEvent = NSEvent(CGEvent: newCGEvent!)
         //Swift.print("newNSEvent: " + "\(newNSEvent)")
         
-        
+        NSEvent(eventRef: <#T##UnsafePointer<Void>#>)
         //int mask = 0x100;
         let mouseEvent = NSEvent(CGEvent: event.CGEvent!)//(mouseEventWithType:NSLeftMouseDown)
         
