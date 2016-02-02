@@ -29,7 +29,7 @@ class ViewA:InteractiveView2{
         
         let hitView = hitTest((window?.mouseLocationOutsideOfEventStream)!)
         Swift.print("hitView: " + "\(hitView)")
-        let windowFrame = NSWindow.contentRectForFrameRect(self.window!.frame, styleMask: self.window!.styleMask)
+        
         Swift.print("windowFrame.height: " + "\(windowFrame.height)")
         Swift.print("window!.frame.height: " + "\(window!.frame.height)")
         
