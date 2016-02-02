@@ -21,7 +21,9 @@ class ViewA:InteractiveView2{
         Swift.print("ViewA.mouseEntered()")
         
         // I just want to listen to enter events that enters the skin, not enter events that enter my children
-        hitTest(<#T##aPoint: NSPoint##NSPoint#>)
+        Swift.print("event.locationInWindow: " + "\(event.locationInWindow)")
+        let hitView = hitTest(event.locationInWindow)
+        Swift.print("hitView: " + "\(hitView)")
         
         
         super.mouseEntered(event)
