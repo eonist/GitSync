@@ -24,9 +24,13 @@ class ViewB:InteractiveView2{
         
         
         Swift.print("event.type: " + "\(event.type)")
+        Swift.print("event.locationInWindow: " + "\(event.locationInWindow)")
+        Swift.print("event.modifierFlags: " + "\(event.modifierFlags)")
+        Swift.print("event.timestamp: " + "\(event.timestamp)")
+        Swift.print("event.windowNumber: " + "\(event.windowNumber)")
         
         
-        let mouseEvent = NSEvent.mouseEventWithType(event.type, location: event.locationInWindow, modifierFlags: event.modifierFlags, timestamp: event.timestamp, windowNumber: event.windowNumber, context: event.context, eventNumber: event.eventNumber, clickCount: 0, pressure: 0)
+        let mouseEvent = NSEvent.mouseEventWithType(event.type, location: event.locationInWindow, modifierFlags: event.modifierFlags, timestamp: event.timestamp, windowNumber: event.windowNumber, context: event.context, eventNumber: event.eventNumber, clickCount: Int(0), pressure: Float(0))
         //int mask = 0x100;
         //let mouseEvent = NSEvent(CGEvent: event.CGEvent!)//(mouseEventWithType:NSLeftMouseDown)
         
