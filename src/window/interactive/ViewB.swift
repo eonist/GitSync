@@ -36,7 +36,8 @@ class ViewB:InteractiveView2{
         
         
         let mouseCGEvent = CGEventCreateMouseEvent(nil, CGEventType.MouseMoved, NSMakePoint(50,50), CGMouseButton.Left)
-        let mouseEvent = NSEvent(CGEvent: mouseCGEvent!)//NSEvent.mouseEventWithType(NSEventType.MouseEntered, location: NSMakePoint(50,50), modifierFlags: NSEventModifierFlags.ShiftKeyMask, timestamp: 1, windowNumber: (self.window?.windowNumber)!, context: NSGraphicsContext.currentContext(), eventNumber: 1, clickCount: Int(1), pressure: Float(1.0))
+        let mouseEvent = NSEvent(CGEvent: mouseCGEvent!)//
+        NSEvent.mouseEventWithType(NSEventType.MouseEntered, location: NSMakePoint(50,50), modifierFlags: NSEventModifierFlags.ShiftKeyMask, timestamp: 1, windowNumber: (self.window?.windowNumber)!, context: NSGraphicsContext.currentContext(), eventNumber: 1, clickCount: Int(1), pressure: Float(1.0))
         
         
         Swift.print("mouseEvent: " + "\(mouseEvent)")
@@ -72,6 +73,18 @@ init(_ cgEvent:CGEvent){
 }*/
 
 class CustomEvent:NSEvent{
+    
+    
+    override var type:NSEventType{return NSEventType.MouseEntered}
+    override var locationInWindow:NSPoint = NSMakePoint(50,50)
+    override var modifierFlags:NSEventModifierFlags = NSEventModifierFlags.ShiftKeyMask
+    override var timestamp:Int = 1
+    override var windowNumber
+    override var context
+    override var eventNumber
+   
+    /*Swift.print("event.clickCount: " + "\(event.clickCount)")
+    Swift.print("event.pressure: " + "\(event.pressure)")*/
     init(_ event:NSEvent, userData:String){
         //let cgEvent = event.CGEvent!
         super.init()
