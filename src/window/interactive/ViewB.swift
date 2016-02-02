@@ -66,12 +66,10 @@ class ViewB:InteractiveView2{
 //Search through your notes for NSEvent and MouseEnter etc.
 
 
-/*class CustomCGEvent:CGEvent{
-init(_ cgEvent:CGEvent){
-
+class CustomCGEvent:CGEvent{
+    var userData:String = ""
 }
-}*/
-
+/*
 class CustomEvent:NSEvent{
     
     
@@ -93,3 +91,5 @@ class CustomEvent:NSEvent{
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+*/
