@@ -23,49 +23,16 @@ class InteractiveView2:FlippedView{
         return nil/*if no hitView is found return nil, the parent hitTest will then continue its search through its siblings etc*/
     }
     /**
-     *
-     */
-    func down(){
-        
-    }
-    /**
-     *
-     */
-    func releaseInside(){
-        
-    }
-    /**
-     *
-     */
-    func releaseOutside(){
-        
-    }
-    /**
      * Only fires if the mouse is over the visible part of this view
      */
-    func rollOver(){
+    func mouseOver(){
         /*override in subclass*/
     }
     /**
      * Only fires if the mouse is "rolls" out of the visible part of this view
      */
-    func rollOut(){
+    func mouseOut(){
         /*override in subclass*/
-    }
-    /**
-     *
-     */
-    func enter(event:MouseEvent){
-        if(self.superview is InteractiveView2){
-            event.immidiate = self
-            (self.superview as! InteractiveView2).enter(event)
-        }
-    }
-    /**
-     *
-     */
-    func exit(){
-        
     }
     override func mouseMoved(theEvent: NSEvent) {
         //Swift.print("InteractiveView2.moved() " + "\(self.className)")
@@ -81,7 +48,7 @@ class InteractiveView2:FlippedView{
     override func mouseEntered( event: NSEvent){
         //Swift.print("InteractiveView.mouseEntered: " )//+ "\(viewUnderMouse)" + " self: " + "\(self)"
         hasMouseEntered = true/*optimization*/
-        if(viewUnderMouse === self){rollOver();isMouseOver = true;}//mouse move on visible view
+        if(viewUnderMouse === self){mouseOver();isMouseOver = true;}//mouse move on visible view
         
         super.mouseEntered(event)/*passes on the event to the nextResponder, NSView parents etc*/
     }
@@ -92,7 +59,7 @@ class InteractiveView2:FlippedView{
     override func mouseExited(event: NSEvent){
         //Swift.print("InteractiveView.mouseExited:")
         hasMouseEntered = false/*optimization*/
-        if(isMouseOver){rollOut();isMouseOver = false;}
+        if(isMouseOver){mouseOut();isMouseOver = false;}
         super.mouseExited(event)/*passes on the event to the nextResponder, NSView parents etc*/
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
@@ -111,27 +78,4 @@ extension InteractiveView2{
         return theHitView
     }
 }
-class MouseEventType{
-    static var move:String = "mouseMove"
-    static var down:String = "mouseDown"
-    static var up:String = "mouseUp"
-    static var enter:String = "mouseEnter"
-    static var exit:String = "mouseExit"
-}
-class MouseEvent:Event{
-    var pos:CGPoint
-    var origin:Any?//origin sender of event
-    var immidiate:Any?//prev sender of event
-    init(_ type:String, pos:CGPoint, origin:Any? = nil, immidiate:Any? = nil){
-        self.pos = pos
-        self.origin = origin
-        self.immidiate = immidiate
-        super.init(type)
-    }
-}
-class Event{
-    var type:String
-    init(_ type:String){
-        self.type = type
-    }
-}
+
