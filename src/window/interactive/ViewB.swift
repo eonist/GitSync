@@ -81,8 +81,8 @@ class InteractionUtils{
      * @param origin: the result of hitTest()
      * @param target: i.e button1 or slider or some other UI component.
      */
-    func withinScope(origin:NSView,_ target:NSView){
-        target.isDescendantOf(origin)
+    func withinScope(origin:NSView,_ target:NSView)->Bool{
+        return (origin === target) || origin.isDescendantOf(target)
     }
 }
 
