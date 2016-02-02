@@ -75,12 +75,12 @@ class CustomEvent:NSEvent{
     
     
     override var type:NSEventType{return NSEventType.MouseEntered}
-    override var locationInWindow:NSPoint = {return NSMakePoint(50,50)}
-    override var modifierFlags:NSEventModifierFlags = NSEventModifierFlags.ShiftKeyMask
-    override var timestamp:Int = 1
-    override var windowNumber
-    override var context
-    override var eventNumber
+    override var locationInWindow: NSPoint { return NSPoint(50,50) }
+    override var modifierFlags:NSEventModifierFlags{return NSEventModifierFlags.ShiftKeyMask}
+    override var timestamp:NSTimeInterval {return NSTimeInterval(1)}
+    override var windowNumber:Int{return 1}
+    override var context:NSGraphicsContext {return NSGraphicsContext.currentContext()!}
+    override var eventNumber:Int {return 1}
    
     /*Swift.print("event.clickCount: " + "\(event.clickCount)")
     Swift.print("event.pressure: " + "\(event.pressure)")*/
