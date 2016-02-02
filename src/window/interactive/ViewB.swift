@@ -22,31 +22,31 @@ class ViewB:InteractiveView2{
         //Swift.print("newNSEvent: " + "\(newNSEvent)")
         
         
-        Swift.print("NSEventType.MouseEntered: " + "\(NSEventType.MouseEntered)")
+        /*Swift.print("NSEventType.MouseEntered: " + "\(NSEventType.MouseEntered)")
         Swift.print("event.type: " + "\(event.type)")
         Swift.print("event.locationInWindow: " + "\(event.locationInWindow)")
         Swift.print("event.modifierFlags: " + "\(event.modifierFlags)")
         Swift.print("event.timestamp: " + "\(event.timestamp)")
         Swift.print("event.windowNumber: " + "\(event.windowNumber)")
         Swift.print("event.context: " + "\(event.context)")
-        Swift.print("event.eventNumber: " + "\(event.eventNumber)")
+        Swift.print("event.eventNumber: " + "\(event.eventNumber)")*/
         /*Swift.print("event.clickCount: " + "\(event.clickCount)")
         Swift.print("event.pressure: " + "\(event.pressure)")*/
         //let cgEvent = event.CGEvent
         
         
-        let mouseCGEvent = CGEventCreateMouseEvent(nil, CGEventType.MouseMoved, NSMakePoint(50,50), CGMouseButton.Left)
-        let mouseEvent = NSEvent(CGEvent: mouseCGEvent!)//
-        NSEvent.mouseEventWithType(NSEventType.MouseEntered, location: NSMakePoint(50,50), modifierFlags: NSEventModifierFlags.ShiftKeyMask, timestamp: 1, windowNumber: (self.window?.windowNumber)!, context: NSGraphicsContext.currentContext(), eventNumber: 1, clickCount: Int(1), pressure: Float(1.0))
+        //let mouseCGEvent = CGEventCreateMouseEvent(nil, CGEventType.MouseMoved, NSMakePoint(50,50), CGMouseButton.Left)
+        //let mouseEvent = NSEvent(CGEvent: mouseCGEvent!)//
+        //NSEvent.mouseEventWithType(NSEventType.MouseEntered, location: NSMakePoint(50,50), modifierFlags: NSEventModifierFlags.ShiftKeyMask, timestamp: 1, windowNumber: (self.window?.windowNumber)!, context: NSGraphicsContext.currentContext(), eventNumber: 1, clickCount: Int(1), pressure: Float(1.0))
         
         
-        Swift.print("mouseEvent: " + "\(mouseEvent)")
+        //Swift.print("mouseEvent: " + "\(mouseEvent)")
         //int mask = 0x100;
         //let mouseEvent = NSEvent(CGEvent: event.CGEvent!)//(mouseEventWithType:NSLeftMouseDown)
         
+        //let customEvent = CustomEvent(event,"")
         
-        
-        super.mouseEntered(mouseEvent!)
+        super.mouseEntered(event)
     }
     override func mouseExited(event: NSEvent) {
         Swift.print("ViewB.mouseExited()")
@@ -65,12 +65,12 @@ class ViewB:InteractiveView2{
 //Continue here: how do you work with unsafe pointer , see that gradient class or fuzzy search
 //Search through your notes for NSEvent and MouseEnter etc.
 
-
+/*
 class CustomCGEvent:CGEvent{
     var userData:String = ""
 }
-
-
+*/
+/*
 class CustomEvent:NSEvent{
     
     
@@ -84,7 +84,7 @@ class CustomEvent:NSEvent{
    
     /*Swift.print("event.clickCount: " + "\(event.clickCount)")
     Swift.print("event.pressure: " + "\(event.pressure)")*/
-    init(_ event:NSEvent, userData:String){
+    init(_ event:NSEvent, _ userData:String){
         //let cgEvent = event.CGEvent!
         super.init()
     }
@@ -92,5 +92,5 @@ class CustomEvent:NSEvent{
         fatalError("init(coder:) has not been implemented")
     }
 }
-
+*/
 /**/
