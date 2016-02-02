@@ -81,7 +81,7 @@ class InteractionUtils{
 
 
 
-//continue here: keep testing, use the hitTest to get origin. If you want window to know if button was clicked then override mouseDown and assert with: InteractionUtils.isDescendant(btn,origin) this method will 
+//continue here: keep testing, use the hitTest to get origin. If you want window to know if button was clicked then override mouseDown and assert with: InteractionUtils.isDescendant(btn,origin) this method will check if the origin of the event came from btn by walking up the hirarcy from origin.
 
 
 
