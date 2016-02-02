@@ -35,9 +35,9 @@ class ViewB:InteractiveView2{
         //let cgEvent = event.CGEvent
         
         
-        let mouseCGEvent = CGEventCreateMouseEvent(nil, CGEventType.MouseMoved, NSMakePoint(50,50), CGMouseButton.Left)
-        let mouseNSEvent = NSEvent(CGEvent: mouseCGEvent!)//
-        //NSEvent.mouseEventWithType(NSEventType.MouseEntered, location: NSMakePoint(50,50), modifierFlags: NSEventModifierFlags.ShiftKeyMask, timestamp: 1, windowNumber: (self.window?.windowNumber)!, context: NSGraphicsContext.currentContext(), eventNumber: 1, clickCount: Int(1), pressure: Float(1.0))
+        //let mouseCGEvent = CGEventCreateMouseEvent(nil, CGEventType.MouseMoved, NSMakePoint(50,50), CGMouseButton.Left)
+        //let mouseNSEvent = NSEvent(CGEvent: mouseCGEvent!)//
+        let tempEvent = NSEvent.mouseEventWithType(event.type, location: NSMakePoint(50,50), modifierFlags: NSEventModifierFlags.ShiftKeyMask, timestamp: 1, windowNumber: (self.window?.windowNumber)!, context: NSGraphicsContext.currentContext(), eventNumber: 1, clickCount: Int(1), pressure: Float(1.0))
         
         
         //Swift.print("mouseEvent: " + "\(mouseEvent)")
@@ -46,7 +46,7 @@ class ViewB:InteractiveView2{
         
         //let customEvent = CustomEvent(event,"")
         
-        super.mouseEntered(mouseNSEvent!)
+        super.mouseEntered(tempEvent!)
     }
     override func mouseExited(event: NSEvent) {
         Swift.print("ViewB.mouseExited()")
