@@ -44,9 +44,9 @@ class ViewB:InteractiveView2{
         //int mask = 0x100;
         //let mouseEvent = NSEvent(CGEvent: event.CGEvent!)//(mouseEventWithType:NSLeftMouseDown)
         
-        //let customEvent = CustomEvent(event,"")
+        let customEvent = CustomEvent(event,"")
         
-        super.mouseEntered(event)
+        super.mouseEntered(customEvent)
     }
     override func mouseExited(event: NSEvent) {
         Swift.print("ViewB.mouseExited()")
@@ -70,7 +70,7 @@ class CustomCGEvent:CGEvent{
     var userData:String = ""
 }
 */
-/*
+
 class CustomEvent:NSEvent{
     
     
@@ -92,5 +92,5 @@ class CustomEvent:NSEvent{
         fatalError("init(coder:) has not been implemented")
     }
 }
-*/
+/**/
 /**/
