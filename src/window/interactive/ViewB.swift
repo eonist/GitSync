@@ -74,18 +74,19 @@ class CustomCGEvent:CGEvent{
 class CustomEvent:NSEvent{
     
     
-    override var type:NSEventType{return NSEventType.MouseEntered}
-    override var locationInWindow: NSPoint { return NSPoint(50,50) }
-    override var modifierFlags:NSEventModifierFlags{return NSEventModifierFlags.ShiftKeyMask}
-    override var timestamp:NSTimeInterval {return NSTimeInterval(1)}
-    override var windowNumber:Int{return 1}
-    override var context:NSGraphicsContext {return NSGraphicsContext.currentContext()!}
-    override var eventNumber:Int {return 1}
-   
+    override var type:NSEventType{return event.type}
+    override var locationInWindow: NSPoint { return event.locationInWindow }
+    override var modifierFlags:NSEventModifierFlags{return event.modifierFlags}
+    override var timestamp:NSTimeInterval {return event.timestamp}
+    override var windowNumber:Int{return event.windowNumber}
+    override var context:NSGraphicsContext? {return event.context}
+    override var eventNumber:Int {return event.eventNumber}
+    var event:NSEvent
     /*Swift.print("event.clickCount: " + "\(event.clickCount)")
     Swift.print("event.pressure: " + "\(event.pressure)")*/
     init(_ event:NSEvent, _ userData:String){
         //let cgEvent = event.CGEvent!
+        self.event = event
         super.init()
     }
     required init?(coder aDecoder: NSCoder) {
