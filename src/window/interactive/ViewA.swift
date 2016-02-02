@@ -30,7 +30,12 @@ class ViewA:InteractiveView2{
         
         let hitView = hitTest(winMousePos)
         Swift.print("hitView: " + "\(hitView)")
-                
+        
+        
+        //continue here: try the winMousePOs and the different pos stuff in view B
+        //then start to implement the scope limiting
+        
+        
         super.mouseEntered(event)
     }
     override func hitTest(aPoint: NSPoint) -> NSView? {
