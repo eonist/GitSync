@@ -19,10 +19,11 @@ class ViewA:InteractiveView2{
     }
     override func mouseEntered(event: NSEvent) {
         Swift.print("ViewA.mouseEntered()")
-        Swift.print("pos: " + "\((window?.mouseLocationOutsideOfEventStream)!)")
+        Swift.print("event.locationInWindow: " + "\(event.locationInWindow)")
+        Swift.print("(window?.mouseLocationOutsideOfEventStream)!: " + "\((window?.mouseLocationOutsideOfEventStream)!)")
         // I just want to listen to enter events that enters the skin, not enter events that enter my children
         //Swift.print("event.locationInWindow: " + "\(event.locationInWindow)")
-        let mousePos = winMousePos
+        let mousePos = (window?.mouseLocationOutsideOfEventStream)!
         Swift.print("winMousePos: " + "\(winMousePos)")
         let globalPoint:NSPoint = convertPoint(mousePos, fromView: nil)
         Swift.print("globalPoint: " + "\(globalPoint)")
