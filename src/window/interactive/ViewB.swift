@@ -50,12 +50,8 @@ class ViewB:InteractiveView2{
 
 class CustomEvent:NSEvent{
     var event:NSEvent
-    override var type:NSEventType {return NSEventType.MouseEntered}
-    override var locationInWindow:NSPoint {return event.locationInWindow}
-    init(_ event:NSEvent){
-        self.event = event
-        Swift.print("event.type: " + "\(event.type)")
-        super.init()
+    init(event:NSEvent){
+        
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
