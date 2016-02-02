@@ -97,8 +97,8 @@ extension InteractiveView2{
     }
 }
 class MouseEvent:Event{
-    init(){
-        super.init()
+    init(_ type:String, pos:CGPoint, origin:Any? = nil, immidiate){
+        super.init(type)
     }
 }
 class Event{
