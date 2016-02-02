@@ -41,7 +41,7 @@ class ViewA:InteractiveView2{
 
 class CustomEvent:NSEvent{
     var event:NSEvent
-    override var type:String {get event.type}
+    override var type:NSEventType {return event.type}
     init(event:NSEvent){
         self.event = event
         super.init()
