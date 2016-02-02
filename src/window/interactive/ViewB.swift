@@ -69,6 +69,7 @@ class ViewB:InteractiveView2{
 class CustomCGEvent:CGEvent{
     var userData:String = ""
 }
+
 /*
 class CustomEvent:NSEvent{
     
