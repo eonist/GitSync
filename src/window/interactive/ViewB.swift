@@ -78,9 +78,10 @@ class InteractionUtils{
     }
     /**
      * this method will check if the origin of the event came from btn by walking up the hirarcy from origin.
+     * @param target: usually the result of hitTest()
      */
-    func isDescendant(current:NSView,origin:NSView){
-        origin.isDescendantOf(current)
+    func isDescendant(target:NSView,origin:NSView){
+        target.isDescendantOf(origin)
     }
 }
 
