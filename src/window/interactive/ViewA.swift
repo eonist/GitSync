@@ -40,9 +40,11 @@ class ViewA:InteractiveView2{
 //Search through your notes for NSEvent and MouseEnter etc.
 
 class CustomEvent:NSEvent{
+    var event:NSEvent
+    override var type:String {get event.type}
     init(event:NSEvent){
+        self.event = event
         super.init()
-        t
     }
     
 
