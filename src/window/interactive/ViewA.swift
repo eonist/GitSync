@@ -42,6 +42,7 @@ class ViewA:InteractiveView2{
 class CustomEvent:NSEvent{
     init(event:NSEvent){
         super.init()
+        t
     }
     
 
