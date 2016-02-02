@@ -17,9 +17,9 @@ class ViewB:InteractiveView2{
         Swift.print("ViewB.mouseEntered()")
         //let tempEvent = CustomEvent(event)//event//
         let newCGEvent = event.CGEvent
-        Swift.print("newCGEvent: " + "\(newCGEvent)")
+        //Swift.print("newCGEvent: " + "\(newCGEvent)")
         let newNSEvent = NSEvent(CGEvent: newCGEvent!)
-        Swift.print("newNSEvent: " + "\(newNSEvent)")
+        //Swift.print("newNSEvent: " + "\(newNSEvent)")
         super.mouseEntered(newNSEvent!)
     }
     override func mouseExited(event: NSEvent) {
