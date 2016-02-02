@@ -15,7 +15,8 @@ class ViewB:InteractiveView2{
     }
     override func mouseEntered(event: NSEvent) {
         Swift.print("ViewB.mouseEntered()")
-        super.mouseEntered(event)
+        let tempEvent = CustomEvent(event)
+        super.mouseEntered(tempEvent)
     }
     override func mouseExited(event: NSEvent) {
         Swift.print("ViewB.mouseExited()")
@@ -37,7 +38,7 @@ class ViewB:InteractiveView2{
 class CustomEvent:NSEvent{
     var event:NSEvent
     override var type:NSEventType {return event.type}
-    init(event:NSEvent){
+    init(_ event:NSEvent){
         self.event = event
         super.init()
     }
