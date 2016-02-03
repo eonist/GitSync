@@ -58,7 +58,6 @@ class InteractiveView2:FlippedView{
      * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
      */
     func mouseUp(event:MouseEvent){
-        viewUnderMouse === self ? mouseUpInside(event) : mouseUpOutside(event);/*if the event was on this button call triggerRelease, else triggerReleaseOutside*/
         if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseDown(event)}/*informs the parent that an event occured*/
     }
     /**
@@ -94,7 +93,10 @@ class InteractiveView2:FlippedView{
         //super.mouseExited(event)/*passes on the event to the nextResponder, NSView parents etc*/
     }
     override func mouseDown(theEvent: NSEvent) {mouseDown(MouseEvent(theEvent,self))}
-    override func mouseUp(theEvent: NSEvent) {mouseUp(MouseEvent(theEvent,self))}
+    override func mouseUp(theEvent: NSEvent) {
+        viewUnderMouse === self ? mouseUpInside(MouseEvent(theEvent,self)) : mouseUpOutside(MouseEvent(theEvent,self));/*if the event was on this button call triggerRelease, else triggerReleaseOutside*/
+        /*mouseUp(MouseEvent(theEvent,self))*/
+    }
     /**
      * NOTE: looping backwards is very important as its the only way to target the front-most views in the stack
      * NOTE: why is this needed? because normal hitTesting doesnt work if the frame size is zero. or if a subView is outside the frame.
