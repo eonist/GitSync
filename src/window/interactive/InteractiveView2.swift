@@ -70,7 +70,7 @@ class InteractiveView2:FlippedView{
     override func mouseEntered( event: NSEvent){
         //Swift.print("InteractiveView.mouseEntered: " )//+ "\(viewUnderMouse)" + " self: " + "\(self)"
         hasMouseEntered = true/*optimization*/
-        if(viewUnderMouse === self){mouseOver(MouseEvent(MouseEventType.over,event.locationInWindow,self));isMouseOver = true;}//mouse move on visible view
+        if(viewUnderMouse === self){mouseOver(MouseEvent(event.locationInWindow,self));isMouseOver = true;}//mouse move on visible view
         
         super.mouseEntered(event)/*passes on the event to the nextResponder, NSView parents etc*/
     }
@@ -81,7 +81,7 @@ class InteractiveView2:FlippedView{
     override func mouseExited(event: NSEvent){
         //Swift.print("InteractiveView.mouseExited:")
         hasMouseEntered = false/*optimization*/
-        if(isMouseOver){mouseOut(MouseEvent(MouseEventType.out,event.locationInWindow,self));isMouseOver = false;}
+        if(isMouseOver){mouseOut(MouseEvent(event.locationInWindow,self));isMouseOver = false;}
         super.mouseExited(event)/*passes on the event to the nextResponder, NSView parents etc*/
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
