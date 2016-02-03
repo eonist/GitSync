@@ -6,3 +6,5 @@ class Event{
         /*self.type = type*/
     }
 }
+
+//continue here: create a event wrapper that has ref to origin
