@@ -14,15 +14,15 @@ import Cocoa
  * NOTE: origin could in the future be a protocol IInteractiveElement for instance or IInteractive or IInteractiveView
  */
 class MouseEvent:Event{
-    weak var event:NSEvent?
+    
     /*var pos:CGPoint*/
     var origin:NSView?//origin sender of event
     /*var immidiate:Any?*///prev sender of event
     init(_ event:NSEvent/*_ type:String, *//*_ pos:CGPoint, */, _ origin:NSView? = nil/*, immidiate:Any? = nil*/){
         /*self.pos = pos*/
-        self.event = event
+        
         self.origin = origin
         /*self.immidiate = immidiate*/
-        super.init(/*type*/)
+        super.init(event/*type*/)
     }
 }
