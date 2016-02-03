@@ -27,9 +27,9 @@ class ViewB:InteractiveView2{
         //Swift.print("ViewB.mouseExited()")
         super.mouseExited(event)
     }
-    override func mouseOver() {
+    override func mouseOver(event:MouseEvent) {
         Swift.print("ViewB.mouseOver() ")
-        super.mouseOver()
+        super.mouseOver(event)
     }
     override func mouseOut() {
         Swift.print("ViewB.mouseOut() ")
