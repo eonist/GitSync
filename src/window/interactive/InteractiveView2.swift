@@ -44,22 +44,22 @@ class InteractiveView2:FlippedView{
      * Handles actions and drawing states for the release event.
      * @Note: bubbling= true was added to make Stepper class dragable
      */
-    func mouseUpInside(theEvent: MouseEvent){
-        /*override in subclass*/
+    func mouseUpInside(event: MouseEvent){
+        if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseUpInside(event)}/*informs the parent that an event occured*/
     }
     /**
      * Handles actions and drawing states for the mouseUpOutside event.
      * @Note: bubbling = true was added to make Stepper class dragable
      */
-    func mouseUpOutside(theEvent: MouseEvent){
-        /*override in subclass*/
+    func mouseUpOutside(event: MouseEvent){
+        if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseUpOutside(event)}/*informs the parent that an event occured*/
     }
     /**
      * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
      */
-    func mouseUp(event:MouseEvent){
-        if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseDown(event)}/*informs the parent that an event occured*/
-    }
+     /*func mouseUp(event:MouseEvent){
+     if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseDown(event)}/*informs the parent that an event occured*/
+     }*/
     /**
      * MouseMoved
      */
