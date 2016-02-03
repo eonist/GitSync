@@ -49,7 +49,7 @@ class InteractiveView2:FlippedView{
      *
      */
     func mouseDown(event:MouseEvent){
-        if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseOut(event)}/*informs the parent that an event occured*/
+        if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseDown(event)}/*informs the parent that an event occured*/
     }
     /**
      * MouseMoved
@@ -66,8 +66,8 @@ class InteractiveView2:FlippedView{
         }
     }
     override func mouseDown(theEvent: NSEvent) {
-        Swift.print("InteractiveView2.mouseDown() " + "\(self.className)")
-        super.mouseDown(theEvent)
+        //Swift.print("InteractiveView2.mouseDown() " + "\(self.className)")
+        mouseDown(MouseEvent(theEvent,self))
     }
     /**
      * Fires when the mouse enters the tracking area, regardless if it is overlapping with other trackingAreas of other views
