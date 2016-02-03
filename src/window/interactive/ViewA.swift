@@ -53,7 +53,7 @@ class ViewA:InteractiveView2{
         super.mouseExited(event)
     }
     override func mouseOver(event:MouseEvent) {
-        Swift.print("ViewA.mouseOver() origin: " + "\(event.origin)")
+        if(event.origin === self){Swift.print("ViewA.mouseOver() origin: " + "\(event.origin)")}
         super.mouseOver(event)
     }
     override func mouseOut(event:MouseEvent) {
