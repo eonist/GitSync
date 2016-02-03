@@ -2,7 +2,7 @@ import Cocoa
 /**
  * IMPORTANT: To understand the relatioship between NSEvent and hitTest: think of NSEvent as going upStream in an inverted pyramid hirarachy and hitTest going downStream in the same hirarachy
  */
-class InteractiveView2:FlippedView{
+class InteractiveView2:FlippedView,IInteractiveView{
     var isMouseOver:Bool = false;/*you should hit test this on init*/
     var hasMouseEntered:Bool = false/*you should hit test this on init*/
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
@@ -18,7 +18,7 @@ class InteractiveView2:FlippedView{
      * TODO: when you implement propegation of the mouseMove method, mousemove needs a bool to turn it on or it will flood its parents with calls, isMouseMovable could be used
      * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
      */
-    func mouseMoved(event:MouseEvent/**/){
+    func mouseMoved(event:MouseEvent){
         if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseMoved(event)}/*informs the parent that an event occured*/
     }
     /**
@@ -31,7 +31,7 @@ class InteractiveView2:FlippedView{
     /**
      * Only fires if the mouse is "rolls" out of the visible part of this view
      */
-    func mouseOut(event:MouseEvent/**/){
+    func mouseOut(event:MouseEvent){
         if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseOut(event)}/*informs the parent that an event occured*/
     }
     /**
