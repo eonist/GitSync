@@ -30,12 +30,11 @@ class InteractiveView2:FlippedView{
         /*override in subclass*/
     }
     /**
-     * Only fires if the mouse is over the visible part of this view
+     * Only fires if the mouse is over the visible part of this view 
+     * NOTE: you have to implement a hitTest that aserts that the aPoint is within the path. (either in the CALayer or at the last hitTesable NSView in your stack)
      */
     func mouseOver(event:MouseEvent){
-        if(self.superview is InteractiveView2){
-            (self.superview as! InteractiveView2).mouseOver(event)
-        }
+        if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseOver(event)}
     }
     /**
      * Only fires if the mouse is "rolls" out of the visible part of this view
