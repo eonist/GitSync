@@ -27,6 +27,7 @@ class InteractiveView2:FlippedView{
     /**
      * MouseMove (only fires when the mouse is actualy moving on the visible  part of the view)
      * NOTE: It could be possible to only call this method if a bool value was true. Optimization
+     * TODO: when you implement propegation of the mouseMove method, mousemove needs a bool to turn it on or it will flood its parents with calls, isMouseMovable could be used
      */
     func mouseMove(/*event:MouseEvent*/){
         /*override in subclass*/
@@ -41,8 +42,8 @@ class InteractiveView2:FlippedView{
     /**
      * Only fires if the mouse is "rolls" out of the visible part of this view
      */
-    func mouseOut(/*event:MouseEvent*/){
-        //continue here: setup the mouseOut and mouseMove, mousemove needs a bool to turn it on or it will flood its parents with calls, isMouseMovable could be used
+    func mouseOut(event:MouseEvent/**/){
+        if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseOut(event)}/*informs the parent that an event occured*/
     }
     /**
      * MouseMoved
