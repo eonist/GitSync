@@ -19,40 +19,40 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
      */
     func mouseMoved(event:MouseEvent){
-        if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseMoved(event)}/*informs the parent that an event occured*/
+        if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseMoved(event)}/*informs the parent that an event occured*/
     }
     /**
      * Only fires if the mouse is over the visible part of this view 
      * NOTE: you have to implement a hitTest that aserts that the aPoint is within the path. (either in the CALayer or at the last hitTesable NSView in your stack)
      */
     func mouseOver(event:MouseEvent){
-        if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseOver(event)}/*informs the parent that an event occured*/
+        if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseOver(event)}/*informs the parent that an event occured*/
     }
     /**
      * Only fires if the mouse is "rolls" out of the visible part of this view
      */
     func mouseOut(event:MouseEvent){
-        if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseOut(event)}/*informs the parent that an event occured*/
+        if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseOut(event)}/*informs the parent that an event occured*/
     }
     /**
      * Same as regular mouseDown event except this also includes the origin
      */
     func mouseDown(event:MouseEvent){
-        if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseDown(event)}/*informs the parent that an event occured*/
+        if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseDown(event)}/*informs the parent that an event occured*/
     }
     /**
      * Handles actions and drawing states for the release event.
      * @Note: bubbling= true was added to make Stepper class dragable
      */
     func mouseUpInside(event: MouseEvent){
-        if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseUpInside(event)}/*informs the parent that an event occured*/
+        if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseUpInside(event)}/*informs the parent that an event occured*/
     }
     /**
      * Handles actions and drawing states for the mouseUpOutside event.
      * @Note: bubbling = true was added to make Stepper class dragable
      */
     func mouseUpOutside(event: MouseEvent){
-        if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseUpOutside(event)}/*informs the parent that an event occured*/
+        if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseUpOutside(event)}/*informs the parent that an event occured*/
     }
     /**
      * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
@@ -111,6 +111,9 @@ class InteractiveView2:FlippedView,IInteractiveView{
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
+/**
+ * TODO: add to private utils class
+ */
 extension InteractiveView2{
     /**
      * Returns a correctly flipped coordinate of the mouse in window space 0,0
@@ -126,7 +129,9 @@ extension InteractiveView2{
         return theHitView
     }
 }
-
+/**
+ * Reasearch, these can be deprecated
+ */
 class InteractionUtils{
     /**
      * This method finds the immediate origin. Aka the first descendant of current
