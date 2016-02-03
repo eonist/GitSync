@@ -15,11 +15,8 @@ class ViewB:InteractiveView2{
     }
     override func mouseEntered(event: NSEvent) {
         //Swift.print("ViewB.mouseEntered()")
- 
         //let hitView = hitTest(winMousePos)
         //Swift.print("hitView: " + "\(hitView)")
-        
-        
         super.mouseEntered(event)
     }
     override func mouseExited(event: NSEvent) {
