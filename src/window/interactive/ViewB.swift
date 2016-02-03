@@ -13,16 +13,16 @@ class ViewB:InteractiveView2{
         let skin = SkinB(NSRect(0,0,200,200),self)
         addSubview(skin)
     }
-    override func mouseEntered(event: NSEvent) {
-        //Swift.print("ViewB.mouseEntered()")
-        //let hitView = hitTest(winMousePos)
-        //Swift.print("hitView: " + "\(hitView)")
-        super.mouseEntered(event)
-    }
-    override func mouseExited(event: NSEvent) {
-        //Swift.print("ViewB.mouseExited()")
-        super.mouseExited(event)
-    }
+    /*override func mouseEntered(event: NSEvent) {
+    //Swift.print("ViewB.mouseEntered()")
+    //let hitView = hitTest(winMousePos)
+    //Swift.print("hitView: " + "\(hitView)")
+    super.mouseEntered(event)
+    }*/
+    /*override func mouseExited(event: NSEvent) {
+    //Swift.print("ViewB.mouseExited()")
+    super.mouseExited(event)
+    }*/
     override func mouseOver(event:MouseEvent) {
         //Swift.print("ViewB.mouseOver() ")
         super.mouseOver(event)

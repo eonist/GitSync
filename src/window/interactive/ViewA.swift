@@ -17,24 +17,24 @@ class ViewA:InteractiveView2{
         viewB.frame.origin = CGPoint(50,50)/**/
         addSubview(viewB)
     }
-    override func mouseEntered(event: NSEvent) {
-        //Swift.print("ViewA.mouseEntered()")
-        super.mouseEntered(event)
-    }
-    override func hitTest(aPoint: NSPoint) -> NSView? {
-        //Swift.print("ViewA.hitTest() aPoint: " + "\(aPoint)")
-        return super.hitTest(aPoint)
-    }
-    override func mouseExited(event: NSEvent) {
-        //Swift.print("ViewA.mouseExited()")
-        super.mouseExited(event)
-    }
+    /*override func mouseEntered(event: NSEvent) {
+    //Swift.print("ViewA.mouseEntered()")
+    super.mouseEntered(event)
+    }*/
+    /*override func hitTest(aPoint: NSPoint) -> NSView? {
+    //Swift.print("ViewA.hitTest() aPoint: " + "\(aPoint)")
+    return super.hitTest(aPoint)
+    }*/
+    /*override func mouseExited(event: NSEvent) {
+    //Swift.print("ViewA.mouseExited()")
+    super.mouseExited(event)
+    }*/
     override func mouseOver(event:MouseEvent) {
-        //if(event.origin === self){Swift.print("ViewA.mouseOver() origin: " + "\(event.origin)")}
+        if(event.origin === self){Swift.print("ViewA.mouseOver() origin: " + "\(event.origin)")}
         super.mouseOver(event)
     }
     override func mouseOut(event:MouseEvent) {
-        //if(event.origin === self){Swift.print("ViewA.mouseOut() origin: " + "\(event.origin)")}
+        if(event.origin === self){Swift.print("ViewA.mouseOut() origin: " + "\(event.origin)")}
         super.mouseOut(event)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
