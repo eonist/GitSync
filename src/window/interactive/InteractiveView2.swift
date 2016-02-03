@@ -41,7 +41,7 @@ class InteractiveView2:FlippedView{
      * Only fires if the mouse is "rolls" out of the visible part of this view
      */
     func mouseOut(/*event:MouseEvent*/){
-        
+        //continue here: setup the mouseOut and mouseMove
     }
     /**
      * MouseMoved
