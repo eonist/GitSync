@@ -23,6 +23,13 @@ class InteractiveView2:FlippedView{
         return nil/*if no hitView is found return nil, the parent hitTest will then continue its search through its siblings etc*/
     }
     /**
+     * MouseMove (only fires when the mouse is actualy moving on the visible  part of the view)
+     * NOTE: It could be possible to only call this method if a bool value was true. Optimization
+     */
+    func mouseMove(){
+        /*override in subclass*/
+    }
+    /**
      * Only fires if the mouse is over the visible part of this view
      */
     func mouseOver(){
@@ -34,8 +41,19 @@ class InteractiveView2:FlippedView{
     func mouseOut(){
         /*override in subclass*/
     }
+    /**
+     * MouseMoved
+     * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
+     */
     override func mouseMoved(theEvent: NSEvent) {
-        //Swift.print("InteractiveView2.moved() " + "\(self.className)")
+        //Swift.print("InteractiveView.mouseMoved")
+        if(hasMouseEntered){/*Only run the following code when inside the actual TrackingArea*/
+            if(viewUnderMouse === self){//mouse move on the "visible" part of the view
+                if(!isMouseOver){mouseOver();isMouseOver = true;}
+                mouseMove()
+            }
+            else if(isMouseOver){mouseOut();isMouseOver = false;}//mouse move on the "invisible" parth of the view
+        }
     }
     override func mouseDown(theEvent: NSEvent) {
         Swift.print("InteractiveView2.mouseDown() " + "\(self.className)")
@@ -47,8 +65,8 @@ class InteractiveView2:FlippedView{
      */
     override func mouseEntered( event: NSEvent){
         //Swift.print("InteractiveView.mouseEntered: " )//+ "\(viewUnderMouse)" + " self: " + "\(self)"
-        //hasMouseEntered = true/*optimization*/
-        //if(viewUnderMouse === self){mouseOver();isMouseOver = true;}//mouse move on visible view
+        hasMouseEntered = true/*optimization*/
+        if(viewUnderMouse === self){mouseOver();isMouseOver = true;}//mouse move on visible view
         
         super.mouseEntered(event)/*passes on the event to the nextResponder, NSView parents etc*/
     }
@@ -58,8 +76,8 @@ class InteractiveView2:FlippedView{
      */
     override func mouseExited(event: NSEvent){
         //Swift.print("InteractiveView.mouseExited:")
-        //hasMouseEntered = false/*optimization*/
-        //if(isMouseOver){mouseOut();isMouseOver = false;}
+        hasMouseEntered = false/*optimization*/
+        if(isMouseOver){mouseOut();isMouseOver = false;}
         super.mouseExited(event)/*passes on the event to the nextResponder, NSView parents etc*/
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
