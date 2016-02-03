@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 
 //class MouseEventType{
     /*static var over:String = "mouseOver"*/
@@ -11,12 +11,13 @@ import Foundation
 //}
 /**
  * TODO: implement the immidiate when its needed. 
+ * NOTE: origin could in the future be a protocol IInteractiveElement for instance or IInteractive or IInteractiveView
  */
 class MouseEvent:Event{
     var pos:CGPoint
-    var origin:Any?//origin sender of event
+    var origin:NSView?//origin sender of event
     /*var immidiate:Any?*///prev sender of event
-    init(/*_ type:String, */_ pos:CGPoint, _ origin:Any? = nil/*, immidiate:Any? = nil*/){
+    init(/*_ type:String, */_ pos:CGPoint, _ origin:NSView? = nil/*, immidiate:Any? = nil*/){
         self.pos = pos
         self.origin = origin
         /*self.immidiate = immidiate*/
