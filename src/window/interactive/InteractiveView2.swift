@@ -26,22 +26,22 @@ class InteractiveView2:FlippedView{
      * MouseMove (only fires when the mouse is actualy moving on the visible  part of the view)
      * NOTE: It could be possible to only call this method if a bool value was true. Optimization
      */
-    func mouseMove(){
+    func mouseMove(/*event:MouseEvent*/){
         /*override in subclass*/
     }
     /**
      * Only fires if the mouse is over the visible part of this view
      */
     func mouseOver(event:MouseEvent){
-        /*override in subclass*/
+        if(self.superview is InteractiveView2){
+            (self.superview as! InteractiveView2).mouseOver(event)
+        }
     }
     /**
      * Only fires if the mouse is "rolls" out of the visible part of this view
      */
-    func mouseOut(event:MouseEvent){
-        if(self.superview is InteractiveView2){
-            (self.superview as! InteractiveView2).mouseOut(event)
-        }
+    func mouseOut(/*event:MouseEvent*/){
+        
     }
     /**
      * MouseMoved
@@ -51,7 +51,7 @@ class InteractiveView2:FlippedView{
         //Swift.print("InteractiveView.mouseMoved")
         if(hasMouseEntered){/*Only run the following code when inside the actual TrackingArea*/
             if(viewUnderMouse === self){//mouse move on the "visible" part of the view
-                if(!isMouseOver){mouseOver(MouseEvent(MouseEventType.));isMouseOver = true;}
+                if(!isMouseOver){mouseOver(MouseEvent(MouseEventType.over,theEvent.locationInWindow,self));isMouseOver = true;}
                 mouseMove()
             }
             else if(isMouseOver){mouseOut();isMouseOver = false;}//mouse move on the "invisible" parth of the view
