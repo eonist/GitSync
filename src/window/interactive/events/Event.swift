@@ -1,5 +1,8 @@
 import Foundation
 
-class Event {
-
+class Event{
+    var type:String
+    init(_ type:String){
+        self.type = type
+    }
 }
