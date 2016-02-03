@@ -73,22 +73,29 @@ class InteractiveView2:FlippedView{
      * Handles actions and drawing states for the release event.
      * @Note: bubbling= true was added to make Stepper class dragable
      */
-    func mouseUpInside(theEvent: NSEvent){
+    func mouseUpInside(theEvent: MouseEvent){
         /*override in subclass*/
     }
     /**
      * Handles actions and drawing states for the mouseUpOutside event.
      * @Note: bubbling = true was added to make Stepper class dragable
      */
-    func mouseUpOutside(theEvent: NSEvent){
+    func mouseUpOutside(theEvent: MouseEvent){
         /*override in subclass*/
     }
     /**
      * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
      */
+    func mouseUp(event:MouseEvent){
+        viewUnderMouse === self ? mouseUpInside(event) : mouseUpOutside(event);/*if the event was on this button call triggerRelease, else triggerReleaseOutside*/
+        if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseDown(event)}/*informs the parent that an event occured*/
+    }
+    /**
+     *
+     */
     override func mouseUp(theEvent: NSEvent) {
-        viewUnderMouse === self ? mouseUpInside(theEvent) : mouseUpOutside(theEvent);/*if the event was on this button call triggerRelease, else triggerReleaseOutside*/
-        super.mouseUp(theEvent)/*passes on the event to the nextResponder, NSView parents etc*/
+        mouseUp(MouseEvent(theEvent,self))
+       
     }
     /**
      * Fires when the mouse enters the tracking area, regardless if it is overlapping with other trackingAreas of other views
