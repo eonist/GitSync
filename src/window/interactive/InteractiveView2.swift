@@ -32,14 +32,16 @@ class InteractiveView2:FlippedView{
     /**
      * Only fires if the mouse is over the visible part of this view
      */
-    func mouseOver(){
+    func mouseOver(event:MouseEvent){
         /*override in subclass*/
     }
     /**
      * Only fires if the mouse is "rolls" out of the visible part of this view
      */
-    func mouseOut(){
-        /*override in subclass*/
+    func mouseOut(event:MouseEvent){
+        if(self.superview is InteractiveView2){
+            (self.superview as! InteractiveView2).mouseOut(event)
+        }
     }
     /**
      * MouseMoved
