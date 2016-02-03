@@ -18,7 +18,7 @@ class ViewA:InteractiveView2{
         addSubview(viewB)
     }
     override func mouseEntered(event: NSEvent) {
-        Swift.print("ViewA.mouseEntered()")
+        //Swift.print("ViewA.mouseEntered()")
         /*
         
         
@@ -45,11 +45,11 @@ class ViewA:InteractiveView2{
         super.mouseEntered(event)
     }
     override func hitTest(aPoint: NSPoint) -> NSView? {
-        Swift.print("ViewA.hitTest() aPoint: " + "\(aPoint)")
+        //Swift.print("ViewA.hitTest() aPoint: " + "\(aPoint)")
         return super.hitTest(aPoint)
     }
     override func mouseExited(event: NSEvent) {
-        Swift.print("ViewA.mouseExited()")
+        //Swift.print("ViewA.mouseExited()")
         super.mouseExited(event)
     }
     /*override func mouseOver() {
