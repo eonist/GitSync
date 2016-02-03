@@ -18,6 +18,7 @@ class MouseEvent{
     /*var pos:CGPoint*/
     var origin:NSView?//origin sender of event
     /*var immidiate:Any?*///prev sender of event
+    var loc:CGPoint{return event!.locationInWindow}
     init(_ event:NSEvent/*_ type:String, *//*_ pos:CGPoint, */, _ origin:NSView? = nil/*, immidiate:Any? = nil*/){
         /*self.pos = pos*/
         self.event = event
