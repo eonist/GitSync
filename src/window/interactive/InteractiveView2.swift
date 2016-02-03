@@ -13,18 +13,6 @@ class InteractiveView2:FlippedView{
         layer!.masksToBounds = false//this is needed!!!
     }
     /**
-     * NOTE: looping backwards is very important as its the only way to target the front-most views in the stack
-     * NOTE: why is this needed? because normal hitTesting doesnt work if the frame size is zero. or if a subView is outside the frame.
-     */
-    override func hitTest(aPoint: NSPoint) -> NSView? {
-        for var i = self.subviews.count-1; i > -1; --i{//<--you could store the count outside the loop for optimization, i dont know if this is imp in swift
-            let view = self.subviews[i]
-            let hitView = view.hitTest(aPoint)/*if true then a point was found within its hittable area*/
-            if(hitView != nil){return view is TrackingView ? self : hitView}//<--if the view is a skin then return the self, so that the mouseEnter mouseExit methods work
-        }
-        return nil/*if no hitView is found return nil, the parent hitTest will then continue its search through its siblings etc*/
-    }
-    /**
      * MouseMove (only fires when the mouse is actualy moving on the visible  part of the view)
      * NOTE: It could be possible to only call this method if a bool value was true. Optimization
      * TODO: when you implement propegation of the mouseMove method, mousemove needs a bool to turn it on or it will flood its parents with calls, isMouseMovable could be used
@@ -52,7 +40,6 @@ class InteractiveView2:FlippedView{
     func mouseDown(event:MouseEvent){
         if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseDown(event)}/*informs the parent that an event occured*/
     }
-    
     /**
      * Handles actions and drawing states for the release event.
      * @Note: bubbling= true was added to make Stepper class dragable
@@ -106,10 +93,20 @@ class InteractiveView2:FlippedView{
         if(isMouseOver){mouseOut(MouseEvent(event,self));isMouseOver = false;}
         //super.mouseExited(event)/*passes on the event to the nextResponder, NSView parents etc*/
     }
-    
     override func mouseDown(theEvent: NSEvent) {mouseDown(MouseEvent(theEvent,self))}
     override func mouseUp(theEvent: NSEvent) {mouseUp(MouseEvent(theEvent,self))}
-    
+    /**
+     * NOTE: looping backwards is very important as its the only way to target the front-most views in the stack
+     * NOTE: why is this needed? because normal hitTesting doesnt work if the frame size is zero. or if a subView is outside the frame.
+     */
+    override func hitTest(aPoint: NSPoint) -> NSView? {
+        for var i = self.subviews.count-1; i > -1; --i{//<--you could store the count outside the loop for optimization, i dont know if this is imp in swift
+            let view = self.subviews[i]
+            let hitView = view.hitTest(aPoint)/*if true then a point was found within its hittable area*/
+            if(hitView != nil){return view is TrackingView ? self : hitView}//<--if the view is a skin then return the self, so that the mouseEnter mouseExit methods work
+        }
+        return nil/*if no hitView is found return nil, the parent hitTest will then continue its search through its siblings etc*/
+    }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 extension InteractiveView2{
