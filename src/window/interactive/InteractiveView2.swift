@@ -68,7 +68,7 @@ class InteractiveView2:FlippedView{
      * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
      */
     override func mouseEntered( event: NSEvent){
-        //Swift.print("InteractiveView.mouseEntered: " )//+ "\(viewUnderMouse)" + " self: " + "\(self)"
+        Swift.print("InteractiveView2.mouseEntered: event.locationInWindow" + "\(event.locationInWindow)")//+ "\(viewUnderMouse)" + " self: " + "\(self)"
         hasMouseEntered = true/*optimization*/
         if(viewUnderMouse === self){mouseOver(MouseEvent(event.locationInWindow,self));isMouseOver = true;}//mouse move on visible view
         //super.mouseEntered(event)/*passes on the event to the nextResponder, NSView parents etc*/
