@@ -73,8 +73,8 @@ class InteractiveView2:FlippedView{
         if(viewUnderMouse === self){mouseOver(MouseEvent(event,self));isMouseOver = true;}//mouse move on visible view
         //super.mouseEntered(event)/*passes on the event to the nextResponder, NSView parents etc*/
     }
-    func mouseEnter(event:NSEvent){
-    
+    func mouseEnter(event:MouseEvent){
+        if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseOut(event)}/*informs the parent that an event occured*/
     }
     /**
      * Fires when the mouse exits the tracking area, regardless if it is overlapping with other trackingAreas of other views
