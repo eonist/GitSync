@@ -1,5 +1,7 @@
 import Cocoa
-
+/**
+ * IMPORTANT: To understand the relatioship between NSEvent and hitTest: think of NSEvent as going upStream in an inverted pyramid hirarachy and hitTest going downStream in the same hirarachy
+ */
 class InteractiveView2:FlippedView{
     var isMouseOver:Bool = false;/*you should hit test this on init*/
     var hasMouseEntered:Bool = false/*you should hit test this on init*/
@@ -34,7 +36,7 @@ class InteractiveView2:FlippedView{
      * NOTE: you have to implement a hitTest that aserts that the aPoint is within the path. (either in the CALayer or at the last hitTesable NSView in your stack)
      */
     func mouseOver(event:MouseEvent){
-        if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseOver(event)}
+        if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseOver(event)}/*informs the parent that an event occured*/
     }
     /**
      * Only fires if the mouse is "rolls" out of the visible part of this view
