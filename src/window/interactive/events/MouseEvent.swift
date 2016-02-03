@@ -16,7 +16,7 @@ class MouseEvent:Event{
     var pos:CGPoint
     var origin:Any?//origin sender of event
     /*var immidiate:Any?*///prev sender of event
-    init(_ type:String, pos:CGPoint, origin:Any? = nil/*, immidiate:Any? = nil*/){
+    init(_ type:String, _ pos:CGPoint, _ origin:Any? = nil/*, immidiate:Any? = nil*/){
         self.pos = pos
         self.origin = origin
         /*self.immidiate = immidiate*/
