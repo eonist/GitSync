@@ -31,13 +31,7 @@ class InteractiveView2:FlippedView{
      * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
      */
     func mouseMoved(event:MouseEvent/**/){
-        if(hasMouseEntered){/*Only run the following code when inside the actual TrackingArea*/
-            if(viewUnderMouse === self){//mouse move on the "visible" part of the view
-                if(!isMouseOver){mouseOver(event);isMouseOver = true;}
-                mouseMoved(event)
-            }
-            else if(isMouseOver){mouseOut(event);isMouseOver = false;}//mouse move on the "invisible" parth of the view
-        }
+        
         if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseMoved(event)}/*informs the parent that an event occured*/
     }
     /**
@@ -81,17 +75,18 @@ class InteractiveView2:FlippedView{
         viewUnderMouse === self ? mouseUpInside(event) : mouseUpOutside(event);/*if the event was on this button call triggerRelease, else triggerReleaseOutside*/
         if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseDown(event)}/*informs the parent that an event occured*/
     }
-    
     /**
      * MouseMoved
-     *
      */
-    override func mouseMoved(theEvent: NSEvent) {mouseMoved(MouseEvent(theEvent,self))}
-    override func mouseDown(theEvent: NSEvent) {mouseDown(MouseEvent(theEvent,self))}
-    override func mouseUp(theEvent: NSEvent) {mouseUp(MouseEvent(theEvent,self))}
-        
-       
-    
+    override func mouseMoved(theEvent: NSEvent) {
+        if(hasMouseEntered){/*Only run the following code when inside the actual TrackingArea*/
+            if(viewUnderMouse === self){//mouse move on the "visible" part of the view
+                if(!isMouseOver){mouseOver(MouseEvent(theEvent,self));isMouseOver = true;}
+                mouseMoved(MouseEvent(theEvent,self))
+            }
+            else if(isMouseOver){mouseOut(MouseEvent(theEvent,self));isMouseOver = false;}//mouse move on the "invisible" parth of the view
+        }
+    }
     /**
      * Fires when the mouse enters the tracking area, regardless if it is overlapping with other trackingAreas of other views
      * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
@@ -112,6 +107,10 @@ class InteractiveView2:FlippedView{
         if(isMouseOver){mouseOut(MouseEvent(event,self));isMouseOver = false;}
         //super.mouseExited(event)/*passes on the event to the nextResponder, NSView parents etc*/
     }
+    
+    override func mouseDown(theEvent: NSEvent) {mouseDown(MouseEvent(theEvent,self))}
+    override func mouseUp(theEvent: NSEvent) {mouseUp(MouseEvent(theEvent,self))}
+    
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 extension InteractiveView2{
