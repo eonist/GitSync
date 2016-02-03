@@ -28,6 +28,7 @@ class InteractiveView2:FlippedView{
      * MouseMove (only fires when the mouse is actualy moving on the visible  part of the view)
      * NOTE: It could be possible to only call this method if a bool value was true. Optimization
      * TODO: when you implement propegation of the mouseMove method, mousemove needs a bool to turn it on or it will flood its parents with calls, isMouseMovable could be used
+     * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
      */
     func mouseMoved(event:MouseEvent/**/){
         if(hasMouseEntered){/*Only run the following code when inside the actual TrackingArea*/
@@ -83,7 +84,7 @@ class InteractiveView2:FlippedView{
     
     /**
      * MouseMoved
-     * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
+     *
      */
     override func mouseMoved(theEvent: NSEvent) {mouseMoved(MouseEvent(theEvent,self))}
     override func mouseDown(theEvent: NSEvent) {mouseDown(MouseEvent(theEvent,self))}
