@@ -30,6 +30,13 @@ class InteractiveView2:FlippedView{
      * TODO: when you implement propegation of the mouseMove method, mousemove needs a bool to turn it on or it will flood its parents with calls, isMouseMovable could be used
      */
     func mouseMoved(event:MouseEvent/**/){
+        if(hasMouseEntered){/*Only run the following code when inside the actual TrackingArea*/
+            if(viewUnderMouse === self){//mouse move on the "visible" part of the view
+                if(!isMouseOver){mouseOver(event);isMouseOver = true;}
+                mouseMoved(event)
+            }
+            else if(isMouseOver){mouseOut(event);isMouseOver = false;}//mouse move on the "invisible" parth of the view
+        }
         if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseMoved(event)}/*informs the parent that an event occured*/
     }
     /**
@@ -51,24 +58,7 @@ class InteractiveView2:FlippedView{
     func mouseDown(event:MouseEvent){
         if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseDown(event)}/*informs the parent that an event occured*/
     }
-    /**
-     * MouseMoved
-     * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
-     */
-    override func mouseMoved(theEvent: NSEvent) {
-        //Swift.print("InteractiveView.mouseMoved")
-        if(hasMouseEntered){/*Only run the following code when inside the actual TrackingArea*/
-            if(viewUnderMouse === self){//mouse move on the "visible" part of the view
-                if(!isMouseOver){mouseOver(MouseEvent(theEvent,self));isMouseOver = true;}
-                mouseMoved(MouseEvent(theEvent,self))
-            }
-            else if(isMouseOver){mouseOut(MouseEvent(theEvent,self));isMouseOver = false;}//mouse move on the "invisible" parth of the view
-        }
-    }
-    override func mouseDown(theEvent: NSEvent) {
-        //Swift.print("InteractiveView2.mouseDown() " + "\(self.className)")
-        mouseDown(MouseEvent(theEvent,self))
-    }
+    
     /**
      * Handles actions and drawing states for the release event.
      * @Note: bubbling= true was added to make Stepper class dragable
@@ -90,6 +80,20 @@ class InteractiveView2:FlippedView{
         viewUnderMouse === self ? mouseUpInside(event) : mouseUpOutside(event);/*if the event was on this button call triggerRelease, else triggerReleaseOutside*/
         if(self.superview is InteractiveView2){(self.superview as! InteractiveView2).mouseDown(event)}/*informs the parent that an event occured*/
     }
+    
+    /**
+     * MouseMoved
+     * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
+     */
+    override func mouseMoved(theEvent: NSEvent) {
+        //Swift.print("InteractiveView.mouseMoved")
+        mouseMoved(MouseEvent(theEvent,self))
+    }
+    override func mouseDown(theEvent: NSEvent) {
+        //Swift.print("InteractiveView2.mouseDown() " + "\(self.className)")
+        mouseDown(MouseEvent(theEvent,self))
+    }
+    
     /**
      *
      */
