@@ -1,7 +1,7 @@
 import Cocoa
 /**
  * @param parent: parent is needed so that we can add tracking areas to it. 
- * TODO: Why do we add tracking areas to the parent again, figure this out first
+ * NOTE: Why do we add tracking areas to the parent: because all mouseenter / exit mousemoved should be handled by the element not the skin
  */
 class TrackingView:FlippedView{//rename to TrackingView?
     var trackingArea:NSTrackingArea
