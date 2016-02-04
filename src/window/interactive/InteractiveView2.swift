@@ -79,7 +79,6 @@ class InteractiveView2:FlippedView,IInteractiveView{
             else if(isMouseOver){mouseOut(MouseEvent(theEvent,self));isMouseOver = false;}//mouse move on the "invisible" parth of the view
         }
     }
-    
     /**
      * Fires when the mouse enters the tracking area, regardless if it is overlapping with other trackingAreas of other views
      * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
