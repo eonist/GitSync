@@ -45,7 +45,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * @Note: bubbling= true was added to make Stepper class dragable
      */
     func mouseUpInside(event: MouseEvent){
-        Swift.print("\(self.)" + "mouseUpInside: " + "\(mouseUpInside)")
+        Swift.print("\(self.dynamicType)" + "mouseUpInside: " + "\(mouseUpInside)")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseUpInside(event)}/*informs the parent that an event occured*/
     }
     /**
