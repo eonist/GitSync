@@ -13,29 +13,21 @@ class CustomView:WindowView{
      */
     override func resolveSkin() {
         super.resolveSkin()
-        
-        //
-        //add event listeners to these buttons
-        
         Swift.print("CustomView.resolveSkin()")
+        createTitleBar()
+        createRadioBullets()
+        //addEventListeners()
         
         //remember the contentview is sort of the container to hold items. might need to add things to this instance
         
         //let button = Button(20,20)
         //section.addSubview(button)
-        
-        createRadioBullets()
-        
-        createTitleBar()
-        
+
         /*let boxContainer = Section(200,200,self,"boxContainer")
         addSubview(boxContainer)
         
         let box = Element(100,100,boxContainer,"box")
         boxContainer.addSubview(box)*/
-
-        
-        addEventListeners()
     }
     /**
      *
