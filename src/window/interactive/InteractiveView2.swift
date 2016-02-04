@@ -68,14 +68,9 @@ class InteractiveView2:FlippedView,IInteractiveView{
      }*/
     /**
      * MouseMoved
+     * NOTE: there is also mouseDragged, you could forward it to a generic method, and do the same with mouseMoved. so that there wouldnt be duplicate code. since they have the same functionality. you could then use: if(NSEvent.pressedMouseButtons() == 1 << 0){"left is pressed"} to detect if mouse was dragged. or not. Maybe keeping these methods seperatly improves readbility, optimization etc
      */
     override func mouseMoved(theEvent: NSEvent) {
-        mouseMove(theEvent)
-    }
-    override func mouseDragged(theEvent: NSEvent) {
-        mouseMove(theEvent)
-    }
-    func mouseMove(theEvent: NSEvent){
         if(hasMouseEntered){/*Only run the following code when inside the actual TrackingArea*/
             if(viewUnderMouse === self){//mouse move on the "visible" part of the view
                 if(!isMouseOver){mouseOver(MouseEvent(theEvent,self));isMouseOver = true;}
@@ -84,6 +79,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
             else if(isMouseOver){mouseOut(MouseEvent(theEvent,self));isMouseOver = false;}//mouse move on the "invisible" parth of the view
         }
     }
+    
     /**
      * Fires when the mouse enters the tracking area, regardless if it is overlapping with other trackingAreas of other views
      * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
