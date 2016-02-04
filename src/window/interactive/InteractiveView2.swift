@@ -1,11 +1,16 @@
 import Cocoa
 /**
  * IMPORTANT: To understand the relatioship between NSEvent and hitTest: think of NSEvent as going upStream in an inverted pyramid hirarachy and hitTest going downStream in the same hirarachy
+ * TODO: Make the isChildrenInteractive:Bool -> You may want to make a variable that also can set the isInteractive var of children of the view:
+ * CAUTION: seems to not work as a container for i.e Adding a button to a View instance (for now use FlippedView when using it as a container)
+ * NOTE: Remember to override the mouseDown method in subclasses if you want to add functionality to the mouseDown action
+ * NOTE: Use mouseDragged method if you want to call a method while the mouse is dragged
  */
 class InteractiveView2:FlippedView,IInteractiveView{
     var isMouseOver:Bool = false;/*you should hit test this on init*/
     var hasMouseEntered:Bool = false/*you should hit test this on init*/
-    override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
+    var hasHandCursor:Bool = false
+    //override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         self.wantsLayer = true/*if true then view is layer backed*/
@@ -123,6 +128,16 @@ class InteractiveView2:FlippedView,IInteractiveView{
             if(hitView != nil){return view is TrackingView ? self : hitView}//<--if the view is a skin then return the self, so that the mouseEnter mouseExit methods work
         }
         return nil/*if no hitView is found return nil, the parent hitTest will then continue its search through its siblings etc*/
+    }
+    /**
+     * Enables the hand cursor on enter
+     */
+    override func resetCursorRects() {
+        if(hasHandCursor){
+            let cursor:NSCursor = NSCursor.pointingHandCursor()
+            addCursorRect(frame, cursor: cursor)
+            cursor.setOnMouseEntered(true)
+        }else{super.resetCursorRects()}
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
