@@ -60,6 +60,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
         //Swift.print("\(self.dynamicType)" + "mouseUpOutside() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseUpOutside(event)}/*informs the parent that an event occured*/
     }
+   
     /**
      * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
      */
