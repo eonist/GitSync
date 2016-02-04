@@ -7,5 +7,5 @@ protocol IInteractiveView {
     func mouseDown(event:MouseEvent)
     func mouseUpInside(event: MouseEvent)
     func mouseUpOutside(event: MouseEvent)
-    
+    func mouseUp(event: MouseEvent)/*convenient*/
 }

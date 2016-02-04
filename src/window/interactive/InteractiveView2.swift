@@ -60,7 +60,13 @@ class InteractiveView2:FlippedView,IInteractiveView{
         //Swift.print("\(self.dynamicType)" + "mouseUpOutside() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseUpOutside(event)}/*informs the parent that an event occured*/
     }
-   
+    /**
+     * this method exists for the sake of convenience
+     */
+    func mouseUp(event: MouseEvent){
+        //Swift.print("\(self.dynamicType)" + "mouseUpOutside() ")
+        if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseUp(event)}/*informs the parent that an event occured*/
+    }
     /**
      * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
      */
@@ -104,7 +110,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
     override func mouseDown(theEvent: NSEvent) {mouseDown(MouseEvent(theEvent,self))}
     override func mouseUp(theEvent: NSEvent) {
         viewUnderMouse === self ? mouseUpInside(MouseEvent(theEvent,self)) : mouseUpOutside(MouseEvent(theEvent,self));/*if the event was on this button call triggerRelease, else triggerReleaseOutside*/
-        /*mouseUp(MouseEvent(theEvent,self))*/
+        mouseUp(MouseEvent(theEvent,self))
     }
     /**
      * NOTE: looping backwards is very important as its the only way to target the front-most views in the stack
