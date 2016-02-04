@@ -124,11 +124,8 @@ class CustomView:WindowView{
         
         addSubview(SelectGroup([radioBullet1,radioBullet2],radioBullet1))/**/
         
-        /*Event listeners:*/
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onCloseButtonReleaseInside:", name: ButtonEvent.releaseInside, object: closeButton)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMinimizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: minimizeButton)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMaximizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: maximizeButton)
         
+        addEventListeners()
     }
     /**
      *
@@ -162,6 +159,17 @@ class CustomView:WindowView{
     func onMaximizeButtonReleaseInside(sender: AnyObject){
         //maximize the window here
         self.window?.zoom(self)
+        
+    }
+    
+    /**
+     *
+     */
+    func addEventListeners(){
+        /*Event listeners:*/
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onCloseButtonReleaseInside:", name: ButtonEvent.releaseInside, object: closeButton)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMinimizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: minimizeButton)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMaximizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: maximizeButton)
         
     }
     
