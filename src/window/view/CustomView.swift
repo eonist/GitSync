@@ -11,19 +11,33 @@ class CustomView:WindowView{
     override func resolveSkin() {
         super.resolveSkin()
         
-        //add close button, min, max
+        //
         //add event listeners to these buttons
         
         Swift.print("CustomView.resolveSkin()")
         
         //remember the contentview is sort of the container to hold items. might need to add things to this instance
         
-        
-        
-        
         //let button = Button(20,20)
         //section.addSubview(button)
         
+        createRadioBullets()
+        
+        createTitleBar()
+        
+        /*let boxContainer = Section(200,200,self,"boxContainer")
+        addSubview(boxContainer)
+        
+        let box = Element(100,100,boxContainer,"box")
+        boxContainer.addSubview(box)*/
+
+        
+        addEventListeners()
+    }
+    /**
+     *
+     */
+    func createRadioBullets(){
         var css:String = ""
         css += "Section#boxContainer{fill:green;float:left;clear:left;padding-top:20px;padding-left:20px;corner-radius:0px;}"
         //css += "Element#box{fill:blue;float:left;clear:left;padding-top:0px;padding-left:0px;}"
@@ -89,16 +103,6 @@ class CustomView:WindowView{
         
         StyleManager.addStyle(css)
         
-        
-        
-        createTitleBar()
-        
-        /*let boxContainer = Section(200,200,self,"boxContainer")
-        addSubview(boxContainer)
-        
-        let box = Element(100,100,boxContainer,"box")
-        boxContainer.addSubview(box)*/
-        
         let container = Section(500,500,self,"radioBulletContainer")
         addSubview(container)
         
@@ -110,14 +114,11 @@ class CustomView:WindowView{
         radioBullet2.setSelected(false)//<---work around for now
         
         addSubview(SelectGroup([radioBullet1,radioBullet2],radioBullet1))/**/
-        
-        
-        addEventListeners()
     }
     
     /**
-    *
-    */
+     * Adds close button, min, max
+     */
     func createTitleBar(){
         var css:String = ""
         css += "Section#titleBar{float:left;clear:left;padding-top:4px;padding-left:8px;}"
