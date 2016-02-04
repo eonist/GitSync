@@ -25,13 +25,6 @@ class CustomView:WindowView{
         //section.addSubview(button)
         
         var css:String = ""
-        css += "Section#titleBar{float:left;clear:left;padding-top:4px;padding-left:8px;}"
-        css += "Section#titleBar Button{width:12px,12px;height:12px,12px;float:left;clear:none;margin-right:8px;margin-top:0px;padding-left:0px;padding-top:0px;}"//adding padding here shouldnt be necessary
-        css += "Section#titleBar Button:over{fill:~/Desktop/icons/title_bar/hover.svg none;}"
-        css += "Section#titleBar Button#close{fill:~/Desktop/icons/title_bar/close.svg none;}"
-        css += "Section#titleBar Button#minimize{fill:~/Desktop/icons/title_bar/min.svg none;}"
-        css += "Section#titleBar Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"
-        
         css += "Section#boxContainer{fill:green;float:left;clear:left;padding-top:20px;padding-left:20px;corner-radius:0px;}"
         //css += "Element#box{fill:blue;float:left;clear:left;padding-top:0px;padding-left:0px;}"
         
@@ -96,15 +89,9 @@ class CustomView:WindowView{
         
         StyleManager.addStyle(css)
         
-        section = Section(frame.width,16,self,"titleBar")
-        self.addSubview(section!)
         
-        let closeButton = Button(12,12,section!,"close")/*<--the w and h should be NaN, test if it supports this*/
-        section!.addSubview(closeButton)
-        let minimizeButton = Button(12,12,section!,"minimize")
-        section!.addSubview(minimizeButton)
-        let maximizeButton = Button(12,12,section!,"maximize")
-        section!.addSubview(maximizeButton)
+        
+        createTitleBar()
         
         /*let boxContainer = Section(200,200,self,"boxContainer")
         addSubview(boxContainer)
@@ -126,6 +113,30 @@ class CustomView:WindowView{
         
         
         addEventListeners()
+    }
+    
+    /**
+    *
+    */
+    func createTitleBar(){
+        var css:String = ""
+        css += "Section#titleBar{float:left;clear:left;padding-top:4px;padding-left:8px;}"
+        css += "Section#titleBar Button{width:12px,12px;height:12px,12px;float:left;clear:none;margin-right:8px;margin-top:0px;padding-left:0px;padding-top:0px;}"//adding padding here shouldnt be necessary
+        css += "Section#titleBar Button:over{fill:~/Desktop/icons/title_bar/hover.svg none;}"
+        css += "Section#titleBar Button#close{fill:~/Desktop/icons/title_bar/close.svg none;}"
+        css += "Section#titleBar Button#minimize{fill:~/Desktop/icons/title_bar/min.svg none;}"
+        css += "Section#titleBar Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"
+        StyleManager.addStyle(css)
+        
+        section = Section(frame.width,16,self,"titleBar")
+        self.addSubview(section!)
+        
+        let closeButton = Button(12,12,section!,"close")/*<--the w and h should be NaN, test if it supports this*/
+        section!.addSubview(closeButton)
+        let minimizeButton = Button(12,12,section!,"minimize")
+        section!.addSubview(minimizeButton)
+        let maximizeButton = Button(12,12,section!,"maximize")
+        section!.addSubview(maximizeButton)
     }
     /**
      *
