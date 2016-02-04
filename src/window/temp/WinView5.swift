@@ -17,6 +17,8 @@ class WinView5:FlippedView {
      */
     func sliderTest(){
         //add slider and test
+        let vSlider = VSlider(40,400)
+        addSubview(vSlider)
     }
     func hitTesting(){
         Swift.print("hitTesting")
