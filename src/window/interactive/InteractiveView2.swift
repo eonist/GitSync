@@ -19,7 +19,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
      */
     func mouseMoved(event:MouseEvent){
-        Swift.print("\(self.dynamicType)" + "mouseMoved() ")
+        //Swift.print("\(self.dynamicType)" + "mouseMoved() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseMoved(event)}/*informs the parent that an event occured*/
     }
     /**
@@ -27,21 +27,21 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * NOTE: you have to implement a hitTest that aserts that the aPoint is within the path. (either in the CALayer or at the last hitTesable NSView in your stack)
      */
     func mouseOver(event:MouseEvent){
-        Swift.print("\(self.dynamicType)" + "mouseOver() ")
+        //Swift.print("\(self.dynamicType)" + "mouseOver() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseOver(event)}/*informs the parent that an event occured*/
     }
     /**
      * Only fires if the mouse is "rolls" out of the visible part of this view
      */
     func mouseOut(event:MouseEvent){
-        Swift.print("\(self.dynamicType)" + "mouseOut() ")
+        //Swift.print("\(self.dynamicType)" + "mouseOut() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseOut(event)}/*informs the parent that an event occured*/
     }
     /**
      * Same as regular mouseDown event except this also includes the origin
      */
     func mouseDown(event:MouseEvent){
-        Swift.print("\(self.dynamicType)" + "mouseDown() ")
+        //Swift.print("\(self.dynamicType)" + "mouseDown() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseDown(event)}/*informs the parent that an event occured*/
     }
     /**
@@ -49,7 +49,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * @Note: bubbling= true was added to make Stepper class dragable
      */
     func mouseUpInside(event: MouseEvent){
-        Swift.print("\(self.dynamicType)" + "mouseUpInside() ")
+        //Swift.print("\(self.dynamicType)" + "mouseUpInside() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseUpInside(event)}/*informs the parent that an event occured*/
     }
     /**
@@ -57,7 +57,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * @Note: bubbling = true was added to make Stepper class dragable
      */
     func mouseUpOutside(event: MouseEvent){
-        Swift.print("\(self.dynamicType)" + "mouseUpOutside() ")
+        //Swift.print("\(self.dynamicType)" + "mouseUpOutside() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseUpOutside(event)}/*informs the parent that an event occured*/
     }
     /**
