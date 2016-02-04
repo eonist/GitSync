@@ -17,8 +17,8 @@ class TrackingView:FlippedView{//rename to TrackingView?
      */
     override func hitTest(aPoint: NSPoint) -> NSView? {
         for var i = self.subviews.count-1; i > -1; --i{//<--you could store the count outside the loop for optimization, i dont know if this is imp in swift
-            let view = self.subviews[i]
-            let hitView = view.hitTest(aPoint)/*if true then a point was found within its hittable area*/
+            let subView = self.subviews[i]
+            let hitView = subView.hitTest(aPoint)/*if true then a point was found within its hittable area*/
             if(hitView != nil){return hitView}
         }
         return nil/*if no hitView is found return nil, the parent hitTest will then continue its search through its siblings etc*/
