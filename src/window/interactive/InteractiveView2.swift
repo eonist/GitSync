@@ -64,7 +64,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * this method exists for the sake of convenience
      */
     func mouseUp(event: MouseEvent){
-        //Swift.print("\(self.dynamicType)" + "mouseUpOutside() ")
+        //Swift.print("\(self.dynamicType)" + "mouseUp() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseUp(event)}/*informs the parent that an event occured*/
     }
     /**
