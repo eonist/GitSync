@@ -19,11 +19,11 @@ class ViewA:InteractiveView2{
     }
     override func mouseOver(event:MouseEvent) {
         if(event.origin === self){/*only trigger on skin, not descending UI*/}
-        super.mouseOver(event)
+        super.mouseOver(event)/*call super which propegates the call upstream to the parent UI element*/
     }
     override func mouseOut(event:MouseEvent) {
         if(event.origin === self){/*only trigger on skin, not descending UI*/}
-        super.mouseOut(event)
+        super.mouseOut(event)/*call super which propegates the call upstream to the parent UI element*/
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
