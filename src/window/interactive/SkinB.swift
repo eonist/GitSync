@@ -7,7 +7,7 @@ class SkinB:TrackingView{
         createContent()
     }
     func createContent(){
-        let redBox:RoundRectGraphic = RoundRectGraphic(0,0,200,200,Fillet(50),FillStyle(NSColor.redColor()),LineStyle(5,NSColor.greenColor()),OffsetType(OffsetType.center))
+        let redBox:RoundRectGraphic = RoundRectGraphic(0,0,frame.width,frame.height,Fillet(frame.width*0.25),FillStyle(NSColor.redColor()),LineStyle(5,NSColor.greenColor().alpha(0)),OffsetType(OffsetType.center))
         addSubview(redBox.graphic)
         redBox.draw()
         //redBox.graphic.frame.origin = CGPoint(50,50)
