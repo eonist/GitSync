@@ -69,6 +69,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
     /**
      * MouseMoved
      * NOTE: there is also mouseDragged, you could forward it to a generic method, and do the same with mouseMoved. so that there wouldnt be duplicate code. since they have the same functionality. you could then use: if(NSEvent.pressedMouseButtons() == 1 << 0){"left is pressed"} to detect if mouse was dragged. or not. Maybe keeping these methods seperatly improves readbility, optimization etc
+     * NOTE: mouseMoved doesnt work if the leftmouse button is pressed, then mouseDragged is used instead
      */
     override func mouseMoved(theEvent: NSEvent) {
         if(hasMouseEntered){/*Only run the following code when inside the actual TrackingArea*/
