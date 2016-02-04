@@ -9,7 +9,7 @@ class SkinA:TrackingView{
         createContent()
     }
     func createContent(){
-        let blueBox = RectGraphic(200,200,NSColor.blueColor())
+        let blueBox = RectGraphic(frame.width,frame.height,NSColor.blueColor())
         addSubview(blueBox.graphic)
         blueBox.draw()
         //blueBox.graphic.frame.origin = CGPoint(50,50)
