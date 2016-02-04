@@ -11,7 +11,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
     var isMouseOver:Bool = false;/*you should hit test this on init*/
     var hasMouseEntered:Bool = false/*you should hit test this on init*/
     var hasHandCursor:Bool = false
-    //override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
+    override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         self.wantsLayer = true/*if true then view is layer backed*/
@@ -33,7 +33,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * NOTE: you have to implement a hitTest that aserts that the aPoint is within the path. (either in the CALayer or at the last hitTesable NSView in your stack)
      */
     func mouseOver(event:MouseEvent){
-        //Swift.print("\(self.dynamicType)" + "mouseOver() ")
+        Swift.print("\(self.dynamicType)" + "mouseOver() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseOver(event)}/*informs the parent that an event occured*/
     }
     /**
@@ -130,7 +130,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
                 if(hitView != nil){return view is TrackingView ? self : hitView}//<--if the view is a skin then return the self, so that the mouseEnter mouseExit methods work
             }
             return nil/*if no hitView is found return nil, the parent hitTest will then continue its search through its siblings etc*/
-        }/*else*/
+        }/*else (aka not interactive)*/
         return nil
     }
     /**
