@@ -5,6 +5,9 @@ import Cocoa
  */
 class CustomView:WindowView{
     var section:Section?
+    var closeButton:Button?
+    var minimizeButton:Button?
+    var maximizeButton:Button?
     /**
      * Add content here
      */
@@ -173,7 +176,6 @@ class CustomView:WindowView{
         self.window?.zoom(self)
         
     }
-    
     /**
      *
      */
@@ -182,8 +184,5 @@ class CustomView:WindowView{
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onCloseButtonReleaseInside:", name: ButtonEvent.releaseInside, object: closeButton)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMinimizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: minimizeButton)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMaximizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: maximizeButton)
-        
     }
-    
 }
-
