@@ -42,3 +42,8 @@ class TrackingView:FlippedView{//rename to TrackingView?
 //and add the trackingarea to the updatetrackingareas method see if it works. Also use bounds, we can use bounds because Graphic always has  a frame
 
 
+//you need to add Tracking to Graphic, graphic already has a working hitTest so ou can skip that part.
+//then add interactivew to skin
+//then it should work
+
+
