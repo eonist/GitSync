@@ -9,7 +9,7 @@ class TrackingView:FlippedView{//rename to TrackingView?
     init(_ frameRect:NSRect,_ parent:NSView) {
         super.init(frame: frameRect)
         self.wantsLayer = true/*if true then view is layer backed*/
-        //layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
+        layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
         //layer!.masksToBounds = false//this is needed!!!
     }
     /**
