@@ -10,12 +10,12 @@ class ViewA:InteractiveView2{
     }
     func createContent(){
         Swift.print("ViewA create content")
-        let skin = SkinA(NSRect(0,0,200,200),self)
+        let skin = SkinA(NSRect(0,0,0,0),self)
         addSubview(skin)
         
-        let viewB:ViewB! = ViewB(00,00)
-        viewB.frame.origin = CGPoint(50,50)/**/
-        addSubview(viewB)
+        //let viewB:ViewB! = ViewB(00,00)
+        //viewB.frame.origin = CGPoint(50,50)/**/
+        //addSubview(viewB)
     }
     override func mouseOver(event:MouseEvent) {
         if(event.origin === self){/*only trigger on skin, not descending UI*/}
