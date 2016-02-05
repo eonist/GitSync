@@ -39,5 +39,3 @@ class TrackingView:FlippedView{//rename to TrackingView?
 
 
 
-
-
