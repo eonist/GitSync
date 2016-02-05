@@ -45,5 +45,9 @@ class TrackingView:FlippedView{//rename to TrackingView?
 //you need to add Tracking to Graphic, graphic already has a working hitTest so ou can skip that part.
 //then add interactivew to skin
 //then it should work
+//then impliment immediate
+//then test
+//then add it to slider
+//then add it to 
 
 
