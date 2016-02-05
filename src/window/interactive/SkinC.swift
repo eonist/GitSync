@@ -1,6 +1,7 @@
-import Foundation
+import Cocoa
 
 class SkinC:InteractiveView2{
+    override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     init(_ width: CGFloat, _ height: CGFloat){
         super.init(frame: NSRect(0,0,width,height))//<--This can be a zero rect since the children contains the actual graphics. And when you use Layer-hosted views the subchildren doesnt clip
         createContent()
@@ -9,9 +10,14 @@ class SkinC:InteractiveView2{
      *
      */
     func createContent(){
-        
+        let redBox:RoundRectGraphic = RoundRectGraphic(0,0,frame.width,frame.height,Fillet(frame.width*0.25),FillStyle(NSColor.redColor()),LineStyle(5,NSColor.greenColor().alpha(0)),OffsetType(OffsetType.center))
+        addSubview(redBox.graphic)
+        redBox.draw()
+        //redBox.graphic.frame.origin = CGPoint(50,50)
     }
-    //extend interactiveView
-    //implement immediate
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
+
+
+//extend interactiveView
+//implement immediate
