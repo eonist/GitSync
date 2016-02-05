@@ -10,8 +10,8 @@ class WinView5:FlippedView {
     func createContent(){
         Swift.print("init")
         //interactiveSkinTest()
-        sliderTest()
-        //hitTesting()
+        //sliderTest()
+        hitTesting()
     }
     func interactiveSkinTest(){
         

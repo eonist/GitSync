@@ -13,7 +13,7 @@ class ViewB:InteractiveView2{
         //let skin = SkinB(NSRect(0,0,200,200),self)
         //addSubview(skin)
         
-        let skin = SkinC(frame:NSRect(0,0,0,0))
+        let skin = SkinB(frame:NSRect(0,0,0,0))
         addSubview(skin)
     }
     /*override func mouseEntered(event: NSEvent) {
