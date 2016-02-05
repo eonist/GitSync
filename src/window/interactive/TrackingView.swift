@@ -38,16 +38,6 @@ class TrackingView:FlippedView{//rename to TrackingView?
 }
 
 
-//try a trackingView were the owner is always the parent. WHy because adding interactivity to Graphic isnt such a good idea, as graphic may one day be pure CALayer, or you could just create a dedicated CALAyer graphic clas?
-//and add the trackingarea to the updatetrackingareas method see if it works. Also use bounds, we can use bounds because Graphic always has  a frame
 
-
-//you need to add Tracking to Graphic, graphic already has a working hitTest so ou can skip that part.
-//then add interactivew to skin
-//then it should work
-//then impliment immediate
-//then test
-//then add it to slider
-//then add it to the framework as a whole
 
 
