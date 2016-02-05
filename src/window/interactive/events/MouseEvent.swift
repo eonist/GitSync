@@ -13,15 +13,14 @@ import Cocoa
  * TODO: implement the immidiate when its needed. 
  * NOTE: origin could in the future be a protocol IInteractiveElement for instance or IInteractive or IInteractiveView
  */
-class MouseEvent{
+class MouseEvent:Event{
     weak var event:NSEvent?
     /*var pos:CGPoint*/
-    var origin:NSView//origin sender of event, this could also be weak if you discover a memory leak
-    /*var immidiate:Any?*///prev sender of event
+    
     init(_ event:NSEvent/*_ type:String, *//*_ pos:CGPoint, */, _ origin:NSView/*, immidiate:Any? = nil*/){
         /*self.pos = pos*/
         self.event = event
-        self.origin = origin
+        super.init("", origin)
         /*self.immidiate = immidiate*/
     }
 }
