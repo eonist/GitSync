@@ -10,7 +10,7 @@ class ViewB:InteractiveView2{
     }
     func createContent(){
         Swift.print("ViewB create content")
-        let skin = SkinB(NSRect(0,0,200,200),self)
+        let skin = SkinB(NSRect(0,0,0,0),self)
         addSubview(skin)
         
         /*let skin = SkinC(200,200)
