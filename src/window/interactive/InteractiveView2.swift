@@ -19,7 +19,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
         layer!.masksToBounds = false//this is needed!!!
     }
     /**
-     * 
+     * EXAMPLE: override onEvent in a subClass then assert origin === thumb && event.type == ButtonEvent.down 
      */
     func onEvent(event:Event){
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).onEvent(event)}
