@@ -26,6 +26,16 @@ class TrackingView:FlippedView{//rename to TrackingView?
         }
         return nil/*if no hitView is found return nil, the parent hitTest will then continue its search through its siblings etc*/
     }
+    /**
+     * NOTE: you should use bounds for the rect but we dont rotate the frame so we dont need to use bounds.
+     * NOTE: the only way to update trackingArea is to remove it and add a new one
+     * PARAM: owner is the instance that receives the interaction event
+     */
+    func updateNSTrackingArea(owner:AnyObject?){
+        if(trackingArea != nil) {graphic.removeTrackingArea(trackingArea!)}//remove old trackingArea if it exists
+        trackingArea = NSTrackingArea(rect: NSRect(pos.x,pos.y,size.width,size.height), options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: owner, userInfo: nil)
+        graphic.addTrackingArea(trackingArea!)//<---this will be in the Skin class in the future and the owner will be set to Element to get interactive events etc
+    }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
