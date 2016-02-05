@@ -1,7 +1,7 @@
 import Cocoa
 
 class SkinC:InteractiveView2{
-    override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
+    //override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override init(frame frameRect:NSRect) {
         super.init(frame: frameRect)
         createContent()

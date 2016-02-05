@@ -3,7 +3,7 @@ import Cocoa
 //Continue here: Create a class that has a graphic and a trackingframe and also gets its parent in the init
 
 class SkinA:InteractiveView2/*TrackingView*/{
-    override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
+    //override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override init(frame frameRect:NSRect) {
         super.init(frame: frameRect)
         createContent()
