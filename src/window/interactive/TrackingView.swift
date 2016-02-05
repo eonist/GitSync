@@ -30,9 +30,9 @@ class TrackingView:FlippedView{//rename to TrackingView?
      * PARAM: owner is the instance that receives the interaction event
      */
     override func updateTrackingAreas() {
-        if(trackingArea != nil) {graphic.removeTrackingArea(trackingArea!)}//remove old trackingArea if it exists
-        trackingArea = NSTrackingArea(rect: NSRect(pos.x,pos.y,size.width,size.height), options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: owner, userInfo: nil)
-        graphic.addTrackingArea(trackingArea!)//<---this will be in the Skin class in the future and the owner will be set to Element to get interactive events etc
+        if(trackingArea != nil) {removeTrackingArea(trackingArea!)}//remove old trackingArea if it exists
+        trackingArea = NSTrackingArea(rect: bounds, options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: self.superview, userInfo: nil)
+        addTrackingArea(trackingArea!)//<---this will be in the Skin class in the future and the owner will be set to Element to get interactive events etc
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
