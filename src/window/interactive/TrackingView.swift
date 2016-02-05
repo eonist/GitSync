@@ -4,15 +4,13 @@ import Cocoa
  * NOTE: Why do we add tracking areas to the parent: because all mouseenter / exit mousemoved should be handled by the element not the skin
  */
 class TrackingView:FlippedView{//rename to TrackingView?
-    var trackingArea:NSTrackingArea
+    var trackingArea:NSTrackingArea?
     override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     init(_ frameRect:NSRect,_ parent:NSView) {
-        trackingArea = NSTrackingArea(rect: frameRect, options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: parent, userInfo: nil)
         super.init(frame: frameRect)
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
         layer!.masksToBounds = false//this is needed!!!
-        addTrackingArea(trackingArea)//<---this will be in the Skin class in the future and the owner will be set to Element to get interactive events etc
     }
     /**
      * NOTE: looping backwards is very important as its the only way to target the front-most views in the stack
@@ -31,7 +29,7 @@ class TrackingView:FlippedView{//rename to TrackingView?
      * NOTE: the only way to update trackingArea is to remove it and add a new one
      * PARAM: owner is the instance that receives the interaction event
      */
-    func updateNSTrackingArea(owner:AnyObject?){
+    override func updateTrackingAreas() {
         if(trackingArea != nil) {graphic.removeTrackingArea(trackingArea!)}//remove old trackingArea if it exists
         trackingArea = NSTrackingArea(rect: NSRect(pos.x,pos.y,size.width,size.height), options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved,NSTrackingAreaOptions.MouseEnteredAndExited], owner: owner, userInfo: nil)
         graphic.addTrackingArea(trackingArea!)//<---this will be in the Skin class in the future and the owner will be set to Element to get interactive events etc
