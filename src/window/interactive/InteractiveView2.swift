@@ -47,7 +47,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * Same as regular mouseDown event except this also includes the origin
      */
     func mouseDown(event:MouseEvent){
-        //Swift.print("\(self.dynamicType)" + "mouseDown() ")
+        Swift.print("\(self.dynamicType)" + "mouseDown() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseDown(event)}/*informs the parent that an event occured*/
     }
     /**
