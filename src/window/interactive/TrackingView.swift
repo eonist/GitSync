@@ -29,3 +29,6 @@ class TrackingView:FlippedView{//rename to TrackingView?
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
+
+//try a trackingView were the owner is always the parent. WHy because adding interactivity to Graphic isnt such a good idea, as graphic may one day be pure CALayer, or you could just create a dedicated CALAyer graphic clas?
+//and add the trackingarea to the updatetrackingareas method see if it works. Also use bounds
