@@ -10,7 +10,7 @@ class ViewA:InteractiveView2{
     }
     func createContent(){
         Swift.print("ViewA create content")
-        let skin = SkinA(NSRect(0,0,200,200),self)
+        let skin = SkinA(frame: NSRect(0,0,200,200))
         addSubview(skin)
         
         let viewB:ViewB! = ViewB(00,00)
