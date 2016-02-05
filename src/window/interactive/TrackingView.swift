@@ -5,12 +5,12 @@ import Cocoa
  */
 class TrackingView:FlippedView{//rename to TrackingView?
     var trackingArea:NSTrackingArea?
-    //override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
+    override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     init(_ frameRect:NSRect,_ parent:NSView) {
         super.init(frame: frameRect)
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
-        //layer!.masksToBounds = false//this is needed!!!
+        layer!.masksToBounds = false//this is needed!!!
     }
     /**
      * NOTE: looping backwards is very important as its the only way to target the front-most views in the stack
