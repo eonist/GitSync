@@ -9,12 +9,13 @@ class WinView5:FlippedView {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     func createContent(){
         Swift.print("init")
-        sliderTest()
+        interactiveSkinTest()
+        //sliderTest()
         //hitTesting()
     }
-    /**
-     *
-     */
+    func interactiveSkinTest(){
+        
+    }
     func sliderTest(){
         //add slider and test
         let vSlider = VSlider(40,200)
