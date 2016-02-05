@@ -19,6 +19,12 @@ class InteractiveView2:FlippedView,IInteractiveView{
         layer!.masksToBounds = false//this is needed!!!
     }
     /**
+     * 
+     */
+    func onEvent(event:Event){
+        if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).onEvent(event)}
+    }
+    /**
      * MouseMove (only fires when the mouse is actualy moving on the visible  part of the view)
      * NOTE: It could be possible to only call this method if a bool value was true. Optimization
      * TODO: when you implement propegation of the mouseMove method, mousemove needs a bool to turn it on or it will flood its parents with calls, isMouseMovable could be used
