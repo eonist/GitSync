@@ -1,6 +1,6 @@
 import Cocoa
 
-class SkinB:TrackingView{
+class SkinB:InteractiveView2{
     //override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override init(_ frameRect:NSRect,_ parent:NSView) {
         super.init(frameRect, parent)
