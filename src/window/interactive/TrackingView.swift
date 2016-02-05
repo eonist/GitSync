@@ -48,6 +48,6 @@ class TrackingView:FlippedView{//rename to TrackingView?
 //then impliment immediate
 //then test
 //then add it to slider
-//then add it to 
+//then add it to the framework as a whole
 
 
