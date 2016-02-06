@@ -128,7 +128,7 @@ class CustomView:WindowView{
         let selectGroup = SelectGroup([radioBullet1,radioBullet2],radioBullet1)/**/
         func onSelect(event:Event){
             if(event.type == SelectGroupEvent.change){
-                Swift.print("onSelect " + "\(event.origin)")
+                Swift.print("onSelect selectabe" + "\((event as! SelectGroupEvent).selectable)")
             }
         }
         selectGroup.event = onSelect
