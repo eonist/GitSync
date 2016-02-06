@@ -158,7 +158,7 @@ class CustomView:WindowView{
     /**
      *
      */
-    func onCloseButtonReleaseInside(sender: AnyObject) {
+    func onCloseButtonReleaseInside() {
         //Close window here
         //self.window?.close()//this closes the window
         NSApp.terminate(self)//quits the app
@@ -166,7 +166,7 @@ class CustomView:WindowView{
     /**
      *
      */
-    func onMinimizeButtonReleaseInside(sender: AnyObject){
+    func onMinimizeButtonReleaseInside(){
         //minimize the window here
         
         //NSApp.miniaturizeAll(self)//minimizes all windows in the app
@@ -176,18 +176,20 @@ class CustomView:WindowView{
      * TODO: Add support for fullscreen mode aswell: window.setFrame(NSScreen.mainScreen()!.visibleFrame, display: true, animate: true)
      * TODO: add support for zooming back to normal size
      */
-    func onMaximizeButtonReleaseInside(sender: AnyObject){
+    func onMaximizeButtonReleaseInside(){
         //maximize the window here
         self.window?.zoom(self)
     }
     /**
      *
      */
-    func addEventListeners(){
+    override func onEvent(event: Event) {
+        if(event.origin === closeButton && event.type == ButtonEvent.upInside){onCloseButtonReleaseInside()}
+        else if(event.origin === minimizeButton && event.type == ButtonEvent.upInside){onMinimizeButtonReleaseInside()}
+        else if(event.origin === maximizeButton && event.type == ButtonEvent.upInside){onMaximizeButtonReleaseInside()}
         /*Event listeners:*/
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: "onCloseButtonReleaseInside:", name: ButtonEvent.releaseInside, object: closeButton)
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMinimizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: minimizeButton)
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMaximizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: maximizeButton)
-        
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMaximizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: maximizeButton)   
     }
 }
