@@ -179,7 +179,6 @@ class CustomView:WindowView{
     func onMaximizeButtonReleaseInside(sender: AnyObject){
         //maximize the window here
         self.window?.zoom(self)
-        
     }
     /**
      *
