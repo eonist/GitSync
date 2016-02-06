@@ -13,7 +13,7 @@ class WinView3:FlippedView {
         //styleDepthTest()
         //marginTest()
         //titlebarTest()
-        //iconBarTest()
+        iconBarTest()
         //depthTest()
         //assetCSSTest()
         //svgTest()
@@ -197,7 +197,6 @@ class WinView3:FlippedView {
         css += "SelectButton#first:selected{"
         css += "fill:linear-gradient(top,grey9,grey8),~/Desktop/svg/icons/view/icons.svg white;"
         css += "}"
-        
         
         css += "SelectButton#second{"
         css += "fill:linear-gradient(top,#FFFEFE,#E8E8E8),~/Desktop/svg/icons/view/list.svg grey5;"
