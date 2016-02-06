@@ -12,7 +12,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
     var isMouseOver:Bool = false;/*you should hit test this on init*/
     var hasMouseEntered:Bool = false/*you should hit test this on init*/
     var hasHandCursor:Bool = false
-    override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
+    /*this can probably be removed--->*/override var wantsDefaultClipping:Bool{return false}//avoids clipping the view
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         self.wantsLayer = true/*if true then view is layer backed*/
