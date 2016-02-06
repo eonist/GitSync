@@ -15,19 +15,30 @@ class CustomView:WindowView{
         super.resolveSkin()
         Swift.print("CustomView.resolveSkin()")
         createTitleBar()
-        createRadioBullets()
+        //createRadioBullets()
         //addEventListeners()
         
         //remember the contentview is sort of the container to hold items. might need to add things to this instance
         
-        //let button = Button(20,20)
-        //section.addSubview(button)
-
-        /*let boxContainer = Section(200,200,self,"boxContainer")
+        
+        buttonTest()
+       
+    }
+    /**
+     *
+     */
+    func buttonTest(){
+        var css:String = ""
+        css += "Section#boxContainer{fill:green;float:left;clear:left;padding-top:20px;padding-left:20px;corner-radius:0px;}"
+        
+        let boxContainer = Section(200,200,self,"boxContainer")
         addSubview(boxContainer)
         
         let box = Element(100,100,boxContainer,"box")
-        boxContainer.addSubview(box)*/
+        boxContainer.addSubview(box)
+        
+        /*let button = Button(20,20)
+        section.addSubview(button)*/
     }
     /**
      *
