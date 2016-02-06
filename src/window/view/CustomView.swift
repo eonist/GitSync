@@ -32,6 +32,9 @@ class CustomView:WindowView{
     
     func createLeverStepper(){
         var css:String = ""
+        css += "ButtonBase{"
+        css +=     "fill:linear-gradient(top,#FFFEFE,#E8E8E8);"
+        css += "}"
         css += "Stepper{"
         css +=    "float:left;"
         css +=    "clear:left;"
