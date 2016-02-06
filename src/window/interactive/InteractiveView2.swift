@@ -7,7 +7,7 @@ import Cocoa
  * NOTE: Use mouseDragged method if you want to call a method while the mouse is dragged
  */
 class InteractiveView2:FlippedView,IInteractiveView{
-    var isInteractive:Bool = true//why is this here? I guess so that you can toggle the interactive part on and of, Text uses this variable
+    var isInteractive:Bool = true//why is this here? I guess so that you can toggle the interactive part on and of, Text uses this variable, remember that this effects all descendants as well
     var isMouseOver:Bool = false;/*you should hit test this on init*/
     var hasMouseEntered:Bool = false/*you should hit test this on init*/
     var hasHandCursor:Bool = false
