@@ -43,6 +43,11 @@ class CustomView:WindowView{
         testButton = Button(50,50,self,"test")
         addSubview(testButton!)
     }
+    override func hitTest(aPoint: NSPoint) -> NSView? {
+        let temp = super.hitTest(aPoint)
+        Swift.print("temp: " + "\(temp)")
+        return temp
+    }
     /**
      *
      */
