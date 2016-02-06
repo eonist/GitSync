@@ -105,8 +105,8 @@ class InteractiveView2:FlippedView,IInteractiveView{
      */
     override func mouseEntered( event: NSEvent){
         //Swift.print("\(self.dynamicType)" + ".mouseEntered(): event.locationInWindow" + "\(event.locationInWindow)")//+ "\(viewUnderMouse)" + " self: " + "\(self)"
-        hasMouseEntered = true/*optimization*/
-        if(viewUnderMouse === self){mouseOver(MouseEvent(event,self));isMouseOver = true;}//mouse move on visible view
+        
+        if(!hasMouseEntered && viewUnderMouse === self){hasMouseEntered = true;/*optimization*/isMouseOver = true;mouseOver(MouseEvent(event,self));}//mouse move on visible view
         //super.mouseEntered(event)/*passes on the event to the nextResponder, NSView parents etc*/
     }
     /**
@@ -116,7 +116,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
     override func mouseExited(event: NSEvent){
         //Swift.print("\(self.dynamicType)" + ".mouseExited: event.locationInWindow: " + "\(event.locationInWindow)")
         hasMouseEntered = false/*optimization*/
-        if(isMouseOver){mouseOut(MouseEvent(event,self));isMouseOver = false;}
+        if(hasMouseEntered && isMouseOver){mouseOut(MouseEvent(event,self));isMouseOver = false;}
         //super.mouseExited(event)/*passes on the event to the nextResponder, NSView parents etc*/
     }
     override func mouseDown(theEvent: NSEvent) {mouseDown(MouseEvent(theEvent,self))}
