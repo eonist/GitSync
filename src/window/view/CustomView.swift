@@ -27,7 +27,18 @@ class CustomView:WindowView{
         //buttonTest()
     }
     func createLeverStepper(){
-        ""
+        var css:String = ""
+        css += "Stepper{"
+        css +=    "float:left;"
+        css +=    "clear:left;"
+        css += "}"
+        css += "Stepper Button{"
+        css +=    "float:left;"
+        css +=    "width:10px,10px;"
+        css +=    "height:10px,10px;"
+        css +=    "fill-alpha:1,1;"
+        css +=    "drop-shadow:<SubtleShadow>,none;"
+        css += "}"
     }
     func buttonTest(){
         Swift.print("buttonTest()")
