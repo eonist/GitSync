@@ -15,7 +15,7 @@ class CustomView:WindowView{
     override func resolveSkin() {
         super.resolveSkin()
         Swift.print("CustomView.resolveSkin()")
-        //createTitleBar()
+        createTitleBar()
         //createRadioBullets()
         //addEventListeners()
         
@@ -165,6 +165,7 @@ class CustomView:WindowView{
      *
      */
     func onCloseButtonReleaseInside() {
+        Swift.print("onCloseButtonReleaseInside")
         //Close window here
         //self.window?.close()//this closes the window
         NSApp.terminate(self)//quits the app
@@ -173,6 +174,7 @@ class CustomView:WindowView{
      *
      */
     func onMinimizeButtonReleaseInside(){
+        Swift.print("onMinimizeButtonReleaseInside")
         //minimize the window here
         
         //NSApp.miniaturizeAll(self)//minimizes all windows in the app
@@ -183,6 +185,7 @@ class CustomView:WindowView{
      * TODO: add support for zooming back to normal size
      */
     func onMaximizeButtonReleaseInside(){
+        Swift.print("onMaximizeButtonReleaseInside")
         //maximize the window here
         self.window?.zoom(self)
     }
