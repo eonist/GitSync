@@ -21,7 +21,7 @@ class CustomView:WindowView{
         
         //remember the contentview is sort of the container to hold items. might need to add things to this instance
         
-        //continue here, 
+        //continue here, figure out why the background cancels UI elements infront of it
         
         buttonTest()
     }
