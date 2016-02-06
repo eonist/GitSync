@@ -38,10 +38,6 @@ class CustomView:WindowView{
         css += "Stepper{"
         css +=    "float:left;"
         css +=    "clear:left;"
-        css +=    "line:grey7;"
-        css +=    "line-offset-type:outside;"
-        css +=    "line-alpha:1;"
-        css +=    "line-thickness:1px;"
         css += "}"
         css += "Stepper Button{"
         css +=    "float:left;"
@@ -49,6 +45,10 @@ class CustomView:WindowView{
         css +=    "height:10px;"
         css +=    "fill:green;"
         css +=    "fill-alpha:1;"
+        css +=    "line:grey7;"
+        css +=    "line-offset-type:outside;"
+        css +=    "line-alpha:1;"
+        css +=    "line-thickness:1px;"
         //css +=    "drop-shadow:<SubtleShadow>,none;"
         css += "}"
         css += "Stepper Button#plus{"
@@ -58,14 +58,14 @@ class CustomView:WindowView{
         css += "Stepper Button#minus{"
         css +=     "clear:left;"
         css +=     "height:10px;"
-        css +=     "fill:red;"
+        css +=     "fill:<ButtonBase>;"
         //css +=     "margin-top:0px;"
         css +=     "corner-radius:0px 0px 4px 4px;"
         css += "}"
         StyleManager.addStyle(css)
         
         let leverStepper:LeverStepper = addSubView(LeverStepper(100,24,self)) as! LeverStepper
-        
+        leverStepper
     }
     func buttonTest(){
         Swift.print("buttonTest()")
