@@ -26,6 +26,10 @@ class CustomView:WindowView{
         
         //buttonTest()
     }
+    
+    //try to make the window background its own thing.
+    //add leverstepper instance to the code block bellow
+    
     func createLeverStepper(){
         var css:String = ""
         css += "Stepper{"
@@ -36,9 +40,11 @@ class CustomView:WindowView{
         css +=    "float:left;"
         css +=    "width:10px,10px;"
         css +=    "height:10px,10px;"
+        css +=    "fill:blue,green;"
         css +=    "fill-alpha:1,1;"
-        css +=    "drop-shadow:<SubtleShadow>,none;"
+        //css +=    "drop-shadow:<SubtleShadow>,none;"
         css += "}"
+        StyleManager.addStyle(css)
     }
     func buttonTest(){
         Swift.print("buttonTest()")
