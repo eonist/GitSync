@@ -8,6 +8,7 @@ class CustomView:WindowView{
     var closeButton:Button?
     var minimizeButton:Button?
     var maximizeButton:Button?
+    var testButton:Button?
     /**
      * Add content here
      */
@@ -22,7 +23,6 @@ class CustomView:WindowView{
         
         
         buttonTest()
-       
     }
     /**
      *
@@ -39,8 +39,8 @@ class CustomView:WindowView{
         //let box = Element(100,100)
         //addSubview(box)
         
-        let button = Button(50,50,self,"test")
-        addSubview(button)
+        testButton = Button(50,50,self,"test")
+        addSubview(testButton!)
     }
     /**
      *
@@ -183,13 +183,20 @@ class CustomView:WindowView{
     /**
      *
      */
+    func onTestButtonDown(){
+        Swift.print("works")
+    }
+    /**
+     *
+     */
     override func onEvent(event: Event) {
         if(event.origin === closeButton && event.type == ButtonEvent.upInside){onCloseButtonReleaseInside()}
         else if(event.origin === minimizeButton && event.type == ButtonEvent.upInside){onMinimizeButtonReleaseInside()}
         else if(event.origin === maximizeButton && event.type == ButtonEvent.upInside){onMaximizeButtonReleaseInside()}
+        else if(event.origin === testButton && event.type == ButtonEvent.down){onTestButtonDown()}
         /*Event listeners:*/
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: "onCloseButtonReleaseInside:", name: ButtonEvent.releaseInside, object: closeButton)
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMinimizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: minimizeButton)
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMaximizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: maximizeButton)   
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "onMaximizeButtonReleaseInside:", name: ButtonEvent.releaseInside, object: maximizeButton)
     }
 }
