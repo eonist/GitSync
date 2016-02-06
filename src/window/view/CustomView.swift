@@ -15,15 +15,15 @@ class CustomView:WindowView{
     override func resolveSkin() {
         super.resolveSkin()
         Swift.print("CustomView.resolveSkin()")
-        //createTitleBar()
-        //createRadioBullets()
+        createTitleBar()
+        createRadioBullets()
         //addEventListeners()
         
         //remember the contentview is sort of the container to hold items. might need to add things to this instance
         
         //continue here, figure out why the background cancels UI elements infront of it
         
-        buttonTest()
+        //buttonTest()
     }
     /**
      *
