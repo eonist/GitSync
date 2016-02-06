@@ -190,7 +190,7 @@ class CustomView:WindowView{
      *
      */
     func onTestButtonDown(){
-        Swift.print("works")
+        Swift.print("onTestButtonDown")
     }
     /**
      *
