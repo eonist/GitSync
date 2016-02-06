@@ -45,7 +45,7 @@ class CustomView:WindowView{
     }
     override func hitTest(aPoint: NSPoint) -> NSView? {
         let temp = super.hitTest(aPoint)
-        Swift.print("temp: " + "\(temp)")
+        Swift.print("temp: " + "\(NSViewParser.parents(temp!))")
         return temp
     }
     /**
