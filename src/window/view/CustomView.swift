@@ -17,7 +17,7 @@ class CustomView:WindowView{
         Swift.print("CustomView.resolveSkin()")
         createTitleBar()
         
-        createLeverStepper()
+        //createLeverStepper()
         
         //createRadioBullets()
         //addEventListeners()
@@ -206,10 +206,10 @@ class CustomView:WindowView{
         
         let closeButton = Button(12,12,section!,"close")/*<--the w and h should be NaN, test if it supports this*/
         section!.addSubview(closeButton)
-        let minimizeButton = Button(12,12,section!,"minimize")
+        /*let minimizeButton = Button(12,12,section!,"minimize")
         section!.addSubview(minimizeButton)
         let maximizeButton = Button(12,12,section!,"maximize")
-        section!.addSubview(maximizeButton)
+        section!.addSubview(maximizeButton)*/
     }
     /**
      *
