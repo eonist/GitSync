@@ -30,7 +30,7 @@ class CustomView:WindowView{
     func buttonTest(){
         Swift.print("buttonTest()")
         var css:String = ""
-        css += "Button{fill:green;float:left;clear:left;}"
+        css += "Button#test{fill:green;float:left;clear:left;corner-radius:0px;}"
         StyleManager.addStyle(css)
         
         //let container = Section(500,500,self,"radioBulletContainer")
@@ -39,7 +39,7 @@ class CustomView:WindowView{
         //let box = Element(100,100)
         //addSubview(box)
         
-        let button = Button(20,20,self)
+        let button = Button(50,50,self,"test")
         addSubview(button)
     }
     /**
