@@ -51,13 +51,13 @@ class CustomView:WindowView{
         //css +=    "drop-shadow:<SubtleShadow>,none;"
         css += "}"
         css += "Stepper Button#plus{"
-        css +=     "fill:<ButtonBase>,fill:~/Desktop/svg/icons/arrow_up_closed.svg grey8;"//assets/svg/icons/arrow_up_closed.svg
+        css +=     "fill:<ButtonBase>,~/Desktop/svg/icons/arrow_up_closed.svg grey8;"//assets/svg/icons/arrow_up_closed.svg
         css +=     "corner-radius:4px 4px 0px 0px;"
         css += "}"
         css += "Stepper Button#minus{"
         css +=     "clear:left;"
-        css +=     "height:10px;"
-        css +=     "fill:<ButtonBase>;"
+        css +=     "height:10px,10px;"
+        css +=     "fill:<ButtonBase>,~/Desktop/svg/icons/arrow_down_closed.svg grey8;"
         css +=     "line-offset-type-top:inside;"
         //css +=     "margin-top:0px;"
         css +=     "corner-radius:0px 0px 4px 4px;"
