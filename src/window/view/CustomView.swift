@@ -43,6 +43,7 @@ class CustomView:WindowView{
         css +=    "float:left;"
         css +=    "width:10px,10px;"
         css +=    "height:10px,10px;"
+        css +=    "margin-left:0px,1px;"
         css +=    "fill-alpha:1;"
         css +=    "line:grey7;"
         css +=    "line-offset-type:outside;"
@@ -53,6 +54,7 @@ class CustomView:WindowView{
         css += "Stepper Button#plus{"
         css +=     "fill:<ButtonBase>,~/Desktop/svg/icons/arrow_up_closed.svg grey8;"//assets/svg/icons/arrow_up_closed.svg
         css +=     "corner-radius:4px 4px 0px 0px;"
+        css +=     "margin-top:0px,1px;"
         css += "}"
         css += "Stepper Button#minus{"
         css +=     "clear:left;"
