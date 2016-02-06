@@ -237,7 +237,7 @@ class WinView2:FlippedView{
         btn3.setPosition(CGPoint(138,20))
         self.addSubview(btn3)
         
-        addSubview(SelectGroup([btn1,btn2,btn3],btn2));
+        SelectGroup([btn1,btn2,btn3],btn2);
         
     }
     func testDropShadow(){

@@ -165,7 +165,7 @@ class WinView4:FlippedView {
         section.addSubview(radioBullet2)
         radioBullet2.setSelected(false)//<---work around for now
         
-        addSubview(SelectGroup([radioBullet1,radioBullet2],radioBullet1))/**/
+        SelectGroup([radioBullet1,radioBullet2],radioBullet1)/**/
 
         
     }

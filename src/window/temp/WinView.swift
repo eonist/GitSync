@@ -139,7 +139,7 @@ class WinView:FlippedView{
         
         
         let selectGroup = SelectGroup([btn1,btn2,btn3])
-        addSubview(selectGroup)
+        (selectGroup)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onSelect:", name: SelectGroupEvent.select, object: selectGroup)
         
         /**/

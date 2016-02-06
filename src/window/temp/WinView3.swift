@@ -283,7 +283,7 @@ class WinView3:FlippedView {
         
 
         
-        addSubview(SelectGroup([iconButton1,iconButton2,iconButton3,iconButton4/**/],iconButton2));
+        let selectGroup = SelectGroup([iconButton1,iconButton2,iconButton3,iconButton4/**/],iconButton2);
     }
     /**
      * Add depth to the framework (svgasset is useless without it, and floating wont be that hard anyways, its the last thing)
