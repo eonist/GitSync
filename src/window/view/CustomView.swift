@@ -27,9 +27,15 @@ class CustomView:WindowView{
         //buttonTest()
     }
     
-    //continue here:
+    //continue here: to figure out the hover bug you need to make a button test case with overstate and normal state.
+    //then test with svg
+    //then test with only svg as states
+    
+    
     //maybe change the inside to the top not the bottom
     //add hover and down states in the css
+    
+    
     
     //check if text works
     //check if textButton works
