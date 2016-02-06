@@ -18,7 +18,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
         layer!.masksToBounds = false//this is needed!!!
-        event = onEvent
+        event = onEvent/*assign method to selector*/
     }
     /**
      * EXAMPLE: override onEvent in a subClass then assert origin === thumb && event.type == ButtonEvent.down 
