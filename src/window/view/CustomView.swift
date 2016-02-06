@@ -21,8 +21,6 @@ class CustomView:WindowView{
         
         //remember the contentview is sort of the container to hold items. might need to add things to this instance
         
-        //continue here, figure out why the background cancels UI elements infront of it
-        
         //buttonTest()
     }
     /**
@@ -128,7 +126,10 @@ class CustomView:WindowView{
         radioBullet2.setSelected(false)//<---work around for now
         
         let selectGroup = SelectGroup([radioBullet1,radioBullet2],radioBullet1)/**/
-        selectGroup
+        func test(event:Event){
+            Swift.print("inside test " + "\(event)")
+        }
+        selectGroup.event = test
     }
     
     /**
