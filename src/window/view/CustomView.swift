@@ -27,8 +27,12 @@ class CustomView:WindowView{
         //buttonTest()
     }
     
-    //try to make the window background its own thing.
+    //continue here:
+    //hook up the titleButton events
+    
+    
     //add leverstepper instance to the code block bellow
+    //try to make the window background its own thing.
     
     func createLeverStepper(){
         var css:String = ""
