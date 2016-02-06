@@ -39,21 +39,21 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * NOTE: you have to implement a hitTest that aserts that the aPoint is within the path. (either in the CALayer or at the last hitTesable NSView in your stack)
      */
     func mouseOver(event:MouseEvent){
-        Swift.print("\(self.dynamicType)" + "mouseOver() ")
+        //Swift.print("\(self.dynamicType)" + "mouseOver() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseOver(event)}/*informs the parent that an event occured*/
     }
     /**
      * Only fires if the mouse is "rolls" out of the visible part of this view
      */
     func mouseOut(event:MouseEvent){
-        Swift.print("\(self.dynamicType)" + "mouseOut() ")
+        //Swift.print("\(self.dynamicType)" + "mouseOut() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseOut(event)}/*informs the parent that an event occured*/
     }
     /**
      * Same as regular mouseDown event except this also includes the origin
      */
     func mouseDown(event:MouseEvent){
-        Swift.print("\(self.superview!)" + "mouseDown() ")
+        //Swift.print("\(self.dynamicType)" + "mouseDown() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseDown(event)}/*informs the parent that an event occured*/
     }
     /**
@@ -129,13 +129,13 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * NOTE: why is this needed? because normal hitTesting doesnt work if the frame size is zero. or if a subView is outside the frame.
      */
     override func hitTest(aPoint: NSPoint) -> NSView? {
-        Swift.print("hitTest: " + "\(self)")
+        //Swift.print("hitTest: " + "\(self)")
         if(isInteractive){
             for var i = self.subviews.count-1; i > -1; --i{//<--you could store the count outside the loop for optimization, i dont know if this is imp in swift
                 let view = self.subviews[i]
                 let hitView = view.hitTest(aPoint)/*if true then a point was found within its hittable area*/
                 if(hitView != nil){
-                    Swift.print("hitView: " + "\(hitView!.superview)")
+                    //Swift.print("hitView: " + "\(hitView!.superview)")
                     return hitView
                 }//<--if the view is a skin then return the self, so that the mouseEnter mouseExit methods work
             }
