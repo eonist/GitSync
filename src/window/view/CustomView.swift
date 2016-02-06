@@ -31,7 +31,7 @@ class CustomView:WindowView{
     func buttonTest(){
         Swift.print("buttonTest()")
         var css:String = ""
-        css += "Button#test{fill:green;float:left;clear:left;corner-radius:5px;}"
+        css += "Button#test{fill:green;float:left;clear:left;corner-radius:0px;}"
         StyleManager.addStyle(css)
         
         //let container = Section(500,500,self,"radioBulletContainer")
