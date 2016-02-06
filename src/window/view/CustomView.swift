@@ -28,7 +28,7 @@ class CustomView:WindowView{
     }
     
     //continue here:
-    //hook up the titleButton events
+    //hook up the titleButton events (you have to fix section which isnt working atm)
     //maybe change the inside to the top not the bottom
     //add hover and down states in the css
     
