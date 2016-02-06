@@ -135,6 +135,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
                 let view = self.subviews[i]
                 let hitView = view.hitTest(aPoint)/*if true then a point was found within its hittable area*/
                 if(hitView != nil){
+                    Swift.print("hitView: " + "\(hitView!.superview)")
                     return hitView
                 }//<--if the view is a skin then return the self, so that the mouseEnter mouseExit methods work
             }
