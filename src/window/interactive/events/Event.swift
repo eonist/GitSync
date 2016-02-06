@@ -11,4 +11,4 @@ class Event{
 }
 
 
-//button -> onDOwn -> s
+//button -> onDown() -> event(SelectEvent(SelectEvent.select,self))
