@@ -53,7 +53,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * Same as regular mouseDown event except this also includes the origin
      */
     func mouseDown(event:MouseEvent){
-        Swift.print("\(NSViewParser.parents(self))" + "mouseDown() ")
+        //Swift.print("\(NSViewParser.parents(self))" + "mouseDown() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseDown(event)}/*informs the parent that an event occured*/
     }
     /**
@@ -76,7 +76,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * this method exists for the sake of convenience
      */
     func mouseUp(event: MouseEvent){
-        Swift.print("\(self.dynamicType)" + "mouseUp() ")
+        //Swift.print("\(self.dynamicType)" + "mouseUp() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseUp(event)}/*informs the parent that an event occured*/
     }
     /**
@@ -129,12 +129,12 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * NOTE: why is this needed? because normal hitTesting doesnt work if the frame size is zero. or if a subView is outside the frame.
      */
     override func hitTest(aPoint: NSPoint) -> NSView? {
-        Swift.print("hitTest: " + "\(self)" + " isInteractive: " + "\(isInteractive)")
+        //Swift.print("hitTest: " + "\(self)" + " isInteractive: " + "\(isInteractive)")
         if(isInteractive){
             for var i = self.subviews.count-1; i > -1; --i{//<--you could store the count outside the loop for optimization, i dont know if this is imp in swift
                 let view = self.subviews[i]
                 let hitView = view.hitTest(aPoint)/*if true then a point was found within its hittable area*/
-                Swift.print("view: " + "\(view)" + "hitView: " + "\(hitView)")
+                //Swift.print("view: " + "\(view)" + "hitView: " + "\(hitView)")
                 if(hitView != nil){
                     //Swift.print("hitView: " + "\(hitView!.superview!.superview)")
                     return hitView
