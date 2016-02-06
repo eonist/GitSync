@@ -29,7 +29,13 @@ class CustomView:WindowView{
     
     //continue here:
     //hook up the titleButton events
+    //maybe change the inside to the top not the bottom
+    //add hover and down states in the css
     
+    //check if text works
+    //check if textButton works
+    //check if SelectTextButton works
+    //create the LeverSpinner component with text
     
     //add leverstepper instance to the code block bellow
     //try to make the window background its own thing.
