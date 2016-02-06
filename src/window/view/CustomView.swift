@@ -39,7 +39,7 @@ class CustomView:WindowView{
         //let box = Element(100,100)
         //addSubview(box)
         
-        let button = Button(20,20)
+        let button = Button(20,20,self)
         addSubview(button)
     }
     /**
