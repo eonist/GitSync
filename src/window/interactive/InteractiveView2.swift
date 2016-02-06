@@ -23,7 +23,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * EXAMPLE: override onEvent in a subClass then assert origin === thumb && event.type == ButtonEvent.down 
      */
     func onEvent(event:Event){
-        if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).onEvent(event)}
+        if(self.superview is IEventSender){(self.superview as! IEventSender).event!(event)}
     }
     /**
      * MouseMove (only fires when the mouse is actualy moving on the visible  part of the view)

@@ -1,7 +1,7 @@
 import Foundation
 
 protocol IInteractiveView:IEventSender {
-    func onEvent(event:Event)
+    //func onEvent(event:Event)
     func mouseMoved(event:MouseEvent)
     func mouseOver(event:MouseEvent)
     func mouseOut(event:MouseEvent)
