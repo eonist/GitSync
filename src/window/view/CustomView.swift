@@ -40,27 +40,21 @@ class CustomView:WindowView{
         css +=    "float:left;"
         css +=    "width:10px;"
         css +=    "height:10px;"
-        css +=    "fill:red;"
-        css +=    "fill-alpha:1,1;"
+        css +=    "fill:green;"
+        css +=    "fill-alpha:1;"
         //css +=    "drop-shadow:<SubtleShadow>,none;"
         css += "}"
-        
-        
-        
-        Stepper Button#plus{
-            fill:blue;
-            corner-radius:4px 4px 0px 0px;
-        }
-        Stepper Button#plus:down{
-            fill:<ButtonBase>,fill:assets/svg/icons/arrow_up_closed.svg grey4;
-        }
-        Stepper Button#minus{
-            clear:left;
-            height:9px,10px;
-            fill:<ButtonBase>,fill:assets/svg/icons/arrow_down_closed.svg grey8;
-            margin-top:0px,-1px;
-            corner-radius:0px 0px 4px 4px;
-        }
+        css += "Stepper Button#plus{"
+        css +=     "fill:blue;"
+        css +=     "corner-radius:4px 4px 0px 0px;"
+        css += "}"
+        css += "Stepper Button#minus{"
+        css +=     "clear:left;"
+        css +=     "height:10px;"
+        css +=     "fill:red"
+        //css +=     "margin-top:0px;"
+        css +=     "corner-radius:0px 0px 4px 4px;"
+        css += "}"
         StyleManager.addStyle(css)
         
         let leverStepper:LeverStepper = addSubView(LeverStepper(100,24,self)) as! LeverStepper
