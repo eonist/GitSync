@@ -24,7 +24,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * EXAMPLE: override onEvent in a subClass then assert origin === thumb && event.type == ButtonEvent.down 
      */
     func onEvent(event:Event){
-        //Swift.print("InteractiveView2.onEvent: " + "\(onEvent)")
+        Swift.print("InteractiveView2.onEvent: " + "\(onEvent)")
         if(self.superview is IEventSender){(self.superview as! IEventSender).event!(event)}
     }
     /**
@@ -56,7 +56,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * Same as regular mouseDown event except this also includes the origin
      */
     func mouseDown(event:MouseEvent){
-        //Swift.print("\(NSViewParser.parents(self))" + "mouseDown() ")
+        Swift.print("\(NSViewParser.parents(self))" + "mouseDown() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseDown(event)}/*informs the parent that an event occured*/
     }
     /**
