@@ -134,6 +134,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
             for var i = self.subviews.count-1; i > -1; --i{//<--you could store the count outside the loop for optimization, i dont know if this is imp in swift
                 let view = self.subviews[i]
                 let hitView = view.hitTest(aPoint)/*if true then a point was found within its hittable area*/
+                Swift.print("hitView: " + "\(hitView)")
                 if(hitView != nil){
                     //Swift.print("hitView: " + "\(hitView!.superview!.superview)")
                     return hitView
