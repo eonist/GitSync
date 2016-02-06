@@ -46,7 +46,8 @@ class CustomView:WindowView{
         css += "}"
         StyleManager.addStyle(css)
         
-        let leverStepper:LeverStepper = addSubView(LeverStepper(100,24,self,"")) as LeverStepper;
+        let leverStepper:LeverStepper = addSubView(LeverStepper(100,24,self)) as! LeverStepper
+        leverStepper
     }
     func buttonTest(){
         Swift.print("buttonTest()")
