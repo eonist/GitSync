@@ -15,7 +15,7 @@ class CustomView:WindowView{
     override func resolveSkin() {
         super.resolveSkin()
         Swift.print("CustomView.resolveSkin()")
-        createTitleBar()
+        //createTitleBar()
         //createRadioBullets()
         //addEventListeners()
         
@@ -127,7 +127,7 @@ class CustomView:WindowView{
         container.addSubview(radioBullet2)
         radioBullet2.setSelected(false)//<---work around for now
         
-        addSubview(SelectGroup([radioBullet1,radioBullet2],radioBullet1))/**/
+        SelectGroup([radioBullet1,radioBullet2],radioBullet1)/**/
     }
     
     /**
