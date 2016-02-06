@@ -51,7 +51,7 @@ class CustomView:WindowView{
         //css +=    "drop-shadow:<SubtleShadow>,none;"
         css += "}"
         css += "Stepper Button#plus{"
-        css +=     "fill:<ButtonBase>;"
+        css +=     "fill:<ButtonBase>,fill:~/Desktop/svg/icons/view/icons.svg grey8;"//assets/svg/icons/arrow_up_closed.svg
         css +=     "corner-radius:4px 4px 0px 0px;"
         css += "}"
         css += "Stepper Button#minus{"
