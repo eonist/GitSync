@@ -204,7 +204,7 @@ class CustomView:WindowView{
         section = Section(frame.width,16,self,"titleBar")
         self.addSubview(section!)
         
-        let closeButton = Button(12,12,section!,"close")/*<--the w and h should be NaN, test if it supports this*/
+        let closeButton = Button(0,0,section!,"close")/*<--the w and h should be NaN, test if it supports this*/
         section!.addSubview(closeButton)
         /*let minimizeButton = Button(12,12,section!,"minimize")
         section!.addSubview(minimizeButton)
