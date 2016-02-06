@@ -226,7 +226,7 @@ class CustomView:WindowView{
         Swift.print("onCloseButtonReleaseInside")
         //Close window here
         //self.window?.close()//this closes the window
-        NSApp.terminate(self)//quits the app
+        //NSApp.terminate(self)//quits the app
     }
     /**
      *
