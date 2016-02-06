@@ -24,6 +24,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * EXAMPLE: override onEvent in a subClass then assert origin === thumb && event.type == ButtonEvent.down 
      */
     func onEvent(event:Event){
+        Swift.print("InteractiveView2.onEvent: " + "\(onEvent)")
         if(self.superview is IEventSender){(self.superview as! IEventSender).event!(event)}
     }
     /**
