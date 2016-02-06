@@ -204,7 +204,7 @@ class CustomView:WindowView{
         section = Section(frame.width,16,self,"titleBar")
         self.addSubview(section!)
         
-        closeButton = section!.addSubView(Button(0,0,section!,"close")) as! Button/*<--the w and h should be NaN, test if it supports this*/
+        closeButton = section!.addSubView(Button(0,0,section!,"close")) as? Button/*<--the w and h should be NaN, test if it supports this*/
         /*let minimizeButton = Button(12,12,section!,"minimize")
         section!.addSubview(minimizeButton)
         let maximizeButton = Button(12,12,section!,"maximize")
@@ -256,10 +256,7 @@ class CustomView:WindowView{
      *
      */
     override func onEvent(event: Event) {
-        Swift.print("CustomView.onEvent: " + "\(event)" + " event.origin: " + "\(event.origin)")
-        Swift.print("closeButton: " + "\(closeButton)")
-        Swift.print("\((event.origin as! Button))")
-        Swift.print("\((event.origin as! Button) == closeButton)")
+        //Swift.print("CustomView.onEvent: " + "\(event)" + " event.origin: " + "\(event.origin)")
         if(event.origin === closeButton && event.type == ButtonEvent.down){onCloseButtonReleaseInside()}
         else if(event.origin === minimizeButton && event.type == ButtonEvent.upInside){onMinimizeButtonReleaseInside()}
         else if(event.origin === maximizeButton && event.type == ButtonEvent.upInside){onMaximizeButtonReleaseInside()}
