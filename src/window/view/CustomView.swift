@@ -205,7 +205,7 @@ class CustomView:WindowView{
         self.addSubview(section!)
         
         let closeButton = Button(12,12,section!,"close")/*<--the w and h should be NaN, test if it supports this*/
-        addSubview(closeButton)
+        section!.addSubview(closeButton)
         /*let minimizeButton = Button(12,12,section!,"minimize")
         section!.addSubview(minimizeButton)
         let maximizeButton = Button(12,12,section!,"maximize")
