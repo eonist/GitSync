@@ -21,7 +21,7 @@ class CustomView:WindowView{
         //remember the contentview is sort of the container to hold items. might need to add things to this instance
         
         
-        buttonTest()
+        //buttonTest()
        
     }
     /**
@@ -30,16 +30,16 @@ class CustomView:WindowView{
     func buttonTest(){
         Swift.print("buttonTest()")
         var css:String = ""
-        css += "Element{fill:green;float:left;clear:left;}"
+        css += "Button{fill:green;float:left;clear:left;}"
         
         let container = Section(500,500,self,"radioBulletContainer")
         addSubview(container)
         
-        let box = Element(100,100,container,"box")
-        container.addSubview(box)
+        let box = Element(100,100)
+        addSubview(box)
         
-        /*let button = Button(20,20)
-        section.addSubview(button)*/
+        let button = Button(20,20)
+        addSubview(button)
     }
     /**
      *
