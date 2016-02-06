@@ -107,7 +107,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
      */
     override func mouseEntered( event: NSEvent){
-        //Swift.print("\(self.dynamicType)" + ".mouseEntered(): event.locationInWindow" + "\(event.locationInWindow)")//+ "\(viewUnderMouse)" + " self: " + "\(self)"
+        Swift.print("\(self.dynamicType)" + ".mouseEntered(): event.locationInWindow" + "\(event.locationInWindow)")//+ "\(viewUnderMouse)" + " self: " + "\(self)"
         
         //im not sure if the bellow code is perfectly stable in all cases, more testing needed
         
@@ -119,7 +119,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * NOTE: if you override this method in subclasses, then also call the the super of this method to avoid loss of functionality
      */
     override func mouseExited(event: NSEvent){
-        //Swift.print("\(self.dynamicType)" + ".mouseExited: event.locationInWindow: " + "\(event.locationInWindow)")
+        Swift.print("\(self.dynamicType)" + ".mouseExited: event.locationInWindow: " + "\(event.locationInWindow)")
         
         //im not sure if the bellow code is perfectly stable in all cases, more testing needed
         
