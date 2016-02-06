@@ -28,6 +28,7 @@ class CustomView:WindowView{
      *
      */
     func buttonTest(){
+        Swift.print("buttonTest()")
         var css:String = ""
         css += "Element{fill:green;float:left;clear:left;}"
         
