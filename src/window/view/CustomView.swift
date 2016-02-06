@@ -126,13 +126,12 @@ class CustomView:WindowView{
         radioBullet2.setSelected(false)//<---work around for now
         
         let selectGroup = SelectGroup([radioBullet1,radioBullet2],radioBullet1)/**/
-        func test(event:Event){
-            if(event.type == SelectGroupEvent){}
-                
-            
-            Swift.print("inside test " + "\(event)")
+        func onSelect(event:Event){
+            if(event.type == SelectGroupEvent.select){
+                Swift.print("onSelect " + "\(event.origin)")
+            }
         }
-        selectGroup.event = test
+        selectGroup.event = onSelect
     }
     
     /**
