@@ -45,6 +45,8 @@ class CustomView:WindowView{
         //css +=    "drop-shadow:<SubtleShadow>,none;"
         css += "}"
         StyleManager.addStyle(css)
+        
+        let leverStepper:LeverStepper = addSubView(LeverStepper(100,24,self,"")) as LeverStepper;
     }
     func buttonTest(){
         Swift.print("buttonTest()")
