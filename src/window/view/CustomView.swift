@@ -127,7 +127,8 @@ class CustomView:WindowView{
         container.addSubview(radioBullet2)
         radioBullet2.setSelected(false)//<---work around for now
         
-        SelectGroup([radioBullet1,radioBullet2],radioBullet1)/**/
+        let selectGroup = SelectGroup([radioBullet1,radioBullet2],radioBullet1)/**/
+        selectGroup
     }
     
     /**
