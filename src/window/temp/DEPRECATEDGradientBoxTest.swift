@@ -8,7 +8,7 @@ class GradientBoxTest:View {
         drawContent()
     }
     func drawContent(){
-        var rectGraphic = RectGraphic(200,100,NSColor.lightGrayColor())
+        let rectGraphic = RectGraphic(200,100,NSColor.lightGrayColor())
         rectGraphic.setPosition(CGPoint(100,100))
         //rectGraphic.initialize()
         
