@@ -204,8 +204,8 @@ class CustomView:WindowView{
         
         //css += "Section#titleBar Button:over{fill:~/Desktop/icons/title_bar/hover.svg none; width:22px;height:22px;}"
         css += "Section#titleBar Button#close{fill:#FF5F52;line:#E33E32;}"
-        css += "Section#titleBar Button#minimize{fill:~/Desktop/icons/title_bar/min.svg none;}"//FFBE05,E2A100
-        css += "Section#titleBar Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"//15CC35
+        css += "Section#titleBar Button#minimize{fill:#FFBE05;line:#E2A100;}"
+        css += "Section#titleBar Button#maximize{fill:#15CC35;line:#17B230;}"
         StyleManager.addStyle(css)
         
         section = Section(frame.width,16,self,"titleBar")
