@@ -32,6 +32,28 @@ class CustomView:WindowView{
     
     func createTextInput(){
         var css:String = ""
+        TextInput{
+            float:left;
+            clear:left;
+        }
+        TextInput Text{
+            float:left;
+            clear:none;
+            width:78px;
+            height:12px;
+            margin-top:4px;
+            color:grey4;
+        }
+        TextInput TextArea{
+            clear:none;
+            width:60px;
+            height:24px;
+            padding:0px;
+        }
+        TextInput TextArea Text{
+            leftMargin:4px;
+            type:input;
+        }
         
         let textInput:TextInput = addSubView(TextInput(0, 0, "Description: ", "blue", self)) as! TextInput;
         textInput
