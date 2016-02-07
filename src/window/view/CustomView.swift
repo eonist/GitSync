@@ -32,6 +32,14 @@ class CustomView:WindowView{
      */
     func createLeverSpinner(){
         var css:String = ""
+        /*leverSpinner css*/
+        css += "Spinner{"
+        "float:left;"
+        "clear:left;"
+        "width:120px;"
+        "height:24px;"
+        "padding:-2px;"
+        "}"
         /*text css*/
         css += "Text{font:Lucida Grande;selectable:false;size:12px;color:gray;align:center;backgroundColor:orange;background:false;margin-top:5px;float:left;clear:left;}"//
         /*stepper css*/
