@@ -86,8 +86,9 @@ class CustomView:WindowView{
     }
     func buttonTest(){
         Swift.print("buttonTest()")
-        var css:String = ""
+        var css:String = "Button{width:50px;height:50px;}"
         css += "Button#test{fill:green;float:left;clear:left;corner-radius:5px;}"
+        css += "Button#test:over{fill:blue;width:70px;height:70px;}"
         StyleManager.addStyle(css)
         
         
@@ -97,7 +98,7 @@ class CustomView:WindowView{
         //let box = Element(100,100)
         //addSubview(box)
         
-        testButton = Button(50,50,self,"test")
+        testButton = Button(0,0,self,"test")
         addSubview(testButton!)
     }
     /*override func hitTest(aPoint: NSPoint) -> NSView? {
@@ -199,8 +200,8 @@ class CustomView:WindowView{
     func createTitleBar(){
         var css:String = ""
         css += "Section#titleBar{float:left;clear:left;padding-top:4px;padding-left:8px;}"
-        css += "Section#titleBar Button{width:12px,12px;height:12px,12px;float:left;clear:none;margin-right:8px;margin-top:0px;padding-left:0px;padding-top:0px;}"//adding padding here shouldnt be necessary
-        //css += "Section#titleBar Button:over{fill:~/Desktop/icons/title_bar/hover.svg none;}"
+        css += "Section#titleBar Button{width:12px;height:12px;float:left;clear:none;margin-right:8px;margin-top:0px;padding-left:0px;padding-top:0px;}"//adding padding here shouldnt be necessary
+        css += "Section#titleBar Button:over{fill:~/Desktop/icons/title_bar/hover.svg none; width:22px;height:22px;}"
         css += "Section#titleBar Button#close{fill:~/Desktop/icons/title_bar/close.svg none;}"
         css += "Section#titleBar Button#minimize{fill:~/Desktop/icons/title_bar/min.svg none;}"
         css += "Section#titleBar Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"
