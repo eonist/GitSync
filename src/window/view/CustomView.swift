@@ -41,7 +41,7 @@ class CustomView:WindowView{
         css +=      "padding:-2px;"
         css += "}"
         /*text css*/
-        css += "Text{font:Lucida Grande;selectable:false;size:12px;color:gray;align:center;backgroundColor:orange;background:false;margin-top:5px;float:left;clear:left;}"//
+        css += "Text{font:Lucida Grande;selectable:false;size:12px;color:gray;align:center;backgroundColor:orange;background:false;margin-top:5px;float:left;clear:none;}"//
         /*stepper css*/
         css += "ButtonBase{"
         css +=     "fill:linear-gradient(top,#FFFEFE,#E8E8E8);"
