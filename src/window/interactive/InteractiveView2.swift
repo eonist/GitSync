@@ -42,14 +42,14 @@ class InteractiveView2:FlippedView,IInteractiveView{
      * NOTE: you have to implement a hitTest that aserts that the aPoint is within the path. (either in the CALayer or at the last hitTesable NSView in your stack)
      */
     func mouseOver(event:MouseEvent){
-        Swift.print("\(NSViewParser.parents(self))" + "\(self.dynamicType)" + ".mouseOver() ")
+        //Swift.print("\(NSViewParser.parents(self))" + "\(self.dynamicType)" + ".mouseOver() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseOver(event)}/*informs the parent that an event occured*/
     }
     /**
      * Only fires if the mouse is "rolls" out of the visible part of this view
      */
     func mouseOut(event:MouseEvent){
-        Swift.print("\(self.dynamicType)" + ".mouseOut() ")
+        //Swift.print("\(self.dynamicType)" + ".mouseOut() ")
         if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseOut(event)}/*informs the parent that an event occured*/
     }
     /**
