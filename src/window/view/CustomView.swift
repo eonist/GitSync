@@ -17,26 +17,21 @@ class CustomView:WindowView{
         Swift.print("CustomView.resolveSkin()")
         createTitleBar()
         
-        //createLeverStepper()
+        createLeverStepper()
         
         //createRadioBullets()
         //addEventListeners()
         
         //remember the contentview is sort of the container to hold items. might need to add things to this instance
         
-        buttonTest()
+        //buttonTest()
     }
    
     
-    
-    
-    //check if text works
-    //check if textButton works
-    //check if SelectTextButton example works
+   
     //create the LeverSpinner component with text
     
     
-    //try to make the window background its own thing.
     /**
      * TODO: maybe change the inside to the top not the bottom
      * TODO: add hover and down states in the css
