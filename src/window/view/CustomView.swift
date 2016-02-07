@@ -31,17 +31,19 @@ class CustomView:WindowView{
      *
      */
     func createText(){
-        Text{
-            float:left;
-            clear:left;
-            font:<DefaultFont>;
-            size:12px;
-            align:left;
-            autoSize:none;
-            color:grey6;
-            selectable,mouseEnabled,embedFonts,wordWrap:true;
-            margin-top:4px;
-        }
+        var css:String = ""
+        css += "Text{"
+        css +=     "float:left;"
+        css +=     "clear:left;"
+        css +=     "font:Lucida Grande;"
+        css +=     "size:12px;"
+        css +=     "align:left;"
+        css +=     "autoSize:none;"
+        css +=     "color:grey6;"
+        css +=     "selectable,mouseEnabled,embedFonts,wordWrap:true;"
+        css +=     "margin-top:4px;"
+        css += "}"
+        StyleManager.addStyle(css)
         let text:Text = self.addSubView(Text(100,24,"This is text: ",self)) as! Text
         text
     }
