@@ -43,7 +43,7 @@ class CustomView:WindowView{
         css +=     "autoSize:none;"
         css +=     "color:grey6;"
         css +=     "selectable:true;"
-        css +=     "margin-top:4px;"
+        //css +=     "margin-top:4px;"
         css +=     "backgroundColor:orange;"
         css +=     "background:false;"
         css += "}"
@@ -61,12 +61,12 @@ class CustomView:WindowView{
         css += "}"
         css += "TextArea Text{"
         css +=     "width:100%;"
-        css +=     "leading:2px;"
+        //css +=     "leading:2px;"
         css +=     "multiline:true;"
         css += "}"
         StyleManager.addStyle(css)
         
-        let textArea:TextArea = addSubView(TextArea(0, 0, "This is a single line text area", self)) as! TextArea;
+        let textArea:TextArea = addSubView(TextArea(200, 24, "This is a single line text area", self)) as! TextArea;
         textArea
     }
     /**
