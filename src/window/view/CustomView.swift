@@ -41,6 +41,11 @@ class CustomView:WindowView{
         css +=      "padding:-2px;"
         css += "}"
         /*text css*/
+        css += "Spinner TextInput{"
+        css +=     "width:90px;"
+        css +=     "height:18px;"
+        css +=     "margin-right:6px;"
+        css += "}"
         css += "Text{font:Lucida Grande;selectable:false;size:12px;color:gray;align:center;backgroundColor:orange;background:false;margin-top:5px;float:left;clear:none;}"//
         /*stepper css*/
         css += "ButtonBase{"
