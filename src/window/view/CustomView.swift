@@ -16,7 +16,7 @@ class CustomView:WindowView{
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
-        createText
+        createText()
         //createLeverSpinner()
         //createLeverStepper()
         
