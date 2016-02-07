@@ -36,8 +36,8 @@ class CustomView:WindowView{
         
         StyleManager.addStyle(css)
         
-        
-        
+        let leverSpinner:LeverSpinner = self.addSubView(LeverSpinner(0, 0, self)) as! LeverSpinner;
+        leverSpinner
         
     }
     /**
