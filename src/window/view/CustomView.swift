@@ -32,28 +32,43 @@ class CustomView:WindowView{
     
     func createTextInput(){
         var css:String = ""
-        TextInput{
-            float:left;
-            clear:left;
-        }
-        TextInput Text{
-            float:left;
-            clear:none;
-            width:78px;
-            height:12px;
-            margin-top:4px;
-            color:grey4;
-        }
-        TextInput TextArea{
-            clear:none;
-            width:60px;
-            height:24px;
-            padding:0px;
-        }
-        TextInput TextArea Text{
-            leftMargin:4px;
-            type:input;
-        }
+        /*Text*/
+        css += "Text{"
+        css +=     "float:left;"
+        css +=     "clear:left;"
+        css +=     "font:Lucida Grande;"
+        css +=     "size:12px;"
+        css +=     "align:left;"
+        css +=     "autoSize:none;"
+        css +=     "color:grey6;"
+        css +=     "selectable:true;"
+        //css +=     "margin-top:4px;"
+        css +=     "backgroundColor:orange;"
+        css +=     "background:false;"
+        css += "}"
+        /*TextInput*/
+        css += "TextInput{"
+        css +=     "float:left;"
+        css +=     "clear:left;"
+        css += "}"
+        css += "TextInput Text{"
+        css +=     "float:left;"
+        css +=     "clear:none;"
+        css +=     "width:78px;"
+        css +=     "height:12px;"
+        css +=     "margin-top:4px;"
+        css +=     "color:grey4;"
+        css += "}"
+        css += "TextInput TextArea{"
+        css +=     "clear:none;"
+        css +=     "width:60px;"
+        css +=     "height:24px;"
+        css +=     "padding:0px;"
+        css += "}"
+        css += "TextInput TextArea Text{"
+        css +=     "leftMargin:4px;"
+        css +=     "type:input;"
+        css += "}"
         
         let textInput:TextInput = addSubView(TextInput(0, 0, "Description: ", "blue", self)) as! TextInput;
         textInput
