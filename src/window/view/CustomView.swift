@@ -218,7 +218,8 @@ class CustomView:WindowView{
      */
     func setSize(size:CGSize){
         //Swift.print("CustomView.setSize() size: " + "\(size)")
-        self.skin!.setSize(size.width, size.height)
+        //self.skin!.setSize(size.width, size.height)
+        super.setSize(width, height)
         section!.setSize(size.width, section!.height)
     }
     /**
@@ -261,8 +262,8 @@ class CustomView:WindowView{
     override func onEvent(event: Event) {
         //Swift.print("CustomView.onEvent: " + "\(event)" + " event.origin: " + "\(event.origin)")
         if(event.origin === closeButton && event.type == ButtonEvent.down){onCloseButtonReleaseInside()}
-        else if(event.origin === minimizeButton && event.type == ButtonEvent.upInside){onMinimizeButtonReleaseInside()}
-        else if(event.origin === maximizeButton && event.type == ButtonEvent.upInside){onMaximizeButtonReleaseInside()}
+        else if(event.origin === minimizeButton && event.type == ButtonEvent.down){onMinimizeButtonReleaseInside()}
+        else if(event.origin === maximizeButton && event.type == ButtonEvent.down){onMaximizeButtonReleaseInside()}
         else if(event.origin === testButton && event.type == ButtonEvent.down){onTestButtonDown()}
         /*Event listeners:*/
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: "onCloseButtonReleaseInside:", name: ButtonEvent.releaseInside, object: closeButton)
