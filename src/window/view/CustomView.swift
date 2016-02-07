@@ -32,6 +32,25 @@ class CustomView:WindowView{
      *
      */
     func createSingleLineTextArea(){
+        var css:String = ""
+        TextArea{
+            float:left;
+            clear:left;
+            fill:white;
+            line:white9;
+            line-alpha:1;
+            line-thickness:1px;
+            line-offset-type:outside;
+            padding:6px;
+            drop-shadow:<InsetShadow>;
+        }
+        TextArea Text{
+            width:100%;
+            leading:2px;
+            multiline:true;
+        }
+        
+        
         let textArea:TextArea = addSubView(TextArea(0, 0, "This is a single line text area", self)) as! TextArea;
         textArea
     }
