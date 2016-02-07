@@ -73,6 +73,7 @@ class CustomView:WindowView{
         css += "TextInput TextArea Text{"
         css +=     "leftMargin:4px;"
         css +=     "type:input;"
+        css +=     "selectable:true;"
         css += "}"
         
         StyleManager.addStyle(css)
