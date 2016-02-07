@@ -27,8 +27,12 @@ class CustomView:WindowView{
         //buttonTest()
     }
 
-    //create the LeverSpinner component with text
-    
+    /**
+     * TODO: create the LeverSpinner component with text
+     */
+    func createLeverSpinner(){
+        
+    }
     /**
      * TODO: maybe change the inside to the top not the bottom
      * TODO: add hover and down states in the css
