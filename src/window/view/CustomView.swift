@@ -203,7 +203,7 @@ class CustomView:WindowView{
         css += "Section#titleBar Button{width:12px;height:12px;corner-radius:6px;float:left;clear:none;margin-right:8px;margin-top:0px;padding-left:0px;padding-top:0px;line-offset-type:outside;line-alpha:1;line-thickness:1px}"//adding padding here shouldnt be necessary
         
         //css += "Section#titleBar Button:over{fill:~/Desktop/icons/title_bar/hover.svg none; width:22px;height:22px;}"
-        css += "Section#titleBar Button#close{fill:red;line:grey7;}"
+        css += "Section#titleBar Button#close{fill:#FF5F52;line:#E33E32;}"
         css += "Section#titleBar Button#minimize{fill:~/Desktop/icons/title_bar/min.svg none;}"
         css += "Section#titleBar Button#maximize{fill:~/Desktop/icons/title_bar/max.svg none;}"
         StyleManager.addStyle(css)
