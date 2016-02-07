@@ -34,12 +34,12 @@ class CustomView:WindowView{
         var css:String = ""
         /*leverSpinner css*/
         css += "Spinner{"
-        "float:left;"
-        "clear:left;"
-        "width:120px;"
-        "height:24px;"
-        "padding:-2px;"
-        "}"
+        css += "float:left;"
+        css += "clear:left;"
+        css += "width:120px;"
+        css += "height:24px;"
+        css += "padding:-2px;"
+        css += "}"
         /*text css*/
         css += "Text{font:Lucida Grande;selectable:false;size:12px;color:gray;align:center;backgroundColor:orange;background:false;margin-top:5px;float:left;clear:left;}"//
         /*stepper css*/
