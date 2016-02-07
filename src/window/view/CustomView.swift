@@ -32,7 +32,7 @@ class CustomView:WindowView{
     
     //check if text works
     //check if textButton works
-    //check if SelectTextButton works
+    //check if SelectTextButton example works
     //create the LeverSpinner component with text
     
     
