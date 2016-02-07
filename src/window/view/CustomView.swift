@@ -33,23 +33,38 @@ class CustomView:WindowView{
      */
     func createSingleLineTextArea(){
         var css:String = ""
-        TextArea{
-            float:left;
-            clear:left;
-            fill:white;
-            line:white9;
-            line-alpha:1;
-            line-thickness:1px;
-            line-offset-type:outside;
-            padding:6px;
-            drop-shadow:<InsetShadow>;
-        }
-        TextArea Text{
-            width:100%;
-            leading:2px;
-            multiline:true;
-        }
-        
+        /*Text*/
+        css += "Text{"
+        css +=     "float:left;"
+        css +=     "clear:left;"
+        css +=     "font:Lucida Grande;"
+        css +=     "size:12px;"
+        css +=     "align:left;"
+        css +=     "autoSize:none;"
+        css +=     "color:grey6;"
+        css +=     "selectable:true;"
+        css +=     "margin-top:4px;"
+        css +=     "backgroundColor:orange;"
+        css +=     "background:false;"
+        css += "}"
+        /*TextArea*/
+        css += "TextArea{"
+        css +=     "float:left;"
+        css +=     "clear:left;"
+        css +=     "fill:white;"
+        css +=     "line:white9;"
+        css +=     "line-alpha:1;"
+        css +=     "line-thickness:1px;"
+        css +=     "line-offset-type:outside;"
+        css +=     "padding:6px;"
+        //css +=     "drop-shadow:<InsetShadow>;"
+        css += "}"
+        css += "TextArea Text{"
+        css +=     "width:100%;"
+        css +=     "leading:2px;"
+        css +=     "multiline:true;"
+        css += "}"
+        StyleManager.addStyle(css)
         
         let textArea:TextArea = addSubView(TextArea(0, 0, "This is a single line text area", self)) as! TextArea;
         textArea
