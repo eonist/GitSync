@@ -68,6 +68,9 @@ class CustomView:WindowView{
         css +=     "selectable:true;"
         css +=     "mouseEnabled:true;"
         css += "}"
+        css += "Spinner Stepper{"
+        css +=     "clear:none;"
+        css += "}"
         
         /*stepper css*/
         css += "ButtonBase{"
