@@ -40,8 +40,10 @@ class CustomView:WindowView{
         css +=     "align:left;"
         css +=     "autoSize:none;"
         css +=     "color:grey6;"
-        css +=     "selectable,mouseEnabled,embedFonts,wordWrap:true;"
+        css +=     "selectable:true;"
         css +=     "margin-top:4px;"
+        css +=     "backgroundColor:orange;"
+        css +=     "background:false;"
         css += "}"
         StyleManager.addStyle(css)
         let text:Text = self.addSubView(Text(100,24,"This is text: ",self)) as! Text
