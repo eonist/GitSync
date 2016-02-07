@@ -16,7 +16,8 @@ class CustomView:WindowView{
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
-        createSingleLineTextArea()
+        createTextInput()
+        //createSingleLineTextArea()
         //createText()
         //createLeverSpinner()
         //createLeverStepper()
@@ -27,6 +28,13 @@ class CustomView:WindowView{
         //remember the contentview is sort of the container to hold items. might need to add things to this instance
         
         
+    }
+    
+    func createTextInput(){
+        var css:String = ""
+        
+        let textInput:TextInput = addSubView(TextInput(0, 0, "Description: ", "blue", self)) as! TextInput;
+        textInput
     }
     /**
      *
