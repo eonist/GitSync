@@ -16,7 +16,7 @@ class CustomView:WindowView{
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
-        
+        createSingleLineTextArea()
         //createText()
         //createLeverSpinner()
         //createLeverStepper()
@@ -27,6 +27,13 @@ class CustomView:WindowView{
         //remember the contentview is sort of the container to hold items. might need to add things to this instance
         
         
+    }
+    /**
+     *
+     */
+    func createSingleLineTextArea(){
+        let textArea:TextArea = addSubView(TextArea(0, 0, "This is a single line text area", self)) as! TextArea;
+        textArea
     }
     /**
      *
@@ -49,13 +56,6 @@ class CustomView:WindowView{
         StyleManager.addStyle(css)
         let text:Text = self.addSubView(Text(100,24,"This is text: ",self)) as! Text
         text
-    }
-    /**
-     *
-     */
-    func createSingleLineTextArea(){
-        let textArea:TextArea = addSubView(TextArea(0, 0, "This is a single line text area", self)) as! TextArea;
-        textArea
     }
     /**
      * TODO: create the LeverSpinner component with text
