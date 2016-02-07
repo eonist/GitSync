@@ -16,7 +16,8 @@ class CustomView:WindowView{
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
-        createLeverSpinner()
+        createText
+        //createLeverSpinner()
         //createLeverStepper()
         
         //createRadioBullets()
@@ -29,9 +30,16 @@ class CustomView:WindowView{
     /**
      *
      */
+    func createText(){
+        let text:Text = self.addSubView(Text(100,24,"This is text: ",self)) as! Text
+        text
+    }
+    /**
+     *
+     */
     func createSingleLineTextArea(){
-        var textArea:TextArea = addSubView(TextArea(0, 0, "This is a single line text area", self)) as! TextArea;
-        
+        let textArea:TextArea = addSubView(TextArea(0, 0, "This is a single line text area", self)) as! TextArea;
+        textArea
     }
     /**
      * TODO: create the LeverSpinner component with text
