@@ -30,8 +30,8 @@ class TempTextInput:NSView{
         self.addSubview(nameInputText)
     }
     /*
-    * required by super class
-    */
+     * required by super class
+     */
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
