@@ -26,11 +26,8 @@ class CustomView:WindowView{
         
         //buttonTest()
     }
-   
-    
-   
+
     //create the LeverSpinner component with text
-    
     
     /**
      * TODO: maybe change the inside to the top not the bottom
