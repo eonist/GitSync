@@ -43,7 +43,7 @@ class CustomView:WindowView{
         /*text css*/
         css += "Spinner TextInput{"
         css +=     "width:90px;"
-        css +=     "height:18px;"
+        css +=     "height:28px;"
         css +=     "margin-right:6px;"
         css += "}"
         css += "Spinner TextInput Text{"
@@ -60,7 +60,7 @@ class CustomView:WindowView{
         css += "}"
         css += "Spinner TextInput TextArea{"
         css +=     "width:50px;"
-        css +=     "height:18px;"
+        css +=     "height:28px;"
         css += "}"
         css += "Spinner TextInput TextArea Text{"
         css +=     "width:100%;"
