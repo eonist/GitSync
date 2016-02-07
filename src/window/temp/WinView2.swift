@@ -238,7 +238,7 @@ class WinView2:FlippedView{
         self.addSubview(btn3)
         
         let selectGroup = SelectGroup([btn1,btn2,btn3],btn2);
-        Swift.print("\(selectGroup)")
+        selectGroup
         
     }
     func testDropShadow(){
