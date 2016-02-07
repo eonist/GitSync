@@ -26,14 +26,7 @@ class CustomView:WindowView{
         
         buttonTest()
     }
-    
-    //continue here: to figure out the hover bug you need to make a button test case with overstate and normal state.
-    //then test with svg
-    //then test with only svg as states
-    
-    
-    //maybe change the inside to the top not the bottom
-    //add hover and down states in the css
+   
     
     
     
@@ -44,7 +37,7 @@ class CustomView:WindowView{
     
     //add leverstepper instance to the code block bellow
     //try to make the window background its own thing.
-    
+    jd  
     func createLeverStepper(){
         var css:String = ""
         css += "ButtonBase{"
@@ -212,10 +205,10 @@ class CustomView:WindowView{
         self.addSubview(section!)
         
         closeButton = section!.addSubView(Button(0,0,section!,"close")) as? Button/*<--the w and h should be NaN, test if it supports this*/
-        /*let minimizeButton = Button(12,12,section!,"minimize")
+        let minimizeButton = Button(0,0,section!,"minimize")
         section!.addSubview(minimizeButton)
-        let maximizeButton = Button(12,12,section!,"maximize")
-        section!.addSubview(maximizeButton)*/
+        let maximizeButton = Button(0,0,section!,"maximize")
+        section!.addSubview(maximizeButton)/**/
     }
     /**
      *
