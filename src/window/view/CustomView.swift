@@ -26,7 +26,13 @@ class CustomView:WindowView{
         
         
     }
-
+    /**
+     *
+     */
+    func createSingleLineTextArea(){
+        var textArea:TextArea = addSubView(TextArea(0, 0, "This is a single line text area", self)) as! TextArea;
+        
+    }
     /**
      * TODO: create the LeverSpinner component with text
      */
