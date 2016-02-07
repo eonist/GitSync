@@ -36,9 +36,7 @@ class CustomView:WindowView{
         
         StyleManager.addStyle(css)
         
-        let text = Text(100,20,"Hello world",self)
-        addSubview(text)
-        text.isInteractive = false
+        
         
         
     }
