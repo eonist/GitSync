@@ -34,7 +34,7 @@ class CustomView:WindowView{
         var css:String = ""
         css += "Text{font:Lucida Grande;selectable:false;size:12px;color:gray;align:center;backgroundColor:orange;background:false;margin-top:5px;float:left;clear:left;}"//
         
-        CSSParser.styleCollection(css)
+        StyleManager.addStyle(css)
         
         let text = Text(100,20,"Hello world",self)
         addSubview(text)
