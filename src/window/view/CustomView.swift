@@ -65,6 +65,7 @@ class CustomView:WindowView{
         css +=     "width:50px;"
         css +=     "height:28px;"
         css +=     "float:left;"
+        css +=     "clear:none;"
         css += "}"
         css += "Spinner TextInput TextArea Text{"
         css +=     "width:100%;"
