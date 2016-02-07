@@ -24,7 +24,7 @@ class CustomView:WindowView{
         
         //remember the contentview is sort of the container to hold items. might need to add things to this instance
         
-        //buttonTest()
+        buttonTest()
     }
     
     //continue here: to figure out the hover bug you need to make a button test case with overstate and normal state.
