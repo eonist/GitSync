@@ -62,6 +62,13 @@ class CustomView:WindowView{
         css +=     "width:50px;"
         css +=     "height:18px;"
         css += "}"
+        css += "Spinner TextInput TextArea Text{"
+        css +=     "width:100%;"
+        css +=     "align:right;"
+        css +=     "selectable:true;"
+        css +=     "mouseEnabled:true;"
+        css += "}"
+        
         /*stepper css*/
         css += "ButtonBase{"
         css +=     "fill:linear-gradient(top,#FFFEFE,#E8E8E8);"
