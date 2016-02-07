@@ -35,9 +35,12 @@ class CustomView:WindowView{
     //check if SelectTextButton works
     //create the LeverSpinner component with text
     
-    //add leverstepper instance to the code block bellow
+    
     //try to make the window background its own thing.
-    jd  
+    /**
+     * TODO: maybe change the inside to the top not the bottom
+     * TODO: add hover and down states in the css
+     */
     func createLeverStepper(){
         var css:String = ""
         css += "ButtonBase{"
