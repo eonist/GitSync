@@ -25,7 +25,7 @@ class CustomView:WindowView{
         //createRadioBullets()
         //addEventListeners()
         
-        //remember the contentview is sort of the container to hold items. might need to add things to this instance
+        //continue here: Take a look at previouse NSTextField code vs NSText code. Run some tests to see which fits best. 
         
         
     }
