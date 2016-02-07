@@ -31,12 +31,12 @@ class CustomView:WindowView{
      * TODO: create the LeverSpinner component with text
      */
     func createLeverSpinner(){
-        var css:String = ""
+        var css:String = "Text{float:left;clear:left;}"
         css += "Text{font:Lucida Grande;selectable:false;size:12px;color:gray;align:center;backgroundColor:orange;background:false;margin-top:5px;}"//
         
         CSSParser.styleCollection(css)
         
-        let text = Text(width,height,"Hello world",self)
+        let text = Text(100,20,"Hello world",self)
         addSubview(text)
         text.isInteractive = false
         
