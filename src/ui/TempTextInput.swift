@@ -55,9 +55,11 @@ class TempTextInput:FlippedView{
         Swift.print("tempPos4: " + "\(tempPos4)")
         Swift.print("TempTextinput: hitTest()" + "\(aPoint)" + " tempPos: " + "\(tempPos)")
         
-        
-        
-        return super.hitTest(CGPoint(aPoint.x,60))
+        for var i = self.subviews.count-1; i > -1; --i{//<--you could store the count outside the loop for optimization, i dont know if this is imp in swift
+            let hitView = self.subviews[i].hitTest(aPoint)/*if true then a point was found within its hittable area*/
+            if(hitView != nil){return hitView}
+        }
+        return nil
     }
 }
 
