@@ -33,7 +33,8 @@ class CustomView:WindowView{
         tempTextInput.frame.origin.y = 50*/
         
         
-        //add dropshadow to the textinputTest. 
+        //add dropshadow to the textinputTest. Get this to work on the singleLinetest firsst then text input
+        //make the leverSlider component
         
     }
     /**
