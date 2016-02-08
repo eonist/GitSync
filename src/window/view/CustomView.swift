@@ -17,8 +17,8 @@ class CustomView:WindowView{
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
         //createTextInput()
-        createSingleLineTextArea()
-        //createText()
+        //createSingleLineTextArea()
+        createText()
         //createLeverSpinner()
         //createLeverStepper()
         
@@ -130,6 +130,7 @@ class CustomView:WindowView{
      */
     func createText(){
         var css:String = ""
+        css += "Section#textContainer{fill:green;float:left;clear:left;}"
         css += "Text{"
         css +=     "float:left;"
         css +=     "clear:left;"
@@ -147,7 +148,7 @@ class CustomView:WindowView{
         css += "}"
         StyleManager.addStyle(css)
         
-        let container = Section(500,500,self,"radioBulletContainer")
+        let container = Section(500,500,self,"textContainer")
         addSubview(container)
         
         
