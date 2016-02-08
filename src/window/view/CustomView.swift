@@ -143,7 +143,6 @@ class CustomView:WindowView{
         let container = Section(200,200,self,"textContainer")
         addSubview(container)
         
-        
         let textArea:TextArea = container.addSubView(TextArea(200, 26, "This is a single line text area", container)) as! TextArea;
         textArea
     }
@@ -172,7 +171,6 @@ class CustomView:WindowView{
         
         let container = Section(200,50,self,"textContainer")
         addSubview(container)
-        
         
         let text:Text = container.addSubView(Text(100,24,"This is text: ",container)) as! Text
         text
