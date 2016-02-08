@@ -62,6 +62,7 @@ class CustomView:WindowView{
         css += "}"
         /*TextInput*/
         css += "TextInput{"
+        css +=     "padding:0px;"
         css +=     "float:left;"
         css +=     "clear:left;"
         css += "}"
