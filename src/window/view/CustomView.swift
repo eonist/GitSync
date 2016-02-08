@@ -146,7 +146,12 @@ class CustomView:WindowView{
         css +=     "background:false;"
         css += "}"
         StyleManager.addStyle(css)
-        let text:Text = self.addSubView(Text(100,24,"This is text: ",self)) as! Text
+        
+        let container = Section(500,500,self,"radioBulletContainer")
+        addSubview(container)
+        
+        
+        let text:Text = container.addSubView(Text(100,24,"This is text: ",container)) as! Text
         text
     }
     /**
