@@ -40,8 +40,6 @@ class WinView:FlippedView{
         //testRotation()
         //testSkin()
         
-        let tempTextInput = TempTextInput()
-        addSubview(tempTextInput)
         
         
     }
