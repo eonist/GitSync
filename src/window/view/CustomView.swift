@@ -42,6 +42,7 @@ class CustomView:WindowView{
      */
     func createTextInput(){
         var css:String = ""
+        
         /*Text*/
         css += "Text{"
         css +=     "float:left;"
@@ -96,6 +97,10 @@ class CustomView:WindowView{
      */
     func createSingleLineTextArea(){
         var css:String = ""
+        /*generics*/
+        css += "InsetShadow{"
+        css +=      "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);"
+        css += "}"
         /*Text*/
         css += "Text{"
         css +=     "float:left;"
