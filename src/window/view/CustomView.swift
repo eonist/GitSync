@@ -53,7 +53,7 @@ class CustomView:WindowView{
         css +=     "font:Lucida Grande;"
         css +=     "size:12px;"
         css +=     "align:left;"
-        css +=     "wordWrap:true;"
+        //css +=     "wordWrap:true;"
         //css +=     "autoSize:none;"
         css +=     "color:grey6;"
         //css +=     "margin-top:4px;"
