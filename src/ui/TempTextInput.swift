@@ -73,7 +73,7 @@ class CustomTextField:NSTextField{
     }
     /**
      * NOTE: You must use InteractiveView as a parent for this class to work
-     * NOTE: the hitTesting bellow is the only combination i found that will give a correct hit. 
+     * NOTE: the hitTesting bellow is the only combination i found that will give a correct hit. the x can also be derived from the 
      */
     override func hitTest(aPoint: NSPoint) -> NSView? {
         Swift.print("CustomTextField: hitTest()" + "\(aPoint)" + " localPos(): " + "\(localPos())")
