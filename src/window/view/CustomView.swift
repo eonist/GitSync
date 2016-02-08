@@ -59,15 +59,15 @@ class CustomView:WindowView{
         css +=     "float:left;"
         css +=     "clear:left;"
         css += "}"
-        css += "TextInput Text{"
+        /*css += "TextInput Text{"
         css +=     "float:left;"
         css +=     "clear:none;"
         css +=     "width:78px;"
         css +=     "height:22px;"
         css +=     "margin-top:4px;"
         css +=     "color:grey4;"
-        css += "}"
-        css += "TextInput TextArea{"
+        css += "}"*/
+        /*css += "TextInput TextArea{"
         css +=     "clear:none;"
         css +=     "width:60px;"
         css +=     "height:24px;"
@@ -77,7 +77,7 @@ class CustomView:WindowView{
         css +=     "line-alpha:1;"
         css +=     "line-thickness:1px;"
         css +=     "line-offset-type:outside;"
-        css += "}"
+        css += "}"*/
         //css += "TextInput TextArea Text{"
         //css +=     "leftMargin:4px;"
         //css +=     "type:input;"
@@ -86,7 +86,7 @@ class CustomView:WindowView{
         
         StyleManager.addStyle(css)
         
-        let textInput:TextInput = addSubView(TextInput(0, 0, "Description: ", "blue", self)) as! TextInput;
+        let textInput:TextInput = addSubView(TextInput(200, 28, "Description: ", "blue", self)) as! TextInput;
         textInput
     }
     /**
