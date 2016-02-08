@@ -29,6 +29,7 @@ class TempTextInput:NSView{
         nameInputText.editable = true
         nameInputText.bordered = true
         nameInputText.selectable = true
+        nameInputText.focusRingType = NSFocusRingType.None
         self.addSubview(nameInputText)
     }
     /*
