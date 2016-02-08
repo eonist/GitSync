@@ -79,7 +79,7 @@ class CustomView:WindowView{
         css +=     "height:24px;"
         css +=     "padding:0px;"
         css +=     "fill:white;"
-        css +=     "line:white9;"
+        css +=     "line:grey9;"
         css +=     "line-alpha:1;"
         css +=     "line-thickness:1px;"
         css +=     "line-offset-type:outside;"
