@@ -27,7 +27,8 @@ class CustomView:WindowView{
         
         //continue here: Take a look at previouse NSTextField code vs NSText code. Run some tests to see which fits best.
         
-        
+        let tempTextInput = TempTextInput()
+        addSubview(tempTextInput)
     }
     
     func createTextInput(){

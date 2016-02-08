@@ -3,7 +3,7 @@ import Cocoa
 class TempTextInput:NSView{
     var title = ""
     var defaultInput = ""
-    init(_ width:Int = 200, _ height:Int = 30, _ title:String = "", _ defaultInput:String = "") {
+    init(_ width:Int = 200, _ height:Int = 30, _ title:String = "test", _ defaultInput:String = "input text") {
         self.title = title
         self.defaultInput = defaultInput
         let frame = NSRect(x: 0, y: 0, width: width, height: height)
@@ -27,6 +27,7 @@ class TempTextInput:NSView{
         nameInputText.stringValue = defaultInput
         nameInputText.editable = true
         nameInputText.bordered = true
+        nameInputText.selectable = true
         self.addSubview(nameInputText)
     }
     /*
