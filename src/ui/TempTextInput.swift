@@ -1,6 +1,6 @@
 import Foundation
 import Cocoa
-class TempTextInput:NSView{
+class TempTextInput:FlippedView{
     var nameText:CustomTextField!
     var nameInputText:CustomTextField!
     var title = ""
@@ -66,7 +66,7 @@ class TempTextInput:NSView{
 //continue here: the hit test is all wrong when using NSText. tet if its the same on NSVIew, maybe Element is special etc. also do research online
 
 class CustomTextField:NSTextField{
-    override var flipped:Bool {return true}/*Organizes your view from top to bottom*/
+    //override var flipped:Bool {return true}/*Organizes your view from top to bottom*/
 
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
