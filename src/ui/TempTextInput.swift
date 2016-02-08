@@ -53,14 +53,14 @@ class TempTextInput:FlippedView{
         Swift.print("tempPos4: " + "\(tempPos4)")
         Swift.print("TempTextinput: hitTest()" + "\(aPoint)" + " tempPos: " + "\(tempPos)")
         
-        return super.hitTest(CGPoint(aPoint.x,tempPos.y))
+        return super.hitTest(CGPoint(aPoint.x,60))
     }
 }
 
 //continue here: the hit test is all wrong when using NSText. tet if its the same on NSVIew, maybe Element is special etc. also do research online
 
 class CustomTextField:NSTextField{
-    //override var flipped:Bool {return true}/*Organizes your view from top to bottom*/
+    override var flipped:Bool {return true}/*Organizes your view from top to bottom*/
 
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
