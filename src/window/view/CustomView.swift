@@ -44,9 +44,9 @@ class CustomView:WindowView{
         css +=     "font:Lucida Grande;"
         css +=     "size:12px;"
         css +=     "align:left;"
-        css +=     "autoSize:none;"
+        //css +=     "autoSize:none;"
         css +=     "color:grey6;"
-        css +=     "selectable:true;"
+        
         //css +=     "margin-top:4px;"
         css +=     "backgroundColor:orange;"
         css +=     "background:false;"
