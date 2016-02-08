@@ -1,6 +1,6 @@
 import Foundation
 import Cocoa
-class TempTextInput:NSView{
+class TempTextInput:FlippedView{
     var title = ""
     var defaultInput = ""
     init(_ width:Int = 200, _ height:Int = 30, _ title:String = "test", _ defaultInput:String = "input text") {
@@ -42,8 +42,9 @@ class TempTextInput:NSView{
      *
      */
     override func hitTest(aPoint: NSPoint) -> NSView? {
-        Swift.print("TempTextinput: hitTest()" + "\(aPoint)")
-        return super.hitTest(aPoint)
+        Swift.print("TempTextinput: hitTest()" + "\(aPoint)" + " localPos(): " + "\(localPos())")
+        
+        return super.hitTest(localPos())
     }
 }
 
@@ -57,7 +58,7 @@ class CustomTextField:NSTextField{
     }
     override func hitTest(aPoint: NSPoint) -> NSView? {
         Swift.print("CustomTextField: hitTest()" + "\(aPoint)" + " localPos(): " + "\(localPos())")
-        return super.hitTest(localPos())
+        return super.hitTest(aPoint)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
