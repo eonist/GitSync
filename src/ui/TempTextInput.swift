@@ -47,6 +47,8 @@ class TempTextInput:NSView{
     }
 }
 
+//continue here: the hit test is all wrong when using NSText. tet if its the same on NSVIew, maybe Element is special etc. also do research online
+
 class CustomTextField:NSTextField{
     override var flipped:Bool {return true}/*Organizes your view from top to bottom*/
 
@@ -55,7 +57,7 @@ class CustomTextField:NSTextField{
     }
     override func hitTest(aPoint: NSPoint) -> NSView? {
         Swift.print("CustomTextField: hitTest()" + "\(aPoint)")
-        return super.hitTest(CGPoint(aPoint.x,0))
+        return super.hitTest(aPoint)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
