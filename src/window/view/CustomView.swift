@@ -140,6 +140,7 @@ class CustomView:WindowView{
         css +=     "color:grey6;"
         css +=     "type:input;"
         css +=     "selectable:true;"
+        css +=     "wordWrap:true;"
         css +=     "margin-top:4px;"
         css +=     "backgroundColor:orange;"
         css +=     "background:false;"
