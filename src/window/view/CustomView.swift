@@ -24,28 +24,15 @@ class CustomView:WindowView{
         
         //createRadioBullets()
         //addEventListeners()
-        buttonTest()
         
         //continue here: Take a look at previouse NSTextField code vs NSText code. Run some tests to see which fits best.
         
-        /*let nameText = CustomTextField(frame: NSRect(x: 0, y: 0, width: 144, height: 24))
-        nameText.stringValue = "title"
-        nameText.editable = false
-        nameText.bordered = false
-        nameText.selectable = true
-        self.addSubview(nameText)
+        let tempTextInput = TempTextInput()
+        addSubview(tempTextInput)
         
-        let spacing = 12
-        let x = Int(nameText.frame.origin.x) + Int(nameText.frame.width) + spacing
-        let y = Int(nameText.frame.origin.y)
-        let nameInputText = CustomTextField(frame: NSRect(x: x, y: y, width: 144, height: 24))
-        nameInputText.stringValue = "defaultInput"
-        nameInputText.editable = true
-        nameInputText.bordered = true
-        nameInputText.selectable = true
-        nameInputText.focusRingType = NSFocusRingType.None
-        self.addSubview(nameInputText)*/
+        tempTextInput.frame.origin.y = 50
     }
+
     func createTextInput(){
         var css:String = ""
         /*Text*/
