@@ -135,7 +135,7 @@ class CustomView:WindowView{
         //css +=     "multiline:true;"
         css += "}"
         
-        css += "Section#textContainer{fill:green;float:left;clear:left;padding-top:20px;padding-left:20px;corner-radius:0px;}"
+        css += "Section#textContainer{fill:green;fill-alpha:0;float:left;clear:left;padding-top:20px;padding-left:20px;corner-radius:0px;}"
         
         
         StyleManager.addStyle(css)
@@ -144,7 +144,7 @@ class CustomView:WindowView{
         addSubview(container)
         
         
-        let textArea:TextArea = addSubView(TextArea(200, 26, "This is a single line text area", container)) as! TextArea;
+        let textArea:TextArea = container.addSubView(TextArea(200, 26, "This is a single line text area", container)) as! TextArea;
         textArea
     }
     /**
