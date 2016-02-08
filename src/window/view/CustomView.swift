@@ -32,7 +32,6 @@ class CustomView:WindowView{
         
         tempTextInput.frame.origin.y = 50
     }
-    
     func createTextInput(){
         var css:String = ""
         /*Text*/
