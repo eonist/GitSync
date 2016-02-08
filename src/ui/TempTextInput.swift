@@ -42,9 +42,10 @@ class TempTextInput:FlippedView{
      *
      */
     override func hitTest(aPoint: NSPoint) -> NSView? {
-        Swift.print("TempTextinput: hitTest()" + "\(aPoint)" + " localPos(): " + "\(localPos())")
+        let tempPos = self.convertPoint(aPoint,fromView:nil)
+        Swift.print("TempTextinput: hitTest()" + "\(aPoint)" + " tempPos: " + "\(tempPos)")
         
-        return super.hitTest(localPos())
+        return super.hitTest(tempPos)
     }
 }
 
@@ -56,9 +57,9 @@ class CustomTextField:NSTextField{
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
     }
-    override func hitTest(aPoint: NSPoint) -> NSView? {
-        Swift.print("CustomTextField: hitTest()" + "\(aPoint)" + " localPos(): " + "\(localPos())")
-        return super.hitTest(aPoint)
-    }
+    /*override func hitTest(aPoint: NSPoint) -> NSView? {
+    Swift.print("CustomTextField: hitTest()" + "\(aPoint)" + " localPos(): " + "\(localPos())")
+    return super.hitTest(aPoint)
+    }*/
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
