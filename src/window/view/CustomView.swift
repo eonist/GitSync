@@ -15,8 +15,8 @@ class CustomView:WindowView{
     override func resolveSkin() {
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
-        createTitleBar()
-        createTextInput()
+        //createTitleBar()
+        //createTextInput()
         //createSingleLineTextArea()
         //createText()
         //createLeverSpinner()
@@ -25,7 +25,7 @@ class CustomView:WindowView{
         //createRadioBullets()
         //addEventListeners()
         
-        //continue here: Take a look at previouse NSTextField code vs NSText code. Run some tests to see which fits best. 
+        //continue here: Take a look at previouse NSTextField code vs NSText code. Run some tests to see which fits best.
         
         
     }
