@@ -43,24 +43,24 @@ class TempTextInput:FlippedView{
     /**
      *
      */
-    override func hitTest(aPoint: NSPoint) -> NSView? {
-        let tempPos = self.convertPoint(aPoint,fromView:nil)
-        Swift.print("tempPos: " + "\(tempPos)")
-        let temoPos2 = self.convertPoint(aPoint,toView:nil)
-        Swift.print("temoPos2: " + "\(temoPos2)")
-        let tempPos3 = self.convertPoint(aPoint,toView:self)
-        Swift.print("tempPos3: " + "\(tempPos3)")
-        
-        let tempPos4 = self.convertPoint(aPoint,fromView:self.window?.contentView)
-        Swift.print("tempPos4: " + "\(tempPos4)")
-        Swift.print("TempTextinput: hitTest()" + "\(aPoint)" + " tempPos: " + "\(tempPos)")
-        
-        for var i = self.subviews.count-1; i > -1; --i{//<--you could store the count outside the loop for optimization, i dont know if this is imp in swift
-            let hitView = self.subviews[i].hitTest(tempPos)/*if true then a point was found within its hittable area*/
-            if(hitView != nil){return hitView}
-        }
-        return nil
+    /*override func hitTest(aPoint: NSPoint) -> NSView? {
+    let tempPos = self.convertPoint(aPoint,fromView:nil)
+    Swift.print("tempPos: " + "\(tempPos)")
+    let temoPos2 = self.convertPoint(aPoint,toView:nil)
+    Swift.print("temoPos2: " + "\(temoPos2)")
+    let tempPos3 = self.convertPoint(aPoint,toView:self)
+    Swift.print("tempPos3: " + "\(tempPos3)")
+    
+    let tempPos4 = self.convertPoint(aPoint,fromView:self.window?.contentView)
+    Swift.print("tempPos4: " + "\(tempPos4)")
+    Swift.print("TempTextinput: hitTest()" + "\(aPoint)" + " tempPos: " + "\(tempPos)")
+    
+    for var i = self.subviews.count-1; i > -1; --i{//<--you could store the count outside the loop for optimization, i dont know if this is imp in swift
+    let hitView = self.subviews[i].hitTest(tempPos)/*if true then a point was found within its hittable area*/
+    if(hitView != nil){return hitView}
     }
+    return nil
+    }*/
 }
 
 //continue here: the hit test is all wrong when using NSText. tet if its the same on NSVIew, maybe Element is special etc. also do research online
