@@ -18,6 +18,7 @@ class TempTextInput:NSView{
         nameText.stringValue = title
         nameText.editable = false
         nameText.bordered = false
+        nameText.selectable = true
         self.addSubview(nameText)
         
         let spacing = 12

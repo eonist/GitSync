@@ -40,10 +40,12 @@ class WinView:FlippedView{
         //testRotation()
         //testSkin()
         
-    }
-
-    func graphicsTest(){
+        let tempTextInput = TempTextInput()
+        addSubview(tempTextInput)
         
+        
+    }
+    func graphicsTest(){
         var thePath = CGPathParser.rect(100,100)//Shapes
         CGPathModifier.translate(&thePath,CGFloat(0),CGFloat(0))//Transformations
         let graphics = Graphics()
