@@ -86,8 +86,8 @@ class CustomView:WindowView{
         css +=     "drop-shadow:<InsetShadow>;"
         css += "}"/**/
         css += "TextInput TextArea Text{"
-        css +=     "left-margin:4px;"
-        css +=     "right-margin:22px;"
+        css +=     "margin-left:4px;"
+        css +=     "padding-right:-20px;"
         css +=     "type:input;"
         css +=     "selectable:true;"
         css += "}"
