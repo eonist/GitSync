@@ -46,3 +46,14 @@ class TempTextInput:FlippedView{
         return super.hitTest(aPoint)
     }
 }
+
+class CustomTextField:NSTextField{
+    /**
+     *
+     */
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+    }
+
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+}
