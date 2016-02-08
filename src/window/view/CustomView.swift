@@ -16,8 +16,8 @@ class CustomView:WindowView{
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
-        //createTextInput()
-        createSingleLineTextArea()
+        createTextInput()
+        //createSingleLineTextArea()
         //createText()
         //createLeverSpinner()
         //createLeverStepper()
@@ -32,7 +32,9 @@ class CustomView:WindowView{
         
         tempTextInput.frame.origin.y = 50*/
     }
-
+    /**
+     * TODO: Create examples etc
+     */
     func createTextInput(){
         var css:String = ""
         /*Text*/
