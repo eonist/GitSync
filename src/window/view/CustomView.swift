@@ -18,7 +18,7 @@ class CustomView:WindowView{
         //createTitleBar()
         //createTextInput()
         //createSingleLineTextArea()
-        //createText()
+        createText()
         //createLeverSpinner()
         //createLeverStepper()
         
@@ -27,10 +27,10 @@ class CustomView:WindowView{
         
         //continue here: Take a look at previouse NSTextField code vs NSText code. Run some tests to see which fits best.
         
-        let tempTextInput = TempTextInput()
+        /*let tempTextInput = TempTextInput()
         addSubview(tempTextInput)
         
-        tempTextInput.frame.origin.y = 50
+        tempTextInput.frame.origin.y = 50*/
     }
 
     func createTextInput(){
@@ -138,6 +138,7 @@ class CustomView:WindowView{
         css +=     "align:left;"
         css +=     "autoSize:none;"
         css +=     "color:grey6;"
+        css +=     "type:input;"
         css +=     "selectable:true;"
         css +=     "margin-top:4px;"
         css +=     "backgroundColor:orange;"
