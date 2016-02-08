@@ -122,21 +122,21 @@ class CustomView:WindowView{
         css +=     "float:left;"
         css +=     "clear:left;"
         css +=     "fill:white;"
-        css +=     "line:white9;"
+        css +=     "line:grey9;"
         css +=     "line-alpha:1;"
         css +=     "line-thickness:1px;"
         css +=     "line-offset-type:outside;"
         css +=     "padding:6px;"
         css +=     "drop-shadow:<InsetShadow>;"
         css += "}"
-        //css += "TextArea Text{"
-        //css +=     "width:100%;"
+        css += "TextArea Text{"
+        css +=     "width:100%;"
         //css +=     "leading:2px;"
         //css +=     "multiline:true;"
-        //css += "}"
+        css += "}"
         StyleManager.addStyle(css)
         
-        let textArea:TextArea = addSubView(TextArea(200, 24, "This is a single line text area", self)) as! TextArea;
+        let textArea:TextArea = addSubView(TextArea(200, 26, "This is a single line text area", self)) as! TextArea;
         textArea
     }
     /**
