@@ -44,6 +44,9 @@ class CustomView:WindowView{
         css +=     "font:Lucida Grande;"
         css +=     "size:12px;"
         css +=     "align:left;"
+        css +=     "type:input;"
+        css +=     "selectable:true;"
+        css +=     "wordWrap:true;"
         //css +=     "autoSize:none;"
         css +=     "color:grey6;"
         
@@ -75,11 +78,11 @@ class CustomView:WindowView{
         css +=     "line-thickness:1px;"
         css +=     "line-offset-type:outside;"
         css += "}"
-        css += "TextInput TextArea Text{"
-        css +=     "leftMargin:4px;"
-        css +=     "type:input;"
-        css +=     "selectable:true;"
-        css += "}"
+        //css += "TextInput TextArea Text{"
+        //css +=     "leftMargin:4px;"
+        //css +=     "type:input;"
+        //css +=     "selectable:true;"
+        //css += "}"
         
         StyleManager.addStyle(css)
         
