@@ -98,7 +98,7 @@ class CustomView:WindowView{
         
         StyleManager.addStyle(css)
         
-        let container = Section(200,200,self,"textContainer")
+        let container = addSubView(Section(200,200,self,"textContainer")) as! Section
         
         let textInput:TextInput = container.addSubView(TextInput(200, 28, "Description: ", "blue", container)) as! TextInput
         textInput
