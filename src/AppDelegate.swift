@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         StyleManager.addStyle(css)
 
 
-        win = Win()//Win()//Win()//TranslucentWin()//CustomWin(300,200)//Win()//CustomWin()/*Init the window*///Win()//TranslucentWin()
+        win = CustomWin(300,200)//Win()//Win()//TranslucentWin()//CustomWin(300,200)//Win()//CustomWin()/*Init the window*///Win()//TranslucentWin()
         let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
         app.windows[0].close()/*close the initial non-optional default window*/
     }
@@ -32,6 +32,3 @@ class AppDelegate: NSObject, NSApplicationDelegate{
     }
 }
 
-/*let tempTextInput = TempTextInput()
-addSubview(tempTextInput)
-*/
