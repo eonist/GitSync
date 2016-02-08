@@ -91,10 +91,16 @@ class CustomView:WindowView{
         css +=     "type:input;"
         css +=     "selectable:true;"
         css += "}"
+       
+        
+        css += "Section#textContainer{fill:green;fill-alpha:0;float:left;clear:left;padding-top:20px;padding-left:20px;corner-radius:0px;}"
+        
         
         StyleManager.addStyle(css)
         
-        let textInput:TextInput = addSubView(TextInput(200, 28, "Description: ", "blue", self)) as! TextInput
+        let container = Section(200,200,self,"textContainer")
+        
+        let textInput:TextInput = container.addSubView(TextInput(200, 28, "Description: ", "blue", container)) as! TextInput
         textInput
     }
     /**
