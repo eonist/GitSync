@@ -1,6 +1,6 @@
 import Foundation
 import Cocoa
-class TempTextInput:NSView{
+class TempTextInput:FlippedView{
     var title = ""
     var defaultInput = ""
     init(_ width:Int = 200, _ height:Int = 30, _ title:String = "test", _ defaultInput:String = "input text") {
@@ -38,14 +38,10 @@ class TempTextInput:NSView{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    /*
-    * This makes sure that the view draws from top left corner
-    */
-    override var flipped:Bool {
-        get {
-            return true
-        }
+    /**
+     *
+     */
+    override func hitTest(aPoint: NSPoint) -> NSView? {
+        return super.hitTest(aPoint)
     }
-    
-    
 }
