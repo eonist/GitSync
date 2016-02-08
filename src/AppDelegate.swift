@@ -32,3 +32,6 @@ class AppDelegate: NSObject, NSApplicationDelegate{
     }
 }
 
+/*let tempTextInput = TempTextInput()
+addSubview(tempTextInput)
+*/
