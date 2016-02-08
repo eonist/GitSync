@@ -145,19 +145,20 @@ class InteractiveView2:FlippedView,IInteractiveView{
      */
     override func hitTest(aPoint: NSPoint) -> NSView? {
         Swift.print("hitTest: " + "\(self)" + " isInteractive: " + "\(isInteractive)")
-        if(isInteractive){
-            for var i = self.subviews.count-1; i > -1; --i{//<--you could store the count outside the loop for optimization, i dont know if this is imp in swift
-                let view = self.subviews[i]
-                let hitView = view.hitTest(aPoint)/*if true then a point was found within its hittable area*/
-                //Swift.print("view: " + "\(view)" + "hitView: " + "\(hitView)")
-                if(hitView != nil){
-                    //Swift.print("hitView: " + "\(hitView!.superview!.superview)")
-                    return hitView
-                }//<--if the view is a skin then return the self, so that the mouseEnter mouseExit methods work
-            }
-            return nil/*if no hitView is found return nil, the parent hitTest will then continue its search through its siblings etc*/
+        return super.hitTest(aPoint)
+        /*if(isInteractive){
+        for var i = self.subviews.count-1; i > -1; --i{//<--you could store the count outside the loop for optimization, i dont know if this is imp in swift
+        let view = self.subviews[i]
+        let hitView = view.hitTest(aPoint)/*if true then a point was found within its hittable area*/
+        //Swift.print("view: " + "\(view)" + "hitView: " + "\(hitView)")
+        if(hitView != nil){
+        //Swift.print("hitView: " + "\(hitView!.superview!.superview)")
+        return hitView
+        }//<--if the view is a skin then return the self, so that the mouseEnter mouseExit methods work
+        }
+        return nil/*if no hitView is found return nil, the parent hitTest will then continue its search through its siblings etc*/
         }/*else (aka not interactive)*/
-        return nil
+        return nil*/
     }
     /**
      * Enables the hand cursor on enter
