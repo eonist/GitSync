@@ -53,6 +53,9 @@ class CustomTextField:NSTextField{
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
     }
-
+    override func hitTest(aPoint: NSPoint) -> NSView? {
+        Swift.print("CustomTextField: hitTest()" + "\(aPoint)")
+        return super.hitTest(aPoint)
+    }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }

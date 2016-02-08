@@ -30,7 +30,7 @@ class CustomView:WindowView{
         let tempTextInput = TempTextInput()
         addSubview(tempTextInput)
         
-        tempTextInput.frame.origin.y = 50
+        tempTextInput.frame.origin.y = 0
     }
     func createTextInput(){
         var css:String = ""
