@@ -71,6 +71,9 @@ class CustomTextField:NSTextField{
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
     }
+    
+    //continue here: try to implement a subclass of NSText in TextSkin with the new hitTest
+    
     /**
      * NOTE: You must use InteractiveView as a parent for this class to work
      * NOTE: the hitTesting bellow is the only combination i found that will give a correct hit. the x can also be derived from the 
