@@ -42,7 +42,10 @@ class CustomView:WindowView{
      */
     func createTextInput(){
         var css:String = ""
-        
+        /*generics*/
+        css += "InsetShadow{"
+        css +=      "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);"
+        css += "}"
         /*Text*/
         css += "Text{"
         css +=     "float:left;"
@@ -80,6 +83,7 @@ class CustomView:WindowView{
         css +=     "line-alpha:1;"
         css +=     "line-thickness:1px;"
         css +=     "line-offset-type:outside;"
+        css +=     "drop-shadow:<InsetShadow>;"
         css += "}"/**/
         css += "TextInput TextArea Text{"
         css +=     "leftMargin:4px;"
