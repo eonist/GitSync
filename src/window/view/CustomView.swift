@@ -116,6 +116,7 @@ class CustomView:WindowView{
         css += "}"
         css += "TextArea Text{"
         css +=     "width:100%;"
+        css +=     "height:24px;"
         css +=     "float:left;"
         css +=     "clear:left;"
         css +=     "font:Lucida Grande;"
@@ -131,6 +132,8 @@ class CustomView:WindowView{
         css +=     "background:false;"
         //css +=     "leading:2px;"
         //css +=     "multiline:true;"
+        css +=     "margin-top:4px;"
+        css +=     "margin-left:6px;"
         css += "}"
         
         //css += "Section#textContainer{fill:green;fill-alpha:0;float:left;clear:left;padding-top:20px;padding-left:20px;corner-radius:0px;}"
