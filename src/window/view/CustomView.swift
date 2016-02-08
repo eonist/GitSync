@@ -17,8 +17,8 @@ class CustomView:WindowView{
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
         //createTextInput()
-        //createSingleLineTextArea()
-        createText()
+        createSingleLineTextArea()
+        //createText()
         //createLeverSpinner()
         //createLeverStepper()
         
@@ -96,9 +96,11 @@ class CustomView:WindowView{
         css +=     "font:Lucida Grande;"
         css +=     "size:12px;"
         css +=     "align:left;"
-        css +=     "autoSize:none;"
+        //css +=     "autoSize:none;"
         css +=     "color:grey6;"
+        css +=     "type:input;"
         css +=     "selectable:true;"
+        css +=     "wordWrap:true;"
         //css +=     "margin-top:4px;"
         css +=     "backgroundColor:orange;"
         css +=     "background:false;"
@@ -115,11 +117,11 @@ class CustomView:WindowView{
         css +=     "padding:6px;"
         //css +=     "drop-shadow:<InsetShadow>;"
         css += "}"
-        css += "TextArea Text{"
-        css +=     "width:100%;"
+        //css += "TextArea Text{"
+        //css +=     "width:100%;"
         //css +=     "leading:2px;"
-        css +=     "multiline:true;"
-        css += "}"
+        //css +=     "multiline:true;"
+        //css += "}"
         StyleManager.addStyle(css)
         
         let textArea:TextArea = addSubView(TextArea(200, 24, "This is a single line text area", self)) as! TextArea;
