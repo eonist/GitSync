@@ -56,7 +56,7 @@ class TempTextInput:NSView{
         Swift.print("TempTextinput: hitTest()" + "\(aPoint)" + " tempPos: " + "\(tempPos)")
         
         for var i = self.subviews.count-1; i > -1; --i{//<--you could store the count outside the loop for optimization, i dont know if this is imp in swift
-            let hitView = self.subviews[i].hitTest(tempPos)/*if true then a point was found within its hittable area*/
+            let hitView = self.subviews[i].hitTest(aPoint)/*if true then a point was found within its hittable area*/
             if(hitView != nil){return hitView}
         }
         return nil
@@ -71,6 +71,9 @@ class CustomTextField:NSTextField{
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
     }
+    /**
+     *
+     */
     override func hitTest(aPoint: NSPoint) -> NSView? {
         Swift.print("CustomTextField: hitTest()" + "\(aPoint)" + " localPos(): " + "\(localPos())")
         let tempPos = self.convertPoint(aPoint,fromView:nil)
