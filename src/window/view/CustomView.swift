@@ -16,8 +16,8 @@ class CustomView:WindowView{
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
-        createTextInput()
-        //createSingleLineTextArea()
+        //createTextInput()
+        createSingleLineTextArea()
         //createText()
         //createLeverSpinner()
         //createLeverStepper()
@@ -122,7 +122,7 @@ class CustomView:WindowView{
         css +=     "line-thickness:1px;"
         css +=     "line-offset-type:outside;"
         css +=     "padding:6px;"
-        //css +=     "drop-shadow:<InsetShadow>;"
+        css +=     "drop-shadow:<InsetShadow>;"
         css += "}"
         //css += "TextArea Text{"
         //css +=     "width:100%;"
