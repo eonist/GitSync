@@ -16,8 +16,8 @@ class CustomView:WindowView{
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
-        //createTextInput()
-        createSingleLineTextArea()
+        createTextInput()
+        //createSingleLineTextArea()
         //createText()
         //createLeverSpinner()
         //createLeverStepper()
@@ -89,7 +89,7 @@ class CustomView:WindowView{
         
         StyleManager.addStyle(css)
         
-        let textInput:TextInput = addSubView(TextInput(200, 28, "Description: ", "blue", self)) as! TextInput;
+        let textInput:TextInput = addSubView(TextInput(200, 28, "Description: ", "blue", self)) as! TextInput
         textInput
     }
     /**
