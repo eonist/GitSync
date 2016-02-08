@@ -31,6 +31,10 @@ class CustomView:WindowView{
         addSubview(tempTextInput)
         
         tempTextInput.frame.origin.y = 50*/
+        
+        
+        //add dropshadow to the textinputTest. 
+        
     }
     /**
      * TODO: Create examples etc
