@@ -15,7 +15,7 @@ class CustomView:WindowView{
     override func resolveSkin() {
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
-        //createTitleBar()
+        createTitleBar()
         //createTextInput()
         //createSingleLineTextArea()
         createText()
