@@ -1,6 +1,8 @@
 import Foundation
 import Cocoa
 class TempTextInput:FlippedView{
+    var nameText:CustomTextField!
+    var nameInputText:CustomTextField!
     var title = ""
     var defaultInput = ""
     init(_ width:Int = 200, _ height:Int = 30, _ title:String = "test", _ defaultInput:String = "input text") {
@@ -14,7 +16,7 @@ class TempTextInput:FlippedView{
      * 
      */
     func createContent(){
-        let nameText = CustomTextField(frame: NSRect(x: 0, y: 0, width: 144, height: 24))
+        nameText = CustomTextField(frame: NSRect(x: 0, y: 0, width: 144, height: 24))
         nameText.stringValue = title
         nameText.editable = false
         nameText.bordered = false
@@ -24,7 +26,7 @@ class TempTextInput:FlippedView{
         let spacing = 12
         let x = Int(nameText.frame.origin.x) + Int(nameText.frame.width) + spacing
         let y = Int(nameText.frame.origin.y)
-        let nameInputText = CustomTextField(frame: NSRect(x: x, y: y, width: 144, height: 24))
+        nameInputText = CustomTextField(frame: NSRect(x: x, y: y, width: 144, height: 24))
         nameInputText.stringValue = defaultInput
         nameInputText.editable = true
         nameInputText.bordered = true
