@@ -130,7 +130,7 @@ class CustomView:WindowView{
      */
     func createText(){
         var css:String = ""
-        css += "Section#textContainer{fill:green;float:left;clear:left;}"
+        css += "Section#textContainer{fill:white;float:left;clear:left;}"
         css += "Text{"
         css +=     "float:left;"
         css +=     "clear:left;"
@@ -148,7 +148,7 @@ class CustomView:WindowView{
         css += "}"
         StyleManager.addStyle(css)
         
-        let container = Section(500,500,self,"textContainer")
+        let container = Section(200,50,self,"textContainer")
         addSubview(container)
         
         
