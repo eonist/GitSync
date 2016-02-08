@@ -32,7 +32,7 @@ class TempTextInput:FlippedView{
         nameInputText.focusRingType = NSFocusRingType.None
         self.addSubview(nameInputText)
     }
-    /*
+    /**
      * required by super class
      */
     required init?(coder: NSCoder) {
@@ -42,6 +42,7 @@ class TempTextInput:FlippedView{
      *
      */
     override func hitTest(aPoint: NSPoint) -> NSView? {
+        Swift.print("TempTextinput: hitTest()" + "\(aPoint)")
         return super.hitTest(aPoint)
     }
 }
