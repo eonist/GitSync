@@ -146,7 +146,7 @@ class CustomView:WindowView{
         //let container = Section(200,200,self,"textContainer")
         //addSubview(container)
         
-        let textArea:TextArea = self.addSubView(TextArea(0, 0, "This is a single line text area", self)) as! TextArea;
+        let textArea:TextArea = self.addSubView(TextArea(CGFloat.NaN, CGFloat.NaN, "This is a single line text area", self)) as! TextArea;
         textArea
     }
     /**
