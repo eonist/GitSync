@@ -53,6 +53,8 @@ class TempTextInput:FlippedView{
         Swift.print("tempPos4: " + "\(tempPos4)")
         Swift.print("TempTextinput: hitTest()" + "\(aPoint)" + " tempPos: " + "\(tempPos)")
         
+        
+        
         return super.hitTest(CGPoint(aPoint.x,60))
     }
 }
