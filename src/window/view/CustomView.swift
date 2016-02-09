@@ -231,7 +231,7 @@ class CustomView:WindowView{
         css +=     "align:left;"
         css +=     "backgroundColor:orange;"
         css +=     "background:false;"
-        css +=     "margin-top:4px;"
+        css +=     "margin-top:2px;"
         css +=     "float:left;"
         css +=     "clear:none;"
         css += "}"
@@ -263,6 +263,7 @@ class CustomView:WindowView{
         css +=    "clear:none;"
         css += "}"
         css += "Stepper Button{"
+        css +=    "padding-left:0px;"//<---temp fix
         css +=    "float:left;"
         css +=    "width:10px,10px;"
         css +=    "height:10px,10px;"
