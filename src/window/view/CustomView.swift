@@ -298,7 +298,7 @@ class CustomView:WindowView{
         let leverSpinner:LeverSpinner = container.addSubView(LeverSpinner(140, 40, container)) as! LeverSpinner;
         leverSpinner
     }
-    var stepper:Stepper?
+    var stepper:LeverStepper?
     /**
      * TODO: maybe change the inside to the top not the bottom
      * TODO: add hover and down states in the css
@@ -343,8 +343,7 @@ class CustomView:WindowView{
         StyleManager.addStyle(css)
         
         let container = addSubView(Section(200,200,self,"container")) as! Section
-        stepper = container.addSubView(LeverStepper(100,24,0,1,CGFloat.min,CGFloat.max,0,100,200,container)) as! LeverStepper
-        
+        stepper = container.addSubView(LeverStepper(100,24,0,1,CGFloat.min,CGFloat.max,0,100,200,container)) as? LeverStepper
         
     }
     override func onEvent(event: Event) {
