@@ -208,7 +208,7 @@ class CustomView:WindowView{
         css +=      "clear:left;"
         css +=      "width:120px;"
         css +=      "height:24px;"
-        //css +=      "padding:-2px;"
+        css +=      "padding:0px;"
         css += "}"
         /*text css*/
         css += "Spinner TextInput{"
@@ -288,12 +288,15 @@ class CustomView:WindowView{
         //css +=     "margin-top:0px;"
         css +=     "corner-radius:0px 0px 4px 4px;"
         css += "}"
+        
+        css += "Section#container{fill:green;float:left;clear:left;padding-top:20px;padding-left:20px;}"
         StyleManager.addStyle(css)
         
+        let container = addSubView(Section(200,200,self,"container")) as! Section
         
-        let leverSpinner:LeverSpinner = self.addSubView(LeverSpinner(140, 40, self)) as! LeverSpinner;
+        
+        let leverSpinner:LeverSpinner = container.addSubView(LeverSpinner(140, 40, container)) as! LeverSpinner;
         leverSpinner
-        
     }
     /**
      * TODO: maybe change the inside to the top not the bottom
