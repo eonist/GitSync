@@ -342,12 +342,13 @@ class CustomView:WindowView{
         StyleManager.addStyle(css)
         
         let container = addSubView(Section(200,200,self,"container")) as! Section
-        
         let stepper = container.addSubView(LeverStepper(100,24,0,1,CGFloat.min,CGFloat.max,0,100,200,container)) as! LeverStepper
         
         
         func onStepperEvent(event:Event){
-            Swift.print("onStepperEvent() value: " + "\((event as! StepperEvent).value)")
+            if(event.origin === stepper && event.type == StepperEvent.change){
+                Swift.print("onStepperEvent() value: " + "\((event as! StepperEvent).value)")
+            }
             
         }
         stepper.event = onStepperEvent
