@@ -346,13 +346,7 @@ class CustomView:WindowView{
         stepper = container.addSubView(LeverStepper(100,24,0,1,CGFloat.min,CGFloat.max,0,100,200,container)) as? LeverStepper
         
     }
-    override func onEvent(event: Event) {
-        Swift.print("\(self.dynamicType)" + "onEvent() event:" + "\(event)")
-        if(event.origin === stepper && event.type == StepperEvent.change){
-            Swift.print("onStepperEvent() value: " + "\((event as! StepperEvent).value)")
-        }
-        
-    }
+    
     func buttonTest(){
         Swift.print("buttonTest()")
         var css:String = "Button{width:50px;height:50px;}"
@@ -530,6 +524,12 @@ class CustomView:WindowView{
      *
      */
     override func onEvent(event: Event) {
+        Swift.print( "CustomView.onEvent() event:" + "\(event)")
+        if(event.origin === stepper && event.type == StepperEvent.change){
+            Swift.print("onStepperEvent() value: " + "\((event as! StepperEvent).value)")
+        }
+        
+        
         //Swift.print("CustomView.onEvent: " + "\(event)" + " event.origin: " + "\(event.origin)")
         if(event.origin === closeButton && event.type == ButtonEvent.upInside){onCloseButtonReleaseInside()}
         else if(event.origin === minimizeButton && event.type == ButtonEvent.upInside){onMinimizeButtonReleaseInside()}
