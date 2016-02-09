@@ -344,7 +344,7 @@ class CustomView:WindowView{
         StyleManager.addStyle(css)
         
         stepperContainer = addSubView(Section(200,200,self,"container")) as? Section
-        stepper = stepperContainer!.addSubView(LeverStepper(100,24,0,1,CGFloat.min,CGFloat.max,0,100,200,stepperContainer)) as? LeverStepper
+        stepper = stepperContainer!.addSubView(LeverStepper(100,24,0,1,CGFloat(Int.min),CGFloat(Int.max),0,100,200,stepperContainer)) as? LeverStepper
         
     }
     
