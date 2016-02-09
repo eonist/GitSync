@@ -195,6 +195,10 @@ class CustomView:WindowView{
      */
     func createLeverSpinner(){
         var css:String = ""
+        /*generics*/
+        css += "InsetShadow{"
+        css +=      "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);"
+        css += "}"
         /*leverSpinner css*/
         css += "Spinner{"
         css +=      "float:left;"
@@ -234,10 +238,11 @@ class CustomView:WindowView{
         css +=     "float:left;"
         css +=     "clear:none;"
         css +=     "fill:white;"
-        css +=     "line:white9;"
+        css +=     "line:grey9;"
         css +=     "line-alpha:1;"
         css +=     "line-thickness:1px;"
         css +=     "line-offset-type:outside;"
+        css +=     "drop-shadow:<InsetShadow>;"
         css += "}"
         css += "Spinner TextInput TextArea Text{"
         css +=     "width:100%;"
