@@ -295,7 +295,9 @@ class CustomView:WindowView{
         let container = addSubView(Section(200,200,self,"container")) as! Section
         
         
-        let leverSpinner:LeverSpinner = container.addSubView(LeverSpinner(140, 40, container)) as! LeverSpinner;
+        
+        
+        let leverSpinner:LeverSpinner = container.addSubView(LeverSpinner(140, 40,"Value: ", 0, 1, CGFloat(Int.min), CGFloat(Int.max), 0, 100, 200, container)) as! LeverSpinner;
         leverSpinner
         
         
