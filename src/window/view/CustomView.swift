@@ -310,6 +310,7 @@ class CustomView:WindowView{
         css += "Stepper{"
         css +=    "float:left;"
         css +=    "clear:left;"
+        css +=    "padding:0px;"
         css += "}"
         css += "Stepper Button{"
         css +=    "float:left;"
@@ -337,7 +338,7 @@ class CustomView:WindowView{
         css +=     "corner-radius:0px 0px 4px 4px;"
         css += "}"
         
-        css += "Section#container{fill:green;fill-alpha:0;float:left;clear:left;padding-top:20px;padding-left:8px;}"
+        css += "Section#container{fill:green;fill-alpha:0;float:left;clear:left;padding-top:20px;padding-left:20px;}"
         StyleManager.addStyle(css)
         
         let container = addSubView(Section(200,200,self,"container")) as! Section
