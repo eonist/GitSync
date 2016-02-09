@@ -215,6 +215,8 @@ class CustomView:WindowView{
         css += "Spinner TextInput Text{"
         css +=     "font:Lucida Grande;"
         css +=     "selectable:false;"
+        css +=     "type:dynamic;"
+        css +=     "wordWrap:true;"
         css +=     "size:12px;"
         css +=     "color:gray;"
         css +=     "align:left;"
