@@ -79,7 +79,8 @@ class CustomView:WindowView{
         css +=     "width:60px;"
         css +=     "height:24px;"
         css +=     "padding:0px;"
-        css +=     "fill:white;"
+        css +=     "fill:green;"
+        css +=     "fill-alpha:1;"
         css +=     "line:grey9;"
         css +=     "line-alpha:1;"
         css +=     "line-thickness:1px;"
@@ -87,6 +88,8 @@ class CustomView:WindowView{
         css +=     "drop-shadow:<InsetShadow>;"
         css += "}"/**/
         css += "TextInput TextArea Text{"
+        css +=     "fill:green;"
+        css +=     "fill-alpha:1;"
         css +=     "margin-left:4px;"
         css +=     "padding-right:-20px;"
         css +=     "type:input;"
