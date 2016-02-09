@@ -289,7 +289,7 @@ class CustomView:WindowView{
         css +=     "corner-radius:0px 0px 4px 4px;"
         css += "}"
         
-        css += "Section#container{fill:green;float:left;clear:left;padding-top:20px;padding-left:20px;}"
+        css += "Section#container{fill:green;fill-alpha:0;float:left;clear:left;padding-top:20px;padding-left:8px;}"
         StyleManager.addStyle(css)
         
         let container = addSubView(Section(200,200,self,"container")) as! Section
