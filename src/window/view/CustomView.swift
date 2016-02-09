@@ -343,7 +343,7 @@ class CustomView:WindowView{
         
         let container = addSubView(Section(200,200,self,"container")) as! Section
         
-        let stepper = container.addSubView(LeverStepper(100,24,container)) as? LeverStepper
+        let stepper = container.addSubView(LeverStepper(100,24,0,1,CGFloat.min,CGFloat.max,0,100,200,container)) as? LeverStepper
         stepper
     }
     func buttonTest(){
