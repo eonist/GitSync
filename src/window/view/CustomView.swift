@@ -19,8 +19,8 @@ class CustomView:WindowView{
         //createTextInput()
         //createSingleLineTextArea()
         //createText()
-        //createLeverSpinner()
-        createLeverStepper()
+        createLeverSpinner()
+        //createLeverStepper()
         
         //createRadioBullets()
         //addEventListeners()
@@ -297,6 +297,8 @@ class CustomView:WindowView{
         
         let leverSpinner:LeverSpinner = container.addSubView(LeverSpinner(140, 40, container)) as! LeverSpinner;
         leverSpinner
+        
+        
     }
     var stepper:LeverStepper?
     var stepperContainer:Section?
@@ -526,9 +528,9 @@ class CustomView:WindowView{
      */
     override func onEvent(event: Event) {
         //Swift.print( "CustomView.onEvent() event:" + "\(event)")
-        if(event.origin === stepper && event.type == StepperEvent.change){
-            //Swift.print("onStepperEvent() value: " + "\((event as! StepperEvent).value)")
-        }
+        /*if(event.origin === stepper && event.type == StepperEvent.change){
+        //Swift.print("onStepperEvent() value: " + "\((event as! StepperEvent).value)")
+        }*/
         
         
         //Swift.print("CustomView.onEvent: " + "\(event)" + " event.origin: " + "\(event.origin)")
