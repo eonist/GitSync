@@ -231,7 +231,7 @@ class CustomView:WindowView{
         css +=     "align:left;"
         css +=     "backgroundColor:orange;"
         css +=     "background:false;"
-        css +=     "margin-top:5px;"
+        css +=     "margin-top:4px;"
         css +=     "float:left;"
         css +=     "clear:none;"
         css += "}"
