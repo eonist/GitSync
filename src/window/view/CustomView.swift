@@ -221,7 +221,7 @@ class CustomView:WindowView{
         css +=     "height:28px;"
         css +=     "font:Lucida Grande;"
         css +=     "selectable:false;"
-        css +=     "type:dynamic;"
+        //css +=     "type:dynamic;"
         css +=     "wordWrap:true;"
         css +=     "size:12px;"
         css +=     "color:gray;"
@@ -250,9 +250,6 @@ class CustomView:WindowView{
         css +=     "selectable:true;"
         css +=     "type:input;"
         //css +=     "mouseEnabled:true;"
-        css += "}"
-        css += "Spinner Stepper{"
-        css +=     "clear:none;"
         css += "}"
         
         /*stepper css*/
@@ -291,7 +288,7 @@ class CustomView:WindowView{
         StyleManager.addStyle(css)
         
         
-        let leverSpinner:LeverSpinner = self.addSubView(LeverSpinner(0, 0, self)) as! LeverSpinner;
+        let leverSpinner:LeverSpinner = self.addSubView(LeverSpinner(140, 40, self)) as! LeverSpinner;
         leverSpinner
         
     }
