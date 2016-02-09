@@ -5,7 +5,8 @@ import Cocoa
  * CAUTION: seems to not work as a container for i.e Adding a button to a View instance (for now use FlippedView when using it as a container)
  * NOTE: Remember to override the mouseDown method in subclasses if you want to add functionality to the mouseDown action
  * NOTE: Use mouseDragged method if you want to call a method while the mouse is dragged
- * NOTE: If you hi-jack the event handler variable then the parent will not recieve any events. Its better to override onEvent 
+ * NOTE: If you hi-jack the event handler variable then the parent will not recieve any events. Its better to override onEvent (one could us emany seletors but that would complicate the code. its simple enough to overide onEvent)
+ * NOTE: the primary use of 
  */
 class InteractiveView2:FlippedView,IInteractiveView{
     var event: ((Event) -> ())?/*this holds any method assigned to it that has its type*/

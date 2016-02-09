@@ -349,7 +349,7 @@ class CustomView:WindowView{
                 Swift.print("onStepperEvent() value: " + "\((event as! StepperEvent).value)")
             }
         }
-        //stepper.event = onStepperEvent
+        stepper.event = onStepperEvent
     }
     func buttonTest(){
         Swift.print("buttonTest()")
