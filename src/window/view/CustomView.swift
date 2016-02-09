@@ -19,8 +19,8 @@ class CustomView:WindowView{
         //createTextInput()
         //createSingleLineTextArea()
         //createText()
-        createLeverSpinner()
-        //createLeverStepper()
+        //createLeverSpinner()
+        createLeverStepper()
         
         //createRadioBullets()
         //addEventListeners()
@@ -338,7 +338,8 @@ class CustomView:WindowView{
         css += "}"
         StyleManager.addStyle(css)
         
-        
+        let stepper = addSubView(LeverStepper(100,24,self)) as? LeverStepper
+        stepper
     }
     func buttonTest(){
         Swift.print("buttonTest()")
