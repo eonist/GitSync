@@ -16,10 +16,10 @@ class CustomView:WindowView{
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
-        createTextInput()
+        //createTextInput()
         //createSingleLineTextArea()
         //createText()
-        //createLeverSpinner()
+        createLeverSpinner()
         //createLeverStepper()
         
         //createRadioBullets()
