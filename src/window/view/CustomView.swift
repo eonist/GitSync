@@ -347,7 +347,7 @@ class CustomView:WindowView{
         
     }
     override func onEvent(event: Event) {
-        
+        Swift.print("\(self.dynamicType)" + "onEvent() event:" + "\(event)")
         if(event.origin === stepper && event.type == StepperEvent.change){
             Swift.print("onStepperEvent() value: " + "\((event as! StepperEvent).value)")
         }
