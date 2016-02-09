@@ -336,9 +336,13 @@ class CustomView:WindowView{
         //css +=     "margin-top:0px;"
         css +=     "corner-radius:0px 0px 4px 4px;"
         css += "}"
+        
+        css += "Section#container{fill:green;fill-alpha:0;float:left;clear:left;padding-top:20px;padding-left:8px;}"
         StyleManager.addStyle(css)
         
-        let stepper = addSubView(LeverStepper(100,24,self)) as? LeverStepper
+        let container = addSubView(Section(200,200,self,"container")) as! Section
+        
+        let stepper = container.addSubView(LeverStepper(100,24,container)) as? LeverStepper
         stepper
     }
     func buttonTest(){
