@@ -199,6 +199,9 @@ class CustomView:WindowView{
         css += "InsetShadow{"
         css +=      "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);"
         css += "}"
+        css += "ButtonBase{"
+        css +=     "fill:linear-gradient(top,#FFFEFE,#E8E8E8);"
+        css += "}"
         /*leverSpinner css*/
         css += "Spinner{"
         css +=      "float:left;"
@@ -253,10 +256,9 @@ class CustomView:WindowView{
         css += "}"
         
         /*stepper css*/
-        css += "ButtonBase{"
-        css +=     "fill:linear-gradient(top,#FFFEFE,#E8E8E8);"
-        css += "}"
+        
         css += "Stepper{"
+        css +=    "padding-left:6px;"//<---temp fix
         css +=    "float:left;"
         css +=    "clear:none;"
         css += "}"
