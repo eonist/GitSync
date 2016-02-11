@@ -45,6 +45,9 @@ class CustomView:WindowView{
      */
     func createCheckBox(){
         
+        let container = addSubView(Section(200,200,self,"textContainer")) as! Section
+        
+        var checkButton = CheckButton()
         //var checkBoxSection:Section = stage.addChild(new Section(NaN, NaN, "CheckBox: ", this, "checkBoxSection")) as Section;
         //var checkBoxContainer:Element = checkBoxSection.addChild(new Element(NaN,NaN,checkBoxSection,"checkBoxContainer")) as Element;
         //var checkBox1:CheckBox = checkBoxContainer.addChild(new CheckBox(NaN,NaN,false,false,false,checkBoxContainer)) as CheckBox;
