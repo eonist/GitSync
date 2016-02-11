@@ -16,10 +16,13 @@ class CustomView:WindowView{
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
+        
+        createCheckButtons()
+        
         //createTextInput()
         //createSingleLineTextArea()
         //createText()
-        createLeverSpinner()
+        //createLeverSpinner()
         //createLeverStepper()
         
         //createRadioBullets()
@@ -35,6 +38,12 @@ class CustomView:WindowView{
         
         //add dropshadow to the textinputTest. Get this to work on the singleLinetest firsst then text input
         //make the leverSlider component
+        
+    }
+    /**
+     *
+     */
+    func createCheckButtons(){
         
     }
     /**
