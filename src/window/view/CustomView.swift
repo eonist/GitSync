@@ -47,7 +47,8 @@ class CustomView:WindowView{
         
         let container = addSubView(Section(200,200,self,"checkButtonContainer")) as! Section
         
-        var checkButton = container.addSubView(CheckButton(100,32,false,container)) as! CheckButton
+        let checkButton = container.addSubView(CheckButton(100,32,false,container)) as! CheckButton
+        checkButton
         
         //var checkBoxSection:Section = stage.addChild(new Section(NaN, NaN, "CheckBox: ", this, "checkBoxSection")) as Section;
         //var checkBoxContainer:Element = checkBoxSection.addChild(new Element(NaN,NaN,checkBoxSection,"checkBoxContainer")) as Element;
