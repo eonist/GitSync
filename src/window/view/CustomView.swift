@@ -17,7 +17,7 @@ class CustomView:WindowView{
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
         
-        createCheckButton()
+        //createCheckButton()
         
         //createTextInput()
         //createSingleLineTextArea()
@@ -39,11 +39,17 @@ class CustomView:WindowView{
         //add dropshadow to the textinputTest. Get this to work on the singleLinetest firsst then text input
         //make the leverSlider component
         
+        
+        buttonTest()
     }
     /**
      *
      */
     func createCheckButton(){
+        
+        
+        //continue here: add css style and test
+        
         
         let container = addSubView(Section(200,200,self,"checkButtonContainer")) as! Section
         
