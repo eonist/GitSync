@@ -93,7 +93,6 @@ class CustomView:WindowView{
         css += "}"
         
         /*CheckBox*/
-        
         css += "CheckBox{"
         css +=     "fill:<ButtonHighlight>,~/Desktop/svg/icons/check2.svg black;"
         css +=     "float:left;"
@@ -114,7 +113,7 @@ class CustomView:WindowView{
         
         
         let container = addSubView(Section(200,200,self,"checkBoxContainer")) as! Section
-        let checkBox = container.addSubView(CheckBox(50,50,false,container)) as! CheckBox
+        let checkBox = container.addSubView(CheckBox(25,25,false,container)) as! CheckBox
         checkBox
         
        
