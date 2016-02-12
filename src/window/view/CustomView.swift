@@ -44,6 +44,9 @@ class CustomView:WindowView{
      */
     func createCheckBoxButton(){
         var css:String = ""
+        /*CheckBox*/
+        css += "CheckBox{fill:green;float:left;clear:left;corner-radius:5px;}"
+        css += "CheckBox{fill:blue;}"
         /*CheckBoxButton*/
         css += "CheckBoxButton{"
         css +=     "float:left;"
