@@ -94,6 +94,7 @@ class CustomView:WindowView{
         
         /*CheckBox*/
         css += "CheckBox{"
+        css +=     "padding:0px;"
         css +=     "fill:<ButtonHighlight>,~/Desktop/svg/icons/check2.svg black;"
         css +=     "fill-alpha:1,1;"
         css +=     "float:left;"
