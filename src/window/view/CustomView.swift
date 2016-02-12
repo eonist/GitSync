@@ -89,16 +89,13 @@ class CustomView:WindowView{
         css += "Section#checkBoxContainer{float:left;clear:left;}"
         StyleManager.addStyle(css)
         
-        //continue here: add css style and test
         
         
         let container = addSubView(Section(200,200,self,"checkBoxContainer")) as! Section
         let checkBox = container.addSubView(CheckBox(50,50,false,container)) as! CheckBox
         checkBox
         
-        //var checkBoxSection:Section = stage.addChild(new Section(NaN, NaN, "CheckBox: ", this, "checkBoxSection")) as Section;
-        //var checkBoxContainer:Element = checkBoxSection.addChild(new Element(NaN,NaN,checkBoxSection,"checkBoxContainer")) as Element;
-        //var checkBox1:CheckBox = checkBoxContainer.addChild(new CheckBox(NaN,NaN,false,false,false,checkBoxContainer)) as CheckBox;
+       
     }
     /**
      * TODO: Create examples etc
