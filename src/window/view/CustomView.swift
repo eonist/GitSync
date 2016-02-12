@@ -128,6 +128,9 @@ class CustomView:WindowView{
         let checkBoxButton2 = container.addSubView(CheckBoxButton(120, 32,"Option 2",false,container)) as! CheckBoxButton
         checkBoxButton2
         
+        
+        //Continue here: make the checkgroup
+        
         let selectGroup = SelectGroup([checkBoxButton1,checkBoxButton2],checkBoxButton1)/**/
         func onSelect(event:Event){
             if(event.type == SelectGroupEvent.change){
