@@ -128,6 +128,14 @@ class CustomView:WindowView{
         let checkBoxButton2 = container.addSubView(CheckBoxButton(120, 32,"Option 2",false,container)) as! CheckBoxButton
         checkBoxButton2
         
+        let selectGroup = SelectGroup([checkBoxButton1,checkBoxButton2],checkBoxButton1)/**/
+        func onSelect(event:Event){
+            if(event.type == SelectGroupEvent.change){
+                Swift.print("onSelect selectabe" + "\((event as! SelectGroupEvent).selectable)")
+            }
+        }
+        selectGroup.event = onSelect
+        
         //var checkBoxButton2:CheckBoxButton = checkBoxButtonContainer.addChild(new CheckBoxButton(NaN, NaN,false,false,"Option 2",false,checkBoxButtonContainer)) as CheckBoxButton;
         //checkBoxButtonContainer.addChild(new CheckGroup([checkBoxButton1,checkBoxButton2],checkBoxButton1)) as CheckGroup;
     }
