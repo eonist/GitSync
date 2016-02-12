@@ -76,8 +76,8 @@ class CustomView:WindowView{
         css +=     "float:left;"
         css +=     "clear:left;"
         css +=     "corner-radius:2px;"//2px
-        css +=     "width:14px;"
-        css +=     "height:14px;"
+        css +=     "width:13px;"
+        css +=     "height:13px;"
         css +=     "line:#7692A9;"
         css +=     "line-alpha:1;"
         css +=     "line-thickness:1px;"
@@ -91,7 +91,8 @@ class CustomView:WindowView{
         /**/
         css += "CheckBoxButton CheckBox{"
         css +=    "margin-right:2px;"
-        css +=    "margin-top:14px;"
+        css +=    "margin-left:0px,1px;"
+        css +=    "margin-top:0px,1px;"
         css += "}"
         /*Section*/
         css += "Section#checkBoxButtonContainer{float:left;clear:left;padding-top:20px;padding-left:20px;}"
