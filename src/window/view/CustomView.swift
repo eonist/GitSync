@@ -17,8 +17,8 @@ class CustomView:WindowView{
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
         
-        //createCheckBoxButton()
-        createCheckBox()
+        createCheckBoxButton()
+        //createCheckBox()
         
         //createTextInput()
         //createSingleLineTextArea()
@@ -53,6 +53,7 @@ class CustomView:WindowView{
         css +=     "width:80px;"
         css +=     "height:14px;"
         css +=     "margin-top:5px;"
+        css +=     "padding:0px;"
         css += "}"
         css += "CheckBoxButton Text{"
         css +=     "clear:none;"
@@ -68,10 +69,10 @@ class CustomView:WindowView{
         css +=    "margin-top:0px;"
         css += "}"
         /*Section*/
-        css += "Section#checkBoxButtonContainer{float:left;clear:left;}"
+        css += "Section#checkBoxButtonContainer{float:left;clear:left;padding-top:20px;padding-left:20px;}"
         StyleManager.addStyle(css)
         
-        let container = self.addSubView(Section(200, 200, self, "checkBoxButtonContainer")) as! Section;
+        let container = self.addSubView(Section(200, 200, self, "checkBoxButtonContainer")) as! Section
         let checkBoxButton1 = container.addSubView(CheckBoxButton(120, 32,"Option 1",false,container)) as! CheckBoxButton
         checkBoxButton1
         
