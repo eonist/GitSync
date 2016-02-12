@@ -17,7 +17,8 @@ class CustomView:WindowView{
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
         
-        createCheckButton()
+        createCheckBoxButton()
+        //createCheckButton()
         
         //createTextInput()
         //createSingleLineTextArea()
@@ -37,6 +38,12 @@ class CustomView:WindowView{
         */
         
         //buttonTest()
+    }
+    /**
+     *
+     */
+    func createCheckBoxButton(){
+        
     }
     /**
      *
