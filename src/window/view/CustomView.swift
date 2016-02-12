@@ -49,7 +49,7 @@ class CustomView:WindowView{
         Swift.print("buttonTest()")
         var css:String = "CheckButton{width:50px;height:50px;}"
         css += "CheckButton{fill:green;float:left;clear:left;corner-radius:5px;}"
-        css += "CheckButton:over{fill:blue;width:70px;height:70px;}"
+        css += "CheckButton:checked{fill:blue;width:70px;height:70px;}"
         //css += "Section#checkButtonContainer{fill:green;fill-alpha:0;float:left;clear:left;padding-top:20px;padding-left:20px;corner-radius:0px;}"
         StyleManager.addStyle(css)
         
@@ -57,7 +57,6 @@ class CustomView:WindowView{
         
         
         let container = addSubView(Section(200,200,self,"checkButtonContainer")) as! Section
-        
         let checkButton = container.addSubView(CheckButton(100,32,false,container)) as! CheckButton
         checkButton
         
