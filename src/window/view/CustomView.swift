@@ -79,7 +79,7 @@ class CustomView:WindowView{
         //checkBoxButtonContainer.addChild(new CheckGroup([checkBoxButton1,checkBoxButton2],checkBoxButton1)) as CheckGroup;
     }
     /**
-     *
+     * TODO: use this for stroke: highlight stroke: 002D4E  use grey for regular stroke
      */
     func createCheckBox(){
         Swift.print("buttonTest()")
