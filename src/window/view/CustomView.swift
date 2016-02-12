@@ -113,7 +113,10 @@ class CustomView:WindowView{
         css += "Section#checkBoxContainer{float:left;clear:left;padding-top:20px;padding-left:20px;}"
         StyleManager.addStyle(css)
         
-        //
+        //try to add the checkbox to the checkboxbutton
+        //add two checkboxbutton in a row
+        //add the insetshadow in the bg
+        //add a slight dropshaodw on the checkboxes, see if you did the same with radiobullets, then copy that. or use subtleshadow or alike
         
         let container = addSubView(Section(200,200,self,"checkBoxContainer")) as! Section
         let checkBox = container.addSubView(CheckBox(25,25,false,container)) as! CheckBox
