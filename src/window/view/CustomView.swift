@@ -18,7 +18,7 @@ class CustomView:WindowView{
         createTitleBar()
         
         //createCheckBoxButton()
-        //createCheckButton()
+        createCheckBox()
         
         //createTextInput()
         //createSingleLineTextArea()
@@ -81,20 +81,20 @@ class CustomView:WindowView{
     /**
      *
      */
-    func createCheckButton(){
+    func createCheckBox(){
         Swift.print("buttonTest()")
-        var css:String = "CheckButton{width:50px;height:50px;}"
-        css += "CheckButton{fill:green;float:left;clear:left;corner-radius:5px;}"
-        css += "CheckButton:checked{fill:blue;width:70px;height:70px;}"
-        css += "Section#checkButtonContainer{float:left;clear:left;}"
+        var css:String = "CheckBox{width:50px;height:50px;}"
+        css += "CheckBox{fill:green;float:left;clear:left;}"
+        css += "CheckBox:checked{fill:blue;}"
+        css += "Section#checkBoxContainer{float:left;clear:left;}"
         StyleManager.addStyle(css)
         
         //continue here: add css style and test
         
         
-        let container = addSubView(Section(200,200,self,"checkButtonContainer")) as! Section
-        let checkButton = container.addSubView(CheckButton(100,32,false,container)) as! CheckButton
-        checkButton
+        let container = addSubView(Section(200,200,self,"checkBoxContainer")) as! Section
+        let checkBox = container.addSubView(CheckBox(50,50,false,container)) as! CheckBox
+        checkBox
         
         //var checkBoxSection:Section = stage.addChild(new Section(NaN, NaN, "CheckBox: ", this, "checkBoxSection")) as Section;
         //var checkBoxContainer:Element = checkBoxSection.addChild(new Element(NaN,NaN,checkBoxSection,"checkBoxContainer")) as Element;
