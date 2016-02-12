@@ -63,6 +63,7 @@ class CustomView:WindowView{
         css +=     "margin-top:5px;"
         css +=     "padding:0px;"
         css +=     "margin:0px;"
+        css +=     "margin-left:2px;"
         css += "}"
         css += "CheckBoxButton Text{"
         css +=     "clear:none;"
@@ -95,7 +96,7 @@ class CustomView:WindowView{
         css += "}"
         /**/
         css += "CheckBoxButton CheckBox{"
-        css +=    "margin-right:0px;"
+        css +=    "margin-right:2px;"
         css +=    "margin-left:0px,1px;"
         css +=    "margin-top:0px,1px;"
         css += "}"
