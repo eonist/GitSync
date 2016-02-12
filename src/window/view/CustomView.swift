@@ -113,7 +113,7 @@ class CustomView:WindowView{
         css += "Section#checkBoxContainer{float:left;clear:left;padding-top:20px;padding-left:20px;}"
         StyleManager.addStyle(css)
         
-        
+        //
         
         let container = addSubView(Section(200,200,self,"checkBoxContainer")) as! Section
         let checkBox = container.addSubView(CheckBox(25,25,false,container)) as! CheckBox
