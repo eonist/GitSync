@@ -17,7 +17,7 @@ class CustomView:WindowView{
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
         
-        //createCheckButton()
+        createCheckButton()
         
         //createTextInput()
         //createSingleLineTextArea()
@@ -28,19 +28,15 @@ class CustomView:WindowView{
         //createRadioBullets()
         //addEventListeners()
         
-        //continue here: Take a look at previouse NSTextField code vs NSText code. Run some tests to see which fits best.
         
-        /*let tempTextInput = TempTextInput()
+        
+        /*
+        let tempTextInput = TempTextInput()
         addSubview(tempTextInput)
+        tempTextInput.frame.origin.y = 50
+        */
         
-        tempTextInput.frame.origin.y = 50*/
-        
-        
-        //add dropshadow to the textinputTest. Get this to work on the singleLinetest firsst then text input
-        //make the leverSlider component
-        
-        
-        buttonTest()
+        //buttonTest()
     }
     /**
      *
@@ -50,7 +46,7 @@ class CustomView:WindowView{
         var css:String = "CheckButton{width:50px;height:50px;}"
         css += "CheckButton{fill:green;float:left;clear:left;corner-radius:5px;}"
         css += "CheckButton:checked{fill:blue;width:70px;height:70px;}"
-        //css += "Section#checkButtonContainer{fill:green;fill-alpha:0;float:left;clear:left;padding-top:20px;padding-left:20px;corner-radius:0px;}"
+        css += "Section#checkButtonContainer{fill:green;fill-alpha:0;float:left;clear:left;padding-top:20px;padding-left:20px;corner-radius:0px;}"
         StyleManager.addStyle(css)
         
         //continue here: add css style and test
