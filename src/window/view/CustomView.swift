@@ -95,6 +95,7 @@ class CustomView:WindowView{
         /*CheckBox*/
         css += "CheckBox{"
         css +=     "fill:<ButtonHighlight>,~/Desktop/svg/icons/check2.svg black;"
+        css +=     "fill-alpha:1,1;"
         css +=     "float:left;"
         css +=     "clear:left;"
         css +=     "corner-radius:4px;"//2px
@@ -104,8 +105,9 @@ class CustomView:WindowView{
         css +=     "line-offset-type:outside;"
         css += "}"
         css += "CheckBox:checked{"
-        css +=     "fill:<ButtonBase>,~/Desktop/svg/icons/void.svg black;"/*use fill-alpha 0,1 instead here*/
-        css +=     "line:#707070;"//fas grey9
+        css +=     "fill:<ButtonBase>,~/Desktop/svg/icons/check2.svg grey;"/*use fill-alpha 0,1 instead here*/
+        css +=     "line:#707070;"//was grey9
+        css +=     "fill-alpha:1,0;"
         css += "}"
         css += "Section#checkBoxContainer{float:left;clear:left;}"
         StyleManager.addStyle(css)
