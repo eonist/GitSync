@@ -83,7 +83,7 @@ class CustomView:WindowView{
      */
     func createCheckBox(){
         Swift.print("buttonTest()")
-        var css:String = "CheckBox{width:50px;height:50px;}"
+        var css:String = "CheckBox{width:25px;height:25px;}"
         /*generics*/
         css += "ButtonBase{"
         css +=     "fill:linear-gradient(top,#FFFEFE,#E8E8E8);"
@@ -93,8 +93,8 @@ class CustomView:WindowView{
         css += "}"
         
         /*CheckBox*/
+        css += "CheckBox{float:left;clear:left;corner-radius:4px;}"
         css += "CheckBox{fill:<ButtonHighlight>,~/Desktop/svg/icons/check2.svg black;}"//fill:green;<ButtonBase>
-        css += "CheckBox{float:left;clear:left;}"
         css += "CheckBox:checked{fill:blue;}"
         css += "Section#checkBoxContainer{float:left;clear:left;}"
         StyleManager.addStyle(css)
