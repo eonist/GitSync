@@ -46,7 +46,7 @@ class CustomView:WindowView{
         var css:String = "CheckButton{width:50px;height:50px;}"
         css += "CheckButton{fill:green;float:left;clear:left;corner-radius:5px;}"
         css += "CheckButton:checked{fill:blue;width:70px;height:70px;}"
-        css += "Section#checkButtonContainer{fill:green;fill-alpha:0;float:left;clear:left;padding-top:20px;padding-left:20px;corner-radius:0px;}"
+        css += "Section#checkButtonContainer{float:left;clear:left;}"
         StyleManager.addStyle(css)
         
         //continue here: add css style and test
