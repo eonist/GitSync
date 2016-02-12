@@ -94,6 +94,10 @@ class CustomView:WindowView{
         
         /*CheckBox*/
         css += "CheckBox{float:left;clear:left;corner-radius:4px;}"
+        css +=     "line:grey9;"
+        css +=     "line-alpha:1;"
+        css +=     "line-thickness:1px;"
+        css +=     "line-offset-type:outside;"
         css += "CheckBox{fill:<ButtonHighlight>,~/Desktop/svg/icons/check2.svg black;}"//fill:green;<ButtonBase>
         css += "CheckBox:checked{fill:blue;}"
         css += "Section#checkBoxContainer{float:left;clear:left;}"
