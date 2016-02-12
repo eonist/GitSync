@@ -80,23 +80,23 @@ class CustomView:WindowView{
         css += "}"
         /*CheckBox*/
         css += "CheckBox{"
-        css +=     "padding:0px;"
-        css +=     "fill:<ButtonHighlight>,~/Desktop/svg/icons/check2.svg black;"
-        css +=     "fill-alpha:1,1;"
+        css +=     "fill:<ButtonBase>,~/Desktop/svg/icons/check2.svg grey;"/*use fill-alpha 0,1 instead here*/
+        css +=     "fill-alpha:1,0;"
         css +=     "float:left;"
         css +=     "clear:left;"
         css +=     "corner-radius:2px;"//2px
         css +=     "width:13px;"
         css +=     "height:13px;"
-        css +=     "line:#7692A9;"
+        css +=     "padding:0px;"
+        css +=     "line:#707070;"//was grey9
         css +=     "line-alpha:1;"
         css +=     "line-thickness:1px;"
         css +=     "line-offset-type:outside;"
         css += "}"
         css += "CheckBox:checked{"
-        css +=     "fill:<ButtonBase>,~/Desktop/svg/icons/check2.svg grey;"/*use fill-alpha 0,1 instead here*/
-        css +=     "line:#707070;"//was grey9
-        css +=     "fill-alpha:1,0;"
+        css +=     "fill:<ButtonHighlight>,~/Desktop/svg/icons/check2.svg black;"
+        css +=     "fill-alpha:1,1;"
+        css +=     "line:#7692A9;"
         css += "}"
         /**/
         css += "CheckBoxButton CheckBox{"
