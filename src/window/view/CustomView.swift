@@ -109,7 +109,7 @@ class CustomView:WindowView{
         css +=     "line:#707070;"//was grey9
         css +=     "fill-alpha:1,0;"
         css += "}"
-        css += "Section#checkBoxContainer{float:left;clear:left;}"
+        css += "Section#checkBoxContainer{float:left;clear:left;padding-top:20px;padding-left:20px;}"
         StyleManager.addStyle(css)
         
         
