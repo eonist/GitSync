@@ -61,11 +61,11 @@ class CustomView:WindowView{
         css +=     "size:12px;"
         css +=     "color:black;"
         css +=     "autoSize:left;"
-        css +=     "margin-top:0px;"
+        css +=     "margin-top:-2px;"
         css += "}"
         css += "CheckBoxButton CheckBox{"
         css +=    "margin-right:2px;"
-        css +=     "margin-top:0px;"
+        css +=    "margin-top:0px;"
         css += "}"
         /*Section*/
         css += "Section#checkBoxButtonContainer{float:left;clear:left;}"
