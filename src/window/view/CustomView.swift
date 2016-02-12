@@ -17,7 +17,7 @@ class CustomView:WindowView{
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
         
-        createCheckBoxButton()
+        //createCheckBoxButton()
         //createCheckButton()
         
         //createTextInput()
@@ -46,7 +46,7 @@ class CustomView:WindowView{
         var css:String = ""
         /*CheckBox*/
         css += "CheckBox{fill:green;float:left;clear:left;width:14px;height:14px;}"
-        css += "CheckBox{fill:blue;}"
+        css += "CheckBox:checked{fill:blue;}"
         /*CheckBoxButton*/
         css += "CheckBoxButton{"
         css +=     "float:left;"
