@@ -44,7 +44,26 @@ class CustomView:WindowView{
      */
     func createCheckBoxButton(){
         var css:String = ""
-        css += ""
+        /*CheckBoxButton*/
+        css += "CheckBoxButton{"
+        css +=     "float:left;"
+        css +=     "width:80px;"
+        css +=     "height:14px;"
+        css +=     "margin-top:5px;"
+        css += "}"
+        css += "CheckBoxButton Text{"
+        css +=     "clear:none;"
+        css +=     "width:100%;"
+        css +=     "font:Lucida Grande;"
+        css +=     "size:12px;"
+        css +=     "color:black;"
+        css +=     "autoSize:left;"
+        css +=     "margin-top:-2px;"
+        css += "}"
+        css += "CheckBoxButton CheckBox{"
+        css +=    "margin-right:2px;"
+        css += "}"
+        /*Section*/
         css += "Section#checkBoxButtonContainer{float:left;clear:left;}"
         StyleManager.addStyle(css)
         
