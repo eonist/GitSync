@@ -94,7 +94,7 @@ class CustomView:WindowView{
         css += "}"
         /**/
         css += "CheckBoxButton CheckBox{"
-        css +=    "margin-right:2px;"
+        css +=    "margin-right:0px;"
         css +=    "margin-left:0px,1px;"
         css +=    "margin-top:0px,1px;"
         css += "}"
@@ -106,10 +106,10 @@ class CustomView:WindowView{
         css +=      "fill:#EFEFF4;"//bg color for win: #E8E8E8
         css +=      "float:left;"
         css +=      "clear:left;"
-        css +=      "width:56px;"//<---temp solution, this should be minus the padding left, test and fix this in a separate test
+        css +=      "width:160px;"//<---temp solution, this should be minus the padding left, test and fix this in a separate test
         css +=      "height:24px;"//<---same goes with this one
-        css +=      "padding-left:9px;"
-        css +=      "padding-top:4px;"
+        css +=      "padding-left:0px;"
+        css +=      "padding-top:0px;"
         css +=      "drop-shadow:<InsetShadow>;"
         css +=      "margin-left:8px;"
         css +=      "margin-top:4px;"
