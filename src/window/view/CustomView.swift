@@ -26,7 +26,7 @@ class CustomView:WindowView{
         //createLeverSpinner()
         //createLeverStepper()
         
-        createRadioBullets()
+        //createRadioBullets()
         //addEventListeners()
         
         
@@ -58,6 +58,7 @@ class CustomView:WindowView{
         css += "CheckBoxButton{"
         css +=     "float:left;"
         css +=     "width:80px;"
+        css +=     "drop-shadow:none;"
         css +=     "height:14px;"
         css +=     "margin-top:5px;"
         css +=     "padding:0px;"
