@@ -57,7 +57,8 @@ class CustomView:WindowView{
         /*CheckBoxButton*/
         css += "CheckBoxButton{"
         css +=     "float:left;"
-        css +=     "width:80px;"
+        css +=     "clear:none;"
+        css +=     "width:72px;"
         css +=     "drop-shadow:none;"
         css +=     "height:14px;"
         css +=     "margin-top:5px;"
@@ -111,7 +112,7 @@ class CustomView:WindowView{
         css +=      "fill:#EFEFF4;"//bg color for win: #E8E8E8
         css +=      "float:left;"
         css +=      "clear:left;"
-        css +=      "width:160px;"//<---temp solution, this should be minus the padding left, test and fix this in a separate test
+        css +=      "width:178px;"//<---temp solution, this should be minus the padding left, test and fix this in a separate test
         css +=      "height:24px;"//<---same goes with this one
         css +=      "padding-left:0px;"
         css +=      "padding-top:0px;"
@@ -122,7 +123,7 @@ class CustomView:WindowView{
         StyleManager.addStyle(css)
         
         let container = self.addSubView(Section(200, 200, self, "checkBoxButtonContainer")) as! Section
-        let checkBoxButton1 = container.addSubView(CheckBoxButton(120, 32,"Option 1",false,container)) as! CheckBoxButton
+        let checkBoxButton1 = container.addSubView(CheckBoxButton(120, 32,"Option 1",true,container)) as! CheckBoxButton
         checkBoxButton1
         let checkBoxButton2 = container.addSubView(CheckBoxButton(120, 32,"Option 2",false,container)) as! CheckBoxButton
         checkBoxButton2
