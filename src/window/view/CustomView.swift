@@ -93,8 +93,11 @@ class CustomView:WindowView{
         css += "}"
         
         /*CheckBox*/
-        css += "CheckBox{float:left;clear:left;corner-radius:4px;}"
+        css += "CheckBox{}"
         css += "CheckBox{"
+        css +=     "float:left;"
+        css +=     "clear:left;"
+        css +=     "corner-radius:4px;"
         css +=     "line:grey9;"
         css +=     "line-alpha:1;"
         css +=     "line-thickness:1px;"
