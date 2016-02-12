@@ -91,7 +91,7 @@ class CustomView:WindowView{
         /**/
         css += "CheckBoxButton CheckBox{"
         css +=    "margin-right:2px;"
-        css +=    "margin-top:0px;"
+        css +=    "margin-top:14px;"
         css += "}"
         /*Section*/
         css += "Section#checkBoxButtonContainer{float:left;clear:left;padding-top:20px;padding-left:20px;}"
