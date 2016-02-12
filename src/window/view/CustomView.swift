@@ -90,7 +90,7 @@ class CustomView:WindowView{
         css += "}"
         /**/
         css += "CheckBoxButton CheckBox{"
-        css +=    "margin-right:0px;"
+        css +=    "margin-right:2px;"
         css +=    "margin-top:0px;"
         css += "}"
         /*Section*/
