@@ -43,7 +43,11 @@ class CustomView:WindowView{
      *
      */
     func createCheckBoxButton(){
-        
+        var checkBoxButtonSection:Section = stage.addChild(new Section(NaN, NaN, "CheckBoxButton: ", this, "checkBoxButtonSection")) as Section;
+        var checkBoxButtonContainer:Element = checkBoxButtonSection.addChild(new Element(NaN,NaN,checkBoxButtonSection,"checkBoxButtonContainer")) as Element;
+        var checkBoxButton1:CheckBoxButton = checkBoxButtonContainer.addChild(new CheckBoxButton(NaN, NaN,false,false,"Option 1",true,checkBoxButtonContainer)) as CheckBoxButton;
+        var checkBoxButton2:CheckBoxButton = checkBoxButtonContainer.addChild(new CheckBoxButton(NaN, NaN,false,false,"Option 2",false,checkBoxButtonContainer)) as CheckBoxButton;
+        checkBoxButtonContainer.addChild(new CheckGroup([checkBoxButton1,checkBoxButton2],checkBoxButton1)) as CheckGroup;
     }
     /**
      *
