@@ -63,7 +63,6 @@ class CustomView:WindowView{
         css +=     "clear:none;"
         css +=     "width:100%;"
         css +=     "font:Lucida Grande;"
-        css +=     "bold:true;"
         css +=     "size:12px;"
         css +=     "color:grey6;"
         css +=     "autoSize:left;"
