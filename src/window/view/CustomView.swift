@@ -90,11 +90,10 @@ class CustomView:WindowView{
         css += "}"
         css += "ButtonHighlight{"
         css +=     "fill:linear-gradient(top,#BCD5EE 1 0.0087,#BAD4EE 1 0.0371,#B4CEEB 1 0.0473,#A8C4E7 1 0.0546,#98B6E0 1 0.0605,#98B5E0 1 0.0607,#96B4DF 1 0.2707,#8EB0DD 1 0.3632,#81A9DA 1 0.4324,#6EA0D6 1 0.4855,#538ECB 1 0.5087,#8ABBE3 1 0.8283,#A8D6EF 1 1);"
-        css +=     "drop-shadow:<TintedShadow>;"
         css += "}"
         
         /*CheckBox*/
-        css += "CheckBox{fill:<ButtonBase>,~/Desktop/svg/icons/check2.svg black;}"//fill:green;
+        css += "CheckBox{fill:<ButtonHighlight>,~/Desktop/svg/icons/check2.svg black;}"//fill:green;<ButtonBase>
         css += "CheckBox{float:left;clear:left;}"
         css += "CheckBox:checked{fill:blue;}"
         css += "Section#checkBoxContainer{float:left;clear:left;}"
