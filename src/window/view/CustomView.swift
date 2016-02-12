@@ -44,11 +44,11 @@ class CustomView:WindowView{
      */
     func createCheckBoxButton(){
         var css:String = ""
+        css += ""
         css += "Section#checkBoxButtonContainer{float:left;clear:left;}"
         StyleManager.addStyle(css)
         
         let container = self.addSubView(Section(200, 200, self, "checkBoxButtonContainer")) as! Section;
-        
         let checkBoxButton1 = container.addSubView(CheckBoxButton(120, 32,"Option 1",false,container)) as! CheckBoxButton
         checkBoxButton1
         
