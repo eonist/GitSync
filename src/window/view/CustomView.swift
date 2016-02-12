@@ -72,8 +72,10 @@ class CustomView:WindowView{
         css +=     "size:12px;"
         css +=     "color:grey6;"
         css +=     "autoSize:left;"
-        css +=     "margin-top:0px;"
+        //css +=     "margin-top:0px;"
         css +=     "margin-left:0px;"
+        css +=     "height:22px;"
+        css +=     "margin-top:-1px;"
         css += "}"
         /*CheckBox*/
         css += "CheckBox{"
@@ -122,6 +124,8 @@ class CustomView:WindowView{
         let container = self.addSubView(Section(200, 200, self, "checkBoxButtonContainer")) as! Section
         let checkBoxButton1 = container.addSubView(CheckBoxButton(120, 32,"Option 1",false,container)) as! CheckBoxButton
         checkBoxButton1
+        let checkBoxButton2 = container.addSubView(CheckBoxButton(120, 32,"Option 2",false,container)) as! CheckBoxButton
+        checkBoxButton2
         
         //var checkBoxButton2:CheckBoxButton = checkBoxButtonContainer.addChild(new CheckBoxButton(NaN, NaN,false,false,"Option 2",false,checkBoxButtonContainer)) as CheckBoxButton;
         //checkBoxButtonContainer.addChild(new CheckGroup([checkBoxButton1,checkBoxButton2],checkBoxButton1)) as CheckGroup;
