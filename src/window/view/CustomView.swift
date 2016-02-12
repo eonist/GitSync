@@ -84,7 +84,7 @@ class CustomView:WindowView{
     func createCheckBox(){
         Swift.print("buttonTest()")
         var css:String = "CheckBox{width:50px;height:50px;}"
-        css += "CheckBox{fill:~/Desktop/assets/svg/icons/check2.svg black;}"//fill:green;
+        css += "CheckBox{fill:~/Desktop/svg/icons/check2.svg black;}"//fill:green;
         css += "CheckBox{float:left;clear:left;}"
         css += "CheckBox:checked{fill:blue;}"
         css += "Section#checkBoxContainer{float:left;clear:left;}"
