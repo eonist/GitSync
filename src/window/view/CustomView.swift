@@ -26,7 +26,7 @@ class CustomView:WindowView{
         //createLeverSpinner()
         //createLeverStepper()
         
-        //createRadioBullets()
+        createRadioBullets()
         //addEventListeners()
         
         
@@ -50,6 +50,9 @@ class CustomView:WindowView{
         css += "}"
         css += "ButtonHighlight{"
         css +=     "fill:linear-gradient(top,#BCD5EE 1 0.0087,#BAD4EE 1 0.0371,#B4CEEB 1 0.0473,#A8C4E7 1 0.0546,#98B6E0 1 0.0605,#98B5E0 1 0.0607,#96B4DF 1 0.2707,#8EB0DD 1 0.3632,#81A9DA 1 0.4324,#6EA0D6 1 0.4855,#538ECB 1 0.5087,#8ABBE3 1 0.8283,#A8D6EF 1 1);"
+        css += "}"
+        css += "InsetShadow{"
+        css +=      "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);"
         css += "}"
         /*CheckBoxButton*/
         css += "CheckBoxButton{"
@@ -95,7 +98,21 @@ class CustomView:WindowView{
         css +=    "margin-top:0px,1px;"
         css += "}"
         /*Section*/
-        css += "Section#checkBoxButtonContainer{float:left;clear:left;padding-top:20px;padding-left:20px;}"
+        //css += "Section#checkBoxButtonContainer{float:left;clear:left;padding-top:20px;padding-left:20px;}"
+        /*section*/
+        css += "Section#checkBoxButtonContainer{"
+        css +=      "corner-radius:4px;"
+        css +=      "fill:#EFEFF4;"//bg color for win: #E8E8E8
+        css +=      "float:left;"
+        css +=      "clear:left;"
+        css +=      "width:56px;"//<---temp solution, this should be minus the padding left, test and fix this in a separate test
+        css +=      "height:24px;"//<---same goes with this one
+        css +=      "padding-left:9px;"
+        css +=      "padding-top:4px;"
+        css +=      "drop-shadow:<InsetShadow>;"
+        css +=      "margin-left:8px;"
+        css +=      "margin-top:4px;"
+        css += "}"
         StyleManager.addStyle(css)
         
         let container = self.addSubView(Section(200, 200, self, "checkBoxButtonContainer")) as! Section
@@ -518,17 +535,17 @@ class CustomView:WindowView{
         css += "}"
         /*section*/
         css += "Section#radioBulletContainer{"
-        css += "corner-radius:4px;"
-        css += "fill:#EFEFF4;"//bg color for win: #E8E8E8
-        css += "float:left;"
-        css += "clear:left;"
-        css += "width:56px;"//<---temp solution, this should be minus the padding left, test and fix this in a separate test
-        css += "height:24px;"//<---same goes with this one
-        css += "padding-left:9px;"
-        css += "padding-top:4px;"
-        css += "drop-shadow:<InsetShadow>;"
-        css += "margin-left:8px;"
-        css += "margin-top:4px;"
+        css +=      "corner-radius:4px;"
+        css +=      "fill:#EFEFF4;"//bg color for win: #E8E8E8
+        css +=      "float:left;"
+        css +=      "clear:left;"
+        css +=      "width:56px;"//<---temp solution, this should be minus the padding left, test and fix this in a separate test
+        css +=      "height:24px;"//<---same goes with this one
+        css +=      "padding-left:9px;"
+        css +=      "padding-top:4px;"
+        css +=      "drop-shadow:<InsetShadow>;"
+        css +=      "margin-left:8px;"
+        css +=      "margin-top:4px;"
         css += "}"
         /*idle*/
         css += "Section#radioBulletContainer RadioBullet{"
