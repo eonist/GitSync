@@ -37,7 +37,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
      */
     func mouseMoved(event:MouseEvent){
         //Swift.print("\(self.dynamicType)" + "mouseMoved() ")
-        if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseMoved(event)}/*informs the parent that an event occured*/
+        if(self.superview is IInteractiveView){(self.superview as! IInteractiveView).mouseMoved(event.setImmediate(self))}/*informs the parent that an event occured*/
     }
     /**
      * Only fires if the mouse is over the visible part of this view 
