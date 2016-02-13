@@ -6,13 +6,13 @@ import Cocoa
  * NOTE: Remember to override the mouseDown method in subclasses if you want to add functionality to the mouseDown action
  * NOTE: Use mouseDragged method if you want to call a method while the mouse is dragged
  * NOTE: If you hi-jack the event handler variable then the parent will not recieve any events. Its better to override onEvent (one could us emany seletors but that would complicate the code. its simple enough to overide onEvent)
- * NOTE: the primary use of 
+ * NOTE: its primary use-case is to wrap NSEvents into Event so that the view hierarchy can retrieve the view where the event came from which is not possible when using NSEvent. NSEvent cant be subclasses so this is the best solution I've found for this particular use-case.
  */
 class InteractiveView2:FlippedView,IInteractiveView{
     var event: ((Event) -> ())?/*this holds any method assigned to it that has its type*/
     var eventCall:((Event) -> ())? {
         return {
-            (event:Event) -> Void in if(self.superview is IEventSender){(self.superview as! IEventSender).onEvent(event)
+                (event:Event) -> Void in if(self.superview is IEventSender){(self.superview as! IEventSender).onEvent(event)
             }
         }
     }//returns closure that will take care of propagating the event to the parent
