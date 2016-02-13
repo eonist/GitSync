@@ -520,15 +520,15 @@ class CustomView:WindowView{
         //let box = Element(100,100)
         //addSubview(box)
         
-         var testButton:Button = Button(0,0,self,"test")
-        /*addSubview(testButton)
+        var testButton:Button = Button(0,0,self,"test")
+        addSubview(testButton)
         
         func onEvent(event:Event){
-        Swift.print("CustomView.onEvent() origin: " + "\(event.origin)")
-        }*/
+            Swift.print("CustomView.onEvent() type: " + "\(event.type)")
+        }
         
         //add a local listener 
-        //testButton.event = onEvent
+        testButton.event = onEvent
         
     }
     /*override func hitTest(aPoint: NSPoint) -> NSView? {
