@@ -99,7 +99,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
         if(hasMouseEntered){/*Only run the following code when inside the actual TrackingArea*/
             if(viewUnderMouse === self){//mouse move on the "visible" part of the view
                 if(!isMouseOver){mouseOver(MouseEvent(theEvent,self,self));isMouseOver = true;}
-                mouseMoved(MouseEvent(theEvent,self))
+                mouseMoved(MouseEvent(theEvent,self,self))
             }
             else if(isMouseOver){mouseOut(MouseEvent(theEvent,self,self));isMouseOver = false;}//mouse move on the "invisible" parth of the view
         }
@@ -136,9 +136,9 @@ class InteractiveView2:FlippedView,IInteractiveView{
         }
         //super.mouseExited(event)/*passes on the event to the nextResponder, NSView parents etc*/
     }
-    override func mouseDown(theEvent: NSEvent) {mouseDown(MouseEvent(theEvent,self))}
+    override func mouseDown(theEvent: NSEvent) {mouseDown(MouseEvent(theEvent,self,self))}
     override func mouseUp(theEvent: NSEvent) {
-        viewUnderMouse === self ? mouseUpInside(MouseEvent(theEvent,self)) : mouseUpOutside(MouseEvent(theEvent,self));/*if the event was on this button call triggerRelease, else triggerReleaseOutside*/
+        viewUnderMouse === self ? mouseUpInside(MouseEvent(theEvent,self,self)) : mouseUpOutside(MouseEvent(theEvent,self));/*if the event was on this button call triggerRelease, else triggerReleaseOutside*/
         mouseUp(MouseEvent(theEvent,self,self))
     }
     /**
