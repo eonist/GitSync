@@ -17,7 +17,7 @@ class CustomView:WindowView{
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
         
-        //createCheckBoxButton()
+        createCheckBoxButton()
         //createCheckBox()
         
         //createTextInput()
@@ -137,10 +137,7 @@ class CustomView:WindowView{
         }
         checkGroup.event = onEvent
         
-        
-        //continue here: you have to distinguish between the two checkBoxButtons, maybe implement immediate, may forward the event from checkBoxButton. see legacy code
-        
-        
+                
         //var checkBoxButton2:CheckBoxButton = checkBoxButtonContainer.addChild(new CheckBoxButton(NaN, NaN,false,false,"Option 2",false,checkBoxButtonContainer)) as CheckBoxButton;
         //checkBoxButtonContainer.addChild(new CheckGroup([checkBoxButton1,checkBoxButton2],checkBoxButton1)) as CheckGroup;
     }
