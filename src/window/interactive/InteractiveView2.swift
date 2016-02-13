@@ -12,7 +12,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
     var event: ((Event) -> ())?/*this holds any method assigned to it that has its type*/
     var eventCall:((Event) -> ())? {
         return {
-                (event:Event) -> Void in if(self.superview is IEventSender){(self.superview as! IEventSender).onEvent(event)
+                (event:Event) -> Void in if(self.superview is IEventSender){(self.superview as! IEventSender).onEvent(event.setImmediate(self))
             }
         }
     }//returns closure that will take care of propagating the event to the parent
@@ -34,7 +34,8 @@ class InteractiveView2:FlippedView,IInteractiveView{
      */
     func onEvent(event:Event){
         //Swift.print("InteractiveView2.onEvent: " + "\(onEvent)")
-        if(self.superview is IEventSender){(self.superview as! IEventSender).event!(event.setImmediate(self))}
+        //if(self.superview is IEventSender){(self.superview as! IEventSender).event!(event.setImmediate(self))}
+        self.event!(event)
     }
     /**
      * MouseMove (only fires when the mouse is actualy moving on the visible  part of the view)
