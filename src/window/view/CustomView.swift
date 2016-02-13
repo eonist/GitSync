@@ -131,13 +131,13 @@ class CustomView:WindowView{
         
         //Continue here: make the checkgroup
         
-        let selectGroup = SelectGroup([checkBoxButton1,checkBoxButton2],checkBoxButton1)/**/
-        func onSelect(event:Event){
-            if(event.type == SelectGroupEvent.change){
-                Swift.print("onSelect selectabe" + "\((event as! SelectGroupEvent).selectable)")
+        let checkGroup = CheckGroup([checkBoxButton1,checkBoxButton2],checkBoxButton1)/**/
+        func onCheck(event:Event){
+            if(event.type == CheckGroupEvent.change){
+                Swift.print("onCheck checkable" + "\((event as! CheckGroupEvent).checked)")
             }
         }
-        selectGroup.event = onSelect
+        checkGroup.event = onCheck
         
         //var checkBoxButton2:CheckBoxButton = checkBoxButtonContainer.addChild(new CheckBoxButton(NaN, NaN,false,false,"Option 2",false,checkBoxButtonContainer)) as CheckBoxButton;
         //checkBoxButtonContainer.addChild(new CheckGroup([checkBoxButton1,checkBoxButton2],checkBoxButton1)) as CheckGroup;
@@ -608,7 +608,7 @@ class CustomView:WindowView{
         let selectGroup = SelectGroup([radioBullet1,radioBullet2],radioBullet1)/**/
         func onSelect(event:Event){
             if(event.type == SelectGroupEvent.change){
-                Swift.print("onSelect selectabe" + "\((event as! SelectGroupEvent).selectable)")
+                Swift.print("onSelect selectabe" + "\((event as! SelectGroupEvent).selected)")
             }
         }
         selectGroup.event = onSelect
