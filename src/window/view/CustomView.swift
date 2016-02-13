@@ -120,17 +120,17 @@ class CustomView:WindowView{
         css += "}"
         StyleManager.addStyle(css)
         
-        let container = self.addSubView(Section(200, 200, self, "checkBoxButtonContainer")) as! Section//this instance represents the inset shadow bagground and also holds the buttons 
+        let container = self.addSubView(Section(200, 200, self, "checkBoxButtonContainer")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
         let checkBoxButton1 = container.addSubView(CheckBoxButton(120, 32,"Option 1",true,container)) as! CheckBoxButton
         let checkBoxButton2 = container.addSubView(CheckBoxButton(120, 32,"Option 2",false,container)) as! CheckBoxButton
         
         let checkGroup = CheckGroup([checkBoxButton1,checkBoxButton2],checkBoxButton1)/*Add the CheckBoxButtons to the checkGroup instance*/
-        func onEvent(event:Event){//this is the event handler
+        func onEvent(event:Event){/*this is the event handler*/
             if(event.type == CheckGroupEvent.change){
                 Swift.print("CustomView.onCheck() checked" + "\((event as! CheckGroupEvent).checked)")
             }
         }
-        checkGroup.event = onEvent//adds the event handler to the event exit point in the checkGroup
+        checkGroup.event = onEvent/*adds the event handler to the event exit point in the checkGroup*/
     }
     /**
      * TODO: use this for stroke: highlight stroke: 002D4E  use grey for regular stroke
