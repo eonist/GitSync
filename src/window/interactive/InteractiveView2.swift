@@ -10,6 +10,12 @@ import Cocoa
  */
 class InteractiveView2:FlippedView,IInteractiveView{
     var event: ((Event) -> ())?/*this holds any method assigned to it that has its type*/
+    var eventCall:((Event) -> ())? {
+        return {
+            (event:Event) -> Void in if(self.superview is IEventSender){(self.superview as! IEventSender).onEvent(event)
+            }
+        }
+    }//returns closure that will take care of propagating the event to the parent
     var isInteractive:Bool = true//why is this here? I guess so that you can toggle the interactive part on and of, Text uses this variable, remember that this effects all descendants as well
     var isMouseOver:Bool = false;/*you should hit test this on init*/
     var hasMouseEntered:Bool = false/*you should hit test this on init*/
