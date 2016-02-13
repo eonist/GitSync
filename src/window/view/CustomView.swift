@@ -18,7 +18,7 @@ class CustomView:WindowView{
         createTitleBar()
         
         //createCheckBoxButton()
-        //createCheckBox()
+        createCheckBox()
         
         //createTextInput()
         //createSingleLineTextArea()
@@ -35,7 +35,7 @@ class CustomView:WindowView{
         tempTextInput.frame.origin.y = 50
         */
         
-        buttonTest()
+        //buttonTest()
     }
     /**
      *
@@ -524,7 +524,7 @@ class CustomView:WindowView{
         addSubview(testButton)
         
         func onEvent(event:Event){
-            Swift.print("CustomView.onEvent() type: " + "\(event.type)")
+            Swift.print("CustomView.onEvent() type: " + "\(event.type)" + " origin: " + "\(event.origin)")
         }
         
         //add a local listener 
