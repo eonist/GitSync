@@ -98,10 +98,10 @@ class InteractiveView2:FlippedView,IInteractiveView{
     override func mouseMoved(theEvent: NSEvent) {
         if(hasMouseEntered){/*Only run the following code when inside the actual TrackingArea*/
             if(viewUnderMouse === self){//mouse move on the "visible" part of the view
-                if(!isMouseOver){mouseOver(MouseEvent(theEvent,self,self));isMouseOver = true;}
-                mouseMoved(MouseEvent(theEvent,self,self))
+                if(!isMouseOver){mouseOver(MouseEvent(theEvent,self/*,self*/));isMouseOver = true;}
+                mouseMoved(MouseEvent(theEvent,self/*,self*/))
             }
-            else if(isMouseOver){mouseOut(MouseEvent(theEvent,self,self));isMouseOver = false;}//mouse move on the "invisible" parth of the view
+            else if(isMouseOver){mouseOut(MouseEvent(theEvent,self/*,self*/));isMouseOver = false;}//mouse move on the "invisible" parth of the view
         }
     }
     /**
@@ -116,7 +116,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
         if(!hasMouseEntered && viewUnderMouse === self){
             hasMouseEntered = true;/*optimization*/
             isMouseOver = true;
-            mouseOver(MouseEvent(event,self,self));
+            mouseOver(MouseEvent(event,self/*,self*/));
         }//mouse move on visible view
         //super.mouseEntered(event)/*passes on the event to the nextResponder, NSView parents etc*/
     }
@@ -132,14 +132,14 @@ class InteractiveView2:FlippedView,IInteractiveView{
         if(hasMouseEntered && isMouseOver){
             hasMouseEntered = false/*optimization*/;
             isMouseOver = false;
-            mouseOut(MouseEvent(event,self,self));
+            mouseOut(MouseEvent(event,self/*,self*/));
         }
         //super.mouseExited(event)/*passes on the event to the nextResponder, NSView parents etc*/
     }
-    override func mouseDown(theEvent: NSEvent) {mouseDown(MouseEvent(theEvent,self,self))}
+    override func mouseDown(theEvent: NSEvent) {mouseDown(MouseEvent(theEvent,self/*,self*/))}
     override func mouseUp(theEvent: NSEvent) {
-        viewUnderMouse === self ? mouseUpInside(MouseEvent(theEvent,self,self)) : mouseUpOutside(MouseEvent(theEvent,self,self));/*if the event was on this button call triggerRelease, else triggerReleaseOutside*/
-        mouseUp(MouseEvent(theEvent,self,self))
+        viewUnderMouse === self ? mouseUpInside(MouseEvent(theEvent,self/*,self*/)) : mouseUpOutside(MouseEvent(theEvent,self/*,self*/));/*if the event was on this button call triggerRelease, else triggerReleaseOutside*/
+        mouseUp(MouseEvent(theEvent,self/*,self*/))
     }
     /**
      * NOTE: looping backwards is very important as its the only way to target the front-most views in the stack
