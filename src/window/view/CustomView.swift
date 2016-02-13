@@ -622,7 +622,7 @@ class CustomView:WindowView{
         
         func onSelect(event:Event){
             if(event.type == SelectGroupEvent.change){
-                Swift.print("onSelect selectabe" + "\((event as! SelectGroupEvent).selected)")
+                Swift.print("onSelect selected" + "\((event as! SelectGroupEvent).selected)")
             }
         }
         selectGroup.event = onSelect
