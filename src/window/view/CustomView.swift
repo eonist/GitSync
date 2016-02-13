@@ -122,25 +122,15 @@ class CustomView:WindowView{
         
         let container = self.addSubView(Section(200, 200, self, "checkBoxButtonContainer")) as! Section
         let checkBoxButton1 = container.addSubView(CheckBoxButton(120, 32,"Option 1",true,container)) as! CheckBoxButton
-        checkBoxButton1
         let checkBoxButton2 = container.addSubView(CheckBoxButton(120, 32,"Option 2",false,container)) as! CheckBoxButton
-        checkBoxButton2
         
-        
-        //Continue here: make the checkgroup
-        
-        let checkGroup = CheckGroup([checkBoxButton1,checkBoxButton2],checkBoxButton1)/**/
-        func onEvent(event:Event){
+        let checkGroup = CheckGroup([checkBoxButton1,checkBoxButton2],checkBoxButton1)/*Add the CheckBoxButtons to the checkGroup instance*/
+        func onEvent(event:Event){//this is the event handler
             if(event.type == CheckGroupEvent.change){
                 Swift.print("CustomView.onCheck() checked" + "\((event as! CheckGroupEvent).checked)")
             }
         }
-        checkGroup.event = onEvent
-        
-        //Continue here: add 
-        
-        //var checkBoxButton2:CheckBoxButton = checkBoxButtonContainer.addChild(new CheckBoxButton(NaN, NaN,false,false,"Option 2",false,checkBoxButtonContainer)) as CheckBoxButton;
-        //checkBoxButtonContainer.addChild(new CheckGroup([checkBoxButton1,checkBoxButton2],checkBoxButton1)) as CheckGroup;
+        checkGroup.event = onEvent//adds the event handler to the event exit point in the checkGroup
     }
     /**
      * TODO: use this for stroke: highlight stroke: 002D4E  use grey for regular stroke
