@@ -116,7 +116,7 @@ class CustomView:WindowView{
         css +=      "padding-top:0px;"
         css +=      "drop-shadow:<InsetShadow>;"
         css +=      "margin-left:12px;"
-        css +=      "margin-top:24px;"
+        css +=      "margin-top:48px;"
         css += "}"
         StyleManager.addStyle(css)
         
