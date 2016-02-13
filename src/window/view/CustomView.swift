@@ -29,8 +29,6 @@ class CustomView:WindowView{
         //createRadioBullets()
         //addEventListeners()
         
-        
-        
         /*
         let tempTextInput = TempTextInput()
         addSubview(tempTextInput)
