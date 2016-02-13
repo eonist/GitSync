@@ -8,7 +8,7 @@ class CustomView:WindowView{
     var closeButton:Button?
     var minimizeButton:Button?
     var maximizeButton:Button?
-    var testButton:Button?
+    
     /**
      * Add content here
      */
@@ -520,8 +520,17 @@ class CustomView:WindowView{
         //let box = Element(100,100)
         //addSubview(box)
         
-        testButton = Button(0,0,self,"test")
+        var testButton:Button = Button(0,0,self,"test")
         addSubview(testButton!)
+        
+        
+        func onEvent(event:Event){
+            Swift.print("CustomView.onEvent() origin: " + "\(event.origin)")
+        }
+        
+        //add a local listener 
+        testButton!.event = onEvent
+        
     }
     /*override func hitTest(aPoint: NSPoint) -> NSView? {
     let temp = super.hitTest(aPoint)
