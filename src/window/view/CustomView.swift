@@ -192,7 +192,7 @@ class CustomView:WindowView{
             Swift.print("CustomView.onEvent() type: " + "\(event.type)" + " origin: " + "\(event.origin)")
         }
         
-        checkBox.event = onEvent
+        container.event = onEvent
     }
     /**
      * TODO: Create examples etc
