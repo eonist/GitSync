@@ -18,7 +18,7 @@ class CustomView:WindowView{
         createTitleBar()
         
         //createCheckBoxButton()
-        createCheckBox()
+        //createCheckBox()
         
         //createTextInput()
         //createSingleLineTextArea()
@@ -26,7 +26,7 @@ class CustomView:WindowView{
         //createLeverSpinner()
         //createLeverStepper()
         
-        //createRadioBullets()
+        createRadioBullets()
         //addEventListeners()
         
         /*
@@ -614,11 +614,12 @@ class CustomView:WindowView{
         let radioBullet1 = RadioBullet(14,14,true,container)
         container.addSubview(radioBullet1)
         
-        let radioBullet2 = RadioBullet(14,14,true,container)
+        let radioBullet2 = RadioBullet(14,14,false,container)
         container.addSubview(radioBullet2)
         radioBullet2.setSelected(false)//<---work around for now
         
         let selectGroup = SelectGroup([radioBullet1,radioBullet2],radioBullet1)/**/
+        
         func onSelect(event:Event){
             if(event.type == SelectGroupEvent.change){
                 Swift.print("onSelect selectabe" + "\((event as! SelectGroupEvent).selected)")
