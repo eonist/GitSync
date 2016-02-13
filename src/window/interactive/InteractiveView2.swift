@@ -27,7 +27,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
      */
     func onEvent(event:Event){
         //Swift.print("InteractiveView2.onEvent: " + "\(onEvent)")
-        if(self.superview is IEventSender){(self.superview as! IEventSender).event!(event)}
+        if(self.superview is IEventSender){(self.superview as! IEventSender).event!(event.setImmediate(self))}
     }
     /**
      * MouseMove (only fires when the mouse is actualy moving on the visible  part of the view)
