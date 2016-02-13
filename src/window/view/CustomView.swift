@@ -140,7 +140,7 @@ class CustomView:WindowView{
         checkGroup.event = onEvent
         
         
-        //continue here: you hace to distinguish between the two checkBoxButtons, maybe implement immediate, may forward the event from checkBoxButton. see legacy code
+        //continue here: you have to distinguish between the two checkBoxButtons, maybe implement immediate, may forward the event from checkBoxButton. see legacy code
         
         
         //var checkBoxButton2:CheckBoxButton = checkBoxButtonContainer.addChild(new CheckBoxButton(NaN, NaN,false,false,"Option 2",false,checkBoxButtonContainer)) as CheckBoxButton;
