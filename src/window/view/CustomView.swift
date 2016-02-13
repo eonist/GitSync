@@ -132,12 +132,12 @@ class CustomView:WindowView{
         //Continue here: make the checkgroup
         
         let checkGroup = CheckGroup([checkBoxButton1,checkBoxButton2],checkBoxButton1)/**/
-        func onCheck(event:Event){
+        func onEvent(event:Event){
             if(event.type == CheckGroupEvent.change){
                 Swift.print("CustomView.onCheck() checked" + "\((event as! CheckGroupEvent).checked)")
             }
         }
-        checkGroup.event = onCheck
+        checkGroup.event = onEvent
         
         //var checkBoxButton2:CheckBoxButton = checkBoxButtonContainer.addChild(new CheckBoxButton(NaN, NaN,false,false,"Option 2",false,checkBoxButtonContainer)) as CheckBoxButton;
         //checkBoxButtonContainer.addChild(new CheckGroup([checkBoxButton1,checkBoxButton2],checkBoxButton1)) as CheckGroup;
