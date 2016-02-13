@@ -139,7 +139,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
     override func mouseDown(theEvent: NSEvent) {mouseDown(MouseEvent(theEvent,self))}
     override func mouseUp(theEvent: NSEvent) {
         viewUnderMouse === self ? mouseUpInside(MouseEvent(theEvent,self)) : mouseUpOutside(MouseEvent(theEvent,self));/*if the event was on this button call triggerRelease, else triggerReleaseOutside*/
-        mouseUp(MouseEvent(theEvent,self))
+        mouseUp(MouseEvent(theEvent,self,self))
     }
     /**
      * NOTE: looping backwards is very important as its the only way to target the front-most views in the stack
