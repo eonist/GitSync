@@ -523,7 +523,6 @@ class CustomView:WindowView{
         var testButton:Button = Button(0,0,self,"test")
         addSubview(testButton)
         
-        
         func onEvent(event:Event){
             Swift.print("CustomView.onEvent() origin: " + "\(event.origin)")
         }
