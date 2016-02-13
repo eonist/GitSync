@@ -186,9 +186,13 @@ class CustomView:WindowView{
         
         let container = addSubView(Section(200,200,self,"checkBoxContainer")) as! Section
         let checkBox = container.addSubView(CheckBox(25,25,false,container)) as! CheckBox
-        checkBox
         
-       
+        
+        func onEvent(event:Event){
+            
+        }
+        
+        checkBox.event = onEvent
     }
     /**
      * TODO: Create examples etc
