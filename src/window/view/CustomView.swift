@@ -26,7 +26,7 @@ class CustomView:WindowView{
         //createLeverSpinner()
         //createLeverStepper()
         
-        createRadioBullets()
+        //createRadioBullets()
         //addEventListeners()
         
         /*
