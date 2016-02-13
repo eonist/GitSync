@@ -27,7 +27,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
         layer!.masksToBounds = false//this is needed!!!
         //event = onEvent/*assign method to selector*/
-        //event = eventCall
+        event = eventCall
     }
     /**
      * EXAMPLE: override onEvent in a subClass then assert origin === thumb && event.type == ButtonEvent.down 
@@ -35,7 +35,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
     func onEvent(event:Event){
         //Swift.print("InteractiveView2.onEvent: " + "\(onEvent)")
         //if(self.superview is IEventSender){(self.superview as! IEventSender).event!(event.setImmediate(self))}
-        //self.event!(event)
+        self.event!(event)
     }
     /**
      * MouseMove (only fires when the mouse is actualy moving on the visible  part of the view)

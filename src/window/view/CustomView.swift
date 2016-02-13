@@ -529,7 +529,6 @@ class CustomView:WindowView{
         
         //add a local listener 
         testButton.event = onEvent
-        
     }
     /*override func hitTest(aPoint: NSPoint) -> NSView? {
     let temp = super.hitTest(aPoint)
