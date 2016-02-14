@@ -41,7 +41,14 @@ class CustomView:WindowView{
     func listTest(){
         var css:String = ""
         css += "List{"
-        css +=      ""
+        css +=      "fill:blue;"
+        css +=      "float:left;"
+        css +=      "clear:left;"
+        css += "}"
+        css += "List Container{"
+        css +=      "fill:red;"
+        css +=      "float:left;"
+        css +=      "clear:left;"
         css += "}"
         StyleManager.addStyle(css)
         
