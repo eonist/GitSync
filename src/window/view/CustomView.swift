@@ -56,6 +56,12 @@ class CustomView:WindowView{
         
         */
         Swift.print(dp.count())
+        
+        func onEvent(event:Event){
+            
+        }
+        
+        dp.event = onEvent
     }
     /**
      *
