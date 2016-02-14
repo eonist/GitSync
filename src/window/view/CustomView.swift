@@ -58,7 +58,7 @@ class CustomView:WindowView{
         Swift.print(dp.count())
         
         func onEvent(event:Event){
-            
+            Swift.print("event.type: " + event.type + " origin: " + "\(event.origin)" )
         }
         
         dp.event = onEvent
