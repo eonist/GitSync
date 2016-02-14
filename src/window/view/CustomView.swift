@@ -17,6 +17,7 @@ class CustomView:WindowView{
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
         
+        dataProviderTest()
         //createCheckBoxButton()
         //createCheckBox()
         
