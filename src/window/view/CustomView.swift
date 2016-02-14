@@ -41,18 +41,20 @@ class CustomView:WindowView{
      *
      */
     func dataProviderTest(){
-        var orange:Dictionary<String,String> = [name:"orange", title:"harry"]
+        let orange:Dictionary<String,String> = ["name":"orange", "title":"harry"]
+        //let blue = ["name":"blue", "url":"na"]
+        //let red = ["name":"red", "headline":"spring"]
         
-        var blue:Object = {name:"blue", url:"na"}
+        let dp:DataProvider = DataProvider()
+        
+        dp.addItem(orange)
+        //dp.addItem(blue)
+        //dp.addItem(red)
         /*
-        var red:Object = {name:"red", headline:"spring"}
-        var dp:DataProvider = new DataProvider();
-        dp.addItem(orange);
-        dp.addItem(blue);
-        dp.addItem(red);
         dp.removeItemAt(dp.getItemIndex(orange))
-        Swift.print(dp.count())
+        
         */
+        Swift.print(dp.count())
     }
     /**
      *
