@@ -26,7 +26,7 @@ class InteractiveView2:FlippedView,IInteractiveView{
         super.init(frame: frameRect)
         self.wantsLayer = true/*if true then view is layer backed*/
         layer = CALayer()/*needs to be layer-hosted so that we dont get clipping of children*/
-        layer!.masksToBounds = false//this is needed!!!
+        layer!.masksToBounds = false/*This is the variable that makes subchildren mask its parents frame, set it to false and they wont mask*/
         //event = onEvent/*assign method to selector*/
         event = eventCall
     }
