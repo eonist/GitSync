@@ -49,6 +49,8 @@ class CustomView:WindowView{
         css +=      "fill:red;"
         css +=      "float:left;"
         css +=      "clear:left;"
+        css +=      "width:100px;"
+        css +=      "height:150px;"
         css += "}"
         StyleManager.addStyle(css)
         
