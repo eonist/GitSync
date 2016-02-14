@@ -45,7 +45,7 @@ class CustomView:WindowView{
         css +=      "float:left;"
         css +=      "clear:left;"
         css += "}"
-        css += "List Container{"
+        css += "List Section{"
         css +=      "fill:red;"
         css +=      "float:left;"
         css +=      "clear:left;"
