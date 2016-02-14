@@ -39,11 +39,16 @@ class CustomView:WindowView{
         //buttonTest()
     }
     func listTest(){
+        var css:String = ""
+        css += "List{"
+        css +=      ""
+        css += "}"
+        StyleManager.addStyle(css)
+        
+        let list = List(100,100,24,nil,self)
+        addSubview(list)
         
     }
-    /**
-     *
-     */
     func dataProviderTest(){
         let orange:Dictionary<String,String> = ["name":"orange", "title":"harry"]
         let blue = ["name":"blue", "url":"na"]
