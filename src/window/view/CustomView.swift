@@ -63,7 +63,9 @@ class CustomView:WindowView{
         /**/
         Swift.print(dp.count())
         
-       
+        var temp = [1,2,3,4]
+        temp = temp.splice(0, 1)
+        Swift.print("temp.count: " + "\(temp.count)")
     }
     /**
      *
