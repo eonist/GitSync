@@ -54,7 +54,7 @@ class CustomView:WindowView{
         css += "}"
         StyleManager.addStyle(css)
         
-        let list = List(100,100,24,nil,self)
+        let list = List(140,72,24,nil,self)
         addSubview(list)
         
     }
