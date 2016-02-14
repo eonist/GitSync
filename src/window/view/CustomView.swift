@@ -56,7 +56,9 @@ class CustomView:WindowView{
         dp.addItem(blue)
         dp.addItem(red)
         
-        dp.removeItemAt(dp.getItemIndex(orange))
+        let i = dp.getItemIndex(orange)
+        Swift.print("i: " + "\(i)")
+        dp.removeItemAt(i)
         
         /**/
         Swift.print(dp.count())
