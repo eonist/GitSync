@@ -47,6 +47,10 @@ class CustomView:WindowView{
         //let red = ["name":"red", "headline":"spring"]
         
         let dp:DataProvider = DataProvider()
+        func onEvent(event:Event){
+            Swift.print("event.type: " + event.type + " origin: " + "\(event.origin)" )
+        }
+        dp.event = onEvent
         
         dp.addItem(orange)
         //dp.addItem(blue)
@@ -57,11 +61,7 @@ class CustomView:WindowView{
         */
         Swift.print(dp.count())
         
-        func onEvent(event:Event){
-            Swift.print("event.type: " + event.type + " origin: " + "\(event.origin)" )
-        }
-        
-        dp.event = onEvent
+       
     }
     /**
      *
