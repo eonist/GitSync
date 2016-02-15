@@ -60,6 +60,7 @@ class CustomView:WindowView{
         css +=     "width:100%;"
         css +=     "height:24px;"
         css +=     "fill:green;"
+        css +=     "fill-alpha:1;"
         css += "}"
         /*Text*/
         css += "List Button Text{"
