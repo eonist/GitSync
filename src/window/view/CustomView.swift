@@ -53,44 +53,25 @@ class CustomView:WindowView{
         css +=      "height:150px;"
         css += "}"
         
+        css += "List Button{"
+        css +=     "float:left;"
+        css +=     "clear:left;"
+        css +=     "width:100%;"
+        css +=     "height:24px;"
+        css +=     "fill:green;"
+        css += "}"
+        css += "List Button Text{"
+        css +=     "float:left;"
+        css +=     "width:100%;"
+        css +=     "height:24px;"
+        css +=     "autoSize:left;"
+        css +=     "font:Lucida Grande;"
+        css +=     "size:12;"
+        css +=     "align:left;"
+        css +=     "color:black;"
+        css += "}"
         
         
-        
-        /*
-        
-        List Button{
-            float:left;
-            clear:left;
-            width:100%;
-            height:24px;
-            fill:<Primary>;
-            line:<Secondary>;
-            line-alpha:<Primary>;
-            line-thickness:<Primary>;
-            line-offset-type:outside;
-            padding-bottom:-1px;
-            padding-left,padding-right:-1px;
-            margin-bottom:-1px;
-        }
-        List Button:selected{
-            fill:<Accent6>;
-        }
-        List Button Text{
-            float:left;
-            margin-left:12px;
-            margin-top:<Primary>;
-            width:100%;
-            height:24px;
-            autoSize:left;
-            font:<Primary>;
-            size:<Primary>;
-            align:left;
-            color:<Primary>;
-            wordWrap,embedFonts:true;
-            selectable,mouseEnabled:false;
-        }
-        
-        */
         StyleManager.addStyle(css)
         
         let list = List(120,240,24,nil,self)
