@@ -57,9 +57,9 @@ class CustomView:WindowView{
         css += "List Button{"
         css +=     "float:left;"
         css +=     "clear:left;"
-        css +=     "width:100%;"
+        css +=     "width:96px;"
         css +=     "height:24px;"
-        css +=     "fill:green;"
+        css +=     "fill:red;"
         css +=     "fill-alpha:1;"
         css += "}"
         /*Text*/
