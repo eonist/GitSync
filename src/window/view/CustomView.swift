@@ -84,8 +84,11 @@ class CustomView:WindowView{
         dp.addItem(blue)
         dp.addItem(red)
         
-        //let list = List(120,240,24,dp,self)
-        //addSubview(list)
+        
+        //Swift.print(dp.items[0]["title"])//harry
+        
+        let list = List(120,240,24,dp,self)
+        addSubview(list)
     }
     func dataProviderTest(){
         let orange:Dictionary<String,String> = ["name":"orange", "title":"harry"]
