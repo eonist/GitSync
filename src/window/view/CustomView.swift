@@ -40,19 +40,20 @@ class CustomView:WindowView{
     }
     func listTest(){
         var css:String = ""
+        /*List*/
         css += "List{"
         css +=      "fill:blue;"
         css +=      "float:left;"
         css +=      "clear:left;"
         css += "}"
-        css += "List Section{"
+        /*css += "List Section{"
         css +=      "fill:red;"
         css +=      "float:left;"
         css +=      "clear:left;"
         css +=      "width:100px;"
         css +=      "height:150px;"
-        css += "}"
-        
+        css += "}"*/
+        /*Button*/
         css += "List Button{"
         css +=     "float:left;"
         css +=     "clear:left;"
@@ -60,6 +61,7 @@ class CustomView:WindowView{
         css +=     "height:24px;"
         css +=     "fill:green;"
         css += "}"
+        /*Text*/
         css += "List Button Text{"
         css +=     "float:left;"
         css +=     "width:100%;"
