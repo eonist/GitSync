@@ -91,6 +91,10 @@ class CustomView:WindowView{
         
         let list = List(120,240,24,dp,self)
         addSubview(list)
+        
+        
+        //Write a test where you add 3 TextButtons in a column, then you update their floats. 
+        
     }
     func dataProviderTest(){
         let orange:Dictionary<String,String> = ["name":"orange", "title":"harry"]
