@@ -86,7 +86,6 @@ class CustomView:WindowView{
         
         let list = List(120,240,24,dp,self)
         addSubview(list)
-        
     }
     func dataProviderTest(){
         let orange:Dictionary<String,String> = ["name":"orange", "title":"harry"]
