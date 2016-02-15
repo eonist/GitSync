@@ -76,7 +76,15 @@ class CustomView:WindowView{
         
         StyleManager.addStyle(css)
         
-        let list = List(120,240,24,nil,self)
+        let orange:Dictionary<String,String> = ["name":"orange", "title":"harry"]
+        let blue = ["name":"blue", "url":"na"]
+        let red = ["name":"red", "headline":"spring"]
+        let dp:DataProvider = DataProvider()
+        dp.addItem(orange)
+        dp.addItem(blue)
+        dp.addItem(red)
+        
+        let list = List(120,240,24,dp,self)
         addSubview(list)
         
     }
