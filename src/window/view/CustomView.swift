@@ -76,9 +76,15 @@ class CustomView:WindowView{
         
         StyleManager.addStyle(css)
         
-        let orange:Dictionary<String,String> = ["name":"orange", "title":"harry"]
-        let blue = ["name":"blue", "url":"na"]
-        let red = ["name":"red", "headline":"spring"]
+        item title="orange" property="harry"/>
+        <item title="blue" property="na"/>
+        <item title="white" property="spring"/>
+        <item title="purple" property="dark"/>
+        <item title="turquoise" property="1"/>
+        
+        let orange:Dictionary<String,String> = ["title":"orange", "property":"harry"]
+        let blue = ["title":"blue", "property":"na"]
+        let red = ["title":"white", "property":"spring"]
         let dp:DataProvider = DataProvider()
         dp.addItem(orange)
         dp.addItem(blue)
