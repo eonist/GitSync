@@ -39,6 +39,21 @@ class CustomView:WindowView{
         
         //buttonTest()
     }
+    
+    /**
+    *
+    */
+    func textButtonTest(){
+        var css:String = "TextButton{fill:grey;}"
+        css += "Text{font:Lucida Grande;selectable:false;size:12px;color:black;align:center;backgroundColor:orange;background:false;margin-top:4px;}Text:down{color:black;}"//
+        StyleManager.addStyle(css)
+        //btn = TextButton("",200,200)
+        let textButton:TextButton = TextButton("Button",96,24)
+        
+        
+        
+        self.addSubview(textButton)
+    }
     func listTest(){
         var css:String = ""
         /*List*/
