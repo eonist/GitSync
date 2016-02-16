@@ -89,6 +89,7 @@ class CustomView:WindowView{
         /*Text*/
         css += "List SelectTextButton Text{"
         css +=     "float:left;"
+        css +=     "clear:none;"
         css +=     "width:100%;"
         css +=     "height:24px;"
         css +=     "autoSize:left;"
