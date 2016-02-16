@@ -87,6 +87,10 @@ class CustomView:WindowView{
         //also start using external css docs when debugging, its faster 
         //you need to get bold working
         
+        css += "InsetShadow{"
+        css +=      "drop-shadow:drop-shadow(0px 0 #000000 0.4 4 4 1 2 true);"
+        css += "}"
+        /*list*/
         css += "List{"
 
         css +=     "float:left;"
@@ -96,13 +100,14 @@ class CustomView:WindowView{
     	css +=     "line-alpha:1;"
     	css +=     "line-offset-type:outside;"
     	css +=     "line-thickness:1px;"
-        //css +=     drop-shadow:<InsetShadow>;
+        css +=     "drop-shadow:<InsetShadow>;"
         
         css += "}"
         css += "List Container{"
         css +=      "width:100%;"
         css +=      "float:left;"
         css +=      "clear:left;"
+        css +=      "drop-shadow:none;"
         css += "}"
         /*css += "List Section{"
         css +=      "fill:red;"
