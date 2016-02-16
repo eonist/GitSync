@@ -65,15 +65,11 @@ class CustomView:WindowView{
         let blue = ["title":"blue", "property":"na"]
         let red = ["title":"white", "property":"spring"]//purple,turquoise
         let dp:DataProvider = DataProvider([orange,blue,red])
-        /*dp.addItem(orange)
-        dp.addItem(blue)
-        dp.addItem(red)*/
         
+        //let section = self.addSubView(Section(200, 200, self, "checkBoxButtonContainer")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
         
-        //Swift.print(dp.items[0]["title"])//harry
-        
-        let list = List(120,160,24,dp,self)
-        addSubview(list)
+        let list = self.addSubView(List(120,160,24,dp,self)) as! List
+        list
         
         
         //Write a test where you add 3 TextButtons in a column, then you update their floats. 
