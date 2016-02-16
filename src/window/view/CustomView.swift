@@ -92,7 +92,7 @@ class CustomView:WindowView{
         css += "}"
         /*list*/
         css += "List{"
-
+        //css +=     "margin-top:-1px;"
         css +=     "float:left;"
     	css +=     "clear:left;"
     	css +=     "fill:white;"
@@ -129,10 +129,10 @@ class CustomView:WindowView{
     	css +=     "line-thickness:1px;"
     	css +=     "line-offset-type:outside;"
         css +=     "drop-shadow:none;"
-        css +=     "padding-bottom:-1px;"
+        /*css +=     "padding-bottom:-1px;"
         css +=     "padding-left:-1px;"
-        css +=     "padding-right:-1px;"
-        css +=     "margin-bottom:0px;"
+        css +=     "padding-right:-1px;"*/
+        //css +=     "margin-bottom:1px;"
         css +=     "margin-top:-1px;"
         css +=     "margin-left:-2px;"
         css += "}"
