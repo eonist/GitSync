@@ -110,8 +110,8 @@ class CustomView:WindowView{
         css += "}"
         /*Text*/
         css += "List Container SelectTextButton Text{"
-        css +=     "float:left;"
-        css +=     "clear:left;"
+        css +=     "float:none;"
+        css +=     "clear:none;"
         css +=     "width:100%;"
         css +=     "height:24px;"
         css +=     "autoSize:left;"
@@ -126,12 +126,12 @@ class CustomView:WindowView{
         
         
         let orange:Dictionary<String,String> = ["title":"orange", "property":"harry"]
-        //let blue = ["title":"blue", "property":"na"]
-        //let red = ["title":"white", "property":"spring"]//purple,turquoise
+        let blue = ["title":"blue", "property":"na"]
+        let red = ["title":"white", "property":"spring"]//purple,turquoise
         let dp:DataProvider = DataProvider()
         dp.addItem(orange)
-        //dp.addItem(blue)
-        //dp.addItem(red)
+        dp.addItem(blue)
+        dp.addItem(red)
         
         
         //Swift.print(dp.items[0]["title"])//harry
