@@ -69,6 +69,7 @@ class CustomView:WindowView{
         let list = section.addSubView(List(120,120,24,dp,section)) as! List
         list
         ListModifier.selectAt(list, 1)
+        list.dataProvider.addItemAt(["title":"brown"], 0);
         
         
         
