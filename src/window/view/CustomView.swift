@@ -17,7 +17,7 @@ class CustomView:WindowView{
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
         textButtonTest()
-        //listTest()
+        listTest()
         //dataProviderTest()
         //createCheckBoxButton()
         //createCheckBox()
@@ -132,7 +132,8 @@ class CustomView:WindowView{
         css += "}"
         
         
-        StyleManager.addStyle(css)
+        //StyleManager.addStyle(css)
+        StyleManager.addStylesByURL("~/Desktop/css/list.css")
         
         
         let orange:Dictionary<String,String> = ["title":"orange", "property":"harry"]
