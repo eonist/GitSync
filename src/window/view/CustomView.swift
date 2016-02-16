@@ -87,9 +87,16 @@ class CustomView:WindowView{
         //also start using external css docs when debugging, its faster 
         
         css += "List{"
-        css +=      "fill:blue;"
-        css +=      "float:left;"
-        css +=      "clear:left;"
+
+        css +=     "float:left;"
+    	css +=     "clear:left;"
+    	css +=     "fill:white;"
+    	css +=     "line:white9;"
+    	css +=     "line-alpha:1;"
+    	css +=     "line-offset-type:outside;"
+    	css +=     "line-thickness:1px;"
+        //css +=     drop-shadow:<InsetShadow>;
+        
         css += "}"
         css += "List Container{"
         css +=      "width:100%;"
