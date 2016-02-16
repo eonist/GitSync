@@ -16,8 +16,8 @@ class CustomView:WindowView{
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
-        //textButtonTest()
-        listTest()
+        textButtonTest()
+        //listTest()
         //dataProviderTest()
         //createCheckBoxButton()
         //createCheckBox()
@@ -54,8 +54,6 @@ class CustomView:WindowView{
         self.addSubview(textButton)
         
         
-        //continue here: the problem you have with list is that the button isnt a button its being target in css as its subclass name. see legacy code if button should implement getClassName etc. see also legacy css
-        // its confirmed that this is the case
         
     }
     func listTest(){
