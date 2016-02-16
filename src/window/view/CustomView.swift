@@ -72,7 +72,7 @@ class CustomView:WindowView{
         //list.dataProvider.addItemAt(["title":"brown"], 0);
         ElementModifier.floatChildren(list.lableContainer!)/*this call re-floats the list items*/
         
-        
+        //ok so the probelem is that you cant find the index of the 
         
     }
     func dataProviderTest(){
