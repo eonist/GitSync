@@ -44,28 +44,7 @@ class CustomView:WindowView{
     *
     */
     func textButtonTest(){
-        var css:String = ""
-        css += "TextButton{"
-        css +=     "fill:grey;"
-        css +=     "float:left;"
-        css +=     "clear:left;"
-        css +=     "}"
-        css += "Text{"//
-        css +=     "float:none;"
-        css +=     "clear:none;"
-        css +=     "font:Lucida Grande;"
-        css +=     "selectable:false;"
-        css +=     "size:12px;"
-        css +=     "color:black;"
-        css +=     "align:center;"
-        css +=     "backgroundColor:orange;"
-        css +=     "background:false;"
-        css +=     "margin-top:4px;"
-        css +=     ""
-        css += "}"
-        css += "Text:down{"
-        css +=     "color:black;"
-        css += "}"
+        
         StyleManager.addStylesByURL("~/Desktop/css/textButton.css")
         //btn = TextButton("",200,200)
         let textButton:TextButton = TextButton("Button",96,24,self)
