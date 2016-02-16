@@ -16,8 +16,8 @@ class CustomView:WindowView{
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
-        //textButtonTest()
-        listTest()
+        textButtonTest()
+        //listTest()
         //dataProviderTest()
         //createCheckBoxButton()
         //createCheckBox()
@@ -94,7 +94,7 @@ class CustomView:WindowView{
         /*Text*/
         css += "List SelectTextButton Text{"
         css +=     "float:left;"
-        css +=     "clear:none;"
+        css +=     "clear:left;"
         css +=     "width:100%;"
         css +=     "height:24px;"
         css +=     "autoSize:left;"
@@ -113,8 +113,8 @@ class CustomView:WindowView{
         let red = ["title":"white", "property":"spring"]//purple,turquoise
         let dp:DataProvider = DataProvider()
         dp.addItem(orange)
-        dp.addItem(blue)
-        dp.addItem(red)
+        //dp.addItem(blue)
+        //dp.addItem(red)
         
         
         //Swift.print(dp.items[0]["title"])//harry
