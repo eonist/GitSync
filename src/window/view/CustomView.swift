@@ -78,7 +78,7 @@ class CustomView:WindowView{
         css +=      "height:150px;"
         css += "}"*/
         /*Button*/
-        css += "List Button{"
+        css += "List SelectTextButton{"
         css +=     "float:left;"
         css +=     "clear:left;"
         css +=     "width:96px;"
@@ -87,7 +87,7 @@ class CustomView:WindowView{
         css +=     "fill-alpha:1;"
         css += "}"
         /*Text*/
-        css += "List Button Text{"
+        css += "List SelectTextButton Text{"
         css +=     "float:left;"
         css +=     "width:100%;"
         css +=     "height:24px;"
