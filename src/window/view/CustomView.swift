@@ -66,7 +66,7 @@ class CustomView:WindowView{
         css += "Text:down{"
         css +=     "color:black;"
         css += "}"
-        StyleManager.addStyle(css)
+        StyleManager.addStylesByURL("~/Desktop/css/textButton.css")
         //btn = TextButton("",200,200)
         let textButton:TextButton = TextButton("Button",96,24,self)
         
