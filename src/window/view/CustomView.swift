@@ -72,9 +72,10 @@ class CustomView:WindowView{
         //list.dataProvider.addItemAt(["title":"brown"], 0);
         ElementModifier.floatChildren(list.lableContainer!)/*this call re-floats the list items*/
         
+        
         //Continue here: ok so the probelem is that you cant find the index of the try to use the contains method on a list item and the container
         //the problem may be the casting to NSView
-        //dont forget you changed the exception thing. May not be of any importance. 
+        //dont forget you changed the exception thing. May not be of any importance.
         
         
     }
