@@ -92,7 +92,7 @@ class CustomView:WindowView{
         css += "}"
         /*list*/
         css += "List{"
-        //css +=     "margin-top:-1px;"
+        css +=     "margin-top:-2px;"
         css +=     "float:left;"
     	css +=     "clear:left;"
     	css +=     "fill:white;"
@@ -100,7 +100,7 @@ class CustomView:WindowView{
     	css +=     "line-alpha:1;"
     	css +=     "line-offset-type:outside;"
     	css +=     "line-thickness:1px;"
-        //css +=     "drop-shadow:<InsetShadow>;"
+        css +=     "drop-shadow:<InsetShadow>;"
         
         css += "}"
         css += "List Container{"
