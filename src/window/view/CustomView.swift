@@ -128,10 +128,10 @@ class CustomView:WindowView{
         let orange:Dictionary<String,String> = ["title":"orange", "property":"harry"]
         let blue = ["title":"blue", "property":"na"]
         let red = ["title":"white", "property":"spring"]//purple,turquoise
-        let dp:DataProvider = DataProvider()
-        dp.addItem(orange)
+        let dp:DataProvider = DataProvider([orange,blue,red])
+        /* dp.addItem(orange)
         dp.addItem(blue)
-        dp.addItem(red)
+        dp.addItem(red)*/
         
         
         //Swift.print(dp.items[0]["title"])//harry
