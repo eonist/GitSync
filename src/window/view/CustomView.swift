@@ -16,8 +16,8 @@ class CustomView:WindowView{
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
-        textButtonTest()
-        //listTest()
+        //textButtonTest()
+        listTest()
         //dataProviderTest()
         //createCheckBoxButton()
         //createCheckBox()
@@ -51,6 +51,8 @@ class CustomView:WindowView{
         css +=     "clear:left;"
         css +=     "}"
         css += "Text{"//
+        css +=     "float:none;"
+        css +=     "clear:none;"
         css +=     "font:Lucida Grande;"
         css +=     "selectable:false;"
         css +=     "size:12px;"
@@ -124,8 +126,8 @@ class CustomView:WindowView{
         
         
         let orange:Dictionary<String,String> = ["title":"orange", "property":"harry"]
-        let blue = ["title":"blue", "property":"na"]
-        let red = ["title":"white", "property":"spring"]//purple,turquoise
+        //let blue = ["title":"blue", "property":"na"]
+        //let red = ["title":"white", "property":"spring"]//purple,turquoise
         let dp:DataProvider = DataProvider()
         dp.addItem(orange)
         //dp.addItem(blue)
