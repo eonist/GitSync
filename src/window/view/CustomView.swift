@@ -133,6 +133,8 @@ class CustomView:WindowView{
         css +=     "padding-left:-1px;"
         css +=     "padding-right:-1px;"
         css +=     "margin-bottom:0px;"
+        css +=     "margin-top:-1px;"
+        css +=     "margin-left:-2px;"
         css += "}"
         
         /*Text*/
