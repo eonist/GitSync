@@ -66,9 +66,9 @@ class CustomView:WindowView{
         let red = ["title":"white", "property":"spring"]//purple,turquoise
         let dp:DataProvider = DataProvider([orange,blue,red])
         
-        //let section = self.addSubView(Section(200, 200, self, "checkBoxButtonContainer")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
+        let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
         
-        let list = self.addSubView(List(120,160,24,dp,self)) as! List
+        let list = section.addSubView(List(120,120,24,dp,section)) as! List
         list
         
         
