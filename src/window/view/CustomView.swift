@@ -85,6 +85,7 @@ class CustomView:WindowView{
         
         //continue here: add the correct color to the bg and font
         //also start using external css docs when debugging, its faster 
+        //you need to get bold working
         
         css += "List{"
 
@@ -114,7 +115,7 @@ class CustomView:WindowView{
         css += "List Container SelectTextButton{"
         css +=     "float:left;"
         css +=     "clear:left;"
-        css +=     "width:96px;"
+        css +=     "width:100%;"
         css +=     "height:24px;"
         css +=     "fill:white;"
     	css +=     "fill-alpha:0;"
@@ -125,7 +126,7 @@ class CustomView:WindowView{
         css +=     "drop-shadow:none;"
         //css +=     "padding-bottom:-1px;"
         //css +=     "padding-left,padding-right:-1px;"
-        //css +=     "margin-bottom:-1px;"
+        css +=     "margin-bottom:-1px;"
         css += "}"
         
         /*Text*/
@@ -134,11 +135,13 @@ class CustomView:WindowView{
         css +=     "clear:none;"
         css +=     "width:100%;"
         css +=     "height:24px;"
+        css +=     "margin-left:12px;"
+    	css +=     "margin-top:2px;"
         css +=     "autoSize:left;"
         css +=     "font:Lucida Grande;"
         css +=     "size:12;"
         css +=     "align:left;"
-        css +=     "color:black;"
+        css +=     "color:grey5;"
         css += "}"
         
         
