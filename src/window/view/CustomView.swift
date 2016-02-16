@@ -68,9 +68,9 @@ class CustomView:WindowView{
         
         let list = section.addSubView(List(120,120,24,dp,section)) as! List
         list
+        ListModifier.selectAt(list, 1)
         
         
-        //Write a test where you add 3 TextButtons in a column, then you update their floats. 
         
     }
     func dataProviderTest(){
