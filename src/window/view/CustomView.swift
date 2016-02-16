@@ -67,7 +67,7 @@ class CustomView:WindowView{
         let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
         
         let list = section.addSubView(List(120,120,24,dp,section)) as! List
-        list
+        //list
         ListModifier.selectAt(list, 1)
         list.dataProvider.addItemAt(["title":"brown"], 0);
         
