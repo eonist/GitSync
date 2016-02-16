@@ -92,7 +92,7 @@ class CustomView:WindowView{
         css += "}"
         /*list*/
         css += "List{"
-        css +=     "margin-top:-2px;"
+        css +=     "margin-top:-1px;"
         css +=     "float:left;"
     	css +=     "clear:left;"
     	css +=     "fill:white;"
