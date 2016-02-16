@@ -82,6 +82,10 @@ class CustomView:WindowView{
     func listTest(){
         var css:String = ""
         /*List*/
+        
+        //continue here: add the correct color to the bg and font
+        //also start using external css docs when debugging, its faster 
+        
         css += "List{"
         css +=      "fill:blue;"
         css +=      "float:left;"
