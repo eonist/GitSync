@@ -100,7 +100,7 @@ class CustomView:WindowView{
     	css +=     "line-alpha:1;"
     	css +=     "line-offset-type:outside;"
     	css +=     "line-thickness:1px;"
-        css +=     "drop-shadow:<InsetShadow>;"
+        //css +=     "drop-shadow:<InsetShadow>;"
         
         css += "}"
         css += "List Container{"
@@ -132,7 +132,7 @@ class CustomView:WindowView{
         css +=     "padding-bottom:-1px;"
         css +=     "padding-left:-1px;"
         css +=     "padding-right:-1px;"
-        css +=     "margin-bottom:-1px;"
+        css +=     "margin-bottom:0px;"
         css += "}"
         
         /*Text*/
