@@ -76,6 +76,11 @@ class CustomView:WindowView{
         
         list.dataProvider.addItems([["title":"purple"], ["title":"turquoise"]])
         
+        //list.dataProvider.removeItem(list.dataProvider.getItem("brown"));// :TODO: doesnt work atm
+        
+        list.dataProvider.removeItemAt(0)
+        
+        
         
         //ElementModifier.floatChildren(list.lableContainer!)/*this call re-floats the list items*/
         
