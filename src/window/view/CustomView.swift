@@ -45,7 +45,7 @@ class CustomView:WindowView{
         let path = "~/Desktop/test.xml"
         
         let content = FileParser.content(path.tildePath)
-        //Swift.print("content: " + "\(content)")
+        Swift.print("content: " + "\(content)")
         
         let xmlDoc:NSXMLDocument = try! NSXMLDocument(XMLString: content!, options: 0)
         let rootElement:NSXMLElement = xmlDoc.rootElement()!
