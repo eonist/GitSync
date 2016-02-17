@@ -76,7 +76,7 @@ class CustomView:WindowView{
         
         list.dataProvider.addItems([["title":"purple"], ["title":"turquoise"]])
         
-        //list.dataProvider.removeItem(list.dataProvider.getItem("brown"));// :TODO: doesnt work atm
+        list.dataProvider.removeItem(list.dataProvider.getItem("brown"));// :TODO: doesnt work atm
         
         list.dataProvider.removeItemAt(0)
         
