@@ -42,7 +42,8 @@ class CustomView:WindowView{
         //buttonTest()
     }
     func xmlListTest(){
-        
+        var xml:XML = FileParser.xml(new File(File.applicationDirectory.url+"assets/xml/list.xml"));
+        //var dp:DataProvider = new DataProvider(xml);
     }
     func textButtonTest(){
         
