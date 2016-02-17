@@ -42,7 +42,25 @@ class CustomView:WindowView{
         //buttonTest()
     }
     func xmlListTest(){
-        var xml:XML = FileParser.xml(new File(File.applicationDirectory.url+"assets/xml/list.xml"));
+        let path = "~/Desktop/test.xml"
+        
+        let content = FileParser.content(path.tildePath)
+        //Swift.print("content: " + "\(content)")
+        
+        let xmlDoc:NSXMLDocument = try! NSXMLDocument(XMLString: content!, options: 0)
+        let rootElement:NSXMLElement = xmlDoc.rootElement()!
+        rootElement
+        
+        //Swift.print("rootElement.localName: " + "\(rootElement.localName)")
+        //Swift.print("rootElement.childCount: " + "\(rootElement.childCount)")
+        
+        //let child:NSXMLElement = XMLParser.childAt(rootElement.children!, 0)!
+        //Swift.print("child.stringValue: " + "\(child.stringValue)")
+        //Swift.print("child.localName: " + "\(child.localName)")
+        
+        //let svg:SVG = SVGParser.svg(rootElement);
+        
+        //var xml:XML = FileParser.xml(new File(File.applicationDirectory.url+"assets/xml/list.xml"));
         //var dp:DataProvider = new DataProvider(xml);
     }
     func textButtonTest(){
