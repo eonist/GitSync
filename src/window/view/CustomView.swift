@@ -45,7 +45,7 @@ class CustomView:WindowView{
         let path = "~/Desktop/test.xml"
         
         let content = FileParser.content(path.tildePath)
-        Swift.print("content: " + "\(content)")
+        //Swift.print("content: " + "\(content)")
         
         let xmlDoc:NSXMLDocument = try! NSXMLDocument(XMLString: content!, options: 0)
         let rootElement:NSXMLElement = xmlDoc.rootElement()!
@@ -53,9 +53,9 @@ class CustomView:WindowView{
         
         Swift.print("rootElement.children?.count: " + "\(rootElement.children?.count)")
         
-        XMLParser.toArray(rootElement)
+        //XMLParser.toArray(rootElement)
         
-        
+        let tempDict:Dictionary<String,String> = ["color","blue"]
         
         //Swift.print("rootElement.localName: " + "\(rootElement.localName)")
         //Swift.print("rootElement.childCount: " + "\(rootElement.childCount)")
