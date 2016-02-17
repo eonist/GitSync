@@ -65,30 +65,20 @@ class CustomView:WindowView{
         let dp:DataProvider = DataProvider([orange,blue,red])
         
         let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
-        
         let list = section.addSubView(List(140,220,24,dp,section)) as! List
 
-        ListModifier.selectAt(list, 1)/**/
-        list.dataProvider.addItemAt(["title":"brown"], 0)/**/
-        list.dataProvider.addItem(["title":"pink"])/**/
-        list.dataProvider.addItems([["title":"purple"], ["title":"turquoise"]])/**/
-        list.dataProvider.removeItem(list.dataProvider.getItem("brown")!)/**/
-        list.dataProvider.removeItemAt(0)/**/
+        ListModifier.selectAt(list, 1)/*Selects the second item list*/
+        list.dataProvider.addItemAt(["title":"brown"], 0)/*adds a new item at index 0*/
+        list.dataProvider.addItem(["title":"pink"])/*adds a new item to the end of the list*/
+        list.dataProvider.addItems([["title":"purple"], ["title":"turquoise"]])/*adds 2 items to the end of the list*/
+        list.dataProvider.removeItem(list.dataProvider.getItem("brown")!)/*remove the item with title brown*/
+        list.dataProvider.removeItemAt(0)/*remove the first item in the list*/
         
-        Swift.print("Selected: " + "\(ListParser.selected(list))")/**/
-        Swift.print("Selected index: " + "\(ListParser.selectedIndex(list))")/**/
-        Swift.print("Selected title: " + "\(ListParser.selectedTitle(list))")/**/
+        Swift.print("Selected: " + "\(ListParser.selected(list))")/*print the selected item*/
+        Swift.print("Selected index: " + "\(ListParser.selectedIndex(list))")/*print the index of the selected item*/
+        Swift.print("Selected title: " + "\(ListParser.selectedTitle(list))")/*print the title of the selected item*/
         
         list.dataProvider.removeAll()/*removes all the items in the list*/
-        
-        
-        
-        //ElementModifier.floatChildren(list.lableContainer!)/*this call re-floats the list items*/
-        
-        /*let lable = ListParser.labelAt(list, 1)!
-        Swift.print("lable: " + "\(lable)")
-        let contains = NSViewAsserter.contains(list.lableContainer!, lable)
-        Swift.print("contains: " + "\(contains)")*/
         
        
         //TODO: dont forget you changed the exception thing. May not be of any importance.
