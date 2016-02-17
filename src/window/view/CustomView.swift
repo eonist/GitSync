@@ -53,10 +53,14 @@ class CustomView:WindowView{
         
         Swift.print("rootElement.children?.count: " + "\(rootElement.children?.count)")
         
-        let XMLParser.toArray(rootElement)
+        let items = XMLParser.toArray(rootElement)
+        Swift.print("items.count: " + "\(items.count)")
         
         //let tempDict:Dictionary<String,String> = ["color":"blue"]
-        //DictionaryParser.describe(tempDict)
+        for item in items{
+           DictionaryParser.describe(item)
+        }
+        
         
         
         //Swift.print("rootElement.localName: " + "\(rootElement.localName)")
