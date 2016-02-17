@@ -61,6 +61,9 @@ class CustomView:WindowView{
            DictionaryParser.describe(item)
         }
         
+        //continue here: add the code above to the DataProvider init method
+        //add a test to the list where you load the data into the list
+        //cross of the item in the todo list
         
         
         //Swift.print("rootElement.localName: " + "\(rootElement.localName)")
