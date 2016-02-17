@@ -73,6 +73,10 @@ class CustomView:WindowView{
         //Continue here: fix the addItemAt method, its currently adding one index up from where it should add
         
         list.dataProvider.addItemAt(["title":"brown"], 0)
+        
+        list.dataProvider.addItem(["title":"pink"])
+        
+        
         //ElementModifier.floatChildren(list.lableContainer!)/*this call re-floats the list items*/
         
         /*let lable = ListParser.labelAt(list, 1)!
