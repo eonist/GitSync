@@ -16,10 +16,10 @@ class CustomView:WindowView{
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
-        xmlListTest()
+        //xmlListTest()
         
         //textButtonTest()
-        //listTest()
+        listTest()
         //dataProviderTest()
         //createCheckBoxButton()
         //createCheckBox()
@@ -113,7 +113,7 @@ class CustomView:WindowView{
         Swift.print("Selected index: " + "\(ListParser.selectedIndex(list))")/*print the index of the selected item*/
         Swift.print("Selected title: " + "\(ListParser.selectedTitle(list))")/*print the title of the selected item*/
         
-        list.dataProvider.removeAll()/*removes all the items in the list*/
+        //list.dataProvider.removeAll()/*removes all the items in the list*/
         
        
         //TODO: dont forget you changed the exception thing. May not be of any importance.
