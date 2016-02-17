@@ -80,8 +80,8 @@ class CustomView:WindowView{
         
         list.dataProvider.removeItemAt(0)
         
-        Swift.print("list.getSelected(): " + list.getSelected());
-        Swift.print("list.getSelectedIndex(): " + list.getSelectedIndex());
+        Swift.print("list.getSelected(): " + "\(list.getSelected())");
+        Swift.print("list.getSelectedIndex(): " + "\(list.getSelectedIndex())");
         
         list.dataProvider.removeAll()
         
