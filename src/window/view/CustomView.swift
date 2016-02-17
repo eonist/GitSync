@@ -69,6 +69,9 @@ class CustomView:WindowView{
         let list = section.addSubView(List(120,120,24,dp,section)) as! List
         //list
         ListModifier.selectAt(list, 1)
+        
+        //Continue here: fix the addItemAt method, its currently adding one index up from where it should add
+        
         list.dataProvider.addItemAt(["title":"brown"], 0)
         //ElementModifier.floatChildren(list.lableContainer!)/*this call re-floats the list items*/
         
@@ -77,9 +80,8 @@ class CustomView:WindowView{
         let contains = NSViewAsserter.contains(list.lableContainer!, lable)
         Swift.print("contains: " + "\(contains)")*/
         
-        //Continue here: ok so the probelem is that you cant find the index of the try to use the contains method on a list item and the container
-        //the problem may be the casting to NSView
-        //dont forget you changed the exception thing. May not be of any importance.
+       
+        //TODO: dont forget you changed the exception thing. May not be of any importance.
         
         
     }
