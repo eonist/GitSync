@@ -68,24 +68,18 @@ class CustomView:WindowView{
         
         let list = section.addSubView(List(140,220,24,dp,section)) as! List
         //list
-        ListModifier.selectAt(list, 1)
+        ListModifier.selectAt(list, 1)/**/
+        list.dataProvider.addItemAt(["title":"brown"], 0)/**/
+        list.dataProvider.addItem(["title":"pink"])/**/
+        list.dataProvider.addItems([["title":"purple"], ["title":"turquoise"]])/**/
+        list.dataProvider.removeItem(list.dataProvider.getItem("brown")!)/**/
+        list.dataProvider.removeItemAt(0)/**/
         
-        list.dataProvider.addItemAt(["title":"brown"], 0)
+        Swift.print("Selected: " + "\(ListParser.selected(list))")/**/
+        Swift.print("Selected index: " + "\(ListParser.selectedIndex(list))")/**/
+        Swift.print("Selected title: " + "\(ListParser.selectedTitle(list))")/**/
         
-        list.dataProvider.addItem(["title":"pink"])
-        
-        list.dataProvider.addItems([["title":"purple"], ["title":"turquoise"]])
-        
-        list.dataProvider.removeItem(list.dataProvider.getItem("brown")!)
-        
-        list.dataProvider.removeItemAt(0)
-        
-        
-        Swift.print("Selected: " + "\(ListParser.selected(list))")
-        Swift.print("Selected index: " + "\(ListParser.selectedIndex(list))")
-        Swift.print("Selected title: " + "\(ListParser.selectedTitle(list))")
-        
-        list.dataProvider.removeAll()
+        list.dataProvider.removeAll()/*removes all the items in the list*/
         
         
         
