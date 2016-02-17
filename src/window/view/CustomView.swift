@@ -53,6 +53,10 @@ class CustomView:WindowView{
         
         Swift.print("rootElement.children?.count: " + "\(rootElement.children?.count)")
         
+        XMLParser.toArray(rootElement)
+        
+        
+        
         //Swift.print("rootElement.localName: " + "\(rootElement.localName)")
         //Swift.print("rootElement.childCount: " + "\(rootElement.childCount)")
         
