@@ -51,6 +51,8 @@ class CustomView:WindowView{
         let rootElement:NSXMLElement = xmlDoc.rootElement()!
         rootElement
         
+        Swift.print("rootElement.children?.count: " + "\(rootElement.children?.count)")
+        
         //Swift.print("rootElement.localName: " + "\(rootElement.localName)")
         //Swift.print("rootElement.childCount: " + "\(rootElement.childCount)")
         
