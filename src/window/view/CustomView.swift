@@ -16,8 +16,10 @@ class CustomView:WindowView{
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
+        xmlListTest()
+        
         //textButtonTest()
-        listTest()
+        //listTest()
         //dataProviderTest()
         //createCheckBoxButton()
         //createCheckBox()
@@ -39,10 +41,9 @@ class CustomView:WindowView{
         
         //buttonTest()
     }
-    
-    /**
-    *
-    */
+    func xmlListTest(){
+        
+    }
     func textButtonTest(){
         
         StyleManager.addStylesByURL("~/Desktop/css/textButton.css")
