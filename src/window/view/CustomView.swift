@@ -66,7 +66,7 @@ class CustomView:WindowView{
         
         let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
         
-        let list = section.addSubView(List(120,120,24,dp,section)) as! List
+        let list = section.addSubView(List(120,240,24,dp,section)) as! List
         //list
         ListModifier.selectAt(list, 1)
         
@@ -75,6 +75,8 @@ class CustomView:WindowView{
         list.dataProvider.addItemAt(["title":"brown"], 0)
         
         list.dataProvider.addItem(["title":"pink"])
+        
+        list.dataProvider.addItems([["title":"purple"], ["title":"turquoise"]])
         
         
         //ElementModifier.floatChildren(list.lableContainer!)/*this call re-floats the list items*/
