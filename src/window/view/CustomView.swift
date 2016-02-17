@@ -120,6 +120,8 @@ class CustomView:WindowView{
        
         //TODO: dont forget you changed the exception thing. May not be of any importance.
         
+        //Continue here: fix the resize problem
+        
         
     }
     func dataProviderTest(){
