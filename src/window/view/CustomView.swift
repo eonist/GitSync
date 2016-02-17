@@ -93,11 +93,13 @@ class CustomView:WindowView{
     }
     func listTest(){
         StyleManager.addStylesByURL("~/Desktop/css/list.css")
-        
+        /*
         let orange:Dictionary<String,String> = ["title":"orange", "property":"harry"]
         let blue = ["title":"blue", "property":"na"]
         let red = ["title":"white", "property":"spring"]//purple,turquoise
         let dp:DataProvider = DataProvider([orange,blue,red])
+        */
+        let dp = DataProvider(FileParser.xml("~/Desktop/test.xml"))
         
         let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
         let list = section.addSubView(List(140,220,24,dp,section)) as! List
@@ -105,7 +107,7 @@ class CustomView:WindowView{
         ListModifier.selectAt(list, 1)/*Selects the second item list*/
         list.dataProvider.addItemAt(["title":"brown"], 0)/*adds a new item at index 0*/
         list.dataProvider.addItem(["title":"pink"])/*adds a new item to the end of the list*/
-        list.dataProvider.addItems([["title":"purple"], ["title":"turquoise"]])/*adds 2 items to the end of the list*/
+        list.dataProvider.addItems([["title":"purple"], ["title":"orange"]])/*adds 2 items to the end of the list*/
         list.dataProvider.removeItem(list.dataProvider.getItem("brown")!)/*remove the item with title brown*/
         list.dataProvider.removeItemAt(0)/*remove the first item in the list*/
         
