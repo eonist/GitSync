@@ -19,7 +19,7 @@ class CustomView:WindowView{
         //xmlListTest()
         
         //textButtonTest()
-        listTest()
+        //listTest()
         //dataProviderTest()
         //createCheckBoxButton()
         //createCheckBox()
@@ -41,6 +41,11 @@ class CustomView:WindowView{
         
         //buttonTest()
     }
+    override func scrollWheel(theEvent: NSEvent) {
+        Swift.print("theEvent: " + "\(theEvent)")
+        super.scrollWheel(theEvent)
+    }
+    
     func xmlListTest(){
         let path = "~/Desktop/test.xml"
         
