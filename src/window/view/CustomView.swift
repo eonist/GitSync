@@ -729,7 +729,7 @@ class CustomView:WindowView{
      * Adds close button, min, max
      */
     func createTitleBar(){
-        Swift.print("CustomView.createTitleBar()")
+        //Swift.print("CustomView.createTitleBar()")
         var css:String = ""
         css += "Section#titleBar{float:left;clear:left;padding-top:4px;padding-left:8px;}"
         css += "Section#titleBar Button{width:10px;height:10px;corner-radius:5px;float:left;clear:none;margin-right:8px;margin-top:0px;padding-left:0px;padding-top:0px;line-offset-type:outside;line-alpha:1;line-thickness:1px;}"//adding padding here shouldnt be necessary
