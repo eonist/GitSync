@@ -50,6 +50,13 @@ class CustomView:WindowView{
         //add slider and test
         let vSlider = VSlider(40,200)
         addSubview(vSlider)
+        
+        //continue: check if legacy code works with scrolling in the basicWin
+        //convert VSlider to Element code
+        //add css to the slider
+        //test the different slider util methods
+        //test scrolling
+        
     }
     /**
      *
