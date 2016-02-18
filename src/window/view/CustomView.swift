@@ -48,8 +48,6 @@ class CustomView:WindowView{
     func sliderListTest(){
     
     }
-    
-    
     func xmlListTest(){
         let path = "~/Desktop/test.xml"
         
