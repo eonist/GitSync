@@ -52,7 +52,7 @@ class CustomView:WindowView{
         addSubview(vSlider)
         
         
-        //convert VSlider to Element code
+        
         //add css to the slider
         //test the different slider util methods
         //test scrolling
