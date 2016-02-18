@@ -75,9 +75,9 @@ class CustomView:WindowView{
         vSlider.event = onEvent
         
         
-        
-        
-        //add css to the slider
+        //continue here:
+        //get the "on bg down move thumb" to work
+        //
         //test the different slider util methods
         //test scrolling
         
