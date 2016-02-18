@@ -48,6 +48,9 @@ class CustomView:WindowView{
      */
     func sliderTest(){
         //add slider and test
+        
+        StyleManager.addStylesByURL("~/Desktop/css/slider.css")
+        
         let vSlider = VSlider(40,200)
         addSubview(vSlider)
         
