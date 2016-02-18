@@ -51,11 +51,29 @@ class CustomView:WindowView{
         
         StyleManager.addStylesByURL("~/Desktop/css/slider.css")
         
+        var css:String = ""
+        css += "Section#checkBoxButtonContainer{"
+        css +=      "corner-radius:4px;"
+        css +=      "fill:#EFEFF4;"//bg color for win: #E8E8E8
+        css +=      "float:left;"
+        css +=      "clear:left;"
+        css +=      "width:178px;"//<---temp solution, this should be minus the padding left, test and fix this in a separate test
+        css +=      "height:24px;"//<---same goes with this one
+        css +=      "padding-left:0px;"
+        css +=      "padding-top:0px;"
+        css +=      "drop-shadow:<InsetShadow>;"
+        css +=      "margin-left:12px;"
+        css +=      "margin-top:12px;"
+        css += "}"
+        StyleManager.addStyle(css)
+        
+        
         let section = self.addSubView(Section(200, 200, self, "sliderSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
         
         
-        let vSlider = addSubView(VSlider(24,60,30,0,self)) as! VSlider
-        addSubview(vSlider)
+        let vSlider = section.addSubView(VSlider(24,60,30,0,section)) as! VSlider
+        
+        
         
         
         
