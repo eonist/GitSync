@@ -51,7 +51,10 @@ class CustomView:WindowView{
         
         StyleManager.addStylesByURL("~/Desktop/css/slider.css")
         
-        let vSlider = VSlider(40,200)
+        let section = self.addSubView(Section(200, 200, self, "sliderSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
+        
+        
+        let vSlider = addSubView(VSlider(24,60,30,0,self)) as! VSlider
         addSubview(vSlider)
         
         
