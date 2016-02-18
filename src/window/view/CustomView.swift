@@ -67,7 +67,12 @@ class CustomView:WindowView{
         
         
         let vSlider = container.addSubView(VSlider(24,120,30,0,container)) as! VSlider
-        vSlider
+        
+        func onEvent(event:Event){
+            
+        }
+        
+        vSlider.event = onEvent
         
         
         
