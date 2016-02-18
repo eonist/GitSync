@@ -16,6 +16,7 @@ class CustomView:WindowView{
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
+        sliderListTest()
         //xmlListTest()
         
         //textButtonTest()
@@ -41,10 +42,13 @@ class CustomView:WindowView{
         
         //buttonTest()
     }
-    override func scrollWheel(theEvent: NSEvent) {
-        Swift.print("theEvent: " + "\(theEvent)")
-        super.scrollWheel(theEvent)
+    /**
+     *
+     */
+    func sliderListTest(){
+    
     }
+    
     
     func xmlListTest(){
         let path = "~/Desktop/test.xml"
