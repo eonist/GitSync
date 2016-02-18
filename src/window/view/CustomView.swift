@@ -69,7 +69,7 @@ class CustomView:WindowView{
         let vSlider = container.addSubView(VSlider(24,120,30,0,container)) as! VSlider
         
         func onEvent(event:Event){
-            
+            if(event.type == SliderEvent.change && event.origin === vSlider){Swift.print("\(self.dynamicType)" + ".onEvent() progress: " + "\((event as! SliderEvent).progress)")}
         }
         
         vSlider.event = onEvent
