@@ -47,7 +47,9 @@ class CustomView:WindowView{
      *
      */
     func sliderTest(){
-        
+        //add slider and test
+        let vSlider = VSlider(40,200)
+        addSubview(vSlider)
     }
     /**
      *
