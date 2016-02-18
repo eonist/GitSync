@@ -55,8 +55,8 @@ class CustomView:WindowView{
         css += "Container#sliderContainer{"
         css +=      "float:left;"
         css +=      "clear:left;"
-        //css +=      "padding-left:0px;"
-        //css +=      "padding-top:0px;"
+        css +=      "padding-left:20px;"
+        css +=      "padding-top:20px;"
         //css +=      "margin-left:12px;"
         //css +=      "margin-top:12px;"
         css += "}"
@@ -66,7 +66,7 @@ class CustomView:WindowView{
         //let section = self.addSubView(Section(200, 200, self, "sliderSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
         
         
-        let vSlider = container.addSubView(VSlider(24,60,30,0,container)) as! VSlider
+        let vSlider = container.addSubView(VSlider(24,120,30,0,container)) as! VSlider
         vSlider
         
         
