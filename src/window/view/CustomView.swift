@@ -19,7 +19,7 @@ class CustomView:WindowView{
         //xmlListTest()
         
         //textButtonTest()
-        //listTest()
+        listTest()
         //dataProviderTest()
         //createCheckBoxButton()
         //createCheckBox()
