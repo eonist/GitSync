@@ -2,6 +2,7 @@ import Cocoa
 
 class ScrollContainer :Container{
     var vSlider:VSlider?
+    let sliderInterval = 1
     override func resolveSkin() {
         //super.resolveSkin()
         self.skin = SkinResolver.skin(self)
@@ -18,12 +19,15 @@ class ScrollContainer :Container{
     
     override func scrollWheel(theEvent: NSEvent) {
         Swift.print("theEvent: " + "\(theEvent)")
-        var scrollAmount:CGFloat = event.delta/_sliderInterval/*_scrollBar.interval*/;
+        
+        //continue here
+        /*
+        var scrollAmount:CGFloat = event.delta/sliderInterval/*_scrollBar.interval*/;
         var currentScroll:CGFloat = vSlider!.progress - scrollAmount;/*the minus sign makes sure the scroll works like in OSX LION*/
         currentScroll = NumberParser.minMax(currentScroll, 0, 1);
-        ListModifier.scrollTo(this,currentScroll); /*Sets the target item to correct y, according to the current scrollBar progress*/
-        _slider.setProgress(currentScroll);
-        
+        //ListModifier.scrollTo(self,currentScroll); /*Sets the target item to correct y, according to the current scrollBar progress*/
+        vSlider.setProgress(currentScroll);
+        */
         
         super.scrollWheel(theEvent)
     }
