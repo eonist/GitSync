@@ -55,6 +55,8 @@ class CustomView:WindowView{
         css += "Container#sliderContainer{"
         css +=      "float:left;"
         css +=      "clear:left;"
+        css +=      "fill:blue;"
+        css +=      "fill-alpha:1;"
         css +=      "padding-left:20px;"
         css +=      "padding-top:20px;"
         //css +=      "margin-left:12px;"
