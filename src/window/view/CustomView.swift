@@ -16,8 +16,8 @@ class CustomView:WindowView{
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
-        //sliderTest()
-        sliderListTest()
+        sliderTest()
+        //sliderListTest()
         //xmlListTest()
         
         //textButtonTest()
@@ -55,10 +55,10 @@ class CustomView:WindowView{
         css += "Container#sliderContainer{"
         css +=      "float:left;"
         css +=      "clear:left;"
-        css +=      "fill:blue;"
+        css +=      "fill:white5;"
         css +=      "fill-alpha:1;"
-        css +=      "padding-left:20px;"
-        css +=      "padding-top:20px;"
+        //css +=      "padding-left:20px;"
+        //css +=      "padding-top:20px;"
         //css +=      "margin-left:12px;"
         //css +=      "margin-top:12px;"
         css += "}"
