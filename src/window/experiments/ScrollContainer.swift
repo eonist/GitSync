@@ -7,7 +7,7 @@ class ScrollContainer :Container{
         //super.resolveSkin()
         self.skin = SkinResolver.skin(self)
         self.addSubview(self.skin as! NSView)
-        vSlider = self.addSubView(VSlider(24,120,30,0,self)) as? VSlider
+        vSlider = self.addSubView(VSlider(24,height,30,0,self)) as? VSlider
         
         func onEvent(event:Event){
             if(event.type == SliderEvent.change && event.origin === vSlider){Swift.print("\(self.dynamicType)" + ".onEvent() progress: " + "\((event as! SliderEvent).progress)")}
