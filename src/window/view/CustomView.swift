@@ -75,7 +75,8 @@ class CustomView:WindowView{
      *
      */
     func sliderListTest(){
-    
+        let dp = DataProvider(FileParser.xml("~/Desktop/test.xml"))
+        
     }
     func xmlListTest(){
         let path = "~/Desktop/test.xml"

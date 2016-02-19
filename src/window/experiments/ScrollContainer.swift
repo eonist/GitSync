@@ -20,7 +20,7 @@ class ScrollContainer :Container{
     override func scrollWheel(theEvent: NSEvent) {
         Swift.print("theEvent: " + "\(theEvent)")
         
-        //continue here
+        
         
         let scrollAmount:CGFloat = (theEvent.deltaY/100)/sliderInterval/*_scrollBar.interval*/;
         var currentScroll:CGFloat = vSlider!.progress - scrollAmount;/*the minus sign makes sure the scroll works like in OSX LION*/
