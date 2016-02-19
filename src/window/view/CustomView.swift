@@ -75,13 +75,6 @@ class CustomView:WindowView{
         vSlider.event = onEvent
         
         
-        //continue here:
-        //get the "on bg down move thumb" to work
-        //try to offset the slider to a desired position, and also have the interactivity working, isnt hitTestingArea moving with padding?
-        
-        //test the different slider util methods
-        //test scrollingEvent
-        
     }
     /**
      *
