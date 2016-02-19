@@ -75,11 +75,25 @@ class CustomView:WindowView{
      *
      */
     func sliderListTest(){
-        let dp = DataProvider(FileParser.xml("~/Desktop/scrollist.xml"))
-        var sliderListContainer:Container = self.addSubView(Container(140, 70, self, "sliderListContainer")) as! Container
-       
+        StyleManager.addStylesByURL("~/Desktop/css/slider.css")
         
-        var sliderList:SliderList = sliderListSection.addChild(new SliderList(140, 72, 24, dp,sliderListSection)) as SliderList;
+        var css:String = ""
+        css += "Container#sliderListContainer{"
+        css +=      "float:left;"
+        css +=      "clear:left;"
+        css +=      "fill:blue;"
+        css +=      "fill-alpha:1;"
+        //css +=      "padding-left:20px;"
+        //css +=      "padding-top:20px;"
+        //css +=      "margin-left:12px;"
+        //css +=      "margin-top:12px;"
+        css += "}"
+        StyleManager.addStyle(css)
+        
+        let dp = DataProvider(FileParser.xml("~/Desktop/scrollist.xml"))
+        let sliderListContainer:Container = self.addSubView(Container(140, 70, self, "sliderListContainer")) as! Container
+        let sliderList:SliderList = sliderListContainer.addSubView(SliderList(140, 72, 24, dp, sliderListContainer)) as! SliderList
+        sliderList
         //ListModifier.select(sliderList, "white");
         //		scrollList.setMaxShowingItems(6);
         //		trace("scrollList.list.getSelected(): " + scrollList.list.getSelected());
