@@ -62,17 +62,10 @@ class CustomView:WindowView{
         css += "}"
         StyleManager.addStyle(css)
         
-        let container = addSubView(Container(200,200,self,"sliderContainer")) as! Container
+        let container = addSubView(ScrollContainer(200,200,self,"sliderContainer")) as! Container
         //let section = self.addSubView(Section(200, 200, self, "sliderSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
+        container
         
-        
-        let vSlider = container.addSubView(VSlider(24,120,30,0,container)) as! VSlider
-        
-        func onEvent(event:Event){
-            if(event.type == SliderEvent.change && event.origin === vSlider){Swift.print("\(self.dynamicType)" + ".onEvent() progress: " + "\((event as! SliderEvent).progress)")}
-        }
-        
-        vSlider.event = onEvent
         
         
     }
