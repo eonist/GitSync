@@ -75,6 +75,9 @@ class CustomView:WindowView{
      *
      */
     func sliderListTest(){
+        
+        StyleManager.addStylesByURL("~/Desktop/css/list.css")
+        StyleManager.addStylesByURL("~/Desktop/css/slider.css")
         StyleManager.addStylesByURL("~/Desktop/css/sliderList.css")
         
         var css:String = ""
