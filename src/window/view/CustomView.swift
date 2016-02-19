@@ -76,6 +76,16 @@ class CustomView:WindowView{
      */
     func sliderListTest(){
         let dp = DataProvider(FileParser.xml("~/Desktop/test.xml"))
+        var sliderListSection:Section = stage.addChild(new Section(140, 70, "Slider list: ", this, "sliderListSection")) as Section;
+        var xml:XML = FileParser.xml(new File(File.applicationDirectory.url+"assets/xml/scrollist.xml"));//td create a method tht takes url and makes dp
+        
+        var sliderList:SliderList = sliderListSection.addChild(new SliderList(140, 72, 24, dp,sliderListSection)) as SliderList;
+        ListModifier.select(sliderList, "white");
+        //		scrollList.setMaxShowingItems(6);
+        //		trace("scrollList.list.getSelected(): " + scrollList.list.getSelected());
+        //		var index:int = scrollList.list.getSelectedIndex();
+        //		trace("selected Title: "+scrollList.list.dataProvider.getItemAt(index).title);
+        
         
     }
     func xmlListTest(){
