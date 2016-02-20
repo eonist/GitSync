@@ -76,7 +76,7 @@ class CustomView:WindowView{
                 animation.toValue = 100;
                 animation.duration = 1;
                 rect.graphic.layer!.addAnimation(animation, forKey: "basic")//:animation forKey:@"basic"];
-                rect.graphic.layer!.position = CGPointMake(0, 100);
+                //rect.graphic.layer!.position = CGPointMake(100, 60);
             }
         }
         btn.event = onEvent
