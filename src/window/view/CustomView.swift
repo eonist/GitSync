@@ -63,7 +63,8 @@ class CustomView:WindowView{
             if(event.type == ButtonEvent.upInside && event.origin === btn){
                 //do something here
                 Swift.print("button works")
-                rect.graphic.frame.x += 100
+                //rect.graphic.frame.x += 100
+                let newFill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964))
             }
         }
         btn.event = onEvent
