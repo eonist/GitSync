@@ -64,6 +64,12 @@ class CustomView:WindowView{
             if(event.type == ButtonEvent.upInside && event.origin === btn){
                 //do something here
                 Swift.print("button works")
+                
+                
+                
+                
+                
+                
                 //rect.graphic.frame.x += 100//try to move this red box 100 px to the left
                 let newFill:FillStyle = FillStyle(NSColorParser.nsColor(0xFFCC00))
                 rect.graphic.fillStyle = newFill
