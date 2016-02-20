@@ -68,10 +68,17 @@ class CustomView:WindowView{
                 
                 
                 //rect.graphic.frame.x += 100//try to move this red box 100 px to the left
+                CATransaction.begin()
+                
                 let newFill:FillStyle = FillStyle(NSColorParser.nsColor(0xFFCC00))
                 rect.graphic.fillStyle = newFill
                 rect.draw()
-                
+
+                CATransaction.flush()
+
+                CATransaction.commit()
+
+                                /*
                 
                 let animation:CABasicAnimation = CABasicAnimation()
                 animation.keyPath = "contents"
@@ -93,6 +100,8 @@ class CustomView:WindowView{
                 
                 rect.graphic.layer!.addAnimation(animation, forKey: "basics")//:animation forKey:@"basic"];
                 //rect.graphic.layer!.position = CGPointMake(100, 60);
+                
+                */
             }
         }
         btn.event = onEvent
