@@ -48,8 +48,13 @@ class CustomView:WindowView{
      *
      */
     func animationTest(){
+        StyleManager.addStyle("Button{fill:blue;float:left;clear:left;}Button:down{fill:green;}")
         let btn = addSubView(Button(100,24,self)) as! Button
-        
+        func onEvent(event:Event){
+            if()
+            //continue here
+        }
+        btn.event = onEvent
         //Add a red box to the view
         //add a button
         //try to move this red box 100 px to the left
