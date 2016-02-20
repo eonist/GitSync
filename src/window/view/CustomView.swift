@@ -77,6 +77,7 @@ class CustomView:WindowView{
                 animation.duration = 1;
                 animation.fillMode = kCAFillModeForwards
                 animation.removedOnCompletion = false
+                animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)//kCAMediaTimingFunctionEaseIn,kCAMediaTimingFunctionEaseOut,kCAMediaTimingFunctionEaseInEaseOut,kCAMediaTimingFunctionDefault,kCAMediaTimingFunctionLinear
                 
                 rect.graphic.layer!.addAnimation(animation, forKey: "basic")//:animation forKey:@"basic"];
                 //rect.graphic.layer!.position = CGPointMake(100, 60);
