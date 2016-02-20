@@ -57,11 +57,9 @@ class CustomView:WindowView{
         }
         btn.event = onEvent
         //Add a red box to the view
-        let fill:GradientFillStyle = GradientFillStyle(gradient);
-        let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
-        let line = GradientLineStyle(lineGradient,lineStyle)
+        let fill:FillStyle = FillStyle(NSColor.greenColor())
         /*Rect*/
-        let rect = RectGraphic(40,40,200,200,fill,line)
+        let rect = RectGraphic(0,60,50,50,fill,nil)
         addSubview(rect.graphic)
         rect.draw()
         //add a button
