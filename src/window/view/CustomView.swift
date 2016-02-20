@@ -51,7 +51,7 @@ class CustomView:WindowView{
         StyleManager.addStyle("Button{fill:blue;float:left;clear:left;}Button:down{fill:green;}")
         let btn = addSubView(Button(100,24,self)) as! Button
         func onEvent(event:Event){
-            if()
+            if(event.type == ButtonType.)
             //continue here
         }
         btn.event = onEvent
