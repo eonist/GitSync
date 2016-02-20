@@ -71,8 +71,8 @@ class CustomView:WindowView{
                 
                 let animation:CABasicAnimation = CABasicAnimation()
                 animation.keyPath = "position.x"
-                animation.fromValue = 77;
-                animation.toValue = 455;
+                animation.fromValue = 0;
+                animation.toValue = 100;
                 animation.duration = 1;
                 rect.graphic.layer!.addAnimation(animation, forKey: "basic")//:animation forKey:@"basic"];
                 
