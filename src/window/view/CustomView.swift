@@ -78,7 +78,8 @@ class CustomView:WindowView{
                 animation.fillMode = kCAFillModeForwards
                 animation.removedOnCompletion = false
                 animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)//kCAMediaTimingFunctionEaseIn,kCAMediaTimingFunctionEaseOut,kCAMediaTimingFunctionEaseInEaseOut,kCAMediaTimingFunctionDefault,kCAMediaTimingFunctionLinear
-                
+                //functionWithControlPoints:0.5:0:0.9:0.7
+                //CAMediaTimingFunction(controlPoints: 0.5, 0, 0.9, 0.7)//bezier curve animation
                 rect.graphic.layer!.addAnimation(animation, forKey: "basic")//:animation forKey:@"basic"];
                 //rect.graphic.layer!.position = CGPointMake(100, 60);
             }
