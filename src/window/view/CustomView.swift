@@ -67,6 +67,15 @@ class CustomView:WindowView{
                 let newFill:FillStyle = FillStyle(NSColorParser.nsColor(0xFFCC00))
                 rect.graphic.fillStyle = newFill
                 rect.draw()
+                
+                
+                let animation:CABasicAnimation = CABasicAnimation()
+                animation.keyPath = "position.x"
+                animation.fromValue = 77;
+                animation.toValue = 455;
+                animation.duration = 1;
+                rect.graphic.layer!.addAnimation(animation, forKey: "basic")//:animation forKey:@"basic"];
+                
             }
         }
         btn.event = onEvent
