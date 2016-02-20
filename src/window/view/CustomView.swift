@@ -75,6 +75,7 @@ class CustomView:WindowView{
                 swapAnimation.fillMode = kCAFillModeBoth
                 swapAnimation.duration = 1
                 swapAnimation.removedOnCompletion = true
+                swapAnimation.delegate = rect.graphic
                 //[self.layer addAnimation:swapAnimation forKey:@"UITableViewReloadDataAnimationKey"];
                 rect.graphic.layer?.addAnimation(swapAnimation, forKey: "doesntmatter")
                 
