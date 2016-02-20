@@ -74,6 +74,7 @@ class CustomView:WindowView{
                 animation.keyPath = "position.x"
                 animation.fromValue = 0;
                 animation.toValue = 100;
+                animation.RepeatCount = 1
                 //animation.timeOffset = 0.0 /*If a time offset is set, the animation won’t actually become visible until this amount of time has elapsed in relation to the time of the parent group animation’s duration.*/
                 //animation.beginTime = 0.0 /*This property is useful in an animation group. It specifies a time for the animation to begin playing in relation to the time of the parent group animation’s duration.*/
                 //animation.speed = 1 /*The default value for this property is 1.0. This means that the animation plays back at its default speed. If you change the value to 2.0, the animation plays back at twice the default speed. This in effect splits the duration in half. If you specify a duration of 6 seconds and a speed of 2.0, the animation actually plays back in three seconds—half the duration specified.*/
