@@ -74,10 +74,11 @@ class CustomView:WindowView{
                 animation.keyPath = "position.x"
                 animation.fromValue = 0;
                 animation.toValue = 100;
-                animation.duration = 1;
+                //animation.speed = 1 /*The default value for this property is 1.0. This means that the animation plays back at its default speed. If you change the value to 2.0, the animation plays back at twice the default speed. This in effect splits the duration in half. If you specify a duration of 6 seconds and a speed of 2.0, the animation actually plays back in three seconds—half the duration specified.*/
+                animation.duration = 1/* It sets the amount of time to be taken between the fromValue and toValue of the animation. Duration is also affected by the speed property.*/
                 animation.fillMode = kCAFillModeForwards
-                animation.removedOnCompletion = false
-                animation.autoreverses = true
+                animation.removedOnCompletion = false/*The default value for this property is YES, which means that when the animation has finished its specified duration, the animation is automatically removed from the layer. This might not be desirable. If you want to animate the property you’ve speci- fied again, for example, you want to set this property to NO. That way, the next time you call –set on the property being animated in the animation, it will use your animation again rather than the default.*/
+                //animation.autoreverses = true//returns the animation to its origin
                 animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)//kCAMediaTimingFunctionEaseIn,kCAMediaTimingFunctionEaseOut,kCAMediaTimingFunctionEaseInEaseOut,kCAMediaTimingFunctionDefault,kCAMediaTimingFunctionLinear
                 //functionWithControlPoints:0.5:0:0.9:0.7
                 //CAMediaTimingFunction(controlPoints: 0.5, 0, 0.9, 0.7)//bezier curve animation
