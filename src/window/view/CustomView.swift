@@ -95,7 +95,7 @@ class CustomView:WindowView{
         
         let dp = DataProvider(FileParser.xml("~/Desktop/scrollist.xml"))
         let sliderListContainer:Container = self.addSubView(Container(140, 70, self, "sliderListContainer")) as! Container
-        let sliderList:SliderList = sliderListContainer.addSubView(SliderList(140, 72, 24, dp, sliderListContainer)) as! SliderList
+        let sliderList:SliderList = sliderListContainer.addSubView(SliderList(140, 96, 24, dp, sliderListContainer)) as! SliderList
         sliderList
         //ListModifier.select(sliderList, "white");
         //		scrollList.setMaxShowingItems(6);
