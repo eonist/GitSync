@@ -54,9 +54,10 @@ class CustomView:WindowView{
        
         let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964))
         /*Rect*/
-        let rect = RectGraphic(0,60,50,50,fill,nil)//Add a red box to the view
+        let rect = RectGraphic(0,0,50,50,fill,nil)//Add a red box to the view
         addSubview(rect.graphic)
         rect.draw()
+        rect.graphic.frame.y = 60
         
         
         func onEvent(event:Event){
@@ -75,7 +76,7 @@ class CustomView:WindowView{
                 animation.toValue = 100;
                 animation.duration = 1;
                 rect.graphic.layer!.addAnimation(animation, forKey: "basic")//:animation forKey:@"basic"];
-                
+                rect.graphic.layer!.position = CGPointMake(0, 100);
             }
         }
         btn.event = onEvent
