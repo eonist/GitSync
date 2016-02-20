@@ -53,6 +53,7 @@ class CustomView:WindowView{
         
        
         let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964))
+        
         /*Rect*/
         let rect = RectGraphic(0,0,50,50,fill,nil)//Add a red box to the view
         addSubview(rect.graphic)
@@ -85,7 +86,7 @@ class CustomView:WindowView{
                 //rect.graphic.frame.x += 100//try to move this red box 100 px to the left
                 CATransaction.begin()
                 
-                let newFill:FillStyle = FillStyle(NSColorParser.nsColor(0xFFCC00))
+                let newFill:FillStyle = FillStyle(NSColor.random)//NSColorParser.nsColor(0xFFCC00)
                 rect.graphic.fillStyle = newFill
                 rect.draw()
                 
