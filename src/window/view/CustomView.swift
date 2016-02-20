@@ -74,7 +74,7 @@ class CustomView:WindowView{
                 
                 
                 let animation:CABasicAnimation = CABasicAnimation()
-                animation.keyPath = "position.x"
+                animation.keyPath = "frame"
                 animation.fromValue = 0;
                 animation.toValue = 100;
                 //animation.repeatDuration /*This property specifies how long the animation should repeat. The animation repeats until this amount of time has elapsed. It should not be used with repeatCount.*/
