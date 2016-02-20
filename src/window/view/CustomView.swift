@@ -71,11 +71,11 @@ class CustomView:WindowView{
                 let swapAnimation:CATransition = CATransition()
                 swapAnimation.type = kCATransitionPush;
                 //swapAnimation.subtype = kCATransitionTypeFromUITableViewRowAnimation(animation);
-                swapAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                swapAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
                 swapAnimation.fillMode = kCAFillModeBoth
                 swapAnimation.duration = 1
                 swapAnimation.removedOnCompletion = true
-                swapAnimation.delegate = rect.graphic
+                swapAnimation.delegate = rect.graphic//sets the instance that will get the animationDidStart callBack and the animationDidEnd callback
                 //[self.layer addAnimation:swapAnimation forKey:@"UITableViewReloadDataAnimationKey"];
                 rect.graphic.layer?.addAnimation(swapAnimation, forKey: "doesntmatter")
                 
