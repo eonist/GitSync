@@ -64,10 +64,7 @@ class CustomView:WindowView{
             if(event.type == ButtonEvent.upInside && event.origin === btn){
                 //do something here
                 Swift.print("button works")
-                
-                
-                
-                
+
                 
                 
                 //rect.graphic.frame.x += 100//try to move this red box 100 px to the left
@@ -94,7 +91,7 @@ class CustomView:WindowView{
                 //CAMediaTimingFunction(controlPoints: 0.5, 0, 0.9, 0.7)//bezier curve animation
                 //you can start multiple animations with : CAAnimationGroup.
                 
-                rect.graphic.layer!.addAnimation(animation, forKey: "basic")//:animation forKey:@"basic"];
+                rect.graphic.layer!.addAnimation(animation, forKey: "basics")//:animation forKey:@"basic"];
                 //rect.graphic.layer!.position = CGPointMake(100, 60);
             }
         }
