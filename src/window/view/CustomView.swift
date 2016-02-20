@@ -16,6 +16,7 @@ class CustomView:WindowView{
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
+        animationTest()
         //sliderTest()
         //sliderListTest()
         //xmlListTest()
@@ -42,6 +43,16 @@ class CustomView:WindowView{
         */
         
         //buttonTest()
+    }
+    /**
+     *
+     */
+    func animationTest(){
+        let btn = addSubView(Button(100,24,self)) as! Button
+        
+        //Add a red box to the view
+        //add a button
+        //try to move this red box 100 px to the left
     }
     /**
      *
