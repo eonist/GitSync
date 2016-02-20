@@ -50,13 +50,7 @@ class CustomView:WindowView{
     func animationTest(){
         StyleManager.addStyle("Button{fill:#5AC8FA;float:left;clear:left;}Button:down{fill:#007AFF;}")
         let btn = addSubView(Button(100,24,self)) as! Button
-        func onEvent(event:Event){
-            if(event.type == ButtonEvent.upInside && event.origin === btn){
-                //do something here
-                Swift.print("button works")
-            }
-        }
-        btn.event = onEvent
+        
         //Add a red box to the view
         let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964))
         /*Rect*/
@@ -65,6 +59,14 @@ class CustomView:WindowView{
         rect.draw()
         //add a button
         //try to move this red box 100 px to the left
+        func onEvent(event:Event){
+            if(event.type == ButtonEvent.upInside && event.origin === btn){
+                //do something here
+                Swift.print("button works")
+                rect.graphic.frame.x += 100
+            }
+        }
+        btn.event = onEvent
     }
     /**
      *
