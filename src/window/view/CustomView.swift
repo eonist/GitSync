@@ -57,7 +57,13 @@ class CustomView:WindowView{
         }
         btn.event = onEvent
         //Add a red box to the view
-        
+        let fill:GradientFillStyle = GradientFillStyle(gradient);
+        let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
+        let line = GradientLineStyle(lineGradient,lineStyle)
+        /*Rect*/
+        let rect = RectGraphic(40,40,200,200,fill,line)
+        addSubview(rect.graphic)
+        rect.draw()
         //add a button
         //try to move this red box 100 px to the left
     }
