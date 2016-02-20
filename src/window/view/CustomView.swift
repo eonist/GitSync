@@ -57,7 +57,7 @@ class CustomView:WindowView{
         }
         btn.event = onEvent
         //Add a red box to the view
-        let fill:FillStyle = FillStyle(NSColor.greenColor())
+        let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964))
         /*Rect*/
         let rect = RectGraphic(0,60,50,50,fill,nil)
         addSubview(rect.graphic)
