@@ -67,12 +67,30 @@ class CustomView:WindowView{
 
                 
                 
+                
+                let swapAnimation:CATransition = CATransition()
+                swapAnimation.type = kCATransitionPush;
+                //swapAnimation.subtype = kCATransitionTypeFromUITableViewRowAnimation(animation);
+                swapAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                swapAnimation.fillMode = kCAFillModeBoth
+                swapAnimation.duration = 5.0
+                swapAnimation.removedOnCompletion = true
+                //[self.layer addAnimation:swapAnimation forKey:@"UITableViewReloadDataAnimationKey"];
+                rect.graphic.layer?.addAnimation(swapAnimation, forKey: "doesntmatter")
+                
+                
+                
+                
                 //rect.graphic.frame.x += 100//try to move this red box 100 px to the left
                 CATransaction.begin()
                 
                 let newFill:FillStyle = FillStyle(NSColorParser.nsColor(0xFFCC00))
                 rect.graphic.fillStyle = newFill
                 rect.draw()
+                
+                
+                
+                
 
                 CATransaction.flush()
 
