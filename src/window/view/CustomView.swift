@@ -53,8 +53,8 @@ class CustomView:WindowView{
         
        
         //let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964))
-        let gradient = LinearGradient(Gradients.green(),[],π/2)
-        let lineGradient = LinearGradient(Gradients.lightGreen(0.5),[],π/2)
+        let gradient = LinearGradient(Gradients.deepPurple(),[],π/2)
+        let lineGradient = LinearGradient(Gradients.purple(0.5),[],π/2)
         /*Styles*/
         let fill:GradientFillStyle = GradientFillStyle(gradient);
         let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
@@ -85,7 +85,7 @@ class CustomView:WindowView{
                 //swapAnimation.subtype = kCATransitionTypeFromUITableViewRowAnimation(animation);
                 swapAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
                 swapAnimation.fillMode = kCAFillModeBoth
-                swapAnimation.duration = 0.75
+                swapAnimation.duration = 1.75
                 swapAnimation.removedOnCompletion = true
                 swapAnimation.delegate = rect.graphic//sets the instance that will get the animationDidStart callBack and the animationDidEnd callback
                 //[self.layer addAnimation:swapAnimation forKey:@"UITableViewReloadDataAnimationKey"];
