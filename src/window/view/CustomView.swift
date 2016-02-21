@@ -66,7 +66,7 @@ class CustomView:WindowView{
         rect.draw()
         rect.graphic.frame.y = 60*/
         
-        let rect = RoundRectGraphic(0,00,200,200,Fillet(50),fill.mix(Gradients.orange()),line.mix(Gradients.yellow(0.5)))
+        let rect = RoundRectGraphic(0,00,200,200,Fillet(50),fill.mix(Gradients.violet()),line.mix(Gradients.purple(0.5)))
         addSubview(rect.graphic)
         rect.draw()
         rect.graphic.frame.y = 60
