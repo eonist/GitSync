@@ -61,10 +61,10 @@ class CustomView:WindowView{
         let line = GradientLineStyle(lineGradient,lineStyle)
         
         /*Rect*/
-        let rect = RectGraphic(0,0,150,150,fill,line)//Add a red box to the view
-        addSubview(rect.graphic)
-        rect.draw()
-        rect.graphic.frame.y = 60
+        //let rect = RectGraphic(0,0,150,150,fill,line)//Add a red box to the view
+        let roundRect = RoundRectGraphic(40,300,200,200,Fillet(50),fill.mix(Gradients.orange()),line.mix(Gradients.yellow(0.5)))
+        addSubview(roundRect.graphic)
+        roundRect.draw()
         
         
         func onEvent(event:Event){
