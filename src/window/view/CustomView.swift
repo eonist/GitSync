@@ -53,15 +53,15 @@ class CustomView:WindowView{
         
        
         //let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964))
-        let gradient = LinearGradient(Gradients.red(),[],π/2)
-        let lineGradient = LinearGradient(Gradients.teal(0.5),[],π/2)
+        let gradient = LinearGradient(Gradients.green(),[],π/2)
+        let lineGradient = LinearGradient(Gradients.lightGreen(0.5),[],π/2)
         /*Styles*/
         let fill:GradientFillStyle = GradientFillStyle(gradient);
         let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.Round)
         let line = GradientLineStyle(lineGradient,lineStyle)
         
         /*Rect*/
-        let rect = RectGraphic(0,0,150,150,fill,nil)//Add a red box to the view
+        let rect = RectGraphic(0,0,150,150,fill,line)//Add a red box to the view
         addSubview(rect.graphic)
         rect.draw()
         rect.graphic.frame.y = 60
