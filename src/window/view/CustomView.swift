@@ -61,10 +61,15 @@ class CustomView:WindowView{
         let line = GradientLineStyle(lineGradient,lineStyle)
         
         /*Rect*/
-        //let rect = RectGraphic(0,0,150,150,fill,line)//Add a red box to the view
-        let roundRect = RoundRectGraphic(40,300,200,200,Fillet(50),fill.mix(Gradients.orange()),line.mix(Gradients.yellow(0.5)))
-        addSubview(roundRect.graphic)
-        roundRect.draw()
+        /*let rect = RectGraphic(0,0,150,150,fill,line)//Add a red box to the view
+        addSubview(rect.graphic)
+        rect.draw()
+        rect.graphic.frame.y = 60*/
+        
+        let rect = RoundRectGraphic(0,00,200,200,Fillet(50),fill.mix(Gradients.orange()),line.mix(Gradients.yellow(0.5)))
+        addSubview(rect.graphic)
+        rect.draw()
+        rect.graphic.frame.y = 60
         
         
         func onEvent(event:Event){
@@ -92,8 +97,8 @@ class CustomView:WindowView{
                 //rect.graphic.frame.x += 100//try to move this red box 100 px to the left
                 CATransaction.begin()
                 
-                let newFill:FillStyle = FillStyle(NSColor.random)//NSColorParser.nsColor(0xFFCC00)
-                rect.graphic.fillStyle = newFill
+                //let newFill:FillStyle = FillStyle(NSColor.random)//NSColorParser.nsColor(0xFFCC00)
+                rect.graphic.fillStyle = fill
                 rect.draw()
                 
                 
