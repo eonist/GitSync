@@ -100,7 +100,7 @@ class CustomView:WindowView{
                 //let newFill:FillStyle = FillStyle(NSColor.random)//NSColorParser.nsColor(0xFFCC00)
                 rect.graphic.fillStyle = fill
                 rect.graphic.lineStyle = line
-                (rect as! RoundRectGraphic).fillet = Fillet(0)
+                (rect).fillet = Fillet(0)
                 rect.draw()
                 
                 
