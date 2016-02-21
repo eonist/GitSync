@@ -17,8 +17,8 @@ class CustomView:WindowView{
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
         //animationTest()
-        sliderTest()
-        //sliderListTest()
+        //sliderTest()
+        sliderListTest()
         //xmlListTest()
         
         //textButtonTest()
