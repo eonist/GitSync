@@ -1,3 +1,6 @@
+## The future is automated
+
+
 [GitSyncOSX progress](https://github.com/eonist/GitSyncOSX/wiki/GitSyncOSX-Progress)   
 
 
