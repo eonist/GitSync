@@ -105,6 +105,9 @@ class CustomView:WindowView{
        
         context
         
+        
+        
+        
         let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, AWLCVDisplayLinkHelperCallback, UnsafeMutablePointer<()>(unsafeAddressOf(self)))
         Swift.print("outputStatus: " + "\(outputStatus)")
         
