@@ -92,8 +92,9 @@ class CustomView:WindowView{
     /**
      *
      */
-    func drawSomething(){
+    func drawSomething(context){
         Swift.print("drawSomething")
+        rect.graphic.fillShape.graphics.context = displayLinkContext
         if(rect.graphic.frame.x < 200){
             rect.graphic.frame.x += 1
         }else{
