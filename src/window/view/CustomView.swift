@@ -55,6 +55,7 @@ class CustomView:WindowView{
         displayLink = setUpDisplayLink()
         
         Swift.print("displayLink: " + "\(displayLink)")
+        
         //animate a square 100 pixel to the right then stop the frame anim
         /*displayID = CGMainDisplayID();
         
@@ -80,7 +81,7 @@ class CustomView:WindowView{
      *
      */
     func drawSomething(){
-        
+        Swift.print("drawSomething")
     }
     
     func setUpDisplayLink() -> CVDisplayLink {
@@ -95,9 +96,9 @@ class CustomView:WindowView{
         func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
             Swift.print("works")
             
-            //figure out how to call another method from here
+            //figure out how to call another method from here, works!
             
-            //unsafeBitCast(displayLinkContext, NSOpenGLView.self).drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
+            unsafeBitCast(displayLinkContext, CustomView.self).drawSomething()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
             return kCVReturnSuccess
         }
        
