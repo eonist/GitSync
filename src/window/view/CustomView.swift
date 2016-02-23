@@ -83,9 +83,9 @@ class CustomView:WindowView{
         Swift.print("status: " + "\(status)")
         
         
-
-        let outputStatus = CVDisplayLinkSetOutputCallback(displayLink, AWLCVDisplayLinkHelperCallback)
         
+        let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, AWLCVDisplayLinkHelperCallback,UnsafeMutablePointer<Void>())
+        Swift.print("outputStatus: " + "\(outputStatus)")
         
         
         let displayID = CGMainDisplayID()
