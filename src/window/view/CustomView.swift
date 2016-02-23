@@ -45,7 +45,7 @@ class CustomView:WindowView{
         
         //buttonTest()
     }
-    var displayLink:CVDisplayLink?
+    var displayLink: CVDisplayLink?
     var displayID:CGDirectDisplayID
     var error:CVReturn? = kCVReturnSuccess
     func frameAnimTest(){
@@ -55,7 +55,7 @@ class CustomView:WindowView{
         let pointer = UnsafeMutablePointer<CVDisplayLink?>(unsafeAddressOf(self))
         
         
-        displayLink = CVDisplayLinkCreateWithCGDisplay(displayID, pointer)
+        error = CVDisplayLinkCreateWithCGDisplay(displayID, pointer)
     }
     /**
      *
