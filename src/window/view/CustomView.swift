@@ -109,7 +109,7 @@ class CustomView:WindowView{
      *
      */
     func drawSomething(){
-        Swift.print("drawSomething")
+        //Swift.print("drawSomething")
         
         
         
