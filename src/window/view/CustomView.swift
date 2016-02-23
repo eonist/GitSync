@@ -122,15 +122,15 @@ class CustomView:WindowView{
         func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
             //Swift.print("works")
             
-            //figure out how to call another method from here, works!
+            /* //figure out how to call another method from here, works!
             Swift.print("displayLinkContext: " + "\(displayLinkContext)")
             
-            Swift.print( String(displayLinkContext))
+            Swift.print( String(displayLinkContext))*/
             
             //  Grab a context from our view and make it current for drawing into
             //  CVDisplayLink uses a separate thread, lock focus or our context for thread safety
             
-            
+            /*
             Swift.print("NSOpenGLContext.currentContext(): " + "\(NSOpenGLContext.currentContext())")
             
             /**/
@@ -151,10 +151,10 @@ class CustomView:WindowView{
             
             CGLFlushDrawable(context.CGLContextObj)
             CGLUnlockContext(context.CGLContextObj)
-
+            
             
             let ctxCurrent = NSGraphicsContext.currentContext()?.graphicsPort
-            Swift.print("ctxCurrent: " + "\(ctxCurrent)")
+            Swift.print("ctxCurrent: " + "\(ctxCurrent)")*/
             
             unsafeBitCast(displayLinkContext, CustomView.self).drawSomething()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
             return kCVReturnSuccess
