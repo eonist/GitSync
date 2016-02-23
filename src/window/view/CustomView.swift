@@ -106,9 +106,18 @@ class CustomView:WindowView{
         context
         
         
+        /* Set up DisplayLink. */
+        func displayLinkOutputCallback( displayLink: CVDisplayLink,
+            _ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,
+            _ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,
+            _ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn
+        {
+            unsafeBitCast(displayLinkContext, OpenGLView.self).drawRect(unsafeBitCast(displayLinkContext, OpenGLView.self).frame)
+            return kCVReturnSuccess
+        }
         
         
-        let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, AWLCVDisplayLinkHelperCallback, UnsafeMutablePointer<()>(unsafeAddressOf(self)))
+        let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, AWLCVDisplayLinkHelperCallback, UnsafeMutablePointer<Void>(unsafeAddressOf(self)))
         Swift.print("outputStatus: " + "\(outputStatus)")
         
         
