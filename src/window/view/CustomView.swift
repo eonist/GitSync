@@ -76,7 +76,14 @@ class CustomView:WindowView{
         Swift.print("no error")
         }*/
     }
-    private func setUpDisplayLink() -> CVDisplayLink {
+    /* Set up DisplayLink. */
+    func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
+        Swift.print("works")
+        //unsafeBitCast(displayLinkContext, NSOpenGLView.self).drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
+        return kCVReturnSuccess
+    }
+    
+    func setUpDisplayLink() -> CVDisplayLink {
         var displayLink: CVDisplayLink?
         
         var status = kCVReturnSuccess
@@ -85,14 +92,9 @@ class CustomView:WindowView{
         
         
         
-        /* Set up DisplayLink. */
-        func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
-            Swift.print("works")
-            //unsafeBitCast(displayLinkContext, NSOpenGLView.self).drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
-            return kCVReturnSuccess
-        }
+       
         
-        let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, displayLinkOutputCallback, UnsafeMutablePointer<Void>(unsafeAddressOf(self)))
+        let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, self.displayLinkOutputCallback, UnsafeMutablePointer<Void>(unsafeAddressOf(self)))
         Swift.print("outputStatus: " + "\(outputStatus)")
         
         
