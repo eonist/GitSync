@@ -56,11 +56,14 @@ class CustomView:WindowView{
         StyleManager.addStyle("Button{fill:#5AC8FA;float:left;clear:left;}Button:down{fill:#007AFF;}")
         let btn = addSubView(Button(100,24,self)) as! Button//add a button
         
+        
+        var toggle:Bool = true
         func onEvent(event:Event){
             if(event.type == ButtonEvent.upInside && event.origin === btn){
                 //do something here
                 Swift.print("button works")
-                CVDisplayLinkStart(displayLink);//To start capturing events from the display link, you'd use
+                toggle ? CVDisplayLinkStart(displayLink) : CVDisplayLinkStop(displayLink);//To start capturing events from the display link, you'd use
+                toggle = !toggle
             }
         }
         btn.event = onEvent
