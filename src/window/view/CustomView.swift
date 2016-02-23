@@ -92,7 +92,7 @@ class CustomView:WindowView{
     /**
      *
      */
-    func drawSomething(o){
+    func drawSomething(){
         Swift.print("drawSomething")
         
         
@@ -125,12 +125,13 @@ class CustomView:WindowView{
             //figure out how to call another method from here, works!
             Swift.print("displayLinkContext: " + "\(displayLinkContext)")
             
-            
+            let ctxCurrent = NSGraphicsContext.currentContext()?.graphicsPort
+            Swift.print("ctxCurrent: " + "\(ctxCurrent)")
             
             //  Grab a context from our view and make it current for drawing into
             //  CVDisplayLink uses a separate thread, lock focus or our context for thread safety
             
-            let context:NSOpenGLContext = displayLinkContext as! NSOpenGLContext
+            /*let context:NSOpenGLContext = displayLinkContext as! NSOpenGLContext
             context.makeCurrentContext()
             CGLLockContext(context.CGLContextObj)
             
@@ -144,7 +145,7 @@ class CustomView:WindowView{
             
             CGLFlushDrawable(context.CGLContextObj)
             CGLUnlockContext(context.CGLContextObj)
-
+            */
             
             
             
