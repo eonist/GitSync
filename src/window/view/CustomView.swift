@@ -63,9 +63,11 @@ class CustomView:WindowView{
         
         error = CVDisplayLinkCreateWithCGDisplay(displayID!, pointer)*/
         
-        CVDisplayLinkStart(displayLink);
+        CVDisplayLinkStart(displayLink);//To start capturing events from the display link, you'd use
         
         CVDisplayLinkStop(displayLink);
+        
+        
         
         /*if let error = error {
         Swift.print("An error occurred \(error)")
