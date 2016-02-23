@@ -114,7 +114,7 @@ class CustomView:WindowView{
     
     func setUpDisplayLink() -> CVDisplayLink {
         var displayLink: CVDisplayLink?
-        
+
         var status = kCVReturnSuccess
         status = CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
         Swift.print("status: " + "\(status)")
