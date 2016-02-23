@@ -113,7 +113,7 @@ class CustomView:WindowView{
         CGLLockContext(context.CGLContextObj)
         
         
-        rect.graphic.fillShape.graphics.context = context as? CGContextRef
+        rect.graphic.fillShape.graphics.context = context.
         if(rect.graphic.frame.x < 200){
             rect.graphic.frame.x += 1
         }else{
