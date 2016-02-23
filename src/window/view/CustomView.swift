@@ -95,7 +95,7 @@ class CustomView:WindowView{
     func drawSomething(){
         //Swift.print("drawSomething")
         if(rect.graphic.frame.x < 200){
-            rect.graphic.frame.x += 1
+            rect.setPosition(<#T##position: CGPoint##CGPoint#>)
         }else{
             CVDisplayLinkStop(displayLink);
         }
