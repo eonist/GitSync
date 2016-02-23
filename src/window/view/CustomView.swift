@@ -47,17 +47,21 @@ class CustomView:WindowView{
     }
     //var displayLink:CVDisplayLink?
     private var displayLink: CVDisplayLink!
-    var displayID:CGDirectDisplayID?
-    var error:CVReturn? = kCVReturnSuccess
+    //var displayID:CGDirectDisplayID?
+    //var error:CVReturn? = kCVReturnSuccess
     func frameAnimTest(){
+        
+        displayLink = setUpDisplayLink()
         //animate a square 100 pixel to the right then stop the frame anim
-        displayID = CGMainDisplayID();
+        /*displayID = CGMainDisplayID();
         
         let pointer = UnsafeMutablePointer<CVDisplayLink?>(unsafeAddressOf(self))
         
         Swift.print("pointer: " + "\(pointer)")
         
-        error = CVDisplayLinkCreateWithCGDisplay(displayID!, pointer)
+        error = CVDisplayLinkCreateWithCGDisplay(displayID!, pointer)*/
+        
+        
         
         /*if let error = error {
         Swift.print("An error occurred \(error)")
@@ -65,32 +69,18 @@ class CustomView:WindowView{
         Swift.print("no error")
         }*/
     }
-    private func setUpDisplayLink() throws -> CVDisplayLink {
+    private func setUpDisplayLink() -> CVDisplayLink {
         var displayLink: CVDisplayLink?
         
         var status = kCVReturnSuccess
         status = CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
-        if status != kCVReturnSuccess {
-            throw Error.CVReturnError(status)
-        }
-        
-        guard let dl = displayLink else {
-            throw Error.CVReturnError(kCVReturnError)
-        }
-        
-        let context = UnsafeMutablePointer<Void>(unsafeAddressOf(dispatchSource))
-        status = CVDisplayLinkSetOutputCallback(dl, AWLCVDisplayLinkHelperCallback, context)
-        if status != kCVReturnSuccess {
-            throw Error.CVReturnError(status)
-        }
+        Swift.print("status: " + "\(status)")
         
         let displayID = CGMainDisplayID()
-        status = CVDisplayLinkSetCurrentCGDisplay(dl, displayID)
-        if status != kCVReturnSuccess {
-            throw Error.CVReturnError(status)
-        }
+        let displayIDStatus = CVDisplayLinkSetCurrentCGDisplay(displayLink!, displayID)
+        Swift.print("displayIDStatus: " + "\(displayIDStatus)")
         
-        return dl
+        return displayLink!
     }
     
     
