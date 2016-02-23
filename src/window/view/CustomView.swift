@@ -102,19 +102,19 @@ class CustomView:WindowView{
         //  CVDisplayLink uses a separate thread, lock focus or our context for thread safety
         
         
-        Swift.print("self.openGLContext: " + "\(self.openGLContext)")
+        //Swift.print("self.openGLContext: " + "\(self.openGLContext)")
         
         /**/
-        let context:NSOpenGLContext = NSOpenGLContext.currentContext()!
+        /*let context:NSOpenGLContext = NSOpenGLContext.currentContext()!
         
         Swift.print("context: " + "\(context)")
         
         context.makeCurrentContext()
-        CGLLockContext(context.CGLContextObj)
+        CGLLockContext(context.CGLContextObj)*/
         
         
         //rect.graphic.fillShape.graphics.context = context.
-        if(rect.graphic.frame.x < 200){
+        if(rect.graphic.frame.x < 100){
             rect.graphic.frame.x += 1
         }else{
             CVDisplayLinkStop(displayLink);
@@ -127,7 +127,7 @@ class CustomView:WindowView{
         //continue here: gather more information, start a project from scrath to not clutter up the framework anymore. 
         //also maybe just try the NSTimer, and then revisit CVDisplayLink later
         
-        
+        /*
         
         //  Clear the context, set up the OpenGL shader program(s), call drawing commands
         //  OpenGL targets and such are UInt32's, cast them before sending in the OpenGL function
@@ -138,7 +138,7 @@ class CustomView:WindowView{
         //  We're done drawing, unlock the context before moving on
         
         CGLFlushDrawable(context.CGLContextObj)
-        CGLUnlockContext(context.CGLContextObj)
+        CGLUnlockContext(context.CGLContextObj)*/
         
         
         /**/
