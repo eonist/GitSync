@@ -92,10 +92,34 @@ class CustomView:WindowView{
     /**
      *
      */
-    func drawSomething(context:NSOpenGLContext){
+    func drawSomething(openGLContext:NSOpenGLContext){
         Swift.print("drawSomething")
+        
+        
+        
+        //  Grab a context from our view and make it current for drawing into
+        //  CVDisplayLink uses a separate thread, lock focus or our context for thread safety
+        
+        let context = openGLContext
+        context.makeCurrentContext()
+        CGLLockContext(context.CGLContextObj)
+        
+        //  Clear the context, set up the OpenGL shader program(s), call drawing commands
+        //  OpenGL targets and such are UInt32's, cast them before sending in the OpenGL function
+        
+        glClear(UInt32(GL_COLOR_BUFFER_BIT))
+        
+        //  We're using a double buffer, call CGLFlushDrawable() to swap the buffer
+        //  We're done drawing, unlock the context before moving on
+        
+        CGLFlushDrawable(context.CGLContextObj)
+        CGLUnlockContext(context.CGLContextObj)
+        
+        
+        
+        
 
-        rect.graphic.fillShape.graphics.context = context
+        //rect.graphic.fillShape.graphics.context = context
         if(rect.graphic.frame.x < 200){
             rect.graphic.frame.x += 1
         }else{
@@ -119,7 +143,7 @@ class CustomView:WindowView{
             //figure out how to call another method from here, works!
             Swift.print("displayLinkContext: " + "\(displayLinkContext)")
             
-            unsafeBitCast(displayLinkContext, CustomView.self).drawSomething(displayLinkContext as! NSOpenGLContext)//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
+            unsafeBitCast(displayLinkContext, CustomView.self).drawSomething(displayLinkContext as NSOpenGLContext)//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
             return kCVReturnSuccess
         }
        
