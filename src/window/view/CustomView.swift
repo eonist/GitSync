@@ -102,7 +102,7 @@ class CustomView:WindowView{
         //  CVDisplayLink uses a separate thread, lock focus or our context for thread safety
         
         
-        //Swift.print("self.openGLContext: " + "\(self.openGLContext)")
+        Swift.print("self.openGLContext: " + "\(self.openGLContext)")
         
         /**/
         let context:NSOpenGLContext = NSOpenGLContext.currentContext()!
@@ -111,6 +111,16 @@ class CustomView:WindowView{
         
         context.makeCurrentContext()
         CGLLockContext(context.CGLContextObj)
+        
+        
+        rect.graphic.fillShape.graphics.context = context as? CGContextRef
+        if(rect.graphic.frame.x < 200){
+            rect.graphic.frame.x += 1
+        }else{
+            CVDisplayLinkStop(displayLink);
+        }
+
+        
         
         //  Clear the context, set up the OpenGL shader program(s), call drawing commands
         //  OpenGL targets and such are UInt32's, cast them before sending in the OpenGL function
@@ -128,12 +138,6 @@ class CustomView:WindowView{
         
         
 
-        //rect.graphic.fillShape.graphics.context = context
-        if(rect.graphic.frame.x < 200){
-            rect.graphic.frame.x += 1
-        }else{
-            CVDisplayLinkStop(displayLink);
-        }
         
         
         
