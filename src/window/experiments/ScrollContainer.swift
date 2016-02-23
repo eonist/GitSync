@@ -31,14 +31,7 @@ class ScrollContainer :Container{
         
         super.scrollWheel(theEvent)
     }
-    override func touchesBeganWithEvent(event: NSEvent) {
-        Swift.print("touchesBeganWithEvent")
-        super.touchesBeganWithEvent(event)
-    }
-    override func touchesMovedWithEvent(event: NSEvent) {
-        Swift.print("touchesMovedWithEvent")
-        super.touchesMovedWithEvent(event)
-    }
+    
     override func getClassType() -> String {
         return String(Container)
     }
