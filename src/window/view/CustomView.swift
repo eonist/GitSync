@@ -45,8 +45,8 @@ class CustomView:WindowView{
         
         //buttonTest()
     }
-    var displayLink: CVDisplayLink?
-    var displayID:CGDirectDisplayID
+    var displayLink:CVDisplayLink?
+    var displayID:CGDirectDisplayID?
     var error:CVReturn? = kCVReturnSuccess
     func frameAnimTest(){
         //animate a square 100 pixel to the right then stop the frame anim
@@ -54,8 +54,9 @@ class CustomView:WindowView{
         
         let pointer = UnsafeMutablePointer<CVDisplayLink?>(unsafeAddressOf(self))
         
+        Swift.print("pointer: " + "\(pointer)")
         
-        error = CVDisplayLinkCreateWithCGDisplay(displayID, pointer)
+        error = CVDisplayLinkCreateWithCGDisplay(displayID!, pointer)
     }
     /**
      *
