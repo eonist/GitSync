@@ -52,7 +52,7 @@ class CustomView:WindowView{
         //animate a square 100 pixel to the right then stop the frame anim
         displayID = CGMainDisplayID();
         
-        let pointer = UnsafeMutablePointer<UnsafePointer<Void>>(unsafeAddressOf(self))
+        let pointer = UnsafeMutablePointer<CVDisplayLink?>(unsafeAddressOf(self))
         
         
         displayLink = CVDisplayLinkCreateWithCGDisplay(displayID, pointer)
