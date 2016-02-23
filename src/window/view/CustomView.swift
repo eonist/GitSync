@@ -53,6 +53,19 @@ class CustomView:WindowView{
     var rect:RectGraphic!
     func frameAnimTest(){
         
+        StyleManager.addStyle("Button{fill:#5AC8FA;float:left;clear:left;}Button:down{fill:#007AFF;}")
+        let btn = addSubView(Button(100,24,self)) as! Button//add a button
+        
+        func onEvent(event:Event){
+            if(event.type == ButtonEvent.upInside && event.origin === btn){
+                //do something here
+                Swift.print("button works")
+                CVDisplayLinkStart(displayLink);//To start capturing events from the display link, you'd use
+            }
+        }
+        btn.event = onEvent
+        
+
         
         let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964))
    
@@ -77,7 +90,7 @@ class CustomView:WindowView{
         
         error = CVDisplayLinkCreateWithCGDisplay(displayID!, pointer)*/
         
-        CVDisplayLinkStart(displayLink);//To start capturing events from the display link, you'd use
+        
         
         //
         
