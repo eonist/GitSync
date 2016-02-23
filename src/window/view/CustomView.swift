@@ -45,7 +45,8 @@ class CustomView:WindowView{
         
         //buttonTest()
     }
-    var displayLink:CVDisplayLink?
+    //var displayLink:CVDisplayLink?
+    private var displayLink: CVDisplayLink!
     var displayID:CGDirectDisplayID?
     var error:CVReturn? = kCVReturnSuccess
     func frameAnimTest(){
@@ -64,6 +65,35 @@ class CustomView:WindowView{
         Swift.print("no error")
         }*/
     }
+    private func setUpDisplayLink() throws -> CVDisplayLink {
+        var displayLink: CVDisplayLink?
+        
+        var status = kCVReturnSuccess
+        status = CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
+        if status != kCVReturnSuccess {
+            throw Error.CVReturnError(status)
+        }
+        
+        guard let dl = displayLink else {
+            throw Error.CVReturnError(kCVReturnError)
+        }
+        
+        let context = UnsafeMutablePointer<Void>(unsafeAddressOf(dispatchSource))
+        status = CVDisplayLinkSetOutputCallback(dl, AWLCVDisplayLinkHelperCallback, context)
+        if status != kCVReturnSuccess {
+            throw Error.CVReturnError(status)
+        }
+        
+        let displayID = CGMainDisplayID()
+        status = CVDisplayLinkSetCurrentCGDisplay(dl, displayID)
+        if status != kCVReturnSuccess {
+            throw Error.CVReturnError(status)
+        }
+        
+        return dl
+    }
+    
+    
     /**
      *
      */
