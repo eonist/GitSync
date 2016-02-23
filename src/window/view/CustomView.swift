@@ -82,11 +82,25 @@ class CustomView:WindowView{
         status = CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
         Swift.print("status: " + "\(status)")
         
+        
+        let context = UnsafeMutablePointer<Void>(unsafeAddressOf(dispatchSource))
+        let outputStatus = CVDisplayLinkSetOutputCallback(dl, AWLCVDisplayLinkHelperCallback, context)
+        if status != kCVReturnSuccess {
+            throw Error.CVReturnError(status)
+        }
+        
+        
         let displayID = CGMainDisplayID()
         let displayIDStatus = CVDisplayLinkSetCurrentCGDisplay(displayLink!, displayID)
         Swift.print("displayIDStatus: " + "\(displayIDStatus)")
         
         return displayLink!
+    }
+    
+    private func AWLCVDisplayLinkHelperCallback(_:CVDisplayLink, _:UnsafePointer<CVTimeStamp>, _:UnsafePointer<CVTimeStamp>,
+        _:CVOptionFlags, _:UnsafeMutablePointer<CVOptionFlags>, context: UnsafeMutablePointer<Void>) -> CVReturn {
+            Swift.print("works")
+            return kCVReturnSuccess
     }
     
     
