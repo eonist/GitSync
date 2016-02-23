@@ -120,6 +120,9 @@ class CustomView:WindowView{
             CVDisplayLinkStop(displayLink);
         }
         
+        rect.graphic.display()
+        
+        CATransaction.flush()
         
         //continue here: gather more information, start a project from scrath to not clutter up the framework anymore. 
         //also maybe just try the NSTimer, and then revisit CVDisplayLink later
