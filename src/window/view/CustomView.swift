@@ -45,12 +45,10 @@ class CustomView:WindowView{
         
         //buttonTest()
     }
-    /**
-     *
-     */
+    var displayLink:CVDisplayLink?
     func frameAnimTest(){
         //animate a square 100 pixel to the right then stop the frame anim
-        
+        displayLink = CVDisplayLinkCreateWithCGDisplay()
     }
     /**
      *
