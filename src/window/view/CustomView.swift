@@ -57,6 +57,11 @@ class CustomView:WindowView{
         Swift.print("pointer: " + "\(pointer)")
         
         error = CVDisplayLinkCreateWithCGDisplay(displayID!, pointer)
+        if let error = error {
+            Swift.print("An error occurred \(error)")
+        } else {
+            Swift.print("no error")
+        }
     }
     /**
      *
