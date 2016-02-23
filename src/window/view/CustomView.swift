@@ -50,6 +50,7 @@ class CustomView:WindowView{
     private var displayLink: CVDisplayLink!
     //var displayID:CGDirectDisplayID?
     //var error:CVReturn? = kCVReturnSuccess
+    var rect:RectGraphic!
     func frameAnimTest(){
         
         
@@ -58,7 +59,7 @@ class CustomView:WindowView{
         
         
         /*Rect*/
-        let rect = RectGraphic(0,0,150,150,fill,nil)//Add a red box to the view
+        rect = RectGraphic(0,0,150,150,fill,nil)//Add a red box to the view
         addSubview(rect.graphic)
         rect.draw()
         rect.graphic.frame.y = 60/**/
@@ -76,9 +77,9 @@ class CustomView:WindowView{
         
         error = CVDisplayLinkCreateWithCGDisplay(displayID!, pointer)*/
         
-        //CVDisplayLinkStart(displayLink);//To start capturing events from the display link, you'd use
+        CVDisplayLinkStart(displayLink);//To start capturing events from the display link, you'd use
         
-        //CVDisplayLinkStop(displayLink);
+        //
         
         
         
@@ -92,7 +93,13 @@ class CustomView:WindowView{
      *
      */
     func drawSomething(){
-        Swift.print("drawSomething")
+        //Swift.print("drawSomething")
+        if(rect.graphic.frame.x < 200){
+            rect.graphic.frame.x += 1
+        }else{
+            CVDisplayLinkStop(displayLink);
+        }
+        
     }
     
     func setUpDisplayLink() -> CVDisplayLink {
@@ -105,7 +112,7 @@ class CustomView:WindowView{
         
         /* Set up DisplayLink. */
         func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
-            Swift.print("works")
+            //Swift.print("works")
             
             //figure out how to call another method from here, works!
             
