@@ -98,6 +98,33 @@ class CustomView:WindowView{
         
         
         
+        //  Grab a context from our view and make it current for drawing into
+        //  CVDisplayLink uses a separate thread, lock focus or our context for thread safety
+        
+        
+        //Swift.print("self.openGLContext: " + "\(self.openGLContext)")
+        
+        /**/
+        let context:NSOpenGLContext = NSOpenGLContext.currentContext()!
+        
+        Swift.print("context: " + "\(context)")
+        
+        context.makeCurrentContext()
+        CGLLockContext(context.CGLContextObj)
+        
+        //  Clear the context, set up the OpenGL shader program(s), call drawing commands
+        //  OpenGL targets and such are UInt32's, cast them before sending in the OpenGL function
+        
+        glClear(UInt32(GL_COLOR_BUFFER_BIT))
+        
+        //  We're using a double buffer, call CGLFlushDrawable() to swap the buffer
+        //  We're done drawing, unlock the context before moving on
+        
+        CGLFlushDrawable(context.CGLContextObj)
+        CGLUnlockContext(context.CGLContextObj)
+        
+        
+        /**/
         
         
 
@@ -108,7 +135,7 @@ class CustomView:WindowView{
             CVDisplayLinkStop(displayLink);
         }
         
-        rect.graphic.displayIfNeeded()
+        
         
     }
     
@@ -124,38 +151,7 @@ class CustomView:WindowView{
         func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
             //Swift.print("works")
             
-            /* //figure out how to call another method from here, works!
-            Swift.print("displayLinkContext: " + "\(displayLinkContext)")
-            
-            Swift.print( String(displayLinkContext))*/
-            
-            //  Grab a context from our view and make it current for drawing into
-            //  CVDisplayLink uses a separate thread, lock focus or our context for thread safety
-            
-            /*
-            Swift.print("NSOpenGLContext.currentContext(): " + "\(NSOpenGLContext.currentContext())")
-            
-            /**/
-            let context:NSOpenGLContext = NSOpenGLContext.currentContext()!
-            
-            Swift.print("context: " + "\(context)")
-            
-            context.makeCurrentContext()
-            CGLLockContext(context.CGLContextObj)
-            
-            //  Clear the context, set up the OpenGL shader program(s), call drawing commands
-            //  OpenGL targets and such are UInt32's, cast them before sending in the OpenGL function
-            
-            glClear(UInt32(GL_COLOR_BUFFER_BIT))
-            
-            //  We're using a double buffer, call CGLFlushDrawable() to swap the buffer
-            //  We're done drawing, unlock the context before moving on
-            
-            CGLFlushDrawable(context.CGLContextObj)
-            CGLUnlockContext(context.CGLContextObj)
-            
-            
-            */
+           
             
             
             unsafeBitCast(displayLinkContext, CustomView.self).drawSomething()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
