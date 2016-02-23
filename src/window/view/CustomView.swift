@@ -16,8 +16,9 @@ class CustomView:WindowView{
         super.resolveSkin()
         //Swift.print("CustomView.resolveSkin()")
         createTitleBar()
+        frameAnimTest()
         //animationTest()
-        sliderTest()
+        //sliderTest()
         //sliderListTest()
         //xmlListTest()
         
@@ -43,6 +44,13 @@ class CustomView:WindowView{
         */
         
         //buttonTest()
+    }
+    /**
+     *
+     */
+    func frameAnimTest(){
+        //animate a square 100 pixel to the right then stop the frame anim
+        
     }
     /**
      *
