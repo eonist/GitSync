@@ -52,6 +52,8 @@ class CustomView:WindowView{
     func frameAnimTest(){
         
         displayLink = setUpDisplayLink()
+        
+        Swift.print("displayLink: " + "\(displayLink)")
         //animate a square 100 pixel to the right then stop the frame anim
         /*displayID = CGMainDisplayID();
         
@@ -61,7 +63,9 @@ class CustomView:WindowView{
         
         error = CVDisplayLinkCreateWithCGDisplay(displayID!, pointer)*/
         
+        CVDisplayLinkStart(displayLink);
         
+        CVDisplayLinkStop(displayLink);
         
         /*if let error = error {
         Swift.print("An error occurred \(error)")
