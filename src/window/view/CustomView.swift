@@ -83,9 +83,29 @@ class CustomView:WindowView{
         status = CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
         Swift.print("status: " + "\(status)")
         
-        let cglContext = openGLContext.CGLContextObj
+        //  Create a pixel format and context and set them to the view's pixelFormat and openGLContext properties.
+        let attributes: [NSOpenGLPixelFormatAttribute] = [
+            UInt32(NSOpenGLPFAAccelerated),
+            UInt32(NSOpenGLPFAColorSize), UInt32(32),
+            UInt32(NSOpenGLPFADoubleBuffer),
+            UInt32(NSOpenGLPFAOpenGLProfile),
+            UInt32(NSOpenGLProfileVersion3_2Core),
+            UInt32(0)
+        ]
+        guard let pixelFormat = NSOpenGLPixelFormat(attributes: attributes) else {
+            Swift.print("pixel format could not be created")
+            
+        }
         
-        let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, AWLCVDisplayLinkHelperCallback, UnsafeMutablePointer<SwiftOpenGLView>(unsafeAddressOf(self)))
+        
+        guard let context = NSOpenGLContext(format: pixelFormat, shareContext: nil) else {
+            Swift.print("context could not be created")
+            
+        }
+       
+        context
+        
+        let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, AWLCVDisplayLinkHelperCallback, UnsafeMutablePointer<()>(unsafeAddressOf(self)))
         Swift.print("outputStatus: " + "\(outputStatus)")
         
         
