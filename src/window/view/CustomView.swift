@@ -92,9 +92,10 @@ class CustomView:WindowView{
     /**
      *
      */
-    func drawSomething(context){
+    func drawSomething(context:NSOpenGLContext){
         Swift.print("drawSomething")
-        rect.graphic.fillShape.graphics.context = displayLinkContext
+
+        rect.graphic.fillShape.graphics.context = context
         if(rect.graphic.frame.x < 200){
             rect.graphic.frame.x += 1
         }else{
@@ -118,7 +119,7 @@ class CustomView:WindowView{
             //figure out how to call another method from here, works!
             Swift.print("displayLinkContext: " + "\(displayLinkContext)")
             
-            unsafeBitCast(displayLinkContext, CustomView.self).drawSomething()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
+            unsafeBitCast(displayLinkContext, CustomView.self).drawSomething(displayLinkContext as! NSOpenGLContext)//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
             return kCVReturnSuccess
         }
        
