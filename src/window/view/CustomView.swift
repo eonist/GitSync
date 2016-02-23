@@ -1,5 +1,5 @@
 import Cocoa
-
+import OpenGL.GL3
 
 /**
  * TODO: Hook up the onWindowResize method
