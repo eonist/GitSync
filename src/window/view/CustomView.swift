@@ -52,6 +52,17 @@ class CustomView:WindowView{
     //var error:CVReturn? = kCVReturnSuccess
     func frameAnimTest(){
         
+        
+        let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964))
+   
+        
+        
+        /*Rect*/
+        let rect = RectGraphic(0,0,150,150,fill,nil)//Add a red box to the view
+        addSubview(rect.graphic)
+        rect.draw()
+        rect.graphic.frame.y = 60/**/
+        
         displayLink = setUpDisplayLink()
         
         Swift.print("displayLink: " + "\(displayLink)")
@@ -65,7 +76,7 @@ class CustomView:WindowView{
         
         error = CVDisplayLinkCreateWithCGDisplay(displayID!, pointer)*/
         
-        CVDisplayLinkStart(displayLink);//To start capturing events from the display link, you'd use
+        //CVDisplayLinkStart(displayLink);//To start capturing events from the display link, you'd use
         
         //CVDisplayLinkStop(displayLink);
         
