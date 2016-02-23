@@ -155,8 +155,8 @@ class CustomView:WindowView{
             CGLUnlockContext(context.CGLContextObj)
             
             
-            let ctxCurrent = NSGraphicsContext.currentContext()?.graphicsPort
-            Swift.print("ctxCurrent: " + "\(ctxCurrent)")*/
+            */
+            
             
             unsafeBitCast(displayLinkContext, CustomView.self).drawSomething()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
             return kCVReturnSuccess
