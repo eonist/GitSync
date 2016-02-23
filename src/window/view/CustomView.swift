@@ -119,7 +119,10 @@ class CustomView:WindowView{
         }else{
             CVDisplayLinkStop(displayLink);
         }
-
+        
+        
+        //continue here: gather more information, start a project from scrath to not clutter up the framework anymore. 
+        
         
         
         //  Clear the context, set up the OpenGL shader program(s), call drawing commands
