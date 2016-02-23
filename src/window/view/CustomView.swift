@@ -1,5 +1,6 @@
 import Cocoa
 
+
 /**
  * TODO: Hook up the onWindowResize method
  */
@@ -84,7 +85,7 @@ class CustomView:WindowView{
         
         
         
-        let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, AWLCVDisplayLinkHelperCallback,UnsafeMutablePointer<Void>())
+        let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, AWLCVDisplayLinkHelperCallback, UnsafeMutablePointer<SwiftOpenGLView>(unsafeAddressOf(self)))
         Swift.print("outputStatus: " + "\(outputStatus)")
         
         
