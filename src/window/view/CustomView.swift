@@ -108,6 +108,8 @@ class CustomView:WindowView{
             CVDisplayLinkStop(displayLink);
         }
         
+        rect.graphic.lockFocusIfCanDraw()
+        
     }
     
     func setUpDisplayLink() -> CVDisplayLink {
