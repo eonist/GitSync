@@ -83,7 +83,7 @@ class CustomView:WindowView{
         status = CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
         Swift.print("status: " + "\(status)")
         
-        
+        let cglContext = openGLContext.CGLContextObj
         
         let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, AWLCVDisplayLinkHelperCallback, UnsafeMutablePointer<SwiftOpenGLView>(unsafeAddressOf(self)))
         Swift.print("outputStatus: " + "\(outputStatus)")
