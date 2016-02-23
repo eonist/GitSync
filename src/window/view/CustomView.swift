@@ -83,11 +83,9 @@ class CustomView:WindowView{
         Swift.print("status: " + "\(status)")
         
         
-        let context = UnsafeMutablePointer<Void>(unsafeAddressOf(dispatchSource))
-        let outputStatus = CVDisplayLinkSetOutputCallback(dl, AWLCVDisplayLinkHelperCallback, context)
-        if status != kCVReturnSuccess {
-            throw Error.CVReturnError(status)
-        }
+
+        let outputStatus = CVDisplayLinkSetOutputCallback(displayLink, AWLCVDisplayLinkHelperCallback)
+        
         
         
         let displayID = CGMainDisplayID()
