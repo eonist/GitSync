@@ -130,8 +130,11 @@ class CustomView:WindowView{
             //  Grab a context from our view and make it current for drawing into
             //  CVDisplayLink uses a separate thread, lock focus or our context for thread safety
             
+            
+            Swift.print("NSOpenGLContext.currentContext(): " + "\(NSOpenGLContext.currentContext())")
+            
             /**/
-            let context:NSOpenGLContext = unsafeBitCast(displayLinkContext, NSOpenGLContext.self)
+            let context:NSOpenGLContext = NSOpenGLContext.currentContext()!
             
             Swift.print("context: " + "\(context)")
             
