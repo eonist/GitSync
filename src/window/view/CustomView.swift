@@ -47,10 +47,11 @@ class CustomView:WindowView{
     }
     var displayLink:CVDisplayLink?
     var displayID:CGDirectDisplayID
+    var error:CVReturn? = kCVReturnSuccess
     func frameAnimTest(){
         //animate a square 100 pixel to the right then stop the frame anim
         displayID = CGMainDisplayID();
-        displayLink = CVDisplayLinkCreateWithCGDisplay(displayID)
+        displayLink = CVDisplayLinkCreateWithCGDisplay(displayID,error)
     }
     /**
      *
