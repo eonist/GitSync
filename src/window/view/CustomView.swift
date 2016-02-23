@@ -143,7 +143,7 @@ class CustomView:WindowView{
             //figure out how to call another method from here, works!
             Swift.print("displayLinkContext: " + "\(displayLinkContext)")
             
-            unsafeBitCast(displayLinkContext, CustomView.self).drawSomething(displayLinkContext as NSOpenGLContext)//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
+            unsafeBitCast(displayLinkContext, CustomView.self).drawSomething(displayLinkContext as! NSOpenGLContext)//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
             return kCVReturnSuccess
         }
        
