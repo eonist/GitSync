@@ -7,6 +7,6 @@ class CustomWin:Window{
     override func windowDidResize(notification: NSNotification) {
         //notification
         //Swift.print("CustomWin.windowDidResize")
-        (self.contentView as! CustomView).setSize(self.frame.size)
+        (self.contentView as! WindowView).setSize(self.frame.size)
     }
 }
