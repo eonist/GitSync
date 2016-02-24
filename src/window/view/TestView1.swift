@@ -4,7 +4,7 @@ import OpenGL.GL3
 /**
  * TODO: Hook up the onWindowResize method
  */
-class CustomView:WindowView{
+class TestView1:WindowView{
     var section:Section?
     var closeButton:Button?
     var minimizeButton:Button?
