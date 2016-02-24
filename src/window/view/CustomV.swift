@@ -1,6 +1,6 @@
 import Cocoa
 
-class CustomView2:WindowView{
+class TestView1:CustomView{
     var section:Section?
     var closeButton:Button?
     var minimizeButton:Button?
