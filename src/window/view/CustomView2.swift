@@ -10,6 +10,6 @@ class CustomView2:WindowView{
      */
     override func resolveSkin() {
         super.resolveSkin()
-         createTitleBar()
+         //createTitleBar()
     }
 }

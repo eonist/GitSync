@@ -1046,14 +1046,8 @@ class CustomView:WindowView{
      */
     func createTitleBar(){
         //Swift.print("CustomView.createTitleBar()")
-        var css:String = ""
-        css += "Section#titleBar{float:left;clear:left;padding-top:4px;padding-left:8px;}"
-        css += "Section#titleBar Button{width:10px;height:10px;corner-radius:5px;float:left;clear:none;margin-right:8px;margin-top:0px;padding-left:0px;padding-top:0px;line-offset-type:outside;line-alpha:1;line-thickness:1px;}"//adding padding here shouldnt be necessary
-        css += "Section#titleBar Button:over{fill:#A7A7A7;line:#828282;}"
-        css += "Section#titleBar Button#close{fill:#FF5F52;line:#E33E32;}"
-        css += "Section#titleBar Button#minimize{fill:#FFBE05;line:#E2A100;}"
-        css += "Section#titleBar Button#maximize{fill:#15CC35;line:#17B230;}"
-        StyleManager.addStyle(css)
+        
+        StyleManager.addStylesByURL("~/Desktop/css/titleBar.css")
         
         section = self.addSubView(Section(frame.width,16,self,"titleBar")) as? Section
         
