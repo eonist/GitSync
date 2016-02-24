@@ -1055,8 +1055,7 @@ class CustomView:WindowView{
         css += "Section#titleBar Button#maximize{fill:#15CC35;line:#17B230;}"
         StyleManager.addStyle(css)
         
-        section = Section(frame.width,16,self,"titleBar")
-        self.addSubview(section!)
+        section = self.addSubView(Section(frame.width,16,self,"titleBar")) as? Section
         
         closeButton = section!.addSubView(Button(0,0,section!,"close")) as? Button/*<--TODO: the w and h should be NaN, test if it supports this*/
         minimizeButton = section!.addSubView(Button(0,0,section!,"minimize")) as? Button
