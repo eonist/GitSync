@@ -9,8 +9,7 @@ class TestView2:CustomView{
 
     }
     private var displayLink: CVDisplayLink!
-    let pixelFormat = NSOpenGLPixelFormat(attributes: attrs)
-    self.pixelFormat = pixelFormat
+    
     //var displayID:CGDirectDisplayID?
     //var error:CVReturn? = kCVReturnSuccess
     func frameAnimTest(){
@@ -33,6 +32,23 @@ class TestView2:CustomView{
         addSubview(rect.graphic)
         rect.draw()
         rect.graphic.frame.y = 60/**/
+        
+         
+         //  some OpenGL setup
+         //  NSOpenGLPixelFormatAttribute is a typealias for UInt32 in Swift, cast each attribute
+         //  Set the view's PixelFormat and Context to the custom pixelFormat and context
+        
+        let attrs: [NSOpenGLPixelFormatAttribute] = [
+            UInt32(NSOpenGLPFAAccelerated),
+            UInt32(NSOpenGLPFAColorSize), UInt32(32),
+            UInt32(NSOpenGLPFADoubleBuffer),
+            UInt32(NSOpenGLPFAOpenGLProfile),
+            UInt32( NSOpenGLProfileVersion3_2Core),
+            UInt32(0)
+        ]
+        
+        let pixelFormat = NSOpenGLPixelFormat(attributes: attrs)
+        self.pixelFormat = pixelFormat
         
         
         displayLink = setUpDisplayLink()
