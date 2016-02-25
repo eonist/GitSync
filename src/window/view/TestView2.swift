@@ -60,26 +60,6 @@ class TestView2:CustomView{
      */
     func drawSomething(){
         //Swift.print("drawSomething")
-        
-        
-        
-        
-        //  Grab a context from our view and make it current for drawing into
-        //  CVDisplayLink uses a separate thread, lock focus or our context for thread safety
-        
-        
-        //Swift.print("self.openGLContext: " + "\(self.openGLContext)")
-        
-        /**/
-        /*let context:NSOpenGLContext = NSOpenGLContext.currentContext()!
-        
-        Swift.print("context: " + "\(context)")
-        
-        context.makeCurrentContext()
-        CGLLockContext(context.CGLContextObj)*/
-        
-        
-        //rect.graphic.fillShape.graphics.context = context.
         if(rect.graphic.frame.x < 100){
             rect.graphic.frame.x += 1
         }else{
@@ -97,7 +77,7 @@ class TestView2:CustomView{
         
         /* Set up DisplayLink. */
         func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
-            //Swift.print("works")
+            //Swift.print("displayLink is setup")
             unsafeBitCast(displayLinkContext, TestView2.self).drawSomething()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
             return kCVReturnSuccess
         }
