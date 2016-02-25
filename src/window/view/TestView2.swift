@@ -47,14 +47,14 @@ class TestView2:CustomView{
         
         Swift.print("displayLink: " + "\(displayLink)")
         
-        
+        /*
         let attrs: [NSOpenGLPixelFormatAttribute] = [
-            UInt32(NSOpenGLPFAAccelerated),
-            UInt32(NSOpenGLPFAColorSize), UInt32(32),
-            UInt32(NSOpenGLPFADoubleBuffer),
-            UInt32(NSOpenGLPFAOpenGLProfile),
-            UInt32( NSOpenGLProfileVersion3_2Core),
-            UInt32(0)
+        UInt32(NSOpenGLPFAAccelerated),
+        UInt32(NSOpenGLPFAColorSize), UInt32(32),
+        UInt32(NSOpenGLPFADoubleBuffer),
+        UInt32(NSOpenGLPFAOpenGLProfile),
+        UInt32( NSOpenGLProfileVersion3_2Core),
+        UInt32(0)
         ]
         
         let pixelFormat:NSOpenGLPixelFormat? = NSOpenGLPixelFormat(attributes: attrs)
@@ -67,6 +67,7 @@ class TestView2:CustomView{
         Swift.print("openGLContext: " + "\(openGLContext)")
         let cglContext = self.openGLContext!.CGLContextObj
         CVDisplayLinkSetCurrentCGDisplayFromOpenGLContext(displayLink, cglContext, cglPixelFormat!)
+        */
         //CVDisplayLinkStart(displayLink)
         
         
@@ -151,7 +152,7 @@ class TestView2:CustomView{
         //rect.graphic.display()
         CATransaction.flush()
         
-        glClear(UInt32(GL_COLOR_BUFFER_BIT))
+        //glClear(UInt32(GL_COLOR_BUFFER_BIT))
         
         //  We're using a double buffer, call CGLFlushDrawable() to swap the buffer
         //  We're done drawing, unlock the context before moving on
