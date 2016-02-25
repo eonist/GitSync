@@ -85,25 +85,8 @@ class TestView2:CustomView{
         }else{
             CVDisplayLinkStop(displayLink);
         }
-        
-        
+
         CATransaction.flush()
-        
-        //continue here: gather more information, start a project from scrath to not clutter up the framework anymore.
-        //also maybe just try the NSTimer, and then revisit CVDisplayLink later
-        
-        /*
-        
-        //  Clear the context, set up the OpenGL shader program(s), call drawing commands
-        //  OpenGL targets and such are UInt32's, cast them before sending in the OpenGL function
-        
-        glClear(UInt32(GL_COLOR_BUFFER_BIT))
-        
-        //  We're using a double buffer, call CGLFlushDrawable() to swap the buffer
-        //  We're done drawing, unlock the context before moving on
-        
-        CGLFlushDrawable(context.CGLContextObj)
-        CGLUnlockContext(context.CGLContextObj)*/
     }
     func setUpDisplayLink() -> CVDisplayLink {
         var displayLink: CVDisplayLink?
