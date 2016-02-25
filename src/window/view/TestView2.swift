@@ -14,7 +14,7 @@ class TestView2:CustomView{
     //var error:CVReturn? = kCVReturnSuccess
     
     
-    var pixelFormat:NSObject?
+    var pixelFormat:NSOpenGLPixelFormat?
     
     func frameAnimTest(){
         StyleManager.addStyle("Button{fill:#5AC8FA;float:left;clear:left;}Button:down{fill:#007AFF;}")
@@ -62,7 +62,9 @@ class TestView2:CustomView{
 
         
         let cglPixelFormat = pixelFormat?.CGLPixelFormatObj
-        let cglContext = openGLContext.CGLContextObj
+        let openGLContext:NSOpenGLContext? = NSOpenGLContext.currentContext()
+        Swift.print("openGLContext: " + "\(openGLContext)")
+        let cglContext = openGLContext!.CGLContextObj
         CVDisplayLinkSetCurrentCGDisplayFromOpenGLContext(displayLink!, cglContext, cglPixelFormat!)
         CVDisplayLinkStart(displayLink!)
         
