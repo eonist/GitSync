@@ -86,11 +86,11 @@ class TestView2:CustomView{
         //Swift.print("self.openGLContext: " + "\(self.openGLContext)")
         
         /**/
-        /*let context:NSOpenGLContext = NSOpenGLContext.currentContext()!
+        let context:NSOpenGLContext = NSOpenGLContext.currentContext()!
         
         Swift.print("context: " + "\(context)")
         
-        context.makeCurrentContext()
+        /*context.makeCurrentContext()
         CGLLockContext(context.CGLContextObj)*/
         
         
@@ -132,23 +132,6 @@ class TestView2:CustomView{
             Swift.print("display link is setup")
             
             
-            let attrs: [NSOpenGLPixelFormatAttribute] = [
-                UInt32(NSOpenGLPFAAccelerated),
-                UInt32(NSOpenGLPFAColorSize), UInt32(32),
-                UInt32(NSOpenGLPFADoubleBuffer),
-                UInt32(NSOpenGLPFAOpenGLProfile),
-                UInt32( NSOpenGLProfileVersion3_2Core),
-                UInt32(0)
-            ]
-            
-            let pixelFormat:NSOpenGLPixelFormat? = NSOpenGLPixelFormat(attributes: attrs)
-            
-            let cglPixelFormat = pixelFormat?.CGLPixelFormatObj
-            let openGLContext:NSOpenGLContext? = NSOpenGLContext.currentContext()
-            Swift.print("openGLContext: " + "\(openGLContext)")
-            let cglContext = openGLContext!.CGLContextObj
-            CVDisplayLinkSetCurrentCGDisplayFromOpenGLContext(displayLink, cglContext, cglPixelFormat!)
-            CVDisplayLinkStart(displayLink)
             
             unsafeBitCast(displayLinkContext, TestView2.self).drawSomething()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
             return kCVReturnSuccess
