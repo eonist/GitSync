@@ -137,7 +137,7 @@ class TestView2:CustomView{
             
             
             
-            unsafeBitCast(displayLinkContext, TestView1.self).drawSomething()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
+            unsafeBitCast(displayLinkContext, TestView2.self).drawSomething()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
             return kCVReturnSuccess
         }
         
