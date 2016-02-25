@@ -107,24 +107,64 @@ class TestView2:CustomView{
         
         //Swift.print("self.openGLContext: " + "\(self.openGLContext)")
         
-        /**/
+        /*
         let context:NSOpenGLContext? = self.openGLContext
         
         Swift.print("context: " + "\(context)")
-        
+        */
         /*context.makeCurrentContext()
         CGLLockContext(context.CGLContextObj)*/
         
         
         //rect.graphic.fillShape.graphics.context = context.
+        
+        
+        /*
+        rect.graphic.display()
+        CATransaction.flush()
+        
+        
+        */
+        
+        
+        
+        //  Grab a context from our view and make it current for drawing into
+        //  CVDisplayLink uses a separate thread, lock focus or our context for thread safety
+        
+        let context = self.openGLContext
+        context!.makeCurrentContext()
+        CGLLockContext(context!.CGLContextObj)
+        
+        //  Clear the context, set up the OpenGL shader program(s), call drawing commands
+        //  OpenGL targets and such are UInt32's, cast them before sending in the OpenGL function
+        
+        
+        
         if(rect.graphic.frame.x < 100){
             rect.graphic.frame.x += 1
         }else{
             CVDisplayLinkStop(displayLink);
         }
+
         
-        rect.graphic.display()
-        CATransaction.flush()
+        rect.draw()
+        
+        
+        
+        glClear(UInt32(GL_COLOR_BUFFER_BIT))
+        
+        //  We're using a double buffer, call CGLFlushDrawable() to swap the buffer
+        //  We're done drawing, unlock the context before moving on
+        
+        CGLFlushDrawable(context!.CGLContextObj)
+        CGLUnlockContext(context!.CGLContextObj)
+        
+        
+        
+        
+        
+        
+        
         
         //continue here: gather more information, start a project from scrath to not clutter up the framework anymore.
         //also maybe just try the NSTimer, and then revisit CVDisplayLink later
