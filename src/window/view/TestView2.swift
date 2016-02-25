@@ -12,6 +12,10 @@ class TestView2:CustomView{
     
     //var displayID:CGDirectDisplayID?
     //var error:CVReturn? = kCVReturnSuccess
+    
+    
+    var pixelFormat:NSObject?
+    
     func frameAnimTest(){
         StyleManager.addStyle("Button{fill:#5AC8FA;float:left;clear:left;}Button:down{fill:#007AFF;}")
         let btn = addSubView(Button(100,24,self)) as! Button//add a button
@@ -43,7 +47,25 @@ class TestView2:CustomView{
         
         Swift.print("displayLink: " + "\(displayLink)")
         
-                
+        
+        let attrs: [NSOpenGLPixelFormatAttribute] = [
+            UInt32(NSOpenGLPFAAccelerated),
+            UInt32(NSOpenGLPFAColorSize), UInt32(32),
+            UInt32(NSOpenGLPFADoubleBuffer),
+            UInt32(NSOpenGLPFAOpenGLProfile),
+            UInt32( NSOpenGLProfileVersion3_2Core),
+            UInt32(0)
+        ]
+        
+        pixelFormat = NSOpenGLPixelFormat(attributes: attrs)
+        //self.pixelFormat = pixelFormat
+
+        
+        let cglPixelFormat = pixelFormat?.CGLPixelFormatObj
+        let cglContext = openGLContext.CGLContextObj
+        CVDisplayLinkSetCurrentCGDisplayFromOpenGLContext(displayLink!, cglContext, cglPixelFormat!)
+        CVDisplayLinkStart(displayLink!)
+        
         
         //animate a square 100 pixel to the right then stop the frame anim
         /*displayID = CGMainDisplayID();
