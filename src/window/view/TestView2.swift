@@ -8,7 +8,6 @@ class TestView2:CustomView{
         frameAnimTest()
 
     }
-    
     private var displayLink: CVDisplayLink!
     //var displayID:CGDirectDisplayID?
     //var error:CVReturn? = kCVReturnSuccess
@@ -47,11 +46,6 @@ class TestView2:CustomView{
         Swift.print("pointer: " + "\(pointer)")
         
         error = CVDisplayLinkCreateWithCGDisplay(displayID!, pointer)*/
-        
-        
-        
-        //
-        
         
         
         /*if let error = error {
@@ -93,7 +87,6 @@ class TestView2:CustomView{
         }
         
         rect.graphic.display()
-        
         CATransaction.flush()
         
         //continue here: gather more information, start a project from scrath to not clutter up the framework anymore.
@@ -111,17 +104,7 @@ class TestView2:CustomView{
         
         CGLFlushDrawable(context.CGLContextObj)
         CGLUnlockContext(context.CGLContextObj)*/
-        
-        
-        /**/
-        
-        
-        
-        
-        
-        
     }
-    
     func setUpDisplayLink() -> CVDisplayLink {
         var displayLink: CVDisplayLink?
         
@@ -129,20 +112,15 @@ class TestView2:CustomView{
         status = CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
         Swift.print("status: " + "\(status)")
         
-        
         /* Set up DisplayLink. */
         func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
             //Swift.print("works")
-            
-            
             unsafeBitCast(displayLinkContext, TestView2.self).drawSomething()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
             return kCVReturnSuccess
         }
         
-        
         let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, displayLinkOutputCallback, UnsafeMutablePointer<Void>(unsafeAddressOf(self)))
         Swift.print("outputStatus: " + "\(outputStatus)")
-        
         
         let displayID = CGMainDisplayID()
         let displayIDStatus = CVDisplayLinkSetCurrentCGDisplay(displayLink!, displayID)
