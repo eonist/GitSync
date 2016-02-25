@@ -41,7 +41,7 @@ class TestView1:CustomView{
         
         //buttonTest()
     }
-    //var displayLink:CVDisplayLink?
+    
     private var displayLink: CVDisplayLink!
     //var displayID:CGDirectDisplayID?
     //var error:CVReturn? = kCVReturnSuccess
