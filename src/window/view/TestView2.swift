@@ -26,7 +26,7 @@ class TestView2:CustomView{
         rect = RectGraphic(0,0,150,150,fill,nil)//Add a red box to the view
         addSubview(rect.graphic)
         rect.draw()
-        rect.graphic.frame.y = 60/**/
+        rect.graphic.frame.y = 60
         
         displayLink = setUpDisplayLink()
         Swift.print("displayLink: " + "\(displayLink)")
@@ -40,7 +40,7 @@ class TestView2:CustomView{
             CVDisplayLinkStop(displayLink);
         }
 
-        //CATransaction.flush()//if you dont flush your animation wont animate and you get this message: CoreAnimation: warning, deleted thread with uncommitted CATransaction; set CA_DEBUG_TRANSACTIONS=1 in environment to log backtraces.
+        CATransaction.flush()//if you dont flush your animation wont animate and you get this message: CoreAnimation: warning, deleted thread with uncommitted CATransaction; set CA_DEBUG_TRANSACTIONS=1 in environment to log backtraces.
     }
     func setUpDisplayLink() -> CVDisplayLink {
         var displayLink: CVDisplayLink?
