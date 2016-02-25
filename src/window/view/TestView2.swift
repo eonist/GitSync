@@ -9,6 +9,8 @@ class TestView2:CustomView{
 
     }
     private var displayLink: CVDisplayLink!
+    let pixelFormat = NSOpenGLPixelFormat(attributes: attrs)
+    self.pixelFormat = pixelFormat
     //var displayID:CGDirectDisplayID?
     //var error:CVReturn? = kCVReturnSuccess
     func frameAnimTest(){
@@ -36,6 +38,11 @@ class TestView2:CustomView{
         displayLink = setUpDisplayLink()
         
         Swift.print("displayLink: " + "\(displayLink)")
+        
+        let cglPixelFormat = self.pixelFormat?.CGLPixelFormatObj
+        let cglContext = self.openGLContext.CGLContextObj
+        CVDisplayLinkSetCurrentCGDisplayFromOpenGLContext(displayLink!, cglContext, cglPixelFormat!)
+        CVDisplayLinkStart(displayLink!)
         
         
         //animate a square 100 pixel to the right then stop the frame anim
