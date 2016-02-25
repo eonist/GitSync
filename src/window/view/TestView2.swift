@@ -2,15 +2,11 @@ import Cocoa
 
 class TestView2:CustomView{
     var rect:RectGraphic!
+    private var displayLink: CVDisplayLink!
     override func resolveSkin() {
         super.resolveSkin()
-        //Swift.print("CustomView.resolveSkin()")
         frameAnimTest()
-
     }
-    private var displayLink: CVDisplayLink!
-    //var displayID:CGDirectDisplayID?
-    //var error:CVReturn? = kCVReturnSuccess
     func frameAnimTest(){
         StyleManager.addStyle("Button{fill:#5AC8FA;float:left;clear:left;}Button:down{fill:#007AFF;}")
         let btn = addSubView(Button(100,24,self)) as! Button//add a button
@@ -32,41 +28,19 @@ class TestView2:CustomView{
         rect.draw()
         rect.graphic.frame.y = 60/**/
         
-        
         displayLink = setUpDisplayLink()
-        
         Swift.print("displayLink: " + "\(displayLink)")
-        
-        
-        //animate a square 100 pixel to the right then stop the frame anim
-        /*displayID = CGMainDisplayID();
-        
-        let pointer = UnsafeMutablePointer<CVDisplayLink?>(unsafeAddressOf(self))
-        
-        Swift.print("pointer: " + "\(pointer)")
-        
-        error = CVDisplayLinkCreateWithCGDisplay(displayID!, pointer)*/
-        
-        
-        /*if let error = error {
-        Swift.print("An error occurred \(error)")
-        } else {
-        Swift.print("no error")
-        }*/
 
     }
-    /**
-     *
-     */
     func drawSomething(){
         //Swift.print("drawSomething")
-        if(rect.graphic.frame.x < 100){
+        if(rect.graphic.frame.x < 100){//animate a square 100 pixel to the right then stop the frame anim
             rect.graphic.frame.x += 1
         }else{
             CVDisplayLinkStop(displayLink);
         }
 
-        CATransaction.flush()
+        //CATransaction.flush()//if you dont flush your animation wont animate and you get this message: CoreAnimation: warning, deleted thread with uncommitted CATransaction; set CA_DEBUG_TRANSACTIONS=1 in environment to log backtraces.
     }
     func setUpDisplayLink() -> CVDisplayLink {
         var displayLink: CVDisplayLink?
