@@ -9,13 +9,8 @@ class TestView2:CustomView{
 
     }
     private var displayLink: CVDisplayLink!
-    
     //var displayID:CGDirectDisplayID?
     //var error:CVReturn? = kCVReturnSuccess
-    
-    
-    
-    
     func frameAnimTest(){
         StyleManager.addStyle("Button{fill:#5AC8FA;float:left;clear:left;}Button:down{fill:#007AFF;}")
         let btn = addSubView(Button(100,24,self)) as! Button//add a button
@@ -37,43 +32,10 @@ class TestView2:CustomView{
         rect.draw()
         rect.graphic.frame.y = 60/**/
         
-         
-         //  some OpenGL setup
-         //  NSOpenGLPixelFormatAttribute is a typealias for UInt32 in Swift, cast each attribute
-         //  Set the view's PixelFormat and Context to the custom pixelFormat and context
-        
         
         displayLink = setUpDisplayLink()
         
         Swift.print("displayLink: " + "\(displayLink)")
-        
-        /*
-        let attrs: [NSOpenGLPixelFormatAttribute] = [
-        UInt32(NSOpenGLPFAAccelerated),
-        UInt32(NSOpenGLPFAColorSize), UInt32(32),
-        UInt32(NSOpenGLPFADoubleBuffer),
-        UInt32(NSOpenGLPFAOpenGLProfile),
-        UInt32( NSOpenGLProfileVersion3_2Core),
-        UInt32(0)
-        ]
-        
-        let pixelFormat:NSOpenGLPixelFormat? = NSOpenGLPixelFormat(attributes: attrs)
-        
-        
-        self.pixelFormat = pixelFormat
-        
-        let cglPixelFormat = self.pixelFormat?.CGLPixelFormatObj
-        let openGLContext:NSOpenGLContext? = NSOpenGLContext.currentContext()
-        Swift.print("openGLContext: " + "\(openGLContext)")
-        let cglContext = self.openGLContext!.CGLContextObj
-        CVDisplayLinkSetCurrentCGDisplayFromOpenGLContext(displayLink, cglContext, cglPixelFormat!)
-        */
-        //CVDisplayLinkStart(displayLink)
-        
-        
-        //self.pixelFormat = pixelFormat
-
-        
         
         
         //animate a square 100 pixel to the right then stop the frame anim
@@ -108,64 +70,24 @@ class TestView2:CustomView{
         
         //Swift.print("self.openGLContext: " + "\(self.openGLContext)")
         
-        /*
-        let context:NSOpenGLContext? = self.openGLContext
+        /**/
+        /*let context:NSOpenGLContext = NSOpenGLContext.currentContext()!
         
         Swift.print("context: " + "\(context)")
-        */
-        /*context.makeCurrentContext()
+        
+        context.makeCurrentContext()
         CGLLockContext(context.CGLContextObj)*/
         
         
         //rect.graphic.fillShape.graphics.context = context.
-        
-        
-        /*
-        rect.graphic.display()
-        CATransaction.flush()
-        
-        
-        */
-        
-        
-        
-        //  Grab a context from our view and make it current for drawing into
-        //  CVDisplayLink uses a separate thread, lock focus or our context for thread safety
-        
-        /*let context = self.openGLContext
-        context!.makeCurrentContext()
-        CGLLockContext(context!.CGLContextObj)*/
-        
-        //  Clear the context, set up the OpenGL shader program(s), call drawing commands
-        //  OpenGL targets and such are UInt32's, cast them before sending in the OpenGL function
-        
-        
-        
         if(rect.graphic.frame.x < 100){
             rect.graphic.frame.x += 1
         }else{
             CVDisplayLinkStop(displayLink);
         }
-
         
-        rect.draw()
-        //rect.graphic.display()
+        
         CATransaction.flush()
-        
-        //glClear(UInt32(GL_COLOR_BUFFER_BIT))
-        
-        //  We're using a double buffer, call CGLFlushDrawable() to swap the buffer
-        //  We're done drawing, unlock the context before moving on
-        
-        /* CGLFlushDrawable(context!.CGLContextObj)
-        CGLUnlockContext(context!.CGLContextObj)
-        */
-        
-        
-        
-        
-        
-        
         
         //continue here: gather more information, start a project from scrath to not clutter up the framework anymore.
         //also maybe just try the NSTimer, and then revisit CVDisplayLink later
@@ -192,10 +114,7 @@ class TestView2:CustomView{
         
         /* Set up DisplayLink. */
         func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
-            Swift.print("display link is setup")
-            
-            
-            
+            //Swift.print("works")
             unsafeBitCast(displayLinkContext, TestView2.self).drawSomething()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
             return kCVReturnSuccess
         }
