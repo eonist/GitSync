@@ -14,7 +14,7 @@ class TestView2:CustomView{
     //var error:CVReturn? = kCVReturnSuccess
     
     
-    var pixelFormat:NSOpenGLPixelFormat?
+    
     
     func frameAnimTest(){
         StyleManager.addStyle("Button{fill:#5AC8FA;float:left;clear:left;}Button:down{fill:#007AFF;}")
@@ -48,16 +48,6 @@ class TestView2:CustomView{
         Swift.print("displayLink: " + "\(displayLink)")
         
         
-        let attrs: [NSOpenGLPixelFormatAttribute] = [
-            UInt32(NSOpenGLPFAAccelerated),
-            UInt32(NSOpenGLPFAColorSize), UInt32(32),
-            UInt32(NSOpenGLPFADoubleBuffer),
-            UInt32(NSOpenGLPFAOpenGLProfile),
-            UInt32( NSOpenGLProfileVersion3_2Core),
-            UInt32(0)
-        ]
-        
-        pixelFormat = NSOpenGLPixelFormat(attributes: attrs)
         //self.pixelFormat = pixelFormat
 
         
@@ -141,8 +131,24 @@ class TestView2:CustomView{
         func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
             Swift.print("display link is setup")
             
+            
+            let attrs: [NSOpenGLPixelFormatAttribute] = [
+                UInt32(NSOpenGLPFAAccelerated),
+                UInt32(NSOpenGLPFAColorSize), UInt32(32),
+                UInt32(NSOpenGLPFADoubleBuffer),
+                UInt32(NSOpenGLPFAOpenGLProfile),
+                UInt32( NSOpenGLProfileVersion3_2Core),
+                UInt32(0)
+            ]
+            
+            let pixelFormat:NSOpenGLPixelFormat? = NSOpenGLPixelFormat(attributes: attrs)
+            
+            let cglPixelFormat = pixelFormat?.CGLPixelFormatObj
             let openGLContext:NSOpenGLContext? = NSOpenGLContext.currentContext()
             Swift.print("openGLContext: " + "\(openGLContext)")
+            let cglContext = openGLContext!.CGLContextObj
+            CVDisplayLinkSetCurrentCGDisplayFromOpenGLContext(displayLink, cglContext, cglPixelFormat!)
+            CVDisplayLinkStart(displayLink)
             
             unsafeBitCast(displayLinkContext, TestView2.self).drawSomething()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
             return kCVReturnSuccess
