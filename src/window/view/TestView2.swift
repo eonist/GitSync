@@ -38,28 +38,12 @@ class TestView2:CustomView{
          //  NSOpenGLPixelFormatAttribute is a typealias for UInt32 in Swift, cast each attribute
          //  Set the view's PixelFormat and Context to the custom pixelFormat and context
         
-        let attrs: [NSOpenGLPixelFormatAttribute] = [
-            UInt32(NSOpenGLPFAAccelerated),
-            UInt32(NSOpenGLPFAColorSize), UInt32(32),
-            UInt32(NSOpenGLPFADoubleBuffer),
-            UInt32(NSOpenGLPFAOpenGLProfile),
-            UInt32( NSOpenGLProfileVersion3_2Core),
-            UInt32(0)
-        ]
-        
-        let pixelFormat = NSOpenGLPixelFormat(attributes: attrs)
-        self.pixelFormat = pixelFormat
-        
         
         displayLink = setUpDisplayLink()
         
         Swift.print("displayLink: " + "\(displayLink)")
         
-        let cglPixelFormat = self.pixelFormat?.CGLPixelFormatObj
-        let cglContext = self.openGLContext.CGLContextObj
-        CVDisplayLinkSetCurrentCGDisplayFromOpenGLContext(displayLink!, cglContext, cglPixelFormat!)
-        CVDisplayLinkStart(displayLink!)
-        
+                
         
         //animate a square 100 pixel to the right then stop the frame anim
         /*displayID = CGMainDisplayID();
