@@ -20,7 +20,7 @@ class TestView2:CustomView{
         func onEvent(event:Event){
             if(event.type == ButtonEvent.upInside && event.origin === btn){
                 Swift.print("button works")
-                //toggle ? CVDisplayLinkStart(displayLink) : CVDisplayLinkStop(displayLink);//To start capturing events from the display link, you'd use
+                toggle ? CVDisplayLinkStart(displayLink) : CVDisplayLinkStop(displayLink);//To start capturing events from the display link, you'd use
                 toggle = !toggle
             }
         }
@@ -133,8 +133,6 @@ class TestView2:CustomView{
         /* Set up DisplayLink. */
         func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
             //Swift.print("works")
-            
-            
             
             
             unsafeBitCast(displayLinkContext, TestView2.self).drawSomething()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
