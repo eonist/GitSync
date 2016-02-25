@@ -62,12 +62,12 @@ class TestView2:CustomView{
         
         self.pixelFormat = pixelFormat
         
-        let cglPixelFormat = pixelFormat?.CGLPixelFormatObj
+        let cglPixelFormat = self.pixelFormat?.CGLPixelFormatObj
         let openGLContext:NSOpenGLContext? = NSOpenGLContext.currentContext()
         Swift.print("openGLContext: " + "\(openGLContext)")
-        let cglContext = openGLContext!.CGLContextObj
+        let cglContext = self.openGLContext!.CGLContextObj
         CVDisplayLinkSetCurrentCGDisplayFromOpenGLContext(displayLink, cglContext, cglPixelFormat!)
-        CVDisplayLinkStart(displayLink)
+        //CVDisplayLinkStart(displayLink)
         
         
         //self.pixelFormat = pixelFormat
