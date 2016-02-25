@@ -61,12 +61,6 @@ class TestView2:CustomView{
         //self.pixelFormat = pixelFormat
 
         
-        let cglPixelFormat = pixelFormat?.CGLPixelFormatObj
-        let openGLContext:NSOpenGLContext? = NSOpenGLContext.currentContext()
-        Swift.print("openGLContext: " + "\(openGLContext)")
-        let cglContext = openGLContext!.CGLContextObj
-        CVDisplayLinkSetCurrentCGDisplayFromOpenGLContext(displayLink!, cglContext, cglPixelFormat!)
-        CVDisplayLinkStart(displayLink!)
         
         
         //animate a square 100 pixel to the right then stop the frame anim
@@ -145,7 +139,11 @@ class TestView2:CustomView{
         
         /* Set up DisplayLink. */
         func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
-            //Swift.print("works")
+            Swift.print("display link is setup")
+            
+            let openGLContext:NSOpenGLContext? = NSOpenGLContext.currentContext()
+            Swift.print("openGLContext: " + "\(openGLContext)")
+            
             unsafeBitCast(displayLinkContext, TestView2.self).drawSomething()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
             return kCVReturnSuccess
         }
