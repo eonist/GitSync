@@ -131,9 +131,9 @@ class TestView2:CustomView{
         //  Grab a context from our view and make it current for drawing into
         //  CVDisplayLink uses a separate thread, lock focus or our context for thread safety
         
-        let context = self.openGLContext
+        /*let context = self.openGLContext
         context!.makeCurrentContext()
-        CGLLockContext(context!.CGLContextObj)
+        CGLLockContext(context!.CGLContextObj)*/
         
         //  Clear the context, set up the OpenGL shader program(s), call drawing commands
         //  OpenGL targets and such are UInt32's, cast them before sending in the OpenGL function
@@ -148,17 +148,17 @@ class TestView2:CustomView{
 
         
         rect.draw()
-        
-        
+        //rect.graphic.display()
+        CATransaction.flush()
         
         glClear(UInt32(GL_COLOR_BUFFER_BIT))
         
         //  We're using a double buffer, call CGLFlushDrawable() to swap the buffer
         //  We're done drawing, unlock the context before moving on
         
-        CGLFlushDrawable(context!.CGLContextObj)
+        /* CGLFlushDrawable(context!.CGLContextObj)
         CGLUnlockContext(context!.CGLContextObj)
-        
+        */
         
         
         
