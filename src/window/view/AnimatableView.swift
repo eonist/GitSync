@@ -19,7 +19,7 @@ class AnimatableView:CustomView,IAnimatable {
         CATransaction.flush()/*if you dont flush your animation wont animate and you get this message: CoreAnimation: warning, deleted thread with uncommitted CATransaction; set CA_DEBUG_TRANSACTIONS=1 in environment to log backtraces.*/
     }
     /**
-     * Note: It seems that you cant move this method into a static class method. Either internally in the same file or externally in another file
+     * Note: It seems that you can't move this method into a static class method. Either internally in the same file or externally in another file
      */
     func setUpDisplayLink() -> CVDisplayLink {
         var displayLink: CVDisplayLink?
