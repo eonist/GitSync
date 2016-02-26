@@ -1,6 +1,6 @@
 import Cocoa
 
-class TestView2:CustomView,IAnimateable{
+class TestView2:CustomView/*,IAnimateable*/{
     var rect:RectGraphic!
     private var displayLink: CVDisplayLink!
     override func resolveSkin() {
@@ -28,11 +28,37 @@ class TestView2:CustomView,IAnimateable{
         rect.draw()
         rect.graphic.frame.y = 60
         
-        displayLink = DisplayLinkUtils.setUpDisplayLink()
+        displayLink = setUpDisplayLink()
         Swift.print("displayLink: " + "\(displayLink)")
 
     }
-    func onFrame(){
+    func setUpDisplayLink() -> CVDisplayLink {
+        var displayLink: CVDisplayLink?
+        
+        var status = kCVReturnSuccess
+        status = CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
+        Swift.print("status: " + "\(status)")
+        
+        
+        
+        /* Set up DisplayLink. */
+        func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
+            //Swift.print("displayLink is setup")
+            unsafeBitCast(displayLinkContext, TestView2.self).drawSomething()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
+            return kCVReturnSuccess
+        }
+        
+        let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, displayLinkOutputCallback, UnsafeMutablePointer<Void>(unsafeAddressOf(self)))
+        Swift.print("outputStatus: " + "\(outputStatus)")
+        
+        let displayID = CGMainDisplayID()
+        let displayIDStatus = CVDisplayLinkSetCurrentCGDisplay(displayLink!, displayID)
+        Swift.print("displayIDStatus: " + "\(displayIDStatus)")
+        
+        return displayLink!
+    }
+    
+    func drawSomething(){
         //Swift.print("drawSomething")
         if(rect.graphic.frame.x < 100){//animate a square 100 pixel to the right then stop the frame anim
             rect.graphic.frame.x += 1

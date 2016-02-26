@@ -7,6 +7,6 @@ class TestView3:CustomView {
         frameAnimTest()
     }
     func frameAnimTest(){
-        displayLink = DisplayLinkUtils.setUpDisplayLink()
+        //displayLink = DisplayLinkUtils.setUpDisplayLink()
     }
 }
