@@ -11,7 +11,24 @@ class Friction:Mover{
     }
     override func updatePosition() {
         super.updatePosition()
-        self.applyFriction()/*apply friction for every frame called*/
-        self.checkForStop()/*assert if the movement is close to stopping, if it is then stop it*/
+        applyFriction()/*apply friction for every frame called*/
+        checkForStop()/*assert if the movement is close to stopping, if it is then stop it*/
+    }
+    func applyFriction() {
+        //trace("apply friction")
+        velocity *= frictionStrength;
+        velocity *= slowDownFriction;/*ad-hock way to slow things down outside normal friction*/
+    }
+    /*
+     * Basically stops listening for the onFrame event
+     */
+    func checkForStop() {
+        //Swift.print(value).toFixed(3)+"checkForStop"+(lastValue).toFixed(3))
+        if ((value).toFixed(3) == (lastValue).toFixed(3)) {//this could be easier solved with a epsilon value assert
+            //Swift.print("stop")
+            //stopMoving();
+            //TODO: Dispatch stop event here
+        }
+        lastValue = value;
     }
 }
