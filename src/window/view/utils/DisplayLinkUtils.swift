@@ -1,6 +1,7 @@
 import Cocoa
 
 class DisplayLinkUtils {
+    static var theType = TestView2.self.dynamicType
     class func setUpDisplayLink() -> CVDisplayLink {
         var displayLink: CVDisplayLink?
         
@@ -8,12 +9,12 @@ class DisplayLinkUtils {
         status = CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
         Swift.print("status: " + "\(status)")
         
-        let theType = TestView2.self
+        
         
         /* Set up DisplayLink. */
         func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
             //Swift.print("displayLink is setup")
-            unsafeBitCast(displayLinkContext, theType).onFrame()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
+            unsafeBitCast(displayLinkContext, DisplayLinkUtils.theType).onFrame()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
             return kCVReturnSuccess
         }
         
