@@ -10,7 +10,7 @@ class Mover {
         self.velocity = velocity;
     }
     func updatePosition() {
-        //Swift.print("\(self.)" + "updatePosition")
+        //Swift.print("\(self.dynamicType)" + "updatePosition")
         value += velocity;
     }
 }
