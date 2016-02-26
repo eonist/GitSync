@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 
 class TestView3:CustomView {
     private var displayLink: CVDisplayLink!
@@ -7,6 +7,6 @@ class TestView3:CustomView {
         frameAnimTest()
     }
     func frameAnimTest(){
-        displayLink = setUpDisplayLink()
+        displayLink = DisplayLinkUtils.setUpDisplayLink()
     }
 }
