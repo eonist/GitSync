@@ -3,7 +3,7 @@ import Cocoa
 class Friction:Mover{
     var frictionStrength:CGFloat/*This value is the strength of the friction*/
     var lastValue:CGFloat = 0/*this value is a temporary value that is used when checking if the motion is about to stop*/
-    var slowDownFriction:CGFloat = 1/*slowDownFriction is basically an inactive friction value, unless you change it to something else than 1*/
+    var slowDownFriction:CGFloat = 1/*slowDownFriction is basically an inactive friction value, unless you change it to something else than 1, this variable can also be named easing*/
     init(_ target:NSView, _ value:CGFloat, _ velocity:CGFloat = 0, _ frictionStrength:CGFloat = 0.98){
         self.frictionStrength = frictionStrength
         super.init(target, value, velocity)
@@ -24,7 +24,7 @@ class Friction:Mover{
      */
     func checkForStop() {
         //Swift.print(value).toFixed(3)+"checkForStop"+(lastValue).toFixed(3))
-        if ((value).toFixed(3) == (lastValue).toFixed(3)) {//this could be easier solved with a epsilon value assert
+        if(value.toFixed(3) == lastValue.toFixed(3)) {//this could be easier solved with a epsilon value assert
             //Swift.print("stop")
             //stopMoving();
             //TODO: Dispatch stop event here
