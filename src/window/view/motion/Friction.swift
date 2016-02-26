@@ -9,4 +9,9 @@ class Friction:Mover{
         super.init(target, value, velocity)
         
     }
+    override func updatePosition(evtObj:Event):void {
+        super.updatePosition(evtObj);
+        self.applyFriction();/*apply friction for every frame called*/
+        self.checkForStop();/*assert if the movement is close to stopping, if it is then stop it*/
+    }
 }
