@@ -1,16 +1,48 @@
-import Foundation
+import Cocoa
 protocol IAnimatable:class {
     func onFrame()
 }
 class AnimatableView:CustomView,IAnimatable {
+    private var displayLink: CVDisplayLink!
+    override func resolveSkin() {
+        super.resolveSkin()
+        displayLink = setUpDisplayLink()
+        Swift.print("displayLink: " + "\(displayLink)")
+    }
+    
+    
     func onFrame(){
-        //Swift.print("drawSomething")
-        if(rect.graphic.frame.x < 100){//animate a square 100 pixel to the right then stop the frame anim
-            rect.graphic.frame.x += 1
-        }else{
-            CVDisplayLinkStop(displayLink);
-        }
+        //Swift.print("onFrame()")
+        
         
         CATransaction.flush()//if you dont flush your animation wont animate and you get this message: CoreAnimation: warning, deleted thread with uncommitted CATransaction; set CA_DEBUG_TRANSACTIONS=1 in environment to log backtraces.
+    }
+    /**
+     * Note: It seems that you cant move this method into a static class method. Either internally in the same file or externally in another file
+     */
+    func setUpDisplayLink() -> CVDisplayLink {
+        var displayLink: CVDisplayLink?
+        
+        var status = kCVReturnSuccess
+        status = CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
+        Swift.print("status: " + "\(status)")
+        
+        
+        /* Set up DisplayLink. */
+        func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
+            //Swift.print("displayLink is setup")
+            unsafeBitCast(displayLinkContext, TestView2.self).onFrame()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
+            return kCVReturnSuccess
+        }
+        
+        
+        let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, displayLinkOutputCallback, UnsafeMutablePointer<Void>(unsafeAddressOf(self)))
+        Swift.print("outputStatus: " + "\(outputStatus)")
+        
+        let displayID = CGMainDisplayID()
+        let displayIDStatus = CVDisplayLinkSetCurrentCGDisplay(displayLink!, displayID)
+        Swift.print("displayIDStatus: " + "\(displayIDStatus)")
+        
+        return displayLink!
     }
 }

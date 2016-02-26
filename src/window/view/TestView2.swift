@@ -28,38 +28,10 @@ class TestView2:CustomView{
         rect.draw()
         rect.graphic.frame.y = 60
         
-        displayLink = setUpDisplayLink()
-        Swift.print("displayLink: " + "\(displayLink)")
+       
 
     }
-    /**
-     * Note: It seems that you cant move this method into a static class method. Either internally in the same file or externally in another file
-     */
-    func setUpDisplayLink() -> CVDisplayLink {
-        var displayLink: CVDisplayLink?
-        
-        var status = kCVReturnSuccess
-        status = CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
-        Swift.print("status: " + "\(status)")
-        
-        
-        /* Set up DisplayLink. */
-        func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
-            //Swift.print("displayLink is setup")
-            unsafeBitCast(displayLinkContext, TestView2.self).onFrame()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
-            return kCVReturnSuccess
-        }
-        
-        
-        let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, displayLinkOutputCallback, UnsafeMutablePointer<Void>(unsafeAddressOf(self)))
-        Swift.print("outputStatus: " + "\(outputStatus)")
-        
-        let displayID = CGMainDisplayID()
-        let displayIDStatus = CVDisplayLinkSetCurrentCGDisplay(displayLink!, displayID)
-        Swift.print("displayIDStatus: " + "\(displayIDStatus)")
-        
-        return displayLink!
-    }
+    
     
     func onFrame(){
         //Swift.print("drawSomething")
