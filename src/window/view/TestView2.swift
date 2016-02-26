@@ -28,7 +28,7 @@ class TestView2:CustomView{
         rect.draw()
         rect.graphic.frame.y = 60
         
-        displayLink = setUpDisplayLink()
+        displayLink = DisplayLinkUtils.setUpDisplayLink()
         Swift.print("displayLink: " + "\(displayLink)")
 
     }
@@ -42,5 +42,4 @@ class TestView2:CustomView{
 
         CATransaction.flush()//if you dont flush your animation wont animate and you get this message: CoreAnimation: warning, deleted thread with uncommitted CATransaction; set CA_DEBUG_TRANSACTIONS=1 in environment to log backtraces.
     }
-    
 }
