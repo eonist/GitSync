@@ -8,6 +8,9 @@ class Mover {
         self.target = target;
         self.value = value;
         self.velocity = velocity;
-        
+    }
+    func updatePosition() {
+        //trace("updatePosition")
+        value += velocity;
     }
 }
