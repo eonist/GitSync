@@ -5,7 +5,7 @@ import Cocoa
  * NOTE: Start and stop with CVDisplayLinkStart(displayLink) and CVDisplayLinkStop(displayLink)
  */
 class AnimatableView:CustomView,IAnimatable {
-    var displayLink: CVDisplayLink!
+    var displayLink: CVDisplayLink!/*This is the instance that enables frame animation*/
     override func resolveSkin() {
         super.resolveSkin()
         displayLink = setUpDisplayLink()
