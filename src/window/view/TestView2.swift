@@ -1,6 +1,6 @@
 import Cocoa
 
-class TestView2:CustomView,IAnimateable{
+class TestView2:CustomView{
     var rect:RectGraphic!
     private var displayLink: CVDisplayLink!
     override func resolveSkin() {
@@ -46,7 +46,7 @@ class TestView2:CustomView,IAnimateable{
         /* Set up DisplayLink. */
         func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
             //Swift.print("displayLink is setup")
-            unsafeBitCast(displayLinkContext, IAnimateable.self).onFrame()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
+            unsafeBitCast(displayLinkContext, TestView2.self).onFrame()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
             return kCVReturnSuccess
         }
         
