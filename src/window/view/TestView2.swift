@@ -27,12 +27,8 @@ class TestView2:CustomView{
         addSubview(rect.graphic)
         rect.draw()
         rect.graphic.frame.y = 60
-        
-       
-
+ 
     }
-    
-    
     func onFrame(){
         //Swift.print("drawSomething")
         if(rect.graphic.frame.x < 100){//animate a square 100 pixel to the right then stop the frame anim
