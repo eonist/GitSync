@@ -28,27 +28,11 @@ class TestView2:CustomView/*,IAnimateable*/{
         rect.draw()
         rect.graphic.frame.y = 60
         
-        displayLink = Utils.setUpDisplayLink()
+        displayLink = setUpDisplayLink()
         Swift.print("displayLink: " + "\(displayLink)")
 
     }
-    
-    
-    func drawSomething(){
-        //Swift.print("drawSomething")
-        if(rect.graphic.frame.x < 100){//animate a square 100 pixel to the right then stop the frame anim
-            rect.graphic.frame.x += 1
-        }else{
-            CVDisplayLinkStop(displayLink);
-        }
-
-        CATransaction.flush()//if you dont flush your animation wont animate and you get this message: CoreAnimation: warning, deleted thread with uncommitted CATransaction; set CA_DEBUG_TRANSACTIONS=1 in environment to log backtraces.
-    }
-}
-
-
-private class Utils{
-    class func setUpDisplayLink() -> CVDisplayLink {
+    func setUpDisplayLink() -> CVDisplayLink {
         var displayLink: CVDisplayLink?
         
         var status = kCVReturnSuccess
@@ -73,4 +57,20 @@ private class Utils{
         
         return displayLink!
     }
+    
+    func drawSomething(){
+        //Swift.print("drawSomething")
+        if(rect.graphic.frame.x < 100){//animate a square 100 pixel to the right then stop the frame anim
+            rect.graphic.frame.x += 1
+        }else{
+            CVDisplayLinkStop(displayLink);
+        }
+
+        CATransaction.flush()//if you dont flush your animation wont animate and you get this message: CoreAnimation: warning, deleted thread with uncommitted CATransaction; set CA_DEBUG_TRANSACTIONS=1 in environment to log backtraces.
+    }
+}
+
+
+private class Utils{
+    
 }
