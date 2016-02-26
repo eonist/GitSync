@@ -1,7 +1,5 @@
 import Cocoa
-protocol IAnimatable:class {
-    func onFrame()
-}
+
 class AnimatableView:CustomView,IAnimatable {
     var displayLink: CVDisplayLink!
     override func resolveSkin() {

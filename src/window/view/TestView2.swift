@@ -2,7 +2,6 @@ import Cocoa
 
 class TestView2:AnimatableView{
     var rect:RectGraphic!
-    private var displayLink: CVDisplayLink!
     override func resolveSkin() {
         super.resolveSkin()
         frameAnimTest()
