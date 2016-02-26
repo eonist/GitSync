@@ -1,6 +1,6 @@
 import Cocoa
 
-class TestView2:CustomView/*,IAnimateable*/{
+class TestView2:CustomView,IAnimateable{
     var rect:RectGraphic!
     private var displayLink: CVDisplayLink!
     override func resolveSkin() {
@@ -32,6 +32,9 @@ class TestView2:CustomView/*,IAnimateable*/{
         Swift.print("displayLink: " + "\(displayLink)")
 
     }
+    /**
+     * Note: It seems that you cant move this method into a static class method. Either internally in the same file or externally in another file
+     */
     func setUpDisplayLink() -> CVDisplayLink {
         var displayLink: CVDisplayLink?
         
@@ -43,7 +46,7 @@ class TestView2:CustomView/*,IAnimateable*/{
         /* Set up DisplayLink. */
         func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
             //Swift.print("displayLink is setup")
-            unsafeBitCast(displayLinkContext, TestView2.self).drawSomething()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
+            unsafeBitCast(displayLinkContext, TestView2.self).onFrame()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
             return kCVReturnSuccess
         }
         
@@ -58,7 +61,7 @@ class TestView2:CustomView/*,IAnimateable*/{
         return displayLink!
     }
     
-    func drawSomething(){
+    func onFrame(){
         //Swift.print("drawSomething")
         if(rect.graphic.frame.x < 100){//animate a square 100 pixel to the right then stop the frame anim
             rect.graphic.frame.x += 1
@@ -68,9 +71,4 @@ class TestView2:CustomView/*,IAnimateable*/{
 
         CATransaction.flush()//if you dont flush your animation wont animate and you get this message: CoreAnimation: warning, deleted thread with uncommitted CATransaction; set CA_DEBUG_TRANSACTIONS=1 in environment to log backtraces.
     }
-}
-
-
-private class Utils{
-    
 }
