@@ -1,12 +1,12 @@
 import Cocoa
 
-class TestView3:CustomView {
-    private var displayLink: CVDisplayLink!
+class TestView3:AnimatableView {
+    
     override func resolveSkin() {
         super.resolveSkin()
-        frameAnimTest()
+        animTest()
     }
-    func frameAnimTest(){
-        //displayLink = DisplayLinkUtils.setUpDisplayLink()
+    func animTest(){
+        
     }
 }
