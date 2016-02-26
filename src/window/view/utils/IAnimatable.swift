@@ -1,5 +1,5 @@
 import Foundation
 
-class IAnimatable {
-
+protocol IAnimatable:class {
+    func onFrame()
 }
