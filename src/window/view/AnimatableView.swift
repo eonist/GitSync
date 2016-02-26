@@ -3,6 +3,7 @@ import Cocoa
  * NOTE: This view class serves as a basis for frame animation.
  * NOTE: override the onFrame method to do frame animations
  * NOTE: Start and stop with CVDisplayLinkStart(displayLink) and CVDisplayLinkStop(displayLink)
+ * TODO: Eventually you will have to move this class bellow InteractiveView
  */
 class AnimatableView:CustomView,IAnimatable {
     var displayLink: CVDisplayLink!/*This is the instance that enables frame animation*/
