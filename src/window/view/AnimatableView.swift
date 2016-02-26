@@ -5,15 +5,14 @@ class AnimatableView:CustomView,IAnimatable {
     override func resolveSkin() {
         super.resolveSkin()
         displayLink = setUpDisplayLink()
-        Swift.print("displayLink: " + "\(displayLink)")
+        //Swift.print("displayLink: " + "\(displayLink)")
     }
-    
-    
+    /**
+     * Fires on every screen refresh at 60 FPS, or device speed
+     */
     func onFrame(){
-        //Swift.print("onFrame()")
-        
-        
-        CATransaction.flush()//if you dont flush your animation wont animate and you get this message: CoreAnimation: warning, deleted thread with uncommitted CATransaction; set CA_DEBUG_TRANSACTIONS=1 in environment to log backtraces.
+        //Swift.print("\(self.dynamicType)" + "onFrame()")
+        CATransaction.flush()/*if you dont flush your animation wont animate and you get this message: CoreAnimation: warning, deleted thread with uncommitted CATransaction; set CA_DEBUG_TRANSACTIONS=1 in environment to log backtraces.*/
     }
     /**
      * Note: It seems that you cant move this method into a static class method. Either internally in the same file or externally in another file
