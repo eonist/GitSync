@@ -1,5 +1,5 @@
 import Foundation
 
-protocol IAnimateable {
+protocol IAnimateable:class {
     func onFrame()
 }
