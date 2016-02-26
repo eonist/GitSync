@@ -1,6 +1,6 @@
 import Cocoa
 
-class TestView2:CustomView{
+class TestView2:CustomView,IAnimateable{
     var rect:RectGraphic!
     private var displayLink: CVDisplayLink!
     override func resolveSkin() {
@@ -32,7 +32,7 @@ class TestView2:CustomView{
         Swift.print("displayLink: " + "\(displayLink)")
 
     }
-    func drawSomething(){
+    func onFrame(){
         //Swift.print("drawSomething")
         if(rect.graphic.frame.x < 100){//animate a square 100 pixel to the right then stop the frame anim
             rect.graphic.frame.x += 1
