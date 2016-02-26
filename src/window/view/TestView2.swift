@@ -1,6 +1,6 @@
 import Cocoa
 
-class TestView2:CustomView{
+class TestView2:AnimatableView{
     var rect:RectGraphic!
     private var displayLink: CVDisplayLink!
     override func resolveSkin() {
@@ -29,14 +29,14 @@ class TestView2:CustomView{
         rect.graphic.frame.y = 60
  
     }
-    func onFrame(){
+    override func onFrame(){
         //Swift.print("drawSomething")
         if(rect.graphic.frame.x < 100){//animate a square 100 pixel to the right then stop the frame anim
             rect.graphic.frame.x += 1
         }else{
             CVDisplayLinkStop(displayLink);
         }
-
-        CATransaction.flush()//if you dont flush your animation wont animate and you get this message: CoreAnimation: warning, deleted thread with uncommitted CATransaction; set CA_DEBUG_TRANSACTIONS=1 in environment to log backtraces.
+        super.onFrame()
+        
     }
 }

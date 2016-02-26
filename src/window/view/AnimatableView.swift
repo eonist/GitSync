@@ -3,7 +3,7 @@ protocol IAnimatable:class {
     func onFrame()
 }
 class AnimatableView:CustomView,IAnimatable {
-    private var displayLink: CVDisplayLink!
+    var displayLink: CVDisplayLink!
     override func resolveSkin() {
         super.resolveSkin()
         displayLink = setUpDisplayLink()
@@ -31,7 +31,7 @@ class AnimatableView:CustomView,IAnimatable {
         /* Set up DisplayLink. */
         func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
             //Swift.print("displayLink is setup")
-            unsafeBitCast(displayLinkContext, TestView2.self).onFrame()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
+            unsafeBitCast(displayLinkContext, AnimatableView.self).onFrame()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
             return kCVReturnSuccess
         }
         
