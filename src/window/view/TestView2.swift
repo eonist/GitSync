@@ -28,35 +28,11 @@ class TestView2:CustomView/*,IAnimateable*/{
         rect.draw()
         rect.graphic.frame.y = 60
         
-        displayLink = setUpDisplayLink()
+        displayLink = Utils.setUpDisplayLink()
         Swift.print("displayLink: " + "\(displayLink)")
 
     }
-    func setUpDisplayLink() -> CVDisplayLink {
-        var displayLink: CVDisplayLink?
-        
-        var status = kCVReturnSuccess
-        status = CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
-        Swift.print("status: " + "\(status)")
-        
-        
-        
-        /* Set up DisplayLink. */
-        func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
-            //Swift.print("displayLink is setup")
-            unsafeBitCast(displayLinkContext, TestView2.self).drawSomething()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
-            return kCVReturnSuccess
-        }
-        
-        let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, displayLinkOutputCallback, UnsafeMutablePointer<Void>(unsafeAddressOf(self)))
-        Swift.print("outputStatus: " + "\(outputStatus)")
-        
-        let displayID = CGMainDisplayID()
-        let displayIDStatus = CVDisplayLinkSetCurrentCGDisplay(displayLink!, displayID)
-        Swift.print("displayIDStatus: " + "\(displayIDStatus)")
-        
-        return displayLink!
-    }
+    
     
     func drawSomething(){
         //Swift.print("drawSomething")
@@ -67,5 +43,34 @@ class TestView2:CustomView/*,IAnimateable*/{
         }
 
         CATransaction.flush()//if you dont flush your animation wont animate and you get this message: CoreAnimation: warning, deleted thread with uncommitted CATransaction; set CA_DEBUG_TRANSACTIONS=1 in environment to log backtraces.
+    }
+}
+
+
+private class Utils{
+    class func setUpDisplayLink() -> CVDisplayLink {
+        var displayLink: CVDisplayLink?
+        
+        var status = kCVReturnSuccess
+        status = CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
+        Swift.print("status: " + "\(status)")
+        
+        
+        /* Set up DisplayLink. */
+        func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
+            //Swift.print("displayLink is setup")
+            unsafeBitCast(displayLinkContext, TestView2.self).drawSomething()//drawRect(unsafeBitCast(displayLinkContext, NSOpenGLView.self).frame)
+            return kCVReturnSuccess
+        }
+        
+        
+        let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, displayLinkOutputCallback, UnsafeMutablePointer<Void>(unsafeAddressOf(self)))
+        Swift.print("outputStatus: " + "\(outputStatus)")
+        
+        let displayID = CGMainDisplayID()
+        let displayIDStatus = CVDisplayLinkSetCurrentCGDisplay(displayLink!, displayID)
+        Swift.print("displayIDStatus: " + "\(displayIDStatus)")
+        
+        return displayLink!
     }
 }
