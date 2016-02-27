@@ -25,7 +25,6 @@ class VerticalThrowArea:InteractiveView2{
         addSubview(rect.graphic)
         rect.draw()
         //rect.graphic.frame.y = 60
-        
     }
     func tick(/*timer: NSTimer*/) {
         ////let theStringToPrint = timer.userInfo as! String
