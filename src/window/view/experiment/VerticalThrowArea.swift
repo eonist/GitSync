@@ -54,12 +54,15 @@ class VerticalThrowArea:InteractiveView2{
         onDownPos = localPos()/*temporary store the mouse location, we need this when calculating the offset when dragging*/
         onDownMoverVal = mover!.value/*temporary store the mover value, we need this when calculating the offset when dragging*/
     }
+    /**
+     * TODO: If you hold the mouse in the same position for a fraction of time then dont calculate the movment distance. Just just stop the animation. Think how this would work in the real world
+     */
     override func mouseUp(event: MouseEvent) {
         Swift.print("mUp")
         mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
         //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
         let velocity = Utils.velocity(Utils.duration(startTime!,timeMark!), localPos().y - lastPos!.y)
-        mover!.velocity = velocity
+        mover!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity*/
         //TODO:start the frameTicker here
         stopTimer()/*stops the timer that was started onMouseDown*/
     }
