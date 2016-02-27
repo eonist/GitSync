@@ -42,9 +42,6 @@ class VerticalThrowArea:InteractiveView2{
     func stopTimer(){
         if(timer != nil){timer!.invalidate()}
     }
-    
-    
-    
     /**
      * TODO: If you hold the mouse in the same position for a fraction of time then dont calculate the movment distance. Just just stop the animation. Think how this would work in the real world
      */
@@ -54,10 +51,9 @@ class VerticalThrowArea:InteractiveView2{
         //tick();//init the first tick, the timer wont do this
         //_mover.stopMoving(null);
         startTimer()
-        
-        //continue here
-        onDownPos = localPos()
-        onDownMoverVal = mover.value
+    
+        onDownPos = localPos()/*temporary store the mouse location*/
+        onDownMoverVal = mover!.value/*temporary store the mover value*/
         
     }
     override func mouseUp(event: MouseEvent) {
