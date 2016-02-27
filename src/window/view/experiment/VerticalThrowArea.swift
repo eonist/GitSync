@@ -54,7 +54,9 @@ class VerticalThrowArea:InteractiveView2{
         startTimer()
         
         //continue here
-        
+        onDownPos = localPos()
+        onDownMoverVal = mover.value
+        {x:this.mouseX, y:this.mouseY,curMoverValue:_}
     }
     override func mouseUp(event: MouseEvent) {
         Swift.print("mUp")
