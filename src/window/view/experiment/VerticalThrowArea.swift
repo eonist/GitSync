@@ -50,6 +50,7 @@ class VerticalThrowArea:InteractiveView2{
         mover!.slowDownFriction = 0.70//TODO: this needs to be more immediate
         //tick();//init the first tick, the timer wont do this
         //_mover.stopMoving(null);
+        //stop the frameTicker here
         startTimer()
         onDownPos = localPos()/*temporary store the mouse location, we need this when calculating the offset when dragging*/
         onDownMoverVal = mover!.value/*temporary store the mover value, we need this when calculating the offset when dragging*/
@@ -69,7 +70,7 @@ class VerticalThrowArea:InteractiveView2{
     override func mouseDragged(theEvent: NSEvent) {
         Swift.print("mDragged")
         //mover.stopMoving(nil);/*Stop the mover*///TODO:this should not be called on every move call, make a bool,also stop the frameTimer instance not the mover it self, or?
-        mover.value = onDownMoverVal! + (localPos().y - onDownPos!.y)/*manipulate the value of the mover with the vaue of the y pos of the mouse directly*/
+        mover!.value = onDownMoverVal! + (localPos().y - onDownPos!.y)/*manipulate the value of the mover with the vaue of the y pos of the mouse directly*/
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
@@ -88,7 +89,9 @@ private class Utils{
      */
     class func duration(startTime:CFAbsoluteTime,_ timeMark:CFAbsoluteTime)->Double{
         let elapsedTime = CFAbsoluteTimeGetCurrent() - startTime/*elapsed time since begining*/
+        Swift.print("elapsedTime: " + "\(elapsedTime)")
         let duration:Double = elapsedTime - timeMark/*elapsed time since mouse-down*/
+        Swift.print("duration: " + "\(duration)")
         return duration
     }
    
