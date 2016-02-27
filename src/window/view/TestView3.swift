@@ -38,9 +38,6 @@ class TestView3:AnimatableView {
         }
         
         
-        
-        
-        
         /**/
         let throwArea = addSubView(VerticalThrowArea())
         throwArea.frame.y = 20
@@ -51,6 +48,16 @@ class TestView3:AnimatableView {
         //write the a simple move code and hook up the DisplayLink
         
         //write the loop movment code
+    }
+    override func onFrame(){
+        //Swift.print("drawSomething")
+        if(rect.graphic.frame.x < 100){//animate a square 100 pixel to the right then stop the frame anim
+            rect.graphic.frame.x += 1
+        }else{
+            CVDisplayLinkStop(displayLink);
+        }
+        super.onFrame()
+        
     }
 }
 
