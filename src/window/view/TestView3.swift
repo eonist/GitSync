@@ -44,7 +44,7 @@ class TestView3:AnimatableView {
         throwArea!.frame.y = 20
 
         
-       
+        
         
         //write the a simple move code and hook up the DisplayLink
         
