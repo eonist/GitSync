@@ -19,6 +19,8 @@ class TestView3:AnimatableView {
         rect.draw()
         
         
+        var rectangleList:Array = [treeSegment1,treeSegment2,treeSegment3/*,treeSegment4,treeSegment5,treeSegment6*/];
+        
         //rect.graphic.frame.y = 60
         
         //add these rectangles to a container that clips
