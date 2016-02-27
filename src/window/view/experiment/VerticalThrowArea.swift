@@ -60,7 +60,7 @@ class VerticalThrowArea:InteractiveView2{
         let calcB:CGFloat = calcA/frameRate
         return calcB;
     }
-    /*
+    /**
      * TODO: If you hold the mouse in the same position for a fraction of time then dont calculate the movment distance. Just just stop the animation. Think how this would work in the real world
      */
     override func mouseDown(event: MouseEvent) {
