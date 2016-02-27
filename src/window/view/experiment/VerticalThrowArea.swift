@@ -33,7 +33,7 @@ class VerticalThrowArea :FlippedView{
      * Calculates the dist and duration of the "mouse-throw"
      */
     func checkTime(throwArea:VerticalThrowArea):void{
-        var totalDuration:uint = getTimer();
+        var totalDuration = CFAbsoluteTimeGetCurrent() - self.startTime!
         var duration:uint = totalDuration - _lastTime;
         var distance:CGFloat = throwArea.mouseY - _lastPos.y;
         //trace("x distance Since click"+(distance));
