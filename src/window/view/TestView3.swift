@@ -71,7 +71,10 @@ class TestView3:AnimatableView {
             (items[i]["view"] as! NSView).frame.y = round((currentPos - (items[i]["tempPos"] as! CGFloat)) + (items[i]["pos"] as! CGFloat));
         }
     }
-    
+    override func mouseDragged(theEvent: NSEvent) {//we dont need to forward the dragEvent futher
+        Swift.print("TestView3.mouseDragged()")
+        moveViews(throwArea!.mover!.value)
+    }
     override func onFrame(){
         //Swift.print("onFrame() value: " + "\(throwArea!.mover!.value)")
         throwArea!.mover!.updatePosition()
