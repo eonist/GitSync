@@ -18,8 +18,16 @@ class TestView3:AnimatableView {
         addSubview(r1.graphic)
         r1.draw()
         
+        let r2 = RectGraphic(0,0,w,h,FillStyle(NSColor.blueColor()),nil)//Add a red box to the view
+        addSubview(r2.graphic)
+        r2.draw()
         
-        let items:Array<NSView> = [r1];
+        let r3 = RectGraphic(0,0,w,h,FillStyle(NSColor.greenColor()),nil)//Add a red box to the view
+        addSubview(r3.graphic)
+        r3.draw()
+        
+        
+        let items:Array<NSView> = [r1.graphic,r2.graphic,r3.graphic]
         
         //rect.graphic.frame.y = 60
         
