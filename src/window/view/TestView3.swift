@@ -29,4 +29,13 @@ class TestView3:AnimatableView {
     }
 }
 
-class 
+private class ItemContainer:InteractiveView2{
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        layer!.masksToBounds = true/*masks the children to the frame*/
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
