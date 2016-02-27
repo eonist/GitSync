@@ -51,7 +51,7 @@ class TestView3:AnimatableView {
         //write the loop movment code
     }
     override func onFrame(){
-        Swift.print("onFrame")
+        Swift.print("onFrame() value: " + "\(throwArea!.mover!.value)")
         throwArea!.mover!.updatePosition()
         
         super.onFrame()
