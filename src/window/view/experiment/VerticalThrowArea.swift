@@ -13,6 +13,14 @@ class VerticalThrowArea:InteractiveView2{
         super.init(frame: NSRect(0,0,320,480))
         //var b1:Rect2 = addSubView(Rect2(_width,_height,FillStyle(Colors.GREEN,_alpha))) as Button
         self.mover = Friction(self,frictionValue,0,0.98)
+        
+        let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964))
+        /*Rect*/
+        let rect = RectGraphic(0,0,320,480,fill,nil)//Add a red box to the view
+        addSubview(rect.graphic)
+        rect.draw()
+        //rect.graphic.frame.y = 60
+        
     }
     func onTimer(timer: NSTimer) {
         let theStringToPrint = timer.userInfo as! String
@@ -50,7 +58,6 @@ class VerticalThrowArea:InteractiveView2{
         let calcB:CGFloat = calcA/frameRate
         return calcB;
     }
-    
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
