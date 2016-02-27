@@ -6,6 +6,7 @@ class VerticalThrowArea :FlippedView{
     var startTime:CFAbsoluteTime?
     var elapsedTime:CFAbsoluteTime?
     var lastPos:CGPoint?
+    var timeMark:CFAbsoluteTime?
     
     init(){
         let frictionValue:CGFloat = 0;
@@ -18,7 +19,7 @@ class VerticalThrowArea :FlippedView{
         Swift.print(theStringToPrint)
         //print("ontimer")
         
-        self.elapsedTime = CFAbsoluteTimeGetCurrent() - self.startTime!
+        //self.elapsedTime = CFAbsoluteTimeGetCurrent() - self.startTime!
         
         self.lastPos = localPos()
     }
@@ -32,10 +33,10 @@ class VerticalThrowArea :FlippedView{
     /*
      * Calculates the dist and duration of the "mouse-throw"
      */
-    func checkTime(throwArea:VerticalThrowArea):void{
-        var totalDuration = CFAbsoluteTimeGetCurrent() - self.startTime!
-        var duration:uint = totalDuration - _lastTime;
-        var distance:CGFloat = throwArea.mouseY - _lastPos.y;
+    func checkTime(throwArea:VerticalThrowArea){
+        var elapsedTime = CFAbsoluteTimeGetCurrent() - self.startTime!/*elapsed time since begining*/
+        var duration = elapsedTime - timeMark/*elapsed time since mouse-down*/
+        var distance:CGFloat = localPos().y - lastPos.y;
         //trace("x distance Since click"+(distance));
         //trace("timeSince click"+(duration));
         animate(throwArea,duration,distance);
