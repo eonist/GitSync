@@ -26,12 +26,12 @@ class VerticalThrowArea:InteractiveView2{
     }
     func tick(/*timer: NSTimer*/) {
         ////let theStringToPrint = timer.userInfo as! String
-        Swift.print(theStringToPrint)
+        //Swift.print(theStringToPrint)
         //print("ontimer")
         
         //self.elapsedTime = CFAbsoluteTimeGetCurrent() - self.startTime!
         
-        self.lastPos = localPos()
+        //self.lastPos = localPos()
     }
     func startSettingTime(){//100ms
         self.startTime = CFAbsoluteTimeGetCurrent() ;
