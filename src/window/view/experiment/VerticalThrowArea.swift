@@ -60,6 +60,12 @@ class VerticalThrowArea:InteractiveView2{
         let calcB:CGFloat = calcA/frameRate
         return calcB;
     }
+    override func mouseDown(event: MouseEvent) {
+        Swift.print("mdown")
+    }
+    override func mouseUp(event: MouseEvent) {
+        Swift.print("mUp")
+    }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
