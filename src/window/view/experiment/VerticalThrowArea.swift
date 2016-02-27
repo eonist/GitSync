@@ -68,6 +68,7 @@ class VerticalThrowArea:InteractiveView2{
         Swift.print("velocity: " + "\(velocity)")
         mover!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity*/
         //TODO: 'start the frameTicker here
+        (self.superview as! AnimatableView).displayLink
         stopTimer()/*stops the timer that was started onMouseDown*/
     }
     override func mouseDragged(theEvent: NSEvent) {
