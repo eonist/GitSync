@@ -1,6 +1,8 @@
 import Cocoa
 
 class VerticalThrowArea:InteractiveView2{
+    var w:CGFloat = 200
+    var h:CGFloat = 200
     var mover:Friction?
     var timer:NSTimer?
     var startTime:CFAbsoluteTime?
@@ -10,13 +12,13 @@ class VerticalThrowArea:InteractiveView2{
     
     init(){
         let frictionValue:CGFloat = 0;
-        super.init(frame: NSRect(0,0,320,480))
+        super.init(frame: NSRect(0,0,w,h))
         //var b1:Rect2 = addSubView(Rect2(_width,_height,FillStyle(Colors.GREEN,_alpha))) as Button
         self.mover = Friction(self,frictionValue,0,0.98)
         
         let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964))
         /*Rect*/
-        let rect = RectGraphic(0,0,320,480,fill,nil)//Add a red box to the view
+        let rect = RectGraphic(0,0,w,h,fill,nil)//Add a red box to the view
         addSubview(rect.graphic)
         rect.draw()
         //rect.graphic.frame.y = 60
