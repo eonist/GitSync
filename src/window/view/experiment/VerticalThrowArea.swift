@@ -40,18 +40,7 @@ class VerticalThrowArea:InteractiveView2{
     func stopTimer(){
         if(timer != nil){timer!.invalidate()}
     }
-    /*
-     * Calculates the dist and duration of the "mouse-throw"
-     */
-    func checkTime(throwArea:VerticalThrowArea)->(Double,CGFloat){
-        let elapsedTime = CFAbsoluteTimeGetCurrent() - self.startTime!/*elapsed time since begining*/
-        let duration:Double = elapsedTime - timeMark!/*elapsed time since mouse-down*/
-        let distance:CGFloat = localPos().y - lastPos!.y;
-        //trace("x distance Since click"+(distance));
-        //trace("timeSince click"+(duration));
-        //return velocity(throwArea,duration,distance);
-        return (duration:duration,distance:distance)
-    }
+    
     
     
     /**
@@ -88,6 +77,18 @@ private class Utils{
         let calcA:CGFloat = distance/(CGFloat(duration)/1000)/*divide milliseconds by thousand to get seconds*/
         let calcB:CGFloat = calcA/frameRate
         return calcB;
+    }
+    /*
+    * Calculates the dist and duration of the "mouse-throw"
+    */
+    class func checkTime(throwArea:VerticalThrowArea)->(Double,CGFloat){
+        let elapsedTime = CFAbsoluteTimeGetCurrent() - self.startTime!/*elapsed time since begining*/
+        let duration:Double = elapsedTime - timeMark!/*elapsed time since mouse-down*/
+        let distance:CGFloat = localPos().y - lastPos!.y;
+        //trace("x distance Since click"+(distance));
+        //trace("timeSince click"+(duration));
+        //return velocity(throwArea,duration,distance);
+        return (duration:duration,distance:distance)
     }
 }
 //
