@@ -29,7 +29,17 @@ class VerticalThrowArea :FlippedView{
     func stopSettingTime(){
         if(timer != nil){timer!.invalidate()}
     }
-    
+    /*
+     * Calculates the dist and duration of the "mouse-throw"
+     */
+    func checkTime(throwArea:VerticalThrowArea):void{
+        var totalDuration:uint = getTimer();
+        var duration:uint = totalDuration - _lastTime;
+        var distance:CGFloat = throwArea.mouseY - _lastPos.y;
+        //trace("x distance Since click"+(distance));
+        //trace("timeSince click"+(duration));
+        animate(throwArea,duration,distance);
+    }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
