@@ -4,6 +4,7 @@ class TestView3:AnimatableView {
     var w:CGFloat = 200
     var h:CGFloat = 200
     var items:[Dictionary<String,AnyObject>] = []
+    var throwArea:VerticalThrowArea?
     override func resolveSkin() {
         super.resolveSkin()
         animTest()
@@ -39,8 +40,8 @@ class TestView3:AnimatableView {
         
         
         /**/
-        let throwArea = addSubView(VerticalThrowArea())
-        throwArea.frame.y = 20
+        throwArea = addSubView(VerticalThrowArea()) as? VerticalThrowArea
+        throwArea!.frame.y = 20
 
         
        
@@ -50,12 +51,9 @@ class TestView3:AnimatableView {
         //write the loop movment code
     }
     override func onFrame(){
-        //Swift.print("drawSomething")
-        if(rect.graphic.frame.x < 100){//animate a square 100 pixel to the right then stop the frame anim
-            rect.graphic.frame.x += 1
-        }else{
-            CVDisplayLinkStop(displayLink);
-        }
+        Swift.print("onFrame")
+        throwArea!.mover!.updatePosition()
+        
         super.onFrame()
         
     }
