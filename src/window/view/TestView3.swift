@@ -7,6 +7,6 @@ class TestView3:AnimatableView {
         animTest()
     }
     func animTest(){
-        
+        let throwArea = ThrowArea()
     }
 }
