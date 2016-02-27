@@ -36,8 +36,8 @@ class VerticalThrowArea:InteractiveView2{
         //self.lastPos = localPos()
     }
     func startTimer(){//
-        self.startTime = CFAbsoluteTimeGetCurrent() ;
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01/*<--100ms*/, target: self, selector: "onTimer:", userInfo: nil, repeats: false)
+        self.startTime = CFAbsoluteTimeGetCurrent()
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01/*<--100ms*/, target: self, selector: "tick", userInfo: nil, repeats: false)
     }
     func stopTimer(){
         if(timer != nil){timer!.invalidate()}
@@ -63,7 +63,7 @@ class VerticalThrowArea:InteractiveView2{
         Swift.print("mUp")
         mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
         //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
-        let velocity = Utils.velocity(Utils.duration(startTime!,timeMark!), localPos().y - lastPos!.y)
+        let velocity = Utils.velocity(Utils.duration(startTime!, timeMark!), localPos().y - lastPos!.y)
         Swift.print("velocity: " + "\(velocity)")
         mover!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity*/
         //TODO: 'start the frameTicker here
