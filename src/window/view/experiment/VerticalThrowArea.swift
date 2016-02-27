@@ -52,14 +52,8 @@ class VerticalThrowArea:InteractiveView2{
         //return velocity(throwArea,duration,distance);
         return (duration:duration,distance:distance)
     }
-    /*
-     * Uses the dist and duration of the mouse-throw to calculate the speed, aka the velocity. THen starts the animation in this speed aka velocity.
-     */
-    func velocity(duration:Double,_ distance:CGFloat,_ frameRate:CGFloat = 60) -> CGFloat{
-        let calcA:CGFloat = distance/(CGFloat(duration)/1000)/*divide milliseconds by thousand to get seconds*/
-        let calcB:CGFloat = calcA/frameRate
-        return calcB;
-    }
+    
+    
     /**
      * TODO: If you hold the mouse in the same position for a fraction of time then dont calculate the movment distance. Just just stop the animation. Think how this would work in the real world
      */
@@ -77,6 +71,7 @@ class VerticalThrowArea:InteractiveView2{
         Swift.print("mUp")
         mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
         //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
+        let velocity = Utils.velocity(duration, distance)
         stopTimer()/*stops the timer that was started onMouseDown*/
     }
     override func mouseDragged(theEvent: NSEvent) {
@@ -85,5 +80,14 @@ class VerticalThrowArea:InteractiveView2{
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-
+private class Utils{
+    /*
+     * Uses the dist and duration of the mouse-throw to calculate the speed, aka the velocity. THen starts the animation in this speed aka velocity.
+     */
+    class func velocity(duration:Double,_ distance:CGFloat,_ frameRate:CGFloat = 60) -> CGFloat{
+        let calcA:CGFloat = distance/(CGFloat(duration)/1000)/*divide milliseconds by thousand to get seconds*/
+        let calcB:CGFloat = calcA/frameRate
+        return calcB;
+    }
+}
 //
