@@ -29,15 +29,15 @@ class VerticalThrowArea:InteractiveView2{
     func tick(/*timer: NSTimer*/) {
         ////let theStringToPrint = timer.userInfo as! String
         //Swift.print(theStringToPrint)
-        //print("ontimer")
+        Swift.print("tick")
         
         //self.elapsedTime = CFAbsoluteTimeGetCurrent() - self.startTime!
         
-        //self.lastPos = localPos()
+        self.lastPos = localPos()
     }
     func startTimer(){//
         self.startTime = CFAbsoluteTimeGetCurrent()
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01/*<--100ms*/, target: self, selector: "tick", userInfo: nil, repeats: false)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01/*<--100ms*/, target: self, selector: "tick", userInfo: nil, repeats: true)
     }
     func stopTimer(){
         if(timer != nil){timer!.invalidate()}
