@@ -43,7 +43,7 @@ class TestView3:AnimatableView {
         
         /**/
         let throwArea = addSubView(VerticalThrowArea())
-        throwArea.frame.y = 40
+        throwArea.frame.y = 20
 
         
        

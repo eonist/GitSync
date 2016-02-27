@@ -19,7 +19,7 @@ class VerticalThrowArea:InteractiveView2{
         //var b1:Rect2 = addSubView(Rect2(_width,_height,FillStyle(Colors.GREEN,_alpha))) as Button
         self.mover = Friction(self,frictionValue,0,0.98)
         
-        let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964).alpha(0.2))
+        let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x555555).alpha(0.5))
         /*Rect*/
         let rect = RectGraphic(0,0,w,h,fill,nil)//Add a red box to the view
         addSubview(rect.graphic)
