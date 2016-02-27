@@ -38,7 +38,7 @@ class VerticalThrowArea:InteractiveView2{
     }
     func startTimer(){//
         self.startTime = CFAbsoluteTimeGetCurrent()
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01/*<--100ms*/, target: self, selector: "tick", userInfo: nil, repeats: true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1/*<--100ms*/, target: self, selector: "tick", userInfo: nil, repeats: true)
     }
     func stopTimer(){
         if(timer != nil){timer!.invalidate()}
