@@ -24,8 +24,8 @@ class VerticalThrowArea:InteractiveView2{
         //rect.graphic.frame.y = 60
         
     }
-    func onTimer(timer: NSTimer) {
-        let theStringToPrint = timer.userInfo as! String
+    func tick(/*timer: NSTimer*/) {
+        ////let theStringToPrint = timer.userInfo as! String
         Swift.print(theStringToPrint)
         //print("ontimer")
         
