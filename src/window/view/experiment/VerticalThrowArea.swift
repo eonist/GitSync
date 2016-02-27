@@ -97,6 +97,8 @@ private class Utils{
      * Calculates the duration of the "mouse-throw"
      */
     class func duration(startTime:CFAbsoluteTime,_ lastTime:CFAbsoluteTime)->Double{
+        Swift.print("startTime: " + "\(startTime)")
+        Swift.print("CFAbsoluteTimeGetCurrent(): " + "\(CFAbsoluteTimeGetCurrent())")
         let elapsedTime = CFAbsoluteTimeGetCurrent() - startTime/*elapsed time since begining*/
         Swift.print("elapsedTime: " + "\(elapsedTime)")
         let duration:Double = elapsedTime - lastTime/*elapsed time since last tick*/
