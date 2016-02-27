@@ -77,6 +77,8 @@ class VerticalThrowArea:InteractiveView2{
         Swift.print("mDragged")
         //mover.stopMoving(nil);/*Stop the mover*///TODO:this should not be called on every move call, make a bool,also stop the frameTimer instance not the mover it self, or?
         mover!.value = onDownMoverVal! + (localPos().y - onDownPos!.y)/*manipulate the value of the mover with the vaue of the y pos of the mouse directly*/
+        Swift.print("mover!.value: " + "\(mover!.value)")
+        super.mouseDragged(theEvent)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
