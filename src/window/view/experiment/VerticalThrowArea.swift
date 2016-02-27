@@ -35,8 +35,8 @@ class VerticalThrowArea :FlippedView{
      */
     func checkTime(throwArea:VerticalThrowArea){
         var elapsedTime = CFAbsoluteTimeGetCurrent() - self.startTime!/*elapsed time since begining*/
-        var duration = elapsedTime - timeMark/*elapsed time since mouse-down*/
-        var distance:CGFloat = localPos().y - lastPos.y;
+        var duration = elapsedTime - timeMark!/*elapsed time since mouse-down*/
+        var distance:CGFloat = localPos().y - lastPos!.y;
         //trace("x distance Since click"+(distance));
         //trace("timeSince click"+(duration));
         animate(throwArea,duration,distance);
