@@ -50,7 +50,7 @@ class TestView3:AnimatableView {
         
         //write the loop movment code
     }
-    func movePictures(value:CGFloat){
+    func moveViews(value:CGFloat){
         for(var i:Int = 0;i < items.count;i++){
             let spacing:CGFloat = h
             let totalHeight:CGFloat = CGFloat(items.count) * spacing;//move this outside of the method
@@ -75,7 +75,7 @@ class TestView3:AnimatableView {
     override func onFrame(){
         Swift.print("onFrame() value: " + "\(throwArea!.mover!.value)")
         throwArea!.mover!.updatePosition()
-        
+        moveViews(throwArea!.mover!.value)
         super.onFrame()
         
     }
