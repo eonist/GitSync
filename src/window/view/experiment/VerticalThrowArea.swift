@@ -34,9 +34,9 @@ class VerticalThrowArea :FlippedView{
      * Calculates the dist and duration of the "mouse-throw"
      */
     func checkTime(throwArea:VerticalThrowArea){
-        var elapsedTime = CFAbsoluteTimeGetCurrent() - self.startTime!/*elapsed time since begining*/
-        var duration = elapsedTime - timeMark!/*elapsed time since mouse-down*/
-        var distance:CGFloat = localPos().y - lastPos!.y;
+        let elapsedTime = CFAbsoluteTimeGetCurrent() - self.startTime!/*elapsed time since begining*/
+        let duration = elapsedTime - timeMark!/*elapsed time since mouse-down*/
+        let distance:CGFloat = localPos().y - lastPos!.y;
         //trace("x distance Since click"+(distance));
         //trace("timeSince click"+(duration));
         //return velocity(throwArea,duration,distance);
@@ -44,9 +44,9 @@ class VerticalThrowArea :FlippedView{
     /*
      * Uses the dist and duration of the mouse-throw to calculate the speed, aka the velocity. THen starts the animation in this speed aka velocity.
      */
-    func velocity(aTarget:DisplayObject,aDuration:uint,aDistance:CGFloat){
-        var calcA:Number = aDistance/(aDuration/1000);
-        var calcB:Number = calcA/this.stage.frameRate;
+    func velocity(duration:Double,_ distance:CGFloat,_ frameRate:UInt = 60){
+        var calcA:CGFloat = distance/(duration/1000)
+        var calcB:CGFloat = calcA/frameRate
         //trace("velocity"+calcB)
         _mover.velocity = calcB;
         _mover.startMoving();
