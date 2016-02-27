@@ -33,23 +33,22 @@ class VerticalThrowArea :FlippedView{
     /*
      * Calculates the dist and duration of the "mouse-throw"
      */
-    func checkTime(throwArea:VerticalThrowArea){
+    func checkTime(throwArea:VerticalThrowArea)->(Double,CGFloat){
         let elapsedTime = CFAbsoluteTimeGetCurrent() - self.startTime!/*elapsed time since begining*/
-        let duration = elapsedTime - timeMark!/*elapsed time since mouse-down*/
+        let duration:Double = elapsedTime - timeMark!/*elapsed time since mouse-down*/
         let distance:CGFloat = localPos().y - lastPos!.y;
         //trace("x distance Since click"+(distance));
         //trace("timeSince click"+(duration));
         //return velocity(throwArea,duration,distance);
+        return (duration:duration,distance:distance)
     }
     /*
      * Uses the dist and duration of the mouse-throw to calculate the speed, aka the velocity. THen starts the animation in this speed aka velocity.
      */
-    func velocity(duration:Double,_ distance:CGFloat,_ frameRate:UInt = 60){
-        var calcA:CGFloat = distance/(duration/1000)
-        var calcB:CGFloat = calcA/frameRate
-        //trace("velocity"+calcB)
-        _mover.velocity = calcB;
-        _mover.startMoving();
+    func velocity(duration:Double,_ distance:CGFloat,_ frameRate:CGFloat = 60) -> CGFloat{
+        let calcA:CGFloat = distance/(CGFloat(duration)/1000)/*dived milliseconds by thousand to get seconds*/
+        let calcB:CGFloat = calcA/frameRate
+        return calcB;
     }
     
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
