@@ -63,6 +63,7 @@ class VerticalThrowArea:InteractiveView2{
         mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
         //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
         let velocity = Utils.velocity(Utils.duration(startTime!,timeMark!), localPos().y - lastPos!.y)
+        Swift.print("velocity: " + "\(velocity)")
         mover!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity*/
         //TODO:start the frameTicker here
         stopTimer()/*stops the timer that was started onMouseDown*/
@@ -80,6 +81,7 @@ private class Utils{
      * PARAM distance: the dist of the mouse-throw
      */
     class func velocity(duration:Double,_ distance:CGFloat,_ frameRate:CGFloat = 60) -> CGFloat{
+        Swift.print("distance: " + "\(distance)")
         let calcA:CGFloat = distance/(CGFloat(duration)/1000)/*divide milliseconds by thousand to get seconds*/
         let calcB:CGFloat = calcA/frameRate
         return calcB;
