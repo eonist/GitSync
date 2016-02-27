@@ -51,10 +51,8 @@ class VerticalThrowArea:InteractiveView2{
         //tick();//init the first tick, the timer wont do this
         //_mover.stopMoving(null);
         startTimer()
-    
-        onDownPos = localPos()/*temporary store the mouse location*/
-        onDownMoverVal = mover!.value/*temporary store the mover value*/
-        
+        onDownPos = localPos()/*temporary store the mouse location, we need this when calculating the offset when dragging*/
+        onDownMoverVal = mover!.value/*temporary store the mover value, we need this when calculating the offset when dragging*/
     }
     override func mouseUp(event: MouseEvent) {
         Swift.print("mUp")
