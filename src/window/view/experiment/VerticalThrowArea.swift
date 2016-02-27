@@ -81,6 +81,7 @@ private class Utils{
     /*
      * Uses the dist and duration of the mouse-throw to calculate the speed, aka the velocity. THen starts the animation in this speed aka velocity.
      * PARAM distance: the dist of the mouse-throw
+     * NOTE: it works by looking at the lastPos and lastTime from the last Tick
      */
     class func velocity(duration:Double,_ distance:CGFloat,_ frameRate:CGFloat = 60) -> CGFloat{
         Swift.print("distance: " + "\(distance)")
