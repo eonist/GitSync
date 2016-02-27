@@ -10,7 +10,7 @@ class TestView3:AnimatableView {
     }
     func animTest(){
         
-        let itemContainer = ItemContainer(frame: NSRect(0,0,w,h))
+        let itemContainer = addSubView(ItemContainer(frame: NSRect(0,0,w,h))) as! ItemContainer
         itemContainer.frame.y = 20
         
         //create 3 color rectangles
@@ -41,8 +41,10 @@ class TestView3:AnimatableView {
         
         
         
+        /**/
         let throwArea = addSubView(VerticalThrowArea())
         throwArea.frame.y = 40
+
         
        
         
