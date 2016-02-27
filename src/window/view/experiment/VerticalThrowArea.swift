@@ -66,13 +66,16 @@ class VerticalThrowArea:InteractiveView2{
         //tick();//init the first tick, the timer wont do this
         //_mover.stopMoving(null);
         startTimer()
+        
+        //continue here
+        
     }
     override func mouseUp(event: MouseEvent) {
         Swift.print("mUp")
     }
     override func mouseDragged(theEvent: NSEvent) {
         Swift.print("mDragged")
-        
+        //mover.stopMoving(nil);/*Stop the mover*///TODO:this should not be called on every move call, make a bool,also stop the frameTimer instance not the mover it self, or?
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
