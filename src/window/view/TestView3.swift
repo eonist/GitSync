@@ -3,7 +3,7 @@ import Cocoa
 class TestView3:AnimatableView {
     var w:CGFloat = 200
     var h:CGFloat = 200
-    var items:Array<NSView>?
+    var items:[Dictionary<String,AnyObject>] = []
     override func resolveSkin() {
         super.resolveSkin()
         animTest()
@@ -32,7 +32,7 @@ class TestView3:AnimatableView {
         let items:Array<NSView> = [r1.graphic,r2.graphic,r3.graphic]
         
         for(var i:Int = 0;i < items.count;i++){
-            self.items.append(["view":items[i], "pos":i * spacing, tempPos:0])
+            self.items.append(["view":items[i], "pos": h * CGFloat(i), "tempPos":0])
             //imageContainer.addChild(_btnList[i].mc);
             self.items[i].mc.y = _btnList[i].pos;
         };
