@@ -4,6 +4,7 @@ class VerticalThrowArea :FlippedView{
     var mover:Friction
     var timer:NSTimer?
     var startTime:CFAbsoluteTime?
+    var elapsedTime:CFAbsoluteTime?
     
     init(){
         //var b1:Rect2 = addSubView(Rect2(_width,_height,FillStyle(Colors.GREEN,_alpha))) as Button
@@ -17,8 +18,10 @@ class VerticalThrowArea :FlippedView{
     
     func onTimer(timer: NSTimer) {
         let theStringToPrint = timer.userInfo as! String
-        print(theStringToPrint)
+        Swift.print(theStringToPrint)
         //print("ontimer")
+        
+        self.elapsedTime = CFAbsoluteTimeGetCurrent() - self.startTime!
         
         //CFAbsoluteTimeGetCurrent()
         var duration:uint = getTimer()
