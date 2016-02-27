@@ -39,9 +39,7 @@ class TestView3:AnimatableView {
             //imageContainer.addChild(_btnList[i].mc);//add these rectangles to a container that clips
             (self.items[i]["view"] as! NSView).frame.y = self.items[i]["pos"] as! CGFloat/*positions the view*/
         }
-        
-        
-        /**/
+  
         throwArea = addSubView(VerticalThrowArea()) as? VerticalThrowArea
         throwArea!.frame.y = 20
 
