@@ -52,23 +52,23 @@ class TestView3:AnimatableView {
     }
     func movePictures(value:CGFloat){
         for(var i:Int = 0;i < items.count;i++){
-            var spacing:CGFloat = h
-            var totalHeight:CGFloat = CGFloat(items.count) * spacing;//move this outside of the method
-            var currentPos:CGFloat = CGFloat(value);
+            let spacing:CGFloat = h
+            let totalHeight:CGFloat = CGFloat(items.count) * spacing;//move this outside of the method
+            let currentPos:CGFloat = CGFloat(value);
             if((items[i]["view"] as! NSView).frame.y > totalHeight-spacing){
-                var leftOver:CGFloat = (currentPos - (items[i]["tempPos"] as! CGFloat) + spacing - (totalHeight - (items[i]["pos"] as! CGFloat)))
+                let leftOver:CGFloat = (currentPos - (items[i]["tempPos"] as! CGFloat) + spacing - (totalHeight - (items[i]["pos"] as! CGFloat)))
                 //trace("over right border btn id: "+i+" leftover"+leftOver);
                 items[i]["tempPos"] = currentPos + (items[i]["pos"] as! CGFloat) + spacing - leftOver;
                 //trace("over btn id: "+i+" percentage: "+percentage+" tempPos "+_btnList[i].tempPos)
             };
-            if(_btnList[i].mc.y < ((-1*totalHeight)+spacing)){
+            if((items[i]["view"] as! NSView).frame.y < ((-1 * totalHeight) + spacing)){
                 //trace("over left border btn id: "+i+" POSITIONS: "+" currentPos: "+currentPos+" tempPos: "+_btnList[i].tempPos)
-                var leftOver2:CGFloat = (currentPos-(_btnList[i].tempPos)-spacing-(-1*totalHeight-_btnList[i].pos));
+                let leftOver2:CGFloat = (currentPos-(items[i]["tempPos"] as! CGFloat)-spacing-(-1*totalHeight-(items[i]["pos"] as! CGFloat)));
                 //trace("over left border btn id: "+i+" leftover"+leftOver2);
-                _btnList[i].tempPos = currentPos+_btnList[i].pos-spacing-leftOver2;
+                items[i]["tempPos"] = currentPos + (items[i]["pos"] as! CGFloat) - spacing - leftOver2;
                 //trace("over btn id: "+i+" percentage: "+percentage+" currentPos: "+currentPos+" tempPos "+_btnList[i].tempPos)
             }
-            _btnList[i].mc.y = Math.round((currentPos - _btnList[i].tempPos)+ _btnList[i].pos);
+            (items[i]["view"] as! NSView).frame.y = round((currentPos - (items[i]["tempPos"] as! CGFloat)) + (items[i]["pos"] as! CGFloat));
         }
     }
     
