@@ -46,12 +46,10 @@ class TestView3:AnimatableView {
         throwArea!.frame.y = 20
 
         
-        
-        
-        //write the a simple move code and hook up the DisplayLink
-        
-        //write the loop movment code
     }
+    /**
+     * loop movment code
+     */
     func moveViews(value:CGFloat){
         for(var i:Int = 0;i < items.count;i++){
             let spacing:CGFloat = h
