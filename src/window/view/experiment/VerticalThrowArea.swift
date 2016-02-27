@@ -9,6 +9,8 @@ class VerticalThrowArea:InteractiveView2{
     var elapsedTime:CFAbsoluteTime?
     var lastPos:CGPoint?
     var timeMark:CFAbsoluteTime?
+    var onDownPos:CGPoint?
+    var onDownMoverVal:CGFloat?
     
     init(){
         let frictionValue:CGFloat = 0;
@@ -56,7 +58,7 @@ class VerticalThrowArea:InteractiveView2{
         //continue here
         onDownPos = localPos()
         onDownMoverVal = mover.value
-        {x:this.mouseX, y:this.mouseY,curMoverValue:_}
+        
     }
     override func mouseUp(event: MouseEvent) {
         Swift.print("mUp")
