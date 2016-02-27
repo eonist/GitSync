@@ -73,7 +73,7 @@ class TestView3:AnimatableView {
     }
     
     override func onFrame(){
-        Swift.print("onFrame() value: " + "\(throwArea!.mover!.value)")
+        //Swift.print("onFrame() value: " + "\(throwArea!.mover!.value)")
         throwArea!.mover!.updatePosition()
         moveViews(throwArea!.mover!.value)
         super.onFrame()
