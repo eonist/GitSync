@@ -47,6 +47,7 @@ class VerticalThrowArea:InteractiveView2{
      */
     override func mouseDown(event: MouseEvent) {
         Swift.print("mDown")
+        startTime = CFAbsoluteTimeGetCurrent()
         mover!.slowDownFriction = 0.70//TODO: this needs to be more immediate
         //tick();//init the first tick, the timer wont do this
         //_mover.stopMoving(null);
@@ -65,7 +66,7 @@ class VerticalThrowArea:InteractiveView2{
         let velocity = Utils.velocity(Utils.duration(startTime!,timeMark!), localPos().y - lastPos!.y)
         Swift.print("velocity: " + "\(velocity)")
         mover!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity*/
-        //TODO:start the frameTicker here
+        //TODO: start the frameTicker here
         stopTimer()/*stops the timer that was started onMouseDown*/
     }
     override func mouseDragged(theEvent: NSEvent) {
