@@ -46,7 +46,7 @@ class VerticalThrowArea :FlippedView{
      * Uses the dist and duration of the mouse-throw to calculate the speed, aka the velocity. THen starts the animation in this speed aka velocity.
      */
     func velocity(duration:Double,_ distance:CGFloat,_ frameRate:CGFloat = 60) -> CGFloat{
-        let calcA:CGFloat = distance/(CGFloat(duration)/1000)/*dived milliseconds by thousand to get seconds*/
+        let calcA:CGFloat = distance/(CGFloat(duration)/1000)/*divide milliseconds by thousand to get seconds*/
         let calcB:CGFloat = calcA/frameRate
         return calcB;
     }
