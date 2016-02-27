@@ -83,14 +83,15 @@ private class Utils{
      */
     class func duration(startTime,timeMark){
         let elapsedTime = CFAbsoluteTimeGetCurrent() - self.startTime!/*elapsed time since begining*/
-        
+        let duration:Double = elapsedTime - timeMark!/*elapsed time since mouse-down*/
+        return duration
     }
     /*
     * Calculates the dist and duration of the "mouse-throw"
     */
     class func checkTime(throwArea:VerticalThrowArea)->(Double,CGFloat){
         
-        let duration:Double = elapsedTime - timeMark!/*elapsed time since mouse-down*/
+        
         let distance:CGFloat = localPos().y - lastPos!.y;
         //trace("x distance Since click"+(distance));
         //trace("timeSince click"+(duration));
