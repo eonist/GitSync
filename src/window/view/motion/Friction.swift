@@ -24,7 +24,7 @@ class Friction:Mover{
      * Basically stops listening for the onFrame event
      */
     func checkForStop() {
-        //Swift.print(value).toFixed(3)+"checkForStop"+(lastValue).toFixed(3))
+        //Swift.print( "\(value.toFixed(3))" + " checkForStop " + "\((lastValue).toFixed(3))")
         if(value.toFixed(3) == lastValue.toFixed(3)) {//this could be easier solved with a epsilon value assert
             Swift.print("stop")
             hasStopped = true
