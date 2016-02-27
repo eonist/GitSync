@@ -80,7 +80,6 @@ class TestView3:AnimatableView {
         throwArea!.mover!.updatePosition()
         moveViews(throwArea!.mover!.value)
         super.onFrame()
-        
     }
 }
 
