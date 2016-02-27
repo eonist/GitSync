@@ -3,6 +3,7 @@ import Foundation
 class VerticalThrowArea :FlippedView{
     var mover:Friction
     var timer:NSTimer?
+    var startTime:CFAbsoluteTime?
     
     init(){
         //var b1:Rect2 = addSubView(Rect2(_width,_height,FillStyle(Colors.GREEN,_alpha))) as Button
@@ -25,6 +26,7 @@ class VerticalThrowArea :FlippedView{
         self.lastPos = CGPoint(self.mouseX,self.mouseY)
     }
     func startSettingTime(){//100ms
+        self.startTime = CFAbsoluteTimeGetCurrent() ;
         self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "onTimer:", userInfo: nil, repeats: false)
     }
     func stopSettingTime(){
