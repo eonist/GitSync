@@ -60,7 +60,8 @@ class VerticalThrowArea:InteractiveView2{
         Swift.print("mUp")
         mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
         //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
-        let velocity = Utils.velocity(duration, distance)
+        let velocity = Utils.velocity(Utils.duration(startTime!,timeMark!), localPos().y - lastPos!.y)
+        
         stopTimer()/*stops the timer that was started onMouseDown*/
     }
     override func mouseDragged(theEvent: NSEvent) {
@@ -72,6 +73,7 @@ class VerticalThrowArea:InteractiveView2{
 private class Utils{
     /*
      * Uses the dist and duration of the mouse-throw to calculate the speed, aka the velocity. THen starts the animation in this speed aka velocity.
+     * PARAM distance: the dist of the mouse-throw
      */
     class func velocity(duration:Double,_ distance:CGFloat,_ frameRate:CGFloat = 60) -> CGFloat{
         let calcA:CGFloat = distance/(CGFloat(duration)/1000)/*divide milliseconds by thousand to get seconds*/
@@ -79,24 +81,13 @@ private class Utils{
         return calcB;
     }
     /**
-     *
+     * Calculates the duration of the "mouse-throw"
      */
-    class func duration(startTime,timeMark){
-        let elapsedTime = CFAbsoluteTimeGetCurrent() - self.startTime!/*elapsed time since begining*/
-        let duration:Double = elapsedTime - timeMark!/*elapsed time since mouse-down*/
+    class func duration(startTime:CFAbsoluteTime,_ timeMark:CFAbsoluteTime)->Double{
+        let elapsedTime = CFAbsoluteTimeGetCurrent() - startTime/*elapsed time since begining*/
+        let duration:Double = elapsedTime - timeMark/*elapsed time since mouse-down*/
         return duration
     }
-    /*
-    * Calculates the dist and duration of the "mouse-throw"
-    */
-    class func checkTime(throwArea:VerticalThrowArea)->(Double,CGFloat){
-        
-        
-        let distance:CGFloat = localPos().y - lastPos!.y;
-        //trace("x distance Since click"+(distance));
-        //trace("timeSince click"+(duration));
-        //return velocity(throwArea,duration,distance);
-        return (duration:duration,distance:distance)
-    }
+   
 }
 //
