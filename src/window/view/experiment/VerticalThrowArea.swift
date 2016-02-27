@@ -70,6 +70,10 @@ class VerticalThrowArea:InteractiveView2{
     override func mouseUp(event: MouseEvent) {
         Swift.print("mUp")
     }
+    override func mouseDragged(theEvent: NSEvent) {
+        Swift.print("mDragged")
+        
+    }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
