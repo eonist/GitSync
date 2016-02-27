@@ -29,17 +29,16 @@ class TestView3:AnimatableView {
         r3.draw()
         
         
-        let items:Array<NSView> = [r1.graphic,r2.graphic,r3.graphic]
+        let views:Array<NSView> = [r1.graphic,r2.graphic,r3.graphic]
         
-        for(var i:Int = 0;i < items.count;i++){
-            self.items.append(["view":items[i], "pos": h * CGFloat(i), "tempPos":0])
-            //imageContainer.addChild(_btnList[i].mc);
-            (self.items[i]["view"] as! NSView).frame.y = items[i]["pos"] as! CGFloat/*positions the view*/
-        };
+        for(var i:Int = 0;i < views.count;i++){
+            self.items.append(["view":views[i], "pos": h * CGFloat(i), "tempPos":0])
+            //imageContainer.addChild(_btnList[i].mc);//add these rectangles to a container that clips
+            (self.items[i]["view"] as! NSView).frame.y = self.items[i]["pos"] as! CGFloat/*positions the view*/
+        }
         
-        //rect.graphic.frame.y = 60
         
-        //add these rectangles to a container that clips
+        
         
         
         let throwArea = addSubView(VerticalThrowArea())
