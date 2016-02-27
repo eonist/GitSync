@@ -33,11 +33,11 @@ class VerticalThrowArea:InteractiveView2{
         
         //self.lastPos = localPos()
     }
-    func startSettingTime(){//100ms
+    func startTimer(){//
         self.startTime = CFAbsoluteTimeGetCurrent() ;
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "onTimer:", userInfo: nil, repeats: false)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01/*<--100ms*/, target: self, selector: "onTimer:", userInfo: nil, repeats: false)
     }
-    func stopSettingTime(){
+    func stopTimeer(){
         if(timer != nil){timer!.invalidate()}
     }
     /*
@@ -62,6 +62,10 @@ class VerticalThrowArea:InteractiveView2{
     }
     override func mouseDown(event: MouseEvent) {
         Swift.print("mdown")
+        mover!.slowDownFriction = 0.70//TODO: this needs to be more immediate
+        //tick();//init the first tick, the timer wont do this
+        //_mover.stopMoving(null);
+        startTimer()
     }
     override func mouseUp(event: MouseEvent) {
         Swift.print("mUp")
