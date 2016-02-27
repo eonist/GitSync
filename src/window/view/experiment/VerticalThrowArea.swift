@@ -52,7 +52,7 @@ class VerticalThrowArea:InteractiveView2{
         tick();//init the first tick, the timer wont do this
         //_mover.stopMoving(null);
         
-        CVDisplayLinkStop((self.superview as! AnimatableView).displayLink)//stop the frameTicker here
+        
         
         startTimer()
         onDownPos = localPos()/*temporary store the mouse location, we need this when calculating the offset when dragging*/
@@ -69,6 +69,7 @@ class VerticalThrowArea:InteractiveView2{
         Swift.print("velocity: " + "\(velocity)")
         mover!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity*/
         
+        mover!.hasStopped = false
         CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)//'start the frameTicker here
         stopTimer()/*stops the timer that was started onMouseDown*/
     }
