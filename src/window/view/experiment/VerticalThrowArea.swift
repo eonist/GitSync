@@ -64,7 +64,7 @@ class VerticalThrowArea:InteractiveView2{
         Swift.print("mUp")
         mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
         //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
-        let velocity = Utils.velocity(Utils.duration(startTime!), localPos().y - lastPos!.y)
+        let velocity = Utils.velocity(Utils.duration(startTime!,lastTime), localPos().y - lastPos!.y)
         Swift.print("velocity: " + "\(velocity)")
         mover!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity*/
         //TODO: 'start the frameTicker here
@@ -91,11 +91,14 @@ private class Utils{
     /**
      * Calculates the duration of the "mouse-throw"
      */
-    class func duration(startTime:CFAbsoluteTime/*,_ timeMark:CFAbsoluteTime*/)->Double{
+    class func duration(startTime:CFAbsoluteTime,_ lastTime:CFAbsoluteTime)->Double{
         let elapsedTime = CFAbsoluteTimeGetCurrent() - startTime/*elapsed time since begining*/
         Swift.print("elapsedTime: " + "\(elapsedTime)")
         return elapsedTime
-        //let duration:Double = elapsedTime - timeMark/*elapsed time since mouse-down*/
+        //let duration:Double = elapsedTime - lastTime/*elapsed time since mouse-down*/
+        
+        //Continue with the above line
+        
         //Swift.print("duration: " + "\(duration)")
         //return duration
     }
