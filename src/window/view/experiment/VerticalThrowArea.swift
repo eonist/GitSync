@@ -50,7 +50,7 @@ class VerticalThrowArea:InteractiveView2{
         Swift.print("mDown")
         startTime = CFAbsoluteTimeGetCurrent()
         mover!.slowDownFriction = 0.70//TODO: this needs to be more immediate
-        //tick();//init the first tick, the timer wont do this
+        tick();//init the first tick, the timer wont do this
         //_mover.stopMoving(null);
         //stop the frameTicker here
         startTimer()
