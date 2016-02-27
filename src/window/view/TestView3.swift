@@ -19,15 +19,15 @@ class TestView3:AnimatableView {
         //create 3 color rectangles
         
         /*Rect*/
-        let r1 = RectGraphic(0,0,w,h,FillStyle(NSColor.redColor()),nil)//Add a red box to the view
+        let r1 = RectGraphic(0,0,w,h,FillStyle(Colors.green()),nil)//Add a red box to the view
         itemContainer.addSubview(r1.graphic)
         r1.draw()
         
-        let r2 = RectGraphic(0,0,w,h,FillStyle(NSColor.blueColor()),nil)//Add a red box to the view
+        let r2 = RectGraphic(0,0,w,h,FillStyle(Colors.yellow()),nil)//Add a red box to the view
         itemContainer.addSubview(r2.graphic)
         r2.draw()
         
-        let r3 = RectGraphic(0,0,w,h,FillStyle(NSColor.greenColor()),nil)//Add a red box to the view
+        let r3 = RectGraphic(0,0,w,h,FillStyle(Colors.purple()),nil)//Add a red box to the view
         itemContainer.addSubview(r3.graphic)
         r3.draw()
         
