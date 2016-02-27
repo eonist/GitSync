@@ -1,8 +1,8 @@
 import Cocoa
 
 class VerticalThrowArea:InteractiveView2{
-    var w:CGFloat = 200
-    var h:CGFloat = 200
+    var w:CGFloat = TestView3.w
+    var h:CGFloat = TestView3.h
     var mover:Friction?
     var timer:NSTimer?
     var startTime:CFAbsoluteTime?

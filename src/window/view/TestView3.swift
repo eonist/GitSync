@@ -1,8 +1,10 @@
 import Cocoa
 
 class TestView3:AnimatableView {
-    var w:CGFloat = 200
-    var h:CGFloat = 200
+    static var w:CGFloat = 400
+    static var h:CGFloat = 600
+    var w:CGFloat = TestView3.w
+    var h:CGFloat = TestView3.h
     var items:[Dictionary<String,AnyObject>] = []
     var throwArea:VerticalThrowArea?
     override func resolveSkin() {
