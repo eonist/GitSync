@@ -50,6 +50,28 @@ class TestView3:AnimatableView {
         
         //write the loop movment code
     }
+    func movePictures(value:CGFloat){
+        for(var i:Int = 0;i < items.count;i++){
+            var spacing:Int = DISPLAY_HEIGHT;
+            var totalHeight:Number = (_btnList.length) *spacing;//move this outside of the method
+            var currentPos:Number = (aValue);
+            if(_btnList[i].mc.y > totalHeight-spacing){
+                var leftOver:Number = (currentPos-_btnList[i].tempPos+spacing-(totalHeight-_btnList[i].pos));
+                //trace("over right border btn id: "+i+" leftover"+leftOver);
+                _btnList[i].tempPos = currentPos+_btnList[i].pos+spacing-leftOver;
+                //trace("over btn id: "+i+" percentage: "+percentage+" tempPos "+_btnList[i].tempPos)
+            };
+            if(_btnList[i].mc.y < ((-1*totalHeight)+spacing)){
+                //trace("over left border btn id: "+i+" POSITIONS: "+" currentPos: "+currentPos+" tempPos: "+_btnList[i].tempPos)
+                var leftOver2:Number = (currentPos-(_btnList[i].tempPos)-spacing-(-1*totalHeight-_btnList[i].pos));
+                //trace("over left border btn id: "+i+" leftover"+leftOver2);
+                _btnList[i].tempPos = currentPos+_btnList[i].pos-spacing-leftOver2;
+                //trace("over btn id: "+i+" percentage: "+percentage+" currentPos: "+currentPos+" tempPos "+_btnList[i].tempPos)
+            }
+            _btnList[i].mc.y = Math.round((currentPos - _btnList[i].tempPos)+ _btnList[i].pos);
+        }
+    }
+    
     override func onFrame(){
         Swift.print("onFrame() value: " + "\(throwArea!.mover!.value)")
         throwArea!.mover!.updatePosition()
