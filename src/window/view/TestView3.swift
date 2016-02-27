@@ -12,14 +12,14 @@ class TestView3:AnimatableView {
         throwArea.frame.y = 40
         
         //create 3 color rectangles
-        let fill:FillStyle = FillStyle(NSColor.redColor())
+
         /*Rect*/
-        let rect = RectGraphic(0,0,w,h,fill,nil)//Add a red box to the view
-        addSubview(rect.graphic)
-        rect.draw()
+        let r1 = RectGraphic(0,0,w,h,FillStyle(NSColor.redColor()),nil)//Add a red box to the view
+        addSubview(r1.graphic)
+        r1.draw()
         
         
-        var rectangleList:Array = [treeSegment1,treeSegment2,treeSegment3/*,treeSegment4,treeSegment5,treeSegment6*/];
+        let items:Array<NSView> = [r1];
         
         //rect.graphic.frame.y = 60
         
