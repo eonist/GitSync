@@ -39,8 +39,15 @@ class VerticalThrowArea :FlippedView{
         var distance:CGFloat = localPos().y - lastPos!.y;
         //trace("x distance Since click"+(distance));
         //trace("timeSince click"+(duration));
-        animate(throwArea,duration,distance);
+        //return velocity(throwArea,duration,distance);
     }
+    /*
+     * Uses the dist and duration of the mouse-throw to calculate the speed, aka the velocity. THen starts the animation in this speed aka velocity.
+     */
+    func velocity(aTarget:DisplayObject,aDuration:uint,aDistance:Number){
+        
+    }
+    
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
