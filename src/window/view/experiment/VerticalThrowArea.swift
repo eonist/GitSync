@@ -1,18 +1,25 @@
 import Foundation
 
 class VerticalThrowArea :FlippedView{
-    private var mover:Friction
-    private var timer:Timer?
+    var mover:Friction
+    var timer:NSTimer?
+    
     init(){
         //var b1:Rect2 = addSubView(Rect2(_width,_height,FillStyle(Colors.GREEN,_alpha))) as Button
-        var frictionValue:CGFloat = 0;
-        self.mover = Friction(this,frictionValue,0,0.98)
+        let frictionValue:CGFloat = 0;
+        self.mover = Friction(self,frictionValue,0,0.98)
         //self.timer = NSTimer(100,Int.MAX_VALUE)
     }
+
+    
+        
+    
     func onTimer(timer: NSTimer) {
         let theStringToPrint = timer.userInfo as! String
         print(theStringToPrint)
         //print("ontimer")
+        
+        //CFAbsoluteTimeGetCurrent()
         var duration:uint = getTimer()
         self.lastTime = duration
         self.lastPos = CGPoint(self.mouseX,self.mouseY)
@@ -23,6 +30,8 @@ class VerticalThrowArea :FlippedView{
     func stopSettingTime(){
         timer.invalidate()
     }
+    
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
-//CFAbsoluteTimeGetCurrent()
+//
