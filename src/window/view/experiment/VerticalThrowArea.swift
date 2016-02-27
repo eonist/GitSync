@@ -61,7 +61,7 @@ class VerticalThrowArea:InteractiveView2{
         return calcB;
     }
     override func mouseDown(event: MouseEvent) {
-        Swift.print("mdown")
+        Swift.print("mDown")
         mover!.slowDownFriction = 0.70//TODO: this needs to be more immediate
         //tick();//init the first tick, the timer wont do this
         //_mover.stopMoving(null);
