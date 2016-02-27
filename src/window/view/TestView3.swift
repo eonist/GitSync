@@ -34,7 +34,7 @@ class TestView3:AnimatableView {
         for(var i:Int = 0;i < items.count;i++){
             self.items.append(["view":items[i], "pos": h * CGFloat(i), "tempPos":0])
             //imageContainer.addChild(_btnList[i].mc);
-            self.items[i].mc.y = _btnList[i].pos;
+            (self.items[i]["view"] as! NSView).frame.y = items[i]["pos"] as! CGFloat/*positions the view*/
         };
         
         //rect.graphic.frame.y = 60
