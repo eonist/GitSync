@@ -89,7 +89,7 @@ private class Utils{
     class func velocity(duration:Double,_ distance:CGFloat,_ frameRate:CGFloat = 60) -> CGFloat{
         Swift.print("distance: " + "\(distance)")
         Swift.print("duration: " + "\(duration)")
-        let calcA:CGFloat = distance/(CGFloat(duration)/1000)/*divide milliseconds by thousand to get seconds*/
+        let calcA:CGFloat = distance/(CGFloat(duration))/*divide milliseconds by thousand to get seconds*/
         let calcB:CGFloat = calcA/frameRate
         return calcB;
     }
