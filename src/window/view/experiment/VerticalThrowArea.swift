@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 
 class VerticalThrowArea :FlippedView{
     var mover:Friction?
@@ -8,16 +8,11 @@ class VerticalThrowArea :FlippedView{
     var lastPos:CGPoint?
     
     init(){
-        //var b1:Rect2 = addSubView(Rect2(_width,_height,FillStyle(Colors.GREEN,_alpha))) as Button
         let frictionValue:CGFloat = 0;
+        super.init(frame: NSRect(0,0,320,480))
+        //var b1:Rect2 = addSubView(Rect2(_width,_height,FillStyle(Colors.GREEN,_alpha))) as Button
         self.mover = Friction(self,frictionValue,0,0.98)
-        //self.timer = NSTimer(100,Int.MAX_VALUE)
-        super.init(frame: <#T##NSRect#>)
     }
-
-    
-        
-    
     func onTimer(timer: NSTimer) {
         let theStringToPrint = timer.userInfo as! String
         Swift.print(theStringToPrint)
