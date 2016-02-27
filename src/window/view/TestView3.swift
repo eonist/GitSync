@@ -8,22 +8,23 @@ class TestView3:AnimatableView {
         animTest()
     }
     func animTest(){
-        let throwArea = addSubView(VerticalThrowArea())
-        throwArea.frame.y = 40
+        
+        let itemContainer = ItemContainer(frame: NSRect(0,0,w,h))
+        itemContainer.frame.y = 20
         
         //create 3 color rectangles
-
+        
         /*Rect*/
         let r1 = RectGraphic(0,0,w,h,FillStyle(NSColor.redColor()),nil)//Add a red box to the view
-        addSubview(r1.graphic)
+        itemContainer.addSubview(r1.graphic)
         r1.draw()
         
         let r2 = RectGraphic(0,0,w,h,FillStyle(NSColor.blueColor()),nil)//Add a red box to the view
-        addSubview(r2.graphic)
+        itemContainer.addSubview(r2.graphic)
         r2.draw()
         
         let r3 = RectGraphic(0,0,w,h,FillStyle(NSColor.greenColor()),nil)//Add a red box to the view
-        addSubview(r3.graphic)
+        itemContainer.addSubview(r3.graphic)
         r3.draw()
         
         
@@ -32,6 +33,12 @@ class TestView3:AnimatableView {
         //rect.graphic.frame.y = 60
         
         //add these rectangles to a container that clips
+        
+        
+        let throwArea = addSubView(VerticalThrowArea())
+        throwArea.frame.y = 40
+        
+       
         
         //write the a simple move code and hook up the DisplayLink
         
@@ -44,8 +51,5 @@ private class ItemContainer:InteractiveView2{
         super.init(frame: frameRect)
         layer!.masksToBounds = true/*masks the children to the frame*/
     }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
