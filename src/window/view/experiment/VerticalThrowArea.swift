@@ -37,7 +37,7 @@ class VerticalThrowArea:InteractiveView2{
         self.startTime = CFAbsoluteTimeGetCurrent() ;
         self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01/*<--100ms*/, target: self, selector: "onTimer:", userInfo: nil, repeats: false)
     }
-    func stopTimeer(){
+    func stopTimer(){
         if(timer != nil){timer!.invalidate()}
     }
     /*
@@ -75,6 +75,9 @@ class VerticalThrowArea:InteractiveView2{
     }
     override func mouseUp(event: MouseEvent) {
         Swift.print("mUp")
+        mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
+        //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
+        stopTimer()/*stops the timer that was started onMouseDown*/
     }
     override func mouseDragged(theEvent: NSEvent) {
         Swift.print("mDragged")
