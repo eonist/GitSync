@@ -8,6 +8,7 @@ class VerticalThrowArea:InteractiveView2{
     var startTime:CFAbsoluteTime?
     var elapsedTime:CFAbsoluteTime?
     var lastPos:CGPoint?
+    var lastTime:CFAbsoluteTime?
     //var timeMark:CFAbsoluteTime?
     var onDownPos:CGPoint?
     var onDownMoverVal:CGFloat?
@@ -32,7 +33,7 @@ class VerticalThrowArea:InteractiveView2{
         Swift.print("tick")
         
         //self.elapsedTime = CFAbsoluteTimeGetCurrent() - self.startTime!
-        
+        self.lastTime = CFAbsoluteTimeGetCurrent()
         self.lastPos = localPos()
     }
     func startTimer(){//
