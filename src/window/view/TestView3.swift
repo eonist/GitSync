@@ -55,10 +55,10 @@ class TestView3:AnimatableView {
             var spacing:CGFloat = h
             var totalHeight:CGFloat = CGFloat(items.count) * spacing;//move this outside of the method
             var currentPos:CGFloat = (value);
-            if(items[i]["view"].frame.y > totalHeight-spacing){
-                var leftOver:CGFloat = (currentPos-_btnList[i].tempPos+spacing-(totalHeight-_btnList[i].pos));
+            if((items[i]["view"] as! NSView).frame.y > totalHeight-spacing){
+                var leftOver:CGFloat = (currentPos - items[i]["tempPos"] + spacing - (totalHeight-items[i]["pos"]));
                 //trace("over right border btn id: "+i+" leftover"+leftOver);
-                _btnList[i].tempPos = currentPos + _btnList[i].pos+spacing-leftOver;
+                items[i]["tempPos"] = currentPos + items[i]["pos"] + spacing - leftOver;
                 //trace("over btn id: "+i+" percentage: "+percentage+" tempPos "+_btnList[i].tempPos)
             };
             if(_btnList[i].mc.y < ((-1*totalHeight)+spacing)){
