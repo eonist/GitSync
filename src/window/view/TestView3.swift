@@ -8,5 +8,6 @@ class TestView3:AnimatableView {
     }
     func animTest(){
         let throwArea = VerticalThrowArea()
+        addSubview(throwArea)
     }
 }

@@ -1,6 +1,6 @@
 import Cocoa
 
-class VerticalThrowArea :FlippedView{
+class VerticalThrowArea:InteractiveView2{
     var mover:Friction?
     var timer:NSTimer?
     var startTime:CFAbsoluteTime?
