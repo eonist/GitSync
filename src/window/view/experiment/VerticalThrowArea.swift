@@ -79,7 +79,7 @@ class VerticalThrowArea:InteractiveView2{
         super.mouseDragged(theEvent)
     }
     var prevScrollingDeltaY:CGFloat = 0
-    var prevDeltaY:CGFloat = 0
+    
     /**
      * NOTE: you can use the event.deviceDeltaY to check which direction the gesture is moving in.
      */
@@ -98,7 +98,7 @@ class VerticalThrowArea:InteractiveView2{
             //Swift.print("changed")
             mover!.value += theEvent.scrollingDeltaY
             prevScrollingDeltaY = theEvent.scrollingDeltaY//needed to calc the velocity onScrollWheelUp
-            prevDeltaY = theEvent.deltaY
+            
             
             //continue here, when deltaY is 0 then the momentum has stopped. Store both y deltas and use thme to calculate Stationary stillness
             
@@ -119,7 +119,7 @@ class VerticalThrowArea:InteractiveView2{
         }else if(theEvent.phase == NSEventPhase.Ended){//if you release your touch-gesture and the momentum of the gesture has stopped.
             Swift.print("Ended ")
             //Swift.print("theEvent: " + "\(theEvent)")
-            Swift.print("prevDeltaY: " + "\(prevDeltaY)")
+            
             Swift.print("prevScrollingDeltaY: " + "\(prevScrollingDeltaY)")
 
             onScrollWheelUp()
