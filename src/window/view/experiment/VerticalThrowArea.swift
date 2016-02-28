@@ -128,7 +128,7 @@ class VerticalThrowArea:InteractiveView2{
         super.scrollWheel(theEvent)//call super to forward the event to the parent view
     }
     func onScrollWheelDown(){
-        //Swift.print("onScrollWheelDown")
+        Swift.print("onScrollWheelDown")
         prevScrollingDeltaY = 0
         mover!.slowDownFriction = 0.40//TODO: this needs to be more immediate
     }
