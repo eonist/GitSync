@@ -17,12 +17,10 @@ class TestView3:AnimatableView {
         itemContainer.frame.y = 20
         
         //add a textField here
-        let textField = TextField(frame: NSRect(x: 0, y: 0, width: w, height: h))
+        /* let textField = TextField(frame: NSRect(x: 0, y: 0, width: w, height: h))
         itemContainer.addSubview(textField)
         textField.stringValue = "hello world"
-        
-        
-        
+        */
         //create 3 color rectangles
         
         /*Rect*/
@@ -40,7 +38,7 @@ class TestView3:AnimatableView {
         
         
         
-        let views:Array<NSView> = [textField, r1.graphic,r2.graphic,r3.graphic]
+        let views:Array<NSView> = [/*textField,*/ r1.graphic,r2.graphic,r3.graphic]
         
         for(var i:Int = 0;i < views.count;i++){
             self.items.append(["view":views[i], "pos": h * CGFloat(i), "tempPos":0])
