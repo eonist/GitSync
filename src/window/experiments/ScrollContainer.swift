@@ -27,7 +27,7 @@ class ScrollContainer :Container{
         }else if(theEvent.phase == NSEventPhase.Began){//can be used to detect when the scroll began.
             
         }else if(theEvent.phase == NSEventPhase.None){//if you release your touch-gesture and the momentum of the gesture has not stopped.
-            //calculate the 
+            //calculate the velocity based on lastTime and lastPos
             //set the momentum to the Mover instance
             //start the CVDisplayLink
             //
