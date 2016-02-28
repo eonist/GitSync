@@ -77,7 +77,7 @@ class VerticalThrowArea:InteractiveView2{
         Swift.print("mover!.value: " + "\(mover!.value)")
         super.mouseDragged(theEvent)
     }
-    var hasChangedDir:Bool = false
+    var isMovingUp:Bool = false
     /**
      * NOTE: you can use the event.deviceDeltaY to check which direction the gesture is moving in.
      */
@@ -86,6 +86,7 @@ class VerticalThrowArea:InteractiveView2{
         
         if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is scrollWheel gesture movment
             Swift.print("changed")
+            if(event.deviceDeltaY > 0){isMovingUp = true}
             
         }else if(theEvent.phase == NSEventPhase.MayBegin){//can be used to detect if two fingers are touching the trackpad
             Swift.print("MayBegin")
