@@ -18,9 +18,15 @@ class ScrollContainer :Container{
     }
     
     override func scrollWheel(theEvent: NSEvent) {
-        Swift.print("theEvent: " + "\(theEvent)")
+        //Swift.print("theEvent: " + "\(theEvent)")
         
-        
+        if(theEvent.phase == NSEventPhase.Began){
+            
+        }else if(theEvent.phase == NSEventPhase.None){
+            
+        }else if(theEvent.phase == NSEventPhase.Began){
+            
+        }
         
         
         let scrollAmount:CGFloat = (theEvent.deltaY/100)/sliderInterval/*_scrollBar.interval*/;
