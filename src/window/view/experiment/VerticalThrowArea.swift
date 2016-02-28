@@ -93,10 +93,10 @@ class VerticalThrowArea:InteractiveView2{
             
         }else if(theEvent.phase == NSEventPhase.MayBegin){//can be used to detect if two fingers are touching the trackpad
             //Swift.print("MayBegin")
-            Swift.print("onScrollWheelDown")
-            isScrollWheelDown = true
+            //Swift.print("onScrollWheelDown")
+            onScrollWheelDown()
         }else if(theEvent.phase == NSEventPhase.Began){//can be used to detect when the scroll began.
-            Swift.print("Began")
+            //Swift.print("Began")
         }else if(theEvent.phase == NSEventPhase.None){//if you release your touch-gesture and the momentum of the gesture has not stopped.
             //Swift.print("None")
             //Swift.print("theEvent.scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
@@ -106,13 +106,13 @@ class VerticalThrowArea:InteractiveView2{
             //start the CVDisplayLink
             //
         }else if(theEvent.phase == NSEventPhase.Ended){//if you release your touch-gesture and the momentum of the gesture has stopped.
-            Swift.print("Ended")
-            isScrollWheelDown = false
+            //Swift.print("Ended")
+            onScrollWheelUp()
             //dont start the CVDisplayLink, since your momentum has stopped
             //
         }else if(theEvent.phase == NSEventPhase.Cancelled){
-            Swift.print("Cancelled")
-            isScrollWheelDown = false
+            //Swift.print("Cancelled")
+            onScrollWheelUp()
         }
         
         
