@@ -119,9 +119,10 @@ class VerticalThrowArea:InteractiveView2{
     override func touchesBeganWithEvent(event: NSEvent) {
         Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
     }
-    override func touchesMovedWithEvent(event: NSEvent) {
-        Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
+    /*override func touchesMovedWithEvent(event: NSEvent) {
+    Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
     }
+    */
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 private class Utils{
