@@ -22,15 +22,18 @@ class ScrollContainer :Container{
         
         if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is scrollWheel gesture movment
             
+        }else if(theEvent.phase == NSEventPhase.MayBegin){//can be used to detect if two fingers are touching the trackpad
+            
         }else if(theEvent.phase == NSEventPhase.Began){//can be used to detect when the scroll began.
             
         }else if(theEvent.phase == NSEventPhase.None){//if you release your touch-gesture and the momentum of the gesture has not stopped.
+            //calculate the 
             //set the momentum to the Mover instance
             //start the CVDisplayLink
-        }else if(theEvent.phase == NSEventPhase.MayBegin){//can be used to detect if two fingers are touching the trackpad
-            
+            //
         }else if(theEvent.phase == NSEventPhase.Ended){//if you release your touch-gesture and the momentum of the gesture has stopped.
-            
+            //dont start the CVDisplayLink, since your momentum has stopped
+            //
         }
         
         
