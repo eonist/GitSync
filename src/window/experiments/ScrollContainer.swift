@@ -20,11 +20,13 @@ class ScrollContainer :Container{
     override func scrollWheel(theEvent: NSEvent) {
         //Swift.print("theEvent: " + "\(theEvent)")
         
-        if(theEvent.phase == NSEventPhase.Began){
+        if(theEvent.phase == NSEventPhase.Began){//can be used to detect when the scroll began.
             
-        }else if(theEvent.phase == NSEventPhase.None){
-            
+        }else if(theEvent.phase == NSEventPhase.None){//if you release your touch-gesture and the momentum of the gesture has not stopped.
+            //begin 
         }else if(theEvent.phase == NSEventPhase.MayBegin){//can be used to detect if two fingers are touching the trackpad
+            
+        }else if(theEvent.phase == NSEventPhase.Ended){//if you release your touch-gesture and the momentum of the gesture has stopped.
             
         }
         
