@@ -13,7 +13,7 @@ class TestView1:CustomView{
         //Swift.print("CustomView.resolveSkin()")
        
         //animationTest()
-        //sliderTest()
+        sliderTest()
         //sliderListTest()
         //xmlListTest()
         
