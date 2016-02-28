@@ -24,7 +24,7 @@ class ScrollContainer :Container{
             
         }else if(theEvent.phase == NSEventPhase.None){
             
-        }else if(theEvent.phase == NSEventPhase.Began){
+        }else if(theEvent.phase == NSEventPhase.MayBegin){//can be used to detect if two fingers are touching the trackpad
             
         }
         
