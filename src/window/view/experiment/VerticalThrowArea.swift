@@ -73,6 +73,9 @@ class VerticalThrowArea:InteractiveView2{
     }
     override func mouseDragged(theEvent: NSEvent) {
         Swift.print("mouseDragged")
+        if(!mover!.hasStopped){
+            if(CVDisplayLinkIsRunning((self.superview as! AnimatableView).displayLink)) {CVDisplayLinkStart((self.superview as! AnimatableView).displayLink);mover!.hasStopped = true;}//the if clause is just a precausion
+        }
         //mover.stopMoving(nil);/*Stop the mover*///TODO:this should not be called on every move call, make a bool,also stop the frameTimer instance not the mover it self, or?
         mover!.value = onDownMoverVal! + (localPos().y - onDownPos!.y)/*manipulate the value of the mover with the vaue of the y pos of the mouse directly*/
         Swift.print("mover!.value: " + "\(mover!.value)")
