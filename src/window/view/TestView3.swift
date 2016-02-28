@@ -79,6 +79,9 @@ class TestView3:AnimatableView {
         Swift.print("TestView3.mouseDragged()")
         moveViews(throwArea!.mover!.value)
     }
+    override func scrollWheel(theEvent: NSEvent) {
+        if(theEvent.phase == NSEventPhase.Changed){moveViews(throwArea!.mover!.value)}
+    }
     override func onFrame(){
         //Swift.print("onFrame() value: " + "\(throwArea!.mover!.value)")
         if(throwArea!.mover!.hasStopped){CVDisplayLinkStop(displayLink)}//stop the frameTicker here
