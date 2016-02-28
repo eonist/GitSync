@@ -46,7 +46,7 @@ class VerticalThrowArea:InteractiveView2{
      * TODO: If you hold the mouse in the same position for a fraction of time then dont calculate the movment distance. Just just stop the animation. Think how this would work in the real world
      */
     override func mouseDown(event: MouseEvent) {
-        Swift.print("mDown")
+        Swift.print("mouseDown")
         startTime = CFAbsoluteTimeGetCurrent()
         mover!.slowDownFriction = 0.70//TODO: this needs to be more immediate
         tick();//init the first tick, the timer wont do this
@@ -59,7 +59,7 @@ class VerticalThrowArea:InteractiveView2{
      * TODO: If you hold the mouse in the same position for a fraction of time then dont calculate the movment distance. Just just stop the animation. Think how this would work in the real world
      */
     override func mouseUp(event: MouseEvent) {
-        Swift.print("mUp")
+        Swift.print("mouseUp")
         mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
         //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
         let velocity = Utils.velocity(Utils.duration(startTime!,lastTime!), localPos().y - lastPos!.y)
@@ -71,7 +71,7 @@ class VerticalThrowArea:InteractiveView2{
         stopTimer()/*stops the timer that was started onMouseDown*/
     }
     override func mouseDragged(theEvent: NSEvent) {
-        Swift.print("mDragged")
+        Swift.print("mouseDragged")
         //mover.stopMoving(nil);/*Stop the mover*///TODO:this should not be called on every move call, make a bool,also stop the frameTimer instance not the mover it self, or?
         mover!.value = onDownMoverVal! + (localPos().y - onDownPos!.y)/*manipulate the value of the mover with the vaue of the y pos of the mouse directly*/
         Swift.print("mover!.value: " + "\(mover!.value)")

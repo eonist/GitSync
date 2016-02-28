@@ -21,17 +21,19 @@ class ScrollContainer :Container{
         //Swift.print("theEvent: " + "\(theEvent)")
         
         if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is scrollWheel gesture movment
-            
+            Swift.print("changed")
         }else if(theEvent.phase == NSEventPhase.MayBegin){//can be used to detect if two fingers are touching the trackpad
-            
+            Swift.print("MayBegin")
         }else if(theEvent.phase == NSEventPhase.Began){//can be used to detect when the scroll began.
-            
+            Swift.print("Began")
         }else if(theEvent.phase == NSEventPhase.None){//if you release your touch-gesture and the momentum of the gesture has not stopped.
+            Swift.print("None")
             //calculate the velocity based on lastTime and lastPos
             //set the momentum to the Mover instance
             //start the CVDisplayLink
             //
         }else if(theEvent.phase == NSEventPhase.Ended){//if you release your touch-gesture and the momentum of the gesture has stopped.
+            Swift.print("Ended")
             //dont start the CVDisplayLink, since your momentum has stopped
             //
         }
