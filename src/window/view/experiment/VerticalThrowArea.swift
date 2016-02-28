@@ -100,10 +100,7 @@ class VerticalThrowArea:InteractiveView2{
         }else if(theEvent.phase == NSEventPhase.None){//if you release your touch-gesture and the momentum of the gesture has not stopped.
             //Swift.print("None")
             //Swift.print("theEvent.scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
-            if(isScrollWheelDown){
-                Swift.print("onScrollWheelUp")
-                isScrollWheelDown = false
-            }
+            
             //calculate the velocity based on lastTime and lastPos
             //set the momentum to the Mover instance
             //start the CVDisplayLink
@@ -121,6 +118,13 @@ class VerticalThrowArea:InteractiveView2{
         
         super.scrollWheel(theEvent)//call super to forward the event to the parent view
     }
+    func onScrollWheelDown(){
+        Swift.print("onScrollWheelDown")
+    }
+    func onScrollWheelUp(){
+        Swift.print("onScrollWheelUp")
+    }
+    
    
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
