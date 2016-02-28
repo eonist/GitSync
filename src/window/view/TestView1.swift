@@ -5,7 +5,6 @@ import OpenGL.GL3
  * TODO: Hook up the onWindowResize method
  */
 class TestView1:CustomView{
-
     /**
      * Add content here
      */
