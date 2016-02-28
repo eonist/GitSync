@@ -124,6 +124,8 @@ class VerticalThrowArea:InteractiveView2{
     
     
     //TODO: the way you implement dual support for dragging and scrollwheel is that you call onUp and onDown and onDragging/onDirectManipulation
+    
+    //TODO: Implement a gesture algorithm that is more precis. Like 
    
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
