@@ -125,6 +125,8 @@ class VerticalThrowArea:InteractiveView2{
         Swift.print("onScrollWheelUp")
     }
     
+    
+    //TODO: the way you implement dual support for dragging and scrollwheel is that you call onUp and onDown and onDragging/onDirectManipulation
    
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
