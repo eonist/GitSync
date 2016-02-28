@@ -105,7 +105,7 @@ class VerticalThrowArea:InteractiveView2{
             //start the CVDisplayLink
             //
         }else if(theEvent.phase == NSEventPhase.Ended){//if you release your touch-gesture and the momentum of the gesture has stopped.
-            Swift.print("Ended " + "\(prevYDelta)")
+            Swift.print("Ended ")
 
             onScrollWheelUp()
             //dont start the CVDisplayLink, since your momentum has stopped
@@ -121,7 +121,13 @@ class VerticalThrowArea:InteractiveView2{
         mover!.slowDownFriction = 0.70//TODO: this needs to be more immediate
     }
     func onScrollWheelUp(){
-        Swift.print("onScrollWheelUp " )
+        Swift.print("onScrollWheelUp " + "\(prevYDelta)")
+        mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
+        //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
+        mover!.velocity = prevYDelta/*set the mover velocity to the current mouse gesture velocity*/
+        
+        mover!.hasStopped = false/*reset this value to false*/
+        CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)//'start the frameTicker here, do this part in parent view or use event or Selector
     }
     
     
