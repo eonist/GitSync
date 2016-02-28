@@ -89,6 +89,9 @@ class VerticalThrowArea:InteractiveView2{
         
         if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is direct scrollWheel gesture movment.
             //Swift.print("changed")
+            if(!mover!.hasStopped){
+                if(CVDisplayLinkIsRunning((self.superview as! AnimatableView).displayLink)) {CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)}//the if clause is just a precausion
+            }
             mover!.value += theEvent.scrollingDeltaY
             prevScrollingDeltaY = theEvent.scrollingDeltaY//needed to calc the velocity onScrollWheelUp
             
@@ -121,9 +124,6 @@ class VerticalThrowArea:InteractiveView2{
     }
     func onScrollWheelDown(){
         Swift.print("onScrollWheelDown")
-        if(CVDisplayLinkIsRunning((self.superview as! AnimatableView).displayLink)){
-            CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)
-        }
         prevScrollingDeltaY = 0
         mover!.slowDownFriction = 0.40//set this to 0.70 and the slowdown prosses is slower
     }
