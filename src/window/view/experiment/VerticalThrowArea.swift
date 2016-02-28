@@ -109,6 +109,18 @@ class VerticalThrowArea:InteractiveView2{
         
         super.scrollWheel(theEvent)//call super to forward the event to the parent view
     }
+    override func touchesEndedWithEvent(event: NSEvent) {
+        Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")
+    }
+    override func touchesCancelledWithEvent(event: NSEvent) {
+        Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
+    }
+    override func touchesBeganWithEvent(event: NSEvent) {
+        Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
+    }
+    override func touchesMovedWithEvent(event: NSEvent) {
+        Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
+    }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 private class Utils{
