@@ -78,12 +78,12 @@ class VerticalThrowArea:InteractiveView2{
         Swift.print("mover!.value: " + "\(mover!.value)")
         super.mouseDragged(theEvent)
     }
-    
+    var prevYDelta:CGFloat = 0
     /**
      * NOTE: you can use the event.deviceDeltaY to check which direction the gesture is moving in.
      */
     override func scrollWheel(theEvent: NSEvent) {
-        //Swift.print("theEvent: " + "\(theEvent)")
+        Swift.print("theEvent: " + "\(theEvent)")
         //Swift.print("scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
         
         if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is direct scrollWheel gesture movment.
