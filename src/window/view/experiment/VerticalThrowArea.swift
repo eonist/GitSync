@@ -83,7 +83,7 @@ class VerticalThrowArea:InteractiveView2{
      * NOTE: you can use the event.deviceDeltaY to check which direction the gesture is moving in.
      */
     override func scrollWheel(theEvent: NSEvent) {
-        Swift.print("theEvent: " + "\(theEvent)")
+        //Swift.print("theEvent: " + "\(theEvent)")
         //Swift.print("scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
         
         if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is direct scrollWheel gesture movment.
@@ -105,8 +105,8 @@ class VerticalThrowArea:InteractiveView2{
             //start the CVDisplayLink
             //
         }else if(theEvent.phase == NSEventPhase.Ended){//if you release your touch-gesture and the momentum of the gesture has stopped.
-            Swift.print("Ended " + "\(theEvent.deltaY)")
-            Swift.print("theEvent.scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
+            Swift.print("Ended " + "\(prevYDelta)")
+
             onScrollWheelUp()
             //dont start the CVDisplayLink, since your momentum has stopped
         }else if(theEvent.phase == NSEventPhase.Cancelled){
@@ -120,7 +120,7 @@ class VerticalThrowArea:InteractiveView2{
         Swift.print("onScrollWheelDown")
     }
     func onScrollWheelUp(){
-        Swift.print("onScrollWheelUp " + "\(prevYDelta)")
+        Swift.print("onScrollWheelUp " )
     }
     
     
