@@ -78,7 +78,8 @@ class VerticalThrowArea:InteractiveView2{
         Swift.print("mover!.value: " + "\(mover!.value)")
         super.mouseDragged(theEvent)
     }
-    var prevYDelta:CGFloat = 0
+    var prevScrollingDeltaY:CGFloat = 0
+    var prevDeltaY:CGFloat = 0
     /**
      * NOTE: you can use the event.deviceDeltaY to check which direction the gesture is moving in.
      */
@@ -90,14 +91,14 @@ class VerticalThrowArea:InteractiveView2{
        
         
         
-        Swift.print("theEvent: " + "\(theEvent)")
+        //Swift.print("theEvent: " + "\(theEvent)")
         //Swift.print("scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
         
         if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is direct scrollWheel gesture movment.
             //Swift.print("changed")
             mover!.value += theEvent.scrollingDeltaY
-            prevYDelta = theEvent.scrollingDeltaY//needed to calc the velocity onScrollWheelUp
-            
+            prevScrollingDeltaY = theEvent.scrollingDeltaY//needed to calc the velocity onScrollWheelUp
+            prevDeltaY = theEvent.deltaY
             
             
             //continue here, when deltaY is 0 then the momentum has stopped. Store both y deltas and use thme to calculate Stationary stillness
@@ -135,14 +136,14 @@ class VerticalThrowArea:InteractiveView2{
     }
     func onScrollWheelDown(){
         Swift.print("onScrollWheelDown")
-        prevYDelta = 0
+        prevScrollingDeltaY = 0
         mover!.slowDownFriction = 0.70//TODO: this needs to be more immediate
     }
     func onScrollWheelUp(){
-        Swift.print("onScrollWheelUp " + "\(prevYDelta)")
+        Swift.print("onScrollWheelUp " + "\(prevScrollingDeltaY)")
         mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
         //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
-        mover!.velocity = prevYDelta/*set the mover velocity to the current mouse gesture velocity*/
+        mover!.velocity = prevScrollingDeltaY/*set the mover velocity to the current mouse gesture velocity*/
         
         mover!.hasStopped = false/*reset this value to false*/
         CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)//'start the frameTicker here, do this part in parent view or use event or Selector
