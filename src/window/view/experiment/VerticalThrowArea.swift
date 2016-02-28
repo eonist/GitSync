@@ -83,7 +83,6 @@ class VerticalThrowArea:InteractiveView2{
      * NOTE: you can use the event.deviceDeltaY to check which direction the gesture is moving in.
      */
     override func scrollWheel(theEvent: NSEvent) {
-        Swift.print("theEvent.momentumPhase: " + "\(theEvent.momentumPhase)")
         //Swift.print("theEvent: " + "\(theEvent)")
         //Swift.print("scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
         
@@ -114,6 +113,10 @@ class VerticalThrowArea:InteractiveView2{
         }else if(theEvent.phase == NSEventPhase.Cancelled){
             //Swift.print("Cancelled")
             onScrollWheelUp()
+        }
+        
+        if(theEvent.momentumPhase == NSEventPhase.None){
+            Swift.print("momentumPhase == None")
         }
         
         super.scrollWheel(theEvent)//call super to forward the event to the parent view
