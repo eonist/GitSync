@@ -97,7 +97,7 @@ class VerticalThrowArea:InteractiveView2{
         }else if(theEvent.phase == NSEventPhase.Began){//can be used to detect when the scroll began.
             //Swift.print("Began")
         }else if(theEvent.phase == NSEventPhase.None){//if you release your touch-gesture and the momentum of the gesture has not stopped.
-            //Swift.print("None")
+            Swift.print("None " + "\(theEvent.deltaY)")
             //Swift.print("theEvent.scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
             
             //calculate the velocity based on lastTime and lastPos
@@ -105,7 +105,7 @@ class VerticalThrowArea:InteractiveView2{
             //start the CVDisplayLink
             //
         }else if(theEvent.phase == NSEventPhase.Ended){//if you release your touch-gesture and the momentum of the gesture has stopped.
-            //Swift.print("Ended")
+            Swift.print("Ended " + "\(theEvent.deltaY)")
             onScrollWheelUp()
             //dont start the CVDisplayLink, since your momentum has stopped
         }else if(theEvent.phase == NSEventPhase.Cancelled){
@@ -125,7 +125,7 @@ class VerticalThrowArea:InteractiveView2{
     
     //TODO: the way you implement dual support for dragging and scrollwheel is that you call onUp and onDown and onDragging/onDirectManipulation
     
-    //TODO: Implement a gesture algorithm that is more precis. Use the last 
+    //TODO: Implement a gesture algorithm that is more precis. Use the last
    
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
