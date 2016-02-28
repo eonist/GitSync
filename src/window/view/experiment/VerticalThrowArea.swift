@@ -135,7 +135,7 @@ class VerticalThrowArea:InteractiveView2{
     func onScrollWheelDown(){
         Swift.print("onScrollWheelDown")
         prevScrollingDeltaY = 0
-        mover!.slowDownFriction = 0.70//TODO: this needs to be more immediate
+        mover!.slowDownFriction = 0.40//TODO: this needs to be more immediate
     }
     func onScrollWheelUp(){
         Swift.print("onScrollWheelUp " + "\(prevScrollingDeltaY)")
