@@ -114,8 +114,8 @@ class VerticalThrowArea:InteractiveView2{
             //calculate the velocity based on lastTime and lastPos
         }else if(theEvent.phase == NSEventPhase.Ended){//if you release your touch-gesture and the momentum of the gesture has stopped.
             //Swift.print("Ended ")
-            Swift.print("theEvent: " + "\(theEvent)")
-            Swift.print("prevScrollingDeltaY: " + "\(prevScrollingDeltaY)")
+            //Swift.print("theEvent: " + "\(theEvent)")
+            //Swift.print("prevScrollingDeltaY: " + "\(prevScrollingDeltaY)")
 
             onScrollWheelUp()
             //dont start the CVDisplayLink, since your momentum has stopped
@@ -127,7 +127,7 @@ class VerticalThrowArea:InteractiveView2{
         super.scrollWheel(theEvent)//call super to forward the event to the parent view
     }
     func onScrollWheelDown(){
-        Swift.print("onScrollWheelDown")
+        //Swift.print("onScrollWheelDown")
         prevScrollingDeltaY = 0
         velocities = [0,0,0,0,0,0,0,0,0,0]//reset the velocities
         mover!.slowDownFriction = 0.40//set this to 0.70 and the slowdown prosses is slower
