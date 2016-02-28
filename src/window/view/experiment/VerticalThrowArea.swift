@@ -99,7 +99,6 @@ class VerticalThrowArea:InteractiveView2{
             prevScrollingDeltaY = theEvent.scrollingDeltaY//needed to calc the velocity onScrollWheelUp
             
             velocities.removeLast()
-            
             velocities = [theEvent.scrollingDeltaY] + velocities
             
             
@@ -112,13 +111,10 @@ class VerticalThrowArea:InteractiveView2{
         }else if(theEvent.phase == NSEventPhase.None){//if you release your touch-gesture and the momentum of the gesture has not stopped.
             //Swift.print("None " + "\(theEvent.deltaY)")
             //Swift.print("theEvent.scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
-            
             //calculate the velocity based on lastTime and lastPos
-            
         }else if(theEvent.phase == NSEventPhase.Ended){//if you release your touch-gesture and the momentum of the gesture has stopped.
             //Swift.print("Ended ")
             Swift.print("theEvent: " + "\(theEvent)")
-            
             Swift.print("prevScrollingDeltaY: " + "\(prevScrollingDeltaY)")
 
             onScrollWheelUp()
