@@ -139,7 +139,7 @@ class VerticalThrowArea:InteractiveView2{
         CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)//'start the frameTicker here, do this part in parent view or use event or Selector
     }
     
-    //TODO: There is no way to check if when you onUp the scrollWheel that you 
+    //TODO: 1. you scroll the wheel 2. you stay still for 
     
     //TODO: the way you implement dual support for dragging and scrollwheel is that you call onUp and onDown and onDragging/onDirectManipulation
     
