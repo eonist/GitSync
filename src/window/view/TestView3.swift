@@ -21,6 +21,8 @@ class TestView3:AnimatableView {
         itemContainer.addSubview(textField)
         textField.stringValue = "hello world"
         
+        
+        
         //create 3 color rectangles
         
         /*Rect*/
