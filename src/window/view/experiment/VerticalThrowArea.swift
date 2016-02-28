@@ -97,7 +97,7 @@ class VerticalThrowArea:InteractiveView2{
         }else if(theEvent.phase == NSEventPhase.Began){//can be used to detect when the scroll began.
             //Swift.print("Began")
         }else if(theEvent.phase == NSEventPhase.None){//if you release your touch-gesture and the momentum of the gesture has not stopped.
-            Swift.print("None " + "\(theEvent.deltaY)")
+            //Swift.print("None " + "\(theEvent.deltaY)")
             //Swift.print("theEvent.scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
             
             //calculate the velocity based on lastTime and lastPos
@@ -128,7 +128,7 @@ class VerticalThrowArea:InteractiveView2{
     
     //TODO: Implement a gesture algorithm that is more precis for the mouse throw. 
     
-    //TODO: For the wheel velocity, use the first deltaY value that is fired right after the
+    //TODO: For the wheel velocity, use the first deltaY value that is fired right after the phase == Ended
    
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
