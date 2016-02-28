@@ -78,7 +78,7 @@ class VerticalThrowArea:InteractiveView2{
         super.mouseDragged(theEvent)
     }
     override func scrollWheel(theEvent: NSEvent) {
-        //Swift.print("theEvent: " + "\(theEvent)")
+        Swift.print("theEvent: " + "\(theEvent)")
         
         if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is scrollWheel gesture movment
             Swift.print("changed")
