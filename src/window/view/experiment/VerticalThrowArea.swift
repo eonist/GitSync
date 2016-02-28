@@ -51,9 +51,6 @@ class VerticalThrowArea:InteractiveView2{
         mover!.slowDownFriction = 0.70//TODO: this needs to be more immediate
         tick();//init the first tick, the timer wont do this
         //_mover.stopMoving(null);
-        
-        
-        
         startTimer()
         onDownPos = localPos()/*temporary store the mouse location, we need this when calculating the offset when dragging*/
         onDownMoverVal = mover!.value/*temporary store the mover value, we need this when calculating the offset when dragging*/
