@@ -79,6 +79,7 @@ class VerticalThrowArea:InteractiveView2{
         super.mouseDragged(theEvent)
     }
     var isMovingUp:Bool = false
+    var hasOnUphappened = false
     /**
      * NOTE: you can use the event.deviceDeltaY to check which direction the gesture is moving in.
      */
@@ -92,11 +93,16 @@ class VerticalThrowArea:InteractiveView2{
             
         }else if(theEvent.phase == NSEventPhase.MayBegin){//can be used to detect if two fingers are touching the trackpad
             Swift.print("MayBegin")
+            if(hasOnUphappened){hasOnUphappened = false}
         }else if(theEvent.phase == NSEventPhase.Began){//can be used to detect when the scroll began.
             Swift.print("Began")
         }else if(theEvent.phase == NSEventPhase.None){//if you release your touch-gesture and the momentum of the gesture has not stopped.
             Swift.print("None")
             Swift.print("theEvent.scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
+            if(!hasOnUphappened){
+                Swift.print("onUp")
+                hasOnUphappened = true
+            }
             //calculate the velocity based on lastTime and lastPos
             //set the momentum to the Mover instance
             //start the CVDisplayLink
