@@ -68,7 +68,7 @@ class VerticalThrowArea:InteractiveView2{
         mover!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity*/
         
         mover!.hasStopped = false
-        CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)//'start the frameTicker here
+        CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)//'start the frameTicker here, do this part in parent view or use event or Selector
         stopTimer()/*stops the timer that was started onMouseDown*/
     }
     override func mouseDragged(theEvent: NSEvent) {
