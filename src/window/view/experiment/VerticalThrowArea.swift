@@ -87,6 +87,9 @@ class VerticalThrowArea:InteractiveView2{
         if(theEvent.phase == NSEventPhase.Stationary || theEvent.momentumPhase == NSEventPhase.Stationary){
             Swift.print("BINGO")
         }
+        Swift.print("theEvent.modifierFlags: " + "\(theEvent.modifierFlags)")
+        
+        
         //Swift.print("theEvent: " + "\(theEvent)")
         //Swift.print("scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
         
