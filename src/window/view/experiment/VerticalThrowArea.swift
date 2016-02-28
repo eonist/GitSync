@@ -88,8 +88,8 @@ class VerticalThrowArea:InteractiveView2{
      */
     override func scrollWheel(theEvent: NSEvent) {
         //Swift.print("theEvent: " + "\(theEvent)")
-        Swift.print("scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
-        
+        //Swift.print("scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
+        Swift.print("velocities: " + "\(velocities)")
         if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is direct scrollWheel gesture movment.
             //Swift.print("changed")
             if(!mover!.hasStopped){
@@ -98,6 +98,9 @@ class VerticalThrowArea:InteractiveView2{
             mover!.value += theEvent.scrollingDeltaY
             prevScrollingDeltaY = theEvent.scrollingDeltaY//needed to calc the velocity onScrollWheelUp
             
+            velocities.removeLast()
+            
+            velocities = [theEvent.scrollingDeltaY] + velocities
             
             
         }else if(theEvent.phase == NSEventPhase.MayBegin){//can be used to detect if two fingers are touching the trackpad
