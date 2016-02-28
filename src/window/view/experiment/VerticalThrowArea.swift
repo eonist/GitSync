@@ -82,14 +82,14 @@ class VerticalThrowArea:InteractiveView2{
         super.mouseDragged(theEvent)
     }
     var prevScrollingDeltaY:CGFloat = 0
-    var velocities:Array<CGFloat> = [0,0,0,0,0]
+    var velocities:Array<CGFloat> = [0,0,0,0,0,0,0,0,0,0]
     /**
      * NOTE: you can use the event.deviceDeltaY to check which direction the gesture is moving in.
      */
     override func scrollWheel(theEvent: NSEvent) {
         //Swift.print("theEvent: " + "\(theEvent)")
         //Swift.print("scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
-        Swift.print("velocities: " + "\(velocities)")
+        //Swift.print("velocities: " + "\(velocities)")
         if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is direct scrollWheel gesture movment.
             //Swift.print("changed")
             if(!mover!.hasStopped){
@@ -129,7 +129,7 @@ class VerticalThrowArea:InteractiveView2{
     func onScrollWheelDown(){
         Swift.print("onScrollWheelDown")
         prevScrollingDeltaY = 0
-        velocities = [0,0,0,0,0]//reset the velocities
+        velocities = [0,0,0,0,0,0,0,0,0,0]//reset the velocities
         mover!.slowDownFriction = 0.40//set this to 0.70 and the slowdown prosses is slower
     }
     func onScrollWheelUp(){
