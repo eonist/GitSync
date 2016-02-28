@@ -24,7 +24,7 @@ class ScrollContainer :Container{
         
         let scrollAmount:CGFloat = (theEvent.deltaY/100)/sliderInterval/*_scrollBar.interval*/;
         var currentScroll:CGFloat = vSlider!.progress - scrollAmount;/*the minus sign makes sure the scroll works like in OSX LION*/
-        currentScroll = NumberParser.minMax(currentScroll, 0, 1);
+        currentScroll = NumberParser.minMax(currentScroll, 0, 1);//clips the scalar value
         //ListModifier.scrollTo(self,currentScroll); /*Sets the target item to correct y, according to the current scrollBar progress*/
         vSlider?.setProgressValue(currentScroll)
         
