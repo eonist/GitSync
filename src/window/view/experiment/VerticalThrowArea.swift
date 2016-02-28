@@ -98,7 +98,12 @@ class VerticalThrowArea:InteractiveView2{
             mover!.value += theEvent.scrollingDeltaY
             prevYDelta = theEvent.scrollingDeltaY//needed to calc the velocity onScrollWheelUp
             
+            
+            
             //continue here, when deltaY is 0 then the momentum has stopped. Store both y deltas and use thme to calculate Stationary stillness
+            
+            
+            
             
         }else if(theEvent.phase == NSEventPhase.MayBegin){//can be used to detect if two fingers are touching the trackpad
             //Swift.print("MayBegin")
