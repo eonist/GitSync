@@ -140,11 +140,12 @@ class VerticalThrowArea:InteractiveView2{
     func onScrollWheelUp(){
         Swift.print("onScrollWheelUp " + "\(prevScrollingDeltaY)")
         mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
-        //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
-        mover!.velocity = prevScrollingDeltaY/*set the mover velocity to the current mouse gesture velocity*/
-        
         mover!.hasStopped = false/*reset this value to false*/
-        CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)//'start the frameTicker here, do this part in parent view or use event or Selector
+        //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
+        if(prevScrollingDeltaY != 1 || prevScrollingDeltaY != -1){/*1 and -1 indicates stationaryness*/
+            mover!.velocity = prevScrollingDeltaY/*set the mover velocity to the current mouse gesture velocity*/
+            CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)//'start the frameTicker here, do this part in parent view or use event or Selector
+        }
     }
     
     //TODO: 1. you scroll the wheel 2. you stay still for
