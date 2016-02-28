@@ -117,10 +117,10 @@ class VerticalThrowArea:InteractiveView2{
             //start the CVDisplayLink
             
         }else if(theEvent.phase == NSEventPhase.Ended){//if you release your touch-gesture and the momentum of the gesture has stopped.
-            Swift.print("Ended ")
+            //Swift.print("Ended ")
             //Swift.print("theEvent: " + "\(theEvent)")
             
-            Swift.print("prevScrollingDeltaY: " + "\(prevScrollingDeltaY)")
+            //Swift.print("prevScrollingDeltaY: " + "\(prevScrollingDeltaY)")
 
             onScrollWheelUp()
             //dont start the CVDisplayLink, since your momentum has stopped
@@ -133,21 +133,21 @@ class VerticalThrowArea:InteractiveView2{
         super.scrollWheel(theEvent)//call super to forward the event to the parent view
     }
     func onScrollWheelDown(){
-        Swift.print("onScrollWheelDown")
+        //Swift.print("onScrollWheelDown")
         prevScrollingDeltaY = 0
         mover!.slowDownFriction = 0.40//TODO: this needs to be more immediate
     }
     func onScrollWheelUp(){
-        Swift.print("onScrollWheelUp " + "\(prevScrollingDeltaY)")
+        //Swift.print("onScrollWheelUp " + "\(prevScrollingDeltaY)")
         mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
         mover!.hasStopped = false/*reset this value to false*/
         //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
         if(prevScrollingDeltaY != 1.0 && prevScrollingDeltaY != -1.0){/*1 and -1 indicates stationaryness*/
-            Swift.print("is not stationary")
+            //Swift.print("is not stationary")
             mover!.velocity = prevScrollingDeltaY/*set the mover velocity to the current mouse gesture velocity*/
             CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)//'start the frameTicker here, do this part in parent view or use event or Selector
         }else{
-            Swift.print("is stationary")
+            //Swift.print("is stationary")
         }
     }
     
