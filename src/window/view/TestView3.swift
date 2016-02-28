@@ -16,6 +16,10 @@ class TestView3:AnimatableView {
         let itemContainer = addSubView(ItemContainer(frame: NSRect(0,0,w,h))) as! ItemContainer
         itemContainer.frame.y = 20
         
+        //add a textField here
+        let textField = TextField(frame: NSRect(x: 0, y: 0, width: 200, height: 200))
+        itemContainer.addSubview(textField)
+        
         //create 3 color rectangles
         
         /*Rect*/
@@ -31,7 +35,6 @@ class TestView3:AnimatableView {
         itemContainer.addSubview(r3.graphic)
         r3.draw()
         
-        //add a textField here
         
         
         let views:Array<NSView> = [r1.graphic,r2.graphic,r3.graphic]
