@@ -82,7 +82,7 @@ class VerticalThrowArea:InteractiveView2{
         super.mouseDragged(theEvent)
     }
     var prevScrollingDeltaY:CGFloat = 0
-    var veloceties:Array<CGFloat>
+    var velocities:Array<CGFloat> = [0,0,0,0,0]
     /**
      * NOTE: you can use the event.deviceDeltaY to check which direction the gesture is moving in.
      */
@@ -97,6 +97,8 @@ class VerticalThrowArea:InteractiveView2{
             }
             mover!.value += theEvent.scrollingDeltaY
             prevScrollingDeltaY = theEvent.scrollingDeltaY//needed to calc the velocity onScrollWheelUp
+            
+            
             
         }else if(theEvent.phase == NSEventPhase.MayBegin){//can be used to detect if two fingers are touching the trackpad
             //Swift.print("MayBegin")
