@@ -82,7 +82,7 @@ class VerticalThrowArea:InteractiveView2{
         super.mouseDragged(theEvent)
     }
     var prevScrollingDeltaY:CGFloat = 0
-    
+    var veloceties:Array<CGFloat>
     /**
      * NOTE: you can use the event.deviceDeltaY to check which direction the gesture is moving in.
      */
