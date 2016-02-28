@@ -100,11 +100,7 @@ class VerticalThrowArea:InteractiveView2{
             prevScrollingDeltaY = theEvent.scrollingDeltaY//needed to calc the velocity onScrollWheelUp
             prevDeltaY = theEvent.deltaY
             
-            
             //continue here, when deltaY is 0 then the momentum has stopped. Store both y deltas and use thme to calculate Stationary stillness
-            
-            
-            
             
         }else if(theEvent.phase == NSEventPhase.MayBegin){//can be used to detect if two fingers are touching the trackpad
             //Swift.print("MayBegin")
@@ -119,10 +115,12 @@ class VerticalThrowArea:InteractiveView2{
             //calculate the velocity based on lastTime and lastPos
             //set the momentum to the Mover instance
             //start the CVDisplayLink
-            //
+            
         }else if(theEvent.phase == NSEventPhase.Ended){//if you release your touch-gesture and the momentum of the gesture has stopped.
             Swift.print("Ended ")
-            Swift.print("theEvent: " + "\(theEvent)")
+            //Swift.print("theEvent: " + "\(theEvent)")
+            Swift.print("prevDeltaY: " + "\(prevDeltaY)")
+            Swift.print("prevScrollingDeltaY: " + "\(prevScrollingDeltaY)")
 
             onScrollWheelUp()
             //dont start the CVDisplayLink, since your momentum has stopped
