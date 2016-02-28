@@ -106,6 +106,7 @@ class VerticalThrowArea:InteractiveView2{
             //
         }else if(theEvent.phase == NSEventPhase.Ended){//if you release your touch-gesture and the momentum of the gesture has stopped.
             Swift.print("Ended " + "\(theEvent.deltaY)")
+            Swift.print("theEvent.scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
             onScrollWheelUp()
             //dont start the CVDisplayLink, since your momentum has stopped
         }else if(theEvent.phase == NSEventPhase.Cancelled){
@@ -125,7 +126,9 @@ class VerticalThrowArea:InteractiveView2{
     
     //TODO: the way you implement dual support for dragging and scrollwheel is that you call onUp and onDown and onDragging/onDirectManipulation
     
-    //TODO: Implement a gesture algorithm that is more precis. Use the last
+    //TODO: Implement a gesture algorithm that is more precis for the mouse throw. 
+    
+    //TODO: For the wheel velocity, use the first deltaY value that is fired right after the
    
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
