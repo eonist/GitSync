@@ -108,12 +108,10 @@ class VerticalThrowArea:InteractiveView2{
             //Swift.print("Ended")
             onScrollWheelUp()
             //dont start the CVDisplayLink, since your momentum has stopped
-            //
         }else if(theEvent.phase == NSEventPhase.Cancelled){
             //Swift.print("Cancelled")
             onScrollWheelUp()
         }
-        
         
         super.scrollWheel(theEvent)//call super to forward the event to the parent view
     }
