@@ -142,9 +142,12 @@ class VerticalThrowArea:InteractiveView2{
         mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
         mover!.hasStopped = false/*reset this value to false*/
         //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
-        if(prevScrollingDeltaY != 1 || prevScrollingDeltaY != -1){/*1 and -1 indicates stationaryness*/
+        if(prevScrollingDeltaY != 1.0 && prevScrollingDeltaY != -1.0){/*1 and -1 indicates stationaryness*/
+            Swift.print("is not stationary")
             mover!.velocity = prevScrollingDeltaY/*set the mover velocity to the current mouse gesture velocity*/
             CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)//'start the frameTicker here, do this part in parent view or use event or Selector
+        }else{
+            Swift.print("is stationary")
         }
     }
     
