@@ -85,12 +85,12 @@ class VerticalThrowArea:InteractiveView2{
      */
     override func scrollWheel(theEvent: NSEvent) {
         //Swift.print("theEvent: " + "\(theEvent)")
-        //Swift.print("scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
+        Swift.print("scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
         
         if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is direct scrollWheel gesture movment.
             //Swift.print("changed")
             if(!mover!.hasStopped){
-                if(CVDisplayLinkIsRunning((self.superview as! AnimatableView).displayLink)) {CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)}//the if clause is just a precausion
+                if(CVDisplayLinkIsRunning((self.superview as! AnimatableView).displayLink)) {CVDisplayLinkStart((self.superview as! AnimatableView).displayLink);mover!.hasStopped = true;}//the if clause is just a precausion
             }
             mover!.value += theEvent.scrollingDeltaY
             prevScrollingDeltaY = theEvent.scrollingDeltaY//needed to calc the velocity onScrollWheelUp
