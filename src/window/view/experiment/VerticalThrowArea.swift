@@ -90,7 +90,7 @@ class VerticalThrowArea:InteractiveView2{
         Swift.print("theEvent.modifierFlags: " + "\(theEvent.modifierFlags)")
         
         
-        //Swift.print("theEvent: " + "\(theEvent)")
+        Swift.print("theEvent: " + "\(theEvent)")
         //Swift.print("scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
         
         if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is direct scrollWheel gesture movment.
@@ -127,6 +127,7 @@ class VerticalThrowArea:InteractiveView2{
     }
     func onScrollWheelDown(){
         Swift.print("onScrollWheelDown")
+        prevYDelta = 0
         mover!.slowDownFriction = 0.70//TODO: this needs to be more immediate
     }
     func onScrollWheelUp(){
@@ -139,7 +140,7 @@ class VerticalThrowArea:InteractiveView2{
         CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)//'start the frameTicker here, do this part in parent view or use event or Selector
     }
     
-    //TODO: 1. you scroll the wheel 2. you stay still for 
+    //TODO: 1. you scroll the wheel 2. you stay still for
     
     //TODO: the way you implement dual support for dragging and scrollwheel is that you call onUp and onDown and onDragging/onDirectManipulation
     
