@@ -85,9 +85,7 @@ class VerticalThrowArea:InteractiveView2{
      */
     override func scrollWheel(theEvent: NSEvent) {
         
-        if(theEvent.phase == NSEventPhase.Stationary || theEvent.momentumPhase == NSEventPhase.Stationary){
-            Swift.print("BINGO")
-        }
+        Swift.print("theEvent.scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
        
         
         
