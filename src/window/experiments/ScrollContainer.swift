@@ -20,7 +20,7 @@ class ScrollContainer :Container{
     override func scrollWheel(theEvent: NSEvent) {
         //Swift.print("theEvent: " + "\(theEvent)")
         
-        if(theEvent.phase == NSEventPhase.Changed){
+        if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is scrollWheel gesture movment
             
         }else if(theEvent.phase == NSEventPhase.Began){//can be used to detect when the scroll began.
             
