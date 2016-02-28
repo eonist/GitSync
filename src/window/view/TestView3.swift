@@ -31,6 +31,8 @@ class TestView3:AnimatableView {
         itemContainer.addSubview(r3.graphic)
         r3.draw()
         
+        //add a textField here
+        
         
         let views:Array<NSView> = [r1.graphic,r2.graphic,r3.graphic]
         
