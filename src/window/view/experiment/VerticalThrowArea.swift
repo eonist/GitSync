@@ -24,6 +24,7 @@ class VerticalThrowArea:InteractiveView2{
         let rect = RectGraphic(0,0,w,h,fill,nil)//Add a red box to the view
         addSubview(rect.graphic)
         rect.draw()
+        acceptsTouchEvents = true
         //rect.graphic.frame.y = 60
     }
     func tick(/*timer: NSTimer*/) {
