@@ -106,7 +106,7 @@ class VerticalThrowArea:InteractiveView2{
             //
         }else if(theEvent.phase == NSEventPhase.Ended){//if you release your touch-gesture and the momentum of the gesture has stopped.
             Swift.print("Ended ")
-            
+            Swift.print("theEvent: " + "\(theEvent)")
 
             onScrollWheelUp()
             //dont start the CVDisplayLink, since your momentum has stopped
@@ -115,9 +115,6 @@ class VerticalThrowArea:InteractiveView2{
             onScrollWheelUp()
         }
         
-        if(theEvent.momentumPhase == NSEventPhase.None){
-            Swift.print("momentumPhase == None")
-        }
         
         super.scrollWheel(theEvent)//call super to forward the event to the parent view
     }
