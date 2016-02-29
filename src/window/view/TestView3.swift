@@ -36,8 +36,6 @@ class TestView3:AnimatableView {
         itemContainer.addSubview(r3.graphic)
         r3.draw()
         
-        
-        
         let views:Array<NSView> = [/*textField,*/ r1.graphic,r2.graphic,r3.graphic]
         
         for(var i:Int = 0;i < views.count;i++){
@@ -47,9 +45,7 @@ class TestView3:AnimatableView {
         }
   
         throwArea = addSubView(VerticalThrowArea()) as? VerticalThrowArea
-        throwArea!.frame.y = 20
-
-        
+        throwArea!.frame.y = 20  
     }
     /**
      * loop movment code
