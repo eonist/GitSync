@@ -24,6 +24,8 @@ class TestView4:AnimatableView {
         
         //start to apply log10 on the y and dist to top.y
         
+        //try your example with the mouse aswell
+        
         
     }
     override func scrollWheel(theEvent: NSEvent) {
@@ -31,7 +33,7 @@ class TestView4:AnimatableView {
             if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is direct scrollWheel gesture movment.
                 y += theEvent.scrollingDeltaY
                 Swift.print("y: " + "\(y)")
-                let offsetY = logConstraintValueForYPoisition(y,100)
+                let offsetY = logConstraintValueForYPoisition(y,200)
                 Swift.print("offsetY: " + "\(offsetY)")
                 rect!.graphic.frame.y = offsetY
             }
