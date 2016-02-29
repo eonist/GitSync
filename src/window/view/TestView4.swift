@@ -26,12 +26,11 @@ class TestView4:AnimatableView {
         
     }
     override func scrollWheel(theEvent: NSEvent) {
-        func scrollWheel(theEvent: NSEvent) {
-            
+       
             if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is direct scrollWheel gesture movment.
                 
                 rect!.graphic.frame.y += theEvent.scrollingDeltaY
             }
-        }
+        
     }
 }
