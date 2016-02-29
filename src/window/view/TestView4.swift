@@ -13,6 +13,10 @@ class TestView4:AnimatableView {
         
         //add a rectangle inside 200x200
         
-        //onscrolwheel direct manipulation
+        //onscrolwheel direct manipulation 
+        
+        //start to apply log10 on the y and dist to top.y
+        
+        
     }
 }
