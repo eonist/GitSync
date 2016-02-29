@@ -20,14 +20,14 @@ class TestView5:AnimatableView {
             }
         }
         btn.event = onEvent
-        
-        let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964))
-        /*Rect*/
-        circ = RectGraphic(0,0,150,150,fill,nil)//Add a red box to the view
-        addSubview(rect.graphic)
-        rect.draw()
-        rect.graphic.frame.y = 60
         //create a circle that represents the object to animate
+        let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964))
+        /*circ*/
+        let circ = EllipseGraphic(0,0,50,50,fill,nil)
+        addSubview(circ.graphic)
+        circ.draw()
+        circ.graphic.frame.y = 60
+        
         //first add inear animation
         //then add ease out
         //then try to add springing
