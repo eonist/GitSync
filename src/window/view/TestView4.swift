@@ -35,8 +35,10 @@ class TestView4:AnimatableView {
     override func mouseDown(event: MouseEvent) {
         onMouseDownPos = localPos()
         
-        //continue here
         
+    }
+    override func mouseMoved(event: MouseEvent) {
+        <#code#>
     }
     override func scrollWheel(theEvent: NSEvent) {
        
