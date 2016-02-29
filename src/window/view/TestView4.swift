@@ -37,8 +37,10 @@ class TestView4:AnimatableView {
         
         
     }
-    override func mouseMoved(event: MouseEvent) {
-        <#code#>
+  
+    override func mouseDragged(theEvent: NSEvent) {
+        let offset = localPos() - onMouseDownPos
+        Swift.print("offset: " + "\(offset)")
     }
     override func scrollWheel(theEvent: NSEvent) {
        
