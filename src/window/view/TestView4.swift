@@ -43,14 +43,17 @@ class TestView4:AnimatableView {
         Swift.print("offset: " + "\(offset)")
     }
     override func scrollWheel(theEvent: NSEvent) {
-       
-            if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is direct scrollWheel gesture movment.
-                y += theEvent.scrollingDeltaY
-                Swift.print("y: " + "\(y)")
-                let offsetY = logConstraintValueForYPoisition(y,200)
-                Swift.print("offsetY: " + "\(offsetY)")
-                rect!.graphic.frame.y = offsetY
-            }
+        
+        if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is direct scrollWheel gesture movment.
+            y += theEvent.scrollingDeltaY
+            Swift.print("y: " + "\(y)")
+            let offsetY = logConstraintValueForYPoisition(y,200)
+            Swift.print("offsetY: " + "\(offsetY)")
+            rect!.graphic.frame.y = offsetY
+        }
+        
+    }
+    func moveRect(){
         
     }
     /**
