@@ -99,7 +99,7 @@ class VerticalThrowArea:InteractiveView2{
             prevScrollingDeltaY = theEvent.scrollingDeltaY//needed to calc the velocity onScrollWheelUp
             
             velocities.removeLast()
-            velocities = [theEvent.scrollingDeltaY] + velocities   
+            velocities = [theEvent.scrollingDeltaY] + velocities
         }else if(theEvent.phase == NSEventPhase.MayBegin){//can be used to detect if two fingers are touching the trackpad
             //Swift.print("MayBegin")
             //Swift.print("onScrollWheelDown")

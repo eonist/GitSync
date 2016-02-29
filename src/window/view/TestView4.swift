@@ -3,6 +3,7 @@ import Cocoa
 class TestView4:AnimatableView {
     var w:CGFloat = 200
     var h:CGFloat = 200
+    var rect:RectGraphic?
     override func resolveSkin() {
         super.resolveSkin()
         overShotTest()
@@ -14,9 +15,9 @@ class TestView4:AnimatableView {
         
         
         //add a rectangle inside 200x200
-        let r1 = RectGraphic(0,0,w,h,FillStyle(Colors.green()),nil)
-        itemContainer.addSubview(r1.graphic)
-        r1.draw()
+        rect = RectGraphic(0,0,w,h,FillStyle(Colors.green()),nil)
+        itemContainer.addSubview(rect!.graphic)
+        rect!.draw()
         
         //onscrolwheel direct manipulation 
         
@@ -25,6 +26,12 @@ class TestView4:AnimatableView {
         
     }
     override func scrollWheel(theEvent: NSEvent) {
-        
+        func scrollWheel(theEvent: NSEvent) {
+            
+            if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is direct scrollWheel gesture movment.
+                
+                rect!.graphic.frame.y += theEvent.scrollingDeltaY
+            }
+        }
     }
 }
