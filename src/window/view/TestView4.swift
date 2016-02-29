@@ -5,6 +5,7 @@ class TestView4:AnimatableView {
     var h:CGFloat = 200
     var rect:RectGraphic?
     var y:CGFloat = 0
+    var onMouseDownPos:CGPoint = CGPoint()
     override func resolveSkin() {
         super.resolveSkin()
         overShotTest()
@@ -26,6 +27,15 @@ class TestView4:AnimatableView {
         
         //try your example with the mouse aswell
         
+        //on mouse down -> record the position
+        
+        //on mouse move -> dif the cur pos with the onDownPos to get the current offset
+        
+    }
+    override func mouseDown(event: MouseEvent) {
+        onMouseDownPos = localPos()
+        
+        //continue here
         
     }
     override func scrollWheel(theEvent: NSEvent) {
@@ -40,7 +50,7 @@ class TestView4:AnimatableView {
         
     }
     /**
-     * NOTE: 
+     * NOTE: the vertical limit is the point where the value almost doesnt move at all.
      */
     func logConstraintValueForYPoisition(yPosition : CGFloat, _ verticalLimit:CGFloat) -> CGFloat {
         return verticalLimit * (log10(1.0 + yPosition/verticalLimit))
