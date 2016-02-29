@@ -99,9 +99,7 @@ class VerticalThrowArea:InteractiveView2{
             prevScrollingDeltaY = theEvent.scrollingDeltaY//needed to calc the velocity onScrollWheelUp
             
             velocities.removeLast()
-            velocities = [theEvent.scrollingDeltaY] + velocities
-            
-            
+            velocities = [theEvent.scrollingDeltaY] + velocities   
         }else if(theEvent.phase == NSEventPhase.MayBegin){//can be used to detect if two fingers are touching the trackpad
             //Swift.print("MayBegin")
             //Swift.print("onScrollWheelDown")
@@ -151,11 +149,6 @@ class VerticalThrowArea:InteractiveView2{
             //Swift.print("is stationary")
         }
     }
-    
-    //TODO: 1. you scroll the wheel 2. you stay still for
-    
-    //TODO: the way you implement dual support for dragging and scrollwheel is that you call onUp and onDown and onDragging/onDirectManipulation
-    
     //TODO: Implement a gesture algorithm that is more precis for the mouse throw. Or maybe you could just store the time and location for the last mouseMovement and then on mouseUp you take the time of the onUp and the loc of the on up and then calc the velocity
     
     //TODO: For the wheel velocity, use the first deltaY value that is fired right after the phase == Ended
