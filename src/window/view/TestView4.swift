@@ -39,6 +39,9 @@ class TestView4:AnimatableView {
             }
         
     }
+    /**
+     * NOTE: 
+     */
     func logConstraintValueForYPoisition(yPosition : CGFloat, _ verticalLimit:CGFloat) -> CGFloat {
         return verticalLimit * (log10(1.0 + yPosition/verticalLimit))
     }
