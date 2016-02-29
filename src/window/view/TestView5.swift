@@ -20,10 +20,10 @@ class TestView5:AnimatableView {
             }
         }
         btn.event = onEvent
-        //create a circle that represents the object to animate
+        
         let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964))
         /*circ*/
-        let circ = EllipseGraphic(0,0,50,50,fill,nil)
+        let circ = EllipseGraphic(0,0,50,50,fill,nil)//create a circle that represents the object to animate
         addSubview(circ.graphic)
         circ.draw()
         circ.graphic.frame.y = 60
