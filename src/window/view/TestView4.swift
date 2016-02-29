@@ -4,6 +4,7 @@ class TestView4:AnimatableView {
     var w:CGFloat = 200
     var h:CGFloat = 200
     var rect:RectGraphic?
+    var y:CGFloat = 0
     override func resolveSkin() {
         super.resolveSkin()
         overShotTest()
@@ -28,9 +29,14 @@ class TestView4:AnimatableView {
     override func scrollWheel(theEvent: NSEvent) {
        
             if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is direct scrollWheel gesture movment.
-                
-                rect!.graphic.frame.y += theEvent.scrollingDeltaY
+                y += theEvent.scrollingDeltaY
+                let offsetY = logConstraintValueForYPoisition(y)-1
+                Swift.print("offsetY: " + "\(offsetY)")
+                rect!.graphic.frame.y = offsetY
             }
         
+    }
+    func logConstraintValueForYPoisition(yPosition : CGFloat) -> CGFloat {
+        return 1.0 + (log10(yPosition))
     }
 }
