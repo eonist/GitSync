@@ -33,8 +33,10 @@ class TestView4:AnimatableView {
         
     }
     override func mouseDown(event: MouseEvent) {
-        onMouseDownPos = localPos() - rect!.graphic.frame.origin
+        onMouseDownPos = localPos()
         
+        
+        //continue here, try to implement multiple mouse drags in succesion. Also start working on the ease out snap back anim
         
     }
   
