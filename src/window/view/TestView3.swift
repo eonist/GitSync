@@ -91,7 +91,7 @@ class TestView3:AnimatableView {
     }
 }
 
-private class ItemContainer:InteractiveView2{
+class ItemContainer:InteractiveView2{
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         layer!.masksToBounds = true/*masks the children to the frame*/
