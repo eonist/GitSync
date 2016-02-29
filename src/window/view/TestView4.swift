@@ -55,7 +55,7 @@ class TestView4:AnimatableView {
     func moveRect(y:CGFloat){
         
         Swift.print("y: " + "\(y)")
-        let offsetY = logConstraintValueForYPoisition(y,100)
+        let offsetY = logConstraintValueForYPoisition(y,200)
         Swift.print("offsetY: " + "\(offsetY)")
         rect!.graphic.frame.y = offsetY
     }
