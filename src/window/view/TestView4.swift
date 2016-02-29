@@ -33,7 +33,7 @@ class TestView4:AnimatableView {
         
     }
     override func mouseDown(event: MouseEvent) {
-        onMouseDownPos = localPos()
+        onMouseDownPos = localPos() - rect!.graphic.frame.origin
         
         
     }
