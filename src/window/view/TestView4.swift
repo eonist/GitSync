@@ -31,13 +31,13 @@ class TestView4:AnimatableView {
             if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is direct scrollWheel gesture movment.
                 y += theEvent.scrollingDeltaY
                 Swift.print("y: " + "\(y)")
-                let offsetY = logConstraintValueForYPoisition(y)-1
+                let offsetY = logConstraintValueForYPoisition(y)
                 Swift.print("offsetY: " + "\(offsetY)")
                 //rect!.graphic.frame.y = offsetY
             }
         
     }
     func logConstraintValueForYPoisition(yPosition : CGFloat) -> CGFloat {
-        return 1.0 + (log10(yPosition))
+        return  (log10(yPosition))
     }
 }
