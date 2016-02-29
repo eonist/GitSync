@@ -41,6 +41,7 @@ class TestView4:AnimatableView {
     override func mouseDragged(theEvent: NSEvent) {
         let offset = localPos() - onMouseDownPos
         Swift.print("offset: " + "\(offset)")
+        moveRect(offset.y)
     }
     override func scrollWheel(theEvent: NSEvent) {
         
@@ -50,11 +51,17 @@ class TestView4:AnimatableView {
             let offsetY = logConstraintValueForYPoisition(y,200)
             Swift.print("offsetY: " + "\(offsetY)")
             rect!.graphic.frame.y = offsetY
+            moveRect(theEvent.scrollingDeltaY)
+            
         }
         
     }
-    func moveRect(){
-        
+    func moveRect(y:CGFloat){
+        self.y += y
+        Swift.print("y: " + "\(self.y)")
+        let offsetY = logConstraintValueForYPoisition(self.y,200)
+        Swift.print("offsetY: " + "\(offsetY)")
+        rect!.graphic.frame.y = offsetY
     }
     /**
      * NOTE: the vertical limit is the point where the value almost doesnt move at all.
