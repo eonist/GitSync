@@ -5,6 +5,8 @@ class TestView4:AnimatableView {
     var h:CGFloat = 200
     var rect:RectGraphic?
     var y:CGFloat = 0
+    var offset:CGPoint = CGPoint()
+    var prevOffset:CGPoint = CGPoint()
     var onMouseDownPos:CGPoint = CGPoint()
     override func resolveSkin() {
         super.resolveSkin()
@@ -41,9 +43,12 @@ class TestView4:AnimatableView {
     }
   
     override func mouseDragged(theEvent: NSEvent) {
-        let offset = localPos() - onMouseDownPos
+        offset = (localPos() - onMouseDownPos) + prevOffset
         Swift.print("offset: " + "\(offset)")
         moveRect(offset.y)
+    }
+    override func mouseUp(event: MouseEvent) {
+        prevOffset = offset
     }
     override func scrollWheel(theEvent: NSEvent) {
         
