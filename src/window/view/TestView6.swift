@@ -73,7 +73,9 @@ class TestView6:AnimatableView {
         
         
         
-        if(itemContainer.frame.y + itemContainer.frame.height)
+        if(itemContainer.frame.y < itemContainer.frame.height - maskContainer.frame.height) ){
+            
+        }
         
         super.onFrame()
     }
