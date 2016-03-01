@@ -3,12 +3,12 @@ import Cocoa
 class VerticalThrowArea2 :InteractiveView2{
     var w:CGFloat = 200
     var h:CGFloat = 200
-    var mover:Friction?
+    var mover:RubberBand?
     var prevScrollingDeltaY:CGFloat = 0
     var velocities:Array<CGFloat> = [0,0,0,0,0,0,0,0,0,0]
     init(){
         super.init(frame: NSRect(0,0,w,h))
-        self.mover = Friction(self,0,0,0.98)
+        self.mover = RubberBand(self,0,0,0.98)
         
         
         let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x555555).alpha(0.0))
@@ -31,6 +31,7 @@ class VerticalThrowArea2 :InteractiveView2{
                 if(CVDisplayLinkIsRunning((self.superview as! AnimatableView).displayLink)) {CVDisplayLinkStart((self.superview as! AnimatableView).displayLink);mover!.hasStopped = true;}//the if clause is just a precausion
             }
             mover!.value += theEvent.scrollingDeltaY
+            mover!.updatePosition()
             prevScrollingDeltaY = theEvent.scrollingDeltaY//needed to calc the velocity onScrollWheelUp
             
             velocities.removeLast()
