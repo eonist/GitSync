@@ -7,6 +7,8 @@ class TestView6:AnimatableView {
     let target:CGPoint = CGPoint(100,60)
     var circ:EllipseGraphic!
     var throwArea:VerticalThrowArea?
+    var maskContainer:ItemContainer?
+    var itemContainer:InteractiveView2?
     
     override func resolveSkin() {
         super.resolveSkin()
@@ -47,6 +49,12 @@ class TestView6:AnimatableView {
         //if the above works do the same scheme for when rectContainer.y top is bellow top maskContainer.y
         
         //then apply the when dragging bellow and above the limits then apply log10 friction. on release apply normal conditions, spring and friction
+        
+    }
+    /**
+     * loop movment code
+     */
+    func moveViews(value:CGFloat){
         
     }
     override func scrollWheel(theEvent: NSEvent) {
