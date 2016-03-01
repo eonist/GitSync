@@ -40,8 +40,11 @@ class TestView5:AnimatableView {
     }
     override func onFrame(){
         //Swift.print("drawSomething")
-        if(circ.graphic.frame.x < target.x){//animate a square 100 pixel to the right then stop the frame anim
-            circ.graphic.frame.x += 1
+        let easing:CGFloat = 0.2
+        let dist = target.x - circ.graphic.frame.x
+        
+        if(circ.graphic.frame.x.toFixed(3) <= target.x.toFixed(3)){//animate a square 100 pixel to the right then stop the frame anim
+            circ.graphic.frame.x += (dist * easing)
         }else{
             CVDisplayLinkStop(displayLink);
         }
