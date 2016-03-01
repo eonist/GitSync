@@ -18,7 +18,9 @@ class TestView6:AnimatableView {
         
         //then apply spring and more friction when the above event happens. 
         
-        //if the above works do the same scheme for 
+        //if the above works do the same scheme for when rectContainer.y top is bellow top maskContainer.y
+        
+        
         
     }
 }
