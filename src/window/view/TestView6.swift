@@ -54,7 +54,7 @@ class TestView6:AnimatableView {
      * loop movment code
      */
     func moveViews(value:CGFloat){
-        Swift.print("moveViews() value: " + "\(value)")
+        //Swift.print("moveViews() value: " + "\(value)")
         itemContainer.frame.y = value
     }
     override func scrollWheel(theEvent: NSEvent) {
