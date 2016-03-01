@@ -37,6 +37,7 @@ class TestView5:AnimatableView {
         //then try to add springing
         //the try to add springing to a mouse movment test <--do this in another view
         //then try to make the scrollBar rubberBand effect
+        //try to figure out how to apply custom time spans to tweening
     }
     override func onFrame(){
         //Swift.print("drawSomething")
