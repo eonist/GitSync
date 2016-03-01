@@ -28,6 +28,7 @@ class VerticalThrowArea2 :InteractiveView2{
             velocities.removeLast()
             velocities = [theEvent.scrollingDeltaY] + velocities
         }
+        super.scrollWheel(theEvent)//call super to forward the event to the parent view
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
         
