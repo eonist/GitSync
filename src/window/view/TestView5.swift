@@ -39,6 +39,7 @@ class TestView5:AnimatableView {
         //then try to make the scrollBar rubberBand effect
         //try to figure out how to apply custom time spans to tweening
     }
+    var velocityX:CGFloat = 0
     override func onFrame(){
         //Swift.print("onFrame")
         let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
