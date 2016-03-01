@@ -16,7 +16,7 @@ class TestView6:AnimatableView {
         maskContainer.frame.y = 20
         
         //create a container with 3 rects insider 200x150 per rect
-        let itemContainer = maskContainer.addSubView(InteractiveView2(frame: NSRect(0,0,w,h))) as! ItemContainer
+        let itemContainer = maskContainer.addSubView(InteractiveView2(frame: NSRect(0,0,w,h))) as! InteractiveView2
         itemContainer.frame.y = 0
         
         
@@ -28,7 +28,7 @@ class TestView6:AnimatableView {
         let r2 = RectGraphic(0,0,w,itemH,FillStyle(Colors.yellow()),nil)//Add a red box to the view
         itemContainer.addSubview(r2.graphic)
         r2.draw()
-        r2.y = r1.y + r1.height
+        r2.graphic.y = r1.y + r1.height
         
         let r3 = RectGraphic(0,0,w,itemH,FillStyle(Colors.purple()),nil)//Add a red box to the view
         itemContainer.addSubview(r3.graphic)
