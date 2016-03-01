@@ -6,7 +6,7 @@ class TestView6:AnimatableView {
     var itemH:CGFloat = 150;
     let target:CGPoint = CGPoint(100,60)
     var circ:EllipseGraphic!
-    var throwArea:VerticalThrowArea?
+    var throwArea:VerticalThrowArea2?
     var maskContainer:ItemContainer!
     var itemContainer:InteractiveView2!
     
@@ -36,7 +36,7 @@ class TestView6:AnimatableView {
         itemContainer.addSubview(r3.graphic)
         r3.draw()
         
-        throwArea = addSubView(VerticalThrowArea()) as? VerticalThrowArea
+        throwArea = addSubView(VerticalThrowArea2()) as? VerticalThrowArea2
         throwArea!.frame.y = 20
         
         //add the scrollEvent mover scheme to move the container with the rects
