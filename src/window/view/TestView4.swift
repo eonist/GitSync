@@ -1,5 +1,7 @@
 import Cocoa
-
+/**
+ * 
+ */
 class TestView4:AnimatableView {
     var w:CGFloat = 200
     var h:CGFloat = 200
