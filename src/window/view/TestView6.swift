@@ -28,12 +28,12 @@ class TestView6:AnimatableView {
         let r2 = RectGraphic(0,0,w,itemH,FillStyle(Colors.yellow()),nil)//Add a red box to the view
         itemContainer.addSubview(r2.graphic)
         r2.draw()
-        r2.graphic.y = r1.y + r1.height
+        r2.graphic.frame.y = r1.graphic.frame.y + r1.graphic.frame.height
         
         let r3 = RectGraphic(0,0,w,itemH,FillStyle(Colors.purple()),nil)//Add a red box to the view
         itemContainer.addSubview(r3.graphic)
         r3.draw()
-        r3.y = r2.y + r2.height
+        r3.graphic.frame.y = r2.graphic.frame.y + r2.graphic.frame.height
         
         //add the scrollEvent mover scheme to move the container with the rects
         
