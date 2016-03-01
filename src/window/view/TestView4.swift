@@ -19,7 +19,6 @@ class TestView4:AnimatableView {
         let itemContainer = addSubView(ItemContainer(frame: NSRect(0,0,w,h))) as! ItemContainer
         itemContainer.frame.y = 20
         
-        
         //add a rectangle inside 200x200
         rect = RectGraphic(0,0,w,h,FillStyle(Colors.green()),nil)
         itemContainer.addSubview(rect!.graphic)
