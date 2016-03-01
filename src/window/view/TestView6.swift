@@ -20,7 +20,7 @@ class TestView6:AnimatableView {
         maskContainer.frame.y = 20
         
         //create a container with 3 rects insider 200x150 per rect
-        itemContainer = maskContainer.addSubView(InteractiveView2(frame: NSRect(0,0,w,h))) as! InteractiveView2
+        itemContainer = maskContainer.addSubView(InteractiveView2(frame: NSRect(0,0,w,itemH*3))) as! InteractiveView2
         itemContainer.frame.y = 0
         
         /*Rect*/
