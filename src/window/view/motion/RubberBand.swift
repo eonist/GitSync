@@ -18,14 +18,23 @@ class RubberBand:Mover{
         checkBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
         //checkForStop()
     }
-    /**
-     *
-     */
+    var velocityX:CGFloat = 0
+    let friction:CGFloat = 0.50;
+    let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
+    let spring:CGFloat = 0.2
+    
     func checkBoundries(){
         if(value > maskRect.y){
             Swift.print("the top of the item-container passed the mask-container top checkPoint")
             
             //apply log10 friction here
+            
+            //Swift.print("onFrame")
+            //let easing:CGFloat = 0.2
+            let dist = target.x - circ.graphic.frame.x
+            velocityX += (dist * spring)
+            velocityX *= friction
+            value += velocityX
             
         }
         
