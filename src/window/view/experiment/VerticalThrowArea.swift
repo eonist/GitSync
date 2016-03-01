@@ -14,10 +14,10 @@ class VerticalThrowArea:InteractiveView2{
     var onDownMoverVal:CGFloat?
     
     init(){
-        let frictionValue:CGFloat = 0;
+        
         super.init(frame: NSRect(0,0,w,h))
         //var b1:Rect2 = addSubView(Rect2(_width,_height,FillStyle(Colors.GREEN,_alpha))) as Button
-        self.mover = Friction(self,frictionValue,0,0.98)
+        self.mover = Friction(self,0,0,0.98)
         
         let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x555555).alpha(0.0))
         /*Rect*/

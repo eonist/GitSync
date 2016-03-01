@@ -9,7 +9,7 @@ class VerticalThrowArea2 :InteractiveView2{
     init(){
         super.init(frame: NSRect(0,0,w,h))
         
-        //scrolling
+        self.mover = Friction(self,0,0,0.98)
     }
     /**
      * NOTE: you can use the event.deviceDeltaY to check which direction the gesture is moving in.
