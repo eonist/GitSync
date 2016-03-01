@@ -1,7 +1,7 @@
 import Cocoa
 
 class TestView5:AnimatableView {
-    let target:CGPoint = CGPoint(60,100)
+    let target:CGPoint = CGPoint(60,200)
     var circ:EllipseGraphic!
     override func resolveSkin() {
         super.resolveSkin()
