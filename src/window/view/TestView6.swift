@@ -55,6 +55,21 @@ class TestView6:AnimatableView {
      */
     func moveViews(value:CGFloat){
         //Swift.print("moveViews() value: " + "\(value)")
+        
+        
+        if(itemContainer.frame.y > maskContainer.frame.y){
+            Swift.print("the top of the item-container passed the mask-container top checkPoint")
+        }
+        
+        Swift.print("a: " + "\((itemContainer.frame.y + itemContainer.frame.height))")
+        
+        
+        if((itemContainer.frame.y + itemContainer.frame.height) < maskContainer.frame.height ){
+            Swift.print("the bottom of the item-container passed the mask-container bottom checkPoint")
+        }
+
+        
+        
         itemContainer.frame.y = value
     }
     override func scrollWheel(theEvent: NSEvent) {
@@ -65,15 +80,6 @@ class TestView6:AnimatableView {
         if(throwArea!.mover!.hasStopped){CVDisplayLinkStop(displayLink)}//stop the frameTicker here
         throwArea!.mover!.updatePosition()
         moveViews(throwArea!.mover!.value)
-        
-        if(itemContainer.frame.y > maskContainer.frame.y){
-            Swift.print("the top of the item-container passed the mask-container top checkPoint")
-        }
-        
-        
-        if((itemContainer.frame.y + itemContainer.frame.height) < maskContainer.frame.height ){
-            Swift.print("the bottom of the item-container passed the mask-container bottom checkPoint")
-        }
         
         super.onFrame()
     }
