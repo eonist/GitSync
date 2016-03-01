@@ -57,16 +57,7 @@ class TestView6:AnimatableView {
         //Swift.print("moveViews() value: " + "\(value)")
         
         
-        if(itemContainer.frame.y > maskContainer.frame.y){
-            Swift.print("the top of the item-container passed the mask-container top checkPoint")
-        }
         
-        Swift.print("a: " + "\((itemContainer.frame.y + itemContainer.frame.height))")
-        
-        
-        if((itemContainer.frame.y + itemContainer.frame.height) < maskContainer.frame.height ){
-            Swift.print("the bottom of the item-container passed the mask-container bottom checkPoint")
-        }
 
         
         
