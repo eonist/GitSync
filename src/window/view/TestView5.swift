@@ -1,5 +1,7 @@
 import Cocoa
-
+/**
+ * Testing springTo 
+ */
 class TestView5:AnimatableView {
     let target:CGPoint = CGPoint(100,60)
     var circ:EllipseGraphic!
