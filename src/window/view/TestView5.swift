@@ -45,7 +45,7 @@ class TestView5:AnimatableView {
         let easing:CGFloat = 0.2
         let dist = target.x - circ.graphic.frame.x
         
-        if(circ.graphic.frame.x + epsilon <= target.x){//animate a square 100 pixel to the right then stop the frame anim
+        if(NumberAsserter.isNear(circ.graphic.frame.x,  target.x, epsilon)){//animate a square 100 pixel to the right then stop the frame anim
             circ.graphic.frame.x += (dist * easing)
         }else{
             CVDisplayLinkStop(displayLink);
