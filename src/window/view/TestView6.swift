@@ -42,6 +42,7 @@ class TestView6:AnimatableView {
         //add the scrollEvent mover scheme to move the container with the rects
         
         //when y+height of rectContainer is above y+height of the maskContainer then stop moving the rectContainer
+            //create checkpoints and print when the checkpoinst are passed
         
         //then apply spring and more friction when the above event happens. 
         
@@ -65,6 +66,15 @@ class TestView6:AnimatableView {
         if(throwArea!.mover!.hasStopped){CVDisplayLinkStop(displayLink)}//stop the frameTicker here
         throwArea!.mover!.updatePosition()
         moveViews(throwArea!.mover!.value)
+        
+        if(itemContainer.frame.y > maskContainer.frame.y){
+            Swift.print("the item container passed its top checkPoint")
+        }
+        
+        
+        
+        if(itemContainer.frame.y + itemContainer.frame.height)
+        
         super.onFrame()
     }
 }
