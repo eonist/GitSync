@@ -49,7 +49,6 @@ class TestView6:AnimatableView {
         //if the above works do the same scheme for when rectContainer.y top is bellow top maskContainer.y
         
         //then apply the when dragging bellow and above the limits then apply log10 friction. on release apply normal conditions, spring and friction
-        
     }
     /**
      * loop movment code
@@ -68,13 +67,12 @@ class TestView6:AnimatableView {
         moveViews(throwArea!.mover!.value)
         
         if(itemContainer.frame.y > maskContainer.frame.y){
-            Swift.print("the item container passed its top checkPoint")
+            Swift.print("the top of the item-container passed the mask-container top checkPoint")
         }
         
         
-        
-        if(itemContainer.frame.y < itemContainer.frame.height - maskContainer.frame.height) ){
-            
+        if((itemContainer.frame.y + itemContainer.frame.height) < maskContainer.frame.height ){
+            Swift.print("the bottom of the item-container passed the mask-container bottom checkPoint")
         }
         
         super.onFrame()
