@@ -1,7 +1,7 @@
 import Cocoa
 
 class TestView5:AnimatableView {
-    let target:CGPoint = CGPoint(60,200)
+    let target:CGPoint = CGPoint(60,300)
     var circ:EllipseGraphic!
     override func resolveSkin() {
         super.resolveSkin()
@@ -49,6 +49,7 @@ class TestView5:AnimatableView {
         let dist = target.x - circ.graphic.frame.x
         if(!NumberAsserter.isNear(circ.graphic.frame.x, target.x, epsilon)){//animate a square 100 pixel to the right then stop the frame anim
             velocityX += (dist * spring)
+            velocityX *= friction
             circ.graphic.frame.x += velocityX
             //circ.graphic.frame.x += (dist * easing)
         }else{
