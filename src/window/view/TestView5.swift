@@ -43,11 +43,14 @@ class TestView5:AnimatableView {
     override func onFrame(){
         //Swift.print("onFrame")
         let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
-        let easing:CGFloat = 0.2
+        //let easing:CGFloat = 0.2
         let dist = target.x - circ.graphic.frame.x
+        let spring:CGFloat = 0.2
         
         if(!NumberAsserter.isNear(circ.graphic.frame.x, target.x, epsilon)){//animate a square 100 pixel to the right then stop the frame anim
-            circ.graphic.frame.x += (dist * easing)
+            velocityX += (dist * spring)
+            circ.graphic.frame.x += velocityX
+            //circ.graphic.frame.x += (dist * easing)
         }else{
             CVDisplayLinkStop(displayLink);
         }
