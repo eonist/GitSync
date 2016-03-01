@@ -1,6 +1,8 @@
 import Cocoa
 
 class TestView5:AnimatableView {
+    let target:CGPoint = CGPoint(60,100)
+    var circ:EllipseGraphic!
     override func resolveSkin() {
         super.resolveSkin()
         motionTest()
@@ -25,7 +27,7 @@ class TestView5:AnimatableView {
         
         let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964))
         /*circ*/
-        let circ = EllipseGraphic(0,0,50,50,fill,nil)//create a circle that represents the object to animate
+        circ = EllipseGraphic(0,0,50,50,fill,nil)//create a circle that represents the object to animate
         addSubview(circ.graphic)
         circ.draw()
         circ.graphic.frame.y = 60
@@ -38,7 +40,7 @@ class TestView5:AnimatableView {
     }
     override func onFrame(){
         //Swift.print("drawSomething")
-        if(circ.graphic.frame.x < 100){//animate a square 100 pixel to the right then stop the frame anim
+        if(circ.graphic.frame.x < target.x){//animate a square 100 pixel to the right then stop the frame anim
             circ.graphic.frame.x += 1
         }else{
             CVDisplayLinkStop(displayLink);
