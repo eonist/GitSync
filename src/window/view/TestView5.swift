@@ -40,7 +40,7 @@ class TestView5:AnimatableView {
         //try to figure out how to apply custom time spans to tweening
     }
     var velocityX:CGFloat = 0
-    let friction:CGFloat = 0.70;
+    let friction:CGFloat = 0.60;
     let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
     let spring:CGFloat = 0.2
     override func onFrame(){
