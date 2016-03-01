@@ -25,15 +25,13 @@ class TestView6:AnimatableView {
         itemContainer.addSubview(r1.graphic)
         r1.draw()
         
-        let r2 = RectGraphic(0,0,w,itemH,FillStyle(Colors.yellow()),nil)//Add a red box to the view
+        let r2 = RectGraphic(0,itemH,w,itemH,FillStyle(Colors.yellow()),nil)//Add a red box to the view
         itemContainer.addSubview(r2.graphic)
         r2.draw()
-        r2.graphic.frame.y = r1.graphic.frame.y + r1.graphic.frame.height
         
-        let r3 = RectGraphic(0,0,w,itemH,FillStyle(Colors.purple()),nil)//Add a red box to the view
+        let r3 = RectGraphic(0,itemH*2,w,itemH,FillStyle(Colors.purple()),nil)//Add a red box to the view
         itemContainer.addSubview(r3.graphic)
         r3.draw()
-        r3.graphic.frame.y = r2.graphic.frame.y + r2.graphic.frame.height
         
         //add the scrollEvent mover scheme to move the container with the rects
         
