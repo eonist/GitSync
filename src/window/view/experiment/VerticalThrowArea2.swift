@@ -8,7 +8,6 @@ class VerticalThrowArea2 :InteractiveView2{
     var velocities:Array<CGFloat> = [0,0,0,0,0,0,0,0,0,0]
     init(){
         super.init(frame: NSRect(0,0,w,h))
-        
         self.mover = Friction(self,0,0,0.98)
     }
     /**
