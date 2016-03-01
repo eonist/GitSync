@@ -6,6 +6,8 @@ class TestView6:AnimatableView {
     var itemH:CGFloat = 150;
     let target:CGPoint = CGPoint(100,60)
     var circ:EllipseGraphic!
+    var throwArea:VerticalThrowArea?
+    
     override func resolveSkin() {
         super.resolveSkin()
         listAnimTest()
@@ -32,6 +34,9 @@ class TestView6:AnimatableView {
         let r3 = RectGraphic(0,itemH*2,w,itemH,FillStyle(Colors.purple()),nil)//Add a red box to the view
         itemContainer.addSubview(r3.graphic)
         r3.draw()
+        
+        throwArea = addSubView(VerticalThrowArea()) as? VerticalThrowArea
+        throwArea!.frame.y = 20
         
         //add the scrollEvent mover scheme to move the container with the rects
         
