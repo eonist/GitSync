@@ -40,12 +40,12 @@ class TestView5:AnimatableView {
         //try to figure out how to apply custom time spans to tweening
     }
     override func onFrame(){
-        //Swift.print("drawSomething")
+        Swift.print("onFrame")
         let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
         let easing:CGFloat = 0.2
         let dist = target.x - circ.graphic.frame.x
         
-        if(NumberAsserter.isNear(circ.graphic.frame.x,  target.x, epsilon)){//animate a square 100 pixel to the right then stop the frame anim
+        if(!NumberAsserter.isNear(circ.graphic.frame.x, target.x, epsilon)){//animate a square 100 pixel to the right then stop the frame anim
             circ.graphic.frame.x += (dist * easing)
         }else{
             CVDisplayLinkStop(displayLink);
