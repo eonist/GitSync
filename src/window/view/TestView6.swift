@@ -7,8 +7,8 @@ class TestView6:AnimatableView {
     let target:CGPoint = CGPoint(100,60)
     var circ:EllipseGraphic!
     var throwArea:VerticalThrowArea?
-    var maskContainer:ItemContainer?
-    var itemContainer:InteractiveView2?
+    var maskContainer:ItemContainer!
+    var itemContainer:InteractiveView2!
     
     override func resolveSkin() {
         super.resolveSkin()
@@ -16,13 +16,12 @@ class TestView6:AnimatableView {
     }
     func listAnimTest(){
         //create a container with a mask 200x200
-        let maskContainer = addSubView(ItemContainer(frame: NSRect(0,0,w,h))) as! ItemContainer
+        maskContainer = addSubView(ItemContainer(frame: NSRect(0,0,w,h))) as! ItemContainer
         maskContainer.frame.y = 20
         
         //create a container with 3 rects insider 200x150 per rect
-        let itemContainer = maskContainer.addSubView(InteractiveView2(frame: NSRect(0,0,w,h))) as! InteractiveView2
+        itemContainer = maskContainer.addSubView(InteractiveView2(frame: NSRect(0,0,w,h))) as! InteractiveView2
         itemContainer.frame.y = 0
-        
         
         /*Rect*/
         let r1 = RectGraphic(0,0,w,itemH,FillStyle(Colors.green()),nil)//Add a red box to the view
@@ -55,7 +54,7 @@ class TestView6:AnimatableView {
      * loop movment code
      */
     func moveViews(value:CGFloat){
-        
+        itemContainer.frame.y = value
     }
     override func scrollWheel(theEvent: NSEvent) {
         if(theEvent.phase == NSEventPhase.Changed){moveViews(throwArea!.mover!.value)}
