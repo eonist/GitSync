@@ -11,12 +11,12 @@ class TestView6:AnimatableView {
     }
     func listAnimTest(){
         //create a container with a mask 200x200
-        let itemContainer = addSubView(ItemContainer(frame: NSRect(0,0,w,h))) as! ItemContainer
-        itemContainer.frame.y = 20
+        let maskContainer = addSubView(ItemContainer(frame: NSRect(0,0,w,h))) as! ItemContainer
+        maskContainer.frame.y = 20
         
         //create a container with 3 rects insider 200x150 per rect
-        let itemContainer = addSubView(ItemContainer(frame: NSRect(0,0,w,h))) as! ItemContainer
-        itemContainer.frame.y = 20
+        let itemContainer = maskContainer.addSubView(InteractiveView2(frame: NSRect(0,0,w,h))) as! ItemContainer
+        itemContainer.frame.y = 0
         
         //add a textField here
         /* let textField = TextField(frame: NSRect(x: 0, y: 0, width: w, height: h))
