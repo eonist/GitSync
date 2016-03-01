@@ -13,7 +13,7 @@ class RubberBand:Mover{
         
     }
     override func updatePosition() {
-        super.updatePosition()
+        
         //applyFriction()/*apply friction for every frame called*/
         checkBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
         //checkForStop()
@@ -27,26 +27,23 @@ class RubberBand:Mover{
         if(value > maskRect.y){
             Swift.print("the top of the item-container passed the mask-container top checkPoint")
             
-            //apply log10 friction here
+            
             
             //Swift.print("onFrame")
             //let easing:CGFloat = 0.2
-            let dist = target.x - circ.graphic.frame.x
+            let dist = value
             velocityX += (dist * spring)
             velocityX *= friction
             value += velocityX
             
-        }
-        
-        Swift.print("a: " + "\((itemRect.y + itemRect.height))")
-        
-        
-        if((value + itemRect.height) < maskRect.height ){
+        }else if((value + itemRect.height) < maskRect.height ){
             Swift.print("the bottom of the item-container passed the mask-container bottom checkPoint")
             
-            //apply log10 friction here
             
             
+            
+        }else{
+            super.updatePosition()
         }
     }
     /*
