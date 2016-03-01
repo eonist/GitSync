@@ -44,4 +44,14 @@ class TestView6:AnimatableView {
         //then apply the when dragging bellow and above the limits then apply log10 friction. on release apply normal conditions, spring and friction
         
     }
+    override func scrollWheel(theEvent: NSEvent) {
+        if(theEvent.phase == NSEventPhase.Changed){moveViews(throwArea!.mover!.value)}
+    }
+    override func onFrame(){
+        //Swift.print("onFrame() value: " + "\(throwArea!.mover!.value)")
+        if(throwArea!.mover!.hasStopped){CVDisplayLinkStop(displayLink)}//stop the frameTicker here
+        throwArea!.mover!.updatePosition()
+        moveViews(throwArea!.mover!.value)
+        super.onFrame()
+    }
 }

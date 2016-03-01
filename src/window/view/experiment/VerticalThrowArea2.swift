@@ -3,6 +3,9 @@ import Cocoa
 class VerticalThrowArea2 :InteractiveView2{
     var w:CGFloat = 200
     var h:CGFloat = 200
+    var mover:Friction?
+    var prevScrollingDeltaY:CGFloat = 0
+    var velocities:Array<CGFloat> = [0,0,0,0,0,0,0,0,0,0]
     init(){
         super.init(frame: NSRect(0,0,w,h))
         
