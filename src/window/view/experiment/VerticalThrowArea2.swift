@@ -49,6 +49,9 @@ class VerticalThrowArea2 :InteractiveView2{
         }
         super.scrollWheel(theEvent)//call super to forward the event to the parent view
     }
+    /**
+     *
+     */
     func onScrollWheelDown(){
         //Swift.print("onScrollWheelDown")
         prevScrollingDeltaY = 0
@@ -56,6 +59,9 @@ class VerticalThrowArea2 :InteractiveView2{
         velocities = [0,0,0,0,0,0,0,0,0,0]//reset the velocities
 //mover!.slowDownFriction = 0.40//set this to 0.70 and the slowdown prosses is slower
     }
+    /**
+     * 
+     */
     func onScrollWheelUp(){
         //Swift.print("onScrollWheelUp " + "\(prevScrollingDeltaY)")
 //mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
