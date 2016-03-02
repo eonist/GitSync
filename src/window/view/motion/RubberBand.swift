@@ -48,8 +48,9 @@ class RubberBand:Mover{
         }else{
             let dist = -value/*distanceToGoal*/
             velocity += (dist * spring)
-            velocity *= springFriction
+            //velocity *= springFriction
             value += velocity
+            CustomFriction.logConstraintValueForYPoisition(value,200)
             if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
             result = value
         }
@@ -68,9 +69,8 @@ class RubberBand:Mover{
         }else{
             let dist = maskRect.height - (value + itemRect.height)/*distanceToGoal*/
             velocity += (dist * spring)
-            //velocity *= springFriction
+            velocity *= springFriction
             value += velocity
-            CustomFriction.logConstraintValueForYPoisition(value,200)
             if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
             result = value
         }
