@@ -43,6 +43,7 @@ class TestView6:AnimatableView {
         let r5 = RectGraphic(0,itemH*4,w,itemH,FillStyle(Colors.lightBlue()),nil)//Add a red box to the view
         itemContainer.addSubview(r5.graphic)
         r5.draw()
+        
         let colors:Array<NSColor> = [Colors.green(),Colors.yellow(),Colors.purple(),Colors.orange(),Colors.lightBlue()]
         for var i = 0; i < colors.count; ++i{
             print(i)
