@@ -17,10 +17,8 @@ class VerticalThrowArea2 :InteractiveView2{
         super.init(frame: NSRect(0,0,w,h))
         self.mover = RubberBand(self,0,0,0.98)
         
-        
-        let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x555555).alpha(0.0))
-        /*Rect*/
-        let rect = addSubview(RectGraphic(0,0,w,h,fill,nil)) as! RectGraphic//Add a red box to the view
+        let rect = RectGraphic(0,0,w,h,FillStyle(NSColor.redColor().alpha(0.0)),nil)//Add a red box to the view
+        addSubview(rect.graphic)
         rect.draw()
     }
     /**
