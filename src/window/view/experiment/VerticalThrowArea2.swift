@@ -5,7 +5,7 @@ import Cocoa
  * TODO: Clean up the code
  * TODO: add the log10 friction when direcectly manipulating
  * TODO: Figure out a way to make things simpler. Either with events or via more parent child communication. think long term here
- * TODO: 
+ * TODO: implement the rubberband for the bottom aswell
  */
 class VerticalThrowArea2 :InteractiveView2{
     var w:CGFloat = 200
