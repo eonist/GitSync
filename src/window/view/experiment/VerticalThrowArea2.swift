@@ -33,7 +33,7 @@ class VerticalThrowArea2 :InteractiveView2{
             if(!mover!.hasStopped){
                 if(CVDisplayLinkIsRunning((self.superview as! AnimatableView).displayLink)) {CVDisplayLinkStart((self.superview as! AnimatableView).displayLink);mover!.hasStopped = true;}//the if clause is just a precausion
             }
-            mover!.value += theEvent.scrollingDeltaY/*directly manipulate the value 1 to 1 control*/
+            mover!.inputVal += theEvent.scrollingDeltaY/*directly manipulate the value 1 to 1 control*/
             mover!.updatePosition()
             prevScrollingDeltaY = theEvent.scrollingDeltaY//needed to calc the velocity onScrollWheelUp
             
