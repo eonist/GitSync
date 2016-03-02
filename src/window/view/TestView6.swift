@@ -65,7 +65,7 @@ class TestView6:AnimatableView {
         //Swift.print("onFrame() value: " + "\(throwArea!.mover!.value)")
         if(throwArea!.mover!.hasStopped){//stop the frameTicker here
             CVDisplayLinkStop(displayLink)
-        }else{
+        }else{//only move the view if the mover is not stopped
             throwArea!.mover!.updatePosition()
             moveViews(throwArea!.mover!.result)
         }
