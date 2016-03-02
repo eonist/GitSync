@@ -17,7 +17,6 @@ class RubberBand:Mover{
         Swift.print("updatePosition()")
         //applyFriction()/*apply friction for every frame called*/
         applyBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
-        result = value
     }
     //var velocityX:CGFloat = 0
     let springFriction:CGFloat = 0.50;
@@ -32,19 +31,21 @@ class RubberBand:Mover{
             velocity *= frictionStrength
             super.updatePosition()
             checkForStop()
+            result = value
         }
     }
     func applyTopBoundry(){
         //Swift.print("")
         if(isDirectlyManipulating){
             //dont do anything here
-            //result = CustomFriction.logConstraintValueForYPoisition(value,200)
+            result = CustomFriction.logConstraintValueForYPoisition(value,200)
         }else{
             let dist = -value/*distanceToGoal*/
             velocity += (dist * spring)
             velocity *= springFriction
             value += velocity
             if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
+            result = value
         }
     }
     func applyBottomBoundry(){
@@ -57,6 +58,7 @@ class RubberBand:Mover{
             velocity *= springFriction
             value += velocity
             if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
+            result = value
         }
     }
     /*
