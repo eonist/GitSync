@@ -3,7 +3,8 @@ import Cocoa
  * TODO: make the list longer with more colors
  * TODO: Centralize the sizes
  * TODO: Clean up the code
- * TODO: 
+ * TODO: add the log10 friction when direcectly manipulating
+ * TODO: Figure out a way to make things simpler. Either with events or via more parent child communication. think long term here
  */
 class VerticalThrowArea2 :InteractiveView2{
     var w:CGFloat = 200
