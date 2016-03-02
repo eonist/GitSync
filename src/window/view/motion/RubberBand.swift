@@ -57,6 +57,8 @@ class RubberBand:Mover{
     
     
     //in an isolated test try to create a vertical limit on the amount of spring and friction that is possible to ad
+    //you need to apply the vertical limit on the velocity.
+    //try to draw this scenario to understand it better
     
     
     func applyBottomBoundry(){
