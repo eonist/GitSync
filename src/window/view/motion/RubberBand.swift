@@ -25,7 +25,7 @@ class RubberBand:Mover{
     
     func checkBoundries(){
         if(value > maskRect.y){
-            Swift.print("the top of the item-container passed the mask-container top checkPoint")
+            //Swift.print("the top of the item-container passed the mask-container top checkPoint")
             
 
             //Swift.print("onFrame")
@@ -36,7 +36,7 @@ class RubberBand:Mover{
             value += velocity
             
         }else if((value + itemRect.height) < maskRect.height ){
-            Swift.print("the bottom of the item-container passed the mask-container bottom checkPoint")
+            //Swift.print("the bottom of the item-container passed the mask-container bottom checkPoint")
 
             
         }else{
