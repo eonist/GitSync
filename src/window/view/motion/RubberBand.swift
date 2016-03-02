@@ -64,3 +64,16 @@ class RubberBand:Mover{
         }
     }
 }
+//offsetY = logConstraintValueForYPoisition(y,200)
+private class CustomFriction{
+    
+
+    /**
+     * NOTE: the vertical limit is the point where the value almost doesnt move at all.
+     */
+    class func logConstraintValueForYPoisition(yPosition : CGFloat, _ verticalLimit:CGFloat) -> CGFloat {
+        return verticalLimit * (log10(1.0 + yPosition/verticalLimit))
+    }
+
+
+}
