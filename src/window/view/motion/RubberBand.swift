@@ -33,6 +33,7 @@ class RubberBand:Mover{
                 velocity += (dist * spring)
                 velocity *= springFriction
                 value += velocity
+                checkForStop(dist)
             }
         }else if((value + itemRect.height) < maskRect.height){/*the bottom of the item-container passed the mask-container bottom checkPoint*/
             //Swift.print("")
@@ -43,6 +44,7 @@ class RubberBand:Mover{
                 velocity += (dist * spring)
                 velocity *= springFriction
                 value += velocity
+                checkForStop(dist)
             }
 
         }else{/*within the boundries*/
@@ -55,15 +57,18 @@ class RubberBand:Mover{
      * When velocity is less than epsilon basically less than half of a twib 0.15. then set the hasStopped flag to true
      * NOTE: Basically stops listening for the onFrame event
      */
-    func checkForStop(checkDistanceToGoal:Bool = false, _ distanceToGoal:CGFloat = 0) {
+    func checkForStop() {
         //Swift.print( "\(value.toFixed(3))" + " checkForStop " + "\((lastValue).toFixed(3))")
         if(!isDirectlyManipulating && NumberAsserter.isNear(velocity, 0, 0.15)) {
             Swift.print("stop velocity: " + "\(velocity)")
-            if(checkDistanceToGoal && distanceToGoal < 1){
-                hasStopped = true
-                return
-            }else{hasStopped = false;return}
+            
             hasStopped = true
         }
+    }
+    func checkForStop(distanceToGoal:CGFloat){
+        if(NumberAsserter.isNear(distanceToGoal, 0, 1)){ 
+            checkForStop()
+        }
+        hasStopped = false
     }
 }
