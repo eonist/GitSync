@@ -22,7 +22,7 @@ class RubberBand:Mover{
         super.init(target, value, velocity)
     }
     override func updatePosition() {
-        Swift.print("updatePosition()")
+        //Swift.print("updatePosition()")
         //applyFriction()/*apply friction for every frame called*/
         applyBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
     }
