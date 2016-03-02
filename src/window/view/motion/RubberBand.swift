@@ -43,6 +43,7 @@ class RubberBand:Mover{
     func applyTopBoundry(){
         //Swift.print("")
         if(isDirectlyManipulating){
+            Swift.print("inputVal: " + "\(inputVal)")
             //dont do anything here
             value = CustomFriction.logConstraintValueForYPoisition(inputVal,200)
             result = value
