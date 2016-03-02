@@ -1,6 +1,6 @@
 import Cocoa
 /**
- * 
+ * Testing log10 friction
  */
 class TestView4:AnimatableView {
     var w:CGFloat = 200
