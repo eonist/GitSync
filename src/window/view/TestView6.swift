@@ -23,30 +23,12 @@ class TestView6:AnimatableView {
         itemContainer = maskContainer.addSubView(InteractiveView2(frame: NSRect(0,0,w,itemH*3))) as! InteractiveView2
         itemContainer.frame.y = 0
         
-        /*Rect*/
-        let r1 = RectGraphic(0,0,w,itemH,FillStyle(Colors.green()),nil)//Add a red box to the view
-        itemContainer.addSubview(r1.graphic)
-        r1.draw()
-        
-        let r2 = RectGraphic(0,itemH,w,itemH,FillStyle(Colors.yellow()),nil)//Add a red box to the view
-        itemContainer.addSubview(r2.graphic)
-        r2.draw()
-        
-        let r3 = RectGraphic(0,itemH*2,w,itemH,FillStyle(Colors.purple()),nil)//Add a red box to the view
-        itemContainer.addSubview(r3.graphic)
-        r3.draw()
-        
-        let r4 = RectGraphic(0,itemH*3,w,itemH,FillStyle(Colors.orange()),nil)//Add a red box to the view
-        itemContainer.addSubview(r4.graphic)
-        r4.draw()
-        
-        let r5 = RectGraphic(0,itemH*4,w,itemH,FillStyle(Colors.lightBlue()),nil)//Add a red box to the view
-        itemContainer.addSubview(r5.graphic)
-        r5.draw()
-        
         let colors:Array<NSColor> = [Colors.green(),Colors.yellow(),Colors.purple(),Colors.orange(),Colors.lightBlue()]
         for var i = 0; i < colors.count; ++i{
-            print(i)
+            /*Rect*/
+            let r1 = RectGraphic(0,0,w,itemH,FillStyle(colors[i]),nil)//Add a red box to the view
+            itemContainer.addSubview(r1.graphic)
+            r1.draw()
         }
         
         
