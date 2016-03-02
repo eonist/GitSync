@@ -62,6 +62,7 @@ class VerticalThrowArea2 :InteractiveView2{
     func onScrollWheelDown(){
         //Swift.print("onScrollWheelDown")
         CVDisplayLinkStop((self.superview as! AnimatableView).displayLink)
+        mover!.hasStopped = true
         prevScrollingDeltaY = 0
         mover!.isDirectlyManipulating = true
         velocities = [0,0,0,0,0,0,0,0,0,0]//reset the velocities
