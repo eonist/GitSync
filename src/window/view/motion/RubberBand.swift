@@ -29,18 +29,18 @@ class RubberBand:Mover{
                 //dont do anything here
                 //result = CustomFriction.logConstraintValueForYPoisition(value,200)
             }else{
-                let dist = -value/*distanceToGoal*/
+                let dist = -val/*distanceToGoal*/
                 velocity += (dist * spring)
                 velocity *= springFriction
                 val += velocity
                 if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
             }
-        }else if((value + itemRect.height) < maskRect.height){/*the bottom of the item-container passed the mask-container bottom checkPoint*/
+        }else if((val + itemRect.height) < maskRect.height){/*the bottom of the item-container passed the mask-container bottom checkPoint*/
             //Swift.print("")
             if(isDirectlyManipulating){
                 //dont do anything here
             }else{
-                let dist = maskRect.height - (value + itemRect.height)/*distanceToGoal*/
+                let dist = maskRect.height - (val + itemRect.height)/*distanceToGoal*/
                 velocity += (dist * spring)
                 velocity *= springFriction
                 val += velocity
