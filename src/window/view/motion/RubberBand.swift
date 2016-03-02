@@ -30,18 +30,18 @@ class RubberBand:Mover{
         if(value > maskRect.y){
             //Swift.print("the top of the item-container passed the mask-container top checkPoint")
             
-            
             //Swift.print("onFrame")
             //let easing:CGFloat = 0.2
-            let dist = -value
-            velocity += (dist * spring)
-            velocity *= springFriction
-            value += velocity
             
+            if(isDirectlyManipulating){
+                
+            }else{
+                let dist = -value
+                velocity += (dist * spring)
+                velocity *= springFriction
+                value += velocity
+            }
             
-            //create a bool flag named isDirectlyManipulating
-            
-            //then start using the result value
             
             //then create the finger friction
             

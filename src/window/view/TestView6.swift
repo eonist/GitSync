@@ -59,13 +59,13 @@ class TestView6:AnimatableView {
         itemContainer.frame.y = value
     }
     override func scrollWheel(theEvent: NSEvent) {
-        if(theEvent.phase == NSEventPhase.Changed){moveViews(throwArea!.mover!.value)}
+        if(theEvent.phase == NSEventPhase.Changed){moveViews(throwArea!.mover!.result)}
     }
     override func onFrame(){
         //Swift.print("onFrame() value: " + "\(throwArea!.mover!.value)")
         if(throwArea!.mover!.hasStopped){CVDisplayLinkStop(displayLink)}//stop the frameTicker here
         throwArea!.mover!.updatePosition()
-        moveViews(throwArea!.mover!.value)
+        moveViews(throwArea!.mover!.result)
         
         super.onFrame()
     }
