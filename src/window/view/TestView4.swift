@@ -24,23 +24,15 @@ class TestView4:AnimatableView {
         itemContainer.addSubview(rect!.graphic)
         rect!.draw()
         
-        //onscrolwheel direct manipulation 
-        
-        //start to apply log10 on the y and dist to top.y
-        
         //try your example with the mouse aswell
         
         //on mouse down -> record the position
         
         //on mouse move -> dif the cur pos with the onDownPos to get the current offset
-        
     }
     override func mouseDown(event: MouseEvent) {
         onMouseDownPos = localPos()
-        
-        
     }
-  
     override func mouseDragged(theEvent: NSEvent) {
         offset = (localPos() - onMouseDownPos) + prevOffset
         Swift.print("offset: " + "\(offset)")

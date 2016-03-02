@@ -34,11 +34,6 @@ class TestView5:AnimatableView {
         circ.draw()
         circ.graphic.frame.y = 60
         
-        //first add linear animation
-        //then add ease out
-        //then try to add springing
-        //the try to add springing to a mouse movment test <--do this in another view
-        //then try to make the scrollBar rubberBand effect
         //try to figure out how to apply custom time spans to tweening
     }
     var velocityX:CGFloat = 0
