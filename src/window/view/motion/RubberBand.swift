@@ -28,7 +28,7 @@ class RubberBand:Mover{
         if(value > maskRect.y){
             //Swift.print("the top of the item-container passed the mask-container top checkPoint")
             
-
+            
             //Swift.print("onFrame")
             //let easing:CGFloat = 0.2
             let dist = -value
