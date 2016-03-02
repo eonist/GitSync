@@ -12,7 +12,6 @@ class RubberBand:Mover{
     init(_ target:NSView, _ value:CGFloat, _ velocity:CGFloat = 0, _ frictionStrength:CGFloat = 0.98){
         self.frictionStrength = frictionStrength
         super.init(target, value, velocity)
-        
     }
     override func updatePosition() {
         Swift.print("updatePosition()")
@@ -25,13 +24,11 @@ class RubberBand:Mover{
     let springFriction:CGFloat = 0.50;
     let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
     var spring:CGFloat = 0.1
-    
     func checkBoundries(){
         if(value > maskRect.y){/*the top of the item-container passed the mask-container top checkPoint*/
             //Swift.print("")
-            
             if(isDirectlyManipulating){
-                
+                //dont do anything here
             }else{
                 let dist = -value
                 velocity += (dist * spring)
@@ -41,8 +38,7 @@ class RubberBand:Mover{
         }else if((value + itemRect.height) < maskRect.height){/*the bottom of the item-container passed the mask-container bottom checkPoint*/
             //Swift.print("")
 
-            
-        }else{
+        }else{/*within the boundries*/
             velocity *= frictionStrength
             super.updatePosition()
         }
