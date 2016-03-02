@@ -16,34 +16,35 @@ class RubberBand:Mover{
     override func updatePosition() {
         Swift.print("updatePosition()")
         //applyFriction()/*apply friction for every frame called*/
-        result = applyBoundries(value)/*assert if the movement is close to stopping, if it is then stop it*/
+        applyBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
+        result = value
     }
     //var velocityX:CGFloat = 0
     let springFriction:CGFloat = 0.50;
     let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
     var spring:CGFloat = 0.1
-    func applyBoundries(var val:CGFloat)->CGFloat{
-        if(val > maskRect.y){/*the top of the item-container passed the mask-container top checkPoint*/
+    func applyBoundries() {
+        if(value > maskRect.y){/*the top of the item-container passed the mask-container top checkPoint*/
             //Swift.print("")
             if(isDirectlyManipulating){
                 //dont do anything here
                 //result = CustomFriction.logConstraintValueForYPoisition(value,200)
             }else{
-                let dist = -val/*distanceToGoal*/
+                let dist = -value/*distanceToGoal*/
                 velocity += (dist * spring)
                 velocity *= springFriction
-                val += velocity
+                value += velocity
                 if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
             }
-        }else if((val + itemRect.height) < maskRect.height){/*the bottom of the item-container passed the mask-container bottom checkPoint*/
+        }else if((value + itemRect.height) < maskRect.height){/*the bottom of the item-container passed the mask-container bottom checkPoint*/
             //Swift.print("")
             if(isDirectlyManipulating){
                 //dont do anything here
             }else{
-                let dist = maskRect.height - (val + itemRect.height)/*distanceToGoal*/
+                let dist = maskRect.height - (value + itemRect.height)/*distanceToGoal*/
                 velocity += (dist * spring)
                 velocity *= springFriction
-                val += velocity
+                value += velocity
                 if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
             }
         }else{/*within the boundries*/
@@ -51,7 +52,6 @@ class RubberBand:Mover{
             super.updatePosition()
             checkForStop()
         }
-        return val
     }
     /*
      * When velocity is less than epsilon basically less than half of a twib 0.15. then set the hasStopped flag to true
