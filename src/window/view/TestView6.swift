@@ -63,10 +63,12 @@ class TestView6:AnimatableView {
     }
     override func onFrame(){
         //Swift.print("onFrame() value: " + "\(throwArea!.mover!.value)")
-        if(throwArea!.mover!.hasStopped){CVDisplayLinkStop(displayLink)}//stop the frameTicker here
-        throwArea!.mover!.updatePosition()
-        moveViews(throwArea!.mover!.result)
-        
+        if(throwArea!.mover!.hasStopped){//stop the frameTicker here
+            CVDisplayLinkStop(displayLink)
+        }else{
+            throwArea!.mover!.updatePosition()
+            moveViews(throwArea!.mover!.result)
+        }
         super.onFrame()
     }
 }
