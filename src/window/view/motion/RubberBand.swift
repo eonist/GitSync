@@ -55,10 +55,13 @@ class RubberBand:Mover{
      * When velocity is less than epsilon basically less than half of a twib 0.15. then set the hasStopped flag to true
      * NOTE: Basically stops listening for the onFrame event
      */
-    func checkForStop() {
+    func checkForStop(checkDistanceToGoal:Bool = false, _ distanceToGoal:CGFloat = 0) {
         //Swift.print( "\(value.toFixed(3))" + " checkForStop " + "\((lastValue).toFixed(3))")
         if(!isDirectlyManipulating && NumberAsserter.isNear(velocity, 0, 0.15)) {
             Swift.print("stop velocity: " + "\(velocity)")
+            if(checkDistanceToGoal){
+                
+            }
             hasStopped = true
         }
     }
