@@ -19,7 +19,7 @@ class RubberBand:Mover{
         //applyFriction()/*apply friction for every frame called*/
         checkBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
         result = value
-        //checkForStop()
+        checkForStop()
     }
     //var velocityX:CGFloat = 0
     let springFriction:CGFloat = 0.50;
@@ -61,7 +61,7 @@ class RubberBand:Mover{
      */
     func checkForStop() {
         //Swift.print( "\(value.toFixed(3))" + " checkForStop " + "\((lastValue).toFixed(3))")
-        if(velocity < 0.15) {
+        if(!isDirectlyManipulating && velocity < 0.015) {
             Swift.print("stop")
             hasStopped = true
         }
