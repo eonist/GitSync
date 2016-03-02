@@ -18,7 +18,6 @@ class RubberBand:Mover{
         //applyFriction()/*apply friction for every frame called*/
         checkBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
         result = value
-        checkForStop()
     }
     //var velocityX:CGFloat = 0
     let springFriction:CGFloat = 0.50;
@@ -49,6 +48,7 @@ class RubberBand:Mover{
         }else{/*within the boundries*/
             velocity *= frictionStrength
             super.updatePosition()
+            checkForStop()
         }
     }
     /*
