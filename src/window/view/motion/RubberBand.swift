@@ -4,7 +4,7 @@ import Cocoa
  */
 class RubberBand:Mover{
     //values
-    var inputVal:CGFloat = 0;/*input value*/
+    //var inputVal:CGFloat = 0;/*input value*/
     var result:CGFloat = 0/*output value*/
     //props
     var maskRect:CGRect = CGRect(0,0,200,200)
@@ -45,8 +45,7 @@ class RubberBand:Mover{
         if(isDirectlyManipulating){
             Swift.print("inputVal: " + "\(inputVal)")
             //dont do anything here
-            value = CustomFriction.logConstraintValueForYPoisition(inputVal,200)
-            result = value
+            result = CustomFriction.logConstraintValueForYPoisition(value,200)
         }else{
             let dist = -value/*distanceToGoal*/
             velocity += (dist * spring)
