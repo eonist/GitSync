@@ -55,18 +55,18 @@ class VerticalThrowArea2 :InteractiveView2{
     func onScrollWheelDown(){
         //Swift.print("onScrollWheelDown")
         prevScrollingDeltaY = 0
-        mover!.spring = 0.0
+        mover!.isDirectlyManipulating = true
         velocities = [0,0,0,0,0,0,0,0,0,0]//reset the velocities
 //mover!.slowDownFriction = 0.40//set this to 0.70 and the slowdown prosses is slower
     }
     /**
-     * 
+     *
      */
     func onScrollWheelUp(){
         //Swift.print("onScrollWheelUp " + "\(prevScrollingDeltaY)")
 //mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
         mover!.hasStopped = false/*reset this value to false*/
-        mover!.spring = 0.1
+        mover!.isDirectlyManipulating = false
         //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
         if(prevScrollingDeltaY != 1.0 && prevScrollingDeltaY != -1.0){/*1 and -1 indicates stationaryness*/
             //Swift.print("is not stationary")
