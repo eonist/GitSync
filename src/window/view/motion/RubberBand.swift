@@ -50,7 +50,7 @@ class RubberBand:Mover{
             velocity += (dist * spring)
             //velocity *= springFriction
             value += velocity
-            value = CustomFriction.logConstraintValueForYPoisition(value,400)
+            value = CustomFriction.logConstraintValueForYPoisition(value,200)
             if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
             result = value
         }
