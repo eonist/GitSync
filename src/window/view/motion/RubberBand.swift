@@ -44,23 +44,17 @@ class RubberBand:Mover{
         //Swift.print("")
         if(isDirectlyManipulating){
             //dont do anything here
-            result = CustomFriction.logConstraintValueForYPoisition(value,200)
+            result = CustomFriction.logConstraintValueForYPoisition(value,100)
         }else{
             let dist = -value/*distanceToGoal*/
             velocity += (dist * spring)
             //velocity *= springFriction
             value += velocity
-            value = CustomFriction.constraintValueForYPoisition(value,200)
+            value = CustomFriction.constraintValueForYPoisition(value,100)
             if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
             result = value
         }
     }
-    
-    
-    //in an isolated test try to create a vertical limit on the amount of spring and friction that is possible to ad
-    //you need to apply the vertical limit on the velocity.
-    //try to draw this scenario to understand it better
-    
     
     func applyBottomBoundry(){
         //Swift.print("")
