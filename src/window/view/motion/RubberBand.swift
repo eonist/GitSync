@@ -25,41 +25,40 @@ class RubberBand:Mover{
     var spring:CGFloat = 0.1
     func applyBoundries() {
         if(value > maskRect.y){/*the top of the item-container passed the mask-container top checkPoint*/
-            //Swift.print("")
-            if(isDirectlyManipulating){
-                //dont do anything here
-                //result = CustomFriction.logConstraintValueForYPoisition(value,200)
-            }else{
-                let dist = -value/*distanceToGoal*/
-                velocity += (dist * spring)
-                velocity *= springFriction
-                value += velocity
-                if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
-            }
+            applyTopBoundry()
         }else if((value + itemRect.height) < maskRect.height){/*the bottom of the item-container passed the mask-container bottom checkPoint*/
-            //Swift.print("")
-            if(isDirectlyManipulating){
-                //dont do anything here
-            }else{
-                let dist = maskRect.height - (value + itemRect.height)/*distanceToGoal*/
-                velocity += (dist * spring)
-                velocity *= springFriction
-                value += velocity
-                if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
-            }
+           applyBottomBoundry()
         }else{/*within the boundries*/
             velocity *= frictionStrength
             super.updatePosition()
             checkForStop()
         }
     }
-    /**
-     *
-     */
     func applyTopBoundry(){
-        
+        //Swift.print("")
+        if(isDirectlyManipulating){
+            //dont do anything here
+            //result = CustomFriction.logConstraintValueForYPoisition(value,200)
+        }else{
+            let dist = -value/*distanceToGoal*/
+            velocity += (dist * spring)
+            velocity *= springFriction
+            value += velocity
+            if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
+        }
     }
-    
+    func applyBottomBoundry(){
+        //Swift.print("")
+        if(isDirectlyManipulating){
+            //dont do anything here
+        }else{
+            let dist = maskRect.height - (value + itemRect.height)/*distanceToGoal*/
+            velocity += (dist * spring)
+            velocity *= springFriction
+            value += velocity
+            if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
+        }
+    }
     /*
      * When velocity is less than epsilon basically less than half of a twib 0.15. then set the hasStopped flag to true
      * NOTE: Basically stops listening for the onFrame event
