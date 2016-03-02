@@ -36,6 +36,13 @@ class RubberBand:Mover{
             velocity *= springFriction
             value += velocity
             
+            
+            //create a bool flag named isDirectlyManipulating
+            
+            //then start using the result value
+            
+            //then create 
+            
         }else if((value + itemRect.height) < maskRect.height ){
             //Swift.print("the bottom of the item-container passed the mask-container bottom checkPoint")
 
