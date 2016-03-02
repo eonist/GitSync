@@ -16,18 +16,19 @@ class RubberBand:Mover{
     override func updatePosition() {
         Swift.print("updatePosition()")
         //applyFriction()/*apply friction for every frame called*/
-        checkBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
+        applyBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
         result = value
     }
     //var velocityX:CGFloat = 0
     let springFriction:CGFloat = 0.50;
     let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
     var spring:CGFloat = 0.1
-    func checkBoundries(){
+    func applyBoundries(){
         if(value > maskRect.y){/*the top of the item-container passed the mask-container top checkPoint*/
             //Swift.print("")
             if(isDirectlyManipulating){
                 //dont do anything here
+                //result = CustomFriction.logConstraintValueForYPoisition(value,200)
             }else{
                 let dist = -value/*distanceToGoal*/
                 velocity += (dist * spring)
@@ -64,10 +65,8 @@ class RubberBand:Mover{
         }
     }
 }
-//offsetY = logConstraintValueForYPoisition(y,200)
+//
 private class CustomFriction{
-    
-
     /**
      * NOTE: the vertical limit is the point where the value almost doesnt move at all.
      */
