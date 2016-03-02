@@ -7,6 +7,7 @@ class RubberBand:Mover{
     var itemRect:CGRect = CGRect(0,0,200,450)
     var frictionStrength:CGFloat/*This value is the strength of the friction*/
     var hasStopped:Bool = true
+    var result:CGFloat = 0
     init(_ target:NSView, _ value:CGFloat, _ velocity:CGFloat = 0, _ frictionStrength:CGFloat = 0.98){
         self.frictionStrength = frictionStrength
         super.init(target, value, velocity)
