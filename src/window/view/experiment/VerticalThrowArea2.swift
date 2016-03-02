@@ -1,5 +1,10 @@
 import Cocoa
-
+/**
+ * TODO: make the list longer with more colors
+ * TODO: Centralize the sizes
+ * TODO: Clean up the code
+ * TODO: 
+ */
 class VerticalThrowArea2 :InteractiveView2{
     var w:CGFloat = 200
     var h:CGFloat = 200
