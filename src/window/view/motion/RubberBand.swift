@@ -23,7 +23,7 @@ class RubberBand:Mover{
     let springFriction:CGFloat = 0.50;
     let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
     var spring:CGFloat = 0.1
-    func applyBoundries()->CgFloat{
+    func applyBoundries()->CGFloat{
         if(value > maskRect.y){/*the top of the item-container passed the mask-container top checkPoint*/
             //Swift.print("")
             if(isDirectlyManipulating){
