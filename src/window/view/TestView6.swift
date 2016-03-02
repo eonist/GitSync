@@ -30,7 +30,6 @@ class TestView6:AnimatableView {
             r1.draw()
         }
         
-        
         throwArea = addSubView(VerticalThrowArea2()) as? VerticalThrowArea2
         throwArea!.frame.y = 20
         
