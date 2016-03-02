@@ -7,6 +7,7 @@ class RubberBand:Mover{
     var itemRect:CGRect = CGRect(0,0,200,450)
     var frictionStrength:CGFloat/*This value is the strength of the friction*/
     var hasStopped:Bool = true
+    var isDirectlyManipulating:Bool = false
     var result:CGFloat = 0
     init(_ target:NSView, _ value:CGFloat, _ velocity:CGFloat = 0, _ frictionStrength:CGFloat = 0.98){
         self.frictionStrength = frictionStrength
@@ -17,6 +18,7 @@ class RubberBand:Mover{
         Swift.print("updatePosition()")
         //applyFriction()/*apply friction for every frame called*/
         checkBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
+        result = value
         //checkForStop()
     }
     //var velocityX:CGFloat = 0
@@ -43,7 +45,7 @@ class RubberBand:Mover{
             
             //then create the finger friction
             
-            //when you release you need to at least tick once, so the anim can start if its beyond boundries etc. 
+            //when you release you need to at least tick once, so the anim can start if its beyond boundries etc.
             
         }else if((value + itemRect.height) < maskRect.height ){
             //Swift.print("the bottom of the item-container passed the mask-container bottom checkPoint")
