@@ -53,6 +53,13 @@ class RubberBand:Mover{
             checkForStop()
         }
     }
+    /**
+     *
+     */
+    func applyTopBoundry(){
+        
+    }
+    
     /*
      * When velocity is less than epsilon basically less than half of a twib 0.15. then set the hasStopped flag to true
      * NOTE: Basically stops listening for the onFrame event
