@@ -27,11 +27,8 @@ class RubberBand:Mover{
     var spring:CGFloat = 0.1
     
     func checkBoundries(){
-        if(value > maskRect.y){
-            //Swift.print("the top of the item-container passed the mask-container top checkPoint")
-            
-            //Swift.print("onFrame")
-            //let easing:CGFloat = 0.2
+        if(value > maskRect.y){/*the top of the item-container passed the mask-container top checkPoint*/
+            //Swift.print("")
             
             if(isDirectlyManipulating){
                 
@@ -41,18 +38,12 @@ class RubberBand:Mover{
                 velocity *= springFriction
                 value += velocity
             }
-            
-            
-            //then create the finger friction
-            
-            //when you release you need to at least tick once, so the anim can start if its beyond boundries etc.
-            
-        }else if((value + itemRect.height) < maskRect.height ){
-            //Swift.print("the bottom of the item-container passed the mask-container bottom checkPoint")
+        }else if((value + itemRect.height) < maskRect.height){/*the bottom of the item-container passed the mask-container bottom checkPoint*/
+            //Swift.print("")
 
             
         }else{
-            velocity *= frictionStrength;
+            velocity *= frictionStrength
             super.updatePosition()
         }
     }
