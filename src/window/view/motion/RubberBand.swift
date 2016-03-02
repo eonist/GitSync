@@ -50,7 +50,7 @@ class RubberBand:Mover{
             velocity += (dist * spring)
             //velocity *= springFriction
             value += velocity
-            value = CustomFriction.logConstraintValueForYPoisition(value,200)
+            value = CustomFriction.constraintValueForYPoisition(value,200)
             if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
             result = value
         }
@@ -93,9 +93,9 @@ private class CustomFriction{
      * NOTE: the vertical limit is the point where the value almost doesnt move at all.
      */
     class func logConstraintValueForYPoisition(yPosition : CGFloat, _ verticalLimit:CGFloat) -> CGFloat {
-        return verticalLimit * (/*log10*/0.5*(/*1.0 + */yPosition/verticalLimit))
+        return verticalLimit * (log10(1.0 + yPosition/verticalLimit))
     }
     class func constraintValueForYPoisition(yPosition : CGFloat, _ verticalLimit:CGFloat) -> CGFloat {
-        return verticalLimit * (/*log10*/0.5*(/*1.0 + */yPosition/verticalLimit))
+        return verticalLimit * (0.5 * (yPosition/verticalLimit))
     }
 }
