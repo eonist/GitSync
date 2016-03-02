@@ -81,7 +81,11 @@ class RubberBand:Mover{
         }
     }
 }
-//
+
+
+//continue here: I think you need to draw this out on the ipad. 
+
+
 private class CustomFriction{
     /**
      * NOTE: the vertical limit is the point where the value almost doesnt move at all.
