@@ -95,6 +95,7 @@ private class CustomFriction{
     class func logConstraintValueForYPoisition(yPosition : CGFloat, _ verticalLimit:CGFloat) -> CGFloat {
         return verticalLimit * (/*log10*/0.5*(/*1.0 + */yPosition/verticalLimit))
     }
-
-
+    class func constraintValueForYPoisition(yPosition : CGFloat, _ verticalLimit:CGFloat) -> CGFloat {
+        return verticalLimit * (/*log10*/0.5*(/*1.0 + */yPosition/verticalLimit))
+    }
 }
