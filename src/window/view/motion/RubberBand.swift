@@ -83,7 +83,7 @@ class RubberBand:Mover{
 }
 
 
-//continue here: I think you need to draw this out on the ipad. 
+//continue here: I think you need to draw this out on the ipad. To understand the dynamics better.
 
 
 private class CustomFriction{
