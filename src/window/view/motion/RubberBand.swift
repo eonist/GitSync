@@ -52,7 +52,8 @@ class RubberBand:Mover{
 
             
         }else{
-            value += (velocity * frictionStrength)
+            velocity *= frictionStrength;
+            super.updatePosition()
         }
     }
     /*
