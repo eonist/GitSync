@@ -33,7 +33,7 @@ class VerticalThrowArea2 :InteractiveView2{
             if(!mover!.hasStopped){
                 if(CVDisplayLinkIsRunning((self.superview as! AnimatableView).displayLink)) {CVDisplayLinkStart((self.superview as! AnimatableView).displayLink);mover!.hasStopped = true;}//the if clause is just a precausion
             }
-            mover!.inputVal += theEvent.scrollingDeltaY/*directly manipulate the value 1 to 1 control*/
+            mover!.value += theEvent.scrollingDeltaY/*directly manipulate the value 1 to 1 control*/
             mover!.updatePosition()
             prevScrollingDeltaY = theEvent.scrollingDeltaY//needed to calc the velocity onScrollWheelUp
             
@@ -73,6 +73,7 @@ class VerticalThrowArea2 :InteractiveView2{
 //mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
         mover!.hasStopped = false/*reset this value to false*/
         mover!.isDirectlyManipulating = false
+        mover!.value = mover!.result/*copy this back in again*/
         //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
         if(prevScrollingDeltaY != 1.0 && prevScrollingDeltaY != -1.0){/*1 and -1 indicates not stationar*/
             //Swift.print("is not stationary")
