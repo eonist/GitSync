@@ -36,6 +36,15 @@ class TestView6:AnimatableView {
         itemContainer.addSubview(r3.graphic)
         r3.draw()
         
+        let r4 = RectGraphic(0,itemH*3,w,itemH,FillStyle(Colors.orange()),nil)//Add a red box to the view
+        itemContainer.addSubview(r4.graphic)
+        r4.draw()
+        
+        let r5 = RectGraphic(0,itemH*4,w,itemH,FillStyle(Colors.lightBlue()),nil)//Add a red box to the view
+        itemContainer.addSubview(r5.graphic)
+        r5.draw()
+        
+        
         throwArea = addSubView(VerticalThrowArea2()) as? VerticalThrowArea2
         throwArea!.frame.y = 20
         
