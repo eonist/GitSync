@@ -20,10 +20,8 @@ class VerticalThrowArea2 :InteractiveView2{
         
         let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x555555).alpha(0.0))
         /*Rect*/
-        let rect = RectGraphic(0,0,w,h,fill,nil)//Add a red box to the view
-        addSubview(rect.graphic)
+        let rect = addSubview(RectGraphic(0,0,w,h,fill,nil)) as! RectGraphic//Add a red box to the view
         rect.draw()
-
     }
     /**
      * NOTE: you can use the event.deviceDeltaY to check which direction the gesture is moving in.
@@ -94,6 +92,4 @@ class VerticalThrowArea2 :InteractiveView2{
         }
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
-        
-    
 }
