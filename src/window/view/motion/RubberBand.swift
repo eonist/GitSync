@@ -54,6 +54,11 @@ class RubberBand:Mover{
             result = value
         }
     }
+    
+    
+    //in an isolated test try to create a vertical limit on the amount of spring and friction that is possible to ad
+    
+    
     func applyBottomBoundry(){
         //Swift.print("")
         if(isDirectlyManipulating){
