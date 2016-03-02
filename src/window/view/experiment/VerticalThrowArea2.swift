@@ -63,14 +63,14 @@ class VerticalThrowArea2 :InteractiveView2{
         mover!.isDirectlyManipulating = true
         velocities = [0,0,0,0,0,0,0,0,0,0]//reset the velocities
         
-//mover!.slowDownFriction = 0.40//set this to 0.70 and the slowdown prosses is slower
+        //mover!.slowDownFriction = 0.40//set this to 0.70 and the slowdown prosses is slower
     }
     /**
      *
      */
     func onScrollWheelUp(){
         Swift.print("onScrollWheelUp " + "\(prevScrollingDeltaY)")
-//mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
+        //mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
         mover!.hasStopped = false/*reset this value to false*/
         mover!.isDirectlyManipulating = false
         mover!.value = mover!.result/*copy this back in again, as we used relative friction*/
