@@ -56,7 +56,7 @@ class VerticalThrowArea2 :InteractiveView2{
      * 
      */
     func onScrollWheelDown(){
-        //Swift.print("onScrollWheelDown")
+        Swift.print("onScrollWheelDown")
         CVDisplayLinkStop((self.superview as! AnimatableView).displayLink)
         mover!.hasStopped = true
         prevScrollingDeltaY = 0
@@ -69,7 +69,7 @@ class VerticalThrowArea2 :InteractiveView2{
      *
      */
     func onScrollWheelUp(){
-        //Swift.print("onScrollWheelUp " + "\(prevScrollingDeltaY)")
+        Swift.print("onScrollWheelUp " + "\(prevScrollingDeltaY)")
 //mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
         mover!.hasStopped = false/*reset this value to false*/
         mover!.isDirectlyManipulating = false
