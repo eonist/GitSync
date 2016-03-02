@@ -32,7 +32,7 @@ class RubberBand:Mover{
                 let dist = -value/*distanceToGoal*/
                 velocity += (dist * spring)
                 velocity *= springFriction
-                value += velocity
+                val += velocity
                 if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
             }
         }else if((value + itemRect.height) < maskRect.height){/*the bottom of the item-container passed the mask-container bottom checkPoint*/
@@ -51,7 +51,7 @@ class RubberBand:Mover{
             super.updatePosition()
             checkForStop()
         }
-        return 
+        return val
     }
     /*
      * When velocity is less than epsilon basically less than half of a twib 0.15. then set the hasStopped flag to true
