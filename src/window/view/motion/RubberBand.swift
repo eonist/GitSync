@@ -29,24 +29,23 @@ class RubberBand:Mover{
             if(isDirectlyManipulating){
                 //dont do anything here
             }else{
-                let dist = -value
+                let dist = -value/*distanceToGoal*/
                 velocity += (dist * spring)
                 velocity *= springFriction
                 value += velocity
-                checkForStop(dist)
+                if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
             }
         }else if((value + itemRect.height) < maskRect.height){/*the bottom of the item-container passed the mask-container bottom checkPoint*/
             //Swift.print("")
             if(isDirectlyManipulating){
                 //dont do anything here
             }else{
-                let dist =  maskRect.height - (value + itemRect.height)
+                let dist =  maskRect.height - (value + itemRect.height)/*distanceToGoal*/
                 velocity += (dist * spring)
                 velocity *= springFriction
                 value += velocity
-                checkForStop(dist)
+                if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
             }
-
         }else{/*within the boundries*/
             velocity *= frictionStrength
             super.updatePosition()
@@ -63,11 +62,5 @@ class RubberBand:Mover{
             Swift.print("stop velocity: " + "\(velocity)")
             hasStopped = true
         }
-    }
-    func checkForStop(distanceToGoal:CGFloat){
-        if(NumberAsserter.isNear(distanceToGoal, 0, 1)){
-            checkForStop()
-        }
-        
     }
 }
