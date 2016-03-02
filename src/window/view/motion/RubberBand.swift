@@ -59,8 +59,9 @@ class RubberBand:Mover{
         //Swift.print( "\(value.toFixed(3))" + " checkForStop " + "\((lastValue).toFixed(3))")
         if(!isDirectlyManipulating && NumberAsserter.isNear(velocity, 0, 0.15)) {
             Swift.print("stop velocity: " + "\(velocity)")
-            if(checkDistanceToGoal){
-                
+            if(checkDistanceToGoal && distanceToGoal < 1){
+                hasStopped = true
+                return
             }
             hasStopped = true
         }
