@@ -21,7 +21,7 @@ class RubberBand:Mover{
     //var velocityX:CGFloat = 0
     let springFriction:CGFloat = 0.50;
     let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
-    let spring:CGFloat = 0.1
+    var spring:CGFloat = 0.1
     
     func checkBoundries(){
         if(value > maskRect.y){
