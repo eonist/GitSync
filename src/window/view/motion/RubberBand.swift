@@ -41,7 +41,9 @@ class RubberBand:Mover{
             
             //then start using the result value
             
-            //then create 
+            //then create the finger friction
+            
+            //when you release you need to at least tick once, so the anim can start if its beyond boundries etc. 
             
         }else if((value + itemRect.height) < maskRect.height ){
             //Swift.print("the bottom of the item-container passed the mask-container bottom checkPoint")
