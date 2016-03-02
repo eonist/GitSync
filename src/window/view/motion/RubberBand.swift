@@ -62,7 +62,7 @@ class RubberBand:Mover{
             if(checkDistanceToGoal && distanceToGoal < 1){
                 hasStopped = true
                 return
-            }
+            }else{hasStopped = false;return}
             hasStopped = true
         }
     }
