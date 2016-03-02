@@ -5,7 +5,7 @@ import Cocoa
 class RubberBand:Mover{
     var maskRect:CGRect = CGRect(0,0,200,200)
     var itemRect:CGRect = CGRect(0,0,200,450)
-    var frictionStrength:CGFloat/*This value is the strength of the friction*/
+    var frictionStrength:CGFloat = 0.98/*This value is the strength of the friction*/
     var hasStopped:Bool = true
     var isDirectlyManipulating:Bool = false
     var result:CGFloat = 0
@@ -52,7 +52,7 @@ class RubberBand:Mover{
 
             
         }else{
-            super.updatePosition()
+            value += (velocity * frictionStrength)
         }
     }
     /*
