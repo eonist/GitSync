@@ -38,7 +38,8 @@ class TestView6:AnimatableView {
         //Swift.print("moveViews() value: " + "\(value)")
         itemContainer.frame.y = value
     }
-    override func scrollWheel(theEvent: NSEvent) {
+    override func scrollWheel(theEvent:NSEvent) {
+        scrollController?.scrollWheel(theEvent)//forward the event
         if(theEvent.phase == NSEventPhase.Changed){moveViews(scrollController!.mover.result)}
     }
     override func onFrame(){
