@@ -29,9 +29,9 @@ class VerticalThrowArea2 :InteractiveView2{
         switch theEvent.phase{
             case NSEventPhase.Changed://fires everytime there is direct scrollWheel gesture movment.
                 Swift.print("changed")
-                if(!mover!.isDirectlyManipulating){
-                    if(CVDisplayLinkIsRunning((self.superview as! AnimatableView).displayLink)) {CVDisplayLinkStart((self.superview as! AnimatableView).displayLink);mover!.hasStopped = true;}//the if clause is just a precausion
-                }
+                /*if(!mover!.isDirectlyManipulating){
+                if(CVDisplayLinkIsRunning((self.superview as! AnimatableView).displayLink)) {CVDisplayLinkStart((self.superview as! AnimatableView).displayLink);mover!.hasStopped = true;}//the if clause is just a precausion
+                }*/
                 mover!.value += theEvent.scrollingDeltaY/*directly manipulate the value 1 to 1 control*/
                 mover!.updatePosition()
                 prevScrollingDeltaY = theEvent.scrollingDeltaY/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
