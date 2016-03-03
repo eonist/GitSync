@@ -28,7 +28,8 @@ class VerticalThrowArea2 :InteractiveView2{
     override func scrollWheel(theEvent: NSEvent) {
         switch theEvent.phase{
             case NSEventPhase.Changed://fires everytime there is direct scrollWheel gesture movment.
-                if(!mover!.hasStopped){
+                Swift.print("changed")
+                if(!mover!.isDirectlyManipulating){
                     if(CVDisplayLinkIsRunning((self.superview as! AnimatableView).displayLink)) {CVDisplayLinkStart((self.superview as! AnimatableView).displayLink);mover!.hasStopped = true;}//the if clause is just a precausion
                 }
                 mover!.value += theEvent.scrollingDeltaY/*directly manipulate the value 1 to 1 control*/
@@ -47,7 +48,7 @@ class VerticalThrowArea2 :InteractiveView2{
                 onScrollWheelUp()
             default:break;
         }
-        //super.scrollWheel(theEvent)//call super if you want to forward the event to the parent view
+        super.scrollWheel(theEvent)//call super if you want to forward the event to the parent view, you do since the parent listen to this event when directly manipulating the motion
     }
     /**
      * 
@@ -55,7 +56,7 @@ class VerticalThrowArea2 :InteractiveView2{
     func onScrollWheelDown(){
         //Swift.print("onScrollWheelDown")
         CVDisplayLinkStop((self.superview as! AnimatableView).displayLink)
-        mover!.hasStopped = true/*set the stop flag to true*/
+        //mover!.hasStopped = true/*set the stop flag to true*/
         prevScrollingDeltaY = 0/*set last wheel speed delta to stationary, aka not spinning*/
         mover!.isDirectlyManipulating = true/*toggle to directManipulationMode*/
         velocities = [0,0,0,0,0,0,0,0,0,0]//reset the velocities
@@ -65,7 +66,7 @@ class VerticalThrowArea2 :InteractiveView2{
      */
     func onScrollWheelUp(){
         //Swift.print("onScrollWheelUp " + "\(prevScrollingDeltaY)")
-        mover!.hasStopped = false/*reset this value to false*/
+        //mover!.hasStopped = false/*reset this value to false*/
         mover!.isDirectlyManipulating = false
         mover!.value = mover!.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
         if(prevScrollingDeltaY != 1.0 && prevScrollingDeltaY != -1.0){/*not 1 and not -1 indicates that the wheel is not stationary*/
