@@ -64,6 +64,7 @@ class RubberBand:Mover{
             // you want to make the current y be a value that stats from 0 and goes to 100 when its idle
             //result = value
             result = CustomFriction.logConstraintValueForYPoisition(value+itemRect.height,200)
+            Swift.print("result: " + "\(result)")
         }else{
             let dist = maskRect.height - (value + itemRect.height)/*distanceToGoal*/
             velocity += (dist * spring)
