@@ -44,7 +44,7 @@ class RubberBand:Mover{
         //Swift.print("")
         if(isDirectlyManipulating){
             //dont do anything here
-            result = CustomFriction.logConstraintValueForYPoisition(value,400)
+            result = CustomFriction.logConstraintValueForYPoisition(value,100)
         }else{
             let dist = -value/*distanceToGoal*/
             velocity += (dist * spring)
