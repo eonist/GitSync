@@ -53,12 +53,11 @@ class RubberBand:Mover{
         }else{
             let dist = -value/*distanceToGoal*/
             if(velocity > 0){/*posetive velocity*/
-                velocity += (dist * 0.1)
-                //velocity *= springFriction
-                value += velocity
-                velocity *= springFriction
-                //result = CustomFriction.logConstraintValueForYPoisition(value,100)
-                if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
+                let newDist:CGFloat = value
+                let easing:CGFloat = 0.2
+                velocity += (newDist * spring)
+                velocity *= easing
+                //if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
                 //result = value
 
             }else{/*negative velocity*/
