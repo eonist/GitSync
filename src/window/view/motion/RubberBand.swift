@@ -53,18 +53,18 @@ class RubberBand:Mover{
         }else{
             let dist = -value/*distanceToGoal*/
             if(velocity > 0){/*posetive velocity*/
-                Swift.print("velocity: " + "\(velocity)")
+                Swift.print("velocity: " + "\(velocity)" + " value: " + "\(value)")
                 let newDist:CGFloat = -value
-                let easing:CGFloat = 0.3
+                let easing:CGFloat = 0.2
                 velocity += (newDist * spring)
                 velocity *= easing
                 if(NumberAsserter.isNear(dist, 0, 1)){velocity = -0.1}
-                //result = value
+                result = value
 
             }else{/*negative velocity*/
                 //Swift.print("negative velocity: " + "\(velocity)" + " dist: " + "\(dist)")
                 let newDist:CGFloat = value
-                let easing:CGFloat = 0.3
+                let easing:CGFloat = 0.2
                 velocity -= (newDist * spring)
                 velocity *= easing
                 
