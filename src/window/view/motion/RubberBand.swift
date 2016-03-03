@@ -50,12 +50,11 @@ class RubberBand:Mover{
             velocity += (dist * spring)
             //velocity *= springFriction
             value += velocity
-            value = CustomFriction.constraintValueForYPoisition(value,100)
+            value = CustomFriction.logConstraintValueForYPoisition(value,200)
             if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
             result = value
         }
     }
-    
     func applyBottomBoundry(){
         //Swift.print("")
         if(isDirectlyManipulating){
