@@ -7,7 +7,7 @@ class TestView6:AnimatableView {
     let target:CGPoint = CGPoint(100,60)
     var circ:EllipseGraphic!
     //var throwArea:VerticalThrowArea2?
-    var scrollController:RBScrollController
+    var scrollController:RBScrollController?
     var maskContainer:ItemContainer!
     var itemContainer:InteractiveView2!
     
@@ -27,9 +27,9 @@ class TestView6:AnimatableView {
             itemContainer.addSubview(r1.graphic)
             r1.draw()
         }
-        scrollController = RBScrollController()//continue here
-        throwArea = addSubView(VerticalThrowArea2()) as? VerticalThrowArea2
-        throwArea!.frame.y = 20
+        scrollController = RBScrollController(self,CGRect(0,0,200,200),CGRect(0,0,200,150*5))
+        //throwArea = addSubView(VerticalThrowArea2()) as? VerticalThrowArea2
+        //throwArea!.frame.y = 20
     }
     /**
      * loop movment code
@@ -39,15 +39,15 @@ class TestView6:AnimatableView {
         itemContainer.frame.y = value
     }
     override func scrollWheel(theEvent: NSEvent) {
-        if(theEvent.phase == NSEventPhase.Changed){moveViews(throwArea!.mover!.result)}
+        if(theEvent.phase == NSEventPhase.Changed){moveViews(scrollController!.mover.result)}
     }
     override func onFrame(){
         //Swift.print("onFrame() value: " + "\(throwArea!.mover!.value)")
-        if(throwArea!.mover!.hasStopped){//stop the frameTicker here
+        if(scrollController!.mover.hasStopped){//stop the frameTicker here
             CVDisplayLinkStop(displayLink)
         }else{//only move the view if the mover is not stopped
-            throwArea!.mover!.updatePosition()
-            moveViews(throwArea!.mover!.result)
+            scrollController!.mover.updatePosition()
+            moveViews(scrollController!.mover.result)
         }
         super.onFrame()
     }
