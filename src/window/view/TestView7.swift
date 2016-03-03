@@ -6,6 +6,7 @@ import Cocoa
  * TODO: test rubberband scrolling on list
  * TODO: move the AnimatableView class before or after interactive view, i guess bfore because we may have animatable views that are not interactive in the future
  * TODO: account for when the content is smaller than the crop
+ * TODO: fix the styling of the list so that it fits inside the mask, use debug colors etc to figure out the bug
  */
 class TestView7:AnimatableView {
     override func resolveSkin() {
@@ -21,7 +22,7 @@ class TestView7:AnimatableView {
         let dp = DataProvider(FileParser.xml("~/Desktop/test.xml"))
         
         let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
-        let list = section.addSubView(List(140,120,24,dp,section)) as! List
+        let list = section.addSubView(RBSliderList(140,120,24,dp,section)) as! RBSliderList
         list
     }
 }
