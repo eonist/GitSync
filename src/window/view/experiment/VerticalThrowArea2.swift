@@ -3,7 +3,7 @@ import Cocoa
  *
  * TODO: make the list longer with more colors
  * TODO: Centralize the sizes
-
+ * TODO: create a RBScrollController
  * TODO: Figure out a way to make things simpler. Either with events or via more parent child communication. think long term here
  * TODO: Start testing the slider
  * figure out a way to add all this easily to things that needs it. see old code even the main app may have something
