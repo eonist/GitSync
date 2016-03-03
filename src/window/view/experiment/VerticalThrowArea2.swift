@@ -2,10 +2,10 @@ import Cocoa
 /**
  * TODO: make the list longer with more colors
  * TODO: Centralize the sizes
- * TODO: Clean up the code
- * TODO: add the log10 friction when direcectly manipulating
+
  * TODO: Figure out a way to make things simpler. Either with events or via more parent child communication. think long term here
- * TODO: implement the rubberband for the bottom aswell
+ * TODO: Start testing the slider
+ * figure out a way to add all this easily to things that needs it. see old code even the main app may have something
  */
 class VerticalThrowArea2 :InteractiveView2{
     var w:CGFloat = 200
