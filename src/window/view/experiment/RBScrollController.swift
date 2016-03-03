@@ -3,9 +3,8 @@ import Cocoa
  * NOTE: You forward the scrollWheel events here
  * NOTE: It all works like a regular MVC system
  *
- * TODO: Figure out a way to make things simpler. Either with events or via more parent child communication. think long term here
  * TODO: Start testing the slider
- * figure out a way to add all this easily to things that needs it. see old code even the main app may have something
+ * TODO: Create the algorithm that calculates the actual throw speed. By looking at the time that each intervall travles. 
  */
 class RBScrollController {
     var frame:CGRect/*represents the visible part of the content*/
