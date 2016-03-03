@@ -23,26 +23,7 @@ class TestView7:CustomView {
         
         let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
         let list = section.addSubView(RBSliderList(140,120,24,dp,section)) as! RBSliderList
+        list
         
-        scrollController = RBScrollController(self,CGRect(0,0,200,120),CGRect(0,0,200,ListParser.itemsHeight(list)))
-    }
-    /**
-     * loop movment code
-     */
-    func moveViews(value:CGFloat){
-        itemContainer.frame.y = value
-    }
-    override func scrollWheel(theEvent:NSEvent) {
-        scrollController?.scrollWheel(theEvent)//forward the event
-        if(theEvent.phase == NSEventPhase.Changed){moveViews(scrollController!.mover.result)}
-    }
-    override func onFrame(){
-        if(scrollController!.mover.hasStopped){//stop the frameTicker here
-            CVDisplayLinkStop(displayLink)
-        }else{//only move the view if the mover is not stopped
-            scrollController!.mover.updatePosition()
-            moveViews(scrollController!.mover.result)
-        }
-        super.onFrame()
     }
 }

@@ -3,9 +3,7 @@ import Cocoa
 class TestView6:CustomView {
     var w:CGFloat = 200
     var h:CGFloat = 200
-    var itemH:CGFloat = 150;
-
-
+    var itemH:CGFloat = 150
     var scrollController:RBScrollController?
     var maskContainer:ItemContainer!
     var itemContainer:InteractiveView2!
