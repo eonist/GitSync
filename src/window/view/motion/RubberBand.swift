@@ -61,6 +61,7 @@ class RubberBand:Mover{
             if(velocity > 0){/*posetive velocity*/
                 value = CustomFriction.logConstraintValueForYPoisition(value,100)
             }else{/*negative velocity*/
+                Swift.print("negative velocity: " + "\(velocity)" + " dist: " + "\(dist)")
                 velocity *= springFriction
                 value += velocity//200-CustomFriction.logConstraintValueForYPoisition(200-value,200)
             }
