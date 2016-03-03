@@ -15,11 +15,11 @@ class RubberBand:Mover{
     var friction:CGFloat/*This value is the strength of the friction when the item is floating freely*/
     var springEasing:CGFloat
     var spring:CGFloat/*springStrength*/
-    init(_ target:NSView, _ value:CGFloat, _ velocity:CGFloat = 0, _ friction:CGFloat = 0.98, _ springEasing:CGFloat = 0.2,_ spring:CGFloat = 0.4){
+    init(_ value:CGFloat, _ velocity:CGFloat = 0, _ friction:CGFloat = 0.98, _ springEasing:CGFloat = 0.2,_ spring:CGFloat = 0.4){
         self.friction = friction
         self.springEasing = springEasing
         self.spring = spring
-        super.init(target, value, velocity)
+        super.init(value, velocity)
     }
     override func updatePosition() {
         applyBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
