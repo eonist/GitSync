@@ -47,7 +47,7 @@ class RBScrollController {
         Swift.print("onScrollWheelDown")
         CVDisplayLinkStop(view.displayLink)
         mover.hasStopped = true/*set the stop flag to true*/
-        mover.velocity = 0
+        mover.velocity = 0//reset the velocity 
         prevScrollingDeltaY = 0/*set last wheel speed delta to stationary, aka not spinning*/
         mover.isDirectlyManipulating = true/*toggle to directManipulationMode*/
         velocities = [0,0,0,0,0,0,0,0,0,0]//reset the velocities

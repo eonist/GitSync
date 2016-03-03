@@ -9,7 +9,6 @@ class RubberBand:Mover{
     var isDirectlyManipulating:Bool = false/*toggles the directManipulation mode*/
     var frame:CGRect/*represents the visible part of the content*/
     var itemRect:CGRect/*represents the total size of the content*/
-    
     var friction:CGFloat/*This value is the strength of the friction when the item is floating freely*/
     var springEasing:CGFloat/*the easeout effect on the spring*/
     var spring:CGFloat/*the strength of the spring*/
