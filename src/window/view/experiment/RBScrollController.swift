@@ -10,6 +10,7 @@ class RBScrollController {
     var prevScrollingDeltaY:CGFloat = 0/*this is needed in order to figure out which direction the scrollWheel is going in*/
     var velocities:Array<CGFloat> = [0,0,0,0,0,0,0,0,0,0]/*represents the velocity resolution of the gesture movment*/
     init(_ view:AnimatableView,_ frame:CGRect, _ itemRect:CGRect){
+        self.view = view
         self.frame = frame
         self.itemRect = itemRect
     }
