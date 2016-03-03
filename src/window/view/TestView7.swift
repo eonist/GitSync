@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 /**
  * TODO: Setup the test class
  * TODO: setup a new list class
@@ -15,6 +15,12 @@ class TestView7:AnimatableView {
      *
      */
     func testRBList(){
+        StyleManager.addStylesByURL("~/Desktop/css/list.css")
         
+        let dp = DataProvider(FileParser.xml("~/Desktop/test.xml"))
+        
+        let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
+        let list = section.addSubView(List(140,220,24,dp,section)) as! List
+        list
     }
 }
