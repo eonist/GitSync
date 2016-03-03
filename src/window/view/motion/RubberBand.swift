@@ -6,7 +6,7 @@ import Cocoa
  * NOTE: this rubberBand tween is cheating a bit. The perfect way to implement this would be to add a half circle easing curve
  */
 class RubberBand:Mover{
-    var result:CGFloat = 0/*output value*/ //TODO: move to mover
+    var result:CGFloat = 0/*output value*/ //TODO: move to mover?
     var maskRect:CGRect = CGRect(0,0,200,200)
     var itemRect:CGRect = CGRect(0,0,200,150*5)
     var hasStopped:Bool = true
@@ -20,10 +20,8 @@ class RubberBand:Mover{
         super.init(target, value, velocity)
     }
     override func updatePosition() {
-        //Swift.print("updatePosition()")
         applyBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
     }
-    
     func applyBoundries() {
         if(value > maskRect.y){/*the top of the item-container passed the mask-container top checkPoint*/
             applyTopBoundry()
@@ -54,7 +52,7 @@ class RubberBand:Mover{
             velocity *= springEasing//TODO: try to apply log10 instead of the regular easing
             
             //velocity *= springFriction
-            value += velocity//200-CustomFriction.logConstraintValueForYPoisition(200-value,200)
+            value -= velocity//200-CustomFriction.logConstraintValueForYPoisition(200-value,200)
             //Swift.print("initVel: "  + String(initVelocity) + " vel: " + String(velocity) + "value: " + String(value))
             if(NumberAsserter.isNear(value, 0, 1)){checkForStop()}
             result = value
