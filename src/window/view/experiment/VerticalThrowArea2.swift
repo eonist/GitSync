@@ -17,7 +17,7 @@ class VerticalThrowArea2 :InteractiveView2{
         super.init(frame: NSRect(0,0,w,h))
         self.mover = RubberBand(CGRect(0,0,200,200),CGRect(0,0,200,150*5))
         
-        let rect = RectGraphic(0,0,w,h,FillStyle(NSColor.redColor().alpha(0.0)),nil)//Add a red box to the view
+        let rect = RectGraphic(0,0,w,h,FillStyle(NSColor.redColor().alpha(0.0)),nil)//Add a red box to the view, we need to be able to hit something with the hitTest, or else interactivity won't work, this is a temp solution
         addSubview(rect.graphic)
         rect.draw()
     }
