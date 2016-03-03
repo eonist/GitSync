@@ -5,10 +5,11 @@ import Cocoa
 class RBScrollController {
     var frame:CGRect/*represents the visible part of the content*/
     var itemRect:CGRect/*represents the total size of the content*/
+    var view:AnimatableView
     var mover:RubberBand?
     var prevScrollingDeltaY:CGFloat = 0/*this is needed in order to figure out which direction the scrollWheel is going in*/
     var velocities:Array<CGFloat> = [0,0,0,0,0,0,0,0,0,0]/*represents the velocity resolution of the gesture movment*/
-    init(_ frame:CGRect, _ itemRect:CGRect){
+    init(_ view:AnimatableView,_ frame:CGRect, _ itemRect:CGRect){
         self.frame = frame
         self.itemRect = itemRect
     }
@@ -28,14 +29,14 @@ class RBScrollController {
         case NSEventPhase.Cancelled:onScrollWheelUp()//this trigers if the scrollWhell gestures goes off the trackpad etc
         default:break;
         }
-        super.scrollWheel(theEvent)//call super if you want to forward the event to the parent view, you do since the parent listen to this event when directly manipulating the motion
+        //super.scrollWheel(theEvent)//call super if you want to forward the event to the parent view, you do since the parent listen to this event when directly manipulating the motion
     }
     /**
      * NOTE: basically when you enter your scrollWheel gesture
      */
     func onScrollWheelDown(){
         //Swift.print("onScrollWheelDown")
-        CVDisplayLinkStop((self.superview as! AnimatableView).displayLink)
+        CVDisplayLinkStop(view.displayLink)
         mover!.hasStopped = true/*set the stop flag to true*/
         prevScrollingDeltaY = 0/*set last wheel speed delta to stationary, aka not spinning*/
         mover!.isDirectlyManipulating = true/*toggle to directManipulationMode*/
@@ -54,9 +55,9 @@ class RBScrollController {
             if(prevScrollingDeltaY > 0){velocity = NumberParser.max(velocities)}/*find the most positive velocity value*/
             else{velocity = NumberParser.min(velocities)}/*find the most negative velocity value*/
             mover!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this cant be additive is because you need to be more immediate when you change direction, this could be done vy assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
-            CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)//'start the frameTicker here, do this part in parent view or use event or Selector
+            CVDisplayLinkStart(view.displayLink)//'start the frameTicker here, do this part in parent view or use event or Selector
         }else{/*stationary*/
-            CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)
+            CVDisplayLinkStart(view.displayLink)
         }
     }
 }
