@@ -57,12 +57,12 @@ class RubberBand:Mover{
                 
                 
                 let newDist:CGFloat = -value
-                let easing:CGFloat = 0.2
+                let easing:CGFloat = 0.4
                 let initVelocity = velocity
                 velocity += (newDist * 0.2)
                 velocity *= easing
                 value += velocity
-                Swift.print("initVelocity: "  + "\(initVelocity)" + "velocity: " + "\(velocity)" + "value: " + "\(value)")
+                Swift.print("initVel: "  + String(initVelocity) + " vel: " + String(velocity) + "value: " + String(value))
                 //if(NumberAsserter.isNear(value, 0, 1)){velocity = -0.1}
                 result = value
 
