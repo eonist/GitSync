@@ -1,6 +1,6 @@
 import Cocoa
 /**
- * 
+ *
  * TODO: make the list longer with more colors
  * TODO: Centralize the sizes
 
