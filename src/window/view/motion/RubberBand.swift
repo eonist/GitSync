@@ -56,13 +56,13 @@ class RubberBand:Mover{
             let newDist:CGFloat = -value
             let easing:CGFloat = 0.2
             let spring:CGFloat = 0.4
-            let initVelocity = velocity
+            //let initVelocity = velocity
             velocity += (newDist * spring)
             velocity *= easing//TODO: try to apply log10 instead of the regular easing
             
             //velocity *= springFriction
             value += velocity//200-CustomFriction.logConstraintValueForYPoisition(200-value,200)
-            Swift.print("initVel: "  + String(initVelocity) + " vel: " + String(velocity) + "value: " + String(value))
+            //Swift.print("initVel: "  + String(initVelocity) + " vel: " + String(velocity) + "value: " + String(value))
             if(NumberAsserter.isNear(value, 0, 1)){checkForStop()}
             result = value
         }
