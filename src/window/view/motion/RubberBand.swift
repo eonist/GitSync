@@ -42,7 +42,7 @@ class RubberBand:Mover{
         let distToGoal:CGFloat = value
         if(isDirectlyManipulating){
             Swift.print("direct")
-            result = CustomFriction.logConstraintValueForYPoisition(distToGoal,100)
+            result = CustomFriction.constraintValueWithLog(distToGoal,100)
         }else{
             velocity -= (distToGoal * spring)
             velocity *= springEasing//TODO: try to apply log10 instead of the regular easing
@@ -57,7 +57,7 @@ class RubberBand:Mover{
         if(isDirectlyManipulating){
             let totHeight = (itemRect.height - maskRect.height)//(tot height of items - height of mask)
             let c:CGFloat = /*abs*/(totHeight + value)/*we need a posetive value to work with, 0 to 100*/
-            result = -totHeight + CustomFriction.logConstraintValueForYPoisition(c,-100)
+            result = -totHeight + CustomFriction.constraintValueWithLog(c,-100)
         }else{
             let dist = maskRect.height - (value + itemRect.height)/*distanceToGoal*/
             Swift.print("dist: " + "\(dist)")
@@ -83,21 +83,21 @@ class RubberBand:Mover{
 
 
 
-private class CustomFriction{
+private class CustomFriction{//creates the displacement friction effect. Like you finger is slightly losing its grip
     /**
      * NOTE: the vertical limit is the point where the value almost doesnt move at all
-     * NOTE: 
+     * NOTE: This metod also works with negative values. Just make sure that borth the value and the limit is negative.
      */
-    class func logConstraintValueForYPoisition(yPosition : CGFloat, _ verticalLimit:CGFloat) -> CGFloat {
-        let multiplier = (log10(1.0 + yPosition/verticalLimit))
+    class func constraintValueWithLog(value : CGFloat, _ limit:CGFloat) -> CGFloat {
+        let multiplier = (log10(1.0 + value/limit))
         //Swift.print("multiplier: " + "\(multiplier)" + " yPosition: " + "\(yPosition)")
-        return verticalLimit * multiplier
+        return limit * multiplier
     }
     /**
      * NOTE: If you decrease the decimal variable you increase the friction effect
      */
-    class func constraintValueForYPoisition(yPosition : CGFloat, _ verticalLimit:CGFloat) -> CGFloat {
-        let multiplier = (0.2 * (yPosition/verticalLimit))
-        return verticalLimit * multiplier
+    class func constraintValue(value : CGFloat, _ limit:CGFloat) -> CGFloat {
+        let multiplier = (0.2 * (value/limit))
+        return limit * multiplier
     }
 }
