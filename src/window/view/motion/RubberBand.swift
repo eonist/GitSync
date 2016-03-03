@@ -107,6 +107,8 @@ private class CustomFriction{
     class func constrainValue(value:CGFloat,_ from:CGFloat,_ to:CGFloat){
         
         
+        let dist:CGFloat = -100
+        
         //from value
         
         //to value
