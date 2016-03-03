@@ -1,6 +1,6 @@
 import Cocoa
 /**
- *
+ * TODO: An idea would be to add custom easing behaviour as a argument method instead of overriding? You could even do a Selector type of scheme. If Mover.
  */
 class RubberBand:Mover{
     //values
