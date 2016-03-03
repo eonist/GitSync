@@ -12,8 +12,8 @@ class VerticalThrowArea2 :InteractiveView2{
     var w:CGFloat = 200
     var h:CGFloat = 200
     var mover:RubberBand?
-    var prevScrollingDeltaY:CGFloat = 0
-    var velocities:Array<CGFloat> = [0,0,0,0,0,0,0,0,0,0]
+    var prevScrollingDeltaY:CGFloat = 0/*this is needed in order to figure out which direction the scrollWheel is going in*/
+    var velocities:Array<CGFloat> = [0,0,0,0,0,0,0,0,0,0]/*represents the velocity resolution of the gesture movment*/
     init(){//_ frame:CGRect, _ itemRect:CGRect,
         super.init(frame: NSRect(0,0,w,h))
         self.mover = RubberBand(CGRect(0,0,200,200),CGRect(0,0,200,150*5))
