@@ -6,17 +6,19 @@ import Cocoa
  * NOTE: this rubberBand tween is cheating a bit. The perfect way to implement this would be to add a half circle easing curve
  */
 class RubberBand:Mover{
+    let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
     var result:CGFloat = 0/*output value*/ //TODO: move to mover?
     var maskRect:CGRect = CGRect(0,0,200,200)
     var itemRect:CGRect = CGRect(0,0,200,150*5)
     var hasStopped:Bool = true
     var isDirectlyManipulating:Bool = false
-    var friction:CGFloat = 0.98/*This value is the strength of the friction when the item is floating freely*/
-    let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
-    var springEasing:CGFloat = 0.2
-    var spring:CGFloat = 0.4
-    init(_ target:NSView, _ value:CGFloat, _ velocity:CGFloat = 0, _ friction:CGFloat = 0.98){
+    var friction:CGFloat/*This value is the strength of the friction when the item is floating freely*/
+    var springEasing:CGFloat
+    var spring:CGFloat/*springStrength*/
+    init(_ target:NSView, _ value:CGFloat, _ velocity:CGFloat = 0, _ friction:CGFloat = 0.98, _ springEasing:CGFloat = 0.2,_ spring:CGFloat = 0.4){
         self.friction = friction
+        self.springEasing = springEasing
+        self.spring = spring
         super.init(target, value, velocity)
     }
     override func updatePosition() {
