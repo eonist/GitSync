@@ -78,12 +78,10 @@ class VerticalThrowArea2 :InteractiveView2{
         if(prevScrollingDeltaY != 1.0 && prevScrollingDeltaY != -1.0){/*not 1 and not -1 indicates that the wheel is not stationary*/
             //Swift.print("is not stationary")
             var velocity:CGFloat = 0
-            if(prevScrollingDeltaY > 0){
-                velocity = NumberParser.max(velocities)
-            }else{
-                velocity = NumberParser.min(velocities)
-            }
-            mover!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity*/
+            if(prevScrollingDeltaY > 0){velocity = NumberParser.max(velocities)}/*find the most positive velocity value*/
+            else{velocity = NumberParser.min(velocities)}/*find the most negative velocity value*/
+            
+            mover!.velocity += velocity/*set the mover velocity to the current mouse gesture velocity*/
             CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)//'start the frameTicker here, do this part in parent view or use event or Selector
         }else{/*stationary*/
             //Swift.print("is stationary")
