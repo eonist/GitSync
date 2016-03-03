@@ -53,6 +53,9 @@ class RubberBand:Mover{
         }else{
             if(velocity > 0){/*posetive velocity*/
                 //Swift.print( )
+                
+                //try to use the value to 100 not to 0 (or use 200)
+                
                 let newDist:CGFloat = -value
                 let easing:CGFloat = 0.2
                 velocity += (newDist * spring)
