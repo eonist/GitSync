@@ -89,7 +89,7 @@ private class CustomFriction{
      */
     class func logConstraintValueForYPoisition(yPosition : CGFloat, _ verticalLimit:CGFloat) -> CGFloat {
         let multiplier = (log10(1.0 + yPosition/verticalLimit))
-        Swift.print("multiplier: " + "\(multiplier)")
+        Swift.print("multiplier: " + "\(multiplier)" + " yPosition: " + "\(yPosition)")
         return verticalLimit * multiplier
     }
     class func constraintValueForYPoisition(yPosition : CGFloat, _ verticalLimit:CGFloat) -> CGFloat {
