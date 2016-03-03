@@ -40,6 +40,9 @@ class RubberBand:Mover{
             result = value
         }
     }
+    /**
+     * YOu have to apply friction in both directions (Think of the friction as a half circle)
+     */
     func applyTopBoundry(){
         //Swift.print("")
         if(isDirectlyManipulating){
@@ -58,13 +61,7 @@ class RubberBand:Mover{
     func applyBottomBoundry(){
         //Swift.print("")
         if(isDirectlyManipulating){
-            //dont do anything here
-            //Swift.print(value+itemRect.height)
-            
-            // you want to make the current y be a value that stats from 0 and goes to 100 when its idle
-            //result = value
-            result = CustomFriction.logConstraintValueForYPoisition(value+itemRect.height,200)
-            Swift.print("result: " + "\(result)")
+            result = value
         }else{
             let dist = maskRect.height - (value + itemRect.height)/*distanceToGoal*/
             velocity += (dist * spring)
