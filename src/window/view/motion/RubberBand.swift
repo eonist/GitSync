@@ -3,6 +3,7 @@ import Cocoa
  * TODO: An idea would be to add custom easing behaviour as a argument method instead of overriding? 
  * TODO: You could even do a Selector type of scheme. If Mover.manipulation != nil then call maipulation with the value argument
  * TODO: Clean up the default values
+ * NOTE: this rubberBand tween is cheating a bit. The perfect way to implement this would be to add a half circle easing curve
  */
 class RubberBand:Mover{
     //values
@@ -24,13 +25,10 @@ class RubberBand:Mover{
     }
     override func updatePosition() {
         //Swift.print("updatePosition()")
-        //applyFriction()/*apply friction for every frame called*/
         applyBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
     }
-    //var velocityX:CGFloat = 0
     
     func applyBoundries() {
-        
         if(value > maskRect.y){/*the top of the item-container passed the mask-container top checkPoint*/
             applyTopBoundry()
         }else if((value + itemRect.height) < maskRect.height){/*the bottom of the item-container passed the mask-container bottom checkPoint*/
@@ -70,14 +68,9 @@ class RubberBand:Mover{
         //Swift.print("")
         if(isDirectlyManipulating){
             Swift.print("value: " + "\(value)")
-            
             let a:CGFloat = 750 - 200//tot height of items - height of mask
             let b:CGFloat = a + value
-            let c:CGFloat = abs(b)
-            
-            
-            //-550 to -650
-            //result = value
+            let c:CGFloat = abs(b)/*we need a posetive value to work with*/
             result = -a - CustomFriction.logConstraintValueForYPoisition(c,100)
             Swift.print("result: " + String(result) + " b: " + String(b) + " c: " + String(c))
         }else{
@@ -109,20 +102,6 @@ class RubberBand:Mover{
 
 
 private class CustomFriction{
-    /**
-     *
-     */
-    class func constrainValue(value:CGFloat,_ from:CGFloat,_ to:CGFloat){
-        
-        
-        //let dist:CGFloat = -100
-        
-        //from value
-        
-        //to value
-        
-        //apply more friction the closer it gets to the "to" value
-    }
     /**
      * NOTE: the vertical limit is the point where the value almost doesnt move at all.
      */
