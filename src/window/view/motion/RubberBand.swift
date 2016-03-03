@@ -56,10 +56,10 @@ class RubberBand:Mover{
                 velocity += (dist * spring)
                 //velocity *= springFriction
                 value += velocity
-                //velocity *= springFriction
-                value = CustomFriction.logConstraintValueForYPoisition(value,100)
+                velocity *= springFriction
+                //result = CustomFriction.logConstraintValueForYPoisition(value,100)
                 if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
-                result = value
+                //result = value
 
             }else{/*negative velocity*/
                 Swift.print("negative velocity: " + "\(velocity)" + " dist: " + "\(dist)")
@@ -74,6 +74,8 @@ class RubberBand:Mover{
                 result = value
             }
             
+            
+            //Continue here: negative velocity is solved!!!!
             
         }
     }
