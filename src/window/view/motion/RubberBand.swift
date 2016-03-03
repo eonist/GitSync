@@ -58,8 +58,9 @@ class RubberBand:Mover{
                 
                 let newDist:CGFloat = -value
                 let easing:CGFloat = 0.4
+                let spring:CGFloat = 0.2
                 let initVelocity = velocity
-                velocity += (newDist * 0.2)
+                velocity += (newDist * spring)
                 velocity *= easing
                 value += velocity
                 Swift.print("initVel: "  + String(initVelocity) + " vel: " + String(velocity) + "value: " + String(value))
@@ -69,7 +70,8 @@ class RubberBand:Mover{
             }else{/*negative velocity*/
                 //Swift.print("negative velocity: " + "\(velocity)" + " dist: " + "\(dist)")
                 let newDist:CGFloat = value
-                let easing:CGFloat = 0.2
+                let easing:CGFloat = 0.4
+                let spring:CGFloat = 0.2
                 velocity -= (newDist * spring)
                 velocity *= easing
                 
