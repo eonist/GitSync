@@ -58,6 +58,7 @@ class RubberBand:Mover{
                 let easing:CGFloat = 0.2
                 velocity += (newDist * spring)
                 velocity *= easing
+                value += velocity
                 if(NumberAsserter.isNear(dist, 0, 1)){velocity = -0.1}
                 result = value
 
@@ -74,10 +75,6 @@ class RubberBand:Mover{
                 result = value
             }
             
-            
-            //Continue here: negative velocity is solved!!!!
-            
-            //I think this works. see if you can speed up your velocity to make it even more realistic. fix the velocity timer algo to go forward
             
         }
     }
