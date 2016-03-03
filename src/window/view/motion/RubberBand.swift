@@ -2,10 +2,10 @@ import Cocoa
 /**
  * TODO: An idea would be to add custom easing behaviour as a argument method instead of overriding? 
  * TODO: You could even do a Selector type of scheme. If Mover.manipulation != nil then call maipulation with the value argument
+ * TODO: Clean up the default values
  */
 class RubberBand:Mover{
     //values
-    var inputVal:CGFloat = 0;/*input value*/
     var result:CGFloat = 0/*output value*/
     //props
     var maskRect:CGRect = CGRect(0,0,200,200)
