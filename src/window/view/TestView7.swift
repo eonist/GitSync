@@ -23,8 +23,8 @@ class TestView7:CustomView {
         
         let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
         let list = section.addSubView(RBSliderList(140,120,24,dp,section)) as! RBSliderList
-        list
-        scrollController = RBScrollController(self,CGRect(0,0,w,h),CGRect(0,0,w,itemH*colors.count))
+        
+        scrollController = RBScrollController(self,CGRect(0,0,200,120),CGRect(0,0,200,ListParser.itemsHeight(list)))
     }
     /**
      * loop movment code
