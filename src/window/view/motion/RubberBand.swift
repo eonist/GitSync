@@ -42,7 +42,7 @@ class RubberBand:Mover{
         }
     }
     /**
-     * YOu have to apply friction in both directions (Think of the friction as a half circle)
+     * You have to apply friction in both directions (Think of the friction as a half circle)
      */
     func applyTopBoundry(){
         //Swift.print("applyTopBoundry " + "\(velocity)")
