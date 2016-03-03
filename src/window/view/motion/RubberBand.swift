@@ -51,35 +51,20 @@ class RubberBand:Mover{
             Swift.print("direct")
             result = CustomFriction.logConstraintValueForYPoisition(value,100)
         }else{
-            if(velocity > 0){/*posetive velocity*/
-                //Swift.print( )
-                
-                
-                
-                let newDist:CGFloat = -value
-                let easing:CGFloat = 0.4
-                let spring:CGFloat = 0.2
-                let initVelocity = velocity
-                velocity += (newDist * spring)
-                velocity *= easing
-                value += velocity
-                Swift.print("initVel: "  + String(initVelocity) + " vel: " + String(velocity) + "value: " + String(value))
-                //if(NumberAsserter.isNear(value, 0, 1)){velocity = -0.1}
-                result = value
-
-            }else{/*negative velocity*/
-                //Swift.print("negative velocity: " + "\(velocity)" + " dist: " + "\(dist)")
-                let newDist:CGFloat = -value
-                let easing:CGFloat = 0.4
-                let spring:CGFloat = 0.2
-                velocity += (newDist * spring)
-                velocity *= easing
-                
-                //velocity *= springFriction
-                value += velocity//200-CustomFriction.logConstraintValueForYPoisition(200-value,200)
-                if(NumberAsserter.isNear(value, 0, 1)){checkForStop()}
-                result = value
-            }
+           
+            //Swift.print("negative velocity: " + "\(velocity)" + " dist: " + "\(dist)")
+            let newDist:CGFloat = -value
+            let easing:CGFloat = 0.4
+            let spring:CGFloat = 0.2
+            let initVelocity = velocity
+            velocity += (newDist * spring)
+            velocity *= easing
+            
+            //velocity *= springFriction
+            value += velocity//200-CustomFriction.logConstraintValueForYPoisition(200-value,200)
+            Swift.print("initVel: "  + String(initVelocity) + " vel: " + String(velocity) + "value: " + String(value))
+            if(NumberAsserter.isNear(value, 0, 1)){checkForStop()}
+            result = value
         }
     }
     func applyBottomBoundry(){
