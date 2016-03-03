@@ -8,14 +8,16 @@ import Cocoa
 class RubberBand:Mover{
     let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
     var result:CGFloat = 0/*output value*/ //TODO: move to mover?
-    var maskRect:CGRect = CGRect(0,0,200,200)
-    var itemRect:CGRect = CGRect(0,0,200,150*5)
+    var frame:CGRect/*represents the visible part of the content*/
+    var itemRect:CGRect/*represents the total size of the content*/
     var hasStopped:Bool = true
     var isDirectlyManipulating:Bool = false
     var friction:CGFloat/*This value is the strength of the friction when the item is floating freely*/
     var springEasing:CGFloat
     var spring:CGFloat/*springStrength*/
     init(_ value:CGFloat = 0, _ frame:CGRect, _ itemRect:CGRect, _ velocity:CGFloat = 0, _ friction:CGFloat = 0.98, _ springEasing:CGFloat = 0.2,_ spring:CGFloat = 0.4){
+        self.frame = frame
+        self.itemRect = itemRect
         self.friction = friction
         self.springEasing = springEasing
         self.spring = spring
@@ -25,8 +27,8 @@ class RubberBand:Mover{
         applyBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
     }
     func applyBoundries() {
-        if(value > maskRect.y){applyTopBoundry()}/*the top of the item-container passed the mask-container top checkPoint*/
-        else if((value + itemRect.height) < maskRect.height){applyBottomBoundry()}/*the bottom of the item-container passed the mask-container bottom checkPoint*/
+        if(value > frame.y){applyTopBoundry()}/*the top of the item-container passed the mask-container top checkPoint*/
+        else if((value + itemRect.height) < frame.height){applyBottomBoundry()}/*the bottom of the item-container passed the mask-container bottom checkPoint*/
         else{/*within the boundries*/
             velocity *= friction
             value += velocity
@@ -55,11 +57,11 @@ class RubberBand:Mover{
     func applyBottomBoundry(){
         //Swift.print("")
         if(isDirectlyManipulating){
-            let totHeight = (itemRect.height - maskRect.height)//(tot height of items - height of mask)
+            let totHeight = (itemRect.height - frame.height)//(tot height of items - height of mask)
             let c:CGFloat = /*abs*/(totHeight + value)/*we need a posetive value to work with, 0 to 100*/
             result = -totHeight + CustomFriction.constraintValueWithLog(c,-100)
         }else{
-            let dist = maskRect.height - (value + itemRect.height)/*distanceToGoal*/
+            let dist = frame.height - (value + itemRect.height)/*distanceToGoal*/
             //Swift.print("dist: " + "\(dist)")
             velocity += (dist * spring)
             velocity *= springEasing
