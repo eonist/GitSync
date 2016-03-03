@@ -81,6 +81,8 @@ class VerticalThrowArea2 :InteractiveView2{
             if(prevScrollingDeltaY > 0){velocity = NumberParser.max(velocities)}/*find the most positive velocity value*/
             else{velocity = NumberParser.min(velocities)}/*find the most negative velocity value*/
             
+            //td try the += on the velocity with more rects to see its effect
+            
             mover!.velocity += velocity/*set the mover velocity to the current mouse gesture velocity*/
             CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)//'start the frameTicker here, do this part in parent view or use event or Selector
         }else{/*stationary*/
