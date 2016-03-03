@@ -56,7 +56,7 @@ class VerticalThrowArea2 :InteractiveView2{
     func onScrollWheelDown(){
         //Swift.print("onScrollWheelDown")
         CVDisplayLinkStop((self.superview as! AnimatableView).displayLink)
-        //mover!.hasStopped = true/*set the stop flag to true*/
+        mover!.hasStopped = true/*set the stop flag to true*/
         prevScrollingDeltaY = 0/*set last wheel speed delta to stationary, aka not spinning*/
         mover!.isDirectlyManipulating = true/*toggle to directManipulationMode*/
         velocities = [0,0,0,0,0,0,0,0,0,0]//reset the velocities
@@ -66,7 +66,7 @@ class VerticalThrowArea2 :InteractiveView2{
      */
     func onScrollWheelUp(){
         //Swift.print("onScrollWheelUp " + "\(prevScrollingDeltaY)")
-        //mover!.hasStopped = false/*reset this value to false*/
+        mover!.hasStopped = false/*reset this value to false, so that the FrameAnimatior can start again*/
         mover!.isDirectlyManipulating = false
         mover!.value = mover!.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
         if(prevScrollingDeltaY != 1.0 && prevScrollingDeltaY != -1.0){/*not 1 and not -1 indicates that the wheel is not stationary*/
