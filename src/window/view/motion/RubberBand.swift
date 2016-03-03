@@ -39,7 +39,7 @@ class RubberBand:Mover{
         //Swift.print("applyTopBoundry " + "\(velocity)")
         let distToGoal:CGFloat = value
         if(isDirectlyManipulating){
-            Swift.print("direct")
+            //Swift.print("direct")
             result = CustomFriction.constraintValueWithLog(distToGoal,100)
         }else{
             velocity -= (distToGoal * spring)
@@ -58,7 +58,7 @@ class RubberBand:Mover{
             result = -totHeight + CustomFriction.constraintValueWithLog(c,-100)
         }else{
             let dist = maskRect.height - (value + itemRect.height)/*distanceToGoal*/
-            Swift.print("dist: " + "\(dist)")
+            //Swift.print("dist: " + "\(dist)")
             velocity += (dist * spring)
             velocity *= springEasing
             value += velocity
@@ -72,15 +72,12 @@ class RubberBand:Mover{
      */
     func checkForStop() {
         //Swift.print( "\(value.toFixed(3))" + " checkForStop " + "\((lastValue).toFixed(3))")
-        if(!isDirectlyManipulating && NumberAsserter.isNear(velocity, 0, 0.15)) {
+        if(!isDirectlyManipulating && NumberAsserter.isNear(velocity, 0, epsilon)) {
             Swift.print("stop velocity: " + "\(velocity)")
             hasStopped = true
         }
     }
 }
-
-
-
 private class CustomFriction{//creates the displacement friction effect. Like you finger is slightly losing its grip
     /**
      * NOTE: the vertical limit is the point where the value almost doesnt move at all
