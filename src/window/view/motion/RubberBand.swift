@@ -70,6 +70,12 @@ class RubberBand:Mover{
         //Swift.print("")
         if(isDirectlyManipulating){
             Swift.print("value: " + "\(value)")
+            
+            let a:CGFloat = 750 - 200
+            let b:CGFloat = a - value
+            
+            
+            //-550 to -650
             result = value
             //result = CustomFriction.logConstraintValueForYPoisition(value,100)
         }else{
