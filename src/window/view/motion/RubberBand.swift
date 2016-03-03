@@ -58,7 +58,7 @@ class RubberBand:Mover{
             let spring:CGFloat = 0.4
             let initVelocity = velocity
             velocity += (newDist * spring)
-            velocity *= easing
+            velocity = log10(velocity)
             
             //velocity *= springFriction
             value += velocity//200-CustomFriction.logConstraintValueForYPoisition(200-value,200)
