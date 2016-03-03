@@ -26,11 +26,7 @@ class VerticalThrowArea2 :InteractiveView2{
      * NOTE: you can use the event.deviceDeltaY to check which direction the gesture is moving in.
      */
     override func scrollWheel(theEvent: NSEvent) {
-        //Swift.print("theEvent: " + "\(theEvent)")
-        //Swift.print("scrollingDeltaY: " + "\(theEvent.scrollingDeltaY)")
-        //Swift.print("velocities: " + "\(velocities)")
         if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is direct scrollWheel gesture movment.
-            //Swift.print("changed")
             if(!mover!.hasStopped){
                 if(CVDisplayLinkIsRunning((self.superview as! AnimatableView).displayLink)) {CVDisplayLinkStart((self.superview as! AnimatableView).displayLink);mover!.hasStopped = true;}//the if clause is just a precausion
             }
@@ -41,7 +37,6 @@ class VerticalThrowArea2 :InteractiveView2{
             velocities.removeLast()/*remove the last velocity to make room for the new*/
             velocities = [theEvent.scrollingDeltaY] + velocities/*insert new velocity at the begining*/
         }else if(theEvent.phase == NSEventPhase.MayBegin){//can be used to detect if two fingers are touching the trackpad
-            Swift.print("MayBegin")
             onScrollWheelDown()
         }else if(theEvent.phase == NSEventPhase.Ended){//if you release your touch-gesture and the momentum of the gesture has stopped.
             //Swift.print("Ended ")
