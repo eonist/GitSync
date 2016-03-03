@@ -13,7 +13,7 @@ class RubberBand:Mover{
     var springEasing:CGFloat/*the easeout effect on the spring*/
     var spring:CGFloat/*the strength of the spring*/
     var limit:CGFloat/*the max distance the displacement friction like effect can travle*/
-    init(_ value:CGFloat = 0, _ frame:CGRect, _ itemRect:CGRect, _ velocity:CGFloat = 0, _ friction:CGFloat = 0.98, _ springEasing:CGFloat = 0.2,_ spring:CGFloat = 0.4, _ limit:CGFloat = 100){
+    init(_ frame:CGRect, _ itemRect:CGRect, _ value:CGFloat = 0, _ velocity:CGFloat = 0, _ friction:CGFloat = 0.98, _ springEasing:CGFloat = 0.2,_ spring:CGFloat = 0.4, _ limit:CGFloat = 100){
         self.frame = frame
         self.itemRect = itemRect
         self.friction = friction
@@ -36,29 +36,24 @@ class RubberBand:Mover{
         }
     }
     func applyTopBoundry(){
-        //Swift.print("applyTopBoundry " + "\(velocity)")
         let distToGoal:CGFloat = value
         if(isDirectlyManipulating){
-            //Swift.print("direct")
             result = CustomFriction.constraintValueWithLog(distToGoal,100)
         }else{
             velocity -= (distToGoal * spring)
             velocity *= springEasing//TODO: try to apply log10 instead of the regular easing
             value += velocity
-            //Swift.print("initVel: "  + String(initVelocity) + " vel: " + String(velocity) + "value: " + String(value))
             if(NumberAsserter.isNear(value, 0, 1)){checkForStop()}
             result = value
         }
     }
     func applyBottomBoundry(){
-        //Swift.print("")
         if(isDirectlyManipulating){
             let totHeight = (itemRect.height - frame.height)//(tot height of items - height of mask)
             let normalizedValue:CGFloat = totHeight + value/*goes from 0 to -100*/
             result = -totHeight + CustomFriction.constraintValueWithLog(normalizedValue,-100)
         }else{
             let dist = frame.height - (value + itemRect.height)/*distanceToGoal*/
-            //Swift.print("dist: " + "\(dist)")
             velocity += (dist * spring)
             velocity *= springEasing
             value += velocity
