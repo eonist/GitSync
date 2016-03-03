@@ -82,9 +82,11 @@ class RubberBand:Mover{
             Swift.print("result: " + String(result) + " b: " + String(b) + " c: " + String(c))
         }else{
             let dist = maskRect.height - (value + itemRect.height)/*distanceToGoal*/
+            let easing:CGFloat = 0.2
+            let spring:CGFloat = 0.4
             velocity += (dist * spring)
+            velocity *= easing
             value += velocity
-            velocity *= springFriction
            // value = CustomFriction.logConstraintValueForYPoisition(value,100)
             
             if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
