@@ -45,12 +45,13 @@ class RubberBand:Mover{
      * YOu have to apply friction in both directions (Think of the friction as a half circle)
      */
     func applyTopBoundry(){
-        Swift.print("applyTopBoundry " + "\(velocity)")
+        //Swift.print("applyTopBoundry " + "\(velocity)")
         if(isDirectlyManipulating){
             //dont do anything here
             Swift.print("direct")
             result = CustomFriction.logConstraintValueForYPoisition(value,100)
         }else{
+            
             let dist = -value/*distanceToGoal*/
             velocity += (dist * spring)
             //velocity *= springFriction
@@ -60,7 +61,7 @@ class RubberBand:Mover{
             if(velocity > 0){
                 value = CustomFriction.logConstraintValueForYPoisition(value,100)
             }else{
-                value = 200-CustomFriction.constraintValueForYPoisition(200-value,200)
+                value = 200-CustomFriction.logConstraintValueForYPoisition(200-value,200)
             }
             
             if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
