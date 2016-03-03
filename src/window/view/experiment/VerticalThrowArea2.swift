@@ -26,29 +26,28 @@ class VerticalThrowArea2 :InteractiveView2{
      * NOTE: you can use the event.deviceDeltaY to check which direction the gesture is moving in.
      */
     override func scrollWheel(theEvent: NSEvent) {
-        if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is direct scrollWheel gesture movment.
-            if(!mover!.hasStopped){
-                if(CVDisplayLinkIsRunning((self.superview as! AnimatableView).displayLink)) {CVDisplayLinkStart((self.superview as! AnimatableView).displayLink);mover!.hasStopped = true;}//the if clause is just a precausion
-            }
-            mover!.value += theEvent.scrollingDeltaY/*directly manipulate the value 1 to 1 control*/
-            mover!.updatePosition()
-            prevScrollingDeltaY = theEvent.scrollingDeltaY/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
-            
-            velocities.removeLast()/*remove the last velocity to make room for the new*/
-            velocities = [theEvent.scrollingDeltaY] + velocities/*insert new velocity at the begining*/
-        }else if(theEvent.phase == NSEventPhase.MayBegin){//can be used to detect if two fingers are touching the trackpad
-            onScrollWheelDown()
-        }else if(theEvent.phase == NSEventPhase.Ended){//if you release your touch-gesture and the momentum of the gesture has stopped.
-            //Swift.print("Ended ")
-            onScrollWheelUp()
-        }else if(theEvent.phase == NSEventPhase.Cancelled){
-            //Swift.print("Cancelled")
-            onScrollWheelUp()
-        }else if(theEvent.phase == NSEventPhase.Began){
-            //Swift.print("Began")
-            onScrollWheelDown()
+        switch theEvent.phase{
+            case NSEventPhase.Changed://fires everytime there is direct scrollWheel gesture movment.
+                if(!mover!.hasStopped){
+                    if(CVDisplayLinkIsRunning((self.superview as! AnimatableView).displayLink)) {CVDisplayLinkStart((self.superview as! AnimatableView).displayLink);mover!.hasStopped = true;}//the if clause is just a precausion
+                }
+                mover!.value += theEvent.scrollingDeltaY/*directly manipulate the value 1 to 1 control*/
+                mover!.updatePosition()
+                prevScrollingDeltaY = theEvent.scrollingDeltaY/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
+                
+                velocities.removeLast()/*remove the last velocity to make room for the new*/
+                velocities = [theEvent.scrollingDeltaY] + velocities/*insert new velocity at the begining*/
+            case NSEventPhase.MayBegin://can be used to detect if two fingers are touching the trackpad
+                onScrollWheelDown()
+            case NSEventPhase.Began:
+                onScrollWheelDown()
+            case NSEventPhase.Ended://if you release your touch-gesture and the momentum of the gesture has stopped.
+                onScrollWheelUp()
+            case NSEventPhase.Cancelled:
+                onScrollWheelUp()
+            default:break;
         }
-        super.scrollWheel(theEvent)//call super to forward the event to the parent view
+        //super.scrollWheel(theEvent)//call super if you want to forward the event to the parent view
     }
     /**
      * 
