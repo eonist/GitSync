@@ -16,7 +16,7 @@ class RubberBand:Mover{
     var frictionStrength:CGFloat = 0.98/*This value is the strength of the friction*/
     let springFriction:CGFloat = 0.50;
     let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
-    var spring:CGFloat = 0.3
+    var spring:CGFloat = 0.4
     init(_ target:NSView, _ value:CGFloat, _ velocity:CGFloat = 0, _ frictionStrength:CGFloat = 0.98){
         self.frictionStrength = frictionStrength
         super.init(target, value, velocity)
@@ -55,7 +55,7 @@ class RubberBand:Mover{
             if(velocity > 0){/*posetive velocity*/
                 Swift.print("velocity: " + "\(velocity)")
                 let newDist:CGFloat = -value
-                let easing:CGFloat = 0.2
+                let easing:CGFloat = 0.3
                 velocity += (newDist * spring)
                 velocity *= easing
                 if(NumberAsserter.isNear(dist, 0, 1)){velocity = -0.1}
@@ -64,7 +64,7 @@ class RubberBand:Mover{
             }else{/*negative velocity*/
                 //Swift.print("negative velocity: " + "\(velocity)" + " dist: " + "\(dist)")
                 let newDist:CGFloat = value
-                let easing:CGFloat = 0.2
+                let easing:CGFloat = 0.3
                 velocity -= (newDist * spring)
                 velocity *= easing
                 
