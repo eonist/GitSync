@@ -1,6 +1,6 @@
 import Cocoa
 
-class TestView6:AnimatableView {
+class TestView6:CustomView {
     var w:CGFloat = 200
     var h:CGFloat = 200
     var itemH:CGFloat = 150;

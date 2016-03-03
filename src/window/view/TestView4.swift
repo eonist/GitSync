@@ -2,7 +2,7 @@ import Cocoa
 /**
  * Testing log10 friction
  */
-class TestView4:AnimatableView {
+class TestView4:CustomView {
     var w:CGFloat = 200
     var h:CGFloat = 200
     var rect:RectGraphic?

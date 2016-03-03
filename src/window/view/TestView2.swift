@@ -1,6 +1,6 @@
 import Cocoa
 
-class TestView2:AnimatableView{
+class TestView2:CustomView{
     var rect:RectGraphic!
     override func resolveSkin() {
         super.resolveSkin()

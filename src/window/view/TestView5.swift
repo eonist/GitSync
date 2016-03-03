@@ -2,7 +2,7 @@ import Cocoa
 /**
  * Testing springTo 
  */
-class TestView5:AnimatableView {
+class TestView5:CustomView {
     let target:CGPoint = CGPoint(100,60)
     var circ:EllipseGraphic!
     override func resolveSkin() {

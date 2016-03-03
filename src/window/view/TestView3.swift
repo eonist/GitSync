@@ -2,7 +2,7 @@ import Cocoa
 /**
  * Testing infinite scrolling page with scroll-wheel and mouse interaction
  */
-class TestView3:AnimatableView {
+class TestView3:CustomView {
     static var w:CGFloat = 400
     static var h:CGFloat = 600
     var w:CGFloat = TestView3.w
