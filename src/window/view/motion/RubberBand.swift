@@ -83,8 +83,6 @@ class RubberBand:Mover{
 }
 
 
-//continue here: I think you need to draw this out on the ipad. To understand the dynamics better.
-
 
 private class CustomFriction{
     /**
@@ -96,6 +94,7 @@ private class CustomFriction{
         return verticalLimit * multiplier
     }
     class func constraintValueForYPoisition(yPosition : CGFloat, _ verticalLimit:CGFloat) -> CGFloat {
-        return verticalLimit * (0.5 * (yPosition/verticalLimit))
+        let multiplier = (0.5 * (yPosition/verticalLimit))
+        return verticalLimit * multiplier
     }
 }
