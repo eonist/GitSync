@@ -1,8 +1,5 @@
 import Cocoa
 /**
- * TODO: An idea would be to add custom easing behaviour as a argument method instead of overriding? 
- * TODO: You could even do a Selector type of scheme. If Mover.manipulation != nil then call maipulation with the value argument
- * TODO: Clean up the default values
  * NOTE: this rubberBand tween is cheating a bit. The perfect way to implement this would be to add a half circle easing curve
  */
 class RubberBand:Mover{
@@ -10,7 +7,7 @@ class RubberBand:Mover{
     var result:CGFloat = 0/*output value*/ //TODO: move to mover?
     var frame:CGRect/*represents the visible part of the content*/
     var itemRect:CGRect/*represents the total size of the content*/
-    var hasStopped:Bool = true
+    var hasStopped:Bool = true/*indicates that the motion has stopped*/
     var isDirectlyManipulating:Bool = false
     var friction:CGFloat/*This value is the strength of the friction when the item is floating freely*/
     var springEasing:CGFloat/*the easeout effect on the spring*/
