@@ -53,8 +53,18 @@ class RubberBand:Mover{
             velocity += (dist * spring)
             //velocity *= springFriction
             value += velocity
-            velocity *= springFriction
-            //value = CustomFriction.constraintValueForYPoisition(value,400)
+            //velocity *= springFriction
+            
+            
+            if(velocity > 0){
+                value = CustomFriction.logConstraintValueForYPoisition(value,100)
+            }else{
+                value = 100-CustomFriction.logConstraintValueForYPoisition(100-value,100)
+            }
+            
+            
+            
+            
             if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
             result = value
         }
