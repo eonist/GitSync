@@ -39,7 +39,7 @@ class TestView6:AnimatableView {
         if(theEvent.phase == NSEventPhase.Changed){moveViews(scrollController!.mover.result)}
     }
     override func onFrame(){
-        //Swift.print("onFrame() value: " + "\(throwArea!.mover!.value)")
+        Swift.print("onFrame() value: " + "\(scrollController!.mover.value)")
         if(scrollController!.mover.hasStopped){//stop the frameTicker here
             CVDisplayLinkStop(displayLink)
         }else{//only move the view if the mover is not stopped
