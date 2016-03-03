@@ -6,22 +6,17 @@ import Cocoa
  * NOTE: this rubberBand tween is cheating a bit. The perfect way to implement this would be to add a half circle easing curve
  */
 class RubberBand:Mover{
-
-    var result:CGFloat = 0/*output value*/ //TODO: move to mover
-
+    
     var maskRect:CGRect = CGRect(0,0,200,200)
     var itemRect:CGRect = CGRect(0,0,200,150*5)
-
     var hasStopped:Bool = true
     var isDirectlyManipulating:Bool = false
-
-    var freeFloatFriction:CGFloat = 0.98/*This value is the strength of the friction*/
-
+    var friction:CGFloat = 0.98/*This value is the strength of the friction when the item is floating freely*/
     let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
-
     var springEasing:CGFloat = 0.2
-    init(_ target:NSView, _ value:CGFloat, _ velocity:CGFloat = 0, _ frictionStrength:CGFloat = 0.98){
-        self.freeFloatFriction = frictionStrength
+    var spring:CGFloat = 0.4
+    init(_ target:NSView, _ value:CGFloat, _ velocity:CGFloat = 0, _ friction:CGFloat = 0.98){
+        self.friction = friction
         super.init(target, value, velocity)
     }
     override func updatePosition() {
@@ -35,7 +30,7 @@ class RubberBand:Mover{
         }else if((value + itemRect.height) < maskRect.height){/*the bottom of the item-container passed the mask-container bottom checkPoint*/
            applyBottomBoundry()
         }else{/*within the boundries*/
-            velocity *= freeFloatFriction
+            velocity *= friction
             super.updatePosition()
             checkForStop()
             result = value
@@ -52,11 +47,11 @@ class RubberBand:Mover{
         }else{
             //Swift.print("negative velocity: " + "\(velocity)" + " dist: " + "\(dist)")
             let newDist:CGFloat = -value
-            let easing:CGFloat = 0.2
-            let spring:CGFloat = 0.4
+
+            
             //let initVelocity = velocity
             velocity += (newDist * spring)
-            velocity *= easing//TODO: try to apply log10 instead of the regular easing
+            velocity *= springEasing//TODO: try to apply log10 instead of the regular easing
             
             //velocity *= springFriction
             value += velocity//200-CustomFriction.logConstraintValueForYPoisition(200-value,200)
@@ -68,22 +63,18 @@ class RubberBand:Mover{
     func applyBottomBoundry(){
         //Swift.print("")
         if(isDirectlyManipulating){
-            Swift.print("value: " + "\(value)")
+            //Swift.print("value: " + "\(value)")
             let a:CGFloat = 750 - 200//tot height of items - height of mask
             let b:CGFloat = a + value
             let c:CGFloat = abs(b)/*we need a posetive value to work with*/
             result = -a - CustomFriction.logConstraintValueForYPoisition(c,100)
-            Swift.print("result: " + String(result) + " b: " + String(b) + " c: " + String(c))
+            //Swift.print("result: " + String(result) + " b: " + String(b) + " c: " + String(c))
         }else{
             let dist = maskRect.height - (value + itemRect.height)/*distanceToGoal*/
-            let easing:CGFloat = 0.2
-            let spring:CGFloat = 0.4
             velocity += (dist * spring)
-            velocity *= easing
+            velocity *= springEasing
             value += velocity
-           // value = CustomFriction.logConstraintValueForYPoisition(value,100)
-            
-            if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
+            if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}/*checks if dist is near 0, with an epsilon of 1px*/
             result = value
         }
     }
