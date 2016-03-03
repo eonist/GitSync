@@ -58,9 +58,9 @@ class RubberBand:Mover{
             value += velocity
             //velocity *= springFriction
             
-            if(velocity > 0){
+            if(velocity > 0){/*posetive velocity*/
                 value = CustomFriction.logConstraintValueForYPoisition(value,100)
-            }else{
+            }else{/*negative velocity*/
                 value = 200-CustomFriction.logConstraintValueForYPoisition(200-value,200)
             }
             
