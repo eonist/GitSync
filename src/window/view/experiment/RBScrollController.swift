@@ -44,10 +44,8 @@ class RBScrollController {
      * NOTE: basically when you enter your scrollWheel gesture
      */
     func onScrollWheelDown(){
-        Swift.print("onScrollWheelDown")
         CVDisplayLinkStop(view.displayLink)
         mover.hasStopped = true/*set the stop flag to true*/
-        mover.velocity = 0//reset the velocity 
         prevScrollingDeltaY = 0/*set last wheel speed delta to stationary, aka not spinning*/
         mover.isDirectlyManipulating = true/*toggle to directManipulationMode*/
         velocities = [0,0,0,0,0,0,0,0,0,0]//reset the velocities
@@ -56,7 +54,6 @@ class RBScrollController {
      * NOTE: basically when you release your scrollWheel gesture
      */
     func onScrollWheelUp(){
-        //Swift.print("onScrollWheelUp " + "\(prevScrollingDeltaY)")
         mover.hasStopped = false/*reset this value to false, so that the FrameAnimatior can start again*/
         mover.isDirectlyManipulating = false
         mover.value = mover.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
