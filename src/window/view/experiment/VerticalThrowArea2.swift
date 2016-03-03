@@ -45,7 +45,7 @@ class VerticalThrowArea2 :InteractiveView2{
             //Swift.print("Cancelled")
             onScrollWheelUp()
         }else if(theEvent.phase == NSEventPhase.Began){
-            Swift.print("Began")
+            //Swift.print("Began")
             onScrollWheelDown()
         }
         super.scrollWheel(theEvent)//call super to forward the event to the parent view
@@ -54,7 +54,7 @@ class VerticalThrowArea2 :InteractiveView2{
      * 
      */
     func onScrollWheelDown(){
-        Swift.print("onScrollWheelDown")
+        //Swift.print("onScrollWheelDown")
         CVDisplayLinkStop((self.superview as! AnimatableView).displayLink)
         mover!.hasStopped = true
         prevScrollingDeltaY = 0/*set last wheel speed delta to stationary, aka not spinning*/
@@ -65,24 +65,17 @@ class VerticalThrowArea2 :InteractiveView2{
      *
      */
     func onScrollWheelUp(){
-        Swift.print("onScrollWheelUp " + "\(prevScrollingDeltaY)")
-        //mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
+        //Swift.print("onScrollWheelUp " + "\(prevScrollingDeltaY)")
         mover!.hasStopped = false/*reset this value to false*/
         mover!.isDirectlyManipulating = false
         mover!.value = mover!.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
-        //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
         if(prevScrollingDeltaY != 1.0 && prevScrollingDeltaY != -1.0){/*not 1 and not -1 indicates that the wheel is not stationary*/
-            //Swift.print("is not stationary")
             var velocity:CGFloat = 0
             if(prevScrollingDeltaY > 0){velocity = NumberParser.max(velocities)}/*find the most positive velocity value*/
             else{velocity = NumberParser.min(velocities)}/*find the most negative velocity value*/
-            
-            //td try the += on the velocity with more rects to see its effect
-            
-            mover!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this cant be additive is because */
+            mover!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this cant be additive is because you need to be more immediate when you change direction, this could be done vy assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
             CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)//'start the frameTicker here, do this part in parent view or use event or Selector
         }else{/*stationary*/
-            //Swift.print("is stationary")
             CVDisplayLinkStart((self.superview as! AnimatableView).displayLink)
         }
     }
