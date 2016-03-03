@@ -15,7 +15,7 @@ class RubberBand:Mover{
     var friction:CGFloat/*This value is the strength of the friction when the item is floating freely*/
     var springEasing:CGFloat
     var spring:CGFloat/*springStrength*/
-    init(_ value:CGFloat, _ velocity:CGFloat = 0, _ friction:CGFloat = 0.98, _ springEasing:CGFloat = 0.2,_ spring:CGFloat = 0.4){
+    init(_ value:CGFloat = 0, _ frame:CGRect, _ velocity:CGFloat = 0, _ friction:CGFloat = 0.98, _ springEasing:CGFloat = 0.2,_ spring:CGFloat = 0.4){
         self.friction = friction
         self.springEasing = springEasing
         self.spring = spring
