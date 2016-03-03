@@ -56,13 +56,13 @@ class RubberBand:Mover{
                 
                 //try to use the value to 100 not to 0 (or use 200)
                 
-                let newDist:CGFloat = -value
+                let newDist:CGFloat = 100-value
                 let easing:CGFloat = 0.2
                 velocity += (newDist * spring)
                 velocity *= easing
                 value += velocity
                 Swift.print("velocity: " + "\(velocity)" + "value: " + "\(value)")
-                //if(NumberAsserter.isNear(value, 0, 1)){velocity = -0.1}
+                if(NumberAsserter.isNear(value, 100, 1)){velocity = -0.1}
                 result = value
 
             }else{/*negative velocity*/
