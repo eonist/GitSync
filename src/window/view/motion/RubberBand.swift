@@ -16,7 +16,7 @@ class RubberBand:Mover{
     var frictionStrength:CGFloat = 0.98/*This value is the strength of the friction*/
     let springFriction:CGFloat = 0.50;
     let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
-    var spring:CGFloat = 0.2
+    var spring:CGFloat = 0.3
     init(_ target:NSView, _ value:CGFloat, _ velocity:CGFloat = 0, _ frictionStrength:CGFloat = 0.98){
         self.frictionStrength = frictionStrength
         super.init(target, value, velocity)
@@ -59,7 +59,7 @@ class RubberBand:Mover{
             if(velocity > 0){
                 value = CustomFriction.logConstraintValueForYPoisition(value,100)
             }else{
-                value = 100-CustomFriction.constraintValueForYPoisition(100-value,100)
+                value = 200-CustomFriction.constraintValueForYPoisition(200-value,200)
             }
             
             
