@@ -5,10 +5,10 @@ import Cocoa
  * NOTE: Start and stop with CVDisplayLinkStart(displayLink) and CVDisplayLinkStop(displayLink)
  * TODO: Eventually you will have to move this class bellow InteractiveView
  */
-class AnimatableView:CustomView,IAnimatable {
+class AnimatableView:FlippedView,IAnimatable {
     var displayLink: CVDisplayLink!/*This is the instance that enables frame animation*/
-    override func resolveSkin() {
-        super.resolveSkin()
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
         displayLink = setUpDisplayLink()
         //Swift.print("displayLink: " + "\(displayLink)")
     }
@@ -40,4 +40,5 @@ class AnimatableView:CustomView,IAnimatable {
         Swift.print("displayIDStatus: " + "\(displayIDStatus)")
         return displayLink!
     }
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
