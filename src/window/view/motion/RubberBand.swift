@@ -4,11 +4,11 @@ import Cocoa
  */
 class RubberBand:Mover{
     let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
-    var result:CGFloat = 0/*output value*/ //TODO: move to mover?
+    var result:CGFloat = 0/*output value*/
     var frame:CGRect/*represents the visible part of the content*/
     var itemRect:CGRect/*represents the total size of the content*/
     var hasStopped:Bool = true/*indicates that the motion has stopped*/
-    var isDirectlyManipulating:Bool = false
+    var isDirectlyManipulating:Bool = false/*toggles the directManipulation mode*/
     var friction:CGFloat/*This value is the strength of the friction when the item is floating freely*/
     var springEasing:CGFloat/*the easeout effect on the spring*/
     var spring:CGFloat/*the strength of the spring*/
