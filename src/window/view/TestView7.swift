@@ -21,7 +21,7 @@ class TestView7:AnimatableView {
         let dp = DataProvider(FileParser.xml("~/Desktop/test.xml"))
         
         let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
-        let list = section.addSubView(List(140,220,24,dp,section)) as! List
+        let list = section.addSubView(List(140,120,24,dp,section)) as! List
         list
     }
 }
