@@ -61,7 +61,8 @@ class RubberBand:Mover{
             if(velocity > 0){/*posetive velocity*/
                 value = CustomFriction.logConstraintValueForYPoisition(value,100)
             }else{/*negative velocity*/
-                value = 200-CustomFriction.logConstraintValueForYPoisition(200-value,200)
+                velocity *= springFriction
+                value += velocity//200-CustomFriction.logConstraintValueForYPoisition(200-value,200)
             }
             
             if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
@@ -114,7 +115,7 @@ private class CustomFriction{
      */
     class func logConstraintValueForYPoisition(yPosition : CGFloat, _ verticalLimit:CGFloat) -> CGFloat {
         let multiplier = (log10(1.0 + yPosition/verticalLimit))
-        Swift.print("multiplier: " + "\(multiplier)" + " yPosition: " + "\(yPosition)")
+        //Swift.print("multiplier: " + "\(multiplier)" + " yPosition: " + "\(yPosition)")
         return verticalLimit * multiplier
     }
     class func constraintValueForYPoisition(yPosition : CGFloat, _ verticalLimit:CGFloat) -> CGFloat {
