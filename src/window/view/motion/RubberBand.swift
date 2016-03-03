@@ -65,10 +65,12 @@ class RubberBand:Mover{
             let a:CGFloat = 750 - 200//tot height of items - height of mask
             let b:CGFloat = a + value
             let c:CGFloat = abs(b)/*we need a posetive value to work with*/
+            Swift.print("c: " + "\(c)")
             result = -a - CustomFriction.logConstraintValueForYPoisition(c,100)
             //Swift.print("result: " + String(result) + " b: " + String(b) + " c: " + String(c))
         }else{
             let dist = maskRect.height - (value + itemRect.height)/*distanceToGoal*/
+            Swift.print("dist: " + "\(dist)")
             velocity += (dist * spring)
             velocity *= springEasing
             value += velocity
