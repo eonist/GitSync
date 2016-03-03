@@ -20,7 +20,6 @@ class TestView7:CustomView {
         StyleManager.addStylesByURL("~/Desktop/css/list.css")
         
         let dp = DataProvider(FileParser.xml("~/Desktop/test.xml"))
-        
         let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
         let list = section.addSubView(RBSliderList(140,120,24,dp,section)) as! RBSliderList
         list
