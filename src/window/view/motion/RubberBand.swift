@@ -85,7 +85,8 @@ class RubberBand:Mover{
 
 private class CustomFriction{
     /**
-     * NOTE: the vertical limit is the point where the value almost doesnt move at all.
+     * NOTE: the vertical limit is the point where the value almost doesnt move at all
+     * NOTE: 
      */
     class func logConstraintValueForYPoisition(yPosition : CGFloat, _ verticalLimit:CGFloat) -> CGFloat {
         let multiplier = (log10(1.0 + yPosition/verticalLimit))
