@@ -7,8 +7,8 @@ import Cocoa
  * TODO: Create the algorithm that calculates the actual throw speed. By looking at the time that each intervall travles. 
  */
 class RBScrollController {
-    var frame:CGRect/*represents the visible part of the content*/
-    var itemRect:CGRect/*represents the total size of the content*/
+    var frame:CGRect/*represents the visible part of the content*///TODO: could be ranmed to maskRect
+    var itemRect:CGRect/*represents the total size of the content*///TODO: could be ranmed to contentRect
     var view:AnimatableView
     var mover:RubberBand
     var prevScrollingDeltaY:CGFloat = 0/*this is needed in order to figure out which direction the scrollWheel is going in*/

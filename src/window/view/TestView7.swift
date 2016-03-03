@@ -5,6 +5,7 @@ import Cocoa
  * TODO: add the new list class here
  * TODO: test rubberband scrolling on list
  * TODO: move the AnimatableView class before or after interactive view, i guess bfore because we may have animatable views that are not interactive in the future
+ * TODO: account for when the content is smaller than the crop
  */
 class TestView7:AnimatableView {
     override func resolveSkin() {
