@@ -51,7 +51,6 @@ class RubberBand:Mover{
             Swift.print("direct")
             result = CustomFriction.logConstraintValueForYPoisition(value,100)
         }else{
-            let dist = -value/*distanceToGoal*/
             if(velocity > 0){/*posetive velocity*/
                 Swift.print("velocity: " + "\(velocity)" + " value: " + "\(value)")
                 let newDist:CGFloat = -value
@@ -59,7 +58,7 @@ class RubberBand:Mover{
                 velocity += (newDist * spring)
                 velocity *= easing
                 value += velocity
-                if(NumberAsserter.isNear(dist, 0, 1)){velocity = -0.1}
+                if(NumberAsserter.isNear(value, 0, 1)){velocity = -0.1}
                 result = value
 
             }else{/*negative velocity*/
@@ -71,7 +70,7 @@ class RubberBand:Mover{
                 
                 //velocity *= springFriction
                 value += velocity//200-CustomFriction.logConstraintValueForYPoisition(200-value,200)
-                if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
+                if(NumberAsserter.isNear(value, 0, 1)){checkForStop()}
                 result = value
             }
             
