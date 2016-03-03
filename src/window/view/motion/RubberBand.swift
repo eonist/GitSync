@@ -55,7 +55,7 @@ class RubberBand:Mover{
             if(velocity > 0){/*posetive velocity*/
                 Swift.print("velocity: " + "\(velocity)")
                 let newDist:CGFloat = -value
-                let easing:CGFloat = 0.3
+                let easing:CGFloat = 0.2
                 velocity += (newDist * spring)
                 velocity *= easing
                 if(NumberAsserter.isNear(dist, 0, 1)){velocity = -0.1}
@@ -64,7 +64,7 @@ class RubberBand:Mover{
             }else{/*negative velocity*/
                 //Swift.print("negative velocity: " + "\(velocity)" + " dist: " + "\(dist)")
                 let newDist:CGFloat = value
-                let easing:CGFloat = 0.3
+                let easing:CGFloat = 0.2
                 velocity -= (newDist * spring)
                 velocity *= easing
                 
@@ -76,6 +76,8 @@ class RubberBand:Mover{
             
             
             //Continue here: negative velocity is solved!!!!
+            
+            //I think this works. see if you can speed up your velocity to make it even more realistic. fix the velocity timer algo to go forward
             
         }
     }
