@@ -59,10 +59,10 @@ class RubberBand:Mover{
         //Swift.print("")
         if(isDirectlyManipulating){
             //dont do anything here
-            Swift.print(value+itemRect.height-150)
+            //Swift.print(value+itemRect.height-150)
             
             // you want to make the current y be a value that stats from 0 and goes to 100 when its idle
-            
+            result = value
             //result = CustomFriction.logConstraintValueForYPoisition(value-itemRect.height,100)
         }else{
             let dist = maskRect.height - (value + itemRect.height)/*distanceToGoal*/
