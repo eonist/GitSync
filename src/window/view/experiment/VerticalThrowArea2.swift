@@ -1,5 +1,6 @@
 import Cocoa
 /**
+ * 
  * TODO: make the list longer with more colors
  * TODO: Centralize the sizes
 
@@ -13,7 +14,7 @@ class VerticalThrowArea2 :InteractiveView2{
     var mover:RubberBand?
     var prevScrollingDeltaY:CGFloat = 0
     var velocities:Array<CGFloat> = [0,0,0,0,0,0,0,0,0,0]
-    init(){
+    init(){//_ frame:CGRect, _ itemRect:CGRect,
         super.init(frame: NSRect(0,0,w,h))
         self.mover = RubberBand(CGRect(0,0,200,200),CGRect(0,0,200,150*5))
         
