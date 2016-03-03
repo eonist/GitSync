@@ -56,10 +56,8 @@ class RubberBand:Mover{
         //Swift.print("")
         if(isDirectlyManipulating){
             let totHeight = (itemRect.height - maskRect.height)//(tot height of items - height of mask)
-            let c:CGFloat = abs(totHeight + value)/*we need a posetive value to work with*/
-            Swift.print("c: " + "\(c)")
-            result = -totHeight - CustomFriction.logConstraintValueForYPoisition(c,100)
-            //Swift.print("result: " + String(result) + " b: " + String(b) + " c: " + String(c))
+            let c:CGFloat = /*abs*/(totHeight + value)/*we need a posetive value to work with, 0 to 100*/
+            result = -totHeight + CustomFriction.logConstraintValueForYPoisition(c,-100)
         }else{
             let dist = maskRect.height - (value + itemRect.height)/*distanceToGoal*/
             Swift.print("dist: " + "\(dist)")
