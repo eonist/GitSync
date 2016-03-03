@@ -47,7 +47,7 @@ class RubberBand:Mover{
         //Swift.print("applyTopBoundry " + "\(velocity)")
         if(isDirectlyManipulating){
             Swift.print("direct")
-            result = CustomFriction.logConstraintValueForYPoisition(value,100)
+            result = CustomFriction.constraintValueForYPoisition(value,100)
         }else{
             //Swift.print("negative velocity: " + "\(velocity)" + " dist: " + "\(dist)")
             let newDist:CGFloat = -value
@@ -71,7 +71,7 @@ class RubberBand:Mover{
             let a:CGFloat = 750 - 200//tot height of items - height of mask
             let b:CGFloat = a + value
             let c:CGFloat = abs(b)/*we need a posetive value to work with*/
-            result = -a - CustomFriction.logConstraintValueForYPoisition(c,100)
+            result = -a - CustomFriction.constraintValueForYPoisition(c,100)
             Swift.print("result: " + String(result) + " b: " + String(b) + " c: " + String(c))
         }else{
             let dist = maskRect.height - (value + itemRect.height)/*distanceToGoal*/
@@ -111,7 +111,7 @@ private class CustomFriction{
         return verticalLimit * multiplier
     }
     class func constraintValueForYPoisition(yPosition : CGFloat, _ verticalLimit:CGFloat) -> CGFloat {
-        let multiplier = (0.5 * (yPosition/verticalLimit))
+        let multiplier = (0.2 * (yPosition/verticalLimit))
         return verticalLimit * multiplier
     }
 }
