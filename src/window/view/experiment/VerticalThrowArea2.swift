@@ -35,7 +35,7 @@ class VerticalThrowArea2 :InteractiveView2{
             }
             mover!.value += theEvent.scrollingDeltaY/*directly manipulate the value 1 to 1 control*/
             mover!.updatePosition()
-            prevScrollingDeltaY = theEvent.scrollingDeltaY//needed to calc the velocity onScrollWheelUp
+            prevScrollingDeltaY = theEvent.scrollingDeltaY/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
             
             velocities.removeLast()/*remove the last velocity to make room for the new*/
             velocities = [theEvent.scrollingDeltaY] + velocities/*insert new velocity at the begining*/
@@ -61,7 +61,7 @@ class VerticalThrowArea2 :InteractiveView2{
         Swift.print("onScrollWheelDown")
         CVDisplayLinkStop((self.superview as! AnimatableView).displayLink)
         mover!.hasStopped = true
-        prevScrollingDeltaY = 0
+        prevScrollingDeltaY = 0/*set last wheel speed delta to stationary, aka not spinning*/
         mover!.isDirectlyManipulating = true/*toggle to directManipulationMode*/
         velocities = [0,0,0,0,0,0,0,0,0,0]//reset the velocities
     }
