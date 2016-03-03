@@ -39,16 +39,13 @@ class RubberBand:Mover{
      */
     func applyTopBoundry(){
         //Swift.print("applyTopBoundry " + "\(velocity)")
+        let distToGoal:CGFloat = value
         if(isDirectlyManipulating){
             Swift.print("direct")
-            result = CustomFriction.logConstraintValueForYPoisition(value,100)
+            result = CustomFriction.logConstraintValueForYPoisition(distToGoal,100)
         }else{
             //Swift.print("negative velocity: " + "\(velocity)" + " dist: " + "\(dist)")
-            let newDist:CGFloat = value
-
-            
-            //let initVelocity = velocity
-            velocity -= (newDist * spring)
+            velocity -= (distToGoal * spring)
             velocity *= springEasing//TODO: try to apply log10 instead of the regular easing
             
             //velocity *= springFriction
