@@ -44,7 +44,7 @@ class RBScrollController {
      * NOTE: basically when you enter your scrollWheel gesture
      */
     func onScrollWheelDown(){
-        //Swift.print("onScrollWheelDown")
+        Swift.print("onScrollWheelDown")
         CVDisplayLinkStop(view.displayLink)
         mover.hasStopped = true/*set the stop flag to true*/
         prevScrollingDeltaY = 0/*set last wheel speed delta to stationary, aka not spinning*/
