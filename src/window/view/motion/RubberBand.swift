@@ -30,9 +30,6 @@ class RubberBand:Mover{
     
     func applyBoundries() {
         
-        
-        //continue here. fix this
-        
         if(value > maskRect.y){/*the top of the item-container passed the mask-container top checkPoint*/
             applyTopBoundry()
         }else if((value + itemRect.height) < maskRect.height){/*the bottom of the item-container passed the mask-container bottom checkPoint*/
@@ -48,7 +45,7 @@ class RubberBand:Mover{
      * YOu have to apply friction in both directions (Think of the friction as a half circle)
      */
     func applyTopBoundry(){
-        Swift.print("applyTopBoundry")
+        Swift.print("applyTopBoundry " + "\(velocity)")
         if(isDirectlyManipulating){
             //dont do anything here
             Swift.print("direct")
@@ -60,15 +57,11 @@ class RubberBand:Mover{
             value += velocity
             //velocity *= springFriction
             
-            
             if(velocity > 0){
                 value = CustomFriction.logConstraintValueForYPoisition(value,100)
             }else{
                 value = 200-CustomFriction.constraintValueForYPoisition(200-value,200)
             }
-            
-            
-            
             
             if(NumberAsserter.isNear(dist, 0, 1)){checkForStop()}
             result = value
