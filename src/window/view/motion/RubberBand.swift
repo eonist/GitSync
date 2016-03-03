@@ -23,11 +23,9 @@ class RubberBand:Mover{
         applyBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
     }
     func applyBoundries() {
-        if(value > maskRect.y){/*the top of the item-container passed the mask-container top checkPoint*/
-            applyTopBoundry()
-        }else if((value + itemRect.height) < maskRect.height){/*the bottom of the item-container passed the mask-container bottom checkPoint*/
-           applyBottomBoundry()
-        }else{/*within the boundries*/
+        if(value > maskRect.y){applyTopBoundry()}/*the top of the item-container passed the mask-container top checkPoint*/
+        else if((value + itemRect.height) < maskRect.height){applyBottomBoundry()}/*the bottom of the item-container passed the mask-container bottom checkPoint*/
+        else{/*within the boundries*/
             velocity *= friction
             super.updatePosition()
             checkForStop()
