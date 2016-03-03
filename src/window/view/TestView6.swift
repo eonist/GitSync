@@ -20,7 +20,7 @@ class TestView6:AnimatableView {
 
         itemContainer = maskContainer.addSubView(InteractiveView2(frame: NSRect(0,0,w,itemH*3))) as! InteractiveView2//create a container with 3 rects insider 200x150 per rect
         
-        let colors:Array<NSColor> = [Colors.green(),Colors.yellow(),Colors.purple(),Colors.orange(),Colors.lightBlue()]
+        let colors:Array<NSColor> = [Colors.green(),Colors.yellow(),Colors.purple(),Colors.orange(),Colors.lightBlue(),Colors.pink(),Colors.lightGray(),Colors.darkBlue(),Colors.orange()]
         for var i = 0; i < colors.count; ++i{/*Rect*/
             let r1 = RectGraphic(0,itemH*i,w,itemH,FillStyle(colors[i]),nil)//Add a red box to the view
             itemContainer.addSubview(r1.graphic)
