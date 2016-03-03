@@ -73,11 +73,12 @@ class RubberBand:Mover{
             
             let a:CGFloat = 750 - 200
             let b:CGFloat = a - value
+            let c:CGFloat = abs(b)
             
             
             //-550 to -650
-            result = value
-            //result = CustomFriction.logConstraintValueForYPoisition(value,100)
+            //result = value
+            result = CustomFriction.logConstraintValueForYPoisition(value,100)
         }else{
             let dist = maskRect.height - (value + itemRect.height)/*distanceToGoal*/
             velocity += (dist * spring)
