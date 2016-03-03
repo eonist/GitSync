@@ -4,9 +4,8 @@ class TestView6:AnimatableView {
     var w:CGFloat = 200
     var h:CGFloat = 200
     var itemH:CGFloat = 150;
-    let target:CGPoint = CGPoint(100,60)
-    var circ:EllipseGraphic!
-    //var throwArea:VerticalThrowArea2?
+
+
     var scrollController:RBScrollController?
     var maskContainer:ItemContainer!
     var itemContainer:InteractiveView2!
@@ -27,15 +26,12 @@ class TestView6:AnimatableView {
             itemContainer.addSubview(r1.graphic)
             r1.draw()
         }
-        scrollController = RBScrollController(self,CGRect(0,0,200,200),CGRect(0,0,200,150*5))
-        //throwArea = addSubView(VerticalThrowArea2()) as? VerticalThrowArea2
-        //throwArea!.frame.y = 20
+        scrollController = RBScrollController(self,CGRect(0,0,w,h),CGRect(0,0,w,itemH*colors.count))
     }
     /**
      * loop movment code
      */
     func moveViews(value:CGFloat){
-        //Swift.print("moveViews() value: " + "\(value)")
         itemContainer.frame.y = value
     }
     override func scrollWheel(theEvent:NSEvent) {
