@@ -29,29 +29,25 @@ class VerticalThrowArea2 :InteractiveView2{
         switch theEvent.phase{
             case NSEventPhase.Changed://fires everytime there is direct scrollWheel gesture movment.
                 Swift.print("changed")
-                if(!mover!.isDirectlyManipulating){
-                    if(CVDisplayLinkIsRunning((self.superview as! AnimatableView).displayLink)) {CVDisplayLinkStart((self.superview as! AnimatableView).displayLink);mover!.hasStopped = true;}//the if clause is just a precausion
+                if(!mover!.isDirectlyManipulating && CVDisplayLinkIsRunning((self.superview as! AnimatableView).displayLink)){
+                    CVDisplayLinkStart((self.superview as! AnimatableView).displayLink);mover!.hasStopped = true;
+                    if() {}//the if clause is just a precausion
                 }
                 mover!.value += theEvent.scrollingDeltaY/*directly manipulate the value 1 to 1 control*/
                 mover!.updatePosition()
                 prevScrollingDeltaY = theEvent.scrollingDeltaY/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
-                
                 velocities.removeLast()/*remove the last velocity to make room for the new*/
                 velocities = [theEvent.scrollingDeltaY] + velocities/*insert new velocity at the begining*/
-            case NSEventPhase.MayBegin://can be used to detect if two fingers are touching the trackpad
-                onScrollWheelDown()
-            case NSEventPhase.Began:
-                onScrollWheelDown()
-            case NSEventPhase.Ended://if you release your touch-gesture and the momentum of the gesture has stopped.
-                onScrollWheelUp()
-            case NSEventPhase.Cancelled:
-                onScrollWheelUp()
+            case NSEventPhase.MayBegin:onScrollWheelDown()//can be used to detect if two fingers are touching the trackpad
+            case NSEventPhase.Began:onScrollWheelDown()//the mayBegin phase doesnt fire if you begin the scrollWheel gesture very quickly
+            case NSEventPhase.Ended:onScrollWheelUp()//if you release your touch-gesture and the momentum of the gesture has stopped.
+            case NSEventPhase.Cancelled:onScrollWheelUp()//this trigers if the scrollWhell gestures goes off the trackpad etc
             default:break;
         }
         super.scrollWheel(theEvent)//call super if you want to forward the event to the parent view, you do since the parent listen to this event when directly manipulating the motion
     }
     /**
-     * 
+     * NOTE: basically when you enter your scrollWheel gesture
      */
     func onScrollWheelDown(){
         //Swift.print("onScrollWheelDown")
@@ -62,7 +58,7 @@ class VerticalThrowArea2 :InteractiveView2{
         velocities = [0,0,0,0,0,0,0,0,0,0]//reset the velocities
     }
     /**
-     *
+     * NOTE: basically when you release your scrollWheel gesture
      */
     func onScrollWheelUp(){
         //Swift.print("onScrollWheelUp " + "\(prevScrollingDeltaY)")
