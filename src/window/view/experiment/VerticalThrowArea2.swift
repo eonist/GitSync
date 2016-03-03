@@ -75,7 +75,7 @@ class VerticalThrowArea2 :InteractiveView2{
         //mover!.slowDownFriction = 1/*reset the slowDownFriction, 1 equals inactive*/
         mover!.hasStopped = false/*reset this value to false*/
         mover!.isDirectlyManipulating = false
-        mover!.value = mover!.result/*copy this back in again, as we used relative friction*/
+        mover!.value = mover!.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
         //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
         if(prevScrollingDeltaY != 1.0 && prevScrollingDeltaY != -1.0){/*1 and -1 indicates not stationar*/
             //Swift.print("is not stationary")
