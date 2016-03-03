@@ -13,14 +13,16 @@ class RubberBand:Mover{
     var hasStopped:Bool = true
     var isDirectlyManipulating:Bool = false
     var friction:CGFloat/*This value is the strength of the friction when the item is floating freely*/
-    var springEasing:CGFloat
-    var spring:CGFloat/*springStrength*/
-    init(_ value:CGFloat = 0, _ frame:CGRect, _ itemRect:CGRect, _ velocity:CGFloat = 0, _ friction:CGFloat = 0.98, _ springEasing:CGFloat = 0.2,_ spring:CGFloat = 0.4){
+    var springEasing:CGFloat/*the easeout effect on the spring*/
+    var spring:CGFloat/*the strength of the spring*/
+    var limit:CGFloat/*the max distance the displacement friction like effect can travle*/
+    init(_ value:CGFloat = 0, _ frame:CGRect, _ itemRect:CGRect, _ velocity:CGFloat = 0, _ friction:CGFloat = 0.98, _ springEasing:CGFloat = 0.2,_ spring:CGFloat = 0.4, _ limit:CGFloat = 100){
         self.frame = frame
         self.itemRect = itemRect
         self.friction = friction
         self.springEasing = springEasing
         self.spring = spring
+        self.limit = limit
         super.init(value, velocity)
     }
     override func updatePosition() {
