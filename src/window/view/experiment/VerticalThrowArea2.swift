@@ -62,7 +62,7 @@ class VerticalThrowArea2 :InteractiveView2{
         CVDisplayLinkStop((self.superview as! AnimatableView).displayLink)
         mover!.hasStopped = true
         prevScrollingDeltaY = 0
-        mover!.isDirectlyManipulating = true
+        mover!.isDirectlyManipulating = true/*toggle to directManipulationMode*/
         velocities = [0,0,0,0,0,0,0,0,0,0]//reset the velocities
     }
     /**
@@ -75,7 +75,7 @@ class VerticalThrowArea2 :InteractiveView2{
         mover!.isDirectlyManipulating = false
         mover!.value = mover!.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
         //checkTime(this);/*calcs the speed aka the velocity and starts the anim in this speed*/
-        if(prevScrollingDeltaY != 1.0 && prevScrollingDeltaY != -1.0){/*1 and -1 indicates not stationar*/
+        if(prevScrollingDeltaY != 1.0 && prevScrollingDeltaY != -1.0){/*not 1 and not -1 indicates that the wheel is not stationary*/
             //Swift.print("is not stationary")
             var velocity:CGFloat = 0
             if(prevScrollingDeltaY > 0){
