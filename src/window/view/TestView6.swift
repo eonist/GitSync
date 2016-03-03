@@ -27,7 +27,7 @@ class TestView6:AnimatableView {
             itemContainer.addSubview(r1.graphic)
             r1.draw()
         }
-        scrollController = RBScrollController//continue here
+        scrollController = RBScrollController()//continue here
         throwArea = addSubView(VerticalThrowArea2()) as? VerticalThrowArea2
         throwArea!.frame.y = 20
     }
