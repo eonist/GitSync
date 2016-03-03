@@ -48,11 +48,9 @@ class RubberBand:Mover{
     func applyTopBoundry(){
         //Swift.print("applyTopBoundry " + "\(velocity)")
         if(isDirectlyManipulating){
-            //dont do anything here
             Swift.print("direct")
             result = CustomFriction.logConstraintValueForYPoisition(value,100)
         }else{
-           
             //Swift.print("negative velocity: " + "\(velocity)" + " dist: " + "\(dist)")
             let newDist:CGFloat = -value
             let easing:CGFloat = 0.2
