@@ -69,7 +69,9 @@ class RubberBand:Mover{
     func applyBottomBoundry(){
         //Swift.print("")
         if(isDirectlyManipulating){
+            Swift.print("value: " + "\(value)")
             result = value
+            //result = CustomFriction.logConstraintValueForYPoisition(value,100)
         }else{
             let dist = maskRect.height - (value + itemRect.height)/*distanceToGoal*/
             velocity += (dist * spring)
