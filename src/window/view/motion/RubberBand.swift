@@ -14,12 +14,12 @@ class RubberBand:Mover{
     var hasStopped:Bool = true
     var isDirectlyManipulating:Bool = false
     //Physic settings
-    var frictionStrength:CGFloat = 0.98/*This value is the strength of the friction*/
+    var freeFloatFriction:CGFloat = 0.98/*This value is the strength of the friction*/
     let springFriction:CGFloat = 0.50;
     let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
     var spring:CGFloat = 0.4
     init(_ target:NSView, _ value:CGFloat, _ velocity:CGFloat = 0, _ frictionStrength:CGFloat = 0.98){
-        self.frictionStrength = frictionStrength
+        self.freeFloatFriction = frictionStrength
         super.init(target, value, velocity)
     }
     override func updatePosition() {
@@ -36,7 +36,7 @@ class RubberBand:Mover{
         }else if((value + itemRect.height) < maskRect.height){/*the bottom of the item-container passed the mask-container bottom checkPoint*/
            applyBottomBoundry()
         }else{/*within the boundries*/
-            velocity *= frictionStrength
+            velocity *= freeFloatFriction
             super.updatePosition()
             checkForStop()
             result = value
