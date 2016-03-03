@@ -27,7 +27,7 @@ class RubberBand:Mover{
         else if((value + itemRect.height) < maskRect.height){applyBottomBoundry()}/*the bottom of the item-container passed the mask-container bottom checkPoint*/
         else{/*within the boundries*/
             velocity *= friction
-            super.updatePosition()
+            value += velocity
             checkForStop()
             result = value
         }
