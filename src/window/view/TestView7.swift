@@ -18,6 +18,8 @@ class TestView7:CustomView {
      */
     func testRBList(){
         StyleManager.addStylesByURL("~/Desktop/css/list.css")
+        StyleManager.addStylesByURL("~/Desktop/css/slider.css")
+        StyleManager.addStylesByURL("~/Desktop/css/sliderList.css")
         
         let dp = DataProvider(FileParser.xml("~/Desktop/scrollist.xml"))
         let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
