@@ -3,7 +3,6 @@ import Cocoa
  * NOTE: You forward the scrollWheel events here
  * NOTE: It all works like a regular MVC system
  *
- * TODO: Start testing the slider
  * TODO: Create the algorithm that calculates the actual throw speed. By looking at the time that each intervall travles. 
  */
 class RBScrollController {

@@ -2,7 +2,7 @@ import Cocoa
 /**
  * NOTE: This view class serves as a basis for frame animation.
  * NOTE: override the onFrame method to do frame animations
- * NOTE: Start and stop with CVDisplayLinkStart(displayLink) and CVDisplayLinkStop(displayLink)
+ * NOTE: Start and stop with CVDisplayLinkStart(displayLink) and CVDisplayLinkStop(displayLink) and CVDisplayLinkIsRunning(displayLink) to assert if the displayLink is running
  * TODO: Eventually you will have to move this class bellow InteractiveView
  */
 class AnimatableView:FlippedView,IAnimatable {
