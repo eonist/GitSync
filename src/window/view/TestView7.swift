@@ -21,7 +21,8 @@ class TestView7:CustomView {
         StyleManager.addStyle("Button{fill:blue;float:left;clear:left;}")
         let thumb = Thumb(50,140,self)
         addSubview(thumb)
-        thumb.applyOvershot(-0.25)
+        //thumb.applyOvershot(-0.25)
+        thumb.applyOvershot(1.25)
     }
     /**
      *
