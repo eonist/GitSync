@@ -11,7 +11,15 @@ import Cocoa
 class TestView7:CustomView {
     override func resolveSkin() {
         super.resolveSkin()
-        testRBList()
+        testThumbButton()
+        //testRBList()
+    }
+    /**
+     *
+     */
+    func testThumbButton(){
+        StyleManager.addStyle("Button{fill:blue;}")
+        let thumb = Thumb(0,0,50,140)
     }
     /**
      *
