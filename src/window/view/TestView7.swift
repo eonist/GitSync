@@ -11,8 +11,8 @@ import Cocoa
 class TestView7:CustomView {
     override func resolveSkin() {
         super.resolveSkin()
-        testThumbButton()
-        //testRBList()
+        //testThumbButton()
+        testRBList()
     }
     /**
      *
@@ -22,7 +22,7 @@ class TestView7:CustomView {
         let thumb = Thumb(50,140,self)
         addSubview(thumb)
         //thumb.applyOvershot(-0.25)
-        thumb.applyOvershot(1.25)
+        //thumb.applyOvershot(1.25)
     }
     /**
      *
