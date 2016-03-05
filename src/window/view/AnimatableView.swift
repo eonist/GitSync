@@ -33,9 +33,11 @@ class AnimatableView:FlippedView,IAnimatable {
             return kCVReturnSuccess
         }
         let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, displayLinkOutputCallback, UnsafeMutablePointer<Void>(unsafeAddressOf(self)))
+        outputStatus
         //Swift.print("outputStatus: " + "\(outputStatus)")
         let displayID = CGMainDisplayID()
         let displayIDStatus = CVDisplayLinkSetCurrentCGDisplay(displayLink!, displayID)
+        displayIDStatus
         //Swift.print("displayIDStatus: " + "\(displayIDStatus)")
         return displayLink!
     }
