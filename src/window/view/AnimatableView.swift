@@ -6,6 +6,7 @@ import Cocoa
  * TODO: Eventually you will have to move this class bellow InteractiveView
  */
 class AnimatableView:FlippedView,IAnimatable {
+    var animators:Array<>
     lazy var displayLink: CVDisplayLink = self.setUpDisplayLink()/*This is the instance that enables frame animation, lazying this value will probably haunt me later, playing with fire*/
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
