@@ -25,7 +25,7 @@ class AnimatableView:FlippedView,IAnimatable {
         var displayLink: CVDisplayLink?
         var status = kCVReturnSuccess
         status = CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
-        Swift.print("status: " + "\(status)")
+        //Swift.print("status: " + "\(status)")
         /* Set up DisplayLink. This method fires 60fps*/
         func displayLinkOutputCallback( displayLink: CVDisplayLink,_ inNow: UnsafePointer<CVTimeStamp>, _ inOutputTime: UnsafePointer<CVTimeStamp>,_ flagsIn: CVOptionFlags, _ flagsOut: UnsafeMutablePointer<CVOptionFlags>,_ displayLinkContext: UnsafeMutablePointer<Void>) -> CVReturn{
             //Swift.print("displayLink is setup")
@@ -33,10 +33,10 @@ class AnimatableView:FlippedView,IAnimatable {
             return kCVReturnSuccess
         }
         let outputStatus = CVDisplayLinkSetOutputCallback(displayLink!, displayLinkOutputCallback, UnsafeMutablePointer<Void>(unsafeAddressOf(self)))
-        Swift.print("outputStatus: " + "\(outputStatus)")
+        //Swift.print("outputStatus: " + "\(outputStatus)")
         let displayID = CGMainDisplayID()
         let displayIDStatus = CVDisplayLinkSetCurrentCGDisplay(displayLink!, displayID)
-        Swift.print("displayIDStatus: " + "\(displayIDStatus)")
+        //Swift.print("displayIDStatus: " + "\(displayIDStatus)")
         return displayLink!
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}

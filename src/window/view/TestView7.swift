@@ -11,8 +11,8 @@ import Cocoa
 class TestView7:CustomView {
     override func resolveSkin() {
         super.resolveSkin()
-        //testThumbButton()
-        testRBList()
+        testThumbButton()
+        //testRBList()
     }
     /**
      *
@@ -24,6 +24,7 @@ class TestView7:CustomView {
         func onEvent(event:Event){
             if(event.type == ButtonEvent.upInside){
                 Swift.print("click")
+                thumb.animate(0.5)
             }
             
         }
