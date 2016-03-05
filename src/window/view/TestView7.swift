@@ -19,7 +19,8 @@ class TestView7:CustomView {
      */
     func testThumbButton(){
         StyleManager.addStyle("Button{fill:blue;}")
-        let thumb = Thumb(0,0,50,140)
+        let thumb = Thumb(50,140,self)
+        addSubview(thumb)
     }
     /**
      *
