@@ -21,10 +21,18 @@ class TestView7:CustomView {
         StyleManager.addStyle("Button{fill:blue;float:left;clear:left;}")
         let thumb = Thumb(50,140,self)
         addSubview(thumb)
+        
+       
+        func interpolateAlpha(val:CGFloat){
+            thumb.skin?.decoratables[0].getGraphic().fillStyle?.color = (thumb.skin?.decoratables[0].getGraphic().fillStyle?.color.alpha(val))!
+            thumb.skin?.decoratables[0].draw()
+        }
+        
+        let animator = Animator(thumb,0.5,1,0,interpolateAlpha)
         func onEvent(event:Event){
             if(event.type == ButtonEvent.upInside){
                 Swift.print("click")
-                thumb.animate(0.5)
+                animator.start()
             }
             
         }
