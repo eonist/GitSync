@@ -34,7 +34,6 @@ class TestView7:CustomView {
                 Swift.print("click")
                 animator.start()
             }
-            
         }
         thumb.event = onEvent
         //thumb.applyOvershot(-0.25)
