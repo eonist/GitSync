@@ -11,8 +11,8 @@ import Cocoa
 class TestView7:CustomView {
     override func resolveSkin() {
         super.resolveSkin()
-        testThumbButton()
-        //testRBList()
+        //testThumbButton()
+        testRBList()
     }
     /**
      *
