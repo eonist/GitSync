@@ -1,6 +1,8 @@
 import Cocoa
 /**
  * NOTE: this rubberBand tween is cheating a bit. The perfect way to implement this would be to add a half circle easing curve
+ * NOTE: I think essentialy this is a SpringSolver. YOu can find an example of the SpringSolver in books and also in facebook pop
+ * TODO: move these clases into the motion folder in swift-utils
  */
 class RubberBand:Mover{
     let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
@@ -10,7 +12,7 @@ class RubberBand:Mover{
     var frame:CGRect/*represents the visible part of the content*/
     var itemRect:CGRect/*represents the total size of the content*/
     var friction:CGFloat/*This value is the strength of the friction when the item is floating freely*/
-    var springEasing:CGFloat/*the easeout effect on the spring*/
+    var springEasing:CGFloat/*the easeOut effect on the spring*/
     var spring:CGFloat/*the strength of the spring*/
     var limit:CGFloat/*the max distance the displacement friction like effect can travle*/
     init(_ frame:CGRect, _ itemRect:CGRect, _ value:CGFloat = 0, _ velocity:CGFloat = 0, _ friction:CGFloat = 0.98, _ springEasing:CGFloat = 0.2,_ spring:CGFloat = 0.4, _ limit:CGFloat = 100){
