@@ -24,6 +24,7 @@ class AnimatableView:FlippedView,IAnimatable {
      * Note: It seems that you can't move this method into a static class method. Either internally in the same file or externally in another file
      */
     func setUpDisplayLink() -> CVDisplayLink {
+        Swift.print("setUpDisplayLink()")
         var displayLink: CVDisplayLink?
         var status = kCVReturnSuccess
         status = CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
