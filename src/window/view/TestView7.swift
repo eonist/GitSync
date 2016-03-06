@@ -28,6 +28,8 @@ class TestView7:CustomView {
             thumb.skin?.decoratables[0].draw()
         }
         
+        
+        
         let animator = Animator(thumb,0.5,1,0,interpolateAlpha)
         func onEvent(event:Event){
             if(event.type == ButtonEvent.upInside){
