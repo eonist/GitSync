@@ -30,7 +30,7 @@ class TestView7:CustomView {
         
         //continue here: add ease in ease out to the interpolation
         
-        let animator = Animator(thumb,0.5,1,0,interpolateAlpha,Easing.easeOutQuart)
+        let animator = Animator(thumb,0.5,1,0,interpolateAlpha,Easing.easeInOutQuart)
         func onEvent(event:Event){
             if(event.type == ButtonEvent.upInside){
                 Swift.print("click")
