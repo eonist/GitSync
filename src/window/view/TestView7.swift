@@ -54,9 +54,7 @@ class TestView7:CustomView {
 }
 
 
-//change the default alpha in the css for the thumb
-//onComplete callBack for the animator that is optional, via method arguments
-//use thumb animation onAnim complete then start the fade out. 
+
 
 
 
