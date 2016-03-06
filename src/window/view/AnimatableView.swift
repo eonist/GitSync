@@ -19,10 +19,8 @@ class AnimatableView:FlippedView,IAnimatable {
         //Swift.print("\(self.dynamicType)" + "onFrame()")
         if(animators.count == 0 && CVDisplayLinkIsRunning(displayLink)){CVDisplayLinkStop(displayLink)}//stops the frame ticker if there is not active running animators
         else{
-            for animator in animators{
-                
-            }
-        }
+            for animator in animators{animator.onFrame()}
+        }   
         CATransaction.flush()/*if you dont flush your animation wont animate and you get this message: CoreAnimation: warning, deleted thread with uncommitted CATransaction; set CA_DEBUG_TRANSACTIONS=1 in environment to log backtraces.*/
     }
     /**
