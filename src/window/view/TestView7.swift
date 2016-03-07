@@ -15,20 +15,19 @@ class TestView7:CustomView {
         //testThumbButton()
         //testRBList()
     }
+    /**
+     * 1. make a box
+     * 2. animate  100px to the right
+     * 3. start another animation that animates the box 100px down
+     */
     func testChaining(){
-        //make a box
+        
         StyleManager.addStyle("Button{fill:#5AC8FA;float:left;clear:left;}Button:down{fill:#007AFF;}")
         let btn = addSubView(Button(100,24,self)) as! Button//add a button
         
-        var toggle:Bool = true
-        func onEvent(event:Event){
-            if(event.type == ButtonEvent.upInside && event.origin === btn){
-                Swift.print("button works")
-                toggle ? CVDisplayLinkStart(displayLink) : CVDisplayLinkStop(displayLink);//To start capturing events from the display link, you'd use
-                toggle = !toggle
-            }
-        }
-        btn.event = onEvent
+        var animator:Animator?
+        
+        
         
         let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964))
         /*circ*/
@@ -37,9 +36,19 @@ class TestView7:CustomView {
         circ.draw()
         circ.graphic.frame.y = 60
         
+        func interpolateX(val:CGFloat){
+            Swift.print("interpolateAlpha()")
+            circ.graphic.frame.y = val
+        }
         
-        //animate  100px to the right
-        //start another animation that animates the box 100px down
+        func onEvent(event:Event){
+            if(event.type == ButtonEvent.upInside && event.origin === btn){
+                Swift.print("button works")
+                animator = Animator(self,1.0,0,100,interpolateX,Easing.easeOutSine)
+                animator!.start()
+            }
+        }
+        btn.event = onEvent
     }
     func testThumbButton(){
         StyleManager.addStyle("Button{fill:blue;float:left;clear:left;}")
