@@ -31,8 +31,9 @@ class RubberBand:Mover{
         Swift.print("RBSliderList.onFrame")
         if(hasStopped){//stop the frameTicker here
             //CVDisplayLinkStop(displayLink)
-            stop()
+            
             (view as! RBSliderList).slider?.thumb?.fadeOut()
+            stop()
         }else{//only move the view if the mover is not stopped
             updatePosition()/*tick the mover*/
             (view as! RBSliderList).setProgress(result)/*indirect manipulation aka momentum*/
