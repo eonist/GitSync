@@ -16,7 +16,10 @@ class TestView7:CustomView {
         //testRBList()
     }
     func testChaining(){
+        //make a box
         
+        //animate  100px to the right
+        //start another animation that animates the box 100px down
     }
     func testThumbButton(){
         StyleManager.addStyle("Button{fill:blue;float:left;clear:left;}")
