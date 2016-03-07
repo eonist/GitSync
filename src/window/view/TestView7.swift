@@ -11,12 +11,13 @@ import Cocoa
 class TestView7:CustomView {
     override func resolveSkin() {
         super.resolveSkin()
+        testChaining()
         //testThumbButton()
-        testRBList()
+        //testRBList()
     }
-    /**
-     *
-     */
+    func testChaining(){
+        
+    }
     func testThumbButton(){
         StyleManager.addStyle("Button{fill:blue;float:left;clear:left;}")
         let thumb = Thumb(50,140,self)
@@ -38,9 +39,6 @@ class TestView7:CustomView {
         //thumb.applyOvershot(-0.25)
         //thumb.applyOvershot(1.25)
     }
-    /**
-     *
-     */
     func testRBList(){
         StyleManager.addStylesByURL("~/Desktop/css/list.css")
         StyleManager.addStylesByURL("~/Desktop/css/slider.css")
