@@ -17,6 +17,26 @@ class TestView7:CustomView {
     }
     func testChaining(){
         //make a box
+        StyleManager.addStyle("Button{fill:#5AC8FA;float:left;clear:left;}Button:down{fill:#007AFF;}")
+        let btn = addSubView(Button(100,24,self)) as! Button//add a button
+        
+        var toggle:Bool = true
+        func onEvent(event:Event){
+            if(event.type == ButtonEvent.upInside && event.origin === btn){
+                Swift.print("button works")
+                toggle ? CVDisplayLinkStart(displayLink) : CVDisplayLinkStop(displayLink);//To start capturing events from the display link, you'd use
+                toggle = !toggle
+            }
+        }
+        btn.event = onEvent
+        
+        let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964))
+        /*circ*/
+        let circ = EllipseGraphic(0,0,50,50,fill,nil)//create a circle that represents the object to animate
+        addSubview(circ.graphic)
+        circ.draw()
+        circ.graphic.frame.y = 60
+        
         
         //animate  100px to the right
         //start another animation that animates the box 100px down
