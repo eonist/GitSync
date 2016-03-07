@@ -1,5 +1,5 @@
 import Foundation
 
-protocol IAnimatable:class {
+protocol IAnimatable:class {//this should probably be renamed to IAnimatableView
     func onFrame()
 }
