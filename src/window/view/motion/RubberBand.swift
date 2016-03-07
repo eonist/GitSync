@@ -33,7 +33,7 @@ class RubberBand:Mover{
             //CVDisplayLinkStop(displayLink)
             
             (view as! RBSliderList).slider?.thumb?.fadeOut()
-            stop()
+            stop()//<---never stop the CVDisplayLink before you start another. Since you cant start a CVDisplayLink within a CVDisplayLinkStart block
         }else{//only move the view if the mover is not stopped
             updatePosition()/*tick the mover*/
             (view as! RBSliderList).setProgress(result)/*indirect manipulation aka momentum*/
