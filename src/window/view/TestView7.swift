@@ -11,9 +11,9 @@ import Cocoa
 class TestView7:CustomView {
     override func resolveSkin() {
         super.resolveSkin()
-        testChaining()
+        //testChaining()
         //testThumbButton()
-        //testRBList()
+        testRBList()
     }
     /**
      * 1. make a box
