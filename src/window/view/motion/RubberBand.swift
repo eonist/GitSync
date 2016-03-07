@@ -27,13 +27,12 @@ class RubberBand:Mover{
     override func updatePosition() {
         applyBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
     }
-
     override func onFrame(){
         Swift.print("RBSliderList.onFrame")
         if(hasStopped){//stop the frameTicker here
             //CVDisplayLinkStop(displayLink)
             stop()
-            //slider?.thumb?.fadeOut()
+            (view as! RBSliderList).slider?.thumb?.fadeOut()
         }else{//only move the view if the mover is not stopped
             updatePosition()/*tick the mover*/
             (view as! RBSliderList).setProgress(result)/*indirect manipulation aka momentum*/
