@@ -37,14 +37,14 @@ class TestView7:CustomView {
         circ.graphic.frame.y = 60
         
         func interpolateX(val:CGFloat){
-            Swift.print("interpolateAlpha()")
-            circ.graphic.frame.y = val
+            //Swift.print("interpolateX() val: " + "\(val)")
+            circ.graphic.frame.x = val
         }
         
         func onEvent(event:Event){
             if(event.type == ButtonEvent.upInside && event.origin === btn){
                 Swift.print("button works")
-                animator = Animator(self,1.0,0,100,interpolateX,Easing.easeOutSine)
+                animator = Animator(self,1.0,0,100,interpolateX,Easing.easeLinear)
                 animator!.start()
             }
         }
