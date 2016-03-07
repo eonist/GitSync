@@ -1,6 +1,6 @@
 import Cocoa
 
-class Mover:IAnimator {
+class Mover:BaseAnimation {
     var value:CGFloat = 0/*the value that should be applied to the target*/
     var velocity:CGFloat
     init(_ value:CGFloat, _ velocity:CGFloat = 0){
@@ -11,7 +11,7 @@ class Mover:IAnimator {
         //Swift.print("\(self.dynamicType)" + "updatePosition")
         value += velocity;
     }
-    func onFrame(){
+    override func onFrame(){
         //not implemented yet
     }
 }
