@@ -7,10 +7,9 @@ import Cocoa
  */
 class AnimatableView:FlippedView,IAnimatable {
     var animators:Array<Animator> = []
-    var displayLink: CVDisplayLink!/*This is the instance that enables frame animation, lazying this value will probably haunt me later, playing with fire*/
+    lazy var displayLink: CVDisplayLink = self.setUpDisplayLink()/*This is the instance that enables frame animation, lazying this value will probably haunt me later, playing with fire*/
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
-        displayLink = self.setUpDisplayLink()
         //Swift.print("displayLink: " + "\(displayLink)")
     }
     /**
