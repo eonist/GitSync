@@ -11,4 +11,7 @@ class Mover:IAnimator {
         //Swift.print("\(self.dynamicType)" + "updatePosition")
         value += velocity;
     }
+    func onFrame(){
+        //not implemented yet
+    }
 }
