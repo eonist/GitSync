@@ -37,6 +37,22 @@ class RubberBand:Mover{
         }else{//only move the view if the mover is not stopped
             updatePosition()/*tick the mover*/
             (view as! RBSliderList).setProgress(result)/*indirect manipulation aka momentum*/
+            self.drawCall = (view as! RBSliderList).slider?.thumb!.skin?.decoratables[0].draw
+            
+            
+            //continue here: Roll back the selector idea, I think it may be that your manipulating a Graphic Class directly and via frame animation at the same time
+            //instead try to use the frame ticker when doing the direct manipulation?
+            //this pose the question: do we now need to do all interaction with the frame tick?
+            //you could get away with this by adding a variable: isAnimating which would just cancel the draw call but still set all the corect variables. And then when the anim is over the direct manipulation could kick in again!!?
+            
+            //Actually, all you need to do is add isAnimating variable to Graphic or GraphicDecorator and only let calls from the framAnim actually call the draw call
+            //problem what if you directly manipulate setSize in a panel, and one of the ui elements in that panel is animating?
+            
+            
+            
+            //actually try to break the app if direct manipulation on size is turned of but alpha and size anim is on. The isAnimating and adHock draw call may still work if the app fails.
+            
+            
             
         }
         //super.onFrame()
