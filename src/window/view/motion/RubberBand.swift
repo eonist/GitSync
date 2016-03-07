@@ -27,6 +27,24 @@ class RubberBand:Mover{
     override func updatePosition() {
         applyBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
     }
+    
+    //continue here: the bellow is the problem, you need to use the onFrame call from the BaseAnimation class now not this. as this will get calls from the alpha animation aswell
+    
+    
+    override func onFrame(){
+        Swift.print("RBSliderList.onFrame")
+        if(hasStopped){//stop the frameTicker here
+            //CVDisplayLinkStop(displayLink)
+            stop()
+            //slider?.thumb?.fadeOut()
+        }else{//only move the view if the mover is not stopped
+            updatePosition()/*tick the mover*/
+            (view as! RBSliderList).setProgress(result)/*indirect manipulation aka momentum*/
+            
+        }
+        super.onFrame()
+    }
+    
     func applyBoundries() {
         if(value > frame.y){applyTopBoundry()}/*the top of the item-container passed the mask-container top checkPoint*/
         else if((value + itemRect.height) < frame.height){applyBottomBoundry()}/*the bottom of the item-container passed the mask-container bottom checkPoint*/
