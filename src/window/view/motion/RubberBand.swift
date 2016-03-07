@@ -28,7 +28,7 @@ class RubberBand:Mover{
         applyBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
     }
     override func onFrame(){
-        Swift.print("RBSliderList.onFrame")
+        //Swift.print("RBSliderList.onFrame")
         if(hasStopped){//stop the frameTicker here
             //CVDisplayLinkStop(displayLink)
             
