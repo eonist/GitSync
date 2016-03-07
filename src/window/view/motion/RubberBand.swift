@@ -27,10 +27,7 @@ class RubberBand:Mover{
     override func updatePosition() {
         applyBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
     }
-    
-    //continue here: the bellow is the problem, you need to use the onFrame call from the BaseAnimation class now not this. as this will get calls from the alpha animation aswell
-    
-    
+
     override func onFrame(){
         Swift.print("RBSliderList.onFrame")
         if(hasStopped){//stop the frameTicker here
@@ -42,7 +39,7 @@ class RubberBand:Mover{
             (view as! RBSliderList).setProgress(result)/*indirect manipulation aka momentum*/
             
         }
-        super.onFrame()
+        //super.onFrame()
     }
     
     func applyBoundries() {
