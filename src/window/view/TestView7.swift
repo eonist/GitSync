@@ -78,7 +78,7 @@ class TestView7:CustomView {
         StyleManager.addStylesByURL("~/Desktop/css/sliderList.css")
         
         let dp = DataProvider(FileParser.xml("~/Desktop/scrollist.xml"))
-        let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
+        let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*adds some visual space around the component*/
         sliderList = section.addSubView(RBSliderList(140,120,24,dp,section)) as? RBSliderList
     }
 }
