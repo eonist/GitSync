@@ -5,7 +5,7 @@ class WinUtils {
      * Creates a basic window
      * NOTE: info on everything NSWindow: http://objc.toodarkpark.net/AppKit/Classes/NSWindow.html
      */
-    class func win()->NSWindow{
+    class func win()->NSWindow{//<-remove this method
         let winRect = NSMakeRect(0, 0, NSScreen.mainScreen()!.frame.width/2, NSScreen.mainScreen()!.frame.height/2)
         let win = NSWindow(contentRect: winRect, styleMask: NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         win.title = "New Window"
