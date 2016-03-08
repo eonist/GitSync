@@ -24,7 +24,9 @@ class TestView6:CustomView {
             itemContainer.addSubview(r1.graphic)
             r1.draw()
         }
-        scrollController = RBScrollController(WindowParser.firstWindowOfType(IAnimatable)!,CGRect(0,0,w,h),CGRect(0,0,w,itemH*colors.count))
+        
+        
+        //scrollController = RBScrollController(nil,CGRect(0,0,w,h),CGRect(0,0,w,itemH*colors.count))
     }
     /**
      * loop movment code
