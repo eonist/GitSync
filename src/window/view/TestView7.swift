@@ -45,7 +45,7 @@ class TestView7:CustomView {
         func onEvent(event:Event){
             if(event.type == ButtonEvent.upInside && event.origin === btn){
                 Swift.print("button works")
-                animator = Animator(self,1,0,100,interpolateX,Easing.easeOutSine)
+                animator = Animator(self.window as! IAnimatable,1,0,100,interpolateX,Easing.easeOutSine)
                 animator!.start()
             }
         }
@@ -61,7 +61,7 @@ class TestView7:CustomView {
             thumb.skin?.decoratables[0].getGraphic().fillStyle?.color = (thumb.skin?.decoratables[0].getGraphic().fillStyle?.color.alpha(val))!
             thumb.skin?.decoratables[0].draw()
         }
-        let animator = Animator(thumb,0.5,1,0,interpolateAlpha,Easing.easeInOutQuad)
+        let animator = Animator(self.window as! IAnimatable,0.5,1,0,interpolateAlpha,Easing.easeInOutQuad)
         func onEvent(event:Event){
             if(event.type == ButtonEvent.upInside){
                 Swift.print("click")
