@@ -20,7 +20,7 @@ class AnimatableView:FlippedView,IAnimatable {
         //Swift.print("\(self.dynamicType)" + "onFrame()")
         for animator in animators{animator.onFrame()}
         while drawCalls.count > 0{
-            drawCalls.removeFirst()()
+            if(drawCalls.count > 0){drawCalls.removeFirst()()}
         }
         CATransaction.flush()/*if you dont flush your animation wont animate and you get this message: CoreAnimation: warning, deleted thread with uncommitted CATransaction; set CA_DEBUG_TRANSACTIONS=1 in environment to log backtraces.*/
     }
