@@ -36,13 +36,13 @@ class TestView6:CustomView {
         scrollController?.scrollWheel(theEvent)//forward the event
         if(theEvent.phase == NSEventPhase.Changed){moveViews(scrollController!.mover.result)}
     }
-    override func onFrame(){
-        if(scrollController!.mover.hasStopped){//stop the frameTicker here
-            CVDisplayLinkStop(displayLink)
-        }else{//only move the view if the mover is not stopped
-            scrollController!.mover.updatePosition()
-            moveViews(scrollController!.mover.result)
-        }
-        super.onFrame()
+    /*override func onFrame(){
+    if(scrollController!.mover.hasStopped){//stop the frameTicker here
+    CVDisplayLinkStop(displayLink)
+    }else{//only move the view if the mover is not stopped
+    scrollController!.mover.updatePosition()
+    moveViews(scrollController!.mover.result)
     }
+    super.onFrame()
+    }*/
 }

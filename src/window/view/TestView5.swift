@@ -21,7 +21,7 @@ class TestView5:CustomView {
         func onEvent(event:Event){
             if(event.type == ButtonEvent.upInside && event.origin === btn){
                 Swift.print("button works")
-                toggle ? CVDisplayLinkStart(displayLink) : CVDisplayLinkStop(displayLink);//To start capturing events from the display link, you'd use
+                //toggle ? CVDisplayLinkStart(displayLink) : CVDisplayLinkStop(displayLink);//To start capturing events from the display link, you'd use
                 toggle = !toggle
             }
         }
@@ -40,19 +40,19 @@ class TestView5:CustomView {
     let friction:CGFloat = 0.50;
     let epsilon:CGFloat = 0.15/*twips 20th of a pixel*/
     let spring:CGFloat = 0.2
-    override func onFrame(){
-        //Swift.print("onFrame")
-        //let easing:CGFloat = 0.2
-        let dist = target.x - circ.graphic.frame.x
-        if(!NumberAsserter.isNear(circ.graphic.frame.x, target.x, epsilon)){//animate a square 100 pixel to the right then stop the frame anim
-            velocityX += (dist * spring)
-            velocityX *= friction
-            circ.graphic.frame.x += velocityX
-            //circ.graphic.frame.x += (dist * easing)
-        }else{
-            CVDisplayLinkStop(displayLink);
-        }
-        super.onFrame()
-        
+    /*override func onFrame(){
+    //Swift.print("onFrame")
+    //let easing:CGFloat = 0.2
+    let dist = target.x - circ.graphic.frame.x
+    if(!NumberAsserter.isNear(circ.graphic.frame.x, target.x, epsilon)){//animate a square 100 pixel to the right then stop the frame anim
+    velocityX += (dist * spring)
+    velocityX *= friction
+    circ.graphic.frame.x += velocityX
+    //circ.graphic.frame.x += (dist * easing)
+    }else{
+    CVDisplayLinkStop(displayLink);
     }
+    super.onFrame()
+    
+    }*/
 }
