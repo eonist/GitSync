@@ -7,6 +7,7 @@ import Cocoa
  */
 class AnimatableView:FlippedView,IAnimatable {
     var animators:Array<BaseAnimation> = []
+    var drawCalls:Array<()->Void> = []
     lazy var displayLink: CVDisplayLink = self.setUpDisplayLink()/*This is the instance that enables frame animation, lazying this value will probably haunt me later, playing with fire*/
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -18,6 +19,9 @@ class AnimatableView:FlippedView,IAnimatable {
     func onFrame(){
         //Swift.print("\(self.dynamicType)" + "onFrame()")
         for animator in animators{animator.onFrame()}
+        while drawCalls.count > 0{
+            drawCalls[]
+        }
         CATransaction.flush()/*if you dont flush your animation wont animate and you get this message: CoreAnimation: warning, deleted thread with uncommitted CATransaction; set CA_DEBUG_TRANSACTIONS=1 in environment to log backtraces.*/
     }
     /**
