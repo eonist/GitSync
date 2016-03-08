@@ -15,14 +15,16 @@ class RubberBand:Mover{
     var springEasing:CGFloat/*the easeOut effect on the spring*/
     var spring:CGFloat/*the strength of the spring*/
     var limit:CGFloat/*the max distance the displacement friction like effect can travle*/
-    init(_ view:IAnimatable, _ frame:CGRect, _ itemRect:CGRect, _ value:CGFloat = 0, _ velocity:CGFloat = 0, _ friction:CGFloat = 0.98, _ springEasing:CGFloat = 0.2,_ spring:CGFloat = 0.4, _ limit:CGFloat = 100){
+    var view:RBSliderList
+    init(_ view:RBSliderList, _ frame:CGRect, _ itemRect:CGRect, _ value:CGFloat = 0, _ velocity:CGFloat = 0, _ friction:CGFloat = 0.98, _ springEasing:CGFloat = 0.2,_ spring:CGFloat = 0.4, _ limit:CGFloat = 100){
         self.frame = frame
         self.itemRect = itemRect
         self.friction = friction
         self.springEasing = springEasing
         self.spring = spring
         self.limit = limit
-        super.init(view, value, velocity)
+        self.view = view
+        super.init(WindowParser.firstWindowOfType(IAnimatable)!, value, velocity)
     }
     override func updatePosition() {
         applyBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
@@ -32,11 +34,11 @@ class RubberBand:Mover{
         if(hasStopped){//stop the frameTicker here
             //CVDisplayLinkStop(displayLink)
             
-            (view as! RBSliderList).slider?.thumb?.fadeOut()
+            (view).slider?.thumb?.fadeOut()
             stop()//<---never stop the CVDisplayLink before you start another. Since you cant start a CVDisplayLink within a CVDisplayLinkStart block
         }else{//only move the view if the mover is not stopped
             updatePosition()/*tick the mover*/
-            (view as! RBSliderList).setProgress(result)/*indirect manipulation aka momentum*/
+            (view).setProgress(result)/*indirect manipulation aka momentum*/
         }
         //super.onFrame()
     }
