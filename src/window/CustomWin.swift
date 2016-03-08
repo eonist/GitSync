@@ -1,6 +1,15 @@
 import Cocoa
+/**
+ * NOTE: This view class serves as a basis for frame animation.
+ * NOTE: override the onFrame method to do frame animations
+ * NOTE: Start and stop with CVDisplayLinkStart(displayLink) and CVDisplayLinkStop(displayLink) and CVDisplayLinkIsRunning(displayLink) to assert if the displayLink is running
+ */
 
-class CustomWin:Window{
+
+//move the animation stuff into a new class named AnimWin that extends window, customwin will extend animwin for now untill you make a singleton or global val
+
+
+class CustomWin:Window,IAnimatable{
     var animators:Array<BaseAnimation> = []
     var drawCalls:Array<()->Void> = []
     lazy var displayLink: CVDisplayLink = self.setUpDisplayLink()/*This is the instance that enables frame animation, lazying this value will probably haunt me later, playing with fire*/
