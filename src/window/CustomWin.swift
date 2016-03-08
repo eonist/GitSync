@@ -13,6 +13,9 @@ class CustomWin:Window,IAnimatable{
     var animators:Array<BaseAnimation> = []
     var drawCalls:Array<()->Void> = []
     lazy var displayLink: CVDisplayLink = self.setUpDisplayLink()/*This is the instance that enables frame animation, lazying this value will probably haunt me later, playing with fire*/
+    override init(_ width:CGFloat = 600,_ height:CGFloat = 400){
+        super.init(width,height)
+    }
     override func resolveSkin() {
         self.contentView = TestView7(frame.width,frame.height)/*Sets the mainview of the window*/
     }
