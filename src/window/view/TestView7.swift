@@ -82,4 +82,3 @@ class TestView7:CustomView {
         sliderList = section.addSubView(RBSliderList(140,120,24,dp,section)) as? RBSliderList
     }
 }
-
