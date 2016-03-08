@@ -9,6 +9,7 @@ import Cocoa
  * TODO: fix the styling of the list so that it fits inside the mask, use debug colors etc to figure out the bug
  */
 class TestView7:CustomView {
+    var sliderList:RBSliderList?
     override func resolveSkin() {
         super.resolveSkin()
         //testChaining()
@@ -78,16 +79,7 @@ class TestView7:CustomView {
         
         let dp = DataProvider(FileParser.xml("~/Desktop/scrollist.xml"))
         let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
-        let list = section.addSubView(RBSliderList(140,120,24,dp,section)) as! RBSliderList
-        list
+        sliderList = section.addSubView(RBSliderList(140,120,24,dp,section)) as? RBSliderList
     }
 }
-
-
-
-
-
-
-
-
 
