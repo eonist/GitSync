@@ -13,7 +13,7 @@ class StashView:CustomView {
         Swift.print("Hello world")
         leftSideBar = addSubView(LeftSideBar(75,200,self)) as? LeftSideBar
         createCustomTitleBar()
-        addSubView(MainContent(100,100,self))
+        addSubView(MainContent(300-75,300,self))
     }
     func createCustomTitleBar() {
         StyleManager.addStylesByURL("~/Desktop/css/titleBar.css")
@@ -27,7 +27,7 @@ class StashView:CustomView {
 }
 class LeftSideBar:Element{
     override func resolveSkin() {
-        let css = "LeftSideBar{fill:red;fill-alpha:1;float:left;clear:left;corner-radius:8px;}"
+        let css = "LeftSideBar{fill:red;fill-alpha:0;float:left;clear:left;}"
         StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
@@ -41,7 +41,7 @@ class MainContent:Element{
      * Draws the graphics
      */
     override func resolveSkin() {
-        let css = "MainContent{fill:blue;fill-alpha:1;float:left;clear:none;}"
+        let css = "MainContent{fill:white;fill-alpha:1;float:left;clear:none;corner-radius:8px;}"
         StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
