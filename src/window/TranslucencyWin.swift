@@ -28,7 +28,6 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.contentView?.addSubview(visualEffectView!)
         let stashView = StashView(frame.width,frame.height)/*Sets the mainview of the window*/
         self.contentView?.addSubview(stashView)
-        self.maskImage = visualEffectView!.maskImage(cornerRadius: 8)/*<--we recreate and add the imageMask when the view resizes*/
     }
     func windowDidResize(notification: NSNotification) {
         //Swift.print("CustomWin.windowDidResize " + "\(self.frame.size)")
