@@ -22,30 +22,7 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.center()/*centers the window, this can also be done via setOrigin and calculating screen size etc*/
         self.movableByWindowBackground = true/*This enables you do drag the window around via the background*/
         self.delegate = self/*So that we can use this class as the Window controller aswell*/
-        
-        let visualEffectView = NSVisualEffectView(frame: NSRect(0,0,300,300))
-        visualEffectView.material = NSVisualEffectMaterial.UltraDark//AppearanceBased,Dark,MediumLight,PopOver,UltraDark,AppearanceBased,Titlebar,Menu
-        visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
-        visualEffectView.state = NSVisualEffectState.Active
-        self.contentView = (visualEffectView)
-        visualEffectView.maskImage = maskImage(cornerRadius: 8.0)/*this line applies the mask to the view*/
-        
-        
-        //continue here: pack the visualEffectView into its own class, then go on from there
-    }
-    
-    
-    func maskImage(cornerRadius cornerRadius: CGFloat) -> NSImage {
-        let edgeLength = 2.0 * cornerRadius + 1.0
-        let maskImage = NSImage(size: NSSize(width: edgeLength, height: edgeLength), flipped: false) { rect in
-            let bezierPath = NSBezierPath(roundedRect: rect, xRadius: cornerRadius, yRadius: cornerRadius)
-            NSColor.blackColor().set()
-            bezierPath.fill()
-            return true
-        }
-        maskImage.capInsets = NSEdgeInsets(top: cornerRadius, left: cornerRadius, bottom: cornerRadius, right: cornerRadius)
-        maskImage.resizingMode = .Stretch
-        return maskImage
+        self.contentView = TranslucencyView(frame: NSRect(0,0,300,300))
     }
     
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by the NSWindow*/
