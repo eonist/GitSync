@@ -11,9 +11,20 @@ class StashView:CustomView {
         StyleManager.addStyle(css)
         super.resolveSkin()
         Swift.print("Hello world")
+        addSubView(LeftSideBar(100,100,self))
         addSubView(MainContent(100,100,self))
         
     }
+}
+class LeftSideBar:Element{
+    override func resolveSkin() {
+        let css = "LeftSideBar{fill:red;fill-alpha:1;float:left;clear:left;corner-radius:8px;}"
+        StyleManager.addStyle(css)
+        Swift.print("MainContent.resolveSkin()")
+        super.resolveSkin()
+        //background = addSubView(Element(width,height,self,"background")) as? IElement
+    }
+    
 }
 class MainContent:Element{
     //var background:IElement?
@@ -21,7 +32,7 @@ class MainContent:Element{
      * Draws the graphics
      */
     override func resolveSkin() {
-        let css = "MainContent{fill:blue;fill-alpha:1;float:left;clear:left;corner-radius:8px;}"
+        let css = "MainContent{fill:blue;fill-alpha:1;float:left;clear:none;corner-radius:8px;}"
         StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
@@ -33,7 +44,5 @@ class MainContent:Element{
         //background?.setSize(width, height)
     }
 }
-class LeftSideBar:Element{
-    
-}
+
 
