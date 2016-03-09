@@ -23,8 +23,13 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.center()/*centers the window, this can also be done via setOrigin and calculating screen size etc*/
         self.movableByWindowBackground = true/*This enables you do drag the window around via the background*/
         self.delegate = self/*So that we can use this class as the Window controller aswell*/
+        self.contentView = FlippedView(frame: NSRect(0,0,300,300))
         let visualEffectView = TranslucencyView(frame: NSRect(0,0,300,300))
         self.contentView?.addSubview(visualEffectView)
+    }
+    func windowDidResize(notification: NSNotification) {
+        Swift.print("CustomWin.windowDidResize")
+        (self.contentView as! Element).setSize(self.frame.size.width,self.frame.size.height)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by the NSWindow*/
 }
