@@ -8,5 +8,7 @@ class StashView:CustomView {
         StyleManager.addStyle(css)
         super.resolveSkin()
         Swift.print("Hello world")
+        
+        
     }
 }
