@@ -30,7 +30,6 @@ class CustomWin:Window,IAnimatable{
      */
     func onFrame(){
         //Swift.print("\(self.dynamicType)" + "onFrame()")
-       
         self.performSelectorOnMainThread(ObjectiveC.Selector("onFrameOnMainThread"), withObject: nil, waitUntilDone: false)
     }
     /**
