@@ -9,6 +9,8 @@ import Cocoa
 //TODO: move the animation stuff into a new class named AnimWin that extends window, customwin will extend animwin for now untill you make a singleton or global val
 
 
+//TODO:IMplement the Animatable as a singlton and move it to the animation folder
+
 class CustomWin:Window,IAnimatable{
     var animators:Array<BaseAnimation> = []
     //var drawCalls:Array<()->Void> = []
