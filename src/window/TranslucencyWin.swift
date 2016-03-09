@@ -2,7 +2,8 @@ import Cocoa
 
 //The view should extend Element
 //white background
-//
+//svg icon test
+//setup views leftSideBarView and MainContentView
 
 
 class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
