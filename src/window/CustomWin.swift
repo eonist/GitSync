@@ -35,7 +35,13 @@ class CustomWin:Window,IAnimatable{
             if(drawCalls.count > 0){drawCalls.removeFirst()()}//the extra assert was needed strangly enough, or els bugs started to appear after some time with stress testing
         }
         CATransaction.flush()/*if you dont flush your animation wont animate and you get this message: CoreAnimation: warning, deleted thread with uncommitted CATransaction; set CA_DEBUG_TRANSACTIONS=1 in environment to log backtraces.*/
-        self.performSelectorOnMainThread(<#T##aSelector: Selector##Selector#>, withObject: <#T##AnyObject?#>, waitUntilDone: <#T##Bool#>)
+        self.performSelectorOnMainThread(ObjectiveC.Selector("itWorks"), withObject: <#T##AnyObject?#>, waitUntilDone: <#T##Bool#>)
+    }
+    /**
+     *
+     */
+    func itWorks(){
+        
     }
     /**
      * Note: It seems that you can't move this method into a static class method. Either internally in the same file or externally in another file
