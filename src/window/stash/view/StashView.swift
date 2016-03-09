@@ -33,6 +33,8 @@ class LeftSideBar:Element{
         StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
+        
+        addSubView(Button(50,50,self,"pics")) as! Button
         //background = addSubView(Element(width,height,self,"background")) as? IElement
     }
     
