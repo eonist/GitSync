@@ -14,6 +14,7 @@ class TranslucencyView:NSVisualEffectView{
     func setSize(frame:NSRect){
         self.frame = frame
         self.maskImage = maskImage(cornerRadius: 8.0)
+        self.maskImage.set
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
