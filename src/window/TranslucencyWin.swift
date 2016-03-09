@@ -1,8 +1,8 @@
 import Cocoa
-//chromless
-//dark
-//resizable
-//translucent
+
+//The view should extend Element
+//white background
+//
 
 
 class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
