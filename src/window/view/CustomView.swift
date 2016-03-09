@@ -10,7 +10,7 @@ class CustomView:WindowView{
      */
     override func resolveSkin() {
         super.resolveSkin()
-         createTitleBar()
+        createTitleBar()
     }
     /**
      * Adds close button, min, max
