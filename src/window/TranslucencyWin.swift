@@ -16,7 +16,7 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask|NSFullSizeContentViewWindowMask
         super.init(contentRect: Win.sizeRect, styleMask: NSBorderlessWindowMask|NSResizableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         self.contentView!.wantsLayer = true;/*this can and is set in the view*/
-        self.backgroundColor = NSColor.greenColor().alpha(0.0)
+        self.backgroundColor = NSColor.clearColor()/*Sets the window background color*/
         //self.opaque = false
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()//makes it the apps main menu?
