@@ -24,7 +24,7 @@ class RubberBand:Mover{
         self.spring = spring
         self.limit = limit
         self.view = view
-        super.init(WindowParser.firstWindowOfType(IAnimatable)!, value, velocity)
+        super.init(Animation.sharedInstance, value, velocity)
     }
     override func updatePosition() {
         applyBoundries()/*assert if the movement is close to stopping, if it is then stop it*/
