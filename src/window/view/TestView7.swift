@@ -45,7 +45,7 @@ class TestView7:CustomView {
         func onEvent(event:Event){
             if(event.type == ButtonEvent.upInside && event.origin === btn){
                 Swift.print("button works")
-                animator = Animator(WindowParser.firstWindowOfType(IAnimatable)!,1,0,100,interpolateX,Easing.easeOutSine)
+                animator = Animator(Animation.sharedInstance,1,0,100,interpolateX,Easing.easeOutSine)
                 animator!.start()
             }
         }
