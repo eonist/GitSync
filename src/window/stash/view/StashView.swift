@@ -8,18 +8,18 @@ class StashView:CustomView {
         StyleManager.addStyle(css)
         super.resolveSkin()
         Swift.print("Hello world")
-        section!.addSubView(MainContent(100,100,self))
+        addSubView(MainContent(100,100,self))
         
     }
 }
 
-private class MainContent:Element{
+class MainContent:Element{
     //var background:IElement?
     /**
      * Draws the graphics
      */
     override func resolveSkin() {
-        let css = "MainContent{fill:blue;fill-alpha:1;float:left;clear:left;}"
+        let css = "MainContent{fill:blue;fill-alpha:1;float:right;clear:right;corner-radius:8px;}"
         StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
