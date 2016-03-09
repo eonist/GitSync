@@ -17,12 +17,12 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         super.init(contentRect: Win.sizeRect, styleMask: NSBorderlessWindowMask|NSResizableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         self.contentView!.wantsLayer = true;/*this can and is set in the view*/
         self.backgroundColor = NSColor.greenColor().alpha(0.0)
-        self.opaque = false
+        //self.opaque = false
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()//makes it the apps main menu?
         self.hasShadow = true
         //self.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
-        self.titlebarAppearsTransparent = true
+        //self.titlebarAppearsTransparent = true
         self.center()
         self.movableByWindowBackground = true
         
@@ -39,15 +39,6 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         visualEffectView.maskImage = maskImage(cornerRadius: 10.0)/*this line applies the mask to the view*/
         
         
-        //self.contentView = visualEffectView
-        
-        /* self.contentView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[visualEffectView]-0-|", options: NSLayoutFormatOptions.DirectionLeadingToTrailing, metrics: nil, views: ["visualEffectView":visualEffectView]))
-        self.contentView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[visualEffectView]-0-|", options: NSLayoutFormatOptions.DirectionLeadingToTrailing, metrics: nil, views: ["visualEffectView":visualEffectView]))
-        */
-        //visualEffectView.wantsLayer = true;//this should be set in the iew not here
-        //visualEffectView.allowsVibrancy.interiorBackgroundStyle // only radable
-        //visualEffectView.allowsVibrancy = true
-        //visualEffectView.blendingMode = NSVisualEffectBlendingModeWithinWindow,
         
     }
     
@@ -68,8 +59,3 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by the NSWindow*/
 }
-/*class ViewAllowsVibrancy: NSView {
-override var allowsVibrancy: Bool {
-return true
-}
-}*/
