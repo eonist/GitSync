@@ -38,6 +38,22 @@ class TranslucentWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         //visualEffectView.blendingMode = NSVisualEffectBlendingModeWithinWindow,
    
     }
+    
+    /*
+    visualEffectView.maskImage = maskImage(cornerRadius: 10.0)/*this line applies the mask to the view*/
+    func maskImage(cornerRadius cornerRadius: CGFloat) -> NSImage {
+    let edgeLength = 2.0 * cornerRadius + 1.0
+    let maskImage = NSImage(size: NSSize(width: edgeLength, height: edgeLength), flipped: false) { rect in
+    let bezierPath = NSBezierPath(roundedRect: rect, xRadius: cornerRadius, yRadius: cornerRadius)
+    NSColor.blackColor().set()
+    bezierPath.fill()
+    return true
+    }
+    maskImage.capInsets = NSEdgeInsets(top: cornerRadius, left: cornerRadius, bottom: cornerRadius, right: cornerRadius)
+    maskImage.resizingMode = .Stretch
+    return maskImage
+    }
+    */
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by the NSWindow*/
 }
 /*class ViewAllowsVibrancy: NSView {
