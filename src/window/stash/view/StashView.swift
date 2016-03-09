@@ -4,14 +4,14 @@ import Cocoa
 //setup views leftSideBarView and MainContentView
 
 class StashView:CustomView {
-    var leftSideBar:
+    var leftSideBar:LeftSideBar?
     override func resolveSkin() {
         var css = ""//E8E8E8
         css += "Window Element#background{fill:#EFEFF4;fill-alpha:0;corner-radius:4px;}"//<--you should target a bg element not the window it self, since now everything inherits these values
         StyleManager.addStyle(css)
         super.resolveSkin()
         Swift.print("Hello world")
-        addSubView(LeftSideBar(75,200,self)) as! LeftSideBar
+        leftSideBar = addSubView(LeftSideBar(75,200,self)) as? LeftSideBar
 
         createCustomTitleBar()
         addSubView(MainContent(100,100,self))
@@ -19,7 +19,7 @@ class StashView:CustomView {
     }
     func createCustomTitleBar() {
         StyleManager.addStylesByURL("~/Desktop/css/titleBar.css")
-        section = leftSideBar.addSubView(Section(75,16,self,"titleBar")) as? Section
+        section = leftSideBar!.addSubView(Section(75,16,self,"titleBar")) as? Section
         closeButton = section!.addSubView(Button(0,0,section!,"close")) as? Button/*<--TODO: the w and h should be NaN, test if it supports this*/
         minimizeButton = section!.addSubView(Button(0,0,section!,"minimize")) as? Button
         maximizeButton = section!.addSubView(Button(0,0,section!,"maximize")) as? Button
