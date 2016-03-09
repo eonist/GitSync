@@ -26,7 +26,7 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         self.delegate = self//whats this?
         
-        let visualEffectView = NSVisualEffectView(frame: self.frame)
+        let visualEffectView = NSVisualEffectView(frame: NSRect(0,0,300,300))
         visualEffectView.material = NSVisualEffectMaterial.UltraDark//AppearanceBased,Dark,MediumLight,PopOver,UltraDark,AppearanceBased,Titlebar,Menu
         visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
         visualEffectView.state = NSVisualEffectState.Active
