@@ -11,7 +11,7 @@ import Cocoa
 
 class CustomWin:Window,IAnimatable{
     var animators:Array<BaseAnimation> = []
-    var drawCalls:Array<()->Void> = []
+    //var drawCalls:Array<()->Void> = []
     lazy var displayLink: CVDisplayLink = self.setUpDisplayLink()/*This is the instance that enables frame animation, lazying this value will probably haunt me later, playing with fire*/
     override init(_ width:CGFloat = 600,_ height:CGFloat = 400){
         super.init(width,height)
@@ -39,9 +39,9 @@ class CustomWin:Window,IAnimatable{
     func itWorks(){
         //Swift.print("it works")
         for animator in animators{animator.onFrame()}
-        while drawCalls.count > 0{
-            if(drawCalls.count > 0){drawCalls.removeFirst()()}//the extra assert was needed strangly enough, or els bugs started to appear after some time with stress testing
-        }
+        /*while drawCalls.count > 0{
+        if(drawCalls.count > 0){drawCalls.removeFirst()()}//the extra assert was needed strangly enough, or els bugs started to appear after some time with stress testing
+        }*/
         //CATransaction.flush()/*if you dont flush your animation wont animate and you get this message: CoreAnimation: warning, deleted thread with uncommitted CATransaction; set CA_DEBUG_TRANSACTIONS=1 in environment to log backtraces.*/
     }
     /**
