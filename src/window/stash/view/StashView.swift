@@ -29,7 +29,8 @@ class StashView:CustomView {
 class LeftSideBar:Element{
     static let w:CGFloat = 75
     override func resolveSkin() {
-        let css = "LeftSideBar{float:left;clear:left;}"
+        var css = "LeftSideBar{float:left;clear:left;}"
+        css += "LeftSideBar Button#pics{fill:red;float:left;clear:left;}"
         StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
