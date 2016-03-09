@@ -12,6 +12,7 @@ class TranslucencyView:NSVisualEffectView{
      *
      */
     func setSize(frame:NSRect){
+        Swift.print("setSize")
         self.frame = frame
         self.maskImage = maskImage(cornerRadius: 8.0)
     }
