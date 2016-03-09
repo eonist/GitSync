@@ -1,6 +1,9 @@
 import Cocoa
 
 class TranslucentWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
+    override var canBecomeMainWindow:Bool{return true}
+    override var canBecomeKeyWindow:Bool{return true}/*If you want a titleless window to be able to become a key window, you need to create a subclass of NSWindow and override -canBecomeKeyWindow*/
+    override var acceptsFirstResponder:Bool{return true}
     /**
      *
      */
@@ -12,9 +15,11 @@ class TranslucentWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.opaque = false
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()//makes it the apps main menu?
+        self.hasShadow = true
         //self.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
         self.titlebarAppearsTransparent = true
         self.center()
+        self.movableByWindowBackground = true
         
         //self.contentView = view
         //self.title = ""/*Sets the title of the window*/
