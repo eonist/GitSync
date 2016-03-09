@@ -9,7 +9,7 @@ class StashView:CustomView {
         StyleManager.addStyle(css)
         super.resolveSkin()
         Swift.print("Hello world")
-        addSubView(MainContent(100,100,self))
+        section!.addSubView(MainContent(100,100,self))
         
     }
 }
