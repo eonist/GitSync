@@ -27,7 +27,7 @@ class StashView:CustomView {
 }
 class LeftSideBar:Element{
     override func resolveSkin() {
-        let css = "LeftSideBar{fill:red;fill-alpha:0;float:left;clear:left;}"
+        let css = "LeftSideBar{float:left;clear:left;}"
         StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
@@ -41,7 +41,7 @@ class MainContent:Element{
      * Draws the graphics
      */
     override func resolveSkin() {
-        let css = "MainContent{fill:white;fill-alpha:1;float:left;clear:none;corner-radius:8px;}"
+        let css = "MainContent{fill:white;fill-alpha:1;float:left;clear:none;corner-radius:0px 6px 0px 6px;}"
         StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
