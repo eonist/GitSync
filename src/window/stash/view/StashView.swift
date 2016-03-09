@@ -1,4 +1,7 @@
 import Cocoa
+//white background
+//svg icon test
+//setup views leftSideBarView and MainContentView
 
 class StashView:CustomView {
 
@@ -30,3 +33,7 @@ class MainContent:Element{
         //background?.setSize(width, height)
     }
 }
+class LeftSideBar:Element{
+    
+}
+

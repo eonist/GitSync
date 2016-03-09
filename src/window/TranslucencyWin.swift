@@ -1,8 +1,5 @@
 import Cocoa
 
-//white background
-//svg icon test
-//setup views leftSideBarView and MainContentView
 
 
 class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
