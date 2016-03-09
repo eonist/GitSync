@@ -19,6 +19,8 @@ class StashView:CustomView {
     }
     func createCustomTitleBar() {
         StyleManager.addStylesByURL("~/Desktop/css/titleBar.css")
+        StyleManager.addStyle("Section#titleBar{padding-top:16px;padding-left:0px;}")
+        
         section = leftSideBar!.addSubView(Section(75,16,leftSideBar,"titleBar")) as? Section
         closeButton = section!.addSubView(Button(0,0,section!,"close")) as? Button/*<--TODO: the w and h should be NaN, test if it supports this*/
         minimizeButton = section!.addSubView(Button(0,0,section!,"minimize")) as? Button
@@ -30,8 +32,8 @@ class StashView:CustomView {
 class LeftSideBar:Element{
     static let w:CGFloat = 75
     override func resolveSkin() {
-        var css = "LeftSideBar{float:left;clear:left;}"
-        css += "LeftSideBar Button#pics{fill:red;float:left;clear:left;padding-left:12px;padding-top:}"
+        var css = "LeftSideBar{float:left;clear:left;padding-left:12px;padding-right:-12px;}"
+        css += "LeftSideBar Button#pics{fill:red;float:left;clear:left;}"
         StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
