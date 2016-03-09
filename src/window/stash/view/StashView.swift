@@ -5,7 +5,6 @@ class StashView:CustomView {
     override func resolveSkin() {
         var css = ""//E8E8E8
         css += "Window Element#background{fill:#EFEFF4;fill-alpha:0;corner-radius:4px;}"//<--you should target a bg element not the window it self, since now everything inherits these values
-        css += "Window MainContent{fill:blue;fill-alpha:1;float:left;clear:left;}"
         StyleManager.addStyle(css)
         super.resolveSkin()
         Swift.print("Hello world")
@@ -20,6 +19,8 @@ private class MainContent:Element{
      * Draws the graphics
      */
     override func resolveSkin() {
+        let css = "MainContent{fill:blue;fill-alpha:1;float:left;clear:left;}"
+        StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
         //background = addSubView(Element(width,height,self,"background")) as? IElement
