@@ -17,12 +17,9 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         super.init(contentRect: Win.sizeRect, styleMask: NSBorderlessWindowMask|NSResizableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         self.contentView!.wantsLayer = true;/*this can and is set in the view*/
         self.backgroundColor = NSColor.clearColor()/*Sets the window background color*/
-        //self.opaque = false
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()//makes it the apps main menu?
-        self.hasShadow = true
-        //self.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
-        //self.titlebarAppearsTransparent = true
+        self.hasShadow = true/*you have to set this to true if you want a shadow when using the borderlessmask setting*/
         self.center()
         self.movableByWindowBackground = true
         
@@ -41,7 +38,12 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         
     }
-    
+    func windowDidResize(notification: NSNotification) {
+        //notification
+        Swift.print("CustomWin.windowDidResize")
+        self.contentView?.frame.size = self.frame.size
+
+    }
     
     
     func maskImage(cornerRadius cornerRadius: CGFloat) -> NSImage {
