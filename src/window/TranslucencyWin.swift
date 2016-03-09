@@ -31,7 +31,7 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
         visualEffectView.state = NSVisualEffectState.Active
         
-        self.contentView?.addSubview(visualEffectView)
+        self.contentView = (visualEffectView)
         
         visualEffectView.maskImage = maskImage(cornerRadius: 10.0)/*this line applies the mask to the view*/
         
@@ -41,8 +41,8 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     func windowDidResize(notification: NSNotification) {
         //notification
         Swift.print("CustomWin.windowDidResize")
-        self.contentView?.frame.size = self.frame.size
-
+        //self.contentView?.frame.size = self.frame.size
+        //maskImage.frame
     }
     
     
