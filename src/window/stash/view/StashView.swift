@@ -14,6 +14,7 @@ class StashView:CustomView {
         Swift.print("Hello world")
         leftSideBar = addSubView(LeftSideBar(LeftSideBar.w,height,self)) as? LeftSideBar
         createCustomTitleBar()
+        leftSideBar!.createButtons()
         addSubView(MainContent(frame.width-LeftSideBar.w,frame.height,self))
     }
     func createCustomTitleBar() {
@@ -30,13 +31,19 @@ class LeftSideBar:Element{
     static let w:CGFloat = 75
     override func resolveSkin() {
         var css = "LeftSideBar{float:left;clear:left;}"
-        css += "LeftSideBar Button#pics{fill:red;float:left;clear:left;}"
+        css += "LeftSideBar Button#pics{fill:red;float:left;clear:left;padding-left:12px;padding-top:}"
         StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
         
-        addSubView(Button(50,50,self,"pics")) as! Button
+        
         //background = addSubView(Element(width,height,self,"background")) as? IElement
+    }
+    /**
+     *
+     */
+    func createButtons(){
+        addSubView(Button(50,50,self,"pics")) as! Button
     }
     
 }
