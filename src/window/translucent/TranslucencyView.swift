@@ -1,7 +1,7 @@
 import Cocoa
 
 class TranslucencyView:NSVisualEffectView{
-    let cornerRadius:CGFloat = 6
+    let cornerRadius:CGFloat = 8
     override var flipped:Bool {return true}/*Organizes your view from top to bottom*/
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
