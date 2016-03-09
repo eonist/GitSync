@@ -1,6 +1,7 @@
 import Cocoa
 
 class TranslucencyView:NSVisualEffectView{
+    override var flipped:Bool {return true}/*Organizes your view from top to bottom*/
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         self.material = NSVisualEffectMaterial.UltraDark//AppearanceBased,Dark,MediumLight,PopOver,UltraDark,AppearanceBased,Titlebar,Menu
