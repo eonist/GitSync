@@ -31,12 +31,12 @@ class CustomWin:Window,IAnimatable{
     func onFrame(){
         //Swift.print("\(self.dynamicType)" + "onFrame()")
        
-        self.performSelectorOnMainThread(ObjectiveC.Selector("itWorks"), withObject: nil, waitUntilDone: false)
+        self.performSelectorOnMainThread(ObjectiveC.Selector("onFrameOnMainThread"), withObject: nil, waitUntilDone: false)
     }
     /**
      *
      */
-    func itWorks(){
+    func onFrameOnMainThread(){
         //Swift.print("it works")
         for animator in animators{animator.onFrame()}
         /*while drawCalls.count > 0{
