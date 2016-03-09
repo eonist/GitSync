@@ -11,7 +11,8 @@ class StashView:CustomView {
         StyleManager.addStyle(css)
         super.resolveSkin()
         Swift.print("Hello world")
-        addSubView(LeftSideBar(75,200,self))
+        let leftSideBar = addSubView(LeftSideBar(75,200,self)) as! LeftSideBar
+        leftSideBar.addSubView(section!)
         addSubView(MainContent(100,100,self))
         
     }
