@@ -33,7 +33,6 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         visualEffectView?.setFrameSize(self.frame.size)
         visualEffectView?.setBoundsSize(self.frame.size)
         visualEffectView?.maskImage?.size = self.frame.size
-        visualEffectView?.maskImage?
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by the NSWindow*/
 }
