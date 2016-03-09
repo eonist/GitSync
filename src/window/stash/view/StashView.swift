@@ -20,6 +20,7 @@ private class MainContent:Element{
      * Draws the graphics
      */
     override func resolveSkin() {
+        Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
         //background = addSubView(Element(width,height,self,"background")) as? IElement
     }
