@@ -27,6 +27,8 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.contentView = FlippedView(frame: NSRect(0,0,300,300))
         visualEffectView = TranslucencyView(frame: NSRect(0,0,300,300))
         self.contentView?.addSubview(visualEffectView!)
+        let stashView = StashView(frame.width,frame.height)/*Sets the mainview of the window*/
+        self.contentView?.addSubview(stashView)
     }
     func windowDidResize(notification: NSNotification) {
         //Swift.print("CustomWin.windowDidResize " + "\(self.frame.size)")
