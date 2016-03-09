@@ -4,6 +4,7 @@ import Cocoa
 //setup views leftSideBarView and MainContentView
 
 class StashView:CustomView {
+    
     var leftSideBar:LeftSideBar?
     override func resolveSkin() {
         var css = ""//E8E8E8
@@ -11,9 +12,9 @@ class StashView:CustomView {
         StyleManager.addStyle(css)
         super.resolveSkin()
         Swift.print("Hello world")
-        leftSideBar = addSubView(LeftSideBar(75,200,self)) as? LeftSideBar
+        leftSideBar = addSubView(LeftSideBar(LeftSideBar.w,height,self)) as? LeftSideBar
         createCustomTitleBar()
-        addSubView(MainContent(300-75,300,self))
+        addSubView(MainContent(frame.width-LeftSideBar.w,frame.height,self))
     }
     func createCustomTitleBar() {
         StyleManager.addStylesByURL("~/Desktop/css/titleBar.css")
@@ -26,6 +27,7 @@ class StashView:CustomView {
     }
 }
 class LeftSideBar:Element{
+    static let w:CGFloat = 75
     override func resolveSkin() {
         let css = "LeftSideBar{float:left;clear:left;}"
         StyleManager.addStyle(css)
