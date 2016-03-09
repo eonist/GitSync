@@ -13,36 +13,25 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
      *
      */
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
-        //NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask|NSFullSizeContentViewWindowMask
         super.init(contentRect: NSRect(0,0,300,300), styleMask: NSBorderlessWindowMask|NSResizableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         self.contentView!.wantsLayer = true;/*this can and is set in the view*/
         self.backgroundColor = NSColor.clearColor()/*Sets the window background color*/
         self.makeKeyAndOrderFront(nil)//moves the window to the front
         self.makeMainWindow()//makes it the apps main menu?
         self.hasShadow = true/*you have to set this to true if you want a shadow when using the borderlessmask setting*/
-        self.center()
-        self.movableByWindowBackground = true
-        
-        
-        self.delegate = self//whats this?
+        self.center()/*centers the window, this can also be done via setOrigin and calculating screen size etc*/
+        self.movableByWindowBackground = true/*This enables you do drag the window around via the background*/
+        self.delegate = self/*So that we can use this class as the Window controller aswell*/
         
         let visualEffectView = NSVisualEffectView(frame: NSRect(0,0,300,300))
         visualEffectView.material = NSVisualEffectMaterial.UltraDark//AppearanceBased,Dark,MediumLight,PopOver,UltraDark,AppearanceBased,Titlebar,Menu
         visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
         visualEffectView.state = NSVisualEffectState.Active
-        
         self.contentView = (visualEffectView)
-        
-        visualEffectView.maskImage = maskImage(cornerRadius: 10.0)/*this line applies the mask to the view*/
-        
+        visualEffectView.maskImage = maskImage(cornerRadius: 8.0)/*this line applies the mask to the view*/
         
         
-    }
-    func windowDidResize(notification: NSNotification) {
-        //notification
-        Swift.print("CustomWin.windowDidResize")
-        //self.contentView?.frame.size = self.frame.size
-        //maskImage.frame
+        //continue here: pack the visualEffectView into its own class, then go on from there
     }
     
     
