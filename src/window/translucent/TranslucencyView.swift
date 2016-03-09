@@ -8,11 +8,11 @@ class TranslucencyView:NSVisualEffectView{
         self.material = NSVisualEffectMaterial.UltraDark//AppearanceBased,Dark,MediumLight,PopOver,UltraDark,AppearanceBased,Titlebar,Menu
         self.blendingMode = NSVisualEffectBlendingMode.BehindWindow
         self.state = NSVisualEffectState.Active
-        //self.maskImage = maskImage(cornerRadius: cornerRadius)/*this line applies the mask to the view*/
+        self.maskImage = maskImage(cornerRadius: cornerRadius)/*this line applies the mask to the view*/
     }
     override func setFrameSize(newSize: NSSize) {
         super.setFrameSize(newSize)
-        //self.maskImage = maskImage(cornerRadius: cornerRadius)/*<--we recreate and add the imageMask when the view resizes*/
+        self.maskImage = maskImage(cornerRadius: cornerRadius)/*<--we recreate and add the imageMask when the view resizes*/
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
