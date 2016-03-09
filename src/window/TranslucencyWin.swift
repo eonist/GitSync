@@ -30,9 +30,10 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     }
     func windowDidResize(notification: NSNotification) {
         Swift.print("CustomWin.windowDidResize " + "\(self.frame.size)")
-        visualEffectView!.setFrameSize(self.frame.size)
-        visualEffectView!.setBoundsSize(self.frame.size)
-        visualEffectView!.setSize(self.frame)
+        //visualEffectView!.setFrameSize(self.frame.size)
+        visualEffectView!.frame.size = self.frame.size
+        //visualEffectView!.setBoundsSize(self.frame.size)
+        //visualEffectView!.setSize(self.frame)
         //visualEffectView!.maskImage?.size = self.frame.size
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by the NSWindow*/
