@@ -12,3 +12,19 @@ class StashView:CustomView {
         
     }
 }
+
+private class MainContent:Element{
+    //var background:IElement?
+    /**
+     * Draws the graphics
+     */
+    override func resolveSkin() {
+        super.resolveSkin()
+        //background = addSubView(Element(width,height,self,"background")) as? IElement
+    }
+
+    override func setSize(width: CGFloat, _ height: CGFloat) {
+        super.setSize(width, height)
+        //background?.setSize(width, height)
+    }
+}
