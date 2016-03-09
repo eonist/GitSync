@@ -3,6 +3,8 @@ import Cocoa
 
 
 class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
+    let w:CGFloat = 300
+    let h:CGFloat = 400
     override var canBecomeMainWindow:Bool{return true}
     override var canBecomeKeyWindow:Bool{return true}/*If you want a titleless window to be able to become a key window, you need to create a subclass of NSWindow and override -canBecomeKeyWindow*/
     override var acceptsFirstResponder:Bool{return true}
@@ -11,7 +13,7 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
      *
      */
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
-        super.init(contentRect: NSRect(0,0,300,300), styleMask: NSBorderlessWindowMask|NSResizableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
+        super.init(contentRect: NSRect(0,0,w,h), styleMask: NSBorderlessWindowMask|NSResizableWindowMask, backing: NSBackingStoreType.Buffered, `defer`: false)
         self.contentView!.wantsLayer = true;/*this can and is set in the view*/
         self.backgroundColor = NSColor.clearColor()/*Sets the window background color*/
         self.makeKeyAndOrderFront(nil)//moves the window to the front
@@ -20,8 +22,8 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.center()/*centers the window, this can also be done via setOrigin and calculating screen size etc*/
         self.movableByWindowBackground = true/*This enables you do drag the window around via the background*/
         self.delegate = self/*So that we can use this class as the Window controller aswell*/
-        self.contentView = FlippedView(frame: NSRect(0,0,300,300))
-        visualEffectView = TranslucencyView(frame: NSRect(0,0,300,300))
+        self.contentView = FlippedView(frame: NSRect(0,0,w,h))
+        visualEffectView = TranslucencyView(frame: NSRect(0,0,w,h))
         self.contentView?.addSubview(visualEffectView!)
         let stashView = StashView(frame.width,frame.height)/*Sets the mainview of the window*/
         self.contentView?.addSubview(stashView)
