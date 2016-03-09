@@ -12,14 +12,13 @@ class StashView:CustomView {
         
     }
 }
-
 class MainContent:Element{
     //var background:IElement?
     /**
      * Draws the graphics
      */
     override func resolveSkin() {
-        let css = "MainContent{fill:blue;fill-alpha:1;float:right;clear:right;corner-radius:8px;}"
+        let css = "MainContent{fill:blue;fill-alpha:1;float:left;clear:left;corner-radius:8px;}"
         StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
