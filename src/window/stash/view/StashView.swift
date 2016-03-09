@@ -33,7 +33,7 @@ class LeftSideBar:Element{
     static let w:CGFloat = 75
     override func resolveSkin() {
         var css = "LeftSideBar{float:left;clear:left;padding-left:12px;padding-right:-12px;}"
-        css += "LeftSideBar Button#pics{fill:~/Desktop/svg_icons/pics.svg white;fill-alpha:0.2;float:left;clear:left;margin-top:12px;}"
+        css += "LeftSideBar Button#pics{fill:~/Desktop/svg_icons/pics.svg white;fill-alpha:0.4;float:left;clear:left;margin-top:24px;margin-left:8px;}"
         StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
@@ -45,7 +45,7 @@ class LeftSideBar:Element{
      *
      */
     func createButtons(){
-        addSubView(Button(50,50,self,"pics")) as! Button
+        addSubView(Button(35,35,self,"pics")) as! Button
     }
     
 }
