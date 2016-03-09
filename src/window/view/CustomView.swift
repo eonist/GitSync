@@ -22,6 +22,7 @@ class CustomView:WindowView{
         closeButton = section!.addSubView(Button(0,0,section!,"close")) as? Button/*<--TODO: the w and h should be NaN, test if it supports this*/
         minimizeButton = section!.addSubView(Button(0,0,section!,"minimize")) as? Button
         maximizeButton = section!.addSubView(Button(0,0,section!,"maximize")) as? Button
+        
     }
     /**
      *
