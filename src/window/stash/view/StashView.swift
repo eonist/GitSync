@@ -12,10 +12,8 @@ class StashView:CustomView {
         super.resolveSkin()
         Swift.print("Hello world")
         leftSideBar = addSubView(LeftSideBar(75,200,self)) as? LeftSideBar
-
         createCustomTitleBar()
         addSubView(MainContent(100,100,self))
-        
     }
     func createCustomTitleBar() {
         StyleManager.addStylesByURL("~/Desktop/css/titleBar.css")
