@@ -10,7 +10,7 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
     override var canBecomeMainWindow:Bool{return true}
     override var canBecomeKeyWindow:Bool{return true}/*If you want a titleless window to be able to become a key window, you need to create a subclass of NSWindow and override -canBecomeKeyWindow*/
     override var acceptsFirstResponder:Bool{return true}
-    var visualEffectView:TranslucencyView?
+    var visualEffectView:TranslucencyView?//we set the to the background 
     /**
      *
      */
@@ -29,13 +29,8 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.contentView?.addSubview(visualEffectView!)
     }
     func windowDidResize(notification: NSNotification) {
-        Swift.print("CustomWin.windowDidResize " + "\(self.frame.size)")
-        Swift.print("contentView.frame: " + "\(contentView!.frame)")
+        //Swift.print("CustomWin.windowDidResize " + "\(self.frame.size)")
         visualEffectView!.setFrameSize(self.frame.size)
-        //visualEffectView!.frame.size = self.frame.size
-        //visualEffectView!.setBoundsSize(self.frame.size)
-        visualEffectView!.setSize(self.frame)
-        //visualEffectView!.maskImage!.size = self.frame.size
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}/*Required by the NSWindow*/
 }
