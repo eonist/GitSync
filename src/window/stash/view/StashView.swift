@@ -27,8 +27,8 @@ class StashView:CustomView {
 }
 class LeftSideBar:Element{
     override func resolveSkin() {
-        let css = "LeftSideBar{fill:red;fill-alpha:1;float:left;clear:left;corner-radius:8px;}"
-        StyleManager.addStyle(css)
+        //let css = "LeftSideBar{fill:red;fill-alpha:1;float:left;clear:left;corner-radius:8px;}"
+        //StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
         //background = addSubView(Element(width,height,self,"background")) as? IElement
