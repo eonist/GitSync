@@ -47,8 +47,9 @@ class LeftSideBar:Element{
      *
      */
     func createButtons(){
-        addSubView(Button(35,35,self,"pics")) as! Button
-        addSubView(Button(35,35,self,"camera")) as! Button
+        let buttonSection = self.addSubView(Section(75,200,self,"buttonSection")) as! Section
+        buttonSection.addSubView(Button(35,35,buttonSection,"pics")) as! Button
+        buttonSection.addSubView(Button(35,35,buttonSection,"camera")) as! Button
     }
     
 }
