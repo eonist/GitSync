@@ -26,8 +26,8 @@ class MainContent:Element{
         //StyleManager.addStylesByURL("~/Desktop/css/sliderList.css")
         
         let dp = DataProvider(FileParser.xml("~/Desktop/scrollist.xml"))
-        let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*adds some visual space around the component*/
-        let list = section.addSubView(ArticleList(140,120,48,dp,section)) as? ArticleList
+        
+        let list = self.addSubView(ArticleList(width,200,48,dp,self)) as? ArticleList
         list
     }
     /**
