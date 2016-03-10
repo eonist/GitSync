@@ -64,6 +64,9 @@ class ArticleList:List{
             i++
         }
     }
+    override func getClassType() -> String {
+        return String(ArticleList)
+    }
 }
 
 class ArticleItem:Element{
