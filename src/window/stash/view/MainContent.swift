@@ -22,12 +22,13 @@ class MainContent:Element{
      */
     func createList(){
         StyleManager.addStylesByURL("~/Desktop/css/articleList.css")
-        //StyleManager.addStylesByURL("~/Desktop/css/slider.css")
-        //StyleManager.addStylesByURL("~/Desktop/css/sliderList.css")
+        StyleManager.addStylesByURL("~/Desktop/css/slider.css")
+        StyleManager.addStylesByURL("~/Desktop/css/sliderList.css")
+        
         
         let dp = DataProvider(FileParser.xml("~/Desktop/scrollist.xml"))
         
-        let list = self.addSubView(ArticleList(width,400,98,dp,self)) as? ArticleList
+        let list = self.addSubView(ArticleList(width,400,98,dp,self,"articleList")) as? ArticleList
         list
     }
     /**
@@ -44,7 +45,7 @@ class MainContent:Element{
     }
 }
 
-class ArticleList:List{
+class ArticleList:RBSliderList{
     override func mergeAt(objects: [Dictionary<String, String>], _ index: Int) {
         var i:Int = index;
         Swift.print("mergeAt: index: " + "\(index)");
@@ -56,7 +57,7 @@ class ArticleList:List{
         }
     }
     override func getClassType() -> String {
-        return String(ArticleList)
+        return String(List)
     }
 }
 
