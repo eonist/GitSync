@@ -27,18 +27,7 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         
         self.contentView?.addSubview(visualEffectView!)
-        Swift.print("visualEffectView!.layer: " + "\(visualEffectView!.layer?.sublayers?.count)")
-        Swift.print("visualEffectView!.layer!.sublayers: " + "\(visualEffectView!.layer?.sublayers)")
-        for sublayer in visualEffectView!.layer!.sublayers! {
-            if (sublayer.name == "Backdrop") {
-                Swift.print("backdrop")
-                sublayer.backgroundColor = NSColor.blackColor().alpha(0.45).CGColor;
-            } else if (sublayer.name == "Tint") {
-                //NSLog(@"Tint: %@", sublayer.backgroundColor);
-                Swift.print("tint")
-                sublayer.backgroundColor = NSColor.blackColor().alpha(1).CGColor
-            }
-        }
+        
         let stashView = StashView(frame.width,frame.height)/*Sets the mainview of the window*/
         self.contentView?.addSubview(stashView)
     }
