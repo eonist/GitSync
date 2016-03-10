@@ -60,7 +60,7 @@ class ArticleList:List{
     }
 }
 
-class ArticleItem:Element{
+class ArticleItem:Element,ISelectable{
     var header:String
     var date:String
     var title:String
