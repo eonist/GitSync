@@ -21,7 +21,6 @@ class MainContent:Element{
     */
     func createArticleItem(){
         
-        
         let container = Section(200,50,self,"textContainer")
         addSubview(container)
         //let textString:String = "Test something fun this is the tech behind this years revolution in computer technology. Internet continues to widen as the spread for A.I is heading twords it's end"
