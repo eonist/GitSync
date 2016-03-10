@@ -27,8 +27,8 @@ class MainContent:Element{
         
         let dp = DataProvider(FileParser.xml("~/Desktop/scrollist.xml"))
         let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*adds some visual space around the component*/
-        let sliderList = section.addSubView(ArticleList(140,120,24,dp,section)) as? ArticleList
-        sliderList
+        let list = section.addSubView(ArticleList(140,120,24,dp,section)) as? ArticleList
+        list
     }
     /**
     *
@@ -67,5 +67,5 @@ class ArticleList:List{
     }
 }
 
-
+class 
 
