@@ -60,7 +60,8 @@ class ArticleList:List{
     }
 }
 
-class ArticleItem:SelectButton{
+class ArticleItem:Element,ISelectable{
+    var isSelected:Bool;
     var header:String
     var date:String
     var title:String
@@ -71,7 +72,8 @@ class ArticleItem:SelectButton{
         self.date = date
         self.title = title
         self.content = content
-        super.init(width, height, isSelected, parent, id)
+        self.isSelected = isSelected
+        super.init(width, height, parent, id)
     }
     override func resolveSkin() {
         super.resolveSkin()
@@ -89,7 +91,22 @@ class ArticleItem:SelectButton{
         let content:Text = container.addSubView(Text(200,152,textString,container,"content")) as! Text
         content
     }
-    
+    override func mouseUpInside(event: MouseEvent) {
+        isSelected = true
+        super.mouseUpInside(event)
+        //NSNotificationCenter.defaultCenter().postNotificationName(SelectEvent.select, object:self)/*bubbles:true because i.e: radioBulet may be added to RadioButton and radioButton needs to dispatch Select event if the SelectGroup is to work*/
+        self.event!(SelectEvent(SelectEvent.select,self/*,self*/))
+    }
+    /**
+     * @Note: do not add a dispatch event here, that is the responsibilyy of the caller
+     */
+    func setSelected(isSelected:Bool){
+        self.isSelected = isSelected
+        setSkinState(getSkinState());
+    }
+    override func getSkinState() -> String {
+        return isSelected ? SkinStates.selected + " " + super.getSkinState() : super.getSkinState();
+    }
     override func getClassType() -> String {
         return String(SelectButton)
     }
