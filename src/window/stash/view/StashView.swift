@@ -19,7 +19,7 @@ class StashView:CustomView {
     }
     func createCustomTitleBar() {
         StyleManager.addStylesByURL("~/Desktop/css/titleBar.css")
-        StyleManager.addStyle("Section#titleBar{padding-top:16px;padding-left:12px;}")
+        StyleManager.addStyle("Section#titleBar{padding-top:16px;padding-left:20px;}")
         
         section = leftSideBar!.addSubView(Section(75,16,leftSideBar,"titleBar")) as? Section
         closeButton = section!.addSubView(Button(0,0,section!,"close")) as? Button/*<--TODO: the w and h should be NaN, test if it supports this*/
@@ -49,8 +49,8 @@ class LeftSideBar:Element{
      */
     func createButtons(){
         let buttonSection = self.addSubView(Section(75,200,self,"buttonSection")) as! Section
-        buttonSection.addSubView(Button(35,35,buttonSection,"pics")) as! Button
-        buttonSection.addSubView(Button(35,35,buttonSection,"camera")) as! Button
+        buttonSection.addSubView(Button(20,20,buttonSection,"pics")) as! Button
+        buttonSection.addSubView(Button(20,20,buttonSection,"camera")) as! Button
     }
     
 }
