@@ -40,6 +40,7 @@ class LeftSideBar:Element{
         css += "Section#buttonSection Button{fill-alpha:0.2;float:left;clear:left;margin-top:12px;margin-left:16px;padding:0px;}"
         //css += "Section#buttonSection Button#avatar{fill-alpha:1;fill:~/Desktop/svg_icons/avatar.svg none;margin-left:0px;margin-top:0px;}"
         css += "Section#buttonSection Button#pics{fill:~/Desktop/svg_icons/inbox.svg white;fill-alpha:0.6;}"
+        css += "Section#buttonSection Button#pics{fill:~/Desktop/svg_icons/home.svg white;}"
         css += "Section#buttonSection Button#pics{fill:~/Desktop/svg_icons/pics.svg white;}"
         css += "Section#buttonSection Button#camera{fill:~/Desktop/svg_icons/camera.svg white;}"
         css += "Section#buttonSection Button#game{fill:~/Desktop/svg_icons/game.svg white;}"
@@ -58,6 +59,7 @@ class LeftSideBar:Element{
         let buttonSection = self.addSubView(Section(75,200,self,"buttonSection")) as! Section
         //buttonSection.addSubView(Button(50,50,buttonSection,"avatar")) as! Button
         buttonSection.addSubView(Button(20,20,buttonSection,"inbox")) as! Button
+        buttonSection.addSubView(Button(20,20,buttonSection,"home")) as! Button
         buttonSection.addSubView(Button(20,20,buttonSection,"pics")) as! Button
         buttonSection.addSubView(Button(20,20,buttonSection,"camera")) as! Button
         buttonSection.addSubView(Button(20,20,buttonSection,"game")) as! Button
