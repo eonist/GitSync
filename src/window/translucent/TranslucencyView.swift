@@ -9,6 +9,7 @@ class TranslucencyView:NSVisualEffectView{
         self.blendingMode = NSVisualEffectBlendingMode.BehindWindow
         self.state = NSVisualEffectState.Active
         self.maskImage = maskImage(cornerRadius: cornerRadius)/*this line applies the mask to the view*/
+        
     }
     override func setFrameSize(newSize: NSSize) {
         super.setFrameSize(newSize)
