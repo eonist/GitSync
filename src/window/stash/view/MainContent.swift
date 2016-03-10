@@ -88,7 +88,6 @@ class ArticleItem:SelectButton{
         let textString:String = "This is the tech behind this years revolution in computer..."
         let content:Text = container.addSubView(Text(200,152,textString,container,"content")) as! Text
         content
-        
     }
     
     override func getClassType() -> String {
