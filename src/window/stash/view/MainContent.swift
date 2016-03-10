@@ -27,7 +27,7 @@ class MainContent:Element{
         
         let dp = DataProvider(FileParser.xml("~/Desktop/scrollist.xml"))
         
-        let list = self.addSubView(ArticleList(width,400,88,dp,self)) as? ArticleList
+        let list = self.addSubView(ArticleList(width,400,98,dp,self)) as? ArticleList
         list
     }
     /**
