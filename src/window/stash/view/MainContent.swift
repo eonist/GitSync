@@ -49,7 +49,7 @@ class ArticleList:List{
         var i:Int = index;
         Swift.print("mergeAt: index: " + "\(index)");
         for object:Dictionary<String,String> in objects {// :TODO: use for i
-            let item:ArticleItem = ArticleItem(getWidth(), self.itemHeight ,object["title"]!, "","","", self.lableContainer)
+            let item:ArticleItem = ArticleItem(getWidth(), self.itemHeight ,object["title"]!, "","","", false, self.lableContainer)
             //Swift.print("item: " + "\(item)")
             self.lableContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
             i++
@@ -60,19 +60,18 @@ class ArticleList:List{
     }
 }
 
-class ArticleItem:Element,ISelectable{
-    var isSelected:Bool
+class ArticleItem:SelectButton{
     var header:String
     var date:String
     var title:String
     var content:String
-    init(_ width:CGFloat, _ height:CGFloat, _ header:String,_ date:String,_ title:String,_ content:String,_ parent:IElement? = nil, _ id:String? = nil){
+    init(_ width:CGFloat, _ height:CGFloat, _ header:String,_ date:String,_ title:String,_ content:String, _ isSelected : Bool = false, _ parent:IElement? = nil, _ id:String? = nil){
         //Swift.print("ArticleItem init()")
         self.header = header
         self.date = date
         self.title = title
         self.content = content
-        super.init(width, height, parent, id)
+        super.init(width, height, isSelected, parent, id)
     }
     override func resolveSkin() {
         super.resolveSkin()
@@ -91,6 +90,7 @@ class ArticleItem:Element,ISelectable{
         content
         
     }
+    
     override func getClassType() -> String {
         return String(SelectButton)
     }
