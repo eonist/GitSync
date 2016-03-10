@@ -59,7 +59,7 @@ class ArticleList:List{
         var i:Int = index;
         Swift.print("mergeAt: index: " + "\(index)");
         for object:Dictionary<String,String> in objects {// :TODO: use for i
-            let item:SelectTextButton = SelectTextButton(getWidth(), self.itemHeight ,object["title"]!, false, self.lableContainer)
+            let item:ArticleItem = ArticleItem(getWidth(), self.itemHeight ,object["title"]!, "","","", self.lableContainer)
             //Swift.print("item: " + "\(item)")
             self.lableContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
             i++
@@ -68,17 +68,22 @@ class ArticleList:List{
 }
 
 class ArticleItem:Element{
-    override init(_ width:CGFloat, _ height:CGFloat, header:String,date:String,title:String,_ parent:IElement? = nil, _ id:String? = nil){
-        //Swift.print("Button.init()")
+    var header:String
+    var date:String
+    var title:String
+    var content:String
+    init(_ width:CGFloat, _ height:CGFloat, _ header:String,_ date:String,_ title:String,_ content:String,_ parent:IElement? = nil, _ id:String? = nil){
+        //Swift.print("ArticleItem init()")
+        self.header = header
+        self.date = date
+        self.title = title
+        self.content = content
         super.init(width, height, parent, id)
-        //addTrackingRect(self.bounds, owner: self, userData: nil, assumeInside: true)//This enables entered and exited events to fire //let focusTrackingAreaOptions:NSTrackingAreaOptions = [NSTrackingActiveInActiveApp,NSTrackingMouseEnteredAndExited,NSTrackingAssumeInside,NSTrackingInVisibleRect,NSTrackingEnabledDuringMouseDrag]//NSTrackingEnabledDuringMouseDrag to mine to make sure the rollover behaves still when dragging in and out of the area.//TODO: you may need to update trackingarea: - (void)updateTrackingAreas
     }
-
-    
-        
-    
     override func resolveSkin() {
         super.resolveSkin()
+        let headerText:Text = self.addSubView(Text(120,20,"Google",self,"header")) as! Text
+        headerText
         
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
