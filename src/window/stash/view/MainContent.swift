@@ -23,8 +23,6 @@ class MainContent:Element{
         var css:String = ""
         css += "Section#textContainer{fill:white;float:left;clear:left;fill-alpha:0;}"
         css += "Text{"
-        css +=     "float:left;"
-        css +=     "clear:left;"
         css +=     "font:Lucida Grande;"
         css +=     "size:12px;"
         css +=     "align:left;"
@@ -37,6 +35,9 @@ class MainContent:Element{
         css +=     "backgroundColor:orange;"
         css +=     "background:false;"
         css += "}"
+        css += "Text#header{float:left;clear:left;}"
+        css += "Text#date{float:right;clear:right;}"
+        
         StyleManager.addStyle(css)
         
         let container = Section(200,50,self,"textContainer")
