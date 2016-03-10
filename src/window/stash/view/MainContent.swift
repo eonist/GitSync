@@ -23,14 +23,15 @@ class MainContent:Element{
         
         let container = Section(width,50,self,"textContainer")
         addSubview(container)
-        //let textString:String = "Test something fun this is the tech behind this years revolution in computer technology. Internet continues to widen as the spread for A.I is heading twords it's end"
+        
         let header:Text = container.addSubView(Text(120,24,"Google",container,"header")) as! Text
         header
         let date:Text = container.addSubView(Text(100,24,"24 June 2016",container,"date")) as! Text
         date
         let title:Text = container.addSubView(Text(180,52,"Neural Network",container,"title")) as! Text
         title
-        let content:Text = container.addSubView(Text(180,52,"Neural /n Network",container,"content")) as! Text
+        let textString:String = "Test something fun this is the tech behind this years revolution in computer technology. Internet continues to widen as the spread for A.I is heading twords it's end"
+        let content:Text = container.addSubView(Text(180,52,textString,container,"content")) as! Text
         content
     }
     override func setSize(width: CGFloat, _ height: CGFloat) {
