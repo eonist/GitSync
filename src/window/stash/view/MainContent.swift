@@ -88,7 +88,7 @@ class ArticleItem:Button,ISelectable{
         let title:Text = container.addSubView(Text(180,24,"Neural Network",container,"title")) as! Text
         title.isInteractive = false
         let textString:String = "This is the tech behind this years revolution in computer..."
-        let content:Text = container.addSubView(Text(200,152,textString,container,"content")) as! Text
+        let content:Text = container.addSubView(Text(180,152,textString,container,"content")) as! Text
         content.isInteractive = false
     }
     override func mouseUpInside(event: MouseEvent) {
