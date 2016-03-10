@@ -27,15 +27,14 @@ class MainContent:Element{
         
         let dp = DataProvider(FileParser.xml("~/Desktop/scrollist.xml"))
         
-        let list = self.addSubView(ArticleList(width,200,48,dp,self)) as? ArticleList
+        let list = self.addSubView(ArticleList(width,400,88,dp,self)) as? ArticleList
         list
     }
     /**
     *
     */
     func createArticleItem(){
-        let container = Section(width,50,self,"textContainer")
-        addSubview(container)
+       
         
         
     }
@@ -77,14 +76,17 @@ class ArticleItem:Element{
     override func resolveSkin() {
         super.resolveSkin()
         
-        let header:Text = self.addSubView(Text(120,20,"Google",self,"header")) as! Text
+        let container = Section(width,50,self,"textContainer")
+        addSubview(container)
+        
+        let header:Text = container.addSubView(Text(120,20,"Google",container,"header")) as! Text
         header
-        let date:Text = self.addSubView(Text(100,20,"24 June 2016",self,"date")) as! Text
+        let date:Text = container.addSubView(Text(100,20,"24 June 2016",container,"date")) as! Text
         date
-        let title:Text = self.addSubView(Text(180,24,"Neural Network",self,"title")) as! Text
+        let title:Text = container.addSubView(Text(180,24,"Neural Network",container,"title")) as! Text
         title
         let textString:String = "This is the tech behind this years revolution in computer..."
-        let content:Text = self.addSubView(Text(200,152,textString,self,"content")) as! Text
+        let content:Text = container.addSubView(Text(200,152,textString,container,"content")) as! Text
         content
         
     }
