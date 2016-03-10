@@ -6,9 +6,9 @@ class MainContent:Element{
      * Draws the graphics
      */
     override func resolveSkin() {
-        //let css = "MainContent{fill:#EFEFF4;fill-alpha:1;float:left;clear:none;corner-radius:0px 6px 0px 6px;}"
+        
         StyleManager.addStylesByURL("~/Desktop/css/mainContent.css")
-        //StyleManager.addStyle(css)
+        
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
         //background = addSubView(Element(width,height,self,"background")) as? IElement
