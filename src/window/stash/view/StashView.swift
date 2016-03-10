@@ -19,7 +19,7 @@ class StashView:CustomView {
     }
     func createCustomTitleBar() {
         StyleManager.addStylesByURL("~/Desktop/css/titleBar.css")
-        StyleManager.addStyle("Section#titleBar{padding-top:16px;padding-left:20px;}")
+        StyleManager.addStyle("Section#titleBar{padding-top:16px;padding-left:12px;}")
         
         section = leftSideBar!.addSubView(Section(75,16,leftSideBar,"titleBar")) as? Section
         closeButton = section!.addSubView(Button(0,0,section!,"close")) as? Button/*<--TODO: the w and h should be NaN, test if it supports this*/
@@ -34,9 +34,9 @@ class LeftSideBar:Element{
     override func resolveSkin() {
         var css = "LeftSideBar{float:left;clear:left;}"
         css += "Section#buttonSection {padding-left:12px;}"
-        css += "Section#buttonSection Button#pics{fill-alpha:0.4;float:left;clear:left;margin-top:24px;margin-left:8px;}"
-        css += "Section#buttonSection Button#pics{fill:~/Desktop/svg_icons/pics.svg white;fill-alpha:0.4;float:left;clear:left;margin-top:24px;margin-left:8px;}"
-        css += "Section#buttonSection Button#camera{fill:~/Desktop/svg_icons/camera.svg white;fill-alpha:0.4;float:left;clear:left;margin-top:24px;margin-left:8px;}"
+        css += "Section#buttonSection Button{fill-alpha:0.2;float:left;clear:left;margin-top:24px;margin-left:8px;}"
+        css += "Section#buttonSection Button#pics{fill:~/Desktop/svg_icons/pics.svg white;}"
+        css += "Section#buttonSection Button#camera{fill:~/Desktop/svg_icons/camera.svg white;}"
         StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
