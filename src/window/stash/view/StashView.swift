@@ -29,12 +29,15 @@ class StashView:CustomView {
     override func createTitleBar() {
     }
 }
+
+//import the stylekit logo
+
 class LeftSideBar:Element{
     static let w:CGFloat = 75
     override func resolveSkin() {
         var css = "LeftSideBar{float:left;clear:left;}"
         css += "Section#buttonSection {padding-top:16px;padding-left:12px;}"
-        css += "Section#buttonSection Button{fill-alpha:0.2;float:left;clear:left;margin-top:12px;margin-left:18px;}"
+        css += "Section#buttonSection Button{fill-alpha:0.2;float:left;clear:left;margin-top:12px;margin-left:16px;padding:0px;}"
         css += "Section#buttonSection Button#pics{fill-alpha:0.6;fill:~/Desktop/svg_icons/pics.svg white;}"
         css += "Section#buttonSection Button#camera{fill:~/Desktop/svg_icons/camera.svg white;}"
         css += "Section#buttonSection Button#game{fill:~/Desktop/svg_icons/game.svg white;}"
