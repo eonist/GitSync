@@ -56,7 +56,10 @@ class LeftSideBar:Element{
         let btn6 = buttonSection.addSubView(SelectButton(20,20,false,buttonSection,"view")) as! SelectButton
         
         let selectGroup = SelectGroup([btn1,btn2,btn3,btn4,btn5,btn6],btn1);
-        selectGroup
+        func onSelect(event:Event){
+            //do something here
+        }
+        selectGroup.event = onSelect
     }
     
 }
