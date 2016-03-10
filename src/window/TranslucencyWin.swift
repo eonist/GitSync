@@ -28,17 +28,6 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         self.contentView?.addSubview(visualEffectView!)
         
-        
-        
-        
-        let fill:FillStyle = FillStyle(NSColor.purpleColor().alpha(1.0));
-        
-        let rect = RectGraphic(0,0,200,200,fill,nil)
-        self.contentView?.addSubview(rect.graphic)
-        rect.draw()
-        
-        
-        
         let stashView = StashView(frame.width,frame.height)/*Sets the mainview of the window*/
         self.contentView?.addSubview(stashView)
     }
