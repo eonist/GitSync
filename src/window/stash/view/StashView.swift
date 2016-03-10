@@ -35,19 +35,7 @@ class StashView:CustomView {
 class LeftSideBar:Element{
     static let w:CGFloat = 75
     override func resolveSkin() {
-        var css = "LeftSideBar{float:left;clear:left;}"
-        css += "Section#buttonSection {padding-top:16px;padding-left:12px;}"
-        css += "Section#buttonSection SelectButton{fill-alpha:0.2;float:left;clear:left;margin-top:12px;margin-left:16px;padding:0px;}"
-        css += "Section#buttonSection SelectButton:selected{fill-alpha:0.6;}"
-        
-        //css += "Section#buttonSection Button#avatar{fill-alpha:1;fill:~/Desktop/svg_icons/avatar.svg none;margin-left:0px;margin-top:0px;}"
-        css += "Section#buttonSection SelectButton#inbox{fill:~/Desktop/svg_icons/inbox.svg white;}"
-        css += "Section#buttonSection SelectButton#home{fill:~/Desktop/svg_icons/home.svg white;}"
-        css += "Section#buttonSection SelectButton#pics{fill:~/Desktop/svg_icons/pics.svg white;}"
-        css += "Section#buttonSection SelectButton#camera{fill:~/Desktop/svg_icons/camera.svg white;}"
-        css += "Section#buttonSection SelectButton#game{fill:~/Desktop/svg_icons/game.svg white;}"
-        css += "Section#buttonSection SelectButton#view{fill:~/Desktop/svg_icons/view.svg white;}"
-        StyleManager.addStyle(css)
+        StyleManager.addStylesByURL("~/Desktop/css/stash.css")
         
         super.resolveSkin()
         
