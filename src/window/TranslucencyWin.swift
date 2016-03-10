@@ -31,7 +31,7 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         
         
-        let fill:FillStyle = FillStyle(NSColor.purpleColor().alpha(0.2));
+        let fill:FillStyle = FillStyle(NSColor.purpleColor().alpha(1.0));
         
         let rect = RectGraphic(0,0,200,200,fill,nil)
         self.contentView?.addSubview(rect.graphic)
