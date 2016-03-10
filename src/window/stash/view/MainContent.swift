@@ -107,7 +107,7 @@ class ArticleItem:Button,ISelectable{
         return isSelected ? SkinStates.selected + " " + super.getSkinState() : super.getSkinState();
     }
     override func getClassType() -> String {
-        return String(SelectButton)
+        return String(ArticleItem)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
