@@ -34,6 +34,7 @@ class LeftSideBar:Element{
     override func resolveSkin() {
         var css = "LeftSideBar{float:left;clear:left;padding-left:12px;padding-right:-12px;}"
         css += "LeftSideBar Button#pics{fill:~/Desktop/svg_icons/pics.svg white;fill-alpha:0.4;float:left;clear:left;margin-top:24px;margin-left:8px;}"
+        css += "LeftSideBar Button#pics{fill:~/Desktop/svg_icons/pics.svg white;fill-alpha:0.4;float:left;clear:left;margin-top:24px;margin-left:8px;}"
         css += "LeftSideBar Button#camera{fill:~/Desktop/svg_icons/camera.svg white;fill-alpha:0.4;float:left;clear:left;margin-top:24px;margin-left:8px;}"
         StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
