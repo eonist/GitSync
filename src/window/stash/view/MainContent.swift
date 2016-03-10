@@ -20,25 +20,7 @@ class MainContent:Element{
     *
     */
     func createArticleItem(){
-        var css:String = ""
-        css += "Section#textContainer{fill:white;float:left;clear:left;fill-alpha:0;}"
-        css += "Text{"
-        css +=     "font:Lucida Grande;"
-        css +=     "size:12px;"
-        css +=     "align:left;"
-        css +=     "autoSize:none;"
-        css +=     "color:grey6;"
-        css +=     "type:input;"
-        css +=     "selectable:true;"
-        css +=     "wordWrap:true;"
-        css +=     "margin-top:4px;"
-        css +=     "backgroundColor:orange;"
-        css +=     "background:true;"
-        css += "}"
-        css += "Text#header{float:left;clear:left;}"
-        css += "Text#date{float:right;clear:right;align:right;}"
         
-        StyleManager.addStyle(css)
         
         let container = Section(200,50,self,"textContainer")
         addSubview(container)
