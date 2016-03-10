@@ -61,6 +61,7 @@ class ArticleList:List{
 }
 
 class ArticleItem:Element,ISelectable{
+    var isSelected:Bool
     var header:String
     var date:String
     var title:String
