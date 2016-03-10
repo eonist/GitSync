@@ -58,14 +58,14 @@ class LeftSideBar:Element{
     func createButtons(){
         let buttonSection = self.addSubView(Section(75,200,self,"buttonSection")) as! Section
         //buttonSection.addSubView(Button(50,50,buttonSection,"avatar")) as! Button
-        buttonSection.addSubView(SelectButton(20,20,buttonSection,"inbox")) as! SelectButton
-        buttonSection.addSubView(SelectButton(20,20,buttonSection,"home")) as! SelectButton
-        buttonSection.addSubView(SelectButton(20,20,buttonSection,"pics")) as! SelectButton
-        buttonSection.addSubView(SelectButton(20,20,buttonSection,"camera")) as! SelectButton
-        buttonSection.addSubView(SelectButton(20,20,buttonSection,"game")) as! SelectButton
-        buttonSection.addSubView(SelectButton(20,20,buttonSection,"view")) as! SelectButton
+        let btn1 = buttonSection.addSubView(SelectButton(20,20,buttonSection,"inbox")) as! SelectButton
+        let btn2 = buttonSection.addSubView(SelectButton(20,20,buttonSection,"home")) as! SelectButton
+        let btn3 = buttonSection.addSubView(SelectButton(20,20,buttonSection,"pics")) as! SelectButton
+        let btn4 = buttonSection.addSubView(SelectButton(20,20,buttonSection,"camera")) as! SelectButton
+        let btn5 = buttonSection.addSubView(SelectButton(20,20,buttonSection,"game")) as! SelectButton
+        let btn6 = buttonSection.addSubView(SelectButton(20,20,buttonSection,"view")) as! SelectButton
         
-        let selectGroup = SelectGroup([iconButton1,iconButton2,iconButton3,iconButton4/**/],iconButton2);
+        let selectGroup = SelectGroup([btn1,btn2,btn3,btn4/**/],btn1);
         selectGroup
     }
     
