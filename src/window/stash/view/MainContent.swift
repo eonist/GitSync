@@ -31,7 +31,7 @@ class MainContent:Element{
         let title:Text = container.addSubView(Text(180,52,"Neural Network",container,"title")) as! Text
         title
         let textString:String = "Test something fun this is the tech behind this years revolution in computer technology. Internet continues to widen as the spread for A.I is heading twords it's end"
-        let content:Text = container.addSubView(Text(180,152,textString,container,"content")) as! Text
+        let content:Text = container.addSubView(Text(200,152,textString,container,"content")) as! Text
         content
     }
     override func setSize(width: CGFloat, _ height: CGFloat) {
