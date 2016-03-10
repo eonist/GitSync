@@ -42,9 +42,9 @@ class MainContent:Element{
         let container = Section(200,50,self,"textContainer")
         addSubview(container)
         //let textString:String = "Test something fun this is the tech behind this years revolution in computer technology. Internet continues to widen as the spread for A.I is heading twords it's end"
-        let header:Text = container.addSubView(Text(120,24,"Header goes here",container)) as! Text
+        let header:Text = container.addSubView(Text(120,24,"Header goes here",container,"header")) as! Text
         header
-        let date:Text = container.addSubView(Text(120,24,"Header goes here",container)) as! Text
+        let date:Text = container.addSubView(Text(100,24,"24 June 2016",container,"date")) as! Text
         date
     }
     override func setSize(width: CGFloat, _ height: CGFloat) {
