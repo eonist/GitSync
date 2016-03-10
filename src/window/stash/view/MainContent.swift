@@ -24,11 +24,11 @@ class MainContent:Element{
         let container = Section(width,50,self,"textContainer")
         addSubview(container)
         
-        let header:Text = container.addSubView(Text(120,24,"Google",container,"header")) as! Text
+        let header:Text = container.addSubView(Text(120,20,"Google",container,"header")) as! Text
         header
-        let date:Text = container.addSubView(Text(100,24,"24 June 2016",container,"date")) as! Text
+        let date:Text = container.addSubView(Text(100,20,"24 June 2016",container,"date")) as! Text
         date
-        let title:Text = container.addSubView(Text(180,32,"Neural Network",container,"title")) as! Text
+        let title:Text = container.addSubView(Text(180,24,"Neural Network",container,"title")) as! Text
         title
         let textString:String = "This is the tech behind this years revolution in computer..."
         let content:Text = container.addSubView(Text(200,152,textString,container,"content")) as! Text
