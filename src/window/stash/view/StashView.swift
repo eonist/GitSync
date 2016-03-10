@@ -35,7 +35,7 @@ class LeftSideBar:Element{
         var css = "LeftSideBar{float:left;clear:left;}"
         css += "Section#buttonSection {padding-left:12px;}"
         css += "Section#buttonSection Button{fill-alpha:0.2;float:left;clear:left;margin-top:24px;margin-left:8px;}"
-        css += "Section#buttonSection Button#pics{fill:~/Desktop/svg_icons/pics.svg white;}"
+        css += "Section#buttonSection Button#pics{fill-alpha:0.6;fill:~/Desktop/svg_icons/pics.svg white;}"
         css += "Section#buttonSection Button#camera{fill:~/Desktop/svg_icons/camera.svg white;}"
         StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
