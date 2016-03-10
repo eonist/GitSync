@@ -21,13 +21,13 @@ class MainContent:Element{
      *
      */
     func createList(){
-        StyleManager.addStylesByURL("~/Desktop/css/list.css")
+        StyleManager.addStylesByURL("~/Desktop/css/articleList.css")
         //StyleManager.addStylesByURL("~/Desktop/css/slider.css")
         //StyleManager.addStylesByURL("~/Desktop/css/sliderList.css")
         
         let dp = DataProvider(FileParser.xml("~/Desktop/scrollist.xml"))
         let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*adds some visual space around the component*/
-        let sliderList = section.addSubView(List(140,120,24,dp,section)) as? List
+        let sliderList = section.addSubView(ArticleList(140,120,24,dp,section)) as? ArticleList
         sliderList
     }
     /**
@@ -54,10 +54,18 @@ class MainContent:Element{
     }
 }
 
-//continue here: Add headerText,dateText,contentText store it as a ArticleItem
-
-
-
+class ArticleList:List{
+    override func mergeAt(objects: [Dictionary<String, String>], _ index: Int) {
+        var i:Int = index;
+        Swift.print("mergeAt: index: " + "\(index)");
+        for object:Dictionary<String,String> in objects {// :TODO: use for i
+            let item:SelectTextButton = SelectTextButton(getWidth(), self.itemHeight ,object["title"]!, false, self.lableContainer)
+            //Swift.print("item: " + "\(item)")
+            self.lableContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
+            i++
+        }
+    }
+}
 
 
 
