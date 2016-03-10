@@ -38,7 +38,7 @@ class LeftSideBar:Element{
         var css = "LeftSideBar{float:left;clear:left;}"
         css += "Section#buttonSection {padding-top:16px;padding-left:12px;}"
         css += "Section#buttonSection Button{fill-alpha:0.2;float:left;clear:left;margin-top:12px;margin-left:16px;padding:0px;}"
-        css += "Section#buttonSection Button#avatar{fill-alpha:1;fill:~/Desktop/svg_icons/avatar.svg none;margin-left:0px;margin-top:0px;}"
+        css += "Section#buttonSection Button#avatar{fill-alpha:1;fill:~/Desktop/svg_icons/avatar_3.svg none;margin-left:0px;margin-top:0px;}"
         css += "Section#buttonSection Button#pics{fill-alpha:0.6;fill:~/Desktop/svg_icons/pics.svg white;}"
         css += "Section#buttonSection Button#camera{fill:~/Desktop/svg_icons/camera.svg white;}"
         css += "Section#buttonSection Button#game{fill:~/Desktop/svg_icons/game.svg white;}"
