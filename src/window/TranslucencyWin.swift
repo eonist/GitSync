@@ -24,7 +24,11 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.delegate = self/*So that we can use this class as the Window controller aswell*/
         self.contentView = FlippedView(frame: NSRect(0,0,w,h))
         visualEffectView = TranslucencyView(frame: NSRect(0,0,w,h))
-        for sublayer in visualEffectView!.layer!.sublayers {
+        
+        
+        self.contentView?.addSubview(visualEffectView!)
+        Swift.print("visualEffectView!.layer: " + "\(visualEffectView!.layer)")
+        for sublayer in visualEffectView!.layer!.sublayers! {
             if (sublayer.name == "Backdrop") {
                 Swift.print("backdrop")
                 sublayer.backgroundColor = NSColor.blackColor().alpha(0.45).CGColor;
@@ -34,7 +38,6 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
                 sublayer.backgroundColor = NSColor.blackColor().alpha(1).CGColor
             }
         }
-        self.contentView?.addSubview(visualEffectView!)
         let stashView = StashView(frame.width,frame.height)/*Sets the mainview of the window*/
         self.contentView?.addSubview(stashView)
     }
