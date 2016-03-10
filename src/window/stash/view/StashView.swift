@@ -48,7 +48,7 @@ class LeftSideBar:Element{
         css += "Section#buttonSection SelectButton#game{fill:~/Desktop/svg_icons/game.svg white;}"
         css += "Section#buttonSection SelectButton#view{fill:~/Desktop/svg_icons/view.svg white;}"
         StyleManager.addStyle(css)
-        Swift.print("MainContent.resolveSkin()")
+        
         super.resolveSkin()
         
         
@@ -67,7 +67,7 @@ class LeftSideBar:Element{
         let btn5 = buttonSection.addSubView(SelectButton(20,20,false,buttonSection,"game")) as! SelectButton
         let btn6 = buttonSection.addSubView(SelectButton(20,20,false,buttonSection,"view")) as! SelectButton
         
-        let selectGroup = SelectGroup([btn1,btn2,btn3,btn4/**/],btn1);
+        let selectGroup = SelectGroup([btn1,btn2,btn3,btn4,btn5,btn6/**/],btn1);
         selectGroup
     }
     
