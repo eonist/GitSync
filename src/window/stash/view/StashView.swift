@@ -58,6 +58,7 @@ class LeftSideBar:Element{
         buttonSection.addSubView(Button(20,20,buttonSection,"pics")) as! Button
         buttonSection.addSubView(Button(20,20,buttonSection,"camera")) as! Button
         buttonSection.addSubView(Button(20,20,buttonSection,"game")) as! Button
+        buttonSection.addSubView(Button(20,20,buttonSection,"view")) as! Button
     }
     
 }
