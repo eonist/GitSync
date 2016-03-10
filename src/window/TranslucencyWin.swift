@@ -27,6 +27,9 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         
         self.contentView?.addSubview(visualEffectView!)
+        visualEffectView!.blendingMode = NSVisualEffectBlendingMode.WithinWindow
+        
+        
         
         let fill:FillStyle = FillStyle(NSColor.redColor());
         
@@ -34,7 +37,7 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.contentView?.addSubview(rect.graphic)
         rect.draw()
         
-        rect.graphic.blendingMode = NSVisualEffectBlendingMode.BehindWindow
+        
         
         let stashView = StashView(frame.width,frame.height)/*Sets the mainview of the window*/
         self.contentView?.addSubview(stashView)
