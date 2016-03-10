@@ -42,6 +42,7 @@ class LeftSideBar:Element{
         css += "Section#buttonSection Button#pics{fill-alpha:0.6;fill:~/Desktop/svg_icons/pics.svg white;}"
         css += "Section#buttonSection Button#camera{fill:~/Desktop/svg_icons/camera.svg white;}"
         css += "Section#buttonSection Button#game{fill:~/Desktop/svg_icons/game.svg white;}"
+        css += "Section#buttonSection Button#view{fill:~/Desktop/svg_icons/view.svg white;}"
         StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
