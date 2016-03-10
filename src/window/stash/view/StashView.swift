@@ -58,12 +58,15 @@ class LeftSideBar:Element{
     func createButtons(){
         let buttonSection = self.addSubView(Section(75,200,self,"buttonSection")) as! Section
         //buttonSection.addSubView(Button(50,50,buttonSection,"avatar")) as! Button
-        buttonSection.addSubView(Button(20,20,buttonSection,"inbox")) as! Button
-        buttonSection.addSubView(Button(20,20,buttonSection,"home")) as! Button
-        buttonSection.addSubView(Button(20,20,buttonSection,"pics")) as! Button
-        buttonSection.addSubView(Button(20,20,buttonSection,"camera")) as! Button
-        buttonSection.addSubView(Button(20,20,buttonSection,"game")) as! Button
-        buttonSection.addSubView(Button(20,20,buttonSection,"view")) as! Button
+        buttonSection.addSubView(SelectButton(20,20,buttonSection,"inbox")) as! SelectButton
+        buttonSection.addSubView(SelectButton(20,20,buttonSection,"home")) as! SelectButton
+        buttonSection.addSubView(SelectButton(20,20,buttonSection,"pics")) as! SelectButton
+        buttonSection.addSubView(SelectButton(20,20,buttonSection,"camera")) as! SelectButton
+        buttonSection.addSubView(SelectButton(20,20,buttonSection,"game")) as! SelectButton
+        buttonSection.addSubView(SelectButton(20,20,buttonSection,"view")) as! SelectButton
+        
+        let selectGroup = SelectGroup([iconButton1,iconButton2,iconButton3,iconButton4/**/],iconButton2);
+        selectGroup
     }
     
 }
