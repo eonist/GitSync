@@ -60,7 +60,7 @@ class ArticleList:List{
     }
 }
 
-class ArticleItem:Element,ISelectable{
+class ArticleItem:Button,ISelectable{
     var isSelected:Bool;
     var header:String
     var date:String
@@ -82,14 +82,14 @@ class ArticleItem:Element,ISelectable{
         addSubview(container)
         
         let header:Text = container.addSubView(Text(120,20,"Google",container,"header")) as! Text
-        header
+        header.isInteractive = false
         let date:Text = container.addSubView(Text(100,20,"24 June 2016",container,"date")) as! Text
-        date
+        date.isInteractive = false
         let title:Text = container.addSubView(Text(180,24,"Neural Network",container,"title")) as! Text
-        title
+        title.isInteractive = false
         let textString:String = "This is the tech behind this years revolution in computer..."
         let content:Text = container.addSubView(Text(200,152,textString,container,"content")) as! Text
-        content
+        content.isInteractive = false
     }
     override func mouseUpInside(event: MouseEvent) {
         isSelected = true
