@@ -14,8 +14,21 @@ class MainContent:Element{
         background = addSubView(Element(width,height,self,"background")) as? IElement
         //let box = addSubView(Element(40,40,self,"box")) as? IElement
         //box
+        createList()
         //createArticleItem()
+    }
+    /**
+     *
+     */
+    func createList(){
+        StyleManager.addStylesByURL("~/Desktop/css/list.css")
+        //StyleManager.addStylesByURL("~/Desktop/css/slider.css")
+        //StyleManager.addStylesByURL("~/Desktop/css/sliderList.css")
         
+        let dp = DataProvider(FileParser.xml("~/Desktop/scrollist.xml"))
+        let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*adds some visual space around the component*/
+        let sliderList = section.addSubView(List(140,120,24,dp,section)) as? List
+        sliderList
     }
     /**
     *
