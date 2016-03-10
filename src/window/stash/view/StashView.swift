@@ -34,9 +34,10 @@ class LeftSideBar:Element{
     override func resolveSkin() {
         var css = "LeftSideBar{float:left;clear:left;}"
         css += "Section#buttonSection {padding-left:12px;}"
-        css += "Section#buttonSection Button{fill-alpha:0.2;float:left;clear:left;margin-top:24px;margin-left:8px;}"
+        css += "Section#buttonSection Button{fill-alpha:0.2;float:left;clear:left;margin-top:12px;margin-left:8px;}"
         css += "Section#buttonSection Button#pics{fill-alpha:0.6;fill:~/Desktop/svg_icons/pics.svg white;}"
         css += "Section#buttonSection Button#camera{fill:~/Desktop/svg_icons/camera.svg white;}"
+        css += "Section#buttonSection Button#game{fill:~/Desktop/svg_icons/game.svg white;}"
         StyleManager.addStyle(css)
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
@@ -51,6 +52,7 @@ class LeftSideBar:Element{
         let buttonSection = self.addSubView(Section(75,200,self,"buttonSection")) as! Section
         buttonSection.addSubView(Button(20,20,buttonSection,"pics")) as! Button
         buttonSection.addSubView(Button(20,20,buttonSection,"camera")) as! Button
+        buttonSection.addSubView(Button(20,20,buttonSection,"game")) as! Button
     }
     
 }
