@@ -27,11 +27,11 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         
         self.contentView?.addSubview(visualEffectView!)
-        visualEffectView!.blendingMode = NSVisualEffectBlendingMode.WithinWindow
         
         
         
-        let fill:FillStyle = FillStyle(NSColor.redColor());
+        
+        let fill:FillStyle = FillStyle(NSColor.purpleColor().alpha(0.2));
         
         let rect = RectGraphic(0,0,200,200,fill,nil)
         self.contentView?.addSubview(rect.graphic)
