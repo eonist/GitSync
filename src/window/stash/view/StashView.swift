@@ -1,7 +1,4 @@
 import Cocoa
-//white background
-//svg icon test
-//setup views leftSideBarView and MainContentView
 
 class StashView:CustomView {
     
@@ -29,9 +26,3 @@ class StashView:CustomView {
     override func createTitleBar() {
     }
 }
-
-//import the stylekit logo
-
-
-
-

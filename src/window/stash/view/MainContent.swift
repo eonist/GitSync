@@ -3,8 +3,8 @@ import Foundation
 class MainContent:Element{
     //var background:IElement?
     /**
-    * Draws the graphics
-    */
+     * Draws the graphics
+     */
     override func resolveSkin() {
         let css = "MainContent{fill:#EFEFF4;fill-alpha:1;float:left;clear:none;corner-radius:0px 6px 0px 6px;}"
         StyleManager.addStyle(css)
@@ -19,3 +19,4 @@ class MainContent:Element{
     }
 }
 
+//continue here: Add TextField,text area
