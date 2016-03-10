@@ -30,7 +30,7 @@ class MainContent:Element{
         date
         let title:Text = container.addSubView(Text(180,52,"Neural Network",container,"title")) as! Text
         title
-        let content:Text = container.addSubView(Text(180,52,"Neural Network",container,"content")) as! Text
+        let content:Text = container.addSubView(Text(180,52,"Neural /n Network",container,"content")) as! Text
         content
     }
     override func setSize(width: CGFloat, _ height: CGFloat) {
