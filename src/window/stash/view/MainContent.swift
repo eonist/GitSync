@@ -94,7 +94,6 @@ class ArticleItem:Button,ISelectable{
     override func mouseUpInside(event: MouseEvent) {
         isSelected = true
         super.mouseUpInside(event)
-        //NSNotificationCenter.defaultCenter().postNotificationName(SelectEvent.select, object:self)/*bubbles:true because i.e: radioBulet may be added to RadioButton and radioButton needs to dispatch Select event if the SelectGroup is to work*/
         self.event!(SelectEvent(SelectEvent.select,self/*,self*/))
     }
     /**
