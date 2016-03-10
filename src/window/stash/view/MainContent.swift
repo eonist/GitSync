@@ -33,10 +33,10 @@ class MainContent:Element{
         css +=     "wordWrap:true;"
         css +=     "margin-top:4px;"
         css +=     "backgroundColor:orange;"
-        css +=     "background:false;"
+        css +=     "background:true;"
         css += "}"
         css += "Text#header{float:left;clear:left;}"
-        css += "Text#date{float:right;clear:right;}"
+        css += "Text#date{float:right;clear:right;align:right;}"
         
         StyleManager.addStyle(css)
         
@@ -45,7 +45,7 @@ class MainContent:Element{
         //let textString:String = "Test something fun this is the tech behind this years revolution in computer technology. Internet continues to widen as the spread for A.I is heading twords it's end"
         let header:Text = container.addSubView(Text(120,24,"Header goes here",container,"header")) as! Text
         header
-        let date:Text = container.addSubView(Text(100,24,"24 June 2016",container,"date")) as! Text
+        let date:Text = container.addSubView(Text(80,24,"24 June 2016",container,"date")) as! Text
         date
     }
     override func setSize(width: CGFloat, _ height: CGFloat) {
