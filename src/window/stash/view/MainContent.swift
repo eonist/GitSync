@@ -19,4 +19,4 @@ class MainContent:Element{
     }
 }
 
-//continue here: Add TextField,text area
+//continue here: Add headerText,dateText,contentText store it as a ArticleItem
