@@ -27,14 +27,13 @@ class MainContent:Element{
         
         let dp = DataProvider(FileParser.xml("~/Desktop/scrollist.xml"))
         let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*adds some visual space around the component*/
-        let list = section.addSubView(ArticleList(140,120,24,dp,section)) as? ArticleList
+        let list = section.addSubView(ArticleList(140,120,48,dp,section)) as? ArticleList
         list
     }
     /**
     *
     */
     func createArticleItem(){
-        
         let container = Section(width,50,self,"textContainer")
         addSubview(container)
         
