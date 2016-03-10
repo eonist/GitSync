@@ -32,7 +32,7 @@ class MainContent:Element{
         css +=     "color:grey6;"
         css +=     "type:input;"
         css +=     "selectable:true;"
-        css +=     "wordWrap:true;"
+        css +=     "wordWrap:false;"
         css +=     "margin-top:4px;"
         css +=     "backgroundColor:orange;"
         css +=     "background:false;"
@@ -40,9 +40,9 @@ class MainContent:Element{
         StyleManager.addStyle(css)
         
         let container = Section(200,50,self,"textContainer")
-        addSubview(container)
-        
-        let text:Text = container.addSubView(Text(100,24,"This is text: ",container)) as! Text
+        (container)
+        let textString:String = "Test something fun this is the tech behind this years revolution in computer technology. Internet continues to widen as the spread for A.I is heading twords it's end"
+        let text:Text = container.addSubView(Text(100,24,textString,container)) as! Text
         text
     }
     override func setSize(width: CGFloat, _ height: CGFloat) {
