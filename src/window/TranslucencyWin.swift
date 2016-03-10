@@ -27,7 +27,8 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         
         
         self.contentView?.addSubview(visualEffectView!)
-        Swift.print("visualEffectView!.layer: " + "\(visualEffectView!.layer)")
+        Swift.print("visualEffectView!.layer: " + "\(visualEffectView!.layer?.sublayers?.count)")
+        Swift.print("visualEffectView!.layer!.sublayers: " + "\(visualEffectView!.layer?.sublayers)")
         for sublayer in visualEffectView!.layer!.sublayers! {
             if (sublayer.name == "Backdrop") {
                 Swift.print("backdrop")
