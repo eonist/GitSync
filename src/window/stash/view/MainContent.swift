@@ -21,7 +21,7 @@ class MainContent:Element{
      *
      */
     func createList(){
-        StyleManager.addStylesByURL("~/Desktop/css/articleList.css")
+        StyleManager.addStylesByURL("~/Desktop/css/list.css")
         StyleManager.addStylesByURL("~/Desktop/css/slider.css")
         StyleManager.addStylesByURL("~/Desktop/css/sliderList.css")
         
