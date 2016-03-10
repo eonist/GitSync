@@ -11,6 +11,8 @@ class MainContent:Element{
         Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
         //background = addSubView(Element(width,height,self,"background")) as? IElement
+        let box = addSubView(Element(40,40,self,"box")) as? IElement
+        box
     }
     
     override func setSize(width: CGFloat, _ height: CGFloat) {
