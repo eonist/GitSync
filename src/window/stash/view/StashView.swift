@@ -8,7 +8,6 @@ class StashView:CustomView {
         css += "Window Element#background{fill:#EFEFF4;fill-alpha:0;}"//<--you should target a bg element not the window it self, since now everything inherits these values
         StyleManager.addStyle(css)
         super.resolveSkin()
-        Swift.print("Hello world")
         leftSideBar = addSubView(LeftSideBar(LeftSideBar.w,height,self)) as? LeftSideBar
         createCustomTitleBar()
         leftSideBar!.createButtons()
