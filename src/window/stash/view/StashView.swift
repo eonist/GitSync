@@ -8,7 +8,7 @@ class StashView:CustomView {
         //continue here: try to capture the bellow with .+?
         
         
-        testing()
+        //testing()
         
         
         
@@ -19,14 +19,14 @@ class StashView:CustomView {
         //var cssString = "@import url(\"mainContent.css\");"
         //Swift.print("cssString: " + "\(cssString)")
         //cssString += ""
-        /*
+        
         let cssString:String = FileParser.content("~/Desktop/css/test.css".tildePath)!
         
         let result = CSSFileParser.separateImportsAndStyles(cssString)
         
         Swift.print("result.imports: " + "\(result.imports)")
         Swift.print("result.style: " + "\(result.style)")
-        */
+        /**/
         
         return
         
@@ -52,7 +52,7 @@ class StashView:CustomView {
         
         let importPattern = "([@\\(\\)\\w\\s\\.\\/\";\\n]*?)"
         let forwardLookingPattern = "(?:\\n[\\w\\s\\[\\]\\,\\#\\:\\.]+?\\{)|$"
-        let styleCharSet:String = "[\\d\\s\\w\\W\\{\\}\\:\\;\\n\\%\\-\\.~\\/\\*]"
+        let styleCharSet:String = "[\\d\\s\\w\\W\\{\\}\\:\\;\\n\\%\\-\\.~\\/\\*]"//all possible chars that can be found in a stylesheet. the capture all dot variable didnt work so this is the alternate wway of doing it
         
         let pattern = "^(?:" + importPattern + ")(?=" + forwardLookingPattern + ")(" + styleCharSet + "+?$)"
         
