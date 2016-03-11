@@ -24,14 +24,14 @@ class StashView:CustomView {
         */
         
         
-        StyleManager.addStylesByURL("~/Desktop/css/test.css")
-        Swift.print("StyleManager.styles.count: " + "\(StyleManager.styles.count)")
+        //StyleManager.addStylesByURL("~/Desktop/css/test.css")
+        //Swift.print("StyleManager.styles.count: " + "\(StyleManager.styles.count)")
         /**/
         /**/
         
-        return
+        //return
         
-        /*var css = ""//E8E8E8
+        var css = ""//E8E8E8
         css += "Window Element#background{fill:#EFEFF4;fill-alpha:0;}"//<--you should target a bg element not the window it self, since now everything inherits these values
         StyleManager.addStyle(css)
         super.resolveSkin()
@@ -39,7 +39,7 @@ class StashView:CustomView {
         createCustomTitleBar()
         leftSideBar!.createButtons()
         addSubView(MainContent(frame.width-LeftSideBar.w,frame.height,self))
-        */
+        
     }
     
     /**
