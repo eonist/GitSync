@@ -7,12 +7,12 @@ class StashView:CustomView {
         
         //continue here: try to capture the bellow with .+?
         
-        var str = "<>"
+        var str = "<>##"
         str += "Button{"
         str +=    "fill:blue;"
         str += "}"
         
-        let pattern = "^(?:<>)(.+?)$"
+        let pattern = "^(?:<>)(?=(?:##))(.+?)$"
         let matches = RegExp.matches(str, pattern)
         for match:NSTextCheckingResult in matches {
             
