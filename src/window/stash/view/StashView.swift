@@ -4,7 +4,7 @@ class StashView:CustomView {
     var leftSideBar:LeftSideBar?
     override func resolveSkin() {
        
-        var cssString = "@import url(\"mainContent.css\");\nButton{fill:blue;}"
+        var cssString = "@import url(\"mainContent.css\");"
         Swift.print("cssString: " + "\(cssString)")
         cssString += ""
         
