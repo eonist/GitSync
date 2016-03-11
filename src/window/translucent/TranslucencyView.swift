@@ -21,7 +21,7 @@ class TranslucencyView:NSVisualEffectView{
 extension TranslucencyView{
     func maskImage(cornerRadius cornerRadius: CGFloat) -> NSImage {
         let edgeLength = 2.0 * cornerRadius + 1.0
-        Swift.print("edgeLength: " + "\(edgeLength)")
+        //Swift.print("edgeLength: " + "\(edgeLength)")
         let maskImage = NSImage(size: NSSize(width: edgeLength, height: edgeLength), flipped: false) { rect in
             let bezierPath = NSBezierPath(roundedRect: rect, xRadius: cornerRadius, yRadius: cornerRadius)
             NSColor.blackColor().set()
