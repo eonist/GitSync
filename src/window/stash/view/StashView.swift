@@ -7,31 +7,10 @@ class StashView:CustomView {
         
         //continue here: try to capture the bellow with .+?
         
-        var str = "@import url(\"mainContent.css\");\n"
-        str += "Button{\n"
-        str +=    " fill:blue;\n"
-        str += "}"
-        
-        let importPattern = "([@\\(\\)\\w\\s\\.\\/\";\\n]*?)"
-        let forwardLookingPattern = "(?:\\n[\\w\\s\\[\\]\\,\\#\\:\\.]+?\\{)|$"
-        let pattern = "^(?:" + importPattern + ")(?=" + forwardLookingPattern + ")(.+?)$"
-        let matches = RegExp.matches(str, pattern)
-        for match:NSTextCheckingResult in matches {
-            Swift.print("match.numberOfRanges: " + "\(match.numberOfRanges)")
-            for var i = 0; i < match.numberOfRanges; ++i{
-                Swift.print("loc: " + "\(match.rangeAtIndex(i).location)" + " length: " + "\(match.rangeAtIndex(i).length)")
-            }
-            //let content = (str as NSString).substringWithRange(match.rangeAtIndex(0))//the entire match
-            //Swift.print("content: " + "\(content)")
-            let group1 = (str as NSString).substringWithRange(match.rangeAtIndex(1))//capturing group 1
-            Swift.print("group1: " + "\(group1)")
-            let group2 = (str as NSString).substringWithRange(match.rangeAtIndex(2))//capturing group 2
-            Swift.print("group2: " + "\(group2)")
-        }
         
         
         
-        //let cssString:String = FileParser.content("~/Desktop/css/test.css".tildePath)!
+        let cssString:String = FileParser.content("~/Desktop/css/test.css".tildePath)!
         
         
         //continue here: write the test.css file
@@ -41,10 +20,10 @@ class StashView:CustomView {
         //Swift.print("cssString: " + "\(cssString)")
         //cssString += ""
         
-        //let result = CSSFileParser.separateImportsAndStyles(cssString)
+        let result = CSSFileParser.separateImportsAndStyles(cssString)
         
-        //Swift.print("result.imports: " + "\(result.imports)")
-        //Swift.print("result.style: " + "\(result.style)")
+        Swift.print("result.imports: " + "\(result.imports)")
+        Swift.print("result.style: " + "\(result.style)")
         
         
         return
@@ -59,6 +38,35 @@ class StashView:CustomView {
         addSubView(MainContent(frame.width-LeftSideBar.w,frame.height,self))
         */
     }
+    
+    /**
+     *
+     */
+    func testing(){
+        var str = "@import url(\"mainContent.css\");\n"
+        str += "Button{\n"
+        str +=    " fill:blue;\n"
+        str += "}"
+        
+        let importPattern = "([@\\(\\)\\w\\s\\.\\/\";\\n]*?)"
+        let forwardLookingPattern = "(?:\\n[\\w\\s\\[\\]\\,\\#\\:\\.]+?\\{)|$"
+        let pattern = "^(?:" + importPattern + ")(?=" + forwardLookingPattern + ")([\\s\\w\\W\\{\\}\\:\\;\\n]+?)$"
+        let matches = RegExp.matches(str, pattern)
+        for match:NSTextCheckingResult in matches {
+            Swift.print("match.numberOfRanges: " + "\(match.numberOfRanges)")
+            for var i = 0; i < match.numberOfRanges; ++i{
+                Swift.print("loc: " + "\(match.rangeAtIndex(i).location)" + " length: " + "\(match.rangeAtIndex(i).length)")
+            }
+            //let content = (str as NSString).substringWithRange(match.rangeAtIndex(0))//the entire match
+            //Swift.print("content: " + "\(content)")
+            let group1 = (str as NSString).substringWithRange(match.rangeAtIndex(1))//capturing group 1
+            Swift.print("group1: " + "\(group1)")
+            let group2 = (str as NSString).substringWithRange(match.rangeAtIndex(2))//capturing group 2
+            Swift.print("group2: " + "\(group2)")
+        }
+
+    }
+    
     func createCustomTitleBar() {
         StyleManager.addStylesByURL("~/Desktop/css/titleBar.css")
         StyleManager.addStyle("Section#titleBar{padding-top:16px;padding-left:12px;}")
