@@ -1,7 +1,6 @@
 import Cocoa
 
 class StashView:CustomView {
-    
     var leftSideBar:LeftSideBar?
     override func resolveSkin() {
         var css = ""//E8E8E8
@@ -12,11 +11,6 @@ class StashView:CustomView {
         createCustomTitleBar()
         leftSideBar!.createButtons()
         addSubView(MainContent(frame.width-LeftSideBar.w,frame.height,self))
-        
-        let theStr = "@import url(\"mainContent.css\");"
-        Swift.print("theStr: " + "\(theStr)")
-        let result = CSSFileParser.importStrings(theStr)
-        Swift.print("result: " + "\(result)")
     }
     func createCustomTitleBar() {
         StyleManager.addStylesByURL("~/Desktop/css/titleBar.css")
