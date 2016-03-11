@@ -7,14 +7,14 @@ class StashView:CustomView {
         
         //continue here: try to capture the bellow with .+?
         
-        var test = ""
+        var test = "<>"
         test += "Button{"
         test +=    "fill:blue;"
         test += "}"
         
         Swift.print("test: " + "\(test)")
         
-        Swift.print(test.test("^(.+?)$"))
+        Swift.print(test.test("^(?:<>)(.+?)$"))
         
         //let cssString:String = FileParser.content("~/Desktop/css/test.css".tildePath)!
         
