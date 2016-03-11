@@ -11,6 +11,8 @@ class StashView:CustomView {
         let result = CSSFileParser.separateImportsAndStyles(cssString)
         
         Swift.print("result.imports: " + "\(result.imports)")
+        Swift.print("result.style: " + "\(result.style)")
+        
         
         return
         
