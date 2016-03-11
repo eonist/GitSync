@@ -14,6 +14,8 @@ class StashView:CustomView {
         
         Swift.print("test: " + "\(test)")
         
+        Swift.print(test.test("^(.+?)$"))
+        
         //let cssString:String = FileParser.content("~/Desktop/css/test.css".tildePath)!
         
         
