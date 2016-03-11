@@ -12,7 +12,7 @@ class StashView:CustomView {
         str +=    " fill:blue;\n"
         str += "}"
         
-        let importPattern = "[@\\(\\)\\w\\s\\.\\/\";\\n]*?"
+        let importPattern = "([@\\(\\)\\w\\s\\.\\/\";\\n]*?)"
         let forwardLookingPattern = "(?:\\n[\\w\\s\\[\\]\\,\\#\\:\\.]+?\\{)|$"
         let pattern = "^(?:" + importPattern + ")(?=" + forwardLookingPattern + ")([\\s\\w\\W\\{\\}\\:\\;\\n]+?)$"
         let matches = RegExp.matches(str, pattern)
@@ -25,7 +25,8 @@ class StashView:CustomView {
             //Swift.print("content: " + "\(content)")
             let group1 = (str as NSString).substringWithRange(match.rangeAtIndex(1))//capturing group 1
             Swift.print("group1: " + "\(group1)")
-            //let group2 = (str as NSString).substringWithRange(match.rangeAtIndex(2))//capturing group 2
+            let group2 = (str as NSString).substringWithRange(match.rangeAtIndex(2))//capturing group 2
+            Swift.print("group2: " + "\(group2)")
         }
         
         
