@@ -50,11 +50,11 @@ class StashView:CustomView {
         str +=    " fill:blue;\n"
         str += "}"
         
-        let importPattern = "([@\\(\\)\\w\\s\\.\\/\";\\n]*?)"
-        let forwardLookingPattern = "(?:\\n[\\w\\s\\[\\]\\,\\#\\:\\.]+?\\{)|$"
-        let pattern = "^(?:" + importPattern + ")(?=" + forwardLookingPattern + ")([\\s\\w\\W\\{\\}\\:\\;\\n]+?$)"
+        //let importPattern = "([@\\(\\)\\w\\s\\.\\/\";\\n]*?)"
+        //let forwardLookingPattern = "(?:\\n[\\w\\s\\[\\]\\,\\#\\:\\.]+?\\{)|$"
+        //let pattern = "^(?:" + importPattern + ")(?=" + forwardLookingPattern + ")([\\s\\w\\W\\{\\}\\:\\;\\n]+?$)"
         
-        str.test(".?+")
+        Swift.print(str.match(".+"))
         
         /* let matches = RegExp.matches(str, "(.*?(?=$))")
         for match:NSTextCheckingResult in matches {
