@@ -50,8 +50,7 @@ class ArticleList:RBSliderList{
         var i:Int = index;
         Swift.print("mergeAt: index: " + "\(index)");
         for object:Dictionary<String,String> in objects {// :TODO: use for i
-            let item:ArticleItem = ArticleItem(getWidth(), self.itemHeight ,object["title"]!, "","","", false, self.lableContainer)
-            //Swift.print("item: " + "\(item)")
+            let item:ArticleItem = ArticleItem(getWidth(), self.itemHeight ,object["header"]!, object["date"]!,object["title"]!,object["content"]!, false, self.lableContainer)
             self.lableContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
             i++
         }
@@ -82,15 +81,15 @@ class ArticleItem:Button,ISelectable{
         let container = Section(width,50,self,"textContainer")
         addSubview(container)
         
-        let header:Text = container.addSubView(Text(120,20,"Google",container,"header")) as! Text
-        header.isInteractive = false
-        let date:Text = container.addSubView(Text(100,20,"24 June 2016",container,"date")) as! Text
-        date.isInteractive = false
-        let title:Text = container.addSubView(Text(180,24,"Neural Network",container,"title")) as! Text
-        title.isInteractive = false
-        let textString:String = "This is the tech behind this years revolution in computer..."
-        let content:Text = container.addSubView(Text(180,152,textString,container,"content")) as! Text
-        content.isInteractive = false
+        let headerText:Text = container.addSubView(Text(120,20,header,container,"header")) as! Text
+        headerText.isInteractive = false
+        let dateText:Text = container.addSubView(Text(100,20,date,container,"date")) as! Text
+        dateText.isInteractive = false
+        let titleText:Text = container.addSubView(Text(180,24,title,container,"title")) as! Text
+        titleText.isInteractive = false
+        let textString:String = content
+        let contentText:Text = container.addSubView(Text(180,152,textString,container,"content")) as! Text
+        contentText.isInteractive = false
     }
     override func mouseUpInside(event: MouseEvent) {
         isSelected = true
