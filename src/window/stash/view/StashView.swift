@@ -12,6 +12,11 @@ class StashView:CustomView {
         createCustomTitleBar()
         leftSideBar!.createButtons()
         addSubView(MainContent(frame.width-LeftSideBar.w,frame.height,self))
+        
+        let theStr = "@import url(\"mainContent.css\");"
+        Swift.print("theStr: " + "\(theStr)")
+        let result = CSSFileParser.importStrings(theStr)
+        Swift.print("result: " + "\(result)")
     }
     func createCustomTitleBar() {
         StyleManager.addStylesByURL("~/Desktop/css/titleBar.css")
@@ -26,4 +31,3 @@ class StashView:CustomView {
     }
 }
 
-//try to parse this: @import url("mainContent.css");
