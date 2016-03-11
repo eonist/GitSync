@@ -4,7 +4,7 @@ class StashView:CustomView {
     var leftSideBar:LeftSideBar?
     override func resolveSkin() {
         
-        let cssString:String = CSSFileParser.cssString("~/Desktop/css/test.css")
+        let cssString:String = FileParser.content("~/Desktop/css/test.css")
         
         
         //continue here: write the test.css file
