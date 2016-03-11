@@ -14,12 +14,14 @@ class StashView:CustomView {
         //Swift.print("cssString: " + "\(cssString)")
         //cssString += ""
         
-        let cssString:String = FileParser.content("~/Desktop/css/test.css".tildePath)!
+        //let cssString:String = FileParser.content("~/Desktop/css/test.css".tildePath)!
         
-        let result = CSSFileParser.separateImportsAndStyles(cssString)
+        //let result = CSSFileParser.separateImportsAndStyles(cssString)
         
-        Swift.print("result.imports: " + "\(result.imports)")
-        Swift.print("result.style: " + "\(result.style)")
+        //Swift.print("result.imports: " + "\(result.imports)")
+        //Swift.print("result.style: " + "\(result.style)")
+        
+        StyleManager.addStylesByURL("~/Desktop/css/test.css")
         /**/
         
         return
