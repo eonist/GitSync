@@ -3,15 +3,9 @@ import Cocoa
 class StashView:CustomView {
     var leftSideBar:LeftSideBar?
     override func resolveSkin() {
-        
-        
         //continue here: try to capture the bellow with .+?
         
-        
         //testing()
-        
-        
-        
         
         //continue here: write the test.css file
         
