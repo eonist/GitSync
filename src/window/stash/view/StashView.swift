@@ -5,6 +5,9 @@ class StashView:CustomView {
     override func resolveSkin() {
         Swift.print("hello world")
         
+        let cssString = ""
+        
+        
         return
         
         var css = ""//E8E8E8
