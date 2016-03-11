@@ -5,14 +5,9 @@ class LeftSideBar:Element{
     override func resolveSkin() {
         StyleManager.addStylesByURL("~/Desktop/css/stash.css")
         super.resolveSkin()
-        //background = addSubView(Element(width,height,self,"background")) as? IElement
     }
-    /**
-     *
-     */
     func createButtons(){
         let buttonSection = self.addSubView(Section(75,200,self,"buttonSection")) as! Section
-        //buttonSection.addSubView(Button(50,50,buttonSection,"avatar")) as! Button
         let btn1 = buttonSection.addSubView(SelectButton(20,20,true,buttonSection,"inbox")) as! SelectButton
         let btn2 = buttonSection.addSubView(SelectButton(20,20,false,buttonSection,"home")) as! SelectButton
         let btn3 = buttonSection.addSubView(SelectButton(20,20,false,buttonSection,"pics")) as! SelectButton
