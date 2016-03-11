@@ -7,7 +7,7 @@ class StashView:CustomView {
         
         //continue here: try to capture the bellow with .+?
         
-        var str = "@import url(\"mainContent.css\");\n"
+        var str = "@import url(\"mainContent.css\");\n##"
         str += "Button{\n"
         str +=    " fill:blue;\n"
         str += "}"
