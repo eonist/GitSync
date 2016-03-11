@@ -6,28 +6,16 @@ class MainContent:Element{
      * Draws the graphics
      */
     override func resolveSkin() {
-        
         StyleManager.addStylesByURL("~/Desktop/css/mainContent.css")
-        
-        Swift.print("MainContent.resolveSkin()")
         super.resolveSkin()
         background = addSubView(Element(width,height,self,"background")) as? IElement
-        //let box = addSubView(Element(40,40,self,"box")) as? IElement
-        //box
         createList()
-        //createArticleItem()
     }
-    /**
-     *
-     */
     func createList(){
         StyleManager.addStylesByURL("~/Desktop/css/articleList.css")
         StyleManager.addStylesByURL("~/Desktop/css/slider.css")
         StyleManager.addStylesByURL("~/Desktop/css/sliderList.css")
-        
-        
         let dp = DataProvider(FileParser.xml("~/Desktop/scrollist.xml"))
-        
         let list = self.addSubView(ArticleList(width,400,98,dp,self,"articleList")) as? ArticleList
         list
     }
@@ -37,20 +25,7 @@ class MainContent:Element{
     }
 }
 
-class ArticleList:RBSliderList{
-    override func mergeAt(objects: [Dictionary<String, String>], _ index: Int) {
-        var i:Int = index;
-        Swift.print("mergeAt: index: " + "\(index)");
-        for object:Dictionary<String,String> in objects {// :TODO: use for i
-            let item:ArticleItem = ArticleItem(getWidth(), self.itemHeight ,object["header"]!, object["date"]!,object["title"]!,object["content"]!, false, self.lableContainer)
-            self.lableContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
-            i++
-        }
-    }
-    override func getClassType() -> String {
-        return String(List)
-    }
-}
+
 
 class ArticleItem:Button,ISelectable{
     var isSelected:Bool;
