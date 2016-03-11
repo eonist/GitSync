@@ -5,8 +5,12 @@ class StashView:CustomView {
     override func resolveSkin() {
         Swift.print("hello world")
         
-        let cssString = ""
+        var cssString = "@import url(\"mainContent.css\");"
+        cssString += ""
         
+        let result = CSSFileParser.separateImportsAndStyles(cssString)
+        
+        Swift.print("result.imports: " + "\(result.imports)")
         
         return
         
