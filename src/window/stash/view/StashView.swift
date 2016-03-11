@@ -7,7 +7,7 @@ class StashView:CustomView {
         
         //continue here: try to capture the bellow with .+?
         
-        var str = "<>##\n"
+        var str = "@import url(\"mainContent.css\");\n"
         str += "Button{\n"
         str +=    " fill:blue;\n"
         str += "}"
@@ -21,7 +21,7 @@ class StashView:CustomView {
                 Swift.print("loc: " + "\(match.rangeAtIndex(i).location)" + " length: " + "\(match.rangeAtIndex(i).length)")
                 
             }
-            let content = (str as NSString).substringWithRange(match.rangeAtIndex(0))//the entire match
+            //let content = (str as NSString).substringWithRange(match.rangeAtIndex(0))//the entire match
             //Swift.print("content: " + "\(content)")
             let group1 = (str as NSString).substringWithRange(match.rangeAtIndex(1))//capturing group 1
             Swift.print("group1: " + "\(group1)")
