@@ -13,14 +13,13 @@ class StashView:CustomView {
         str += "}"
         
         let importPattern = "[@\\(\\)\\w\\s\\.\\/\";\\n]*?"
-        let pattern = "^(?:" + importPattern + ")(?=(?:##))([\\s\\w\\W\\{\\}\\:\\;\\n]+?)$"
+        let forwardLookingPattern = "(\\n[\\w\\s\\[\\]\\,\\#\\:\\.]+?\\{)|$"
+        let pattern = "^(?:" + importPattern + ")(?=(?:" + forwardLookingPattern + "))([\\s\\w\\W\\{\\}\\:\\;\\n]+?)$"
         let matches = RegExp.matches(str, pattern)
         for match:NSTextCheckingResult in matches {
-            
             Swift.print("match.numberOfRanges: " + "\(match.numberOfRanges)")
             for var i = 0; i < match.numberOfRanges; ++i{
                 Swift.print("loc: " + "\(match.rangeAtIndex(i).location)" + " length: " + "\(match.rangeAtIndex(i).length)")
-                
             }
             //let content = (str as NSString).substringWithRange(match.rangeAtIndex(0))//the entire match
             //Swift.print("content: " + "\(content)")
