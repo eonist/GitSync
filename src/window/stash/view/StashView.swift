@@ -7,14 +7,28 @@ class StashView:CustomView {
         
         //continue here: try to capture the bellow with .+?
         
-        var test = "<>"
-        test += "Button{"
-        test +=    "fill:blue;"
-        test += "}"
+        var str = "<>"
+        str += "Button{"
+        str +=    "fill:blue;"
+        str += "}"
         
-        Swift.print("test: " + "\(test)")
+        let pattern = "^(?:<>)(.+?)$"
+        let matches = RegExp.matches(str, pattern)
+        for match:NSTextCheckingResult in matches {
+            
+            Swift.print("match.numberOfRanges: " + "\(match.numberOfRanges)")
+            for var i = 0; i < match.numberOfRanges; ++i{
+                Swift.print("loc: " + "\(match.rangeAtIndex(i).location)" + " length: " + "\(match.rangeAtIndex(i).length)")
+                
+            }
+            let content = (str as NSString).substringWithRange(match.rangeAtIndex(0))//the entire match
+            Swift.print("content: " + "\(content)")
+            let group1 = (str as NSString).substringWithRange(match.rangeAtIndex(1))//capturing group 1
+            Swift.print("group1: " + "\(group1)")
+            //let group2 = (str as NSString).substringWithRange(match.rangeAtIndex(2))//capturing group 2
+        }
         
-        Swift.print(test.test("^(?:<>)(.+?)$"))
+        
         
         //let cssString:String = FileParser.content("~/Desktop/css/test.css".tildePath)!
         
