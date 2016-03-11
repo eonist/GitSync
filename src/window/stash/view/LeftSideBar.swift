@@ -4,10 +4,7 @@ class LeftSideBar:Element{
     static let w:CGFloat = 75
     override func resolveSkin() {
         StyleManager.addStylesByURL("~/Desktop/css/stash.css")
-        
         super.resolveSkin()
-        
-        
         //background = addSubView(Element(width,height,self,"background")) as? IElement
     }
     /**
@@ -29,5 +26,4 @@ class LeftSideBar:Element{
         }
         selectGroup.event = onSelect
     }
-    
 }
