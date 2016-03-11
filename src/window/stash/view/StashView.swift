@@ -12,7 +12,8 @@ class StashView:CustomView {
         str +=    " fill:blue;\n"
         str += "}"
         
-        let pattern = "^(?:<>)(?=(?:##))([\\s\\w\\W\\{\\}\\:\\;\\n]+?)$"
+        let importPattern = "[@\\(\\)\\w\\s\\.\\/\";\\n]*?"
+        let pattern = "^(?:" + importPattern + ")(?=(?:##))([\\s\\w\\W\\{\\}\\:\\;\\n]+?)$"
         let matches = RegExp.matches(str, pattern)
         for match:NSTextCheckingResult in matches {
             
