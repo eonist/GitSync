@@ -19,8 +19,6 @@ class ArticleItem:Button,ISelectable{
         super.resolveSkin()
         
         let container = addSubView(Section(width,50,self,"textContainer")) as! Section
-        
-        
         let headerText:Text = container.addSubView(Text(120,20,header,container,"header")) as! Text
         headerText.isInteractive = false
         let dateText:Text = container.addSubView(Text(100,20,date,container,"date")) as! Text
