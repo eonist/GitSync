@@ -7,14 +7,14 @@ class StashView:CustomView {
         
         //continue here: try to capture the bellow with .+?
         
-        var str = "@import url(\"mainContent.css\");\n##"
+        var str = "@import url(\"mainContent.css\");\n"
         str += "Button{\n"
         str +=    " fill:blue;\n"
         str += "}"
         
         let importPattern = "[@\\(\\)\\w\\s\\.\\/\";\\n]*?"
-        let forwardLookingPattern = "(\\n[\\w\\s\\[\\]\\,\\#\\:\\.]+?\\{)|$"
-        let pattern = "^(?:" + importPattern + ")(?=(?:" + forwardLookingPattern + "))([\\s\\w\\W\\{\\}\\:\\;\\n]+?)$"
+        let forwardLookingPattern = "(?:\\n[\\w\\s\\[\\]\\,\\#\\:\\.]+?\\{)|$"
+        let pattern = "^(?:" + importPattern + ")(?=" + forwardLookingPattern + ")([\\s\\w\\W\\{\\}\\:\\;\\n]+?)$"
         let matches = RegExp.matches(str, pattern)
         for match:NSTextCheckingResult in matches {
             Swift.print("match.numberOfRanges: " + "\(match.numberOfRanges)")
