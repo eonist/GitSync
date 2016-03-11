@@ -4,7 +4,14 @@ class StashView:CustomView {
     var leftSideBar:LeftSideBar?
     override func resolveSkin() {
         
-        let cssString:String = FileParser.content("~/Desktop/css/test.css".tildePath)!
+        var test = ""
+        test += "Button{"
+        test +=    "fill:blue;"
+        test += "}"
+        
+        Swift.print("test: " + "\(test)")
+        
+        //let cssString:String = FileParser.content("~/Desktop/css/test.css".tildePath)!
         
         
         //continue here: write the test.css file
@@ -14,15 +21,15 @@ class StashView:CustomView {
         //Swift.print("cssString: " + "\(cssString)")
         //cssString += ""
         
-        let result = CSSFileParser.separateImportsAndStyles(cssString)
+        //let result = CSSFileParser.separateImportsAndStyles(cssString)
         
-        Swift.print("result.imports: " + "\(result.imports)")
-        Swift.print("result.style: " + "\(result.style)")
+        //Swift.print("result.imports: " + "\(result.imports)")
+        //Swift.print("result.style: " + "\(result.style)")
         
         
         return
         
-        var css = ""//E8E8E8
+        /*var css = ""//E8E8E8
         css += "Window Element#background{fill:#EFEFF4;fill-alpha:0;}"//<--you should target a bg element not the window it self, since now everything inherits these values
         StyleManager.addStyle(css)
         super.resolveSkin()
@@ -30,6 +37,7 @@ class StashView:CustomView {
         createCustomTitleBar()
         leftSideBar!.createButtons()
         addSubView(MainContent(frame.width-LeftSideBar.w,frame.height,self))
+        */
     }
     func createCustomTitleBar() {
         StyleManager.addStylesByURL("~/Desktop/css/titleBar.css")
