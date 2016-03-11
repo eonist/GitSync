@@ -8,9 +8,9 @@ class StashView:CustomView {
         //continue here: try to capture the bellow with .+?
         
         
+        testing()
         
         
-        let cssString:String = FileParser.content("~/Desktop/css/test.css".tildePath)!
         
         
         //continue here: write the test.css file
@@ -19,12 +19,14 @@ class StashView:CustomView {
         //var cssString = "@import url(\"mainContent.css\");"
         //Swift.print("cssString: " + "\(cssString)")
         //cssString += ""
+        /*
+        let cssString:String = FileParser.content("~/Desktop/css/test.css".tildePath)!
         
         let result = CSSFileParser.separateImportsAndStyles(cssString)
         
         Swift.print("result.imports: " + "\(result.imports)")
         Swift.print("result.style: " + "\(result.style)")
-        
+        */
         
         return
         
@@ -50,7 +52,7 @@ class StashView:CustomView {
         
         let importPattern = "([@\\(\\)\\w\\s\\.\\/\";\\n]*?)"
         let forwardLookingPattern = "(?:\\n[\\w\\s\\[\\]\\,\\#\\:\\.]+?\\{)|$"
-        let pattern = "^(?:" + importPattern + ")(?=" + forwardLookingPattern + ")([\\s\\w\\W\\{\\}\\:\\;\\n]+?)$"
+        let pattern = "^(?:" + importPattern + ")(?=" + forwardLookingPattern + ")(.+?)"
         let matches = RegExp.matches(str, pattern)
         for match:NSTextCheckingResult in matches {
             Swift.print("match.numberOfRanges: " + "\(match.numberOfRanges)")
@@ -64,7 +66,6 @@ class StashView:CustomView {
             let group2 = (str as NSString).substringWithRange(match.rangeAtIndex(2))//capturing group 2
             Swift.print("group2: " + "\(group2)")
         }
-
     }
     
     func createCustomTitleBar() {
