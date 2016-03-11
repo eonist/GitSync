@@ -31,14 +31,6 @@ class MainContent:Element{
         let list = self.addSubView(ArticleList(width,400,98,dp,self,"articleList")) as? ArticleList
         list
     }
-    /**
-    *
-    */
-    func createArticleItem(){
-       
-        
-        
-    }
     override func setSize(width: CGFloat, _ height: CGFloat) {
         super.setSize(width, height)
         //background?.setSize(width, height)
