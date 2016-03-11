@@ -3,6 +3,10 @@ import Cocoa
 class StashView:CustomView {
     var leftSideBar:LeftSideBar?
     override func resolveSkin() {
+        Swift.print("hello world")
+        
+        return
+        
         var css = ""//E8E8E8
         css += "Window Element#background{fill:#EFEFF4;fill-alpha:0;}"//<--you should target a bg element not the window it self, since now everything inherits these values
         StyleManager.addStyle(css)
