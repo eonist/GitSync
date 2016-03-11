@@ -7,9 +7,9 @@ class StashView:CustomView {
         
         //continue here: try to capture the bellow with .+?
         
-        var str = "<>##"
-        str += "Button{"
-        str +=    "fill:blue;"
+        var str = "<>##\n"
+        str += "Button{\n"
+        str +=    " fill:blue;\n"
         str += "}"
         
         let pattern = "^(?:<>)(?=(?:##))([\\s\\w\\W\\{\\}\\:\\;\\n]+?)$"
@@ -22,7 +22,7 @@ class StashView:CustomView {
                 
             }
             let content = (str as NSString).substringWithRange(match.rangeAtIndex(0))//the entire match
-            Swift.print("content: " + "\(content)")
+            //Swift.print("content: " + "\(content)")
             let group1 = (str as NSString).substringWithRange(match.rangeAtIndex(1))//capturing group 1
             Swift.print("group1: " + "\(group1)")
             //let group2 = (str as NSString).substringWithRange(match.rangeAtIndex(2))//capturing group 2
