@@ -4,6 +4,9 @@ class StashView:CustomView {
     var leftSideBar:LeftSideBar?
     override func resolveSkin() {
         
+        
+        //continue here: try to capture the bellow with .+?
+        
         var test = ""
         test += "Button{"
         test +=    "fill:blue;"
