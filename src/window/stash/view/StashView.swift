@@ -25,3 +25,5 @@ class StashView:CustomView {
     override func createTitleBar() {
     }
 }
+
+//try to parse this: @import url("mainContent.css");
