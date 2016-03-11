@@ -3,7 +3,6 @@ import Foundation
 class LeftSideBar:Element{
     static let w:CGFloat = 75
     override func resolveSkin() {
-        StyleManager.addStylesByURL("~/Desktop/css/stash.css")
         super.resolveSkin()
     }
     func createButtons(){
