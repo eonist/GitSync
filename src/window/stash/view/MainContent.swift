@@ -78,8 +78,8 @@ class ArticleItem:Button,ISelectable{
     override func resolveSkin() {
         super.resolveSkin()
         
-        let container = Section(width,50,self,"textContainer")
-        addSubview(container)
+        let container = addSubView(Section(width,50,self,"textContainer")) as! Section
+        
         
         let headerText:Text = container.addSubView(Text(120,20,header,container,"header")) as! Text
         headerText.isInteractive = false
