@@ -52,8 +52,9 @@ class StashView:CustomView {
         
         let importPattern = "([@\\(\\)\\w\\s\\.\\/\";\\n]*?)"
         let forwardLookingPattern = "(?:\\n[\\w\\s\\[\\]\\,\\#\\:\\.]+?\\{)|$"
-        //let styleCharSet:String = "\\w\\d\\/\\%\\-\\.~"
-        let pattern = "^(?:" + importPattern + ")(?=" + forwardLookingPattern + ")([.^$]+?$)"
+        let styleCharSet:String = "\\w\\d\\/\\%\\-\\.~"
+        "[\\d\\s\\w\\W\\{\\}\\:\\;\\n\\%\\-\\.~\\/]"
+        let pattern = "^(?:" + importPattern + ")(?=" + forwardLookingPattern + ")(+?$)"
         
         
         
