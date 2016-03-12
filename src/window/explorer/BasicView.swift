@@ -2,6 +2,7 @@ import Foundation
 
 class BasicView:CustomView {
     override func resolveSkin() {
+        StyleManager.addStylesByURL("~/Desktop/css/explorer/explorer.css")
         super.resolveSkin()
         Swift.print("hello world")
         createButton()
