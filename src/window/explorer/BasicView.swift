@@ -6,3 +6,6 @@ class BasicView:CustomView {
         Swift.print("hello world")
     }
 }
+class Card:Element{
+    
+}
