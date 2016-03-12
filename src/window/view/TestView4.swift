@@ -16,7 +16,7 @@ class TestView4:CustomView {
     }
     func overShotTest(){
         //create a a container with a mask 200x200
-        let itemContainer = addSubView(ItemContainer(frame: NSRect(0,0,w,h))) as! ItemContainer
+        let itemContainer = addSubView(ItemContainer(frame: NSRect(0,0,w,h)))
         itemContainer.frame.y = 20
         
         //add a rectangle inside 200x200
