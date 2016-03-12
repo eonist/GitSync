@@ -4,6 +4,14 @@ class BasicView:CustomView {
     override func resolveSkin() {
         super.resolveSkin()
         Swift.print("hello world")
+        createButton()
+    }
+    /**
+     *
+     */
+    func createButton(){
+        let buttonCard:Card = addSubView(Card(CGFloat.NaN, CGFloat.NaN, "Buttons: ", self, "buttonCard")) as! Card
+        buttonCard
     }
 }
 class Card:Element{
