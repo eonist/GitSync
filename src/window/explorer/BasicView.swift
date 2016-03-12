@@ -17,7 +17,13 @@ class BasicView:CustomView {
      */
     func createButton(){
         let card:Card = container.addSubView(Card(200/*CGFloat.NaN*/, 120/*CGFloat.NaN*/, "Buttons: ", container, "buttonCard"))
-        card.addSubView(Button(96,24,card))
+        let button = card.addSubView(Button(96,24,card))
+        func onbuttonDown(event:Event){
+            //var startTime:int = getTimer();
+            //StyleResolver.style(event.target as Button);
+            //print("selectRow-duration: " + (getTimer() - startTime));
+        }
+        button.event = 
     }
 }
 class Card:Element{
