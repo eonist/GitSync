@@ -47,7 +47,7 @@ class TestView1:CustomView{
      */
     func animationTest(){
         StyleManager.addStyle("Button{fill:#5AC8FA;float:left;clear:left;}Button:down{fill:#007AFF;}")
-        let btn = addSubView(Button(100,24,self)) as! Button//add a button
+        let btn = addSubView(Button(100,24,self)) //add a button
         
        
         //let fill:FillStyle = FillStyle(NSColorParser.nsColor(0x4CD964))
@@ -158,7 +158,7 @@ class TestView1:CustomView{
         css += "}"
         StyleManager.addStyle(css)
         
-        let container = addSubView(ScrollContainer(120,120,self,"sliderContainer")) as! Container
+        let container = addSubView(ScrollContainer(120,120,self,"sliderContainer"))
         //let section = self.addSubView(Section(200, 200, self, "sliderSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
         container
         
@@ -188,8 +188,8 @@ class TestView1:CustomView{
         StyleManager.addStyle(css)
         
         let dp = DataProvider(FileParser.xml("~/Desktop/scrollist.xml"))
-        let sliderListContainer:Container = self.addSubView(Container(140, 70, self, "sliderListContainer")) as! Container
-        let sliderList:SliderList = sliderListContainer.addSubView(SliderList(140, 96, 24, dp, sliderListContainer)) as! SliderList
+        let sliderListContainer:Container = self.addSubView(Container(140, 70, self, "sliderListContainer"))
+        let sliderList:SliderList = sliderListContainer.addSubView(SliderList(140, 96, 24, dp, sliderListContainer))
         sliderList
         //ListModifier.select(sliderList, "white");
         //		scrollList.setMaxShowingItems(6);
@@ -259,8 +259,8 @@ class TestView1:CustomView{
         */
         let dp = DataProvider(FileParser.xml("~/Desktop/test.xml"))
         
-        let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
-        let list = section.addSubView(List(140,220,24,dp,section)) as! List
+        let section = self.addSubView(Section(200, 200, self, "listSection"))/*this instance represents the inset shadow bagground and also holds the buttons*/
+        let list = section.addSubView(List(140,220,24,dp,section))
 
         ListModifier.selectAt(list, 1)/*Selects the second item list*/
         list.dataProvider.addItemAt(["title":"brown"], 0)/*adds a new item at index 0*/
@@ -387,9 +387,9 @@ class TestView1:CustomView{
         css += "}"
         StyleManager.addStyle(css)
         
-        let container = self.addSubView(Section(200, 200, self, "checkBoxButtonContainer")) as! Section/*this instance represents the inset shadow bagground and also holds the buttons*/
-        let checkBoxButton1 = container.addSubView(CheckBoxButton(120, 32,"Option 1",true,container)) as! CheckBoxButton
-        let checkBoxButton2 = container.addSubView(CheckBoxButton(120, 32,"Option 2",false,container)) as! CheckBoxButton
+        let container = self.addSubView(Section(200, 200, self, "checkBoxButtonContainer")) /*this instance represents the inset shadow bagground and also holds the buttons*/
+        let checkBoxButton1 = container.addSubView(CheckBoxButton(120, 32,"Option 1",true,container))
+        let checkBoxButton2 = container.addSubView(CheckBoxButton(120, 32,"Option 2",false,container))
         
         let checkGroup = CheckGroup([checkBoxButton1,checkBoxButton2],checkBoxButton1)/*Add the CheckBoxButtons to the checkGroup instance*/
         func onEvent(event:Event){/*this is the event handler*/
@@ -439,8 +439,8 @@ class TestView1:CustomView{
         //add the insetshadow in the bg
         //add a slight dropshaodw on the checkboxes, see if you did the same with radiobullets, then copy that. or use subtleshadow or alike
         
-        let container = addSubView(Section(200,200,self,"checkBoxContainer")) as! Section
-        let checkBox = container.addSubView(CheckBox(25,25,false,container)) as! CheckBox
+        let container = addSubView(Section(200,200,self,"checkBoxContainer"))
+        let checkBox = container.addSubView(CheckBox(25,25,false,container))
         
         
         func onEvent(event:Event){
@@ -511,9 +511,9 @@ class TestView1:CustomView{
         
         StyleManager.addStyle(css)
         
-        let container = addSubView(Section(200,200,self,"textContainer")) as! Section
+        let container = addSubView(Section(200,200,self,"textContainer"))
         
-        let textInput:TextInput = container.addSubView(TextInput(200, 28, "Description: ", "blue", container)) as! TextInput
+        let textInput:TextInput = container.addSubView(TextInput(200, 28, "Description: ", "blue", container))
         textInput
     }
     /**
@@ -570,7 +570,7 @@ class TestView1:CustomView{
         let container = Section(200,200,self,"textContainer")
         addSubview(container)
         
-        let textArea:TextArea = container.addSubView(TextArea(180, 24, "This is a single line text area", container)) as! TextArea
+        let textArea:TextArea = container.addSubView(TextArea(180, 24, "This is a single line text area", container))
         textArea
     }
     /**
