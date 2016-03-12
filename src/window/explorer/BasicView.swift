@@ -1,17 +1,19 @@
 import Foundation
 
 class BasicView:CustomView {
+    var container:Container!
     override func resolveSkin() {
         StyleManager.addStylesByURL("~/Desktop/css/explorer/explorer.css")
         super.resolveSkin()
         Swift.print("hello world")
+        container = addSubView(Container(width,height,self,"main")) as! Container
         createButton()
     }
     /**
      *
      */
     func createButton(){
-        let card:Card = addSubView(Card(200/*CGFloat.NaN*/, 120/*CGFloat.NaN*/, "Buttons: ", self, "buttonCard")) as! Card
+        let card:Card = container.addSubView(Card(200/*CGFloat.NaN*/, 120/*CGFloat.NaN*/, "Buttons: ", container, "buttonCard")) as! Card
         card
     }
 }
