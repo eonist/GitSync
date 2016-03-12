@@ -16,7 +16,7 @@ class TestView6:CustomView {
         maskContainer = addSubView(ItemContainer(frame: NSRect(0,0,w,h)))//create a container with a mask 200x200
         maskContainer.frame.y = 20
 
-        itemContainer = maskContainer.addSubView(InteractiveView2(frame: NSRect(0,0,w,itemH*3))) as! InteractiveView2//create a container with 3 rects insider 200x150 per rect
+        itemContainer = maskContainer.addSubView(InteractiveView2(frame: NSRect(0,0,w,itemH*3)))//create a container with 3 rects insider 200x150 per rect
         
         let colors:Array<NSColor> = [Colors.green(),Colors.yellow(),Colors.purple(),Colors.orange(),Colors.lightBlue(),Colors.pink(),Colors.lightGray(),Colors.darkBlue(),Colors.orange()]
         for var i = 0; i < colors.count; ++i{/*Rect*/
