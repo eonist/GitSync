@@ -6,7 +6,7 @@ class BasicView:CustomView {
         StyleManager.addStylesByURL("~/Desktop/css/explorer/explorer.css")
         super.resolveSkin()
         Swift.print("hello world")
-        container = addSubView(Container(width,height,self,"main")) as! Container
+        container = addSubView(Container(1000,800,self,"main")) as! Container
         createButton()
     }
     /**
