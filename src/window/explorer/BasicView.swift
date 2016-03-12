@@ -19,11 +19,20 @@ class BasicView:CustomView {
         let card:Card = container.addSubView(Card(200/*CGFloat.NaN*/, 120/*CGFloat.NaN*/, "Buttons: ", container, "buttonCard"))
         let button = card.addSubView(Button(96,24,card))
         func onbuttonDown(event:Event){
-            //var startTime:int = getTimer();
-            //StyleResolver.style(event.target as Button);
-            //print("selectRow-duration: " + (getTimer() - startTime));
+            if(event.type == ButtonEvent.upInside){
+                //var startTime:int = getTimer();
+                //StyleResolver.style(event.target as Button);
+                //print("selectRow-duration: " + (getTimer() - startTime));
+            }
         }
-        button.event = 
+        button.event = onbuttonDown
+    }
+    /**
+    * TextButton
+    */
+    private function createTextButton():void{
+    var textButtonSection:Section = stage.addChild(new Section(NaN, NaN, "TextButton: ", this, "textButtonSection")) as Section;
+    var textButton:TextButton = textButtonSection.addChild(new TextButton(96,24,false,false,"Button",textButtonSection)) as TextButton;
     }
 }
 class Card:Element{
