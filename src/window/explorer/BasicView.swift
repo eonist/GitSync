@@ -1,5 +1,8 @@
 import Foundation
 
-class BasicWin :CustomWin{
-    
+class BasicView:CustomView {
+    override func resolveSkin() {
+        super.resolveSkin()
+        Swift.print("hello world")
+    }
 }
