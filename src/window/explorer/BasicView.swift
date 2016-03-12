@@ -9,14 +9,14 @@ class BasicView:CustomView {
         css += ""
         //StyleManager.addStyle(css)
         Swift.print("hello world")
-        container = addSubView(Container(1000,800,self,"main")) as! Container
+        container = addSubView(Container(1000,800,self,"main"))
         createButton()
     }
     /**
      *
      */
     func createButton(){
-        let card:Card = container.addSubView(Card(200/*CGFloat.NaN*/, 120/*CGFloat.NaN*/, "Buttons: ", container, "buttonCard")) as! Card
+        let card:Card = container.addSubView(Card(200/*CGFloat.NaN*/, 120/*CGFloat.NaN*/, "Buttons: ", container, "buttonCard"))
         card
     }
 }
