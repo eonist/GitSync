@@ -24,7 +24,7 @@ class TestView7:CustomView {
     func testChaining(){
         
         StyleManager.addStyle("Button{fill:#5AC8FA;float:left;clear:left;}Button:down{fill:#007AFF;}")
-        let btn = addSubView(Button(100,24,self)) as! Button//add a button
+        let btn = addSubView(Button(100,24,self))//add a button
         
         var animator:Animator?
         
@@ -78,7 +78,7 @@ class TestView7:CustomView {
         StyleManager.addStylesByURL("~/Desktop/css/sliderList.css")
         
         let dp = DataProvider(FileParser.xml("~/Desktop/scrollist.xml"))
-        let section = self.addSubView(Section(200, 200, self, "listSection")) as! Section/*adds some visual space around the component*/
-        sliderList = section.addSubView(RBSliderList(140,120,24,dp,section)) as? RBSliderList
+        let section = self.addSubView(Section(200, 200, self, "listSection")) /*adds some visual space around the component*/
+        sliderList = section.addSubView(RBSliderList(140,120,24,dp,section))
     }
 }
