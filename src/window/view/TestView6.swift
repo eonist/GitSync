@@ -13,7 +13,7 @@ class TestView6:CustomView {
         listAnimTest()
     }
     func listAnimTest(){
-        maskContainer = addSubView(ItemContainer(frame: NSRect(0,0,w,h))) as! ItemContainer//create a container with a mask 200x200
+        maskContainer = addSubView(ItemContainer(frame: NSRect(0,0,w,h)))//create a container with a mask 200x200
         maskContainer.frame.y = 20
 
         itemContainer = maskContainer.addSubView(InteractiveView2(frame: NSRect(0,0,w,itemH*3))) as! InteractiveView2//create a container with 3 rects insider 200x150 per rect
