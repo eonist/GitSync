@@ -19,7 +19,7 @@ class StashView:CustomView {
         StyleManager.addStyle("Section#titleBar{padding-top:16px;padding-left:12px;}")
         
         section = leftSideBar!.addSubView(Section(75,16,leftSideBar,"titleBar"))
-        closeButton = section!.addSubView(Button(0,0,section!,"close")) as? Button/*<--TODO: the w and h should be NaN, test if it supports this*/
+        closeButton = section!.addSubView(Button(0,0,section!,"close"))/*<--TODO: the w and h should be NaN, test if it supports this*/
         minimizeButton = section!.addSubView(Button(0,0,section!,"minimize"))
         maximizeButton = section!.addSubView(Button(0,0,section!,"maximize"))
     }

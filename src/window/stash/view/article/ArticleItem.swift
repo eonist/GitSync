@@ -17,14 +17,14 @@ class ArticleItem:Button,ISelectable{
     }
     override func resolveSkin() {
         super.resolveSkin()
-        let container = addSubView(Section(width,50,self,"textContainer")) as! Section
-        let headerText:Text = container.addSubView(Text(120,20,header,container,"header")) as! Text
+        let container = addSubView(Section(width,50,self,"textContainer")) 
+        let headerText:Text = container.addSubView(Text(120,20,header,container,"header"))
         headerText.isInteractive = false
-        let dateText:Text = container.addSubView(Text(100,20,date,container,"date")) as! Text
+        let dateText:Text = container.addSubView(Text(100,20,date,container,"date"))
         dateText.isInteractive = false
-        let titleText:Text = container.addSubView(Text(180,24,title,container,"title")) as! Text
+        let titleText:Text = container.addSubView(Text(180,24,title,container,"title"))
         titleText.isInteractive = false
-        let contentText:Text = container.addSubView(Text(180,152,content,container,"content")) as! Text
+        let contentText:Text = container.addSubView(Text(180,152,content,container,"content"))
         contentText.isInteractive = false
     }
     override func mouseUpInside(event: MouseEvent) {
