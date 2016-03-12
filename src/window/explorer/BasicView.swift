@@ -16,7 +16,7 @@ class BasicView:CustomView {
      *
      */
     func createButton(){
-        let card:Card = container.addSubView(Card(200/*CGFloat.NaN*/, 120/*CGFloat.NaN*/, "Buttons: ", container, "buttonCard"))
+        let card:Card = container.addSubView(Card(0/*CGFloat.NaN*/, 0/*CGFloat.NaN*/, "Buttons: ", container, "buttonCard"))
         card
     }
 }
@@ -28,7 +28,7 @@ class Card:Element{
     }
     override func resolveSkin() {
         super.resolveSkin()
-        //addSubView(Element(CGFloat.NaN, CGFloat.NaN, self, "ruler")) as! Element;
+        addSubView(Element(0, 0, self, "ruler"))
         //addSubView(Text(CGFloat.NaN, CGFloat.NaN, self.text, self, "cardText"));
     }
 
