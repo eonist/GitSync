@@ -5,7 +5,7 @@ class TestView8 :CustomView {
         super.resolveSkin()
         StyleManager.addStylesByURL("~/Desktop/css/del.css")
         let blueBox = addSubView(Element(100,100,self,"blueBox"))
-        blueBox.addSubView(Element(50,50,blueBox,"redBox"))
+        blueBox.addSubView(Element(0,50,blueBox,"redBox"))
     }
 }
 
