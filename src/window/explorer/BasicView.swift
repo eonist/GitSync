@@ -17,7 +17,7 @@ class BasicView:CustomView {
      */
     func createButton(){
         let card:Card = container.addSubView(Card(200/*CGFloat.NaN*/, 120/*CGFloat.NaN*/, "Buttons: ", container, "buttonCard"))
-        card
+        card.addSubView(Button(96,24,card))
     }
 }
 class Card:Element{
@@ -29,8 +29,7 @@ class Card:Element{
     override func resolveSkin() {
         super.resolveSkin()
         addSubView(Element(0, 0, self, "ruler"))
-        addSubView(Text(0/*CGFloat.NaN*/, 0/*CGFloat.NaN*/, text, self, "cardText"));
-        addSubView(Button(96,24,self))
+        addSubView(Text(CGFloat.NaN, CGFloat.NaN, text, self, "cardText"));
     }
 
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
