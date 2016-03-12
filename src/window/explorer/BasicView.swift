@@ -30,7 +30,7 @@ class Card:Element{
         super.resolveSkin()
         addSubView(Element(0, 0, self, "ruler"))
         addSubView(Text(0/*CGFloat.NaN*/, 0/*CGFloat.NaN*/, text, self, "cardText"));
-        addSubView(Button(96,24,self))
+        addSubView(Button(50,24,self))
     }
 
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
