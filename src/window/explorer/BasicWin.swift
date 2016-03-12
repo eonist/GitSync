@@ -1,5 +1,5 @@
 import Foundation
 
-class BasicWin {
-
+class BasicWin :CustomWin{
+    
 }
