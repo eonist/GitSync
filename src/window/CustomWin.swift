@@ -2,7 +2,7 @@ import Cocoa
 
 class CustomWin:Window{
     override func resolveSkin() {
-        self.contentView = /*BasicView*/TestView8(frame.width,frame.height)/*Sets the mainview of the window*/
+        self.contentView = /*TestView8*/BasicView(frame.width,frame.height)/*Sets the mainview of the window*/
     }
     override func windowDidResize(notification: NSNotification) {
         //notification
