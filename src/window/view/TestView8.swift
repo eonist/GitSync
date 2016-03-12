@@ -4,7 +4,8 @@ class TestView8 :CustomView {
     override func resolveSkin() {
         super.resolveSkin()
         StyleManager.addStylesByURL("~/Desktop/css/del.css")
-        addSubView(Element(100,100,self,"box"))
+        let blueBox = addSubView(Element(100,100,self,"blueBox"))
+        blueBox.addSubView(Element(50,50,blueBox,"redBox"))
     }
 }
 
