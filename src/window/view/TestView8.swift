@@ -3,8 +3,8 @@ import Foundation
 class TestView8 :CustomView {
     override func resolveSkin() {
         super.resolveSkin()
-        
-        let box = addSubView(Element(100,100,self,"box"))
+        StyleManager.addStylesByURL("~/Desktop/css/del.css")
+        addSubView(Element(100,100,self,"box"))
     }
 }
 
