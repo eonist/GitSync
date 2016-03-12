@@ -16,7 +16,7 @@ class BasicView:CustomView {
      *
      */
     func createButton(){
-        let card:Card = container.addSubView(Card(0/*CGFloat.NaN*/, 0/*CGFloat.NaN*/, "Buttons: ", container, "buttonCard"))
+        let card:Card = container.addSubView(Card(200/*CGFloat.NaN*/, 120/*CGFloat.NaN*/, "Buttons: ", container, "buttonCard"))
         card
     }
 }
