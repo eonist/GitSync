@@ -599,7 +599,7 @@ class TestView1:CustomView{
         let container = Section(200,50,self,"textContainer")
         addSubview(container)
         
-        let text:Text = container.addSubView(Text(100,24,"This is text: ",container)) as! Text
+        let text:Text = container.addSubView(Text(100,24,"This is text: ",container))
         text
     }
     /**
@@ -705,12 +705,10 @@ class TestView1:CustomView{
         css += "Section#container{fill:green;fill-alpha:0;float:left;clear:left;padding-top:20px;padding-left:8px;}"
         StyleManager.addStyle(css)
         
-        let container = addSubView(Section(200,200,self,"container")) as! Section
+        let container = addSubView(Section(200,200,self,"container"))
         
         
-        
-        
-        let leverSpinner:LeverSpinner = container.addSubView(LeverSpinner(140, 40,"Value: ", 0, 1, CGFloat(Int.min), CGFloat(Int.max), 0, 100, 200, container)) as! LeverSpinner;
+        let leverSpinner:LeverSpinner = container.addSubView(LeverSpinner(140, 40,"Value: ", 0, 1, CGFloat(Int.min), CGFloat(Int.max), 0, 100, 200, container))
         leverSpinner
         
         
@@ -760,8 +758,8 @@ class TestView1:CustomView{
         css += "Section#container{fill:green;fill-alpha:0;float:left;clear:left;padding-top:6px;padding-left:28px;}"
         StyleManager.addStyle(css)
         
-        stepperContainer = addSubView(Section(200,200,self,"container")) as? Section
-        stepper = stepperContainer!.addSubView(LeverStepper(100,24,0,1,CGFloat(Int.min),CGFloat(Int.max),0,100,200,stepperContainer)) as? LeverStepper
+        stepperContainer = addSubView(Section(200,200,self,"container"))
+        stepper = stepperContainer!.addSubView(LeverStepper(100,24,0,1,CGFloat(Int.min),CGFloat(Int.max),0,100,200,stepperContainer))
         
     }
     

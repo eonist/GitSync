@@ -8,7 +8,7 @@ class StashView:CustomView {
         css += "Window Element#background{fill:#EFEFF4;fill-alpha:0;}"//<--you should target a bg element not the window it self, since now everything inherits these values
         StyleManager.addStyle(css)
         super.resolveSkin()
-        leftSideBar = addSubView(LeftSideBar(LeftSideBar.w,height,self)) as? LeftSideBar
+        leftSideBar = addSubView(LeftSideBar(LeftSideBar.w,height,self))
         createCustomTitleBar()
         leftSideBar!.createButtons()
         addSubView(MainContent(frame.width-LeftSideBar.w,frame.height,self))
@@ -18,10 +18,10 @@ class StashView:CustomView {
         StyleManager.addStylesByURL("~/Desktop/css/titleBar.css")
         StyleManager.addStyle("Section#titleBar{padding-top:16px;padding-left:12px;}")
         
-        section = leftSideBar!.addSubView(Section(75,16,leftSideBar,"titleBar")) as? Section
+        section = leftSideBar!.addSubView(Section(75,16,leftSideBar,"titleBar"))
         closeButton = section!.addSubView(Button(0,0,section!,"close")) as? Button/*<--TODO: the w and h should be NaN, test if it supports this*/
-        minimizeButton = section!.addSubView(Button(0,0,section!,"minimize")) as? Button
-        maximizeButton = section!.addSubView(Button(0,0,section!,"maximize")) as? Button
+        minimizeButton = section!.addSubView(Button(0,0,section!,"minimize"))
+        maximizeButton = section!.addSubView(Button(0,0,section!,"maximize"))
     }
     override func createTitleBar() {
         //do nothing
