@@ -13,10 +13,10 @@ class BasicView:CustomView {
         createButton()
     }
     /**
-     *
+     * Button
      */
     func createButton(){
-        let card:Card = container.addSubView(Card(200/*CGFloat.NaN*/, 120/*CGFloat.NaN*/, "Buttons: ", container, "buttonCard"))
+        let card:Card = container.addSubView(Card(CGFloat.NaN/**/, CGFloat.NaN/*120*/, "Buttons: ", container, "buttonCard"))
         let button = card.addSubView(Button(96,24,card))
         func onbuttonDown(event:Event){
             if(event.type == ButtonEvent.upInside){
@@ -28,11 +28,11 @@ class BasicView:CustomView {
         button.event = onbuttonDown
     }
     /**
-    * TextButton
-    */
-    private function createTextButton():void{
-    var textButtonSection:Section = stage.addChild(new Section(NaN, NaN, "TextButton: ", this, "textButtonSection")) as Section;
-    var textButton:TextButton = textButtonSection.addChild(new TextButton(96,24,false,false,"Button",textButtonSection)) as TextButton;
+     * TextButton
+     */
+    func createTextButton(){
+        //var textButtonSection:Section = stage.addChild(new Section(NaN, NaN, "TextButton: ", this, "textButtonSection")) as Section;
+        //var textButton:TextButton = textButtonSection.addChild(new TextButton(96,24,false,false,"Button",textButtonSection)) as TextButton;
     }
 }
 class Card:Element{
