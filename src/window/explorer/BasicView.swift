@@ -17,6 +17,7 @@ class BasicView:CustomView {
         css +=     "float:left;"
         css += "}"
         Swift.print("hello world")
+        StyleManager.addStyle(css)
         container = addSubView(Container(1000,800,self,"main")) as! Container
         createButton()
     }
