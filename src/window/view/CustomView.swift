@@ -18,10 +18,10 @@ class CustomView:WindowView{
     func createTitleBar(){
         //Swift.print("CustomView.createTitleBar()")
         StyleManager.addStylesByURL("~/Desktop/css/titleBar.css")
-        section = self.addSubView(Section(75,16,self,"titleBar")) as? Section
-        closeButton = section!.addSubView(Button(0,0,section!,"close")) as? Button/*<--TODO: the w and h should be NaN, test if it supports this*/
-        minimizeButton = section!.addSubView(Button(0,0,section!,"minimize")) as? Button
-        maximizeButton = section!.addSubView(Button(0,0,section!,"maximize")) as? Button
+        section = self.addSubView(Section(75,16,self,"titleBar"))
+        closeButton = section!.addSubView(Button(0,0,section!,"close")) /*<--TODO: the w and h should be NaN, test if it supports this*/
+        minimizeButton = section!.addSubView(Button(0,0,section!,"minimize"))
+        maximizeButton = section!.addSubView(Button(0,0,section!,"maximize")) 
         
     }
     /**

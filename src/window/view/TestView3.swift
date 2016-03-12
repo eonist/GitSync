@@ -15,7 +15,7 @@ class TestView3:CustomView {
     }
     func animTest(){
         
-        let itemContainer = addSubView(ItemContainer(frame: NSRect(0,0,w,h))) as! ItemContainer
+        let itemContainer = addSubView(ItemContainer(frame: NSRect(0,0,w,h)))
         itemContainer.frame.y = 20
         
         //add a textField here
@@ -46,7 +46,7 @@ class TestView3:CustomView {
             (self.items[i]["view"] as! NSView).frame.y = self.items[i]["pos"] as! CGFloat/*positions the view*/
         }
   
-        throwArea = addSubView(VerticalThrowArea()) as? VerticalThrowArea
+        throwArea = addSubView(VerticalThrowArea())
         throwArea!.frame.y = 20  
     }
     /**

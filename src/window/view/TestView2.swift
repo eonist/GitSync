@@ -8,7 +8,7 @@ class TestView2:CustomView{
     }
     func frameAnimTest(){
         StyleManager.addStyle("Button{fill:#5AC8FA;float:left;clear:left;}Button:down{fill:#007AFF;}")
-        let btn = addSubView(Button(100,24,self)) as! Button//add a button
+        let btn = addSubView(Button(100,24,self))//add a button
         
         var toggle:Bool = true
         func onEvent(event:Event){
