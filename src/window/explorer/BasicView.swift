@@ -43,7 +43,7 @@ class Card:Element{
     }
     override func resolveSkin() {
         super.resolveSkin()
-        addSubView(Element(0, 0, self, "ruler"))
+        addSubView(Element(CGFloat.NaN, CGFloat.NaN, self, "ruler"))
         addSubView(Text(CGFloat.NaN, CGFloat.NaN, text, self, "cardText"));
     }
 
