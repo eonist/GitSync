@@ -10,8 +10,8 @@ class BasicView:CustomView {
      *
      */
     func createButton(){
-        let buttonCard:Card = addSubView(Card(CGFloat.NaN, CGFloat.NaN, "Buttons: ", self, "buttonCard")) as! Card
-        buttonCard
+        let card:Card = addSubView(Card(CGFloat.NaN, CGFloat.NaN, "Buttons: ", self, "buttonCard")) as! Card
+        card
     }
 }
 class Card:Element{
