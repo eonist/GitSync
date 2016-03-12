@@ -14,7 +14,8 @@ class Card:Element{
     }
     override func resolveSkin() {
         super.resolveSkin()
-        
+        addSubView(Element(CGFloat.NaN, CGFloat.NaN, self, "ruler")) as! Element;
+        addSubView(Text(CGFloat.NaN, CGFloat.NaN, _text, self, "cardText"));
     }
 
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
