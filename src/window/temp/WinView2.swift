@@ -207,7 +207,7 @@ class WinView2:FlippedView{
     func testTabBar(){
         
         //TODO: maybe implement height with the Text element
-        //TODO:  make parenting work with element
+        //TODO: make parenting work with element
         
         var css:String = "SelectTextButton{fill:linear-gradient(top,#FFFEFE,#E8E8E8);line:grey7;line-offset-type:outside;line-thickness:1px;drop-shadow:none;}"//
         css += "SelectTextButton#first{corner-radius:4px 0px 4px 0px;}"
