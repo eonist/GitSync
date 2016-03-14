@@ -131,7 +131,7 @@ class WinView2:FlippedView{
         Swift.print("fileExists: " + "\(fileExists)")
         
         
-        let success = FileModifier.write(path, content: "test")
+        let success = FileModifier.write(path, "test")
         Swift.print("success: " + "\(success)")
               
         
