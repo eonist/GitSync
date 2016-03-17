@@ -6,7 +6,7 @@ class TestView4:CustomView {
     var w:CGFloat = 200
     var h:CGFloat = 200
     var rect:RectGraphic?
-    var y:CGFloat = 0
+    var yVal:CGFloat = 0
     var offset:CGPoint = CGPoint()
     var prevOffset:CGPoint = CGPoint()
     var onMouseDownPos:CGPoint = CGPoint()
@@ -44,13 +44,13 @@ class TestView4:CustomView {
     override func scrollWheel(theEvent: NSEvent) {
         
         if(theEvent.phase == NSEventPhase.Changed){//fires everytime there is direct scrollWheel gesture movment.
-            y += theEvent.scrollingDeltaY
-            moveRect(y)   
+            yVal += theEvent.scrollingDeltaY
+            moveRect(yVal)
         }
     }
     func moveRect(y:CGFloat){
-        Swift.print("y: " + "\(y)")
-        let offsetY = logConstraintValueForYPoisition(y,200)
+        Swift.print("yVal: " + "\(yVal)")
+        let offsetY = logConstraintValueForYPoisition(yVal,200)
         Swift.print("offsetY: " + "\(offsetY)")
         rect!.graphic.frame.y = offsetY
     }
