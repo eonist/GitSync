@@ -9,7 +9,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         Swift.print("hello world")
         //GitParser.status("~/Desktop/css","")
-        ShellUtils.exc("cd ~/Desktop/css;git log --oneline").output
+        let result = ShellUtils.exc("git").output
+        Swift.print("result: " + "\(result)")
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
