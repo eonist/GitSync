@@ -8,7 +8,7 @@ class AppDelegate: NSObject, NSApplicationDelegate{
      * Initializes your application
      */
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        swift.print("applicationDidFinishLaunching")
+        Swift.print("applicationDidFinishLaunching")
     }
     /*
      * When the application closes
