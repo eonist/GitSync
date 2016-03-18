@@ -9,7 +9,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         Swift.print("hello world")
         //GitParser.status("~/Desktop/css","")
-        let result = ShellUtils.exc("git").output
+        let result = ShellUtils.exc("git status").output
         Swift.print("result: " + "\(result)")
     }
 
