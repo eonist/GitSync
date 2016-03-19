@@ -32,9 +32,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //log "GitSync's handle_commit_interval() a repo with doCommit " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
         
         let localPath:String = repoItem["local-path"]!
-        Swift.print("localPath: " + "\(localPath)")
+        //Swift.print("localPath: " + "\(localPath)")
         let remotePath:String = repoItem["remote-path"]!
-        Swift.print("remotePath: " + "\(remotePath)")
+        //Swift.print("remotePath: " + "\(remotePath)")
         let hasUnMergedpaths = GitAsserter.hasUnMergePaths(localPath)//Asserts if there are unmerged paths that needs resolvment
         Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
         if(hasUnMergedpaths){
@@ -51,8 +51,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      * NOTE: this method performs a "manual pull" on every interval
      * TODO: contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
      */
-    func initPush(){
+    func initPush(repoItem:Dictionary<String,String>,_ branch:String){
         Swift.print("initPush")
+        let localPath:String = repoItem["local-path"]!
+        let remotePath:String = repoItem["remote-path"]!
+        MergeUtils.manualMerge((localPath of repo_item), (remote_path of repo_item), branch) //commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
     }
     /**
      * This method generates a git status list,and asserts if a commit is due, and if so, compiles a commit message and then tries to commit
