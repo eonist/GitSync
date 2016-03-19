@@ -9,9 +9,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
-        Swift.print("hello world")
-        let status = GitParser.status("~/Desktop/css","")
-        Swift.print("status: " + "\(status)")
+        //Swift.print("hello world")
+        //let status = GitParser.status("~/Desktop/css","")
+        //Swift.print("status: " + "\(status)")
         
         
         //let result = ShellUtils.exc("git status").output
@@ -20,8 +20,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //TODO: 1. Read the repo.xml file and store the xml props in a array dictionary structure
         let repoXML = FileParser.xml(repoFilePath.tildePath)
-        let XMLParser.toArray(repoXML)
-
+        let repoList = XMLParser.toArray(repoXML)
+        Swift.print("repoList.count: " + "\(repoList.count)")
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
