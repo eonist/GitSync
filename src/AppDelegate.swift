@@ -57,6 +57,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Swift.print("there is something to add or commit")
             StatusUtils.processStatusList(localRepoPath, statusList) //process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del
             let commitMsgTitle = CommitUtils.sequenceCommitMsgTitle(statusList) //sequence commit msg title for the commit
+            Swift.print("commitMsgTitle: " + "\(commitMsgTitle)")
+            let commitMsgDesc = DescUtils.sequenceDescription(statusList)//sequence commit msg description for the commit
         }
     }
     func applicationWillTerminate(aNotification: NSNotification) {

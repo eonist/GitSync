@@ -1,7 +1,7 @@
 /*
  * Utility methods for generating the "Git Commit Message Description"
  */
-class DescUtil{
+class DescUtils{
 	/*
 	 * Returns a "Git Commit Message Description" derived from a "git status list" with "status items records"
 	 */
