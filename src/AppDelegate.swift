@@ -35,6 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Continue here: do an isloated test with:
         let str:String = "?? a.txt"
         let pattern:String = "^( )*([MARDU?]{1,2}) (.+)$"
+        enum StatusParts:Int{ case first = 0, second , third, fourth}
         
         let matches = RegExp.matches(str, pattern)
         for match:NSTextCheckingResult in matches {
@@ -47,7 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let matches:[NSTextCheckingResult] = RegExp.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
         let theStatusParts:NSTextCheckingResult = matches[0]
-        enum StatusParts:Int{ case first = 0, second , third, fourth}
+        
         let second:String = RegExp.value(theStatusItem,theStatusParts,StatusParts.second.rawValue)
         Swift.print("second: " + "\(second)")
         let third:String = RegExp.value(theStatusItem,theStatusParts,StatusParts.third.rawValue)
