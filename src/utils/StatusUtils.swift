@@ -32,6 +32,7 @@ class StatusUtils{
 	 * NOTE: can also be "UU" unmerged paths
  	 */
 	class func transformStatusList(theStatusList:Array<String>)->[Dictionary<String,String>]{
+        Swift.print("transformStatusList()")
 		var transformedList:[Dictionary<String,String>] = []
         for theStatusItem:String in theStatusList {
 			//--log "the_status_item: " & the_status_item
