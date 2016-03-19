@@ -19,6 +19,9 @@ class MergeUtils{
         GitSync.doCommit(localPath)//its best practice to always commit any uncommited files before you attempt to pull.
         //try
         GitUtils.manualPull(localPath, remotePath, branch)//manual clone down files
+        
+        //TODO: Complete the bellow calls
+        
         //error
         //make a list of unmerged files
         //resolve these files
