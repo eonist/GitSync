@@ -28,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      */
     func doCommit(repoItem:Dictionary<String,String>){
         //log "GitSync's handle_commit_interval() a repo with doCommit " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
-        Swift.print("doCommit()" + "\(repoItem["remote-path"])")
+        Swift.print("doCommit() remote path: " + "\(repoItem["remote-path"])" + " local path: " + "\(repoItem["local-path"])")
         
         
     }
