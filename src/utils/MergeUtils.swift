@@ -17,7 +17,12 @@ class MergeUtils{
             MergeUtils.resolveMergeConflicts(localPath, branch, GitParser.unMergedFiles(localPath))//Asserts if there are unmerged paths that needs resolvment
         }
         GitSync.doCommit(localPath)//its best practice to always commit any uncommited files before you attempt to pull.
+        //try
         GitUtils.manualPull(localPath, remotePath, branch)//manual clone down files
+        //error
+        //make a list of unmerged files
+        //resolve these files
+        //commit
     }
     //property options : {}
 	/*
