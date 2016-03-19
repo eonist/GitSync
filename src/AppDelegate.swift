@@ -52,9 +52,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      */
     func doCommit(localRepoPath:String){
         Swift.print("doCommit()")
+        let statusList = StatusUtil.generateStatusList(localRepoPath)//get current status
         /*log ("GitSync's do_commit()")
         --log "do_commit"
-        set status_list to my StatusUtil's generate_status_list(local_repo_path) --get current status
+        
         if (length of status_list > 0) then
         log tab & "there is something to add or commit"
         --log tab & "length of status_list: " & (length of status_list)
