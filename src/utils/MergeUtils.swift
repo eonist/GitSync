@@ -14,7 +14,9 @@ class MergeUtils{
         Swift.print("MergeUtils.manualMerge()")
         
         //continue here:
-        
+        if (GitAsserter.hasUnMergedPaths(localPath)) { //Asserts if there are unmerged paths that needs resolvment
+            
+        }
     }
     //property options : {}
 	/*
