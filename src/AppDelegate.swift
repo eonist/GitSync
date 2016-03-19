@@ -60,6 +60,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Swift.print("commitMsgTitle: " + "\(commitMsgTitle)")
             let commitMsgDesc = DescUtils.sequenceDescription(statusList)//sequence commit msg description for the commit
             Swift.print("commitMsgDesc: " + "\(commitMsgDesc)")
+            let commitResult = GitModifier.commit(localRepoPath, commitMsgTitle, commitMsgDesc) //commit
         }
     }
     func applicationWillTerminate(aNotification: NSNotification) {
