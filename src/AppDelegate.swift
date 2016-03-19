@@ -53,7 +53,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func doCommit(localRepoPath:String){
         Swift.print("doCommit()")
         let statusList = StatusUtils.generateStatusList(localRepoPath)//get current status
-        
+        if (statusList.count > 0) {
+            Swift.print("there is something to add or commit")
+            StatusUtils.processStatusList(localRepoPath, statusList) //process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del
+        }
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
