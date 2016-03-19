@@ -1,6 +1,6 @@
 import Foundation
 
-class GitSyncUtils {
+class GitSync{
     /**
      * This method generates a git status list,and asserts if a commit is due, and if so, compiles a commit message and then tries to commit
      * Returns true if a commit was made, false if no commit was made or an error occured
