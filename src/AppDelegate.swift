@@ -23,6 +23,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let repoList = XMLParser.toArray(repoXML)
         Swift.print("repoList.count: " + "\(repoList.count)")
     }
+    /**
+     * Handles the process of making a commit for a single repository
+     */
+    func doCommit(){
+        
+    }
 
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
