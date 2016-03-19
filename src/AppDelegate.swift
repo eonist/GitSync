@@ -33,8 +33,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let localPath:String = repoItem["local-path"]!
         //Swift.print("localPath: " + "\(localPath)")
-        let remotePath:String = repoItem["remote-path"]!
-        //Swift.print("remotePath: " + "\(remotePath)")
         let hasUnMergedpaths = GitAsserter.hasUnMergePaths(localPath)//Asserts if there are unmerged paths that needs resolvment
         Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
         if(hasUnMergedpaths){
@@ -55,7 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("initPush")
         let localPath:String = repoItem["local-path"]!
         let remotePath:String = repoItem["remote-path"]!
-        MergeUtils.manualMerge((localPath of repo_item), (remote_path of repo_item), branch) //commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
+        MergeUtils.manualMerge(localPath, remotePath, branch) //commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
     }
     /**
      * This method generates a git status list,and asserts if a commit is due, and if so, compiles a commit message and then tries to commit
