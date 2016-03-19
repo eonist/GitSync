@@ -87,7 +87,9 @@ class StatusUtils{
 			//--log "len of status_item: " & (length of statusItem)
 			//--set cmd to cmd of status_item
             let state:String = statusItem["state"]!
+            Swift.print("state: " + "\(state)")
             let fileName:String = statusItem["fileName"]!
+            Swift.print("fileName: " + "\(fileName)")
 			switch state {
 				case "Untracked files": //--this is when there exists a new file
 					//log tab & "1. " & "Untracked files"
