@@ -43,6 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Swift.print("match.numberOfRanges: " + "\(match.numberOfRanges)")
             let content = (str as NSString).substringWithRange(match.rangeAtIndex(0))//the entire match
             Swift.print("content: " + "\(content)")
+            Swift.print("match.rangeAtIndex(1): " + "\(match.rangeAtIndex(1))")
             let second = (str as NSString).substringWithRange(match.rangeAtIndex(1))//capturing group 1
             Swift.print("second: " + "\(second)")
             let third = (str as NSString).substringWithRange(match.rangeAtIndex(2))//capturing group 2
