@@ -13,6 +13,8 @@ class MergeUtils{
     class func manualMerge(localPath:String, _ remotePath:String, _ branch:String){
         Swift.print("MergeUtils.manualMerge()")
         
+        //continue here:
+        
     }
     //property options : {}
 	/*
