@@ -29,29 +29,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Utils.initPush(repoList[0], "master")
         
         
+    
         
         
-        
-        //Continue here: do an isloated test with:
-        let str:String = "?? a.txt"
-        let pattern:String = "^( )*([MARDU?]{1,2}) (.+)$"//--returns 3 capturing groups,
-        enum StatusParts:Int{ case first = 0, second , third, fourth}
-        
-        let matches = RegExp.matches(str, pattern)
-        //let theStatusParts:NSTextCheckingResult = matches[0]
-        for match:NSTextCheckingResult in matches {
-            Swift.print("match.numberOfRanges: " + "\(match.numberOfRanges)")
-            let content = (str as NSString).substringWithRange(match.rangeAtIndex(0))//the entire match
-            Swift.print("content: " + "\(content)")
-            Swift.print("match.rangeAtIndex(1): " + "\(match.rangeAtIndex(1))")
-            let second = (str as NSString).substringWithRange(match.rangeAtIndex(1))//capturing group 1
-            Swift.print("second: " + "\(second)")
-            let third = (str as NSString).substringWithRange(match.rangeAtIndex(2))//capturing group 2
-            Swift.print("third: " + "\(third)")
-            let fourth = (str as NSString).substringWithRange(match.rangeAtIndex(3))//capturing group 3
-            Swift.print("fourth: " + "\(fourth)")
-            
-        }
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
