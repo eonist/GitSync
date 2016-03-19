@@ -50,7 +50,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      * TODO: add branch parameter to this call
      * NOTE: this a purly local method, does not need to communicate with remote servers etc..
      */
-    func doCommit(localRepoPath:String){
+    func doCommit(localRepoPath:String)->Bool{
         Swift.print("doCommit()")
         let statusList = StatusUtils.generateStatusList(localRepoPath)//get current status
         if (statusList.count > 0) {
@@ -61,6 +61,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let commitMsgDesc = DescUtils.sequenceDescription(statusList)//sequence commit msg description for the commit
             Swift.print("commitMsgDesc: " + "\(commitMsgDesc)")
             let commitResult = GitModifier.commit(localRepoPath, commitMsgTitle, commitMsgDesc) //commit
+            Swift.print("commitResult: " + "\(commitResult)")
+            return true//return true to indicate that the commit completed
+        }else{
+            return false //break the flow since there is nothing to commit or process
         }
     }
     func applicationWillTerminate(aNotification: NSNotification) {
