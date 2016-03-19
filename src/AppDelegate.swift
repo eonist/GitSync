@@ -19,12 +19,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //TODO: 1. Read the repo.xml file and store the xml props in a array dictionary structure
+        /*
         let repoXML = FileParser.xml(repoFilePath.tildePath)
         let repoList = XMLParser.toArray(repoXML)
         Swift.print("repoList.count: " + "\(repoList.count)")
         
         Utils.initCommit(repoList[0], "master")
+        */
         //Utils.initPush(repoList[0], "master")
+        
+        
+        
+        
+        
+        //Continue here: do an isloated test with: "?? a.txt"
+        
+        
+        let matches:[NSTextCheckingResult] = RegExp.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
+        let theStatusParts:NSTextCheckingResult = matches[0]
+        enum StatusParts:Int{ case first = 0, second , third, fourth}
+        let second:String = RegExp.value(theStatusItem,theStatusParts,StatusParts.second.rawValue)
+        Swift.print("second: " + "\(second)")
+        let third:String = RegExp.value(theStatusItem,theStatusParts,StatusParts.third.rawValue)
+        Swift.print("third: " + "\(third)")
+        let fourth:String = RegExp.value(theStatusItem,theStatusParts,StatusParts.fourth.rawValue)
+        Swift.print("fourth: " + "\(fourth)")
+
+        
+        
+        
+        
+        
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
