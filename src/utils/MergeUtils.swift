@@ -4,14 +4,14 @@ import Foundation
  */
 class MergeUtils{
     static var options:Array<String> = ["keep local version", "keep remote version", "keep mix of both versions", "open local version", "open remote version", "open mix of both versions", "keep all local versions", "keep all remote versions", "keep all local and remote versions", "open all local versions", "open all remote versions", "open all mixed versions"]
-    
     /**
      * Manual merge
      * NOTE: tries to merge a remote branch into a local branch
      * NOTE: prompts the users if a merge conflicts occure
      * TODO: we should use two branch params here since its entirly possible to merge from a different remote branch
      */
-    func manualMerge(){
+    class func manualMerge(localPath:String, _ remotePath:String, _ branch:String){
+        Swift.print("MergeUtils.manualMerge()")
         
     }
     //property options : {}
