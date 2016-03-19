@@ -52,7 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      * TODO: contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
      */
     func initPush(){
-        
+        Swift.print("initPush")
     }
     /**
      * This method generates a git status list,and asserts if a commit is due, and if so, compiles a commit message and then tries to commit
