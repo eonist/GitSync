@@ -1,4 +1,4 @@
-/*
+/**
  * Utility methods for generating the "Git Commit Message Description"
  */
 class DescUtils{

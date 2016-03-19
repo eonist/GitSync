@@ -1,5 +1,8 @@
 import Foundation
-class RepoUtils{//Utility methods for parsing the repository.xml file
+/**
+ * Utility methods for parsing the repository.xml file
+ */
+class RepoUtils{
 	/**
 	 * Returns a list with repo values derived from an XML file
  	 * @param file_path 

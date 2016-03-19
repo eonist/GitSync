@@ -1,4 +1,5 @@
-/*
+import Foundation
+/**
  * Utility methods for parsing the the "git status message" 
  */
 class CommitUtils{

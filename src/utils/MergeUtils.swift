@@ -1,3 +1,4 @@
+import Foundation
 /**
  * Utility methods for merging branches
  */

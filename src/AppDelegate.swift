@@ -53,7 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("initPush")
         let localPath:String = repoItem["local-path"]!
         let remotePath:String = repoItem["remote-path"]!
-        MergeUtils.manualMerge(localPath, remotePath, branch) //commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
+        MergeUtils.manualMerge(localPath, remotePath, branch)//commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
     }
     /**
      * This method generates a git status list,and asserts if a commit is due, and if so, compiles a commit message and then tries to commit
