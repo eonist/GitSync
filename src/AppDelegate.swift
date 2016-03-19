@@ -34,10 +34,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let test = "testing this stuff"
         Swift.print("test.utf16: " + "\(test.utf16)")
         Swift.print("test.utf8: " + "\(test.utf8)")
-        Swift.print("(test as! NSString).UTF8String: " + "\((test as! NSString).UTF8String)")
+        
+        let escaped = (test as NSString).UTF8String
+        //let unEscaped =
         
         let transform = "Any-Hex/Java"
-        let input = "\\u5404\\u500b\\u90fd" as NSString
+        let input = escaped as NSString//"\\u5404\\u500b\\u90fd" as NSString
         Swift.print("input.UTF8String: " + "\(input.UTF8String)")
 
         let convertedString = input.mutableCopy() as! NSMutableString
