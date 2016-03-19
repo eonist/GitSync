@@ -44,7 +44,7 @@ class StatusUtils{
             let matches:[NSTextCheckingResult] = RegExp.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
             let theStatusParts:NSTextCheckingResult = matches[0]
             enum StatusParts:Int{ case first = 0, second , third, fourth}
-            let second:String = RegExp.value(theStatusItem,theStatusParts,StatusParts.second.rawValue)
+            let second:String = theStatusParts.rangeAtIndex(StatusParts.second.rawValue).length > 0 ? RegExp.value(theStatusItem,theStatusParts,StatusParts.second.rawValue) : ""
             Swift.print("second: " + "\(second)")
             let third:String = RegExp.value(theStatusItem,theStatusParts,StatusParts.third.rawValue)
             Swift.print("third: " + "\(third)")

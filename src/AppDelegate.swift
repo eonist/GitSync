@@ -19,13 +19,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //TODO: 1. Read the repo.xml file and store the xml props in a array dictionary structure
-        /*
+        /**/
         let repoXML = FileParser.xml(repoFilePath.tildePath)
         let repoList = XMLParser.toArray(repoXML)
         Swift.print("repoList.count: " + "\(repoList.count)")
         
         Utils.initCommit(repoList[0], "master")
-        */
+
         //Utils.initPush(repoList[0], "master")
         
         
