@@ -32,7 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         let test = "testing this stuff"
-        
+        Swift.print("test.utf16: " + "\(test.utf16)")
         
     }
     func applicationWillTerminate(aNotification: NSNotification) {
