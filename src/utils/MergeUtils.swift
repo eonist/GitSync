@@ -16,7 +16,7 @@ class MergeUtils{
             Swift.print("has unmerged paths to resolve")
             MergeUtils.resolveMergeConflicts(localPath, branch, GitParser.unMergedFiles(localPath))//Asserts if there are unmerged paths that needs resolvment
         }
-        doCommit(localPath)//its best practice to always commit any uncommited files before you attempt to pull.
+        GitSync.doCommit(localPath)//its best practice to always commit any uncommited files before you attempt to pull.
     }
     //property options : {}
 	/*

@@ -40,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let unMergedFiles = GitParser.unMergedFiles(localPath) //Asserts if there are unmerged paths that needs resolvment
             MergeUtils.resolveMergeConflicts(localPath, branch, unMergedFiles)
         }
-        let hasCommited = GitSyncUtils.doCommit(localPath) //if there were no commits false will be returned
+        let hasCommited = GitSync.doCommit(localPath) //if there were no commits false will be returned
         Swift.print("hasCommited: " + "\(hasCommited)")
     }
     /**
