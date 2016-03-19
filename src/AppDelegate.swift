@@ -36,6 +36,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("remotePath: " + "\(remotePath)")
         let hasUnMergedpaths = GitAsserter.hasUnMergePaths(localPath)//Asserts if there are unmerged paths that needs resolvment
         Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
+        if(hasUnMergedpaths){
+            Swift.print("has unmerged paths to resolve")
+            //MergeUtil's resolve_merge_conflicts(local_path of repo_item, branch, GitParser's unmerged_files(local_path of repo_item)) --Asserts if there are unmerged paths that needs resolvment
+            
+            MergeUtils.resolveMergeConflicts(<#T##localRepoPath: String##String#>, <#T##branch: String##String#>, <#T##unMergedFiles: Array<String>##Array<String>#>)
+            
+        }
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
