@@ -15,10 +15,11 @@ class StatusUtils{
 		if (theStatusList.count > 0) {
 			transformedList = transformStatusList(theStatusList)
 		}else{
-			//--log "nothing to commit, working directory clean"// --this is the status msg if there has happened nothing new since last, but also if you have commits that are ready for push to origin
+			Swift.print("nothing to commit, working directory clean")// --this is the status msg if there has happened nothing new since last, but also if you have commits that are ready for push to origin
 		}
-		//--log "len of theStatus_list: " & (length of theStatusList)
-		//--log transformedList
+        Swift.print("transformedList.count: " + "\(transformedList.count)")
+		Swift.print("transformedList: " + "\(transformedList)")
+        
 		return transformedList
 	}
 	/*
@@ -81,7 +82,7 @@ class StatusUtils{
 	 * TODO: Squash some of the states together with if or or or etc..
 	 */
 	class func processStatusList(localRepoPath:String, _ statusList:[Dictionary<String,String>]){
-		Swift.print("processStatusList")
+		Swift.print("processStatusList()")
         for statusItem:Dictionary<String,String> in statusList{
 			//--log "len of status_item: " & (length of statusItem)
 			//--set cmd to cmd of status_item
