@@ -27,7 +27,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      * Handles the process of making a commit for a single repository
      */
     func doCommit(){
-        
+        //log "GitSync's handle_commit_interval() a repo with doCommit " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
+        Swift.print("doCommit()" + "\()")
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
