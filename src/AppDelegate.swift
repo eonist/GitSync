@@ -51,7 +51,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      * NOTE: this a purly local method, does not need to communicate with remote servers etc..
      */
     func doCommit(localRepoPath:String){
-        
+        /*log ("GitSync's do_commit()")
+        --log "do_commit"
+        set status_list to my StatusUtil's generate_status_list(local_repo_path) --get current status
+        if (length of status_list > 0) then
+        log tab & "there is something to add or commit"
+        --log tab & "length of status_list: " & (length of status_list)
+        my StatusUtil's process_status_list(local_repo_path, status_list) --process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del
+        set commit_msg_title to my CommitUtil's sequence_commit_msg_title(status_list) --sequence commit msg title for the commit
+        log tab & "commit_msg_title: " & commit_msg_title
+        set commit_msg_desc to my DescUtil's sequence_description(status_list) --sequence commit msg description for the commit
+        log tab & "commit_msg_desc: " & commit_msg_desc
+        try --try to make a git commit
+        set commit_result to GitModifier's commit(local_repo_path, commit_msg_title, commit_msg_desc) --commit
+        log tab & "commit_result: " & commit_result
+        on error errMsg
+        log tab & "----------------ERROR:-----------------" & errMsg
+        end try
+        return true --return true to indicate that the commit completed
+        else
+        log tab & "nothing to add or commit"
+        return false --break the flow since there is nothing to commit or process
+        end if*/
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
