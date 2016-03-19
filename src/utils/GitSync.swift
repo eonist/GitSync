@@ -14,7 +14,7 @@ class GitSync{
         let statusList = StatusUtils.generateStatusList(localRepoPath)//get current status
         Swift.print("statusList.count: " + "\(statusList.count)")
         if (statusList.count > 0) {
-            Swift.print("there is something to add or commit")
+            Swift.print("doCommit().there is something to add or commit")
             StatusUtils.processStatusList(localRepoPath, statusList) //process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del
             let commitMsgTitle = CommitUtils.sequenceCommitMsgTitle(statusList) //sequence commit msg title for the commit
             Swift.print("commitMsgTitle: " + "\(commitMsgTitle)")
