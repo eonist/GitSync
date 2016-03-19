@@ -23,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //let repoList = XMLParser.toArray(repoXML)
         //Swift.print("repoList.count: " + "\(repoList.count)")
         
-        let keychainResult = KeyChainParser.load("eonist")
+        let keychainResult = KeyChainParser.load("eonist")!.stringValue
         Swift.print("keychainResult: " + "\(keychainResult)")
         //initCommit(repoList[0], "master")
         //initPush(repoList[0], "master")
