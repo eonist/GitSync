@@ -20,6 +20,8 @@ class MergeUtils{
         //try
         GitUtils.manualPull(localPath, remotePath, branch)//manual clone down files
         
+        
+        
         //TODO: Complete the bellow calls
         
         //error
