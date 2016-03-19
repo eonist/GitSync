@@ -51,6 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      * NOTE: this a purly local method, does not need to communicate with remote servers etc..
      */
     func doCommit(localRepoPath:String){
+        Swift.print("doCommit()")
         /*log ("GitSync's do_commit()")
         --log "do_commit"
         set status_list to my StatusUtil's generate_status_list(local_repo_path) --get current status
