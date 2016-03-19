@@ -20,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //TODO: 1. Read the repo.xml file and store the xml props in a array dictionary structure
         let repoXML = FileParser.xml(repoFilePath.tildePath)
-        XMLParser
+        let XMLParser.toArray(repoXML)
 
     }
 
