@@ -36,12 +36,20 @@ class StatusUtils{
 		var transformedList:[Dictionary<String,String>] = []
         for theStatusItem:String in theStatusList {
 			Swift.print("theStatusItem: " + "\(theStatusItem)")
+            
+            
+            //Continue here: do an isloated test with: "?? a.txt"
+            
+            
             let matches:[NSTextCheckingResult] = RegExp.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
             let theStatusParts:NSTextCheckingResult = matches[0]
             enum StatusParts:Int{ case first = 0, second , third, fourth}
             let second:String = RegExp.value(theStatusItem,theStatusParts,StatusParts.second.rawValue)
+            Swift.print("second: " + "\(second)")
             let third:String = RegExp.value(theStatusItem,theStatusParts,StatusParts.third.rawValue)
+            Swift.print("third: " + "\(third)")
             let fourth:String = RegExp.value(theStatusItem,theStatusParts,StatusParts.fourth.rawValue)
+            Swift.print("fourth: " + "\(fourth)")
 			//--log "length of theStatusParts: " & (length of theStatusParts)
 			//--log theStatusParts
             var statusItem:Dictionary<String,String> = ["state":"", "cmd":"", "fileName":""] //--store the individual parts in an accociative
