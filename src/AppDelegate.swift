@@ -22,12 +22,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let repoXML = FileParser.xml(repoFilePath.tildePath)
         let repoList = XMLParser.toArray(repoXML)
         Swift.print("repoList.count: " + "\(repoList.count)")
-        doCommit(repoList[0])
+        doCommit(repoList[0], "master")
     }
     /**
      * Handles the process of making a commit for a single repository
      */
-    func doCommit(repoItem:Dictionary<String,String>,branch:String){
+    func doCommit(repoItem:Dictionary<String,String>,_ branch:String){
         //log "GitSync's handle_commit_interval() a repo with doCommit " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
         
         let localPath:String = repoItem["local-path"]!
@@ -40,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Swift.print("has unmerged paths to resolve")
             //MergeUtil's resolve_merge_conflicts(local_path of repo_item, branch, GitParser's unmerged_files(local_path of repo_item)) --Asserts if there are unmerged paths that needs resolvment
             
-            MergeUtils.resolveMergeConflicts(localPath, <#T##branch: String##String#>, <#T##unMergedFiles: Array<String>##Array<String>#>)
+            MergeUtils.resolveMergeConflicts(localPath, branch, <#T##unMergedFiles: Array<String>##Array<String>#>)
             
         }
     }
