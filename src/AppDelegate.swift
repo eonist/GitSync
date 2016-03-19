@@ -35,6 +35,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Continue here: do an isloated test with: "?? a.txt"
         
         
+        
+        let matches = RegExpParser.matches("abc def ghij", "\\w{3}")
+        for match:NSTextCheckingResult in matches {
+            match.numberOfRanges
+            let content = (str as NSString).substringWithRange(match.rangeAtIndex(0))//the entire match
+            let name = (str as NSString).substringWithRange(match.rangeAtIndex(1))//capturing group 1
+            let properties = (str as NSString).substringWithRange(match.rangeAtIndex(2))//capturing group 2
+        }
+        
+        
         let matches:[NSTextCheckingResult] = RegExp.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
         let theStatusParts:NSTextCheckingResult = matches[0]
         enum StatusParts:Int{ case first = 0, second , third, fourth}
