@@ -41,6 +41,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let unMergedFiles = GitParser.unMergedFiles(localPath) //Asserts if there are unmerged paths that needs resolvment
             MergeUtils.resolveMergeConflicts(localPath, branch, unMergedFiles)
         }
+        log do_commit(local_path of repo_item) --if there were no commits false will be returned
+        --log "has_commited: " & has_commited
     }
     /**
      * This method generates a git status list,and asserts if a commit is due, and if so, compiles a commit message and then tries to commit
@@ -64,6 +66,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Swift.print("commitResult: " + "\(commitResult)")
             return true//return true to indicate that the commit completed
         }else{
+            Swift.print("nothing to add or commit")
             return false //break the flow since there is nothing to commit or process
         }
     }
