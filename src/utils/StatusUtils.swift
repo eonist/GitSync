@@ -35,7 +35,7 @@ class StatusUtils{
         Swift.print("transformStatusList()")
 		var transformedList:[Dictionary<String,String>] = []
         for theStatusItem:String in theStatusList {
-			//--log "the_status_item: " & the_status_item
+			Swift.print("theStatusItem: " + "\(theStatusItem)")
             let matches:[NSTextCheckingResult] = RegExp.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
             let theStatusParts:NSTextCheckingResult = matches[0]
             enum StatusParts:Int{ case first = 0, second , third, fourth}
