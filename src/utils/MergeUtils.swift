@@ -13,7 +13,7 @@ class MergeUtils{
     class func manualMerge(localPath:String, _ remotePath:String, _ branch:String){
         Swift.print("MergeUtils.manualMerge()")
         if (GitAsserter.hasUnMergedPaths(localPath)) { //Asserts if there are unmerged paths that needs resolvment
-            
+            Swift.print("has unmerged paths to resolve")
         }
     }
     //property options : {}
