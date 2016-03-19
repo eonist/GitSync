@@ -61,7 +61,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let keychainData = KeyChainParser.keychainData(theKeychainItemName)
             let keychainPassword = keychainData["accountPassword"]
             Swift.print("keychainPassword: " + "\(keychainPassword)")
-            
+            let remoteAccountName to account_name of keychain_data
+            log "remote_account_name: " & remote_account_name
         }
     }
     func applicationWillTerminate(aNotification: NSNotification) {
