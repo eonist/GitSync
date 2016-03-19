@@ -34,8 +34,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("localPath: " + "\(localPath)")
         let remotePath:String = repoItem["remote-path"]!
         Swift.print("remotePath: " + "\(remotePath)")
-        let hasUnMergedpaths = GitAsserter .hasUnMergePaths(repoItem["local-path"]!)//Asserts if there are unmerged paths that needs resolvment
-        
+        let hasUnMergedpaths = GitAsserter.hasUnMergePaths(localPath)//Asserts if there are unmerged paths that needs resolvment
+        Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
