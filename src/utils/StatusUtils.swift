@@ -81,7 +81,7 @@ class StatusUtils{
 	 * TODO: Squash some of the states together with if or or or etc..
 	 */
 	class func processStatusList(localRepoPath:String, _ statusList:[Dictionary<String,String>]){
-		//--log "process_status_list()"
+		Swift.print("processStatusList")
         for statusItem:Dictionary<String,String> in statusList{
 			//--log "len of status_item: " & (length of statusItem)
 			//--set cmd to cmd of status_item
