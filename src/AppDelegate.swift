@@ -19,12 +19,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //TODO: 1. Read the repo.xml file and store the xml props in a array dictionary structure
-        let repoXML = FileParser.xml(repoFilePath.tildePath)
-        let repoList = XMLParser.toArray(repoXML)
-        Swift.print("repoList.count: " + "\(repoList.count)")
+        //let repoXML = FileParser.xml(repoFilePath.tildePath)
+        //let repoList = XMLParser.toArray(repoXML)
+        //Swift.print("repoList.count: " + "\(repoList.count)")
+        
+        let keychainResult = KeyChainParser.load("github")
+        Swift.print("keychainResult: " + "\(keychainResult)")
         //initCommit(repoList[0], "master")
         //initPush(repoList[0], "master")
     }
+    
+    func applicationWillTerminate(aNotification: NSNotification) {
+        // Insert code here to tear down your application
+    }
+}
+
+private class Utils{
     /**
      * Handles the process of making a commit for a single repository
      */
@@ -68,9 +78,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Swift.print("pushCallBack: " + "\(pushCallBack)")
         }
     }
-    func applicationWillTerminate(aNotification: NSNotification) {
-        // Insert code here to tear down your application
-    }
+    
 }
 
 /*
