@@ -57,7 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let hasLocalCommits = GitAsserter.hasLocalCommits(localPath, branch) //TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
         if (hasLocalCommits) { //only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
             let theKeychainItemName = repoItem["keychain-item-name"]!
-            let keychainData = KeychainParser.keychainData(theKeychainItemName)
+            let keychainData = KeyChainParser.keychainData(theKeychainItemName)
             //Swift.print("theKeychainItemName: " + "\(theKeychainItemName)")
         }
     }
