@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Utils.initPush(repoList[0], "master")
         
         
-        
+        let test = "testing this stuff"
         
         
     }
