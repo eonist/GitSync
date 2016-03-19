@@ -40,14 +40,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let matches = RegExp.matches(str, pattern)
         //let theStatusParts:NSTextCheckingResult = matches[0]
         for match:NSTextCheckingResult in matches {
-            match.numberOfRanges
+            Swift.print("match.numberOfRanges: " + "\(match.numberOfRanges)")
             let content = (str as NSString).substringWithRange(match.rangeAtIndex(0))//the entire match
             Swift.print("content: " + "\(content)")
             let second = (str as NSString).substringWithRange(match.rangeAtIndex(1))//capturing group 1
             Swift.print("second: " + "\(second)")
             let third = (str as NSString).substringWithRange(match.rangeAtIndex(2))//capturing group 2
             Swift.print("third: " + "\(third)")
-            let fourth = (str as NSString).substringWithRange(match.rangeAtIndex(4))//capturing group 4
+            let fourth = (str as NSString).substringWithRange(match.rangeAtIndex(3))//capturing group 3
             Swift.print("fourth: " + "\(fourth)")
             
         }
