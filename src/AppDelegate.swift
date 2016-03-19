@@ -23,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let repoList = XMLParser.toArray(repoXML)
         Swift.print("repoList.count: " + "\(repoList.count)")
         initCommit(repoList[0], "master")
-        initPush()
+        initPush(repoList[0], "master")
     }
     /**
      * Handles the process of making a commit for a single repository
@@ -33,7 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let localPath:String = repoItem["local-path"]!
         //Swift.print("localPath: " + "\(localPath)")
-        let hasUnMergedpaths = GitAsserter.hasUnMergePaths(localPath)//Asserts if there are unmerged paths that needs resolvment
+        let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(localPath)//Asserts if there are unmerged paths that needs resolvment
         Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
         if(hasUnMergedpaths){
             Swift.print("has unmerged paths to resolve")
