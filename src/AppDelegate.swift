@@ -22,8 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let repoXML = FileParser.xml(repoFilePath.tildePath)
         let repoList = XMLParser.toArray(repoXML)
         Swift.print("repoList.count: " + "\(repoList.count)")
-        initCommit(repoList[0], "master")
-        initPush(repoList[0], "master")
+        //initCommit(repoList[0], "master")
+        //initPush(repoList[0], "master")
     }
     /**
      * Handles the process of making a commit for a single repository
