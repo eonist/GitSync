@@ -24,7 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("repoList.count: " + "\(repoList.count)")
         
         Utils.initCommit(repoList[0], "master")
-        Utils.initPush(repoList[0], "master")
+        //Utils.initPush(repoList[0], "master")
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
