@@ -34,9 +34,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //Continue here: do an isloated test with: "?? a.txt"
         
+        let pattern:String = "^( )*([MARDU?]{1,2}) (.+)$"
         
-        
-        let matches = RegExpParser.matches("abc def ghij", "\\w{3}")
+        let matches = RegExp.matches("abc def ghij", pattern)
         for match:NSTextCheckingResult in matches {
             match.numberOfRanges
             let content = (str as NSString).substringWithRange(match.rangeAtIndex(0))//the entire match
