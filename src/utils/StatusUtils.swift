@@ -9,7 +9,7 @@ class StatusUtils{
 	 */
 	class func generateStatusList(localRepoPath:String)->[Dictionary<String,String>]{
 		let theStatus:String = GitParser.status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
-		//--log tab & "theStatus: " & theStatus
+		Swift.print("theStatus: " + "\(theStatus)")
 		let theStatusList:Array = StringParser.paragraphs(theStatus) //--store each line as items in a list
 		var transformedList:[Dictionary<String,String>] = []
 		if (theStatusList.count > 0) {
