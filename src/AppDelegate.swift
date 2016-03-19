@@ -37,7 +37,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let hasUnMergedpaths = GitAsserter.hasUnMergePaths(localPath)//Asserts if there are unmerged paths that needs resolvment
         Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
     }
-
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
