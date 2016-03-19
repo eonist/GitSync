@@ -34,6 +34,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let test = "testing this stuff"
         Swift.print("test.utf16: " + "\(test.utf16)")
         
+        let transform = "Any-Hex/Java"
+        let input = "\\u5404\\u500b\\u90fd" as NSString
+        let convertedString = input.mutableCopy() as! NSMutableString
+        
+        CFStringTransform(convertedString, nil, transform as NSString, true)
+        
+        Swift.print("convertedString: \(convertedString)")
+        
+        
+        
+        
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
