@@ -59,10 +59,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let theKeychainItemName = repoItem["keychain-item-name"]!
             //Swift.print("theKeychainItemName: " + "\(theKeychainItemName)")
             let keychainData = KeyChainParser.keychainData(theKeychainItemName)
-            let keychainPassword = keychainData["accountPassword"]
+            let keychainPassword = keychainData["accountPassword"]!
             Swift.print("keychainPassword: " + "\(keychainPassword)")
-            let remoteAccountName to account_name of keychain_data
-            log "remote_account_name: " & remote_account_name
+            let remoteAccountName = keychainData["accountName"]
+            Swift.print("remoteAccountName: " + "\(remoteAccountName)")
         }
     }
     func applicationWillTerminate(aNotification: NSNotification) {
