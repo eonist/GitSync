@@ -19,14 +19,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //TODO: 1. Read the repo.xml file and store the xml props in a array dictionary structure
-        //let repoXML = FileParser.xml(repoFilePath.tildePath)
-        //let repoList = XMLParser.toArray(repoXML)
-        //Swift.print("repoList.count: " + "\(repoList.count)")
+        let repoXML = FileParser.xml(repoFilePath.tildePath)
+        let repoList = XMLParser.toArray(repoXML)
+        Swift.print("repoList.count: " + "\(repoList.count)")
         
-        let keychainResult = KeyChainParser.load("eonist")!.stringValue
-        Swift.print("keychainResult: " + "\(keychainResult)")
-        //initCommit(repoList[0], "master")
-        //initPush(repoList[0], "master")
+        Utils.initCommit(repoList[0], "master")
+        //Utils.initPush(repoList[0], "master")
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
@@ -38,7 +36,7 @@ private class Utils{
     /**
      * Handles the process of making a commit for a single repository
      */
-    func initCommit(repoItem:Dictionary<String,String>,_ branch:String){
+    class func initCommit(repoItem:Dictionary<String,String>,_ branch:String){
         //log "GitSync's handle_commit_interval() a repo with doCommit " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
         
         let localPath:String = repoItem["local-path"]!
@@ -59,7 +57,7 @@ private class Utils{
      * NOTE: this method performs a "manual pull" on every interval
      * TODO: contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
      */
-    func initPush(repoItem:Dictionary<String,String>,_ branch:String){
+    class func initPush(repoItem:Dictionary<String,String>,_ branch:String){
         Swift.print("initPush")
         let localPath:String = repoItem["local-path"]!
         let remotePath:String = repoItem["remote-path"]!
