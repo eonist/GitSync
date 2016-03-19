@@ -38,10 +38,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
         if(hasUnMergedpaths){
             Swift.print("has unmerged paths to resolve")
-            //MergeUtil's resolve_merge_conflicts(local_path of repo_item, branch, GitParser's unmerged_files(local_path of repo_item)) --Asserts if there are unmerged paths that needs resolvment
-            
-            MergeUtils.resolveMergeConflicts(localPath, branch, <#T##unMergedFiles: Array<String>##Array<String>#>)
-            
+            let unMergedFiles = GitParser.unMergedFiles(localPath) //Asserts if there are unmerged paths that needs resolvment
+            MergeUtils.resolveMergeConflicts(localPath, branch, unMergedFiles)
         }
     }
     func applicationWillTerminate(aNotification: NSNotification) {
