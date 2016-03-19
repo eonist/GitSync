@@ -54,7 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let localPath:String = repoItem["local-path"]!
         let remotePath:String = repoItem["remote-path"]!
         MergeUtils.manualMerge(localPath, remotePath, branch)//commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
-        //set has_local_commits to GitAsserter's has_local_commits((local_path of repo_item), branch) --TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
+        let hasLocalCommits = GitAsserter.hasLocalCommits(localPath, branch) //TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
         
         
     }
