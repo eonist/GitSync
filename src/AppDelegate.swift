@@ -22,12 +22,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let repoXML = FileParser.xml(repoFilePath.tildePath)
         let repoList = XMLParser.toArray(repoXML)
         Swift.print("repoList.count: " + "\(repoList.count)")
-        doCommit(repoList[0], "master")
+        prepareToCommit(repoList[0], "master")
     }
     /**
      * Handles the process of making a commit for a single repository
      */
-    func doCommit(repoItem:Dictionary<String,String>,_ branch:String){
+    func prepareToCommit(repoItem:Dictionary<String,String>,_ branch:String){
         //log "GitSync's handle_commit_interval() a repo with doCommit " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
         
         let localPath:String = repoItem["local-path"]!
@@ -41,6 +41,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let unMergedFiles = GitParser.unMergedFiles(localPath) //Asserts if there are unmerged paths that needs resolvment
             MergeUtils.resolveMergeConflicts(localPath, branch, unMergedFiles)
         }
+    }
+    /**
+     * This method generates a git status list,and asserts if a commit is due, and if so, compiles a commit message and then tries to commit
+     * Returns true if a commit was made, false if no commit was made or an error occured
+     * NOTE: checks git staus, then adds changes to the index, then compiles a commit message, then commits the changes, and is now ready for a push
+     * NOTE: only commits if there is something to commit
+     * TODO: add branch parameter to this call
+     * NOTE: this a purly local method, does not need to communicate with remote servers etc..
+     */
+    func doCommit(localRepoPath:String){
+        
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
