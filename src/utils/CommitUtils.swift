@@ -1,7 +1,7 @@
 /*
  * Utility methods for parsing the the "git status message" 
  */
-class CommitUtil{
+class CommitUtils{
 	/*
 	 * Returns a a text "commit message title" derived from @param status_list
 	 * @param status_list: a list with records that contain staus type, file name and state
@@ -29,7 +29,7 @@ class CommitUtil{
 				case "UU": // --unmerged files,
 					numOfModifiedFiles += 1
 				default:
-					//throw error
+					fatalError("cmd: " + "\(cmd)" + " Not supported")
 					break;
 			}
 		}
