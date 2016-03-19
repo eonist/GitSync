@@ -34,35 +34,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //Continue here: do an isloated test with:
         let str:String = "?? a.txt"
-        let pattern:String = "^( )*([MARDU?]{1,2}) (.+)$"
+        let pattern:String = "^( )*([MARDU?]{1,2}) (.+)$"//--returns 3 capturing groups,
         enum StatusParts:Int{ case first = 0, second , third, fourth}
         
         let matches = RegExp.matches(str, pattern)
+        //let theStatusParts:NSTextCheckingResult = matches[0]
         for match:NSTextCheckingResult in matches {
             match.numberOfRanges
             let content = (str as NSString).substringWithRange(match.rangeAtIndex(0))//the entire match
-            let name = (str as NSString).substringWithRange(match.rangeAtIndex(1))//capturing group 1
-            let properties = (str as NSString).substringWithRange(match.rangeAtIndex(2))//capturing group 2
+            Swift.print("content: " + "\(content)")
+            let second = (str as NSString).substringWithRange(match.rangeAtIndex(1))//capturing group 1
+            Swift.print("second: " + "\(second)")
+            let third = (str as NSString).substringWithRange(match.rangeAtIndex(2))//capturing group 2
+            Swift.print("third: " + "\(third)")
+            let fourth = (str as NSString).substringWithRange(match.rangeAtIndex(4))//capturing group 4
+            Swift.print("fourth: " + "\(fourth)")
+            
         }
-        
-        
-        let matches:[NSTextCheckingResult] = RegExp.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
-        let theStatusParts:NSTextCheckingResult = matches[0]
-        
-        let second:String = RegExp.value(theStatusItem,theStatusParts,StatusParts.second.rawValue)
-        Swift.print("second: " + "\(second)")
-        let third:String = RegExp.value(theStatusItem,theStatusParts,StatusParts.third.rawValue)
-        Swift.print("third: " + "\(third)")
-        let fourth:String = RegExp.value(theStatusItem,theStatusParts,StatusParts.fourth.rawValue)
-        Swift.print("fourth: " + "\(fourth)")
-
-        
-        
-        
-        
-        
     }
-    
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
