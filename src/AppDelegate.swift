@@ -32,24 +32,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         let test = "testing this stuff"
-        Swift.print("test.utf16: " + "\(test.utf16)")
-        Swift.print("test.utf8: " + "\(test.utf8)")
+        
         
         let escaped = (test as NSString).UTF8String
-        Swift.print("escaped: " + "\(escaped)")
         
-        let transform = "Any-Hex/Java"
-        let input = "\\u5404\\u500b\\u90fd" as NSString
-        Swift.print("input.UTF8String: " + "\(input.UTF8String)")
-
-        let convertedString = input.mutableCopy() as! NSMutableString
-        
-        CFStringTransform(convertedString, nil, transform as NSString, true)
-        
-        Swift.print("convertedString: \(convertedString)")
-        
-        
-        
+        let unEscaped = escaped
         
     }
     func applicationWillTerminate(aNotification: NSNotification) {
