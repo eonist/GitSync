@@ -11,6 +11,7 @@ import Foundation
 //save to xml after each remove and add and each repo-settings-update
 class RepoView:Element{
     var topBar:TopBar?
+    var list:List?
     override func resolveSkin() {
         Swift.print("RepoView.resolveSkin()")
         super.resolveSkin()
@@ -19,8 +20,16 @@ class RepoView:Element{
         
         let dp:DataProvider = DataProvider()
         dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
-        let list:List = addSubView(List(width, height-48, NaN, dp, self))
-        ListModifier.selectAt(list, 1)
+        list = addSubView(List(width, height-48, NaN, dp, self))
+        ListModifier.selectAt(list!, 1)
+    }
+    override func onEvent(event: Event) {
+        if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){
+            Swift.print("addButton.click")
+            
+        }else if(event.type == ButtonEvent.upInside && event.origin === topBar!.removeButton){
+            Swift.print("removeButton.click")
+        }
     }
 }
 class TopBar:Element{
@@ -42,11 +51,5 @@ class TopBar:Element{
         
         
     }
-    override func onEvent(event: Event) {
-        if(event.type == ButtonEvent.upInside && event.origin === addButton){
-            Swift.print("addButton.click")
-        }else if(event.type == ButtonEvent.upInside && event.origin === removeButton){
-            Swift.print("removeButton.click")
-        }
-    }
+    
 }
