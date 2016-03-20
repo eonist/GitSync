@@ -2,7 +2,7 @@ import Foundation
 
 class LeftSideBar:Element{
     static let w:CGFloat = 75
-    let buttonTitles = ["inbox","home","pics","camera","game","view"]//["activity","incoming","outgoing","repos","stats","settings"]
+    let buttonTitles = ["inbox","home","pics","camera"/*,"game","view"*/]//["activity","incoming","outgoing","repos","stats","settings"]
     override func resolveSkin() {
         //Swift.print("LeftSideBar.resolveSkin()")
         StyleManager.addStylesByURL("~/Desktop/css/leftsidebar.css")
