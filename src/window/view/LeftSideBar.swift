@@ -4,9 +4,11 @@ class LeftSideBar:Element{
     static let w:CGFloat = 75
     let buttonTitles = ["inbox","home","pics","camera","game","view"]//["activity","incoming","outgoing","repos","stats","settings"]
     override func resolveSkin() {
-        Swift.print("LeftSideBar.resolveSkin()")
+        //Swift.print("LeftSideBar.resolveSkin()")
+        StyleManager.addStyle("LeftSideBar{fill:blue;}")
         StyleManager.addStylesByURL("~/Desktop/css/leftsidebar.css")
         super.resolveSkin()
+        createButtons()
     }
     func createButtons(){
         let buttonSection = self.addSubView(Section(LeftSideBar.w,200,self,"buttonSection"))
