@@ -5,7 +5,6 @@ class LeftSideBar:Element{
     let buttonTitles = ["inbox","home","pics","camera","game","view"]//["activity","incoming","outgoing","repos","stats","settings"]
     override func resolveSkin() {
         //Swift.print("LeftSideBar.resolveSkin()")
-        StyleManager.addStyle("LeftSideBar{fill:blue;}")
         StyleManager.addStylesByURL("~/Desktop/css/leftsidebar.css")
         super.resolveSkin()
         createButtons()

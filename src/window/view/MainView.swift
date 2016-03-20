@@ -1,13 +1,13 @@
 import Foundation
 
 class MainView:CustomView{
-    var leftContainer:Container?
+    var leftSection:Section?
     var leftSideBar:LeftSideBar?
     override func resolveSkin() {
         super.resolveSkin()
-        leftContainer = addSubView(Container(75,200,self))
+        leftSection = addSubView(Section(75,200,self,"leftSection"))
         createCustomTitleBar()
-        leftSideBar = leftContainer!.addSubView(LeftSideBar(LeftSideBar.w,height,leftContainer))
+        leftSideBar = leftSection!.addSubView(LeftSideBar(LeftSideBar.w,height,leftSection))
     }
     /**
      *
@@ -16,7 +16,7 @@ class MainView:CustomView{
         StyleManager.addStylesByURL("~/Desktop/css/titleBar.css")
         StyleManager.addStyle("Section#titleBar{padding-top:16px;padding-left:12px;}")
         
-        section = leftContainer!.addSubView(Section(75,16,leftContainer,"titleBar"))
+        section = leftSection!.addSubView(Section(75,16,leftSection,"titleBar"))
         closeButton = section!.addSubView(Button(0,0,section!,"close"))/*<--TODO: the w and h should be NaN, test if it supports this*/
         minimizeButton = section!.addSubView(Button(0,0,section!,"minimize"))
         maximizeButton = section!.addSubView(Button(0,0,section!,"maximize"))
