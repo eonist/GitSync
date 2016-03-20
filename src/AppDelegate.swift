@@ -27,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         StyleManager.addStyle(css)
         
         
-        window = GitSyncWin(300,300)/*Init the window*/
+        let win = GitSyncWin(300,300)/*Init the window*/
         let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
         app.windows[0].close()/*close the initial non-optional default window*/
         
