@@ -90,7 +90,8 @@ class RepoListItem:Button,ISelectable{
         nameText.isInteractive = false
         let branchText:Text = container.addSubView(Text(100,20,item["branch"]!,container,"branch"))
         branchText.isInteractive = false
-        
+        let titleText:Text = container.addSubView(Text(180,24,title,container,"title"))
+        titleText.isInteractive = false
         
         container
     }
