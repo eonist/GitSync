@@ -60,10 +60,7 @@ class RepoList:List{
         var i:Int = index;
         //Swift.print("mergeAt: index: " + "\(index)");
         for object:Dictionary<String,String> in objects {// :TODO: use for i
-            object
-            //object["header"]!, object["date"]!,object["title"]!,object["content"]!
-            
-            let item:RepoListItem = RepoListItem(getWidth(), self.itemHeight , false, self.lableContainer)
+            let item:RepoListItem = RepoListItem(getWidth(), self.itemHeight, object, false, self.lableContainer)
             self.lableContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
             i++
         }
@@ -78,10 +75,11 @@ class RepoList:List{
 
 
 class RepoListItem:Button,ISelectable{
+    var item:Dictionary<String,String>
     var isSelected:Bool;
-    init(_ width:CGFloat, _ height:CGFloat, _ name:String, _ branch:String, _ isSelected : Bool = false, _ parent:IElement? = nil, _ id:String? = nil){
+    init(_ width:CGFloat, _ height:CGFloat, _ item:Dictionary<String,String>, _ isSelected : Bool = false, _ parent:IElement? = nil, _ id:String? = nil){
         //Swift.print("RepoListItem init()")
-        
+        self.item = item
         self.isSelected = isSelected
         super.init(width, height, parent, id)
     }
