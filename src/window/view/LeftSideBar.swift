@@ -13,9 +13,10 @@ class LeftSideBar:Element{
         let buttonSection = self.addSubView(Section(LeftSideBar.w,200,self,"buttonSection"))
         var buttons:Array<ISelectable> = []
         for buttonTitle in buttonTitles{
-            buttons.append(buttonSection.addSubView(SelectButton(20,20,true,buttonSection,buttonTitle)))
+            buttons.append(buttonSection.addSubView(SelectButton(20,20,false,buttonSection,buttonTitle)))
         }
         let selectGroup = SelectGroup(buttons,buttons[0]);
+        buttons[0].setSelected(true)
         func onSelect(event:Event){
             //do something here
         }
