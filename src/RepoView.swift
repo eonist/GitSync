@@ -2,9 +2,6 @@ import Foundation
 
 //Load all the xml items
 
-//try to load a list with just the titles first
-//Create RepoListItem
-//Create RepoList
 //Hock up the add and remove functionality
 //adding a repo-item shows a InputModalView with the repo-URL,name,branch,etc
 //removing a repo-item just removes the item from the List
@@ -18,8 +15,14 @@ class RepoView:Element{
         topBar = addSubView(TopBar(width,48,self))
         
         
-        let dp:DataProvider = DataProvider()
-        dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
+        //let dp:DataProvider = DataProvider()
+        //dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
+        
+        
+        let xml = FileParser.xml("~/Desktop/repo.xml")
+        let dp:DataProvider = DataProvider(xml)
+        
+        
         list = addSubView(List(width, height-48, NaN, dp, self))
         ListModifier.selectAt(list!, 1)
     }
