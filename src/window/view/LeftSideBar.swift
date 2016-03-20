@@ -2,12 +2,12 @@ import Foundation
 
 class LeftSideBar:Element{
     static let w:CGFloat = 75
+    let buttonTitles = ["activity","incoming","outgoing","repos","stats","settings"]
     override func resolveSkin() {
         super.resolveSkin()
     }
     func createButtons(){
-        let buttonSection = self.addSubView(Section(w,200,self,"buttonSection"))
-        let buttonTitles = ["activity","incoming","outgoing","repos","stats","view"]
+        let buttonSection = self.addSubView(Section(self.w,200,self,"buttonSection"))
         var buttons:Array<ISelectable> = []
         for buttonTitle in buttonTitles{
             buttons.append(buttonSection.addSubView(SelectButton(20,20,true,buttonSection,buttonTitle)))
