@@ -1,7 +1,7 @@
 import Foundation
-//topBar with add and remove buttons, use Text buttons at first
+
 //Load all the xml items
-//contentView
+
 //try to load a list with just the titles first
 //Create RepoListItem
 //Create RepoList
