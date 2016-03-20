@@ -14,12 +14,12 @@ class RepoView:Element{
     override func resolveSkin() {
         Swift.print("RepoView.resolveSkin()")
         super.resolveSkin()
-        //topBar = addSubView(TopBar(width,48,self))
+        topBar = addSubView(TopBar(width,48,self))
         
         
         let dp:DataProvider = DataProvider()
         dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
-        let list:List = addSubView(List(width, height, NaN, dp, self))
+        let list:List = addSubView(List(width, height-48, NaN, dp, self))
         ListModifier.selectAt(list, 1)
     }
 }
@@ -30,8 +30,8 @@ class TopBar:Element{
         StyleManager.addStyle("TopBar{fill:grey;float:left;clear:left;corner-radius:0px 4px 0px 0px;}")
         super.resolveSkin()
         //add buttons here
-        StyleManager.addStyle("Button#add{fill:green;float:left;clear:none;}")
-        StyleManager.addStyle("Button#remove{fill:red;float:left;clear:none;}")
+        StyleManager.addStyle("Button#add{fill:green;float:left;clear:none;line:none;corner-radius:0px;}")
+        StyleManager.addStyle("Button#remove{fill:red;float:left;clear:none;line:none;corner-radius:0px;}")
         addButton = addSubView(Button(48,48,self,"add"))
         removeButton = addSubView(Button(48,48,self,"remove"))
         
