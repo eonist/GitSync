@@ -19,29 +19,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //TODO: 1. Read the repo.xml file and store the xml props in a array dictionary structure
-        /*
+        /**/
         
         let repoXML = FileParser.xml(repoFilePath.tildePath)
         let repoList = XMLParser.toArray(repoXML)
         Swift.print("repoList.count: " + "\(repoList.count)")
         
         Utils.initCommit(repoList[0], "master")
-        */
+
         
         //Utils.initPush(repoList[0], "master")
         
-        /*
-        set is_full_url to RegExpUtil's has_match(remote_path, "^https://.+$") --support for partial and full url
-        if is_full_url = true then
-        set remote_path to text 9 thru (length of remote_path) of remote_path --strip away the https://, since this will be added later
-        end if
         
-        */
-        var str = "https://github.com/eonist/"
-        let isFullUrl = str.test("^https://.+$")
-        Swift.print("isFullUrl: " + "\(isFullUrl)")
-        str = str.subString(8, str.count)
-        Swift.print("str: " + "\(str)")
+        
+        
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
