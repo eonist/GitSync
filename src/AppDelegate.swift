@@ -28,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Utils.initCommit(repoList[0], "master")
 
         
-        //Utils.initPush(repoList[0], "master")
+        Utils.initPush(repoList[0], "master")
         
         
         
