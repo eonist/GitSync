@@ -16,6 +16,12 @@ class RepoView:Element{
         topBar = addSubView(TopBar(width,48,self))
         
         
+        StyleManager.addStyle("~/")
+        let dp:DataProvider = DataProvider(xml)
+        let list:List = listCard.addSubView(List(140, 72, NaN, dp,listCard))
+        ListModifier.selectAt(list, 1);
+        
+        
         list.dataProvider.addItemAt({title:"brown"}, 0);
         //		list.dataProvider.addItem({title:"pink"});// :TODO: doesnt work atm
         //		list.dataProvider.addItems([{title:"purple"}, {title:"turquoise"}]);// :TODO: doesnt work atm
