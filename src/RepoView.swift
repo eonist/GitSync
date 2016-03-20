@@ -17,10 +17,17 @@ class RepoView:Element{
         //topBar = addSubView(TopBar(width,48,self))
         
         
-        let dp:DataProvider = DataProvider()
+        /*let dp:DataProvider = DataProvider()
         dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
         let list:List = addSubView(List(200, 200, 24, dp, self))
-        list
+        list*/
+        
+        let xml = FileParser.xml("~/Desktop/assets/xml/list.xml")
+        let dp:DataProvider = DataProvider(xml)
+        let list:List = self.addSubView(List(140, 72, 24, dp,self))
+        ListModifier.selectAt(list, 1);
+        
+        
         //ListModifier.selectAt(list, 1)
     }
 }
