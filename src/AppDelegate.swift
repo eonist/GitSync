@@ -37,11 +37,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         end if
         
         */
-        let str = "https://github.com/eonist/"
+        var str = "https://github.com/eonist/"
         let isFullUrl = str.test("^https://.+$")
         Swift.print("isFullUrl: " + "\(isFullUrl)")
-        StringParser.subStr(str, 9, 9)
-        
+        str = StringParser.subString(str, 9, str.count)
+        Swift.print("str: " + "\(str)")
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
