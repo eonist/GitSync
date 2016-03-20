@@ -15,7 +15,7 @@ class RepoView:Element{
         Swift.print("RepoView.resolveSkin()")
         super.resolveSkin()
         //topBar = addSubView(TopBar(width,48,self))
-        StyleManager.addStylesByURL("~/Desktop/css/explorer/explorer.css")
+        
         
         let dp:DataProvider = DataProvider()
         dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
