@@ -1,6 +1,6 @@
 import Foundation
 
-//Load all the xml items
+//create the repo item detail view with infro from xml item 1
 
 //adding a repo-item transitions in the RepoItemDetailView: repo-URL,name,branch,etc (should also have a backButton)
 
