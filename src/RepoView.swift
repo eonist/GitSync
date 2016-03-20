@@ -16,10 +16,10 @@ class RepoView:Element{
         topBar = addSubView(TopBar(width,48,self))
         
         
-        StyleManager.addStyle("~/Desktop/css/explorer/list/list.css")
+        StyleManager.addStyle("~/Desktop/css/explorer/basic/list/list.css")
         let dp:DataProvider = DataProvider()
         dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
-        let list:List = addSubView(List(140, 72, NaN, dp,self))
+        let list:List = addSubView(List(width, height, 24, dp,self))
         ListModifier.selectAt(list, 1);
     }
 }
