@@ -31,7 +31,7 @@ class TopBar:Element{
         super.resolveSkin()
         //add buttons here
         StyleManager.addStyle("Button#add{fill:green;float:left;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")
-        StyleManager.addStyle("Button#remove{fill:red;float:left;clear:none;line:none;corner-radius:0px;}")
+        StyleManager.addStyle("Button#remove{fill:red;float:left;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")
         addButton = addSubView(Button(48,48,self,"add"))
         removeButton = addSubView(Button(48,48,self,"remove"))
         
