@@ -60,7 +60,10 @@ class RepoList:List{
         var i:Int = index;
         //Swift.print("mergeAt: index: " + "\(index)");
         for object:Dictionary<String,String> in objects {// :TODO: use for i
-            let item:ArticleItem = ArticleItem(getWidth(), self.itemHeight ,object["header"]!, object["date"]!,object["title"]!,object["content"]!, false, self.lableContainer)
+            object
+            //object["header"]!, object["date"]!,object["title"]!,object["content"]!
+            
+            let item:RepoListItem = RepoListItem(getWidth(), self.itemHeight , false, self.lableContainer)
             self.lableContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
             i++
         }
@@ -75,17 +78,17 @@ class RepoList:List{
 
 
 class RepoListItem:Button,ISelectable{
-
+    var isSelected:Bool;
     init(_ width:CGFloat, _ height:CGFloat, _ isSelected : Bool = false, _ parent:IElement? = nil, _ id:String? = nil){
-        //Swift.print("ArticleItem init()")
+        //Swift.print("RepoListItem init()")
         
         self.isSelected = isSelected
         super.init(width, height, parent, id)
     }
     override func resolveSkin() {
         super.resolveSkin()
-        let container = addSubView(Section(width,50,self,"textContainer"))
-        
+        let container = addSubView(Section(width,48,self,"textContainer"))
+        container
     }
     override func mouseUpInside(event: MouseEvent) {
         isSelected = true
@@ -103,7 +106,7 @@ class RepoListItem:Button,ISelectable{
         return isSelected ? SkinStates.selected + " " + super.getSkinState() : super.getSkinState();
     }
     override func getClassType() -> String {
-        return String(ArticleItem)
+        return String(RepoListItem)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
