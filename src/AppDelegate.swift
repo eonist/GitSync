@@ -1,9 +1,6 @@
 import Cocoa
 /**
  * This is the main class for the application
- * TODO: create the window
- * TODO: the window has a view
- * TODO: the view has leftMenuView and MainView
  */
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
