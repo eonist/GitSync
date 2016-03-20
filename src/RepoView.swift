@@ -12,12 +12,10 @@ import Foundation
 class RepoView:Element{
     var topBar:TopBar?
     override func resolveSkin() {
+        
         super.resolveSkin()
         //topBar = addSubView(TopBar(width,48,self))
-        StyleManager.addStyle("~/Desktop/css/explorer/generic.css")
-        StyleManager.addStyle("~/Desktop/css/explorer/basic/button/button.css")
-        StyleManager.addStyle("~/Desktop/css/explorer/basic/text/text.css")
-        StyleManager.addStyle("~/Desktop/css/explorer/basic/list/list.css")
+        
         
         let dp:DataProvider = DataProvider()
         dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
