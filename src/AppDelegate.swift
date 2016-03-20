@@ -32,12 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var repoFilePath:String = "~/Desktop/repo.xml"
     var win:NSWindow?/*<--The window must be a class variable, local variables doesnt work*/
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        var css = "Window{fill:#EFEFF4;corner-radius:4px;}"//E8E8E8//<--you should target a bg element not the window it self, since now everything inherits these values
-        css += "}"
-        //css += "Section{fill:#EFEFF4;corner-radius:4px 4px 0px 0px;}"
-        //css += "Button{fill:green;}"
-        css += ""
-        StyleManager.addStyle(css)
+        StyleManager.addStyle("Window{fill:#EFEFF4;corner-radius:4px;}")//E8E8E8//<--you should target a bg element not the window it self, since now everything inherits these values
         
         
         win = GitSyncWin(300,300)/*Init the window*/
