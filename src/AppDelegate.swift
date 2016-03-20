@@ -31,14 +31,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Utils.initPush(repoList[0], "master")
         
         
-        let str = "testing this stuff"
+        let str = "testing this stuff.121"
         
         
-        let escaped = str.stringByAddingPercentEncodingWithAllowedCharacters(<#T##allowedCharacters: NSCharacterSet##NSCharacterSet#>)
-
+        let escaped = str.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.lowercaseLetterCharacterSet())
+        Swift.print("escaped: " + "\(escaped)")
         //(test as NSString).UTF8String
         
         let unEscaped = escaped!.stringByRemovingPercentEncoding
+        Swift.print("unEscaped: " + "\(unEscaped)")
         
     }
     func applicationWillTerminate(aNotification: NSNotification) {
