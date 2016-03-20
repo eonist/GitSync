@@ -31,12 +31,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Utils.initPush(repoList[0], "master")
         
         
-        let test = "testing this stuff"
+        let str = "testing this stuff"
         
         
-        let escaped = (test as NSString).UTF8String
+        let escaped = str.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+
+        //(test as NSString).UTF8String
         
-        let unEscaped = escaped
+        let unEscaped = escaped!.stringByRemovingPercentEncoding
         
     }
     func applicationWillTerminate(aNotification: NSNotification) {
