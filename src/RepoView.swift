@@ -15,6 +15,7 @@ class RepoView:Element{
         super.resolveSkin()
         //topBar = addSubView(TopBar(width,48,self))
         StyleManager.addStyle("~/Desktop/css/explorer/generic.css")
+        StyleManager.addStyle("~/Desktop/css/explorer/basic/button/button.css")
         StyleManager.addStyle("~/Desktop/css/explorer/basic/text/text.css")
         StyleManager.addStyle("~/Desktop/css/explorer/basic/list/list.css")
         
