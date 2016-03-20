@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let str = "testing this stuff"
         
         
-        let escaped = str.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+        let escaped = str.stringByAddingPercentEncodingWithAllowedCharacters(<#T##allowedCharacters: NSCharacterSet##NSCharacterSet#>)
 
         //(test as NSString).UTF8String
         
