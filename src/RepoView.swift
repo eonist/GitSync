@@ -3,6 +3,7 @@ import Foundation
 //Load all the xml items
 
 //adding a repo-item transitions in the RepoItemDetailView: repo-URL,name,branch,etc (should also have a backButton)
+
 //save to xml after each remove and add and each repo-settings-update
 
 //next is to create the activity list and load in the last 5 commits from each repo. and then sync repos
