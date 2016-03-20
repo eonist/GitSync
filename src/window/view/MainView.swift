@@ -1,5 +1,7 @@
 import Foundation
 
-class MainView {
-
+class MainView:CustomView{
+    override func resolveSkin() {
+        super.resolveSkin()
+    }
 }
