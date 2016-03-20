@@ -39,7 +39,7 @@ class TopBar:Element{
     override func onEvent(event: Event) {
         if(event.type == ButtonEvent.upInside && event.origin === addButton){
             Swift.print("addButton.click")
-        }else if(event.type == ButtonEvent.upInside && event.origin === addButton){
+        }else if(event.type == ButtonEvent.upInside && event.origin === removeButton){
             Swift.print("removeButton.click")
         }
     }
