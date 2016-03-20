@@ -7,7 +7,7 @@ class LeftSideBar:Element{
         super.resolveSkin()
     }
     func createButtons(){
-        let buttonSection = self.addSubView(Section(self.w,200,self,"buttonSection"))
+        let buttonSection = self.addSubView(Section(LeftSideBar.w,200,self,"buttonSection"))
         var buttons:Array<ISelectable> = []
         for buttonTitle in buttonTitles{
             buttons.append(buttonSection.addSubView(SelectButton(20,20,true,buttonSection,buttonTitle)))
