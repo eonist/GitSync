@@ -40,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var str = "https://github.com/eonist/"
         let isFullUrl = str.test("^https://.+$")
         Swift.print("isFullUrl: " + "\(isFullUrl)")
-        str = StringParser.subString(str, 9, str.count)
+        str = str.subStr(9, str.count)
         Swift.print("str: " + "\(str)")
     }
     func applicationWillTerminate(aNotification: NSNotification) {
