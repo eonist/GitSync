@@ -75,7 +75,7 @@ class StatusUtils{
 		}
 		return transformedList
 	}
-	/*
+	/**
 	 * Iterates over the status items and "git add" the item unless it's already added (aka "staged for commit")
 	 * NOTE: if the status list is empty then there is nothing to process
 	 * NOTE: even if a file is removed, its status needs to be added to the next commit
@@ -93,7 +93,7 @@ class StatusUtils{
 			switch state {
 				case "Untracked files": //--this is when there exists a new file
 					Swift.print("1. " + "Untracked files")
-					GitModifier.add(localRepoPath, fileName) //--add the file to the next commit
+					GitModifier.add(localRepoPath, fileName) //add the file to the next commit
 				case "Changes not staged for commit": //--this is when you have not added a file that has changed to the next commit
 					Swift.print("2. " + "Changes not staged for commit")
 					GitModifier.add(localRepoPath, fileName) //--add the file to the next commit
@@ -101,7 +101,7 @@ class StatusUtils{
                     Swift.print("3. " + "Changes to be committed")//do nothing here
 				case "Unmerged path": //--This is when you have files that have to be resolved first, but eventually added aswell
 					Swift.print("4. " + "Unmerged path")
-					GitModifier.add(localRepoPath, fileName) //--add the file to the next commit
+					GitModifier.add(localRepoPath, fileName) //add the file to the next commit
                 default :
 					//throw error
 					break
