@@ -86,12 +86,15 @@ class RepoListItem:Button,ISelectable{
     override func resolveSkin() {
         super.resolveSkin()
         let container = addSubView(Section(width,48,self,"textContainer"))
-        let nameText:Text = container.addSubView(Text(120,20,item["name"]!,container,"name"))
-        nameText.isInteractive = false
-        let branchText:Text = container.addSubView(Text(100,20,item["branch"]!,container,"branch"))
-        branchText.isInteractive = false
+        
         let titleText:Text = container.addSubView(Text(180,24,title,container,"title"))
         titleText.isInteractive = false
+        
+        let branchText:Text = container.addSubView(Text(100,20,item["branch"]!,container,"branch"))
+        branchText.isInteractive = false
+        
+        let nameText:Text = container.addSubView(Text(120,20,item["name"]!,container,"name"))
+        nameText.isInteractive = false
         
         container
     }
