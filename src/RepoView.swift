@@ -79,7 +79,7 @@ class RepoList:List{
 
 class RepoListItem:Button,ISelectable{
     var isSelected:Bool;
-    init(_ width:CGFloat, _ height:CGFloat, _ isSelected : Bool = false, _ parent:IElement? = nil, _ id:String? = nil){
+    init(_ width:CGFloat, _ height:CGFloat, _ name:String, _ branch:String, _ isSelected : Bool = false, _ parent:IElement? = nil, _ id:String? = nil){
         //Swift.print("RepoListItem init()")
         
         self.isSelected = isSelected
