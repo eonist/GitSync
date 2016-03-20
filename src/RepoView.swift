@@ -86,6 +86,7 @@ class RepoListItem:Button,ISelectable{
     override func resolveSkin() {
         super.resolveSkin()
         let container = addSubView(Section(width,48,self,"textContainer"))
+        
         container
     }
     override func mouseUpInside(event: MouseEvent) {
