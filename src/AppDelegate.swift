@@ -35,11 +35,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         let escaped = str.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLPathAllowedCharacterSet())
-        Swift.print("escaped: " + "\(escaped)")
+        Swift.print("escaped: " + "\(escaped)")//escaped: Optional("testing%20this%20stuff.121")
         //(test as NSString).UTF8String
         
         let unEscaped = escaped!.stringByRemovingPercentEncoding
-        Swift.print("unEscaped: " + "\(unEscaped)")
+        Swift.print("unEscaped: " + "\(unEscaped)")//unEscaped: Optional("testing this stuff.121")
         
     }
     func applicationWillTerminate(aNotification: NSNotification) {
