@@ -1,21 +1,26 @@
 import Foundation
-
+//topBar with add and remove buttons, use Text buttons at first
+//Load all the xml items
+//contentView
+//try to load a list with just the titles first
+//Create RepoListItem
+//Create RepoList
+//Hock up the add and remove functionality
+//adding a repo-item shows a InputModalView with the repo-URL,name,branch,etc
+//removing a repo-item just removes the item from the List
+//save to xml after each remove and add and each repo-settings-update
 class RepoView:Element{
     var topBar:TopBar?
     override func resolveSkin() {
         super.resolveSkin()
         topBar = addSubView(TopBar(width,48,self))
+        
+        
+        list.dataProvider.addItemAt({title:"brown"}, 0);
+        //		list.dataProvider.addItem({title:"pink"});// :TODO: doesnt work atm
+        //		list.dataProvider.addItems([{title:"purple"}, {title:"turquoise"}]);// :TODO: doesnt work atm
     }
-    //topBar with add and remove buttons, use Text buttons at first
-    //Load all the xml items
-    //contentView
-    //try to load a list with just the titles first
-    //Create RepoListItem
-    //Create RepoList
-    //Hock up the add and remove functionality
-    //adding a repo-item shows a InputModalView with the repo-URL,name,branch,etc
-    //removing a repo-item just removes the item from the List
-    //save to xml after each remove and add and each repo-settings-update
+    
 }
 class TopBar:Element{
     var addButton:Button?
