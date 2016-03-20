@@ -1,5 +1,5 @@
 import Foundation
 
-class ContentView {
-
+class ContentView:Container{
+    
 }
