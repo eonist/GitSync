@@ -19,7 +19,7 @@ class RepoView:Element{
 }
 class TopBar:Element{
     override func resolveSkin() {
-        StyleManager.addStyle("TopBar{fill:red;}")
+        StyleManager.addStyle("TopBar{fill:green;float:left;clear:left;}")
         super.resolveSkin()
         //add buttons here
     }
