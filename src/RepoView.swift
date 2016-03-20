@@ -4,7 +4,7 @@ class RepoView:Element{
     var topBar:TopBar?
     override func resolveSkin() {
         super.resolveSkin()
-        topBar = addSubView(TopBar(width,24,self))
+        topBar = addSubView(TopBar(width,48,self))
     }
     //topBar with add and remove buttons, use Text buttons at first
     //Load all the xml items
