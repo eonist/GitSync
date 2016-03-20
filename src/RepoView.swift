@@ -21,12 +21,19 @@ class TopBar:Element{
     var addButton:Button?
     var removeButton:Button?
     override func resolveSkin() {
-        StyleManager.addStyle("TopBar{fill:yellow;float:left;clear:left;corner-radius:0px 4px 0px 0px;}")
+        StyleManager.addStyle("TopBar{fill:grey;float:left;clear:left;corner-radius:0px 4px 0px 0px;}")
         super.resolveSkin()
         //add buttons here
         StyleManager.addStyle("Button#add{fill:green;float:left;clear:none;}")
         StyleManager.addStyle("Button#remove{fill:red;float:left;clear:none;}")
         addButton = addSubView(Button(48,48,self,"add"))
         removeButton = addSubView(Button(48,48,self,"remove"))
+        
+        
+        //hoock up the buttons to eventHandlers
+        //add the list 
+        //try adding and removing items
+        
+        
     }
 }
