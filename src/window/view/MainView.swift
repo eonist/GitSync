@@ -5,7 +5,7 @@ class MainView:CustomView{
     var leftSideBar:LeftSideBar?
     override func resolveSkin() {
         super.resolveSkin()
-        StyleManager.addStyle("Section#leftSection{fill:blue;}")
+        StyleManager.addStyle("Section#leftSection{fill:blue;corner-radius:4px 0px 4px 0px;}")
         leftSection = addSubView(Section(75,400,self,"leftSection"))
         createCustomTitleBar()
         leftSideBar = leftSection!.addSubView(LeftSideBar(LeftSideBar.w,height,leftSection))
