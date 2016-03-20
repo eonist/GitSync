@@ -2,11 +2,7 @@ import Foundation
 
 //Load all the xml items
 
-
-//adding a repo-item transitions in the RepoItemDetailView: repo-URL,name,branch,etc
-
-
-//removing a repo-item just removes the selected item from the List
+//adding a repo-item transitions in the RepoItemDetailView: repo-URL,name,branch,etc (should also have a backButton)
 //save to xml after each remove and add and each repo-settings-update
 
 
