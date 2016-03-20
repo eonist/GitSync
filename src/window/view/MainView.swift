@@ -5,7 +5,7 @@ class MainView:CustomView{
     var leftSideBar:LeftSideBar?
     override func resolveSkin() {
         super.resolveSkin()
-        leftContainer = addSubView(Container(0,0,self))
+        leftContainer = addSubView(Container(75,200,self))
         createCustomTitleBar()
         leftSideBar = leftContainer!.addSubView(LeftSideBar(LeftSideBar.w,height,leftContainer))
     }

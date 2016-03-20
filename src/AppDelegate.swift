@@ -11,7 +11,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var repoFilePath:String = "~/Desktop/repo.xml"
     var win:NSWindow?/*<--The window must be a class variable, local variables doesnt work*/
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        StyleManager.addStyle("Window{fill:#EFEFF4;corner-radius:4px;}")//E8E8E8//<--you should target a bg element not the window it self, since now everything inherits these values
+        StyleManager.addStyle("Window{fill:green;corner-radius:4px;}")//#EFEFF4//E8E8E8//<--you should target a bg element not the window it self, since now everything inherits these values
         win = GitSyncWin(300,300)/*Init the window*/
         let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
         app.windows[0].close()/*close the initial non-optional default window*/
