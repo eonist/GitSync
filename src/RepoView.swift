@@ -26,12 +26,10 @@ class RepoView:Element{
     override func onEvent(event: Event) {
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){
             Swift.print("addButton.click")
-            list!.dataProvider.addItem(["title":"blue"])
-            
-            
+            list!.dataProvider.addItemAt(["title":"blue"], 0)
         }else if(event.type == ButtonEvent.upInside && event.origin === topBar!.removeButton){
             Swift.print("removeButton.click")
-            list!.dataProvider.removeItemAt(0)
+            list!.dataProvider.removeItemAt(0)//use selected index here
         }
     }
 }
