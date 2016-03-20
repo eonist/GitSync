@@ -18,9 +18,13 @@ class RepoView:Element{
     //save to xml after each remove and add and each repo-settings-update
 }
 class TopBar:Element{
+    var addButton:Button?
+    var removeButton:Button?
     override func resolveSkin() {
-        StyleManager.addStyle("TopBar{fill:green;float:left;clear:left;corner-radius:0px 4px 0px 0px;}")
+        StyleManager.addStyle("TopBar{fill:yellow;float:left;clear:left;corner-radius:0px 4px 0px 0px;}")
         super.resolveSkin()
         //add buttons here
+        addButton = Button()
+        removeButton = Button()
     }
 }
