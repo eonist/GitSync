@@ -3,6 +3,7 @@ import Foundation
 class RepoView:Element{
     var topBar:TopBar?
     override func resolveSkin() {
+        "corner-radius:0px 4px 0px 0px"
         super.resolveSkin()
         topBar = addSubView(TopBar(width,48,self))
     }
