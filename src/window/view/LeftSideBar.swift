@@ -4,6 +4,7 @@ class LeftSideBar:Element{
     static let w:CGFloat = 75
     let buttonTitles = ["activity","incoming","outgoing","repos","stats","settings"]
     override func resolveSkin() {
+        StyleManager.addStylesByURL("~/Desktop/css/leftsidebar.css")
         super.resolveSkin()
     }
     func createButtons(){
