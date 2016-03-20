@@ -67,7 +67,10 @@ private class Utils{
     class func initPush(repoItem:Dictionary<String,String>,_ branch:String){
         Swift.print("initPush")
         let localPath:String = repoItem["local-path"]!
-        let remotePath:String = repoItem["remote-path"]!
+        var remotePath:String = repoItem["remote-path"]!
+        
+        if(remotePath.test("^https://.+$")){remotePath = remotePath.subString(8, remotePath.count)}//support for partial and full url,strip away the https://, since this will be added later
+        
         MergeUtils.manualMerge(localPath, remotePath, branch)//commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
         let hasLocalCommits = GitAsserter.hasLocalCommits(localPath, branch) //TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
         if (hasLocalCommits) { //only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
