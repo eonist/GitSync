@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let str = "testing this stuff.121"
         
         
-        let escaped = str.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.lowercaseLetterCharacterSet())
+        let escaped = str.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLPathAllowedCharacterSet())
         Swift.print("escaped: " + "\(escaped)")
         //(test as NSString).UTF8String
         
