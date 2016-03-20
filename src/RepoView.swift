@@ -22,10 +22,7 @@ class RepoView:Element{
         let list:List = addSubView(List(200, 200, 24, dp, self))
         list*/
         
-        let xml = FileParser.xml("~/Desktop/assets/xml/scrollist.xml")//TODO:  create a method tht takes url and makes dp
-        let dp:DataProvider = DataProvider(xml)
-        let sliderList:SliderList = self.addSubView(SliderList(140, 74, 24, dp, self))
-        ListModifier.select(sliderList, "blue")
+       
         
         
         //ListModifier.selectAt(list, 1)
