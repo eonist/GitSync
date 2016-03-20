@@ -2,10 +2,14 @@ import Foundation
 
 //Load all the xml items
 
-//Hock up the add and remove functionality
-//adding a repo-item shows a InputModalView with the repo-URL,name,branch,etc
-//removing a repo-item just removes the item from the List
+
+//adding a repo-item transitions in the RepoItemDetailView: repo-URL,name,branch,etc
+
+
+//removing a repo-item just removes the selected item from the List
 //save to xml after each remove and add and each repo-settings-update
+
+
 class RepoView:Element{
     var topBar:TopBar?
     var list:List?
