@@ -3,12 +3,14 @@ import Foundation
 class MainView:CustomView{
     var leftSection:Section?
     var leftSideBar:LeftSideBar?
+    var contentView:ContentView?
     override func resolveSkin() {
         super.resolveSkin()
         StyleManager.addStyle("Section#leftSection{fill:grey2;corner-radius:4px 0px 4px 0px;}")
-        leftSection = addSubView(Section(75,400,self,"leftSection"))
+        leftSection = addSubView(Section(LeftSideBar.w,400,self,"leftSection"))
         createCustomTitleBar()
         leftSideBar = leftSection!.addSubView(LeftSideBar(LeftSideBar.w,height,leftSection))
+        contentView = addSubView(ContentView(width-LeftSideBar.w,height,self))
     }
     /**
      *
