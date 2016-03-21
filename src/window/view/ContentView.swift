@@ -19,7 +19,7 @@ class ContentView:Element{
             repoDetailView = addSubView(repoDetailView ?? RepoDetailView(width,height,self))
             let repoData = RepoData.sharedInstance
             let repoItem = repoData.dp.getItemAt(repoData.selectedIndex!)!
-            repoDetailView.setRepoData(repoData:)
+            repoDetailView!.setRepoData(repoItem)//updates the UI elements with the selected repo data
         }else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.backButton){
             repoDetailView!.removeFromSuperview()
             repoView = addSubView(repoView ?? RepoView(width,height,self))

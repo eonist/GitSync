@@ -35,7 +35,7 @@ class RepoDetailView:Element{
     
         let repoData = RepoData.sharedInstance
         let repoItem = repoData.dp.getItemAt(repoData.selectedIndex!)!
-        setRepoData(repoItem)
+        setRepoData(repoItem)//updates the UI elements with the selected repo data
     }
     /**
      *
