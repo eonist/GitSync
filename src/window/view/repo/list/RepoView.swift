@@ -1,12 +1,10 @@
 import Foundation
 
-//update the add repo button to a IconButton
 
-//add a remove button in repoItemDetailView topRight
+//tree-structured xml (requires you to make the DataBase class)
 
-//add the trashCan SVG to the removeBTN
+//revealInFinder and open in safari for path and URL
 
-//add the plus sign to the add repo button
 
 //save to xml after each remove and add and each repo-settings-update (this involves creating the dp->xml method)
 
