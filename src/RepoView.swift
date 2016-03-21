@@ -29,12 +29,7 @@ class RepoView:Element{//rename to RepoListView
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){
             Swift.print("addButton.click")
             list!.dataProvider.addItemAt(["title":"New repo"], 0)
-            
-            
-            //you need to store the repodata in the list.dp and have everything pull from there
-            
-            
-            //ListModifier.selectAt(list!, 0)
+            ListModifier.selectAt(list!, 0)
         }else if(event.type == ButtonEvent.upInside && event.origin === topBar!.removeButton){
             Swift.print("removeButton.click")
             list!.dataProvider.removeItemAt(0)//use selected index here
