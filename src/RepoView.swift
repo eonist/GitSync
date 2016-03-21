@@ -37,7 +37,7 @@ class RepoView:Element{//rename to RepoListView
             list!.dataProvider.removeItemAt(0)//use selected index here
         }else if(event.type == ListEvent.select){
             Swift.print("RepoView select")
-            super.onEvent(event)
+            super.onEvent(event)//forward this event to the parent
         }
     }
 }
