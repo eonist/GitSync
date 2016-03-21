@@ -28,7 +28,7 @@ class RepoView:Element{//rename to RepoListView
     override func onEvent(event: Event) {
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){
             Swift.print("addButton.click")
-            list!.dataProvider.addItemAt(["title":"New repo","local-path":"","remote-path":"","interval":"30","keychain-item-name":"","branch":"master","title":"true","broadcast":"true","subscribe":"true","auto-sync":"true"], 0)
+            list!.dataProvider.addItemAt(["title":"New repo","local-path":"","remote-path":"","interval":"30","keychain-item-name":"","branch":"master","broadcast":"true","subscribe":"true","auto-sync":"true"], 0)
             ListModifier.selectAt(list!, 0)
         }else if(event.type == ButtonEvent.upInside && event.origin === topBar!.removeButton){
             Swift.print("removeButton.click")
