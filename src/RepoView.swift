@@ -62,11 +62,7 @@ class TopBar:Element{
         StyleManager.addStyle("TopBar Button#remove{width:24px,16px;height:24px,16px;margin:0px,4px;}")
         addButton = addSubView(Button(24,24,self,"add"))
         removeButton = addSubView(Button(24,24,self,"remove"))
-        
-        
-        //hoock up the buttons to eventHandlers
-        //add the list 
-        //try adding and removing items
+       
         
     }
 }

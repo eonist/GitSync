@@ -41,8 +41,6 @@ class RepoDetailView:Element{
      *
      */
     func setRepoData(repoData:Dictionary<String,String>){
-        
-        //continue here: add repoData to each UI element and dont set the repoData on init?
         nameTextInput!.inputTextArea!.setTextValue(repoData["title"]!)
         localPathTextInput!.inputTextArea!.setTextValue(repoData["local-path"]!)
         remotePathTextInput!.inputTextArea!.setTextValue(repoData["remote-path"]!)
@@ -50,7 +48,27 @@ class RepoDetailView:Element{
         subscribeCheckBoxButton!.setChecked(repoData["subscribe"]!.bool)
         autoSyncCheckBoxButton!.setChecked(repoData["auto-sync"]!.bool)
         autoSyncIntervalLeverSpinner!.setValue(repoData["interval"]!.cgFloat)
+    }
+    
+}
+
+class RepoItemTopBar:Element{
+    var addButton:Button?
+    var removeButton:Button?
+    override func resolveSkin() {
+        StyleManager.addStyle("TopBar{float:left;clear:left;corner-radius:0px 4px 0px 0px;padding-left:10px;}")
+        super.resolveSkin()
+        //add buttons here
+        StyleManager.addStyle("TopBar Button#add{float:left;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")//fill:green;
+        StyleManager.addStyle("TopBar Button#add{fill:white,~/Desktop/gitsync/assets/svg/add.svg grey8;}")
+        StyleManager.addStyle("TopBar Button#add{width:24px,16px;height:24px,16px;margin:0px,4px;}")
         
-        //auto-sync
+        StyleManager.addStyle("TopBar Button#remove{fill:red;float:left;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")
+        StyleManager.addStyle("TopBar Button#remove{fill:white,~/Desktop/gitsync/assets/svg/remove.svg grey8;}")
+        StyleManager.addStyle("TopBar Button#remove{width:24px,16px;height:24px,16px;margin:0px,4px;}")
+        addButton = addSubView(Button(24,24,self,"add"))
+        removeButton = addSubView(Button(24,24,self,"remove"))
+        
+        
     }
 }
