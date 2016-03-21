@@ -55,8 +55,7 @@ class TopBar:Element{
         //add buttons here
         StyleManager.addStyle("Button#add{float:left;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")//fill:green;
         StyleManager.addStyle("Button#add{fill:white,~/Desktop/gitsync/assets/svg/add.svg grey5;}")
-        StyleManager.addStyle("Button#add{padding:6px,0px;}")
-        
+        StyleManager.addStyle("Button#add{width:24px,16px;height:24px,16px;margin:0px,8px;}")
         
         StyleManager.addStyle("Button#remove{fill:red;float:left;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")
         addButton = addSubView(Button(24,24,self,"add"))
