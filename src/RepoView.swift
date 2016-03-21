@@ -4,7 +4,13 @@ import Foundation
 
 //update the add repo button to a textButton
 
-//save to xml after each remove and add and each repo-settings-update
+//add a remove button in repoItemDetailView topRight
+
+//add the trashCan SVG to the removeBTN
+
+//add the plus sign to the add repo button
+
+//save to xml after each remove and add and each repo-settings-update (this involves creating the dp->xml method)
 
 //next is to create the activity list and load in the last 5 commits from each repo. and then sync repos
 
