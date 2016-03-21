@@ -17,6 +17,9 @@ class ContentView:Element{
             Swift.print("RepoData.sharedInstance.selectedIndex: " + "\(RepoData.sharedInstance.selectedIndex)")
             repoView!.removeFromSuperview()
             repoDetailView = addSubView(repoDetailView ?? RepoDetailView(width,height,self))
+            let repoData = RepoData.sharedInstance
+            let repoItem = repoData.dp.getItemAt(repoData.selectedIndex!)!
+            repoDetailView.setRepoData(repoData:)
         }else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.backButton){
             repoDetailView!.removeFromSuperview()
             repoView = addSubView(repoView ?? RepoView(width,height,self))

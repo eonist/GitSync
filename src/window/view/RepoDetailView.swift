@@ -35,6 +35,7 @@ class RepoDetailView:Element{
     
         let repoData = RepoData.sharedInstance
         let repoItem = repoData.dp.getItemAt(repoData.selectedIndex!)!
+        setRepoData(repoItem)
     }
     /**
      *
