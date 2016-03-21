@@ -6,6 +6,9 @@ class RepoDetailView:Element{
     var remotePathTextInput:TextInput?
     override func resolveSkin() {
         super.resolveSkin()
+        
+        StyleManager.addStyle("RepoDetailView TextInput{}")
+        
         let repoData = RepoData.sharedInstance
         let repoItem = repoData.dp!.getItemAt(0)!
         
