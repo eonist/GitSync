@@ -9,7 +9,7 @@ class RepoDetailView:Element{
         
         StyleManager.addStyle("RepoDetailView TextInput Text{width:90px;}")
         StyleManager.addStyle("RepoDetailView TextInput TextArea{width:130px;}RepoDetailView TextInput TextArea Text{width:120px;}")
-        StyleManager.addStyle("RepoDetailView TextInput Text{width:90px;}")
+        StyleManager.addStyle("RepoDetailView TextInput TextArea{drop-shadow:none;line-alpha:1;line-thickness:1px;}")
         
         let repoData = RepoData.sharedInstance
         let repoItem = repoData.dp!.getItemAt(0)!
