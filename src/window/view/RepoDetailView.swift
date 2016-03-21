@@ -24,10 +24,6 @@ class RepoDetailView:Element{
         StyleManager.addStyle("RepoDetailView Spinner TextInput TextArea{width:60px;}")
         StyleManager.addStyle("RepoDetailView Spinner TextInput{width:150px;}")
         
-        let repoData = RepoData.sharedInstance
-        let repoItem = repoData.dp.getItemAt(repoData.selectedIndex!)!
-        
-        //continue here: Add back button
         backButton = addSubView(TextButton("Back",32,24,self))
         nameTextInput = addSubView(TextInput(width, 32, "Name: ", "", self))
         localPathTextInput = addSubView(TextInput(width, 32, "Local-path: ", "", self))
@@ -35,7 +31,10 @@ class RepoDetailView:Element{
         broadCastCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Broadcast:", false, self))
         subscribeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Subscribe:", false, self))
         autoSyncCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-sync:", false, self))
-        autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Auto-Interval: ", repoItem["interval"]!.cgFloat, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
+        autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Auto-Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
+    
+        let repoData = RepoData.sharedInstance
+        let repoItem = repoData.dp.getItemAt(repoData.selectedIndex!)!
     }
     /**
      *
@@ -49,7 +48,7 @@ class RepoDetailView:Element{
         broadCastCheckBoxButton!.setChecked(repoData["broadcast"]!.bool)
         subscribeCheckBoxButton!.setChecked(repoData["subscribe"]!.bool)
         autoSyncCheckBoxButton!.setChecked(repoData["auto-sync"]!.bool)
-        
+        autoSyncIntervalLeverSpinner!.setValue(repoData["interval"]!.cgFloat)
         
         //auto-sync
     }
