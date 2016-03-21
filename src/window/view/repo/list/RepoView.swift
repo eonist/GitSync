@@ -18,7 +18,8 @@ class RepoView:Element{//rename to RepoListView
     var topBar:TopBar?
     var list:List?
     override func resolveSkin() {
-        Swift.print("RepoView.resolveSkin()")
+        //Swift.print("RepoView.resolveSkin()")
+        StyleManager.addStyle("RepoView{padding-top:8px;}")//padding-left:6px;padding-right:6px;
         super.resolveSkin()
         topBar = addSubView(TopBar(width,24,self))
         
