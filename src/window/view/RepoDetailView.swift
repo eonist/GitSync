@@ -6,6 +6,9 @@ class RepoDetailView:Element{
     var remotePathTextInput:TextInput?
     override func resolveSkin() {
         super.resolveSkin()
+        let repoData = RepoData.sharedInstance
+        
+        Swift.print(repoData.dp?.getItemAt(0)!)
         //Name: (TextInput)
         nameTextInput = addSubView(TextInput(width, 32, "Name: ", "Test A", self))
         //Local-path: (TextInput)
