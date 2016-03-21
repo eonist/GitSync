@@ -12,6 +12,8 @@ import Foundation
 
 //save to xml after each remove and add and each repo-settings-update (this involves creating the dp->xml method)
 
+//hook up the leftSideBar to app logic
+
 //next is to create the activity list and load in the last 5 commits from each repo. and then sync repos
 
 class RepoView:Element{//rename to RepoListView
