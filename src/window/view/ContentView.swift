@@ -12,7 +12,7 @@ class ContentView:Element{
     }
     override func onEvent(event: Event) {
         if(event.type == ListEvent.select){
-            
+            Swift.print("ContentView select")
         }
     }
 }
