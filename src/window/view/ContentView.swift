@@ -10,6 +10,11 @@ class ContentView:Element{
         
         //repoDetailView = addSubView(RepoDetailView(width,height,self))
     }
+    override func onEvent(event: Event) {
+        if(event.type == ListEvent.select){
+            
+        }
+    }
 }
 class RepoData {
     var dp:DataProvider?
