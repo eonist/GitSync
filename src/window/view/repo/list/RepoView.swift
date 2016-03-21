@@ -29,7 +29,7 @@ class RepoView:Element{//rename to RepoListView
         let dp:DataProvider = DataProvider(xml)
         
         list = addSubView(List(width, height-24, NaN, dp, self))
-        ListModifier.selectAt(list!, 1)
+        ListModifier.selectAt(list!, 0)
     }
     override func onEvent(event: Event) {
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){
