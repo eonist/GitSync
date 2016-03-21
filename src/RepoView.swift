@@ -55,6 +55,7 @@ class TopBar:Element{
         //add buttons here
         StyleManager.addStyle("Button#add{float:left;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")//fill:green;
         StyleManager.addStyle("Button#add{fill:white,~/Desktop/gitsync/assets/svg/add.svg grey5;}")
+        StyleManager.addStyle("Button#add{margin:0px,6px;}")
         
         
         StyleManager.addStyle("Button#remove{fill:red;float:left;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")
