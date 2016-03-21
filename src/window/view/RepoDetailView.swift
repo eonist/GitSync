@@ -1,7 +1,6 @@
 import Foundation
 
 class RepoDetailView:Element{
-    var backButton:TextButton?
     var nameTextInput:TextInput?
     var localPathTextInput:TextInput?
     var remotePathTextInput:TextInput?
@@ -16,7 +15,7 @@ class RepoDetailView:Element{
         
         topBar = addSubView(RepoItemTopBar(width,24,self))
         
-        StyleManager.addStyle("RepoDetailView TextButton{width:50px;margin-bottom:12px;}")
+
         StyleManager.addStyle("RepoDetailView TextInput Text{width:90px;}")
         StyleManager.addStyle("RepoDetailView TextInput TextArea{width:120px;}RepoDetailView TextInput TextArea Text{width:110px;}")
         //StyleManager.addStyle("RepoDetailView TextInput TextArea{drop-shadow:none;line-alpha:0;line-thickness:0px;}")
@@ -27,7 +26,6 @@ class RepoDetailView:Element{
         StyleManager.addStyle("RepoDetailView Spinner TextInput TextArea{width:60px;}")
         StyleManager.addStyle("RepoDetailView Spinner TextInput{width:150px;}")
         
-        backButton = addSubView(TextButton("Back",32,24,self))
         nameTextInput = addSubView(TextInput(width, 32, "Name: ", "", self))
         localPathTextInput = addSubView(TextInput(width, 32, "Local-path: ", "", self))
         remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", "", self))
@@ -58,11 +56,15 @@ class RepoDetailView:Element{
 class RepoItemTopBar:Element{
     var addButton:Button?
     var removeButton:Button?
+    var backButton:TextButton?
     override func resolveSkin() {
         StyleManager.addStyle("RepoItemTopBar{float:left;clear:left;corner-radius:0px 4px 0px 0px;}")
         super.resolveSkin()
         //add buttons here
-
+        StyleManager.addStyle("RepoDetailView TextButton{width:50px;margin-bottom:12px;}")
+        backButton = addSubView(TextButton("Back",32,24,self))
+        
+        
         StyleManager.addStyle("RepoItemTopBar Button#remove{float:right;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")
         StyleManager.addStyle("RepoItemTopBar Button#remove{fill:white,~/Desktop/gitsync/assets/svg/remove.svg grey8;}")
         StyleManager.addStyle("RepoItemTopBar Button#remove{width:24px,16px;height:24px,16px;margin:0px,4px;}")
