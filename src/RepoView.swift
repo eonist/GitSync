@@ -63,7 +63,5 @@ class TopBar:Element{
         //add the list 
         //try adding and removing items
         
-        
     }
-    
 }
