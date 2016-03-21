@@ -25,7 +25,10 @@ class ContentView:Element{
             repoView = addSubView(repoView ?? RepoView(width,height,self))
         }else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.topBar!.removeButton){
             Swift.print("removeButton.click")
-            list!.dataProvider.removeItemAt(0)//use selected index here
+            //remove detail view
+            //repoView!.list!.dataProvider.removeItemAt(0)//use selected index here
+            //add repoView
+            
         }
     }
 }
