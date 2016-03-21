@@ -20,7 +20,7 @@ class RepoView:Element{//rename to RepoListView
     override func resolveSkin() {
         Swift.print("RepoView.resolveSkin()")
         super.resolveSkin()
-        topBar = addSubView(TopBar(width,48,self))
+        topBar = addSubView(TopBar(width,24,self))
         
         //let dp:DataProvider = DataProvider()
         //dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
@@ -50,15 +50,15 @@ class TopBar:Element{
     var addButton:Button?
     var removeButton:Button?
     override func resolveSkin() {
-        StyleManager.addStyle("TopBar{fill:grey;float:left;clear:left;corner-radius:0px 4px 0px 0px;}")
+        StyleManager.addStyle("TopBar{fill:white;float:left;clear:left;corner-radius:0px 4px 0px 0px;}")
         super.resolveSkin()
         //add buttons here
         StyleManager.addStyle("TopBar Button#add{float:left;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")//fill:green;
-        StyleManager.addStyle("TopBar Button#add{fill:white,~/Desktop/gitsync/assets/svg/add.svg grey5;}")
+        StyleManager.addStyle("TopBar Button#add{fill:white,~/Desktop/gitsync/assets/svg/add.svg grey8;}")
         StyleManager.addStyle("TopBar Button#add{width:24px,16px;height:24px,16px;margin:0px,4px;}")
         
         StyleManager.addStyle("TopBar Button#remove{fill:red;float:left;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")
-        StyleManager.addStyle("TopBar Button#remove{fill:white,~/Desktop/gitsync/assets/svg/add.svg grey5;}")
+        StyleManager.addStyle("TopBar Button#remove{fill:white,~/Desktop/gitsync/assets/svg/remove.svg grey8;}")
         StyleManager.addStyle("TopBar Button#remove{width:24px,16px;height:24px,16px;margin:0px,4px;}")
         addButton = addSubView(Button(24,24,self,"add"))
         removeButton = addSubView(Button(24,24,self,"remove"))
