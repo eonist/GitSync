@@ -4,7 +4,6 @@ class ContentView:Element{
     var repoView:RepoView?
     var repoDetailView:RepoDetailView?
     
-    
     override func resolveSkin() {
         StyleManager.addStyle("ContentView{float:left;clear:none;/*fill:orange;*/}")
         super.resolveSkin()
@@ -23,6 +22,9 @@ class ContentView:Element{
         }
     }
 }
+/**
+ * Stores centtralized data
+ */
 class RepoData {
     var dp:DataProvider {return repoView!.list!.dataProvider}
     var repoView:RepoView?

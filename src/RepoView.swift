@@ -21,7 +21,6 @@ class RepoView:Element{//rename to RepoListView
         
         let xml = FileParser.xml("~/Desktop/repo.xml")
         let dp:DataProvider = DataProvider(xml)
-        RepoData.sharedInstance.dp = dp
         
         list = addSubView(List(width, height-48, NaN, dp, self))
         ListModifier.selectAt(list!, 1)
