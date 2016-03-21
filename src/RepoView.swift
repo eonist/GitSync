@@ -54,7 +54,7 @@ class TopBar:Element{
         super.resolveSkin()
         //add buttons here
         StyleManager.addStyle("Button#add{float:left;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")//fill:green;
-        StyleManager.addStyle("Button#add{fill:<ButtonBase>,~/Desktop/svg/icons/view/icons.svg grey5;}")
+        StyleManager.addStyle("Button#add{fill:white,~/Desktop/svg/icons/view/icons.svg grey5;}")
         
         
         StyleManager.addStyle("Button#remove{fill:red;float:left;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")
