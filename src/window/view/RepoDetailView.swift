@@ -37,4 +37,5 @@ class RepoDetailView:Element{
         autoSyncCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-sync:", repoItem["auto-sync"]!.bool, self))
         autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Auto-Interval: ", repoItem["interval"]!.cgFloat, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
     }
+    
 }
