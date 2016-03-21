@@ -10,7 +10,7 @@ class RepoDetailView:Element{
     var autoSyncCheckBoxButton:CheckBoxButton?
     var autoSyncIntervalLeverSpinner:LeverSpinner?
     override func resolveSkin() {
-        StyleManager.addStyle("RepoDetailView{padding-top:8px;padding-left:6px;}")
+        StyleManager.addStyle("RepoDetailView{fill:white;padding-top:8px;padding-left:6px;}")
         super.resolveSkin()
        
         StyleManager.addStyle("RepoDetailView TextButton{width:50px;margin-bottom:12px;}")
