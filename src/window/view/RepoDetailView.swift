@@ -13,7 +13,7 @@ class RepoDetailView:Element{
         //Remote-path: (TextInput)
         remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", "github.com", self))
         //Broadcast: (CheckBox Button)
-        remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", "github.com", self))
+        
         //SubScribe: (CheckBox Button)
         //Auto-sync: (CheckBox Button)
         //Auto-sync-Interval: (LeverSlider)
