@@ -7,14 +7,15 @@ class RepoDetailView:Element{
     override func resolveSkin() {
         super.resolveSkin()
         let repoData = RepoData.sharedInstance
+        let repoItem = repoData.dp!.getItemAt(0)!
         
-        Swift.print(repoData.dp?.getItemAt(0)!)
+        Swift.print()
         //Name: (TextInput)
-        nameTextInput = addSubView(TextInput(width, 32, "Name: ", "Test A", self))
+        nameTextInput = addSubView(TextInput(width, 32, "Name: ", repoItem["title"]!, self))
         //Local-path: (TextInput)
-        localPathTextInput = addSubView(TextInput(width, 32, "Local-path: ", "/Desktop/", self))
+        localPathTextInput = addSubView(TextInput(width, 32, "Local-path: ", repoItem["local-path"]!, self))
         //Remote-path: (TextInput)
-        remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", "github.com", self))
+        remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", repoItem["remote-path"]!, self))
         //Broadcast: (CheckBox Button)
         
         //SubScribe: (CheckBox Button)
