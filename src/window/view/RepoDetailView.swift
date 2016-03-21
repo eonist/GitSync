@@ -23,25 +23,15 @@ class RepoDetailView:Element{
         StyleManager.addStyle("RepoDetailView Spinner TextInput TextArea{width:60px;}")
         StyleManager.addStyle("RepoDetailView Spinner TextInput{width:150px;}")
         
-        
-        
-        
         let repoData = RepoData.sharedInstance
         let repoItem = repoData.dp!.getItemAt(0)!
         
-        
         nameTextInput = addSubView(TextInput(width, 32, "Name: ", repoItem["title"]!, self))
-        
         localPathTextInput = addSubView(TextInput(width, 32, "Local-path: ", repoItem["local-path"]!, self))
-        
         remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", repoItem["remote-path"]!, self))
-        //Broadcast: (CheckBox Button)
         broadCastCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Broadcast:", true, self))
-        //SubScribe: (CheckBox Button)
         subscribeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Subscribe:", true, self))
-        //Auto-sync: (CheckBox Button)
         autoSyncCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-sync:", true, self))
-        //Auto-sync-Interval: (LeverSlider)
         autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Auto-Interval: ", 30, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
     }
 }
