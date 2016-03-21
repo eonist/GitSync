@@ -28,7 +28,7 @@ class RepoView:Element{//rename to RepoListView
         let xml = FileParser.xml("~/Desktop/repo.xml")
         let dp:DataProvider = DataProvider(xml)
         
-        list = addSubView(List(width, height-48, NaN, dp, self))
+        list = addSubView(List(width, height-24, NaN, dp, self))
         ListModifier.selectAt(list!, 1)
     }
     override func onEvent(event: Event) {
