@@ -10,10 +10,10 @@ class RepoDetailView:Element{
     var autoSyncIntervalLeverSpinner:LeverSpinner?
     var topBar:RepoItemTopBar?
     override func resolveSkin() {
-        StyleManager.addStyle("RepoDetailView{padding-top:8px;padding-left:6px;}")
+        StyleManager.addStyle("RepoDetailView{padding-top:8px;padding-left:6px;padding-right:6px;}")
         super.resolveSkin()
         
-        topBar = addSubView(RepoItemTopBar(width,24,self))
+        topBar = addSubView(RepoItemTopBar(width-12,24,self))
         
 
         StyleManager.addStyle("RepoDetailView TextInput Text{width:90px;}")
@@ -65,7 +65,7 @@ class RepoItemTopBar:Element{
         StyleManager.addStyle("RepoDetailView TextButton{width:50px;}")
         backButton = addSubView(TextButton("Back",32,24,self))
         
-        StyleManager.addStyle("RepoDetailView TextButton#remove{width:50px;}")
+        StyleManager.addStyle("RepoDetailView TextButton#remove{width:50px;float:right;clear:none;}")
         removeButton = addSubView(TextButton("Remove",32,24,self,"remove"))
         
         /*
