@@ -4,6 +4,7 @@ class ContentView:Element{
     var repoView:RepoView?
     var repoDetailView:RepoDetailView?
     
+    
     override func resolveSkin() {
         StyleManager.addStyle("ContentView{float:left;clear:none;/*fill:orange;*/}")
         super.resolveSkin()
@@ -27,7 +28,7 @@ class RepoData {
     var selectedIndex:Int?
     static var sharedInstance = RepoData()
     private init() {
-        let xml = FileParser.xml("~/Desktop/repo.xml")
-        dp = DataProvider(xml)
+        //let xml = FileParser.xml("~/Desktop/repo.xml")
+        //dp = DataProvider(xml)
     }
 }
