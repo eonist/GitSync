@@ -24,6 +24,8 @@ class RepoView:Element{//rename to RepoListView
         
         let xml = FileParser.xml("~/Desktop/repo.xml")
         let dp:DataProvider = DataProvider(xml)
+        StyleManager.addStyle("RepoView List Container SelectTextButton{height:32px;}")
+        StyleManager.addStyle("List Container SelectTextButton Text{margin-top:4px;}")
         
         list = addSubView(List(width, height-24, NaN, dp, self))
         ListModifier.selectAt(list!, 0)
