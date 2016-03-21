@@ -13,6 +13,7 @@ class ContentView:Element{
     override func onEvent(event: Event) {
         if(event.type == ListEvent.select){
             Swift.print("ContentView select")
+            RepoData.sharedInstance.selectedIndex = (event as! SelectEvent).origin
             repoView!.removeFromSuperview()
             repoDetailView = addSubView(repoDetailView ?? RepoDetailView(width,height,self))
         }else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.backButton){
@@ -23,6 +24,7 @@ class ContentView:Element{
 }
 class RepoData {
     var dp:DataProvider?
+    var selectedIndex:Int?
     static var sharedInstance = RepoData()
     private init() {
         let xml = FileParser.xml("~/Desktop/repo.xml")
