@@ -8,7 +8,7 @@ import Foundation
 
 //next is to create the activity list and load in the last 5 commits from each repo. and then sync repos
 
-class RepoView:Element{
+class RepoView:Element{//rename to RepoListView
     var topBar:TopBar?
     var list:List?
     override func resolveSkin() {
