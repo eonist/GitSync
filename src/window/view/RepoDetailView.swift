@@ -14,7 +14,6 @@ class RepoDetailView:Element{
         let repoData = RepoData.sharedInstance
         let repoItem = repoData.dp!.getItemAt(0)!
         
-        Swift.print()
         //Name: (TextInput)
         nameTextInput = addSubView(TextInput(width, 32, "Name: ", repoItem["title"]!, self))
         //Local-path: (TextInput)
