@@ -1,5 +1,8 @@
 import Foundation
 
-class RepoDetailView {
-
+class RepoDetailView:Element{
+    override func resolveSkin() {
+        super.resolveSkin()
+        
+    }
 }
