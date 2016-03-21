@@ -16,7 +16,7 @@ class ContentView:Element{
             Swift.print("ContentView select")
             repoView!.removeFromSuperview()
             
-            addSubView(repoDetailView != nil ? repoDetailView : RepoDetailView(width,height,self))
+            repoDetailView = addSubView(repoDetailView ?? RepoDetailView(width,height,self))
         }
     }
 }
