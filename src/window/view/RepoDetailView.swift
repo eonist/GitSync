@@ -25,7 +25,7 @@ class RepoDetailView:Element{
         StyleManager.addStyle("RepoDetailView Spinner TextInput{width:150px;}")
         
         let repoData = RepoData.sharedInstance
-        let repoItem = repoData.dp!.getItemAt(0)!
+        let repoItem = repoData.dp!.getItemAt(repoData.selectedIndex!)!
         
         //continue here: Add back button
         backButton = addSubView(TextButton("Back",32,24,self))
