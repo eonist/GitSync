@@ -24,7 +24,8 @@ class ContentView:Element{
     }
 }
 class RepoData {
-    var dp:DataProvider?
+    var dp:DataProvider {return repoView!.list!.dataProvider}
+    var repoView:RepoView?
     var selectedIndex:Int?
     static var sharedInstance = RepoData()
     private init() {
