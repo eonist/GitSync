@@ -1,6 +1,7 @@
 import Foundation
 
 class RepoDetailView:Element{
+    var backButton:TextButton?
     var nameTextInput:TextInput?
     var localPathTextInput:TextInput?
     var remotePathTextInput:TextInput?
@@ -26,6 +27,7 @@ class RepoDetailView:Element{
         let repoItem = repoData.dp!.getItemAt(0)!
         
         //continue here: Add back button
+        backButton = addSubView(TextButton("Back",50,24,self))
         
         nameTextInput = addSubView(TextInput(width, 32, "Name: ", repoItem["title"]!, self))
         localPathTextInput = addSubView(TextInput(width, 32, "Local-path: ", repoItem["local-path"]!, self))
