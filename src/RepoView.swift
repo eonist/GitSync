@@ -1,6 +1,6 @@
 import Foundation
 
-//update the add repo button to a textButton
+//update the add repo button to a IconButton
 
 //add a remove button in repoItemDetailView topRight
 
