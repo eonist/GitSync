@@ -10,9 +10,10 @@ class RepoDetailView:Element{
     var autoSyncCheckBoxButton:CheckBoxButton?
     var autoSyncIntervalLeverSpinner:LeverSpinner?
     override func resolveSkin() {
-        StyleManager.addStyle("RepoDetailView{padding-top:8px;}")
+        StyleManager.addStyle("RepoDetailView{padding-top:8px;padding-left:6px;}")
         super.resolveSkin()
-        
+       
+        StyleManager.addStyle("RepoDetailView TextButton{width:50px;margin-bottom:12px;}")
         StyleManager.addStyle("RepoDetailView TextInput Text{width:90px;}")
         StyleManager.addStyle("RepoDetailView TextInput TextArea{width:130px;}RepoDetailView TextInput TextArea Text{width:120px;}")
         //StyleManager.addStyle("RepoDetailView TextInput TextArea{drop-shadow:none;line-alpha:0;line-thickness:0px;}")
