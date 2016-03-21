@@ -48,7 +48,7 @@ class RepoView:Element{//rename to RepoListView
 }
 class TopBar:Element{
     var addButton:Button?
-    var removeButton:Button?
+
     override func resolveSkin() {
         StyleManager.addStyle("TopBar{float:left;clear:left;corner-radius:0px 4px 0px 0px;padding-left:10px;}")
         super.resolveSkin()
