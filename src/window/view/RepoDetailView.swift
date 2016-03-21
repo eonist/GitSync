@@ -29,9 +29,9 @@ class RepoDetailView:Element{
         
         //continue here: Add back button
         backButton = addSubView(TextButton("Back",32,24,self))
-        nameTextInput = addSubView(TextInput(width, 32, "Name: ", repoItem["title"]!, self))
-        localPathTextInput = addSubView(TextInput(width, 32, "Local-path: ", repoItem["local-path"]!, self))
-        remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", repoItem["remote-path"]!, self))
+        nameTextInput = addSubView(TextInput(width, 32, "Name: ", "", self))
+        localPathTextInput = addSubView(TextInput(width, 32, "Local-path: ", "", self))
+        remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", "", self))
         broadCastCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Broadcast:", repoItem["broadcast"]!.bool, self))
         subscribeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Subscribe:", repoItem["subscribe"]!.bool, self))
         autoSyncCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-sync:", repoItem["auto-sync"]!.bool, self))
@@ -43,6 +43,9 @@ class RepoDetailView:Element{
     func setRepoData(repoData:Dictionary<String,String>){
         
         //continue here: add repoData to each UI element and dont set the repoData on init?
-        nameTextInput.text
+        nameTextInput!.inputTextArea!.setTextValue(repoData["title"]!)
+        localPathTextInput!.inputTextArea!.setTextValue(repoData["local-path"]!)
+        remotePathTextInput!.inputTextArea!.setTextValue(repoData["remote-path"]!)
+        
     }
 }
