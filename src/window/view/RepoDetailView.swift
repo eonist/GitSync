@@ -19,6 +19,9 @@ class RepoDetailView:Element{
         StyleManager.addStyle("RepoDetailView CheckBoxButton{width:105px;height:24px;}")
         StyleManager.addStyle("RepoDetailView Spinner TextInput Text{width:90px;}")
         StyleManager.addStyle("RepoDetailView Spinner TextInput TextArea{width:60px;}")
+        StyleManager.addStyle("RepoDetailView Spinner TextInput {float:right;}")
+        
+        
         
         
         let repoData = RepoData.sharedInstance
