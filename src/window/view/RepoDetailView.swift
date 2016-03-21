@@ -7,7 +7,7 @@ class RepoDetailView:Element{
     override func resolveSkin() {
         super.resolveSkin()
         
-        StyleManager.addStyle("RepoDetailView TextInput{}")
+        StyleManager.addStyle("RepoDetailView TextInput Text{width:100px;}RepoDetailView TextInput TextArea{width:100px;}")
         
         let repoData = RepoData.sharedInstance
         let repoItem = repoData.dp!.getItemAt(0)!
