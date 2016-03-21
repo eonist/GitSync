@@ -5,6 +5,7 @@ class RepoDetailView:Element{
     var localPathTextInput:TextInput?
     var remotePathTextInput:TextInput?
     var broadCastCheckBoxButton:CheckBoxButton?
+    var subscribeCheckBoxButton:CheckBoxButton?
     override func resolveSkin() {
         super.resolveSkin()
         
@@ -24,6 +25,7 @@ class RepoDetailView:Element{
         //Broadcast: (CheckBox Button)
         broadCastCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Broadcast", true, self))
         //SubScribe: (CheckBox Button)
+        subscribeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Subscribe", true, self))
         //Auto-sync: (CheckBox Button)
         //Auto-sync-Interval: (LeverSlider)
         
