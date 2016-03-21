@@ -54,6 +54,7 @@ class TopBar:Element{
         StyleManager.addStyle("TopBar Button#add{fill:white,~/Desktop/gitsync/assets/svg/add.svg grey8;}")
         StyleManager.addStyle("TopBar Button#add{width:24px,16px;height:24px,16px;margin:0px,4px;}")
         
+        //continue here: use TextButton instead
 
         addButton = addSubView(Button(24,24,self,"add"))
 
