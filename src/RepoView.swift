@@ -2,7 +2,7 @@ import Foundation
 
 
 
-//adding a repo-item transitions in the RepoItemDetailView: repo-URL,name,branch,etc (should also have a backButton)
+//update the add repo button to a textButton
 
 //save to xml after each remove and add and each repo-settings-update
 
