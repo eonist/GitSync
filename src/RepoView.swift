@@ -35,6 +35,9 @@ class RepoView:Element{//rename to RepoListView
         }else if(event.type == ButtonEvent.upInside && event.origin === topBar!.removeButton){
             Swift.print("removeButton.click")
             list!.dataProvider.removeItemAt(0)//use selected index here
+        }else if(event.type == ListEvent.select){
+            Swift.print("RepoView select")
+            super.onEvent(event)
         }
     }
 }

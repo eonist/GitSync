@@ -6,9 +6,9 @@ class ContentView:Element{
     override func resolveSkin() {
         StyleManager.addStyle("ContentView{float:left;clear:none;/*fill:orange;*/}")
         super.resolveSkin()
-        //repoView = addSubView(RepoView(width,height,self))
+        repoView = addSubView(RepoView(width,height,self))
         
-        repoDetailView = addSubView(RepoDetailView(width,height,self))
+        //repoDetailView = addSubView(RepoDetailView(width,height,self))
     }
 }
 class RepoData {
