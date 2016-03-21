@@ -15,7 +15,7 @@ class RepoDetailView:Element{
        
         StyleManager.addStyle("RepoDetailView TextButton{width:50px;margin-bottom:12px;}")
         StyleManager.addStyle("RepoDetailView TextInput Text{width:90px;}")
-        StyleManager.addStyle("RepoDetailView TextInput TextArea{width:130px;}RepoDetailView TextInput TextArea Text{width:120px;}")
+        StyleManager.addStyle("RepoDetailView TextInput TextArea{width:120px;}RepoDetailView TextInput TextArea Text{width:110px;}")
         //StyleManager.addStyle("RepoDetailView TextInput TextArea{drop-shadow:none;line-alpha:0;line-thickness:0px;}")
         StyleManager.addStyle("RepoDetailView CheckBoxButton{clear:left;}")
         StyleManager.addStyle("RepoDetailView CheckBoxButton CheckBox{float:right;}")
