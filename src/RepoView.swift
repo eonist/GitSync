@@ -37,9 +37,6 @@ class RepoView:Element{//rename to RepoListView
             list!.dataProvider.addItemAt(["title":"New repo","local-path":"","remote-path":"","interval":"30","keychain-item-name":"","branch":"master","broadcast":"true","subscribe":"true","auto-sync":"true"], 0)
             ListModifier.selectAt(list!, 0)
             list!.onEvent(ListEvent(ListEvent.select,0,list!))
-        }else if(event.type == ButtonEvent.upInside && event.origin === topBar!.removeButton){
-            Swift.print("removeButton.click")
-            list!.dataProvider.removeItemAt(0)//use selected index here
         }else if(event.type == ListEvent.select){
             Swift.print("RepoView select")
             super.onEvent(event)//forward this event to the parent

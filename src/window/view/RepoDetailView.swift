@@ -59,14 +59,14 @@ class RepoItemTopBar:Element{
     var backButton:TextButton?
     var removeButton:TextButton?
     override func resolveSkin() {
-        StyleManager.addStyle("RepoItemTopBar{float:left;clear:left;corner-radius:0px 4px 0px 0px;}")
+        StyleManager.addStyle("RepoItemTopBar{float:left;clear:left;corner-radius:0px 4px 0px 0px;margin-bottom:12px;}")
         super.resolveSkin()
         //add buttons here
-        StyleManager.addStyle("RepoDetailView TextButton{width:50px;margin-bottom:12px;}")
+        StyleManager.addStyle("RepoDetailView TextButton{width:50px;}")
         backButton = addSubView(TextButton("Back",32,24,self))
         
-        
-        removeButton = addSubView(TextButton("Remove",32,24,self))
+        StyleManager.addStyle("RepoDetailView TextButton#remove{width:50px;}")
+        removeButton = addSubView(TextButton("Remove",32,24,self,"remove"))
         
         /*
         StyleManager.addStyle("RepoItemTopBar Button#remove{float:right;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")
