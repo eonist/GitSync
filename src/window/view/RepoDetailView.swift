@@ -31,7 +31,7 @@ class RepoDetailView:Element{
         remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", repoItem["remote-path"]!, self))
         broadCastCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Broadcast:", repoItem["broadcast"]!.bool, self))
         subscribeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Subscribe:", repoItem["subscribe"]!.bool, self))
-        autoSyncCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-sync:", repoItem["subscribe"]!.bool, self))
-        autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Auto-Interval: ", 30, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
+        autoSyncCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-sync:", repoItem["auto-sync"]!.bool, self))
+        autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Auto-Interval: ", repoItem["interval"]!.cgFloat, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
     }
 }
