@@ -15,8 +15,9 @@ class ContentView:Element{
         if(event.type == ListEvent.select){
             Swift.print("ContentView select")
             repoView!.removeFromSuperview()
-            
             repoDetailView = addSubView(repoDetailView ?? RepoDetailView(width,height,self))
+        }else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.backButton){
+            
         }
     }
 }
