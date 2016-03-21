@@ -7,7 +7,7 @@ class RepoDetailView:Element{
     var broadCastCheckBoxButton:CheckBoxButton?
     var subscribeCheckBoxButton:CheckBoxButton?
     var autoSyncCheckBoxButton:CheckBoxButton?
-    var leverSpinner:LeverSpinner?
+    var autoSyncIntervalStepper:LeverStepper?
     override func resolveSkin() {
         super.resolveSkin()
         
@@ -17,7 +17,7 @@ class RepoDetailView:Element{
         StyleManager.addStyle("RepoDetailView CheckBoxButton{clear:left;}")
         StyleManager.addStyle("RepoDetailView CheckBoxButton CheckBox{float:right;}")
         StyleManager.addStyle("RepoDetailView CheckBoxButton{width:105px;height:24px;}")
-        StyleManager.addStyle("RepoDetailView CheckBoxButton{width:105px;height:24px;}")
+        //StyleManager.addStyle("RepoDetailView CheckBoxButton{width:105px;height:24px;}")
         
         
         let repoData = RepoData.sharedInstance
@@ -36,6 +36,6 @@ class RepoDetailView:Element{
         //Auto-sync: (CheckBox Button)
         autoSyncCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-sync:", true, self))
         //Auto-sync-Interval: (LeverSlider)
-        leverSpinner = addSubView(LeverSpinner(width, 32,"Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
+        autoSyncIntervalStepper = addSubView(LeverStepper(NaN,NaN,0,1,Int.min.cgFloat,Int.max.cgFloat,0,100,200,self))
     }
 }
