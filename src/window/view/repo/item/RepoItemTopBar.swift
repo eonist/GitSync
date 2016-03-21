@@ -10,7 +10,7 @@ class RepoItemTopBar:Element{
         StyleManager.addStyle("RepoDetailView TextButton{width:50px;}")
         backButton = addSubView(TextButton("Back",32,24,self))
         
-        StyleManager.addStyle("RepoDetailView TextButton#remove{width:50px;float:right;clear:none;}")
+        StyleManager.addStyle("RepoDetailView TextButton#remove{width:60px;float:right;clear:none;}")
         removeButton = addSubView(TextButton("Remove",32,24,self,"remove"))
         
         /*
