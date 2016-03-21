@@ -16,14 +16,11 @@ class RepoView:Element{//rename to RepoListView
         super.resolveSkin()
         topBar = addSubView(TopBar(width,48,self))
         
-        
         //let dp:DataProvider = DataProvider()
         //dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
         
-        
         let xml = FileParser.xml("~/Desktop/repo.xml")
         let dp:DataProvider = DataProvider(xml)
-        
         
         list = addSubView(List(width, height-48, NaN, dp, self))
         ListModifier.selectAt(list!, 1)
@@ -31,7 +28,7 @@ class RepoView:Element{//rename to RepoListView
     override func onEvent(event: Event) {
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){
             Swift.print("addButton.click")
-            list!.dataProvider.addItemAt(["title":"blue"], 0)
+            list!.dataProvider.addItemAt(["title":"New repo"], 0)
         }else if(event.type == ButtonEvent.upInside && event.origin === topBar!.removeButton){
             Swift.print("removeButton.click")
             list!.dataProvider.removeItemAt(0)//use selected index here
