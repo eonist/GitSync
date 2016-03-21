@@ -14,6 +14,8 @@ class RepoDetailView:Element{
         StyleManager.addStyle("RepoDetailView TextInput TextArea{width:130px;}RepoDetailView TextInput TextArea Text{width:120px;}")
         StyleManager.addStyle("RepoDetailView TextInput TextArea{drop-shadow:none;line-alpha:0;line-thickness:0px;}")
         StyleManager.addStyle("RepoDetailView CheckBoxButton{clear:left;}")
+        StyleManager.addStyle("RepoDetailView CheckBoxButton CheckBox{float:right;}")
+        
         
         let repoData = RepoData.sharedInstance
         let repoItem = repoData.dp!.getItemAt(0)!
