@@ -8,6 +8,8 @@ class RepoDetailView:Element{
         //Remote-path: (TextInput)
         //Broadcast: (CheckBox Button)
         //SubScribe: (CheckBox Button)
-        
+        //Auto-sync: (CheckBox Button)
+        //Auto-sync-Interval: (LeverSlider)
+        //
     }
 }
