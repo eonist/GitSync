@@ -8,7 +8,6 @@ class ContentView:Element{
         StyleManager.addStyle("ContentView{float:left;clear:none;/*fill:orange;*/}")
         super.resolveSkin()
         repoView = addSubView(RepoView(width,height,self))
-        
 
     }
     override func onEvent(event: Event) {
@@ -17,7 +16,8 @@ class ContentView:Element{
             repoView!.removeFromSuperview()
             repoDetailView = addSubView(repoDetailView ?? RepoDetailView(width,height,self))
         }else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.backButton){
-            
+            repoDetailView!.removeFromSuperview()
+            repoView = addSubView(repoView ?? RepoView(width,height,self))
         }
     }
 }
