@@ -9,10 +9,13 @@ class RepoDetailView:Element{
     var subscribeCheckBoxButton:CheckBoxButton?
     var autoSyncCheckBoxButton:CheckBoxButton?
     var autoSyncIntervalLeverSpinner:LeverSpinner?
+    var topBar:RepoItemTopBar?
     override func resolveSkin() {
         StyleManager.addStyle("RepoDetailView{padding-top:8px;padding-left:6px;}")
         super.resolveSkin()
-       
+        
+        topBar = addSubView(RepoItemTopBar(width,24,self))
+        
         StyleManager.addStyle("RepoDetailView TextButton{width:50px;margin-bottom:12px;}")
         StyleManager.addStyle("RepoDetailView TextInput Text{width:90px;}")
         StyleManager.addStyle("RepoDetailView TextInput TextArea{width:120px;}RepoDetailView TextInput TextArea Text{width:110px;}")
@@ -56,14 +59,14 @@ class RepoItemTopBar:Element{
     var addButton:Button?
     var removeButton:Button?
     override func resolveSkin() {
-        StyleManager.addStyle("TopBar{float:left;clear:left;corner-radius:0px 4px 0px 0px;padding-left:10px;}")
+        StyleManager.addStyle("RepoItemTopBar{float:left;clear:left;corner-radius:0px 4px 0px 0px;}")
         super.resolveSkin()
         //add buttons here
 
-        StyleManager.addStyle("TopBar Button#remove{fill:red;float:left;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")
-        StyleManager.addStyle("TopBar Button#remove{fill:white,~/Desktop/gitsync/assets/svg/remove.svg grey8;}")
-        StyleManager.addStyle("TopBar Button#remove{width:24px,16px;height:24px,16px;margin:0px,4px;}")
-        addButton = addSubView(Button(24,24,self,"add"))
+        StyleManager.addStyle("RepoItemTopBar Button#remove{float:right;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")
+        StyleManager.addStyle("RepoItemTopBar Button#remove{fill:white,~/Desktop/gitsync/assets/svg/remove.svg grey8;}")
+        StyleManager.addStyle("RepoItemTopBar Button#remove{width:24px,16px;height:24px,16px;margin:0px,4px;}")
+
         removeButton = addSubView(Button(24,24,self,"remove"))
         
         
