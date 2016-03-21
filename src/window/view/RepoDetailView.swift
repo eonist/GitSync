@@ -71,6 +71,5 @@ class RepoItemTopBar:Element{
 
         removeButton = addSubView(Button(24,24,self,"remove"))
         
-        
     }
 }
