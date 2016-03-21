@@ -19,7 +19,7 @@ class RepoDetailView:Element{
         StyleManager.addStyle("RepoDetailView CheckBoxButton{width:105px;height:24px;}")
         StyleManager.addStyle("RepoDetailView Spinner TextInput Text{width:90px;}")
         StyleManager.addStyle("RepoDetailView Spinner TextInput TextArea{width:60px;}")
-        StyleManager.addStyle("RepoDetailView Spinner TextInput {float:right;}")
+        StyleManager.addStyle("RepoDetailView Spinner TextInput{width:150px;}")
         
         
         
@@ -40,6 +40,6 @@ class RepoDetailView:Element{
         //Auto-sync: (CheckBox Button)
         autoSyncCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-sync:", true, self))
         //Auto-sync-Interval: (LeverSlider)
-        autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
+        autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Auto-Interval: ", 30, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
     }
 }
