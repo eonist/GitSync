@@ -21,7 +21,7 @@ class RepoDetailView:Element{
         //Remote-path: (TextInput)
         remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", repoItem["remote-path"]!, self))
         //Broadcast: (CheckBox Button)
-        
+        let checkBoxButton1 = section.addSubView(CheckBoxButton(NaN, NaN,"Option 1",true,section))
         //SubScribe: (CheckBox Button)
         //Auto-sync: (CheckBox Button)
         //Auto-sync-Interval: (LeverSlider)
