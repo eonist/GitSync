@@ -11,3 +11,11 @@ class ContentView:Element{
         repoDetailView = addSubView(RepoDetailView(width,height,self))
     }
 }
+class RepoData {
+    var dp:DataProvider?
+    static var sharedInstance = RepoData()
+    private init() {
+        let xml = FileParser.xml("~/Desktop/repo.xml")
+        dp = DataProvider(xml)
+    }
+}
