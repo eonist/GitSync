@@ -43,6 +43,6 @@ class RepoDetailView:Element{
     func setRepoData(repoData:Dictionary<String,String>){
         
         //continue here: add repoData to each UI element and dont set the repoData on init?
-        nameTextInput.
+        nameTextInput.text
     }
 }
