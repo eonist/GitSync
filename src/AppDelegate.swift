@@ -35,7 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("node.children.count: " + "\(node.children.count)")
         
         
-        //Continue here: create the xml to node converter, then the node to xml converter. Check your legacy code first.
+        //Continue here: go from node to xml. See your xml string building implementation
         
         
         /*Swift.print("hello world")
