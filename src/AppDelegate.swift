@@ -26,6 +26,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("root.children.count: " + "\(root.children.count)")
         
         
+        //Continue here: create the xml to node converter, then the node to xml converter. Check your legacy code first. 
+        
+        
         /*Swift.print("hello world")
         let result = AdvanceArrayParser.childAt([["red","green"],[["four","five"],[1,2,3]]],[1,0,1])//[five]
         Swift.print("result: " + "\(result)")*/
