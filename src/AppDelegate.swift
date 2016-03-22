@@ -26,12 +26,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("root.children.count: " + "\(root.children.count)")
         */
         
-        let xmlStr:String = "<media><book><novel/><biography/></book><music><cd/><cassette/></music><film><dvd/><vhs/><blueray/><dvd>movie.mkv</dvd></film><media>"
-        //let xmlStr2:String = "<subCategories><category><id>someId</id><name>someName</name></category></subCategories>"
+        //let xmlStr:String = "<media><book><novel/><biography/></book><music><cd/><cassette/></music><film><dvd/><vhs/><blueray/><dvd>movie.mkv</dvd></film><media>"
+        let xmlStr:String = "<subCategories><category><id>someId</id><name>someName</name></category></subCategories>"
         let xml:NSXMLElement = XMLParser.root(xmlStr)!
         Swift.print(xml.children![0].childCount)//2
         
-       
+        let node:Node = NodeParser.node(xml)
+        Swift.print("node.children.count: " + "\(node.children.count)")
+        
         
         //Continue here: create the xml to node converter, then the node to xml converter. Check your legacy code first.
         
