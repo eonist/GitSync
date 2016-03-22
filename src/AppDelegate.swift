@@ -44,11 +44,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("result: " + "\(result)")//<user someValue="abc"/>
         */
         
-        /*
+        /**/
         let test2 = ["someValue":"abc","someObject":["name":"john", "anotherObject":["cow":"power"]]]
         let result2 = XMLParser.toXML(test2,"user")//<user someValue="abc"><someObject name="john"><anotherObject cow="power"/></someObject></user>
         Swift.print("result2: " + "\(result2)")
-        */
+
         
         
         /*Swift.print("hello world")
