@@ -27,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         */
         
         let xml:NSXMLElement = XMLParser.root("<subCategories><category><id>someId</id><name>someName</name></category></subCategories>")!
-        Swift.print("xml.childCount: " + "\(xml.childCount)")
+        Swift.print("xml.childCount: " + "\(xml.children![0].childCount)")
         
         /*
         * EXAMPLE: XMLParser.data("<subCategories><category><id>someId</id><name>someName</name></category></subCategories>")["content"]["subCategories"][0]["comtent"] etc
