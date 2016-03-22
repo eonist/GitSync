@@ -26,8 +26,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let result = AdvanceArrayParser.childAt([["red","green"],[["four","five"],[1,2,3]]],[1,0,1])//[five]
         Swift.print("result: " + "\(result)")*/
         
-        
-        
         /*let arr = ["a","b","c","d","e","f"]//["b", "c", "d", "e", "f"]
         let result = ArrayModifier.slice2(arr, 1, arr.count)
         Swift.print("result: " + "\(result)")*/
