@@ -26,14 +26,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("root.children.count: " + "\(root.children.count)")
         */
         
-        let xml:NSXMLElement = XMLParser.root("<subCategories><category><id>someId</id><name>someName</name></category></subCategories>")!
-        Swift.print("xml.childCount: " + "\(xml.children![0].childCount)")
+        let xmlStr:String = "<media><book><novel/><biography/></book><music><cd/><cassette/></music><film><dvd/><vhs/><blueray/><dvd>movie.mkv</dvd></film><media>"
+        let xmlStr2:String = "<subCategories><category><id>someId</id><name>someName</name></category></subCategories>"
+        let xml:NSXMLElement = XMLParser.root(xmlStr)!
+        Swift.print(xml.children![0].childCount)//2
         
-        /*
-        * EXAMPLE: XMLParser.data("<subCategories><category><id>someId</id><name>someName</name></category></subCategories>")["content"]["subCategories"][0]["comtent"] etc
-        * EXAMPLE XML: <media><book><novel/><biography/></book><music><cd/><cassette/></music><film><dvd/><vhs/><blueray/><dvd>movie.mkv</dvd></film><media>
-        * EXAMPLE XML: <categories><category>text goes here</category><!--if a sibling closes and moves to the next then did end elemnt is called--></category><category><item color:"blue" type:"car"></item><item>text goes here</item><item/><movie/><picture>img.jpg</picture><category/></categories><test></test>
-        */
+       
         
         //Continue here: create the xml to node converter, then the node to xml converter. Check your legacy code first.
         
