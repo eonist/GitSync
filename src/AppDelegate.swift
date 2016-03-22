@@ -38,21 +38,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //Continue here: go from node to xml. See your xml string building implementation
         
-        /*
+        /**/
         let test = ["someValue":["color":"blue"]]
         let result = XMLParser.toXML(test,"user")
         Swift.print("result: " + "\(result)")//<user someValue="abc"/>
-        */
+
         
         
         //continue here: Then start doing node manipulation, removal, additions, updates, creation. aka crud
         
         
-        /**/
+        /*
         let test2 = ["someValue":"abc","someObject":["name":"john", "anotherObject":["cow":"power"]]]
         let result2 = XMLParser.toXML(test2,"user")//<user someValue="abc"><someObject name="john"><anotherObject cow="power"/></someObject></user>
         Swift.print("result2: " + "\(result2)")
-
+        */
         
         
         /*Swift.print("hello world")
