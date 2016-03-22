@@ -27,15 +27,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         */
         
         //let xmlStr:String = "<media><book><novel/><biography/></book><music><cd/><cassette/></music><film><dvd/><vhs/><blueray/><dvd>movie.mkv</dvd></film><media>"
+        /*
         let xmlStr:String = "<subCategories><category><id>someId</id><name>someName</name></category></subCategories>"
         let xml:NSXMLElement = XMLParser.root(xmlStr)!
         Swift.print(xml.children![0].childCount)//2
         
         let node:Node = NodeParser.node(xml)
         Swift.print("node.children.count: " + "\(node.children.count)")
-        
+        */
         
         //Continue here: go from node to xml. See your xml string building implementation
+        
+        let test = ["someValue":"abc"]
+        let result = XMLParser.toXML(test,"user")
+        Swift.print("result: " + "\(result)")//<user someValue="abc"/>
         
         
         /*Swift.print("hello world")
