@@ -39,7 +39,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Continue here: go from node to xml. See your xml string building implementation
         
         /**/
-        let test = ["someValue":["color":"blue"]]
+        //let test = ["someValue":"abc"]
+        let test = ["colors":["blue","red","orange"]]
         let result = XMLParser.toXML(test,"user")
         Swift.print("result: " + "\(result)")//<user someValue="abc"/>
 
