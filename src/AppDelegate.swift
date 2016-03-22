@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //also check if you got splice wrong
         
         
-        let arr = [1,2,3,4,5,6]
+        let arr = ["a","b","c","d","e","f"]
         let result = ArrayModifier.slice2(arr, 1, arr.count)
         Swift.print("result: " + "\(result)")
         /*
