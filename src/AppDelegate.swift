@@ -22,7 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let result = NodeParser.nodeAt(root, [2,1])!.data["title"]//cpu
         Swift.print("result: " + "\(result!)")
         
-        
+        NodeModifier.removeAll(root)
+        Swift.print("root.children.count: " + "\(root.children.count)")
         
         /*Swift.print("hello world")
         let result = AdvanceArrayParser.childAt([["red","green"],[["four","five"],[1,2,3]]],[1,0,1])//[five]
