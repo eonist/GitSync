@@ -9,7 +9,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var win:NSWindow?/*<--The window must be a class variable, local variables doesnt work*/
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         
-        
+        /*
         let root:Node = Node()
         root.children.append(Node(["title":"Dog"]))
         root.children.append(Node(["title":"Pizza"]))
@@ -24,7 +24,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         NodeModifier.removeAll(root)
         Swift.print("root.children.count: " + "\(root.children.count)")
+        */
         
+        let xml:NSXMLElement = XMLParser.root("<subCategories><category><id>someId</id><name>someName</name></category></subCategories>")!
+        Swift.print("xml.childCount: " + "\(xml.childCount)")
+        
+        /*
+        * EXAMPLE: XMLParser.data("<subCategories><category><id>someId</id><name>someName</name></category></subCategories>")["content"]["subCategories"][0]["comtent"] etc
+        * EXAMPLE XML: <media><book><novel/><biography/></book><music><cd/><cassette/></music><film><dvd/><vhs/><blueray/><dvd>movie.mkv</dvd></film><media>
+        * EXAMPLE XML: <categories><category>text goes here</category><!--if a sibling closes and moves to the next then did end elemnt is called--></category><category><item color:"blue" type:"car"></item><item>text goes here</item><item/><movie/><picture>img.jpg</picture><category/></categories><test></test>
+        */
         
         //Continue here: create the xml to node converter, then the node to xml converter. Check your legacy code first.
         
