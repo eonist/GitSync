@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         computerNode.children.append(Node(["title":"screen"]))
         root.children.append(computerNode)
         
-        let result = NodeParser.nodeAt(root, [2,1])
+        let result = NodeParser.nodeAt(root, [2,1])!.data["title"]
         Swift.print("result: " + "\(result)")
         
         /*Swift.print("hello world")
