@@ -15,13 +15,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Swift.print("result: " + "\(result)")
         
         
-        //Continue here: fix slice, its wrong atm. it should return the resulting slice not the resulting array, create slice2
-        //also check if you got splice wrong
         
-        
-        let arr = ["a","b","c","d","e","f"]
+        /*let arr = ["a","b","c","d","e","f"]//["b", "c", "d", "e", "f"]
         let result = ArrayModifier.slice2(arr, 1, arr.count)
-        Swift.print("result: " + "\(result)")
+        Swift.print("result: " + "\(result)")*/
+        
         /*
         let result = arr.slice(1, arr.count-1)
         Swift.print("result: " + "\(result)")
