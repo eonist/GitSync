@@ -20,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         root.children.append(computerNode)
         
         let result = NodeParser.nodeAt(root, [2,1])!.data["title"]//cpu
-        Swift.print("result: " + "\(result)")
+        Swift.print("result: " + "\(result!)")
         
         /*Swift.print("hello world")
         let result = AdvanceArrayParser.childAt([["red","green"],[["four","five"],[1,2,3]]],[1,0,1])//[five]
