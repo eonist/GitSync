@@ -25,7 +25,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NodeModifier.removeAll(root)
         Swift.print("root.children.count: " + "\(root.children.count)")
         
-        //continue implementing NodeMOdifiers
         
         /*Swift.print("hello world")
         let result = AdvanceArrayParser.childAt([["red","green"],[["four","five"],[1,2,3]]],[1,0,1])//[five]
