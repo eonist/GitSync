@@ -13,13 +13,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let root:Node = Node()
         root.children.append(Node(["title":"Dog"]))
         root.children.append(Node(["title":"Pizza"]))
-        let computerNode = Node(["title":"Computer"])
-        computerNode.children.append(Node(["title":"ram"]))
-        computerNode.children.append(Node(["title":"cpu"]))
-        computerNode.children.append(Node(["title":"screen"]))
+        let computerNode = Node(["title":"Computer"],[Node(["title":"ram"]),Node(["title":"cpu"]),Node(["title":"screen"])])
+
         root.children.append(computerNode)
         
-        let result = NodeParser.nodeAt(root, [2,1])!.data["title"]
+        let result = NodeParser.nodeAt(root, [2,1])!.data["title"]//cpu
         Swift.print("result: " + "\(result)")
         
         /*Swift.print("hello world")
