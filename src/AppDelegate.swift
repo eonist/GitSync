@@ -27,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         */
         
         //let xmlStr:String = "<media><book><novel/><biography/></book><music><cd/><cassette/></music><film><dvd/><vhs/><blueray/><dvd>movie.mkv</dvd></film><media>"
-        let xmlStr:String = "<subCategories><category><id></id><name></name></category></subCategories>"
+        let xmlStr:String = "<subCategories><category><id>someId</id><name>someName</name></category></subCategories>"
         let xml:NSXMLElement = XMLParser.root(xmlStr)!
         Swift.print(xml.children![0].childCount)//2
         
