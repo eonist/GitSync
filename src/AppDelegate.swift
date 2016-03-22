@@ -10,9 +10,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         
         
-        Swift.print("hello world")
+        let root:Node = Node()
+        root.children.append(Node(["title":"Dog"]))
+        root.children.append(Node(["title":"Computer"]))
+        root.children.append(Node(["title":"Pizza"]))
+        
+        /*Swift.print("hello world")
         let result = AdvanceArrayParser.childAt([["red","green"],[["four","five"],[1,2,3]]],[1,0,1])//[five]
-        Swift.print("result: " + "\(result)")
+        Swift.print("result: " + "\(result)")*/
         
         
         
