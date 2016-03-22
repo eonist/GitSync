@@ -12,8 +12,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let root:Node = Node()
         root.children.append(Node(["title":"Dog"]))
-        root.children.append(Node(["title":"Computer"]))
         root.children.append(Node(["title":"Pizza"]))
+        let computerNode = Node(["title":"Computer"])
+        computerNode.children.append(Node(["title":"ram"]))
+        computerNode.children.append(Node(["title":"cpu"]))
+        computerNode.children.append(Node(["title":"screen"]))
+        root.children.append(computerNode)
+        
+        let result = NodeParser.nodeAt(root, [2,1])
+        Swift.print("result: " + "\(result)")
         
         /*Swift.print("hello world")
         let result = AdvanceArrayParser.childAt([["red","green"],[["four","five"],[1,2,3]]],[1,0,1])//[five]
