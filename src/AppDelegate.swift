@@ -11,11 +11,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         Swift.print("hello world")
-        let result = AdvanceArrayParser.childAt([["red","green"],[["four","five"],[1,2,3]]],[1,0,1])//[five]
-        Swift.print("result: " + "\(result)")
+        //let result = AdvanceArrayParser.childAt([["red","green"],[["four","five"],[1,2,3]]],[1,0,1])//[five]
+        //Swift.print("result: " + "\(result)")
         
-        /*
+        
+        //Continue here: fix slice, its wrong atm. it should return the resulting slice not the resulting array, create slice2
+        //also check if you got splice wrong
+        
+        
         let arr = [1,2,3,4,5,6]
+        let result = ArrayModifier.slice2(arr, 1, arr.count)
+        Swift.print("result: " + "\(result)")
+        /*
         let result = arr.slice(1, arr.count-1)
         Swift.print("result: " + "\(result)")
         Swift.print("arr: " + "\(arr)")
