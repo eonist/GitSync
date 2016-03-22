@@ -15,8 +15,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //let result = AdvanceArrayParser.childAt([["red","green"],[["four","five"],[1,2,3]]],[1,0,1])//[five]
         //Swift.print("result: " + "\(result)")
         
-        
-        let result = [1,2,3].slice(1, 3)
+        let arr = [1,2,3,4,5,6]
+        let result = arr.slice(1, arr.count)
         Swift.print("result: " + "\(result)")
         
         /*StyleManager.addStyle("Window{fill:white;corner-radius:4px;}")//E8E8E8//<--you should target a bg element not the window it self, since now everything inherits these values
