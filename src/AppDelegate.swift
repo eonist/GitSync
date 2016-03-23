@@ -21,11 +21,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         xmlStr +=   "</category>"
         xmlStr += "</subCategories>"
         let xml:NSXMLElement = XMLParser.root(xmlStr)!
-        Swift.print(xml.children![0].childCount)//2
+        xml.addChild(<#T##child: NSXMLNode##NSXMLNode#>)
         
+        //Swift.print(xml.children![0].childCount)//2
+        
+        /*
         let node:Node = NodeParser.node(xml)
         Swift.print("node.children.count: " + "\(node.children.count)")
+        */
         
+        //continue here: try to add an XML child to a XML,
+        //then to remove it,
+        //then try to change attributes,
+        //then try to change value,
+        //then try to change the node name
         
         
         
