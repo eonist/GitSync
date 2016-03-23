@@ -35,7 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("xmlResult: " + "\(xmlResult)")
         let dictResult = XMLParser.toDictionary(xmlResult)
         Swift.print("dictResult: " + "\(dictResult)")
-        
+        dictResult["name"]![0]
         //continue here: write more tests for toDict
         //continue here:
         
