@@ -38,64 +38,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //Continue here: go from node to xml. See your xml string building implementation
         
-        /*
-        //let test = ["someValue":"abc"]
-        let test:AnyObject = ["colors":["1"]]
-        let testing = test is Dictionary<String, AnyObject>
-        Swift.print("testing: " + "\(testing)")
-        let result = XMLParser.toXML(test,"user")
-        result
-        */
-        
-        //continue here: Write a few exampels and their results:
-        
-        //["name":["someName"]]
-        
-        //becomes
-        
-        //<name>someName</name>
-        
-        
-        //["name":["red"],"color":"blue"]]]
-        
-        //becomes
-        
-        //<name color="blue">red</name>
-        
-        /*
-        var temp:Dictionary<String,AnyObject> = [String:AnyObject]()
-        temp["name"] = ["red"]
-        temp["color"] = "blue"
-        */
-        
-        //["name":["title":["some content"],"age":"16"],"color":"blue"]
-        
-        //becomes
-        
-        //<name color="blue"><title age="16">some content here</title></name>
-        
-        /*
-        
-        
-        
-        let result = XMLParser.toXML2(nameDict)
-        Swift.print("result: " + "\(result)")
-        */
-        
-        //test many cases
-        
-        //["name":[]] ->  <name></name>
-        let temp = ["name":["Sam"]]//["name":[["color":["blue"]],["title":["Worker"]]]]
-        let result = XMLParser.toXML(temp)
-        Swift.print("result: " + "\(result)")
-        
-        //Swift.print("result: " + "\(result)")
-        //Swift.print("end")
-        //Swift.print("result: " + "\(result)")//<user someValue="abc"/>
 
-        
-        
-        //continue here: Then start doing node manipulation, removal, additions, updates, creation. aka crud
+        //Continue here: Then start doing node manipulation, removal, additions, updates, creation. aka crud
         
         
         /*
