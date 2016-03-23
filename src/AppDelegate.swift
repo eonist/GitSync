@@ -68,7 +68,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         temp["color"] = "blue"
         */
         
-        //
+        //["name":["title":["some content"],"age":"16"],"color":"blue"]
         
         //becomes
         
