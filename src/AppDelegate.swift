@@ -23,8 +23,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("result: " + "\(result!)")
         
 
-        
-        
+        let xmlResult = NodeParser.xml(root)
+        Swift.print("xmlResult: " + "\(xmlResult)")
         
         
         /*
