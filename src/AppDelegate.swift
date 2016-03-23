@@ -70,18 +70,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("node.children.count: " + "\(node.children.count)")
         */
         
-        
+        /*StyleManager.addStyle("Window{fill:white;corner-radius:4px;}")//E8E8E8//<--you should target a bg element not the window it self, since now everything inherits these values
+        StyleManager.addStylesByURL("~/Desktop/css/gitsync.css")
+        win = GitSyncWin(300,400)/*Init the window*/
+        let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
+        app.windows[0].close()/*close the initial non-optional default window*/*/
+    }
+    func temp(){
+        /*Swift.print("hello world")
+        let result = AdvanceArrayParser.childAt([["red","green"],[["four","five"],[1,2,3]]],[1,0,1])//[five]
+        Swift.print("result: " + "\(result)")*/
+    }
+    func xmlTest(){
         /*
         let test2 = ["someValue":"abc","someObject":["name":"john", "anotherObject":["cow":"power"]]]
         let result2 = XMLParser.toXML(test2,"user")//<user someValue="abc"><someObject name="john"><anotherObject cow="power"/></someObject></user>
         Swift.print("result2: " + "\(result2)")
         */
-        
-        
-        /*Swift.print("hello world")
-        let result = AdvanceArrayParser.childAt([["red","green"],[["four","five"],[1,2,3]]],[1,0,1])//[five]
-        Swift.print("result: " + "\(result)")*/
-        
+
+    }
+    func sliceTest(){
         /*let arr = ["a","b","c","d","e","f"]//["b", "c", "d", "e", "f"]
         let result = ArrayModifier.slice2(arr, 1, arr.count)
         Swift.print("result: " + "\(result)")*/
@@ -91,12 +99,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("result: " + "\(result)")
         Swift.print("arr: " + "\(arr)")
         */
-        
-        /*StyleManager.addStyle("Window{fill:white;corner-radius:4px;}")//E8E8E8//<--you should target a bg element not the window it self, since now everything inherits these values
-        StyleManager.addStylesByURL("~/Desktop/css/gitsync.css")
-        win = GitSyncWin(300,400)/*Init the window*/
-        let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
-        app.windows[0].close()/*close the initial non-optional default window*/*/
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         print("Good-bye")
