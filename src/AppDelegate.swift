@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         xmlStr +=   "</category>"
         xmlStr += "</subCategories>"
         let xml:NSXMLElement = XMLParser.root(xmlStr)!
-        xml.addChild(<#T##child: NSXMLNode##NSXMLNode#>)
+        
         
         //Swift.print(xml.children![0].childCount)//2
         
