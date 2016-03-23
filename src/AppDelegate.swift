@@ -82,8 +82,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         nameDict["name"] = titleDict
         nameDict["color"] = "blue"
         
-        Swift.print("nameDict.keys[0]: " + "\(nameDict.keys.startIndex)")
+        Swift.print("nameDict.keys[0]: " + "\(nameDict.keys[nameDict.startIndex.advancedBy(1)])")
 
+        
         
         
         //Swift.print("result: " + "\(result)")
