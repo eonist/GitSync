@@ -74,7 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //<name color="blue"><title age="16">some content here</title></name>
         
-        /**/
+        /*
         var titleDict:Dictionary<String,AnyObject> = [String:AnyObject]()
         titleDict["title"] = ["some content here"]
         titleDict["age"] = "16"
@@ -85,11 +85,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let result = XMLParser.toXML2(nameDict)
         Swift.print("result: " + "\(result)")
-        
+        */
         
         //test many cases
         
-        
+        let temp = ["name":[]]//["name":["title":["some content"],"age":"16"],"color":"blue"]
+        let result = XMLParser.toXML2(temp)
+        Swift.print("result: " + "\(result)")
         
         //Swift.print("result: " + "\(result)")
         //Swift.print("end")
