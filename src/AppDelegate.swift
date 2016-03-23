@@ -37,6 +37,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("dictResult: " + "\(dictResult)")
         let temp = dictResult["name"]![0]!
         Swift.print("temp: " + "\(temp)")
+        
+        
+        //continue here: there is a bug. Its realted to how you store things. write a few tests. 
+        //one for value 
+        //one for children and 
+        //one for nothing
+        
+        
+        
         //let t = temp["color"]!![0]!
         //Swift.print("t: " + "\(t)")
         //continue here: write more tests for toDict
