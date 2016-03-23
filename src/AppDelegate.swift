@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         xmlStr += "</subCategories>"
         let xml:NSXMLElement = XMLParser.root(xmlStr)!
         //xml.addChild()
-        xml.removeAttributeForName(<#T##name: String##String#>)
+        xml
         
         //Swift.print(xml.children![0].childCount)//2
         
