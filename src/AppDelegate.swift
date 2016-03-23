@@ -74,7 +74,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //<name color="blue"><title age="16">some content here</title></name>
         
-        
+        var nameDict:Dictionary<String,AnyObject> = [String:AnyObject]()
+        var
+        temp["name"] =
         
         
         
