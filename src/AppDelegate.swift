@@ -45,6 +45,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("testing: " + "\(testing)")
         let result = XMLParser.toXML(test,"user")
         result
+        
+        
+        //continue here: Write a few exampels and their results:
+        
+        //{}
+        
+        //becomes
+        
+        //<>
+        
+        
+        
+        
         //Swift.print("result: " + "\(result)")
         //Swift.print("end")
         //Swift.print("result: " + "\(result)")//<user someValue="abc"/>
