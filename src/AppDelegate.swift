@@ -41,24 +41,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("temp: " + "\(temp)")
         */
         
-        //continue here: there is a bug. Its realted to how you store things. write a few tests. 
-        //one for value 
-        //one for children and 
-        //one for nothing
-        
         
         
         //let t = temp["color"]!![0]!
         //Swift.print("t: " + "\(t)")
-        //continue here: write more tests for toDict
-        //continue here:
         
-        //Continue here: go from node to xml. See your xml string building implementation
+        
         //Continue here: Then start doing node manipulation, removal, additions, updates, creation. aka crud
         
 
-        //Continue here: create the XMLParser.toDictionary(xml) 
-        //this needs to support string value and children and attributes and xml node name
         
         //a benefit of not using Node and instead using XML is that you then can access things deply nested inside xml, with ease. Which i guess you can if you convert the xml to NOde aswell. But then its 3 conversions which may not be great.
         
