@@ -34,6 +34,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Continue here: create the XMLParser.toDictionary(xml) 
         //this needs to support string value and children and attributes and xml node name
         
+        //a benefit of not using Node and instead using XML is that you then can access things deply nested inside xml, with ease. Which i guess you can if you convert the xml to NOde aswell. But then its 3 conversions which may not be great. 
+        
         
         
         /*
