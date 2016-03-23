@@ -10,6 +10,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         /**/
         
+        /*
         let root:Node = Node()
         root.children.append(Node(["title":"Dog"]))
         root.children.append(Node(["title":"Pizza"]))
@@ -24,8 +25,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let xmlResult = NodeParser.xml(root)
         Swift.print("xmlResult: " + "\(xmlResult)")
+        */
         
-        
+        let xmlResult = XMLParser.toXML(["name":[]])
+        Swift.print("xmlResult: " + "\(xmlResult)")
+        //let dictResult =
         
         //Continue here: go from node to xml. See your xml string building implementation
         //Continue here: Then start doing node manipulation, removal, additions, updates, creation. aka crud
