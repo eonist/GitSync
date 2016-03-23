@@ -8,7 +8,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var repoFilePath:String = "~/Desktop/repo.xml"
     var win:NSWindow?/*<--The window must be a class variable, local variables doesnt work*/
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        
+        /*
         
         let root:Node = Node()
         root.children.append(Node(["title":"Dog"]))
@@ -22,6 +22,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let result = NodeParser.nodeAt(root, [2,1])!.data["title"]//cpu
         Swift.print("result: " + "\(result!)")
         
+        */
+        
+        
+        
+        
+        Swift.print("\(XMLParser.toXML(["name":[]]))")
         
         
         /*
