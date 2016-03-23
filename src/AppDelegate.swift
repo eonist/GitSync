@@ -83,7 +83,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         nameDict["color"] = "blue"
         
         
-        let result = XMLParser.toXML(titleDict,"user")
+        let result = XMLParser.toXML2(nameDict)
         Swift.print("result: " + "\(result)")
         
         
