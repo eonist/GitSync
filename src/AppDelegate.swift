@@ -36,8 +36,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let dictResult = XMLParser.toDictionary(xmlResult)
         dictResult
         //Swift.print("dictResult: " + "\(dictResult)")
-        //let temp = dictResult["name"]![0]!
-        //Swift.print("temp: " + "\(temp)")
+        let temp = dictResult["name"]![0]!["color"]!![0]!
+        Swift.print("temp: " + "\(temp)")
         
         
         //continue here: there is a bug. Its realted to how you store things. write a few tests. 
