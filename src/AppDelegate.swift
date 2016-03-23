@@ -89,6 +89,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //test many cases
         
+        //["name":[]] ->  <name></name>
         let temp = ["name":[]]//["name":["title":["some content"],"age":"16"],"color":"blue"]
         let result = XMLParser.toXML2(temp)
         Swift.print("result: " + "\(result)")
