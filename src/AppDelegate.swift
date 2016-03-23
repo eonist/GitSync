@@ -56,11 +56,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //<name>someName</name>
         
         
-        //["name",]
+        //["name":["red"],"color":"blue"]]]
         
         //becomes
         
-        //<name color="blue">someName</name>
+        //<name color="blue">red</name>
+        
+        let temp:Dictionary<String,AnyObject> = []
+        temp["name"] = "red"
+        
+        
         
         
         
