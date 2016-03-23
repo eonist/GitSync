@@ -38,14 +38,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //Continue here: go from node to xml. See your xml string building implementation
         
-        /**/
+        /*
         //let test = ["someValue":"abc"]
         let test:AnyObject = ["colors":["1"]]
         let testing = test is Dictionary<String, AnyObject>
         Swift.print("testing: " + "\(testing)")
         let result = XMLParser.toXML(test,"user")
         result
-        
+        */
         
         //continue here: Write a few exampels and their results:
         
@@ -74,11 +74,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //<name color="blue"><title age="16">some content here</title></name>
         
-        var nameDict:Dictionary<String,AnyObject> = [String:AnyObject]()
+        /*
         var titleDict:Dictionary<String,AnyObject> = [String:AnyObject]()
         titleDict["title"] = ["some content here"]
-        
-        
+        titleDict["age"] = "16"
+        var nameDict:Dictionary<String,AnyObject> = [String:AnyObject]()
+        nameDict["name"] = titleDict
+        nameDict["color"] = blue
+        */
         
         
         //Swift.print("result: " + "\(result)")
