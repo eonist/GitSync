@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let xmlResult = XMLParser.toXML(dict)
         Swift.print("xmlResult: " + "\(xmlResult)")
         let dictResult = XMLParser.toDictionary(xmlResult)
-        //Swift.print("dictResult: " + "\(dictResult)")
+        Swift.print("dictResult: " + "\(dictResult)")
         let temp = dictResult["name"]![0]!
         Swift.print("temp: " + "\(temp)")
         //let t = temp["color"]!![0]!
