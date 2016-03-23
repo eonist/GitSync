@@ -40,11 +40,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         /**/
         //let test = ["someValue":"abc"]
-        let test:AnyObject = ["colors",["1",2]]
+        let test:AnyObject = ["colors":["1",2]]
         let testing = test is Dictionary<String, AnyObject>
         Swift.print("testing: " + "\(testing)")
-        //let result = XMLParser.toXML(test,"user")
-        //Swift.print("result: " + "\(result)")
+        let result = XMLParser.toXML(test,"user")
+        Swift.print("result: " + "\(result)")
         //Swift.print("end")
         //Swift.print("result: " + "\(result)")//<user someValue="abc"/>
 
