@@ -41,9 +41,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         /**/
         //let test = ["someValue":"abc"]
         let test = [["colors":"blue"],"test"]
-        let result = XMLParser.toXML(test,"user")
-        Swift.print("result: " + "\(result)")
-        Swift.print("end")
+        let testing = test as? Array<AnyObject> != true
+        Swift.print("testing: " + "\(testing)")
+        //let result = XMLParser.toXML(test,"user")
+        //Swift.print("result: " + "\(result)")
+        //Swift.print("end")
         //Swift.print("result: " + "\(result)")//<user someValue="abc"/>
 
         
