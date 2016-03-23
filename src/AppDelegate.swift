@@ -26,16 +26,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let xmlResult = NodeParser.xml(root)
         Swift.print("xmlResult: " + "\(xmlResult)")
         */
-        let dict = ["name":[]]
+        
+        //let dict = ["name":[]]
+        //let dict = ["name":["title":["some content"],"age":"16"],"color":"blue"]//Output: <name color="blue"><title age="16">some content here</title></name>
+        let dict = ["name":[["color":["blue"]],["title":["Worker"]]]]//<name><color>blue</color><title>Worker</title></name>
         Swift.print("dict: " + "\(dict)")
         let xmlResult = XMLParser.toXML(dict)
         Swift.print("xmlResult: " + "\(xmlResult)")
         let dictResult = XMLParser.toDictionary(xmlResult)
         Swift.print("dictResult: " + "\(dictResult)")
         
-       
-    /continue 1
-        here: write more tests for toDict
+        //continue here: write more tests for toDict
         //continue here:
         
         //Continue here: go from node to xml. See your xml string building implementation
