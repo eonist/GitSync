@@ -8,8 +8,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var repoFilePath:String = "~/Desktop/repo.xml"
     var win:NSWindow?/*<--The window must be a class variable, local variables doesnt work*/
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        /**/
         
+        //Continue here: Then start doing node manipulation, removal, additions, updates, creation. aka crud
+        //a benefit of not using Node and instead using XML is that you then can access things deply nested inside xml, with ease. Which i guess you can if you convert the xml to NOde aswell. But then its 3 conversions which may not be great.
+        
+        /*StyleManager.addStyle("Window{fill:white;corner-radius:4px;}")//E8E8E8//<--you should target a bg element not the window it self, since now everything inherits these values
+        StyleManager.addStylesByURL("~/Desktop/css/gitsync.css")
+        win = GitSyncWin(300,400)/*Init the window*/
+        let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
+        app.windows[0].close()/*close the initial non-optional default window*/*/
+    }
+    func nodeTesting(){
         /*
         let root:Node = Node()
         root.children.append(Node(["title":"Dog"]))
@@ -27,6 +36,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("xmlResult: " + "\(xmlResult)")
         */
         
+        
+        /*
+        NodeModifier.removeAll(root)
+        Swift.print("root.children.count: " + "\(root.children.count)")
+        */
+        
+        //let xmlStr:String = "<media><book><novel/><biography/></book><music><cd/><cassette/></music><film><dvd/><vhs/><blueray/><dvd>movie.mkv</dvd></film><media>"
+        
+        /*
+        let xmlStr:String = "<subCategories><category><id>someId</id><name>someName</name></category></subCategories>"
+        let xml:NSXMLElement = XMLParser.root(xmlStr)!
+        Swift.print(xml.children![0].childCount)//2
+        
+        let node:Node = NodeParser.node(xml)
+        Swift.print("node.children.count: " + "\(node.children.count)")
+        */
+    }
+    func dictTest(){
         //let dict = ["name":[]]
         //let dict = ["name":["title":["some content"],"age":"16"],"color":"blue"]//Output: <name color="blue"><title age="16">some content here</title></name>
         /*
@@ -46,37 +73,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //let t = temp["color"]!![0]!
         //Swift.print("t: " + "\(t)")
         
-        
-        //Continue here: Then start doing node manipulation, removal, additions, updates, creation. aka crud
-        
-
-        
-        //a benefit of not using Node and instead using XML is that you then can access things deply nested inside xml, with ease. Which i guess you can if you convert the xml to NOde aswell. But then its 3 conversions which may not be great.
-        
-        
-        
-        /*
-        NodeModifier.removeAll(root)
-        Swift.print("root.children.count: " + "\(root.children.count)")
-        */
-        
-        //let xmlStr:String = "<media><book><novel/><biography/></book><music><cd/><cassette/></music><film><dvd/><vhs/><blueray/><dvd>movie.mkv</dvd></film><media>"
-        /*
-        let xmlStr:String = "<subCategories><category><id>someId</id><name>someName</name></category></subCategories>"
-        let xml:NSXMLElement = XMLParser.root(xmlStr)!
-        Swift.print(xml.children![0].childCount)//2
-        
-        let node:Node = NodeParser.node(xml)
-        Swift.print("node.children.count: " + "\(node.children.count)")
-        */
-        
-        /*StyleManager.addStyle("Window{fill:white;corner-radius:4px;}")//E8E8E8//<--you should target a bg element not the window it self, since now everything inherits these values
-        StyleManager.addStylesByURL("~/Desktop/css/gitsync.css")
-        win = GitSyncWin(300,400)/*Init the window*/
-        let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
-        app.windows[0].close()/*close the initial non-optional default window*/*/
     }
-    func temp(){
+    func deepArrayParserTest(){
         /*Swift.print("hello world")
         let result = AdvanceArrayParser.childAt([["red","green"],[["four","five"],[1,2,3]]],[1,0,1])//[five]
         Swift.print("result: " + "\(result)")*/
