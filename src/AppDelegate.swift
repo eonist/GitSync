@@ -29,16 +29,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //let dict = ["name":[]]
         //let dict = ["name":["title":["some content"],"age":"16"],"color":"blue"]//Output: <name color="blue"><title age="16">some content here</title></name>
+        /*
         let dict = ["name":[["color":["blue"]],["title":["Worker"]]]]//<name><color>blue</color><title>Worker</title></name>
         Swift.print("dict: " + "\(dict)")
-        let xmlResult = XMLParser.toXML(dict)
+        let xmlResult = try! NSXMLElement("<name><color>blue</color><title>Worker</title></name>")//XMLParser.toXML(dict)
         Swift.print("xmlResult: " + "\(xmlResult)")
         let dictResult = XMLParser.toDictionary(xmlResult)
         dictResult
         //Swift.print("dictResult: " + "\(dictResult)")
         let temp = dictResult["name"]![0]!["color"]!![0]!
         Swift.print("temp: " + "\(temp)")
-        
+        */
         
         //continue here: there is a bug. Its realted to how you store things. write a few tests. 
         //one for value 
