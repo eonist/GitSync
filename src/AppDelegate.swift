@@ -25,7 +25,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let xmlResult = NodeParser.xml(root)
         Swift.print("xmlResult: " + "\(xmlResult)")
         
-        
         /*
         NodeModifier.removeAll(root)
         Swift.print("root.children.count: " + "\(root.children.count)")
