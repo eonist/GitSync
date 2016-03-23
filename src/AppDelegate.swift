@@ -74,14 +74,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //<name color="blue"><title age="16">some content here</title></name>
         
-        /*
+        /**/
         var titleDict:Dictionary<String,AnyObject> = [String:AnyObject]()
         titleDict["title"] = ["some content here"]
         titleDict["age"] = "16"
         var nameDict:Dictionary<String,AnyObject> = [String:AnyObject]()
         nameDict["name"] = titleDict
-        nameDict["color"] = blue
-        */
+        nameDict["color"] = "blue"
+        
+        nameDict.
+
         
         
         //Swift.print("result: " + "\(result)")
