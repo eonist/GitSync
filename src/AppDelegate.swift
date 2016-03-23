@@ -25,6 +25,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let xmlResult = NodeParser.xml(root)
         Swift.print("xmlResult: " + "\(xmlResult)")
         
+        
+        
+        //Continue here: go from node to xml. See your xml string building implementation
+        //Continue here: Then start doing node manipulation, removal, additions, updates, creation. aka crud
+        
+
+        //Continue here: create the XMLParser.toDictionary(xml) 
+        //this needs to support string value and children and attributes and xml node name
+        
+        
+        
         /*
         NodeModifier.removeAll(root)
         Swift.print("root.children.count: " + "\(root.children.count)")
@@ -39,9 +50,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let node:Node = NodeParser.node(xml)
         Swift.print("node.children.count: " + "\(node.children.count)")
         */
-        
-        //Continue here: go from node to xml. See your xml string building implementation
-        //Continue here: Then start doing node manipulation, removal, additions, updates, creation. aka crud
         
         
         /*
