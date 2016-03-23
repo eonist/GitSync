@@ -49,11 +49,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //continue here: Write a few exampels and their results:
         
-        //{}
+        //["name":["someName"]]
         
         //becomes
         
-        //<>
+        //<name>someName</name>
+        
+        
+        //["name",]
+        
+        //becomes
+        
+        //<name color="blue">someName</name>
         
         
         
