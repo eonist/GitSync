@@ -22,7 +22,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let result = NodeParser.nodeAt(root, [2,1])!.data["title"]//cpu
         Swift.print("result: " + "\(result!)")
         
-
         let xmlResult = NodeParser.xml(root)
         Swift.print("xmlResult: " + "\(xmlResult)")
         
