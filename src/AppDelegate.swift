@@ -33,8 +33,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let dictResult = XMLParser.toDictionary(xmlResult)
         Swift.print("dictResult: " + "\(dictResult)")
         
-        //continue here: write more tests for toDict
-        //continue here: 
+       
+    /continue 1
+        here: write more tests for toDict
+        //continue here:
         
         //Continue here: go from node to xml. See your xml string building implementation
         //Continue here: Then start doing node manipulation, removal, additions, updates, creation. aka crud
