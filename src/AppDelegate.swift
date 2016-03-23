@@ -24,6 +24,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print(xml.children![0].childCount)//2
         
         let node:Node = NodeParser.node(xml)
+        Swift.print("node.children.count: " + "\(node.children.count)")
+        
         
         
         
