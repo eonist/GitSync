@@ -9,7 +9,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var win:NSWindow?/*<--The window must be a class variable, local variables doesnt work*/
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         
-        /*
+        
         let root:Node = Node()
         root.children.append(Node(["title":"Dog"]))
         root.children.append(Node(["title":"Pizza"]))
@@ -22,6 +22,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let result = NodeParser.nodeAt(root, [2,1])!.data["title"]//cpu
         Swift.print("result: " + "\(result!)")
         
+        
+        
+        /*
         NodeModifier.removeAll(root)
         Swift.print("root.children.count: " + "\(root.children.count)")
         */
@@ -37,8 +40,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         */
         
         //Continue here: go from node to xml. See your xml string building implementation
-        
-
         //Continue here: Then start doing node manipulation, removal, additions, updates, creation. aka crud
         
         
