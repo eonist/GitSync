@@ -76,6 +76,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         
+        
+        
         //Swift.print("result: " + "\(result)")
         //Swift.print("end")
         //Swift.print("result: " + "\(result)")//<user someValue="abc"/>
