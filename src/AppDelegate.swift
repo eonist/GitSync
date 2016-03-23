@@ -87,6 +87,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("result: " + "\(result)")
         
         
+        //test many cases
+        
+        
         
         //Swift.print("result: " + "\(result)")
         //Swift.print("end")
