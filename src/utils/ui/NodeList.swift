@@ -15,11 +15,13 @@ class NodeList:Element{
         
         let xml = node.xml.childAt(index)
         
-        
         let dp = DataProvider(xml)
         list = addSubView(List(width,height,itemHeight,dp,self))
     }
-    //create a list here
+    
+    //add listeners for list click
+    
+    //add listeners for node events
     
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     
