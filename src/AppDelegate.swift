@@ -35,10 +35,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         xml.addchildAt(child, [0,0])
         //Swift.print("xml: " + "\(xml)")
         
-        xml.setAttributeAt(xml, [0,0], "color", "blue")
-        Swift.print("xml: " + "\(xml)")
+        //xml.setAttributeAt(xml, [0,0], "color", "blue")
+        //Swift.print("xml: " + "\(xml)")
         
-        xml.setAttributeAt(xml, [0,0], "color", "blue")
+        xml.setAttributeAt(xml, [0,0], ["color":"blue"])
         Swift.print("xml: " + "\(xml)")
         
         /*
