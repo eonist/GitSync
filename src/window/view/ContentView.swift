@@ -10,24 +10,36 @@ class ContentView:Element{
         repoView = addSubView(RepoView(width,height,self))
         RepoData.sharedInstance.repoView = repoView
     }
+    
+    /**
+     *
+     */
+    func onListItemSelect(event:ListEvent){
+        Swift.print("ContentView select")
+        RepoData.sharedInstance.selectedIndex = event.index
+        Swift.print("RepoData.sharedInstance.selectedIndex: " + "\(RepoData.sharedInstance.selectedIndex)")
+        repoView!.removeFromSuperview()
+        repoDetailView = addSubView(repoDetailView ?? RepoDetailView(width,height,self))
+        let repoData = RepoData.sharedInstance
+        let repoItem = repoData.dp.getItemAt(repoData.selectedIndex!)!
+        repoDetailView!.setRepoData(repoItem)//updates the UI elements with the selected repo data
+    }
+    /**
+     *
+     */
+    func onRemoveButtonClick(){
+        Swift.print("removeButton.click")
+        //remove detail view
+        //repoView!.list!.dataProvider.removeItemAt(0)//use selected index here
+        //add repoView
+    }
     override func onEvent(event: Event) {
-        if(event.type == ListEvent.select){//on list select
-            Swift.print("ContentView select")
-            RepoData.sharedInstance.selectedIndex = (event as! ListEvent).index
-            Swift.print("RepoData.sharedInstance.selectedIndex: " + "\(RepoData.sharedInstance.selectedIndex)")
-            repoView!.removeFromSuperview()
-            repoDetailView = addSubView(repoDetailView ?? RepoDetailView(width,height,self))
-            let repoData = RepoData.sharedInstance
-            let repoItem = repoData.dp.getItemAt(repoData.selectedIndex!)!
-            repoDetailView!.setRepoData(repoItem)//updates the UI elements with the selected repo data
-        }else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.topBar!.backButton){//on back button
+        if(event.type == ListEvent.select){onListItemSelect(event as! ListEvent)}//on list select
+        else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.topBar!.backButton){//on back button
             repoDetailView!.removeFromSuperview()
             repoView = addSubView(repoView ?? RepoView(width,height,self))
         }else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.topBar!.removeButton){//on remove button
-            Swift.print("removeButton.click")
-            //remove detail view
-            //repoView!.list!.dataProvider.removeItemAt(0)//use selected index here
-            //add repoView
+            
             
         }
     }
