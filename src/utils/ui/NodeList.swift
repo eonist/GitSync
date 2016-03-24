@@ -34,7 +34,9 @@ class NodeList:Element{
     
     //add listeners for node events
     
-    //continue here: write
+    //continue here: write how node events should work, and how the backButton event should work
+    
+    
     
     
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
