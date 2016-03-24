@@ -20,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         xmlStr +=       "<name>someName</name>"
         xmlStr +=   "</category>"
         xmlStr += "</subCategories>"
-        let xml:NSXMLElement = XMLParser.root(xmlStr)!
+        let xml:NSXMLElement = NSXMLElement(xmlStr)//XMLParser.root(xmlStr)!
         
         let result = xml.valueAt([0,0])
         Swift.print("result: " + "\(result)")
