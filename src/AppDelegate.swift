@@ -59,17 +59,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("node.children.count: " + "\(node.children.count)")
         */
         
-        //continue here: try to add an XML child to a XML,
-        //then to remove it,
-        //then try to change attributes,
-        //then try to change value,
-        //then try to change the node name
         
-        
-        
-        //add attribute in a nested node
-        
-        //change the name of a nested node
         
         //remove a nested node
         
