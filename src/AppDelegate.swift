@@ -22,15 +22,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         xmlStr += "</subCategories>"
         let xml:NSXMLElement = NSXMLElement(xmlStr)//XMLParser.root(xmlStr)!
         xml
+        
+        
+        
+        
+        
         //let result = xml.valueAt([0,0])
         //Swift.print("result: " + "\(result)")
-        
-        
-        let tempXMLStr:String = "<name></name>"
-        //let tempXML = NSXMLElement(tempXMLStr)
-        let tempXMLChildren = XMLParser.children(tempXMLStr)
-        Swift.print("tempXMLChildren.count: " + "\(tempXMLChildren.count)")
-        
         
         
         //let result = xml.childAt([0,1])//<name>someName</name>
