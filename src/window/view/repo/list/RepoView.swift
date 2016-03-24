@@ -5,9 +5,9 @@ class RepoView:Element{//rename to RepoListView
     var list:List?
     override func resolveSkin() {
         //Swift.print("RepoView.resolveSkin()")
-        StyleManager.addStyle("RepoView{padding-top:8px;}")//padding-left:6px;padding-right:6px;
+        StyleManager.addStyle("RepoView{padding-top:8px;padding-left:6px;padding-right:6px;}")//padding-left:6px;padding-right:6px;
         super.resolveSkin()
-        topBar = addSubView(TopBar(width,24,self))
+        topBar = addSubView(TopBar(width-12,24,self))
         
         //let dp:DataProvider = DataProvider()
         //dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
