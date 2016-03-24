@@ -20,13 +20,18 @@ class RepoView:Element{//rename to RepoListView
         list = addSubView(List(width, height-24, NaN, dp, self))
         ListModifier.selectAt(list!, 0)
     }
-    override func onEvent(event: Event) {
-        if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){
-            Swift.print("addButton.click")
-            list!.dataProvider.addItemAt(["title":"New repo","local-path":"","remote-path":"","interval":"30","keychain-item-name":"","branch":"master","broadcast":"true","subscribe":"true","auto-sync":"true"], 0)
-            ListModifier.selectAt(list!, 0)
-            list!.onEvent(ListEvent(ListEvent.select,0,list!))
-        }else if(event.type == ListEvent.select){
+    /**
+     *
+     */
+    func onAddButtonClick(){
+        Swift.print("addButton.click")
+        list!.dataProvider.addItemAt(["title":"New repo","local-path":"","remote-path":"","interval":"30","keychain-item-name":"","branch":"master","broadcast":"true","subscribe":"true","auto-sync":"true"], 0)
+        ListModifier.selectAt(list!, 0)
+        list!.onEvent(ListEvent(ListEvent.select,0,list!))
+    }
+    override func onEvent(event:Event) {
+        if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
+        else if(event.type == ListEvent.select){
             Swift.print("RepoView select")
             super.onEvent(event)//forward this event to the parent
         }
