@@ -23,13 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let xml:NSXMLElement = NSXMLElement(xmlStr)//XMLParser.root(xmlStr)!
         xml
         
-        //removal
-        
-        //additions
-        
-        //updates
-        
-        //creation
+        Swift.print("xml: " + "\(xml)")
         
         
         
@@ -78,22 +72,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         */
         
         
-        
-        //remove a nested node
-        
-        //remove a branch
-        
-        //remove a deep leaf
-        
-        //add a branch to a leaf
-        
-        //sort a branch by name
-        
-        //sort a tree by name
-        
-        //sort Siblings by name
-        
-        //sort all of the above by attribute
         
         
         /*StyleManager.addStyle("Window{fill:white;corner-radius:4px;}")//E8E8E8//<--you should target a bg element not the window it self, since now everything inherits these values
