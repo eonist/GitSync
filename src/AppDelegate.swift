@@ -21,13 +21,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         xmlStr +=   "</category>"
         xmlStr += "</subCategories>"
         let xml:NSXMLElement = XMLParser.root(xmlStr)!
+        
+        xml.valueAt([0,0,0])
         //let result = xml.childAt([0,1])//<name>someName</name>
         //Swift.print("result: " + "\(result)")
         
         //xml.addChild()
         
         //let child:NSXMLElement = NSXMLElement("<test></test>")
-       // Swift.print("child: " + "\(child)")
+        //Swift.print("child: " + "\(child)")
         //xml.addchildAt(child, [0,0])
         //xml.replaceChildAt(xml, [0,0], child)
         
