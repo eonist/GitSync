@@ -7,7 +7,7 @@ class TopBar:Element{
         StyleManager.addStyle("TopBar{float:left;clear:left;corner-radius:0px 4px 0px 0px;padding-left:10px;margin-bottom:12px;}")
         super.resolveSkin()
         
-        StyleManager.addStyle("TopBar TextButton{width:50px;float:left;clear:none;}")
+        StyleManager.addStyle("TopBar TextButton{width:50px;float:right;clear:none;}")
         addButton = addSubView(TextButton("Add",32,24,self))
         
         /*
