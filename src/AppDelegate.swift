@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         xmlStr +=   "</category>"
         xmlStr += "</subCategories>"
         let xml:NSXMLElement = XMLParser.root(xmlStr)!
-        let result = xml.childAt([0,1])//<id>someId</id>
+        let result = xml.childAt([0,1])//<name>someName</name>
         Swift.print("result: " + "\(result)")
         
         
