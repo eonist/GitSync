@@ -15,16 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
         app.windows[0].close()/*close the initial non-optional default window*/
         
-        //DepthListView
-        
-        //a back Button, when you click back the last int in the depthIndex is removed
-        
-        //the listView gets each sibling item in the current depth index
-
-        //when you click a listItem, the index of the item you clicked will be added to the depthIndex, and a new list will be created based on the current depthIndex
-        
-        
-        
+     
     }
     /**
      *
