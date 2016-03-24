@@ -34,6 +34,9 @@ class NodeList:Element{
     
     //add listeners for node events
     
+    //continue here: write
+    
+    
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     
 }
