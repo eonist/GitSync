@@ -26,6 +26,8 @@ class NodeList:Element{
     
     //add listeners for list click
     
+    //when you click a list item you should append the selected item index to the var index:Array<Int> 
+    
     //add listeners for node events
     
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
