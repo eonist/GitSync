@@ -1,14 +1,6 @@
 import Foundation
 
-//1. tree-structured xml (requires you to make the DataBase class)
 
-//2. revealInFinder and open in safari for path and URL
-
-//3. save to xml after each remove and add and each repo-settings-update (this involves creating the dp->xml method)
-
-//4. hook up the leftSideBar to app logic
-
-//5. next is to create the activity list and load in the last 5 commits from each repo. and then sync repos
 
 class RepoView:Element{//rename to RepoListView
     var topBar:TopBar?
