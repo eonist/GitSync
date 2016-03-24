@@ -1,6 +1,7 @@
 import Foundation
 
 class NodeList:Element{
+    var index:Array<Int> = []
     var node:Node
     var itemHeight:CGFloat
     var list:List?
@@ -12,7 +13,8 @@ class NodeList:Element{
     override func resolveSkin() {
         super.resolveSkin()
         
-        //TODO: 
+        //TODO: create a 
+        
         
         let dp = DataProvider()
         list = addSubView(List(width,height,itemHeight,dp,self))
