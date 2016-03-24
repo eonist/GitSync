@@ -27,7 +27,7 @@ class RepoView:Element{//rename to RepoListView
         list!.onEvent(ListEvent(ListEvent.select,0,list!))
     }
     func onBackButton(){
-        
+        Swift.print("onBackButton()")
     }
     override func onEvent(event:Event) {
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
