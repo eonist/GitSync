@@ -38,7 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //xml.setAttributeAt(xml, [0,0], "color", "blue")
         //Swift.print("xml: " + "\(xml)")
         
-        xml.setAttributeAt(xml, [0,0], ["color":"blue"])
+        xml.setAttributeAt(xml, [0,0], ["color":"blue","gradient":"teal"])
         Swift.print("xml: " + "\(xml)")
         
         /*
