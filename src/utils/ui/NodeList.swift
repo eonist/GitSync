@@ -28,7 +28,8 @@ class NodeList:Element{
     
     //when you click a list item 
         //you should append the selected item index to the var index:Array<Int> 
-        //then you should 
+        //then you should create a new dataprovider based on the xml at the current index:Array<Int>
+        //then you remove the current items in the list and add the new dataprovider items
     
     
     //add listeners for node events
