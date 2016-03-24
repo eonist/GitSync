@@ -9,8 +9,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var win:NSWindow?/*<--The window must be a class variable, local variables doesnt work*/
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         
-        //Continue here: Then start doing node manipulation, removal, additions, updates, creation. aka crud
-        //a benefit of not using Node and instead using XML is that you then can access things deply nested inside xml, with ease. Which i guess you can if you convert the xml to NOde aswell. But then its 3 conversions which may not be great.
+        
+        
         
         //TODO: remember to also test if you can grab the value inside nodes
         var xmlStr:String = ""
@@ -23,7 +23,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let xml:NSXMLElement = NSXMLElement(xmlStr)//XMLParser.root(xmlStr)!
         xml
         
+        //removal
         
+        //additions
+        
+        //updates
+        
+        //creation
         
         
         
