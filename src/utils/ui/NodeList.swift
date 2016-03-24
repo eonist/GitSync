@@ -13,10 +13,10 @@ class NodeList:Element{
     override func resolveSkin() {
         super.resolveSkin()
         
-        //TODO: create a 
+        let xml = node.xml.childAt(index)
         
         
-        let dp = DataProvider()
+        let dp = DataProvider(xml)
         list = addSubView(List(width,height,itemHeight,dp,self))
     }
     //create a list here
