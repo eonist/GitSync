@@ -24,18 +24,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //let result = xml.childAt([0,1])//<name>someName</name>
         //Swift.print("result: " + "\(result)")
         
-        
-        
-        
         //xml.addChild()
         
-        
-        let child:NSXMLElement = NSXMLElement("<test></test>")
-        Swift.print("child: " + "\(child)")
+        //let child:NSXMLElement = NSXMLElement("<test></test>")
+       // Swift.print("child: " + "\(child)")
         //xml.addchildAt(child, [0,0])
-        xml.replaceChildAt(xml, [0,0], child)
+        //xml.replaceChildAt(xml, [0,0], child)
         
-        Swift.print("xml: " + "\(xml)")
+        //xml.valuea
+        
+        //Swift.print("xml: " + "\(xml)")
         
         //xml.setAttributeAt(xml, [0,0], "color", "blue")
         //Swift.print("xml: " + "\(xml)")
