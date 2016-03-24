@@ -25,6 +25,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("result: " + "\(result)")
         
         
+        //Continue here: try to add something now
+        
         //xml.addChild()
         /*
         let child:NSXMLElement = NSXMLElement("<test></test>")
