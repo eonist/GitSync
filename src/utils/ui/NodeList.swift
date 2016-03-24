@@ -1,5 +1,9 @@
 import Foundation
-
+/**
+ * TODO: this class should not hold the back button
+ * TODO: back and forth gestures should probably be implemented in this class, but it won't be easy. Unless apple has made it easy to combine with scroll action etc
+ * TODO: 
+ */
 class NodeList:Element{
     var index:Array<Int> = []
     var node:Node
