@@ -21,19 +21,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         xmlStr +=   "</category>"
         xmlStr += "</subCategories>"
         let xml:NSXMLElement = XMLParser.root(xmlStr)!
-        let result = xml.childAt([0,1])//<name>someName</name>
-        Swift.print("result: " + "\(result)")
+        //let result = xml.childAt([0,1])//<name>someName</name>
+        //Swift.print("result: " + "\(result)")
         
         
         //Continue here: try to add something now
         
         //xml.addChild()
-        /*
+        
         let child:NSXMLElement = NSXMLElement("<test></test>")
         Swift.print("child: " + "\(child)")
         xml.addchildAt(child, [0,0])
         Swift.print("xml: " + "\(xml)")
-        */
+        /**/
 
         //Swift.print(xml.children![0].childCount)//2
         
