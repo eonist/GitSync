@@ -33,7 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let child:NSXMLElement = NSXMLElement("<test></test>")
         Swift.print("child: " + "\(child)")
         //xml.addchildAt(child, [0,0])
-        xml.replaceChildAt(xml, [0,1], child)
+        xml.replaceChildAt(xml, [0,0], child)
         
         Swift.print("xml: " + "\(xml)")
         
