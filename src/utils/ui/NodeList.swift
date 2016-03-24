@@ -2,7 +2,8 @@ import Foundation
 /**
  * TODO: this class should not hold the back button
  * TODO: back and forth gestures should probably be implemented in this class, but it won't be easy. Unless apple has made it easy to combine with scroll action etc
- * TODO: 
+ * TODO: extend List, its way easier to extend this class with likes of: SliderNodeList and RBNodeList in the future. The more involved CarouselList wont be easy to implement anyway, and will require many listviews to create a seamless experince
+ *
  */
 class NodeList:Element{
     var index:Array<Int> = []
