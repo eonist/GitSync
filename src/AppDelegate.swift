@@ -17,7 +17,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //listView
         
-        //
+        //a back Button
+        
+        //the listView gets each sibling item in the current depth index
+        
+        
+        
+        //when you click a listItem
         
     }
     /**
