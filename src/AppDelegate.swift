@@ -26,7 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Swift.print("result: " + "\(result)")
         
         
-        
+        let tempXML:String = "<name></name><title></title>"
         
         
         //let result = xml.childAt([0,1])//<name>someName</name>
