@@ -2,13 +2,16 @@ import Foundation
 
 class TopBar:Element{
     var addButton:TextButton?
+    var backButton:TextButton?
     
     override func resolveSkin() {
         StyleManager.addStyle("TopBar{float:left;clear:left;corner-radius:0px 4px 0px 0px;padding-left:10px;margin-bottom:12px;}")
         super.resolveSkin()
         
+        backButton = addSubView(TextButton("Back",32,24,self,"back"))
+        
         StyleManager.addStyle("TopBar TextButton{width:50px;float:right;clear:none;}")
-        addButton = addSubView(TextButton("Add",32,24,self))
+        addButton = addSubView(TextButton("Add",32,24,self,"add"))
         
         /*
         StyleManager.addStyle("TopBar Button#add{float:left;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")//fill:green;
