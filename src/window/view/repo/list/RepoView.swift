@@ -1,7 +1,5 @@
 import Foundation
 
-
-
 class RepoView:Element{//rename to RepoListView
     var topBar:TopBar?
     var list:List?
