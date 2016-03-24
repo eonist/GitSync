@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
         app.windows[0].close()/*close the initial non-optional default window*/
         
-        //listView
+        //DepthListView
         
         //a back Button, when you click back the last int in the depthIndex is removed
         
