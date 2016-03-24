@@ -38,6 +38,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         xml.removeChildAt([0,0])
         Swift.print("xml: " + "\(xml)")
+        
+        xml.
         /**/
 
         //Swift.print(xml.children![0].childCount)//2
