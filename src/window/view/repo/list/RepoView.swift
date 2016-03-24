@@ -7,7 +7,7 @@ class RepoView:Element{//rename to RepoListView
         //Swift.print("RepoView.resolveSkin()")
         StyleManager.addStyle("RepoView{padding-top:8px;}")//padding-left:6px;padding-right:6px;
         super.resolveSkin()
-        topBar = addSubView(TopBar(width-24,24,self))
+        topBar = addSubView(TopBar(width-30,24,self))
         
         //let dp:DataProvider = DataProvider()
         //dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
@@ -31,9 +31,6 @@ class RepoView:Element{//rename to RepoListView
     }
     override func onEvent(event:Event) {
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
-        else if(event.type == ListEvent.select){
-            Swift.print("RepoView select")
-            super.onEvent(event)//forward this event to the parent
-        }
+        else if(event.type == ListEvent.select){super.onEvent(event)}//forward this event to the parent
     }
 }
