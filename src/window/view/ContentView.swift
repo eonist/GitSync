@@ -38,10 +38,7 @@ class ContentView:Element{
         else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.topBar!.backButton){//on back button
             repoDetailView!.removeFromSuperview()
             repoView = addSubView(repoView ?? RepoView(width,height,self))
-        }else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.topBar!.removeButton){//on remove button
-            
-            
-        }
+        }else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.topBar!.removeButton){onRemoveButtonClick()}//on remove button
     }
 }
 /**
