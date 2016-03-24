@@ -26,7 +26,10 @@ class NodeList:Element{
     
     //add listeners for list click
     
-    //when you click a list item you should append the selected item index to the var index:Array<Int> 
+    //when you click a list item 
+        //you should append the selected item index to the var index:Array<Int> 
+        //then you should 
+    
     
     //add listeners for node events
     
