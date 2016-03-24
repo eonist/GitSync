@@ -35,11 +35,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         xml.addchildAt(child, [0,0])
         Swift.print("xml: " + "\(xml)")
         
-        
-        xml.removeChildAt([0,0])
+        xml.setNameAt([0,0], "works")
         Swift.print("xml: " + "\(xml)")
         
-        xml.setNameAt
+        /*
+        xml.removeChildAt([0,0])
+        Swift.print("xml: " + "\(xml)")
+        */
+        
         /**/
 
         //Swift.print(xml.children![0].childCount)//2
