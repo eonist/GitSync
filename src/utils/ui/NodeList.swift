@@ -11,8 +11,11 @@ class NodeList:Element{
     }
     override func resolveSkin() {
         super.resolveSkin()
-        let db = DataProvider()
-        list = addSubView(List(width,height,itemHeight))
+        
+        //TODO: 
+        
+        let dp = DataProvider()
+        list = addSubView(List(width,height,itemHeight,dp,self))
     }
     //create a list here
     
