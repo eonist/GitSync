@@ -26,9 +26,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Swift.print("result: " + "\(result)")
         
         
-        let tempXMLStr:String = "<name></name><title></title>"
+        let tempXMLStr:String = "<name><color></color></name><title></title>"
         //let tempXML = NSXMLElement(tempXMLStr)
         let tempXMLChildren = XMLParser.rootChildren(tempXMLStr)
+        
+        
+        
         Swift.print("tempXMLChildren.count: " + "\(tempXMLChildren.count)")
         
         //let result = xml.childAt([0,1])//<name>someName</name>
