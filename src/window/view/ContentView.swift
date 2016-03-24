@@ -33,12 +33,17 @@ class ContentView:Element{
         //repoView!.list!.dataProvider.removeItemAt(0)//use selected index here
         //add repoView
     }
+    /**
+     *
+     */
+    func onBackButtonClick(){
+        repoDetailView!.removeFromSuperview()
+        repoView = addSubView(repoView ?? RepoView(width,height,self))
+    }
     override func onEvent(event: Event) {
         if(event.type == ListEvent.select){onListItemSelect(event as! ListEvent)}//on list select
-        else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.topBar!.backButton){//on back button
-            repoDetailView!.removeFromSuperview()
-            repoView = addSubView(repoView ?? RepoView(width,height,self))
-        }else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.topBar!.removeButton){onRemoveButtonClick()}//on remove button
+        else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.topBar!.backButton){onBackButtonClick()}//on back button
+        else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.topBar!.removeButton){onRemoveButtonClick()}//on remove button
     }
 }
 /**
