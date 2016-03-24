@@ -17,11 +17,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //listView
         
-        //a back Button, when you click back the last int in the depthIndex
+        //a back Button, when you click back the last int in the depthIndex is removed
         
         //the listView gets each sibling item in the current depth index
 
-        //when you click a listItem, the index of the item you clicked will be added to the depthIndex
+        //when you click a listItem, the index of the item you clicked will be added to the depthIndex, and a new list will be created based on the current depthIndex
+        
+        
         
     }
     /**
