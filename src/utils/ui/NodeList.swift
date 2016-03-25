@@ -6,7 +6,7 @@ import Foundation
  * TODO: Actually dont extend better to work like a wrapper, since List components can be really complex
  */
 class NodeList:Element{
-    var index:Array<Int> = []
+    var index:Array<Int> = []//node index
     var node:Node
     var itemHeight:CGFloat
     var list:List?
@@ -23,7 +23,12 @@ class NodeList:Element{
         let dp = DataProvider(xml)
         list = addSubView(List(width,height,itemHeight,dp,self))
     }
-    
+    /**
+     *
+     */
+    func setIndexValue(index:Array<Int>){
+        
+    }
     //add listeners for list click
     
     //when you click a list item 
