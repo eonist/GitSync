@@ -24,6 +24,8 @@ class RepoView:Element{//rename to RepoListView
         
         let xml = FileParser.xml("~/Desktop/repo2.xml")
         let node:Node = Node(xml)
+        Swift.print("node.xml.childCount: " + "\(node.xml.childCount)")
+        Swift.print("node.xml.childAt([0])?.childCount: " + "\(node.xml.childAt([0])?.childCount)")
     }
     func onAddButtonClick(){
         Swift.print("addButton.click")
