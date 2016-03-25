@@ -27,7 +27,9 @@ class RepoView:Element{//rename to RepoListView
         let node:Node = Node(xml)
         Swift.print("node.xml.childCount: " + "\(node.xml.childCount)")
         Swift.print("node.xml.childAt([0])?.childCount: " + "\(node.xml.childAt([])?.childCount)")
+        StyleManager.addStyle("RepoView NodeList{float:left;clear:left;}")
         
+        nodeList = addSubView(NodeList(width, height-24, NaN, node, self))
     }
     func onAddButtonClick(){
         Swift.print("addButton.click")
