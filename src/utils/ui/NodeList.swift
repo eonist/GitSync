@@ -17,7 +17,6 @@ class NodeList:Element{
     }
     override func resolveSkin() {
         super.resolveSkin()
-        
         let xml = node.xml.childAt(index)
         list = addSubView(List(width,height,itemHeight,DataProvider(xml),self))
     }
@@ -30,8 +29,10 @@ class NodeList:Element{
         let dp = DataProvider(xml)
         list?.dataProvider.addItems(dp.items)
     }
-    func onEvent(event: Event) {
-        
+    override func onEvent(event: Event) {
+        if(event.type == ListEvent.select && event.origin === list){
+            
+        }
     }
     //add listeners for list click
     
