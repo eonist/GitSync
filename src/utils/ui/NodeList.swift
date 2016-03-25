@@ -21,7 +21,7 @@ class NodeList:Element{
         list = addSubView(List(width,height,itemHeight,DataProvider(xml),self))
     }
     /**
-     *
+     * NOTE to go up one level: you should remove the last item in the index:Array
      */
     func setIndexValue(index:Array<Int>){
         let xml = node.xml.childAt(index)
@@ -29,9 +29,11 @@ class NodeList:Element{
         let dp = DataProvider(xml)
         list?.dataProvider.addItems(dp.items)
     }
-    override func onEvent(event: Event) {
+    override func onEvent(event:Event) {
         if(event.type == ListEvent.select && event.origin === list){
-            
+            let index = (event as! ListEvent).index
+            self.index.append(index)
+            setIndexValue(self.index)
         }
     }
     //add listeners for list click
