@@ -12,13 +12,18 @@ class RepoView:Element{//rename to RepoListView
         //let dp:DataProvider = DataProvider()
         //dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
         
-        let xml = FileParser.xml("~/Desktop/repo.xml2")
-        let dp:DataProvider = DataProvider(xml)
+        
         StyleManager.addStyle("RepoView List Container SelectTextButton{height:32px;}")
         StyleManager.addStyle("RepoView List Container SelectTextButton Text{margin-top:8px;}")
-        
+        /*
+        let xml = FileParser.xml("~/Desktop/repo.xml")
+        let dp:DataProvider = DataProvider(xml)
         list = addSubView(List(width, height-24, NaN, dp, self))
         ListModifier.selectAt(list!, 0)
+        */
+        
+        let xml = FileParser.xml("~/Desktop/repo2.xml")
+        let node:Node = Node(xml)
     }
     func onAddButtonClick(){
         Swift.print("addButton.click")
