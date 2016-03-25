@@ -14,8 +14,8 @@ class RepoView:Element{//rename to RepoListView
         //dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
         
         
-        StyleManager.addStyle("RepoView List Container SelectTextButton{height:32px;}")
-        StyleManager.addStyle("RepoView List Container SelectTextButton Text{margin-top:8px;}")
+        StyleManager.addStyle("RepoView NodeList List Container SelectTextButton{height:32px;}")
+        StyleManager.addStyle("RepoView NodeList List Container SelectTextButton Text{margin-top:8px;}")
         /*
         let xml = FileParser.xml("~/Desktop/repo.xml")
         let dp:DataProvider = DataProvider(xml)
@@ -25,8 +25,8 @@ class RepoView:Element{//rename to RepoListView
         
         let xml = FileParser.xml("~/Desktop/repo2.xml")
         let node:Node = Node(xml)
-        Swift.print("node.xml.childCount: " + "\(node.xml.childCount)")
-        Swift.print("node.xml.childAt([0])?.childCount: " + "\(node.xml.childAt([])?.childCount)")
+        //Swift.print("node.xml.childCount: " + "\(node.xml.childCount)")
+        //Swift.print("node.xml.childAt([0])?.childCount: " + "\(node.xml.childAt([])?.childCount)")
         StyleManager.addStyle("RepoView NodeList{float:left;clear:left;}")
         
         nodeList = addSubView(NodeList(width, height-24, NaN, node, self))
