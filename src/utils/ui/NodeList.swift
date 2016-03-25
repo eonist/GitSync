@@ -34,7 +34,9 @@ class NodeList:Element{
     
     //when you click the backButton 
         //you should remove the last item in the index:Array
-        //
+        //empty the list
+        //set the xml to the current index
+        //add the new dataprovider to the list
     
     
     
