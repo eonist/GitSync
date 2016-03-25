@@ -10,7 +10,6 @@ class ContentView:Element{
         repoView = addSubView(RepoView(width,height,self))
         RepoData.sharedInstance.repoView = repoView
     }
-    
     /**
      *
      */
