@@ -32,6 +32,8 @@ class NodeList:Element{
         //then you remove the current items in the list and add the new dataprovider items
     
     
+    //when you click the backButton you should remove the last item in the inde:Array
+        
     //add listeners for node events
     
     //continue here: write how node events should work, and how the backButton event should work
