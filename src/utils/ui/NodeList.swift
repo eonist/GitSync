@@ -6,7 +6,7 @@ import Foundation
  * TODO: Actually dont extend better to work like a wrapper, since List components can be really complex
  */
 class NodeList:Element{
-    var index:Array<Int> = []//node index
+    var index:Array<Int> = []//node index, currently at root element
     var node:Node
     var itemHeight:CGFloat
     var list:List?
