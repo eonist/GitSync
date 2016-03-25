@@ -3,6 +3,7 @@ import Foundation
 class RepoView:Element{//rename to RepoListView
     var topBar:TopBar?
     var list:List?
+    var nodeList:NodeList?
     override func resolveSkin() {
         //Swift.print("RepoView.resolveSkin()")
         StyleManager.addStyle("RepoView{padding-top:8px;}")//padding-left:6px;padding-right:6px;
@@ -26,6 +27,7 @@ class RepoView:Element{//rename to RepoListView
         let node:Node = Node(xml)
         Swift.print("node.xml.childCount: " + "\(node.xml.childCount)")
         Swift.print("node.xml.childAt([0])?.childCount: " + "\(node.xml.childAt([])?.childCount)")
+        
     }
     func onAddButtonClick(){
         Swift.print("addButton.click")
