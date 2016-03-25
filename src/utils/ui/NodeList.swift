@@ -30,6 +30,9 @@ class NodeList:Element{
         let dp = DataProvider(xml)
         list?.dataProvider.addItems(dp.items)
     }
+    func onEvent(event: Event) {
+        
+    }
     //add listeners for list click
     
     //when you click a list item 
