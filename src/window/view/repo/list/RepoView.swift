@@ -12,7 +12,7 @@ class RepoView:Element{//rename to RepoListView
         //let dp:DataProvider = DataProvider()
         //dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
         
-        let xml = FileParser.xml("~/Desktop/repo.xml")
+        let xml = FileParser.xml("~/Desktop/repo.xml2")
         let dp:DataProvider = DataProvider(xml)
         StyleManager.addStyle("RepoView List Container SelectTextButton{height:32px;}")
         StyleManager.addStyle("RepoView List Container SelectTextButton Text{margin-top:8px;}")
