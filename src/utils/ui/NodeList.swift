@@ -18,16 +18,17 @@ class NodeList:Element{
     override func resolveSkin() {
         super.resolveSkin()
         
-        let xml = node.xml.childAt(index)
-        
-        let dp = DataProvider(xml)
-        list = addSubView(List(width,height,itemHeight,dp,self))
+       
+        list = addSubView(List(width,height,itemHeight,DataProvider(),self))
     }
     /**
      *
      */
     func setIndexValue(index:Array<Int>){
+        let xml = node.xml.childAt(index)
         
+        let dp = DataProvider(xml)
+        list?.dataProvider.
     }
     //add listeners for list click
     
