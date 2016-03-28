@@ -11,7 +11,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         /**/
         StyleManager.addStyle("Window{fill:white;corner-radius:4px;}")//E8E8E8//<--you should target a bg element not the window it self, since now everything inherits these values
         StyleManager.addStylesByURL("~/Desktop/css/gitsync.css")
-        win = GitSyncWin(600,500)/*Init the window*/
+        win = GitSyncWin(800,600)/*Init the window*/
         let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
         app.windows[0].close()/*close the initial non-optional default window*/
         

@@ -1,7 +1,7 @@
 import Foundation
 
 class LeftSideBar:Element{
-    static let w:CGFloat = 75
+    static let w:CGFloat = 200
     let buttonTitles = ["activity","repos","stats","settings"]/*"incoming","outgoing",*/
     override func resolveSkin() {
         //Swift.print("LeftSideBar.resolveSkin()")
