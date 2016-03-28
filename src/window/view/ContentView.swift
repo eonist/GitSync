@@ -5,7 +5,7 @@ class ContentView:Element{
     var repoDetailView:RepoDetailView?
     
     override func resolveSkin() {
-        StyleManager.addStyle("ContentView{fill:white;fill-alpha:1;float:left;clear:none;}")/**/
+        StyleManager.addStyle("ContentView{fill:white;fill-alpha:1;float:left;clear:none;corner-radius:0px 6px 0px 6px;}")/**/
         super.resolveSkin()
         repoView = addSubView(RepoView(width,height,self))
         RepoData.sharedInstance.repoView = repoView
