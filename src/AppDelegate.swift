@@ -18,6 +18,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
      
     }
+    
+    //Continue here: 
+    
+    
+    /*
+    let repoXML = FileParser.xml(repoFilePath.tildePath)
+    let repoList = XMLParser.toArray(repoXML)
+    Swift.print("repoList.count: " + "\(repoList.count)")
+    
+    GitSync.initCommit(repoList[0], "master")
+    GitSync.initPush(repoList[0], "master")
+    
+    */
+    
+    
+    
     /**
      *
      */
@@ -172,15 +188,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
 
-/*
-let repoXML = FileParser.xml(repoFilePath.tildePath)
-let repoList = XMLParser.toArray(repoXML)
-Swift.print("repoList.count: " + "\(repoList.count)")
 
-GitSync.initCommit(repoList[0], "master")
-
-
-GitSync.initPush(repoList[0], "master")
-
-*/
         
