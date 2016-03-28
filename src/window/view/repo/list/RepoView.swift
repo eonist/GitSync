@@ -34,7 +34,10 @@ class RepoView:Element{//rename to RepoListView
         let xml:NSXMLElement = FileParser.xml("~/Desktop/repo2.xml")//
         let treeList:TreeList = addSubView(TreeList(width, height-24, NaN, Node(xml), self))
         
-        treeList  
+        treeList
+        
+        //continue here: hock up the selectItem to the open detailview
+        
     }
     func onAddButtonClick(){
         Swift.print("addButton.click")
