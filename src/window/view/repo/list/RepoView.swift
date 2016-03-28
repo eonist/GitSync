@@ -14,8 +14,8 @@ class RepoView:Element{//rename to RepoListView
         //dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
         
         
-        StyleManager.addStyle("RepoView NodeList List Container SelectTextButton{height:32px;}")
-        StyleManager.addStyle("RepoView NodeList List Container SelectTextButton Text{margin-top:8px;}")
+        //StyleManager.addStyle("RepoView NodeList List Container SelectTextButton{height:32px;}")
+        //StyleManager.addStyle("RepoView NodeList List Container SelectTextButton Text{margin-top:8px;}")
         /*
         let xml = FileParser.xml("~/Desktop/repo.xml")
         let dp:DataProvider = DataProvider(xml)
@@ -36,7 +36,7 @@ class RepoView:Element{//rename to RepoListView
         
         
         let xml:NSXMLElement = FileParser.xml("~/Desktop/assets/xml/treelist.xml")
-        let treeList:TreeList = addSubView(TreeList(140, 288, 24, Node(xml), self))
+        let treeList:TreeList = addSubView(TreeList(width, height-24, NaN, Node(xml), self))
         
         treeList
         
