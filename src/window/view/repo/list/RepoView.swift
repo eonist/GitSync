@@ -33,7 +33,7 @@ class RepoView:Element{//rename to RepoListView
         //continue here: create the TreeList
         
         
-        StyleManager.addStylesByURL("~/Desktop/css/treelistdemo.css")
+        
         
         let xml:NSXMLElement = FileParser.xml("~/Desktop/assets/xml/treelist.xml")
         let treeList:TreeList = addSubView(TreeList(140, 288, 24, Node(xml), self))
