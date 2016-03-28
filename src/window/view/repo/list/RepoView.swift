@@ -13,7 +13,6 @@ class RepoView:Element{//rename to RepoListView
         //let dp:DataProvider = DataProvider()
         //dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
         
-        
         //StyleManager.addStyle("RepoView NodeList List Container SelectTextButton{height:32px;}")
         //StyleManager.addStyle("RepoView NodeList List Container SelectTextButton Text{margin-top:8px;}")
         /*
