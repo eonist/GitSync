@@ -35,6 +35,8 @@ class ContentView:Element{
         //print("selectedXML: " + selectedXML);
         Swift.print("selectedXML.toXMLString():")
         Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
+        
+        let dict = XMLParser.toArray(selectedXML[])
     }
     /**
      *
