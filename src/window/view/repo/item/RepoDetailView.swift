@@ -33,9 +33,11 @@ class RepoDetailView:Element{
         autoSyncCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-sync:", false, self))
         autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Auto-Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
     
+        /*
         let repoData = RepoData.sharedInstance
-        let repoItem = XMLParser.attribs(repoData.node.xml,repoData.index)//repoData.dp.getItemAt(repoData.selectedIndex!)!
+        let repoItem = repoData.node.xml//repoData.dp.getItemAt(repoData.selectedIndex!)!
         setRepoData(repoItem)//updates the UI elements with the selected repo data
+        */
     }
     /**
      *
