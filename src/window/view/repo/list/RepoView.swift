@@ -50,7 +50,8 @@ class RepoView:Element{//rename to RepoListView
     }
     override func onEvent(event:Event) {
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
-        else if(event.type == ListEvent.select){super.onEvent(event)}//forward this event to the parent
+        //else if(event.type == ListEvent.select){super.onEvent(event)}//forward this event to the parent
+        else if(event.type == TreeListEvent.select){super.onEvent(event)}//forward this event to the parent
         else if(event.type == ButtonEvent.upInside && event.origin === topBar!.backButton){onBackButton()}
     }
 }
