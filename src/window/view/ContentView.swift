@@ -44,8 +44,8 @@ class ContentView:Element{
         Swift.print("RepoData.sharedInstance.selectedIndex: " + "\(RepoData.sharedInstance.selectedIndex)")
         repoView!.removeFromSuperview()
         repoDetailView = addSubView(repoDetailView ?? RepoDetailView(width,height,self))
-        let repoData = RepoData.sharedInstance
-        let repoItem = repoData.dp.getItemAt(repoData.selectedIndex!)!
+        //let repoData = RepoData.sharedInstance
+        let repoItem = dict//repoData.dp.getItemAt(repoData.selectedIndex!)!
         repoDetailView!.setRepoData(repoItem)//updates the UI elements with the selected repo data
         
         
