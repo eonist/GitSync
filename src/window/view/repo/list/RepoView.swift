@@ -23,16 +23,22 @@ class RepoView:Element{//rename to RepoListView
         ListModifier.selectAt(list!, 0)
         */
         
-        let xml = FileParser.xml("~/Desktop/repo2.xml")
-        let node:Node = Node(xml)
+        //let xml = FileParser.xml("~/Desktop/repo2.xml")
+        //let node:Node = Node(xml)
         //Swift.print("node.xml.childCount: " + "\(node.xml.childCount)")
         //Swift.print("node.xml.childAt([0])?.childCount: " + "\(node.xml.childAt([])?.childCount)")
-        StyleManager.addStyle("RepoView NodeList{float:left;clear:left;}")
-        nodeList = addSubView(NodeList(width, height-24, NaN, node, self))
+        //StyleManager.addStyle("RepoView NodeList{float:left;clear:left;}")
+        //nodeList = addSubView(NodeList(width, height-24, NaN, node, self))
         
         //continue here: create the TreeList
         
         
+        StyleManager.addStylesByURL("~/Desktop/css/treelistdemo.css")
+        
+        let xml:NSXMLElement = FileParser.xml("~/Desktop/assets/xml/treelist.xml")
+        let treeList:TreeList = addSubView(TreeList(140, 288, 24, Node(xml), self))
+        
+        treeList
         
         
     }
