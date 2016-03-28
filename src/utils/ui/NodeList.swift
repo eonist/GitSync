@@ -5,6 +5,11 @@ import Foundation
  * TODO: extend List, its way easier to extend this class with likes of: SliderNodeList and RBNodeList in the future. The more involved CarouselList wont be easy to implement anyway, and will require many listviews to create a seamless experince
  * TODO: Actually dont extend better to work like a wrapper, since List components can be really complex
  */
+
+
+//this class should be shelved for OSX, applicable for iOS
+
+
 class NodeList:Element{
     var index:Array<Int> = []//node index, currently at root element
     var node:Node
