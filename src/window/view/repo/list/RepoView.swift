@@ -30,7 +30,7 @@ class RepoView:Element{//rename to RepoListView
         //StyleManager.addStyle("RepoView NodeList{float:left;clear:left;}")
         //nodeList = addSubView(NodeList(width, height-24, NaN, node, self))
         
-        //continue here: create the TreeList
+
         
         let xml:NSXMLElement = FileParser.xml("~/Desktop/repo2.xml")
         treeList = addSubView(TreeList(width, height-24, NaN, Node(xml), self))

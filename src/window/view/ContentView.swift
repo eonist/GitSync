@@ -40,7 +40,7 @@ class ContentView:Element{
         repoView = addSubView(repoView ?? RepoView(width,height,self))
     }
     override func onEvent(event: Event) {
-        if(event.type == ListEvent.select){onListItemSelect(event as! ListEvent)}//on list select
+        if(event.type == SelectEvent.select){onListItemSelect(event as! ListEvent)}//on list select
         else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.topBar!.backButton){onBackButtonClick()}//on back button
         else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.topBar!.removeButton){onRemoveButtonClick()}//on remove button
     }
