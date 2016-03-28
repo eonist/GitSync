@@ -66,6 +66,7 @@ class RepoData {
     var node:Node {return repoView!.treeList!.node}
     var repoView:RepoView?
     var selectedIndex:Int?
+    var index:Array<Int>?
     static var sharedInstance = RepoData()
     private init() {
         //let xml = FileParser.xml("~/Desktop/repo.xml")
