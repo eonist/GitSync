@@ -19,7 +19,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      
     }
     
-    //Continue here: 
+    //Continue here: create an example list of activity
+    //and create the prefs view
+    //add some space in the repoDetail input fields
     
     
     /*
