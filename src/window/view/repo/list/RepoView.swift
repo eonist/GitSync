@@ -31,15 +31,10 @@ class RepoView:Element{//rename to RepoListView
         
         //continue here: create the TreeList
         
-        
-        
-        
-        let xml:NSXMLElement = FileParser.xml("~/Desktop/assets/xml/treelist.xml")
+        let xml:NSXMLElement = FileParser.xml("~/Desktop/repo2.xml")//
         let treeList:TreeList = addSubView(TreeList(width, height-24, NaN, Node(xml), self))
         
-        treeList
-        
-        
+        treeList  
     }
     func onAddButtonClick(){
         Swift.print("addButton.click")
