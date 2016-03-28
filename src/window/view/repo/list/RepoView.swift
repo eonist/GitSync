@@ -3,7 +3,8 @@ import Foundation
 class RepoView:Element{//rename to RepoListView
     var topBar:TopBar?
     var list:List?
-    var nodeList:NodeList?
+    //var nodeList:NodeList?
+    var treeList:TreeList?
     override func resolveSkin() {
         //Swift.print("RepoView.resolveSkin()")
         StyleManager.addStyle("RepoView{padding-top:8px;}")//padding-left:6px;padding-right:6px;
@@ -32,11 +33,9 @@ class RepoView:Element{//rename to RepoListView
         //continue here: create the TreeList
         
         let xml:NSXMLElement = FileParser.xml("~/Desktop/repo2.xml")
-        let treeList:TreeList = addSubView(TreeList(width, height-24, NaN, Node(xml), self))
+        treeList = addSubView(TreeList(width, height-24, NaN, Node(xml), self))
         
-        treeList
         
-        //continue here: hock up the selectItem to the open detailview
         
     }
     func onAddButtonClick(){
@@ -51,7 +50,10 @@ class RepoView:Element{//rename to RepoListView
     override func onEvent(event:Event) {
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
         //else if(event.type == ListEvent.select){super.onEvent(event)}//forward this event to the parent
-        else if(event.type == TreeListEvent.select){super.onEvent(event)}//forward this event to the parent
+        else if(event.type == SelectEvent.select && event.immediate === treeList){super.onEvent(event)}//forward this event to the parent
         else if(event.type == ButtonEvent.upInside && event.origin === topBar!.backButton){onBackButton()}
     }
 }
+
+
+
