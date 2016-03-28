@@ -13,7 +13,9 @@ class LeftSideBar:Element{
         let buttonSection = self.addSubView(Section(LeftSideBar.w,200,self,"buttonSection"))
         var buttons:Array<ISelectable> = []
         for buttonTitle in buttonTitles{
-            buttons.append(buttonSection.addSubView(SelectButton(20,20,false,buttonSection,buttonTitle)))
+            let radioButton:RadioButton = buttonSection.addSubView(RadioButton(80,20,buttonTitle,false,buttonSection))
+            buttons.append(radioButton)
+            //buttons.append(buttonSection.addSubView(SelectButton(20,20,false,buttonSection,buttonTitle)))
         }
         let selectGroup = SelectGroup(buttons,buttons[0]);
         buttons[0].setSelected(true)
