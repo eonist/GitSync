@@ -28,15 +28,14 @@ class ContentView:Element{
      */
     func onTreeListSelect(event: SelectEvent) {//add local event handler
         //Swift.print("onTreeListSelect()")
-        let selectedIndex:Array = TreeListParser.selectedIndex(treeList)
+        let selectedIndex:Array<Int> = TreeListParser.selectedIndex(repoView!.treeList!)
         Swift.print("selectedIndex: " + "\(selectedIndex)")
         //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
-        let selectedXML:NSXMLElement = XMLParser.childAt(treeList.node.xml, selectedIndex)!
+        let selectedXML:NSXMLElement = XMLParser.childAt(repoView!.treeList!.node.xml, selectedIndex)!
         //print("selectedXML: " + selectedXML);
         Swift.print("selectedXML.toXMLString():")
         Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
     }
-    treeList.event = onTreeListEvent//add loval event listener
     /**
      *
      */
