@@ -27,7 +27,7 @@ class ContentView:Element{
      *
      */
     func onTreeListSelect(event: SelectEvent) {//add local event handler
-        //Swift.print("onTreeListSelect()")
+        Swift.print("ContentView.onTreeListSelect()")
         let selectedIndex:Array<Int> = TreeListParser.selectedIndex(repoView!.treeList!)
         Swift.print("selectedIndex: " + "\(selectedIndex)")
         //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
@@ -53,7 +53,7 @@ class ContentView:Element{
         repoView = addSubView(repoView ?? RepoView(width,height,self))
     }
     override func onEvent(event: Event) {
-        if(event.type == SelectEvent.select && event.immediate === repoView){onTreeListItemSelect(event as! ListEvent)}//on list select
+        if(event.type == SelectEvent.select && event.immediate === repoView){onTreeListSelect(event as! SelectEvent)}//on list select
         else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.topBar!.backButton){onBackButtonClick()}//on back button
         else if(event.type == ButtonEvent.upInside && event.origin === repoDetailView!.topBar!.removeButton){onRemoveButtonClick()}//on remove button
     }
