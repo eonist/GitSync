@@ -17,7 +17,7 @@ class LeftSideBar:Element{
             buttons.append(radioButton)
             //buttons.append(buttonSection.addSubView(SelectButton(20,20,false,buttonSection,buttonTitle)))
         }
-        let selectGroup = SelectGroup(buttons,buttons[0]);
+        let selectGroup = SelectGroup(buttons,buttons[0])
         buttons[0].setSelected(true)
         func onSelect(event:Event){
             //do something here
