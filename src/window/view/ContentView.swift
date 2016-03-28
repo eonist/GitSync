@@ -63,6 +63,7 @@ class ContentView:Element{
  */
 class RepoData {
     var dp:DataProvider {return repoView!.list!.dataProvider}
+    var node:Node {return repoView!.treeList!.node}
     var repoView:RepoView?
     var selectedIndex:Int?
     static var sharedInstance = RepoData()
