@@ -13,7 +13,7 @@ class LeftSideBar:Element{
         let buttonSection = self.addSubView(Section(LeftSideBar.w,200,self,"buttonSection"))
         var buttons:Array<ISelectable> = []
         for buttonTitle in buttonTitles{
-            let selectTextButton:SelectTextButton = buttonSection.addSubView(SelectTextButton(80,20,buttonTitle,false,buttonSection,buttonTitle))
+            let selectTextButton:SelectTextButton = buttonSection.addSubView(SelectTextButton(80,20,buttonTitle.capitalizedString,false,buttonSection,buttonTitle))
             buttons.append(selectTextButton)
             //buttons.append(buttonSection.addSubView(SelectButton(20,20,false,buttonSection,buttonTitle)))
         }
