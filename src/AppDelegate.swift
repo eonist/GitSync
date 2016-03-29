@@ -15,9 +15,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         StyleManager.addStylesByURL("~/Desktop/css/gitsync.css")
         //win = GitSyncWin(800,600)/*Init the window*/
         win = TranslucencyWin()
-        
-        
-     
     }
     
     //Continue here: create an example list of activity
