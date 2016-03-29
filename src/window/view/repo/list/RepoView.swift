@@ -30,13 +30,8 @@ class RepoView:Element{//rename to RepoListView
         //StyleManager.addStyle("RepoView NodeList{float:left;clear:left;}")
         //nodeList = addSubView(NodeList(width, height-24, NaN, node, self))
         
-
-        
         let xml:NSXMLElement = FileParser.xml("~/Desktop/repo2.xml")
         treeList = addSubView(TreeList(width, height-24, NaN, Node(xml), self))
-        
-        
-        
     }
     func onAddButtonClick(){
         Swift.print("addButton.click")
@@ -44,14 +39,14 @@ class RepoView:Element{//rename to RepoListView
         ListModifier.selectAt(list!, 0)
         list!.onEvent(ListEvent(ListEvent.select,0,list!))
     }
-    func onBackButton(){
-        Swift.print("onBackButton()")
+    func onRemoveButton(){
+        Swift.print("onRemoveButton()")
     }
     override func onEvent(event:Event) {
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
         //else if(event.type == ListEvent.select){super.onEvent(event)}//forward this event to the parent
         else if(event.type == SelectEvent.select && event.immediate === treeList){super.onEvent(event)}//forward this event to the parent
-        else if(event.type == ButtonEvent.upInside && event.origin === topBar!.backButton){onBackButton()}
+        else if(event.type == ButtonEvent.upInside && event.origin === topBar!.removeButton){onRemoveButton()}
     }
 }
 

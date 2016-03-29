@@ -3,14 +3,18 @@ import Foundation
 class MainView:CustomView{
     var leftSection:Section?
     var leftSideBar:LeftSideBar?
-    var contentView:ContentView?
+    //var contentView:ContentView?
+    var currentView:Element?
     override func resolveSkin() {
         super.resolveSkin()
         StyleManager.addStyle("Section#leftSection{fill:#E2E2E5;fill-alpha:0;corner-radius:4px 0px 4px 0px;float:left;clear:none;}")
+        
         leftSection = addSubView(Section(LeftSideBar.w,600,self,"leftSection"))
         createCustomTitleBar()
         leftSideBar = leftSection!.addSubView(LeftSideBar(LeftSideBar.w,height,leftSection))
-        contentView = addSubView(ContentView(width-LeftSideBar.w,height,self))
+        //currentView = addSubView(ContentView(width-LeftSideBar.w,height,self))
+        Navigation.sharedInstance.mainView = self
+        Navigation.sharedInstance.setView(LeftSideBar.actvity)
     }
     /**
      *
@@ -26,5 +30,39 @@ class MainView:CustomView{
     }
     override func createTitleBar() {
         //
+    }
+}
+/**
+ * Stores centtralized data
+ */
+class Navigation {
+    var mainView:MainView?
+    static var sharedInstance = Navigation()
+    private init() {
+        //init stuff here
+    }
+    /**
+     *
+     */
+    func setView(viewName:String){
+        Swift.print("Navigation.setView() viewName: " + "\(viewName)")
+        if(mainView!.currentView != nil) {mainView!.currentView!.removeFromSuperview()}
+        let width:CGFloat = mainView!.width-LeftSideBar.w
+        let height:CGFloat = mainView!.height
+        switch viewName{
+            case LeftSideBar.actvity:
+                mainView!.currentView = mainView!.addSubView(ActivityView(width,height,mainView))
+            case LeftSideBar.repos:
+                mainView!.currentView = mainView!.addSubView(ContentView(width,height,mainView))
+            case LeftSideBar.stats:
+                Swift.print("")
+            case LeftSideBar.settings:
+                Swift.print("")
+            default:
+                break;
+        }
+        
+        
+        
     }
 }
