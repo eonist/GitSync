@@ -20,7 +20,7 @@ class TranslucencyWin:NSWindow, NSApplicationDelegate, NSWindowDelegate{
         self.makeMainWindow()//makes it the apps main menu?
         self.hasShadow = true/*you have to set this to true if you want a shadow when using the borderlessmask setting*/
         self.center()/*centers the window, this can also be done via setOrigin and calculating screen size etc*/
-        self.movableByWindowBackground = true/*This enables you do drag the window around via the background*/
+        self.movableByWindowBackground = false/*This enables you do drag the window around via the background*/
         self.delegate = self/*So that we can use this class as the Window controller aswell*/
         self.contentView = FlippedView(frame: NSRect(0,0,w,h))
         visualEffectView = TranslucencyView(frame: NSRect(0,0,w,h))
