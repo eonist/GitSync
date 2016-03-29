@@ -11,18 +11,16 @@ class ActivityView:Element {
         createList()
     }
     func createList(){
-        let dp:DataProvider = DataProvider()
-        dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
+        //let dp:DataProvider = DataProvider()
+        //dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
         
         StyleManager.addStyle("ActivityView List Container SelectTextButton{height:32px;}")
         StyleManager.addStyle("ActivityView List Container SelectTextButton Text{margin-top:8px;}")
         StyleManager.addStyle("ActivityView List{drop-shadow:none;}")
         
-        //let xml = FileParser.xml("~/Desktop/repo.xml")
-        //let dp:DataProvider = DataProvider(xml)
+        let xml = FileParser.xml("~/Desktop/repo.xml")
+        let dp:DataProvider = DataProvider(xml)
         list = addSubView(List(width, height, NaN, dp, self))
         ListModifier.selectAt(list!, 0)
-        /**/
-
     }
 }
