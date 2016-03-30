@@ -4,7 +4,7 @@ class ActivityView:Element {
     var topBar:ActivityTopBar?
     var list:ActivityList?
     override func resolveSkin() {
-        StyleManager.addStyle("ActivityView{fill:white;fill-alpha:1;float:left;clear:none;corner-radius:0px 6px 0px 6px;}")/**/
+        StyleManager.addStyle("ActivityView{fill:white;fill-alpha:0;float:left;clear:none;corner-radius:0px 6px 0px 6px;}")/**/
         StyleManager.addStyle("ActivityView{padding-top:8px;}")//padding-left:6px;padding-right:6px;
         super.resolveSkin()
         topBar = addSubView(ActivityTopBar(width-30,24,self))
