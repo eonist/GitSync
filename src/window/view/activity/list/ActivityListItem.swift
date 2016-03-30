@@ -23,11 +23,11 @@ class ActivityListItem:Button,ISelectable{
         repoNameText.isInteractive = false
         let contributorText:Text = container.addSubView(Text(100,20,contributor,container,"contributor"))
         contributorText.isInteractive = false
-        /*let titleText:Text = container.addSubView(Text(180,24,title,container,"title"))
+        let titleText:Text = container.addSubView(Text(180,24,title,container,"title"))
         titleText.isInteractive = false
-        let descText:Text = container.addSubView(Text(180,24,desc,container,"description"))
+        /*let descText:Text = container.addSubView(Text(180,24,desc,container,"description"))
         descText.isInteractive = false
-        let dateText:Text = container.addSubView(Text(180,152,date,container,"date"))
+        let dateText:Text = container.addSubView(Text(180,24,date,container,"date"))
         dateText.isInteractive = false
         */
     }
