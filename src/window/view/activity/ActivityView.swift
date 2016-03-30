@@ -7,7 +7,7 @@ class ActivityView:Element {
         StyleManager.addStyle("ActivityView{fill:white;fill-alpha:0;float:left;clear:none;corner-radius:0px 8px 0px 8px;}")/**/
         //StyleManager.addStyle("ActivityView{padding-top:0px;}")//padding-left:6px;padding-right:6px;
         super.resolveSkin()
-        topBar = addSubView(ActivityTopBar(width,32,self))
+        topBar = addSubView(ActivityTopBar(width,36,self))
         createList()
     }
     func createList(){
@@ -21,6 +21,6 @@ class ActivityView:Element {
         let xml = FileParser.xml("~/Desktop/repo.xml")
         let dp:DataProvider = DataProvider(xml)
         list = addSubView(ActivityList(width, height, NaN, dp, self,"activityList"))
-        ListModifier.selectAt(list!, 0)
+        ListModifier.selectAt(list!, 2)
     }
 }
