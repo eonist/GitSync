@@ -7,7 +7,6 @@ class ActivityTopBar:Element{
         StyleManager.addStyle("ActivityTopBar Container#searchBoxCard{float:left;clear:left;padding-top:4px;}")
         let container = addSubView(Container(120,120,self,"searchBoxCard"))
         
-        StyleManager.addStyle("ActivityTopBar Container#searchBoxCard TextArea{width:180px,12px;}")
         let searchBox:TextArea = container.addSubView(TextArea(NaN, NaN, "Filter commits", container))
         searchBox
     }
