@@ -21,6 +21,6 @@ class ActivityView:Element {
         let xml = FileParser.xml("~/Desktop/repo.xml")
         let dp:DataProvider = DataProvider(xml)
         list = addSubView(ActivityList(width, height, NaN, dp, self,"activityList"))
-        //ListModifier.selectAt(list!, 0)
+        ListModifier.selectAt(list!, 0)
     }
 }
