@@ -43,6 +43,7 @@ class ActivityListItem:Button,ISelectable{
         self.isSelected = isSelected
         setSkinState(getSkinState());
     }
+    
     override func getSkinState() -> String {
         return isSelected ? SkinStates.selected + " " + super.getSkinState() : super.getSkinState();
     }
