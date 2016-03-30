@@ -7,6 +7,7 @@ class ActivityListItem:Button,ISelectable{
     var desc:String/*Description*/
     var date:String
     var isSelected:Bool;
+    var titleText:Text?
     init(_ width:CGFloat, _ height:CGFloat, _ repoName:String,_ contributor:String,_ title:String,_ desc:String,_ date:String,_ isSelected : Bool = false, _ parent:IElement? = nil, _ id:String? = nil){
         self.repoName = repoName
         self.contributor = contributor
@@ -23,8 +24,8 @@ class ActivityListItem:Button,ISelectable{
         repoNameText.isInteractive = false
         let contributorText:Text = container.addSubView(Text(100,20,contributor,container,"contributor"))
         contributorText.isInteractive = false
-        let titleText:Text = container.addSubView(Text(280,24,title,container,"title"))
-        titleText.isInteractive = false
+        titleText = container.addSubView(Text(280,24,title,container,"title"))
+        titleText!.isInteractive = false
         let descText:Text = container.addSubView(Text(180,50,desc,container,"description"))
         descText.isInteractive = false
         let dateText:Text = container.addSubView(Text(180,24,date,container,"date"))
@@ -43,7 +44,11 @@ class ActivityListItem:Button,ISelectable{
         self.isSelected = isSelected
         setSkinState(getSkinState());
     }
-    
+    override func setSkinState(skinState:String) {
+        //Swift.print("\(self.dynamicType)" + " setSkinState() skinState: " + "\(skinState)")
+        super.setSkinState(skinState);
+        titleText!.setSkinState(skinState);
+    }
     override func getSkinState() -> String {
         return isSelected ? SkinStates.selected + " " + super.getSkinState() : super.getSkinState();
     }
