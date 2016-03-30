@@ -25,11 +25,11 @@ class ActivityListItem:Button,ISelectable{
         contributorText.isInteractive = false
         let titleText:Text = container.addSubView(Text(180,24,title,container,"title"))
         titleText.isInteractive = false
-        /*let descText:Text = container.addSubView(Text(180,24,desc,container,"description"))
+        let descText:Text = container.addSubView(Text(180,50,desc,container,"description"))
         descText.isInteractive = false
         let dateText:Text = container.addSubView(Text(180,24,date,container,"date"))
         dateText.isInteractive = false
-        */
+        
     }
     override func mouseUpInside(event: MouseEvent) {
         isSelected = true
