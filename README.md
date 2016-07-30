@@ -1,4 +1,4 @@
-## The future is automated
+## The future is automated (coming in August 2016)
 
 <img width="600" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_logo_purple-01.png">  
 
