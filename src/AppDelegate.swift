@@ -6,7 +6,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     weak var window: NSWindow!
     var repoFilePath:String = "~/Desktop/repo.xml"
-    var win:NSWindow?/*<--The window must be a class variable, local variables doesnt work*/
+    var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         let app:NSApplication = aNotification.object as! NSApplication/*grab the app instance from the notification*/
         app.windows[0].close()/*close the initial non-optional default window*/
