@@ -61,8 +61,5 @@ class Navigation {
             default:
                 break;
         }
-        
-        
-        
     }
 }

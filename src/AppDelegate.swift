@@ -29,7 +29,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     GitSync.initCommit(repoList[0], "master")
     GitSync.initPush(repoList[0], "master")
-    
     */
     
     
@@ -183,10 +182,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
-
-
-
-
-
-
-        
