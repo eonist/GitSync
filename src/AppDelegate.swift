@@ -11,6 +11,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
         Swift.print("GitSync - A really simple Git app")
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css")
         
         //Continue here: 
         //1. Setup the MainWin (White) (Fixed size: 400x800)
