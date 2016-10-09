@@ -12,7 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - A really simple Git app")
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css")
-        win = MainWin(400,800)
+        win = MainWin(400,600)
         //Continue here: 
         //1. Setup the MainWin (White) (Fixed size: 400x800)
         //2. Setup the TitleBar with GitSync name
