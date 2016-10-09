@@ -1,8 +1,15 @@
 import Foundation
 
-class MainView:CustomView{
+class MainView:TitleView{
+    var title:String/*the title must be set after the init of the Window instance*/
+    init(_ width: CGFloat, _ height: CGFloat,_ title:String = "", _ parent: IElement? = nil, _ id: String? = "") {
+        self.title = title
+        super.init(width, height, parent, "doc")
+    }
     override func resolveSkin() {
         super.resolveSkin()
+        super.textArea!.setTextValue(title)
         Swift.print("MainView.resolveSkin()")
     }
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
