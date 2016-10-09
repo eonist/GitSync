@@ -22,6 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //overrirde on win resize, in Window and add auto align to the MenuView
         //3. Setup commit-list-view (show limit: 25 commits)
             //Check the legacy code
+            //install other and advance styles a single css files 
             //Try to make it work
         //4. hock up "cmd + r" to refresh commit view (also via app menu) (Freeze and jump to top)
             //setup app menu
