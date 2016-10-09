@@ -9,8 +9,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
+        
+        Swift.print("GitSync - a simple Git App")
     }
-    
     func applicationWillTerminate(aNotification: NSNotification) {
         print("Good-bye")
     }
