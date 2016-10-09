@@ -10,7 +10,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
-        Swift.print("GitSync - a simple Git App")
+        Swift.print("GitSync - A really simple Git app")
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         print("Good-bye")
