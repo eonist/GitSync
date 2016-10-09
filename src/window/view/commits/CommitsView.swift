@@ -1,7 +1,7 @@
 import Foundation
 
 class CommitsView:Element {
-    //var list:ActivityList?
+    var list:CommitsList?
     override func resolveSkin() {
         //StyleManager.addStyle("ActivityView{fill:white;fill-alpha:1;float:left;clear:none;corner-radius:0px 8px 0px 8px;}")/**/
         //StyleManager.addStyle("ActivityView{padding-top:0px;}")//padding-left:6px;padding-right:6px;
@@ -20,7 +20,7 @@ class CommitsView:Element {
         let xml = FileParser.xml("~/Desktop/repo.xml".tildePath)
         let dp:DataProvider = DataProvider(xml)
         Swift.print("dp.count(): " + "\(dp.count())")
-        //list = addSubView(ActivityList(width, height, NaN, dp, self,"activityList"))
-        //ListModifier.selectAt(list!, 2)
+        list = addSubView(CommitsList(width, height, NaN, dp, self,"commitsList"))
+        ListModifier.selectAt(list!, 2)
     }
 }
