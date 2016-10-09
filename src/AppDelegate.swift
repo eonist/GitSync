@@ -15,7 +15,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Continue here: 
         //1. Setup the MainWin (White) (Fixed size: 400x800)
         //2. Setup the TitleBar with Text buttons
-        //3. 
+        //3. Setup commit-list-view (show limit: 25 commits)
+        //4. hock up cmd + r to refresh commit view (Freeze and jump to top)
+        //5. 
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         print("Good-bye")
