@@ -14,8 +14,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css")
         win = MainWin(320,480)
         //Continue here: 
-        //1. Setup the MainWin (White) (Fixed size: 400x800)
-        //2. Setup the TitleBar with GitSync name
+        //1. Setup the MainWin (White) (Fixed size: 320,480) (done)
+            //2. Setup the TitleBar with GitSync name 
         //2. Setup bottom bar with Text buttons (Commits,Repos,Stats,Prefs)
         //3. Setup commit-list-view (show limit: 25 commits)
         //4. hock up "cmd + r" to refresh commit view (Freeze and jump to top)
