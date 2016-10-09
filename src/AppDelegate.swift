@@ -22,7 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //3. Setup commit-list-view (show limit: 25 commits)
             //Check the legacy code
             //Try to make it work
-        //4. hock up "cmd + r" to refresh commit view (Freeze and jump to top)
+        //4. hock up "cmd + r" to refresh commit view (also via app menu) (Freeze and jump to top)
+            //setup app menu
         //5. Test with a demo repo
         //6. Setup A Tree-List to manage repos
         //7. Setup a TopBar that goes under the Titlebar with Add,Remove,Edit etc
