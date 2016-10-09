@@ -12,6 +12,7 @@ class MainView:TitleView{
         super.resolveSkin()
         super.textArea!.setTextValue(title)
         menuView = self.addSubView(MenuView(200,40,self))
+        Align.align(page, CGSize(w/**/,h-20/**/), Alignment.centerCenter, Alignment.centerCenter,CGPoint(0,0))/*new doc opens up the doc in the center*/
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
