@@ -12,7 +12,7 @@ class MenuView:Element{
         createButtons()
     }
     func createButtons(){
-        let buttonSection = self.addSubView(Section(200,30,self,"buttonSection"))
+        let buttonSection = self.addSubView(Section(200,36,self,"buttonSection"))
         var buttons:Array<ISelectable> = []
         for buttonTitle in MenuView.buttonTitles{
             let selectTextButton:SelectTextButton = buttonSection.addSubView(SelectTextButton(60,20,buttonTitle.capitalizedString,false,buttonSection,buttonTitle))
