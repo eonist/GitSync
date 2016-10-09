@@ -15,12 +15,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Continue here: 
         //1. Setup the MainWin (White) (Fixed size: 400x800)
         //2. Setup the TitleBar with GitSync name
-        //2. Setup bottom bar with Text buttons ()
+        //2. Setup bottom bar with Text buttons (Commits,Repos,Stats,Prefs)
         //3. Setup commit-list-view (show limit: 25 commits)
         //4. hock up cmd + r to refresh commit view (Freeze and jump to top)
         //5. Test with a demo repo
         //6. Setup A Tree-List to manage repos
-        //7.
+        //7. Setup a TopBar that goes under the Titlebar with Add,Remove,Edit
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         print("Good-bye")
