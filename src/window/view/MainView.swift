@@ -11,8 +11,8 @@ class MainView:TitleView{
         Swift.print("MainView.resolveSkin()")
         super.resolveSkin()
         super.textArea!.setTextValue(title)
-        menuView = self.addSubView(MenuView(200,40,self))
-        Align.align(page, CGSize(w/**/,h-20/**/), Alignment.centerCenter, Alignment.centerCenter,CGPoint(0,0))/*new doc opens up the doc in the center*/
+        menuView = self.addSubView(MenuView(width,40,self))
+        Align.align(menuView!, CGSize(width/**/,height-20/**/), Alignment.bottomCenter, Alignment.bottomCenter,CGPoint(0,0))
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
