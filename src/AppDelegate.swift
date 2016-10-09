@@ -20,6 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //Align the bottom bar to the bottom, and assert that the select buttons work
                 //overrirde on win resize, see docwin code, 
                 //also set float and clear to none, then use Align.align and set the x,y of MenuView
+                //or: 
         //3. Setup commit-list-view (show limit: 25 commits)
         //4. hock up "cmd + r" to refresh commit view (Freeze and jump to top)
         //5. Test with a demo repo
