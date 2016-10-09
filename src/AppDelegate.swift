@@ -17,12 +17,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Continue here: 
         //1. Setup the MainWin (White) (Fixed size: 320,480) (done)
         //2. Setup the TitleBar with GitSync name (add some vertical space around the titleBar buttons) (done)
-            //2. Setup bottom bar with Text buttons (Commits,Repos,Stats,Prefs)
-                //Align the bottom bar to the bottom, and assert that the select buttons work
-                //overrirde on win resize, in Window
-                //also set float and clear to none, then use Align.align and set the x,y of MenuView
-                //or: 
+        //2. Setup bottom bar with Text buttons (Commits,Repos,Stats,Prefs)
+            //overrirde on win resize, in Window and add auto align to the MenuView
         //3. Setup commit-list-view (show limit: 25 commits)
+            //Check the legacy code
+            //Try to make it work
         //4. hock up "cmd + r" to refresh commit view (Freeze and jump to top)
         //5. Test with a demo repo
         //6. Setup A Tree-List to manage repos
