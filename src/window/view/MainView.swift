@@ -3,6 +3,7 @@ import Foundation
 class MainView:TitleView{
     var title:String/*the title must be set after the init of the Window instance*/
     var menuView:MenuView?
+    var commitsView:CommitsView?
     init(_ width: CGFloat, _ height: CGFloat,_ title:String = "", _ parent: IElement? = nil, _ id: String? = "") {
         self.title = title
         super.init(width, height, parent, "doc")
@@ -11,8 +12,8 @@ class MainView:TitleView{
         Swift.print("MainView.resolveSkin()")
         super.resolveSkin()
         super.textArea!.setTextValue(title)
-        menuView = self.addSubView(MenuView(240,36,self))
-        
+        commitsView = addSubView(CommitsView(width,height-36-36,self))
+        menuView = addSubView(MenuView(240,36,self))
         Align.align(menuView!, CGSize(width/**/,height/**/), Alignment.bottomCenter, Alignment.bottomCenter,CGPoint(0,0))
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
