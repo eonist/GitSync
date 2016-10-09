@@ -7,9 +7,10 @@ class MainView:TitleView{
         super.init(width, height, parent, "doc")
     }
     override func resolveSkin() {
+        Swift.print("MainView.resolveSkin()")
         super.resolveSkin()
         super.textArea!.setTextValue(title)
-        Swift.print("MainView.resolveSkin()")
+        mainMenu = self.addSubView(MainMenu(200,40,self))
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
