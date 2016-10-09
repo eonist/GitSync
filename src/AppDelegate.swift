@@ -18,6 +18,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //2. Setup the TitleBar with GitSync name (add some vertical space around the titleBar buttons) (done)
             //2. Setup bottom bar with Text buttons (Commits,Repos,Stats,Prefs)
                 //Align the bottom bar to the bottom, and assert that the select buttons work
+                //overrirde on win resize, see docwin code, 
+                //also set float and clear to none, then use Align.align and set the x,y of MenuView
         //3. Setup commit-list-view (show limit: 25 commits)
         //4. hock up "cmd + r" to refresh commit view (Freeze and jump to top)
         //5. Test with a demo repo
