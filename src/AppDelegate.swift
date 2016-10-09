@@ -11,6 +11,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
         Swift.print("GitSync - A really simple Git app")
+        
+        //Continue here: 
+        //1. 
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         print("Good-bye")
