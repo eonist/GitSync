@@ -1,6 +1,7 @@
 import Cocoa
 /**
  * This is the main class for the application
+ * TODO: An idea is to hide the interface when the mouse is not over the app (anim in and out)
  */
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
