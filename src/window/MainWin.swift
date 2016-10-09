@@ -7,8 +7,6 @@ class MainWin:Window {
     }
     override func resolveSkin() {
         super.resolveSkin()
-        //      Swift.print("frame.width: " + "\(frame.width)")
-        //      Swift.print("frame.height: " + "\(frame.height)")
         self.contentView = MainView(frame.width,frame.height,"GitSync")/*Sets the mainview of the window*/
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}

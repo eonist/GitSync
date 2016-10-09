@@ -16,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Continue here: 
         //1. Setup the MainWin (White) (Fixed size: 320,480) (done)
         //2. Setup the TitleBar with GitSync name (add some vertical space around the titleBar buttons) (done)
-        //2. Setup bottom bar with Text buttons (Commits,Repos,Stats,Prefs)
+            //2. Setup bottom bar with Text buttons (Commits,Repos,Stats,Prefs)
         //3. Setup commit-list-view (show limit: 25 commits)
         //4. hock up "cmd + r" to refresh commit view (Freeze and jump to top)
         //5. Test with a demo repo
