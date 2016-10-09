@@ -13,12 +13,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("GitSync - A really simple Git app")
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css")
         win = MainWin(320,480)
+        
         //Continue here: 
         //1. Setup the MainWin (White) (Fixed size: 320,480) (done)
         //2. Setup the TitleBar with GitSync name (add some vertical space around the titleBar buttons) (done)
             //2. Setup bottom bar with Text buttons (Commits,Repos,Stats,Prefs)
                 //Align the bottom bar to the bottom, and assert that the select buttons work
-                //overrirde on win resize, see docwin code, 
+                //overrirde on win resize, in Window
                 //also set float and clear to none, then use Align.align and set the x,y of MenuView
                 //or: 
         //3. Setup commit-list-view (show limit: 25 commits)
