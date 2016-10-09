@@ -13,8 +13,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("GitSync - A really simple Git app")
         
         //Continue here: 
-        //1. Setup the MainWin (White)
-        //2. Setup the TitleBar with Text
+        //1. Setup the MainWin (White) (Fixed size: 400x800)
+        //2. Setup the TitleBar with Text buttons
+        //3. 
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         print("Good-bye")
