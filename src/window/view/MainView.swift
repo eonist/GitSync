@@ -13,5 +13,5 @@ class MainView:TitleView{
         super.textArea!.setTextValue(title)
         menuView = self.addSubView(MenuView(200,40,self))
     }
-    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
