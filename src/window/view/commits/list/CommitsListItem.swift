@@ -22,8 +22,9 @@ class CommitsListItem:Button,ISelectable{
         let container = addSubView(Section(width,50,self,"textContainer"))
         let repoNameText:Text = container.addSubView(Text(120,20,repoName,container,"repoName"))
         repoNameText.isInteractive = false
-        /*let contributorText:Text = container.addSubView(Text(100,20,contributor,container,"contributor"))
+        let contributorText:Text = container.addSubView(Text(100,20,contributor,container,"contributor"))
         contributorText.isInteractive = false
+        /*
         titleText = container.addSubView(Text(280,24,title,container,"title"))
         titleText!.isInteractive = false
         let descText:Text = container.addSubView(Text(180,50,desc,container,"description"))
