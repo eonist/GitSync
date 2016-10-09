@@ -20,12 +20,12 @@ class MenuView:Element{
         }
         let selectGroup = SelectGroup(buttons,buttons[0])
         buttons[0].setSelected(true)
-        func onSelect(event:Event){
-            //do something here
-            let buttonId:String = ((event as! SelectGroupEvent).selectable as! SelectTextButton).id!
+        func onSelectGroupChange(event:Event){
+            
+            let buttonId:String = (selectGroup.selected as! SelectTextButton).id!
             Swift.print("MainMenu.onSelect() buttonId: " + "\(buttonId)")
             //Navigation.sharedInstance.setView(buttonId)
         }
-        selectGroup.event = onSelect
+        selectGroup.event = onSelectGroupChange
     }
 }
