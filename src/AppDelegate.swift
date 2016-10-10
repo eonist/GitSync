@@ -15,6 +15,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("GitSync - A really simple Git app")
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
         
+
+        win = MainWin(320,480)
         
         let url:String = "~/Desktop/ElCapitan/gitsync.css"
         fileWatcher = FileWatcher([url.tildePath])
@@ -30,8 +32,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         fileWatcher!.start()
-
-        win = MainWin(320,480)
         
         //Continue here: 
         //1. Setup the MainWin (White) (Fixed size: 320,480) (done)
