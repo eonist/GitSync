@@ -39,6 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //2. Setup the TitleBar with GitSync name (add some vertical space around the titleBar buttons) (done)
         //2. Setup bottom bar with Text buttons (Commits,Repos,Stats,Prefs)
             //overrirde on win resize, in Window and add auto align to the MenuView
+            //add some font awesome icons as .svg
         //3. Setup commit-list-view (show limit: 25 commits)
             //Check the legacy code
             //Try to make it work
