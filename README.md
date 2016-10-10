@@ -4,5 +4,3 @@
 
 **Coming October 2016**   
 Until then here is the Applescript version: [GitSync v0.9.54](https://github.com/eonist/GitSync/releases/tag/0.9.54) 
-
-<img width="128" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_logo_purple-01.png"> 
