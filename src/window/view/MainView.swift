@@ -15,6 +15,7 @@ class MainView:TitleView{
             //Swift.print(self)
             Swift.print(event.description)
             if(event.fileChange && event.path == url.tildePath) {
+                Swift.print("update to the file happened")
                 StyleManager.addStylesByURL(url,true)
                 ElementModifier.refreshSkin(self)
                 ElementModifier.floatChildren(self)
