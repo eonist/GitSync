@@ -4,13 +4,9 @@ class MainView:TitleView{
     var title:String/*the title must be set after the init of the Window instance*/
     var menuView:MenuView?
     var commitsView:CommitsView?
-    
     init(_ width: CGFloat, _ height: CGFloat,_ title:String = "", _ parent: IElement? = nil, _ id: String? = "") {
         self.title = title
         super.init(width, height, parent, "doc")
-        
-        
-        
     }
     override func resolveSkin() {
         Swift.print("MainView.resolveSkin()")
