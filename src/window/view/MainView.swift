@@ -16,9 +16,5 @@ class MainView:TitleView{
         menuView = addSubView(MenuView(240,36,self))
         Align.align(menuView!, CGSize(width/**/,height/**/), Alignment.bottomCenter, Alignment.bottomCenter,CGPoint(0,0))
     }
-    override func setSkinState(skinState:String) {
-        Swift.print("MainView.setSkinState() skinState: " + "\(skinState)")
-        super.setSkinState(skinState)
-    }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
