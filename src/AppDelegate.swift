@@ -8,11 +8,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     weak var window: NSWindow!
     var repoFilePath:String = "~/Desktop/repo.xml"
     var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
         Swift.print("GitSync - A really simple Git app")
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css")
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
+        
+
         win = MainWin(320,480)
         
         //Continue here: 
