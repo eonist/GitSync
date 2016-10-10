@@ -29,7 +29,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //6. Setup A Tree-List to manage repos
             //install other and advance styles a single css files (done)
             //see legacy code
-            //Setup Master - Detail view for Repo
+            //Setup Master - Detail view for RepoView
+            //Setup TopBar with Add/remove/edit
         //7. Setup a TopBar that goes under the Titlebar with Add,Remove,Edit etc
     }
     func applicationWillTerminate(aNotification: NSNotification) {
