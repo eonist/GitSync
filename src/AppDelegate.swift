@@ -28,6 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //5. Test with a demo repo
         //6. Setup A Tree-List to manage repos
             //install other and advance styles a single css files
+            //see legacy code
         //7. Setup a TopBar that goes under the Titlebar with Add,Remove,Edit etc
     }
     func applicationWillTerminate(aNotification: NSNotification) {
