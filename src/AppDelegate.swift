@@ -27,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //setup app menu
         //5. Test with a demo repo
         //6. Setup A Tree-List to manage repos
-            //install other and advance styles a single css files
+            //install other and advance styles a single css files (done)
             //see legacy code
         //7. Setup a TopBar that goes under the Titlebar with Add,Remove,Edit etc
     }
