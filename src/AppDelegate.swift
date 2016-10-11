@@ -34,7 +34,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //Continue here: 
         //1. Setup the MainWin (White) (Fixed size: 320,480) (done)
-            //Test Live-Reload and try and make a Night mode version
+            //Test Live-Reload and try and make a Night mode version (done)
+            //use the iphone 6 size ratio by default
         //2. Setup the TitleBar with GitSync name (add some vertical space around the titleBar buttons) (done)
         //2. Setup bottom bar with Text buttons (Commits,Repos,Stats,Prefs)
             //overrirde on win resize, in Window and add auto align to the MenuView
