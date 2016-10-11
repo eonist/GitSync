@@ -20,7 +20,7 @@ class Navigation {
      */
     static func setView(viewName:String){
         Swift.print("Navigation.setView() viewName: " + "\(viewName)")
-        if(mainView!.currentView != nil) {mainView!.currentView!.removeFromSuperview()}
+        if(MainView.currentView != nil) {MainView.currentView!.removeFromSuperview()}
         let width:CGFloat = mainView!.width
         let height:CGFloat = mainView!.height
         /**
@@ -28,9 +28,9 @@ class Navigation {
          */
         switch viewName{
             case MenuView.commits:
-                mainView!.currentView = mainView!.addSubView(CommitsView(width,height,mainView))
+                MainView.currentView = mainView!.addSubView(CommitsView(width,height,mainView))
             case MenuView.repos:
-                mainView!.currentView = mainView!.addSubView(RepoView(width,height,mainView))
+                MainView.currentView = mainView!.addSubView(RepoView(width,height,mainView))
             case MenuView.stats:
                 Swift.print("stats")
             case MenuView.prefs:
