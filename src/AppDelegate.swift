@@ -13,7 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
         Swift.print("GitSync - A really simple Git app")
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
         
         win = MainWin(MainView.w,MainView.h)
         
@@ -47,8 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //5. Test with a demo repo
         //6. Setup A Tree-List to manage repos
             //install other and advance styles a single css files (done)
-            //see legacy code
-            //Setup a way to Navigate between the different views. See legacy code
+            //Setup a way to Navigate between the different views. See legacy code (done)
             //Setup Master - Detail view for RepoView
             //Setup TopBar with Add/Remove/Edit Buttons
         //7. Setup a TopBar that goes under the Titlebar with Add,Remove,Edit etc
