@@ -10,6 +10,7 @@ class MenuView:Element{
         Swift.print("MenuView.resolveSkin()")
         super.resolveSkin()
         createButtons()
+        
     }
     func createButtons(){
         let buttonSection = self.addSubView(Section(200,36,self,"buttonSection"))
