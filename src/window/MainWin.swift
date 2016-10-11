@@ -28,17 +28,20 @@ class Navigation {
         if(mainView!.currentView != nil) {mainView!.currentView!.removeFromSuperview()}
         let width:CGFloat = mainView!.width
         let height:CGFloat = mainView!.height
+        /**
+         *
+         */
         switch viewName{
-        case MenuView.actvity:
-            mainView!.currentView = mainView!.addSubView(CommitsView(width,height,mainView))
-        case MenuView.repos:
-            mainView!.currentView = mainView!.addSubView(RepoView(width,height,mainView))
-        case MenuView.stats:
-            Swift.print("")
-        case MenuView.settings:
-            Swift.print("")
-        default:
-            break;
+            case MenuView.commits:
+                mainView!.currentView = mainView!.addSubView(CommitsView(width,height,mainView))
+            case MenuView.repos:
+                mainView!.currentView = mainView!.addSubView(RepoView(width,height,mainView))
+            case MenuView.stats:
+                Swift.print("stats")
+            case MenuView.prefs:
+                Swift.print("prefs")
+            default:
+                break;
         }
     }
 }
