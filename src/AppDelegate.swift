@@ -53,7 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //Setup TopBar with Add/Remove/Edit Buttons
         //7. Setup a TopBar that goes under the Titlebar 
             //with Add,Remove,Edit,Cut,Paste (Cut and paste enables you to reorg items/folders)
-            //Icons from font awesome: + - sissor, glu
+            //Icons from font awesome: + - sissor, clipboard, pencil
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         print("Good-bye")
