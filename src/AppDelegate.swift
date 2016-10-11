@@ -15,8 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("GitSync - A really simple Git app")
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
         
-
-        win = MainWin(MainWin.size.width,MainWin.size.height)
+        win = MainWin(MainView.w,MainView.h)
         
         let url:String = "~/Desktop/ElCapitan/gitsync.css"
         fileWatcher = FileWatcher([url.tildePath])
