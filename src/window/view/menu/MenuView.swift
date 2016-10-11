@@ -20,7 +20,8 @@ class MenuView:Element{
             buttons.append(selectTextButton)
         }
         let selectGroup = SelectGroup(buttons,buttons[0])
-        buttons[0].setSelected(true)
+        //buttons[0].setSelected(true)
+        selectGroup.selectables.forEach{if(($0 as! Element).id == Navigation.activeView){$0.setSelected(true)}}
         func onSelectGroupChange(event:Event){
             if(event.assert(SelectGroupEvent.change, selectGroup)){
                 let buttonId:String = (selectGroup.selected as! SelectTextButton).id!
