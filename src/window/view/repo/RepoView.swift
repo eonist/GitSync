@@ -1,7 +1,7 @@
 import Foundation
 
 class RepoView:Element {
-    private var topBar:TopBar?
+    var topBar:TopBar?
     var treeList:TreeList?
     override func resolveSkin() {
         Swift.print("RepoView.resolveSkin()")
@@ -18,7 +18,7 @@ class RepoView:Element {
 /**
  * Add,Remove,Edit,Cut,Paste
  */
-private class TopBar:Element{
+class TopBar:Element{
     var removeButton:TextButton?
     var addButton:TextButton?
     override func resolveSkin() {
