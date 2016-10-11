@@ -20,8 +20,12 @@ class Navigation {
      */
     static func setView(viewName:String){
         Swift.print("Navigation.setView() viewName: " + "\(viewName)")
-        if(MainView.currentView != nil) {MainView.currentView!.removeFromSuperview()}
-        let mainView:MainView = MainWin
+        let mainView:MainView?
+        if(MainView.currentView != nil) {
+            mainView = MainView.currentView!.superview as? MainView
+            MainView.currentView!.removeFromSuperview()
+        }
+        
         let width:CGFloat = mainView!.width
         let height:CGFloat = mainView!.height
         /**
