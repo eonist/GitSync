@@ -56,6 +56,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //with Add,Remove,Edit,Cut,Paste (Cut and paste enables you to reorg items/folders)
             //Icons from font awesome: + - sissor, clipboard, pencil
             //hock up buttons to methods
+            //Use the san fran font
+            //Add atribution to the Github page
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         print("Good-bye")
