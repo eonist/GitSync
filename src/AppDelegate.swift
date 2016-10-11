@@ -58,6 +58,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //hock up buttons to methods
             //Use the san fran font
             //Add atribution to the Github page
+            //use regular list in v1 add tree-list later, when things start to work
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         print("Good-bye")
