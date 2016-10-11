@@ -4,10 +4,12 @@ import Foundation
  * TODO: Migrate to its own .swift file when appropriate
  */
 class Navigation {
+    static var activeView:String = MenuView.commits//<--default
     /**
      * Navigate between views
      */
     static func setView(viewName:String){
+        Navigation.activeView = viewName
         Swift.print("Navigation.setView() viewName: " + "\(viewName)")
         let mainView:MainView = MainWin.mainView!
         if(mainView.currentView != nil) {mainView.currentView!.removeFromSuperview()}
