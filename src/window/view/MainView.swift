@@ -1,6 +1,7 @@
 import Foundation
 
 class MainView:TitleView{
+    static var subViewSize:CGSize = CGSize(MainWin.size.width,MainWin.size.height-36-36)
     var title:String/*the title must be set after the init of the Window instance*/
     var menuView:MenuView?
     var currentView:Element?
@@ -12,7 +13,7 @@ class MainView:TitleView{
         Swift.print("MainView.resolveSkin()")
         super.resolveSkin()
         super.textArea!.setTextValue(title)
-        currentView = addSubView(CommitsView(320,height-36-36,self))
+        currentView = addSubView(CommitsView(MainView,self))
         menuView = addSubView(MenuView(240,36,self))
         Align.align(menuView!, CGSize(width/**/,height/**/), Alignment.bottomCenter, Alignment.bottomCenter,CGPoint(0,0))
     }
