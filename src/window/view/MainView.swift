@@ -15,7 +15,7 @@ class MainView:TitleView{
         Swift.print("MainView.resolveSkin()")
         super.resolveSkin()
         super.textArea!.setTextValue(title)
-        currentView = addSubView(CommitsView(CommitsView.w,CommitsView.h,self))
+        Navigation.setView(MenuView.repos)
         menuView = addSubView(MenuView(240,36,self))
         Align.align(menuView!, CGSize(width/**/,height/**/), Alignment.bottomCenter, Alignment.bottomCenter,CGPoint(0,0))
     }
