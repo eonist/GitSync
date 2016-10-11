@@ -48,7 +48,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //6. Setup A Tree-List to manage repos
             //install other and advance styles a single css files (done)
             //Setup a way to Navigate between the different views. See legacy code (done)
-            //Setup Master - Detail view for RepoView
+            //Setup Master view for RepoView
+            //Setup Detail view for RepoView
             //Setup TopBar with Add/Remove/Edit Buttons
         //7. Setup a TopBar that goes under the Titlebar with Add,Remove,Edit etc
     }
