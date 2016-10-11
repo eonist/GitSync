@@ -14,11 +14,11 @@ class MainWin:Window {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 /**
- * Stores centtralized data
+ * TODO: Migrate to its own .swift file when appropriate
  */
 class Navigation {
     /**
-     *
+     * Navigate between views
      */
     static func setView(viewName:String){
         Swift.print("Navigation.setView() viewName: " + "\(viewName)")
