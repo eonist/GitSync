@@ -1,7 +1,7 @@
 import Foundation
 
 class RepoView:Element {
-    var topBar:TopBar?
+    private var topBar:TopBar?
     var treeList:TreeList?
     override func resolveSkin() {
         Swift.print("RepoView.resolveSkin()")
