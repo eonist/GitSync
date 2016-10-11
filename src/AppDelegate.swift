@@ -51,7 +51,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //Setup Master view for RepoView
             //Setup Detail view for RepoView
             //Setup TopBar with Add/Remove/Edit Buttons
-        //7. Setup a TopBar that goes under the Titlebar with Add,Remove,Edit,Cut,Paste
+        //7. Setup a TopBar that goes under the Titlebar 
+            //with Add,Remove,Edit,Cut,Paste (Cut and paste enables you to reorg items/folders)
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         print("Good-bye")
