@@ -1,5 +1,5 @@
 import Foundation
 
-class RepoView {
+class RepoView:Element {
 
 }
