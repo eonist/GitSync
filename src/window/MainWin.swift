@@ -1,6 +1,7 @@
 import Foundation
 
 class MainWin:Window {
+    static var mainView:MainView?
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
         super.init(docWidth, docHeight)
         WinModifier.align(self, Alignment.centerCenter, Alignment.centerCenter,CGPoint(6,0))/*aligns the window to the screen*/
@@ -8,6 +9,7 @@ class MainWin:Window {
     override func resolveSkin() {
         super.resolveSkin()
         self.contentView = MainView(frame.width,frame.height,"GitSync")/*Sets the mainview of the window*/
+        MainWin.mainView = self.contentView as? MainView
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
@@ -20,22 +22,17 @@ class Navigation {
      */
     static func setView(viewName:String){
         Swift.print("Navigation.setView() viewName: " + "\(viewName)")
-        let mainView:MainView?
-        if(MainView.currentView != nil) {
-            mainView = MainView.currentView!.superview as? MainView
-            MainView.currentView!.removeFromSuperview()
-        }
+        let mainView:MainView = MainWin.mainView!
+        if(mainView.currentView != nil) {mainView.currentView!.removeFromSuperview()}
         
-        let width:CGFloat = mainView!.width
-        let height:CGFloat = mainView!.height
-        /**
-         *
-         */
+        let width:CGFloat = mainView.width
+        let height:CGFloat = mainView.height
+        
         switch viewName{
             case MenuView.commits:
-                MainView.currentView = mainView!.addSubView(CommitsView(width,height,mainView))
+                mainView.currentView = mainView.addSubView(CommitsView(width,height,mainView))
             case MenuView.repos:
-                MainView.currentView = mainView!.addSubView(RepoView(width,height,mainView))
+                mainView.currentView = mainView.addSubView(RepoView(width,height,mainView))
             case MenuView.stats:
                 Swift.print("stats")
             case MenuView.prefs:
