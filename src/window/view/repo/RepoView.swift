@@ -23,6 +23,7 @@ class TopBar:Element{
     var addButton:TextButton?
     var copyButton:TextButton?
     var pasteButton:TextButton?
+    var editButton:TextButton?
     override func resolveSkin() {
         Swift.print("TopBar.resolveSkin()")
         super.resolveSkin()
@@ -30,6 +31,7 @@ class TopBar:Element{
         removeButton = addSubView(TextButton(NaN,24,"Remove",self,"remove"))
         copyButton = addSubView(TextButton(NaN,24,"Copy",self,"copy"))
         pasteButton = addSubView(TextButton(NaN,24,"Paste",self,"paste"))
+        editButton = addSubView(TextButton(NaN,24,"Edit",self,"edit"))
         
         /*
         StyleManager.addStyle("TopBar Button#add{float:left;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")//fill:green;
