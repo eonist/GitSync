@@ -1,6 +1,7 @@
 import Foundation
 
 class MainWin:Window {
+    static let size:CGSize = CGSize(320,480)
     static var mainView:MainView?
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
         super.init(docWidth, docHeight)

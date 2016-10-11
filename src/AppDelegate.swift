@@ -16,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
         
 
-        win = MainWin(320,480)
+        win = MainWin(MainWin.size.width,MainWin.size.height)
         
         let url:String = "~/Desktop/ElCapitan/gitsync.css"
         fileWatcher = FileWatcher([url.tildePath])
