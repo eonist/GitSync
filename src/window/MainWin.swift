@@ -25,8 +25,8 @@ class Navigation {
         let mainView:MainView = MainWin.mainView!
         if(mainView.currentView != nil) {mainView.currentView!.removeFromSuperview()}
         
-        let width:CGFloat = mainView.width
-        let height:CGFloat = mainView.height
+        let width:CGFloat = CommitsView.w
+        let height:CGFloat = CommitsView.h
         
         switch viewName{
             case MenuView.commits:
