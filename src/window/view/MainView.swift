@@ -2,7 +2,7 @@ import Foundation
 
 class MainView:TitleView{
     static let w:CGFloat = 320
-    static let h:CGFloat = 480
+    static let h:CGFloat = 600
     
     var title:String/*the title must be set after the init of the Window instance*/
     var menuView:MenuView?
