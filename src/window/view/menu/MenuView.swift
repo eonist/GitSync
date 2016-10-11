@@ -25,7 +25,7 @@ class MenuView:Element{
             if(event.assert(SelectEvent.select, selectGroup)){
                 let buttonId:String = (selectGroup.selected as! SelectTextButton).id!
                 Swift.print("MainMenu.onSelect() buttonId: " + "\(buttonId)")
-                //Navigation.sharedInstance.setView(buttonId)
+                Navigation.setView(buttonId)
             }
         }
         selectGroup.event = onSelectGroupChange
