@@ -7,12 +7,10 @@ class RepoView:Element {
         Swift.print("RepoView.resolveSkin()")
         super.resolveSkin()
         
-        topBar = addSubView(TopBar(width-30,24,self))
+        topBar = addSubView(TopBar(width-24,24,self))
         
-        let xml:NSXMLElement = FileParser.xml("~/Desktop/repo2.xml".tildePath)
-        treeList = addSubView(TreeList(width, height-24, NaN, Node(xml), self))
-        
-        
+        //let xml:NSXMLElement = FileParser.xml("~/Desktop/repo2.xml".tildePath)
+        //treeList = addSubView(TreeList(width, height-24, NaN, Node(xml), self))
         
     }
 }
@@ -24,6 +22,7 @@ private class TopBar:Element{
     var removeButton:TextButton?
     var addButton:TextButton?
     override func resolveSkin() {
+        Swift.print("TopBar.resolveSkin()")
         super.resolveSkin()
         addButton = addSubView(TextButton(NaN,24,"Add",self,"add"))
         removeButton = addSubView(TextButton(NaN,24,"Remove",self,"remove"))
