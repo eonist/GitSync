@@ -55,6 +55,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //7. Setup a TopBar that goes under the Titlebar 
             //with Add,Remove,Edit,Cut,Paste (Cut and paste enables you to reorg items/folders)
             //Icons from font awesome: + - sissor, clipboard, pencil
+            //hock up buttons to methods
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         print("Good-bye")
