@@ -1,6 +1,8 @@
 import Foundation
 
 class CommitsView:Element {
+    static let w:CGFloat = MainView.w
+    static let h:CGFloat = MainView.h-36-36
     var list:CommitsList?
     override func resolveSkin() {
         super.resolveSkin()
