@@ -15,15 +15,10 @@ class MainWin:Window {
  * Stores centtralized data
  */
 class Navigation {
-    var mainView:MainView?
-    static var sharedInstance = Navigation()
-    private init() {
-        //init stuff here
-    }
     /**
      *
      */
-    func setView(viewName:String){
+    static func setView(viewName:String){
         Swift.print("Navigation.setView() viewName: " + "\(viewName)")
         if(mainView!.currentView != nil) {mainView!.currentView!.removeFromSuperview()}
         let width:CGFloat = mainView!.width
