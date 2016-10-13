@@ -59,6 +59,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //Use the san fran font
             //Add atribution to the Github page
             //use regular list in v1 add tree-list later, when things start to work
+            //tranclucency layer under the topbar and bottombar? try it!
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         print("Good-bye")
