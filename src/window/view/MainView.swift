@@ -17,7 +17,7 @@ class MainView:TitleView{
         super.textArea!.setTextValue(title)
         MainWin.mainView = self
         Navigation.setView(MenuView.repos)
-        menuView = addSubView(MenuView(240,36,self))
+        menuView = addSubView(MenuView(240,48,self))
         Align.align(menuView!, CGSize(width/**/,height/**/), Alignment.bottomCenter, Alignment.bottomCenter,CGPoint(0,0))
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
