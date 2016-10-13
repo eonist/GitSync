@@ -5,7 +5,7 @@ class MenuView:Element{
     static let repos:String = "repos"
     static let stats:String = "stats"
     static let prefs:String = "prefs"
-    static let buttonTitles = [MenuView.commits,MenuView.repos,MenuView.stats,MenuView.prefs]
+    static let buttonTitles = [MenuView.commits/*,MenuView.repos,MenuView.stats,MenuView.prefs*/]
     override func resolveSkin() {
         Swift.print("MenuView.resolveSkin()")
         super.resolveSkin()
