@@ -44,7 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //use the iphone 6 size ratio by default
             //Use the san fran font
             //backButton next to the close,min,max buttons. (When needed)
-        
+            //at the end of commits list place a button with the text: named load more (load 20 at the time)
         
         
     }
