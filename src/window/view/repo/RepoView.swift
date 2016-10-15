@@ -13,6 +13,8 @@ class RepoView:Element {
         let dp:DataProvider = DataProvider(xml)
         list = addSubView(List(width, height-24, NaN, dp,self))
         list!.selectAt(0)
+        
+        //Continue here: try to forward the event? maybe?
     }
 }
 
