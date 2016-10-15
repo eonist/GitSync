@@ -20,18 +20,13 @@ class RepoView:Element {
  */
 class TopBar:Element{
     var addButton:Button?
-    //var removeButton:TextButton?
-    /*var copyButton:TextButton?
-    var pasteButton:TextButton?*/
-    //var editButton:TextButton?
+    var removeButton:TextButton?
+    var editButton:TextButton?
     override func resolveSkin() {
         Swift.print("TopBar.resolveSkin()")
         super.resolveSkin()
         addButton = addSubView(Button(NaN,NaN,self,"add"))
-        removeButton = addSubView(TextButton(NaN,24,"Remove",self,"remove"))
-        editButton = addSubView(TextButton(NaN,24,"Edit",self,"edit"))
-        /*copyButton = addSubView(TextButton(NaN,24,"Copy",self,"copy"))
-        pasteButton = addSubView(TextButton(NaN,24,"Paste",self,"paste"))*/
-        
+        removeButton = addSubView(Button(NaN,NaN,self,"remove"))
+        editButton = addSubView(Button(NaN,NaN,self,"edit"))
     }
 }
