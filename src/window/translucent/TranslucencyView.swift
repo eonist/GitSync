@@ -5,7 +5,7 @@ class TranslucencyView:NSVisualEffectView{
     override var flipped:Bool {return true}/*Organizes your view from top to bottom*/
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
-        self.material = NSVisualEffectMaterial.Light//AppearanceBased,Dark,MediumLight,PopOver,UltraDark,AppearanceBased,Titlebar,Menu
+        self.material = NSVisualEffectMaterial.UltraDark//AppearanceBased,Dark,MediumLight,PopOver,UltraDark,AppearanceBased,Titlebar,Menu
         self.blendingMode = NSVisualEffectBlendingMode.BehindWindow
         self.state = NSVisualEffectState.Active
         self.maskImage = maskImage(cornerRadius: cornerRadius)/*this line applies the mask to the view*/
