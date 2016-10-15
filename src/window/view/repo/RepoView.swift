@@ -33,12 +33,7 @@ class TopBar:Element{
         pasteButton = addSubView(TextButton(NaN,24,"Paste",self,"paste"))*/
         editButton = addSubView(TextButton(NaN,24,"Edit",self,"edit"))
         
-        /*
-        StyleManager.addStyle("TopBar Button#add{float:left;clear:none;line:none;corner-radius:0px;line-thickness:0px;}")//fill:green;
-        StyleManager.addStyle("TopBar Button#add{fill:white,~/Desktop/gitsync/assets/svg/add.svg grey8;}")
-        StyleManager.addStyle("TopBar Button#add{width:24px,16px;height:24px,16px;margin:0px,4px;}")
-        addButton = addSubView(Button(24,24,self,"add"))
-        */
+       
         
     }
 }
