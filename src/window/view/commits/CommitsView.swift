@@ -5,7 +5,7 @@ class CommitsView:Element {
     static let h:CGFloat = MainView.h-36-36
     var list:CommitsList?
     override func resolveSkin() {
-        super.resolveSkin()
+        self.skin = SkinResolver.skin(self)//super.resolveSkin()
         createList()
     }
     func createList(){
