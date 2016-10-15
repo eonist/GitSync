@@ -32,36 +32,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         fileWatcher!.start()
         
-        //Continue here: 
-        //1. Setup the MainWin (White) (Fixed size: 320,480) (done)
-            //Test Live-Reload and try and make a Night mode version (done)
+        
+        //Continue here:
+            //
+        
+        //later
             //use the iphone 6 size ratio by default
-        //2. Setup the TitleBar with GitSync name (add some vertical space around the titleBar buttons) (done)
-        //2. Setup bottom bar with Text buttons (Commits,Repos,Stats,Prefs)
-            //overrirde on win resize, in Window and add auto align to the MenuView
-            //add some font awesome icons as .svg
-        //3. Setup commit-list-view (show limit: 25 commits)
-            //Check the legacy code
-            //Try to make it work
-        //4. hock up "cmd + r" to refresh commit view (also via app menu) (Freeze and jump to top)
-            //setup app menu
-        //5. Test with a demo repo
-        //6. Setup A Tree-List to manage repos
-            //install other and advance styles a single css files (done)
-            //Setup a way to Navigate between the different views. See legacy code (done)
-            //Setup Master view for RepoView
-            //Setup Detail view for RepoView
-            //Setup TopBar with Add/Remove/Edit Buttons
-        //7. Setup a TopBar that goes under the Titlebar 
-            //with Add,Remove,Edit,Cut,Paste (Cut and paste enables you to reorg items/folders)
-            //Icons from font awesome: + - sissor, clipboard, pencil (done)
-            //List instead of TreeList in Repo (current)
-            //hock up buttons to methods
             //Use the san fran font
-            //Add atribution to the Github page
-            //use regular list in v1 add tree-list later, when things start to work
             //tranclucency layer under the topbar and bottombar? try it! (or just all tranclucenct)
             //backButton next to the close,min,max buttons. (When needed)
+        
+        
+        
     }
     func applicationWillTerminate(aNotification: NSNotification) {
         print("Good-bye")
