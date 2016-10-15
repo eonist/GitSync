@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
-            //
+            //Add the detail view from legacy
         
         //later
             //use the iphone 6 size ratio by default
