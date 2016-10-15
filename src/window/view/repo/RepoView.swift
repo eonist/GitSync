@@ -32,8 +32,5 @@ class TopBar:Element{
         /*copyButton = addSubView(TextButton(NaN,24,"Copy",self,"copy"))
         pasteButton = addSubView(TextButton(NaN,24,"Paste",self,"paste"))*/
         editButton = addSubView(TextButton(NaN,24,"Edit",self,"edit"))
-        
-       
-        
     }
 }
