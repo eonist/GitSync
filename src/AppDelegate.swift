@@ -25,7 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             if(event.fileChange && event.path == url.tildePath) {
                 Swift.print("update to the file happened")
                 StyleManager.addStylesByURL(url,true)
-                let view:NSView = self.win!.contentView!
+                let view:NSView = (self.win as! TranslucencyWin).view!
                 ElementModifier.refreshSkin(view as! IElement)
                 ElementModifier.floatChildren(view)
             }
