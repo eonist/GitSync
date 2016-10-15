@@ -2,22 +2,17 @@ import Foundation
 
 class RepoView:Element {
     var topBar:TopBar?
-    var treeList:TreeList?
+    var list:List?
     override func resolveSkin() {
         Swift.print("RepoView.resolveSkin()")
         super.resolveSkin()
         
         topBar = addSubView(TopBar(width-24,36,self))
         
-        let xml:NSXMLElement = FileParser.xml("~/Desktop/repo2.xml".tildePath)
-        treeList = addSubView(TreeList(width, height-24, NaN, Node(xml), self))
-        
-        
-        let listCard:Card = container.addSubView(Card(NaN, NaN, "List: ", container, "listCard"))
-        let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)
+        let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         let dp:DataProvider = DataProvider(xml)
-        let list:List = listCard.addSubView(List(140, 73, NaN, dp,listCard))
-        list.selectAt(1)
+        list = addSubView(List(width, height-24, NaN, dp,self))
+        //list.selectAt(1)
     }
 }
 
