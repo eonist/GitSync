@@ -20,8 +20,8 @@ class RepoView:Element {
  */
 class TopBar:Element{
     var addButton:Button?
-    var removeButton:TextButton?
-    var editButton:TextButton?
+    var removeButton:Button?
+    var editButton:Button?
     override func resolveSkin() {
         Swift.print("TopBar.resolveSkin()")
         super.resolveSkin()
