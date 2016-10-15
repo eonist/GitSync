@@ -28,9 +28,10 @@ class TopBar:Element{
         Swift.print("TopBar.resolveSkin()")
         super.resolveSkin()
         addButton = addSubView(Button(NaN,NaN,self,"add"))
-        //removeButton = addSubView(TextButton(NaN,24,"Remove",self,"remove"))
+        removeButton = addSubView(TextButton(NaN,24,"Remove",self,"remove"))
+        editButton = addSubView(TextButton(NaN,24,"Edit",self,"edit"))
         /*copyButton = addSubView(TextButton(NaN,24,"Copy",self,"copy"))
         pasteButton = addSubView(TextButton(NaN,24,"Paste",self,"paste"))*/
-        //editButton = addSubView(TextButton(NaN,24,"Edit",self,"edit"))
+        
     }
 }
