@@ -35,6 +35,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //Continue here:
             //Add the detail view from legacy
+            //add backbutton to repoDetailView
+            //white color for the TitelBarText
         
         //later
             //use the iphone 6 size ratio by default
