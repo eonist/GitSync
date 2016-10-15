@@ -42,7 +42,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //use a picture from that free photo stock service as background for the prntscrns
             //use the iphone 6 size ratio by default
             //Use the san fran font
-            //tranclucency layer under the topbar and bottombar? try it! (or just all tranclucenct)
             //backButton next to the close,min,max buttons. (When needed)
         
         
