@@ -59,7 +59,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //Use the san fran font
             //Add atribution to the Github page
             //use regular list in v1 add tree-list later, when things start to work
-            //tranclucency layer under the topbar and bottombar? try it!
+            //tranclucency layer under the topbar and bottombar? try it! (or just all tranclucenct)
             //backButton next to the close,min,max buttons. (When needed)
     }
     func applicationWillTerminate(aNotification: NSNotification) {
