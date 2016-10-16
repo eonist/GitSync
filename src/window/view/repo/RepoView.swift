@@ -29,8 +29,7 @@ class RepoView:Element {
         Swift.print("onEditButton()")
         Navigation.setView(String(RepoDetailView))
         
-        let repoData = RepoData.sharedInstance
-        let repoItem = repoData.dp.getItemAt(repoData.selectedIndex!)!
+        let repoItem = list!.dataProvider.getItemAt(list!.sel)!
         repoDetailView!.setRepoData(repoItem)//updates the UI elements with the selected repo data
     }
     
