@@ -17,7 +17,7 @@ class RepoDetailView:Element {
         remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", "", self))
         broadCastCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Broadcast:", false, self))
         subscribeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Subscribe:", false, self))
-        //if auto sync is off then a manual commit popup dialog will appear
+        //if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
         autoSyncCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-sync:", false, self))
         //autoSyncIntervall needs to be a time setter: Day,Hour,Min,Seconds
         //0 means do not sync on an interval
