@@ -35,6 +35,15 @@ class RepoDetailView:Element {
         autoSyncCheckBoxButton!.setChecked(repoData["auto-sync"]!.bool)
         autoSyncIntervalLeverSpinner!.setValue(repoData["interval"]!.cgFloat)
     }
+    /**
+     *
+     */
+    func onBackButtonClick(){
+        Swift.print("onBackButtonClick()")
+    }
+    override func onEvent(event:Event) {
+        if(event.assert(ButtonEvent.upInside, topBar!.backButton)){onBackButtonClick()}
+    }
 }
 class RepoItemTopBar:Element{
     var backButton:Button?
@@ -42,4 +51,5 @@ class RepoItemTopBar:Element{
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         backButton = addSubView(Button(16,16,self))
     }
+    
 }
