@@ -22,9 +22,6 @@ class RepoDetailView:Element {
         autoSyncCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-commit-msg:", false, self))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
         autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Sync-Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))//autoSyncIntervall needs to be a time setter: Day,Hour,Min,Seconds,0 means do not sync on an interval
     }
-    /**
-     *
-     */
     func setRepoData(repoData:Dictionary<String,String>){
         nameTextInput!.inputTextArea!.setTextValue(repoData["title"]!)
         localPathTextInput!.inputTextArea!.setTextValue(repoData["local-path"]!)
@@ -35,9 +32,6 @@ class RepoDetailView:Element {
         autoSyncCheckBoxButton!.setChecked(repoData["auto-sync"]!.bool)
         autoSyncIntervalLeverSpinner!.setValue(repoData["interval"]!.cgFloat)
     }
-    /**
-     *
-     */
     func onBackButtonClick(){
         Swift.print("onBackButtonClick()")
         Navigation.setView(MenuView.repos)
