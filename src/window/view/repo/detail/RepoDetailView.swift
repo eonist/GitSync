@@ -1,5 +1,35 @@
 import Foundation
 
-class RepoDetailView {
-
+class RepoDetailView:Element {
+    var nameTextInput:TextInput?
+    var localPathTextInput:TextInput?
+    var remotePathTextInput:TextInput?
+    var broadCastCheckBoxButton:CheckBoxButton?
+    var subscribeCheckBoxButton:CheckBoxButton?
+    var autoSyncCheckBoxButton:CheckBoxButton?
+    var autoSyncIntervalLeverSpinner:LeverSpinner?
+    //var topBar:RepoItemTopBar?
+    override func resolveSkin() {
+        super.resolveSkin()
+        nameTextInput = addSubView(TextInput(width, 32, "Name: ", "", self))
+        localPathTextInput = addSubView(TextInput(width, 32, "Local-path: ", "", self))
+        remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", "", self))
+        broadCastCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Broadcast:", false, self))
+        subscribeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Subscribe:", false, self))
+        autoSyncCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-sync:", false, self))
+        autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Auto-Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
+        
+    }
+    /**
+     *
+     */
+    func setRepoData(repoData:Dictionary<String,String>){
+        nameTextInput!.inputTextArea!.setTextValue(repoData["title"]!)
+        localPathTextInput!.inputTextArea!.setTextValue(repoData["local-path"]!)
+        remotePathTextInput!.inputTextArea!.setTextValue(repoData["remote-path"]!)
+        broadCastCheckBoxButton!.setChecked(repoData["broadcast"]!.bool)
+        subscribeCheckBoxButton!.setChecked(repoData["subscribe"]!.bool)
+        autoSyncCheckBoxButton!.setChecked(repoData["auto-sync"]!.bool)
+        autoSyncIntervalLeverSpinner!.setValue(repoData["interval"]!.cgFloat)
+    }
 }
