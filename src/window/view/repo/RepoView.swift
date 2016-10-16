@@ -22,14 +22,19 @@ class RepoView:Element {
         ListModifier.selectAt(list!, 0)
         list!.onEvent(ListEvent(ListEvent.select,0,list!))
     }
-    func onRemoveButton(){
+    func onRemoveButtonClick(){
         Swift.print("onRemoveButton()")
+    }
+    func onEditButtonClick(){
+        Swift.print("onEditButton()")
     }
     override func onEvent(event:Event) {
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
-            //else if(event.type == ListEvent.select){super.onEvent(event)}//forward this event to the parent
+        else if(event.type == ButtonEvent.upInside && event.origin === topBar!.removeButton){onRemoveButtonClick()}
+        else if(event.type == ButtonEvent.upInside && event.origin === topBar!.editButton){onEditButtonClick()}
+        //else if(event.type == ListEvent.select){super.onEvent(event)}//forward this event to the parent
         //else if(event.type == SelectEvent.select && event.immediate === list){super.onEvent(event)}//forward this event to the parent
-        else if(event.type == ButtonEvent.upInside && event.origin === topBar!.removeButton){onRemoveButton()}
+        
     }
 }
 
