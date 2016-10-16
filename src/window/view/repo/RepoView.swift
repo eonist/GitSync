@@ -20,7 +20,7 @@ class RepoView:Element {
         Swift.print("addButton.click")
         list!.dataProvider.addItemAt(["title":"New repo","local-path":"","remote-path":"","interval":"30","keychain-item-name":"","branch":"master","broadcast":"true","subscribe":"true","auto-sync":"true"], 0)
         ListModifier.selectAt(list!, 0)
-        list!.onEvent(ListEvent(ListEvent.select,0,list!))
+        //list!.onEvent(ListEvent(ListEvent.select,0,list!))
     }
     func onRemoveButtonClick(){
         Swift.print("onRemoveButton()")
