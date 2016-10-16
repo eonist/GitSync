@@ -18,7 +18,7 @@ class RepoView:Element {
     }
     func onAddButtonClick(){
         Swift.print("addButton.click")
-        list!.dataProvider.addItemAt(["title":"New repo","local-path":"","remote-path":"","interval":"30","keychain-item-name":"","branch":"master","broadcast":"true","subscribe":"true","auto-sync":"true"], 0)
+        list!.dataProvider.addItemAt(["title":"New repo","local-path":"~/Desktop/","remote-path":"https://github.com/userName/repoName.git","interval":"60","keychain-item-name":"","branch":"master","broadcast":"false","subscribe":"true","auto-sync":"false"], 0)
         ListModifier.selectAt(list!, 0)
         let repoItem:Dictionary<String,String> = list!.dataProvider.getItemAt(list!.selectedIndex)!
         (Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
