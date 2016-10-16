@@ -9,7 +9,6 @@ class RepoDetailView:Element {
     var subscribeCheckBoxButton:CheckBoxButton?
     var autoSyncCheckBoxButton:CheckBoxButton?
     var autoSyncIntervalLeverSpinner:LeverSpinner?
-    //var topBar:RepoItemTopBar?
     override func resolveSkin() {
         super.resolveSkin()
         topBar = addSubView(RepoItemTopBar(width-24,36,self))
