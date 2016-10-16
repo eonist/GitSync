@@ -21,6 +21,7 @@ class RepoView:Element {
         list!.dataProvider.addItemAt(["title":"New repo","local-path":"~/Desktop/","remote-path":"https://github.com/userName/repoName.git","interval":"0","keychain-item-name":"","branch":"master","broadcast":"false","subscribe":"true","auto-sync":"false"], 0)
         ListModifier.selectAt(list!, 0)
         let repoItem:Dictionary<String,String> = list!.dataProvider.getItemAt(list!.selectedIndex)!
+        Navigation.setView(String(RepoDetailView))
         (Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
         //list!.onEvent(ListEvent(ListEvent.select,0,list!))
     }
