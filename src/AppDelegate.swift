@@ -41,8 +41,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //seconds text to auto increment, also fix the color, Auto commit message [x], 
             //start creating the prefsView, see if there is legacy code for this, or info in the wiki
         //later
-            //use the iphone 6 size ratio by default
-            //Use the san fran font
+            //commit popup dialog
+            //Use the san fran font (if you can find it)
             //at the end of commits list place a button with the text: named load more (load 20 at the time)
         
         
