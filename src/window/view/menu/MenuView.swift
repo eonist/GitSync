@@ -1,10 +1,10 @@
 import Foundation
 
 class MenuView:Element{
-    static let commits:String = String(CommitsView)
-    static let repos:String = String(RepoView)
-    static let stats:String = String(StatsView)
-    static let prefs:String = String(PrefsView)
+    static let commits:String = "commits"
+    static let repos:String = "repos"
+    static let stats:String = "stats"
+    static let prefs:String = "prefs"
     static let buttonTitles = [MenuView.commits,MenuView.repos,MenuView.stats,MenuView.prefs]
     override func resolveSkin() {
         Swift.print("MenuView.resolveSkin()")
