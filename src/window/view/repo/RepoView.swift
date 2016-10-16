@@ -14,7 +14,22 @@ class RepoView:Element {
         list = addSubView(List(width, height-24, NaN, dp,self))
         list!.selectAt(0)
         
-        //Continue here: try to forward the event? maybe?
+        
+    }
+    func onAddButtonClick(){
+        Swift.print("addButton.click")
+        list!.dataProvider.addItemAt(["title":"New repo","local-path":"","remote-path":"","interval":"30","keychain-item-name":"","branch":"master","broadcast":"true","subscribe":"true","auto-sync":"true"], 0)
+        ListModifier.selectAt(list!, 0)
+        list!.onEvent(ListEvent(ListEvent.select,0,list!))
+    }
+    func onRemoveButton(){
+        Swift.print("onRemoveButton()")
+    }
+    override func onEvent(event:Event) {
+        if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
+            //else if(event.type == ListEvent.select){super.onEvent(event)}//forward this event to the parent
+        else if(event.type == SelectEvent.select && event.immediate === treeList){super.onEvent(event)}//forward this event to the parent
+        else if(event.type == ButtonEvent.upInside && event.origin === topBar!.removeButton){onRemoveButton()}
     }
 }
 
