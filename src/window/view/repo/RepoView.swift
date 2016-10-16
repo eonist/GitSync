@@ -1,5 +1,7 @@
 import Foundation
-
+/**
+ * TODO: 
+ */
 class RepoView:Element {
     var topBar:TopBar?
     var list:List?
@@ -13,8 +15,6 @@ class RepoView:Element {
         let dp:DataProvider = DataProvider(xml)
         list = addSubView(List(width, height-24, NaN, dp,self))
         list!.selectAt(0)
-        
-        
     }
     func onAddButtonClick(){
         Swift.print("addButton.click")
