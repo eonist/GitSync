@@ -28,6 +28,10 @@ class Navigation {
                 Swift.print("stats")
             case MenuView.prefs:
                 Swift.print("prefs")
+            case MenuView.prefs:
+                Swift.print("prefs")
+                repoView!.removeFromSuperview()
+                repoDetailView = addSubView(repoDetailView ?? RepoDetailView(width,height,self))
             default:
                 break;
         }
