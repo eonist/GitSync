@@ -34,6 +34,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
+            //use the other repoIcon (move it to MainViewTopBar) (look for adress-book in font-awesome)
+            //backButton in RepoView
+            //prefs from app-menu
+            //remove statsView (not essential, keep it simple)
             //Make the PrefsView
             //start creating the prefsView
             //path picker for localPath in repodetailview
