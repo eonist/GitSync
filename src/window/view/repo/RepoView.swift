@@ -20,6 +20,8 @@ class RepoView:Element {
         Swift.print("addButton.click")
         list!.dataProvider.addItemAt(["title":"New repo","local-path":"","remote-path":"","interval":"30","keychain-item-name":"","branch":"master","broadcast":"true","subscribe":"true","auto-sync":"true"], 0)
         ListModifier.selectAt(list!, 0)
+        let repoItem:Dictionary<String,String> = list!.dataProvider.getItemAt(list!.selectedIndex)!
+        (Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
         //list!.onEvent(ListEvent(ListEvent.select,0,list!))
     }
     func onRemoveButtonClick(){
@@ -30,8 +32,7 @@ class RepoView:Element {
         Navigation.setView(String(RepoDetailView))
         
         let repoItem:Dictionary<String,String> = list!.dataProvider.getItemAt(list!.selectedIndex)!
-        let repoDetailView:RepoDetailView = Navigation.currentView as! RepoDetailView
-        repoDetailView.setRepoData(repoItem)//updates the UI elements with the selected repo data
+        (Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
     }
     override func onEvent(event:Event) {
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
