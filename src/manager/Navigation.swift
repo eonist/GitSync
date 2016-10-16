@@ -1,10 +1,11 @@
-import Foundation
+import Cocoa
 
 /**
  * TODO: Migrate to its own .swift file when appropriate
  */
 class Navigation {
     static var activeView:String = MenuView.commits//<--default
+    static var currentView:NSView? {return MainWin.mainView?.currentView}
     /**
      * Navigate between views
      */
