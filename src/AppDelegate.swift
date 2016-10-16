@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
-        //revert to white bg
+            //revert to white bg (done)
             //Add the detail view from legacy
             //add backbutton to repoDetailView
             //white color for the TitelBarText
