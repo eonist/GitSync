@@ -5,6 +5,7 @@ class RepoDetailView:Element {
     var nameTextInput:TextInput?
     var localPathTextInput:TextInput?
     var remotePathTextInput:TextInput?
+    var branchTextInput:TextInput?
     var broadCastCheckBoxButton:CheckBoxButton?
     var subscribeCheckBoxButton:CheckBoxButton?
     var autoSyncCheckBoxButton:CheckBoxButton?
@@ -15,7 +16,7 @@ class RepoDetailView:Element {
         nameTextInput = addSubView(TextInput(width, 32, "Name: ", "", self))
         localPathTextInput = addSubView(TextInput(width, 32, "Local-path: ", "", self))
         remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", "", self))
-        //branch-text-input: master is default, set to dev for instance
+        branchTextInput = addSubView(TextInput(width, 32, "Branch: ", "", self))//branch-text-input: master is default, set to dev for instance
         //to disable an item uncheck broadcast and subscribe
         broadCastCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Broadcast:", false, self))
         subscribeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Subscribe:", false, self))
