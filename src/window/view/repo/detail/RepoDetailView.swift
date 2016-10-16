@@ -12,7 +12,7 @@ class RepoDetailView:Element {
     //var topBar:RepoItemTopBar?
     override func resolveSkin() {
         
-        //topBar = addSubView(RepoItemTopBar(width-24,36,self))
+        topBar = addSubView(RepoItemTopBar(width-24,36,self))
         
         super.resolveSkin()
         nameTextInput = addSubView(TextInput(width, 32, "Name: ", "", self))
