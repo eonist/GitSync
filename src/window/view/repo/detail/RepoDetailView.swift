@@ -11,10 +11,8 @@ class RepoDetailView:Element {
     var autoSyncIntervalLeverSpinner:LeverSpinner?
     //var topBar:RepoItemTopBar?
     override func resolveSkin() {
-        
-        topBar = addSubView(RepoItemTopBar(width-24,36,self))
-        
         super.resolveSkin()
+        topBar = addSubView(RepoItemTopBar(width-24,36,self))
         nameTextInput = addSubView(TextInput(width, 32, "Name: ", "", self))
         localPathTextInput = addSubView(TextInput(width, 32, "Local-path: ", "", self))
         remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", "", self))
