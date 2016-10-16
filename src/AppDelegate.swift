@@ -38,6 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //Add the detail view from legacy (done)
             //add backbutton to repoDetailView, svg icon, and hock up the functionality
             //move section based css to explorer.css, this will make it faster
+            //seconds text to auto increment, also fix the color, Auto commit message [x], 
         //later
             //use the iphone 6 size ratio by default
             //Use the san fran font
