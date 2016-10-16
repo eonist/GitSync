@@ -17,7 +17,7 @@ class Navigation {
         let width:CGFloat = CommitsView.w
         let height:CGFloat = CommitsView.h
         /**
-         *
+         * TODO: Use class name instead of static let strings
          */
         switch viewName{
             case MenuView.commits:
@@ -28,10 +28,8 @@ class Navigation {
                 Swift.print("stats")
             case MenuView.prefs:
                 Swift.print("prefs")
-            case MenuView.prefs:
-                Swift.print("prefs")
-                repoView!.removeFromSuperview()
-                repoDetailView = addSubView(repoDetailView ?? RepoDetailView(width,height,self))
+            case String(RepoDetailView):
+                mainView.currentView = mainView.addSubView(RepoDetailView(width,height,mainView))
             default:
                 break;
         }
