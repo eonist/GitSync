@@ -1,6 +1,7 @@
 import Foundation
 
 class RepoDetailView:Element {
+    var topBar:RepoItemTopBar?
     var nameTextInput:TextInput?
     var localPathTextInput:TextInput?
     var remotePathTextInput:TextInput?
@@ -11,7 +12,7 @@ class RepoDetailView:Element {
     //var topBar:RepoItemTopBar?
     override func resolveSkin() {
         
-        topBar = addSubView(RepoItemTopBar(width-12,24,self))
+        topBar = addSubView(RepoItemTopBar(width-24,36,self))
         
         super.resolveSkin()
         nameTextInput = addSubView(TextInput(width, 32, "Name: ", "", self))
