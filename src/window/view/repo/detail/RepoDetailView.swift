@@ -33,7 +33,6 @@ class RepoDetailView:Element {
         autoSyncIntervalLeverSpinner!.setValue(repoData["interval"]!.cgFloat)
     }
 }
-
 class RepoItemTopBar:Element{
     var backButton:Button?
     override func resolveSkin() {
