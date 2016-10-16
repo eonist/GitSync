@@ -30,7 +30,7 @@ class RepoView:Element {
         Navigation.setView(String(RepoDetailView))
         
         let repoItem = list!.dataProvider.getItemAt(list!.selectedIndex)!
-        repoDetailView!.setRepoData(repoItem)//updates the UI elements with the selected repo data
+        (Navigation.activeView! as! RepoDetailView)!.setRepoData(repoItem)//updates the UI elements with the selected repo data
     }
     override func onEvent(event:Event) {
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
