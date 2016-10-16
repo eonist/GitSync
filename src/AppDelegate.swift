@@ -35,7 +35,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //Continue here:
             //make the conflict resolution dialog
-            //add backbutton to repoDetailView, svg icon, and hock up the functionality
             //move section based css to explorer.css, this will make it faster
             //seconds text to auto increment, also fix the color, Auto commit message [x], 
             //start creating the prefsView, see if there is legacy code for this, or info in the wiki

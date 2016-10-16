@@ -42,7 +42,7 @@ class RepoDetailView:Element {
      */
     func onBackButtonClick(){
         Swift.print("onBackButtonClick()")
-        Navigation
+        Navigation.setView(String(RepoDetailView))
     }
     override func onEvent(event:Event) {
         if(event.assert(ButtonEvent.upInside, topBar!.backButton)){onBackButtonClick()}
