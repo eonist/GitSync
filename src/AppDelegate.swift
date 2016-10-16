@@ -35,10 +35,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //Continue here:
             //revert to white bg (done)
-            //Add the detail view from legacy
-            //add backbutton to repoDetailView
-            //white color for the TitelBarText
-        
+            //Add the detail view from legacy (done)
+            //add backbutton to repoDetailView, svg icon, and hock up the functionality
+            //move section based 
         //later
             //use the iphone 6 size ratio by default
             //Use the san fran font
