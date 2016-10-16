@@ -29,8 +29,9 @@ class RepoView:Element {
         Swift.print("onEditButton()")
         Navigation.setView(String(RepoDetailView))
         
-        let repoItem = list!.dataProvider.getItemAt(list!.selectedIndex)!
-        (Navigation.activeView! as! RepoDetailView)!.setRepoData(repoItem)//updates the UI elements with the selected repo data
+        let repoItem:Dictionary<String,String> = list!.dataProvider.getItemAt(list!.selectedIndex)!
+        let repoDetailView:RepoDetailView = MainWin.mainView!.currentView as! RepoDetailView
+        repoDetailView.setRepoData(repoItem)//updates the UI elements with the selected repo data
     }
     override func onEvent(event:Event) {
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
