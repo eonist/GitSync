@@ -28,7 +28,7 @@ class RepoView:Element {
     override func onEvent(event:Event) {
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
             //else if(event.type == ListEvent.select){super.onEvent(event)}//forward this event to the parent
-        else if(event.type == SelectEvent.select && event.immediate === treeList){super.onEvent(event)}//forward this event to the parent
+        //else if(event.type == SelectEvent.select && event.immediate === list){super.onEvent(event)}//forward this event to the parent
         else if(event.type == ButtonEvent.upInside && event.origin === topBar!.removeButton){onRemoveButton()}
     }
 }
