@@ -34,8 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
-            //revert to white bg (done)
-            //Add the detail view from legacy (done)
+            //make the conflict resolution dialog
             //add backbutton to repoDetailView, svg icon, and hock up the functionality
             //move section based css to explorer.css, this will make it faster
             //seconds text to auto increment, also fix the color, Auto commit message [x], 
