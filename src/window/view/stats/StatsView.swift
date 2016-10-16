@@ -1,5 +1,7 @@
 import Foundation
 
-class StatsView {
-
+class StatsView:Element {
+    override func resolveSkin() {
+        self.skin = SkinResolver.skin(self)
+    }
 }
