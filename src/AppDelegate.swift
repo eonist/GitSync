@@ -34,15 +34,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
+            //Make the PrefsView
             //start creating the prefsView
             //path picker for localPath in repodetailview
-            //
-            //make the conflict resolution dialog
+            //on item click -> go to RepoDetailView
+            //Add trashcan icon in the topBar of the RepoDetailView
+            //Remove the removeIcon in RepoView, also the editICon
+            //when you create a new item -> write xml to disk
+            //make the conflict resolution dialog (use boilerplate from DrawLab)
             //commit popup dialog
             //seconds text to auto increment, also fix the color, Auto commit message [x], 
         //later
             //Figure out how to speed up live-refresh in Element (think object-trees)
-            //Use the san fran font (if you can find it)
+            //Use the san-fran font (if you can find it)
             //at the end of commits list place a button with the text: named load more (load 20 at the time)
         
         
