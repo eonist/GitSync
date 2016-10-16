@@ -35,6 +35,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //Continue here:
             //start creating the prefsView
+            //path picker for localPath in repodetailview
+            //
             //make the conflict resolution dialog
             //commit popup dialog
             //seconds text to auto increment, also fix the color, Auto commit message [x], 
