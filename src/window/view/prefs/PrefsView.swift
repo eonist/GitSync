@@ -6,6 +6,6 @@ class PrefsView:Element {
         //keychain-user-name (TextInput)
         //Git-Config-UserName
         //Git-Config-EmailName
-        
+        //UI sounds [x]
     }
 }
