@@ -3,9 +3,11 @@ import Foundation
 class CommitsView:Element {
     static let w:CGFloat = MainView.w
     static let h:CGFloat = MainView.h-36-36
+    var topBar:CommitsTopBar?
     var list:CommitsList?
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
+        topBar = addSubView(CommitsTopBar(width-24,36,self))
         createList()
     }
     func createList(){
@@ -16,5 +18,15 @@ class CommitsView:Element {
         Swift.print("dp.count(): " + "\(dp.count())")
         list = addSubView(CommitsList(320, height, NaN, dp, self,"commitsList"))
         ListModifier.selectAt(list!, 2)
+    }
+}
+
+class CommitsTopBar:Element{
+    var reposButton:Button?
+    var prefsButton:Button?
+    override func resolveSkin() {
+        self.skin = SkinResolver.skin(self)//super.resolveSkin()
+        reposButton = addSubView(Button(16,16,self,"repos"))
+        prefsButton = addSubView(Button(16,16,self,"prefs"))
     }
 }
