@@ -36,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Continue here:
             //make the app-menu (see drawlab)
             //prefs from app-menu
-            //Make the PrefsPopUpWindow
+            //Make the PrefsView (this must be a view, if you want to be consistent between macOS and iOS)
         
             //make the conflict resolution dialog (use boilerplate from DrawLab)
             //path picker for localPath in repodetailview
