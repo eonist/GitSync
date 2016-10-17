@@ -34,11 +34,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
-            //use the other repoIcon (move it to MainViewTopBar) 
-            //backButton in RepoView
             //prefs from app-menu
-            //remove statsView (not essential, keep it simple)
-            //Make the PrefsView
+            //make the app-menu (see drawlab)
+            //Make the PrefsView (with back-button)
             //start creating the prefsView
             //path picker for localPath in repodetailview
             //on item click -> go to RepoDetailView
