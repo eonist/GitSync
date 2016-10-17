@@ -38,14 +38,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //Remember which item was selected when going back to RepoView
             //prefs from app-menu
             //make the app-menu (see drawlab)
-            //Make the PrefsView (with back-button)
+            //Make the PrefsPopUpWindow 
             //start creating the prefsView
             //path picker for localPath in repodetailview
             //when you create a new item -> write xml to disk
             //when you go back to repoView -> write xml to disk
             //make the conflict resolution dialog (use boilerplate from DrawLab)
-            //commit popup dialog
-            //seconds text to auto increment, also fix the color, Auto commit message [x], 
+            //commit popup dialog (use boilerplate from DrawLab)
         //later
             //Figure out how to speed up live-refresh in Element (think object-trees)
             //Use the san-fran font (if you can find it)
