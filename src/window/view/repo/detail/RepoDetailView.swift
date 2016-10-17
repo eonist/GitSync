@@ -11,7 +11,7 @@ class RepoDetailView:Element {
     var autoSyncCheckBoxButton:CheckBoxButton?
     var autoSyncIntervalLeverSpinner:LeverSpinner?
     override func resolveSkin() {
-        super.resolveSkin()//self.skin = SkinResolver.skin(self)
+        self.skin = SkinResolver.skin(self)//super.resolveSkin()
         topBar = addSubView(RepoItemTopBar(width-24,36,self))
         nameTextInput = addSubView(TextInput(width, 32, "Name: ", "", self))
         localPathTextInput = addSubView(TextInput(width, 32, "Local-path: ", "", self))
@@ -37,7 +37,7 @@ class RepoDetailView:Element {
 class RepoItemTopBar:Element{
     var backButton:Button?
     override func resolveSkin() {
-        super.resolveSkin()//self.skin = SkinResolver.skin(self)//
+        self.skin = SkinResolver.skin(self)//super.resolveSkin()
         backButton = addSubView(Button(16,16,self))
     }
     func onBackButtonClick(){

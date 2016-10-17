@@ -8,7 +8,7 @@ class RepoView:Element {
     override func resolveSkin() {
         Swift.print("RepoView.resolveSkin()")
         
-        self.skin = SkinResolver.skin(self)//super.resolveSkin()
+        super.resolveSkin()//self.skin = SkinResolver.skin(self)//
         topBar = addSubView(TopBar(width-24,36,self))
         
         let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
@@ -59,7 +59,7 @@ class TopBar:Element{
     var addButton:Button?
     override func resolveSkin() {
         Swift.print("TopBar.resolveSkin()")
-        self.skin = SkinResolver.skin(self)//super.resolveSkin()
+        super.resolveSkin()//self.skin = SkinResolver.skin(self)//
         //editButton = addSubView(Button(NaN,NaN,self,"edit"))
         //removeButton = addSubView(Button(NaN,NaN,self,"remove"))
         backButton = addSubView(Button(NaN,NaN,self,"back"))
