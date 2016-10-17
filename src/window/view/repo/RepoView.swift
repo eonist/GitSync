@@ -4,7 +4,8 @@ import Foundation
  */
 class RepoView:Element {
     var topBar:TopBar?
-    static var list:List?
+    static var dp:DataProvider?
+    var list:List?
     static var selectedListItemIndex:Int = 0
     override func resolveSkin() {
         Swift.print("RepoView.resolveSkin()")
@@ -12,19 +13,21 @@ class RepoView:Element {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()//
         topBar = addSubView(TopBar(width-12,36,self))
         
-        let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
-        let dp:DataProvider = DataProvider(xml)
-        if(RepoView.list == nil){
+        
+        if(RepoView.dp == nil){
+            let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+            RepoView.dp = DataProvider(xml)
+        }else{
             
         }
-        RepoView.list = addSubView(List(width, height-24, NaN, dp,self))
-        RepoView.list!.selectAt(RepoView.selectedListItemIndex)
+        list = addSubView(List(width, height-24, NaN, RepoView.dp,self))
+        list!.selectAt(RepoView.selectedListItemIndex)
     }
     func onAddButtonClick(){
         Swift.print("addButton.click")
-        RepoView.list!.dataProvider.addItemAt(["title":"New repo","local-path":"~/Desktop/","remote-path":"https://github.com/userName/repoName.git","interval":"0","keychain-item-name":"","branch":"master","broadcast":"false","subscribe":"true","auto-sync":"false"], 0)
-        ListModifier.selectAt(RepoView.list!, 0)
-        let repoItem:Dictionary<String,String> = RepoView.list!.dataProvider.getItemAt(RepoView.list!.selectedIndex)!
+        list!.dataProvider.addItemAt(["title":"New repo","local-path":"~/Desktop/","remote-path":"https://github.com/userName/repoName.git","interval":"0","keychain-item-name":"","branch":"master","broadcast":"false","subscribe":"true","auto-sync":"false"], 0)
+        ListModifier.selectAt(list!, 0)
+        let repoItem:Dictionary<String,String> = list!.dataProvider.getItemAt(list!.selectedIndex)!
         Navigation.setView(String(RepoDetailView))
         (Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
         //list!.onEvent(ListEvent(ListEvent.select,0,list!))
