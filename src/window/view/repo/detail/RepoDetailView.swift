@@ -39,7 +39,7 @@ class RepoItemTopBar:Element{
     var removeButton:Button?
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
-        backButton = addSubView(Button(16,16,self))
+        backButton = addSubView(Button(NaN,NaN,self,"back"))
         removeButton = addSubView(Button(NaN,NaN,self,"remove"))
     }
     func onBackButtonClick(){
