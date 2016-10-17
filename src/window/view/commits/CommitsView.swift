@@ -7,7 +7,7 @@ class CommitsView:Element {
     var list:CommitsList?
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
-        topBar = addSubView(CommitsTopBar(width-24,36,self))
+        topBar = addSubView(CommitsTopBar(width-12,36,self))
         createList()
     }
     func createList(){
@@ -24,7 +24,7 @@ class CommitsView:Element {
 class CommitsTopBar:Element{
     var reposButton:Button?
     override func resolveSkin() {
-        super.resolveSkin()
+        self.skin = SkinResolver.skin(self)//super.resolveSkin()
         reposButton = addSubView(Button(16,16,self,"repos"))
     }
 }
