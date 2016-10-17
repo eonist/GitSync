@@ -48,6 +48,7 @@ class RepoItemTopBar:Element{
     func onRemoveButtonClick(){
         Swift.print("onRemoveButtonClick")
         //Continue here:
+        DataProvider.removeItemAt(RepoView.list)
         //remove from item from RepoView.list at the repoView.list.selectedIndex
         //Navigation.setView(repoView)
     }
