@@ -48,6 +48,9 @@ class RepoItemTopBar:Element{
     }
     func onRemoveButtonClick(){
         Swift.print("onRemoveButtonClick")
+        //Continue here:
+        //remove from item from RepoView.list at the repoView.list.selectedIndex
+        //Navigation.setView(repoView)
     }
     override func onEvent(event:Event) {
         if(event.assert(ButtonEvent.upInside, backButton)){onBackButtonClick()}
