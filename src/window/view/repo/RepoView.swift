@@ -6,7 +6,7 @@ class RepoView:Element {
     var topBar:TopBar?
     static var dp:DataProvider?
     var list:List?
-    static var selectedListItemIndex:Int = 0
+    static var selectedListItemIndex:Int = -1
     override func resolveSkin() {
         Swift.print("RepoView.resolveSkin()")
         
@@ -19,7 +19,7 @@ class RepoView:Element {
         }
         
         list = addSubView(List(width, height-24, NaN, RepoView.dp,self))
-        list!.selectAt(RepoView.selectedListItemIndex)
+        if(RepoView.selectedListItemIndex != -1){list!.selectAt(RepoView.selectedListItemIndex)}
     }
     func onAddButtonClick(){
         Swift.print("addButton.click")
