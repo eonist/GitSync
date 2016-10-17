@@ -8,7 +8,7 @@ class RepoView:Element {
     override func resolveSkin() {
         Swift.print("RepoView.resolveSkin()")
         
-        super.resolveSkin()//self.skin = SkinResolver.skin(self)//
+        self.skin = SkinResolver.skin(self)//super.resolveSkin()//
         topBar = addSubView(TopBar(width-12,36,self))
         
         let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
