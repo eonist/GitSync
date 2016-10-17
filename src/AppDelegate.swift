@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
-            //use the other repoIcon (move it to MainViewTopBar) (look for adress-book in font-awesome)
+            //use the other repoIcon (move it to MainViewTopBar) 
             //backButton in RepoView
             //prefs from app-menu
             //remove statsView (not essential, keep it simple)
