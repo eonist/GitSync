@@ -25,7 +25,7 @@ class MainTopBar:Element{
     var repoButton:Button?
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
-        backButton = addSubView(Button(16,16,self))
+        repoButton = addSubView(Button(16,16,self,"repo"))
+        repoButton = addSubView(Button(16,16,self,"repo"))
     }
-    
 }
