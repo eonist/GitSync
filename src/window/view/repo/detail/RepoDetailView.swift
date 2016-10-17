@@ -36,15 +36,21 @@ class RepoDetailView:Element {
 }
 class RepoItemTopBar:Element{
     var backButton:Button?
+    var removeButton:Button?
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         backButton = addSubView(Button(16,16,self))
+        removeButton = addSubView(Button(NaN,NaN,self,"remove"))
     }
     func onBackButtonClick(){
         Swift.print("onBackButtonClick()")
         Navigation.setView(MenuView.repos)
     }
+    func onRemoveButtonClick(){
+        Swift.print("onRemoveButtonClick")
+    }
     override func onEvent(event:Event) {
         if(event.assert(ButtonEvent.upInside, backButton)){onBackButtonClick()}
+        else if(event.assert(ButtonEvent.upInside, removeButton)){onRemoveButtonClick()}
     }
 }
