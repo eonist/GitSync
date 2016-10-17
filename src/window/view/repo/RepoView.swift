@@ -29,22 +29,15 @@ class RepoView:Element {
         Swift.print("onBackButtonClick()")
         Navigation.setView(MenuView.commits)
     }
-    /*func onRemoveButtonClick(){
-        Swift.print("onRemoveButton()")
-    }*/
-    /*func onEditButtonClick(){
-        Swift.print("onEditButton()")
+    func onListSelect(){
         Navigation.setView(String(RepoDetailView))
-        
         let repoItem:Dictionary<String,String> = list!.dataProvider.getItemAt(list!.selectedIndex)!
         (Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
-    }*/
+    }
     override func onEvent(event:Event) {
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
         else if(event.type == ButtonEvent.upInside && event.origin === topBar!.backButton){onBackButtonClick()}
-        //else if(event.type == ButtonEvent.upInside && event.origin === topBar!.removeButton){onRemoveButtonClick()}
-        //else if(event.type == ButtonEvent.upInside && event.origin === topBar!.editButton){onEditButtonClick()}
-        //else if(event.type == ListEvent.select){super.onEvent(event)}//forward this event to the parent
+        else if(event.type == ListEvent.select){onListSelect()}
         //else if(event.type == SelectEvent.select && event.immediate === list){super.onEvent(event)}//forward this event to the parent
     }
 }
