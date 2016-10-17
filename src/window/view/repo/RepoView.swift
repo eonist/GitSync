@@ -13,13 +13,11 @@ class RepoView:Element {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()//
         topBar = addSubView(TopBar(width-12,36,self))
         
-        
         if(RepoView.dp == nil){
             let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
             RepoView.dp = DataProvider(xml)
-        }else{
-            
         }
+        
         list = addSubView(List(width, height-24, NaN, RepoView.dp,self))
         list!.selectAt(RepoView.selectedListItemIndex)
     }
