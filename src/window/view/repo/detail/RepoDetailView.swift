@@ -32,7 +32,6 @@ class RepoDetailView:Element {
         autoSyncCheckBoxButton!.setChecked(repoData["auto-sync"]!.bool)
         autoSyncIntervalLeverSpinner!.setValue(repoData["interval"]!.cgFloat)
     }
-    
 }
 class RepoItemTopBar:Element{
     var backButton:Button?
