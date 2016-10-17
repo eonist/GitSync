@@ -35,15 +35,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //Continue here:
             //Add trashcan icon in the topBar of the RepoDetailView
+            //make the conflict resolution dialog (use boilerplate from DrawLab)
             //Remember which item was selected when going back to RepoView
             //prefs from app-menu
             //make the app-menu (see drawlab)
-            //Make the PrefsPopUpWindow 
-            //start creating the prefsView
+            //Make the PrefsPopUpWindow
             //path picker for localPath in repodetailview
             //when you create a new item -> write xml to disk
             //when you go back to repoView -> write xml to disk
-            //make the conflict resolution dialog (use boilerplate from DrawLab)
             //commit popup dialog (use boilerplate from DrawLab)
         //later
             //Figure out how to speed up live-refresh in Element (think object-trees)
