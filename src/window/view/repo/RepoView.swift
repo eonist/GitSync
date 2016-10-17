@@ -52,9 +52,7 @@ class TopBar:Element{
     var addButton:Button?
     override func resolveSkin() {
         Swift.print("TopBar.resolveSkin()")
-        super.resolveSkin()//self.skin = SkinResolver.skin(self)//
-        //editButton = addSubView(Button(NaN,NaN,self,"edit"))
-        //removeButton = addSubView(Button(NaN,NaN,self,"remove"))
+        self.skin = SkinResolver.skin(self)//super.resolveSkin()//
         backButton = addSubView(Button(NaN,NaN,self,"back"))
         addButton = addSubView(Button(NaN,NaN,self,"add"))
     }
