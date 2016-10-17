@@ -14,6 +14,9 @@ class RepoView:Element {
         
         let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         let dp:DataProvider = DataProvider(xml)
+        if(RepoView.list == nil){
+            
+        }
         RepoView.list = addSubView(List(width, height-24, NaN, dp,self))
         RepoView.list!.selectAt(RepoView.selectedListItemIndex)
     }
