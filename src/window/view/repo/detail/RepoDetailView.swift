@@ -37,7 +37,7 @@ class RepoDetailView:Element {
 class RepoItemTopBar:Element{
     var backButton:Button?
     override func resolveSkin() {
-        self.skin = SkinResolver.skin(self)//super.resolveSkin()
+        super.resolveSkin()//self.skin = SkinResolver.skin(self)//
         backButton = addSubView(Button(16,16,self))
     }
     func onBackButtonClick(){
