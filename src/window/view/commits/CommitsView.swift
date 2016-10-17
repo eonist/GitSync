@@ -27,4 +27,11 @@ class CommitsTopBar:Element{
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         reposButton = addSubView(Button(16,16,self,"repos"))
     }
+    func onReposButtonClick(){
+        Swift.print("onReposButtonClick()")
+        Navigation.setView(MenuView.repos)
+    }
+    override func onEvent(event:Event) {
+        if(event.assert(ButtonEvent.upInside, reposButton)){onReposButtonClick()}
+    }
 }
