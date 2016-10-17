@@ -24,7 +24,7 @@ class CommitsView:Element {
 class CommitsTopBar:Element{
     var reposButton:Button?
     override func resolveSkin() {
-        super.resolveSkin()
+        self.skin = SkinResolver.skin(self)//super.resolveSkin()
         reposButton = addSubView(Button(16,16,self,"repos"))
     }
 }
