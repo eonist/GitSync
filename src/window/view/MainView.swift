@@ -21,3 +21,11 @@ class MainView:TitleView{
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
+class MainTopBar:Element{
+    var repoButton:Button?
+    override func resolveSkin() {
+        self.skin = SkinResolver.skin(self)//super.resolveSkin()
+        backButton = addSubView(Button(16,16,self))
+    }
+    
+}
