@@ -23,10 +23,8 @@ class CommitsView:Element {
 
 class CommitsTopBar:Element{
     var reposButton:Button?
-    var prefsButton:Button?
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         reposButton = addSubView(Button(16,16,self,"repos"))
-        prefsButton = addSubView(Button(16,16,self,"prefs"))
     }
 }
