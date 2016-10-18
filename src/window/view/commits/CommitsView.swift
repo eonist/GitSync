@@ -3,11 +3,11 @@ import Foundation
 class CommitsView:Element {
     static let w:CGFloat = MainView.w
     static let h:CGFloat = MainView.h-36-36
-    var topBar:CommitsTopBar?
+    //var topBar:CommitsTopBar?
     var list:CommitsList?
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
-        topBar = addSubView(CommitsTopBar(width-12,36,self))
+        //topBar = addSubView(CommitsTopBar(width-12,36,self))
         createList()
     }
     func createList(){
@@ -20,7 +20,7 @@ class CommitsView:Element {
         ListModifier.selectAt(list!, 2)
     }
 }
-
+/*
 class CommitsTopBar:Element{
     var reposButton:Button?
     override func resolveSkin() {
@@ -35,3 +35,4 @@ class CommitsTopBar:Element{
         if(event.assert(ButtonEvent.upInside, reposButton)){onReposButtonClick()}
     }
 }
+*/
