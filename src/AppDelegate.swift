@@ -36,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Continue here:
         
             //make the conflict resolution dialog (use boilerplate from DrawLab)
-            //path picker for localPath in repodetailview
+            //path picker for localPath in repodetailview (folder icon)
             //commit popup dialog (use boilerplate from DrawLab)
             //add a eye-icon for find in finder feature in repodetailview
             //add an url-icon for open in safari feature in repodetailview
