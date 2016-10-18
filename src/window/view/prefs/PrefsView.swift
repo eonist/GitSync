@@ -24,6 +24,7 @@ class PrefsView:Element {
     }
     override func onEvent(event: Event) {
         Swift.print("PrefsView.onEvent")
+        //Continue here: use immediate to assert not origin on the bellow
         if(event.assert(Event.update, keychainUserNameTextInput)){
             PrefsView.keychainUserName = (event as! TextFieldEvent).stringValue
             Swift.print("stores to keychainUserName")
