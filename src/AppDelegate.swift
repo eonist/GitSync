@@ -46,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
     }
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(aNotification:NSNotification) {
         print("Good-bye")
     }
 }
