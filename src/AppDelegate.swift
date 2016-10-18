@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
-            //revert to menuView (its easier to reason with)
+            //revert to menuView w/o icons (its easier to reason with)
             //Make the PrefsView (this must be a view, if you want to be consistent between macOS and iOS)
         
             //make the conflict resolution dialog (use boilerplate from DrawLab)
