@@ -25,12 +25,12 @@ class PrefsView:Element {
     override func onEvent(event: Event) {
         Swift.print("PrefsView.onEvent")
         //Continue here: use immediate to assert not origin on the bellow
-        if(event.assert(Event.update, keychainUserNameTextInput)){
+        if(event.type == Event.update && event.immediate === keychainUserNameTextInput){
             PrefsView.keychainUserName = (event as! TextFieldEvent).stringValue
             Swift.print("stores to keychainUserName")
-        }else if(event.assert(Event.update, gitConfigUserNameTextInput)){
+        }else if(event.type == Event.update && event.immediate === gitConfigUserNameTextInput){
             PrefsView.gitConfigUserName = (event as! TextFieldEvent).stringValue
-        }else if(event.assert(Event.update, gitEmailNameTextInput)){
+        }else if(event.type == Event.update && event.immediate === gitEmailNameTextInput){
             PrefsView.gitEmailNameText = (event as! TextFieldEvent).stringValue
         }else if(event.assert(CheckEvent.check, uiSoundsCheckBoxButton)){
             PrefsView.uiSoundsCheck = (event as! CheckEvent).isChecked
