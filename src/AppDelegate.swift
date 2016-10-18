@@ -35,7 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //Continue here:
         
-            //Make the PrefsView (this must be a view, if you wan't to be consistent between macOS and iOS)
+            //PrefsView must save its state
             //make the statsview again, Just add 2 text objects, Commits today: and Commits this week
             //make the conflict resolution dialog (use boilerplate from DrawLab)
             //path picker for localPath in repodetailview

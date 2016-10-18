@@ -1,5 +1,7 @@
 import Foundation
-
+/**
+ * NOTE: this must be a view, if you wan't to be consistent between macOS and iOS
+ */
 class PrefsView:Element {
     var keychainUserNameTextinput:TextInput?
     var gitConfigUserNameTextinput:TextInput?
