@@ -33,8 +33,21 @@ class RepoDetailView:Element {
         autoSyncIntervalLeverSpinner!.setValue(repoData["interval"]!.cgFloat)
     }
     override func onEvent(event:Event) {
-        if(event.type == Event.update && event.immediate === nameTextInput){
-            RepoView.dp!.setValue(RepoView.selectedListItemIndex, "title", (event as! TextFieldEvent).stringValue)
+        let i:Int = RepoView.selectedListItemIndex
+        let dp:DataProvider = RepoView.dp!
+        
+        switch true{
+            case event.assert(Event.update,immediate:nameTextInput):
+                printin("one")
+            case 3...8:
+                printin("range from 3 to 8")
+            default:
+                break;
+        }
+        if(){
+            dp.setValue(i, "title", (event as! TextFieldEvent).stringValue)
+        }else if(event.assert(Event.update,immediate:localPathTextInput)){
+            
         }
         
     }
