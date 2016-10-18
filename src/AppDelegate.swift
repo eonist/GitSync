@@ -52,8 +52,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         */
         let xml:XML = "<prefs></prefs>".xml
-        let values:[String?] = [PrefsView.keychainUserName,PrefsView.gitConfigUserName,PrefsView.gitEmailNameText,PrefsView.uiSoundsCheck.string]
-        xml.appendChild()
+        let values:[String?] = [PrefsView.keychainUserName,PrefsView.gitConfigUserName,PrefsView.gitEmailNameText,String(PrefsView.uiSoundsCheck)]
+        values.forEach{
+            let item:XML = "<"\()"></prefs>"
+            //xml.appendChild()
+        }
         //store the repo xml
         
         print("Good-bye")
