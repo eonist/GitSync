@@ -29,8 +29,8 @@ class PrefsView:Element {
             PrefsView.gitConfigUserName = (event as! TextFieldEvent).stringValue
         }else if(event.assert(Event.update, gitEmailNameTextInput)){
             PrefsView.gitEmailNameText = (event as! TextFieldEvent).stringValue
-        }else if(event.assert(Event.update, uiSoundsCheckBoxButton)){
-            PrefsView.gitEmailNameText = (event as! TextFieldEvent).stringValue
+        }else if(event.assert(CheckEvent.check, uiSoundsCheckBoxButton)){
+            PrefsView.uiSoundsCheck = (event as! CheckEvent).isChecked
         }
     }
 }
