@@ -13,6 +13,9 @@ class PrefsView:Element {
     var uiSoundsCheckBoxButton:CheckBoxButton?
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
+        
+        let xml:XML = FileParser.xml("~/Desktop/gitsyncprefs.xml")
+        
         //keychain-user-name (TextInput)
         keychainUserNameTextInput = addSubView(TextInput(width, 32, "keychain user: ", PrefsView.keychainUserName, self))
         //Git-Config-UserName
