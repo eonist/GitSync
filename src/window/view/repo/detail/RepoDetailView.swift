@@ -35,21 +35,23 @@ class RepoDetailView:Element {
     override func onEvent(event:Event) {
         let i:Int = RepoView.selectedListItemIndex
         let dp:DataProvider = RepoView.dp!
-        
         switch true{
             case event.assert(Event.update,immediate:nameTextInput):
-                printin("one")
-            case 3...8:
-                printin("range from 3 to 8")
+                dp.setValue(i, "title", (event as! TextFieldEvent).stringValue)
+            case event.assert(Event.update,immediate:localPathTextInput):
+                dp.setValue(i, "local-path", (event as! TextFieldEvent).stringValue)
+            case event.assert(Event.update,immediate:remotePathTextInput):
+                dp.setValue(i, "remote-path", (event as! TextFieldEvent).stringValue)
+            case event.assert(Event.update,immediate:remotePathTextInput):
+                dp.setValue(i, "branch", (event as! TextFieldEvent).stringValue)
+            case event.assert(Event.update,immediate:broadCastCheckBoxButton):
+                dp.setValue(i, "broadcast", String((event as! CheckEvent).isChecked))
+            case event.assert(Event.update,immediate:subscribeCheckBoxButton):
+                dp.setValue(i, "subscribe", String((event as! CheckEvent).isChecked))
             default:
                 break;
         }
-        if(){
-            dp.setValue(i, "title", (event as! TextFieldEvent).stringValue)
-        }else if(event.assert(Event.update,immediate:localPathTextInput)){
-            
-        }
-        
+     
     }
 }
 class RepoItemTopBar:Element{
