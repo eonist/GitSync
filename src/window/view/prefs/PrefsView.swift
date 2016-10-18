@@ -20,7 +20,7 @@ class PrefsView:Element {
         //Git-Config-EmailName
         gitEmailNameTextInput = addSubView(TextInput(width, 32, "Git Config Email: ", PrefsView.gitEmailNameText, self))
         //UI sounds [x]
-        uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, 32, "UI sounds:", PrefsView.uiSoundsCheck, self))
+        uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, 32, "UI sounds: ", PrefsView.uiSoundsCheck, self))
     }
     override func onEvent(event: Event) {
         if(event.assert(Event.update, keychainUserNameTextInput)){
