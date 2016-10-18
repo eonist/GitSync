@@ -32,9 +32,11 @@ class RepoDetailView:Element {
         autoSyncCheckBoxButton!.setChecked(repoData["auto-sync"]!.bool)
         autoSyncIntervalLeverSpinner!.setValue(repoData["interval"]!.cgFloat)
     }
-    override func onEvent(event: Event) {
+    override func onEvent(event:Event) {
+        var repoItem:Dictionary<String,String> = RepoView.dp!.getItemAt(RepoView.selectedListItemIndex)!
         if(event.type == Event.update && event.immediate === nameTextInput){
-            RepoView.dp!.removeItemAt(<#T##index: Int##Int#>)
+            repoItem["title"] = (event as! TextFieldEvent).stringValue
+            
         }
     }
 }
