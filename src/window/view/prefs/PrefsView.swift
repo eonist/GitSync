@@ -7,28 +7,30 @@ class PrefsView:Element {
     static var gitConfigUserName:String = "John"
     static var gitEmailNameText:String = "user@hotmail.com"
     static var uiSoundsCheck:Bool = true
-    var keychainUserNameTextinput:TextInput?
-    var gitConfigUserNameTextinput:TextInput?
-    var gitEmailNameTextinput:TextInput?
+    var keychainUserNameTextInput:TextInput?
+    var gitConfigUserNameTextInput:TextInput?
+    var gitEmailNameTextInput:TextInput?
     var uiSoundsCheckBoxButton:CheckBoxButton?
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
         //keychain-user-name (TextInput)
-        keychainUserNameTextinput = addSubView(TextInput(width, 32, "keychain user: ", PrefsView.keychainUserName, self))
+        keychainUserNameTextInput = addSubView(TextInput(width, 32, "keychain user: ", PrefsView.keychainUserName, self))
         //Git-Config-UserName
-        gitConfigUserNameTextinput = addSubView(TextInput(width, 32, "Git Config User: ", PrefsView.gitConfigUserName, self))
+        gitConfigUserNameTextInput = addSubView(TextInput(width, 32, "Git Config User: ", PrefsView.gitConfigUserName, self))
         //Git-Config-EmailName
-        gitEmailNameTextinput = addSubView(TextInput(width, 32, "Git Config Email: ", PrefsView.gitEmailNameText, self))
+        gitEmailNameTextInput = addSubView(TextInput(width, 32, "Git Config Email: ", PrefsView.gitEmailNameText, self))
         //UI sounds [x]
         uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, 32, "UI sounds:", PrefsView.uiSoundsCheck, self))
     }
     override func onEvent(event: Event) {
-        if(event.assert(Event.update, keychainUserNameTextinput)){
+        if(event.assert(Event.update, keychainUserNameTextInput)){
             PrefsView.keychainUserName = (event as! TextFieldEvent).stringValue
-        }else if(event.assert(Event.update, gitConfigUserNameTextinput)){
+        }else if(event.assert(Event.update, gitConfigUserNameTextInput)){
             PrefsView.gitConfigUserName = (event as! TextFieldEvent).stringValue
-        }else if(event.assert(Event.update, gitConfigUserNameTextinput)){
-            PrefsView.gitEmailNameTextinput = (event as! TextFieldEvent).stringValue
+        }else if(event.assert(Event.update, gitEmailNameTextInput)){
+            PrefsView.gitEmailNameText = (event as! TextFieldEvent).stringValue
+        }else if(event.assert(Event.update, uiSoundsCheckBoxButton)){
+            PrefsView.gitEmailNameText = (event as! TextFieldEvent).stringValue
         }
     }
 }
