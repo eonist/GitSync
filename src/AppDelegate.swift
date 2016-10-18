@@ -48,15 +48,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     func applicationWillTerminate(aNotification:NSNotification) {
         //store the app prefs
-        /*
-        
-        */
         let xml:XML = "<prefs></prefs>".xml
-        //let values:[String?] = [PrefsView.keychainUserName,PrefsView.gitConfigUserName,PrefsView.gitEmailNameText,String(PrefsView.uiSoundsCheck)]
         xml.appendChild("<keychainUserName>\(PrefsView.keychainUserName)</keychainUserName>".xml)
         xml.appendChild("<gitConfigUserName>\(PrefsView.gitConfigUserName)</gitConfigUserName>".xml)
-        xml.appendChild("<keychainUserName>\(PrefsView.keychainUserName)</keychainUserName>".xml)
-        xml.appendChild("<keychainUserName>\(PrefsView.keychainUserName)</keychainUserName>".xml)
+        xml.appendChild("<gitEmailName>\(PrefsView.gitEmailNameText)</gitEmailName>".xml)
+        xml.appendChild("<uiSounds>\(String(PrefsView.uiSoundsCheck))</uiSounds>".xml)
+        FileModifier.write("~/Desktop/", <#T##content: String##String#>)
         //store the repo xml
         
         print("Good-bye")
