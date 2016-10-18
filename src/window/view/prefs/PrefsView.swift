@@ -3,10 +3,10 @@ import Foundation
  * NOTE: this must be a view, if you wan't to be consistent between macOS and iOS
  */
 class PrefsView:Element {
-    static var keychainUserName:String = "John"
-    static var gitConfigUserName:String = "John"
-    static var gitEmailNameText:String = "user@hotmail.com"
-    static var uiSoundsCheck:Bool = true
+    static var keychainUserName:String?
+    static var gitConfigUserName:String?
+    static var gitEmailNameText:String?
+    static var uiSoundsCheck:Bool?
     var keychainUserNameTextInput:TextInput?
     var gitConfigUserNameTextInput:TextInput?
     var gitEmailNameTextInput:TextInput?
@@ -15,19 +15,19 @@ class PrefsView:Element {
         self.skin = SkinResolver.skin(self)
         
         let xml:XML = FileParser.xml("~/Desktop/gitsyncprefs.xml")
-        xml.firstNode("keychainUserName")
-        xml.firstNode("gitConfigUserName")
-        xml.firstNode("gitEmailName")
-        xml.firstNode("keychainUserName")
+        PrefsView.keychainUserName = xml.firstNode("keychainUserName")!.stringValue
+        PrefsView.gitConfigUserName = xml.firstNode("gitConfigUserName")!.stringValue
+        PrefsView.gitEmailNameText = xml.firstNode("gitEmailName")!.stringValue
+        PrefsView.uiSoundsCheck = xml.firstNode("uiSounds")!.stringValue!.bool
         
         //keychain-user-name (TextInput)
-        keychainUserNameTextInput = addSubView(TextInput(width, 32, "keychain user: ", PrefsView.keychainUserName, self))
+        keychainUserNameTextInput = addSubView(TextInput(width, 32, "keychain user: ", PrefsView.keychainUserName!, self))
         //Git-Config-UserName
-        gitConfigUserNameTextInput = addSubView(TextInput(width, 32, "Git Config User: ", PrefsView.gitConfigUserName, self))
+        gitConfigUserNameTextInput = addSubView(TextInput(width, 32, "Git Config User: ", PrefsView.gitConfigUserName!, self))
         //Git-Config-EmailName
-        gitEmailNameTextInput = addSubView(TextInput(width, 32, "Git Config Email: ", PrefsView.gitEmailNameText, self))
+        gitEmailNameTextInput = addSubView(TextInput(width, 32, "Git Config Email: ", PrefsView.gitEmailNameText!, self))
         //UI sounds [x]
-        uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, 32, "UI sounds: ", PrefsView.uiSoundsCheck, self))
+        uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, 32, "UI sounds: ", PrefsView.uiSoundsCheck!, self))
     }
     override func onEvent(event: Event) {
         Swift.print("PrefsView.onEvent")
