@@ -13,7 +13,7 @@ class ConflictDialogWin:Window {
 }
 
 //Continue here: Use ideas from the combobox implementation to alert the initiater that the DialogWin has clodes
-//Check PromtWin from DrawLab for 
+//Check PromtWin from DrawLab for css and implementation details
 
 class ConflictDialogView:TitleView{
     static let w:CGFloat = 220
