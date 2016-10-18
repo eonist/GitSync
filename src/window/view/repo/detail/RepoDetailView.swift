@@ -33,10 +33,8 @@ class RepoDetailView:Element {
         autoSyncIntervalLeverSpinner!.setValue(repoData["interval"]!.cgFloat)
     }
     override func onEvent(event:Event) {
-        
         if(event.type == Event.update && event.immediate === nameTextInput){
             RepoView.dp!.setValue(RepoView.selectedListItemIndex, "title", (event as! TextFieldEvent).stringValue)
-            Swift.print("Title: \(RepoView.dp!.getValue(RepoView.selectedListItemIndex, "title"))")
         }
         
     }
