@@ -18,4 +18,9 @@ class PrefsView:Element {
         //UI sounds [x]
         uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, 32, "UI sounds:", true, self))
     }
+    override func onEvent(event: Event) {
+        if(event.assert(Event.update, keychainUserNameTextinput)){
+            
+        }
+    }
 }
