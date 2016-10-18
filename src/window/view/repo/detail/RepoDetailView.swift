@@ -35,8 +35,8 @@ class RepoDetailView:Element {
     override func onEvent(event:Event) {
         
         if(event.type == Event.update && event.immediate === nameTextInput){
-            RepoView.dp!.items[RepoView.selectedListItemIndex]["title"] = (event as! TextFieldEvent).stringValue
-            
+            RepoView.dp!.setValue(RepoView.selectedListItemIndex, "title", (event as! TextFieldEvent).stringValue)
+            RepoView.dp!.
             let result = RepoView.dp!.getItemAt(RepoView.selectedListItemIndex)!
             Swift.print("Title: \(result["title"])")
         }
