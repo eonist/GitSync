@@ -34,14 +34,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
-        
             //make the statsview again, Just add 2 text objects, Commits today: and Commits this week
             //make the conflict resolution dialog (use boilerplate from DrawLab)
             //path picker for localPath in repodetailview
             //commit popup dialog (use boilerplate from DrawLab)
             //Implement RBSliderList for the commitsList
             //Implement a sync mode for the RBSliderList
-            //Make the 
+            //Make the interactive circle animation (progress should be iterative)
         //later
             //Figure out how to speed up live-refresh in Element (think object-trees)
             //Use the san-fran font (if you can find it)
