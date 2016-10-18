@@ -34,7 +34,7 @@ class RepoDetailView:Element {
     }
     override func onEvent(event: Event) {
         if(event.type == Event.update && event.immediate === nameTextInput){
-            
+            RepoView.dp!.removeItemAt(<#T##index: Int##Int#>)
         }
     }
 }
