@@ -39,7 +39,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //make the conflict resolution dialog (use boilerplate from DrawLab)
             //path picker for localPath in repodetailview
             //commit popup dialog (use boilerplate from DrawLab)
-            //
+            //Implement RBSliderList for the commitsList
+            //Implement a sync mode for the RBSliderList
+            //Make the 
         //later
             //Figure out how to speed up live-refresh in Element (think object-trees)
             //Use the san-fran font (if you can find it)
