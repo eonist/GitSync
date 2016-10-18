@@ -23,8 +23,10 @@ class PrefsView:Element {
         uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, 32, "UI sounds: ", PrefsView.uiSoundsCheck, self))
     }
     override func onEvent(event: Event) {
+        Swift.print("PrefsView.onEvent")
         if(event.assert(Event.update, keychainUserNameTextInput)){
             PrefsView.keychainUserName = (event as! TextFieldEvent).stringValue
+            Swift.print("stores to keychainUserName")
         }else if(event.assert(Event.update, gitConfigUserNameTextInput)){
             PrefsView.gitConfigUserName = (event as! TextFieldEvent).stringValue
         }else if(event.assert(Event.update, gitEmailNameTextInput)){
