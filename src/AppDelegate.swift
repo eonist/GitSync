@@ -34,13 +34,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
-        
-            //store the state of repoItem when interacting with UI elements, store it to the dp
             //make the statsview again, Just add 2 text objects, Commits today: and Commits this week
             //make the conflict resolution dialog (use boilerplate from DrawLab)
             //path picker for localPath in repodetailview
-            //when you create a new item -> write xml to disk
-            //when you go back to repoView -> write xml to disk
+            //write xml to disc when app exits
             //commit popup dialog (use boilerplate from DrawLab)
         //later
             //Figure out how to speed up live-refresh in Element (think object-trees)
