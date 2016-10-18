@@ -36,7 +36,8 @@ class RepoDetailView:Element {
         var repoItem:Dictionary<String,String> = RepoView.dp!.getItemAt(RepoView.selectedListItemIndex)!
         if(event.type == Event.update && event.immediate === nameTextInput){
             repoItem["title"] = (event as! TextFieldEvent).stringValue
-            
+            let result = RepoView.dp!.getItemAt(RepoView.selectedListItemIndex)!
+            Swift.print("Title: \(result["title"])")
         }
     }
 }
