@@ -32,6 +32,9 @@ class RepoDetailView:Element {
         autoSyncCheckBoxButton!.setChecked(repoData["auto-sync"]!.bool)
         autoSyncIntervalLeverSpinner!.setValue(repoData["interval"]!.cgFloat)
     }
+    /**
+     * Modifies the dataProvider item on UI change
+     */
     override func onEvent(event:Event) {
         let i:Int = RepoView.selectedListItemIndex
         let dp:DataProvider = RepoView.dp!
@@ -50,12 +53,11 @@ class RepoDetailView:Element {
                 dp.setValue(i, "subscribe", String((event as! CheckEvent).isChecked))
             case event.assert(Event.update,immediate:autoSyncCheckBoxButton):
                 dp.setValue(i, "auto-sync", String((event as! CheckEvent).isChecked))
-            case event.assert(SpinnerEvent.change, autoSyncIntervalLeverSpinner)
-                
+            case event.assert(SpinnerEvent.change, autoSyncIntervalLeverSpinner):
+                dp.setValue(i, "interval", (event as! SpinnerEvent).value.string)
             default:
                 break;
         }
-     
     }
 }
 class RepoItemTopBar:Element{
