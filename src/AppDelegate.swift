@@ -34,9 +34,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
-            //revert to menuView w/o icons (its easier to reason with)
-            //Make the PrefsView (this must be a view, if you want to be consistent between macOS and iOS)
         
+            //Make the PrefsView (this must be a view, if you wan't to be consistent between macOS and iOS)
+            //make the statsview again, Just add 2 text objects, Commits today: and Commits this week
             //make the conflict resolution dialog (use boilerplate from DrawLab)
             //path picker for localPath in repodetailview
             //when you create a new item -> write xml to disk
