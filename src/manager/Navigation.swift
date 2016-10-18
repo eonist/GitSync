@@ -29,6 +29,7 @@ class Navigation {
                 Swift.print("stats")
             case MenuView.prefs:
                 Swift.print("prefs")
+                mainView.currentView = mainView.addSubView(PrefsView(width,height,mainView))
             case String(RepoDetailView):
                 mainView.currentView = mainView.addSubView(RepoDetailView(width,height,mainView))
             default:
