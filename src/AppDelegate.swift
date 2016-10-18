@@ -49,10 +49,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(aNotification:NSNotification) {
         //store the app prefs
         let xml:XML = "<prefs></prefs>".xml
-        xml.appendChild("<keychainUserName>\(PrefsView.keychainUserName)</keychainUserName>".xml)
-        xml.appendChild("<gitConfigUserName>\(PrefsView.gitConfigUserName)</gitConfigUserName>".xml)
-        xml.appendChild("<gitEmailName>\(PrefsView.gitEmailNameText)</gitEmailName>".xml)
-        xml.appendChild("<uiSounds>\(String(PrefsView.uiSoundsCheck))</uiSounds>".xml)
+        xml.appendChild("<keychainUserName>\(PrefsView.keychainUserName!)</keychainUserName>".xml)
+        xml.appendChild("<gitConfigUserName>\(PrefsView.gitConfigUserName!)</gitConfigUserName>".xml)
+        xml.appendChild("<gitEmailName>\(PrefsView.gitEmailNameText!)</gitEmailName>".xml)
+        xml.appendChild("<uiSounds>\(String(PrefsView.uiSoundsCheck!))</uiSounds>".xml)
         FileModifier.write("~/Desktop/gitsyncprefs.xml".tildePath, xml.XMLString)
         //store the repo xml
         
