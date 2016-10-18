@@ -15,6 +15,10 @@ class PrefsView:Element {
         self.skin = SkinResolver.skin(self)
         
         let xml:XML = FileParser.xml("~/Desktop/gitsyncprefs.xml")
+        xml.firstNode("keychainUserName")
+        xml.firstNode("gitConfigUserName")
+        xml.firstNode("keychainUserName")
+        xml.firstNode("keychainUserName")
         
         //keychain-user-name (TextInput)
         keychainUserNameTextInput = addSubView(TextInput(width, 32, "keychain user: ", PrefsView.keychainUserName, self))
