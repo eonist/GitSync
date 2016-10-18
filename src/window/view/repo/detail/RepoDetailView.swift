@@ -48,6 +48,10 @@ class RepoDetailView:Element {
                 dp.setValue(i, "broadcast", String((event as! CheckEvent).isChecked))
             case event.assert(Event.update,immediate:subscribeCheckBoxButton):
                 dp.setValue(i, "subscribe", String((event as! CheckEvent).isChecked))
+            case event.assert(Event.update,immediate:autoSyncCheckBoxButton):
+                dp.setValue(i, "auto-sync", String((event as! CheckEvent).isChecked))
+            
+            //Continue here: add the spinner case
             default:
                 break;
         }
