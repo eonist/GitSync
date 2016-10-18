@@ -43,6 +43,7 @@ class RepoItemTopBar:Element{
     }
     func onBackButtonClick(){
         Swift.print("onBackButtonClick()")
+        
         Navigation.setView(MenuView.repos)
     }
     func onRemoveButtonClick(){
