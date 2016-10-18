@@ -42,7 +42,7 @@ class RepoView:Element {
     }
     override func onEvent(event:Event) {
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
-        else if(event.type == ButtonEvent.upInside && event.origin === topBar!.backButton){onBackButtonClick()}
+        //else if(event.type == ButtonEvent.upInside && event.origin === topBar!.backButton){onBackButtonClick()}
         else if(event.type == ListEvent.select){onListSelect()}
         //else if(event.type == SelectEvent.select && event.immediate === list){super.onEvent(event)}//forward this event to the parent
     }
@@ -52,14 +52,14 @@ class RepoView:Element {
  * Add,Remove,Edit,Cut,Paste
  */
 class TopBar:Element{
-    var backButton:Button?
+    //var backButton:Button?
     //var editButton:Button?
     //var removeButton:Button?
     var addButton:Button?
     override func resolveSkin() {
         Swift.print("TopBar.resolveSkin()")
         self.skin = SkinResolver.skin(self)//super.resolveSkin()//
-        backButton = addSubView(Button(NaN,NaN,self,"back"))
+        //backButton = addSubView(Button(NaN,NaN,self,"back"))
         addButton = addSubView(Button(NaN,NaN,self,"add"))
     }
 }
