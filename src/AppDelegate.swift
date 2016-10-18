@@ -48,14 +48,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     func applicationWillTerminate(aNotification:NSNotification) {
         //store the app prefs
-        let xml:XML = "<prefs></prefs>".xml
-        xml.appendChild("<keychainUserName>\(PrefsView.keychainUserName!)</keychainUserName>".xml)
-        xml.appendChild("<gitConfigUserName>\(PrefsView.gitConfigUserName!)</gitConfigUserName>".xml)
-        xml.appendChild("<gitEmailName>\(PrefsView.gitEmailNameText!)</gitEmailName>".xml)
-        xml.appendChild("<uiSounds>\(String(PrefsView.uiSoundsCheck!))</uiSounds>".xml)
-        FileModifier.write("~/Desktop/gitsyncprefs.xml".tildePath, xml.XMLString)
+        if(PrefsView.keychainUserName != nil){//make sure the data has been read and written to first
+            let xml:XML = "<prefs></prefs>".xml
+            xml.appendChild("<keychainUserName>\(PrefsView.keychainUserName!)</keychainUserName>".xml)
+            xml.appendChild("<gitConfigUserName>\(PrefsView.gitConfigUserName!)</gitConfigUserName>".xml)
+            xml.appendChild("<gitEmailName>\(PrefsView.gitEmailNameText!)</gitEmailName>".xml)
+            xml.appendChild("<uiSounds>\(String(PrefsView.uiSoundsCheck!))</uiSounds>".xml)
+            FileModifier.write("~/Desktop/gitsyncprefs.xml".tildePath, xml.XMLString)
+        }
         //store the repo xml
-        FileModifier.write("~/Desktop/assets/xml/list.xml".tildePath, RepoView.dp!.xml.XMLString)
+        if(RepoView.dp != nil){//make sure the data has been read and written to first
+            FileModifier.write("~/Desktop/assets/xml/list.xml".tildePath, RepoView.dp!.xml.XMLString)
+        }
         print("Good-bye")
     }
 }
