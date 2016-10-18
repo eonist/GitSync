@@ -33,14 +33,14 @@ class RepoDetailView:Element {
         autoSyncIntervalLeverSpinner!.setValue(repoData["interval"]!.cgFloat)
     }
     override func onEvent(event:Event) {
-        var repoItem:Dictionary<String,String> = RepoView.dp!.getItemAt(RepoView.selectedListItemIndex)!
+        
         if(event.type == Event.update && event.immediate === nameTextInput){
-            repoItem["title"] = (event as! TextFieldEvent).stringValue
+            RepoView.dp!.items[RepoView.selectedListItemIndex]["title"] = (event as! TextFieldEvent).stringValue
             
             let result = RepoView.dp!.getItemAt(RepoView.selectedListItemIndex)!
             Swift.print("Title: \(result["title"])")
         }
-        RepoView.dp!.items[RepoView.selectedListItemIndex] = repoItem
+        
     }
 }
 class RepoItemTopBar:Element{
