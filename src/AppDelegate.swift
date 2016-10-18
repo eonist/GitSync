@@ -35,7 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //Continue here:
         
-            //store the state of repoItem when going back or Navigating to a new View
+            //store the state of repoItem when interacting with UI elements, store it to the dp
             //make the statsview again, Just add 2 text objects, Commits today: and Commits this week
             //make the conflict resolution dialog (use boilerplate from DrawLab)
             //path picker for localPath in repodetailview
