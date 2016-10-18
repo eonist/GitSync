@@ -1,17 +1,19 @@
 import Foundation
 
 class PrefsView:Element {
-    var keychainUserName:TextInput?
-    var gitConfigUserName:TextInput?
-    var gitEmailName:TextInput?
+    var keychainUserNameTextinput:TextInput?
+    var gitConfigUserNameTextinput:TextInput?
+    var gitEmailNameTextinput:TextInput?
+    var uiSoundsCheckBoxButton:CheckBoxButton?
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
         //keychain-user-name (TextInput)
-        keychainUserName = addSubView(TextInput(width, 32, "keychain user name: ", "", self))
+        keychainUserNameTextinput = addSubView(TextInput(width, 32, "keychain user name: ", "", self))
         //Git-Config-UserName
-        gitConfigUserName = addSubView(TextInput(width, 32, "Git Config UserName: ", "", self))
+        gitConfigUserNameTextinput = addSubView(TextInput(width, 32, "Git Config UserName: ", "", self))
         //Git-Config-EmailName
-        gitEmailName = addSubView(TextInput(width, 32, "Git Config EmailName: ", "", self))
+        gitEmailNameTextinput = addSubView(TextInput(width, 32, "Git Config EmailName: ", "", self))
         //UI sounds [x]
+        uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-message:", false, self))
     }
 }
