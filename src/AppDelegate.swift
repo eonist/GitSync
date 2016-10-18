@@ -34,10 +34,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
+            //write xml to disc when app exits
             //make the statsview again, Just add 2 text objects, Commits today: and Commits this week
             //make the conflict resolution dialog (use boilerplate from DrawLab)
             //path picker for localPath in repodetailview
-            //write xml to disc when app exits
             //commit popup dialog (use boilerplate from DrawLab)
         //later
             //Figure out how to speed up live-refresh in Element (think object-trees)
