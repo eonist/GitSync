@@ -25,6 +25,10 @@ class PrefsView:Element {
     override func onEvent(event: Event) {
         if(event.assert(Event.update, keychainUserNameTextinput)){
             PrefsView.keychainUserName = (event as! TextFieldEvent).stringValue
+        }else if(event.assert(Event.update, gitConfigUserNameTextinput)){
+            PrefsView.gitConfigUserName = (event as! TextFieldEvent).stringValue
+        }else if(event.assert(Event.update, gitConfigUserNameTextinput)){
+            PrefsView.gitEmailNameTextinput = (event as! TextFieldEvent).stringValue
         }
     }
 }
