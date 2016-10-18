@@ -47,6 +47,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
     }
     func applicationWillTerminate(aNotification:NSNotification) {
+        //store the app prefs
+        
+        //store the repo xml
+        
         print("Good-bye")
     }
 }
