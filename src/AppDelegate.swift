@@ -52,11 +52,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         */
         let xml:XML = "<prefs></prefs>".xml
-        let values:[String?] = [PrefsView.keychainUserName,PrefsView.gitConfigUserName,PrefsView.gitEmailNameText,String(PrefsView.uiSoundsCheck)]
-        values.forEach{
-            let item:XML = "<"\()"></prefs>"
-            //xml.appendChild()
-        }
+        //let values:[String?] = [PrefsView.keychainUserName,PrefsView.gitConfigUserName,PrefsView.gitEmailNameText,String(PrefsView.uiSoundsCheck)]
+        xml.appendChild("<keychainUserName>\(PrefsView.keychainUserName)</keychainUserName>".xml)
+        xml.appendChild("<gitConfigUserName>\(PrefsView.gitConfigUserName)</gitConfigUserName>".xml)
+        xml.appendChild("<keychainUserName>\(PrefsView.keychainUserName)</keychainUserName>".xml)
+        xml.appendChild("<keychainUserName>\(PrefsView.keychainUserName)</keychainUserName>".xml)
         //store the repo xml
         
         print("Good-bye")
