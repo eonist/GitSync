@@ -55,7 +55,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         xml.appendChild("<uiSounds>\(String(PrefsView.uiSoundsCheck!))</uiSounds>".xml)
         FileModifier.write("~/Desktop/gitsyncprefs.xml".tildePath, xml.XMLString)
         //store the repo xml
-        
+        FileModifier.write("~/Desktop/assets/xml/list.xml".tildePath, RepoView.dp!.xml.XMLString)
         print("Good-bye")
     }
 }
