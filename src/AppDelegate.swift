@@ -49,11 +49,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(aNotification:NSNotification) {
         //store the app prefs
         /*
-        PrefsView.keychainUserName
-        PrefsView.gitConfigUserName
-        PrefsView.gitEmailNameText
-        PrefsView.uiSoundsCheck
+        
         */
+        let xml:XML = "<prefs></prefs>".xml
+        let values:[String?] = [PrefsView.keychainUserName,PrefsView.gitConfigUserName,PrefsView.gitEmailNameText,PrefsView.uiSoundsCheck.string]
+        xml.appendChild()
         //store the repo xml
         
         print("Good-bye")
