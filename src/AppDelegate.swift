@@ -48,7 +48,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     func applicationWillTerminate(aNotification:NSNotification) {
         //store the app prefs
-        
+        /*
+        PrefsView.keychainUserName
+        PrefsView.gitConfigUserName
+        PrefsView.gitEmailNameText
+        PrefsView.uiSoundsCheck
+        */
         //store the repo xml
         
         print("Good-bye")
