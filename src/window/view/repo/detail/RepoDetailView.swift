@@ -32,6 +32,11 @@ class RepoDetailView:Element {
         autoSyncCheckBoxButton!.setChecked(repoData["auto-sync"]!.bool)
         autoSyncIntervalLeverSpinner!.setValue(repoData["interval"]!.cgFloat)
     }
+    override func onEvent(event: Event) {
+        if(event.type == Event.update && event.immediate === nameTextInput){
+            
+        }
+    }
 }
 class RepoItemTopBar:Element{
     var backButton:Button?
