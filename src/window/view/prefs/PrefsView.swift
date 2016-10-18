@@ -17,7 +17,7 @@ class PrefsView:Element {
         let xml:XML = FileParser.xml("~/Desktop/gitsyncprefs.xml")
         xml.firstNode("keychainUserName")
         xml.firstNode("gitConfigUserName")
-        xml.firstNode("keychainUserName")
+        xml.firstNode("gitEmailName")
         xml.firstNode("keychainUserName")
         
         //keychain-user-name (TextInput)
