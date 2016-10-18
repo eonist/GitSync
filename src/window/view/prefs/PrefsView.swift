@@ -14,6 +14,6 @@ class PrefsView:Element {
         //Git-Config-EmailName
         gitEmailNameTextinput = addSubView(TextInput(width, 32, "Git Config EmailName: ", "", self))
         //UI sounds [x]
-        uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-message:", false, self))
+        uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, 32, "UI sounds:", true, self))
     }
 }
