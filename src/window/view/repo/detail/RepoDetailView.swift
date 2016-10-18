@@ -36,6 +36,7 @@ class RepoDetailView:Element {
      * Modifies the dataProvider item on UI change
      */
     override func onEvent(event:Event) {
+        Swift.print("onEvent")
         let i:Int = RepoView.selectedListItemIndex
         let dp:DataProvider = RepoView.dp!
         switch true{
@@ -48,6 +49,7 @@ class RepoDetailView:Element {
             case event.assert(Event.update,immediate:remotePathTextInput):
                 dp.setValue(i, "branch", (event as! TextFieldEvent).stringValue)
             case event.assert(Event.update,immediate:broadCastCheckBoxButton):
+                Swift.print("broadCastCheckBoxButton check: " + "\((event as! CheckEvent).isChecked)")
                 dp.setValue(i, "broadcast", String((event as! CheckEvent).isChecked))
             case event.assert(Event.update,immediate:subscribeCheckBoxButton):
                 dp.setValue(i, "subscribe", String((event as! CheckEvent).isChecked))
