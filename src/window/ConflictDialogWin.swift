@@ -12,7 +12,7 @@ class ConflictDialogWin:Window {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
-//Continue here: Use ideas from the combobox implementation to alert the initiater that the DialogWin has clodes
+//Continue here: Use ideas from the combobox implementation to alert the initiater that the DialogWin has closed
 //Check PromtWin from DrawLab for css and implementation details
 
 class ConflictDialogView:TitleView{
