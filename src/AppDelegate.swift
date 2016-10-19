@@ -34,9 +34,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
-            //add logic to ConflictDialog
+        
             //add ConflicDialog to its own window because the GitSync win may be very small
             //Use The CSS from DrawLab promt win, grey etc, and DialogWin
+            //
         
             //Adjust the design in Conflict dialog
             //RepoDetailView should have a CheckBOxButton: Auto-sync
@@ -59,6 +60,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //should the sync area be visible when the timer sets gitsync in sync mode?
                 //Make sure all loose ends are covered
         //later
+            //add logic to ConflictDialog
             //sync within individual repos from repodetailview
             //make the statsview Just add 2 text objects, Commits today: and Commits this week
             //Figure out how to speed up live-refresh in Element (think object-trees)
