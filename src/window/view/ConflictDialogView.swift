@@ -17,6 +17,7 @@ class ConflictDialogView:TitleView{
         
         //Repository: Element - iOS
         addSubView(Text(NaN,NaN,"Repository: ",self,"repoDesc"))
+        /*
         addSubView(Text(NaN,NaN,"Element - iOS",self,"repoTitle"))
         //File: ~/documents/element-ios/AppDelegate.swift
         addSubView(Text(NaN,NaN,"File: ",self,"fileDesc"))
@@ -24,6 +25,7 @@ class ConflictDialogView:TitleView{
         //Issue: There is a newer remote version of this file
         addSubView(Text(NaN,NaN,"Issue: ",self,"issueDesc"))
         addSubView(Text(NaN,NaN,"There is a newer remote version of this file",self,"issueText"))
+        */
         //Create 3 TextButtons (Review local,remote,mix)
         //Create 3 RadioButtons in a collumn: (keep local,remote, mix)
         //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)
