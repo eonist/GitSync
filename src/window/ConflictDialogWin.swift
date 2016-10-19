@@ -54,6 +54,7 @@ class ConflictDialogView:TitleView{
         
         //when you click cancel: 
             //empty the syncRepoList in MainView
+            //restart timer
             //Navigate.setView(CommitView)
         
     }
