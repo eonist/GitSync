@@ -19,7 +19,7 @@ class ConflictDialogView:TitleView{
     static let w:CGFloat = 220
     static let h:CGFloat = 380
     var title:String/*the title must be set after the init of the Window instance*/
-    let mergeOptions:[String] = ["keep local version","keep remote version","keep mix of both versions","Preview local version","Preview remote version","Preview mix of both versions"]
+    let mergeOptions:[String] = ["keep local version","keep remote version","keep mix of both versions","Review local version","Review remote version","Review mix of both versions"]
     
     init(_ width: CGFloat, _ height: CGFloat,_ title:String = "", _ parent: IElement? = nil, _ id: String? = "") {
         self.title = title
@@ -34,7 +34,8 @@ class ConflictDialogView:TitleView{
         //Repository: Element - iOS
         //File: ~/documents/element-ios/AppDelegate.swift
         //Issue: There is a newer remote version of this file
-        //create a list with the mergeOptions: (6 options)
+        //create 3 RadioButtons in a collumn: mergeOptions: (3 options)
+        //create 3 TextButtons 
         //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)
         //A checkBoxButton:[x] apply to all conflicts in all repo's (reset after sync complete)
         //ok button
