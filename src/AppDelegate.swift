@@ -51,8 +51,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
             //To make the pull to sync feature, you need to make things work seperatly:
                 //make a circle anim animate on fps
-                //make a circle that completes it on a progress slider
-                //
+                //make a circle that completes on a progress slider
+                //make 
                 //make sync area above the list (should )
         //later
             //sync within individual repos from repodetailview
