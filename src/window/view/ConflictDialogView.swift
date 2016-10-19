@@ -50,7 +50,7 @@ class ConflictDialogView:Element{
         addSubView(CheckBoxButton(NaN, NaN,"Apply to all conflicts",false,self))
         addSubView(CheckBoxButton(NaN, NaN,"Apply to all repos",false,self))
         
-        let confirmSection:Section = Section(NaN,NaN,self,"confirm")
+        let confirmSection:Section = addSubView(Section(NaN,NaN,self,"confirm"))
         okButton = confirmSection.addSubView(TextButton(NaN,NaN,"OK",confirmSection,"ok"))//ok button
         cancelButton = confirmSection.addSubView(TextButton(NaN,NaN,"Cancel",confirmSection,"cancel"))//cancel button (stops the sync)
         
