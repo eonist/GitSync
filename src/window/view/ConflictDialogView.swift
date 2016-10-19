@@ -66,6 +66,12 @@ class ConflictDialogView:Element{
         //Navigate.setView(CommitView)
         
     }
+    func onOkButtonRelease(event:ButtonEvent)  {
+        Swift.print("onOkButtonRelease")
+    }
+    func onCancelButtonRelease(event:ButtonEvent)  {
+        Swift.print("onCancelButtonRelease")
+    }
     func onbuttonEvent(event:Event){
         if(event.assert(ButtonEvent.upInside, okButton)){onOkButtonRelease(event as! ButtonEvent)}
         else if(event.type == ButtonEvent.upInside && event.origin === cancelButton){onCancelButtonRelease(event as! ButtonEvent)}
