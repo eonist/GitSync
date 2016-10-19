@@ -50,7 +50,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //Make the interactive circle animation (progress should be iterative)
         
             //To make the pull to sync feature, you need to make things work seperatly: (check mail app on iphone, and github projects)
-                //make a circle anim animate on fps
+                //make a circle anim animate on fps round and round (see github for insp, and raywenderlich)
                 //make a circle that completes on a progress slider
                 //let a value iterate form 0 to 1 when scroll amount has travled far enough when list progress is bellow 0
                 //implement the circle progress ticker show when pulling (pull to sync mode)
