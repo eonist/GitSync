@@ -37,7 +37,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
             //add ConflicDialog to its own window because the GitSync win may be very small
             //Use The CSS from DrawLab promt win, grey etc, and DialogWin
-            //
+            //make the CommitPromtDialog (Title,Description) <- prepopulate with derived data
         
             //Adjust the design in Conflict dialog
             //RepoDetailView should have a CheckBOxButton: Auto-sync
