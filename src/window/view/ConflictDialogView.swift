@@ -15,10 +15,13 @@ class ConflictDialogView:Element{
         super.resolveSkin()
         //super.textArea!.setTextValue(title)
         /**/
-        addSubView(Text(NaN,NaN,"Resolve merge conflict:",self,"conflictText"))
+        addSubView(TextArea(NaN,NaN,"Resolve merge conflict:",self,"conflictText"))
+        
+        
+        /*
         let repoText:String = "Repository: " + "Element - iOS"
         addSubView(Text(NaN,NaN,repoText,self,"repoText"))
-        /*
+        
         let fileText:String = "File: " + "AppDelegate.swift"
         addSubView(Text(NaN,NaN,fileText,self,"fileText"))
         let issueText:String = "Issue: " + "Local file is older than remote"
