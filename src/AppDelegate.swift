@@ -34,11 +34,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
+            //add logic to ConflictDialog
+            //Adjust the design in Conflict dialog
+            //
             //RepoDetailView should have a CheckBOxButton: Auto-sync
             //PrefsView should  have the Auto-sync-intervall: (as its too complicated to have individual timers, too much can go wrong)
             //make the conflict resolution dialog (use boilerplate from DrawLab)
             //path picker for localPath in repodetailview (folder icon)
-            //commit popup dialog (use boilerplate from DrawLab) (ok,cancel) (TextInput:Title,TextInput:DescriptionTextArea)
+        
             //add a eye-icon for find in finder feature in repodetailview
             //add an url-icon for open in safari feature in repodetailview
             //Implement RBSliderList for the commitsList
