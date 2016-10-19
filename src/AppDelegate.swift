@@ -37,8 +37,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //add logic to ConflictDialog
             //add ConflicDialog to its own window because the GitSync win may be very small
             //Use The CSS from DrawLab promt win, grey etc, and DialogWin
+        
             //Adjust the design in Conflict dialog
-            //hide MenuView when in conflictDialog mode
             //RepoDetailView should have a CheckBOxButton: Auto-sync
             //PrefsView should  have the Auto-sync-intervall: (as its too complicated to have individual timers, too much can go wrong)
             //path picker for localPath in repodetailview (folder icon)
