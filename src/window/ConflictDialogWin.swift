@@ -38,7 +38,7 @@ class ConflictDialogView:TitleView{
         //ok button
         //cancel button (stops the sync)
         
-        //Looping repos
+        //Looping repos (happens in MainView, so that its not canceled)
             //create a static array of repos
             //when an repo is "synced" remove it from the array
             //sync(repos[0])
