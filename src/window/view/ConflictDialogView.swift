@@ -15,9 +15,9 @@ class ConflictDialogView:Element{
         
         let repoText:String = "Repository: " + "Element - iOS"
         addSubView(Text(NaN,NaN,repoText,self,"repoText"))
-        let fileText:String = "File: " + "~/documents/element-ios/AppDelegate.swift"
+        let fileText:String = "File: " + "AppDelegate.swift"
         addSubView(Text(NaN,NaN,fileText,self,"fileText"))
-        let issueText:String = "Issue: " + "There is a newer remote version of this file"
+        let issueText:String = "Issue: " + "Local file is older than remote"
         addSubView(Text(NaN,NaN,issueText,self,"issueText"))
         //Create 3 TextButtons (Review local,remote,mix)
         addSubView(TextButton(NaN,NaN,"Review local version",self,"reviewBtn"))
