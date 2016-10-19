@@ -14,13 +14,11 @@ class ConflictDialogView:Element{
         //super.textArea!.setTextValue(title)
         
         let repoText:String = "Repository: " + "Element - iOS"
-        addSubView(Text(NaN,24,repoText,self,"repoDesc"))
+        addSubView(Text(NaN,NaN,repoText,self,"repoText"))
         let fileText:String = "File: " + "~/documents/element-ios/AppDelegate.swift"
         addSubView(Text(NaN,NaN,fileText,self,"fileText"))
-        //Issue: There is a newer remote version of this file
-        let 
-        addSubView(Text(NaN,NaN,"Issue: ",self,"issueDesc"))
-        addSubView(Text(NaN,NaN,"There is a newer remote version of this file",self,"issueText"))
+        let issueText:String = "Issue: " + "There is a newer remote version of this file"
+        addSubView(Text(NaN,NaN,issueText,self,"issueText"))
         /**/
         //Create 3 TextButtons (Review local,remote,mix)
         //Create 3 RadioButtons in a collumn: (keep local,remote, mix)
