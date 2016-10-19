@@ -35,7 +35,8 @@ class ConflictDialogView:TitleView{
         //File: ~/documents/element-ios/AppDelegate.swift
         //Issue: There is a newer remote version of this file
         //create a list with the mergeOptions:
-        //A checkBoxButton: apply too all 
+        //A checkBoxButton:[x] apply to all conflicts in this repo's
+        //A checkBoxButton:[x] apply to all conflicts in all repo's
         //on select
         
     }
