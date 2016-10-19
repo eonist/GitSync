@@ -62,6 +62,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //should the sync area be visible when the timer sets gitsync in sync mode?
                 //Make sure all loose ends are covered
         //later
+            //add darkmode checkboxbutton to prefsview
             //add logic to ConflictDialog
             //sync within individual repos from repodetailview
             //make the statsview Just add 2 text objects, Commits today: and Commits this week
