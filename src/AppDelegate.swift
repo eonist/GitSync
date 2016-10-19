@@ -52,8 +52,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //To make the pull to sync feature, you need to make things work seperatly:
                 //make a circle anim animate on fps
                 //make a circle that completes on a progress slider
-                //make 
-                //make sync area above the list (should )
+                //let a value iterate form 0 to 1 when scroll amount has travled far enough when list progress is bellow 0
+                //implement the circle progress ticker show when pulling (pull to sync mode)
+                //
         //later
             //sync within individual repos from repodetailview
             //make the statsview Just add 2 text objects, Commits today: and Commits this week
