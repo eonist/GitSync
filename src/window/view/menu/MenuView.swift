@@ -8,6 +8,7 @@ class MenuView:Element{
     static let stats:String = "stats"
     static let prefs:String = "prefs"
     static let buttonTitles = [MenuView.commits,MenuView.repos,MenuView.stats,MenuView.prefs]
+    var selectGroup:SelectGroup?
     override func resolveSkin() {
         Swift.print("MenuView.resolveSkin()")
         super.resolveSkin()
@@ -20,16 +21,16 @@ class MenuView:Element{
             let selectTextButton:SelectTextButton = buttonSection.addSubView(SelectTextButton(60,20,buttonTitle.capitalizedString,false,buttonSection,buttonTitle))
             buttons.append(selectTextButton)
         }
-        let selectGroup = SelectGroup(buttons,buttons[0])
+        selectGroup = SelectGroup(buttons,buttons[0])
         //buttons[0].setSelected(true)
-        selectGroup.selectables.forEach{if(($0 as! Element).id == Navigation.activeView){$0.setSelected(true)}}
-        func onSelectGroupChange(event:Event){
-            if(event.assert(SelectGroupEvent.change, selectGroup)){
-                let buttonId:String = (selectGroup.selected as! SelectTextButton).id!
-                Swift.print("MainMenu.onSelect() buttonId: " + "\(buttonId)")
-                Navigation.setView(buttonId)
-            }
+        selectGroup!.selectables.forEach{if(($0 as! Element).id == Navigation.activeView){$0.setSelected(true)}}
+        selectGroup!.event = onSelectGroupChange
+    }
+    func onSelectGroupChange(event:Event){
+        if(event.assert(SelectGroupEvent.change, selectGroup)){
+            let buttonId:String = (selectGroup!.selected as! SelectTextButton).id!
+            Swift.print("MainMenu.onSelect() buttonId: " + "\(buttonId)")
+            Navigation.setView(buttonId)
         }
-        selectGroup.event = onSelectGroupChange
     }
 }
