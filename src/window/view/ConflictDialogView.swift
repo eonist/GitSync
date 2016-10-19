@@ -1,22 +1,20 @@
 import Foundation
 
-class ConflictDialogView:TitleView{
-    static let w:CGFloat = 220
-    static let h:CGFloat = 380
-    var title:String/*the title must be set after the init of the Window instance*/
+class ConflictDialogView:Element{
+    //var title:String/*the title must be set after the init of the Window instance*/
     let mergeOptions:[String] = ["keep local version","keep remote version","keep mix of both versions","Review local version","Review remote version","Review mix of both versions"]
     
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement? = nil, _ id: String? = "") {
-        self.title = "Resolve merge conflict:"//Title: Resolve sync conflict:
+        //self.title = "Resolve merge conflict:"//Title: Resolve sync conflict:
         super.init(width, height, parent, "")
     }
     override func resolveSkin() {
         Swift.print("ConflictDialogView.resolveSkin()")
         super.resolveSkin()
-        super.textArea!.setTextValue(title)
+        //super.textArea!.setTextValue(title)
         
         //Repository: Element - iOS
-        addSubView(Text(150,24,"Repository: ",self,"repoDesc"))
+        addSubView(Text(NaN,24,"Repository: ",self,"repoDesc"))
         /*
         addSubView(Text(NaN,NaN,"Element - iOS",self,"repoTitle"))
         //File: ~/documents/element-ios/AppDelegate.swift
