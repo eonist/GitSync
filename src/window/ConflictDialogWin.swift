@@ -30,6 +30,10 @@ class ConflictDialogView:TitleView{
         super.resolveSkin()
         super.textArea!.setTextValue(title)
         
+        //Title: Resolve merge conflict:
+        //Repo title: Element iOS
+        //File: ~/documents/element-ios/AppDelegate.swift
+        //
         //create a list with the mergeOptions
         //
         //on select
