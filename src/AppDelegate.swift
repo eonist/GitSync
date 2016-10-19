@@ -49,12 +49,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //Implement a sync mode for the RBSliderList
             //Make the interactive circle animation (progress should be iterative)
         
-            //To make the pull to sync feature, you need to make things work seperatly:
+            //To make the pull to sync feature, you need to make things work seperatly: (check mail app on iphone, and github projects)
                 //make a circle anim animate on fps
                 //make a circle that completes on a progress slider
                 //let a value iterate form 0 to 1 when scroll amount has travled far enough when list progress is bellow 0
                 //implement the circle progress ticker show when pulling (pull to sync mode)
-                //
+                //should the list be scrollable, while syncing?
+                //Should the sync area be behind the list?
+                //should the sync area be visible when the timer sets gitsync in sync mode?
+                //Make sure all loose ends are covered
         //later
             //sync within individual repos from repodetailview
             //make the statsview Just add 2 text objects, Commits today: and Commits this week
