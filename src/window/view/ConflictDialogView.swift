@@ -12,7 +12,7 @@ class ConflictDialogView:Element{
         Swift.print("ConflictDialogView.resolveSkin()")
         super.resolveSkin()
         //super.textArea!.setTextValue(title)
-        
+        addSubView(Text(NaN,NaN,"Resolve merge conflict:",self,"conflictText"))
         let repoText:String = "Repository: " + "Element - iOS"
         addSubView(Text(NaN,NaN,repoText,self,"repoText"))
         let fileText:String = "File: " + "AppDelegate.swift"
