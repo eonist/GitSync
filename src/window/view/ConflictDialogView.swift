@@ -1,6 +1,8 @@
 import Foundation
 
 class ConflictDialogView:Element{
+    private var okButton:TextButton?
+    private var cancelButton:TextButton?
     //var title:String/*the title must be set after the init of the Window instance*/
     let mergeOptions:[String] = ["keep local version","keep remote version","keep mix of both versions","Review local version","Review remote version","Review mix of both versions"]
     
@@ -40,13 +42,8 @@ class ConflictDialogView:Element{
         addSubView(CheckBoxButton(NaN, NaN,"Apply to all conflicts",false,self))
         addSubView(CheckBoxButton(NaN, NaN,"Apply to all repos",false,self))
         
-        
-        
-        //ok button
-        //cancel button (stops the sync)
-        
-        okButton = guiContainer!.addSubView(TextButton(100,24,"OK",guiContainer))
-        cancelButton = guiContainer!.addSubView(TextButton(100,24,"Cancel",guiContainer))
+        okButton = addSubView(TextButton(NaN,NaN,"OK",self,"ok"))//ok button
+        cancelButton = addSubView(TextButton(NaN,NaN,"Cancel",self,"cancel"))//cancel button (stops the sync)
         
         
         //Looping repos (happens in MainView, so that its not canceled)
@@ -68,6 +65,10 @@ class ConflictDialogView:Element{
         //restart timer
         //Navigate.setView(CommitView)
         
+    }
+    func onbuttonEvent(event:Event){
+        if(event.type == ButtonEvent.upInside && event.origin === okButton){onOkButtonRelease(event as! ButtonEvent)}
+        else if(event.type == ButtonEvent.upInside && event.origin === cancelButton){onCancelButtonRelease(event as! ButtonEvent)}
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
