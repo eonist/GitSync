@@ -33,9 +33,9 @@ class ConflictDialogView:TitleView{
         //Title: Resolve merge conflict:
         //Repo title: Element iOS
         //File: ~/documents/element-ios/AppDelegate.swift
-        //
-        //create a list with the mergeOptions
-        //
+        //Issue: There is a newer remote version of this file
+        //create a list with the mergeOptions:
+        //A checkBoxButton: apply too all 
         //on select
         
     }
