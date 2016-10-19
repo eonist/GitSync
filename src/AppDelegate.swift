@@ -48,6 +48,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //Implement RBSliderList for the commitsList
             //Implement a sync mode for the RBSliderList
             //Make the interactive circle animation (progress should be iterative)
+        
+            //
         //later
             //sync within individual repos from repodetailview
             //make the statsview Just add 2 text objects, Commits today: and Commits this week
