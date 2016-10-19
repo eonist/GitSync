@@ -41,7 +41,7 @@ class ConflictDialogView:Element{
             Swift.print("event.selectable: " + "\(event)")
         }
         selectGroup.event = onSelectGroupChange
-        /*
+       
         /**/
         //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)
         
@@ -49,21 +49,19 @@ class ConflictDialogView:Element{
         
         addSubView(CheckBoxButton(NaN, NaN,"Apply to all conflicts",false,self))
         addSubView(CheckBoxButton(NaN, NaN,"Apply to all repos",false,self))
-        /*
+        
         
         okButton = addSubView(TextButton(NaN,NaN,"OK",self,"ok"))//ok button
         cancelButton = addSubView(TextButton(NaN,NaN,"Cancel",self,"cancel"))//cancel button (stops the sync)
         
-        */
+        /**/
         //Looping repos (happens in MainView, so that its not canceled)
         //create a static array of repos
         //when an repo is "synced" remove it from the array
         //sync(repos[0])
         //if(sync has conflict)
         //conflictResolutionPopUp()
-        
-        
-        
+   
         //when you click ok:
         //Alter static class var's (conflictSolved = true)//remember to reset this
         //init looping the static repo list
@@ -73,7 +71,7 @@ class ConflictDialogView:Element{
         //empty the syncRepoList in MainView
         //restart timer
         //Navigate.setView(CommitView)
-        */
+         /**/
     }
     func onOkButtonRelease(event:ButtonEvent)  {
         Swift.print("onOkButtonRelease")
