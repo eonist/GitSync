@@ -38,6 +38,15 @@ class ConflictDialogView:TitleView{
         //ok button
         //cancel button (stops the sync)
         
+        //Looping repos
+            //create a static array of repos
+            //when an repo is "synced" remove it from the array
+            //sync(repos[0])
+                //if(sync has conflict)
+                    //conflicResolutionPopUp()
+                    
+        
+        
         //when you click ok:
             //Alter static class var's
             //
