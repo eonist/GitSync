@@ -24,14 +24,15 @@ class ConflictDialogView:Element{
         addSubView(TextArea(NaN,NaN,fileText,self,"fileText"))
         let issueText:String = "Issue: " + "Local file is older than remote"
         addSubView(TextArea(NaN,NaN,issueText,self,"issueText"))
-        /*
+        
         //Create 3 TextButtons (Review local,remote,mix)
         addSubView(TextButton(NaN,NaN,"Review local version",self,"reviewBtn"))
+        /*
         addSubView(TextButton(NaN,NaN,"Review remote version",self,"reviewBtn"))
         addSubView(TextButton(NaN,NaN,"Review mix version",self,"reviewBtn"))
-        /**/
+        */
         //Create 3 RadioButtons in a collumn: (keep local,remote, mix)
-        
+        /*
         let rb1 = addSubView(RadioButton(NaN,NaN,"keep local version",true,self))
         let rb2 = addSubView(RadioButton(NaN,NaN,"keep remote version",false,self))
         let rb3 = addSubView(RadioButton(NaN,NaN,"keep mix of both versions",false,self))
