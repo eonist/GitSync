@@ -19,7 +19,6 @@ class ConflictDialogView:Element{
         addSubView(Text(NaN,NaN,fileText,self,"fileText"))
         let issueText:String = "Issue: " + "There is a newer remote version of this file"
         addSubView(Text(NaN,NaN,issueText,self,"issueText"))
-        /**/
         //Create 3 TextButtons (Review local,remote,mix)
         //Create 3 RadioButtons in a collumn: (keep local,remote, mix)
         //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)
