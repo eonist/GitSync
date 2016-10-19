@@ -19,6 +19,7 @@ class ConflictDialogView:TitleView{
     static let w:CGFloat = 220
     static let h:CGFloat = 380
     var title:String/*the title must be set after the init of the Window instance*/
+    let mergeOptions:[String] = ["keep local version","keep remote version","keep mix of both versions","open local version","open remote version","open mix of both versions","keep all local versions","keep all remote versions","keep all local and remote versions","open all local versions","open all remote versions","open all mixed versions"]
     
     init(_ width: CGFloat, _ height: CGFloat,_ title:String = "", _ parent: IElement? = nil, _ id: String? = "") {
         self.title = title
@@ -29,7 +30,8 @@ class ConflictDialogView:TitleView{
         super.resolveSkin()
         super.textArea!.setTextValue(title)
         
-        //
+        //create a list with the mergeOptions 
+        //on select
         
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
