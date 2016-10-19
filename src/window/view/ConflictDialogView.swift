@@ -14,7 +14,7 @@ class ConflictDialogView:Element{
         Swift.print("ConflictDialogView.resolveSkin()")
         super.resolveSkin()
         //super.textArea!.setTextValue(title)
-        /*
+        /**/
         addSubView(Text(NaN,NaN,"Resolve merge conflict:",self,"conflictText"))
         let repoText:String = "Repository: " + "Element - iOS"
         addSubView(Text(NaN,NaN,repoText,self,"repoText"))
@@ -22,13 +22,12 @@ class ConflictDialogView:Element{
         addSubView(Text(NaN,NaN,fileText,self,"fileText"))
         let issueText:String = "Issue: " + "Local file is older than remote"
         addSubView(Text(NaN,NaN,issueText,self,"issueText"))
-        */
+
         //Create 3 TextButtons (Review local,remote,mix)
         addSubView(TextButton(NaN,NaN,"Review local version",self,"reviewBtn"))
-        /*
         addSubView(TextButton(NaN,NaN,"Review remote version",self,"reviewBtn"))
         addSubView(TextButton(NaN,NaN,"Review mix version",self,"reviewBtn"))
-        */
+        /**/
         //Create 3 RadioButtons in a collumn: (keep local,remote, mix)
         /*
         let rb1 = addSubView(RadioButton(NaN,NaN,"keep local version",true,self))
