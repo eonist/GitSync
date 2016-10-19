@@ -12,9 +12,6 @@ class ConflictDialogWin:Window {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
-//Continue here: Use ideas from the combobox implementation to alert the initiater that the DialogWin has closed
-//Check PromtWin from DrawLab for css and implementation details
-
 class ConflictDialogView:TitleView{
     static let w:CGFloat = 220
     static let h:CGFloat = 380
@@ -40,6 +37,12 @@ class ConflictDialogView:TitleView{
         //A checkBoxButton:[x] apply to all conflicts in all repo's (reset after sync complete)
         //ok button
         //cancel button (stops the sync)
+        
+        //when you click ok:
+            //Alter static class var's
+            //
+            //Navigate.setView(CommitView)
+            //
         
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
