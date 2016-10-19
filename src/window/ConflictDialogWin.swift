@@ -31,12 +31,12 @@ class ConflictDialogView:TitleView{
         super.textArea!.setTextValue(title)
         
         //Title: Resolve merge conflict:
-        //Repo title: Element iOS
+        //In Repo: Element iOS
         //File: ~/documents/element-ios/AppDelegate.swift
         //Issue: There is a newer remote version of this file
         //create a list with the mergeOptions:
-        //A checkBoxButton:[x] apply to all conflicts in this repo's
-        //A checkBoxButton:[x] apply to all conflicts in all repo's
+        //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)
+        //A checkBoxButton:[x] apply to all conflicts in all repo's (reset after sync complete)
         //on select
         
     }
