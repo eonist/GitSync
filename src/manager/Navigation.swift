@@ -33,7 +33,9 @@ class Navigation {
             case String(RepoDetailView):
                 mainView.currentView = mainView.addSubView(RepoDetailView(width,height,mainView))
             case String(ConflictDialogView):
-                
+                Swift.print("")
+                mainView.currentView = mainView.addSubView(ConflictDialogView(width,height,mainView))
+            
             default:
                 break;
         }

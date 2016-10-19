@@ -19,7 +19,7 @@ class ConflictDialogView:TitleView{
     let mergeOptions:[String] = ["keep local version","keep remote version","keep mix of both versions","Review local version","Review remote version","Review mix of both versions"]
     
     init(_ width: CGFloat, _ height: CGFloat,_ title:String = "", _ parent: IElement? = nil, _ id: String? = "") {
-        self.title = title
+        self.title = "Resolve merge conflict"
         super.init(width, height, parent, "")
     }
     override func resolveSkin() {
