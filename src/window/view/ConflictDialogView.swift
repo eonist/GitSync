@@ -26,8 +26,8 @@ class ConflictDialogView:Element{
         //Create 3 RadioButtons in a collumn: (keep local,remote, mix)
 
         let rb1 = addSubView(RadioButton(NaN,NaN,"keep local version",true,self))
-        let rb2 = addSubView(RadioButton(NaN,NaN,"keep remote version",true,self))
-        let rb3 = addSubView(RadioButton(NaN,NaN,"keep mix of both versions",true,self))
+        let rb2 = addSubView(RadioButton(NaN,NaN,"keep remote version",false,self))
+        let rb3 = addSubView(RadioButton(NaN,NaN,"keep mix of both versions",false,self))
         let selectGroup:SelectGroup = SelectGroup([rb1,rb2,rb3],rb1)
         func onSelectGroupChange(event:Event){
             Swift.print("event.selectable: " + "\(event)")
