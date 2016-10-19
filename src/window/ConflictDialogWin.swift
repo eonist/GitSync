@@ -53,7 +53,8 @@ class ConflictDialogView:TitleView{
             //Navigate.setView(CommitView)
         
         //when you click cancel: 
-            //
+            //empty the syncRepoList in MainView
+            //Navigate.setView(CommitView)
         
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
