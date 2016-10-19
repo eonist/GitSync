@@ -35,7 +35,13 @@ class ConflictDialogView:Element{
         selectGroup.event = onSelectGroupChange
         
         //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)
+        
         //A checkBoxButton:[x] apply to all conflicts in all repo's (reset after sync complete)
+        addSubView(CheckBoxButton(NaN, NaN,"Apply to all conflicts",false,self))
+        addSubView(CheckBoxButton(NaN, NaN,"Apply to all repos",false,self))
+        
+        //
+        
         //ok button
         //cancel button (stops the sync)
         
