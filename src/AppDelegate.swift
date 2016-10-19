@@ -49,7 +49,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //Implement a sync mode for the RBSliderList
             //Make the interactive circle animation (progress should be iterative)
         
-            //
+            //To make the pull to sync feature, you need to make things work seperatly:
+                //make sync area above the list 
         //later
             //sync within individual repos from repodetailview
             //make the statsview Just add 2 text objects, Commits today: and Commits this week
