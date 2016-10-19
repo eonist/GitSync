@@ -35,6 +35,7 @@ class Navigation {
             case String(ConflictDialogView):
                 Swift.print("")
                 mainView.currentView = mainView.addSubView(ConflictDialogView(width,height,mainView))
+                mainView.menuView!.hidden = true
             default:
                 break;
         }

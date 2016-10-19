@@ -36,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Continue here:
             //add logic to ConflictDialog
             //Adjust the design in Conflict dialog
-            //
+            //hide MenuView when in conflictDialog mode
             //RepoDetailView should have a CheckBOxButton: Auto-sync
             //PrefsView should  have the Auto-sync-intervall: (as its too complicated to have individual timers, too much can go wrong)
             //make the conflict resolution dialog (use boilerplate from DrawLab)
