@@ -24,11 +24,11 @@ class ConflictDialogView:Element{
         addSubView(TextButton(NaN,NaN,"Review remote version",self,"reviewBtn"))
         addSubView(TextButton(NaN,NaN,"Review mix version",self,"reviewBtn"))
         //Create 3 RadioButtons in a collumn: (keep local,remote, mix)
-        //Continue here: review the boilerplate code from Explorer on RadioButton, you need the SelectGroup aswell
+
         let rb1 = addSubView(RadioButton(NaN,NaN,"keep local version",true,self))
         let rb2 = addSubView(RadioButton(NaN,NaN,"keep remote version",true,self))
         let rb3 = addSubView(RadioButton(NaN,NaN,"keep mix of both versions",true,self))
-        let selectGroup:SelectGroup = SelectGroup([radioButton1,radioButton2],radioButton2)
+        let selectGroup:SelectGroup = SelectGroup([rb1,rb2,rb3],rb1)
         func onSelectGroupChange(event:Event){
             Swift.print("event.selectable: " + "\(event)")
         }
