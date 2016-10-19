@@ -24,6 +24,7 @@ class ConflictDialogView:Element{
         addSubView(TextButton(NaN,NaN,"Review remote version",self,"reviewBtn"))
         addSubView(TextButton(NaN,NaN,"Review mix version",self,"reviewBtn"))
         //Create 3 RadioButtons in a collumn: (keep local,remote, mix)
+        addSubView(Radiobutton())
         //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)
         //A checkBoxButton:[x] apply to all conflicts in all repo's (reset after sync complete)
         //ok button
