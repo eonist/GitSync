@@ -32,7 +32,7 @@ class ConflictDialogView:Element{
         addSubView(TextButton(NaN,NaN,"Review mix version",self,"reviewBtn"))
         /**/
         //Create 3 RadioButtons in a collumn: (keep local,remote, mix)
-        /*
+        
         let rb1 = addSubView(RadioButton(NaN,NaN,"keep local version",true,self))
         let rb2 = addSubView(RadioButton(NaN,NaN,"keep remote version",false,self))
         let rb3 = addSubView(RadioButton(NaN,NaN,"keep mix of both versions",false,self))
@@ -41,6 +41,7 @@ class ConflictDialogView:Element{
             Swift.print("event.selectable: " + "\(event)")
         }
         selectGroup.event = onSelectGroupChange
+        /*
         /**/
         //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)
         
