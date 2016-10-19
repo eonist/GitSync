@@ -40,10 +40,14 @@ class ConflictDialogView:Element{
         addSubView(CheckBoxButton(NaN, NaN,"Apply to all conflicts",false,self))
         addSubView(CheckBoxButton(NaN, NaN,"Apply to all repos",false,self))
         
-        //
+        
         
         //ok button
         //cancel button (stops the sync)
+        
+        okButton = guiContainer!.addSubView(TextButton(100,24,"OK",guiContainer))
+        cancelButton = guiContainer!.addSubView(TextButton(100,24,"Cancel",guiContainer))
+        
         
         //Looping repos (happens in MainView, so that its not canceled)
         //create a static array of repos
