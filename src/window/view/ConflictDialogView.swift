@@ -16,7 +16,7 @@ class ConflictDialogView:TitleView{
         super.textArea!.setTextValue(title)
         
         //Repository: Element - iOS
-        addSubView(Text(NaN,NaN,"Repository: ",self,"repoDesc"))
+        addSubView(Text(150,24,"Repository: ",self,"repoDesc"))
         /*
         addSubView(Text(NaN,NaN,"Element - iOS",self,"repoTitle"))
         //File: ~/documents/element-ios/AppDelegate.swift
