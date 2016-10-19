@@ -32,6 +32,8 @@ class Navigation {
                 mainView.currentView = mainView.addSubView(PrefsView(width,height,mainView))
             case String(RepoDetailView):
                 mainView.currentView = mainView.addSubView(RepoDetailView(width,height,mainView))
+            case String(ConflictDialogView):
+                
             default:
                 break;
         }
