@@ -49,8 +49,10 @@ class ConflictDialogView:TitleView{
         
         //when you click ok:
             //Alter static class var's (conflictSolved = true)//remember to reset this
-            //keep looping the static repo list
+            //init looping the static repo list
             //Navigate.setView(CommitView)
+        
+        //when you click cancel: 
             //
         
     }
