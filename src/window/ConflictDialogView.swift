@@ -6,7 +6,7 @@ class ConflictDialogView:TitleView{
     var title:String/*the title must be set after the init of the Window instance*/
     let mergeOptions:[String] = ["keep local version","keep remote version","keep mix of both versions","Review local version","Review remote version","Review mix of both versions"]
     
-    init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement? = nil, _ id: String? = "") {
+    override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement? = nil, _ id: String? = "") {
         self.title = "Resolve merge conflict"
         super.init(width, height, parent, "")
     }
