@@ -73,8 +73,8 @@ class ConflictDialogView:Element{
         Swift.print("onCancelButtonRelease")
     }
     func onbuttonEvent(event:Event){
-        if(event.assert(ButtonEvent.upInside, okButton)){onOkButtonRelease(event as! ButtonEvent)}
-        else if(event.type == ButtonEvent.upInside && event.origin === cancelButton){onCancelButtonRelease(event as! ButtonEvent)}
+        if(event.assert(ButtonEvent.upInside, okButton)){onOkButtonRelease(event.cast())}
+        else if(event.type == ButtonEvent.upInside && event.origin === cancelButton){onCancelButtonRelease(event.cast())}
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
