@@ -43,13 +43,13 @@ class ConflictDialogView:TitleView{
             //when an repo is "synced" remove it from the array
             //sync(repos[0])
                 //if(sync has conflict)
-                    //conflicResolutionPopUp()
-                    
+                    //conflictResolutionPopUp()
+        
         
         
         //when you click ok:
-            //Alter static class var's
-            //
+            //Alter static class var's (conflictSolved = true)//remember to reset this
+            //keep looping the static repo list
             //Navigate.setView(CommitView)
             //
         
