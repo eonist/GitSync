@@ -37,7 +37,8 @@ class ConflictDialogView:TitleView{
         //create a list with the mergeOptions:
         //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)
         //A checkBoxButton:[x] apply to all conflicts in all repo's (reset after sync complete)
-        //on select
+        //ok button
+        //cancel button (stops the sync)
         
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
