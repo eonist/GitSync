@@ -50,8 +50,9 @@ class ConflictDialogView:Element{
         addSubView(CheckBoxButton(NaN, NaN,"Apply to all conflicts",false,self))
         addSubView(CheckBoxButton(NaN, NaN,"Apply to all repos",false,self))
         
-        okButton = addSubView(TextButton(NaN,NaN,"OK",self,"ok"))//ok button
-        cancelButton = addSubView(TextButton(NaN,NaN,"Cancel",self,"cancel"))//cancel button (stops the sync)
+        let confirmSection:Section = Section(NaN,NaN,self,"confirm")
+        okButton = confirmSection.addSubView(TextButton(NaN,NaN,"OK",confirmSection,"ok"))//ok button
+        cancelButton = confirmSection.addSubView(TextButton(NaN,NaN,"Cancel",confirmSection,"cancel"))//cancel button (stops the sync)
         
         /**/
         //Looping repos (happens in MainView, so that its not canceled)
