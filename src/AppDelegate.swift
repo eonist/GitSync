@@ -50,7 +50,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //Make the interactive circle animation (progress should be iterative)
         
             //To make the pull to sync feature, you need to make things work seperatly:
-                //make sync area above the list 
+                //make a circle anim animate on fps
+                //make a circle that completes it on a progress slider
+                //
+                //make sync area above the list (should )
         //later
             //sync within individual repos from repodetailview
             //make the statsview Just add 2 text objects, Commits today: and Commits this week
