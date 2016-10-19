@@ -18,6 +18,7 @@ class ConflictDialogView:Element{
         addSubView(Text(NaN,NaN,"Resolve merge conflict:",self,"conflictText"))
         let repoText:String = "Repository: " + "Element - iOS"
         addSubView(Text(NaN,NaN,repoText,self,"repoText"))
+        /*
         let fileText:String = "File: " + "AppDelegate.swift"
         addSubView(Text(NaN,NaN,fileText,self,"fileText"))
         let issueText:String = "Issue: " + "Local file is older than remote"
@@ -69,7 +70,7 @@ class ConflictDialogView:Element{
         //empty the syncRepoList in MainView
         //restart timer
         //Navigate.setView(CommitView)
-        
+        */
     }
     func onOkButtonRelease(event:ButtonEvent)  {
         Swift.print("onOkButtonRelease")
