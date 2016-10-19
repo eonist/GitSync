@@ -20,7 +20,7 @@ class ConflictDialogView:TitleView{
         //File: ~/documents/element-ios/AppDelegate.swift
         //Issue: There is a newer remote version of this file
         //create 3 TextButtons (Review local,remote,mix)
-        //create 3 RadioButtons in a collumn: (keep local,remote,mix)
+        //create 3 RadioButtons in a collumn: (keep local,remote, mix)
         //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)
         //A checkBoxButton:[x] apply to all conflicts in all repo's (reset after sync complete)
         //ok button
