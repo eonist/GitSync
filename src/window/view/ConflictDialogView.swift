@@ -75,9 +75,11 @@ class ConflictDialogView:Element{
     }
     func onOkButtonRelease(event:ButtonEvent)  {
         Swift.print("onOkButtonRelease")
+        MainWin.mainView!.menuView!.hidden = false
     }
     func onCancelButtonRelease(event:ButtonEvent)  {
         Swift.print("onCancelButtonRelease")
+        MainWin.mainView!.menuView!.hidden = false
     }
     func onbuttonEvent(event:Event){
         if(event.assert(ButtonEvent.upInside, okButton)){onOkButtonRelease(event.cast())}
