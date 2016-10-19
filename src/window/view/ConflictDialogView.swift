@@ -7,7 +7,7 @@ class ConflictDialogView:TitleView{
     let mergeOptions:[String] = ["keep local version","keep remote version","keep mix of both versions","Review local version","Review remote version","Review mix of both versions"]
     
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement? = nil, _ id: String? = "") {
-        self.title = "Resolve merge conflict"
+        self.title = "Resolve merge conflict:"//Title: Resolve sync conflict:
         super.init(width, height, parent, "")
     }
     override func resolveSkin() {
@@ -15,8 +15,11 @@ class ConflictDialogView:TitleView{
         super.resolveSkin()
         super.textArea!.setTextValue(title)
         
-        //Title: Resolve sync conflict:
+        
         //Repository: Element - iOS
+        addSubView(Text(NaN,NaN,"Repository: ",self,"repoDesc"))
+        addSubView(Text(NaN,NaN,"Element - iOS",self,"repoTitle"))
+        
         //File: ~/documents/element-ios/AppDelegate.swift
         //Issue: There is a newer remote version of this file
         //create 3 TextButtons (Review local,remote,mix)
