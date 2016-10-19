@@ -25,8 +25,10 @@ class ConflictDialogView:Element{
         */
         //Create 3 TextButtons (Review local,remote,mix)
         addSubView(TextButton(NaN,NaN,"Review local version",self,"reviewBtn"))
+        /*
         addSubView(TextButton(NaN,NaN,"Review remote version",self,"reviewBtn"))
         addSubView(TextButton(NaN,NaN,"Review mix version",self,"reviewBtn"))
+        */
         //Create 3 RadioButtons in a collumn: (keep local,remote, mix)
         /*
         let rb1 = addSubView(RadioButton(NaN,NaN,"keep local version",true,self))
