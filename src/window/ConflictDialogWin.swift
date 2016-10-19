@@ -30,7 +30,8 @@ class ConflictDialogView:TitleView{
         super.resolveSkin()
         super.textArea!.setTextValue(title)
         
-        //create a list with the mergeOptions 
+        //create a list with the mergeOptions
+        //
         //on select
         
     }
