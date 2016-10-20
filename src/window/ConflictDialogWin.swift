@@ -9,5 +9,4 @@ class ConflictDialogWin:Window {
         self.contentView = ConflictDialogView(frame.width,frame.height)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
-
 }
