@@ -15,16 +15,16 @@ class ConflictDialogView:TitleView{
         super.resolveSkin()
         super.textArea!.setTextValue("Resolve merge conflict:")
         /**/
-        let guiContainer = addSubView(Container(frame.width,frame.height,self,"gui"))
-        guiContainer.addSubView(TextArea(NaN,NaN,"Resolve merge conflict:",guiContainer,"conflictText"))
-        //createGUI()
+        
+        createGUI()
         Swift.print(ElementParser.stackString(self))
     }
     /**
      *
      */
     func createGUI(){
-        
+        let guiContainer = addSubView(Container(frame.width,frame.height,self,"gui"))
+        guiContainer.addSubView(TextArea(NaN,NaN,"Resolve merge conflict:",guiContainer,"conflictText"))
         
         let repoText:String = "Repository: " + "Element - iOS"
         addSubView(TextArea(NaN,NaN,repoText,self,"repoText"))
