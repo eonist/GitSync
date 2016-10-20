@@ -35,15 +35,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
-        
+            //make the CommitPromtDialog (Title,Description) <- prepopulate with derived data
             //move the menuview to the top, and do the GUI design from that screen, textbased with a bottom line (because the reason osx doesnt use bottom menues is because there is a system wide bottom menu)
         
-
-            //Use The CSS from DrawLab promt win, grey etc, and DialogWin
-            //make the CommitPromtDialog (Title,Description) <- prepopulate with derived data
-        
-            //Adjust the design in Conflict dialog
-            //RepoDetailView should have a CheckBOxButton: Auto-sync
+            //RepoDetailView should have a CheckBoxButton: Auto-sync
             //PrefsView should  have the Auto-sync-intervall: (as its too complicated to have individual timers, too much can go wrong)
             //path picker for localPath in repodetailview (folder icon)
         
