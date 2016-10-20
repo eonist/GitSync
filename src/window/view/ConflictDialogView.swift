@@ -34,12 +34,15 @@ class ConflictDialogView:TitleView{
         let issueText:String = "Issue: " + "Local file is older than remote"
         guiContainer.addSubView(TextArea(NaN,NaN,issueText,guiContainer,"issueText"))
         
+        guiContainer.addSubView(Element(NaN, NaN, guiContainer, "ruler"))
+        
         //Create 3 TextButtons (Review local,remote,mix)
         guiContainer.addSubView(TextButton(NaN,NaN,"Review local version",guiContainer,"reviewBtn"))
-        
         guiContainer.addSubView(TextButton(NaN,NaN,"Review remote version",guiContainer,"reviewBtn"))
         guiContainer.addSubView(TextButton(NaN,NaN,"Review mix version",guiContainer,"reviewBtn"))
-        /**/
+        
+        guiContainer.addSubView(Element(NaN, NaN, guiContainer, "ruler"))
+        
          //Create 3 RadioButtons in a collumn: (keep local,remote, mix)
         
         let rb1 = guiContainer.addSubView(RadioButton(NaN,NaN,"keep local version",true,guiContainer))
@@ -51,7 +54,9 @@ class ConflictDialogView:TitleView{
         }
         selectGroup.event = onSelectGroupChange
         
-        /**/
+        
+        guiContainer.addSubView(Element(NaN, NaN, guiContainer, "ruler"))
+        
         //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)
         
         //A checkBoxButton:[x] apply to all conflicts in all repo's (reset after sync complete)
