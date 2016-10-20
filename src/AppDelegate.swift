@@ -45,9 +45,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
             //add a eye-icon for find in finder feature in repodetailview
             //add an url-icon for open in safari feature in repodetailview
-            //Implement RBSliderList for the commitsList
-            //Implement a sync mode for the RBSliderList
-            //Make the interactive circle animation (progress should be iterative)
+        
+            //Tomorrow:
+                //Implement RBSliderList for the commitsList
+                //Make the interactive circle animation (progress should be iterative)
+                //Implement a sync mode for the RBSliderList
+        
         
             //To make the pull to sync feature, you need to make things work seperatly: (check mail app on iphone, and github projects)
                 //make a circle anim animate on fps round and round (see github for insp, and raywenderlich)
@@ -60,7 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //RBList should read from an array but only display few at the time
                 //Make sure all loose ends are covered
         //later
-            //consider using that greyish white you used on the first window demos for element, screen grab from ChromLessWin article
+            //use the color themes from that opensource twitter client in electron
             //add darkmode checkboxbutton to prefsview
             //add logic to ConflictDialog
             //sync within individual repos from repodetailview
