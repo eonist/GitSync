@@ -18,8 +18,8 @@ class MenuView:Element{
         let buttonSection = self.addSubView(Section(200,36,self,"buttonSection"))
         var buttons:Array<ISelectable> = []
         for buttonTitle in MenuView.buttonTitles{
-            let selectTextButton:SelectTextButton = buttonSection.addSubView(SelectTextButton(60,20,buttonTitle.capitalizedString,false,buttonSection,buttonTitle))
-            buttons.append(selectTextButton)
+            let btn:SelectButton = buttonSection.addSubView(SelectButton(20,20,false,buttonSection,buttonTitle))//buttonTitle.capitalizedString
+            buttons.append(btn)
         }
         selectGroup = SelectGroup(buttons,buttons[0])
         //buttons[0].setSelected(true)
