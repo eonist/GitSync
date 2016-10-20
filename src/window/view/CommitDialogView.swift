@@ -22,7 +22,11 @@ class CommitDialogView:TitleView{
      *
      */
     func createGUI(){
+        //Title:[Added Auto-fill when drawing rect]
         
+        //Description: [multiline 300x200 TextArea]
+        //Ok,Cancel buttons
+
     }
     
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
