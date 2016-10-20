@@ -11,7 +11,7 @@ class MenuView:Element{
     var selectGroup:SelectGroup?
     override func resolveSkin() {
         Swift.print("MenuView.resolveSkin()")
-        super.resolveSkin()
+        skin = SkinResolver.skin(self)
         createButtons()
         self.addSubView(Element(NaN, NaN, self, "ruler"))
     }
