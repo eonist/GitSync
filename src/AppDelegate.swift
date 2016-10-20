@@ -72,7 +72,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //Use the san-fran font (if you can find it)
             //at the end of commits list place a button with the text: named load more (load 20 at the time)
             //when you use the app for the first time, there is a demo repo added, hello-world from eonist which contains demo commits and a commit with instructions on how to use the app: pull to sunc: 2 finger swipe downwards , hold until the circle animation is spinning etc.
-        
+            //cmd click on repo items will reveal edit icon in top bar for multi edit feature
     }
     func applicationWillTerminate(aNotification:NSNotification) {
         //store the app prefs
