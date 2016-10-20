@@ -6,7 +6,7 @@ class ConflictDialogWin:Window {
         WinModifier.align(self, Alignment.centerCenter, Alignment.centerCenter,CGPoint(6,0))/*aligns the window to the screen*/
     }
     override func resolveSkin() {
-        self.contentView = ConflictDialogView(frame.width,frame.height,"GitSync")
+        self.contentView = ConflictDialogView(frame.width,frame.height)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 
