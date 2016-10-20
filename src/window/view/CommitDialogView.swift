@@ -1,6 +1,8 @@
 import Foundation
 
 class CommitDialogView:TitleView{
+    var titleTextInput:TextInput?
+    var descTextInput:TextInput?
     private var okButton:TextButton?
     private var cancelButton:TextButton?
     
@@ -15,18 +17,29 @@ class CommitDialogView:TitleView{
         super.resolveSkin()
         super.textArea!.setTextValue("Commit message:")
         
-        createGUI()
+        //createGUI()
         //Swift.print(ElementParser.stackString(self))
     }
     /**
      *
      */
     func createGUI(){
+        let guiContainer = addSubView(Container(frame.width,frame.height,self,"gui"))
+        
+        guiContainer.addSubView(Element(NaN, NaN, guiContainer, "ruler"))
+        
         //Title:[Added Auto-fill when drawing rect]
-        titleTextInput = addSubView(TextInput(width, 32, "keychain user: ", PrefsView.keychainUserName!, self))
+        titleTextInput = guiContainer.addSubView(TextInput(width, 32, "Commit title: ", "Added support for padding", guiContainer))
         //Description: [multiline 300x200 TextArea]
+        descTextInput = guiContainer.addSubView(TextInput(width, 32, "Commit description: ", "4 Files changed", guiContainer))
         //Ok,Cancel buttons
-
+        
+        guiContainer.addSubView(Element(NaN, NaN, guiContainer, "ruler"))
+        
+        let confirmSection:Section = guiContainer.addSubView(Section(NaN,NaN,guiContainer,"confirm"))
+        okButton = confirmSection.addSubView(TextButton(NaN,NaN,"OK",confirmSection,"ok"))//ok button
+        cancelButton = confirmSection.addSubView(TextButton(NaN,NaN,"Cancel",confirmSection,"cancel"))//cancel button (stops the sync)
+        
     }
     
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
