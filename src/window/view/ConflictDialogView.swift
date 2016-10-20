@@ -25,7 +25,7 @@ class ConflictDialogView:TitleView{
     func createGUI(){
         let guiContainer = addSubView(Container(frame.width,frame.height,self,"gui"))
         //guiContainer.addSubView(TextArea(NaN,NaN,"Resolve merge conflict:",guiContainer,"conflictText"))
-        guiContainer.addSubView(Element(NaN, NaN, guiContainer, "ruler"))
+        guiContainer.addSubView(Element(NaN, NaN, guiContainer, "topRuler"))
         
         let issueText:String = "Conflict: " + "Local file is older than the remote file"
         guiContainer.addSubView(TextArea(NaN,NaN,issueText,guiContainer,"issueText"))
