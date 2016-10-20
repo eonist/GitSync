@@ -19,7 +19,7 @@ class MainView:TitleView{
         MainWin.mainView = self
         Navigation.setView(MenuView.commits)//String(ConflictDialogView)
         
-        menuView = addSubView(MenuView(240,48,self))
+        menuView = addSubView(MenuView(frame.width,48,self))
         //Align.align(menuView!, CGSize(width/**/,height/**/), Alignment.bottomCenter, Alignment.bottomCenter,CGPoint(0,0))
         
     }
