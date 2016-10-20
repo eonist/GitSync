@@ -17,34 +17,34 @@ class ConflictDialogView:TitleView{
         /**/
         
         createGUI()
-        Swift.print(ElementParser.stackString(self))
+        //Swift.print(ElementParser.stackString(self))
     }
     /**
      *
      */
     func createGUI(){
         let guiContainer = addSubView(Container(frame.width,frame.height,self,"gui"))
-        guiContainer.addSubView(TextArea(NaN,NaN,"Resolve merge conflict:",guiContainer,"conflictText"))
+        //guiContainer.addSubView(TextArea(NaN,NaN,"Resolve merge conflict:",guiContainer,"conflictText"))
         
         let repoText:String = "Repository: " + "Element - iOS"
-        addSubView(TextArea(NaN,NaN,repoText,self,"repoText"))
+        guiContainer.addSubView(TextArea(NaN,NaN,repoText,guiContainer,"repoText"))
         
         let fileText:String = "File: " + "AppDelegate.swift"
-        addSubView(TextArea(NaN,NaN,fileText,self,"fileText"))
+        guiContainer.addSubView(TextArea(NaN,NaN,fileText,guiContainer,"fileText"))
         let issueText:String = "Issue: " + "Local file is older than remote"
-        addSubView(TextArea(NaN,NaN,issueText,self,"issueText"))
+        guiContainer.addSubView(TextArea(NaN,NaN,issueText,guiContainer,"issueText"))
         
         //Create 3 TextButtons (Review local,remote,mix)
-        addSubView(TextButton(NaN,NaN,"Review local version",self,"reviewBtn"))
+        guiContainer.addSubView(TextButton(NaN,NaN,"Review local version",guiContainer,"reviewBtn"))
         
-        addSubView(TextButton(NaN,NaN,"Review remote version",self,"reviewBtn"))
-        addSubView(TextButton(NaN,NaN,"Review mix version",self,"reviewBtn"))
+        guiContainer.addSubView(TextButton(NaN,NaN,"Review remote version",guiContainer,"reviewBtn"))
+        guiContainer.addSubView(TextButton(NaN,NaN,"Review mix version",guiContainer,"reviewBtn"))
         /**/
          //Create 3 RadioButtons in a collumn: (keep local,remote, mix)
         
-        let rb1 = addSubView(RadioButton(NaN,NaN,"keep local version",true,self))
-        let rb2 = addSubView(RadioButton(NaN,NaN,"keep remote version",false,self))
-        let rb3 = addSubView(RadioButton(NaN,NaN,"keep mix of both versions",false,self))
+        let rb1 = guiContainer.addSubView(RadioButton(NaN,NaN,"keep local version",true,guiContainer))
+        let rb2 = guiContainer.addSubView(RadioButton(NaN,NaN,"keep remote version",false,guiContainer))
+        let rb3 = guiContainer.addSubView(RadioButton(NaN,NaN,"keep mix of both versions",false,guiContainer))
         let selectGroup:SelectGroup = SelectGroup([rb1,rb2,rb3],rb1)
         func onSelectGroupChange(event:Event){
             Swift.print("event.selectable: " + "\(event)")
@@ -56,10 +56,10 @@ class ConflictDialogView:TitleView{
         
         //A checkBoxButton:[x] apply to all conflicts in all repo's (reset after sync complete)
         
-        addSubView(CheckBoxButton(NaN, NaN,"Apply to all conflicts",false,self))
-        addSubView(CheckBoxButton(NaN, NaN,"Apply to all repos",false,self))
+        guiContainer.addSubView(CheckBoxButton(NaN, NaN,"Apply to all conflicts",false,guiContainer))
+        guiContainer.addSubView(CheckBoxButton(NaN, NaN,"Apply to all repos",false,guiContainer))
         
-        let confirmSection:Section = addSubView(Section(NaN,NaN,self,"confirm"))
+        let confirmSection:Section = guiContainer.addSubView(Section(NaN,NaN,guiContainer,"confirm"))
         okButton = confirmSection.addSubView(TextButton(NaN,NaN,"OK",confirmSection,"ok"))//ok button
         cancelButton = confirmSection.addSubView(TextButton(NaN,NaN,"Cancel",confirmSection,"cancel"))//cancel button (stops the sync)
         
