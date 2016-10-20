@@ -60,18 +60,24 @@ class ConflictDialogView:TitleView{
         
         guiContainer.addSubView(Element(NaN, NaN, guiContainer, "ruler"))
         
-        //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)
         
-        //A checkBoxButton:[x] apply to all conflicts in all repo's (reset after sync complete)
         
-        guiContainer.addSubView(CheckBoxButton(NaN, NaN,"Apply to all conflicts",false,guiContainer))
-        guiContainer.addSubView(CheckBoxButton(NaN, NaN,"Apply to all repos",false,guiContainer))
-        
-        guiContainer.addSubView(Element(NaN, NaN, guiContainer, "ruler"))
         
         let confirmSection:Section = guiContainer.addSubView(Section(NaN,NaN,guiContainer,"confirm"))
         okButton = confirmSection.addSubView(TextButton(NaN,NaN,"OK",confirmSection,"ok"))//ok button
         cancelButton = confirmSection.addSubView(TextButton(NaN,NaN,"Cancel",confirmSection,"cancel"))//cancel button (stops the sync)
+        
+        guiContainer.addSubView(Element(NaN, NaN, guiContainer, "ruler"))
+        
+        
+        //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)
+        
+        //A checkBoxButton:[x] apply to all conflicts in all repo's (reset after sync complete)
+        
+        
+        guiContainer.addSubView(CheckBoxButton(NaN, NaN,"Apply to all conflicts",false,guiContainer))
+        guiContainer.addSubView(CheckBoxButton(NaN, NaN,"Apply to all repos",false,guiContainer))
+        
         
         /**/
         //Looping repos (happens in MainView, so that its not canceled)
