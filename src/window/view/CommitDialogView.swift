@@ -1,6 +1,7 @@
 import Foundation
 
 class CommitDialogView:TitleView{
+    var repoTextInput:TextInput?
     var titleTextInput:TextInput?
     var descTextInput:TextInput?
     private var okButton:TextButton?
@@ -28,6 +29,8 @@ class CommitDialogView:TitleView{
         
         guiContainer.addSubView(Element(NaN, NaN, guiContainer, "topRuler"))
         
+        //Repository: Element - iOS
+        repoTextInput = guiContainer.addSubView(TextInput(width, 32, "Repository: ", "Element - iOS", guiContainer,"repo"))
         //Title:[Added Auto-fill when drawing rect]
         titleTextInput = guiContainer.addSubView(TextInput(width, 32, "Commit title: ", "Added support for padding", guiContainer,"title"))
         //Description: [multiline 300x200 TextArea]
