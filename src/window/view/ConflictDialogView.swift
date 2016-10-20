@@ -1,6 +1,6 @@
 import Foundation
 
-class ConflictDialogView:Element{
+class ConflictDialogView:TitleView{
     private var okButton:TextButton?
     private var cancelButton:TextButton?
     //var title:String/*the title must be set after the init of the Window instance*/
