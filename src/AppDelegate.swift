@@ -39,7 +39,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //Title:[Added Auto-fill when drawing rect]
                 //Description: [multiline 300x200 TextArea]
                 //Ok,Cancel buttons
-                //
             //move the menuview to the top, and do the GUI design from that screen, textbased with a bottom line (because the reason osx doesnt use bottom menues is because there is a system wide bottom menu)
         
             //RepoDetailView should have a CheckBoxButton: Auto-sync
