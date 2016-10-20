@@ -64,6 +64,8 @@ class ConflictDialogView:TitleView{
         guiContainer.addSubView(CheckBoxButton(NaN, NaN,"Apply to all conflicts",false,guiContainer))
         guiContainer.addSubView(CheckBoxButton(NaN, NaN,"Apply to all repos",false,guiContainer))
         
+        guiContainer.addSubView(Element(NaN, NaN, guiContainer, "ruler"))
+        
         let confirmSection:Section = guiContainer.addSubView(Section(NaN,NaN,guiContainer,"confirm"))
         okButton = confirmSection.addSubView(TextButton(NaN,NaN,"OK",confirmSection,"ok"))//ok button
         cancelButton = confirmSection.addSubView(TextButton(NaN,NaN,"Cancel",confirmSection,"cancel"))//cancel button (stops the sync)
