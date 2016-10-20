@@ -23,7 +23,7 @@ class CommitDialogView:TitleView{
      */
     func createGUI(){
         //Title:[Added Auto-fill when drawing rect]
-        
+        titleTextInput = addSubView(TextInput(width, 32, "keychain user: ", PrefsView.keychainUserName!, self))
         //Description: [multiline 300x200 TextArea]
         //Ok,Cancel buttons
 
