@@ -26,7 +26,7 @@ class CommitDialogView:TitleView{
     func createGUI(){
         let guiContainer = addSubView(Container(frame.width,frame.height,self,"gui"))
         
-        guiContainer.addSubView(Element(NaN, NaN, guiContainer, "ruler"))
+        guiContainer.addSubView(Element(NaN, NaN, guiContainer, "topRuler"))
         
         //Title:[Added Auto-fill when drawing rect]
         titleTextInput = guiContainer.addSubView(TextInput(width, 32, "Commit title: ", "Added support for padding", guiContainer))
