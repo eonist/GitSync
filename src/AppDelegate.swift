@@ -15,9 +15,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("GitSync - A really simple Git app")
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
         
-        //win = MainWin(MainView.w,MainView.h)
+        win = MainWin(MainView.w,MainView.h)
         //win = ConflictDialogWin(400,530)
-        win = CommitDialogWin(400,356)
+        //win = CommitDialogWin(400,356)
         
         let url:String = "~/Desktop/ElCapitan/gitsync.css"
         fileWatcher = FileWatcher([url.tildePath])
@@ -36,7 +36,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
-            //add Repository: Element -iOS Text's to CommitDialog
             //move the menuview to the top, and do the GUI design from that screen, textbased with a bottom line (because the reason osx doesnt use bottom menues is because there is a system wide bottom menu)
         
             //RepoDetailView should have a CheckBoxButton: Auto-sync
