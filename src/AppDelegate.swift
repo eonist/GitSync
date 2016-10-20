@@ -12,7 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
-        Swift.print("GitSync - A really simple Git app")
+        Swift.print("GitSync - A simple Git app")
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
         
         win = MainWin(MainView.w,MainView.h)
