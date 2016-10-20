@@ -38,7 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
             //move the menuview to the top, and do the GUI design from that screen, textbased with a bottom line (because the reason osx doesnt use bottom menues is because there is a system wide bottom menu)
         
-            //add ConflicDialog to its own window because the GitSync win may be very small
+
             //Use The CSS from DrawLab promt win, grey etc, and DialogWin
             //make the CommitPromtDialog (Title,Description) <- prepopulate with derived data
         
