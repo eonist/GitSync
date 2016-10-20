@@ -29,9 +29,9 @@ class CommitDialogView:TitleView{
         guiContainer.addSubView(Element(NaN, NaN, guiContainer, "topRuler"))
         
         //Title:[Added Auto-fill when drawing rect]
-        titleTextInput = guiContainer.addSubView(TextInput(width, 32, "Commit title: ", "Added support for padding", guiContainer))
+        titleTextInput = guiContainer.addSubView(TextInput(width, 32, "Commit title: ", "Added support for padding", guiContainer,"title"))
         //Description: [multiline 300x200 TextArea]
-        descTextInput = guiContainer.addSubView(TextInput(width, 32, "Commit description: ", "4 Files changed", guiContainer))
+        descTextInput = guiContainer.addSubView(TextInput(width, 32, "Commit description: ", "4 Files changed", guiContainer,"desc"))
         //Ok,Cancel buttons
         
         guiContainer.addSubView(Element(NaN, NaN, guiContainer, "ruler"))
