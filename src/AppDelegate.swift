@@ -36,6 +36,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
+        
+            //Design adjustment:
+                //Add rulers to the current design , printscreen it then scrap it.
+                //Find 4 icons, Home/Rocketship, list/adressbook/book, stats, cogwheel/wrench
+                //Icons go in the TitleBar (no text) Use twitter blue 
+                //Dark mode mimicks twitter client
+                //Try different window frame size: 420x340 etc (this is the mac not ios)
+        
+        
+        
             //move the menuview to the top, and do the GUI design from that screen, textbased with a bottom line (because the reason osx doesnt use bottom menues is because there is a system wide bottom menu)
         
             //RepoDetailView should have a CheckBoxButton: Auto-sync
