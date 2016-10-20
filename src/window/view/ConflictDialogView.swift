@@ -13,9 +13,9 @@ class ConflictDialogView:TitleView{
     override func resolveSkin() {
         Swift.print("ConflictDialogView.resolveSkin()")
         super.resolveSkin()
-        //super.textArea!.setTextValue(title)
+        super.textArea!.setTextValue("Resolve merge conflict:")
         /**/
-        addSubView(TextArea(NaN,NaN,"Resolve merge conflict:",self,"conflictText"))
+        //addSubView(TextArea(NaN,NaN,"Resolve merge conflict:",self,"conflictText"))
         
         let repoText:String = "Repository: " + "Element - iOS"
         addSubView(TextArea(NaN,NaN,repoText,self,"repoText"))
