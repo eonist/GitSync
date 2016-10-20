@@ -64,7 +64,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //RBList should read from an array but only display few at the time
                 //Make sure all loose ends are covered
         //later
-            //consider using that greyish white you used on the first window demos for element
+            //consider using that greyish white you used on the first window demos for element, screen grab from ChromLessWin article
             //add darkmode checkboxbutton to prefsview
             //add logic to ConflictDialog
             //sync within individual repos from repodetailview
