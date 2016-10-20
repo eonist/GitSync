@@ -61,6 +61,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //RBList should read from an array but only display few at the time
                 //Make sure all loose ends are covered
         //later
+            //default download path in prefs
+            //drag and drop support for .git urls -> adds it self to the top of the repo list
             //use the color themes from that opensource twitter client in electron
             //add darkmode checkboxbutton to prefsview (Dark mode mimicks twitter client)
             //add logic to ConflictDialog
