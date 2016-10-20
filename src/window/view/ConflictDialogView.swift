@@ -8,15 +8,16 @@ class ConflictDialogView:TitleView{
     
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement? = nil, _ id: String? = "") {
         //self.title = "Resolve merge conflict:"//Title: Resolve sync conflict:
-        super.init(width, height, parent, "")
+        super.init(width, height, parent, "conflict")
     }
     override func resolveSkin() {
         Swift.print("ConflictDialogView.resolveSkin()")
         super.resolveSkin()
         super.textArea!.setTextValue("Resolve merge conflict:")
         /**/
-        //addSubView(TextArea(NaN,NaN,"Resolve merge conflict:",self,"conflictText"))
+        addSubView(TextArea(NaN,NaN,"Resolve merge conflict:",self,"conflictText"))
         //createGUI()
+        Swift.print(ElementParser.stackString(self))
     }
     /**
      *
