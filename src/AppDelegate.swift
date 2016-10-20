@@ -71,7 +71,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //Figure out how to speed up live-refresh in Element (think object-trees)
             //Use the san-fran font (if you can find it)
             //at the end of commits list place a button with the text: named load more (load 20 at the time)
-            //UI-sounds similar to WebTorrent
+            //when you use the app for the first time, there is a demo repo added, hello-world from eonist
         
     }
     func applicationWillTerminate(aNotification:NSNotification) {
