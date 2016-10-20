@@ -36,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
-        
+            //add Repository: Element -iOS Text's to CommitDialog
             //move the menuview to the top, and do the GUI design from that screen, textbased with a bottom line (because the reason osx doesnt use bottom menues is because there is a system wide bottom menu)
         
             //RepoDetailView should have a CheckBoxButton: Auto-sync
