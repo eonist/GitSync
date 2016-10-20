@@ -36,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
-            //make the CommitPromtDialog (Title,Description) <- prepopulate with derived data
+        
             //move the menuview to the top, and do the GUI design from that screen, textbased with a bottom line (because the reason osx doesnt use bottom menues is because there is a system wide bottom menu)
         
             //RepoDetailView should have a CheckBoxButton: Auto-sync
