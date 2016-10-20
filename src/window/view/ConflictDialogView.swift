@@ -16,6 +16,12 @@ class ConflictDialogView:TitleView{
         super.textArea!.setTextValue("Resolve merge conflict:")
         /**/
         //addSubView(TextArea(NaN,NaN,"Resolve merge conflict:",self,"conflictText"))
+        //createGUI()
+    }
+    /**
+     *
+     */
+    func createGUI(){
         
         let repoText:String = "Repository: " + "Element - iOS"
         addSubView(TextArea(NaN,NaN,repoText,self,"repoText"))
@@ -31,7 +37,7 @@ class ConflictDialogView:TitleView{
         addSubView(TextButton(NaN,NaN,"Review remote version",self,"reviewBtn"))
         addSubView(TextButton(NaN,NaN,"Review mix version",self,"reviewBtn"))
         /**/
-        //Create 3 RadioButtons in a collumn: (keep local,remote, mix)
+         //Create 3 RadioButtons in a collumn: (keep local,remote, mix)
         
         let rb1 = addSubView(RadioButton(NaN,NaN,"keep local version",true,self))
         let rb2 = addSubView(RadioButton(NaN,NaN,"keep remote version",false,self))
@@ -41,7 +47,7 @@ class ConflictDialogView:TitleView{
             Swift.print("event.selectable: " + "\(event)")
         }
         selectGroup.event = onSelectGroupChange
-       
+        
         /**/
         //A checkBoxButton:[x] apply to all conflicts in this repo's (reset after sync complete)
         
@@ -61,7 +67,7 @@ class ConflictDialogView:TitleView{
         //sync(repos[0])
         //if(sync has conflict)
         //conflictResolutionPopUp()
-   
+        
         //when you click ok:
         //Alter static class var's (conflictSolved = true)//remember to reset this
         //init looping the static repo list
@@ -71,7 +77,7 @@ class ConflictDialogView:TitleView{
         //empty the syncRepoList in MainView
         //restart timer
         //Navigate.setView(CommitView)
-         /**/
+        /**/
     }
     func onOkButtonRelease(event:ButtonEvent)  {
         Swift.print("onOkButtonRelease")
