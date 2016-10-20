@@ -15,8 +15,8 @@ class Navigation {
         let mainView:MainView = MainWin.mainView!
         if(mainView.currentView != nil) {mainView.currentView!.removeFromSuperview()}
         
-        let width:CGFloat = CommitsView.w
-        let height:CGFloat = CommitsView.h
+        let width:CGFloat = MainView.w
+        let height:CGFloat = MainView.h
         /**
          * TODO: Use class name instead of static let strings
          */
