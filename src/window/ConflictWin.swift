@@ -1,5 +1,5 @@
 import Foundation
 
-class ConflictWin {
+class ConflictWin:Window {
 
 }
