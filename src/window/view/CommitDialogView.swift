@@ -17,7 +17,7 @@ class CommitDialogView:TitleView{
         super.resolveSkin()
         super.textArea!.setTextValue("Commit message:")
         
-        //createGUI()
+        createGUI()
         //Swift.print(ElementParser.stackString(self))
     }
     /**
