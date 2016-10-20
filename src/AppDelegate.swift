@@ -60,6 +60,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //should the list be scrollable, while syncing?
                 //Should the sync area be behind the list?
                 //should the sync area be visible when the timer sets gitsync in sync mode?
+                //RBList should read from an array but only display few at the time
                 //Make sure all loose ends are covered
         //later
             //add darkmode checkboxbutton to prefsview
