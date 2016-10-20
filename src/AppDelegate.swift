@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //win = MainWin(MainView.w,MainView.h)
         //win = ConflictDialogWin(400,530)
-        win = CommitDialogWin(400,400)
+        win = CommitDialogWin(400,380)
         
         let url:String = "~/Desktop/ElCapitan/gitsync.css"
         fileWatcher = FileWatcher([url.tildePath])
