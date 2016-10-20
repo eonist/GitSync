@@ -38,7 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Continue here:
         
             //Design adjustment:
-                //Add rulers to the current design , printscreen it then scrap it. (Why, because it should be even simpler)
+                //scrap it the current design . (Why, because it should be even simpler, and the current look looks a bit too much like a website not an app)
                 //Find 4 icons, Home/Rocketship, list/adressbook/book, stats, cogwheel/wrench
                 //Icons go in the TitleBar (no text) Use twitter blue 
                 //Dark mode mimicks twitter client
