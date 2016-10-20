@@ -1,7 +1,7 @@
 import Cocoa
 /**
  * This is the main class for the application
- * TODO: An idea is to hide the interface when the mouse is not over the app (anim in and out)
+ * TODO: An idea is to hide the interface when the mouse is not over the app (anim in and out) (maybe)
  */
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -36,18 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
-        
-            //Design adjustment:
-                //scrap it the current design . (Why, because it should be even simpler, and the current look looks a bit too much like a website not an app)
-                //Find 4 icons, Home/Rocketship, list/adressbook/book, stats, cogwheel/wrench
-                //Icons go in the TitleBar (no text) Use twitter blue 
-                //Dark mode mimicks twitter client
-                //Try different window frame size: 420x340 etc (this is the mac not ios)
-        
-        
-        
             //move the menuview to the top, and do the GUI design from that screen, textbased with a bottom line (because the reason osx doesnt use bottom menues is because there is a system wide bottom menu)
-        
             //RepoDetailView should have a CheckBoxButton: Auto-sync
             //PrefsView should  have the Auto-sync-intervall: (as its too complicated to have individual timers, too much can go wrong)
             //path picker for localPath in repodetailview (folder icon)
@@ -73,7 +62,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //Make sure all loose ends are covered
         //later
             //use the color themes from that opensource twitter client in electron
-            //add darkmode checkboxbutton to prefsview
+            //add darkmode checkboxbutton to prefsview (Dark mode mimicks twitter client)
             //add logic to ConflictDialog
             //sync within individual repos from repodetailview
             //make the statsview Just add 2 text objects, Commits today: and Commits this week
