@@ -6,6 +6,7 @@ class MainView:TitleView{
     var title:String/*the title must be set after the init of the Window instance*/
     var menuView:MenuView?
     var currentView:Element?
+    var conflictDialogWin:ConflictDialogWin?
     
     init(_ width: CGFloat, _ height: CGFloat,_ title:String = "", _ parent: IElement? = nil, _ id: String? = "") {
         self.title = title
@@ -21,8 +22,7 @@ class MainView:TitleView{
         menuView = addSubView(MenuView(240,48,self))
         Align.align(menuView!, CGSize(width/**/,height/**/), Alignment.bottomCenter, Alignment.bottomCenter,CGPoint(0,0))
         
-        let conflictDialogWin = ConflictDialogWin(400,500)
-        conflictDialogWin
+        conflictDialogWin = ConflictDialogWin(400,500)
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
