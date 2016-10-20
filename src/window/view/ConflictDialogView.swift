@@ -15,7 +15,7 @@ class ConflictDialogView:TitleView{
         super.resolveSkin()
         super.textArea!.setTextValue("Resolve merge conflict:")
         /**/
-        addSubView(TextArea(NaN,NaN,"Resolve merge conflict:",self,"conflictText"))
+        //addSubView(TextArea(NaN,NaN,"Resolve merge conflict:",self,"conflictText"))
         //createGUI()
     }
     /**
