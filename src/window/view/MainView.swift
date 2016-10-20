@@ -10,7 +10,7 @@ class MainView:TitleView{
     
     init(_ width: CGFloat, _ height: CGFloat,_ title:String = "", _ parent: IElement? = nil, _ id: String? = "") {
         self.title = title
-        super.init(width, height, parent, "doc")
+        super.init(width, height, parent, "main")
     }
     override func resolveSkin() {
         Swift.print("MainView.resolveSkin()")
