@@ -1,4 +1,4 @@
-## A really simple git app  
+## A simple git app  
 
 <img width="354" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/Screen Shot 2016-10-09 at 21.19.40.png"><img width="354" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/Screen Shot 2016-10-10 at 21.00.13.png">
 
