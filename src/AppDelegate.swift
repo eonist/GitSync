@@ -81,7 +81,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             xml.appendChild("<keychainUserName>\(PrefsView.keychainUserName!)</keychainUserName>".xml)
             xml.appendChild("<gitConfigUserName>\(PrefsView.gitConfigUserName!)</gitConfigUserName>".xml)
             xml.appendChild("<gitEmailName>\(PrefsView.gitEmailNameText!)</gitEmailName>".xml)
-            xml.appendChild("<uiSounds>\(String(PrefsView.uiSoundsCheck!))</uiSounds>".xml)
+            xml.appendChild("<uiSounds>\(String(PrefsView.uiSounds!))</uiSounds>".xml)
             FileModifier.write("~/Desktop/gitsyncprefs.xml".tildePath, xml.XMLString)
         }
         //store the repo xml

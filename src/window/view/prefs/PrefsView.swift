@@ -26,17 +26,17 @@ class PrefsView:Element {
         PrefsView.uiSounds = xml.firstNode("uiSounds")!.stringValue!.bool
         
         //keychain-user-name (TextInput)
-        keychainUserNameTextInput = addSubView(TextInput(width, 32, "keychain user: ", PrefsView.keychainUserName!, self))
+        keychainUserNameTextInput = addSubView(TextInput(width, NaN, "keychain user: ", PrefsView.keychainUserName!, self))
         //Git-Config-UserName
-        gitConfigUserNameTextInput = addSubView(TextInput(width, 32, "Git Config User: ", PrefsView.gitConfigUserName!, self))
+        gitConfigUserNameTextInput = addSubView(TextInput(width, NaN, "Git Config User: ", PrefsView.gitConfigUserName!, self))
         //Git-Config-EmailName
-        gitEmailNameTextInput = addSubView(TextInput(width, 32, "Git Config Email: ", PrefsView.gitEmailNameText!, self))
+        gitEmailNameTextInput = addSubView(TextInput(width, NaN, "Git Config Email: ", PrefsView.gitEmailNameText!, self))
         //defaultLocalPath
-        defaultLocalPathTextInput = addSubView(TextInput(width, 32, "Default local path: ", PrefsView.defaultLocalPath, self))
+        defaultLocalPathTextInput = addSubView(TextInput(width, NaN, "Default local path: ", PrefsView.defaultLocalPath, self))
         //UI sounds [x]
-        uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, 32, "UI sounds: ", PrefsView.uiSounds!, self))
+        uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, NaN, "UI sounds: ", PrefsView.uiSounds!, self))
         //Dark mode:
-        darkModeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Dark mode: ", PrefsView.darkMode, self))
+        darkModeCheckBoxButton = addSubView(CheckBoxButton(width, NaN, "Dark mode: ", PrefsView.darkMode, self))
     }
     override func onEvent(event: Event) {
         Swift.print("PrefsView.onEvent")
@@ -49,7 +49,7 @@ class PrefsView:Element {
         }else if(event.type == Event.update && event.immediate === gitEmailNameTextInput){
             PrefsView.gitEmailNameText = (event as! TextFieldEvent).stringValue
         }else if(event.type == CheckEvent.check && event.immediate === uiSoundsCheckBoxButton){
-            PrefsView.uiSoundsCheck = (event as! CheckEvent).isChecked
+            PrefsView.uiSounds = (event as! CheckEvent).isChecked
         }
     }
 }
