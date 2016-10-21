@@ -3,11 +3,11 @@ import Cocoa
 class Sounds {
     static let path:String = "~/_projects/_code/_active/swift/GitSyncOSX/try_these_sounds/"
     static let add:NSSound? = NSSound(contentsOfFile:(path + "add.wav").tildePath, byReference:true)
-    static let delete:String = (path + "delete.wav").tildePath
-    static let disable:String = (path + "disable.wav").tildePath
-    static let done:String = (path + "done.wav").tildePath
-    static let enable:String = (path + "enable.wav").tildePath
-    static let error:String = (path + "error.wav").tildePath
-    static let play:String = (path + "v.wav").tildePath
-    static let startup:String = (path + "startup.wav").tildePath
+    static let delete:NSSound? = NSSound(contentsOfFile:(path + "delete.wav").tildePath, byReference:true)
+    static let disable:NSSound? = NSSound(contentsOfFile:(path + "disable.wav").tildePath, byReference:true)
+    static let done:NSSound? = NSSound(contentsOfFile:(path + "done.wav").tildePath, byReference:true)
+    static let enable:NSSound? = NSSound(contentsOfFile:(path + "enable.wav").tildePath, byReference:true)
+    static let error:NSSound? = NSSound(contentsOfFile:(path + "error.wav").tildePath, byReference:true)
+    static let play:NSSound? = NSSound(contentsOfFile:(path + "v.wav").tildePath, byReference:true)
+    static let startup:NSSound? = NSSound(contentsOfFile:(path + "startup.wav").tildePath, byReference:true)
 }
