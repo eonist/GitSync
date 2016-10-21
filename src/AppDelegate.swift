@@ -36,7 +36,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
-            //review old designs
             //finish the dialog designs
             //graph
             //commitDetailView
