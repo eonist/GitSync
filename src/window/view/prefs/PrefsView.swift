@@ -6,11 +6,14 @@ class PrefsView:Element {
     static var keychainUserName:String?
     static var gitConfigUserName:String?
     static var gitEmailNameText:String?
+    static var defaultLocalPath:String = "~/Documents/"
     static var uiSoundsCheck:Bool?
     var keychainUserNameTextInput:TextInput?
     var gitConfigUserNameTextInput:TextInput?
     var gitEmailNameTextInput:TextInput?
     var uiSoundsCheckBoxButton:CheckBoxButton?
+    var defaultLocalPathTextInput:CheckBoxButton?
+    
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
         
@@ -26,6 +29,8 @@ class PrefsView:Element {
         gitConfigUserNameTextInput = addSubView(TextInput(width, 32, "Git Config User: ", PrefsView.gitConfigUserName!, self))
         //Git-Config-EmailName
         gitEmailNameTextInput = addSubView(TextInput(width, 32, "Git Config Email: ", PrefsView.gitEmailNameText!, self))
+        //defaultLocalPath
+        defaultLocalPathTextInput = addSubView(TextInput(width, 32, "Default local path: ", PrefsView.gitEmailNameText!, self))
         //UI sounds [x]
         uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, 32, "UI sounds: ", PrefsView.uiSoundsCheck!, self))
     }
