@@ -34,7 +34,7 @@ class MenuView:Element{
             let filePath:String = "~/_projects/_code/_active/swift/GitSyncOSX/try_these_sounds/enable.wav".tildePath
             let url = FilePathParser.path(filePath)
             Swift.print("url: " + "\(url)")
-            let sound:NSSound? = NSSound(contentsOfURL: filePath, byReference: true)
+            let sound:NSSound? = NSSound(contentsOfFile:filePath, byReference:true)
             Swift.print("sound: " + "\(sound)")
             sound?.play()
             Navigation.setView(buttonId)
