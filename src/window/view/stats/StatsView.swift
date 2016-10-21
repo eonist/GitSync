@@ -22,7 +22,9 @@ class StatsView:Element {
         //Day-mode:
             //create left bar
                 //get max count in timeArr
-                
+                //if maxCount is odd or 0
+                    //add 1 to maxCount
+                //
             //create bottom bar
                 //create 6 Text with the (6part time)
                 //each text should have 16.66% width and be centered
