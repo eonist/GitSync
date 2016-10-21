@@ -1,8 +1,8 @@
-import Foundation
+import Cocoa
 
 class Sounds {
     static let path:String = "~/_projects/_code/_active/swift/GitSyncOSX/try_these_sounds/"
-    static let add:String = (path + "add.wav").tildePath
+    static let add:NSSound? = NSSound(contentsOfFile:(path + "add.wav").tildePath, byReference:true)
     static let delete:String = (path + "delete.wav").tildePath
     static let disable:String = (path + "disable.wav").tildePath
     static let done:String = (path + "done.wav").tildePath
