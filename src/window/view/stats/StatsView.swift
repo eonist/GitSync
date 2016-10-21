@@ -17,7 +17,9 @@ class StatsView:Element {
         
         //get the commit count from git where the user is Eonist
         //Day-mode:
-        
+            //create left bar
+            //create bottom bar
+                //
         
     }
 }
