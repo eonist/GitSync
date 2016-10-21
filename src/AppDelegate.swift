@@ -65,6 +65,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //Make sure all loose ends are covered
         //later
             //Contemplate sort of pinching from one time mode to another, with a sort of pop between transitions (<--killer UI idea, A prodHunt instant hit!)
+            //Instead of adding left and right buttons in stats, just use left-right swipe gestures (pop transitions between weeks/days/months/years)
             //adjust the dialog designs
             //drag and drop support for .git urls -> adds it self to the top of the repo list
             //use the color themes from that opensource twitter client in electron
