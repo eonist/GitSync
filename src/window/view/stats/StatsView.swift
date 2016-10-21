@@ -15,10 +15,13 @@ class StatsView:Element {
         //M,T,W,T,F,S,S
         //Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
         
-        //get the commit count from git where the user is Eonist
+        //for all repos:
+            //get the commits from today
+            //get the commit count from git where the user is Eonist
+        
         //Day-mode:
             //create left bar
-                
+        
             //create bottom bar
                 //create 6 Text with the (6part time)
                 //each text should have 16.66% width and be centered
