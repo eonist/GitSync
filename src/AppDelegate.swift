@@ -38,7 +38,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Continue here:
             //review old designs
             //finish the dialog designs
-            
+            //graph
+            //commitDetailView
         
             //RepoDetailView should have a CheckBoxButton: Auto-sync
             //PrefsView should  have the Auto-sync-intervall: (as its too complicated to have individual timers, too much can go wrong)
