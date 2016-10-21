@@ -36,6 +36,7 @@ class RepoView:Element {
         Navigation.setView(MenuView.commits)
     }
     func onListSelect(){
+        Sounds.play?.play()
         Navigation.setView(String(RepoDetailView))
         RepoView.selectedListItemIndex = list!.selectedIndex
         let repoItem:Dictionary<String,String> = list!.dataProvider.getItemAt(RepoView.selectedListItemIndex)!

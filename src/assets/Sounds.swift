@@ -8,6 +8,6 @@ class Sounds {
     static let done:NSSound? = NSSound(contentsOfFile:(path + "done.wav").tildePath, byReference:true)
     static let enable:NSSound? = NSSound(contentsOfFile:(path + "enable.wav").tildePath, byReference:true)
     static let error:NSSound? = NSSound(contentsOfFile:(path + "error.wav").tildePath, byReference:true)
-    static let play:NSSound? = NSSound(contentsOfFile:(path + "v.wav").tildePath, byReference:true)
+    static let play:NSSound? = NSSound(contentsOfFile:(path + "play.wav").tildePath, byReference:true)
     static let startup:NSSound? = NSSound(contentsOfFile:(path + "startup.wav").tildePath, byReference:true)
 }
