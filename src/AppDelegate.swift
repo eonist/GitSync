@@ -36,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
-            //finish the dialog designs
+        
             //graph
             //commitDetailView
         
@@ -64,7 +64,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //RBList should read from an array but only display few at the time
                 //Make sure all loose ends are covered
         //later
-
+            //adjust the dialog designs
             //drag and drop support for .git urls -> adds it self to the top of the repo list
             //use the color themes from that opensource twitter client in electron
             //Dark mode mimicks twitter client
