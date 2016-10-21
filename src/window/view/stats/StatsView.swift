@@ -64,7 +64,7 @@ class StatsView:Element {
             //Realign components
         
         //GraphTypePicker
-            //TabBar with: Day/Week/Month
-        //Time Iterator Left and right stepper use the left and right arrows similar to the up and down arrows in stepper 
+            //TabBar with: Day/Week/Month (center aligned)
+        //Time Iterator Left and right stepper use the left and right arrows similar to the up and down arrows in stepper (right aligned) (use the stepper just horizontally aligned)
     }
 }
