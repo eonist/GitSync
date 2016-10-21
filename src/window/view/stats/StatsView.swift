@@ -24,7 +24,10 @@ class StatsView:Element {
                 //get max count in timeArr
                 //if maxCount is odd or 0
                     //add 1 to maxCount
-                //
+                //use 4 text items
+                //4.forEach
+                    //textStr =  (maxCount / 4) * i
+                    
             //create bottom bar
                 //create 6 Text with the (6part time)
                 //each text should have 16.66% width and be centered
