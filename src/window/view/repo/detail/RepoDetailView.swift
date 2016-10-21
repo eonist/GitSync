@@ -73,10 +73,12 @@ class RepoItemTopBar:Element{
     }
     func onBackButtonClick(){
         Swift.print("onBackButtonClick()")
+        Sounds.disable?.play()
         Navigation.setView(MenuView.repos)
     }
     func onRemoveButtonClick(){
         Swift.print("onRemoveButtonClick")
+        Sounds.delete?.play()
         RepoView.dp!.removeItemAt(RepoView.selectedListItemIndex)//remove from item from RepoView.list at the repoView.list.selectedIndex
         RepoView.selectedListItemIndex = -1//-1 means no item is selected
         Navigation.setView(MenuView.repos)
