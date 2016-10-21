@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 /**
  * NOTE: The reasoning behind having this menu is that when a skeptical user tries the app for the first time, the first thing they do is browse around. If the menu system is too clever they wont even do that. 
  */
@@ -31,6 +31,9 @@ class MenuView:Element{
         if(event.assert(SelectGroupEvent.change, selectGroup)){
             let buttonId:String = (selectGroup!.selected as! Element).id!
             Swift.print("MainMenu.onSelect() buttonId: " + "\(buttonId)")
+            FilePathParser.path("~/Desktop/")
+            var sound = NSSound(contentsOfURL: <#T##NSURL#>, byReference: true)
+            sound.play()
             Navigation.setView(buttonId)
         }
     }
