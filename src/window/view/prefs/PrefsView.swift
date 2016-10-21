@@ -7,12 +7,14 @@ class PrefsView:Element {
     static var gitConfigUserName:String?
     static var gitEmailNameText:String?
     static var defaultLocalPath:String = "~/Documents/"
-    static var uiSoundsCheck:Bool?
+    static var uiSounds:Bool?
+    static var darkMode:Bool = false
     var keychainUserNameTextInput:TextInput?
     var gitConfigUserNameTextInput:TextInput?
     var gitEmailNameTextInput:TextInput?
+    var defaultLocalPathTextInput:TextInput?
     var uiSoundsCheckBoxButton:CheckBoxButton?
-    var defaultLocalPathTextInput:CheckBoxButton?
+    var darkModeCheckBoxButton:CheckBoxButton?
     
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
@@ -21,7 +23,7 @@ class PrefsView:Element {
         PrefsView.keychainUserName = xml.firstNode("keychainUserName")!.stringValue
         PrefsView.gitConfigUserName = xml.firstNode("gitConfigUserName")!.stringValue
         PrefsView.gitEmailNameText = xml.firstNode("gitEmailName")!.stringValue
-        PrefsView.uiSoundsCheck = xml.firstNode("uiSounds")!.stringValue!.bool
+        PrefsView.uiSounds = xml.firstNode("uiSounds")!.stringValue!.bool
         
         //keychain-user-name (TextInput)
         keychainUserNameTextInput = addSubView(TextInput(width, 32, "keychain user: ", PrefsView.keychainUserName!, self))
@@ -30,9 +32,11 @@ class PrefsView:Element {
         //Git-Config-EmailName
         gitEmailNameTextInput = addSubView(TextInput(width, 32, "Git Config Email: ", PrefsView.gitEmailNameText!, self))
         //defaultLocalPath
-        defaultLocalPathTextInput = addSubView(TextInput(width, 32, "Default local path: ", PrefsView.gitEmailNameText!, self))
+        defaultLocalPathTextInput = addSubView(TextInput(width, 32, "Default local path: ", PrefsView.defaultLocalPath, self))
         //UI sounds [x]
-        uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, 32, "UI sounds: ", PrefsView.uiSoundsCheck!, self))
+        uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, 32, "UI sounds: ", PrefsView.uiSounds!, self))
+        //Dark mode:
+        darkModeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Dark mode: ", PrefsView.darkMode, self))
     }
     override func onEvent(event: Event) {
         Swift.print("PrefsView.onEvent")
