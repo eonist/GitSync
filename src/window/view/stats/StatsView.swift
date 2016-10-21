@@ -27,11 +27,13 @@ class StatsView:Element {
                 //use 4 text items
                 //4.forEach
                     //textStr =  (maxCount / 4) * i
-                    
+        
             //create bottom bar
                 //create 6 Text with the (6part time)
                 //each text should have 16.66% width and be centered
                 //height should be 24px, top-margin 6 and height 12 and size 12
+        
+            //align 
         
     }
 }
