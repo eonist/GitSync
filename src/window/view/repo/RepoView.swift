@@ -1,6 +1,6 @@
 import Foundation
 /**
- * TODO: should remember previouse selected item between transitions
+ * TODO: should remember previous selected item between transitions
  */
 class RepoView:Element {
     var topBar:TopBar?
