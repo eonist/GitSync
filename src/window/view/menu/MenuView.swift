@@ -32,8 +32,7 @@ class MenuView:Element{
             let buttonId:String = (selectGroup!.selected as! Element).id!
             Swift.print("MainMenu.onSelect() buttonId: " + "\(buttonId)")
             let filePath:String = "~/_projects/_code/_active/swift/GitSyncOSX/try_these_sounds/enable.wav".tildePath
-            let url = FilePathParser.path(filePath)
-            Swift.print("url: " + "\(url)")
+            
             let sound:NSSound? = NSSound(contentsOfFile:filePath, byReference:true)
             Swift.print("sound: " + "\(sound)")
             sound?.play()
