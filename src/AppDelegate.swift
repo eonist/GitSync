@@ -36,7 +36,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here:
+            //review old designs
+            //finish the dialog designs
             
+        
             //RepoDetailView should have a CheckBoxButton: Auto-sync
             //PrefsView should  have the Auto-sync-intervall: (as its too complicated to have individual timers, too much can go wrong)
             //path picker for localPath in repodetailview (folder icon)
@@ -61,10 +64,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //RBList should read from an array but only display few at the time
                 //Make sure all loose ends are covered
         //later
-            //default download path in prefs
+
             //drag and drop support for .git urls -> adds it self to the top of the repo list
             //use the color themes from that opensource twitter client in electron
-            //add darkmode checkboxbutton to prefsview (Dark mode mimicks twitter client)
+            //Dark mode mimicks twitter client
             //add logic to ConflictDialog
             //sync within individual repos from repodetailview
             //make the statsview Just add 2 text objects, Commits today: and Commits this week
