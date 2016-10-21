@@ -18,8 +18,11 @@ class StatsView:Element {
         //get the commit count from git where the user is Eonist
         //Day-mode:
             //create left bar
+                
             //create bottom bar
-                //
+                //create 6 Text with the (6part time)
+                //each text should have 16.66% width and be centered
+                //height should be 24px, top-margin 6 and height 12 and size 12
         
     }
 }
