@@ -19,7 +19,8 @@ class StatsView:Element {
             //get the commits from today where the user is Eonist
                 //store the time in an [[Int]] (basically a arr with an arr of times)
                 //if time is between 20:00 and 00:00, add to timeArr[0]
-        //Day-mode:
+        
+        //Graph.swift component
             //create left bar
                 //get max count in timeArr
                 //if maxCount is odd or 0
@@ -33,7 +34,37 @@ class StatsView:Element {
                 //each text should have 16.66% width and be centered
                 //height should be 24px, top-margin 6 and height 12 and size 12
         
-            //align 
+            //align/scale everything dynamically not via css
         
+            //The graph drawing:
+                //calc the graphPoints:
+                    //use the vSpace and hSpace
+                    //hCount.forEach
+                    //points += (x:hSpace*i,y:vSpace*timeArr[i].count)
+                //line
+                    //use PathGraphic w/ PathParser.points(graph points)
+                //Points
+                    //graphPoints.forEach
+                        //create Button#graph
+                        //style the button similar to VolumSlider knob (find isnp for this in ios)
+                        //set the size as 12px and offset to -6 (so that its centered)
+        
+        
+        
+        //DayGraph:Graph
+            //override var timeUnits etc
+        //WeekGraph
+        //MonthGraph
+        //YearGraph
+        //AllGraph
+        
+        //onResize
+            //recalc spacing
+            //height should be uniform to the width
+            //Realign components
+        
+        //GraphTypePicker
+            //TabBar with: Day/Week/Month
+        //Time Iterator Left and right stepper use the left and right arrows similar to the up and down arrows in stepper 
     }
 }
