@@ -16,9 +16,9 @@ class StatsView:Element {
         //Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
         
         //for all repos:
-            //get the commits from today
-            //get the commit count from git where the user is Eonist
-        
+            //get the commits from today where the user is Eonist
+            //
+            //store
         //Day-mode:
             //create left bar
         
