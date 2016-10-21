@@ -20,36 +20,6 @@ class StatsView:Element {
                 //store the time in an [[Int]] (basically a arr with an arr of times)
                 //if time is between 20:00 and 00:00, add to timeArr[0]
         
-        //Graph.swift component
-            //create left bar
-                //get max count in timeArr
-                //if maxCount is odd or 0
-                    //add 1 to maxCount
-                //use 4 text items
-                //4.forEach
-                    //textStr =  (maxCount / 4) * i
-        
-            //create bottom bar
-                //create 6 Text with the (6part time)
-                //each text should have 16.66% width and be centered
-                //height should be 24px, top-margin 6 and height 12 and size 12
-        
-            //align/scale everything dynamically not via css
-        
-            //The graph drawing:
-                //calc the graphPoints:
-                    //use the vSpace and hSpace
-                    //hCount.forEach
-                    //points += (x:hSpace*i,y:vSpace*timeArr[i].count)
-                //line
-                    //use PathGraphic w/ PathParser.points(graph points)
-                //Points
-                    //graphPoints.forEach
-                        //create Button#graph
-                        //style the button similar to VolumSlider knob (find isnp for this in ios)
-                        //set the size as 12px and offset to -6 (so that its centered)
-        
-        
         
         //DayGraph:Graph
             //override var timeUnits etc
