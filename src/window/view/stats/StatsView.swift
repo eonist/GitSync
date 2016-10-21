@@ -15,7 +15,9 @@ class StatsView:Element {
         //M,T,W,T,F,S,S
         //Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
         
-        //
+        //get the commit count from git where the user is Eonist
+        //Day-mode:
+        
         
     }
 }
