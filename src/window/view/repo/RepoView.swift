@@ -11,7 +11,7 @@ class RepoView:Element {
         Swift.print("RepoView.resolveSkin()")
         
         self.skin = SkinResolver.skin(self)//super.resolveSkin()//
-        topBar = addSubView(TopBar(width-12,36,self))
+        topBar = addSubView(TopBar(width-12,NaN,self))
         
         if(RepoView.dp == nil){
             let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
