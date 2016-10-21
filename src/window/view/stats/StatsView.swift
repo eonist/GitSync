@@ -17,11 +17,11 @@ class StatsView:Element {
         
         //for all repos:
             //get the commits from today where the user is Eonist
-            //
-            //store
+                //store the time in an [[Int]] (basically a arr with an arr of times)
+                //if time is between 20:00 and 00:00, add to times[0]
         //Day-mode:
             //create left bar
-        
+                //iterate of times in the timeArray,
             //create bottom bar
                 //create 6 Text with the (6part time)
                 //each text should have 16.66% width and be centered
