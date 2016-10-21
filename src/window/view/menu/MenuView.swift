@@ -31,10 +31,11 @@ class MenuView:Element{
         if(event.assert(SelectGroupEvent.change, selectGroup)){
             let buttonId:String = (selectGroup!.selected as! Element).id!
             Swift.print("MainMenu.onSelect() buttonId: " + "\(buttonId)")
-            let url = FilePathParser.path("~/_projects/_code/_active/swift/GitSyncOSX/try_these_sounds/enable.wav")
-            
-            let sound:NSSound = NSSound(contentsOfURL: url, byReference: false)
-            sound.play()
+            let url = FilePathParser.path("~/_projects/_code/_active/swift/GitSyncOSX/try_these_sounds/enable.wav".tildePath)
+            Swift.print("url: " + "\(url)")
+            let sound:NSSound? = NSSound(contentsOfURL: url, byReference: true)
+            Swift.print("sound: " + "\(sound)")
+            sound?.play()
             Navigation.setView(buttonId)
         }
     }
