@@ -1,5 +1,7 @@
 import Foundation
-
+/**
+ * TODO: Make the review buttons as a clickable text in the keep radiobuttons.
+ */
 class ConflictDialogView:TitleView{
     private var okButton:TextButton?
     private var cancelButton:TextButton?
