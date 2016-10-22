@@ -4,6 +4,8 @@ class StatsView:Element {
     var graph:Graph?
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
+        Swift.print("StatsView.width: " + "\(width)")
+        Swift.print("StatsView.height: " + "\(height)")
         createGraph()
     }
     func createGraph(){
