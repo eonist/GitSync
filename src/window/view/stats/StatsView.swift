@@ -54,7 +54,7 @@ class StatsView:Element {
         //Night 00, Morning 06, Noon 12, evening: 18 night 00
         
         //00,03,06,09,12,15,18,21,00
-        //00a,03a,06a,09a,12a,03p,06p,09p,00a
+        //12a,03a,06a,09a,12a,03p,06p,09p,12a
         
         //for all repos:
             //get the commits from today where the user is Eonist
@@ -109,10 +109,11 @@ class MonthGraph:Graph{
             //Actually, just do this simpler: show the last 10 days (10/12,10/13,10/14 etc etc)
         
         //what if you do:
-            //year,month,day,hour
-            //month shows: jan - dec (12) (6 month on iphone)
+            //year,month,day
+            //year: 14,15,16 etc (only 2 if time only spans 1 year) (max 10 year, 5 on iphone)
+            //month: jan - dec (12) (6 month on iphone)
             //day: 10 days (5 days on iphone)
-            //hours:
+
         
         super.init(width, height, parent, id)
     }
