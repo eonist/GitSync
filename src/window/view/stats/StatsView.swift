@@ -81,6 +81,9 @@ class MonthGraph:Graph{
         let date:NSDate = NSDate.createDate(nil,4)!
         date.numOfDaysInMonth
         
+        //you need 1 until 31 as hvalnames
+        //generate hValues via random
+        
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
