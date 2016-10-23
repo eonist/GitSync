@@ -72,21 +72,19 @@ class WeekGraph:Graph{
 }
 class MonthGraph:Graph{
     override var hValues:[CGFloat] {
-        var arr:[String] = []
-        for i in 0..<numOfDaysInMonth{
-            let val:CGFloat = RangeParser
+        var arr:[CGFloat] = []
+        for _ in 0..<numOfDaysInMonth{
+            let val:CGFloat = NumberParser.random(4, 24).cgFloat
             arr.append(val)
         }
-        
-        return []
+        return arr
     }
     override var hValNames:[String] {
         var arr:[String] = []
         for i in 0..<numOfDaysInMonth{
             arr.append(i.string)
         }
-        
-        return []
+        return arr
     }
     var numOfDaysInMonth:Int
     var curMonth:Int
