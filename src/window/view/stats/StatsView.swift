@@ -62,11 +62,8 @@ class StatsView:Element {
 
 class WeekGraph:Graph{
     override var hValNames:[String] {return ["M","T","W","T","F","S","S"]}
-    override func getClassType() -> String {
-        return String(Graph)
-    }
 }
 class MonthGraph:Graph{
-    
+    override var hValNames:[String] {return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]}
 }
 
