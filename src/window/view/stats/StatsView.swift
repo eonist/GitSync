@@ -23,6 +23,18 @@ class StatsView:Element {
         let selectGroup = SelectGroup([btn1,btn2,btn3],btn1)//SelectParser.selectables(card)
         selectGroup
         
+        func onSelectGroupChange(event:Event){
+            Swift.print("event.selectable: " + "\(event)")
+            if(selectGroup.selected === btn1){
+                //set Graph to MonthGraph
+            }else if(selectGroup.selected === btn2){
+                //set graph to WeekGraph
+            }else if(selectGroup.selected === btn3){
+                //set graph to DayGraph
+            }
+        }
+        selectGroup.event = onSelectGroupChange
+        
         //Time Iterator Left and right stepper use the left and right arrows similar to the up and down arrows in stepper (right aligned) (use the stepper just horizontally aligned)
         let stepper:LeverStepper = addSubView(LeverStepper(NaN,NaN,0,1,Int.min.cgFloat,Int.max.cgFloat,0,100,200,self))
         stepper
