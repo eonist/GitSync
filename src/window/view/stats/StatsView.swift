@@ -120,6 +120,10 @@ class YearGraph:Graph{
         components.minute = 30
         newDate = calendar.dateFromComponents(components)
         */
+        
+        let date = NSDate()
+        let cal = NSCalendar(calendarIdentifier:NSCalendarIdentifierGregorian)!
+        let days = cal.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: date)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
