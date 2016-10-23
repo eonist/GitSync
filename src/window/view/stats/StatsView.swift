@@ -54,6 +54,7 @@ class StatsView:Element {
         //Night 00, Morning 06, Noon 12, evening: 18 night 00
         
         //00,03,06,09,12,15,18,21,00
+        //00a,03a,06a,09a,12,03p,06p,09p,00p
         
         //for all repos:
             //get the commits from today where the user is Eonist
@@ -109,9 +110,9 @@ class MonthGraph:Graph{
         
         //what if you do:
             //year,month,day,hour
-            //month shows: jan - dec (6 month on iphone)
+            //month shows: jan - dec (12) (6 month on iphone)
             //day: 10 days (5 days on iphone)
-            //
+            //hours:
         
         super.init(width, height, parent, id)
     }
