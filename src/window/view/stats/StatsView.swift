@@ -63,6 +63,9 @@ class StatsView:Element {
         //AllGraph
     }
 }
+/**
+ * NOTE: You need to think week 1 - 52, and teselate months into 4 and then based on the mid day in this teselation derive the week-nr. NSDate probably has support for this
+ */
 class WeekGraph:Graph{
     override var hValues:[CGFloat] {return [4,2,3,7,5,0,1]}
     override var hValNames:[String] {return ["M","T","W","T","F","S","S"]}
