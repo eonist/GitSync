@@ -80,12 +80,25 @@ class YearGraph:Graph{
     init(_ width: CGFloat, _ height: CGFloat,_ curYear:Int, _ parent: IElement?, _ id: String? = nil) {
         self.curYear = curYear
         
+        super.init(width, height, parent, id)
+        
+        
         let dateComponents = NSDateComponents()
         let day = dateComponents.day
         Swift.print("day: " + "\(day)")
         let month = dateComponents.month
         Swift.print("month: " + "\(month)")
-        super.init(width, height, parent, id)
+        
+        let currentDate = NSDate()
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.locale = NSLocale.currentLocale()
+        
+        
+        1
+        2
+        dateFormatter.dateStyle = NSDateFormatterStyle.FullStyle
+        var convertedDate = dateFormatter.stringFromDate(currentDate)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
