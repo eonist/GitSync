@@ -139,6 +139,7 @@ class MonthGraph:Graph{
             //shows stats for all repos where the user is you
             //average commit max for 10 day period
             //days show as: 10/12, 10/13, 10/14 etc etc
+            //start at the current date - 10 everytime you enter graph
         
         super.init(width, height, parent, id)
     }
