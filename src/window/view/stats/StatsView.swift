@@ -30,6 +30,8 @@ class StatsView:Element {
         func onSelectGroupChange(event:Event){
             Swift.print("event.selectable: " + "\(event)")
             if(selectGroup.selected === btn1){
+                //set Graph to YearGraph
+            }else if(selectGroup.selected === btn1){
                 //set Graph to MonthGraph
             }else if(selectGroup.selected === btn2){
                 //set graph to WeekGraph
