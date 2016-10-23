@@ -109,6 +109,17 @@ class YearGraph:Graph{
         convertedDate = dateFormatter.stringFromDate(currentDate)
         
         Swift.print("convertedDate: " + "\(convertedDate)")
+        
+        /*
+        parts to NSDate:
+        let components = NSDateComponents()
+        components.day = 5
+        components.month = 01
+        components.year = 2016
+        components.hour = 19
+        components.minute = 30
+        newDate = calendar.dateFromComponents(components)
+        */
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
