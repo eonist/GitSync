@@ -13,15 +13,15 @@ class StatsView:Element {
     func createGraph(){
         let graphContainer = addSubView(Container(width,height,self,"graph"))
         graphContainer
-        graph = graphContainer.addSubView(YearGraph(width,height-48,1,graphContainer))
+        graph = graphContainer.addSubView(MonthGraph(width,height-48,3,graphContainer))
         
         //GraphTypePicker
         let tabBar:Section = self.addSubView(Section(NaN, NaN, self, "tabBar"))
-        let btn0 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Year",true,tabBar,"first"))
-        let btn1 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Month",false,tabBar,"second"))
+        let btn0 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Year",false,tabBar,"first"))
+        let btn1 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Month",true,tabBar,"second"))
         let btn2 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Week",false,tabBar,"third"))
         let btn3 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Day",false,tabBar,"fourth"))
-        let selectGroup = SelectGroup([btn0,btn1,btn2,btn3],btn0)//SelectParser.selectables(card)
+        let selectGroup = SelectGroup([btn0,btn1,btn2,btn3],btn1)//SelectParser.selectables(card)
         selectGroup
         
         //You need some kind of indicator value on which time you are currently at
@@ -43,8 +43,6 @@ class StatsView:Element {
         //Time Iterator Left and right stepper use the left and right arrows similar to the up and down arrows in stepper (right aligned) (use the stepper just horizontally aligned)
         let stepper:LeverStepper = addSubView(LeverStepper(NaN,NaN,0,1,Int.min.cgFloat,Int.max.cgFloat,0,100,200,self))
         stepper
-        
-        
         
         //day,week,month,year,all (focus on day and week)
         //12a 1a 2a 3a 4a 5a 6a 7a 8a 9a 10a 11a 12p 1p 2p 3p 4p 5p 6p 7p 8p 9p 10p 11p
