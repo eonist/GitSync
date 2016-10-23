@@ -113,6 +113,9 @@ class MonthGraph:Graph{
             //year: 14,15,16 etc (only 2 if time only spans 1 year) (max 10 year, 5 on iphone)
             //month: jan - dec (12) (6 month on iphone)
             //day: 10 days (5 days on iphone)
+        
+            //gestures then bounce the graph left,right, up and down
+                //left and right gestures transform the graph to earlier time periods
 
         
         super.init(width, height, parent, id)
