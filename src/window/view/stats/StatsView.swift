@@ -81,7 +81,7 @@ class MonthGraph:Graph{
     }
     override var hValNames:[String] {
         var arr:[String] = []
-        for i in 0..<numOfDaysInMonth{//you need 1 until numOfDaysInMonth as hvalnames
+        for i in 1...numOfDaysInMonth{//you need 1 until numOfDaysInMonth as hvalnames
             arr.append(i.string)
         }
         return arr
