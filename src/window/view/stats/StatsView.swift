@@ -1,5 +1,7 @@
 import Foundation
-
+/**
+ * TODO: Consider making the graph component bouncy and zoomable (with time elements that tesselate)
+ */
 class StatsView:Element {
     var graph:Graph?
     override func resolveSkin() {
@@ -11,7 +13,7 @@ class StatsView:Element {
     func createGraph(){
         let graphContainer = addSubView(Container(width,height,self,"graph"))
         graphContainer
-        graph = graphContainer.addSubView(WeekGraph(width,height-48,graphContainer))
+        graph = graphContainer.addSubView(MonthGraph(width,height-48,graphContainer))
         
         //GraphTypePicker
         let tabBar:Section = self.addSubView(Section(NaN, NaN, self, "tabBar"))
@@ -42,16 +44,8 @@ class StatsView:Element {
         
         //DayGraph:Graph
             //override var timeUnits etc
-        //WeekGraph
-        //MonthGraph
         //YearGraph
         //AllGraph
-        
-                
-        
-        
-        
-        //Consider making the graph component bouncy and zoomable (with time elements that tesselate)
     }
 }
 
