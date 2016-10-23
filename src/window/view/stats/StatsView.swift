@@ -78,10 +78,9 @@ class MonthGraph:Graph{
         self.curMonth = curMonth
         super.init(width, height, parent, id)
         
-      
-        
-        let date:NSDate = NSDate.createDate(nil,4)
+        let date:NSDate = NSDate.createDate(nil,4)!
         date.numOfDaysInMonth
+        
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
