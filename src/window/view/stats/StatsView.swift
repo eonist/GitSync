@@ -110,11 +110,14 @@ class MonthGraph:Graph{
  */
 class YearGraph:Graph{
     override var hValNames:[String] {
+        return ["Jan,Feb,Mar","Apr,May,Jun","Jul,Aug,Sep","Oct,Nov,Dec"]
         //return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-        return ["Jan","","","Apr","","","Jul","","","Oct","",""]
         //return ["1","2","3","4","5","6","7","8","9","10","11","12"]
     }
-    override var hValues:[CGFloat] {return [14,8,13,17,25,9,14,20,33,25,15,19]}
+    override var hValues:[CGFloat] {
+        return [14+8+13,17+25+9,14+20+33,25+15,19]
+        //return [14,8,13,17,25,9,14,20,33,25,15,19]
+    }
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement?, _ id: String? = nil) {
         super.init(width, height, parent, id)
         
