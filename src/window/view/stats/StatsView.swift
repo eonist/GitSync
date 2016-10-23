@@ -19,7 +19,7 @@ class StatsView:Element {
         //let rightSection:Section = self.addSubView(Section(NaN, NaN, self, "right"))
         //let button:Button = self.addSubView(Button(NaN,NaN,self,"right"))
         //button
-        let stepper:LeverStepper = addSubView(LeverStepper(NaN,NaN,0,1,Int.min.cgFloat,Int.max.cgFloat,0,100,200,self,"right"))
+        let stepper:LeverStepper = addSubView(LeverStepper(NaN,NaN,0,1,Int.min.cgFloat,Int.max.cgFloat,0,100,200,self))
         stepper
         
         
