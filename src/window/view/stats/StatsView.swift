@@ -23,6 +23,9 @@ class StatsView:Element {
         let selectGroup = SelectGroup([btn1,btn2,btn3],btn1)//SelectParser.selectables(card)
         selectGroup
         
+        //You need some kind of indicator value on which time you are currently at
+        //
+        
         func onSelectGroupChange(event:Event){
             Swift.print("event.selectable: " + "\(event)")
             if(selectGroup.selected === btn1){
