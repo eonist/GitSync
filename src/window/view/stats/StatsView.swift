@@ -13,7 +13,7 @@ class StatsView:Element {
     func createGraph(){
         let graphContainer = addSubView(Container(width,height,self,"graph"))
         graphContainer
-        graph = graphContainer.addSubView(MonthGraph(width,height-48,3,graphContainer))
+        graph = graphContainer.addSubView(MonthGraph(width,height-48,4,graphContainer))
         
         //GraphTypePicker
         let tabBar:Section = self.addSubView(Section(NaN, NaN, self, "tabBar"))
@@ -81,11 +81,11 @@ class MonthGraph:Graph{
         //parts to NSDate:
         let calendar = NSCalendar.currentCalendar()
         let components = NSDateComponents()
-        components.day = 1
+        /*components.day = 1*/
         components.month = curMonth
         components.year = 2016
-        components.hour = 00
-        components.minute = 00
+        /*components.hour = 00
+        components.minute = 00*/
         
         let date:NSDate = calendar.dateFromComponents(components)!
         let cal = NSCalendar.currentCalendar()
