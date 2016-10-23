@@ -83,7 +83,7 @@ class MonthGraph:Graph{
         let components = NSDateComponents()
         /*components.day = 1*/
         components.month = curMonth
-        components.year = 2016
+        /*components.year = 2016*/
         /*components.hour = 00
         components.minute = 00*/
         
