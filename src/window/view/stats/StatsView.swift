@@ -10,9 +10,9 @@ class StatsView:Element {
     }
     func createGraph(){
         let tabBar:Section = self.addSubView(Section(NaN, NaN, self, "tabBar"))
-        let btn1 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Tab 1",true,tabBar,"first"))
-        let btn2 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Tab 2",false,tabBar,"second"))
-        let btn3 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Tab 3",false,tabBar,"third"))
+        let btn1 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Month",true,tabBar,"first"))
+        let btn2 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Week",false,tabBar,"second"))
+        let btn3 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Day",false,tabBar,"third"))
         let selectGroup = SelectGroup([btn1,btn2,btn3],btn1)//SelectParser.selectables(card)
         selectGroup
         
