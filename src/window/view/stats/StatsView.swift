@@ -61,7 +61,7 @@ class StatsView:Element {
 }
 
 class DayGraph:Graph{
-    override var hValues:[String] = []
+    
     override func getClassType() -> String {
         return String(Graph)
     }
