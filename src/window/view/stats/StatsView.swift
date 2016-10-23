@@ -135,6 +135,10 @@ class MonthGraph:Graph{
             //show 10 last days (5 on iphone)
             //gestures can iterate time periods back and forth -10 + 10 etc
             //morphs the graph
+            //uni dir bounce for show
+            //shows stats for all repos where the user is you
+            //average commit max for 10 day period
+            //days show as: 10/12, 10/13, 10/14 etc etc
         
         super.init(width, height, parent, id)
     }
