@@ -9,7 +9,15 @@ class StatsView:Element {
         createGraph()
     }
     func createGraph(){
-        graph = addSubView(Graph(width,height-48,self))
+        let tabBar:Section = self.addSubView(Section(NaN, NaN, self, "tabBar"))
+        let btn1 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Tab 1",true,tabBar,"first"))
+        let btn2 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Tab 2",false,tabBar,"second"))
+        let btn3 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Tab 3",false,tabBar,"third"))
+        let selectGroup = SelectGroup([btn1,btn2,btn3],btn1)//SelectParser.selectables(card)
+        selectGroup
+        
+        
+        //graph = addSubView(Graph(width,height-48,self))
         //day,week,month,year,all (focus on day and week)
         //12a 1a 2a 3a 4a 5a 6a 7a 8a 9a 10a 11a 12p 1p 2p 3p 4p 5p 6p 7p 8p 9p 10p 11p
         //00:00, 01:00, 02
