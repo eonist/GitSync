@@ -95,9 +95,9 @@ class MonthGraph:Graph{
         
         
         //so the month graph is a bit tricky:
-            //you have to divide it by week,
+            //you have to divide it by week, so the num of vertical lines differentiate for each month, depending how the week hit the month etc, and how many days are in the month, no month graph is the same
             //all Sundays get a GraphPoint
-            //the start and end of a month also gets a GraphPoint which is calculated by the prev and next week
+            //the start and end of a month also gets a GraphPoint which is calculated by the prev and next week (then calc the diff between 2 weeks collected values, then the num of days untill that day, use this to multiply the value....its not so tricky to make)
         
         
         super.init(width, height, parent, id)
