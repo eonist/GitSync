@@ -9,6 +9,11 @@ class StatsView:Element {
         createGraph()
     }
     func createGraph(){
+        let graphContainer = addSubView(Container(width,height,self,"graph"))
+        graphContainer
+        graph = graphContainer.addSubView(Graph(width,height-48,graphContainer))
+        
+        
         let tabBar:Section = self.addSubView(Section(NaN, NaN, self, "tabBar"))
         let btn1 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Month",true,tabBar,"first"))
         let btn2 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Week",false,tabBar,"second"))
@@ -23,9 +28,7 @@ class StatsView:Element {
         stepper
         
         
-        let graphContainer = addSubView(Container(width,height,self,"graph"))
-        graphContainer
-        graph = graphContainer.addSubView(Graph(width,height-48,graphContainer))
+        
         //day,week,month,year,all (focus on day and week)
         //12a 1a 2a 3a 4a 5a 6a 7a 8a 9a 10a 11a 12p 1p 2p 3p 4p 5p 6p 7p 8p 9p 10p 11p
         //00:00, 01:00, 02
