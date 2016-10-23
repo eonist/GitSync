@@ -66,3 +66,4 @@ class DayGraph:Graph{
         return String(Graph)
     }
 }
+
