@@ -11,7 +11,7 @@ class StatsView:Element {
     func createGraph(){
         let graphContainer = addSubView(Container(width,height,self,"graph"))
         graphContainer
-        graph = graphContainer.addSubView(Graph(width,height-48,graphContainer))
+        graph = graphContainer.addSubView(DayGraph(width,height-48,graphContainer))
         
         
         let tabBar:Section = self.addSubView(Section(NaN, NaN, self, "tabBar"))
@@ -61,7 +61,7 @@ class StatsView:Element {
 }
 
 class DayGraph:Graph{
-    override var hValNames:[String] {return ["A","B","C","D","E","F","G"]}
+    override var hValNames:[String] {return ["M","T","W","T","F","S","S"]}
     override func getClassType() -> String {
         return String(Graph)
     }
