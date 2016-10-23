@@ -92,6 +92,13 @@ class MonthGraph:Graph{
         self.curMonth = curMonth
         let date:NSDate = NSDate.createDate(nil,4)!
         numOfDaysInMonth = date.numOfDaysInMonth
+        
+        
+        //so the month graph is a bit tricky:
+            //you have to divide it by week,
+            //starting by monday
+        
+        
         super.init(width, height, parent, id)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
