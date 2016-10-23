@@ -16,8 +16,8 @@ class StatsView:Element {
         let selectGroup = SelectGroup([btn1,btn2,btn3],btn1)//SelectParser.selectables(card)
         selectGroup
         
-        let rightSection:Section = self.addSubView(Section(NaN, NaN, self, "right"))
-        let button:Button = rightSection.addSubView(Button(NaN,NaN,rightSection))
+        //let rightSection:Section = self.addSubView(Section(NaN, NaN, self, "right"))
+        let button:Button = self.addSubView(Button(NaN,NaN,self,"right"))
         button
         //graph = addSubView(Graph(width,height-48,self))
         //day,week,month,year,all (focus on day and week)
