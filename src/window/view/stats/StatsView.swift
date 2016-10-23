@@ -13,16 +13,15 @@ class StatsView:Element {
         graphContainer
         graph = graphContainer.addSubView(WeekGraph(width,height-48,graphContainer))
         
+        //GraphTypePicker
         let tabBar:Section = self.addSubView(Section(NaN, NaN, self, "tabBar"))
-        let btn1 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Month",false,tabBar,"first"))
-        let btn2 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Week",true,tabBar,"second"))
+        let btn1 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Month",true,tabBar,"first"))
+        let btn2 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Week",false,tabBar,"second"))
         let btn3 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Day",false,tabBar,"third"))
-        let selectGroup = SelectGroup([btn1,btn2,btn3],btn2)//SelectParser.selectables(card)
+        let selectGroup = SelectGroup([btn1,btn2,btn3],btn1)//SelectParser.selectables(card)
         selectGroup
         
-        //let rightSection:Section = self.addSubView(Section(NaN, NaN, self, "right"))
-        //let button:Button = self.addSubView(Button(NaN,NaN,self,"right"))
-        //button
+        //Time Iterator Left and right stepper use the left and right arrows similar to the up and down arrows in stepper (right aligned) (use the stepper just horizontally aligned)
         let stepper:LeverStepper = addSubView(LeverStepper(NaN,NaN,0,1,Int.min.cgFloat,Int.max.cgFloat,0,100,200,self))
         stepper
         
@@ -49,9 +48,8 @@ class StatsView:Element {
         //AllGraph
         
                 
-        //GraphTypePicker
-            //TabBar with: Day/Week/Month (center aligned)
-        //Time Iterator Left and right stepper use the left and right arrows similar to the up and down arrows in stepper (right aligned) (use the stepper just horizontally aligned)
+        
+        
         
         //Consider making the graph component bouncy and zoomable (with time elements that tesselate)
     }
