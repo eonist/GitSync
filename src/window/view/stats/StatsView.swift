@@ -72,9 +72,13 @@ class WeekGraph:Graph{
 class MonthGraph:Graph{
     //override var hValues:[CGFloat] {return []}
     //override var hValNames:[String] {return []}
-    var curMonth:Int
-    init(_ width: CGFloat, _ height: CGFloat,_ curMonth:Int, _ parent: IElement?, _ id: String?) {
-        self.curMonth = curMonth
+}
+class YearGraph:Graph{
+    override var hValNames:[String] {return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]}
+    override var hValues:[CGFloat] {return [14,8,13,17,25,9,14,20,33,25,15,19]}
+    var curYear:Int
+    init(_ width: CGFloat, _ height: CGFloat,_ curYear:Int, _ parent: IElement?, _ id: String?) {
+        self.curYear = curYear
         
         let dateComponents = NSDateComponents()
         let day = dateComponents.day
@@ -84,9 +88,5 @@ class MonthGraph:Graph{
         super.init(width, height, parent, id)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
-}
-class YearGraph:Graph{
-    override var hValNames:[String] {return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]}
-    override var hValues:[CGFloat] {return [14,8,13,17,25,9,14,20,33,25,15,19]}
 }
 
