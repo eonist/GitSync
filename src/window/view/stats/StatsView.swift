@@ -13,30 +13,29 @@ class StatsView:Element {
     func createGraph(){
         let graphContainer = addSubView(Container(width,height,self,"graph"))
         graphContainer
-        graph = graphContainer.addSubView(MonthGraph(width,height-48,graphContainer))
+        graph = graphContainer.addSubView(YearGraph(width,height-48,graphContainer))
         
         //GraphTypePicker
         let tabBar:Section = self.addSubView(Section(NaN, NaN, self, "tabBar"))
         let btn0 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Year",true,tabBar,"first"))
-        let btn1 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Month",true,tabBar,"second"))
+        let btn1 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Month",false,tabBar,"second"))
         let btn2 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Week",false,tabBar,"third"))
         let btn3 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Day",false,tabBar,"fourth"))
         let selectGroup = SelectGroup([btn0,btn1,btn2,btn3],btn0)//SelectParser.selectables(card)
         selectGroup
         
         //You need some kind of indicator value on which time you are currently at
-        //
-        
+
         func onSelectGroupChange(event:Event){
             Swift.print("event.selectable: " + "\(event)")
-            if(selectGroup.selected === btn1){
-                //set Graph to YearGraph
+            if(selectGroup.selected === btn0){
+                Swift.print("set Graph to YearGraph")
             }else if(selectGroup.selected === btn1){
-                //set Graph to MonthGraph
+                Swift.print("set Graph to MonthGraph")
             }else if(selectGroup.selected === btn2){
-                //set graph to WeekGraph
+                Swift.print("set graph to WeekGraph")
             }else if(selectGroup.selected === btn3){
-                //set graph to DayGraph
+                Swift.print("set graph to DayGraph")
             }
         }
         selectGroup.event = onSelectGroupChange
@@ -70,7 +69,7 @@ class StatsView:Element {
 class WeekGraph:Graph{
     override var hValNames:[String] {return ["M","T","W","T","F","S","S"]}
 }
-class MonthGraph:Graph{
+class YearGraph:Graph{
     override var hValNames:[String] {return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]}
     override var hValues:[CGFloat] {return [14,8,13,17,25,9,14,20,33,25,15,19]}
 }
