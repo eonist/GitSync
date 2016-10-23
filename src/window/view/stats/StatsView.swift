@@ -99,11 +99,15 @@ class MonthGraph:Graph{
             //all Sundays get a GraphPoint
             //the start and end of a month also gets a GraphPoint which is calculated by the prev and next week (then calc the diff between 2 weeks collected values, then the num of days untill that day, use this to multiply the value....its not so tricky to make)
             //figure out how to add the weeks to 1 value etc
+            //Also keep in mind that you draw the GraphPoint for the surounding 3.5 days from left and right of where the GraphPoint is drawn. (think of the graph as an infinte graph that you see snapshots of)
         
         super.init(width, height, parent, id)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
+/**
+ * the values are the collected values for -15 +15 days of each month
+ */
 class YearGraph:Graph{
     override var hValNames:[String] {return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]}
     override var hValues:[CGFloat] {return [14,8,13,17,25,9,14,20,33,25,15,19]}
