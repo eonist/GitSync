@@ -72,17 +72,25 @@ class WeekGraph:Graph{
 }
 class MonthGraph:Graph{
     //override var hValues:[CGFloat] {return []}
-    //override var hValNames:[String] {return []}
+    override var hValNames:[String] {
+        
+        
+        return []
+    }
+    var numOfDaysInMonth:Int
     var curMonth:Int
     init(_ width: CGFloat, _ height: CGFloat,_ curMonth:Int, _ parent: IElement?, _ id: String? = nil) {
         self.curMonth = curMonth
-        super.init(width, height, parent, id)
         
         let date:NSDate = NSDate.createDate(nil,4)!
-        date.numOfDaysInMonth
+        numOfDaysInMonth = date.numOfDaysInMonth
         
         //you need 1 until 31 as hvalnames
         //generate hValues via random
+        
+        super.init(width, height, parent, id)
+        
+       
         
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
