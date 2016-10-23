@@ -129,6 +129,12 @@ class MonthGraph:Graph{
             //gesture friendly. bounce the graph back and forth on smaller screens
             //This also enables you to make it entirly gesture based, no interface elements to navigate.
             //pinch to zoom in and out of time types
+            //ITs awesome, but alot of work, cropping, etc etc
+        
+        //Simple is the best: 
+            //show 10 last days (5 on iphone)
+            //gestures can iterate time periods back and forth -10 + 10 etc
+            //morphs the graph
         
         super.init(width, height, parent, id)
     }
