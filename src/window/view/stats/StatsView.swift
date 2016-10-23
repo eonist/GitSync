@@ -106,6 +106,13 @@ class MonthGraph:Graph{
             //Also keep in mind that you draw the GraphPoint for the surounding 3.5 days from left and right of where the GraphPoint is drawn. (think of the graph as an infinte graph that you see snapshots of)
             //disregard the above, the valie is for day 1 until 7 in a week. from monday (basically values for week 44 on the start of week 44)
             //Actually, just do this simpler: show the last 10 days (10/12,10/13,10/14 etc etc)
+        
+        //what if you do:
+            //year,month,day,hour
+            //month shows: jan - dec (6 month on iphone)
+            //day: 10 days (5 days on iphone)
+            //
+        
         super.init(width, height, parent, id)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
