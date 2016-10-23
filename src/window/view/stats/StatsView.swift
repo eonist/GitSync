@@ -124,7 +124,11 @@ class MonthGraph:Graph{
         
         //Actually:
             //the ultimate solution would be to crop the graph on smaller window sizes, and show entire time types if the windowsize can fit it
-            
+            //then you just click on the graph point of interest
+            //This enables: Y,M,D,H time types
+            //gesture friendly. bounce the graph back and forth on smaller screens
+            //This also enables you to make it entirly gesture based, no interface elements to navigate.
+            //pinch to zoom in and out of time types
         
         super.init(width, height, parent, id)
     }
