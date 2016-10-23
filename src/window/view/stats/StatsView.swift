@@ -71,7 +71,15 @@ class WeekGraph:Graph{
     override var hValNames:[String] {return ["M","T","W","T","F","S","S"]}
 }
 class MonthGraph:Graph{
-    //override var hValues:[CGFloat] {return []}
+    override var hValues:[CGFloat] {
+        var arr:[String] = []
+        for i in 0..<numOfDaysInMonth{
+            let val:CGFloat = RangeParser
+            arr.append(val)
+        }
+        
+        return []
+    }
     override var hValNames:[String] {
         var arr:[String] = []
         for i in 0..<numOfDaysInMonth{
