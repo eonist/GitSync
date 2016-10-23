@@ -65,9 +65,13 @@ class StatsView:Element {
         //AllGraph
     }
 }
-
 class WeekGraph:Graph{
+    override var hValues:[CGFloat] {return [4,2,3,7,5,0,1]}
     override var hValNames:[String] {return ["M","T","W","T","F","S","S"]}
+}
+class MonthGraph:Graph{
+    //override var hValues:[CGFloat] {return []}
+    //override var hValNames:[String] {return []}
 }
 class YearGraph:Graph{
     override var hValNames:[String] {return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]}
