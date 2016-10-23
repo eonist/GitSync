@@ -51,7 +51,9 @@ class StatsView:Element {
         //00:00,04:00,08:00,12:00,16:00,20:00 ()
         //00,04,08,12,16,20 (6 part time)
         
-        //Night 00, Morning 06, Noon 12, evening night 00
+        //Night 00, Morning 06, Noon 12, evening: 18 night 00
+        
+        //00,03,06,09,12,15,18,21,00
         
         //for all repos:
             //get the commits from today where the user is Eonist
