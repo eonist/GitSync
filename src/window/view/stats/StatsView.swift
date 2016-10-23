@@ -98,7 +98,7 @@ class MonthGraph:Graph{
             //you have to divide it by week,
             //all Sundays get a GraphPoint
             //the start and end of a month also gets a GraphPoint
-            
+        
         
         super.init(width, height, parent, id)
     }
