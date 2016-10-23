@@ -123,8 +123,10 @@ class YearGraph:Graph{
         
         let date = NSDate()
         let cal = NSCalendar.currentCalendar()
-        let days = cal.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: date)
+        let days:NSRange = cal.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: date)
         Swift.print("days: " + "\(days)")
+        Swift.print("days.location: " + "\(days.location)")
+        Swift.print("days.length: " + "\(days.length)")
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
