@@ -13,7 +13,7 @@ class StatsView:Element {
     func createGraph(){
         let graphContainer = addSubView(Container(width,height,self,"graph"))
         graphContainer
-        graph = graphContainer.addSubView(MonthGraph(width,height-48,4,graphContainer))
+        graph = graphContainer.addSubView(YearGraph(width,height-48,4,graphContainer))
         
         //GraphTypePicker
         let tabBar:Section = self.addSubView(Section(NaN, NaN, self, "tabBar"))
