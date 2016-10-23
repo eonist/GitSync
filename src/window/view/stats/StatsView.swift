@@ -116,7 +116,9 @@ class MonthGraph:Graph{
         
             //gestures then bounce the graph left,right, up and down
                 //left and right gestures transform the graph to earlier time periods
-
+        
+        //The thing is going from month view to day view requires 30 days etc to be smooth
+            //Make it simple: just show 10 day interval, 5 on iphone with slide
         
         super.init(width, height, parent, id)
     }
