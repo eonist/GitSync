@@ -115,7 +115,8 @@ class MonthGraph:Graph{
 class YearGraph:Graph{
     override var hValNames:[String] {
         //return ["Jan,Feb,Mar","Apr,May,Jun","Jul,Aug,Sep","Oct,Nov,Dec"]
-        return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+        //return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+        return ["Jan","","","Apr","","","Jul","","","Oct","",""]
         //return ["1","2","3","4","5","6","7","8","9","10","11","12"]
     }
     override var hValues:[CGFloat] {
