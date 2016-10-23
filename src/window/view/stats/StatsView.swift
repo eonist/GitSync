@@ -77,6 +77,15 @@ class MonthGraph:Graph{
         self.curMonth = curMonth
         super.init(width, height, parent, id)
         
+        //parts to NSDate:
+        let components = NSDateComponents()
+        components.day = 5
+        components.month = 01
+        components.year = 2016
+        components.hour = 00
+        components.minute = 00
+        newDate = calendar.dateFromComponents(components)
+        
         let date = NSDate()
         let cal = NSCalendar.currentCalendar()
         let days:NSRange = cal.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: date)
