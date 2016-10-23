@@ -76,7 +76,9 @@ class MonthGraph:Graph{
     init(_ width: CGFloat, _ height: CGFloat,_ curMonth:Int, _ parent: IElement?, _ id: String?) {
         self.curMonth = curMonth
         
-        let date = NSDate.
+        let dateComponents = NSDateComponents()
+        let day = dateComponents.day
+        let month = dateComponents.month
         super.init(width, height, parent, id)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
