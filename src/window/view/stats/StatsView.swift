@@ -123,7 +123,8 @@ class MonthGraph:Graph{
             //the commit count max will be calculated on the month as a whole
         
         //Actually:
-            //the ultimat solution would be to crop the graph on smaller screen sizes
+            //the ultimate solution would be to crop the graph on smaller window sizes, and show entire time types if the windowsize can fit it
+            
         
         super.init(width, height, parent, id)
     }
