@@ -72,6 +72,19 @@ class WeekGraph:Graph{
 class MonthGraph:Graph{
     //override var hValues:[CGFloat] {return []}
     //override var hValNames:[String] {return []}
+    var curMonth:Int
+    init(_ width: CGFloat, _ height: CGFloat,_ curMonth:Int, _ parent: IElement?, _ id: String? = nil) {
+        self.curMonth = curMonth
+        super.init(width, height, parent, id)
+        
+        let date = NSDate()
+        let cal = NSCalendar.currentCalendar()
+        let days:NSRange = cal.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: date)
+        Swift.print("days: " + "\(days)")
+        Swift.print("days.location: " + "\(days.location)")
+        Swift.print("days.length: " + "\(days.length)")
+    }
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class YearGraph:Graph{
     override var hValNames:[String] {return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]}
@@ -82,51 +95,6 @@ class YearGraph:Graph{
         
         super.init(width, height, parent, id)
         
-        
-        let dateComponents = NSDateComponents()
-        let day = dateComponents.day
-        Swift.print("day: " + "\(day)")
-        let month = dateComponents.month
-        Swift.print("month: " + "\(month)")
-        
-        let currentDate = NSDate()
-        let dateFormatter = NSDateFormatter()
-        
-        dateFormatter.locale = NSLocale.currentLocale()
-        
-        
-        
-        dateFormatter.dateStyle = NSDateFormatterStyle.FullStyle
-        var convertedDate = dateFormatter.stringFromDate(currentDate)
-        Swift.print("convertedDate: " + "\(convertedDate)")
-        
-        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        convertedDate = dateFormatter.stringFromDate(currentDate)
-        
-        Swift.print("convertedDate: " + "\(convertedDate)")
-        
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        convertedDate = dateFormatter.stringFromDate(currentDate)
-        
-        Swift.print("convertedDate: " + "\(convertedDate)")
-        
-        /*
-        parts to NSDate:
-        let components = NSDateComponents()
-        components.day = 5
-        components.month = 01
-        components.year = 2016
-        components.hour = 19
-        components.minute = 30
-        newDate = calendar.dateFromComponents(components)
-        */
-        
-        let date = NSDate()
-        let cal = NSCalendar.currentCalendar()
-        let days:NSRange = cal.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: date)
-        Swift.print("days: " + "\(days)")
-        Swift.print("days.location: " + "\(days.location)")
-        Swift.print("days.length: " + "\(days.length)")
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
