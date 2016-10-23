@@ -13,7 +13,7 @@ class StatsView:Element {
     func createGraph(){
         let graphContainer = addSubView(Container(width,height,self,"graph"))
         graphContainer
-        graph = graphContainer.addSubView(YearGraph(width,height-48,graphContainer))
+        graph = graphContainer.addSubView(YearGraph(width,height-48,1,graphContainer))
         
         //GraphTypePicker
         let tabBar:Section = self.addSubView(Section(NaN, NaN, self, "tabBar"))
@@ -77,7 +77,7 @@ class YearGraph:Graph{
     override var hValNames:[String] {return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]}
     override var hValues:[CGFloat] {return [14,8,13,17,25,9,14,20,33,25,15,19]}
     var curYear:Int
-    init(_ width: CGFloat, _ height: CGFloat,_ curYear:Int, _ parent: IElement?, _ id: String?) {
+    init(_ width: CGFloat, _ height: CGFloat,_ curYear:Int, _ parent: IElement?, _ id: String? = nil) {
         self.curYear = curYear
         
         let dateComponents = NSDateComponents()
