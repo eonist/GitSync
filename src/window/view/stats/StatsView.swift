@@ -13,7 +13,6 @@ class StatsView:Element {
         graphContainer
         graph = graphContainer.addSubView(WeekGraph(width,height-48,graphContainer))
         
-        
         let tabBar:Section = self.addSubView(Section(NaN, NaN, self, "tabBar"))
         let btn1 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Month",false,tabBar,"first"))
         let btn2 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Week",true,tabBar,"second"))
@@ -35,8 +34,6 @@ class StatsView:Element {
         //00,02,04,06,08,10,12,14,16,18,20,22,24 (12 part time)
         //00:00,04:00,08:00,12:00,16:00,20:00 ()
         //00,04,08,12,16,20 (6 part time)
-        //M,T,W,T,F,S,S
-        //Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
         
         //for all repos:
             //get the commits from today where the user is Eonist
@@ -65,5 +62,6 @@ class WeekGraph:Graph{
 }
 class MonthGraph:Graph{
     override var hValNames:[String] {return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]}
+    override var hValues:[CGFloat] {return [14,8,13,17,25,9,14,20,33,25,15,19]}
 }
 
