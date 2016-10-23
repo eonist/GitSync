@@ -59,3 +59,10 @@ class StatsView:Element {
         //Consider making the graph component bouncy and zoomable (with time elements that tesselate)
     }
 }
+
+class DayGraph:Graph{
+    override var hValues:[String] = []
+    override func getClassType() -> String {
+        return String(Graph)
+    }
+}
