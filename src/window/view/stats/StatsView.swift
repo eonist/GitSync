@@ -119,8 +119,11 @@ class MonthGraph:Graph{
         
         //The thing is going from month view to day view requires 30 days etc to be smooth
             //Make it simple: just show 10 day interval, and make it slide that month. (5 for iphone because of small screen)
-            //when you get to the edge you can swipe to jump to previous months, which basically 
+            //when you get to the edge you can swipe to jump to previous months, which basically
             //the commit count max will be calculated on the month as a whole
+        
+        //Actually:
+            //the ultimat solution would be to crop the graph on smaller screen sizes
         
         super.init(width, height, parent, id)
     }
