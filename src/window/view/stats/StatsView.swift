@@ -74,14 +74,14 @@ class MonthGraph:Graph{
     override var hValues:[CGFloat] {
         var arr:[CGFloat] = []
         for _ in 0..<numOfDaysInMonth{
-            let val:CGFloat = NumberParser.random(4, 24).cgFloat
+            let val:CGFloat = NumberParser.random(4, 24).cgFloat//generate hValues via random
             arr.append(val)
         }
         return arr
     }
     override var hValNames:[String] {
         var arr:[String] = []
-        for i in 0..<numOfDaysInMonth{
+        for i in 0..<numOfDaysInMonth{//you need 1 until numOfDaysInMonth as hvalnames
             arr.append(i.string)
         }
         return arr
@@ -90,17 +90,9 @@ class MonthGraph:Graph{
     var curMonth:Int
     init(_ width: CGFloat, _ height: CGFloat,_ curMonth:Int, _ parent: IElement?, _ id: String? = nil) {
         self.curMonth = curMonth
-        
         let date:NSDate = NSDate.createDate(nil,4)!
         numOfDaysInMonth = date.numOfDaysInMonth
-        
-        //you need 1 until 31 as hvalnames
-        //generate hValues via random
-        
         super.init(width, height, parent, id)
-        
-       
-        
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
