@@ -100,7 +100,7 @@ class MonthGraph:Graph{
             //the start and end of a month also gets a GraphPoint which is calculated by the prev and next week (then calc the diff between 2 weeks collected values, then the num of days untill that day, use this to multiply the value....its not so tricky to make)
             //figure out how to add the weeks to 1 value etc
             //Also keep in mind that you draw the GraphPoint for the surounding 3.5 days from left and right of where the GraphPoint is drawn. (think of the graph as an infinte graph that you see snapshots of)
-            //disregard the above, the valie is for day 1 until 7 in a week. from monday
+            //disregard the above, the valie is for day 1 until 7 in a week. from monday (basically values for week 44 on the start of week 44)
         super.init(width, height, parent, id)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
