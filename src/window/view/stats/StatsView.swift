@@ -95,10 +95,17 @@ class YearGraph:Graph{
         dateFormatter.locale = NSLocale.currentLocale()
         
         
-        1
-        2
+        
         dateFormatter.dateStyle = NSDateFormatterStyle.FullStyle
         var convertedDate = dateFormatter.stringFromDate(currentDate)
+        Swift.print("convertedDate: " + "\(convertedDate)")
+        
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        convertedDate = dateFormatter.stringFromDate(currentDate)
+        
+        Swift.print("convertedDate: " + "\(convertedDate)")
+        
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
