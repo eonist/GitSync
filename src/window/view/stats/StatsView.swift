@@ -87,7 +87,7 @@ class MonthGraph:Graph{
         /*components.hour = 00
         components.minute = 00*/
         
-        let date:NSDate = calendar.dateFromComponents(components)!
+        let date:NSDate = NSDate.compare(<#T##NSDate#>)
         let cal = NSCalendar.currentCalendar()
         let days:NSRange = cal.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: date)
         Swift.print("days: " + "\(days)")
