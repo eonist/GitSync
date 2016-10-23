@@ -78,21 +78,10 @@ class MonthGraph:Graph{
         self.curMonth = curMonth
         super.init(width, height, parent, id)
         
-        //parts to NSDate:
-        let calendar = NSCalendar.currentCalendar()
-        let components = NSDateComponents()
-        /*components.day = 1*/
-        components.month = curMonth
-        /*components.year = 2016*/
-        /*components.hour = 00
-        components.minute = 00*/
+      
         
-        let date:NSDate = NSDate.compare(<#T##NSDate#>)
-        let cal = NSCalendar.currentCalendar()
-        let days:NSRange = cal.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: date)
-        Swift.print("days: " + "\(days)")
-        Swift.print("days.location: " + "\(days.location)")
-        Swift.print("days.length: " + "\(days.length)")
+        let date:NSDate = NSDate.createDate(nil,4)
+        date.numOfDaysInMonth
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
