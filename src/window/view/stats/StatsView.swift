@@ -106,6 +106,9 @@ class YearGraph:Graph{
         Swift.print("convertedDate: " + "\(convertedDate)")
         
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        convertedDate = dateFormatter.stringFromDate(currentDate)
+        
+        Swift.print("convertedDate: " + "\(convertedDate)")
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
