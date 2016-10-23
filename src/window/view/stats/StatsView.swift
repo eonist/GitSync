@@ -78,7 +78,9 @@ class MonthGraph:Graph{
         
         let dateComponents = NSDateComponents()
         let day = dateComponents.day
+        Swift.print("day: " + "\(day)")
         let month = dateComponents.month
+        Swift.print("month: " + "\(month)")
         super.init(width, height, parent, id)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
