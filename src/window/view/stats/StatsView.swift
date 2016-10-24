@@ -44,7 +44,7 @@ class StatsView:Element {
     //start at the current date - 10 everytime you enter graph
     //GraphPoints should animate if you set the position differently on iteration
 class CommitGraph:Graph{
-    
+    var animator:Animator
     var currentDate:NSDate = NSDate()
     var dayOffset:Int = 0
     var graphData:(hValues:[CGFloat],hValNames:[String])
