@@ -110,6 +110,7 @@ class MonthGraph:Graph{
     //start at the current date - 10 everytime you enter graph
     //GraphPoints should animate if you set the position differently on iteration
 class CommitGraph:Graph{
+    var currentDate:NSDate = NSDate()
     override var hValues:[CGFloat] {return [14,8,13,17,25,9,14]}//,20,33,19
     override var hValNames:[String] {return ["T","W","T","F","S","S","M"]}//"10/12","13","14",
 }
