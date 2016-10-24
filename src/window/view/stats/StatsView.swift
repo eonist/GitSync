@@ -22,11 +22,7 @@ class StatsView:Element {
         func onEvent(event:Event){
             Swift.print("stepper.onEvent()")
             if(event.assert(StepperEvent.change, stepper)){
-                let val = (event as! StepperEvent).value
-                Swift.print("Stepper.value: " + "\(val)")
-                graph!.dayOffset += val.int
-                graph!.graphData = CommitGraph.graphData(graph!.dayOffset, graph!.currentDate)
-                graph!.updateGraph()
+                
             }
         }
         stepper.event = onEvent
@@ -157,6 +153,15 @@ class CommitGraph:Graph{
         
     }
     
+    /**
+     *
+     */
+    func iterate(iteration:Int){
+        
+        dayOffset += (7*iteration)
+        graphData = CommitGraph.graphData(dayOffset, currentDate)
+        updateGraph()
+    }
     
     //Continue here Try to bring the steppers into play
         //adjust the dayoffset and refresh the graph
