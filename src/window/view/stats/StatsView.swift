@@ -26,7 +26,7 @@ class StatsView:Element {
                 Swift.print("Stepper.value: " + "\(val)")
                 graph!.dayOffset += val.int
                 graph!.graphData = CommitGraph.graphData(graph!.dayOffset, graph!.currentDate)
-                graph!.updateGraphPoints()
+                graph!.updateGraph()
             }
         }
         stepper.event = onEvent
@@ -116,7 +116,7 @@ extension CommitGraph{
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
      */
-    func updateGraphPoints(){
+    func updateGraph(){
         let graphPts:[CGPoint] = GraphUtils.points(newSize!, newPostition!, spacing!, hValues,spaceData!.maxValue)
         for i in 0..<graphPts.count{
             graphPoints[i].setPosition(graphPts[i])
