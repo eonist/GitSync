@@ -136,8 +136,8 @@ class CommitGraph:Graph{
     
     //Continue here: you also need to recalc the hValue indicators (each week has a different max hValue etc)
     //and figure out if animating position is easy or hard etc
-    func interpolatePosition(val:CGFloat){
-        Swift.print("interpolatePosition() val: " + "\(val)")
+    func interpolateValue(val:CGFloat){
+        Swift.print("interpolateValue() val: " + "\(val)")
         for i in 0..<graphPts.count{
             let pos:CGPoint = initGraphPts[i].interpolate(graphPts[i], val)
             graphPoints[i].setPosition(pos)
@@ -157,7 +157,7 @@ class CommitGraph:Graph{
         
         if(animator != nil){animator!.stop()}//stop any previous running animation
         
-        animator = Animator(Animation.sharedInstance,0.5,0,1,interpolatePosition,Easing.easeInQuad)
+        animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Easing.easeInQuad)
         animator!.start()
         /*
         /*GraphLine*/
@@ -166,12 +166,12 @@ class CommitGraph:Graph{
         graphLine!.line!.cgPath = cgPath.copy()
         graphLine!.line!.draw()
         /*VerticalBar*/
-        
+        */
         let strings:[String] = GraphUtils.verticalIndicators(vCount, maxValue)
         for i in 0..<strings.count{
-        leftBarItems[i].setTextValue(strings[i])
+            leftBarItems[i].setTextValue(strings[i])
         }
-        */
+
     }
     
     //Continue here Try to bring the steppers into play
