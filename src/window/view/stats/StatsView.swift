@@ -111,12 +111,15 @@ class MonthGraph:Graph{
     //GraphPoints should animate if you set the position differently on iteration
 class CommitGraph:Graph{
     var currentDate:NSDate = NSDate()
+    var dayOffset:Int = 0
     override var hValues:[CGFloat] {return [14,8,13,17,25,9,14]}//,20,33,19
     override var hValNames:[String] {return ["T","W","T","F","S","S","M"]}//"10/12","13","14",
     var temp:Int?{
         let calendar = NSCalendar.currentCalendar()
-        let twoDaysAgo = calendar.dateByAddingUnit(.Day, value: -2, toDate: currentDate, options: [])
-
+        
+        for i in 0..<7{
+            let date = calendar.dateByAddingUnit(.Day, value: dayOffset-i, toDate: currentDate, options: [])
+        }
         return nil
     }
 }
