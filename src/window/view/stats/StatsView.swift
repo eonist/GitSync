@@ -134,6 +134,42 @@ class CommitGraph:Graph{
         updateGraph()
     }
     
+    //Continue here: you also need to recalc the hValue indicators (each week has a different max hValue etc)
+    //and figure out if animating position is easy or hard etc
+    func interpolatePosition(val:CGFloat){
+        //Swift.print("interpolateAlpha()")
+        self.skin?.decoratables[0].getGraphic().fillStyle?.color = (self.skin?.decoratables[0].getGraphic().fillStyle?.color.alpha(val))!
+        self.skin?.decoratables[0].draw()
+    }
+    /**
+     * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
+     */
+    func updateGraph(){
+        let maxValue:CGFloat = NumberParser.max(hValues)
+        let graphPts:[CGPoint] = GraphUtils.points(newSize!, newPostition!, spacing!, hValues, maxValue)
+        /*GraphPoints*/
+        for i in 0..<graphPts.count{
+            graphPoints[i].setPosition(graphPts[i])
+        }
+        if(animator != nil){animator!.stop()}//stop any previous running animation
+        
+        animator = Animator(Animation.sharedInstance,0.5,0,1,interpolatePosition,Easing.easeInQuad)
+        animator!.start()
+        /*
+        /*GraphLine*/
+        let path:IPath = PolyLineGraphicUtils.path(graphPts)/*convert points to a Path*/
+        let cgPath = CGPathUtils.compile(CGPathCreateMutable(), path)
+        graphLine!.line!.cgPath = cgPath.copy()
+        graphLine!.line!.draw()
+        /*VerticalBar*/
+        
+        let strings:[String] = GraphUtils.verticalIndicators(vCount, maxValue)
+        for i in 0..<strings.count{
+        leftBarItems[i].setTextValue(strings[i])
+        }
+        */
+    }
+    
     //Continue here Try to bring the steppers into play
         //adjust the dayoffset and refresh the graph
         //try to animate the graphpoints rather than recreating it
@@ -154,44 +190,10 @@ class CommitGraph:Graph{
         }
         return (values,dayNames)
     }
+    
+    
+    
+    
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
-extension CommitGraph{
-    
-    //Continue here: you also need to recalc the hValue indicators (each week has a different max hValue etc)
-    //and figure out if animating position is easy or hard etc
-    func interpolatePosition(val:CGFloat){
-        //Swift.print("interpolateAlpha()")
-        self.skin?.decoratables[0].getGraphic().fillStyle?.color = (self.skin?.decoratables[0].getGraphic().fillStyle?.color.alpha(val))!
-        self.skin?.decoratables[0].draw()
-    }
-    /**
-     * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
-     */
-    func updateGraph(){
-        let maxValue:CGFloat = NumberParser.max(hValues)
-        let graphPts:[CGPoint] = GraphUtils.points(newSize!, newPostition!, spacing!, hValues, maxValue)
-        /*GraphPoints*/
-        for i in 0..<graphPts.count{
-            graphPoints[i].setPosition(graphPts[i])
-        }
-        if(animator != nil){animator!.stop()}//stop any previous running animation
-
-        animator = Animator(Animation.sharedInstance,0.5,0,1,interpolatePosition,Easing.easeInQuad)
-        animator!.start()
-        /*
-        /*GraphLine*/
-        let path:IPath = PolyLineGraphicUtils.path(graphPts)/*convert points to a Path*/
-        let cgPath = CGPathUtils.compile(CGPathCreateMutable(), path)
-        graphLine!.line!.cgPath = cgPath.copy()
-        graphLine!.line!.draw()
-        /*VerticalBar*/
-        
-        let strings:[String] = GraphUtils.verticalIndicators(vCount, maxValue)
-        for i in 0..<strings.count{
-            leftBarItems[i].setTextValue(strings[i])
-        }
-        */
-    }
-}
