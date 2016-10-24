@@ -113,5 +113,11 @@ class CommitGraph:Graph{
     var currentDate:NSDate = NSDate()
     override var hValues:[CGFloat] {return [14,8,13,17,25,9,14]}//,20,33,19
     override var hValNames:[String] {return ["T","W","T","F","S","S","M"]}//"10/12","13","14",
+    var temp:Int?{
+        let calendar = NSCalendar.currentCalendar()
+        let twoDaysAgo = calendar.dateByAddingUnit(.Day, value: -2, toDate: currentDate, options: [])
+
+        return nil
+    }
 }
 
