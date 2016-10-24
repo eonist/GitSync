@@ -15,7 +15,7 @@ class StatsView:Element {
         graphContainer
         graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
         
-        //hover above GraphPoint should show a information popover with date, commit count etc
+        //Nevermind the popover idea, make the TimePeriod text instead: 10/15 - 10/22
         //
         
         //for all repos:
