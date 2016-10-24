@@ -15,6 +15,7 @@ class StatsView:Element {
         graphContainer
         graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
         
+        //hover above GraphPoint should show a information popover with date, commit count etc
         //
         
         //for all repos:
