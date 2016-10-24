@@ -140,6 +140,7 @@ class MonthGraph:Graph{
             //average commit max for 10 day period
             //days show as: 10/12, 10/13, 10/14 etc etc
             //start at the current date - 10 everytime you enter graph
+            //GraphPoints should animate if you set the position differently on iteration
         
         super.init(width, height, parent, id)
     }
@@ -149,17 +150,8 @@ class MonthGraph:Graph{
  * the values are the collected values from 1 to end of month
  */
 class YearGraph:Graph{
-    override var hValNames:[String] {
-        //return ["Jan,Feb,Mar","Apr,May,Jun","Jul,Aug,Sep","Oct,Nov,Dec"]
-        //return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-        return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-        //return ["Jan","","","Apr","","","Jul","","","Oct","",""]
-        //return ["1","2","3","4","5","6","7","8","9","10","11","12"]
-    }
-    override var hValues:[CGFloat] {
-        //return [45,65,53,77]
-        return [14,8,13,17,25,9,14,20,33,25,15,19]
-    }
+    override var hValNames:[String] {return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]}
+    override var hValues:[CGFloat] {return [14,8,13,17,25,9,14,20,33,25,15,19]}
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement?, _ id: String? = nil) {
         super.init(width, height, parent, id)
         
