@@ -79,6 +79,7 @@ class MonthGraph:Graph{
     //start at the current date - 10 everytime you enter graph
     //GraphPoints should animate if you set the position differently on iteration
 class CommitGraph:Graph{
+    
     var currentDate:NSDate = NSDate()
     var dayOffset:Int = 0
     var graphData:(hValues:[CGFloat],hValNames:[String])
@@ -87,7 +88,13 @@ class CommitGraph:Graph{
     
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement?, _ id: String? = nil) {
         graphData =  CommitGraph.graphData(dayOffset, currentDate)
+        self.acceptsTouchEvents = true;
         super.init(width, height, parent, id)
+    }
+    
+    override func swipeWithEvent(event:NSEvent) {
+        Swift.print("Swipe event.deltaY: " + "\(event.deltaY)" + " event.deltaX: " + "\(event.deltaX)")
+        super.swipeWithEvent(event)
     }
     //Continue here Try to bring the steppers into play
         //adjust the dayoffset and refresh the graph
@@ -113,10 +120,7 @@ class CommitGraph:Graph{
 }
 
 extension CommitGraph{
-    override func swipeWithEvent(event:NSEvent) {
-        Swift.print("Swipe event.deltaY: " + "\(event.deltaY)" + " event.deltaX: " + "\(event.deltaX)")
-        super.swipeWithEvent(event)
-    }
+    
     //Continue here: you also need to recalc the hValue indicators (each week has a different max hValue etc)
     //and figure out if animating position is easy or hard etc
     
