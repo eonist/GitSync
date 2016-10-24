@@ -114,7 +114,15 @@ class CommitGraph:Graph{
     var dayOffset:Int = 0
     override var hValues:[CGFloat] {return graphData.hValues}//,20,33,19//[14,8,13,17,25,9,14]
     override var hValNames:[String] {return graphData.hValNames}//["T","W","T","F","S","S","M"]//"10/12","13","14",
-    var graphData:(hValues:[CGFloat],hValNames:[String]){
+    var graphData:(hValues:[CGFloat],hValNames:[String])
+    
+    init(_ width: CGFloat, _ height: CGFloat,_ currentDate:NSDate, _ parent: IElement?, _ id: String? = nil) {
+        self.currentDate = currentDate
+        graphData = getGraphData()
+        
+        super.init(width, height, parent, id)
+    }
+    func getGraphData() -> (hValues:[CGFloat],hValNames:[String]){
         let calendar = NSCalendar.currentCalendar()
         var dayNames:[String] = []
         var values:[CGFloat] = []//commits in a single day
@@ -126,12 +134,6 @@ class CommitGraph:Graph{
             values.append(val)
         }
         return (values,dayNames)
-    }
-    init(_ width: CGFloat, _ height: CGFloat,_ currentDate:NSDate, _ parent: IElement?, _ id: String? = nil) {
-        self.currentDate = currentDate
-        
-        
-        super.init(width, height, parent, id)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
