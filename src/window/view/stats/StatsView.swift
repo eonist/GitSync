@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 /**
  * TODO: Consider making the graph component bouncy and zoomable (with time elements that tesselate)
  */
@@ -113,7 +113,10 @@ class CommitGraph:Graph{
 }
 
 extension CommitGraph{
-    
+    override func swipeWithEvent(event:NSEvent) {
+        Swift.print("Swipe event.deltaY: " + "\(event.deltaY)" + " event.deltaX: " + "\(event.deltaX)")
+        super.swipeWithEvent(event)
+    }
     //Continue here: you also need to recalc the hValue indicators (each week has a different max hValue etc)
     //and figure out if animating position is easy or hard etc
     
