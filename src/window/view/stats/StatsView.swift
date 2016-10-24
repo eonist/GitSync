@@ -117,10 +117,13 @@ class CommitGraph:Graph{
     var temp:Int?{
         let calendar = NSCalendar.currentCalendar()
         var dayNames:[String] = []
+        var values:[CGFloat] = []//commits in a single day
         for i in 0..<7{
             let date = calendar.dateByAddingUnit(.Day, value: dayOffset-i, toDate: currentDate, options: [])
             let shortNameDayOfWeek:String = date!.shortNameDayOfWeek!
             dayNames.append(shortNameDayOfWeek)
+            let val:CGFloat = NumberParser.random(4, 24).cgFloat//generate hValues via random
+            values.append(val)
         }
         return nil
     }
