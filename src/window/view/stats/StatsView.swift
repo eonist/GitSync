@@ -3,7 +3,7 @@ import Foundation
  * TODO: Consider making the graph component bouncy and zoomable (with time elements that tesselate)
  */
 class StatsView:Element {
-    var graph:Graph?
+    var graph:CommitGraph?
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
         Swift.print("StatsView.width: " + "\(width)")
@@ -23,6 +23,8 @@ class StatsView:Element {
             if(event.assert(StepperEvent.change, stepper)){
                 let val = (event as! StepperEvent).value
                 Swift.print("Stepper.value: " + "\(val)")
+                graph!.dayOffset += val.int
+                
             }
         }
         stepper.event = onEvent
