@@ -138,19 +138,22 @@ class CommitGraph:Graph{
     //and figure out if animating position is easy or hard etc
     func interpolatePosition(val:CGFloat){
         //Swift.print("interpolateAlpha()")
-        self.skin?.decoratables[0].getGraphic().fillStyle?.color = (self.skin?.decoratables[0].getGraphic().fillStyle?.color.alpha(val))!
-        self.skin?.decoratables[0].draw()
+        for i in 0..<graphPts.count{
+            graphPoints[i].setPosition(graphPts[i])
+        }
     }
+    var graphPts:[CGPoint] = []
+    var initGraphPts:[CGPoint] = []
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
      */
     func updateGraph(){
         let maxValue:CGFloat = NumberParser.max(hValues)
-        let graphPts:[CGPoint] = GraphUtils.points(newSize!, newPostition!, spacing!, hValues, maxValue)
+        
+        graphPts = GraphUtils.points(newSize!, newPostition!, spacing!, hValues, maxValue)
+        initGraphPts
         /*GraphPoints*/
-        for i in 0..<graphPts.count{
-            graphPoints[i].setPosition(graphPts[i])
-        }
+        
         if(animator != nil){animator!.stop()}//stop any previous running animation
         
         animator = Animator(Animation.sharedInstance,0.5,0,1,interpolatePosition,Easing.easeInQuad)
