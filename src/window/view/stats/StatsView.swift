@@ -127,9 +127,9 @@ class CommitGraph:Graph{
             for touch in touches {
                 let beginTouch:NSTouch = beginTouches.objectForKey(touch.identity)
                 
-                if (beginTouch != nil) {continue}
+                //if (beginTouch != nil) {continue}
                 
-                let magnitude:Float = touch.normalizedPosition.x - beginTouch!.normalizedPosition.x;
+                let magnitude:Float = Float(touch.normalizedPosition.x) - Float(beginTouch.normalizedPosition.x)
                 magnitudes.addObject(NSNumber(float: magnitude))
 
 
