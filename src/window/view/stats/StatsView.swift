@@ -145,8 +145,10 @@ class CommitGraph:Graph{
             if (sum > 0){
                 Swift.print("go back")
                 //Do something here
+                iterate(-1)
             }else{
                 Swift.print("go forward")
+                iterate(1)
                 //Do something else here
             }
         }
@@ -157,7 +159,7 @@ class CommitGraph:Graph{
      *
      */
     func iterate(iteration:Int){
-        
+        Swift.print("iterate" + "\(iteration)")
         dayOffset += (7*iteration)
         graphData = CommitGraph.graphData(dayOffset, currentDate)
         updateGraph()
