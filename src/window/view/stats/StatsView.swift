@@ -16,6 +16,7 @@ class StatsView:Element {
         graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
         
         //Time Iterator Left and right stepper use the left and right arrows similar to the up and down arrows in stepper (right aligned) (use the stepper just horizontally aligned)
+        /*
         let stepper:LeverStepper = addSubView(LeverStepper(NaN,NaN,0,1,Int.min.cgFloat,Int.max.cgFloat,0,100,200,self))
         stepper
         
@@ -26,6 +27,7 @@ class StatsView:Element {
             }
         }
         stepper.event = onEvent
+        */
         //for all repos:
             //get the commits from today where the user is Eonist
                 //store the time in an [[Int]] (basically a arr with an arr of times)
