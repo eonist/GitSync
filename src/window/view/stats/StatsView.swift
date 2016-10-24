@@ -124,7 +124,11 @@ class CommitGraph:Graph{
             
             let magnitudes:NSMutableArray = NSMutableArray()
             
-            
+            for touch in touches {
+                let key = (touch as! NSTouch).identity
+                
+
+            }
         }
         
     }
