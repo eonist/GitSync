@@ -88,13 +88,33 @@ class CommitGraph:Graph{
     
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement?, _ id: String? = nil) {
         graphData =  CommitGraph.graphData(dayOffset, currentDate)
-        self.acceptsTouchEvents = true;
         super.init(width, height, parent, id)
+        self.acceptsTouchEvents = true
     }
     
     override func swipeWithEvent(event:NSEvent) {
         Swift.print("Swipe event.deltaY: " + "\(event.deltaY)" + " event.deltaX: " + "\(event.deltaX)")
         super.swipeWithEvent(event)
+    }
+    override func magnifyWithEvent(event: NSEvent) {
+        Swift.print("Magnification value is" + "\(event.magnification)" + " event.momentumPhase: " + "\(event.momentumPhase)")
+        var newSize:NSSize = NSSize()
+        newSize.height = self.frame.size.height * event.magnification + 1.0
+        newSize.width = self.frame.size.width * event.magnification + 1.0
+        //[self setFrameSize:newSize];
+        
+        if(event.momentumPhase == NSEventPhase.Ended){
+            Swift.print("the zoom ended")
+           
+        }else if(event.momentumPhase == NSEventPhase.Began){//include maybegin here
+            Swift.print("the zoom began")
+            
+        }else if(event.momentumPhase == NSEventPhase.Changed){
+            Swift.print("the zoom changed")
+            
+        }
+        
+        super.magnifyWithEvent(event)
     }
     //Continue here Try to bring the steppers into play
         //adjust the dayoffset and refresh the graph
