@@ -138,10 +138,19 @@ class CommitGraph:Graph{
     //and figure out if animating position is easy or hard etc
     func interpolateValue(val:CGFloat){
         Swift.print("interpolateValue() val: " + "\(val)")
+        var positions:[CGPoint] = []
         for i in 0..<graphPts.count{
             let pos:CGPoint = initGraphPts[i].interpolate(graphPts[i], val)
+            positions.append(pos)
             graphPoints[i].setPosition(pos)
+            
         }
+        /*GraphLine*/
+        let path:IPath = PolyLineGraphicUtils.path(positions)/*convert points to a Path*/
+        let cgPath = CGPathUtils.compile(CGPathCreateMutable(), path)
+        graphLine!.line!.cgPath = cgPath.copy()
+        graphLine!.line!.draw()
+
     }
     var graphPts:[CGPoint] = []
     var initGraphPts:[CGPoint] = []
@@ -159,14 +168,9 @@ class CommitGraph:Graph{
         
         animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Easing.easeInQuad)
         animator!.start()
-        /*
-        /*GraphLine*/
-        let path:IPath = PolyLineGraphicUtils.path(graphPts)/*convert points to a Path*/
-        let cgPath = CGPathUtils.compile(CGPathCreateMutable(), path)
-        graphLine!.line!.cgPath = cgPath.copy()
-        graphLine!.line!.draw()
+        
         /*VerticalBar*/
-        */
+
         let strings:[String] = GraphUtils.verticalIndicators(vCount, maxValue)
         for i in 0..<strings.count{
             leftBarItems[i].setTextValue(strings[i])
