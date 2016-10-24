@@ -13,7 +13,7 @@ class StatsView:Element {
     func createGraph(){
         let graphContainer = addSubView(Container(width,height,self,"graph"))
         graphContainer
-        graph = graphContainer.addSubView(YearGraph(width,height-48/*,4*/,graphContainer))
+        graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
         
         //GraphTypePicker
         let tabBar:Section = self.addSubView(Section(NaN, NaN, self, "tabBar"))
@@ -71,10 +71,7 @@ class StatsView:Element {
 /**
  * NOTE: You need to think week 1 - 52, and teselate months into 4 and then based on the mid day in this teselation derive the week-nr. NSDate probably has support for this
  */
-class WeekGraph:Graph{
-    override var hValues:[CGFloat] {return [4,2,3,7,5,0,1]}
-    override var hValNames:[String] {return ["M","T","W","T","F","S","S"]}
-}
+
 class MonthGraph:Graph{
     override var hValues:[CGFloat] {
         var arr:[CGFloat] = []
@@ -113,7 +110,7 @@ class MonthGraph:Graph{
     //start at the current date - 10 everytime you enter graph
     //GraphPoints should animate if you set the position differently on iteration
 class CommitGraph:Graph{
-    override var hValues:[CGFloat] {return [4,2,3,7,5,0,1]}
-    override var hValNames:[String] {return ["M","T","W","T","F","S","S"]}
+    override var hValues:[CGFloat] {return [14,8,13,17,25,9,14,20,33,19]}
+    override var hValNames:[String] {return ["10/12","10/13","10/14","10/15","10/16","10/17","10/18","10/19","10/20","10/21"]}
 }
 
