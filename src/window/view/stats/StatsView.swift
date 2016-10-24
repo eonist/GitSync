@@ -100,6 +100,16 @@ class CommitGraph:Graph{
     }
     override func touchesBeganWithEvent(event: NSEvent) {
         Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
+        if(event.type == NSEventType.EventTypeGesture){
+            let touches:NSSet = event //touchesMatchingPhase:NSTouchPhaseAny inView:self
+            if(touches.count == 2){
+                self.twoFingersTouches = [[NSMutableDictionary alloc] init];
+                
+                for (NSTouch *touch in touches) {
+                    [self.twoFingersTouches setObject:touch forKey:touch.identity];
+                }
+            }
+        }
     }
     override func touchesMovedWithEvent(event: NSEvent) {
         Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
