@@ -127,5 +127,12 @@ class CommitGraph:Graph{
         }
         return (values,dayNames)
     }
+    init(_ width: CGFloat, _ height: CGFloat,_ currentDate:NSDate, _ parent: IElement?, _ id: String? = nil) {
+        self.currentDate = currentDate
+        
+        
+        super.init(width, height, parent, id)
+    }
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
