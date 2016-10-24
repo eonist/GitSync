@@ -92,7 +92,20 @@ class CommitGraph:Graph{
         self.acceptsTouchEvents = true
     }
     
-    override func swipeWithEvent(event:NSEvent) {
+    override func touchesEndedWithEvent(event: NSEvent) {
+        Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")
+    }
+    override func touchesCancelledWithEvent(event: NSEvent) {
+        Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
+    }
+    override func touchesBeganWithEvent(event: NSEvent) {
+        Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
+    }
+    override func touchesMovedWithEvent(event: NSEvent) {
+        Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
+    }
+    
+    override func swipeWithEvent(event:NSEvent) {//doesnt work
         Swift.print("Swipe event.deltaY: " + "\(event.deltaY)" + " event.deltaX: " + "\(event.deltaX)")
         super.swipeWithEvent(event)
     }
