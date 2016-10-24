@@ -116,11 +116,11 @@ class CommitGraph:Graph{
     override var hValNames:[String] {return ["T","W","T","F","S","S","M"]}//"10/12","13","14",
     var temp:Int?{
         let calendar = NSCalendar.currentCalendar()
-        
+        var dayNames:[String] = []
         for i in 0..<7{
             let date = calendar.dateByAddingUnit(.Day, value: dayOffset-i, toDate: currentDate, options: [])
             let shortNameDayOfWeek:String = date!.shortNameDayOfWeek!
-            
+            dayNames.append(shortNameDayOfWeek)
         }
         return nil
     }
