@@ -141,15 +141,17 @@ class CommitGraph:Graph{
             }
             // See if absolute sum is long enough to be considered a complete gesture
             let absoluteSum:Float = fabsf(sum)
-            let kSwipeMinimumLength:Float = 0.2
+            let kSwipeMinimumLength:Float = 0.1
             if (absoluteSum < kSwipeMinimumLength) {return}
             
             // Handle the actual swipe
             // This might need to be > (i am using flipped coordinates)
             if (sum > 0){
                 Swift.print("go back")
+                //Do something here
             }else{
                 Swift.print("go forward")
+                //Do something else here
             }
         }
         
