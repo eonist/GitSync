@@ -98,6 +98,7 @@ class CommitGraph:Graph{
     override func touchesCancelledWithEvent(event: NSEvent) {
         Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
     }
+    var twoFingersTouches:NSMutableDictionary?
     override func touchesBeganWithEvent(event: NSEvent) {
         Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
         if(event.type == NSEventType.EventTypeGesture){//was NSEventTypeGesture, could maybe be: EventTypeBeginGesture
@@ -105,8 +106,8 @@ class CommitGraph:Graph{
             if(touches.count == 2){
                 self.twoFingersTouches = NSMutableDictionary()
                 
-                for (NSTouch *touch in touches) {
-                    [self.twoFingersTouches setObject:touch forKey:touch.identity];
+                for touch in touches {//NSTouch
+                    self.twoFingersTouches![touch.identity] = touch//was [ setObject: forKey:];
                 }
             }
         }
