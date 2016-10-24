@@ -124,6 +124,7 @@ class CommitGraph:Graph{
     //Continue here Try to bring the steppers into play
         //adjust the dayoffset and refresh the graph
         //try to animate the graphpoints rather than recreating it
+        //you also need a time indicator so from Time-period:10/7 to 10/14 etc
     
     static func graphData(dayOffset:Int,_ currentDate:NSDate) -> (hValues:[CGFloat],hValNames:[String]){
         let calendar = NSCalendar.currentCalendar()
