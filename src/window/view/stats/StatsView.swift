@@ -114,7 +114,44 @@ class CommitGraph:Graph{
     }
     override func touchesMovedWithEvent(event: NSEvent) {
         Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
+        
+        //NSSet *touches = [event touchesMatchingPhase:NSTouchPhaseEnded inView:self];
+        let touches:NSSet = event.touchesMatchingPhase(NSTouchPhase.Ended, inView: self)
+        if(touches.count > 0){
+            let beginTouches = self.twoFingersTouches!.copy()
+            self.twoFingersTouches = nil
+            
+            let magnitudes:NSMutableArray = NSMutableArray()
+            
+            for touch in touches {
+                let beginTouch:NSTouch = beginTouches[touch.identity]
+                
+                if (!beginTouch) continue;
+                
+                float magnitude = touch.normalizedPosition.x - beginTouch.normalizedPosition.x;
+                [magnitudes addObject:[NSNumber numberWithFloat:magnitude]];
+            }
+            
+            float sum = 0;
+            
+            for (NSNumber *magnitude in magnitudes)
+                sum += [magnitude floatValue];
+            
+            // See if absolute sum is long enough to be considered a complete gesture
+            float absoluteSum = fabsf(sum);
+            
+            if (absoluteSum < kSwipeMinimumLength) return;
+            
+            // Handle the actual swipe
+            // This might need to be > (i am using flipped coordinates)
+            if (sum > 0){
+                NSLog(@"go back");
+            }else{
+                NSLog(@"go forward");
+            }
+        
     }
+    
     
     override func swipeWithEvent(event:NSEvent) {//doesnt work
         Swift.print("Swipe event.deltaY: " + "\(event.deltaY)" + " event.deltaX: " + "\(event.deltaX)")
