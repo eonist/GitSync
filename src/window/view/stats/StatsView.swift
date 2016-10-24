@@ -134,6 +134,8 @@ extension CommitGraph{
         /*VerticalBar*/
         let maxValue:CGFloat = NumberParser.max(hValues)
         let strings:[String] = GraphUtils.verticalIndicators(vCount, maxValue)
-        //COntinue here: apply the string values to the vBar
+        for i in 0..<strings.count{
+            leftBarItems[i].setTextValue(strings[i])
+        }
     }
 }
