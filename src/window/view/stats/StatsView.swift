@@ -161,7 +161,11 @@ extension CommitGraph{
     
     //Continue here: you also need to recalc the hValue indicators (each week has a different max hValue etc)
     //and figure out if animating position is easy or hard etc
-    
+    func interpolatePosition(val:CGFloat){
+        //Swift.print("interpolateAlpha()")
+        self.skin?.decoratables[0].getGraphic().fillStyle?.color = (self.skin?.decoratables[0].getGraphic().fillStyle?.color.alpha(val))!
+        self.skin?.decoratables[0].draw()
+    }
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
      */
@@ -173,8 +177,8 @@ extension CommitGraph{
             graphPoints[i].setPosition(graphPts[i])
         }
         if(animator != nil){animator!.stop()}//stop any previous running animation
-        let curVal:CGFloat = self.skin!.decoratables[0].getGraphic().fillStyle!.color.alphaComponent
-        animator = Animator(Animation.sharedInstance,0.5,curVal,0,interpolateAlpha,Easing.easeInQuad)
+
+        animator = Animator(Animation.sharedInstance,0.5,0,1,interpolatePosition,Easing.easeInQuad)
         animator!.start()
         /*
         /*GraphLine*/
