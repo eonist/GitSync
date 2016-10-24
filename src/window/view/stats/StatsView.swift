@@ -117,7 +117,7 @@ class CommitGraph:Graph{
     override func touchesMovedWithEvent(event: NSEvent) {
         Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
         
-        let touches:NSSet = event.touchesMatchingPhase(NSTouchPhase.Ended, inView: self)
+        let touches:Set<NSTouch> = event.touchesMatchingPhase(NSTouchPhase.Ended, inView: self)
         if(touches.count > 0){
             let beginTouches:NSMutableDictionary = self.twoFingersTouches!
             self.twoFingersTouches = nil
@@ -125,8 +125,13 @@ class CommitGraph:Graph{
             let magnitudes:NSMutableArray = NSMutableArray()
             
             for touch in touches {
-                let key = (touch as! NSTouch).identity
+                let beginTouch:NSTouch = beginTouches.objectForKey(touch.identity)
                 
+                if (beginTouch != nil) {continue}
+                
+                let magnitude:Float = touch.normalizedPosition.x - beginTouch!.normalizedPosition.x;
+                magnitudes.addObject(NSNumber(float: magnitude))
+
 
             }
         }
