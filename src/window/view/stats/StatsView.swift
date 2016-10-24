@@ -172,6 +172,11 @@ extension CommitGraph{
         for i in 0..<graphPts.count{
             graphPoints[i].setPosition(graphPts[i])
         }
+        if(animator != nil){animator!.stop()}//stop any previous running animation
+        let curVal:CGFloat = self.skin!.decoratables[0].getGraphic().fillStyle!.color.alphaComponent
+        animator = Animator(Animation.sharedInstance,0.5,curVal,0,interpolateAlpha,Easing.easeInQuad)
+        animator!.start()
+        /*
         /*GraphLine*/
         let path:IPath = PolyLineGraphicUtils.path(graphPts)/*convert points to a Path*/
         let cgPath = CGPathUtils.compile(CGPathCreateMutable(), path)
@@ -183,5 +188,6 @@ extension CommitGraph{
         for i in 0..<strings.count{
             leftBarItems[i].setTextValue(strings[i])
         }
+        */
     }
 }
