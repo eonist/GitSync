@@ -112,9 +112,9 @@ class MonthGraph:Graph{
 class CommitGraph:Graph{
     var currentDate:NSDate = NSDate()
     var dayOffset:Int = 0
-    override var hValues:[CGFloat] {return [14,8,13,17,25,9,14]}//,20,33,19
-    override var hValNames:[String] {return ["T","W","T","F","S","S","M"]}//"10/12","13","14",
-    var temp:Int?{
+    override var hValues:[CGFloat] {return graphData.hValues}//,20,33,19//[14,8,13,17,25,9,14]
+    override var hValNames:[String] {return graphData.hValNames}//["T","W","T","F","S","S","M"]//"10/12","13","14",
+    var graphData:(hValues:[CGFloat],hValNames:[String]){
         let calendar = NSCalendar.currentCalendar()
         var dayNames:[String] = []
         var values:[CGFloat] = []//commits in a single day
@@ -125,7 +125,7 @@ class CommitGraph:Graph{
             let val:CGFloat = NumberParser.random(4, 24).cgFloat//generate hValues via random
             values.append(val)
         }
-        return nil
+        return (values,dayNames)
     }
 }
 
