@@ -113,6 +113,9 @@ class CommitGraph:Graph{
 }
 
 extension CommitGraph{
+    
+    //Continue here: you also need to recalc the hValue indicators (each week has a different max hValue etc)
+    
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
      */
