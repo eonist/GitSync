@@ -1,6 +1,6 @@
 import Cocoa
 /**
- * TODO: Consider making the graph component bouncy and zoomable (with time elements that tesselate)
+ * TODO: When entering the Graph component, you should animate the graph component from the old data to the new data, if there is new data. Very satesfiyng seeing your day commit graph go up after a long day of work
  */
 class StatsView:Element {
     var graph:CommitGraph?
@@ -15,7 +15,7 @@ class StatsView:Element {
         graphContainer
         graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
         
-        //Time Iterator Left and right stepper use the left and right arrows similar to the up and down arrows in stepper (right aligned) (use the stepper just horizontally aligned)
+        //
         
         //for all repos:
             //get the commits from today where the user is Eonist
@@ -116,8 +116,7 @@ class CommitGraph:Graph{
         updateGraph()
     }
     
-    //Continue here: you also need to recalc the hValue indicators (each week has a different max hValue etc)
-    //and figure out if animating position is easy or hard etc
+    //recalc the hValue indicators (each week has a different max hValue etc)
     func interpolateValue(val:CGFloat){
         Swift.print("interpolateValue() val: " + "\(val)")
         var positions:[CGPoint] = []
@@ -160,10 +159,6 @@ class CommitGraph:Graph{
 
     }
     
-    //Continue here Try to bring the steppers into play
-        //adjust the dayoffset and refresh the graph
-        //try to animate the graphpoints rather than recreating it
-        //you also need a time indicator so from Time-period:10/7 to 10/14 etc
     
     static func graphData(dayOffset:Int,_ currentDate:NSDate) -> (hValues:[CGFloat],hValNames:[String]){
         let calendar = NSCalendar.currentCalendar()
