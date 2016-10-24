@@ -16,18 +16,7 @@ class StatsView:Element {
         graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
         
         //Time Iterator Left and right stepper use the left and right arrows similar to the up and down arrows in stepper (right aligned) (use the stepper just horizontally aligned)
-        /*
-        let stepper:LeverStepper = addSubView(LeverStepper(NaN,NaN,0,1,Int.min.cgFloat,Int.max.cgFloat,0,100,200,self))
-        stepper
         
-        func onEvent(event:Event){
-            Swift.print("stepper.onEvent()")
-            if(event.assert(StepperEvent.change, stepper)){
-                
-            }
-        }
-        stepper.event = onEvent
-        */
         //for all repos:
             //get the commits from today where the user is Eonist
                 //store the time in an [[Int]] (basically a arr with an arr of times)
@@ -35,16 +24,7 @@ class StatsView:Element {
         
     }
 }
-//Simple is the best:
-    //show 10 last days (5 on iphone)
-    //gestures can iterate time periods back and forth -10 + 10 etc
-    //morphs the graph
-    //uni dir bounce for show
-    //shows stats for all repos where the user is you
-    //average commit max for 10 day period
-    //days show as: 10/12, 10/13, 10/14 etc etc
-    //start at the current date - 10 everytime you enter graph
-    //GraphPoints should animate if you set the position differently on iteration
+
 class CommitGraph:Graph{
     var animator:Animator?
     var currentDate:NSDate = NSDate()
