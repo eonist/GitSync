@@ -99,10 +99,10 @@ class CommitGraph:Graph{
         Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
     }
     
-    var twoFingersTouches:NSMutableDictionary?
+    var twoFingersTouches:NSMutableDictionary?//temp storage
     
     override func touchesBeganWithEvent(event: NSEvent) {
-        Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
+        //Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
         if(event.type == NSEventType.EventTypeGesture){//was NSEventTypeGesture, could maybe be: EventTypeBeginGesture
             let touches:NSSet = event.touchesMatchingPhase(NSTouchPhase.Any, inView: self) //touchesMatchingPhase:NSTouchPhaseAny inView:self
             if(touches.count == 2){
@@ -115,7 +115,7 @@ class CommitGraph:Graph{
         }
     }
     override func touchesMovedWithEvent(event: NSEvent) {
-        Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
+        //Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
         
         let touches:Set<NSTouch> = event.touchesMatchingPhase(NSTouchPhase.Ended, inView: self)
         if(touches.count > 0){
@@ -125,11 +125,11 @@ class CommitGraph:Graph{
             let magnitudes:NSMutableArray = NSMutableArray()
             
             for touch in touches {
-                let beginTouch:NSTouch = beginTouches.objectForKey(touch.identity) as! NSTouch
+                let beginTouch:NSTouch? = beginTouches.objectForKey(touch.identity) as? NSTouch
                 
-                //if (beginTouch != nil) {continue}
+                if (beginTouch == nil) {continue}
                 
-                let magnitude:Float = Float(touch.normalizedPosition.x) - Float(beginTouch.normalizedPosition.x)
+                let magnitude:Float = Float(touch.normalizedPosition.x) - Float(beginTouch!.normalizedPosition.x)
                 magnitudes.addObject(NSNumber(float: magnitude))
 
 
@@ -156,30 +156,6 @@ class CommitGraph:Graph{
     }
     
     
-    override func swipeWithEvent(event:NSEvent) {//doesnt work
-        Swift.print("Swipe event.deltaY: " + "\(event.deltaY)" + " event.deltaX: " + "\(event.deltaX)")
-        super.swipeWithEvent(event)
-    }
-    override func magnifyWithEvent(event: NSEvent) {
-        Swift.print("Magnification value is" + "\(event.magnification)" + " event.momentumPhase: " + "\(event.momentumPhase)")
-        var newSize:NSSize = NSSize()
-        newSize.height = self.frame.size.height * event.magnification + 1.0
-        newSize.width = self.frame.size.width * event.magnification + 1.0
-        //[self setFrameSize:newSize];
-        
-        if(event.momentumPhase == NSEventPhase.Ended){
-            Swift.print("the zoom ended")
-           
-        }else if(event.momentumPhase == NSEventPhase.Began){//include maybegin here
-            Swift.print("the zoom began")
-            
-        }else if(event.momentumPhase == NSEventPhase.Changed){
-            Swift.print("the zoom changed")
-            
-        }
-        
-        super.magnifyWithEvent(event)
-    }
     //Continue here Try to bring the steppers into play
         //adjust the dayoffset and refresh the graph
         //try to animate the graphpoints rather than recreating it
