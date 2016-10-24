@@ -98,7 +98,9 @@ class CommitGraph:Graph{
     override func touchesCancelledWithEvent(event: NSEvent) {
         Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
     }
+    
     var twoFingersTouches:NSMutableDictionary?
+    
     override func touchesBeganWithEvent(event: NSEvent) {
         Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
         if(event.type == NSEventType.EventTypeGesture){//was NSEventTypeGesture, could maybe be: EventTypeBeginGesture
@@ -141,16 +143,17 @@ class CommitGraph:Graph{
             }
             // See if absolute sum is long enough to be considered a complete gesture
             let absoluteSum:Float = fabsf(sum)
-            
+            let kSwipeMinimumLength:Float = 0.2
             if (absoluteSum < kSwipeMinimumLength) {return}
             
             // Handle the actual swipe
             // This might need to be > (i am using flipped coordinates)
             if (sum > 0){
-                NSLog(@"go back");
+                Swift.print("go back")
             }else{
-                NSLog(@"go forward");
+                Swift.print("go forward")
             }
+        }
         
     }
     
