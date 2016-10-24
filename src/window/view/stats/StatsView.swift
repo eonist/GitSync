@@ -119,6 +119,8 @@ class CommitGraph:Graph{
         
         for i in 0..<7{
             let date = calendar.dateByAddingUnit(.Day, value: dayOffset-i, toDate: currentDate, options: [])
+            let shortNameDayOfWeek:String = date!.shortNameDayOfWeek!
+            
         }
         return nil
     }
