@@ -16,7 +16,7 @@ class StatsView:Element {
         graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
         
         //Nevermind the popover idea, make the TimePeriod text instead: 16/10/15 - 16/10/22 (3 centeraligned Text inline)
-        
+        //Maybe reimplement the time type picker: (Month,Day) <--just two time types. Month shows 12 months with J,F,M,A,M... design
         
         //for all repos:
             //get the commits from today where the user is Eonist
