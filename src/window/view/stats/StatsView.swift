@@ -98,64 +98,22 @@ class MonthGraph:Graph{
         let date:NSDate = NSDate.createDate(nil,4)!
         numOfDaysInMonth = date.numOfDaysInMonth
         
-        
-        //so the month graph is a bit tricky:
-            //you have to divide it by week, so the num of vertical lines differentiate for each month, depending how the week hit the month etc, and how many days are in the month, no month graph is the same
-            //all Sundays get a GraphPoint
-            //the start and end of a month also gets a GraphPoint which is calculated by the prev and next week (then calc the diff between 2 weeks collected values, then the num of days untill that day, use this to multiply the value....its not so tricky to make)
-            //figure out how to add the weeks to 1 value etc
-            //Also keep in mind that you draw the GraphPoint for the surounding 3.5 days from left and right of where the GraphPoint is drawn. (think of the graph as an infinte graph that you see snapshots of)
-            //disregard the above, the valie is for day 1 until 7 in a week. from monday (basically values for week 44 on the start of week 44)
-            //Actually, just do this simpler: show the last 10 days (10/12,10/13,10/14 etc etc)
-        
-        //what if you do:
-            //year,month,day
-            //year: 14,15,16 etc (only 2 if time only spans 1 year) (max 10 year, 5 on iphone)
-            //month: jan - dec (12) (6 month on iphone)
-            //day: 10 days (5 days on iphone)
-        
-            //gestures then bounce the graph left,right, up and down
-                //left and right gestures transform the graph to earlier time periods
-        
-        //The thing is going from month view to day view requires 30 days etc to be smooth
-            //Make it simple: just show 10 day interval, and make it slide that month. (5 for iphone because of small screen)
-            //when you get to the edge you can swipe to jump to previous months, which basically
-            //the commit count max will be calculated on the month as a whole
-        
-        //Actually:
-            //the ultimate solution would be to crop the graph on smaller window sizes, and show entire time types if the windowsize can fit it
-            //then you just click on the graph point of interest
-            //This enables: Y,M,D,H time types
-            //gesture friendly. bounce the graph back and forth on smaller screens
-            //This also enables you to make it entirly gesture based, no interface elements to navigate.
-            //pinch to zoom in and out of time types
-            //ITs awesome, but alot of work, cropping, etc etc
-        
-        //Simple is the best: 
-            //show 10 last days (5 on iphone)
-            //gestures can iterate time periods back and forth -10 + 10 etc
-            //morphs the graph
-            //uni dir bounce for show
-            //shows stats for all repos where the user is you
-            //average commit max for 10 day period
-            //days show as: 10/12, 10/13, 10/14 etc etc
-            //start at the current date - 10 everytime you enter graph
-            //GraphPoints should animate if you set the position differently on iteration
-        
         super.init(width, height, parent, id)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-/**
- * the values are the collected values from 1 to end of month
- */
-class YearGraph:Graph{
-    override var hValNames:[String] {return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]}
-    override var hValues:[CGFloat] {return [14,8,13,17,25,9,14,20,33,25,15,19]}
-    override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement?, _ id: String? = nil) {
-        super.init(width, height, parent, id)
-        
-    }
-    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+//Simple is the best:
+    //show 10 last days (5 on iphone)
+    //gestures can iterate time periods back and forth -10 + 10 etc
+    //morphs the graph
+    //uni dir bounce for show
+    //shows stats for all repos where the user is you
+    //average commit max for 10 day period
+    //days show as: 10/12, 10/13, 10/14 etc etc
+    //start at the current date - 10 everytime you enter graph
+    //GraphPoints should animate if you set the position differently on iteration
+class CommitGraph:Graph{
+    override var hValues:[CGFloat] {return [4,2,3,7,5,0,1]}
+    override var hValNames:[String] {return ["M","T","W","T","F","S","S"]}
 }
 
