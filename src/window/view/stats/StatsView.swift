@@ -120,11 +120,16 @@ class CommitGraph:Graph{
         graphData =  CommitGraph.graphData(dayOffset, currentDate)
         super.init(width, height, parent, id)
     }
+    
+    //Continue here Try to bring the steppers into play
+        //adjust the dayoffset and refresh the graph
+        //try to animate the graphpoints rather than recreating it
+    
     static func graphData(dayOffset:Int,_ currentDate:NSDate) -> (hValues:[CGFloat],hValNames:[String]){
         let calendar = NSCalendar.currentCalendar()
         var dayNames:[String] = []
         var values:[CGFloat] = []//commits in a single day
-        for i in 0..<7{
+        for i in (0..<7).reverse() {
             let date = calendar.dateByAddingUnit(.Day, value: dayOffset-i, toDate: currentDate, options: [])
             Swift.print("date: " + "\(date)")
             let shortNameDayOfWeek:String = date!.shortDayName
@@ -133,7 +138,7 @@ class CommitGraph:Graph{
             let val:CGFloat = NumberParser.random(4, 24).cgFloat//generate hValues via random
             values.append(val)
         }
-        return (values.reverse(),dayNames.reverse())
+        return (values,dayNames)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
