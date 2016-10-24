@@ -112,9 +112,9 @@ class MonthGraph:Graph{
 class CommitGraph:Graph{
     var currentDate:NSDate = NSDate()
     var dayOffset:Int = 0
+    var graphData:(hValues:[CGFloat],hValNames:[String])
     override var hValues:[CGFloat] {return graphData.hValues}//,20,33,19//[14,8,13,17,25,9,14]
     override var hValNames:[String] {return graphData.hValNames}//["T","W","T","F","S","S","M"]//"10/12","13","14",
-    var graphData:(hValues:[CGFloat],hValNames:[String])
     
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement?, _ id: String? = nil) {
         graphData =  CommitGraph.graphData(dayOffset, currentDate)
