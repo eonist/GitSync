@@ -137,7 +137,7 @@ class CommitGraph:Graph{
     //Continue here: you also need to recalc the hValue indicators (each week has a different max hValue etc)
     //and figure out if animating position is easy or hard etc
     func interpolatePosition(val:CGFloat){
-        Swift.print("interpolateAlpha()")
+        Swift.print("interpolatePosition() val: " + "\(val)")
         for i in 0..<graphPts.count{
             let pos:CGPoint = initGraphPts[i].interpolate(graphPts[i], val)
             graphPoints[i].setPosition(pos)
