@@ -15,7 +15,7 @@ class StatsView:Element {
         graphContainer
         graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
         
-        //Nevermind the popover idea, make the TimePeriod text instead: 16/10/15 - 16/10/22 (3 centeraligned Text inline)
+        //Continue here: add the current date: 16/10/22  (16 Jan 22) center aligned text on top
         
         
         //for all repos:
