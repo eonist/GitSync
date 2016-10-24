@@ -118,13 +118,14 @@ class CommitGraph:Graph{
         //NSSet *touches = [event touchesMatchingPhase:NSTouchPhaseEnded inView:self];
         let touches:NSSet = event.touchesMatchingPhase(NSTouchPhase.Ended, inView: self)
         if(touches.count > 0){
-            let beginTouches = self.twoFingersTouches!.copy()
+            let beginTouches:NSMutableDictionary = self.twoFingersTouches!
             self.twoFingersTouches = nil
             
             let magnitudes:NSMutableArray = NSMutableArray()
             
             for touch in touches {
-                let beginTouch:NSTouch = beginTouches[touch.identity]
+                let key = (touch as! NSTouch).identity
+                let beginTouch:NSTouch = beginTouches.objectForKey(key)
                 
                 if (!beginTouch) continue;
                 
