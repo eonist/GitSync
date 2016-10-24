@@ -130,18 +130,19 @@ class CommitGraph:Graph{
                 if (beginTouch != nil) {continue}
                 
                 let magnitude:Float = touch.normalizedPosition.x - beginTouch!.normalizedPosition.x;
-                [magnitudes addObject:[NSNumber numberWithFloat:magnitude]];
+                magnitudes.addObject(NSNumber(float: magnitude))
+
             }
             
-            float sum = 0;
+            var sum:Float = 0
             
-            for (NSNumber *magnitude in magnitudes)
-                sum += [magnitude floatValue];
-            
+            for magnitude in magnitudes{
+                sum += magnitude.floatValue
+            }
             // See if absolute sum is long enough to be considered a complete gesture
-            float absoluteSum = fabsf(sum);
+            let absoluteSum:Float = fabsf(sum)
             
-            if (absoluteSum < kSwipeMinimumLength) return;
+            if (absoluteSum < kSwipeMinimumLength) {return}
             
             // Handle the actual swipe
             // This might need to be > (i am using flipped coordinates)
