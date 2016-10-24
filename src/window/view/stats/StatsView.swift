@@ -15,34 +15,11 @@ class StatsView:Element {
         graphContainer
         graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
         
-        //GraphTypePicker
-        let tabBar:Section = self.addSubView(Section(NaN, NaN, self, "tabBar"))
-        let btn0 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Year",false,tabBar,"first"))
-        let btn1 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Month",true,tabBar,"second"))
-        let btn2 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Week",false,tabBar,"third"))
-        let btn3 = tabBar.addSubView(SelectTextButton(NaN,NaN,"Day",false,tabBar,"fourth"))
-        let selectGroup = SelectGroup([btn0,btn1,btn2,btn3],btn1)//SelectParser.selectables(card)
-        selectGroup
-        
-        //You need some kind of indicator value on which time you are currently at
-
-        func onSelectGroupChange(event:Event){
-            Swift.print("event.selectable: " + "\(event)")
-            if(selectGroup.selected === btn0){
-                Swift.print("set Graph to YearGraph")
-            }else if(selectGroup.selected === btn1){
-                Swift.print("set Graph to MonthGraph")
-            }else if(selectGroup.selected === btn2){
-                Swift.print("set graph to WeekGraph")
-            }else if(selectGroup.selected === btn3){
-                Swift.print("set graph to DayGraph")
-            }
-        }
-        selectGroup.event = onSelectGroupChange
-        
         //Time Iterator Left and right stepper use the left and right arrows similar to the up and down arrows in stepper (right aligned) (use the stepper just horizontally aligned)
         let stepper:LeverStepper = addSubView(LeverStepper(NaN,NaN,0,1,Int.min.cgFloat,Int.max.cgFloat,0,100,200,self))
         stepper
+        
+        
         //for all repos:
             //get the commits from today where the user is Eonist
                 //store the time in an [[Int]] (basically a arr with an arr of times)
