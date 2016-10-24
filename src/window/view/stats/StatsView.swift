@@ -87,7 +87,6 @@ class CommitGraph:Graph{
         graphData =  CommitGraph.graphData(dayOffset, currentDate)
         super.init(width, height, parent, id)
     }
-    
     //Continue here Try to bring the steppers into play
         //adjust the dayoffset and refresh the graph
         //try to animate the graphpoints rather than recreating it
@@ -111,3 +110,15 @@ class CommitGraph:Graph{
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
+extension CommitGraph{
+    /**
+     *
+     */
+    func updateGraphPoints(){
+        let graphPts = GraphUtils.points(newSize, newPostition, spacing, hValues,spaceData.maxValue)
+        for i in 0..<graphPts.count
+        graphPoints.forEach{
+            
+        }
+    }
+}
