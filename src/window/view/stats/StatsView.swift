@@ -20,11 +20,13 @@ class StatsView:Element {
         stepper
         
         func onEvent(event:Event){
+            Swift.print("stepper.onEvent()")
             if(event.assert(StepperEvent.change, stepper)){
                 let val = (event as! StepperEvent).value
                 Swift.print("Stepper.value: " + "\(val)")
                 graph!.dayOffset += val.int
-                graph!.graphData = CommitGraph.getg
+                graph!.graphData = CommitGraph.graphData(graph!.dayOffset, graph!.currentDate)
+                graph!.updateGraphPoints()
             }
         }
         stepper.event = onEvent
