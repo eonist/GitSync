@@ -110,7 +110,7 @@ class MonthGraph:Graph{
     //start at the current date - 10 everytime you enter graph
     //GraphPoints should animate if you set the position differently on iteration
 class CommitGraph:Graph{
-    override var hValues:[CGFloat] {return [14,8,13,17,25,9,14,20,33,19]}
-    override var hValNames:[String] {return ["10/12","13","14","15","16","17","18","19","20","10/21"]}
+    override var hValues:[CGFloat] {return [14,8,13,17,25,9,14]}//,20,33,19
+    override var hValNames:[String] {return ["10/15","16","17","18","19","20","10/21"]}//"10/12","13","14",
 }
 
