@@ -100,10 +100,10 @@ class CommitGraph:Graph{
     }
     override func touchesBeganWithEvent(event: NSEvent) {
         Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
-        if(event.type == NSEventType.EventTypeGesture){
-            let touches:NSSet = event //touchesMatchingPhase:NSTouchPhaseAny inView:self
+        if(event.type == NSEventType.EventTypeGesture){//was NSEventTypeGesture, could maybe be: EventTypeBeginGesture
+            let touches:NSSet = event.touchesMatchingPhase(NSTouchPhase.Any, inView: self) //touchesMatchingPhase:NSTouchPhaseAny inView:self
             if(touches.count == 2){
-                self.twoFingersTouches = [[NSMutableDictionary alloc] init];
+                self.twoFingersTouches = NSMutableDictionary()
                 
                 for (NSTouch *touch in touches) {
                     [self.twoFingersTouches setObject:touch forKey:touch.identity];
