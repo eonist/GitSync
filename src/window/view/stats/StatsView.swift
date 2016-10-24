@@ -131,5 +131,9 @@ extension CommitGraph{
         let cgPath = CGPathUtils.compile(CGPathCreateMutable(), path)
         graphLine!.line!.cgPath = cgPath.copy()
         graphLine!.line!.draw()
+        /*VerticalBar*/
+        let maxValue:CGFloat = NumberParser.max(hValues)
+        let strings:[String] = GraphUtils.verticalIndicators(vCount, maxValue)
+        //COntinue here: apply the string values to the vBar
     }
 }
