@@ -133,7 +133,7 @@ class CommitGraph:Graph{
             let val:CGFloat = NumberParser.random(4, 24).cgFloat//generate hValues via random
             values.append(val)
         }
-        return (values,dayNames)
+        return (values.reverse(),dayNames.reverse())
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
