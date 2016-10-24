@@ -33,37 +33,6 @@ class StatsView:Element {
         
     }
 }
-/**
- * NOTE: You need to think week 1 - 52, and teselate months into 4 and then based on the mid day in this teselation derive the week-nr. NSDate probably has support for this
- */
-
-class MonthGraph:Graph{
-    override var hValues:[CGFloat] {
-        var arr:[CGFloat] = []
-        for _ in 0..<numOfDaysInMonth{
-            let val:CGFloat = NumberParser.random(4, 24).cgFloat//generate hValues via random
-            arr.append(val)
-        }
-        return arr
-    }
-    override var hValNames:[String] {
-        var arr:[String] = []
-        for i in 1...numOfDaysInMonth{//you need 1 until numOfDaysInMonth as hvalnames
-            arr.append(i.string)
-        }
-        return arr
-    }
-    var numOfDaysInMonth:Int
-    var curMonth:Int
-    init(_ width: CGFloat, _ height: CGFloat,_ curMonth:Int, _ parent: IElement?, _ id: String? = nil) {
-        self.curMonth = curMonth
-        let date:NSDate = NSDate.createDate(nil,4)!
-        numOfDaysInMonth = date.numOfDaysInMonth
-        
-        super.init(width, height, parent, id)
-    }
-    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
-}
 //Simple is the best:
     //show 10 last days (5 on iphone)
     //gestures can iterate time periods back and forth -10 + 10 etc
