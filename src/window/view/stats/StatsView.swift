@@ -121,7 +121,8 @@ extension CommitGraph{
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
      */
     func updateGraph(){
-        let graphPts:[CGPoint] = GraphUtils.points(newSize!, newPostition!, spacing!, hValues,spaceData!.maxValue)
+        let maxValue:CGFloat = NumberParser.max(hValues)
+        let graphPts:[CGPoint] = GraphUtils.points(newSize!, newPostition!, spacing!, hValues, maxValue)
         /*GraphPoints*/
         for i in 0..<graphPts.count{
             graphPoints[i].setPosition(graphPts[i])
@@ -132,7 +133,7 @@ extension CommitGraph{
         graphLine!.line!.cgPath = cgPath.copy()
         graphLine!.line!.draw()
         /*VerticalBar*/
-        let maxValue:CGFloat = NumberParser.max(hValues)
+        
         let strings:[String] = GraphUtils.verticalIndicators(vCount, maxValue)
         for i in 0..<strings.count{
             leftBarItems[i].setTextValue(strings[i])
