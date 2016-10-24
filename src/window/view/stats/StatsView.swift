@@ -15,7 +15,7 @@ class StatsView:Element {
         graphContainer
         graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
         
-        //Continue here: add the current date: 16/10/22  (16 Jan 22) center aligned text on top (The CommitGraph doesnt need anything more features, as its just about showing your commit count the last 7 days and so)
+        //Continue here: add the current date: 16/10/11 - 16/10/18  center aligned text on top (The CommitGraph doesnt need anything more features, as its just about showing your commit count the last 7 days and so)
         
         
         //for all repos:
