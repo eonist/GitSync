@@ -114,10 +114,10 @@ class CommitGraph:Graph{
     var dayOffset:Int = 0
     override var hValues:[CGFloat] {return graphData.hValues}//,20,33,19//[14,8,13,17,25,9,14]
     override var hValNames:[String] {return graphData.hValNames}//["T","W","T","F","S","S","M"]//"10/12","13","14",
-    var graphData:(hValues:[CGFloat],hValNames:[String]) = gData
+    var graphData:(hValues:[CGFloat],hValNames:[String])
     
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement?, _ id: String? = nil) {
-       
+        graphData =  CommitGraph.graphData(dayOffset, currentDate)
         super.init(width, height, parent, id)
     }
     static func graphData(dayOffset:Int,_ currentDate:NSDate) -> (hValues:[CGFloat],hValNames:[String]){
