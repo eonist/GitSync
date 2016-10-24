@@ -118,8 +118,14 @@ extension CommitGraph{
      */
     func updateGraph(){
         let graphPts:[CGPoint] = GraphUtils.points(newSize!, newPostition!, spacing!, hValues,spaceData!.maxValue)
+        /*GraphPoints*/
         for i in 0..<graphPts.count{
             graphPoints[i].setPosition(graphPts[i])
         }
+        /*GraphLine*/
+        let path:IPath = PolyLineGraphicUtils.path(graphPts)/*convert points to a Path*/
+        let cgPath = CGPathUtils.compile(CGPathCreateMutable(), path)
+        graphLine!.line!.cgPath = cgPath.copy()
+        graphLine!.line!.draw()
     }
 }
