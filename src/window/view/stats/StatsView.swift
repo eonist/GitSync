@@ -116,10 +116,8 @@ class CommitGraph:Graph{
     override var hValNames:[String] {return graphData.hValNames}//["T","W","T","F","S","S","M"]//"10/12","13","14",
     var graphData:(hValues:[CGFloat],hValNames:[String])
     
-    init(_ width: CGFloat, _ height: CGFloat,_ currentDate:NSDate, _ parent: IElement?, _ id: String? = nil) {
-        self.currentDate = currentDate
+    override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement?, _ id: String? = nil) {
         graphData = getGraphData()
-        
         super.init(width, height, parent, id)
     }
     func getGraphData() -> (hValues:[CGFloat],hValNames:[String]){
