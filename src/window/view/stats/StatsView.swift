@@ -19,7 +19,13 @@ class StatsView:Element {
         let stepper:LeverStepper = addSubView(LeverStepper(NaN,NaN,0,1,Int.min.cgFloat,Int.max.cgFloat,0,100,200,self))
         stepper
         
-        
+        func onEvent(event:Event){
+            if(event.assert(StepperEvent.change, stepper)){
+                let val = (event as! StepperEvent).value
+                Swift.print("Stepper.value: " + "\(val)")
+            }
+        }
+        stepper.event = onEvent
         //for all repos:
             //get the commits from today where the user is Eonist
                 //store the time in an [[Int]] (basically a arr with an arr of times)
