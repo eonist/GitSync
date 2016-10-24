@@ -126,7 +126,8 @@ class CommitGraph:Graph{
         var values:[CGFloat] = []//commits in a single day
         for i in 0..<7{
             let date = calendar.dateByAddingUnit(.Day, value: dayOffset-i, toDate: currentDate, options: [])
-            let shortNameDayOfWeek:String = date!.shortNameDayOfWeek!
+            Swift.print("date: " + "\(date)")
+            let shortNameDayOfWeek:String = date!.dayOfWeek!
             dayNames.append(shortNameDayOfWeek)
             let val:CGFloat = NumberParser.random(4, 24).cgFloat//generate hValues via random
             values.append(val)
