@@ -114,12 +114,13 @@ class CommitGraph:Graph{
     var dayOffset:Int = 0
     override var hValues:[CGFloat] {return graphData.hValues}//,20,33,19//[14,8,13,17,25,9,14]
     override var hValNames:[String] {return graphData.hValNames}//["T","W","T","F","S","S","M"]//"10/12","13","14",
-    var graphData:(hValues:[CGFloat],hValNames:[String]) = CommitGraph.getGraphData()
+    var graphData:(hValues:[CGFloat],hValNames:[String]) = gData
     
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement?, _ id: String? = nil) {
+       
         super.init(width, height, parent, id)
     }
-    static func getGraphData() -> (hValues:[CGFloat],hValNames:[String]){
+    static func graphData(dayOffset:Int,_ currentDate:NSDate) -> (hValues:[CGFloat],hValNames:[String]){
         let calendar = NSCalendar.currentCalendar()
         var dayNames:[String] = []
         var values:[CGFloat] = []//commits in a single day
