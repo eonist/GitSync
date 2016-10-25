@@ -17,6 +17,7 @@ class Navigation {
         
         let width:CGFloat = MainView.w
         let height:CGFloat = MainView.h
+        
         /**
          * TODO: Use class name instead of static let strings
          */
@@ -26,18 +27,15 @@ class Navigation {
             case MenuView.repos:
                 mainView.currentView = mainView.addSubView(RepoView(width,height,mainView))
             case MenuView.stats:
-                Swift.print("stats")
                 mainView.currentView = mainView.addSubView(StatsView(width,height,mainView))
             case MenuView.prefs:
                 mainView.currentView = mainView.addSubView(PrefsView(width,height,mainView))
             case String(RepoDetailView):
                 mainView.currentView = mainView.addSubView(RepoDetailView(width,height,mainView))
             case String(ConflictDialogView):
-                Swift.print("")
                 mainView.currentView = mainView.addSubView(ConflictDialogView(width,height,mainView))
-            case String(ConflictDialogView):
-                Swift.print("Debug")
-                mainView.currentView = mainView.addSubView(ConflictDialogView(width,height,mainView))
+            case String(DebugView):
+                mainView.currentView = mainView.addSubView(DebugView(width,height,mainView))
             default:
                 break;
         }
