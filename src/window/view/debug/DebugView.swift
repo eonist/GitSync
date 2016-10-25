@@ -10,7 +10,7 @@ class DebugView:Element{
         skin = SkinResolver.skin(self)
         
         //add ProgressIndicator
-        progressIndicator = addSubView(ProgressIndicator(40,40,self))
+        progressIndicator = addSubView(ProgressIndicator(30,30,self))
         //add a progressSlider (volumeControl)
         
         volumeSlider = addSubView(VolumeSlider(120,20,20,0,self))
