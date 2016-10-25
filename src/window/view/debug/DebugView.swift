@@ -9,6 +9,8 @@ class DebugView:Element{
         
         //add ProgressIndicator
         //add a progressSlider (volumeControl)
+        let volumeSlider = card.addSubView(VolumeSlider(120,20,20,0,card))
+        volumeSlider.setProgressValue(0.5)
         //add a start button (TexteButton)
         startButton = addSubView(TextButton(100,24,"start",self))
         //add a stop button (TexteButton)
