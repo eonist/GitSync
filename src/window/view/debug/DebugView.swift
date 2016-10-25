@@ -7,8 +7,8 @@ class DebugView:Element{
         
         //add ProgressIndicator
         //add a progressSlider (volumeControl)
-        //add a start button 
-        //add a stop button
+        //add a start button (TexteButton)
+        //add a stop button (TexteButton)
         
     }
 }
