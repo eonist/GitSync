@@ -11,5 +11,4 @@ class DebugView:Element{
         //add a stop button
         
     }
-    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
