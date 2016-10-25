@@ -23,6 +23,8 @@ class DebugView:Element{
         if(event.assert(SliderEvent.change, volumeSlider)){
             let volumSliderProgress = (event as! SliderEvent).progress
             Swift.print("volumSliderProgress: " + "\(volumSliderProgress)")
+        }else if(event.assert(ButtonEvent.upInside, stop)){
+            
         }
         
         //Continue here: setup buttons and then progressIndicator
