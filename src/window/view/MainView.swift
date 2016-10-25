@@ -21,11 +21,10 @@ class MainView:TitleView{
         
         menuView = addSubView(MenuView(frame.width,48,self))
         
-        Navigation.setView(MenuView.stats)//String(ConflictDialogView)
+        Navigation.setView(String(DebugView))//String(ConflictDialogView)//(MenuView.stats
         menuView!.selectGroup!.selectedAt(2)
         
         //Align.align(menuView!, CGSize(width/**/,height/**/), Alignment.bottomCenter, Alignment.bottomCenter,CGPoint(0,0))
-        
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
