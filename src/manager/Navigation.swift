@@ -35,6 +35,9 @@ class Navigation {
             case String(ConflictDialogView):
                 Swift.print("")
                 mainView.currentView = mainView.addSubView(ConflictDialogView(width,height,mainView))
+            case String(ConflictDialogView):
+                Swift.print("Debug")
+                mainView.currentView = mainView.addSubView(ConflictDialogView(width,height,mainView))
             default:
                 break;
         }
