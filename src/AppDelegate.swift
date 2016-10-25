@@ -43,18 +43,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //RepoDetailView should have a CheckBoxButton: Auto-sync
             //PrefsView should  have the Auto-sync-intervall: (as its too complicated to have individual timers, too much can go wrong)
             //path picker for localPath in repodetailview (folder icon)
-        
             //add a eye-icon for find in finder feature in repodetailview
             //add an url-icon for open in safari feature in repodetailview
         
             //Tomorrow:
                 //Implement RBSliderList for the commitsList
-                //Make the interactive circle animation (progress should be iterative)
-                //Implement a sync mode for the RBSliderList
+                //Implement a sync mode for the RBSliderList -> make a new class for this
         
         
             //To make the pull to sync feature, you need to make things work seperatly: (check mail app on iphone, and github projects)
-                //make a circle that completes on a progress slider
+                //make a circle that completes on a progress slider (done)
                 //let a value iterate form 0 to 1 when scroll amount has travled far enough when list progress is bellow 0
                 //implement the circle progress ticker show when pulling (pull to sync mode)
                 //should the list be scrollable, while syncing? yes
