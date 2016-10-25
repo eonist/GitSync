@@ -58,13 +58,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //make a circle that completes on a progress slider
                 //let a value iterate form 0 to 1 when scroll amount has travled far enough when list progress is bellow 0
                 //implement the circle progress ticker show when pulling (pull to sync mode)
-                //should the list be scrollable, while syncing?
+                //should the list be scrollable, while syncing? yes
                 //Should the sync area be behind the list?
                 //should the sync area be visible when the timer sets gitsync in sync mode?
                 //RBList should read from an array but only display few at the time
                 //Make sure all loose ends are covered
         //later
-            
+        
             //Instead of adding left and right buttons in stats, just use left-right swipe gestures (pop transitions between weeks/days/months/years)
             //adjust the dialog designs
             //drag and drop support for .git urls -> adds it self to the top of the repo list
