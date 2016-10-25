@@ -4,11 +4,13 @@ class DebugView:Element{
     var volumeSlider:VolumeSlider?
     var startButton:TextButton?
     var stopButton:TextButton?
+    var progressIndicator:ProgressIndicator?
     override func resolveSkin() {
         Swift.print("DebugView.resolveSkin()")
         skin = SkinResolver.skin(self)
         
         //add ProgressIndicator
+        progressIndicator = ProgressIndicator(60,60)
         //add a progressSlider (volumeControl)
         volumeSlider = addSubView(VolumeSlider(120,20,20,0,self))
         volumeSlider!.setProgressValue(0.5)
