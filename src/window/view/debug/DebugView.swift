@@ -1,9 +1,6 @@
 import Foundation
 
-class DebugView:TitleView{
-    override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement? = nil, _ id: String? = "") {
-        super.init(width, height, parent, "debugView")
-    }
+class DebugView:Element{
     override func resolveSkin() {
         Swift.print("DebugView.resolveSkin()")
         super.resolveSkin()
