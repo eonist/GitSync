@@ -63,7 +63,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
             //maybe you could just add a margin-top if the scrollview goes into refresh mode, and just show the refresh circle behind the scrollview
-            
+        
+            //Continue here:
+                //1. install rbscrolllist and check that it works
+                //2. add the progress indicator to a rbscrollview
+                //3. make the pull to progress the progressindicator
         //later
             //adjust the dialog designs
             //drag and drop support for .git urls -> adds it self to the top of the repo list
