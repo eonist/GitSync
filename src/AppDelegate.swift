@@ -65,7 +65,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //Make sure all loose ends are covered
         
         
-            //maybe you could just add a margin-top if the scrollview goes into refresh mode, and just show the refresh circle behind the scrollview 
+            //maybe you could just add a margin-top if the scrollview goes into refresh mode, and just show the refresh circle behind the scrollview
         //later
         
             //Instead of adding left and right buttons in stats, just use left-right swipe gestures (pop transitions between weeks/days/months/years)
