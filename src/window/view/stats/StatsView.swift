@@ -41,10 +41,10 @@ class CommitGraph:Graph{
     }
     
     override func touchesEndedWithEvent(event: NSEvent) {
-        Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")
+        //Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")
     }
     override func touchesCancelledWithEvent(event: NSEvent) {
-        Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
+        //Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
     }
     
     var twoFingersTouches:NSMutableDictionary?//temp storage
