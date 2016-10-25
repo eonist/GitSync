@@ -152,15 +152,11 @@ class CommitGraph:Graph{
         animator!.start()
         
         /*VerticalBar*/
-
         let strings:[String] = GraphUtils.verticalIndicators(vCount, maxValue)
         for i in 0..<strings.count{
             leftBarItems[i].setTextValue(strings[i])
         }
-
     }
-    
-    
     static func graphData(dayOffset:Int,_ currentDate:NSDate) -> (hValues:[CGFloat],hValNames:[String]){
         let calendar = NSCalendar.currentCalendar()
         var dayNames:[String] = []
