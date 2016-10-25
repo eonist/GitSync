@@ -81,6 +81,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //when you use the app for the first time, there is a demo repo added, hello-world from eonist which contains demo commits and a commit with instructions on how to use the app: pull to sunc: 2 finger swipe downwards , hold until the circle animation is spinning etc.
             //cmd click on repo items will reveal edit icon in top bar for multi edit feature
             //CMD + pull to refresh forces manual commit message (this is great since you then can create sort of bookmarks in your history, every commit until this was part of this latest commit msg, then think rebase)
+            //Tagline: "The automatic Git app for macOS"
     }
     func applicationWillTerminate(aNotification:NSNotification) {
         //store the app prefs
