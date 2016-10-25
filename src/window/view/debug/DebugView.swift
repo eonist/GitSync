@@ -10,8 +10,9 @@ class DebugView:Element{
         skin = SkinResolver.skin(self)
         
         //add ProgressIndicator
-        progressIndicator = addSubView(ProgressIndicator(60,60,self))
+        progressIndicator = addSubView(ProgressIndicator(40,40,self))
         //add a progressSlider (volumeControl)
+        /*
         volumeSlider = addSubView(VolumeSlider(120,20,20,0,self))
         volumeSlider!.setProgressValue(0.5)
         
@@ -19,7 +20,7 @@ class DebugView:Element{
         startButton = addSubView(TextButton(100,24,"start",self))
         //add a stop button (TexteButton)
         stopButton = addSubView(TextButton(100,24,"stop",self))
-        
+        */
     }
     override func onEvent(event: Event) {
         if(event.assert(SliderEvent.change, volumeSlider)){
