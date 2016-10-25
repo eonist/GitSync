@@ -29,8 +29,10 @@ class DebugView:Element{
             progressIndicator!.progress(volumSliderProgress)
         }else if(event.assert(ButtonEvent.upInside, startButton)){
             Swift.print("start")
+            progressIndicator!.start()
         }else if(event.assert(ButtonEvent.upInside, stopButton)){
             Swift.print("stop")
+            progressIndicator!.stop()
         }
         
         //Continue here: setup buttons and then progressIndicator
