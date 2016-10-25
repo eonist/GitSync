@@ -25,7 +25,6 @@ class StatsView:Element {
         
     }
 }
-
 class CommitGraph:Graph{
     var animator:Animator?
     var currentDate:NSDate = NSDate()
@@ -79,7 +78,6 @@ class CommitGraph:Graph{
                 
                 let magnitude:Float = Float(touch.normalizedPosition.x) - Float(beginTouch!.normalizedPosition.x)
                 magnitudes.addObject(NSNumber(float: magnitude))
-
 
             }
             var sum:Float = 0
@@ -147,7 +145,6 @@ class CommitGraph:Graph{
         /*GraphPoints*/
         
         if(animator != nil){animator!.stop()}//stop any previous running animation
-        
         animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Easing.easeInQuad)
         animator!.start()
         
