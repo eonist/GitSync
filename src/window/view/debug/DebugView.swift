@@ -10,7 +10,7 @@ class DebugView:Element{
         
         //add ProgressIndicator
         //add a progressSlider (volumeControl)
-        volumeSlider = self.addSubView(VolumeSlider(120,20,20,0,self))
+        volumeSlider = addSubView(VolumeSlider(120,20,20,0,self))
         volumeSlider!.setProgressValue(0.5)
         //add a start button (TexteButton)
         startButton = addSubView(TextButton(100,24,"start",self))
@@ -20,7 +20,8 @@ class DebugView:Element{
     }
     override func onEvent(event: Event) {
         if(event.assert(SliderEvent.change, volumeSlider)){
-            
+            let volumSliderProgress = (event as! SliderEvent).progress
+            Swift.print("volumSliderProgress: " + "\(volumSliderProgress)")
         }
     }
 }
