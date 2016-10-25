@@ -6,8 +6,8 @@ class DebugView:Element{
         super.resolveSkin()
         
         //add ProgressIndicator
-        //add a progressSlider
-        //add a start button
+        //add a progressSlider (volumeControl)
+        //add a start button 
         //add a stop button
         
     }
