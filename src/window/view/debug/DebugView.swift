@@ -5,7 +5,7 @@ class DebugView:Element{
     var stopButton:TextButton?
     override func resolveSkin() {
         Swift.print("DebugView.resolveSkin()")
-        super.resolveSkin()
+        skin = SkinResolver.skin(self)
         
         //add ProgressIndicator
         //add a progressSlider (volumeControl)
