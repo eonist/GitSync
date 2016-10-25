@@ -54,7 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
             //To make the pull to sync feature, you need to make things work seperatly: (check mail app on iphone, and github projects)
-                //make a circle anim animate on fps round and round (see github for insp, and raywenderlich)
+        
                 //make a circle that completes on a progress slider
                 //let a value iterate form 0 to 1 when scroll amount has travled far enough when list progress is bellow 0
                 //implement the circle progress ticker show when pulling (pull to sync mode)
@@ -76,7 +76,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //Dark mode mimicks twitter client
             //add logic to ConflictDialog
             //sync within individual repos from repodetailview
-            //make the statsview Just add 2 text objects, Commits today: and Commits this week
             //Figure out how to speed up live-refresh in Element (think object-trees)
             //Use the san-fran font (if you can find it)
             //at the end of commits list place a button with the text: named load more (load 20 at the time)
