@@ -18,7 +18,6 @@ class CommitsList:RBSliderList {
     }
 }
 
-
 //repo-name
 //contributor
 //title
