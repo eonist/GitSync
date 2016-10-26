@@ -8,6 +8,10 @@ class CommitsView:Element {
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         //topBar = addSubView(CommitsTopBar(width-12,36,self))
+        
+        //add a container
+        //add an element that is 30x30 and center it
+        
         createList()
     }
     func createList(){
