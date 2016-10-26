@@ -1,6 +1,6 @@
 import Foundation
 
-class CommitsList:List {
+class CommitsList:RBSliderList {
     /**
      * NOTE: this method overrides the mergeAt method to facilitate special list items
      */
