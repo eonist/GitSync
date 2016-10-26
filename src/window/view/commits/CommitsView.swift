@@ -44,7 +44,9 @@ class CommitsView:Element {
         if(progressValue < -0.1){
             Swift.print("go into refresh mode")
             
-            //
+            //start spinning the progressIndicator
+            
+            //force list to not go 
         }
     }
     
