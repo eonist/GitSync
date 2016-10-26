@@ -7,11 +7,11 @@ class CommitsList:RBSliderList {
         let piContainer = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
         progressIndicator = piContainer.addSubView(ProgressIndicator(30,30,piContainer))
     }
+    var isPulledBeyondRefreshSpace:Bool = false
     /**
      * Happens when you use the scrollwheel or use the slider
      * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
      */
-    var isPulledBeyondRefreshSpace:Bool = false
     func onScroll(){
         let progressValue = self.progressValue!
         Swift.print("onScroll() progressValue: " + "\(progressValue)")
