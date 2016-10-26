@@ -34,7 +34,8 @@ class CommitsList:RBSliderList {
     
         //spring to refreshStatePosition
     
-        //
+        //figure out how to set a new springTo target
+
     
     
     override func setProgress(value:CGFloat) {
