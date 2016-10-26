@@ -46,11 +46,17 @@ class CommitsView:Element {
             Swift.print("go into refresh mode")
             
             hasPulledBeyondRefreshSpace = true
-            //start spinning the progressIndicator
+            
+            
             
             //force list to not go
+        }else{
+            
         }
     }
+    
+    // on release of scrollGesture/sliderButton &&
+    
     
     override func scrollWheel(theEvent: NSEvent) {
         onScroll()
