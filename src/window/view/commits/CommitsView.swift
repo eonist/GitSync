@@ -5,15 +5,13 @@ class CommitsView:Element {
     static let h:CGFloat = MainView.h-48
     //var topBar:CommitsTopBar?
     var list:CommitsList?
-    var progressIndicator:ProgressIndicator?
+    
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         //topBar = addSubView(CommitsTopBar(width-12,36,self))
         
         //add a container
-        let container = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
         
-        progressIndicator = container.addSubView(ProgressIndicator(30,30,container))
         createList()
     }
     func createList(){
@@ -26,30 +24,12 @@ class CommitsView:Element {
         list = addSubView(CommitsList(CommitsView.w, CommitsView.h, 102, dp, self,"commitsList"))
         ListModifier.selectAt(list!, 1)
     }
-    /**
-     * Happens when you use the scrollwheel or use the slider
-     * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
-     */
-    var isPulledBeyondRefreshSpace:Bool = false
-    func onScroll(){
-        let progressValue = list!.progressValue
-        Swift.print("onScroll() progressValue: " + "\(progressValue)")
-        if(progressValue < -0.1){
-            Swift.print("go into refresh mode")
-            isPulledBeyondRefreshSpace = true
-        }else{
-            if(progressValue <  0 && progressValue > -0.1){//between 0 and -1
-                Swift.print("start progressing the ProgressIndicator")
-                let scalarVal:CGFloat = progressValue / -0.1//0 to 1
-                progressIndicator!.progress(scalarVal)
-            }
-            isPulledBeyondRefreshSpace = false//reset
-        }
-    }
+    
     
     // on release of scrollGesture/sliderButton &&
         //start spinning the progressIndicator
     
+    /*
     override func scrollWheel(theEvent: NSEvent) {
         super.scrollWheel(theEvent)
         onScroll()
@@ -60,6 +40,7 @@ class CommitsView:Element {
         }
         super.onEvent(event)
     }
+    */
 }
 /*
 class CommitsTopBar:Element{
