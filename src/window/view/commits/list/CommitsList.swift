@@ -29,8 +29,10 @@ class CommitsList:RBSliderList {
     }
     
     
-    // on release of scrollGesture/sliderButton &&
+    // on release of scrollGesture/sliderButton && isPulledBeyondRefreshSpace
         //start spinning the progressIndicator
+    
+        //
     
     
     override func setProgress(value:CGFloat) {
