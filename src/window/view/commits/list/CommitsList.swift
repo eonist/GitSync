@@ -17,6 +17,8 @@ class CommitsList:RBSliderList {
         return String(List)
     }
     
+    //take a look at some ProgressIndicator list views on the web
+    
     //override onScollWheel
     
     //override onEvent -> SliderEvent.change
@@ -31,7 +33,11 @@ class CommitsList:RBSliderList {
     
             //go into refresh mode
     
-            
+                //stop animation
+    
+                //and disable all interaction
+    
+                //restart animation when refresh has completed
 }
 
 //repo-name
