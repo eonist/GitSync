@@ -16,7 +16,7 @@ class CommitsView:Element {
         progressIndicator
         //add the progressIndicator and hock up the progress functionality
         
-        createList()
+        //createList()
     }
     func createList(){
         //let dp:DataProvider = DataProvider()
