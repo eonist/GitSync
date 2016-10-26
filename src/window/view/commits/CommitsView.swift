@@ -54,8 +54,8 @@ class CommitsView:Element {
         //start spinning the progressIndicator
     
     override func scrollWheel(theEvent: NSEvent) {
-        onScroll()
         super.scrollWheel(theEvent)
+        onScroll()
     }
     override func onEvent(event: Event) {
         if(event.assert(SliderEvent.change, self)){
