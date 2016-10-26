@@ -20,7 +20,6 @@ class DebugView:Element{
         startButton = addSubView(TextButton(100,24,"start",self))
         //add a stop button (TexteButton)
         stopButton = addSubView(TextButton(100,24,"stop",self))
-        
     }
     override func onEvent(event: Event) {
         if(event.assert(SliderEvent.change, volumeSlider)){
@@ -34,8 +33,5 @@ class DebugView:Element{
             Swift.print("stop")
             progressIndicator!.stop()
         }
-        
-        //Continue here: setup buttons and then progressIndicator
-        
     }
 }
