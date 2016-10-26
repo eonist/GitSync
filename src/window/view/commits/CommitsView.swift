@@ -17,7 +17,7 @@ class CommitsView:Element {
         let dp:DataProvider = DataProvider(xml)
         Swift.print("dp.count(): " + "\(dp.count)")
         Swift.print("width: " + "\(width)")
-        list = addSubView(CommitsList(width, height, NaN, dp, self,"commitsList"))
+        list = addSubView(CommitsList(width, height, 102, dp, self,"commitsList"))
         ListModifier.selectAt(list!, 2)
     }
 }
