@@ -16,38 +16,7 @@ class CommitsList:RBSliderList {
     override func getClassType() -> String {
         return String(List)
     }
-    /**
-     * Happens when you use the scrollwheel or use the slider
-     * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
-     */
-    func onScroll(){
-        Swift.print("onScroll() progressValue: " + "\(progressValue)")
-        if(progressValue <  0){
-            Swift.print("start progressing the ProgressIndicator")
-            
-            //Continue here: calculate the progress from 0 to 0.1
-        }
-        if(progressValue < -0.1){
-            Swift.print("go into refresh mode")
-            
-            //stop animation
-            
-            //and disable all interaction
-            
-            //restart animation when refresh has completed
-        }
-    }
     
-    override func scrollWheel(theEvent: NSEvent) {
-        onScroll()
-        super.scrollWheel(theEvent)
-    }
-    override func onEvent(event: Event) {
-        if(event.assert(SliderEvent.change, self)){
-            onScroll()
-        }
-        super.onEvent(event)
-    }
 }
 
 //repo-name
