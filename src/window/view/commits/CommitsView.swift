@@ -37,26 +37,24 @@ class CommitsView:Element {
     func onScroll(){
         let progressValue = list!.progressValue!
         Swift.print("onScroll() progressValue: " + "\(progressValue)")
-        if(!hasPulledBeyondRefreshSpace && progressValue <  0 && progressValue > -0.1){//between 0 and -1
-            Swift.print("start progressing the ProgressIndicator")
-            let scalarVal:CGFloat = progressValue / -0.1//0 to 1
-            progressIndicator!.progress(scalarVal)
-        }
+        
         if(progressValue < -0.1){
             Swift.print("go into refresh mode")
             
             hasPulledBeyondRefreshSpace = true
             
-            
-            
-            //force list to not go
         }else{
-            
+            if(!hasPulledBeyondRefreshSpace && progressValue <  0 && progressValue > -0.1){//between 0 and -1
+                Swift.print("start progressing the ProgressIndicator")
+                let scalarVal:CGFloat = progressValue / -0.1//0 to 1
+                progressIndicator!.progress(scalarVal)
+            }
+            hasPulledBeyondRefreshSpace = false//reset
         }
     }
     
     // on release of scrollGesture/sliderButton &&
-    
+        //start spinning the progressIndicator
     
     override func scrollWheel(theEvent: NSEvent) {
         onScroll()
