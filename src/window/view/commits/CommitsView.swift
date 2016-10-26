@@ -38,17 +38,13 @@ class CommitsView:Element {
         Swift.print("onScroll() progressValue: " + "\(progressValue)")
         if(progressValue <  0 && progressValue > -0.1){//between 0 and -1
             Swift.print("start progressing the ProgressIndicator")
-            let scalarVal:CGFloat = progressValue/-0.1//0 to 1
-            //Continue here: calculate the progress from 0 to 0.1
+            let scalarVal:CGFloat = progressValue / -0.1//0 to 1
+            progressIndicator!.progress(scalarVal)
         }
         if(progressValue < -0.1){
             Swift.print("go into refresh mode")
             
-            //stop animation
-            
-            //and disable all interaction
-            
-            //restart animation when refresh has completed
+            //
         }
     }
     
