@@ -29,39 +29,7 @@ class CommitsView:Element {
         list = addSubView(CommitsList(CommitsView.w, CommitsView.h, 102, dp, self,"commitsList"))
         ListModifier.selectAt(list!, 1)
     }
-    /**
-     * Happens when you use the scrollwheel or use the slider
-     * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
-     */
-    func onScroll(){
-        let progressValue = list!.progressValue
-        Swift.print("onScroll() progressValue: " + "\(progressValue)")
-        if(progressValue <  0){
-            Swift.print("start progressing the ProgressIndicator")
-            
-            //Continue here: calculate the progress from 0 to 0.1
-        }
-        if(progressValue < -0.1){
-            Swift.print("go into refresh mode")
-            
-            //stop animation
-            
-            //and disable all interaction
-            
-            //restart animation when refresh has completed
-        }
-    }
     
-    override func scrollWheel(theEvent: NSEvent) {
-        onScroll()
-        super.scrollWheel(theEvent)
-    }
-    override func onEvent(event: Event) {
-        if(event.assert(SliderEvent.change, self)){
-            onScroll()
-        }
-        super.onEvent(event)
-    }
 }
 /*
 class CommitsTopBar:Element{
