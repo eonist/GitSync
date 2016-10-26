@@ -34,7 +34,7 @@ class CommitsList:RBSliderList {
     
         //spring to refreshStatePosition
     
-        //figure out how to set a new springTo target
+        //figure out how to set a new springTo target (requires some thinking)
 
     
     
