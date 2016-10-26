@@ -18,6 +18,7 @@ class CommitsList:RBSliderList {
     }
     /**
      * Happens when you use the scrollwheel or use the slider
+     * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
      */
     func onScroll(){
         Swift.print("onScroll() progressValue: " + "\(progressValue)")
