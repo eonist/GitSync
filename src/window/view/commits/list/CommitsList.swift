@@ -16,6 +16,10 @@ class CommitsList:RBSliderList {
     override func getClassType() -> String {
         return String(List)
     }
+    
+    //override onScollWheel
+    
+    //override 
 }
 
 //repo-name
