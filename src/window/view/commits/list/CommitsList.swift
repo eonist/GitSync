@@ -17,7 +17,9 @@ class CommitsList:RBSliderList {
         return String(List)
     }
     
-    //take a look at some ProgressIndicator list views on the web
+    override func scrollWheel(theEvent: NSEvent) {
+        super.scrollWheel(theEvent)
+    }
     
     //override onScollWheel
     
