@@ -36,7 +36,7 @@ class CommitsView:Element {
     func onScroll(){
         let progressValue = list!.progressValue
         Swift.print("onScroll() progressValue: " + "\(progressValue)")
-        if(progressValue <  0){
+        if(progressValue <  0 && progressValue > -0.1){//between 0 and -1
             Swift.print("start progressing the ProgressIndicator")
             
             //Continue here: calculate the progress from 0 to 0.1
