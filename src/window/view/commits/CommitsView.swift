@@ -34,11 +34,11 @@ class CommitsView:Element {
      * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
      */
     func onScroll(){
-        let progressValue = list!.progressValue
+        let progressValue = list!.progressValue!
         Swift.print("onScroll() progressValue: " + "\(progressValue)")
         if(progressValue <  0 && progressValue > -0.1){//between 0 and -1
             Swift.print("start progressing the ProgressIndicator")
-            
+            let scalarVal:CGFloat = progressValue/-0.1//0 to 1
             //Continue here: calculate the progress from 0 to 0.1
         }
         if(progressValue < -0.1){
