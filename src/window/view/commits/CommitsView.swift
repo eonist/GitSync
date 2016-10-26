@@ -35,7 +35,7 @@ class CommitsView:Element {
      */
     var isPulledBeyondRefreshSpace:Bool = false
     func onScroll(){
-        let progressValue = list!.progressValue!
+        let progressValue = list!.progressValue
         Swift.print("onScroll() progressValue: " + "\(progressValue)")
         if(progressValue < -0.1){
             Swift.print("go into refresh mode")
