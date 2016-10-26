@@ -10,7 +10,8 @@ class CommitsView:Element {
         //topBar = addSubView(CommitsTopBar(width-12,36,self))
         
         //add a container
-        //add an element that is 30x30 and center it
+        //add an element that is 30x30 and center it hor and vertically it should be under the top menu 15px
+        //add the progressIndicator and hock up the progress functionality
         
         createList()
     }
