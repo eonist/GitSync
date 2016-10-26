@@ -32,6 +32,8 @@ class CommitsList:RBSliderList {
     // on release of scrollGesture/sliderButton && isPulledBeyondRefreshSpace
         //start spinning the progressIndicator
     
+        //spring to refreshStatePosition
+    
         //
     
     
