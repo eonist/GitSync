@@ -19,7 +19,19 @@ class CommitsList:RBSliderList {
     
     //override onScollWheel
     
-    //override 
+    //override onEvent -> SliderEvent.change
+    
+        //get the slider.progressValue
+    
+        //if the progressValue <  0.0
+    
+            //start progressing the ProgressIndicator
+    
+        //if the progressValue < - 0.1
+    
+            //go into refresh mode
+    
+            
 }
 
 //repo-name
