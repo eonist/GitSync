@@ -2,7 +2,7 @@ import Foundation
 
 class CommitsView:Element {
     static let w:CGFloat = MainView.w
-    static let h:CGFloat = MainView.h-36-36
+    static let h:CGFloat = MainView.h-48
     //var topBar:CommitsTopBar?
     var list:CommitsList?
     override func resolveSkin() {
