@@ -13,7 +13,7 @@ class CommitsList:RBSliderList {
      */
     var isPulledBeyondRefreshSpace:Bool = false
     func onScroll(){
-        let progressValue = self.progressValue
+        let progressValue = self.progressValue!
         Swift.print("onScroll() progressValue: " + "\(progressValue)")
         if(progressValue < -0.1){
             Swift.print("go into refresh mode")
@@ -26,6 +26,10 @@ class CommitsList:RBSliderList {
             }
             isPulledBeyondRefreshSpace = false//reset
         }
+    }
+    override func setProgress(value:CGFloat) {
+        super.setProgress(value)
+        onScroll()
     }
     /**
      * NOTE: this method overrides the mergeAt method to facilitate special list items
