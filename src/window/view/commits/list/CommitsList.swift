@@ -24,6 +24,8 @@ class CommitsList:RBSliderList {
         Swift.print("onScroll() progressValue: " + "\(progressValue)")
         if(progressValue <  0){
             Swift.print("start progressing the ProgressIndicator")
+            
+            //Continue here: calculate the progress from 0 to 0.1
         }
         if(progressValue < -0.1){
             Swift.print("go into refresh mode")
