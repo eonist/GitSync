@@ -33,10 +33,11 @@ class CommitsView:Element {
      * Happens when you use the scrollwheel or use the slider
      * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
      */
+    var hasPulledBeyondRefreshSpace:Bool = false
     func onScroll(){
         let progressValue = list!.progressValue!
         Swift.print("onScroll() progressValue: " + "\(progressValue)")
-        if(progressValue <  0 && progressValue > -0.1){//between 0 and -1
+        if(!hasPulledBeyondRefreshSpace && progressValue <  0 && progressValue > -0.1){//between 0 and -1
             Swift.print("start progressing the ProgressIndicator")
             let scalarVal:CGFloat = progressValue / -0.1//0 to 1
             progressIndicator!.progress(scalarVal)
@@ -44,9 +45,10 @@ class CommitsView:Element {
         if(progressValue < -0.1){
             Swift.print("go into refresh mode")
             
+            hasPulledBeyondRefreshSpace = true
             //start spinning the progressIndicator
             
-            //force list to not go 
+            //force list to not go
         }
     }
     
