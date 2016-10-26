@@ -26,9 +26,6 @@ class CommitsView:Element {
     }
     
     
-    // on release of scrollGesture/sliderButton &&
-        //start spinning the progressIndicator
-    
     /*
     override func scrollWheel(theEvent: NSEvent) {
         super.scrollWheel(theEvent)
