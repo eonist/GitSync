@@ -18,7 +18,7 @@ class CommitsView:Element {
         Swift.print("dp.count(): " + "\(dp.count)")
         Swift.print("CommitsView.width: " + "\(width)")
         list = addSubView(CommitsList(CommitsView.w, CommitsView.h, 102, dp, self,"commitsList"))
-        ListModifier.selectAt(list!, 2)
+        ListModifier.selectAt(list!, 1)
     }
 }
 /*
