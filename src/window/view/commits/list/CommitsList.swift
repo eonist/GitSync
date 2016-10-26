@@ -21,6 +21,18 @@ class CommitsList:RBSliderList {
      */
     func onScroll(){
         Swift.print("onScroll() progressValue: " + "\(progressValue)")
+        if(progressValue <  0){
+            Swift.print("start progressing the ProgressIndicator")
+        }
+        if(progressValue < -0.1){
+            Swift.print("go into refresh mode")
+            
+            //stop animation
+            
+            //and disable all interaction
+            
+            //restart animation when refresh has completed
+        }
     }
     
     override func scrollWheel(theEvent: NSEvent) {
@@ -33,25 +45,6 @@ class CommitsList:RBSliderList {
         }
         super.onEvent(event)
     }
-    //override onScollWheel
-    
-    //override onEvent -> SliderEvent.change
-    
-        //get the slider.progressValue
-    
-        //if the progressValue <  0.0
-    
-            //start progressing the ProgressIndicator
-    
-        //if the progressValue < - 0.1
-    
-            //go into refresh mode
-    
-                //stop animation
-    
-                //and disable all interaction
-    
-                //restart animation when refresh has completed
 }
 
 //repo-name
