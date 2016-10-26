@@ -5,6 +5,7 @@ class CommitsView:Element {
     static let h:CGFloat = MainView.h-48
     //var topBar:CommitsTopBar?
     var list:CommitsList?
+    var progressIndicator:ProgressIndicator?
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         //topBar = addSubView(CommitsTopBar(width-12,36,self))
@@ -12,10 +13,10 @@ class CommitsView:Element {
         //add a container
         let container = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
         //add an element that is 30x30 and center it hor and vertically it should be under the top menu 15px
-        let progressIndicator = container.addSubView(Element(30,30,container,"progressIndicator"))
-        progressIndicator
+        //let progressIndicator = container.addSubView(Element(30,30,container,"progressIndicator"))
+        //progressIndicator
         //add the progressIndicator and hock up the progress functionality
-        
+        progressIndicator = container.addSubView(ProgressIndicator(30,30,container))
         //createList()
     }
     func createList(){
