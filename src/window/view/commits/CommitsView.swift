@@ -10,8 +10,10 @@ class CommitsView:Element {
         //topBar = addSubView(CommitsTopBar(width-12,36,self))
         
         //add a container
-        let container = Container()
+        let container = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
         //add an element that is 30x30 and center it hor and vertically it should be under the top menu 15px
+        let progressIndicator = container.addSubView(Element(30,30,container,"progressIndicator"))
+        progressIndicator
         //add the progressIndicator and hock up the progress functionality
         
         createList()
