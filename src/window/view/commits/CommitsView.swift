@@ -41,7 +41,7 @@ class CommitsView:Element {
             Swift.print("go into refresh mode")
             isPulledBeyondRefreshSpace = true
         }else{
-            if(!isPulledBeyondRefreshSpace && progressValue <  0 && progressValue > -0.1){//between 0 and -1
+            if(progressValue <  0 && progressValue > -0.1){//between 0 and -1
                 Swift.print("start progressing the ProgressIndicator")
                 let scalarVal:CGFloat = progressValue / -0.1//0 to 1
                 progressIndicator!.progress(scalarVal)
