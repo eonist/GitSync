@@ -3,6 +3,7 @@ import Cocoa
 class CommitsList:RBSliderList {
     var progressIndicator:ProgressIndicator?
     override func resolveSkin() {
+        super.resolveSkin()
         let piContainer = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
         progressIndicator = piContainer.addSubView(ProgressIndicator(30,30,piContainer))
     }
