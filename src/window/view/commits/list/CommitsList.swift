@@ -20,7 +20,6 @@ class CommitsList:RBSliderList {
      * Happens when you use the scrollwheel or use the slider
      */
     func onScroll(){
-        let progressValue:CGFloat = slider!.progress//0-1
         Swift.print("onScroll() progressValue: " + "\(progressValue)")
     }
     
