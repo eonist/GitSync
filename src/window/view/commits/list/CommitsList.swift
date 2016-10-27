@@ -32,7 +32,7 @@ class CommitsList:RBSliderList {
             
             progressIndicator!.progress(scalarVal)
             
-            progressIndicator!.frame.y = value
+            progressIndicator!.frame.y = scalarVal * 15
         }else if(value > 50){
             hasPulledBeyondRefreshSpace = true
         }
