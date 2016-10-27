@@ -28,7 +28,7 @@ class CommitsList:RBSliderList {
             //Swift.print("start progressing the ProgressIndicator")
             let scalarVal:CGFloat = value / 50//0 to 1
             
-            //isRefresh
+            //isInRefreshMode
             
             progressIndicator!.progress(scalarVal)
         }else if(value > 50){
