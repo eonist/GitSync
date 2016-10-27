@@ -40,7 +40,7 @@ class CommitsList:RBSliderList {
         Swift.print("CommitList.scrollWheelExit()" + "\(progressValue)")
         if(progressValue! < -0.1){
             Swift.print("start animation the ProgressIndicator")
-            scrollController!.mover.topMargin = 50
+            scrollController!.mover.frame.y = 50
             
             //start spinning the progressIndicator
             
