@@ -31,6 +31,8 @@ class CommitsList:RBSliderList {
             //isInRefreshMode
             progressIndicator!.progress(scalarVal)
             
+            //Continue here: sort of works, needs work, log the mover.value for instance
+            
             progressIndicator!.frame.y = -45 + (scalarVal * 60)
         }else if(value > 50){
             hasPulledBeyondRefreshSpace = true
