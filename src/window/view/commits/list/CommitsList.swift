@@ -2,7 +2,7 @@ import Cocoa
 
 class CommitsList:RBSliderList {
     var progressIndicator:ProgressIndicator?
-    var isPulledBeyondRefreshSpace:Bool = false
+    var hasPulledBeyondRefreshSpace:Bool = false
     override func resolveSkin() {
         super.resolveSkin()
         let piContainer = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
@@ -27,7 +27,12 @@ class CommitsList:RBSliderList {
         if(value >  0 && value < 50){//between 0 and 50
             //Swift.print("start progressing the ProgressIndicator")
             let scalarVal:CGFloat = value / 50//0 to 1
+            
+            //isRefresh
+            
             progressIndicator!.progress(scalarVal)
+        }else if(value > 50){
+            hasPulledBeyondRefreshSpace = true
         }
     }
     
