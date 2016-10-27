@@ -48,7 +48,7 @@ class CommitsList:RBSliderList {
             
             //figure out how to set a new springTo target (requires some thinking)
         }else{
-            scrollController!.mover.topMargin = 0
+            //scrollController!.mover.topMargin = 0
         }
     }
     
