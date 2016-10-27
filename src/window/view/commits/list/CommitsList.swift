@@ -24,7 +24,7 @@ class CommitsList:RBSliderList {
         }
         */
         let value = scrollController!.mover.value
-        if(value >  0 && value > 50){//between 0 and 50
+        if(value >  0 && value < 50){//between 0 and 50
             //Swift.print("start progressing the ProgressIndicator")
             let scalarVal:CGFloat = value / 50//0 to 1
             progressIndicator!.progress(scalarVal)
