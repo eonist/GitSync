@@ -37,6 +37,8 @@ class CommitsList:RBSliderList {
         Swift.print("CommitList.loopAnimationCompleted()")
         scrollController!.mover.frame.y = 0
         scrollController!.mover.start()
+        
+        //Continue here: initiating the mover again doesnt seem to happen. what gives?
     }
     
     
