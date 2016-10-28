@@ -10,7 +10,6 @@ class CommitsList:RBSliderList {
         scrollController!.event = onEvent
         progressIndicator!.frame.y = 15
     }
-    
     /**
      * Happens when you use the scrollwheel or use the slider (also works while there still is momentum)
      * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
