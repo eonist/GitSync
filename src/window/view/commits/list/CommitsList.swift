@@ -35,7 +35,7 @@ class CommitsList:RBSliderList {
      */
     func loopAnimationCompleted(){
         Swift.print("CommitList.loopAnimationCompleted()")
-
+        isIn
         scrollController!.mover.frame.y = 0
         scrollController!.mover.hasStopped = false/*reset this value to false, so that the FrameAnimatior can start again*/
         scrollController!.mover.isDirectlyManipulating = false
