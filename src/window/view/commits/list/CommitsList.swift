@@ -40,6 +40,7 @@ class CommitsList:RBSliderList {
         scrollController!.mover.isDirectlyManipulating = false
         scrollController!.mover.value = scrollController!.mover.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
         scrollController!.mover.start()
+        hasPulledAndReleasedBeyondRefreshSpace = false//reset
         //Continue here: initiating the mover again doesnt seem to happen. what gives?
     }
     
