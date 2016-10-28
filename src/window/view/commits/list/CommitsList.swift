@@ -33,7 +33,7 @@ class CommitsList:RBSliderList {
      *
      */
     func loopAnimationCompleted(){
-        Swift.print("loopAnimationCompleted")
+        Swift.print("CommitList.loopAnimationCompleted()")
         scrollController!.mover.frame.y = 0
         scrollController!.mover.start()
     }
