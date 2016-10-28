@@ -44,7 +44,6 @@ class CommitsList:RBSliderList {
         
         
     }
-
     func scrollWheelExit(){
         Swift.print("CommitList.scrollWheelExit()")
         let value = scrollController!.mover.result
