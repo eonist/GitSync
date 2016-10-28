@@ -73,6 +73,7 @@ class CommitsList:RBSliderList {
         Swift.print("CommitList.scrollWheelEnter()" + "\(progressValue)")
     }
     override func onEvent(event: Event) {
+        Swift.print("CommitsList.onEvent() ")
         if(event.assert(ScrollWheelEvent.exit, scrollController)){
             scrollWheelExit()
         }else if(event.assert(ScrollWheelEvent.enter, scrollController)){
