@@ -44,17 +44,7 @@ class CommitsList:RBSliderList {
         
         
     }
-    /**
-     *
-     */
-    func scrollAnimCompleted(){
-        Swift.print("CommitsList.scrollAnimCompleted() ")
-        if(isInDeactivateRefreshModeState){
-            hasPulledAndReleasedBeyondRefreshSpace = false//reset
-            isInDeactivateRefreshModeState = false//reset
-        }
-    }
-    
+
     func scrollWheelExit(){
         Swift.print("CommitList.scrollWheelExit()")
         let value = scrollController!.mover.result
@@ -87,6 +77,11 @@ class CommitsList:RBSliderList {
     func scrollAnimStopped(){
         Swift.print("CommitsList.scrollAnimStopped()")
         slider!.thumb!.fadeOut()
+        if(isInDeactivateRefreshModeState){
+            Swift.print("reset refreshState")
+            hasPulledAndReleasedBeyondRefreshSpace = false//reset
+            isInDeactivateRefreshModeState = false//reset
+        }
     }
     
     //Continue here: All events seem to come through now. Figure out what is not working, 
@@ -103,8 +98,6 @@ class CommitsList:RBSliderList {
             scrollWheelExitedAndIsStationary()
         }else if(event.assert(AnimEvent.completed, progressIndicator!.animator)){
             loopAnimationCompleted()
-        }else if(event.assert(AnimEvent.stopped, scrollController!.mover)){
-            scrollAnimCompleted()
         }else if(event.assert(AnimEvent.stopped, scrollController!.mover)){
             scrollAnimStopped()
         }
