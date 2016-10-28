@@ -1,5 +1,8 @@
 import Cocoa
 
+
+//Continue here: THe problem now is that the ProgressIndicator doesn't 
+
 class CommitsList:RBSliderList {
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
