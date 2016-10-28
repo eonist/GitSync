@@ -8,7 +8,7 @@ class CommitsList:RBSliderList {
         let piContainer = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
         progressIndicator = piContainer.addSubView(ProgressIndicator(30,30,piContainer))
         scrollController!.event = onEvent
-        progressIndicator!.frame.y = -45
+        progressIndicator!.frame.y = 15
     }
     
     /**
