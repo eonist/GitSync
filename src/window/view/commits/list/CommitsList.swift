@@ -72,8 +72,8 @@ class CommitsList:RBSliderList {
     func scrollWheelEnter(){//2. spring to refreshStatePosition
         Swift.print("CommitList.scrollWheelEnter()" + "\(progressValue)")
     }
-    override func onEvent(event: Event) {
-        Swift.print("CommitsList.onEvent() ")
+    override func onEvent(event:Event) {
+        Swift.print("CommitsList.onEvent() " + "\(event)")
         if(event.assert(ScrollWheelEvent.exit, scrollController)){
             scrollWheelExit()
         }else if(event.assert(ScrollWheelEvent.enter, scrollController)){
