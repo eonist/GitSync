@@ -9,8 +9,9 @@ class CommitsList:RBSliderList {
         progressIndicator = piContainer.addSubView(ProgressIndicator(30,30,piContainer))
         scrollController!.event = onEvent
     }
+    
     /**
-     * Happens when you use the scrollwheel or use the slider
+     * Happens when you use the scrollwheel or use the slider (also works while there is momentum)
      * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
      */
     func onScroll(){
