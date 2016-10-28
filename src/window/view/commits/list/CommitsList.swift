@@ -10,7 +10,6 @@ class CommitsList:RBSliderList {
         progressIndicator = piContainer.addSubView(ProgressIndicator(30,30,piContainer))
         progressIndicator!.frame.y = 15
         progressIndicator!.animator!.event = onEvent
-        scrollController!.event = onEvent
     }
     /**
      * Happens when you use the scrollwheel or use the slider (also works while there still is momentum)
