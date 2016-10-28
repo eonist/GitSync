@@ -3,6 +3,7 @@ import Cocoa
 class CommitsList:RBSliderList {
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
+    var isInDeactivateRefreshModeState:Bool = false
     override func resolveSkin() {
         super.resolveSkin()
         let piContainer = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
@@ -35,7 +36,7 @@ class CommitsList:RBSliderList {
      */
     func loopAnimationCompleted(){
         Swift.print("CommitList.loopAnimationCompleted()")
-        isIn
+        isInDeactivateRefreshModeState = true
         scrollController!.mover.frame.y = 0
         scrollController!.mover.hasStopped = false/*reset this value to false, so that the FrameAnimatior can start again*/
         scrollController!.mover.isDirectlyManipulating = false
@@ -48,8 +49,10 @@ class CommitsList:RBSliderList {
      *
      */
     func scrollAnimCompleted(){
-        if(){
+        Swift.print("CommitsList.scrollAnimCompleted() ")
+        if(isInDeactivateRefreshModeState){
             hasPulledAndReleasedBeyondRefreshSpace = false//reset
+            isInDeactivateRefreshModeState = false//reset
         }
     }
     
