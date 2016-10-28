@@ -31,9 +31,9 @@ class CommitsList:RBSliderList {
             let scalarVal:CGFloat = value / 60//0 to 1
             if(hasPulledAndReleasedBeyondRefreshSpace){//isInRefreshMode
                 progressIndicator!.frame.y = -45 + (scalarVal * 60)
+            }else{
+                progressIndicator!.reveal(scalarVal)
             }
-            progressIndicator!.reveal(scalarVal)
-            
         }else if(value > 60){
             progressIndicator!.frame.y = 15
         }
