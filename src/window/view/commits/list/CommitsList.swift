@@ -8,10 +8,11 @@ class CommitsList:RBSliderList {
         let piContainer = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
         progressIndicator = piContainer.addSubView(ProgressIndicator(30,30,piContainer))
         scrollController!.event = onEvent
+        progressIndicator!.frame.y = -45
     }
     
     /**
-     * Happens when you use the scrollwheel or use the slider (also works while there is momentum)
+     * Happens when you use the scrollwheel or use the slider (also works while there still is momentum)
      * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
      */
     func onScroll(){
@@ -36,6 +37,7 @@ class CommitsList:RBSliderList {
             
             progressIndicator!.frame.y = -45 + (scalarVal * 60)
         }else if(value > 60){
+            progressIndicator!.frame.y = 15
             hasPulledBeyondRefreshSpace = true
         }
     }
