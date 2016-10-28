@@ -41,7 +41,6 @@ class CommitsList:RBSliderList {
         scrollController!.mover.value = scrollController!.mover.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
         scrollController!.mover.start()
         hasPulledAndReleasedBeyondRefreshSpace = false//reset
-        //Continue here: initiating the mover again doesnt seem to happen. what gives?
     }
     
     
@@ -68,6 +67,8 @@ class CommitsList:RBSliderList {
             scrollWheelEnter()
         }else if(event.assert(AnimEvent.completed, progressIndicator!.animator)){
             loopAnimationCompleted()
+        }else if(event.assert(<#T##type: String##String#>, <#T##origin: AnyObject?##AnyObject?#>)){
+            
         }
         super.onEvent(event)
     }
