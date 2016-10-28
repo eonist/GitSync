@@ -2,7 +2,7 @@ import Cocoa
 
 class CommitsList:RBSliderList {
     var progressIndicator:ProgressIndicator?
-    var hasPulledBeyondRefreshSpace:Bool = false
+    var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
     override func resolveSkin() {
         super.resolveSkin()
         let piContainer = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
@@ -29,14 +29,13 @@ class CommitsList:RBSliderList {
         if(value >  0 && value < 60){//between 0 and 50
             //Swift.print("start progressing the ProgressIndicator")
             let scalarVal:CGFloat = value / 60//0 to 1
-            if(hasPulledBeyondRefreshSpace){//isInRefreshMode
+            if(hasPulledAndReleasedBeyondRefreshSpace){//isInRefreshMode
                 progressIndicator!.frame.y = -45 + (scalarVal * 60)
             }
             progressIndicator!.progress(scalarVal)
             
         }else if(value > 60){
             progressIndicator!.frame.y = 15
-            hasPulledBeyondRefreshSpace = true
         }
     }
     
@@ -55,25 +54,16 @@ class CommitsList:RBSliderList {
         let value = scrollController!.mover.result
         if(value > 60){
             Swift.print("start animation the ProgressIndicator")
-            scrollController!.mover.frame.y = 60
+            scrollController!.mover.frame.y = 60//1. start spinning the progressIndicator
+            hasPulledAndReleasedBeyondRefreshSpace = true
             
-            //start spinning the progressIndicator
-            
-            //spring to refreshStatePosition
-            
-            //figure out how to set a new springTo target (requires some thinking)
         }else{
             //scrollController!.mover.topMargin = 0
         }
     }
-    
-    //Continue here: Actually you need to implement topMargin in the non-boundry area aswell. 
-        //since when you scroll in refresh mode the refresh area need to become visible if it comes in to focus during the scrolling session
-    
-    func scrollWheelEnter(){
+    func scrollWheelEnter(){//2. spring to refreshStatePosition
         Swift.print("CommitList.scrollWheelEnter()" + "\(progressValue)")
     }
-    //on release of scrollGesture/sliderButton && isPulledBeyondRefreshSpace
     override func onEvent(event: Event) {
         if(event.assert(ScrollWheelEvent.exit, scrollController)){
             scrollWheelExit()
