@@ -23,7 +23,7 @@ class CommitsList:RBSliderList {
             isPulledBeyondRefreshSpace = false//reset
         }
         */
-        let value = scrollController!.mover.value
+        let value = scrollController!.mover.result
         if(value >  0 && value < 45){//between 0 and 50
             //Swift.print("start progressing the ProgressIndicator")
             let scalarVal:CGFloat = value / 45//0 to 1
