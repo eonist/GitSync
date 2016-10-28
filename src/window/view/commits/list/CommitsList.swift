@@ -8,9 +8,9 @@ class CommitsList:RBSliderList {
         super.resolveSkin()
         let piContainer = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
         progressIndicator = piContainer.addSubView(ProgressIndicator(30,30,piContainer))
-        scrollController!.event = onEvent
         progressIndicator!.frame.y = 15
         progressIndicator!.animator!.event = onEvent
+        scrollController!.event = onEvent
     }
     /**
      * Happens when you use the scrollwheel or use the slider (also works while there still is momentum)
