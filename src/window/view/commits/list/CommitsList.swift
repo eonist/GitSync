@@ -72,6 +72,9 @@ class CommitsList:RBSliderList {
     func scrollWheelEnter(){//2. spring to refreshStatePosition
         Swift.print("CommitList.scrollWheelEnter()" + "\(progressValue)")
     }
+    
+    //Continue here: the event for animComplete isnt coming through. Try to figure it out
+    
     override func onEvent(event:Event) {
         Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
         if(event.assert(ScrollWheelEvent.exit, scrollController)){
