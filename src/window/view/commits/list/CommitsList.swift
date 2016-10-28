@@ -71,6 +71,7 @@ class CommitsList:RBSliderList {
     }
     func scrollWheelEnter(){//2. spring to refreshStatePosition
         Swift.print("CommitList.scrollWheelEnter()" + "\(progressValue)")
+        view.slider?.thumb?.fadeIn()
     }
     
     //Continue here: the event for animComplete isnt coming through. Try to figure it out
