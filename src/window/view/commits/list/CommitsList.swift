@@ -67,7 +67,7 @@ class CommitsList:RBSliderList {
             scrollWheelEnter()
         }else if(event.assert(AnimEvent.completed, progressIndicator!.animator)){
             loopAnimationCompleted()
-        }else if(event.assert(<#T##type: String##String#>, <#T##origin: AnyObject?##AnyObject?#>)){
+        }else if(event.assert(AnimEvent.completed, <#T##origin: AnyObject?##AnyObject?#>)){
             
         }
         super.onEvent(event)
