@@ -89,7 +89,9 @@ class CommitsList:RBSliderList {
         slider!.thumb!.fadeOut()
     }
     
-    //Continue here: All events seem to come through now. Figure out what is not working, I think its
+    //Continue here: All events seem to come through now. Figure out what is not working, 
+        //I think its the event that is suppose to reset the refresh state that isnt working fully. Figure it out
+        //Also move some of the bellow events into the RBSliderList class instead of here
     
     override func onEvent(event:Event) {
         Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
