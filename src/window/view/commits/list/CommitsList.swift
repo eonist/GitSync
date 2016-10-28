@@ -24,17 +24,17 @@ class CommitsList:RBSliderList {
         }
         */
         let value = scrollController!.mover.result
-        if(value >  0 && value < 45){//between 0 and 50
+        if(value >  0 && value < 60){//between 0 and 50
             //Swift.print("start progressing the ProgressIndicator")
-            let scalarVal:CGFloat = value / 45//0 to 1
+            let scalarVal:CGFloat = value / 60//0 to 1
             
             //isInRefreshMode
             progressIndicator!.progress(scalarVal)
             
             //Continue here: use the result value not the value. as the surface slips
             
-            progressIndicator!.frame.y = -30 + (scalarVal * 45)
-        }else if(value > 50){
+            progressIndicator!.frame.y = -45 + (scalarVal * 60)
+        }else if(value > 60){
             hasPulledBeyondRefreshSpace = true
         }
     }
@@ -48,10 +48,11 @@ class CommitsList:RBSliderList {
                 //infact you should add this behaviour to the revealing aswell
     
     func scrollWheelExit(){
-        Swift.print("CommitList.scrollWheelExit()" + "\(progressValue)")
-        if(progressValue! < -0.1){
+        Swift.print("CommitList.scrollWheelExit()")
+        let value = scrollController!.mover.result
+        if(value > 60){
             Swift.print("start animation the ProgressIndicator")
-            scrollController!.mover.frame.y = 50
+            scrollController!.mover.frame.y = 60
             
             //start spinning the progressIndicator
             
