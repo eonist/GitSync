@@ -40,6 +40,8 @@ class CommitsList:RBSliderList {
      */
     func loopAnimationCompleted(){
         Swift.print("loopAnimationCompleted")
+        scrollController!.mover.frame.y = 0
+        scrollController!.mover.start()
     }
     //the progress indicator needs to be able to be able to reveal it self 1 tick at the time in the init state
     
