@@ -32,7 +32,7 @@ class CommitsList:RBSliderList {
             if(hasPulledAndReleasedBeyondRefreshSpace){//isInRefreshMode
                 progressIndicator!.frame.y = -45 + (scalarVal * 60)
             }
-            progressIndicator!.progress(scalarVal)
+            progressIndicator!.reveal(scalarVal)
             
         }else if(value > 60){
             progressIndicator!.frame.y = 15
