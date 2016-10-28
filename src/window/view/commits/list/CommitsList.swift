@@ -97,6 +97,8 @@ class CommitsList:RBSliderList {
             scrollWheelExit()
         }else if(event.assert(ScrollWheelEvent.enter, scrollController)){
             scrollWheelEnter()
+        }else if(event.assert(ScrollWheelEvent.exitAndStationary, scrollController)){
+            scrollWheelExitedAndIsStationary()
         }else if(event.assert(AnimEvent.completed, progressIndicator!.animator)){
             loopAnimationCompleted()
         }else if(event.assert(AnimEvent.completed, scrollController!.mover)){
