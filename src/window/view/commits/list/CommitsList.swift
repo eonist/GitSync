@@ -31,7 +31,7 @@ class CommitsList:RBSliderList {
             //isInRefreshMode
             progressIndicator!.progress(scalarVal)
             
-            //Continue here: sort of works, needs work, log the mover.value for instance
+            //Continue here: use the result value not the value. as the surface slips
             
             progressIndicator!.frame.y = -30 + (scalarVal * 45)
         }else if(value > 50){
