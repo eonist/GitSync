@@ -1,11 +1,5 @@
 import Cocoa
 
-
-//Continue here: 
-    //setup an eventHandler for when the LoopAnimator completes 
-        //then animate the List to its original poisition
-            //and set frame.y to 0 again
-
 class CommitsList:RBSliderList {
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
@@ -29,7 +23,7 @@ class CommitsList:RBSliderList {
             if(hasPulledAndReleasedBeyondRefreshSpace){//isInRefreshMode
                 progressIndicator!.frame.y = -45 + (scalarVal * 60)
             }else{
-                progressIndicator!.reveal(scalarVal)
+                progressIndicator!.reveal(scalarVal)//the progress indicator needs to be able to be able to reveal it self 1 tick at the time in the init state
             }
         }else if(value > 60){
             progressIndicator!.frame.y = 15
@@ -43,7 +37,7 @@ class CommitsList:RBSliderList {
         scrollController!.mover.frame.y = 0
         scrollController!.mover.start()
     }
-    //the progress indicator needs to be able to be able to reveal it self 1 tick at the time in the init state
+    
     
     func scrollWheelExit(){
         Swift.print("CommitList.scrollWheelExit()")
