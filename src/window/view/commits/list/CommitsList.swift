@@ -36,8 +36,11 @@ class CommitsList:RBSliderList {
     func loopAnimationCompleted(){
         Swift.print("CommitList.loopAnimationCompleted()")
         scrollController!.mover.frame.y = 0
+
+        scrollController!.mover.hasStopped = false/*reset this value to false, so that the FrameAnimatior can start again*/
+        scrollController!.mover.isDirectlyManipulating = false
+        scrollController!.mover.value = scrollController!.mover.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
         scrollController!.mover.start()
-        
         //Continue here: initiating the mover again doesnt seem to happen. what gives?
     }
     
