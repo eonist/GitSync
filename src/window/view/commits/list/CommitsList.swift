@@ -4,7 +4,7 @@ import Cocoa
 //Continue here: 
     //setup an eventHandler for when the LoopAnimator completes 
         //then animate the List to its original poisition
-            //and set frame.y to 0 again 
+            //and set frame.y to 0 again
 
 class CommitsList:RBSliderList {
     var progressIndicator:ProgressIndicator?
