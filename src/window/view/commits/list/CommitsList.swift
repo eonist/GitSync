@@ -89,7 +89,7 @@ class CommitsList:RBSliderList {
         slider!.thumb!.fadeOut()
     }
     
-    //Continue here: the event for animComplete isnt coming through. Try to figure it out
+    //Continue here: All events seem to come through now. Figure out what is not working, I think its
     
     override func onEvent(event:Event) {
         Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
