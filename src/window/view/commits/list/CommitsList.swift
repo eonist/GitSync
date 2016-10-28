@@ -75,6 +75,15 @@ class CommitsList:RBSliderList {
     /**
      *
      */
+    func scrollWheelExitedAndIsStationary(){
+        Swift.print("CommitList.scrollWheelExitedAndIsStationary() ")
+        if(slider?.thumb?.getSkinState() == SkinStates.none){
+            slider?.thumb?.fadeOut()
+        }
+    }
+    /**
+     *
+     */
     func scrollAnimStopped(){
         Swift.print("CommitsList.scrollAnimStopped()")
         slider!.thumb!.fadeOut()
