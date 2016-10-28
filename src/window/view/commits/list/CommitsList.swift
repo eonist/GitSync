@@ -17,14 +17,6 @@ class CommitsList:RBSliderList {
      */
     func onScroll(){
         //Swift.print("onScroll() progressValue: " + "\(progressValue!)")
-        /*
-        if(scrollController!.mover.value < 50){
-            //Swift.print("go into refresh mode")
-            isPulledBeyondRefreshSpace = true
-        }else{
-            isPulledBeyondRefreshSpace = false//reset
-        }
-        */
         let value = scrollController!.mover.result
         if(value >  0 && value < 60){//between 0 and 50
             //Swift.print("start progressing the ProgressIndicator")
