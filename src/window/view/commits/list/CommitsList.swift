@@ -35,16 +35,13 @@ class CommitsList:RBSliderList {
             progressIndicator!.frame.y = 15
         }
     }
-    
+    /**
+     *
+     */
+    func loopAnimationCompleted(){
+        Swift.print("loopAnimationCompleted")
+    }
     //the progress indicator needs to be able to be able to reveal it self 1 tick at the time in the init state
-    
-    //Continue here: onScrollWheleDown -> set topMargin to 0
-        //implement event for scrollWheelDown
-        //then remove topMargin, and begin working with frame.y
-        //also you want the apple mail, ProgressIndicator behaviour with a more of a revealing transition
-        //when you are in the refresh mode and wan't to continue scrolling
-            //then you move the ProgressIndicator out of the way
-                //infact you should add this behaviour to the revealing aswell
     
     func scrollWheelExit(){
         Swift.print("CommitList.scrollWheelExit()")
@@ -68,7 +65,7 @@ class CommitsList:RBSliderList {
         }else if(event.assert(ScrollWheelEvent.enter, scrollController)){
             scrollWheelEnter()
         }else if(event.assert(AnimEvent.completed, scrollController!.mover)){
-            
+            loopAnimationCompleted()
         }
         super.onEvent(event)
     }
