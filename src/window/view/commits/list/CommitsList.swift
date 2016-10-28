@@ -29,26 +29,24 @@ class CommitsList:RBSliderList {
         if(value >  0 && value < 60){//between 0 and 50
             //Swift.print("start progressing the ProgressIndicator")
             let scalarVal:CGFloat = value / 60//0 to 1
-            
-            //isInRefreshMode
+            if(hasPulledBeyondRefreshSpace){//isInRefreshMode
+                progressIndicator!.frame.y = -45 + (scalarVal * 60)
+            }
             progressIndicator!.progress(scalarVal)
-            progressIndicator!.frame.y = -45 + (scalarVal * 60)
+            
         }else if(value > 60){
             progressIndicator!.frame.y = 15
             hasPulledBeyondRefreshSpace = true
         }
     }
     
-    //Continue here:
-    
     //the progress indicator needs to be able to be able to reveal it self 1 tick at the time in the init state
-    //
     
     //Continue here: onScrollWheleDown -> set topMargin to 0
         //implement event for scrollWheelDown
         //then remove topMargin, and begin working with frame.y
-        //also you want the apple mail ProgressIndicator behaviour with a more of a revealing transition 
-        //when you are in the refresh mode and want to continue scrolling
+        //also you want the apple mail, ProgressIndicator behaviour with a more of a revealing transition
+        //when you are in the refresh mode and wan't to continue scrolling
             //then you move the ProgressIndicator out of the way
                 //infact you should add this behaviour to the revealing aswell
     
