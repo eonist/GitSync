@@ -24,16 +24,16 @@ class CommitsList:RBSliderList {
         }
         */
         let value = scrollController!.mover.value
-        if(value >  0 && value < 60){//between 0 and 50
+        if(value >  0 && value < 45){//between 0 and 50
             //Swift.print("start progressing the ProgressIndicator")
-            let scalarVal:CGFloat = value / 60//0 to 1
+            let scalarVal:CGFloat = value / 45//0 to 1
             
             //isInRefreshMode
             progressIndicator!.progress(scalarVal)
             
             //Continue here: sort of works, needs work, log the mover.value for instance
             
-            progressIndicator!.frame.y = -45 + (scalarVal * 60)
+            progressIndicator!.frame.y = -30 + (scalarVal * 45)
         }else if(value > 50){
             hasPulledBeyondRefreshSpace = true
         }
