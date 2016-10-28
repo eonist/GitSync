@@ -2,6 +2,7 @@ import Cocoa
 
 
 //Continue here: THe problem now is that the ProgressIndicator doesn't 
+    //doesn't reveal it self after refreshState has ended and you try to pull to refresh again
 
 class CommitsList:RBSliderList {
     var progressIndicator:ProgressIndicator?
