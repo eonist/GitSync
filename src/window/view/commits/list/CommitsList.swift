@@ -67,6 +67,8 @@ class CommitsList:RBSliderList {
             scrollWheelExit()
         }else if(event.assert(ScrollWheelEvent.enter, scrollController)){
             scrollWheelEnter()
+        }else if(event.assert(AnimEvent.completed, scrollController!.mover)){
+            
         }
         super.onEvent(event)
     }
