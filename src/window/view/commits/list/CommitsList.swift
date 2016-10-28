@@ -33,7 +33,10 @@ class CommitsList:RBSliderList {
             //isInRefreshMode
             progressIndicator!.progress(scalarVal)
             
-            //Continue here: use the result value not the value. as the surface slips
+            //Continue here: 
+            
+            //the progress indicator needs to be able to be able to reveal it self 1 tick at the time in the init state
+            //
             
             progressIndicator!.frame.y = -45 + (scalarVal * 60)
         }else if(value > 60){
