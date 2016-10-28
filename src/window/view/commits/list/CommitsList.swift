@@ -45,7 +45,8 @@ class CommitsList:RBSliderList {
         let value = scrollController!.mover.result
         if(value > 60){
             Swift.print("start animation the ProgressIndicator")
-            scrollController!.mover.frame.y = 60//1. start spinning the progressIndicator
+            scrollController!.mover.frame.y = 60
+            progressIndicator!.start()//1. start spinning the progressIndicator
             hasPulledAndReleasedBeyondRefreshSpace = true
             
         }else{
