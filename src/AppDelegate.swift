@@ -53,7 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //itemsTotHeight = itemHeight * numItems
                 //stop scaling the scrollbar if its bellow a size
                 //show only the last 200 items of 2000
-                //
+                //only show itemHeight
         
             //Continue here:
                 //1. install rbscrolllist and check that it works
