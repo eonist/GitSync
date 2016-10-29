@@ -1,7 +1,7 @@
 import Cocoa
 
 
-//Continue here: The problem now is that the ProgressIndicator doesn't 
+//Continue here: The problem now is that the ProgressIndicator:
     //doesn't reveal it self after refreshState has ended and you try to pull to refresh again
 
 class CommitsList:RBSliderList {
@@ -20,9 +20,9 @@ class CommitsList:RBSliderList {
      * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
      */
     func onScroll(){
-        //Swift.print("onScroll() progressValue: " + "\(progressValue!)")
+        Swift.print("CommitsList.onScroll() progressValue: " + "\(progressValue!)" + " hasPulledAndReleasedBeyondRefreshSpace: \(hasPulledAndReleasedBeyondRefreshSpace)")
         let value = scrollController!.mover.result
-        if(value >  0 && value < 60){//between 0 and 50
+        if(value >  0 && value < 60){//between 0 and 60
             //Swift.print("start progressing the ProgressIndicator")
             let scalarVal:CGFloat = value / 60//0 to 1
             if(hasPulledAndReleasedBeyondRefreshSpace){//isInRefreshMode
