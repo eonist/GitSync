@@ -28,6 +28,7 @@ class CommitsList:RBSliderList {
             }else if(isTwoFingersTouching || progressIndicator!.revealProgress > 0.02){
                 
                 //Continue here: try to set the reveal progress to 0 so that the above assert starts working
+                    //actually the above doesnt work, it will always fail, think of something else
                 
                 progressIndicator!.frame.y = 15//<--this could be set else where but something kept interfering with it
                 progressIndicator!.reveal(scalarVal)//the progress indicator needs to be able to be able to reveal it self 1 tick at the time in the init state
