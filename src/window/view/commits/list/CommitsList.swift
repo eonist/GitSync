@@ -55,6 +55,7 @@ class CommitsList:RBSliderList {
         isTwoFingersTouching = true
         super.scrollWheelEnter()
     }
+    var hasReleasedBeyondTop:Bool = false
     override func scrollWheelExit(){
         isTwoFingersTouching = false
         Swift.print("CommitList.scrollWheelExit()")
@@ -65,8 +66,11 @@ class CommitsList:RBSliderList {
             progressIndicator!.start()//1. start spinning the progressIndicator
             hasPulledAndReleasedBeyondRefreshSpace = true
             
-        }else{
+        }else if (value > 0){
+            hasReleasedBeyondTop = true
             //scrollController!.mover.topMargin = 0
+        }else{
+            hasReleasedBeyondTop = false
         }
     }
     func scrollAnimStopped(){
