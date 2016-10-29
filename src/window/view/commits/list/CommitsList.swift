@@ -1,8 +1,5 @@
 import Cocoa
 
-//Continue here: move some of the events into the RBSliderList class instead of here
-    //check appDelegate for further tasks
-
 class CommitsList:RBSliderList {
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
@@ -60,19 +57,7 @@ class CommitsList:RBSliderList {
             //scrollController!.mover.topMargin = 0
         }
     }
-    func scrollWheelEnter(){//2. spring to refreshStatePosition
-        Swift.print("CommitList.scrollWheelEnter()" + "\(progressValue)")
-        slider!.thumb!.fadeIn()
-    }
-    /**
-     *
-     */
-    func scrollWheelExitedAndIsStationary(){
-        Swift.print("CommitList.scrollWheelExitedAndIsStationary() ")
-        if(slider?.thumb?.getSkinState() == SkinStates.none){
-            slider?.thumb?.fadeOut()
-        }
-    }
+    
     /**
      *
      */
@@ -91,6 +76,8 @@ class CommitsList:RBSliderList {
             loopAnimationCompleted()
         }else if(event.assert(AnimEvent.stopped, scrollController!.mover)){
             scrollAnimStopped()
+        }else if(event.assert(ScrollWheelEvent.exit, scrollController)){
+            scrollWheelExit()
         }
         super.onEvent(event)
     }
