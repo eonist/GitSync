@@ -46,9 +46,10 @@ class CommitsList:RBSliderList {
         scrollController!.mover.start()
         //progressIndicator!.reveal(0)//reset all line alphas to 0
     }
-    var isTwoFingersTouching = false
+    var isTwoFingersTouching = false//is Two Fingers Touching the Touch-Pad
     override func scrollWheelEnter() {
         isTwoFingersTouching = true
+        super.scrollWheelEnter()
     }
     override func scrollWheelExit(){
         isTwoFingersTouching = false
