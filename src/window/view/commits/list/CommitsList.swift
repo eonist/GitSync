@@ -20,7 +20,7 @@ class CommitsList:RBSliderList {
      * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
      */
     func onScroll(){
-        Swift.print("CommitsList.onScroll() progressValue: " + "\(progressValue!)" + " hasPulledAndReleasedBeyondRefreshSpace: \(hasPulledAndReleasedBeyondRefreshSpace)")
+        //Swift.print("CommitsList.onScroll() progressValue: " + "\(progressValue!)" + " hasPulledAndReleasedBeyondRefreshSpace: \(hasPulledAndReleasedBeyondRefreshSpace)")
         let value = scrollController!.mover.result
         if(value >  0 && value < 60){//between 0 and 60
             //Swift.print("start progressing the ProgressIndicator")
