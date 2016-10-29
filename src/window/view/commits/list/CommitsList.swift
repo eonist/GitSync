@@ -1,5 +1,7 @@
 import Cocoa
 
+//Continue here: only reveal the progressindicator if you are touching the touchpad
+
 class CommitsList:RBSliderList {
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
@@ -57,9 +59,6 @@ class CommitsList:RBSliderList {
             //scrollController!.mover.topMargin = 0
         }
     }
-    /**
-     *
-     */
     func scrollAnimStopped(){
         Swift.print("CommitsList.scrollAnimStopped()")
         slider!.thumb!.fadeOut()
