@@ -87,13 +87,7 @@ class CommitsList:RBSliderList {
     }
     override func onEvent(event:Event) {
         Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
-        if(event.assert(ScrollWheelEvent.exit, scrollController)){
-            scrollWheelExit()
-        }else if(event.assert(ScrollWheelEvent.enter, scrollController)){
-            scrollWheelEnter()
-        }else if(event.assert(ScrollWheelEvent.exitAndStationary, scrollController)){
-            scrollWheelExitedAndIsStationary()
-        }else if(event.assert(AnimEvent.completed, progressIndicator!.animator)){
+        if(event.assert(AnimEvent.completed, progressIndicator!.animator)){
             loopAnimationCompleted()
         }else if(event.assert(AnimEvent.stopped, scrollController!.mover)){
             scrollAnimStopped()
