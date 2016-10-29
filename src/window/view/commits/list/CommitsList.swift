@@ -1,7 +1,5 @@
 import Cocoa
 
-//Continue here: only reveal the progressindicator if you are touching the touchpad
-
 class CommitsList:RBSliderList {
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
@@ -48,12 +46,10 @@ class CommitsList:RBSliderList {
         scrollController!.mover.start()
         //progressIndicator!.reveal(0)//reset all line alphas to 0
     }
-    
     override func scrollWheelEnter() {
         isTwoFingersTouching = true
         super.scrollWheelEnter()
     }
-    
     override func scrollWheelExit(){
         isTwoFingersTouching = false
         //Swift.print("CommitList.scrollWheelExit()")
