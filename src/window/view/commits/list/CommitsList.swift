@@ -46,7 +46,12 @@ class CommitsList:RBSliderList {
         scrollController!.mover.start()
         //progressIndicator!.reveal(0)//reset all line alphas to 0
     }
+    var isTwoFingersTouching = false
+    override func scrollWheelEnter() {
+        isTwoFingersTouching = true
+    }
     override func scrollWheelExit(){
+        isTwoFingersTouching = false
         Swift.print("CommitList.scrollWheelExit()")
         let value = scrollController!.mover.result
         if(value > 60){
