@@ -46,7 +46,7 @@ class CommitsList:RBSliderList {
         scrollController!.mover.start()
         //progressIndicator!.reveal(0)//reset all line alphas to 0
     }
-    func scrollWheelExit(){
+    override func scrollWheelExit(){
         Swift.print("CommitList.scrollWheelExit()")
         let value = scrollController!.mover.result
         if(value > 60){
@@ -74,8 +74,6 @@ class CommitsList:RBSliderList {
             loopAnimationCompleted()
         }else if(event.assert(AnimEvent.stopped, scrollController!.mover)){
             scrollAnimStopped()
-        }else if(event.assert(ScrollWheelEvent.exit, scrollController)){
-            scrollWheelExit()
         }
         super.onEvent(event)
     }
