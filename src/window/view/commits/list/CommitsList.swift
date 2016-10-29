@@ -25,7 +25,7 @@ class CommitsList:RBSliderList {
             let scalarVal:CGFloat = value / 60//0 to 1
             if(hasPulledAndReleasedBeyondRefreshSpace){//isInRefreshMode
                 progressIndicator!.frame.y = -45 + (scalarVal * 60)
-            }else if(isTwoFingersTouching || progressIndicator!.revealProgress > 0.1){
+            }else if(isTwoFingersTouching || progressIndicator!.revealProgress > 0.0){
                 progressIndicator!.frame.y = 15//<--this could be set else where but something kept interfering with it
                 progressIndicator!.reveal(scalarVal)//the progress indicator needs to be able to be able to reveal it self 1 tick at the time in the init state
             }
