@@ -28,6 +28,7 @@ class CommitsList:RBSliderList {
             if(hasPulledAndReleasedBeyondRefreshSpace){//isInRefreshMode
                 progressIndicator!.frame.y = -45 + (scalarVal * 60)
             }else{
+                progressIndicator!.frame.y = 15
                 progressIndicator!.reveal(scalarVal)//the progress indicator needs to be able to be able to reveal it self 1 tick at the time in the init state
             }
         }else if(value > 60){
