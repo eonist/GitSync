@@ -50,9 +50,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //RBList should read from an array but only display few at the time
         
             //a list
-                //itemsTotHeight = itemHeight * numOfVisibleItems
+                //itemsTotHeight = itemHeight * numItems
                 //stop scaling the scrollbar if its bellow a size
-                //show only the last 200 items
+                //show only the last 200 items of 
         
             //Continue here:
                 //1. install rbscrolllist and check that it works
