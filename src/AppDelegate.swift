@@ -47,22 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //add an url-icon for open in safari feature in repodetailview
         
             //Tomorrow:
-                //Implement RBSliderList for the commitsList
-                //Implement a sync mode for the RBSliderList -> make a new class for this
-        
-        
-            //To make the pull to sync feature, you need to make things work seperatly: (check mail app on iphone, and github projects)
-                //make a circle that completes on a progress slider (done)
-                //let a value iterate form 0 to 1 when scroll amount has travled far enough when list progress is bellow 0
-                //implement the circle progress ticker show when pulling (pull to sync mode)
-                //should the list be scrollable, while syncing? yes
-                //Should the sync area be behind the list?
-                //should the sync area be visible when the timer sets gitsync in sync mode?
                 //RBList should read from an array but only display few at the time
-                //Make sure all loose ends are covered
-        
-        
-            //maybe you could just add a margin-top if the scrollview goes into refresh mode, and just show the refresh circle behind the scrollview
         
             //Continue here:
                 //1. install rbscrolllist and check that it works
