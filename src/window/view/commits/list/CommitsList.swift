@@ -1,5 +1,8 @@
 import Cocoa
 
+//Continue here: move some of the events into the RBSliderList class instead of here
+    //check appDelegate for further tasks
+
 class CommitsList:RBSliderList {
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
