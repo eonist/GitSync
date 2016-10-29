@@ -51,7 +51,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
             //a list
                 //itemsTotHeight = itemHeight * numOfItems
-                
+                //stop scaling the scrollbar if its bellow a size
+                //
         
             //Continue here:
                 //1. install rbscrolllist and check that it works
