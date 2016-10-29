@@ -1,9 +1,5 @@
 import Cocoa
 
-
-//Continue here: The problem now is that the ProgressIndicator:
-    //doesn't reveal it self after refreshState has ended and you try to pull to refresh again
-
 class CommitsList:RBSliderList {
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
@@ -86,11 +82,6 @@ class CommitsList:RBSliderList {
             isInDeactivateRefreshModeState = false//reset
         }
     }
-    
-    //Continue here: All events seem to come through now. Figure out what is not working, 
-        //I think its the event that is suppose to reset the refresh state that isnt working fully. Figure it out
-        //Also move some of the bellow events into the RBSliderList class instead of here
-    
     override func onEvent(event:Event) {
         Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
         if(event.assert(ScrollWheelEvent.exit, scrollController)){
@@ -106,7 +97,6 @@ class CommitsList:RBSliderList {
         }
         super.onEvent(event)
     }
-    
     override func setProgress(value:CGFloat) {
         super.setProgress(value)
         onScroll()
