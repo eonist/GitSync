@@ -54,7 +54,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //stop scaling the scrollbar if its bellow a size
                 //show only the last 200 items of 2000
                 //only show var numOfVisibleItems = ceil(maskHeight / itemHeight) + 1
-                //
+                //make a carusell system that adds and removes date to it self quickly
+                    //See old legacy code for this
+                    //the system should work with DataProvider and the infrastructure of List and RBSliderList
+                    
         
             //Continue here:
                 //1. install rbscrolllist and check that it works
