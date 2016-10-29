@@ -22,14 +22,10 @@ class CommitsList:RBSliderList {
         let value = scrollController!.mover.result
         if(value >  0 && value < 60){//between 0 and 60
             //Swift.print("start progressing the ProgressIndicator")
-            let scalarVal:CGFloat = value / 60//0 to 1
+            let scalarVal:CGFloat = value / 60//0 to 1 (value settle on near 0)
             if(hasPulledAndReleasedBeyondRefreshSpace){//isInRefreshMode
                 progressIndicator!.frame.y = -45 + (scalarVal * 60)
-            }else if(isTwoFingersTouching || progressIndicator!.revealProgress > 0.02){
-                
-                //Continue here: try to set the reveal progress to 0 so that the above assert starts working
-                    //actually the above doesnt work, it will always fail, think of something else
-                
+            }else if(isTwoFingersTouching || hasReleasedBeyondTop){
                 progressIndicator!.frame.y = 15//<--this could be set else where but something kept interfering with it
                 progressIndicator!.reveal(scalarVal)//the progress indicator needs to be able to be able to reveal it self 1 tick at the time in the init state
             }
