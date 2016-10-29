@@ -6,6 +6,8 @@ class CommitsList:RBSliderList {
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
     var isInDeactivateRefreshModeState:Bool = false
+    var isTwoFingersTouching = false//is Two Fingers Touching the Touch-Pad
+    var hasReleasedBeyondTop:Bool = false
     override func resolveSkin() {
         super.resolveSkin()
         let piContainer = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
@@ -37,7 +39,7 @@ class CommitsList:RBSliderList {
      * Basically not in refreshState
      */
     func loopAnimationCompleted(){
-        Swift.print("CommitList.loopAnimationCompleted()")
+        //Swift.print("CommitList.loopAnimationCompleted()")
         isInDeactivateRefreshModeState = true
         scrollController!.mover.frame.y = 0
         scrollController!.mover.hasStopped = false/*reset this value to false, so that the FrameAnimatior can start again*/
@@ -46,18 +48,18 @@ class CommitsList:RBSliderList {
         scrollController!.mover.start()
         //progressIndicator!.reveal(0)//reset all line alphas to 0
     }
-    var isTwoFingersTouching = false//is Two Fingers Touching the Touch-Pad
+    
     override func scrollWheelEnter() {
         isTwoFingersTouching = true
         super.scrollWheelEnter()
     }
-    var hasReleasedBeyondTop:Bool = false
+    
     override func scrollWheelExit(){
         isTwoFingersTouching = false
-        Swift.print("CommitList.scrollWheelExit()")
+        //Swift.print("CommitList.scrollWheelExit()")
         let value = scrollController!.mover.result
         if(value > 60){
-            Swift.print("start animation the ProgressIndicator")
+            //Swift.print("start animation the ProgressIndicator")
             scrollController!.mover.frame.y = 60
             progressIndicator!.start()//1. start spinning the progressIndicator
             hasPulledAndReleasedBeyondRefreshSpace = true
@@ -70,16 +72,16 @@ class CommitsList:RBSliderList {
         }
     }
     func scrollAnimStopped(){
-        Swift.print("CommitsList.scrollAnimStopped()")
+        //Swift.print("CommitsList.scrollAnimStopped()")
         slider!.thumb!.fadeOut()
         if(isInDeactivateRefreshModeState){
-            Swift.print("reset refreshState")
+            //Swift.print("reset refreshState")
             hasPulledAndReleasedBeyondRefreshSpace = false//reset
             isInDeactivateRefreshModeState = false//reset
         }
     }
     override func onEvent(event:Event) {
-        Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
+        //Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
         if(event.assert(AnimEvent.completed, progressIndicator!.animator)){
             loopAnimationCompleted()
         }else if(event.assert(AnimEvent.stopped, scrollController!.mover)){
@@ -107,9 +109,3 @@ class CommitsList:RBSliderList {
         return String(List)
     }
 }
-
-//repo-name
-//contributor
-//title
-//description
-//date

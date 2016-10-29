@@ -1,5 +1,7 @@
 import Foundation
-
+/**
+ * NOTE: repo-name,contributor,title,description,date
+ */
 class CommitsListItem:Button,ISelectable{
     var repoName:String
     var contributor:String
