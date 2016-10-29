@@ -45,7 +45,7 @@ class CommitsList:RBSliderList {
         scrollController!.mover.isDirectlyManipulating = false
         scrollController!.mover.value = scrollController!.mover.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
         scrollController!.mover.start()
-        progressIndicator!.frame.y = 15
+        progressIndicator!.frame.y = 15//Reset the position
         
     }
     func scrollWheelExit(){
