@@ -49,6 +49,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //Tomorrow:
                 //RBList should read from an array but only display few at the time
         
+            //a list
+                //itemsTotHeight = itemHeight * numOfItems
+                
+        
             //Continue here:
                 //1. install rbscrolllist and check that it works
                 //2. add the progress indicator to a rbscrollview
