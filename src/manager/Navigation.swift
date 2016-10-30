@@ -36,6 +36,8 @@ class Navigation {
                 mainView.currentView = mainView.addSubView(ConflictDialogView(width,height,mainView))
             case String(DebugView):
                 mainView.currentView = mainView.addSubView(DebugView(width,height,mainView))
+            case String(TestView):
+                mainView.currentView = mainView.addSubView(TestView(width,height,mainView))
             default:
                 break;
         }
