@@ -46,9 +46,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //add a eye-icon for find in finder feature in repodetailview
             //add an url-icon for open in safari feature in repodetailview
         
-            //Tomorrow:
-                //RBList should read from an array but only display few at the time
-        
             //a list
                 //itemsTotHeight = itemHeight * numItems
                 //stop scaling the scrollbar if its bellow a size
