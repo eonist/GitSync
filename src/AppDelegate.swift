@@ -55,7 +55,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     //See old legacy code for this
                     //the system should work with DataProvider and the infrastructure of List and RBSliderList
                     //Use a hSlider to simulate scrolling (the Slider uses 0 to 1 to progress a list)
-                    //
+                    //Create the CarouselList
         
         
         //later
