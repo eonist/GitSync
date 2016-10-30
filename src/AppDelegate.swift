@@ -57,20 +57,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //make a carusell system that adds and removes date to it self quickly
                     //See old legacy code for this
                     //the system should work with DataProvider and the infrastructure of List and RBSliderList
-                    
         
-            //Continue here:
-                //1. install rbscrolllist and check that it works
-                //2. add the progress indicator to a rbscrollview
-                //3. make the pull to progress the progressindicator
+        
         //later
             //adjust the dialog designs
-            //drag and drop support for .git urls -> adds it self to the top of the repo list
+            //drag and drop support for .git urls -> adds it self to the top of the repo list (via app icon at first)
             //use the color themes from that opensource twitter client in electron
             //Dark mode mimicks twitter client
             //add logic to ConflictDialog
             //sync within individual repos from repodetailview
-            //Figure out how to speed up live-refresh in Element (think object-trees)
+            //Figure out how to speed up live-refresh in Element (think object-trees) or just swap out the generic.css and reload all styles, yes!
             //Use the san-fran font (if you can find it)
             //at the end of commits list place a button with the text: named load more (load 20 at the time)
             //when you use the app for the first time, there is a demo repo added, hello-world from eonist which contains demo commits and a commit with instructions on how to use the app: pull to sunc: 2 finger swipe downwards , hold until the circle animation is spinning etc.
