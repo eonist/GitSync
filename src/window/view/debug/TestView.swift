@@ -15,7 +15,8 @@ class TestView:Element {
     override func onEvent(event: Event) {
         if(event.assert(SliderEvent.change, volumeSlider)){
             let volumSliderProgress = (event as! SliderEvent).progress
-            Swift.print("volumSliderProgress: " + "\(volumSliderProgress)")
+            //Swift.print("volumSliderProgress: " + "\(volumSliderProgress)")
+            list?.setProgress(volumSliderProgress)
         }
     }
 }
