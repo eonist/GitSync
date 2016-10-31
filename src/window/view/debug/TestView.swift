@@ -7,7 +7,7 @@ class TestView:Element {
         Swift.print("TestView.resolveSkin()")
         skin = SkinResolver.skin(self)
         
-        volumeSlider = addSubView(VolumeSlider(120,20,20,0,self))
+        volumeSlider = addSubView(VolumeSlider(220,20,20,0,self))
         volumeSlider!.setProgressValue(0.0)
         
         list = addSubView(FastList(150,250,self))
