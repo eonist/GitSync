@@ -11,7 +11,9 @@ class TestView:Element {
         volumeSlider = addSubView(VolumeSlider(220,20,20,0,self))
         volumeSlider!.setProgressValue(0.0)
         
-        list = addSubView(FastList(150,250,self))
+        let xml = FileParser.xml("~/Desktop/assets/xml/scrollist.xml".tildePath)//TODO:  create a method tht takes url and makes dp
+        let dp:DataProvider = DataProvider(xml)
+        list = addSubView(FastList(150,250,50,dp,self))
         
         /*let xml = FileParser.xml("~/Desktop/assets/xml/scrollist.xml".tildePath)//TODO:  create a method tht takes url and makes dp
         let dp:DataProvider = DataProvider(xml)
