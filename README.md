@@ -9,8 +9,7 @@
 2. Pull2RefreshList with FastList support (Support for 1000's of list items)  
 3. DarkMode w/ simple switching working  
 4. PrefsView and RepoItemView w/ centre aligned InputFields  
-5. Launch the app as (working condition)
-6. Make a 15sec .gif demo to add to the readme.md  
+5. Make a 15sec app demo to add to the readme.md  
 
 **Stage 2 (Dec)**
 1. CommitItemView
@@ -24,3 +23,4 @@
 2. bug fixes from feedback
 3. Create app features video (30sec)
 4. try to package git inside the app (for people that doesn't have git installed)
+5. 🚀
