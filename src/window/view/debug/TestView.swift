@@ -21,6 +21,7 @@ class TestView:Element {
         let dp:DataProvider = DataProvider(xml)
         //let sliderList:ISliderList = self.addSubView(SliderList(140, 73, 24, dp, self))
         let sliderList:ISliderList = self.addSubView(SliderFastList(140, 73, 24, dp, self))
+        sliderList
         //ListModifier.select(sliderList, "white")
     }
     override func onEvent(event: Event) {
