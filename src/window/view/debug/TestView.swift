@@ -13,7 +13,7 @@ class TestView:Element {
         
         let xml = FileParser.xml("~/Desktop/assets/xml/scrollist.xml".tildePath)//TODO:  create a method tht takes url and makes dp
         let dp:DataProvider = DataProvider(xml)
-        list = addSubView(FastList(150,250,50,dp,self))
+        list = addSubView(FastList(150,73,24,dp,self))
         
         /*let xml = FileParser.xml("~/Desktop/assets/xml/scrollist.xml".tildePath)//TODO:  create a method tht takes url and makes dp
         let dp:DataProvider = DataProvider(xml)
