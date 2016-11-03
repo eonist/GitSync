@@ -28,6 +28,7 @@ class TestView:Element {
         /**/
         //ListModifier.select(sliderList, "white")
     }
+    
     override func onEvent(event: Event) {
         if(event.assert(SliderEvent.change, volumeSlider)){
             let volumSliderProgress = (event as! SliderEvent).progress
