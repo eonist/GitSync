@@ -1,4 +1,7 @@
 import Foundation
+//Continue here:
+    //test the FastList with rubberband
+    //test the FastList with 1000's of items
 
 class TestView:Element {
     var volumeSlider:VolumeSlider?
