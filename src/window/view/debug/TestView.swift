@@ -1,7 +1,7 @@
 import Foundation
 //Continue here:
     //test the FastList with rubberband
-    //test variouse sizes
+    //test variouse sizes and w/ more items (cpu)
     //test the FastList with 100's of items
     //test CommitsList w/ RbSliderFastList
 
