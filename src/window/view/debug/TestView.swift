@@ -1,5 +1,6 @@
 import Foundation
 //Continue here:
+    //RBSliderList should use an extension to handle the scroll event and mover callback
     //test the FastList with rubberband
     //test the FastList with 1000's of items
 
