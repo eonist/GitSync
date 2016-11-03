@@ -16,7 +16,7 @@ class TestView:Element {
         
         //createList()
         //createSliderList()
-        createRBFastList()
+        createRBList()
     }
     func createFastList(){
         let xml = FileParser.xml("~/Desktop/assets/xml/scrollist.xml".tildePath)//TODO:  create a method tht takes url and makes dp
@@ -35,7 +35,7 @@ class TestView:Element {
     /**
      *
      */
-    func createRBFastList(){
+    func createRBList(){
         let xml = FileParser.xml("~/Desktop/assets/xml/scrollist.xml".tildePath)//TODO:  create a method tht takes url and makes dp
         let dp:DataProvider = DataProvider(xml)
         //let sliderList:ISliderList = self.addSubView(SliderList(140, 73, 24, dp, self))
