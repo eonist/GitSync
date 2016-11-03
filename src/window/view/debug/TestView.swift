@@ -16,6 +16,7 @@ class TestView:Element {
         
         //createList()
         //createSliderList()
+        createRBFastList()
     }
     func createFastList(){
         let xml = FileParser.xml("~/Desktop/assets/xml/scrollist.xml".tildePath)//TODO:  create a method tht takes url and makes dp
@@ -38,8 +39,8 @@ class TestView:Element {
         let xml = FileParser.xml("~/Desktop/assets/xml/scrollist.xml".tildePath)//TODO:  create a method tht takes url and makes dp
         let dp:DataProvider = DataProvider(xml)
         //let sliderList:ISliderList = self.addSubView(SliderList(140, 73, 24, dp, self))
-        let sliderList:ISliderList = self.addSubView(SliderFastList(140, 73, 24, dp, self))
-        sliderList
+        let list = self.addSubView(RBSliderList(140, 73, 24, dp, self))
+        list
     }
     override func onEvent(event: Event) {
         if(event.assert(SliderEvent.change, volumeSlider)){
