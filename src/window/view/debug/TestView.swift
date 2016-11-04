@@ -18,8 +18,8 @@ class TestView:Element {
         
         //createList()
         //createSliderList()
-        createRBList()
-        //createRBFastList()
+        //createRBList()
+        createRBFastList()
     }
     func createFastList(){
         let xml = FileParser.xml("~/Desktop/assets/xml/scrollist.xml".tildePath)//TODO:  create a method tht takes url and makes dp
