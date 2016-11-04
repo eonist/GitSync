@@ -19,7 +19,7 @@ class CommitsList:RBSliderList {
      */
     func onScroll(){
         //Swift.print("CommitsList.onScroll() progressValue: " + "\(progressValue!)" + " hasPulledAndReleasedBeyondRefreshSpace: \(hasPulledAndReleasedBeyondRefreshSpace)")
-        let value = scrollController!.mover.result
+        let value = mover!.result
         if(value >  0 && value < 60){//between 0 and 60
             //Swift.print("start progressing the ProgressIndicator")
             let scalarVal:CGFloat = value / 60//0 to 1 (value settle on near 0)
@@ -39,11 +39,11 @@ class CommitsList:RBSliderList {
     func loopAnimationCompleted(){
         //Swift.print("CommitList.loopAnimationCompleted()")
         isInDeactivateRefreshModeState = true
-        scrollController!.mover.frame.y = 0
-        scrollController!.mover.hasStopped = false/*reset this value to false, so that the FrameAnimatior can start again*/
-        scrollController!.mover.isDirectlyManipulating = false
-        scrollController!.mover.value = scrollController!.mover.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
-        scrollController!.mover.start()
+        mover!.frame.y = 0
+        mover!.hasStopped = false/*reset this value to false, so that the FrameAnimatior can start again*/
+        mover!.isDirectlyManipulating = false
+        mover!.value = mover!.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
+        mover!.start()
         //progressIndicator!.reveal(0)//reset all line alphas to 0
     }
     override func scrollWheelEnter() {
@@ -53,10 +53,10 @@ class CommitsList:RBSliderList {
     override func scrollWheelExit(){
         isTwoFingersTouching = false
         //Swift.print("CommitList.scrollWheelExit()")
-        let value = scrollController!.mover.result
+        let value = mover!.result
         if(value > 60){
             //Swift.print("start animation the ProgressIndicator")
-            scrollController!.mover.frame.y = 60
+            mover!.frame.y = 60
             progressIndicator!.start()//1. start spinning the progressIndicator
             hasPulledAndReleasedBeyondRefreshSpace = true
             
@@ -80,7 +80,7 @@ class CommitsList:RBSliderList {
         //Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
         if(event.assert(AnimEvent.completed, progressIndicator!.animator)){
             loopAnimationCompleted()
-        }else if(event.assert(AnimEvent.stopped, scrollController!.mover)){
+        }else if(event.assert(AnimEvent.stopped, mover!)){
             scrollAnimStopped()
         }
         super.onEvent(event)
