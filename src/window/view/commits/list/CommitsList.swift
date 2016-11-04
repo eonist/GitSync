@@ -67,9 +67,9 @@ class CommitsList:RBSliderList {
             hasReleasedBeyondTop = false
         }
     }
-    func scrollAnimStopped(){
+    override func scrollAnimStopped(){
         //Swift.print("CommitsList.scrollAnimStopped()")
-        slider!.thumb!.fadeOut()
+        super.scrollAnimStopped()
         if(isInDeactivateRefreshModeState){
             //Swift.print("reset refreshState")
             hasPulledAndReleasedBeyondRefreshSpace = false//reset
