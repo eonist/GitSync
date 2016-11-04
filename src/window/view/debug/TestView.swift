@@ -2,6 +2,7 @@ import Foundation
 //Continue here:
     //test variouse sizes and w/ more items (cpu)
     //test the FastList with 100's of items
+        //add caching of the dataprovider.items.count value, only update on dataProvider.change etc
     //test CommitsList w/ RbSliderFastList
 
 class TestView:Element {
