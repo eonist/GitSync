@@ -14,10 +14,10 @@ class CommitsList:RBSliderList {
         progressIndicator!.animator!.event = onEvent
     }
     /**
-     * Happens when you use the scrollwheel or use the slider (also works while there still is momentum)
+     * Happens when you use the scrollwheel or use the slider (also works while there still is momentum) (This content of this method could be inside setProgress, but its easier to reason with if it is its own method)
      * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
      */
-    func onScroll(){
+    func onProgress(){
         //Swift.print("CommitsList.onScroll() progressValue: " + "\(progressValue!)" + " hasPulledAndReleasedBeyondRefreshSpace: \(hasPulledAndReleasedBeyondRefreshSpace)")
         let value = mover!.result
         if(value >  0 && value < 60){//between 0 and 60
@@ -87,7 +87,7 @@ class CommitsList:RBSliderList {
     }
     override func setProgress(value:CGFloat) {
         super.setProgress(value)
-        onScroll()
+        onProgress()
     }
     /**
      * NOTE: this method overrides the mergeAt method to facilitate special list items
