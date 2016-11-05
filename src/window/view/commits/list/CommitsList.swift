@@ -1,6 +1,6 @@
-import Cocoa
+import Foundation
 
-class CommitsList:RBSliderList {
+class CommitList:RBSliderFastList{
     /*The following variables exists to facilitate the pull to refresh functionality*/
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
@@ -13,6 +13,18 @@ class CommitsList:RBSliderList {
         progressIndicator = piContainer.addSubView(ProgressIndicator(30,30,piContainer))
         progressIndicator!.frame.y = -45//hide at init
         progressIndicator!.animator!.event = onEvent
+    }
+    override func spawn(idx:Int) -> Element {
+        let dpItem = dataProvider.items[idx]
+        let item:CommitsListItem = CommitsListItem(width, itemHeight ,dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!, false, self.lableContainer)
+        return item
+    }
+    override func spoof(listItem:FastListItem) {
+        let item:CommitsListItem = listItem.item as! CommitsListItem
+        let idx:Int = listItem.idx/*the index of the data in dataProvider*/
+        let selected:Bool = idx == selectedIdx//dpItem["selected"]!.bool
+        item.setData(dataProvider.items[idx])
+        if(item.selected != selected){item.setSelected(selected)}//only set this if the selected state is different from the current selected state in the ISelectable
     }
     /**
      * Happens when you use the scrollwheel or use the slider (also works while there still is momentum) (This content of this method could be inside setProgress, but its easier to reason with if it is its own method)
@@ -89,17 +101,5 @@ class CommitsList:RBSliderList {
     override func setProgress(value:CGFloat) {
         super.setProgress(value)
         onProgress()
-    }
-    /**
-     * NOTE: this method overrides the mergeAt method to facilitate special list items
-     */
-    override func mergeAt(objects: [Dictionary<String, String>], _ index: Int) {
-        var i:Int = index
-        //Swift.print("mergeAt: index: " + "\(index)");
-        for object:Dictionary<String,String> in objects {// :TODO: use for i
-            let item:CommitsListItem = CommitsListItem(width, itemHeight ,object["repo-name"]!, object["contributor"]!,object["title"]!,object["description"]!,object["date"]!, false, self.lableContainer)
-            lableContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
-            i++
-        }
     }
 }
