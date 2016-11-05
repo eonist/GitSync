@@ -34,7 +34,6 @@ class CommitsListItem:Button,ISelectable{
         
         let dateText:Text = container.addSubView(Text(180,24,date,container,"date"))
         dateText.isInteractive = false
-        /**/
     }
     override func mouseUpInside(event: MouseEvent) {
         isSelected = true
