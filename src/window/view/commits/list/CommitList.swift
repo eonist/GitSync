@@ -1,7 +1,7 @@
 import Foundation
 
 class CommitList:RBSliderFastList{
-    override func resolveSkin() {
-        super.resolveSkin()
+    override func spoof(listItem: FastListItem) {
+        <#code#>
     }
 }
