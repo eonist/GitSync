@@ -45,7 +45,7 @@ class CommitsListItem:Button,ISelectable{
         self.event!(SelectEvent(SelectEvent.select,self/*,self*/))
     }
     /**
-     *
+     * Sets data to the UI elements
      */
     func setData(repoName:String,_ contributor:String,_ title:String,_ desc:String,_ date:String){
         titleText!.setText(title)
