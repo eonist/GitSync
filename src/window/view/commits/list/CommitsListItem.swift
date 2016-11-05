@@ -63,6 +63,9 @@ class CommitsListItem:Button,ISelectable{
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
+extension CommitsListItem{
+    
+}
 
 
 //<commit repo-name="Element" contributor="Eonist" title="Comment update" description="Updated a comment in the file: View.swift" date="2016-01-22"/>

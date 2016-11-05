@@ -12,7 +12,7 @@ class CommitList:RBSliderFastList{
         let dpItem = dataProvider.items[idx]
         let title:String = dpItem["title"]!
         let selected:Bool = idx == selectedIdx//dpItem["selected"]!.bool
-        if(item.selected != selected){ item.setSelected(selected)}//only set this if the selected state is different from the current selected state in the ISelectable
+        if(item.selected != selected){item.setSelected(selected)}//only set this if the selected state is different from the current selected state in the ISelectable
         item.setTextValue(title)
     }
 }
