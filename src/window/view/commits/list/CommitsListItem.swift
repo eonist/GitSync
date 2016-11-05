@@ -8,8 +8,12 @@ class CommitsListItem:Button,ISelectable{
     var title:String
     var desc:String/*Description*/
     var date:String
-    var isSelected:Bool;
+    var isSelected:Bool
     var titleText:Text?
+    let repoNameText:Text?
+    let contributorText:Text?
+    let descText:Text?
+    
     init(_ width:CGFloat, _ height:CGFloat, _ repoName:String,_ contributor:String,_ title:String,_ desc:String,_ date:String,_ isSelected : Bool = false, _ parent:IElement? = nil, _ id:String? = nil){
         self.repoName = repoName
         self.contributor = contributor
