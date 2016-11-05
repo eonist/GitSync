@@ -10,10 +10,10 @@ class CommitsListItem:Button,ISelectable{
     var date:String
     var isSelected:Bool
     var titleText:Text?
-    let repoNameText:Text?
-    let contributorText:Text?
-    let descText:Text?
-    
+    var repoNameText:Text?
+    var contributorText:Text?
+    var descText:Text?
+    var dateText:Text?
     init(_ width:CGFloat, _ height:CGFloat, _ repoName:String,_ contributor:String,_ title:String,_ desc:String,_ date:String,_ isSelected : Bool = false, _ parent:IElement? = nil, _ id:String? = nil){
         self.repoName = repoName
         self.contributor = contributor
@@ -26,18 +26,18 @@ class CommitsListItem:Button,ISelectable{
     override func resolveSkin() {
         super.resolveSkin()
         let container = addSubView(Section(width,100,self,"textContainer"))
-        let repoNameText:Text = container.addSubView(Text(120,20,repoName,container,"repoName"))
-        repoNameText.isInteractive = false
-        let contributorText:Text = container.addSubView(Text(100,20,contributor,container,"contributor"))
-        contributorText.isInteractive = false
+        repoNameText = container.addSubView(Text(120,20,repoName,container,"repoName"))
+        repoNameText!.isInteractive = false
+        contributorText = container.addSubView(Text(100,20,contributor,container,"contributor"))
+        contributorText!.isInteractive = false
         
         titleText = container.addSubView(Text(280,24,title,container,"title"))
         titleText!.isInteractive = false
-        let descText:Text = container.addSubView(Text(180,50,desc,container,"description"))
-        descText.isInteractive = false
+        descText = container.addSubView(Text(180,50,desc,container,"description"))
+        descText!.isInteractive = false
         
-        let dateText:Text = container.addSubView(Text(180,24,date,container,"date"))
-        dateText.isInteractive = false
+        dateText = container.addSubView(Text(180,24,date,container,"date"))
+        dateText!.isInteractive = false
     }
     override func mouseUpInside(event: MouseEvent) {
         isSelected = true
