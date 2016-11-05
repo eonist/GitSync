@@ -22,7 +22,7 @@ class Navigation {
          */
         switch viewName{
             case MenuView.commits:
-                mainView.currentView = mainView.addSubView(CommitView(width,height,mainView))//CommitsView
+                mainView.currentView = mainView.addSubView(CommitsView(width,height,mainView))
             case MenuView.repos:
                 mainView.currentView = mainView.addSubView(RepoView(width,height,mainView))
             case MenuView.stats:

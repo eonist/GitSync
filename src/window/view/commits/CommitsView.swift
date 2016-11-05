@@ -4,14 +4,12 @@ class CommitsView:Element {
     static let w:CGFloat = MainView.w
     static let h:CGFloat = MainView.h-48
     //var topBar:CommitsTopBar?
-    var list:CommitsList?
+    var list:CommitList?
     
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         //topBar = addSubView(CommitsTopBar(width-12,36,self))
-        
         //add a container
-        
         createList()
     }
     func createList(){
@@ -21,23 +19,9 @@ class CommitsView:Element {
         let dp:DataProvider = DataProvider(xml)
         Swift.print("dp.count(): " + "\(dp.count)")
         //Swift.print("CommitsView.width: " + "\(width)")
-        list = addSubView(CommitsList(CommitsView.w, CommitsView.h, 102, dp, self,"commitsList"))
+        list = addSubView(CommitList(CommitsView.w, CommitsView.h, 102, dp, self,"commitsList"))
         ListModifier.selectAt(list!, 1)
     }
-    
-    
-    /*
-    override func scrollWheel(theEvent: NSEvent) {
-        super.scrollWheel(theEvent)
-        onScroll()
-    }
-    override func onEvent(event: Event) {
-        if(event.assert(SliderEvent.change, self)){
-            onScroll()
-        }
-        super.onEvent(event)
-    }
-    */
 }
 /*
 class CommitsTopBar:Element{
