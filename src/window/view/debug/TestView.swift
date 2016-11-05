@@ -4,7 +4,8 @@ import Foundation
     //create a color pallet for Dark-Mode
     //add the light-mode pallet
     //add the dark-mode style to generics.css
-    //attempt to add the switch skin functionality in a small isolated test
+    //attempt to add the switch skin functionality in a small isolated test (w/ styles from generic.css, just switching a few parms)
+    
 
 class TestView:Element {
     var volumeSlider:VolumeSlider?
