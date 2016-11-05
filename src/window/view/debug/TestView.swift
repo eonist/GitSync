@@ -7,6 +7,7 @@ import Foundation
     //attempt to add the switch skin functionality in a small isolated test (w/ styles from generic.css, just switching a few parms)
     //center-align the input views
     //prepare a blog post about FastList for stylekit.org
+    //add the Date Text UI Element to StatsView
 
 class TestView:Element {
     var volumeSlider:VolumeSlider?
