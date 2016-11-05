@@ -1,6 +1,6 @@
 import Foundation
 
-class CommitList:RBSliderFastList{
+class CommitsList:RBSliderFastList{
     /*The following variables exists to facilitate the pull to refresh functionality*/
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false

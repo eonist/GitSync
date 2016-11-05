@@ -1,7 +1,8 @@
 import Foundation
 //Continue here:
-    //test CommitsList w/ RbSliderFastList 
-        //test with 100's of items
+    //create a color pallet for Dark-Mode
+    //add the dark-mode style to generics.css
+    //
 
 class TestView:Element {
     var volumeSlider:VolumeSlider?

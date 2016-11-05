@@ -4,7 +4,7 @@ class CommitsView:Element {
     static let w:CGFloat = MainView.w
     static let h:CGFloat = MainView.h-48
     //var topBar:CommitsTopBar?
-    var list:CommitList?
+    var list:CommitsList?
     
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
@@ -19,7 +19,7 @@ class CommitsView:Element {
         let dp:DataProvider = DataProvider(xml)
         Swift.print("dp.count(): " + "\(dp.count)")
         //Swift.print("CommitsView.width: " + "\(width)")
-        list = addSubView(CommitList(CommitsView.w, CommitsView.h, 102, dp, self,"commitsList"))
+        list = addSubView(CommitsList(CommitsView.w, CommitsView.h, 102, dp, self,"commitsList"))
         ListModifier.selectAt(list!, 1)
     }
 }
