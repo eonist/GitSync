@@ -101,7 +101,4 @@ class CommitsList:RBSliderList {
             i++
         }
     }
-    override func getClassType() -> String {
-        return String(List)
-    }
 }

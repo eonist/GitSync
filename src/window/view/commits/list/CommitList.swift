@@ -1,5 +1,7 @@
 import Foundation
 
-class CommitList {
-
+class CommitList:RBSliderFastList{
+    override func resolveSkin() {
+        super.resolveSkin()
+    }
 }
