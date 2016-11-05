@@ -14,7 +14,6 @@ class CommitList:RBSliderFastList{
         progressIndicator!.frame.y = -45//hide at init
         progressIndicator!.animator!.event = onEvent
     }
-    
     override func spawn(idx:Int) -> Element {
         let dpItem = dataProvider.items[idx]
         let item:CommitsListItem = CommitsListItem(width, itemHeight ,dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!, false, self.lableContainer)
