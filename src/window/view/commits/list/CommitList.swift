@@ -2,6 +2,6 @@ import Foundation
 
 class CommitList:RBSliderFastList{
     override func spoof(listItem: FastListItem) {
-        <#code#>
+        super.spoof(<#T##listItem: FastListItem##FastListItem#>)
     }
 }
