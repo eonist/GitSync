@@ -41,6 +41,12 @@ class CommitsListItem:Button,ISelectable{
         self.event!(SelectEvent(SelectEvent.select,self/*,self*/))
     }
     /**
+     *
+     */
+    func setData(repoName:String,_ contributor:String,_ title:String,_ desc:String,_ date:String,_ isSelected:Bool){
+        
+    }
+    /**
      * @Note: do not add a dispatch event here, that is the responsibilyy of the caller
      */
     func setSelected(isSelected:Bool){
@@ -63,9 +69,7 @@ class CommitsListItem:Button,ISelectable{
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-extension CommitsListItem{
-    
-}
+
 
 
 //<commit repo-name="Element" contributor="Eonist" title="Comment update" description="Updated a comment in the file: View.swift" date="2016-01-22"/>
