@@ -13,7 +13,4 @@ class CommitList:RBSliderFastList{
         item.setData(dataProvider.items[idx])
         if(item.selected != selected){item.setSelected(selected)}//only set this if the selected state is different from the current selected state in the ISelectable
     }
-    override func getClassType() -> String {
-        return String(CommitsList)
-    }
 }
