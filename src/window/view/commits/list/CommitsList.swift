@@ -4,7 +4,7 @@ class CommitsList:RBSliderList {
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
     var isInDeactivateRefreshModeState:Bool = false
-    var isTwoFingersTouching = false//is Two Fingers Touching the Touch-Pad
+    var isTwoFingersTouching = false/*is Two Fingers Touching the Touch-Pad*/
     var hasReleasedBeyondTop:Bool = false
     override func resolveSkin() {
         super.resolveSkin()
