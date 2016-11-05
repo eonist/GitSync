@@ -47,15 +47,19 @@ class CommitsListItem:Button,ISelectable{
     /**
      *
      */
-    func setData(repoName:String,_ contributor:String,_ title:String,_ desc:String,_ date:String,_ isSelected:Bool){
-        
+    func setData(repoName:String,_ contributor:String,_ title:String,_ desc:String,_ date:String){
+        titleText!.setText(title)
+        repoNameText!.setText(repoName)
+        contributorText!.setText(contributor)
+        descText!.setText(desc)
+        dateText!.setText(date)
     }
     /**
      * @Note: do not add a dispatch event here, that is the responsibilyy of the caller
      */
     func setSelected(isSelected:Bool){
         self.isSelected = isSelected
-        setSkinState(getSkinState());
+        setSkinState(getSkinState())
     }
     func getSelected() -> Bool {
         return self.isSelected
