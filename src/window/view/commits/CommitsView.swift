@@ -15,7 +15,7 @@ class CommitsView:Element {
     func createList(){
         //let dp:DataProvider = DataProvider()
         //dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
-        let xml = FileParser.xml("~/Desktop/repo.xml".tildePath)
+        let xml = FileParser.xml("~/Desktop/commits.xml".tildePath)
         let dp:DataProvider = DataProvider(xml)
         Swift.print("dp.count(): " + "\(dp.count)")
         //Swift.print("CommitsView.width: " + "\(width)")
