@@ -47,12 +47,12 @@ class CommitsListItem:Button,ISelectable{
     /**
      * Sets data to the UI elements
      */
-    func setData(repoName:String,_ contributor:String,_ title:String,_ desc:String,_ date:String){
-        titleText!.setText(title)
-        repoNameText!.setText(repoName)
-        contributorText!.setText(contributor)
-        descText!.setText(desc)
-        dateText!.setText(date)
+    func setData(data:Dictionary<String,String>){
+        titleText!.setText(data["title"]!)
+        repoNameText!.setText(data["repoName"]!)
+        contributorText!.setText(data["contributor"]!)
+        descText!.setText(data["desc"]!)
+        dateText!.setText(data["date"]!)
     }
     /**
      * @Note: do not add a dispatch event here, that is the responsibilyy of the caller
