@@ -62,8 +62,8 @@ class CommitsListItem:Button,ISelectable{
     }
     override func setSkinState(skinState:String) {
         //Swift.print("\(self.dynamicType)" + " setSkinState() skinState: " + "\(skinState)")
-        super.setSkinState(skinState);
-        titleText!.setSkinState(skinState);
+        super.setSkinState(skinState)
+        titleText!.setSkinState(skinState)
     }
     override func getSkinState() -> String {
         return isSelected ? SkinStates.selected + " " + super.getSkinState() : super.getSkinState();
