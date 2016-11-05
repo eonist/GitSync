@@ -49,7 +49,7 @@ class CommitsListItem:Button,ISelectable{
      */
     func setData(data:Dictionary<String,String>){
         titleText!.setText(data["title"]!)
-        repoNameText!.setText(data["repoName"]!)
+        repoNameText!.setText(data["repo-name"]!)
         contributorText!.setText(data["contributor"]!)
         descText!.setText(data["desc"]!)
         dateText!.setText(data["date"]!)
