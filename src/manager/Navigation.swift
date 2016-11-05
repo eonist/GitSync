@@ -17,13 +17,12 @@ class Navigation {
         
         let width:CGFloat = MainView.w
         let height:CGFloat = MainView.h
-        
         /**
          * TODO: Use class name instead of static let strings
          */
         switch viewName{
             case MenuView.commits:
-                mainView.currentView = mainView.addSubView(CommitsView(width,height,mainView))
+                mainView.currentView = mainView.addSubView(CommitView(width,height,mainView))//CommitsView
             case MenuView.repos:
                 mainView.currentView = mainView.addSubView(RepoView(width,height,mainView))
             case MenuView.stats:
