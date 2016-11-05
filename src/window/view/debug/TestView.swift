@@ -1,8 +1,10 @@
 import Foundation
 //Continue here:
+    //create the dialogs in Illustrator
     //create a color pallet for Dark-Mode
+    //add the light-mode pallet
     //add the dark-mode style to generics.css
-    //attempt to add the switch skin functionality
+    //attempt to add the switch skin functionality in a small isolated test
 
 class TestView:Element {
     var volumeSlider:VolumeSlider?
