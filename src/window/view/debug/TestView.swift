@@ -6,7 +6,7 @@ import Foundation
     //add the dark-mode style to generics.css
     //attempt to add the switch skin functionality in a small isolated test (w/ styles from generic.css, just switching a few parms)
     //center-align the input views
-    //prepare a blog post about FastList for stylekit.org
+    //prepare 3 blog posts about FastList,ProgressIndicator,LineGraph for stylekit.org 
     //add the Date Text UI Element to StatsView
 
 class TestView:Element {
