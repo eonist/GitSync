@@ -6,6 +6,7 @@ import Foundation
     //add the dark-mode style to generics.css
     //attempt to add the switch skin functionality in a small isolated test (w/ styles from generic.css, just switching a few parms)
     //center-align the input views
+    //prepare a blog post about FastList for stylekit.org
 
 class TestView:Element {
     var volumeSlider:VolumeSlider?
