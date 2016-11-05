@@ -51,7 +51,7 @@ class CommitsListItem:Button,ISelectable{
         titleText!.setText(data["title"]!)
         repoNameText!.setText(data["repo-name"]!)
         contributorText!.setText(data["contributor"]!)
-        descText!.setText(data["desc"]!)
+        descText!.setText(data["description"]!)
         dateText!.setText(data["date"]!)
     }
     /**
