@@ -1,6 +1,7 @@
 import Cocoa
 
 class CommitsList:RBSliderList {
+    /*The following variables exists to */
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
     var isInDeactivateRefreshModeState:Bool = false
