@@ -6,8 +6,9 @@ import Foundation
     //add the dark-mode style to generics.css
     //attempt to add the switch skin functionality in a small isolated test (w/ styles from generic.css, just switching a few parms)
     //center-align the input views
-    //prepare 3 blog posts about FastList,ProgressIndicator,LineGraph for stylekit.org 
+    //prepare 3 blog posts about FastList,ProgressIndicator,LineGraph for stylekit.org
     //add the Date Text UI Element to StatsView
+    //write about the mc2 idea
 
 class TestView:Element {
     var volumeSlider:VolumeSlider?
