@@ -8,7 +8,7 @@ import Foundation
     //add the light-mode pallet
     //prepare 3 blog posts about FastList,ProgressIndicator,LineGraph for stylekit
     //add the Date Text UI Element to StatsView
-    //write about the mc2 idea
+    //write about the mc2/bump idea
 
 class TestView:Element {
     var volumeSlider:VolumeSlider?
