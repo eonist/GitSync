@@ -1,14 +1,22 @@
 import Foundation
 //Continue here:
-    //add the dark-mode style to generics.css
-    //attempt to add the switch skin functionality in a small isolated test (w/ styles from generic.css, just switching a few parms)
-    //center-align the input views
     //create the dialogs in Illustrator
-    //create a color pallet for Dark-Mode
-    //add the light-mode pallet
-    //prepare 3 blog posts about FastList,ProgressIndicator,LineGraph for stylekit
+        //Create the conflict resolve dialog (done)
+        //create the commit message dialog (done)
+        //create the main dialog (done)
+        //add dropshadows to the windows (next)
+        //add mac os background for realistic demo
+        //add macbook border 
+        //create a blog post about the dark and light mode gui designs
+        //add light-mode GUI designs to the demo
+    //create a color pallet for Dark-Mode (hex values etc)
+    //add the dark-mode style to generics.css
     //add the Date Text UI Element to StatsView
-    //write about the mc2/bump idea
+    //center-align the input views
+    //write about the mc2/bump idea (design logo)
+    //add the light-mode pallet (later)
+    //prepare 3 blog posts about FastList,ProgressIndicator,LineGraph for stylekit
+    //attempt to add the switch skin functionality in a small isolated test (w/ styles from generic.css, just switching a few parms)
 
 class TestView:Element {
     var volumeSlider:VolumeSlider?
