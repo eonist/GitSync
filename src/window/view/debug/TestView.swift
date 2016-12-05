@@ -4,7 +4,6 @@ import Foundation
         //Create the conflict resolve dialog (done)
         //create the commit message dialog (done)
         //create the main dialog (done)
-        //add dropshadows to the windows (next)
         //add mac os background for realistic demo
         //add macbook border 
         //create a blog post about the dark and light mode gui designs
