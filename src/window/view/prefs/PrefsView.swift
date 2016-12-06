@@ -19,7 +19,7 @@ class PrefsView:Element {
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
         
-        let xml:XML = FileParser.xml("~/Desktop/gitsyncprefs.xml".tildePath)
+        let xml:XML = FileParser.xml("~/Desktop/gitsyncprefs.xml".tildePath)/*Loads the xml*/
         PrefsView.keychainUserName = xml.firstNode("keychainUserName")!.stringValue
         PrefsView.gitConfigUserName = xml.firstNode("gitConfigUserName")!.stringValue
         PrefsView.gitEmailNameText = xml.firstNode("gitEmailName")!.stringValue
