@@ -4,7 +4,7 @@
 
 ## The app design:   
 
-<img width="2257" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_gui_design-01.png">
+<img width="1083" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_gui_design_low.png">
 
 
 ## Progress:
