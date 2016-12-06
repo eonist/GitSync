@@ -4,7 +4,7 @@ import Cocoa
  * TODO: An idea is to hide the interface when the mouse is not over the app (anim in and out) (maybe)
  */
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate:NSObject, NSApplicationDelegate {
     weak var window: NSWindow!
     var repoFilePath:String = "~/Desktop/repo.xml"
     var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
