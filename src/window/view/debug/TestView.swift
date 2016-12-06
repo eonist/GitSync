@@ -1,6 +1,5 @@
 import Foundation
 //Continue here:
-    
     //add the Date Text UI Element to StatsView
     //center-align the input views
     //write about the mc2/bump idea (design logo)
