@@ -1,10 +1,4 @@
 import Foundation
-//Continue here:
-    //add the Date Text UI Element to StatsView
-    //center-align the input views
-    //write about the mc2/bump idea (design logo)
-    //prepare 3 blog posts about FastList,ProgressIndicator,LineGraph for stylekit
-    //attempt to add the switch skin functionality in a small isolated test (w/ styles from generic.css, just switching a few parms)
 
 class TestView:Element {
     var volumeSlider:VolumeSlider?
