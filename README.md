@@ -1,7 +1,8 @@
+## The app icon:  
+
 <img width="314" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_logo_2016_blue.png">
 
-
-## A simple git app  
+## The app design:   
 
 <img width="2257" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_gui_design-01.png">
 
