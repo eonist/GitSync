@@ -22,6 +22,7 @@ class Navigation {
          */
         switch viewName{
             case MenuView.commits:
+                Swift.print("set commits win")
                 mainView.currentView = mainView.addSubView(CommitsView(width,height,mainView))
             case MenuView.repos:
                 mainView.currentView = mainView.addSubView(RepoView(width,height,mainView))
