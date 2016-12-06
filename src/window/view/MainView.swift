@@ -8,7 +8,7 @@ class MainView:TitleView{
     var currentView:Element?
     var conflictDialogWin:ConflictDialogWin?
     
-    init(_ width: CGFloat, _ height: CGFloat,_ title:String = "", _ parent: IElement? = nil, _ id: String? = "") {
+    init(_ width:CGFloat, _ height:CGFloat,_ title:String = "", _ parent:IElement? = nil, _ id:String? = "") {
         self.title = title
         super.init(width, height, parent, "")
     }
