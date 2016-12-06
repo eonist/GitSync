@@ -1,14 +1,18 @@
+<img width="314" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_logo_2016_blue.png">
+
+
 ## A simple git app  
 
-<img width="354" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/Screen Shot 2016-10-09 at 21.19.40.png"><img width="354" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/Screen Shot 2016-10-10 at 21.00.13.png">
+<img width="2257" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_gui_design-01.png">
+
 
 ## Progress:
 
 **Stage 1 (Nov)**  
 1. ~~StatsView w/ Interactive Graph component~~  
 2. ~~Pull2RefreshList with FastList support (Support for 1000's of list items)~~  
-3. DarkMode w/ simple switching working  
-4. PrefsView and RepoItemView w/ centre aligned InputFields  
+3. ~~Design DarkMode ~~
+4. ~~PrefsView and RepoItemView w/ centre aligned InputFields  ~~
 5. Make a 15sec app demo to add to the readme.md  
 
 **Stage 2 (Dec)**  
