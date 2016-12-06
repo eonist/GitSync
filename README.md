@@ -12,8 +12,8 @@
 **Stage 1 (Nov)**  
 1. ~~StatsView w/ Interactive Graph component~~  
 2. ~~Pull2RefreshList with FastList support (Support for 1000's of list items)~~  
-3. ~~Design DarkMode ~~
-4. ~~PrefsView and RepoItemView w/ centre aligned InputFields  ~~
+3. ~~Design DarkMode~~  
+4. ~~PrefsView and RepoItemView w/ centre aligned InputFields~~  
 5. Make a 15sec app demo to add to the readme.md  
 
 **Stage 2 (Dec)**  
