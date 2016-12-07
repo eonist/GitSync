@@ -15,8 +15,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automate routine git tasks")
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
         
-        //win = MainWin(MainView.w,MainView.h)
-        win = ConflictDialogWin(380,400)
+        win = MainWin(MainView.w,MainView.h)
+        //win = ConflictDialogWin(380,400)
         //win = CommitDialogWin(400,356)
         
         let url:String = "~/Desktop/ElCapitan/gitsync.css"
