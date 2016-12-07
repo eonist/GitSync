@@ -24,14 +24,14 @@ class CommitsView:Element {
     }
     func onListSelect(){
         Sounds.play?.play()
-        Navigation.setView(String(RepoDetailView))
-        RepoView.selectedListItemIndex = list!.selectedIndex
-        let commitData:Dictionary<String,String> = list!.dataProvider.getItemAt(RepoView.selectedListItemIndex)!
+        Navigation.setView(String(CommitDetailView))
+        //RepoView.selectedListItemIndex = list!.selectedIndex
+        let commitData:Dictionary<String,String> = list!.dataProvider.getItemAt(list!.selectedIndex)!
         (Navigation.currentView as! CommitDetailView).setCommitData(commitData)//updates the UI elements with the selected commit item
     }
     override func onEvent(event:Event) {
         if(event.type == ListEvent.select){onListSelect()}
-        else {super.onEvent(event)}//forward this event
+        //else {super.onEvent(event)}//forward other events
     }
 }
 /*

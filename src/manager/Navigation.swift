@@ -40,6 +40,7 @@ class Navigation {
             case String(TestView):
                 mainView.currentView = mainView.addSubView(TestView(width,height,mainView))
             case String(CommitDetailView):
+                Swift.print("set CommitDetailView win")
                 mainView.currentView = mainView.addSubView(CommitDetailView(width,height,mainView))
             default:
                 break;
