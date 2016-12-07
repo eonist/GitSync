@@ -39,6 +39,8 @@ class Navigation {
                 mainView.currentView = mainView.addSubView(DebugView(width,height,mainView))
             case String(TestView):
                 mainView.currentView = mainView.addSubView(TestView(width,height,mainView))
+            case String(CommitDetailView):
+                mainView.currentView = mainView.addSubView(CommitDetailView(width,height,mainView))
             default:
                 break;
         }
