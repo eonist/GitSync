@@ -6,10 +6,9 @@ class CommitDialogView:TitleView{
     var descTextInput:TextInput?
     private var okButton:TextButton?
     private var cancelButton:TextButton?
-    
     let mergeOptions:[String] = ["keep local version","keep remote version","keep mix of both versions","Review local version","Review remote version","Review mix of both versions"]
     
-    override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement? = nil, _ id: String? = "") {
+    override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {
         //self.title = "Resolve merge conflict:"//Title: Resolve sync conflict:
         super.init(width, height, parent, "commitDialog")
     }
@@ -26,7 +25,6 @@ class CommitDialogView:TitleView{
      */
     func createGUI(){
         let guiContainer = addSubView(Container(frame.width,frame.height,self,"gui"))
-        
         guiContainer.addSubView(Element(NaN, NaN, guiContainer, "topRuler"))
         
         //Repository: Element - iOS

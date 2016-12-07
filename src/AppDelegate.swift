@@ -12,11 +12,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
-        Swift.print("GitSync - A simple Git app")
+        Swift.print("GitSync - Automate routine git tasks")
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
         
-        win = MainWin(MainView.w,MainView.h)
-        //win = ConflictDialogWin(400,530)
+        //win = MainWin(MainView.w,MainView.h)
+        win = ConflictDialogWin(380,400)
         //win = CommitDialogWin(400,356)
         
         let url:String = "~/Desktop/ElCapitan/gitsync.css"

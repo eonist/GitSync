@@ -21,8 +21,8 @@ class MainView:TitleView{
         
         menuView = addSubView(MenuView(frame.width,48,self))
         
-        Navigation.setView(MenuView.prefs)//String(ConflictDialogView)//(MenuView.stats//String(DebugView)//String(TestView)
-        menuView!.selectGroup!.selectedAt(3)
+        Navigation.setView(MenuView.repos)//String(ConflictDialogView)//(MenuView.stats//String(DebugView)//String(TestView)
+        menuView!.selectGroup!.selectedAt(1)
         
         //Align.align(menuView!, CGSize(width/**/,height/**/), Alignment.bottomCenter, Alignment.bottomCenter,CGPoint(0,0))
     }

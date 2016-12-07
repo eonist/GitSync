@@ -1,10 +1,4 @@
 import Foundation
-//Continue here:
-    //center-align the input views (in progress)
-    //add the Date Text UI Element to StatsView
-    //write about the mc2/bump idea (design logo)
-    //prepare 3 blog posts about FastList,ProgressIndicator,LineGraph for stylekit
-    //attempt to add the switch skin functionality in a small isolated test (w/ styles from generic.css, just switching a few parms)
 
 class MainWin:Window {
     static var mainView:MainView?

@@ -27,6 +27,9 @@ class ConflictDialogView:TitleView{
      *
      */
     func createGUI(){
+        Swift.print("createGUI()")
+        Swift.print("frame.width: " + "\(frame.width)")
+        Swift.print("frame.height: " + "\(frame.height)")
         let guiContainer = addSubView(Container(frame.width,frame.height,self,"gui"))
         //guiContainer.addSubView(TextArea(NaN,NaN,"Resolve merge conflict:",guiContainer,"conflictText"))
         guiContainer.addSubView(Element(NaN, NaN, guiContainer, "topRuler"))
@@ -39,28 +42,27 @@ class ConflictDialogView:TitleView{
         
         let repoText:String = "Repository: " + "Element - iOS"
         guiContainer.addSubView(TextArea(NaN,NaN,repoText,guiContainer,"repoText"))
-        
-        
+        /*
         guiContainer.addSubView(Element(NaN, NaN, guiContainer, "ruler"))
         
         //Create 3 TextButtons (Review local,remote,mix)
         guiContainer.addSubView(TextButton(NaN,NaN,"Review local version",guiContainer,"reviewBtn"))
         guiContainer.addSubView(TextButton(NaN,NaN,"Review remote version",guiContainer,"reviewBtn"))
         guiContainer.addSubView(TextButton(NaN,NaN,"Review mix version",guiContainer,"reviewBtn"))
-        
+        */
         guiContainer.addSubView(Element(NaN, NaN, guiContainer, "ruler"))
         
-         //Create 3 RadioButtons in a collumn: (keep local,remote, mix)
+        //Create 3 RadioButtons in a collumn: (keep local,remote, mix)
         
-        let rb1 = guiContainer.addSubView(RadioButton(NaN,NaN,"keep local version",true,guiContainer))
-        let rb2 = guiContainer.addSubView(RadioButton(NaN,NaN,"keep remote version",false,guiContainer))
-        let rb3 = guiContainer.addSubView(RadioButton(NaN,NaN,"keep mix of both versions",false,guiContainer))
+        let rb1 = guiContainer.addSubView(RadioButton(NaN,24,"keep local version",true,guiContainer))/*<-- height should be NaN, but a bug prevents it from working*/
+        let rb2 = guiContainer.addSubView(RadioButton(NaN,24,"keep remote version",false,guiContainer))
+        let rb3 = guiContainer.addSubView(RadioButton(NaN,24,"keep mix of both versions",false,guiContainer))
         let selectGroup:SelectGroup = SelectGroup([rb1,rb2,rb3],rb1)
+        
         func onSelectGroupChange(event:Event){
             Swift.print("event.selectable: " + "\(event)")
         }
         selectGroup.event = onSelectGroupChange
-        
         
         guiContainer.addSubView(Element(NaN, NaN, guiContainer, "ruler"))
         
@@ -78,7 +80,7 @@ class ConflictDialogView:TitleView{
         cancelButton = confirmSection.addSubView(TextButton(NaN,NaN,"Cancel",confirmSection,"cancel"))//cancel button (stops the sync)
         
         /**/
-        //Looping repos (happens in MainView, so that its not canceled)
+        //Looping repos (happens in MainView, so that it's not canceled)
         //create a static array of repos
         //when an repo is "synced" remove it from the array
         //sync(repos[0])
@@ -95,6 +97,8 @@ class ConflictDialogView:TitleView{
         //restart timer
         //Navigate.setView(CommitView)
         /**/
+        
+        Swift.print("createGUI - complete")
     }
     func onOkButtonRelease(event:ButtonEvent)  {
         Swift.print("onOkButtonRelease")
