@@ -27,6 +27,7 @@ class CommitsView:Element {
         Sounds.play?.play()
         Navigation.setView(String(CommitDetailView))
         //RepoView.selectedListItemIndex = list!.selectedIndex
+        Swift.print("list!.selectedIndex: " + "\(list!.selectedIndex)")
         let commitData:Dictionary<String,String> = list!.dataProvider.getItemAt(list!.selectedIndex)!
         (Navigation.currentView as! CommitDetailView).setCommitData(commitData)//updates the UI elements with the selected commit item
     }
