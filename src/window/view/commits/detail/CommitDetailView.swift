@@ -11,7 +11,7 @@ class CommitDetailView:Element {
         descText!.isInteractive = false
     }
     /**
-     * Populates the UI elements with data from the dp item
+     * Populates the UI elements with data
      */
     func setCommitData(commitData:Dictionary<String,String>){
         titleText!.setText(commitData["title"]!)
