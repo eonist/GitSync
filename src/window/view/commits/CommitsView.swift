@@ -22,6 +22,17 @@ class CommitsView:Element {
         list = addSubView(CommitsList(CommitsView.w, CommitsView.h, 102, dp, self,"commitsList"))
         ListModifier.selectAt(list!, 1)
     }
+    func onListSelect(){
+        Sounds.play?.play()
+        Navigation.setView(String(RepoDetailView))
+        RepoView.selectedListItemIndex = list!.selectedIndex
+        let commitData:Dictionary<String,String> = list!.dataProvider.getItemAt(RepoView.selectedListItemIndex)!
+        (Navigation.currentView as! CommitDetailView).setCommitData(commitData)//updates the UI elements with the selected commit item
+    }
+    override func onEvent(event:Event) {
+        if(event.type == ListEvent.select){onListSelect()}
+        else {super.onEvent(event)}//forward this event
+    }
 }
 /*
 class CommitsTopBar:Element{
