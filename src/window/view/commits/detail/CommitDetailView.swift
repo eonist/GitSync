@@ -18,6 +18,6 @@ class CommitDetailView:Element {
      */
     func setCommitData(commitData:Dictionary<String,String>){
         titleText!.setText(commitData["title"]!)
-        descText!.setText(commitData["desc"]!)
+        descText!.setText(commitData["description"]!)
     }
 }
