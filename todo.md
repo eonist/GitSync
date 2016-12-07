@@ -1,12 +1,12 @@
 //Continue here:
     //Start hocking up the GitSync algo to the app
     //create the 30 sec video demo of the Current GUI interactions
-    //rename subscribe and broadcast to download and upload
-    //darkmode checkbox should be true
-    //design CommitDetailView in illustrator
-    //add CommitDetailView to the app (take cues from GitHub)
     //add the Date Text UI Element to StatsView (next)
 //Complete
+    //rename subscribe and broadcast to download and upload (done)
+    //darkmode checkbox should be true (done)
+    //design CommitDetailView in illustrator (done)
+    //add CommitDetailView to the app (take cues from GitHub) (done)
     //Create the Conflict resolution prompt w/ darkmode (done)
     //Create the commit message prompt w/ darkmode (done)
     //center-align repo-detail and add broader text input fields (done)
