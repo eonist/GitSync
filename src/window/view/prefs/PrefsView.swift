@@ -8,7 +8,7 @@ class PrefsView:Element {
     static var gitEmailNameText:String?
     static var defaultLocalPath:String = "~/Documents/"
     static var uiSounds:Bool?
-    static var darkMode:Bool = false
+    static var darkMode:Bool = true
     var keychainUserNameTextInput:TextInput?
     var gitConfigUserNameTextInput:TextInput?
     var gitEmailNameTextInput:TextInput?
