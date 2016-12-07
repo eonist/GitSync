@@ -23,6 +23,7 @@ class CommitsView:Element {
         ListModifier.selectAt(list!, 1)
     }
     func onListSelect(){
+        Swift.print("CommitsView.onListSelect()")
         Sounds.play?.play()
         Navigation.setView(String(CommitDetailView))
         //RepoView.selectedListItemIndex = list!.selectedIndex
