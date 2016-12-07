@@ -1,5 +1,7 @@
 import Foundation
-
+/**
+ * Enables you to view the commit title and commit description of a single commit
+ */
 class CommitDetailView:Element {
     var titleText:Text?
     var descText:Text?
