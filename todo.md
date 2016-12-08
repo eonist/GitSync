@@ -2,7 +2,7 @@
     //Start hocking up the GitSync algo to the app
     //setup init test for the GitSync Algo with a few test projects (see old test files)
     //create the 30 sec video demo of the Current GUI interactions
-    //move sync interval to prefs
+    //move sync interval to prefs-view
     //create auto-sync checkbox in repo-detail-view
     //add the Date Text UI Element to StatsView (next)
 //Complete
