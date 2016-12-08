@@ -2,7 +2,9 @@
     //Start hocking up the GitSync algo to the app
     //setup init test for the GitSync Algo with a few test projects (see old test files)
     //create the 30 sec video demo of the Current GUI interactions
+    
     //add the Date Text UI Element to StatsView and hock up the interactivity logic (next)
+        //move the DateText into the CommitGraph, because touch interactivity is located there
 //Complete
     //move sync interval to prefs-view (done)
     //create auto-sync checkbox in repo-detail-view (done)

@@ -12,8 +12,7 @@ class StatsView:Element {
         createGraph()
     }
     func createGraph(){
-        //Continue here: add the current date: 16/10/11 - 16/10/18  center aligned text on top (The CommitGraph doesnt need anything more features, as its just about showing your commit count the last 7 days and so)
-        dateText = addSubView(TextArea(180,24,"16/10/11 - 16/10/18",self,"date"))
+       
         
         let graphContainer = addSubView(Container(width,height,self,"graph"))
         graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
