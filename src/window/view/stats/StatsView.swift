@@ -17,7 +17,7 @@ class StatsView:Element {
         
         let graphContainer = addSubView(Container(width,height,self,"graph"))
         graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
-  
+
         //for all repos:
             //get the commits from today where the user is Eonist
                 //store the time in an [[Int]] (basically a arr with an arr of times)
