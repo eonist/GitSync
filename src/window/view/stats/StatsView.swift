@@ -19,8 +19,9 @@ class StatsView:Element {
         graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
         
         let curDate = Utils.date(graph!.currentDate, graph!.dayOffset)
+        Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
         //curDate
-        dateText!.setTextValue("")
+        dateText!.setTextValue(curDate.shortDate)
         
         //for all repos:
             //get the commits from today where the user is Eonist
