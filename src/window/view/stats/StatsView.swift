@@ -12,20 +12,13 @@ class StatsView:Element {
         createGraph()
     }
     func createGraph(){
-       
-        
         let graphContainer = addSubView(Container(width,height,self,"graph"))
         graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
-        
-        
         
         //for all repos:
             //get the commits from today where the user is Eonist
                 //store the time in an [[Int]] (basically a arr with an arr of times)
                 //if time is between 20:00 and 00:00, add to timeArr[0]
-        
-        
-        
     }
 }
 class CommitGraph:Graph{
@@ -45,12 +38,8 @@ class CommitGraph:Graph{
     override func resolveSkin() {
         super.resolveSkin()
         //Continue here: add the current date: 16/10/11 - 16/10/18  center aligned text on top (The CommitGraph doesnt need anything more features, as its just about showing your commit count the last 7 days and so)
-        dateText = addSubView(TextArea(180,24,"16/10/11 - 16/10/18",self,"date"))
-        let curDate = Utils.date(self.currentDate, self.dayOffset)
-        Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
-        let lastWeekDate = Utils.date(self.currentDate, self.dayOffset-7)
-        //curDate
-        dateText!.setTextValue(lastWeekDate.shortDate + " - " + curDate.shortDate)
+        dateText = addSubView(TextArea(180,24,"-",self,"date"))
+        updateDateText()
     }
     override func touchesEndedWithEvent(event: NSEvent) {
         //Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")
@@ -161,6 +150,16 @@ class CommitGraph:Graph{
         for i in 0..<strings.count{
             leftBarItems[i].setTextValue(strings[i])
         }
+    }
+    /**
+     * Updates the DateText UI Element
+     */
+    func updateDateText(){
+        let curDate = Utils.date(self.currentDate, self.dayOffset)
+        Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
+        let lastWeekDate = Utils.date(self.currentDate, self.dayOffset-7)
+        //curDate
+        dateText!.setTextValue(lastWeekDate.shortDate + " - " + curDate.shortDate)
     }
     static func graphData(dayOffset:Int,_ currentDate:NSDate) -> (hValues:[CGFloat],hValNames:[String]){
         var dayNames:[String] = []
