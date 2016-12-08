@@ -17,11 +17,17 @@ class StatsView:Element {
         
         let graphContainer = addSubView(Container(width,height,self,"graph"))
         graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
-
+        
+        let curDate = Utils.date(graph!.currentDate, graph!.dayOffset)
+        //curDate
+        dateText!.setTextValue("")
+        
         //for all repos:
             //get the commits from today where the user is Eonist
                 //store the time in an [[Int]] (basically a arr with an arr of times)
                 //if time is between 20:00 and 00:00, add to timeArr[0]
+        
+        
         
     }
 }
