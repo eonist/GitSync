@@ -21,7 +21,7 @@ class RepoDetailView:Element {
         subscribeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Upload:", false, self))
         broadCastCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Download:", false, self))//to disable an item uncheck broadcast and subscribe
         autoMessageCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-message:", false, self))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
-        autoSyncCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-sync:", false, self))
+        autoSyncCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-sync:", true, self))
     }
     /**
      * Populates the UI elements with data from the dp item
