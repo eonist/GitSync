@@ -1,15 +1,3 @@
-## App Demo:
-
-<img width="558" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_take_3.mov.gif">
-
-## macOS app icon:  
-
-<img width="314" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_logo_2016_blue.png">
-
-## GUI mock-ups:   
-
-<img width="1083" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_gui_design_low.png">
-
 ## Progress:
 
 **Stage 1 (Nov)**  
@@ -32,3 +20,16 @@
 3. Create app features video (30sec)  
 4. try to package git inside the app (for people that doesn't have git installed)  
 5. 🚀  
+
+## App Demo:
+
+<img width="558" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_take_3.mov.gif">
+
+## macOS app icon:  
+
+<img width="314" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_logo_2016_blue.png">
+
+## GUI mock-ups:   
+
+<img width="1083" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_gui_design_low.png">
+
