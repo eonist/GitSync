@@ -57,8 +57,8 @@ class RepoDetailView:Element {
                 dp.setValue(i, "subscribe", String((event as! CheckEvent).isChecked))
             case event.assert(CheckEvent.check,immediate:autoMessageCheckBoxButton):
                 dp.setValue(i, "auto-sync", String((event as! CheckEvent).isChecked))
-            case event.assert(SpinnerEvent.change, autoSyncIntervalLeverSpinner):
-                dp.setValue(i, "interval", (event as! SpinnerEvent).value.string)
+            //case event.assert(SpinnerEvent.change, autoSyncIntervalLeverSpinner):
+                //dp.setValue(i, "interval", (event as! SpinnerEvent).value.string)
             default:
                 break;
         }
