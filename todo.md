@@ -2,7 +2,7 @@
     //Start hocking up the GitSync algo to the app
     //setup init test for the GitSync Algo with a few test projects (see old test files)
     //create the 30 sec video demo of the Current GUI interactions
-    
+    //make the textBg in the darkmode more subtle, its too bright at the moment (next)
     
 //Complete
     //add the Date Text UI Element to StatsView and hock up the interactivity logic (next)
