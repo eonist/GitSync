@@ -51,7 +51,6 @@ class CommitGraph:Graph{
             let touches:NSSet = event.touchesMatchingPhase(NSTouchPhase.Any, inView: self) //touchesMatchingPhase:NSTouchPhaseAny inView:self
             if(touches.count == 2){
                 self.twoFingersTouches = NSMutableDictionary()
-                
                 for touch in touches {//NSTouch
                     self.twoFingersTouches![touch.identity] = touch//was [ setObject: forKey:];
                 }
@@ -150,13 +149,12 @@ class CommitGraph:Graph{
         }
     }
     static func graphData(dayOffset:Int,_ currentDate:NSDate) -> (hValues:[CGFloat],hValNames:[String]){
-        let calendar = NSCalendar.currentCalendar()
         var dayNames:[String] = []
         var values:[CGFloat] = []//commits in a single day
         for i in (0..<7).reverse() {
-            let date = calendar.dateByAddingUnit(.Day, value: dayOffset-i, toDate: currentDate, options: [])
+            let date = Utils.date(currentDate, dayOffset-i)
             Swift.print("date: " + "\(date)")
-            let shortNameDayOfWeek:String = date!.shortDayName
+            let shortNameDayOfWeek:String = date.shortDayName
             Swift.print("shortNameDayOfWeek: " + "\(shortNameDayOfWeek)")
             dayNames.append(shortNameDayOfWeek)
             let val:CGFloat = NumberParser.random(4, 24).cgFloat//generate hValues via random
