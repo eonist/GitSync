@@ -12,7 +12,7 @@ class StatsView:Element {
         createGraph()
     }
     func createGraph(){
-        dateText = addSubView(Text(180,24,"16/10/11 - 16/10/18",self,"dateText"))
+        dateText = addSubView(Text(180,24,"16/10/11 - 16/10/18",self,"date"))
         
         let graphContainer = addSubView(Container(width,height,self,"graph"))
         graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
