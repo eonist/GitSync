@@ -38,16 +38,13 @@ class CommitGraph:Graph{
         super.init(width, height, parent, id)
         self.acceptsTouchEvents = true
     }
-    
     override func touchesEndedWithEvent(event: NSEvent) {
         //Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")
     }
     override func touchesCancelledWithEvent(event: NSEvent) {
         //Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
     }
-    
     var twoFingersTouches:NSMutableDictionary?//temp storage
-    
     override func touchesBeganWithEvent(event: NSEvent) {
         //Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
         if(event.type == NSEventType.EventTypeGesture){//was NSEventTypeGesture, could maybe be: EventTypeBeginGesture
