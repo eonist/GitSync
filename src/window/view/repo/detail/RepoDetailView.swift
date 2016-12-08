@@ -8,6 +8,7 @@ class RepoDetailView:Element {
     var branchTextInput:TextInput?
     var broadCastCheckBoxButton:CheckBoxButton?
     var subscribeCheckBoxButton:CheckBoxButton?
+    var autoMessageCheckBoxButton:CheckBoxButton?
     var autoSyncCheckBoxButton:CheckBoxButton?
     
     override func resolveSkin() {
@@ -19,8 +20,8 @@ class RepoDetailView:Element {
         branchTextInput = addSubView(TextInput(width, 32, "Branch: ", "", self))//branch-text-input: master is default, set to dev for instance
         subscribeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Upload:", false, self))
         broadCastCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Download:", false, self))//to disable an item uncheck broadcast and subscribe
-        autoSyncCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-message:", false, self))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
-        autoSyncCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-message:", false, self))
+        autoMessageCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-message:", false, self))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
+        autoSyncCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-sync:", false, self))
     }
     /**
      * Populates the UI elements with data from the dp item
@@ -32,7 +33,7 @@ class RepoDetailView:Element {
         branchTextInput!.inputTextArea!.setTextValue(repoData["branch"]!)
         broadCastCheckBoxButton!.setChecked(repoData["broadcast"]!.bool)
         subscribeCheckBoxButton!.setChecked(repoData["subscribe"]!.bool)
-        autoSyncCheckBoxButton!.setChecked(repoData["auto-sync"]!.bool)
+        autoMessageCheckBoxButton!.setChecked(repoData["auto-sync"]!.bool)
         //autoSyncIntervalLeverSpinner!.setValue(repoData["interval"]!.cgFloat)
     }
     /**
@@ -54,7 +55,7 @@ class RepoDetailView:Element {
                 dp.setValue(i, "broadcast", String((event as! CheckEvent).isChecked))
             case event.assert(CheckEvent.check,immediate:subscribeCheckBoxButton):
                 dp.setValue(i, "subscribe", String((event as! CheckEvent).isChecked))
-            case event.assert(CheckEvent.check,immediate:autoSyncCheckBoxButton):
+            case event.assert(CheckEvent.check,immediate:autoMessageCheckBoxButton):
                 dp.setValue(i, "auto-sync", String((event as! CheckEvent).isChecked))
             case event.assert(SpinnerEvent.change, autoSyncIntervalLeverSpinner):
                 dp.setValue(i, "interval", (event as! SpinnerEvent).value.string)
