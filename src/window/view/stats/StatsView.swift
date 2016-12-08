@@ -3,7 +3,7 @@ import Cocoa
  * TODO: When entering the Graph component, you should animate the graph component from the old data to the new data, if there is new data. Very satesfiyng seeing your day commit graph go up after a long day of work
  */
 class StatsView:Element {
-    var dateText:TextArea?
+    
     var graph:CommitGraph?
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
@@ -17,11 +17,7 @@ class StatsView:Element {
         let graphContainer = addSubView(Container(width,height,self,"graph"))
         graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
         
-        let curDate = Utils.date(graph!.currentDate, graph!.dayOffset)
-        Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
-        let lastWeekDate = Utils.date(graph!.currentDate, graph!.dayOffset-7)
-        //curDate
-        dateText!.setTextValue(lastWeekDate.shortDate + " - " + curDate.shortDate)
+        
         
         //for all repos:
             //get the commits from today where the user is Eonist
@@ -33,6 +29,7 @@ class StatsView:Element {
     }
 }
 class CommitGraph:Graph{
+    var dateText:TextArea?
     var animator:Animator?
     var currentDate:NSDate = NSDate()
     var dayOffset:Int = 0
@@ -44,6 +41,16 @@ class CommitGraph:Graph{
         graphData =  CommitGraph.graphData(dayOffset, currentDate)
         super.init(width, height, parent, id)
         self.acceptsTouchEvents = true
+    }
+    override func resolveSkin() {
+        super.resolveSkin()
+        //Continue here: add the current date: 16/10/11 - 16/10/18  center aligned text on top (The CommitGraph doesnt need anything more features, as its just about showing your commit count the last 7 days and so)
+        dateText = addSubView(TextArea(180,24,"16/10/11 - 16/10/18",self,"date"))
+        let curDate = Utils.date(self.currentDate, self.dayOffset)
+        Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
+        let lastWeekDate = Utils.date(self.currentDate, self.dayOffset-7)
+        //curDate
+        dateText!.setTextValue(lastWeekDate.shortDate + " - " + curDate.shortDate)
     }
     override func touchesEndedWithEvent(event: NSEvent) {
         //Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")
