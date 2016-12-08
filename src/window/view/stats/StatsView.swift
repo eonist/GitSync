@@ -101,9 +101,8 @@ class CommitGraph:Graph{
         }
         
     }
-    
     /**
-     *
+     * Offsets the currentDate by +-7 days
      */
     func iterate(iteration:Int){
         Swift.print("iterate" + "\(iteration)")
@@ -111,7 +110,6 @@ class CommitGraph:Graph{
         graphData = CommitGraph.graphData(dayOffset, currentDate)
         updateGraph()
     }
-    
     //recalc the hValue indicators (each week has a different max hValue etc)
     func interpolateValue(val:CGFloat){
         Swift.print("interpolateValue() val: " + "\(val)")
