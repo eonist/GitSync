@@ -40,7 +40,7 @@ class PrefsView:Element {
         //Dark mode:
         darkModeCheckBoxButton = addSubView(CheckBoxButton(width, NaN, "Dark mode: ", PrefsView.darkMode, self))
         //Auto-Sync interval:
-        autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Sync-Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))//autoSyncIntervall needs to be a time setter: Day,Hour,Min,Seconds,0 means do not sync on an interval, the min setting is 30 sec, anything bellow this will be clamped to 30 sec
+        autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Sync-Interval: ", 30, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))//autoSyncIntervall needs to be a time setter: Day,Hour,Min,Seconds,0 means do not sync on an interval, the min setting is 30 sec, anything bellow this will be clamped to 30 sec
     }
     override func onEvent(event: Event) {
         Swift.print("PrefsView.onEvent")
