@@ -166,4 +166,13 @@ class CommitGraph:Graph{
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-
+private class Utils{
+    /**
+     * Returns a Date instance for a currentDate and dayOffset
+     */
+    static func date(currentDate:NSDate,_ dayOffset:Int) -> NSDate{
+        let calendar = NSCalendar.currentCalendar()
+        let date:NSDate = calendar.dateByAddingUnit(.Day, value: dayOffset, toDate: currentDate, options: [])!
+        return date
+    }
+}
