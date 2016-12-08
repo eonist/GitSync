@@ -1,11 +1,14 @@
-## The app icon:  
+## App Demo:
+
+<img width="558" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_take_3.mov.gif">
+
+## macOS app icon:  
 
 <img width="314" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_logo_2016_blue.png">
 
-## The app design:   
+## GUI mock-ups:   
 
 <img width="1083" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_gui_design_low.png">
-
 
 ## Progress:
 
@@ -14,14 +17,14 @@
 2. ~~Pull2RefreshList with FastList support (Support for 1000's of list items)~~  
 3. ~~Design DarkMode~~  
 4. ~~PrefsView and RepoItemView w/ centre aligned InputFields~~  
-5. Make a 15sec app demo to add to the readme.md  
+5. ~~Make a 15sec app demo to add to the readme.md~~  
 
 **Stage 2 (Dec)**  
-1. CommitItemView  
-2. TreeList in RepoView  
+1. ~~CommitItemView~~  
+2. Connect the GitSync algorithm to the app  
 3. Animate dark->light mode (if applicable)  
 4. Fine tune UI (sounds,font,animations,app.icon)  
-5. Connect the GitSync algorithm to the app  
+5. TreeList in RepoView  
 
 **Stage 3 (Dec)**  
 1. Support more git features if it makes sense  
