@@ -3,6 +3,7 @@ import Cocoa
  * TODO: When entering the Graph component, you should animate the graph component from the old data to the new data, if there is new data. Very satesfiyng seeing your day commit graph go up after a long day of work
  */
 class StatsView:Element {
+    var dateText:Text?
     var graph:CommitGraph?
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
@@ -11,11 +12,14 @@ class StatsView:Element {
         createGraph()
     }
     func createGraph(){
+        dateText = addSubView(Text())
+        
         let graphContainer = addSubView(Container(width,height,self,"graph"))
         graphContainer
         graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
         
         //Continue here: add the current date: 16/10/11 - 16/10/18  center aligned text on top (The CommitGraph doesnt need anything more features, as its just about showing your commit count the last 7 days and so)
+        
         
         
         //for all repos:
