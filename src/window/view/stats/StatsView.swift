@@ -20,8 +20,9 @@ class StatsView:Element {
         
         let curDate = Utils.date(graph!.currentDate, graph!.dayOffset)
         Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
+        let lastWeekDate = Utils.date(graph!.currentDate, graph!.dayOffset-7)
         //curDate
-        dateText!.setTextValue(curDate.shortDate)
+        dateText!.setTextValue(lastWeekDate.shortDate + " - " + curDate.shortDate)
         
         //for all repos:
             //get the commits from today where the user is Eonist
