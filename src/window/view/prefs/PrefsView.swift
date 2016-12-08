@@ -9,6 +9,7 @@ class PrefsView:Element {
     static var defaultLocalPath:String = "~/Documents/"
     static var uiSounds:Bool?
     static var darkMode:Bool = true
+    static var autoSyncInterval:CGFloat = 30.0
     var keychainUserNameTextInput:TextInput?
     var gitConfigUserNameTextInput:TextInput?
     var gitEmailNameTextInput:TextInput?
