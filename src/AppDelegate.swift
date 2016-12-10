@@ -33,31 +33,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         fileWatcher!.start()
-        
-        
-        //Continue here:
-        
-        
-            //commitDetailView
-        
-        
-        
-        
-        
-        
-        //later
-        
-            //drag and drop support for .git urls -> adds it self to the top of the repo list (via app icon at first)
-        
-        
-        
-            //Figure out how to speed up live-refresh in Element (think object-trees) or just swap out the generic.css and reload all styles, yes!
-        
-        
-        
-            
-            //CMD + pull to refresh forces manual commit message (this is great since you then can create sort of bookmarks in your history, every commit until this was part of this latest commit msg, then think rebase)
-            //Tagline: "The automatic Git app for macOS"
     }
     func applicationWillTerminate(aNotification:NSNotification) {
         //store the app prefs
