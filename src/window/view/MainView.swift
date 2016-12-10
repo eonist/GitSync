@@ -27,6 +27,9 @@ class MainView:TitleView{
         //Align.align(menuView!, CGSize(width/**/,height/**/), Alignment.bottomCenter, Alignment.bottomCenter,CGPoint(0,0))
     
         
+            let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+            RepoView.dp = DataProvider(xml)
+        
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
