@@ -1,16 +1,15 @@
 //Continue here:
     //Start hocking up the GitSync algo to the app
-    //setup init test for the GitSync Algo with a few test projects (see old test files)
-    //create the 30 sec video demo of the Current GUI interactions
+    //setup init test for the GitSync Algo with a few test projects (see old test files) (next)
     //create the new Add and remove buttons that are bright blue so that they gathers the attention needed
-    //make the textBg in the darkmode more subtle, its too bright at the moment (next)
     
 //Completed:
-    
+    //make the textBg in the darkmode more subtle, its too bright at the moment (done)
+    //create the 10 sec video demo of the Current GUI interactions (done)
     //add the Date Text UI Element to StatsView and hock up the interactivity logic (next)
         //move the DateText into the CommitGraph, because touch interactivity is located there
     //RepoDetailView should have a CheckBoxButton: Auto-sync (done)
-    //PrefsView should  have the Auto-sync-intervall: (as its too complicated to have individual timers, too much can go wrong) (done)
+    //PrefsView should have the Auto-sync-interval: (as its too complicated to have individual timers, too much can go wrong) (done)
     //move sync interval to prefs-view (done)
     //create auto-sync checkbox in repo-detail-view (done)
     //rename subscribe and broadcast to download and upload (done)
@@ -31,4 +30,5 @@
     //Use the san-fran font (if you can find it)
     
 //Future
+    //Animate the Menu Icons to wobble in and out on click (similar to twitter for iOS)
     //cmd click on repo items will reveal edit icon in top bar for multi edit feature
