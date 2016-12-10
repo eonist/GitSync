@@ -33,7 +33,6 @@ class GitSync{
      */
     class func initCommit(repoItem:Dictionary<String,String>,_ branch:String){
         //log "GitSync's handle_commit_interval() a repo with doCommit " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
-        
         let localPath:String = repoItem["local-path"]!
         //Swift.print("localPath: " + "\(localPath)")
         let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(localPath)//Asserts if there are unmerged paths that needs resolvment
