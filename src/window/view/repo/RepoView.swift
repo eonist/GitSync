@@ -13,7 +13,7 @@ class RepoView:Element {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()//
         topBar = addSubView(TopBar(width-12,44,self))
         
-        if(RepoView.dp == nil){
+        if(RepoView.dp == nil){/*loads 1 time*/
             let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
             RepoView.dp = DataProvider(xml)
         }
