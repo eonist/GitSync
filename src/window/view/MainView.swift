@@ -27,8 +27,12 @@ class MainView:TitleView{
         //Align.align(menuView!, CGSize(width/**/,height/**/), Alignment.bottomCenter, Alignment.bottomCenter,CGPoint(0,0))
     
         
-            let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
-            RepoView.dp = DataProvider(xml)
+        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+        let repoList = XMLParser.toArray(repoXML)
+        Swift.print("repoList.count: " + "\(repoList.count)")
+        
+        GitSync.initCommit(repoList[0], "master")
+        GitSync.initPush(repoList[0], "master")
         
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
