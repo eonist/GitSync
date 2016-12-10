@@ -22,7 +22,7 @@ class MainView:TitleView{
         menuView = addSubView(MenuView(frame.width,48,self))
         
         Navigation.setView(MenuView.commits)/*adds the correct view to MainView*/
-        menuView!.selectGroup!.selectedAt(2)/*Selects the correct menu icon*/
+        menuView!.selectGroup!.selectedAt(0)/*Selects the correct menu icon*/
         
         //Align.align(menuView!, CGSize(width/**/,height/**/), Alignment.bottomCenter, Alignment.bottomCenter,CGPoint(0,0))
     
@@ -35,7 +35,7 @@ class MainView:TitleView{
         Swift.print("localPath: " + "\(localPath)")
         
         
-        //GitSync.initCommit(repoList[1], "master")
+        GitSync.initCommit(repoList[1], "master")
         //GitSync.initPush(repoList[1], "master")
         
         
