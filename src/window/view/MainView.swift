@@ -31,8 +31,14 @@ class MainView:TitleView{
         let repoList = XMLParser.toArray(repoXML)//or use dataProvider
         Swift.print("repoList.count: " + "\(repoList.count)")
         
-        GitSync.initCommit(repoList[0], "master")
-        GitSync.initPush(repoList[0], "master")
+        let localPath = repoList[1]["local-path"]
+        Swift.print("localPath: " + "\(localPath)")
+        
+        
+        //GitSync.initCommit(repoList[1], "master")
+        //GitSync.initPush(repoList[1], "master")
+        
+        
         
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
