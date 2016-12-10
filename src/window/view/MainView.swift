@@ -34,9 +34,18 @@ class MainView:TitleView{
         let localPath = repoList[1]["local-path"]
         Swift.print("localPath: " + "\(localPath)")
         
+        let remotePath = repoList[1]["remote-path"]
+        Swift.print("remotePath: " + "\(remotePath)")
+        
+        let theKeychainItemName = repoList[1]["keychain-item-name"]!
+        Swift.print("theKeychainItemName: " + "\(theKeychainItemName)")
+        let keychainPassword = KeyChainParser.password(theKeychainItemName)
+        Swift.print("keychainPassword: " + "\(keychainPassword)")
+        let remoteAccountName = theKeychainItemName
+        Swift.print("remoteAccountName: " + "\(remoteAccountName)")
         
         GitSync.initCommit(repoList[1], "master")
-        //GitSync.initPush(repoList[1], "master")
+        GitSync.initPush(repoList[1], "master")
         
         
         
