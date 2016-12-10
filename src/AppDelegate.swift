@@ -40,8 +40,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
             //commitDetailView
         
-            //RepoDetailView should have a CheckBoxButton: Auto-sync
-            //PrefsView should  have the Auto-sync-intervall: (as its too complicated to have individual timers, too much can go wrong)
+            
             //path picker for localPath in repodetailview (folder icon)
             //add a eye-icon for find in finder feature in repodetailview
             //add an url-icon for open in safari feature in repodetailview
