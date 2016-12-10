@@ -41,23 +41,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //commitDetailView
         
         
-            
-            //add an url-icon for open in safari feature in repodetailview
         
-            //a list
-                //itemsTotHeight = itemHeight * numItems
-                //stop scaling the scrollbar if its bellow a size
-                //show only the last 200 items of 2000
-                //only show var numOfVisibleItems = ceil(maskHeight / itemHeight) + 1
-                //make a carusell system that adds and removes date to it self quickly
-                    //See old legacy code for this
-                    //the system should work with DataProvider and the infrastructure of List and RBSliderList
-                    //Use a hSlider to simulate scrolling (the Slider uses 0 to 1 to progress a list)
-                    //Create the FastList
+        
         
         
         //later
-            //adjust the dialog designs
+            
             //drag and drop support for .git urls -> adds it self to the top of the repo list (via app icon at first)
             //use the color themes from that opensource twitter client in electron
             //Dark mode mimicks twitter client
