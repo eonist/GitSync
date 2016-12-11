@@ -25,25 +25,25 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Swift.print(testString)
         
         
-        let firstIdx:Int = testString.indexOf("\n") + 1 /*+1 is necessary to get to the next char*/
+        let firstIdx:Int = testString.indexOf("\n") /*+1 is necessary to get to the next char*/
         Swift.print("firstIdx: " + "\(firstIdx)")
-        let firstPart:String = testString.subString(0,firstIdx-1)
+        let firstPart:String = testString.subString(0,firstIdx)
         Swift.print("firstPart: " + "\(firstPart)")
         //Swift.print("firstPart: " + "\(firstPart)")
         
-        let secondIdx:Int = firstIdx + testString.subString(firstIdx,testString.count).indexOf("\n") + 1
+        let secondIdx:Int = firstIdx+1 + testString.subString(firstIdx+1,testString.count).indexOf("\n")
         Swift.print("secondIdx: " + "\(secondIdx)")
         
-        let secondPart:String = testString.subString(firstIdx,secondIdx-1)
+        let secondPart:String = testString.subString(firstIdx,secondIdx)
         Swift.print("secondPart: " + "\(secondPart)")
         
-        let thirdIdx:Int = secondIdx + testString.subString(secondIdx,testString.count).indexOf("\n") + 1
+        let thirdIdx:Int = secondIdx + testString.subString(secondIdx,testString.count).indexOf("\n")
         Swift.print("thirdIdx: " + "\(thirdIdx)")
         
-        let thirdPart:String = testString.subString(secondIdx,thirdIdx-1)
+        let thirdPart:String = testString.subString(secondIdx,thirdIdx)
         Swift.print("thirdPart: " + "\(thirdPart)")
         
-        let fourthPart:String = testString.subString(thirdIdx,testString.count-1)
+        let fourthPart:String = testString.subString(thirdIdx,testString.count)
         Swift.print("fourthPart: " + "\(fourthPart)")
         
         let commitData:(author:String,date:String,subject:String,body:String) = (author:firstPart,date:secondPart,subject:thirdPart,body:fourthPart)
