@@ -52,6 +52,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("commitData.subject: " + "\(commitData.subject)")
         Swift.print("commitData.body: " + "\(commitData.body)")
         
+        //Continue here: next is converting the date to NSDate
+        
     }
     func initApp(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
