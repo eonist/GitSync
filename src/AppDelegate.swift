@@ -31,13 +31,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("firstPart: " + "\(firstPart)")
         //Swift.print("firstPart: " + "\(firstPart)")
         
-        let secondIdx:Int = firstIdx + testString.subString(firstIdx,testString.count).indexOf("\n")
+        let secondIdx:Int = firstIdx + testString.subString(firstIdx,testString.count).indexOf("\n") + 1
         Swift.print("secondIdx: " + "\(secondIdx)")
         
         let secondPart:String = testString.subString(firstIdx,secondIdx)
         Swift.print("secondPart: " + "\(secondPart)")
-        /*
-        let thirdIdx:Int = secondIdx + testString.subString(secondIdx,testString.count).indexOf("\n")
+        
+        let thirdIdx:Int = secondIdx + testString.subString(secondIdx,testString.count).indexOf("\n") + 1
         Swift.print("thirdIdx: " + "\(thirdIdx)")
         
         let thirdPart:String = testString.subString(secondIdx,thirdIdx)
@@ -51,7 +51,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("commitData.date: " + "\(commitData.date)")
         Swift.print("commitData.subject: " + "\(commitData.subject)")
         Swift.print("commitData.body: " + "\(commitData.body)")
-        */
+        /**/
         
     }
     func initApp(){
