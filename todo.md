@@ -1,7 +1,8 @@
 //Continue here:
     //Figure out how to derive previous commit messages from repo's. You need from 0 to 10 latest commits.
         //Research custom "git log" commands (done)
-        //Store each commit in an array with data capsules (date:"",author:"",subject:"",body:"") (NEXT)
+        //Store each commit in an array with data capsules (date:"",author:"",subject:"",body:"") (DONE)
+        //Format the date into an NSDate instance, see old notes (NEXT)
         //Then figure out how to sort these based on the date within them
         //Then make a list of all commits from all repos. Cap the list at 200
         //then add this list to CommitsView
