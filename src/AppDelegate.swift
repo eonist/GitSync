@@ -13,6 +13,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
         Swift.print("GitSync - Simple git automation for macOS")
+        
+        let testString:String = "Date:26 hours ago
+        Subject:'Files modified: 1'
+        Body:'
+        
+        Modified 1 file:
+        README.md
+        '
+"
+        
+    }
+    func initApp(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
         
         win = MainWin(MainView.w,MainView.h)
