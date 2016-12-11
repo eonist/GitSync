@@ -21,12 +21,24 @@ class MainView:TitleView{
         
         menuView = addSubView(MenuView(frame.width,48,self))
         
-        Navigation.setView(MenuView.commits)/*adds the correct view to MainView*/
-        menuView!.selectGroup!.selectedAt(0)/*Selects the correct menu icon*/
-        
-        //Align.align(menuView!, CGSize(width/**/,height/**/), Alignment.bottomCenter, Alignment.bottomCenter,CGPoint(0,0))
+        //Navigation.setView(MenuView.commits)/*adds the correct view to MainView*/
+        //menuView!.selectGroup!.selectedAt(0)/*Selects the correct menu icon*/
     
         
+        
+        
+        
+    }
+    /**
+     *
+     */
+    func commitLog(){
+        
+    }
+    /**
+     *
+     */
+    func testGit(){
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         let repoList = XMLParser.toArray(repoXML)//or use dataProvider
         Swift.print("repoList.count: " + "\(repoList.count)")
@@ -46,8 +58,6 @@ class MainView:TitleView{
         
         GitSync.initCommit(repoList[1], "master")
         GitSync.initPush(repoList[1], "master")
-        
-        
         
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
