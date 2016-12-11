@@ -1,6 +1,6 @@
 //Continue here:
-    //Brush up on your Git Skills. 
-    //Publish 4 articles about Git on gitsync.io
+    
+    
     //Take a look at how the GitSync apple-script is organized. and copy the workflow to swift (Next)
     //Figure out how to derive previous commit messages from repo's. You need from 0 to 50 latest commits.
         //Then figure out how to sort these based on the date within them
@@ -12,6 +12,9 @@
     //create the new Add and remove buttons that are bright blue so that they gathers the attention needed
     
 //Completed:
+    //Write a post about Gitsync app demo (done)
+    //Brush up on your Git Skills. (done)
+    //Publish 4 articles about Git on gitsync.io (done)
     //setup init test for the GitSync Algo with a few test projects (see old test files) (done)
     //make the textBg in the darkmode more subtle, its too bright at the moment (done)
     //create the 10 sec video demo of the Current GUI interactions (done)
