@@ -30,7 +30,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let secondPart:String = testString.subStr(firstIdx,secondIdx)
         let thirdPart:String = testString.subStr(secondIdx,testString.count)
         
-        let commitData:()
+        let commitData:(date:String,author:String,subject:String,body:String) = ()
         
         
     }
