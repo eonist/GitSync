@@ -22,20 +22,21 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         testString += "Modified 1 file:" + "\n"
         testString += "README.md" + "\n"
         testString += "'"
-        Swift.print(testString)
+        //Swift.print(testString)
         
         
-        let firstIdx:Int = testString.indexOf("\n")
+        let firstIdx:Int = testString.indexOf("\n") + 1
         Swift.print("firstIdx: " + "\(firstIdx)")
         let firstPart:String = testString.subString(0,firstIdx)
         Swift.print("firstPart: " + "\(firstPart)")
         //Swift.print("firstPart: " + "\(firstPart)")
-        /*
+        
         let secondIdx:Int = firstIdx + testString.subString(firstIdx,testString.count).indexOf("\n")
         Swift.print("secondIdx: " + "\(secondIdx)")
         
         let secondPart:String = testString.subString(firstIdx,secondIdx)
         Swift.print("secondPart: " + "\(secondPart)")
+        /*
         let thirdIdx:Int = secondIdx + testString.subString(secondIdx,testString.count).indexOf("\n")
         Swift.print("thirdIdx: " + "\(thirdIdx)")
         
