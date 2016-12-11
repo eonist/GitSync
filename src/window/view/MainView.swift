@@ -50,6 +50,7 @@ class MainView:TitleView{
         Swift.print("\(logResult)")
         
         //TODO: Use RegExp to convert the commit data item to an Triplet item in an array
+            //or find the first two linebreaks and split at these integers, then you will have 3 seperate string parts <---easier
         
     }
     /**
