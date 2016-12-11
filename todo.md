@@ -1,9 +1,16 @@
 //Continue here:
-    //Start hocking up the GitSync algo to the app
-    //setup init test for the GitSync Algo with a few test projects (see old test files) (next)
+    //Take a look at how the GitSync apple-script is organized. and copy the workflow to swift (Next)
+    //Figure out how to derive previous commit messages from repo's. You need from 0 to 50 latest commits.
+        //Then figure out how to sort these based on the date within them
+        //Then make a list of all commits from all repos. Cap the list at 500
+        //then add this list to CommitsView
+        //Figure out how you can update the FastList with new Items and not lose track of selected idx etc
+            //Start testing this with the regular List
+                //I think you can just append the DataProvider and refresh the visible items, then you just increment the selected idx for every append
     //create the new Add and remove buttons that are bright blue so that they gathers the attention needed
     
 //Completed:
+    //setup init test for the GitSync Algo with a few test projects (see old test files) (done)
     //make the textBg in the darkmode more subtle, its too bright at the moment (done)
     //create the 10 sec video demo of the Current GUI interactions (done)
     //add the Date Text UI Element to StatsView and hock up the interactivity logic (next)
