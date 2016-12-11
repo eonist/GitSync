@@ -1,8 +1,7 @@
 //Continue here:
-    
-    
     //Take a look at how the GitSync apple-script is organized. and copy the workflow to swift (Next)
     //Figure out how to derive previous commit messages from repo's. You need from 0 to 50 latest commits.
+        //Research custom "git log" commands
         //Then figure out how to sort these based on the date within them
         //Then make a list of all commits from all repos. Cap the list at 500
         //then add this list to CommitsView
