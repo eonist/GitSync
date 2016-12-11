@@ -40,8 +40,8 @@ class MainView:TitleView{
         let localPath = repoList[1]["local-path"]
         Swift.print("localPath: " + "\(localPath)")
         
-        var cmd:String = "-3%20--oneline"//"-3 --pretty=format:\"Date:%cr%nSubject:%s%nBody:%b\""//"-3 --oneline"//
-        cmd = cmd.encode()!
+        let cmd:String = "-3 --oneline"//"-3 --pretty=format:\"Date:%cr%nSubject:%s%nBody:%b\""//"-3 --oneline"//
+
         Swift.print("cmd: " + "\(cmd)")
         
         let logResult:String = GitParser.log(localPath!, cmd)
