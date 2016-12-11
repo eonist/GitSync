@@ -26,17 +26,21 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         let firstIdx:Int = testString.indexOf("\n")
-        let firstPart:String = testString.subStr(0,firstIdx)
-        Swift.print("firstPart: " + "\(firstPart)")
-        let temp:String = testString.subStr(firstIdx,testString.count-1)
-        Swift.print("temp: " + "\(temp)")
-        let secondIdx:Int = temp.indexOf("\n")
+        Swift.print("firstIdx: " + "\(firstIdx)")
+        let firstPart:String = testString.subString(0,firstIdx)
+        
+        //Swift.print("firstPart: " + "\(firstPart)")
+        
+        let secondIdx:Int = testString.subString(firstIdx,testString.count).indexOf("\n")
         Swift.print("secondIdx: " + "\(secondIdx)")
+        
+        let secondPart:String = testString.subString(firstIdx,secondIdx)
+        Swift.print("secondPart: " + "\(secondPart)")
+        let thirdIdx:Int = testString.subString(secondIdx,testString.count).indexOf("\n")
+        Swift.print("thirdIdx: " + "\(thirdIdx)")
         /*
-        let secondPart:String = testString.subStr(firstIdx,secondIdx)
-        let thirdIdx:Int = testString.subStr(secondIdx,testString.count-1).indexOf("\n")
         let thirdPart:String = testString.subStr(secondIdx,thirdIdx)
-        let fourthPart:String = testString.subStr(thirdIdx,testString.count-1)
+        let fourthPart:String = testString.subStr(thirdIdx,testString.count)
         
         let commitData:(author:String,date:String,subject:String,body:String) = (author:firstPart,date:secondPart,subject:thirdPart,body:fourthPart)
         Swift.print("commitData.author: " + "\(commitData.author)")
