@@ -41,7 +41,7 @@ class MainView:TitleView{
         Swift.print("localPath: " + "\(localPath)")
         
         var cmd:String = "-3 --oneline"//"-3 --pretty=format:\"Date:%cr%nSubject:%s%nBody:%b\""//"-3 --oneline"//
-        cmd = cmd.encode()!
+        //cmd = cmd.encode()!
         Swift.print("cmd: " + "\(cmd)")
         
         let logResult:String = GitParser.log(localPath!, cmd)
