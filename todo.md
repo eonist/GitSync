@@ -1,7 +1,8 @@
 //Continue here:
-    //Take a look at how the GitSync apple-script is organized. and copy the workflow to swift (Next)
-    //Figure out how to derive previous commit messages from repo's. You need from 0 to 50 latest commits.
-        //Research custom "git log" commands
+    
+    //Figure out how to derive previous commit messages from repo's. You need from 0 to 10 latest commits.
+        //Research custom "git log" commands (done)
+        //Store each commit in an array with data capsules (date:"",author:"",subject:"",body:"") (NEXT)
         //Then figure out how to sort these based on the date within them
         //Then make a list of all commits from all repos. Cap the list at 500
         //then add this list to CommitsView
@@ -9,7 +10,7 @@
             //Start testing this with the regular List
                 //I think you can just append the DataProvider and refresh the visible items, then you just increment the selected idx for every append
     //create the new Add and remove buttons that are bright blue so that they gathers the attention needed
-    
+    //Take a look at how the GitSync apple-script is organized. and copy the workflow to swift (Next)
 //Completed:
     //Write a post about Gitsync app demo (done)
     //Brush up on your Git Skills. (done)
