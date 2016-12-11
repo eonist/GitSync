@@ -14,7 +14,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - Simple git automation for macOS")
         
-        var testString:String = "Date:26 hours ago" + "\n"
+        var testString:String = "Author:Eonist" + "\n"
+        testString += "Date:26 hours ago" + "\n"
         testString += "Subject:'Files modified: 1'" + "\n"
         testString += "Body:'" + "\n"
         testString += "" + "\n"
