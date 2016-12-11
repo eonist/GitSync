@@ -29,11 +29,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let firstPart:String = testString.subStr(0,firstIdx)
         let secondIdx:Int = testString.subStr(firstIdx,testString.count).indexOf("\n")
         let secondPart:String = testString.subStr(firstIdx,secondIdx)
-        let thirdIdx:Int = testString.subStr(firstIdx,testString.count).indexOf("\n")
-        let thirdPart:String = testString.subStr(secondIdx,testString.count)
+        let thirdIdx:Int = testString.subStr(secondIdx,testString.count).indexOf("\n")
+        let thirdPart:String = testString.subStr(secondIdx,thirdIdx)
+        let fourthPart:String = testString.subStr(thirdIdx,testString.count)
         
         let commitData:(author:String,date:String,subject:String,body:String) = (author:firstPart,date:secondPart,subject:thirdPart,body:fourthPart)
+        Swift.print("commitData.author: " + "\(commitData.author)")
         Swift.print("commitData.date: " + "\(commitData.date)")
+        Swift.print("commitData.subject: " + "\(commitData.subject)")
+        Swift.print("commitData.body: " + "\(commitData.body)")
         
         
     }
