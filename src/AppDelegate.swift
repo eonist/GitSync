@@ -23,6 +23,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         testString += "'"
         Swift.print(testString)
         
+        testString.indexOf("\n")
+        
+        let firstPart:String = testString.subStr(testString,0,index)
+        let secondPart:String = testString.subStr(testString,0,index)
+        let thirdPart:String = testString.subStr(testString,0,index)
+        
         
     }
     func initApp(){
