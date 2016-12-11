@@ -40,7 +40,7 @@ class MainView:TitleView{
         let localPath = repoList[1]["local-path"]
         Swift.print("localPath: " + "\(localPath)")
         
-        let cmd:String = "-3 --oneline"//"-3 --pretty=format:\"Date:%cr%nSubject:%s%nBody:%b\""//"-3 --oneline"//
+        let cmd:String = "-3 --pretty=format:\"Date:%cr%nSubject:%s%nBody:%b\""//"-3 --oneline"//
 
         Swift.print("cmd: " + "\(cmd)")
         
