@@ -25,7 +25,7 @@ class MainView:TitleView{
         //menuView!.selectGroup!.selectedAt(0)/*Selects the correct menu icon*/
     
         
-        
+        commitLog()
         
         
     }
@@ -33,8 +33,17 @@ class MainView:TitleView{
      *
      */
     func commitLog(){
-        let gitLogCMD:String = "-3 --pretty=format:\"Date:%cr%nSubject:%s%nBody:%b\""
-        let logResult:String = GitParser.doLog(<#T##localPath: String##String#>, <#T##cmd: String##String#>)
+        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        Swift.print("repoList.count: " + "\(repoList.count)")
+        
+        let localPath = repoList[1]["local-path"]
+        Swift.print("localPath: " + "\(localPath)")
+        
+        let cmd:String = "-3 --pretty=format:\"Date:%cr%nSubject:%s%nBody:%b\""
+        let logResult:String = GitParser.log(localPath!, cmd)
+        Swift.print("logResult: " + "\(logResult)")
+        
     }
     /**
      *
