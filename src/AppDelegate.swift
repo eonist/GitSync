@@ -14,14 +14,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - Simple git automation for macOS")
         
-        let testString:String = "Date:26 hours ago
-        Subject:'Files modified: 1'
-        Body:'
-        
-        Modified 1 file:
-        README.md
-        '
-"
+        var testString:String = "Date:26 hours ago"
+        testString += "Subject:'Files modified: 1'"
+        testString += "Body:'"
+        testString += ""
+        testString += "Modified 1 file:"
+        testString += "README.md"
+        testString += "'"
         
     }
     func initApp(){
