@@ -31,12 +31,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //Swift.print("firstPart: " + "\(firstPart)")
         
-        let secondIdx:Int = testString.subString(firstIdx,testString.count).indexOf("\n")
+        let secondIdx:Int = firstIdx + testString.subString(firstIdx,testString.count).indexOf("\n")
         Swift.print("secondIdx: " + "\(secondIdx)")
         
         let secondPart:String = testString.subString(firstIdx,secondIdx)
         Swift.print("secondPart: " + "\(secondPart)")
-        let thirdIdx:Int = testString.subString(secondIdx,testString.count).indexOf("\n")
+        let thirdIdx:Int = secondIdx + testString.subString(secondIdx,testString.count).indexOf("\n")
         Swift.print("thirdIdx: " + "\(thirdIdx)")
         /*
         let thirdPart:String = testString.subStr(secondIdx,thirdIdx)
