@@ -26,9 +26,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let firstIdx:Int = testString.indexOf("\n")
         let firstPart:String = testString.subStr(0,firstIdx)
-        let secondIdx:Int = testString.subStr(firstIdx,testString.count)
+        let secondIdx:Int = testString.subStr(firstIdx,testString.count).indexOf("\n")
         let secondPart:String = testString.subStr(firstIdx,secondIdx)
         let thirdPart:String = testString.subStr(secondIdx,testString.count)
+        
+        let commitData:()
         
         
     }

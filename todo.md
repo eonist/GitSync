@@ -1,5 +1,4 @@
 //Continue here:
-    
     //Figure out how to derive previous commit messages from repo's. You need from 0 to 10 latest commits.
         //Research custom "git log" commands (done)
         //Store each commit in an array with data capsules (date:"",author:"",subject:"",body:"") (NEXT)
