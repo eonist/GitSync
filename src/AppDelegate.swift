@@ -23,11 +23,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         testString += "'"
         Swift.print(testString)
         
-        testString.indexOf("\n")
         
-        let firstPart:String = testString.subStr(testString,0,index)
-        let secondPart:String = testString.subStr(testString,0,index)
-        let thirdPart:String = testString.subStr(testString,0,index)
+        let firstIdx:Int = testString.indexOf("\n")
+        let firstPart:String = testString.subStr(0,firstIdx)
+        let secondIdx:Int = testString.subStr(firstIdx,testString.count)
+        let secondPart:String = testString.subStr(firstIdx,secondIdx)
+        let thirdPart:String = testString.subStr(secondIdx,testString.count)
         
         
     }
