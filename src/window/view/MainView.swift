@@ -33,7 +33,8 @@ class MainView:TitleView{
      *
      */
     func commitLog(){
-        
+        let gitLogCMD:String = "-3 --pretty=format:\"Date:%cr%nSubject:%s%nBody:%b\""
+        let logResult:String = GitParser.doLog(<#T##localPath: String##String#>, <#T##cmd: String##String#>)
     }
     /**
      *
