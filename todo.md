@@ -4,7 +4,7 @@
         //Research custom "git log" commands (done)
         //Store each commit in an array with data capsules (date:"",author:"",subject:"",body:"") (NEXT)
         //Then figure out how to sort these based on the date within them
-        //Then make a list of all commits from all repos. Cap the list at 500
+        //Then make a list of all commits from all repos. Cap the list at 200
         //then add this list to CommitsView
         //Figure out how you can update the FastList with new Items and not lose track of selected idx etc
             //Start testing this with the regular List
@@ -43,4 +43,7 @@
     
 //Future
     //Animate the Menu Icons to wobble in and out on click (similar to twitter for iOS)
+        //Make animated gif of this animation in double retina resolution
     //cmd click on repo items will reveal edit icon in top bar for multi edit feature
+    //Add support for tabbing the textfields
+    //Add focus state support to the TextInput components
