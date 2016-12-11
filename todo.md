@@ -1,4 +1,6 @@
 //Continue here:
+    //Brush up on your Git Skills. 
+    //Publish 4 articles about Git on gitsync.io
     //Take a look at how the GitSync apple-script is organized. and copy the workflow to swift (Next)
     //Figure out how to derive previous commit messages from repo's. You need from 0 to 50 latest commits.
         //Then figure out how to sort these based on the date within them
