@@ -25,7 +25,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Swift.print(testString)
         
         
-        let firstIdx:Int = testString.indexOf("\n") /*+1 is necessary to get to the next char*/
+        let firstIdx:Int = testString.indexOf("\n")
         Swift.print("firstIdx: " + "\(firstIdx)")
         let firstPart:String = testString.subString(0,firstIdx)
         Swift.print("firstPart: " + "\(firstPart)")
@@ -34,16 +34,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let secondIdx:Int = firstIdx+1 + testString.subString(firstIdx+1,testString.count).indexOf("\n")
         Swift.print("secondIdx: " + "\(secondIdx)")
         
-        let secondPart:String = testString.subString(firstIdx,secondIdx)
+        let secondPart:String = testString.subString(firstIdx+1,secondIdx)
         Swift.print("secondPart: " + "\(secondPart)")
         
-        let thirdIdx:Int = secondIdx + testString.subString(secondIdx,testString.count).indexOf("\n")
+        let thirdIdx:Int = secondIdx+1 + testString.subString(secondIdx+1,testString.count).indexOf("\n")
         Swift.print("thirdIdx: " + "\(thirdIdx)")
         
-        let thirdPart:String = testString.subString(secondIdx,thirdIdx)
+        let thirdPart:String = testString.subString(secondIdx+1,thirdIdx)
         Swift.print("thirdPart: " + "\(thirdPart)")
         
-        let fourthPart:String = testString.subString(thirdIdx,testString.count)
+        let fourthPart:String = testString.subString(thirdIdx+1,testString.count)
         Swift.print("fourthPart: " + "\(fourthPart)")
         
         let commitData:(author:String,date:String,subject:String,body:String) = (author:firstPart,date:secondPart,subject:thirdPart,body:fourthPart)
@@ -51,7 +51,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("commitData.date: " + "\(commitData.date)")
         Swift.print("commitData.subject: " + "\(commitData.subject)")
         Swift.print("commitData.body: " + "\(commitData.body)")
-        /**/
         
     }
     func initApp(){
