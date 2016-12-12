@@ -55,9 +55,12 @@ class MainView:TitleView{
         
         //Figure out how to seperate each commit item. With a special char combo that indicates start and end?
             //20 last commits
-            //get commit count: git rev-list HEAD --count
-            //for _ in 0..20{
-                //
+            //get commit count: (git rev-list HEAD --count) - 1
+            //let length:Int = commitCount > 20 ? 20 : commitCount//20 = maxCount
+            //for _ in 0..<length{
+                //replace 31 with i bellow:
+                //let logItem:String = git show head~31  --pretty=oneline --no-patch
+                
             //}
     }
     /**
