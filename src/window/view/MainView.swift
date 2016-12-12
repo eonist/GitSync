@@ -65,14 +65,20 @@ class MainView:TitleView{
             //}
             //return array of Tupples
         
-        //Store each Tupple array in its own dataProvider item
-            //so that we dont have to reload every log item for every refresh
-            //also store these DataProvider items when the app closes
-                //Then re-use them on App start
         
-        //When a refresh occurs 
-            //only grab the log items that are newer than the newst logItem in the dataProvider
-            //then prepend these to the dataProvider
+        //on refresh
+            //load all commit log items into one dataprovider
+                //remember to attach 
+        
+        //Actually do optimization later:
+            //Store each Tupple array in its own dataProvider item
+                //so that we dont have to reload every log item for every refresh
+                //also store these DataProvider items when the app closes
+                    //Then re-use them on App start
+        
+            //When a refresh occurs
+                //only grab the log items that are newer than the newst logItem in the dataProvider
+                //then prepend these to the dataProvider
     }
     /**
      *
