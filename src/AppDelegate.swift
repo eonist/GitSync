@@ -59,9 +59,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("date.shortDate: " + "\(date.shortDate)")
         
         let today:NSDate = NSDate()
-        let threeDaysAgo = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Day, value: -1, toDate: today, options: NSCalendarOptions. )
+        Swift.print("today.shortDate: " + "\(today.shortDate)")
         
+        let threeDaysAgo = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Day, value: -1, toDate: today, options: NSCalendarOptions.MatchStrictly)
         
+        Swift.print("threeDaysAgo!.shortDate: " + "\(threeDaysAgo!.shortDate)")
     }
     func initApp(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
