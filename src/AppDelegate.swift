@@ -62,7 +62,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("today.shortDate: " + "\(today.shortDate)")
         
         let threeDaysAgo = today.offsetByDays(-3)
-        
         Swift.print("threeDaysAgo!.shortDate: " + "\(threeDaysAgo.shortDate)")
         
         let relativeTime = DateParser.relativeTime(today,threeDaysAgo)
