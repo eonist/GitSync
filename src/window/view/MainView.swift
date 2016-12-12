@@ -25,13 +25,16 @@ class MainView:TitleView{
         //menuView!.selectGroup!.selectedAt(0)/*Selects the correct menu icon*/
     
         
-        commitLog()
+        //commitLog()
+        commitShow()
+        
         
         
     }
-    /**
-     *
-     */
+    func commitShow(){
+        //git show head~31  --pretty=oneline --no-patch
+        
+    }
     func commitLog(){
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         let repoList = XMLParser.toArray(repoXML)//or use dataProvider
