@@ -17,7 +17,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         sortTest()
     }
     func sortTest(){
-        
+
         
         //Create a CommitData tuple object
         let a:(author:String,date:Int,subject:String,body:String) = (author:"eonist",date:20161203165939,subject:"a",body:"")
