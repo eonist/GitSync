@@ -58,6 +58,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let date:NSDate = GitLogParser.date(commitData.date)
         Swift.print("date.shortDate: " + "\(date.shortDate)")
         
+        let today:NSDate = NSDate()
+        let threeDaysAgo = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Day, value: -1, toDate: today, options: NSCalendarOptions. )
+        
         
     }
     func initApp(){
