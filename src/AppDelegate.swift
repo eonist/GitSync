@@ -52,7 +52,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("commitData.body: " + "\(commitData.body)")
         
         //Continue here: next is converting the date to NSDate
-        
+        //2015-12-03 16:59:09 +0100
+        let date:NSDate = NSDate.createDate(2016, 12, 03, 16, 59, 09)!
+        Swift.print("date.shortDate: " + "\(date.shortDate)")
     }
     func initApp(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
