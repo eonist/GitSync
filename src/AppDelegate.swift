@@ -55,7 +55,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let date:NSDate = GitLogParser.date(commitData.date)
         Swift.print("date.shortDate: " + "\(date.shortDate)")
         
-        //make 4H, 2D
+        //make 4h, 2d
     }
     func initApp(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
