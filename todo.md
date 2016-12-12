@@ -2,8 +2,9 @@
     //Figure out how to derive previous commit messages from repo's. You need from 0 to 10 latest commits.
         //Research custom "git log" commands (done)
         //Store each commit in an array with data capsules (date:"",author:"",subject:"",body:"") (DONE)
-        //Format the date into an NSDate instance, see old notes (NEXT)
-        //Then figure out how to sort these based on the date within them
+        //Format the date into an NSDate instance, see old notes (Done)
+        //Then figure out how to sort these based on the date within them (Next)
+            //make an array with Tuples then sort on date as num: 20161203 aka YYYYMMDDHHMMSS
         //Then make a list of all commits from all repos. Cap the list at 200
         //then add this list to CommitsView
         //Figure out how you can update the FastList with new Items and not lose track of selected idx etc
