@@ -17,6 +17,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         sortTest()
     }
     func sortTest(){
+        
+        
+        //Create a CommitData tuple object
+        
         struct People {
             var name: String
         }
@@ -32,7 +36,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let sortedArray = customArray.sort { (element1, element2) -> Bool in
             return element1.name < element2.name
         }
-        print(sortedArray)
+        sortedArray.forEach{Swift.print($0.name)}
     }
     func commitDataTest(){
         var testString:String = "Author:Eonist" + "\n"
