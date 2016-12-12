@@ -67,6 +67,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let relativeTime = DateParser.relativeTime(today,threeDaysAgo)
         Swift.print("relativeTime: " + "\(relativeTime)")
     }
+    func sortTest(){
+        let sortedArray = customArray.sort { (element1, element2) -> Bool in
+            return element1.name < element2.name
+        }
+    }
+    func commitDataTest(){
+        
+    }
     func initApp(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
         
