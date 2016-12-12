@@ -60,8 +60,12 @@ class MainView:TitleView{
             //for _ in 0..<length{
                 //replace 31 with i bellow:
                 //let logItem:String = git show head~31  --pretty=oneline --no-patch
-                
+                //convert the logItem to Tupple
+        
             //}
+            //return array of Tupples
+        
+        //
     }
     /**
      *
