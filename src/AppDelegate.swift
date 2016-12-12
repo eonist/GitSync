@@ -20,25 +20,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         //Create a CommitData tuple object
-        var commitData1:(author:String,date:Int,subject:String,body:String) = (author:"eonist",date:20161203165939,subject:"",body:"")
+        let a:(author:String,date:Int,subject:String,body:String) = (author:"eonist",date:20161203165939,subject:"a",body:"")
+        let b:(author:String,date:Int,subject:String,body:String) = (author:"eonist",date:20161205165939,subject:"b",body:"")
+        let c:(author:String,date:Int,subject:String,body:String) = (author:"eonist",date:20161201165939,subject:"c",body:"")
             //make a few items that you can sort
-        
-        struct People {
-            var name: String
-        }
-        
-        var customArray = [
-            People(name: "Jemima"),
-            People(name: "Peter"),
-            People(name: "David"),
-            People(name: "Kelly"),
-            People(name: "Isabella")
-        ]
+    
+        let customArray = [a,b,c]
         
         let sortedArray = customArray.sort { (element1, element2) -> Bool in
-            return element1.name < element2.name
+            return element1.date < element2.date
         }
-        sortedArray.forEach{Swift.print($0.name)}
+        sortedArray.forEach{Swift.print($0.subject)}
     }
     func commitDataTest(){
         var testString:String = "Author:Eonist" + "\n"
