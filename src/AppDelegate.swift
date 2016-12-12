@@ -14,7 +14,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - Simple git automation for macOS")
         
-        sortTest()
+        initApp()
+        //sortTest()
+        //commitDataTest()
     }
     func sortTest(){
 
@@ -33,6 +35,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         customArray.forEach{Swift.print($0.subject)}
     }
+    /**
+     * parsing commitData
+     */
     func commitDataTest(){
         var testString:String = "Author:Eonist" + "\n"
         testString += "Date:2015-12-03 16:59:09 +0100" + "\n"

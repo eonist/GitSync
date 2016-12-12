@@ -32,8 +32,17 @@ class MainView:TitleView{
         
     }
     func commitShow(){
-        //git show head~31  --pretty=oneline --no-patch
+        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        Swift.print("repoList.count: " + "\(repoList.count)")
         
+        let localPath = repoList[1]["local-path"]
+        Swift.print("localPath: " + "\(localPath)")
+
+        
+        let cmd:String = "head~1  --pretty=oneline --no-patch"
+        let result:String = GitParser.show(localPath!, cmd)
+        Swift.print("result: " + "\(result)")
     }
     func commitLog(){
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
