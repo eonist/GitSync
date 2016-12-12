@@ -45,7 +45,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let fourthPart:String = testString.subString(thirdIdx+1,testString.count)
         Swift.print("fourthPart: " + "\(fourthPart)")
         
-        let commitData:(author:String,date:String,subject:String,body:String) = (author:firstPart,date:secondPart,subject:thirdPart,body:fourthPart)
+        var commitData:(author:String,date:String,subject:String,body:String) = (author:firstPart,date:secondPart,subject:thirdPart,body:fourthPart)
+        commitData.author = commitData.author.subString("Author:".count, commitData.author.count)
+        commitData.date = commitData.date.subString("Date:".count, commitData.date.count)
         Swift.print("commitData.author: " + "\(commitData.author)")
         Swift.print("commitData.date: " + "\(commitData.date)")
         Swift.print("commitData.subject: " + "\(commitData.subject)")
