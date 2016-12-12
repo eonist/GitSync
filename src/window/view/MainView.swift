@@ -49,6 +49,16 @@ class MainView:TitleView{
         
         Swift.print("commitCount: " + "\(commitCount)")
         
+        let length:Int = 3//commitCount > 20 ? 20 : commitCount//20 = maxCount
+        let logCMD:String = "--pretty=format:\"Author:%an%nDate:%ci%nSubject:%s%nBody:%b\""//"-3 --oneline"//
+        for _ in 0..<length{
+            //replace 31 with i bellow:
+            let logItem:String = "git show head~31" + logCMD + "--no-patch"//--no-patch suppresses the diff output of git show
+            //convert the logItem to Tupple
+            
+        }
+
+        
         
         //TODO: Use RegExp to convert the commit data item to an Triplet item in an array
             //or find the first two linebreaks and split at these integers, then you will have 3 seperate string parts <---easier
