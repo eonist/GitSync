@@ -68,8 +68,8 @@ class MainView:TitleView{
         
         //on refresh
             //load all commit log items into one dataprovider
-                //remember to attach repo name
-                
+                //remember to attach repo name to the commitData tuple
+        
         
         //Actually do optimization later:
             //Store each Tupple array in its own dataProvider item
