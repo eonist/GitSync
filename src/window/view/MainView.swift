@@ -39,11 +39,12 @@ class MainView:TitleView{
         let localPath = repoList[1]["local-path"]
         Swift.print("localPath: " + "\(localPath)")
 
-        
+        /*
         let cmd:String = "head~1 --pretty=oneline --no-patch"
         Swift.print("cmd: " + "\(cmd)")
         let result:String = GitParser.show(localPath!, cmd)
         Swift.print("result: " + "\(result)")
+        */
         
         let commitCount:String = GitParser.commitCount(localPath!)
         
@@ -51,10 +52,11 @@ class MainView:TitleView{
         
         let length:Int = 3//commitCount > 20 ? 20 : commitCount//20 = maxCount
         let logCMD:String = "--pretty=format:\"Author:%an%nDate:%ci%nSubject:%s%nBody:%b\""//"-3 --oneline"//
-        for _ in 0..<length{
+        for i in 0..<length{
             //replace 31 with i bellow:
-            let logItem:String = "git show head~31" + logCMD + "--no-patch"//--no-patch suppresses the diff output of git show
+            let cmd:String = "git show head~" + i.string + logCMD + "--no-patch"//--no-patch suppresses the diff output of git show
             //convert the logItem to Tupple
+            let result:String = GitParser.show(localPath!, cmd)
             
         }
 
