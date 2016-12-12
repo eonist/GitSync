@@ -40,7 +40,7 @@ class MainView:TitleView{
         Swift.print("localPath: " + "\(localPath)")
 
         
-        let cmd:String = "head~1  --pretty=oneline --no-patch"
+        let cmd:String = "head~1 --pretty=oneline --no-patch"
         Swift.print("cmd: " + "\(cmd)")
         let result:String = GitParser.show(localPath!, cmd)
         Swift.print("result: " + "\(result)")
