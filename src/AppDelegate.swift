@@ -23,7 +23,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let a:(author:String,date:Int,subject:String,body:String) = (author:"eonist",date:20161203165939,subject:"a",body:"")
         let b:(author:String,date:Int,subject:String,body:String) = (author:"eonist",date:20161205165939,subject:"b",body:"")
         let c:(author:String,date:Int,subject:String,body:String) = (author:"eonist",date:20161201165939,subject:"c",body:"")
-            //make a few items that you can sort
+        
+        //make a few items that you can sort
     
         var customArray = [a,b,c]
         
