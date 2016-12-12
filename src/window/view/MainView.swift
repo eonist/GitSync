@@ -52,6 +52,8 @@ class MainView:TitleView{
         //TODO: Use RegExp to convert the commit data item to an Triplet item in an array
             //or find the first two linebreaks and split at these integers, then you will have 3 seperate string parts <---easier
         
+        
+        //Figure out how to seperate each commit item. With a special char combo that indicates start and end?
     }
     /**
      *
