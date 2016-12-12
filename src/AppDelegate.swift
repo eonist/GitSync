@@ -14,6 +14,27 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - Simple git automation for macOS")
         
+        
+    }
+    func sortTest(){
+        struct People {
+            var name: String
+        }
+        
+        var customArray = [
+            People(name: "Jemima"),
+            People(name: "Peter"),
+            People(name: "David"),
+            People(name: "Kelly"),
+            People(name: "Isabella")
+        ]
+        
+        let sortedArray = customArray.sort { (element1, element2) -> Bool in
+            return element1.name < element2.name
+        }
+        print(sortedArray)
+    }
+    func commitDataTest(){
         var testString:String = "Author:Eonist" + "\n"
         testString += "Date:2015-12-03 16:59:09 +0100" + "\n"
         testString += "Subject:'Files modified: 1'" + "\n"
@@ -66,14 +87,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let relativeTime = DateParser.relativeTime(today,threeDaysAgo)
         Swift.print("relativeTime: " + "\(relativeTime)")
-    }
-    func sortTest(){
-        let sortedArray = customArray.sort { (element1, element2) -> Bool in
-            return element1.name < element2.name
-        }
-    }
-    func commitDataTest(){
-        
     }
     func initApp(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
