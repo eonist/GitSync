@@ -71,7 +71,8 @@ class MainView:TitleView{
                 //Then re-use them on App start
         
         //When a refresh occurs 
-            //only grab the
+            //only grab the log items that are newer than the newst logItem in the dataProvider
+            //then prepend these to the dataProvider
     }
     /**
      *
