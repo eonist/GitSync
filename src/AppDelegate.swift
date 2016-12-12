@@ -20,6 +20,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         //Create a CommitData tuple object
+            //make a few items that you can sort
         
         struct People {
             var name: String
