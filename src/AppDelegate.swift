@@ -49,36 +49,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         testString += "'"
         //Swift.print(testString)
         
-        let firstIdx:Int = testString.indexOf("\n")
-        Swift.print("firstIdx: " + "\(firstIdx)")
-        let firstPart:String = testString.subString(0,firstIdx)
-        Swift.print("firstPart: " + "\(firstPart)")
-        //Swift.print("firstPart: " + "\(firstPart)")
         
-        let secondIdx:Int = firstIdx+1 + testString.subString(firstIdx+1,testString.count).indexOf("\n")
-        Swift.print("secondIdx: " + "\(secondIdx)")
-        
-        let secondPart:String = testString.subString(firstIdx+1,secondIdx)
-        Swift.print("secondPart: " + "\(secondPart)")
-        
-        let thirdIdx:Int = secondIdx+1 + testString.subString(secondIdx+1,testString.count).indexOf("\n")
-        Swift.print("thirdIdx: " + "\(thirdIdx)")
-        
-        let thirdPart:String = testString.subString(secondIdx+1,thirdIdx)
-        Swift.print("thirdPart: " + "\(thirdPart)")
-        
-        let fourthPart:String = testString.subString(thirdIdx+1,testString.count)
-        Swift.print("fourthPart: " + "\(fourthPart)")
-        
-        var commitData:(author:String,date:String,subject:String,body:String) = (author:firstPart,date:secondPart,subject:thirdPart,body:fourthPart)
-        commitData.author = commitData.author.subString("Author:".count, commitData.author.count)
-        commitData.date = commitData.date.subString("Date:".count, commitData.date.count)
-        commitData.subject = commitData.subject.subString("Subject:".count, commitData.subject.count)
-        commitData.body = commitData.body.subString("Body:".count, commitData.body.count)
-        Swift.print("commitData.author: " + "\(commitData.author)")
-        Swift.print("commitData.date: " + "\(commitData.date)")
-        Swift.print("commitData.subject: " + "\(commitData.subject)")
-        Swift.print("commitData.body: " + "\(commitData.body)")
         
         let date:NSDate = GitLogParser.date(commitData.date)
         Swift.print("date.shortDate: " + "\(date.shortDate)")
