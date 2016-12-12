@@ -60,7 +60,23 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //make the 4h, 2d, 5m,  3sec logic
         
-        //
+        //basically: 
+        
+        //cur time - time
+        
+        //cur year - year = 0
+        
+        //cur month - month = 0
+        
+        //cur day - day = 0
+        
+        //cur hour - hour = 0
+        
+        //cur min - min = 0
+        
+        //cur sec - sec = 4
+        
+        //result: 4s ago
     }
     func initApp(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
