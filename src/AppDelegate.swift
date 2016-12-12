@@ -49,7 +49,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         testString += "'"
         //Swift.print(testString)
         
-        
+        let commitData = GitLogParser.parts(testString)
         
         let date:NSDate = GitLogParser.date(commitData.date)
         Swift.print("date.shortDate: " + "\(date.shortDate)")
