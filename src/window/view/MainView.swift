@@ -45,6 +45,11 @@ class MainView:TitleView{
         let result:String = GitParser.show(localPath!, cmd)
         Swift.print("result: " + "\(result)")
         
+        let commitCountCMD:String = ""
+        let commitCount:Int = GitParser.commitCount(localPath)
+        
+        Swift.print("commitCount: " + "\(commitCount)")
+        
         
         //TODO: Use RegExp to convert the commit data item to an Triplet item in an array
             //or find the first two linebreaks and split at these integers, then you will have 3 seperate string parts <---easier
