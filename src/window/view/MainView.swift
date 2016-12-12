@@ -40,7 +40,7 @@ class MainView:TitleView{
         let localPath = repoList[1]["local-path"]
         Swift.print("localPath: " + "\(localPath)")
         
-        let cmd:String = "-3 --pretty=format:\"Author:%an%nDate:%cr%nSubject:%s%nBody:%b\""//"-3 --oneline"//
+        let cmd:String = "-3 --pretty=format:\"Author:%an%nDate:%ci%nSubject:%s%nBody:%b\""//"-3 --oneline"//
         //%ci -> 2015-12-03 16:59:09 +0100 ->is the best date format to convert to a Data instance. Relative time from git is strange. 26 hours ago should be 1 day ago etc, but is'nt
         
         Swift.print("cmd: " + "\(cmd)")

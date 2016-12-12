@@ -15,7 +15,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         var testString:String = "Author:Eonist" + "\n"
-        testString += "Date:26 hours ago" + "\n"
+        testString += "Date:2015-12-03 16:59:09 +0100" + "\n"
         testString += "Subject:'Files modified: 1'" + "\n"
         testString += "Body:'" + "\n"
         testString += "" + "\n"
@@ -23,7 +23,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         testString += "README.md" + "\n"
         testString += "'"
         //Swift.print(testString)
-        
         
         let firstIdx:Int = testString.indexOf("\n")
         Swift.print("firstIdx: " + "\(firstIdx)")
