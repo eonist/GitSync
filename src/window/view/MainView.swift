@@ -59,7 +59,7 @@ class MainView:TitleView{
             //let length:Int = commitCount > 20 ? 20 : commitCount//20 = maxCount
             //for _ in 0..<length{
                 //replace 31 with i bellow:
-                //let logItem:String = git show head~31  --pretty=oneline --no-patch
+                //let logItem:String = git show head~31  --pretty=oneline --no-patch//--no-patch suppresses the diff output of git show
                 //convert the logItem to Tupple
         
             //}
