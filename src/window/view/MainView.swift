@@ -44,23 +44,7 @@ class MainView:TitleView{
         Swift.print("cmd: " + "\(cmd)")
         let result:String = GitParser.show(localPath!, cmd)
         Swift.print("result: " + "\(result)")
-    }
-    func commitLog(){
-        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
-        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
-        Swift.print("repoList.count: " + "\(repoList.count)")
         
-        let localPath = repoList[1]["local-path"]
-        Swift.print("localPath: " + "\(localPath)")
-        
-        let cmd:String = "-3 --pretty=format:\"Author:%an%nDate:%ci%nSubject:%s%nBody:%b\""//"-3 --oneline"//
-        //%ci -> 2015-12-03 16:59:09 +0100 ->is the best date format to convert to a Data instance. Relative time from git is strange. 26 hours ago should be 1 day ago etc, but is'nt
-        
-        Swift.print("cmd: " + "\(cmd)")
-        
-        let logResult:String = GitParser.log(localPath!, cmd)
-        Swift.print("logResult: ")
-        Swift.print("\(logResult)")
         
         //TODO: Use RegExp to convert the commit data item to an Triplet item in an array
             //or find the first two linebreaks and split at these integers, then you will have 3 seperate string parts <---easier
@@ -93,6 +77,24 @@ class MainView:TitleView{
             //When a refresh occurs
                 //only grab the log items that are newer than the newst logItem in the dataProvider
                 //then prepend these to the dataProvider
+    }
+    func commitLog(){
+        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        Swift.print("repoList.count: " + "\(repoList.count)")
+        
+        let localPath = repoList[1]["local-path"]
+        Swift.print("localPath: " + "\(localPath)")
+        
+        let cmd:String = "-3 --pretty=format:\"Author:%an%nDate:%ci%nSubject:%s%nBody:%b\""//"-3 --oneline"//
+        //%ci -> 2015-12-03 16:59:09 +0100 ->is the best date format to convert to a Data instance. Relative time from git is strange. 26 hours ago should be 1 day ago etc, but is'nt
+        
+        Swift.print("cmd: " + "\(cmd)")
+        
+        let logResult:String = GitParser.log(localPath!, cmd)
+        Swift.print("logResult: ")
+        Swift.print("\(logResult)")
+        
     }
     /**
      *
