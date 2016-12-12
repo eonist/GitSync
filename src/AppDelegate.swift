@@ -51,7 +51,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("commitData.subject: " + "\(commitData.subject)")
         Swift.print("commitData.body: " + "\(commitData.body)")
         
-        let dateParts:[String] = commitData.date.componentsSeparatedByString(" ")
         
         //Continue here: next is converting the date to NSDate
         //2015-12-03 16:59:09 +0100
