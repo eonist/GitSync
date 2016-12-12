@@ -45,8 +45,7 @@ class MainView:TitleView{
         let result:String = GitParser.show(localPath!, cmd)
         Swift.print("result: " + "\(result)")
         
-        let commitCountCMD:String = ""
-        let commitCount:Int = GitParser.commitCount(localPath)
+        let commitCount:String = GitParser.commitCount(localPath!)
         
         Swift.print("commitCount: " + "\(commitCount)")
         
