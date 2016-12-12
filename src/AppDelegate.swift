@@ -65,7 +65,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("threeDaysAgo!.shortDate: " + "\(threeDaysAgo.shortDate)")
         
-        let relativeTime = NSDate.relativeTime(today,threeDaysAgo)
+        let relativeTime = DateParser.relativeTime(today,threeDaysAgo)
+        Swift.print("relativeTime: " + "\(relativeTime)")
     }
     func initApp(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
