@@ -25,12 +25,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let c:(author:String,date:Int,subject:String,body:String) = (author:"eonist",date:20161201165939,subject:"c",body:"")
             //make a few items that you can sort
     
-        let customArray = [a,b,c]
+        var customArray = [a,b,c]
         
-        let sortedArray = customArray.sort { (element1, element2) -> Bool in
+        customArray.sortInPlace { (element1, element2) -> Bool in
             return element1.date < element2.date
         }
-        sortedArray.forEach{Swift.print($0.subject)}
+        customArray.forEach{Swift.print($0.subject)}
     }
     func commitDataTest(){
         var testString:String = "Author:Eonist" + "\n"
