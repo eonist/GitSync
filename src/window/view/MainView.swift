@@ -57,7 +57,7 @@ class MainView:TitleView{
             let cmd:String = "git show head~" + i.string + logCMD + "--no-patch"//--no-patch suppresses the diff output of git show
             //convert the logItem to Tupple
             let result:String = GitParser.show(localPath!, cmd)
-            
+            let commitData:CommitData = GitLogParser.parts(<#T##testString: String##String#>)
         }
 
         
