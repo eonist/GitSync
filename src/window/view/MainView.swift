@@ -54,6 +54,11 @@ class MainView:TitleView{
         
         
         //Figure out how to seperate each commit item. With a special char combo that indicates start and end?
+            //20 last commits
+            //get commit count: git rev-list HEAD --count
+            //for _ in 0..20{
+                //
+            //}
     }
     /**
      *
