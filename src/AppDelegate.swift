@@ -15,22 +15,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
-        dateTest()
+        //dateTest()
         //compactBody()
         //sortTest()
         //commitDataTest()
         //relativeTimeTest()
         
     }
-    /**
-     *
-     */
-    func dateTest(){
-        let formatter: NSDateFormatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"
-        let dateTimePrefix: String = formatter.stringFromDate(NSDate())
-        Swift.print("dateTimePrefix: " + "\(dateTimePrefix)")
-    }
+    
     /**
      *
      */
