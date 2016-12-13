@@ -36,12 +36,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          *
          */
         func trim(str:String){
-            
+            if(str.characters.first == "'"){
+                Swift.print("first char is '")
+            }
         }
         
-        if(){
-            
-        }
+        trim(test)
+        trim(test2)
+        
         //Continue here:
             //support formating the above cases
             //also format the subject by remvoing the wrapping '' chars
