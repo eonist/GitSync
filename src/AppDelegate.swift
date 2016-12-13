@@ -36,8 +36,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          *
          */
         func trim(str:String){
-            let result = str.match("(?='\n\n)(abc)(?=<\n')")
+            let result = str.match("(?='\n\n)(abc)(?<=\n')")
             Swift.print("result: " + "\(result)")
+            
+            print(RegExp.match("My name is Taylor Swift","My name is Taylor (.*)"))//Swift
             
             /*str.matches("(?:'\n\n)(abc)(?:\n)").forEach{
             Swift.print("match.numberOfRanges: " + "\($0.numberOfRanges)")/*The first item is the entire match*/
