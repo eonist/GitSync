@@ -21,12 +21,12 @@ class MainView:TitleView{
         
         menuView = addSubView(MenuView(frame.width,48,self))
         
-        //Navigation.setView(MenuView.commits)/*adds the correct view to MainView*/
-        //menuView!.selectGroup!.selectedAt(0)/*Selects the correct menu icon*/
+        Navigation.setView(MenuView.commits)/*adds the correct view to MainView*/
+        menuView!.selectGroup!.selectedAt(0)/*Selects the correct menu icon*/
     
         
         //commitLog()
-        commitShow()
+        //commitShow()
         
         
         
