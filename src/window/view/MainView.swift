@@ -62,15 +62,10 @@ class MainView:TitleView{
             let commitData = GitLogParser.commitData(result)
             //dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!
             
-            //Continue here:
-                //You need to
-            
-        
-            
             let date:NSDate = GitLogParser.date(commitData.date)
             //Swift.print("date.shortDate: " + "\(date.shortDate)")
             let relativeTime = DateParser.relativeTime(NSDate(),date)[0]
-            let relativeDate:String = relativeTime.value.string + relativeTime.type/*create date like 3s,4m,5h,6m,2y*/
+            let relativeDate:String = relativeTime.value.string + relativeTime.type/*create date like 3s,4m,5h,6w,2y*/
             Swift.print("relativeDate: " + "\(relativeDate)")
             
             let compactBody:String = GitLogParser.compactBody(commitData.body)/*compact the commit msg body*/
