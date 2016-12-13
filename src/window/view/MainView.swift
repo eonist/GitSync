@@ -68,11 +68,14 @@ class MainView:TitleView{
         
             
             let date:NSDate = GitLogParser.date(commitData.date)
-            Swift.print("date.shortDate: " + "\(date.shortDate)")
+            //Swift.print("date.shortDate: " + "\(date.shortDate)")
             let relativeTime = DateParser.relativeTime(NSDate(),date)[0]
-        
             let relativeDate:String = relativeTime.value.string + relativeTime.type
-            commitItems.append(["repo-name":repoTitle,"contributor":commitData.author,"title":commitData.subject,"description":commitData.body,"date":relativeDate,"hash":commitData.hash])////we store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView
+            Swift.print("relativeDate: " + "\(relativeDate)")
+            
+            let compactBody:String = GitLogParser.compactBody(commitData.body)
+            Swift.print("compactBody: " + "\(compactBody)")
+            commitItems.append(["repo-name":repoTitle,"contributor":commitData.author,"title":commitData.subject,"description":compactBody,"date":relativeDate,"hash":commitData.hash])////we store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView
         }
         
         
