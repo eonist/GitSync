@@ -56,7 +56,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         customArray.forEach{Swift.print($0.subject)}
     }
     /**
-     * parsing commitData
+     * Parsing commitData
      */
     func commitDataTest(){
         var testString:String = ""
