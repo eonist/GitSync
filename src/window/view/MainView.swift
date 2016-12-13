@@ -70,7 +70,7 @@ class MainView:TitleView{
             
             let compactBody:String = GitLogParser.compactBody(commitData.body)/*compact the commit msg body*/
             Swift.print("compactBody: " + "\(compactBody)")
-            commitItems.append(["repo-name":repoTitle,"contributor":commitData.author,"title":commitData.subject,"description":compactBody,"date":relativeDate,"hash":commitData.hash])////we store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView
+            commitItems.append(["repo-name":repoTitle,"contributor":commitData.author,"title":commitData.subject,"description":compactBody,"date":,"relativedate":relativeDate,"hash":commitData.hash])////we store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView
         }
         
         
