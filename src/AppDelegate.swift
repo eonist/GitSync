@@ -36,14 +36,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          *
          */
         func trim(str:String){
-            str.match("")
+            let result = str.match("(?=\'):*(?<=\')")
+            Swift.print("result: " + "\(result)")
             /*if(str.characters.first == "'"){
             Swift.print("first char is '")
             }*/
         }
         
         trim(test)
-        trim(test2)
+        //trim(test2)
         
         //Continue here:
             //support formating the above cases
