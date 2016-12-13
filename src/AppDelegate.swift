@@ -32,6 +32,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let test2 = "'\nabc\n'"
         let test3 = "\""
         
+        /**
+         *
+         */
+        func trim(str:String){
+            
+        }
+        
+        if(){
+            
+        }
         //Continue here:
             //support formating the above cases
             //also format the subject by remvoing the wrapping '' chars
