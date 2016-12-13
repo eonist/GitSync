@@ -63,17 +63,17 @@ class MainView:TitleView{
             //dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!
             
             //Continue here:
-                //You need to compact the commit msg body
+                //You need to
             
         
             
             let date:NSDate = GitLogParser.date(commitData.date)
             //Swift.print("date.shortDate: " + "\(date.shortDate)")
             let relativeTime = DateParser.relativeTime(NSDate(),date)[0]
-            let relativeDate:String = relativeTime.value.string + relativeTime.type
+            let relativeDate:String = relativeTime.value.string + relativeTime.type/*create date like 3s,4m,5h,6m,2y*/
             Swift.print("relativeDate: " + "\(relativeDate)")
             
-            let compactBody:String = GitLogParser.compactBody(commitData.body)
+            let compactBody:String = GitLogParser.compactBody(commitData.body)/*compact the commit msg body*/
             Swift.print("compactBody: " + "\(compactBody)")
             commitItems.append(["repo-name":repoTitle,"contributor":commitData.author,"title":commitData.subject,"description":compactBody,"date":relativeDate,"hash":commitData.hash])////we store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView
         }
