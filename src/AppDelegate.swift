@@ -29,7 +29,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //relativeTimeTest()
         
         let test = "'\n\nabc\n'"
+        let test2 = "'\nabc\n'"
+        let test3 = "\""
         
+        //Continue here:
+            //support formating the above cases
+            //also format the subject by remvoing the wrapping '' chars
         
     }
     
