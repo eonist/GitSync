@@ -36,7 +36,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          *
          */
         func trim(str:String){
-            let result = str.match("'\n\n(abc)\n")
+            let result = str.matches("(?:'\n\n)(abc)(?:\n)")
+            Swift.print("result.count: " + "\(result.count)")
             Swift.print("result: " + "\(result)")
             /*if(str.characters.first == "'"){
             Swift.print("first char is '")
