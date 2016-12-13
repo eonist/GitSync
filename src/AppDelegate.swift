@@ -38,12 +38,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         func trim(str:String){
            
             
-            str.matches("(?:[',\n]?)(abc)(?:\n)").forEach{
+            str.matches("(?:^[1,2][1,2])(abc)(?:3$)").forEach{
                 if($0.numberOfRanges > 1){
                     let body = $0.value(str, 1)/*capturing group 1*/
-                    Swift.print("begining")
+                    Swift.print(">")
                     Swift.print(body)
-                    Swift.print("end")
+                    Swift.print("<")
                 }
             }/**/
             
@@ -52,7 +52,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }*/
         }
         
-        trim(test)
+        trim("122abc3")
         //trim(test2)
         
         //Continue here:
