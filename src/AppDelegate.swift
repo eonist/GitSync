@@ -14,7 +14,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - Simple git automation for macOS")
         
-        //initApp()
+        initApp()
         
         //Continue here:
             //figure out the body bug
@@ -23,7 +23,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //commitLog()
         //commitShow()
         //dateTest()
-        compactBody()
+        //compactBody()
         //sortTest()
         //commitDataTest()
         //relativeTimeTest()
@@ -91,8 +91,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Swift.print("bodyStr: " + "\(bodyStr)")
         
         let compactBody = GitLogParser.compactBody(bodyStr)
-        Swift.print("compactBody: ")
-        Swift.print("compactBody: " + "\(compactBody)")
+        Swift.print("compactBody-start")
+        Swift.print(compactBody)
+        Swift.print("compactBody-end")
     }
     func sortTest(){
 
