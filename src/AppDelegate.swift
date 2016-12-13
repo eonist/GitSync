@@ -14,7 +14,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - Simple git automation for macOS")
         
-        //initApp()
+        initApp()
         
         //Continue here:
             //figure out the body bug
@@ -27,6 +27,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //sortTest()
         //commitDataTest()
         //relativeTimeTest()
+    }
+    /**
+     *
+     */
+    func trimTest(){
         
         let test = "'\n\nabc\n'"
         let test2 = "'\nabc\n'"
@@ -36,8 +41,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          *
          */
         func trim(str:String){
-           
-            
             str.matches("(?:^[',\n]*)(.*?)(?:\n+?|$)").forEach{
                 if($0.numberOfRanges > 1){
                     let body = $0.value(str, 1)/*capturing group 1*/
@@ -45,23 +48,25 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     Swift.print(body)
                     //Swift.print("<")
                 }
-            }/**/
-            
-                    /*if(str.characters.first == "'"){
-            Swift.print("first char is '")
-            }*/
+            }
         }
         
         trim(test)
         trim(test2)
         trim(test3)
         
+        //Naive approche could be simpler:
+        
+        /*if(str.characters.first == "'"){
+            Swift.print("first char is '")
+        }*/
+        
         //Continue here:
             //support formating the above cases
             //also format the subject by remvoing the wrapping '' chars
         
+
     }
-    
     func commitLog(){
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         let repoList = XMLParser.toArray(repoXML)//or use dataProvider
