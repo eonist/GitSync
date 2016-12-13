@@ -28,7 +28,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //commitDataTest()
         //relativeTimeTest()
         
-        let test = "'\nabc\n'"
+        let test = "'\n\nabc\n'"
         let test2 = "'\nabc\n'"
         let test3 = "\""
         
@@ -38,7 +38,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         func trim(str:String){
            
             
-            str.matches("(?:^[1,2][1,2])(abc)(?:3$)").forEach{
+            str.matches("(?:[',\n]{1,3})(.*?)(?:\n)").forEach{
                 if($0.numberOfRanges > 1){
                     let body = $0.value(str, 1)/*capturing group 1*/
                     Swift.print(">")
@@ -52,8 +52,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }*/
         }
         
-        trim("122abc3")
-        //trim(test2)
+        trim(test)
+        trim(test2)
         
         //Continue here:
             //support formating the above cases
