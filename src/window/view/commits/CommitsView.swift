@@ -15,9 +15,9 @@ class CommitsView:Element {
     func createList(){
         //let dp:DataProvider = DataProvider()
         //dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
-        let xml = FileParser.xml("~/Desktop/commits.xml".tildePath)
-        let dp:DataProvider = DataProvider(xml)
-        Swift.print("dp.count(): " + "\(dp.count)")
+        //let xml = FileParser.xml("~/Desktop/commits.xml".tildePath)
+        let dp:DataProvider = Utils.dataProvider()//DataProvider(xml)
+        //Swift.print("dp.count(): " + "\(dp.count)")
         //Swift.print("CommitsView.width: " + "\(width)")
         list = addSubView(CommitsList(CommitsView.w, CommitsView.h, 102, dp, self,"commitsList"))
         ListModifier.selectAt(list!, 1)
@@ -38,7 +38,7 @@ class CommitsView:Element {
 }
 private class Utils{
     /**
-     *
+     * Populates a DataProvider instance with data derived from commits in a repository
      */
     static func dataProvider()->DataProvider{
         var commitItems:[Dictionary<String, String>] = []
@@ -92,7 +92,7 @@ private class Utils{
         
         Swift.print("dp.count: " + "\(dp.count)")
         
-        return dp  
+        return dp
         
         //Continue here: 
             //parsing log now works.
