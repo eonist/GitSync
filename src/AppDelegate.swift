@@ -84,20 +84,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         bodyStr += "README.md\n"
         bodyStr += "'"
         
-        '
-        
-        Modified 1 file:
-        README.md
-        '
-        
-        '
+       
         
         
         
         //Swift.print("bodyStr: " + "\(bodyStr)")
         
         let compactBody = GitLogParser.compactBody(bodyStr)
-        Swift.print("compactBody: " + "\(compactBody)")
+        Swift.print("compactBody: ")
+        
     }
     func sortTest(){
 
