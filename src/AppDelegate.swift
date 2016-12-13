@@ -28,7 +28,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //commitDataTest()
         //relativeTimeTest()
         
-        let test = "'\n\nabc\n'"
+        let test = "'\nabc\n'"
         let test2 = "'\nabc\n'"
         let test3 = "\""
         
@@ -38,10 +38,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         func trim(str:String){
            
             
-            str.matches("(?:[',\n]{1,2})(.*?)(?:\n)").forEach{
+            str.matches("(?:[',\n]?)(abc)(?:\n)").forEach{
                 if($0.numberOfRanges > 1){
                     let body = $0.value(str, 1)/*capturing group 1*/
+                    Swift.print("begining")
                     Swift.print(body)
+                    Swift.print("end")
                 }
             }/**/
             
