@@ -14,7 +14,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - Simple git automation for macOS")
         
-        initApp()
+        //initApp()
         
         //Continue here:
             //figure out the body bug
@@ -23,7 +23,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //commitLog()
         //commitShow()
         //dateTest()
-        //compactBody()
+        compactBody()
         //sortTest()
         //commitDataTest()
         //relativeTimeTest()
@@ -79,9 +79,20 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func compactBody(){
         var bodyStr:String = ""
         bodyStr += "'\n"
+        bodyStr += "\n"
         bodyStr += "Modified 1 file:\n"
         bodyStr += "README.md\n"
         bodyStr += "'"
+        
+        '
+        
+        Modified 1 file:
+        README.md
+        '
+        
+        '
+        
+
         
         //Swift.print("bodyStr: " + "\(bodyStr)")
         
