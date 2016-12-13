@@ -20,7 +20,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //Continue here:
             //figure out the body bug by printing all the body strings and testing each one
-            //trim the subject aswell
+            //also cap the subject? or maybe not? maybe there is a max subject length already? google it
+            //store all subjects and body strings in a txt file for debugging
         
         
         //commitLog()
