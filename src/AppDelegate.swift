@@ -38,11 +38,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         func trim(str:String){
            
             
-            str.matches("(?:'\n\n)(abc)(?:\n)").forEach{
-                Swift.print("match.numberOfRanges: " + "\($0.numberOfRanges)")/*The first item is the entire match*/
-                //let content = (str as NSString).substringWithRange($0.rangeAtIndex(0))/*the entire match*/
-                let name = $0.value(str, 1)/*capturing group 1*/
-                Swift.print("name: " + "\(name)")
+            str.matches("(?:[',\n])(abc)(?:\n)").forEach{
+                if($0.numberOfRanges > 1){
+                    let body = $0.value(str, 1)/*capturing group 1*/
+                    Swift.print(body)
+                }
             }/**/
             
                     /*if(str.characters.first == "'"){
