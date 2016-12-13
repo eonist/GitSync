@@ -14,9 +14,61 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - Simple git automation for macOS")
         
-        initApp()
+        //initApp()
+        compactBody()
         //sortTest()
         //commitDataTest()
+        //relativeTimeTest()
+    }
+    /**
+     *
+     */
+    func compactBody(){
+        var bodyStr:String = ""
+        bodyStr += "'\n"
+        bodyStr += "Modified 1 file:\n"
+        bodyStr += "README.md\n"
+        bodyStr += "'"
+        
+        //Swift.print("bodyStr: " + "\(bodyStr)")
+        
+        bodyStr = preProcess(bodyStr)
+        let compactBody:String = compact(bodyStr)
+        Swift.print("compactBody: " )
+        Swift.print(compactBody)
+    }
+    /**
+     * PreProcess the string
+     */
+    func preProcess(var str:String)->String{
+        //Swift.print("preProcess")
+        //remove the ' char from the beginng and end
+        //strip linebreaks from the beginning and end of bodyStr
+        str = str.subString(2, str.count-2)
+        return str
+    }
+    /**
+     * Compacts the string
+     */
+    func compact(str:String) -> String{
+        //Swift.print("compact")
+        let parts = str.split("\n")//split at linebreaks
+        //Swift.print("parts.count: " + "\(parts.count)")
+        let firstPart = parts[0]
+        //Swift.print("firstPart.count: " + "\(firstPart.count)")
+        if(firstPart.count > 100){/*the first string is longer than allowed*/
+            let a:String = firstPart.subStr(0, 100)
+            var b:String = firstPart.subStr(100, firstPart.count)
+            b = b.count > 100 ? b.subStr(0, 100) + "..." : b
+            return a + "\n" + b
+        }else{/*First part is within allowed length*/
+            var secondPart:String = ""
+            if(parts.count > 1){
+                secondPart = parts[1]
+                secondPart = secondPart.count > 100 ? secondPart.subStr(0, 100) + "..." : secondPart
+            }
+            return firstPart + "\n" + secondPart
+        }
     }
     func sortTest(){
 
@@ -39,7 +91,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      * parsing commitData
      */
     func commitDataTest(){
-        var testString:String = "Author:Eonist" + "\n"
+        var testString:String = ""
+        testString += "Hash:4caecd0ed658b45a14bd327ea2c1a7997c11c399" + "\n"
+        testString += "Author:Eonist" + "\n"
         testString += "Date:2015-12-03 16:59:09 +0100" + "\n"
         testString += "Subject:'Files modified: 1'" + "\n"
         testString += "Body:'" + "\n"
@@ -49,11 +103,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         testString += "'"
         //Swift.print(testString)
         
-        let commitData = GitLogParser.parts(testString)
+        let commitData = GitLogParser.commitData(testString)
         
         let date:NSDate = GitLogParser.date(commitData.date)
         Swift.print("date.shortDate: " + "\(date.shortDate)")
         
+        
+    }
+    /**
+     *
+     */
+    func relativeTimeTest(){
         let today:NSDate = NSDate()
         Swift.print("today.shortDate: " + "\(today.shortDate)")
         

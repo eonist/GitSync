@@ -32,13 +32,15 @@ class MainView:TitleView{
         
     }
     func commitShow(){
+        var commitItems:[Dictionary<String, String>] = []
+        
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         let repoList = XMLParser.toArray(repoXML)//or use dataProvider
         Swift.print("repoList.count: " + "\(repoList.count)")
         
         let localPath = repoList[1]["local-path"]
         Swift.print("localPath: " + "\(localPath)")
-
+        let repoTitle = repoList[1]["title"]!
         /*
         let cmd:String = "head~1 --pretty=oneline --no-patch"
         Swift.print("cmd: " + "\(cmd)")
@@ -47,19 +49,46 @@ class MainView:TitleView{
         */
         
         let commitCount:String = GitParser.commitCount(localPath!)
-        
         Swift.print("commitCount: " + "\(commitCount)")
         
         let length:Int = 3//commitCount > 20 ? 20 : commitCount//20 = maxCount
-        let logCMD:String = "--pretty=format:\"Author:%an%nDate:%ci%nSubject:%s%nBody:%b\""//"-3 --oneline"//
+        let logCMD:String = " --pretty=format:\"Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b\""//"-3 --oneline"//
         for i in 0..<length{
             //replace 31 with i bellow:
-            let cmd:String = "git show head~" + i.string + logCMD + "--no-patch"//--no-patch suppresses the diff output of git show
+            let cmd:String = "head~" + i.string + logCMD + " --no-patch"//--no-patch suppresses the diff output of git show
             //convert the logItem to Tupple
             let result:String = GitParser.show(localPath!, cmd)
-            let commitData:CommitData = GitLogParser.parts(<#T##testString: String##String#>)
+            Swift.print("result.count: " + "\(result.count)")
+            let commitData = GitLogParser.commitData(result)
+            //dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!
+            
+            //Continue here:
+                //You need to compact the commit msg body
+            
+        
+            
+            let date:NSDate = GitLogParser.date(commitData.date)
+            Swift.print("date.shortDate: " + "\(date.shortDate)")
+            let relativeTime = DateParser.relativeTime(NSDate(),date)[0]
+        
+            let relativeDate:String = relativeTime.value.string + relativeTime.type
+            commitItems.append(["repo-name":repoTitle,"contributor":commitData.author,"title":commitData.subject,"description":commitData.body,"date":relativeDate,"hash":commitData.hash])////we store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView
         }
+        
+        
+        let dp = DataProvider(commitItems)
+        
+        
+        Swift.print("dp.count: " + "\(dp.count)")
 
+        
+        //Continue here: 
+            //parsing log now works.
+                //lets try and parse the last 20 items from every repo and combine them in a dataprovider
+                    //store in a array-dictionary and create the dp after you have sorted the the arr-dict
+                        //then try to populate the GUI
+                            //remember to store the relative date and compacted body. You should not do any data processing when you display in the GUI
+                                //You can always get the full body from the hash when going to CommentDetailView
         
         
         //TODO: Use RegExp to convert the commit data item to an Triplet item in an array
