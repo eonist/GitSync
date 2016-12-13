@@ -38,12 +38,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         func trim(str:String){
            
             
-            str.matches("(?:^[',\n]{0,3})(.*?)(?:\n+?|$)").forEach{
+            str.matches("(?:^[',\n]{0,})(.*?)(?:\n+?|$)").forEach{
                 if($0.numberOfRanges > 1){
                     let body = $0.value(str, 1)/*capturing group 1*/
-                    Swift.print(">")
+                    //Swift.print(">")
                     Swift.print(body)
-                    Swift.print("<")
+                    //Swift.print("<")
                 }
             }/**/
             
@@ -54,6 +54,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         trim(test)
         trim(test2)
+        trim(test3)
         
         //Continue here:
             //support formating the above cases
