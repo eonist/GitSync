@@ -79,7 +79,7 @@ class MainView:TitleView{
         
         let dp = DataProvider(commitItems)
         
-        dp.sort("date")
+        dp.sort("date")//sorts the list in ascending order
         
         Swift.print("dp.count: " + "\(dp.count)")
         
