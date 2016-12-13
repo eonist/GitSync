@@ -14,7 +14,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - Simple git automation for macOS")
         
-        initApp()
+        var text:String = ""
+        if(text.characters.first == "'"){text = String(text.characters.dropFirst())}
+        if(text.characters.last == "'"){text = String(text.characters.dropLast())}
+        Swift.print("text: " + "\(text)")
+        
+        //initApp()
         
         //Continue here:
             //figure out the body bug by printing all the body strings and testing each one
