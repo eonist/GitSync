@@ -36,10 +36,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          *
          */
         func trim(str:String){
-            let result = str.matches("(?:'\n\n)(abc)(?:\n)")
-            Swift.print("result.count: " + "\(result.count)")
-            Swift.print("result: " + "\(result)")
-            /*if(str.characters.first == "'"){
+            str.matches("(?:'\n\n)(abc)(?:\n)").forEach{
+                Swift.print("match.numberOfRanges: " + "\($0.numberOfRanges)")/*The first item is the entire match*/
+                //let content = (str as NSString).substringWithRange($0.rangeAtIndex(0))/*the entire match*/
+                let name = $0.value(str, 1)/*capturing group 1*/
+                Swift.print("name: " + "\(name)")
+            }//Outputs: name: green, value: 00FF00...and so on
+            
+                    /*if(str.characters.first == "'"){
             Swift.print("first char is '")
             }*/
         }
