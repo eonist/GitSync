@@ -36,7 +36,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          *
          */
         func trim(str:String){
-            let result = str.match("(?=\'):*(?<=\')")
+            let result = str.match(".*?")
             Swift.print("result: " + "\(result)")
             /*if(str.characters.first == "'"){
             Swift.print("first char is '")
