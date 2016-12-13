@@ -82,7 +82,10 @@ private class Utils{
             let compactBody:String = GitLogParser.compactBody(commitData.body)/*compact the commit msg body*/
             Swift.print("compactBody: " + "\(compactBody)")
             
-            let subject:String = commitData.subject.subString(1, commitData.subject.count - 1)
+            var subject:String = commitData.subject
+            
+            
+            
             commitItems.append(["repo-name":repoTitle,"contributor":commitData.author,"title":subject,"description":compactBody,"date":relativeDate,"sortableDate":descendingDate,"hash":commitData.hash])////we store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView
         }
         
