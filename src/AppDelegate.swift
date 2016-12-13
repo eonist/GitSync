@@ -92,7 +92,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let compactBody = GitLogParser.compactBody(bodyStr)
         Swift.print("compactBody: ")
-        
+        Swift.print("compactBody: " + "\(compactBody)")
     }
     func sortTest(){
 
