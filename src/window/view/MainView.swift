@@ -79,9 +79,10 @@ class MainView:TitleView{
         
         let dp = DataProvider(commitItems)
         
+        dp.sort("date")
         
         Swift.print("dp.count: " + "\(dp.count)")
-
+        
         
         //Continue here: 
             //parsing log now works.
