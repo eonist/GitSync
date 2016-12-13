@@ -14,7 +14,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - Simple git automation for macOS")
         
-        initApp()
+        //initApp()
         
         //Continue here:
             //figure out the body bug
@@ -27,6 +27,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //sortTest()
         //commitDataTest()
         //relativeTimeTest()
+        
+        let test = "'\n\nabc\n'"
+        
         
     }
     
