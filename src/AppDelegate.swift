@@ -17,8 +17,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         initApp()
         
         //Continue here:
-            //figure out the body bug
-            //change the date field date should be relative and the sortableDate should be something else
+            //figure out the body bug by printing all the body strings and testing each one
+            //trim the subject aswell
+        
         
         //commitLog()
         //commitShow()
