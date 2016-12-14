@@ -40,7 +40,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let cmd2:String = "head~0 --pretty=format:%h --no-patch"
         
         //git <command> -- <path>...' to specify paths that do not exist locally
-        
+
         var shellScript:String = "git show -- " + localPath + " " + cmd//Git.path + "git show " + cmd + " " + Git.path + "git show " + cmd2
         Swift.print("shellScript: " + "\(shellScript)")
         
