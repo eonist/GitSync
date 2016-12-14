@@ -31,7 +31,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //relativeTimeTest()
     }
     /**
-     *
+     * Trimming test when compacting filtering the commit body
      */
     func trimTest(){
         
@@ -39,13 +39,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let test2 = "'\nabc\n'"
         let test3 = "\""
         let test4 = "''"
-        let test5 = "'\n'abc'\n'"
+        let test5 = "'\n'abc'\n'"//we only want to remove the edge ' chars
         
         /**
          *
          */
         func trim(str:String){
-            str.matches("(?:^[',\n]*)(.*?)(?:\n+?|$)").forEach{
+            str.matches("(?:^'?\n*)(.*?)(?:\n+?|$)").forEach{
                 if($0.numberOfRanges > 1){
                     let body = $0.value(str, 1)/*capturing group 1*/
 
