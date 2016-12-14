@@ -15,7 +15,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
-        multiCMDTest()
+        //multiCMDTest()
+        shellTesting()
         //trimTest()
         //commitLog()
         //commitShow()
@@ -25,7 +26,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //commitDataTest()
         //relativeTimeTest()
     }
-    
+    /**
+     *
+     */
+    func shellTesting(){
+        let result:String = ShellUtils.run("ls","~/_projects/_code/_active/swift/Element-iOS")
+        Swift.print("result: " + "\(result)")
+    }
     /**
      *
      */
