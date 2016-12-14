@@ -30,8 +30,20 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func shellTesting(){
-        let result:String = ShellUtils.run("ls","~/_projects/_code/_active/swift/Element-iOS")
-        Swift.print("result: " + "\(result)")
+        //let result:String = ShellUtils.run("ls","~/_projects/_code/_active/swift/Element-iOS")
+        //Swift.print("result: " + "\(result)")
+        let cd = "~/_projects/_code/_active/swift/Element-iOS"
+        let task = NSTask()
+        task.currentDirectoryPath = cd
+        task.launchPath = "/bin/bash"//"/usr/bin/env"
+        task.arguments = arguments
+        task.environment = ["LC_ALL" : "en_US.UTF-8","HOME" : NSHomeDirectory()]
+        let pipe = NSPipe()
+        task.standardOutput = pipe
+        task.launch()
+        task.waitUntilExit()
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
     }
     /**
      *
