@@ -39,12 +39,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let cmd:String = "head~0 --pretty=format:%h --no-patch"
         let cmd2:String = "head~0 --pretty=format:%h --no-patch"
         
-        //git <command> -- <path>...' to specify paths that do not exist locally
-
-        var shellScript:String = "git show -- " + localPath + " " + cmd//Git.path + "git show " + cmd + " " + Git.path + "git show " + cmd2
+        
+        
+        var shellScript:String = Git.path + "git show " + cmd + " && " + Git.path + "git show " + cmd2
         Swift.print("shellScript: " + "\(shellScript)")
         
-        //shellScript = "git show head~0 --pretty=format:%h --no-patch &&  git show head~1 --pretty=format:%h --no-patch"
+        shellScript = "git show head~0 --pretty=format:%h --no-patch &&  git show head~1 --pretty=format:%h --no-patch"
         let result:String = ShellUtils.run(shellScript,localPath)
         Swift.print("result: " + "\(result)")
         
