@@ -78,7 +78,10 @@ private class Utils{
         dp.sort("sortableDate")/*sorts the list in ascending order*/
         //Swift.print("dp.count: " + "\(dp.count)")
         
-        //continue here: remote print and then move on to planing how to loop all repos. also speed tests the gathering of commits
+        //continue here: 
+            //remote print and 
+            //then move on to planing how to loop all repos. 
+            //also speed tests the gathering of commits
         
         return dp
     }
