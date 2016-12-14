@@ -40,13 +40,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let test3 = "abc"
         let test4 = "''"
         let test5 = "'\n'abc'\n'"//we only want to remove the edge ' chars
-        let test6 = "\n"
+        let test6 = "abc\n123"
         
         /**
          *
          */
         func trim(str:String){
-            let pattern = "(.*?)"//"(?:^'?\n*)(.*?)(?:(\n+?'?$)|('$)|$)"
+            let pattern = "^(.*?)$"//"(?:^'?\n*)(.*?)(?:(\n+?'?$)|('$)|$)"
             let options:NSRegularExpressionOptions = [.CaseInsensitive, .DotMatchesLineSeparators]
             str.matches(pattern,options).forEach{//its not pretty but it works
                 if($0.numberOfRanges > 1){
