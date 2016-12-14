@@ -14,8 +14,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - Simple git automation for macOS")
         
-        //initApp()
-        let someInt:Int = "32".int
+        initApp()
         //trimTest()
         //commitLog()
         //commitShow()
