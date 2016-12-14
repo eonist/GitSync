@@ -50,9 +50,8 @@ private class Utils{
         let localPath = repoList[1]["local-path"]
         //Swift.print("localPath: " + "\(localPath)")
         let repoTitle = repoList[1]["title"]!
-        
         let commitCount:String = GitParser.commitCount(localPath!)/*Get the commitCount of this repo*/
-        Swift.print("commitCount: " + ">\(commitCount)<")
+        //Swift.print("commitCount: " + ">\(commitCount)<")
         let length:Int = commitCount.int > 20 ? 20 : commitCount.int//20 = maxCount
         let logCMD:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
         for i in 0..<length{
