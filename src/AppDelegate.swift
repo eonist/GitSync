@@ -46,7 +46,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          *
          */
         func trim(str:String){
-            let pattern = "^(?:'?\n?)(.*?)(?:\n?'?)$"//"(?:^'?\n*)(.*?)(?:(\n+?'?$)|('$)|$)"
+            let pattern = "^(?:'?\n*)(.*?)(?:\n*'?)$"//"(?:^'?\n*)(.*?)(?:(\n+?'?$)|('$)|$)"
             let options:NSRegularExpressionOptions = [.CaseInsensitive, .DotMatchesLineSeparators]
             str.matches(pattern,options).forEach{//its not pretty but it works
                 if($0.numberOfRanges > 1){
