@@ -67,7 +67,7 @@ private class Utils{
             let cmd:String = "head~" + i.string + logCMD + " --no-patch"//--no-patch suppresses the diff output of git show
             //convert the logItem to Tupple
             let result:String = GitParser.show(localPath!, cmd)
-            Swift.print("result.count: " + "\(result.count)")
+            //Swift.print("result.count: " + "\(result.count)")
             let commitData = GitLogParser.commitData(result)
             //dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!
             
@@ -75,12 +75,12 @@ private class Utils{
             //Swift.print("date.shortDate: " + "\(date.shortDate)")
             let relativeTime = DateParser.relativeTime(NSDate(),date)[0]
             let relativeDate:String = relativeTime.value.string + relativeTime.type/*create date like 3s,4m,5h,6w,2y*/
-            Swift.print("relativeDate: " + "\(relativeDate)")
+            //Swift.print("relativeDate: " + "\(relativeDate)")
             
             let descendingDate:String = DateParser.descendingDate(date)
             
             let compactBody:String = GitLogParser.compactBody(commitData.body)/*compact the commit msg body*/
-            Swift.print("compactBody: " + "\(compactBody)")
+            //Swift.print("compactBody: " + "\(compactBody)")
             
             let subject:String = StringParser.trim(commitData.subject, "'", "'")
             
@@ -93,7 +93,7 @@ private class Utils{
         
         dp.sort("sortableDate")//sorts the list in ascending order
         
-        Swift.print("dp.count: " + "\(dp.count)")
+        //Swift.print("dp.count: " + "\(dp.count)")
         
         return dp
         
