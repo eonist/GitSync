@@ -14,10 +14,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - Simple git automation for macOS")
         
-        
-        
-        initApp()
-        
+        //initApp()
+        trimTest()
         //Continue here:
             //figure out the body bug by printing all the body strings and testing each one
             //also cap the subject? or maybe not? maybe there is a max subject length already? google it
@@ -40,6 +38,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let test = "'\n\nabc\n'"
         let test2 = "'\nabc\n'"
         let test3 = "\""
+        let test4 = "''"
         
         /**
          *
@@ -48,9 +47,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             str.matches("(?:^[',\n]*)(.*?)(?:\n+?|$)").forEach{
                 if($0.numberOfRanges > 1){
                     let body = $0.value(str, 1)/*capturing group 1*/
-                    //Swift.print(">")
-                    Swift.print(body)
-                    //Swift.print("<")
+
+                    Swift.print(">"+body+"<")
+
                 }
             }
         }
@@ -58,6 +57,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         trim(test)
         trim(test2)
         trim(test3)
+        trim(test4)
         
         //Naive approche could be simpler:
         
