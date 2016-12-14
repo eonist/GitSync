@@ -43,9 +43,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         task.launch()
         task.waitUntilExit()
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        //Swift.print("data: " + "\(data)")
         let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
         Swift.print("output: " + "\(output)")
+        Swift.print("task.terminationStatus: " + "\(task.terminationStatus)")
     }
     /**
      *
