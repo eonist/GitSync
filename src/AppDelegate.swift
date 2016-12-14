@@ -15,7 +15,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
-        
+        multiCMDTest()
         //trimTest()
         //commitLog()
         //commitShow()
@@ -33,17 +33,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let repoList = XMLParser.toArray(repoXML)//or use dataProvider
         Swift.print("repoList.count: " + "\(repoList.count)")
         
-        let localPath = repoList[1]["local-path"]
+        let localPath:String = repoList[1]["local-path"]!
         Swift.print("localPath: " + "\(localPath)")
         
-        let cmd:String = "-3 --pretty=format:\"Author:%an%nDate:%ci%nSubject:%s%nBody:%b\""//"-3 --oneline"//
-        //%ci -> 2015-12-03 16:59:09 +0100 ->is the best date format to convert to a Data instance. Relative time from git is strange. 26 hours ago should be 1 day ago etc, but is'nt
+        let cmd:String = "git show head~0 --pretty=format:%h --no-patch"
         
-        Swift.print("cmd: " + "\(cmd)")
         
-        let logResult:String = GitParser.log(localPath!, cmd)
-        Swift.print("logResult: ")
-        Swift.print("\(logResult)")
+        
+        let shellScript:String = Git.path + "git show " + cmd
+        //Swift.print("shellScript: " + "\(shellScript)")
+        let result:String = ShellUtils.run(shellScript,localPath)
+        Swift.print("result: " + "\(result)")
+        
         //Continue here: Test if you can call many git calls in one NSTask
             //By using && you can combine git calls, but will the result be an array or a string?
                 //Check the speed of such a call
