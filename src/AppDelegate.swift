@@ -16,9 +16,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         initApp()
         
-        
-       
-        
         //trimTest()
         //commitLog()
         //commitShow()

@@ -53,8 +53,7 @@ private class Utils{
         
         let commitCount:String = GitParser.commitCount(localPath!)/*Get the commitCount of this repo*/
         Swift.print("commitCount: " + ">\(commitCount)<")
-        let commitCountInt:Int = commitCount.int
-        let length:Int = commitCountInt > 20 ? 20 : commitCountInt//20 = maxCount
+        let length:Int = commitCount.int > 20 ? 20 : commitCount.int//20 = maxCount
         let logCMD:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
         for i in 0..<length{
             //replace 31 with i bellow:
@@ -78,6 +77,9 @@ private class Utils{
         let dp = DataProvider(commitItems)
         dp.sort("sortableDate")/*sorts the list in ascending order*/
         //Swift.print("dp.count: " + "\(dp.count)")
+        
+        //continue here: remote print and then move on to planing how to loop all repos. also speed tests the gathering of commits
+        
         return dp
     }
 }
