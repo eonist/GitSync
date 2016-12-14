@@ -28,7 +28,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("someInt: " + "\(someInt)")
         */
         
-        let someInt:Int = StringParser.trim("32\n", "\n", "\n").int
+        let someInt:Int = "32\n".trim(Character("\n")).int
         Swift.print("someInt: " + "\(someInt)")
         
         //trimTest()
