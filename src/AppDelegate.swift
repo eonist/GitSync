@@ -48,6 +48,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let result:String = ShellUtils.run(shellScript,localPath)
         Swift.print("result: " + "\(result)")
         
+        //Continue here:
+            //do research into multi command calls to NSTask 
+                //you could try something simpler than git to get things going
+        
         //Continue here: Test if you can call many git calls in one NSTask
             //By using && you can combine git calls, but will the result be an array or a string?
                 //Check the speed of such a call
