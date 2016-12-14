@@ -14,8 +14,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - Simple git automation for macOS")
         
-        //initApp()
-        trimTest()
+        initApp()
+        //trimTest()
         //Continue here:
             //figure out the body bug by printing all the body strings and testing each one
             //also cap the subject? or maybe not? maybe there is a max subject length already? google it
