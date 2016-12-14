@@ -16,8 +16,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //initApp()
         let someStr:String = "32\n"
-        
-        let trimmedStr:String = someStr.subStr(someStr.count-2,someStr.count) == "\n" ? someStr.subStr(0,someStr.count-2) : someStr
+        let hasTrailingLineBreak:Bool = someStr.subStr(someStr.count-2,2) == "\n"
+        let trimmedStr:String = hasTrailingLineBreak ? someStr.subStr(0,someStr.count-2) : someStr
+        Swift.print("trimmedStr: " + ">\(trimmedStr)<")
         let someInt:Int = trimmedStr.int
         Swift.print("someInt: " + "\(someInt)")
         
