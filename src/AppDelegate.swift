@@ -35,15 +35,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let cd = "~/_projects/_code/_active/swift/Element-iOS"
         let task = NSTask()
         task.currentDirectoryPath = cd
-        task.launchPath = "/bin/bash"//"/usr/bin/env"
-        task.arguments = arguments
+        task.launchPath = "/usr/bin/env"//"/bin/bash"//
+        task.arguments = ["ls"]
         task.environment = ["LC_ALL" : "en_US.UTF-8","HOME" : NSHomeDirectory()]
         let pipe = NSPipe()
         task.standardOutput = pipe
         task.launch()
         task.waitUntilExit()
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        //Swift.print("data: " + "\(data)")
         let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
+        Swift.print("output: " + "\(output)")
     }
     /**
      *
