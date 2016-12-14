@@ -2,9 +2,12 @@
     //Figure out how to derive previous commit messages from repo's. You need from 0 to 10 latest commits.
         //Research custom "git log" commands (done)
         //Store each commit in an array with data capsules (date:"",author:"",subject:"",body:"") (DONE)
+            //figure out the body bug by printing all the body strings and testing each one (done)
+                //also cap the subject? or maybe not? maybe there is a max subject length already? google it (done 50/72 rule)
+            //store all subjects and body strings in a txt file for debugging (done, used GitHub Desktop)
         //Format the date into an NSDate instance, see old notes (Done)
-        //Then figure out how to sort these based on the date within them (Next)
-            //make an array with Tuples then sort on date as num: 20161203 aka YYYYMMDDHHMMSS
+        //Then figure out how to sort these based on the date within them (Done)
+            //make an array with Tuples then sort on date as num: 20161203 aka YYYYMMDDHHMMSS (Done)
         //Then make a list of all commits from all repos. Cap the list at 200
         //then add this list to CommitsView
         //Figure out how you can update the FastList with new Items and not lose track of selected idx etc
