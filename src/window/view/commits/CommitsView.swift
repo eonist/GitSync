@@ -50,17 +50,11 @@ private class Utils{
         let localPath = repoList[1]["local-path"]
         Swift.print("localPath: " + "\(localPath)")
         let repoTitle = repoList[1]["title"]!
-        /*
-        let cmd:String = "head~1 --pretty=oneline --no-patch"
-        Swift.print("cmd: " + "\(cmd)")
-        let result:String = GitParser.show(localPath!, cmd)
-        Swift.print("result: " + "\(result)")
-        */
         
-        let commitCount:String = GitParser.commitCount(localPath!)
+        let commitCount:String = GitParser.commitCount(localPath!)/*Get the commitCount of this repo*/
         Swift.print("commitCount: " + "\(commitCount)")
         
-        let length:Int = 4//commitCount > 20 ? 20 : commitCount//20 = maxCount
+        let length:Int = commitCount > 20 ? 20 : commitCount//20 = maxCount
         let logCMD:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
         for i in 0..<length{
             //replace 31 with i bellow:
@@ -70,33 +64,21 @@ private class Utils{
             //Swift.print("result.count: " + "\(result.count)")
             let commitData = GitLogParser.commitData(result)
             //dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!
-            
             let date:NSDate = GitLogParser.date(commitData.date)
             //Swift.print("date.shortDate: " + "\(date.shortDate)")
             let relativeTime = DateParser.relativeTime(NSDate(),date)[0]
             let relativeDate:String = relativeTime.value.string + relativeTime.type/*create date like 3s,4m,5h,6w,2y*/
             //Swift.print("relativeDate: " + "\(relativeDate)")
-            
             let descendingDate:String = DateParser.descendingDate(date)
-            
             let compactBody:String = GitLogParser.compactBody(commitData.body)/*compact the commit msg body*/
             //Swift.print("compactBody: " + "\(compactBody)")
-            
             let subject:String = StringParser.trim(commitData.subject, "'", "'")
-            
             commitItems.append(["repo-name":repoTitle,"contributor":commitData.author,"title":subject,"description":compactBody,"date":relativeDate,"sortableDate":descendingDate,"hash":commitData.hash])////we store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView
         }
-        
-        //Continue here: sort DP
-        
         let dp = DataProvider(commitItems)
-        
-        dp.sort("sortableDate")//sorts the list in ascending order
-        
+        dp.sort("sortableDate")/*sorts the list in ascending order*/
         //Swift.print("dp.count: " + "\(dp.count)")
-        
         return dp
-        
     }
 }
 /*
