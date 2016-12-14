@@ -37,11 +37,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("localPath: " + "\(localPath)")
         
         let cmd:String = "head~0 --pretty=format:%h --no-patch"
+        let cmd2:String = "head~0 --pretty=format:%h --no-patch"
         
         
         
-        let shellScript:String = Git.path + "git show " + cmd + " && " + Git.path + "git show " + cmd
-        //Swift.print("shellScript: " + "\(shellScript)")
+        let shellScript:String = Git.path + "git show " + cmd + " && " + Git.path + "git show " + cmd2
+        Swift.print("shellScript: " + "\(shellScript)")
         let result:String = ShellUtils.run(shellScript,localPath)
         Swift.print("result: " + "\(result)")
         
