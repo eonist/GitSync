@@ -30,7 +30,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func multiCMDTest(){
         //Continue here: Test if you can call many git calls in one NSTask
-            //By using && you can combine git calls, but will the result be an array? 
+            //By using && you can combine git calls, but will the result be an array or a string?
+                //Check the speed of such a call
+                //if it is a string then you need to setup a regexp.matches that the splits each commit item appart.
+        
             //Do single show commands for instance
     }
     /**
