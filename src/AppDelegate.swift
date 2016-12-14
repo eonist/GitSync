@@ -29,6 +29,21 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func multiCMDTest(){
+        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        Swift.print("repoList.count: " + "\(repoList.count)")
+        
+        let localPath = repoList[1]["local-path"]
+        Swift.print("localPath: " + "\(localPath)")
+        
+        let cmd:String = "-3 --pretty=format:\"Author:%an%nDate:%ci%nSubject:%s%nBody:%b\""//"-3 --oneline"//
+        //%ci -> 2015-12-03 16:59:09 +0100 ->is the best date format to convert to a Data instance. Relative time from git is strange. 26 hours ago should be 1 day ago etc, but is'nt
+        
+        Swift.print("cmd: " + "\(cmd)")
+        
+        let logResult:String = GitParser.log(localPath!, cmd)
+        Swift.print("logResult: ")
+        Swift.print("\(logResult)")
         //Continue here: Test if you can call many git calls in one NSTask
             //By using && you can combine git calls, but will the result be an array or a string?
                 //Check the speed of such a call
