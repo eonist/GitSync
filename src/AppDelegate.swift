@@ -16,8 +16,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //initApp()
         let someStr:String = "32\n"
-        let hasTrailingLineBreak:Bool = someStr.subStr(someStr.count-2,2) == "\n"
-        let trimmedStr:String = hasTrailingLineBreak ? someStr.subStr(0,someStr.count-2) : someStr
+        Swift.print("someStr.count: " + "\(someStr.count)")
+        let lastTwoChars:String = someStr.subStr(someStr.count-1,1)
+        Swift.print("lastTwoChars: " + ">\(lastTwoChars)<")
+        let hasTrailingLineBreak:Bool = someStr.subStr(someStr.count-1,1) == "\n"
+        Swift.print("hasTrailingLineBreak: " + "\(hasTrailingLineBreak)")
+        let trimmedStr:String = hasTrailingLineBreak ? someStr.subStr(0,someStr.count-1) : someStr
         Swift.print("trimmedStr: " + ">\(trimmedStr)<")
         let someInt:Int = trimmedStr.int
         Swift.print("someInt: " + "\(someInt)")
