@@ -14,8 +14,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - Simple git automation for macOS")
         
-        initApp()
-        //trimTest()
+        //initApp()
+        trimTest()
         //Continue here:
             //figure out the body bug by printing all the body strings and testing each one (done)
             //also cap the subject? or maybe not? maybe there is a max subject length already? google it
@@ -40,6 +40,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let test3 = "abc"
         let test4 = "''"
         let test5 = "'\n'abc'\n'"//we only want to remove the edge ' chars
+        let test6 = "\nabc\n123"
         
         /**
          *
@@ -60,6 +61,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         trim(test3)
         trim(test4)
         trim(test5)
+        trim(test6)
         
         //Naive approche could be simpler:
         
