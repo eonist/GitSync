@@ -33,7 +33,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //By using && you can combine git calls, but will the result be an array or a string?
                 //Check the speed of such a call
                 //if it is a string then you need to setup a regexp.matches that the splits each commit item appart.
-        
+                //optionally we could get away with iterating over repos over time, we only show so many items anyway
             //Do single show commands for instance
     }
     /**
