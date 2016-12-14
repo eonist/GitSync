@@ -54,6 +54,7 @@ private class Utils{
         //Swift.print("commitCount: " + ">\(commitCount)<")
         let length:Int = commitCount.int > 20 ? 20 : commitCount.int//20 = maxCount
         let logCMD:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
+        let startTime = NSDate()
         
         for i in 0..<length{
             //replace 31 with i bellow:
@@ -74,6 +75,8 @@ private class Utils{
             let subject:String = StringParser.trim(commitData.subject, "'", "'")
             commitItems.append(["repo-name":repoTitle,"contributor":commitData.author,"title":subject,"description":compactBody,"date":relativeDate,"sortableDate":descendingDate,"hash":commitData.hash])////we store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView
         }
+        //do some intensive cpu stuff here
+        Swift.print("Time: " + "\(abs(startTime.timeIntervalSinceNow))")
         let dp = DataProvider(commitItems)
         dp.sort("sortableDate")/*sorts the list in ascending order*/
         //Swift.print("dp.count: " + "\(dp.count)")
