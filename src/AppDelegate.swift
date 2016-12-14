@@ -14,7 +14,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - Simple git automation for macOS")
         
-        initApp()
+        //initApp()
+        let someInt:Int = "32\n".int
+        let f = Float(someInt)
+        Swift.print("f: " + "\(f)")
+        let cgf = CGFloat(someInt)
+        Swift.print("cgf: " + "\(cgf)")
+        Swift.print("someInt: " + "\(someInt)")
         //trimTest()
         //commitLog()
         //commitShow()
