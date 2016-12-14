@@ -17,9 +17,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         initApp()
         //trimTest()
         //Continue here:
-            //figure out the body bug by printing all the body strings and testing each one (done)
-            //also cap the subject? or maybe not? maybe there is a max subject length already? google it (done 50/72 rule)
-            //store all subjects and body strings in a txt file for debugging (done, used GitHub Desktop)
+            
         
         
         //commitLog()
