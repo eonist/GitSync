@@ -25,6 +25,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //commitDataTest()
         //relativeTimeTest()
     }
+    
     /**
      *
      */
