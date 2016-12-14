@@ -30,13 +30,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func multiCMDTest(){
         //Continue here: Test if you can call many git calls in one NSTask
-            //
+            //Do single show commands for instance
     }
     /**
      * Trimming test when compacting filtering the commit body
      */
     func trimTest(){
-        
         let test = "'\n\nabc\n'"
         let test2 = "'\nabc\n'"
         let test3 = "abc"
