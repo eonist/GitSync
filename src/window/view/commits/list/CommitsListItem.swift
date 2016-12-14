@@ -31,7 +31,7 @@ class CommitsListItem:Button,ISelectable{
         contributorText = container.addSubView(Text(100,20,contributor,container,"contributor"))
         contributorText!.isInteractive = false
         
-        titleText = container.addSubView(Text(320,24,title,container,"title"))
+        titleText = container.addSubView(Text(370,24,title,container,"title"))
         titleText!.isInteractive = false
         descText = container.addSubView(Text(180,50,desc,container,"description"))
         descText!.isInteractive = false
