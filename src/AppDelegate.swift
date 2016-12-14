@@ -15,6 +15,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
+        /*
         let someStr:String = "32\n"
         Swift.print("someStr.count: " + "\(someStr.count)")
         let lastTwoChars:String = someStr.subStr(someStr.count-1,1)
@@ -25,8 +26,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("trimmedStr: " + ">\(trimmedStr)<")
         let someInt:Int = trimmedStr.int
         Swift.print("someInt: " + "\(someInt)")
+        */
         
-        
+        let someInt:Int = StringParser.trim("32\n", "\n", "\n").int
+        Swift.print("someInt: " + "\(someInt)")
         
         //trimTest()
         //commitLog()
