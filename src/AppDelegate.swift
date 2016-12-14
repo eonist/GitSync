@@ -26,6 +26,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let someInt:Int = trimmedStr.int
         Swift.print("someInt: " + "\(someInt)")
         
+        
+        
         //trimTest()
         //commitLog()
         //commitShow()
