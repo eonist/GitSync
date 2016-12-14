@@ -45,7 +45,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          *
          */
         func trim(str:String){
-            str.matches("(?:^'?\n*)(.*?)(?:(\n+?'?)|('$))").forEach{
+            str.matches("(?:^'?\n*)(.*?)(?:(\n+?'?)|('$)|$)").forEach{//its not pretty but it works
                 if($0.numberOfRanges > 1){
                     let body = $0.value(str, 1)/*capturing group 1*/
 
