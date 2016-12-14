@@ -14,7 +14,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - Simple git automation for macOS")
         
-        initApp()
+        //initApp()
         
         //trimTest()
         //commitLog()
@@ -24,6 +24,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //sortTest()
         //commitDataTest()
         //relativeTimeTest()
+    }
+    /**
+     *
+     */
+    func multiCMDTest(){
+        //Continue here: Test if you can call many git calls in one NSTask
+            //
     }
     /**
      * Trimming test when compacting filtering the commit body
