@@ -30,6 +30,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func multiCMDTest(){
         //Continue here: Test if you can call many git calls in one NSTask
+            //By using && you can combine git calls, but will the result be an array? 
             //Do single show commands for instance
     }
     /**
