@@ -54,6 +54,7 @@ private class Utils{
         //Swift.print("commitCount: " + ">\(commitCount)<")
         let length:Int = commitCount.int > 20 ? 20 : commitCount.int//20 = maxCount
         let logCMD:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
+        
         for i in 0..<length{
             //replace 31 with i bellow:
             let cmd:String = "head~" + i.string + logCMD + " --no-patch"//--no-patch suppresses the diff output of git show
