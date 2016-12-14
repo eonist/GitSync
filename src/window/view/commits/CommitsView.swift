@@ -60,7 +60,7 @@ private class Utils{
         let commitCount:String = GitParser.commitCount(localPath!)
         Swift.print("commitCount: " + "\(commitCount)")
         
-        let length:Int = 4//commitCount > 20 ? 20 : commitCount//20 = maxCount
+        let length:Int = 20//commitCount > 20 ? 20 : commitCount//20 = maxCount
         let logCMD:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
         for i in 0..<length{
             //replace 31 with i bellow:
