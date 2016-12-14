@@ -37,7 +37,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let test = "'\n\nabc\n'"
         let test2 = "'\nabc\n'"
-        let test3 = "\""
+        let test3 = ""
         let test4 = "''"
         let test5 = "'\n'abc'\n'"//we only want to remove the edge ' chars
         
@@ -45,7 +45,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          *
          */
         func trim(str:String){
-            str.matches("(?:^'?\n*)(.*?)(?:\n+?|$)").forEach{
+            str.matches("(?:^'?\n*)(.*?)(?:(\n+?'?)|$)").forEach{
                 if($0.numberOfRanges > 1){
                     let body = $0.value(str, 1)/*capturing group 1*/
 
