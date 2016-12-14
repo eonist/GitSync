@@ -16,10 +16,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //initApp()
         let someStr:String = "32\n"
-        let f = Double(someStr)
-        Swift.print("f: " + "\(f)")
-        let cgf = CGFloat(f!)
-        Swift.print("cgf: " + "\(cgf)")
+        
+        let trimmedStr:String = someStr.subStr(someStr.count-2,someStr.count) == "\n" ? someStr.subStr(0,someStr.count-2) : someStr
+        let someInt:Int = trimmedStr.int
+        Swift.print("someInt: " + "\(someInt)")
         
         //trimTest()
         //commitLog()
