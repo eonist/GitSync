@@ -16,7 +16,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //initApp()
         //multiCMDTest()
-        shellTesting()
+        //shellTesting()
+        moreShellTesting()
         //trimTest()
         //commitLog()
         //commitShow()
@@ -30,8 +31,27 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func moreShellTesting(){
-        let commandOutput = executeCommand("/bin/echo", ["Hello, I am here!"])
-        println("Command output: \(commandOutput)")
+        func executeCommand(command: String, args: [String]) -> NSString {
+            
+            let task = NSTask()
+            
+            task.launchPath = command
+            task.arguments = args
+            
+            let pipe = NSPipe()
+            task.standardOutput = pipe
+            task.launch()
+            
+            let data = pipe.fileHandleForReading.readDataToEndOfFile()
+            let output = NSString(data: data, encoding: NSUTF8StringEncoding)
+            return output!
+            
+        }
+        
+        let commandOutput = executeCommand("/bin/echo", args: ["Hello, I am here!","hello again"])
+        print("Command output: \(commandOutput)")
+        
+
     }
     /**
      *
