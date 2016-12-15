@@ -43,7 +43,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let task = NSTask()
         task.currentDirectoryPath = cd
         task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//
-        task.arguments = ["-c","awk '{echo $1}'"]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
+        task.arguments = ["-c","ps", "-clx", "|", "grep 'Finder'", "|", "awk '{print $2}'"]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
         task.environment = ["LC_ALL" : "en_US.UTF-8","HOME" : NSHomeDirectory()]
         let pipe = NSPipe()
         task.standardOutput = pipe
