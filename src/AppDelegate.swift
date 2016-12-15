@@ -29,6 +29,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     /**
      *
      */
+    func moreShellTesting(){
+        let commandOutput = executeCommand("/bin/echo", ["Hello, I am here!"])
+        println("Command output: \(commandOutput)")
+    }
+    /**
+     *
+     */
     func multiTaskTest(){
         //try this answer: http://stackoverflow.com/questions/9400287/how-to-run-nstask-with-multiple-commands?rq=1
             //try a simple case and then the git commands 20 and then 200 etc. use the timer to calc the time it takes
