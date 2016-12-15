@@ -48,7 +48,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             
         }
         
-        let commandOutput = executeCommand("/bin/echo", args: ["Hello, I am here!","hello again"])
+        let commandOutput = executeCommand("/bin/echo", args: ["Hello, I am here!"])
         print("Command output: \(commandOutput)")
         
 
