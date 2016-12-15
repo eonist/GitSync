@@ -42,8 +42,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let cd = "~/_projects/_code/_active/swift/Element-iOS"
         let task = NSTask()
         task.currentDirectoryPath = cd
-        task.launchPath = "/usr/bin/env"//"/bin/bash"//
-        task.arguments = ["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
+        task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//
+        task.arguments = ["-c","ps -A |grep -m1 Finder | awk '{print $1}'"]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
         task.environment = ["LC_ALL" : "en_US.UTF-8","HOME" : NSHomeDirectory()]
         let pipe = NSPipe()
         task.standardOutput = pipe
