@@ -39,23 +39,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let repoList = XMLParser.toArray(repoXML)//or use dataProvider
         Swift.print("repoList.count: " + "\(repoList.count)")
         
-        let localPath:String = repoList[1]["local-path"]!
-        
-        //for each repo in repolist
-        repoList.forEach{
-            Utils.commitItems($0["local-path"]!)
-        }
-            //retrive 20 repo items and add them to dp
-        
-        
-        
-        
         var operations:[(task:NSTask,pipe:NSPipe)] = []
-        args.forEach{
-            let operation = Utils.configOperation([$0])
-            operations.append(operation)
-        }
         
+        repoList.forEach{
+            let localPath:String = $0["local-path"]!
+            let args:[String] = Utils.commitItems(localPath)
+            args.forEach{
+                let operation = Utils.configOperation([$0],localPath)
+                operations.append(operation)
+            }
+        }
+        //retrive 20 repo items and add them to dp
         let finalTask = operations[operations.count-1].task
         
         NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock: { notification in
