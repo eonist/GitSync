@@ -56,13 +56,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //retrive 20 repo items and add them to dp
         let finalTask = operations[operations.count-1].task
         
-        /**
-         *
-         */
-        func handler(){
+        
+        
+        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)
             
-        }
-        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock: { notification in
+        /*{ notification in
             Swift.print("the last task completed")
             operations.forEach{
                 let data:NSData = $0.pipe.fileHandleForReading.readDataToEndOfFile()
@@ -71,13 +69,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //Swift.print(output)
             }
             Swift.print("Time: " + "\(abs(startTime.timeIntervalSinceNow))")
-        })
+        })*/
         
         operations.forEach{//launch all tasks
             $0.task.launch()
         }
     }
-    
+    func observer(notification:NSNotification) {
+        print("Received Notification - Someone seems to have logged in" + String(notification.object.self))
+    }
     /**
      *
      */
