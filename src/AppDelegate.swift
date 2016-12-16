@@ -56,6 +56,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //retrive 20 repo items and add them to dp
         let finalTask = operations[operations.count-1].task
         
+        /**
+         *
+         */
+        func handler(){
+            
+        }
         NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock: { notification in
             Swift.print("the last task completed")
             operations.forEach{
