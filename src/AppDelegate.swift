@@ -1,7 +1,7 @@
 import Cocoa
 /**
  * This is the main class for the application
- * TODO: An idea is to hide the interface when the mouse is not over the app (anim in and out) (maybe)
+ * TODO: An idea is to hide parts of the interface when the mouse is not over the app (anim in and out) (maybe)
  */
 @NSApplicationMain
 class AppDelegate:NSObject, NSApplicationDelegate {
@@ -14,9 +14,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - Simple git automation for macOS")
         
-        //initApp()
+        initApp()
 
-        DataProvider([["date":"0214","title":"a"],["date":"0216","title":"b"],["date":"0114","title":"c"]]).sort("date").items.forEach{Swift.print($0["title"])}//c,a,b
+        
         
         //multiTaskTest()
         //multiCMDTest()
