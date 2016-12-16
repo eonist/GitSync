@@ -11,6 +11,7 @@ class CommitViewUtils {
         let relativeDate:String = relativeTime.value.string + relativeTime.type/*create date like 3s,4m,5h,6w,2y*/
         //Swift.print("relativeDate: " + "\(relativeDate)")
         let descendingDate:String = DateParser.descendingDate(date)
+        Swift.print(">"+descendingDate+"<")
         let compactBody:String = GitLogParser.compactBody(commitData.body)/*compact the commit msg body*/
         //Swift.print("compactBody: " + "\(compactBody)")
         let subject:String = StringParser.trim(commitData.subject, "'", "'")

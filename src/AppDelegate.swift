@@ -16,8 +16,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         initApp()
 
-        
-        
         //multiTaskTest()
         //multiCMDTest()
         //shellTesting()
