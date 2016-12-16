@@ -1,5 +1,5 @@
 ### Continue here:
-    //Fix the CompactBody problem (occurs with Element MacOS repo)
+    //Fix the CompactBody problem (occurs with Element MacOS repo) (Next)
     //Figure out a workflow to store commit logs in xml (maybe use reflection) because querying git is cpu intensive
         //you need to be able to easily extract commits based on date. 
             //so storing the same amount as the max visible amount is important
@@ -10,7 +10,9 @@
             //you need to create a custom CommitDB extends DataProvider with data-model: (Dict->Array->Dict)
                 //Stores commits by key: "repo-id" (repo-id is a unique incremental global id)
             //you also need to store a ref in an Array that stores all commits sorted by date (latest to oldest) (you insert commits by finding its index by halving the array until you find the right index)
-                //you then query CommitDB.sortedByDate
+                //Do an experiment to figure out the halving technique 
+                //you then slice CommitDB.sortedByDate from 0 until maxVisibleCommits (100) and use this array for the ListView
+                
     //Maybe use a simpler list while debugging and a non-fancy refresh button (to test out ideas and the GitSync algorithm)
     //Create the new Add and remove buttons that are bright blue so that they gathers the attention needed
     //Take a look at how the GitSync apple-script is organized. and copy the workflow to swift 
