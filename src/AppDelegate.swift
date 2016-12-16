@@ -17,7 +17,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initApp()
         let items = [["date":"0214","title":"a"],["date":"0216","title":"b"],["date":"0114","title":"c"]]
         let db = DataProvider(items)
-        db.sort("date")
+        db.sort("date",false)
         db.items.forEach{
             Swift.print($0["title"])
         }
