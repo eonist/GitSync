@@ -74,7 +74,7 @@ class CommitsView:Element {
             commitItems.append(processedCommitData)////we store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView
         }
         dp = DataProvider(commitItems)
-        dp!.sort("sortableDate")/*sorts the list in ascending order*/
+        dp!.sort("sortableDate",false)/*sorts the list in ascending order*/
         Swift.print("dp.count: " + "\(dp!.count)")
         Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")
         createList()/*creates the GUI List*/
