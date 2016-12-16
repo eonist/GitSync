@@ -43,7 +43,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //for each repo in repolist
         repoList.forEach{
-            commitItems($0["local-path"]!)
+            Utils.commitItems($0["local-path"]!)
         }
             //retrive 20 repo items and add them to dp
         
@@ -52,7 +52,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         var operations:[(task:NSTask,pipe:NSPipe)] = []
         args.forEach{
-            let operation = configOperation([$0])
+            let operation = Utils.configOperation([$0])
             operations.append(operation)
         }
         
@@ -361,7 +361,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
 }
 private class Utils{
-    static func commitItems(localPath:String){
+    /**
+     *
+     */
+    static func commitItems(localPath:String)->[String]{
         let commitCount:String = GitParser.commitCount(localPath)/*Get the commitCount of this repo*/
         //Swift.print("commitCount: " + ">\(commitCount)<")
         let max:Int = 20
@@ -374,8 +377,11 @@ private class Utils{
             let cmd:String = "git show head~" + "\(i)" + formating + " --no-patch"//--no-patch suppresses the diff output of git show
             args.append(cmd)
         }
+        return args
     }
-    
+    /**
+     *
+     */
     static func configOperation(args:[String],_ localPath:String)->(task:NSTask,pipe:NSPipe){
         let task = NSTask()
         task.currentDirectoryPath = localPath
