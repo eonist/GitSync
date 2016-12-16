@@ -9,7 +9,8 @@
             //dp.getItemsByKey("repo-id")
             //you need to create a custom CommitDB extends DataProvider with data-model: (Dict->Array->Dict)
                 //Stores commits by key: "repo-id" (repo-id is a unique incremental global id)
-                //
+            //you also need to store a ref in an Array that stores all commits sorted by date (latest to oldest) (you insert commits by finding its index by halving the array until you find the right index)
+                //you then query CommitDB.sortedByDate
     //Maybe use a simpler list while debugging and a non-fancy refresh button (to test out ideas and the GitSync algorithm)
     //Create the new Add and remove buttons that are bright blue so that they gathers the attention needed
     //Take a look at how the GitSync apple-script is organized. and copy the workflow to swift 
