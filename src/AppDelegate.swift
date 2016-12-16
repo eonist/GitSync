@@ -42,10 +42,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         var operations:[(task:NSTask,pipe:NSPipe)] = []
         
         let maxItems:Int = 100
-        
+        let maxCommitItems:Int = maxItems/repoList.count//max commit items allowed per repo
+        Swift.print("repoList.count: " + "\(repoList.count)")
+        Swift.print("maxCommitItems: " + "\(maxCommitItems)")
         repoList.forEach{
             let localPath:String = $0["local-path"]!
-            let args:[String] = Utils.commitItems(localPath)
+            let args:[String] = Utils.commitItems(localPath,maxCommitItems)
             args.forEach{
                 let operation = Utils.configOperation([$0],localPath)
                 operations.append(operation)
@@ -358,12 +360,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 }
 private class Utils{
     /**
-     *
+     * PARAM: max = max Items Allowed per repo
      */
-    static func commitItems(localPath:String)->[String]{
+    static func commitItems(localPath:String,_ max:Int)->[String]{
         let commitCount:String = GitParser.commitCount(localPath)/*Get the commitCount of this repo*/
         //Swift.print("commitCount: " + ">\(commitCount)<")
-        let max:Int = 20
+        
         let length:Int = commitCount.int > max ? max : commitCount.int//20 = maxCount
         //Swift.print("length: " + "\(length)")
         
