@@ -15,12 +15,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
-        let items = [["date":"0214","title":"a"],["date":"0216","title":"b"],["date":"0114","title":"c"]]
-        let db = DataProvider(items)
-        db.sort("date",false)
-        db.items.forEach{
-            Swift.print($0["title"])
-        }
+
+        DataProvider([["date":"0214","title":"a"],["date":"0216","title":"b"],["date":"0114","title":"c"]]).sort("date").items.forEach{Swift.print($0["title"])}//c,a,b
         
         //multiTaskTest()
         //multiCMDTest()
