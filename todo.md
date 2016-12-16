@@ -1,5 +1,6 @@
 ### Continue here:
-    //Figure out a workflow to store commit logs in xml (maybe use reflection) as querying git is cpu intensive
+    //Figure out a workflow to store commit logs in xml (maybe use reflection) because querying git is cpu intensive
+        //you need to be able to easily extract commits based on date. 
     //Maybe use a simpler list while debugging and a non-fancy refresh button (to test out ideas and the GitSync algorithm)
     //Create the new Add and remove buttons that are bright blue so that they gathers the attention needed
     //Take a look at how the GitSync apple-script is organized. and copy the workflow to swift 
