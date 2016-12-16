@@ -85,42 +85,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let finalTask = operations[operations.count-1].task
         
-        //Dispatch Event/Post Notification:
-        //NSNotificationCenter.defaultCenter().postNotificationName("SomeNotification", object:self)
         
-        //Listen for Event/Observe Notification:
-        
-        func someObserver(sender: AnyObject) {//remember to place this in a class scope not a method scope
-            
-        }
-        
-        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock: { notification:NSNotification in
-            
+        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock: { notification in
+            Swift.print("all tasks where completed")
+            //let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()
+            //let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
         })
-        
-        //Remove Event/Remove Observation:
-        NSNotificationCenter.defaultCenter().removeObserver(self name: SomeNotification, object: nil)
-        //alternatively you can remove all observers on this object:
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-        
-
-        
-        
-        [[NSNotificationCenter defaultCenter] addObserverForName:NSTaskDidTerminateNotification
-            object:task3
-            queue:nil
-            usingBlock:^(NSNotification* notification){
-            
-            NSData * data = [file readDataToEndOfFile];
-            
-            NSString * string;
-            string = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-            NSLog(@"Result: %@", string);
-            }];
-        
-        
-        let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
     }
     /**
      *
