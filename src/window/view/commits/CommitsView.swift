@@ -62,7 +62,7 @@ private class Utils{
             //convert the logItem to Tupple
             let result:String = GitParser.show(localPath!, cmd)
             //Swift.print("result.count: " + "\(result.count)")
-            let commitData = GitLogParser.commitData(result)
+            let commitData = GitLogParser.commitData(result)/*Compartmentalizes the result into a Tuple*/
             //dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!
             let date:NSDate = GitLogParser.date(commitData.date)
             //Swift.print("date.shortDate: " + "\(date.shortDate)")
