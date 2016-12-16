@@ -363,7 +363,7 @@ private class Utils{
         //Swift.print("commitCount: " + ">\(commitCount)<")
         let max:Int = 20
         let length:Int = commitCount.int > max ? max : commitCount.int//20 = maxCount
-        Swift.print("length: " + "\(length)")
+        //Swift.print("length: " + "\(length)")
         
         var args:[String] = []
         let formating:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
@@ -383,7 +383,7 @@ private class Utils{
         task.arguments = ["-c",args[0]]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
         let pipe = NSPipe()
         task.standardOutput = pipe
-        //task.waitUntilExit()
+        //task.waitUntilExit()/*not needed if we use NSNotification*/
         return (task,pipe)
     }
 }
