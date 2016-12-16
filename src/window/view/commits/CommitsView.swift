@@ -89,6 +89,9 @@ private class Utils{
         return dp
     }
 }
+private class Utils{
+    
+}
 /*
 class CommitsTopBar:Element{
     var reposButton:Button?
