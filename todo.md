@@ -1,4 +1,9 @@
-//Continue here:
+### Continue here:
+    //Figure out a workflow to store commit logs in xml (maybe use reflection) as querying git is cpu intensive
+    //Maybe use a simpler list while debugging and a non-fancy refresh button (to test out ideas)
+    //Create the new Add and remove buttons that are bright blue so that they gathers the attention needed
+    //Take a look at how the GitSync apple-script is organized. and copy the workflow to swift 
+### Completed:
     //Figure out how to derive previous commit messages from repo's. You need from 0 to 10 latest commits.
         //Research custom "git log" commands (done)
         //Store each commit in an array with data capsules (date:"",author:"",subject:"",body:"") (DONE)
@@ -9,14 +14,9 @@
         //Then figure out how to sort these based on the date within them (Done)
             //make an array with Tuples then sort on date as num: 20161203 aka YYYYMMDDHHMMSS (Done)
         //Then make a list of all commits from all repos. Cap the list at 200 divide by repos.count to find how many to get from each repo
-            //Use NSNotification with NSTask when extracting data from the repos
-        //then add this list to CommitsView
-        //Figure out how you can update the FastList with new Items and not lose track of selected idx etc
-            //Start testing this with the regular List
-                //I think you can just append the DataProvider and refresh the visible items, then you just increment the selected idx for every append
-    //create the new Add and remove buttons that are bright blue so that they gathers the attention needed
-    //Take a look at how the GitSync apple-script is organized. and copy the workflow to swift (Next)
-//Completed:
+            //Use NSNotification with NSTask when extracting data from the repos (done)
+                //try to add the task to a Background thread
+        //then add this list to CommitsView (done)
     //Write a post about Gitsync app demo (done)
     //Brush up on your Git Skills. (done)
     //Publish 4 articles about Git on gitsync.io (done)
@@ -38,7 +38,10 @@
     //Create the commit message prompt w/ darkmode (done)
     //center-align repo-detail and add broader text input fields (done)
     //center-align the prefs (done)
-//Later
+### Later
+    //Figure out how you can update the FastList with new Items and not lose track of selected idx etc
+        //Start testing this with the regular List
+        //I think you can just append the DataProvider and refresh the visible items, then you just increment the selected idx for every append
     //path picker for localPath in repodetailview (folder icon)
     //add a eye-icon for find in finder feature in repodetailview
     //write about the mc2/bump idea (create logo idea ?!?)
@@ -46,7 +49,7 @@
     //attempt to add the switch skin functionality in a small isolated test (w/ styles from generic.css, just switching a few params)
     //Use the san-fran font (if you can find it)
     
-//Future
+### Future
     //Animate the Menu Icons to wobble in and out on click (similar to twitter for iOS)
         //Make animated gif of this animation in double retina resolution
     //cmd click on repo items will reveal edit icon in top bar for multi edit feature
