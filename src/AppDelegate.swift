@@ -42,38 +42,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let localPath:String = repoList[1]["local-path"]!
         
         //for each repo in repolist
+        repoList.forEach{
+            commitItems($0["local-path"]!)
+        }
             //retrive 20 repo items and add them to dp
         
         
-        func commitItems(localPath:String){
-            let commitCount:String = GitParser.commitCount(localPath)/*Get the commitCount of this repo*/
-            //Swift.print("commitCount: " + ">\(commitCount)<")
-            let max:Int = 20
-            let length:Int = commitCount.int > max ? max : commitCount.int//20 = maxCount
-            Swift.print("length: " + "\(length)")
-            
-            var args:[String] = []
-            let formating:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
-            for i in 0..<length{
-                let cmd:String = "git show head~" + "\(i)" + formating + " --no-patch"//--no-patch suppresses the diff output of git show
-                args.append(cmd)
-            }
-        }
         
-        
-        let localPath:String = "~/_projects/_code/_active/swift/element"
-        
-        
-        func configOperation(arguments:[String])->(task:NSTask,pipe:NSPipe){
-            let task = NSTask()
-            task.currentDirectoryPath = localPath
-            task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
-            task.arguments = ["-c",args[0]]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
-            let pipe = NSPipe()
-            task.standardOutput = pipe
-            //task.waitUntilExit()
-            return (task,pipe)
-        }
         
         var operations:[(task:NSTask,pipe:NSPipe)] = []
         args.forEach{
@@ -98,6 +73,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             $0.task.launch()
         }
     }
+    
     /**
      *
      */
@@ -382,5 +358,32 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             FileModifier.write("~/Desktop/assets/xml/list.xml".tildePath, RepoView.dp!.xml.XMLString)
         }
         print("Good-bye")
+    }
+}
+private class Utils{
+    static func commitItems(localPath:String){
+        let commitCount:String = GitParser.commitCount(localPath)/*Get the commitCount of this repo*/
+        //Swift.print("commitCount: " + ">\(commitCount)<")
+        let max:Int = 20
+        let length:Int = commitCount.int > max ? max : commitCount.int//20 = maxCount
+        Swift.print("length: " + "\(length)")
+        
+        var args:[String] = []
+        let formating:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
+        for i in 0..<length{
+            let cmd:String = "git show head~" + "\(i)" + formating + " --no-patch"//--no-patch suppresses the diff output of git show
+            args.append(cmd)
+        }
+    }
+    
+    static func configOperation(args:[String],_ localPath:String)->(task:NSTask,pipe:NSPipe){
+        let task = NSTask()
+        task.currentDirectoryPath = localPath
+        task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
+        task.arguments = ["-c",args[0]]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
+        let pipe = NSPipe()
+        task.standardOutput = pipe
+        //task.waitUntilExit()
+        return (task,pipe)
     }
 }
