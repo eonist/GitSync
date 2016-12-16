@@ -82,6 +82,19 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             operations.append(operation)
         }
         
+        [[NSNotificationCenter defaultCenter] addObserverForName:NSTaskDidTerminateNotification
+            object:task3
+            queue:nil
+            usingBlock:^(NSNotification* notification){
+            
+            NSData * data = [file readDataToEndOfFile];
+            
+            NSString * string;
+            string = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+            NSLog(@"Result: %@", string);
+            }];
+        
+        
         let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()
         let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
     }
