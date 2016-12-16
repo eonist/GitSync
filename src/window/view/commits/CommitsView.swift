@@ -16,7 +16,6 @@ class CommitsView:Element {
         //let dp:DataProvider = DataProvider()
         //dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
         //let xml = FileParser.xml("~/Desktop/commits.xml".tildePath)
-        
         //Swift.print("dp.count(): " + "\(dp.count)")
         //Swift.print("CommitsView.width: " + "\(width)")
         list = addSubView(CommitsList(CommitsView.w, CommitsView.h, 102, dp, self,"commitsList"))
@@ -32,8 +31,8 @@ class CommitsView:Element {
     func loadCommits(){
         startTime = NSDate()
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
-        var repoList = XMLParser.toArray(repoXML)//or use dataProvider
-        repoList = [repoList[1]]
+        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        //repoList = [repoList[1]]
         Swift.print("repoList.count: " + "\(repoList.count)")
         
         //let maxItems:Int = 100/*the amount of items to retrive*/
