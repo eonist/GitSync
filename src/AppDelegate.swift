@@ -29,17 +29,19 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //commitDataTest()
         //relativeTimeTest()
     }
+    var startTime:NSDate?
+    var operations:[(task:NSTask,pipe:NSPipe)] = []
     /**
      * //try this answer: http://stackoverflow.com/questions/9400287/how-to-run-nstask-with-multiple-commands?rq=1
      * //try a simple case and then the git commands 20 and then 200 etc. use the timer to calc the time it takes
      */
     func multiTaskTest(){
-        let startTime = NSDate()
+        startTime = NSDate()
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         let repoList = XMLParser.toArray(repoXML)//or use dataProvider
         Swift.print("repoList.count: " + "\(repoList.count)")
         
-        var operations:[(task:NSTask,pipe:NSPipe)] = []
+    
         
         let maxItems:Int = 100
         let maxCommitItems:Int = maxItems/repoList.count//max commit items allowed per repo
@@ -58,25 +60,22 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         
-        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)
-            
-        /*{ notification in
-            Swift.print("the last task completed")
-            operations.forEach{
-                let data:NSData = $0.pipe.fileHandleForReading.readDataToEndOfFile()
-                let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
-                output
-                //Swift.print(output)
-            }
-            Swift.print("Time: " + "\(abs(startTime.timeIntervalSinceNow))")
-        })*/
+        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
         
         operations.forEach{//launch all tasks
             $0.task.launch()
         }
     }
     func observer(notification:NSNotification) {
-        print("Received Notification - Someone seems to have logged in" + String(notification.object.self))
+        
+        Swift.print("the last task completed")
+        operations.forEach{
+            let data:NSData = $0.pipe.fileHandleForReading.readDataToEndOfFile()
+            let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
+            output
+            //Swift.print(output)
+        }
+        Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")
     }
     /**
      *
