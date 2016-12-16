@@ -8,7 +8,8 @@
         //Format the date into an NSDate instance, see old notes (Done)
         //Then figure out how to sort these based on the date within them (Done)
             //make an array with Tuples then sort on date as num: 20161203 aka YYYYMMDDHHMMSS (Done)
-        //Then make a list of all commits from all repos. Cap the list at 200
+        //Then make a list of all commits from all repos. Cap the list at 200 divide by repos.count to find how many to get from each repo
+            //Use NSNotification with NSTask when extracting data from the repos
         //then add this list to CommitsView
         //Figure out how you can update the FastList with new Items and not lose track of selected idx etc
             //Start testing this with the regular List
