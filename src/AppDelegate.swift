@@ -15,6 +15,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
+        
         multiTaskTest()
         //multiCMDTest()
         //shellTesting()
@@ -29,46 +30,39 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //relativeTimeTest()
     }
     /**
-     *
-     */
-    func moreShellTesting(){
-        func executeCommand(command: String, args: [String]) -> NSString {
-            let task = NSTask()
-            task.launchPath = command
-            task.arguments = args
-            let pipe = NSPipe()
-            task.standardOutput = pipe
-            task.launch()
-            let data = pipe.fileHandleForReading.readDataToEndOfFile()
-            let output = NSString(data: data, encoding: NSUTF8StringEncoding)
-            return output!
-            
-        }
-        
-        let commandOutput = executeCommand("/bin/sh", args: ["-c","echo Hello, I am here!"])
-        print("Command output: \(commandOutput)")
-        
-
-    }
-    /**
      * //try this answer: http://stackoverflow.com/questions/9400287/how-to-run-nstask-with-multiple-commands?rq=1
      * //try a simple case and then the git commands 20 and then 200 etc. use the timer to calc the time it takes
      */
     func multiTaskTest(){
         let startTime = NSDate()
-        let localPath:String = "~/_projects/_code/_active/swift/element"
-        let commitCount:String = GitParser.commitCount(localPath)/*Get the commitCount of this repo*/
-        //Swift.print("commitCount: " + ">\(commitCount)<")
-        let max:Int = 200
-        let length:Int = commitCount.int > max ? max : commitCount.int//20 = maxCount
-        Swift.print("length: " + "\(length)")
+        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        Swift.print("repoList.count: " + "\(repoList.count)")
         
-        var args:[String] = []
-        let formating:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
-        for i in 0..<length{
-            let cmd:String = "git show head~" + "\(i)" + formating + " --no-patch"//--no-patch suppresses the diff output of git show
-            args.append(cmd)
+        let localPath:String = repoList[1]["local-path"]!
+        
+        //for each repo in repolist
+            //retrive 20 repo items and add them to dp
+        
+        
+        func commitItems(localPath:String){
+            let commitCount:String = GitParser.commitCount(localPath)/*Get the commitCount of this repo*/
+            //Swift.print("commitCount: " + ">\(commitCount)<")
+            let max:Int = 20
+            let length:Int = commitCount.int > max ? max : commitCount.int//20 = maxCount
+            Swift.print("length: " + "\(length)")
+            
+            var args:[String] = []
+            let formating:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
+            for i in 0..<length{
+                let cmd:String = "git show head~" + "\(i)" + formating + " --no-patch"//--no-patch suppresses the diff output of git show
+                args.append(cmd)
+            }
         }
+        
+        
+        let localPath:String = "~/_projects/_code/_active/swift/element"
+        
         
         func configOperation(arguments:[String])->(task:NSTask,pipe:NSPipe){
             let task = NSTask()
@@ -104,6 +98,29 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             $0.task.launch()
         }
     }
+    /**
+     *
+     */
+    func moreShellTesting(){
+        func executeCommand(command: String, args: [String]) -> NSString {
+            let task = NSTask()
+            task.launchPath = command
+            task.arguments = args
+            let pipe = NSPipe()
+            task.standardOutput = pipe
+            task.launch()
+            let data = pipe.fileHandleForReading.readDataToEndOfFile()
+            let output = NSString(data: data, encoding: NSUTF8StringEncoding)
+            return output!
+            
+        }
+        
+        let commandOutput = executeCommand("/bin/sh", args: ["-c","echo Hello, I am here!"])
+        print("Command output: \(commandOutput)")
+        
+
+    }
+    
     /**
      *
      */
