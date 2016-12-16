@@ -35,8 +35,8 @@ class CommitsView:Element {
         //repoList = [repoList[1]]
         Swift.print("repoList.count: " + "\(repoList.count)")
         
-        //let maxItems:Int = 100/*the amount of items to retrive*/
-        let maxCommitItems:Int = 20//maxItems/repoList.count/*max commit items allowed per repo*/
+        let maxItems:Int = 100/*the amount of items to retrive*/
+        let maxCommitItems:Int = maxItems/repoList.count/*max commit items allowed per repo*/
         Swift.print("repoList.count: " + "\(repoList.count)")
         Swift.print("maxCommitItems: " + "\(maxCommitItems)")
         repoList.forEach{
