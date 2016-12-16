@@ -84,7 +84,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         let dp = DataProvider(commitItems)
         dp.sort("sortableDate")/*sorts the list in ascending order*/
-        
+        Swift.print("dp.count: " + "\(dp.count)")
         Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")
     }
     /**
