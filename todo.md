@@ -19,6 +19,7 @@
     //Maybe use a simpler list while debugging and a non-fancy refresh button (to test out ideas and the GitSync algorithm)
     //Create the new Add and remove buttons that are bright blue so that they gathers the attention needed
     //Take a look at how the GitSync apple-script is organized. and copy the workflow to swift 
+    //Improve the compact-date parser (see twitter app and also other apps)
 ### Completed:
     //Figure out how to derive previous commit messages from repo's. You need from 0 to 10 latest commits.
         //Research custom "git log" commands (done)
