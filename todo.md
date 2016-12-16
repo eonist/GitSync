@@ -12,6 +12,9 @@
             //you also need to store a ref in an Array that stores all commits sorted by date (latest to oldest) (you insert commits by finding its index by halving the array until you find the right index)
                 //Do an experiment to figure out the halving technique 
                 //you then slice CommitDB.sortedByDate from 0 until maxVisibleCommits (100) and use this array for the ListView
+                    //this will give you a chronologically sorted commit list (descending)
+                    
+                //you then need to figure out how to update this sorted list on refresh (next)
                 
     //Maybe use a simpler list while debugging and a non-fancy refresh button (to test out ideas and the GitSync algorithm)
     //Create the new Add and remove buttons that are bright blue so that they gathers the attention needed
