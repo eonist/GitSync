@@ -1,4 +1,5 @@
 ### Continue here:
+    //Fix the CompactBody problem (occurs with Element MacOS repo)
     //Figure out a workflow to store commit logs in xml (maybe use reflection) because querying git is cpu intensive
         //you need to be able to easily extract commits based on date. 
             //so storing the same amount as the max visible amount is important
@@ -7,7 +8,7 @@
             //When you add a Repo to the address-book you also load max visible commits to DP
             //dp.getItemsByKey("repo-id")
             //you need to create a custom CommitDB extends DataProvider with data-model: (Dict->Array->Dict)
-                //Stores commits by key: "repo-id"
+                //Stores commits by key: "repo-id" (repo-id is a unique incremental global id)
                 //
     //Maybe use a simpler list while debugging and a non-fancy refresh button (to test out ideas and the GitSync algorithm)
     //Create the new Add and remove buttons that are bright blue so that they gathers the attention needed
