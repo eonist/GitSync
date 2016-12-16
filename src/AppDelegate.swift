@@ -89,8 +89,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //NSNotificationCenter.defaultCenter().postNotificationName("SomeNotification", object:self)
         
         //Listen for Event/Observe Notification:
-        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock: NSNotification.notification)
         
+        func someObserver(sender: AnyObject) {//remember to place this in a class scope not a method scope
+            
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock: { notification:NSNotification in
+            
+        })
         
         //Remove Event/Remove Observation:
         NSNotificationCenter.defaultCenter().removeObserver(self name: SomeNotification, object: nil)
