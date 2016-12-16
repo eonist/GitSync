@@ -59,7 +59,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let localPath:String = "~/_projects/_code/_active/swift/element"
         let commitCount:String = GitParser.commitCount(localPath)/*Get the commitCount of this repo*/
         //Swift.print("commitCount: " + ">\(commitCount)<")
-        let max:Int = 200
+        let max:Int = 2000
         let length:Int = commitCount.int > max ? max : commitCount.int//20 = maxCount
         Swift.print("length: " + "\(length)")
         
