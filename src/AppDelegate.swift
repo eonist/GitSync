@@ -16,7 +16,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //initApp()
         
-        multiTaskTest()
+        //multiTaskTest()
         //multiCMDTest()
         //shellTesting()
         //moreShellTesting()
@@ -29,40 +29,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //commitDataTest()
         //relativeTimeTest()
     }
-    var startTime:NSDate?
-    var operations:[(task:NSTask,pipe:NSPipe,repoTitle:String)] = []
-    /**
-     * //try this answer: http://stackoverflow.com/questions/9400287/how-to-run-nstask-with-multiple-commands?rq=1
-     * //try a simple case and then the git commands 20 and then 200 etc. use the timer to calc the time it takes
-     */
-    func multiTaskTest(){
-        startTime = NSDate()
-        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
-        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
-        Swift.print("repoList.count: " + "\(repoList.count)")
-    
-        let maxItems:Int = 100/*the amount of items to retrive*/
-        let maxCommitItems:Int = maxItems/repoList.count/*max commit items allowed per repo*/
-        Swift.print("repoList.count: " + "\(repoList.count)")
-        Swift.print("maxCommitItems: " + "\(maxCommitItems)")
-        repoList.forEach{
-            let localPath:String = $0["local-path"]!
-            let repoTitle = repoList[1]["title"]!
-            let args:[String] = CommitViewUtils.commitItems(localPath,maxCommitItems)
-            args.forEach{
-                let operation = CommitViewUtils.configOperation([$0],localPath,repoTitle)
-                operations.append(operation)
-            }
-        }
-
-        let finalTask = operations[operations.count-1].task/*we listen to the last task for completion*/
-        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
-        
-        operations.forEach{/*launch all tasks*/
-            $0.task.launch()
-        }
-    }
-    /**
+        /**
      *
      */
     func moreShellTesting(){

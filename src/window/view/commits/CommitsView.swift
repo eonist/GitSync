@@ -10,18 +10,75 @@ class CommitsView:Element {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         //topBar = addSubView(CommitsTopBar(width-12,36,self))
         //add a container
-        createList()
+        
     }
     func createList(){
         //let dp:DataProvider = DataProvider()
         //dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
         //let xml = FileParser.xml("~/Desktop/commits.xml".tildePath)
-        let dp:DataProvider = Utils.dataProvider()//DataProvider(xml)
+        
         //Swift.print("dp.count(): " + "\(dp.count)")
         //Swift.print("CommitsView.width: " + "\(width)")
         list = addSubView(CommitsList(CommitsView.w, CommitsView.h, 102, dp, self,"commitsList"))
         ListModifier.selectAt(list!, 1)
     }
+    var dp:DataProvider?  //Utils.dataProvider()//DataProvider(xml)
+    var startTime:NSDate?
+    var operations:[(task:NSTask,pipe:NSPipe,repoTitle:String)] = []
+    /**
+     * //try this answer: http://stackoverflow.com/questions/9400287/how-to-run-nstask-with-multiple-commands?rq=1
+     * //try a simple case and then the git commands 20 and then 200 etc. use the timer to calc the time it takes
+     */
+    func multiTaskTest(){
+        startTime = NSDate()
+        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        Swift.print("repoList.count: " + "\(repoList.count)")
+        
+        let maxItems:Int = 100/*the amount of items to retrive*/
+        let maxCommitItems:Int = maxItems/repoList.count/*max commit items allowed per repo*/
+        Swift.print("repoList.count: " + "\(repoList.count)")
+        Swift.print("maxCommitItems: " + "\(maxCommitItems)")
+        repoList.forEach{
+            let localPath:String = $0["local-path"]!
+            let repoTitle = repoList[1]["title"]!
+            let args:[String] = CommitViewUtils.commitItems(localPath,maxCommitItems)
+            args.forEach{
+                let operation = CommitViewUtils.configOperation([$0],localPath,repoTitle)
+                operations.append(operation)
+            }
+        }
+        
+        let finalTask = operations[operations.count-1].task/*we listen to the last task for completion*/
+        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
+        
+        operations.forEach{/*launch all tasks*/
+            $0.task.launch()
+        }
+    }
+
+    /**
+     * The handler for the NSTasks
+     */
+    func observer(notification:NSNotification) {
+        Swift.print("the last task completed")
+        var commitItems:[Dictionary<String, String>] = []
+        
+        operations.forEach{
+            let data:NSData = $0.pipe.fileHandleForReading.readDataToEndOfFile()
+            let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
+            //Swift.print(output)
+            let commitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
+            let processedCommitData = CommitViewUtils.processCommitData($0.repoTitle,commitData)
+            commitItems.append(processedCommitData)////we store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView
+        }
+        dp = DataProvider(commitItems)
+        dp!.sort("sortableDate")/*sorts the list in ascending order*/
+        Swift.print("dp.count: " + "\(dp!.count)")
+        Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")
+        createList()
+    }
+
     func onListSelect(event:ListEvent){
         Swift.print("CommitsView.onListSelect()")
         Sounds.play?.play()
