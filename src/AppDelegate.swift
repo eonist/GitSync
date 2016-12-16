@@ -56,22 +56,27 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //try this answer: http://stackoverflow.com/questions/9400287/how-to-run-nstask-with-multiple-commands?rq=1
             //try a simple case and then the git commands 20 and then 200 etc. use the timer to calc the time it takes
         
+        
+        
+        var args:[String] = []
+        let formating:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
+        for i in 0..<3{
+            let cmd:String = "git show head~" + "\(i)" + formating + " --no-patch"//--no-patch suppresses the diff output of git show
+            args.append(cmd)
+        }
+        
         func configTask(arguments:[String])->NSTask{
             
         }
+        
         let task = NSTask()
         task.currentDirectoryPath = "~/_projects/_code/_active/swift/Element-iOS"
-        task.launchPath = "~/Desktop/my_script.sh"//"/bin/sh"//"/usr/bin/env"//"/bin/bash"//
-        let logCMD:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
-        let cmd:String = "head~" + "0" + logCMD + " --no-patch"//--no-patch suppresses the diff output of git show
-
-        let argument:String = "git show " + cmd
-        task.arguments = [argument]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
-        //task.environment = ["LC_ALL" : "en_US.UTF-8","HOME" : NSHomeDirectory()]
+        task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
+        task.arguments = [args[0]]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
         let pipe = NSPipe()
         task.standardOutput = pipe
         task.launch()
-        task.waitUntilExit()
+        
         let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()
         let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
     }
