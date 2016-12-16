@@ -64,7 +64,7 @@ private class Utils{
             //Swift.print("result.count: " + "\(result.count)")
             let commitData = GitLogParser.commitData(result)/*Compartmentalizes the result into a Tuple*/
             //dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!
-            let processedCommitData = Utils.processCommitData(repoTitle, commitData)
+            let processedCommitData = CommitViewUtils.processCommitData(repoTitle, commitData)
             commitItems.append(processedCommitData)////we store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView
         }
         //do some intensive cpu stuff here
@@ -77,22 +77,6 @@ private class Utils{
         return dp
     }
     
-    /**
-     *
-     */
-    class func processCommitData(repoTitle:String,_ commitData:CommitData)-> Dictionary<String, String>{
-        let date:NSDate = GitLogParser.date(commitData.date)
-        //Swift.print("date.shortDate: " + "\(date.shortDate)")
-        let relativeTime = DateParser.relativeTime(NSDate(),date)[0]
-        let relativeDate:String = relativeTime.value.string + relativeTime.type/*create date like 3s,4m,5h,6w,2y*/
-        //Swift.print("relativeDate: " + "\(relativeDate)")
-        let descendingDate:String = DateParser.descendingDate(date)
-        let compactBody:String = GitLogParser.compactBody(commitData.body)/*compact the commit msg body*/
-        //Swift.print("compactBody: " + "\(compactBody)")
-        let subject:String = StringParser.trim(commitData.subject, "'", "'")
-        let processedCommitData:Dictionary<String, String> = ["repo-name":repoTitle,"contributor":commitData.author,"title":subject,"description":compactBody,"date":relativeDate,"sortableDate":descendingDate,"hash":commitData.hash]
-        return processedCommitData
-    }
 }
 
 
