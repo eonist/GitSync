@@ -82,6 +82,24 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             operations.append(operation)
         }
         
+        
+        let finalTask = operations[operations.count-1].task
+        
+        //Dispatch Event/Post Notification:
+        //NSNotificationCenter.defaultCenter().postNotificationName("SomeNotification", object:self)
+        
+        //Listen for Event/Observe Notification:
+        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock: NSNotification.notification)
+        
+        
+        //Remove Event/Remove Observation:
+        NSNotificationCenter.defaultCenter().removeObserver(self name: SomeNotification, object: nil)
+        //alternatively you can remove all observers on this object:
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        
+
+        
+        
         [[NSNotificationCenter defaultCenter] addObserverForName:NSTaskDidTerminateNotification
             object:task3
             queue:nil
