@@ -65,17 +65,22 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             args.append(cmd)
         }
         
-        func configTask(arguments:[String])->NSTask{
-            
+        func configOperation(arguments:[String])->(task:NSTask,pipe:NSPipe){
+            let task = NSTask()
+            task.currentDirectoryPath = "~/_projects/_code/_active/swift/Element-iOS"
+            task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
+            task.arguments = [args[0]]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
+            let pipe = NSPipe()
+            task.standardOutput = pipe
+            return (task,pipe)
         }
         
-        let task = NSTask()
-        task.currentDirectoryPath = "~/_projects/_code/_active/swift/Element-iOS"
-        task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
-        task.arguments = [args[0]]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
-        let pipe = NSPipe()
-        task.standardOutput = pipe
-        task.launch()
+        var operations:[(task:NSTask,pipe:NSPipe)] = []
+        args.forEach{
+            let operation = configOperation([$0])
+            operation.task.launch()
+            operations.append(operation)
+        }
         
         let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()
         let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
