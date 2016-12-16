@@ -94,6 +94,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             operations.forEach{
                 let data:NSData = $0.pipe.fileHandleForReading.readDataToEndOfFile()
                 let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
+                output
                 //Swift.print(output)
             }
             Swift.print("Time: " + "\(abs(startTime.timeIntervalSinceNow))")
