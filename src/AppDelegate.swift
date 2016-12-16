@@ -15,9 +15,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
+        multiTaskTest()
         //multiCMDTest()
         //shellTesting()
-        moreShellTesting()
+        //moreShellTesting()
         //trimTest()
         //commitLog()
         //commitShow()
@@ -55,8 +56,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func multiTaskTest(){
         //try this answer: http://stackoverflow.com/questions/9400287/how-to-run-nstask-with-multiple-commands?rq=1
             //try a simple case and then the git commands 20 and then 200 etc. use the timer to calc the time it takes
-        
-        
         
         var args:[String] = []
         let formating:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
