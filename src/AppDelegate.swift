@@ -68,7 +68,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             let task = NSTask()
             task.currentDirectoryPath = "~/_projects/_code/_active/swift/Element-iOS"
             task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
-            task.arguments = [args[0]]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
+            task.arguments = ["-c",args[0]]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
             let pipe = NSPipe()
             task.standardOutput = pipe
             return (task,pipe)
