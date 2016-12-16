@@ -41,6 +41,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         var operations:[(task:NSTask,pipe:NSPipe)] = []
         
+        let maxItems:Int = 100
+        
         repoList.forEach{
             let localPath:String = $0["local-path"]!
             let args:[String] = Utils.commitItems(localPath)
