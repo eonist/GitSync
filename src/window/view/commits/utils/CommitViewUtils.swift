@@ -49,5 +49,3 @@ class CommitViewUtils {
         return (task,pipe,repoTitle)
     }
 }
-private class Utils{
-}
