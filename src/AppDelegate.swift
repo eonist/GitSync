@@ -84,8 +84,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock: { notification in
             Swift.print("all tasks where completed")
-            //let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()
-            //let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
+            operations.forEach{
+                let data:NSData = $0.pipe.fileHandleForReading.readDataToEndOfFile()
+                let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
+                Swift.print(output)
+            }
         })
         
         operations.forEach{
