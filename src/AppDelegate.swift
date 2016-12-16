@@ -49,9 +49,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("maxCommitItems: " + "\(maxCommitItems)")
         repoList.forEach{
             let localPath:String = $0["local-path"]!
-            let args:[String] = Utils.commitItems(localPath,maxCommitItems)
+            let args:[String] = CommitViewUtils.commitItems(localPath,maxCommitItems)
             args.forEach{
-                let operation = Utils.configOperation([$0],localPath)
+                let operation = CommitViewUtils.configOperation([$0],localPath)
                 operations.append(operation)
             }
         }
@@ -66,13 +66,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             $0.task.launch()
         }
     }
+    /**
+     * The handler for the NSTasks
+     */
     func observer(notification:NSNotification) {
-        
         Swift.print("the last task completed")
         operations.forEach{
             let data:NSData = $0.pipe.fileHandleForReading.readDataToEndOfFile()
             let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
-            output
+            
+            CommitViewUtils.processCommitData(output)
             //Swift.print(output)
         }
         Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")
