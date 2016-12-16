@@ -32,11 +32,12 @@ class CommitsView:Element {
     func loadCommits(){
         startTime = NSDate()
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
-        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        var repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        repoList = [repoList[1]]
         Swift.print("repoList.count: " + "\(repoList.count)")
         
-        let maxItems:Int = 100/*the amount of items to retrive*/
-        let maxCommitItems:Int = maxItems/repoList.count/*max commit items allowed per repo*/
+        //let maxItems:Int = 100/*the amount of items to retrive*/
+        let maxCommitItems:Int = 20//maxItems/repoList.count/*max commit items allowed per repo*/
         Swift.print("repoList.count: " + "\(repoList.count)")
         Swift.print("maxCommitItems: " + "\(maxCommitItems)")
         repoList.forEach{
