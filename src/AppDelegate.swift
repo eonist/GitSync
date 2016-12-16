@@ -40,11 +40,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         let repoList = XMLParser.toArray(repoXML)//or use dataProvider
         Swift.print("repoList.count: " + "\(repoList.count)")
-        
     
-        
-        let maxItems:Int = 100
-        let maxCommitItems:Int = maxItems/repoList.count//max commit items allowed per repo
+        let maxItems:Int = 100/*the amount of items to retrive*/
+        let maxCommitItems:Int = maxItems/repoList.count/*max commit items allowed per repo*/
         Swift.print("repoList.count: " + "\(repoList.count)")
         Swift.print("maxCommitItems: " + "\(maxCommitItems)")
         repoList.forEach{
@@ -56,14 +54,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 operations.append(operation)
             }
         }
-        //retrive 20 repo items and add them to dp
-        let finalTask = operations[operations.count-1].task
-        
-        
-        
+
+        let finalTask = operations[operations.count-1].task/*we listen to the last task for completion*/
         NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
         
-        operations.forEach{//launch all tasks
+        operations.forEach{/*launch all tasks*/
             $0.task.launch()
         }
     }
