@@ -63,26 +63,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
     }
     /**
-     * The handler for the NSTasks
-     */
-    func observer(notification:NSNotification) {
-        Swift.print("the last task completed")
-        var commitItems:[Dictionary<String, String>] = []
-        
-        operations.forEach{
-            let data:NSData = $0.pipe.fileHandleForReading.readDataToEndOfFile()
-            let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
-            //Swift.print(output)
-            let commitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
-            let processedCommitData = CommitViewUtils.processCommitData($0.repoTitle,commitData)
-            commitItems.append(processedCommitData)////we store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView
-        }
-        let dp = DataProvider(commitItems)
-        dp.sort("sortableDate")/*sorts the list in ascending order*/
-        Swift.print("dp.count: " + "\(dp.count)")
-        Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")
-    }
-    /**
      *
      */
     func moreShellTesting(){
