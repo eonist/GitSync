@@ -16,8 +16,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //initApp()
         //multiCMDTest()
-        shellTesting()
-        //moreShellTesting()
+        //shellTesting()
+        moreShellTesting()
         //trimTest()
         //commitLog()
         //commitShow()
@@ -32,23 +32,19 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func moreShellTesting(){
         func executeCommand(command: String, args: [String]) -> NSString {
-            
             let task = NSTask()
-            
             task.launchPath = command
             task.arguments = args
-            
             let pipe = NSPipe()
             task.standardOutput = pipe
             task.launch()
-            
             let data = pipe.fileHandleForReading.readDataToEndOfFile()
             let output = NSString(data: data, encoding: NSUTF8StringEncoding)
             return output!
             
         }
         
-        let commandOutput = executeCommand("/bin/echo", args: ["Hello, I am here!"])
+        let commandOutput = executeCommand("/bin/sh", args: ["-c","echo Hello, I am here!"])
         print("Command output: \(commandOutput)")
         
 
@@ -59,6 +55,22 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func multiTaskTest(){
         //try this answer: http://stackoverflow.com/questions/9400287/how-to-run-nstask-with-multiple-commands?rq=1
             //try a simple case and then the git commands 20 and then 200 etc. use the timer to calc the time it takes
+        
+        let task = NSTask()
+        task.currentDirectoryPath = "~/_projects/_code/_active/swift/Element-iOS"
+        task.launchPath = "~/Desktop/my_script.sh"//"/bin/sh"//"/usr/bin/env"//"/bin/bash"//
+        let logCMD:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
+        let cmd:String = "head~" + "0" + logCMD + " --no-patch"//--no-patch suppresses the diff output of git show
+        //convert the logItem to Tupple
+        let argument:String = "git show " + cmd
+        task.arguments = [argument]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
+        task.environment = ["LC_ALL" : "en_US.UTF-8","HOME" : NSHomeDirectory()]
+        let pipe = NSPipe()
+        task.standardOutput = pipe
+        task.launch()
+        task.waitUntilExit()
+        let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()
+        let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
     }
     /**
      *
@@ -69,8 +81,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let cd = "~/_projects/_code/_active/swift/Element-iOS"
         let task = NSTask()
         task.currentDirectoryPath = cd
-        task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//
-        task.arguments = ["-c","echo 'hello'", "\n", "-c", "echo 'world'"]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
+        task.launchPath = "~/Desktop/my_script.sh"//"/bin/sh"//"/usr/bin/env"//"/bin/bash"//
+        let logCMD:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
+        let cmd:String = "head~" + "0" + logCMD + " --no-patch"//--no-patch suppresses the diff output of git show
+        //convert the logItem to Tupple
+        let argument:String = "git show " + cmd
+        
+        task.arguments = [argument]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
         task.environment = ["LC_ALL" : "en_US.UTF-8","HOME" : NSHomeDirectory()]
         let pipe = NSPipe()
         task.standardOutput = pipe
