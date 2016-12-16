@@ -53,7 +53,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let finalTask = operations[operations.count-1].task
         
         NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock: { notification in
-            Swift.print("all tasks where completed")
+            Swift.print("the last task completed")
             operations.forEach{
                 let data:NSData = $0.pipe.fileHandleForReading.readDataToEndOfFile()
                 let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
@@ -63,7 +63,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             Swift.print("Time: " + "\(abs(startTime.timeIntervalSinceNow))")
         })
         
-        operations.forEach{
+        operations.forEach{//launch all tasks
             $0.task.launch()
         }
     }
