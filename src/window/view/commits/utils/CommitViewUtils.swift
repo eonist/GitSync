@@ -38,7 +38,7 @@ class CommitViewUtils {
     /**
      *
      */
-    static func configOperation(args:[String],_ localPath:String)->(task:NSTask,pipe:NSPipe){
+    static func configOperation(args:[String],_ localPath:String,_ repoTitle:String) -> (task:NSTask,pipe:NSPipe,repoTitle:String){
         let task = NSTask()
         task.currentDirectoryPath = localPath
         task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
@@ -46,7 +46,7 @@ class CommitViewUtils {
         let pipe = NSPipe()
         task.standardOutput = pipe
         //task.waitUntilExit()/*not needed if we use NSNotification*/
-        return (task,pipe)
+        return (task,pipe,repoTitle)
     }
 }
 private class Utils{

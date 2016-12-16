@@ -30,7 +30,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //relativeTimeTest()
     }
     var startTime:NSDate?
-    var operations:[(task:NSTask,pipe:NSPipe)] = []
+    var operations:[(task:NSTask,pipe:NSPipe,repoTitle:String)] = []
     /**
      * //try this answer: http://stackoverflow.com/questions/9400287/how-to-run-nstask-with-multiple-commands?rq=1
      * //try a simple case and then the git commands 20 and then 200 etc. use the timer to calc the time it takes
@@ -49,9 +49,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("maxCommitItems: " + "\(maxCommitItems)")
         repoList.forEach{
             let localPath:String = $0["local-path"]!
+            let repoTitle = repoList[1]["title"]!
             let args:[String] = CommitViewUtils.commitItems(localPath,maxCommitItems)
             args.forEach{
-                let operation = CommitViewUtils.configOperation([$0],localPath)
+                let operation = CommitViewUtils.configOperation([$0],localPath,repoTitle)
                 operations.append(operation)
             }
         }
@@ -71,13 +72,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func observer(notification:NSNotification) {
         Swift.print("the last task completed")
+        var commitItems:[Dictionary<String, String>] = []
+        
         operations.forEach{
             let data:NSData = $0.pipe.fileHandleForReading.readDataToEndOfFile()
             let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
             
-            CommitViewUtils.processCommitData(output)
+            CommitViewUtils.processCommitData($0.repoTitle,output)
             //Swift.print(output)
         }
+        let dp = DataProvider(commitItems)
+        dp.sort("sortableDate")/*sorts the list in ascending order*/
+        
         Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")
     }
     /**
