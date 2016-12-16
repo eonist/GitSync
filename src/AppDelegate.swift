@@ -77,19 +77,20 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         var operations:[(task:NSTask,pipe:NSPipe)] = []
         args.forEach{
             let operation = configOperation([$0])
-            operation.task.launch()
             operations.append(operation)
         }
         
-        
         let finalTask = operations[operations.count-1].task
-        
         
         NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock: { notification in
             Swift.print("all tasks where completed")
             //let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()
             //let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
         })
+        
+        operations.forEach{
+            $0.task.launch()
+        }
     }
     /**
      *
