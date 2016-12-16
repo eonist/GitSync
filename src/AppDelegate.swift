@@ -54,6 +54,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func multiTaskTest(){
+        let startTime = NSDate()
         //try this answer: http://stackoverflow.com/questions/9400287/how-to-run-nstask-with-multiple-commands?rq=1
             //try a simple case and then the git commands 20 and then 200 etc. use the timer to calc the time it takes
         
@@ -89,6 +90,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
                 Swift.print(output)
             }
+            Swift.print("Time: " + "\(abs(startTime.timeIntervalSinceNow))")
         })
         
         operations.forEach{
