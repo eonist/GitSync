@@ -40,9 +40,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         func binarySearch(arr:[Int],_ idx:Int,_ start:Int,_ end:Int) -> Int{//arr[Stridable] or something indexable
             if(end-start == 1){
-                if(idx == arr[0]){
-                    
-                }
+                //if (idx == arr[start])
+                //else if (idx >= arr[end-1])
+                //else
             }
             let middle:Int = arr.count / 2
             if(idx > arr[middle]){/*index is in part2*/
