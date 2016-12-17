@@ -18,13 +18,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //binarySearchTest()
         
         var arr = ["a","b","c"]
-        arr.insertAt("x", 0)//x,a,b,c
+        Swift.print(arr.insertAt("x", 0))//x,a,b,c
         arr = ["a","b","c"]
-        arr.insertAt("x", 1)//a,x,b,c
+        Swift.print(arr.insertAt("x", 1))//a,x,b,c
         arr = ["a","b","c"]
-        arr.insertAt("x", 2)//q,b,x,c
+        Swift.print(arr.insertAt("x", 2))//q,b,x,c
         arr = ["a","b","c"]
-        arr.insertAt("x", 3)//a,b,c,x
+        Swift.print(arr.insertAt("x", 3))//a,b,c,x
         
         //multiTaskTest()
         //multiCMDTest()
