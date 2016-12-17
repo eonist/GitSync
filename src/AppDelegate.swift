@@ -47,7 +47,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     
     func binarySearchTest(){
-        let sortedArr:[Int] = [1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
+        var sortedArr:[Int] = [1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
         Swift.print("sortedArr.count: " + "\(sortedArr.count)")
         
         //Continue here: figure out if you want to do insertAfter or insertAt or what (maybe look at legacy code?)
@@ -55,13 +55,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //arr.count means append
             //other cases means before index
         let item:Int = 0
-        let closestIdx:Int = closestIndex(sortedArr, 0, 0, sortedArr.count-1)
+        let closestIdx:Int = closestIndex(sortedArr, item, 0, sortedArr.count-1)
         Swift.print("closestIndex: " + "\(closestIdx)")
         Swift.print("the value that currently occupies this index: " + "\(sortedArr[closestIdx])")
         
         //the following line enables you to insert the new item correctly in the sorted array
-        //closestIndex > 0 && closesIndex < array.count ? insertAt(closestIndex+1) :insertAt(closestIndex)
-        sortedArr.insertAt(<#T##item: Int##Int#>, <#T##index: Int##Int#>)
+
+        let insertAt:Int = closestIdx > 0 && closestIdx < sortedArr.count ? closestIdx+1 : closestIdx
+        sortedArr.insertAt(item, insertAt)
     }
     /**
      * This binarySearch finds a suitable index to insert an item in a sorted list (a regular binarySearch would return nil if no match is found, this implmentation returns the closestIndex)
