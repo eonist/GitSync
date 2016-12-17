@@ -18,7 +18,19 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //binarySearchTest()
         
         
-        //if
+        //if 0
+            //insertAt 0
+        //if .count
+            //insertAt .count
+        //else
+            //insertAt i+1
+        
+        //the following line enables you to insert the new item correctly in the sorted array
+            //closestIndex > 0 && closesIndex < array.count ? insertAt(closestIndex+1) :insertAt(closestIndex)
+        
+        //test it out with many cases
+        //then test it with dictonary
+        //then move on to sort other tasks
         
         //multiTaskTest()
         //multiCMDTest()
