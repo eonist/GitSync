@@ -15,7 +15,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
-        binarySearchTest()
+        //binarySearchTest()
+        
+        
+        ["a","b","c"].insert("x", 0)//x,a,b,c
+        ["a","b","c"].insert("x", 1)//a,x,b,c
+        ["a","b","c"].insert("x", 2)//q,b,x,c
+        ["a","b","c"].insert("x", 3)//a,b,c,x
+        
         //multiTaskTest()
         //multiCMDTest()
         //shellTesting()
@@ -29,41 +36,66 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //commitDataTest()
         //relativeTimeTest()
     }
+    
+    func binarySearchTest(){
+        let sortedArr:[Int] = [1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
+        Swift.print("sortedArr.count: " + "\(sortedArr.count)")
+        
+        //Continue here: figure out if you want to do insertAfter or insertAt or what (maybe look at legacy code?)
+            //0 means unsift
+            //arr.count means append
+            //other cases means before index
+        
+        let insertAfterIndex:Int = closestIndex(sortedArr, 0, 0, sortedArr.count-1)
+        Swift.print("insert after index: " + "\(insertAfterIndex)")
+        Swift.print("the value that currently occupies this index: " + "\(sortedArr[insertAfterIndex])")
+    }
     /**
+     * This binarySearch finds a suitable index to insert an item in a sorted list (a regular binarySearch would return nil if no match is found, this implmentation returns the closestIndex)
      * NOTE: Binary search, also known as half-interval search or logarithmic search, is a search algorithm that finds the position of a target value within a sorted array.
      * NOTE: Binary search compares the target value to the middle element of the array; if they are unequal, the half in which the target cannot lie is eliminated and the search continues on the remaining half until it is successful.
      * NOTE: Binary search runs in at worst logarithmic time, making O(log n) comparisons, where n is the number of elements in the array and log is the logarithm. Binary search takes only constant (O(1)) space, meaning that the space taken by the algorithm is the same for any number of elements in the array.[5] Although specialized data structures designed for fast searching—such as hash tables—can be searched more efficiently, binary search applies to a wider range of search problems.
+     * NOTE: This implementation of binary search is recursive (it calls it self) (Binary search is recursive in nature because you apply the same logic over and over again to smaller and smaller subarrays.)
      * IMPORTANT: Although the idea is simple, implementing binary search correctly requires attention to some subtleties about its exit conditions and midpoint calculation.
+     * IMPORTANT: Note that the numbers array is sorted. The binary search algorithm does not work otherwise!
+     * DISCUSSION: Is it a problem that the array must be sorted first? It depends. Keep in mind that sorting takes time -- the combination of binary search plus sorting may be slower than doing a simple linear search. Binary search shines in situations where you sort just once and then do many searches.
+     * TRIVIA:  YOu can also implement binary serach as iterative implementation by using a while loop
+     * TODO: use range instead of start and end int?!?
      */
-    func binarySearchTest(){
-        let sortedArr:[Int] = [1,4,6,7,8,9,12,15,22,26,33,122,455]
-        let insertAt:Int = binarySearch(sortedArr, 23, 0, sortedArr.count)
-        Swift.print("insertAt: " + "\(insertAt)")
-    }
-    func binarySearch(arr:[Int],_ idx:Int,_ start:Int,_ end:Int) -> Int{//arr[Stridable] or something indexable
-        if(end-start == 1){/*the range is narrowed down to 2 indecies: at start and at end*/
-            if (idx == arr[start]) {
-                return start
-            }else if (idx >= arr[end-1]) {
-                return end-1
-            }else {
-                return start/*between start and end*/
-            }
+    func closestIndex<T:Comparable>(arr:[T],_ i:T,_ start:Int,_ end:Int) -> Int{//arr[Stridable] or something indexable
+        //Swift.print("start: " + "\(start)")
+        //Swift.print("end: " + "\(end)")
+        if(start == end){
+            Swift.print("i doesn't exist, this is the closest: \(arr[start]) at: \(start) ")
+            return start
         }
-        //you need to offset in the bellow line
-        let middle:Int = (end - start) / 2
-        Swift.print("middle: " + "\(middle)")
-        if(idx > arr[middle]){/*index is in part2*/
-            Swift.print("part2")
-            return binarySearch(arr,idx,middle,end)
-        }else if(idx < arr[middle]){/*index is in part1*/
-            Swift.print("part1")
-            return binarySearch(arr,idx,start,middle)
+        let mid:Int = start + ((end - start) / 2)/*start + middle of the distance between start and end*/
+        //Swift.print("mid: " + "\(mid)")
+        //Swift.print("arr[mid]: " + "\(arr[mid])")
+        if(i < arr[mid]){/*index is in part1*/
+            //Swift.print("a")
+            return closestIndex(arr,i,start,mid-1)
+        }else if(i > arr[mid]){/*index is in part2*/
+            //Swift.print("b")
+            return closestIndex(arr,i,mid+1,end)
         }else{/*index is at middleIndex*/
-            Swift.print("at middle")
-            return middle
+            Swift.print("at middle: \(mid)")
+            return mid
         }
     }
+    //this part isn't needed, the else part takes care of it
+    /*
+    if(end-start == 1){/*the range is narrowed down to 2 indecies: at start and at end*/
+    Swift.print("narrowed down between: start: \(start) end: \(end)" )
+    if (idx == arr[start]) {/*idx is at start*/
+    return start
+    }else if (idx >= arr[end-1]) {/*more or equal to end*/
+    return end-1
+    }else {
+    return start/*between start and end*/
+    }
+    }
+    */
     /**
      *
      */
