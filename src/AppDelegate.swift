@@ -42,7 +42,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             if(end-start == 1){
                 //if (idx == arr[start]) return start
                 //else if (idx >= arr[end-1]) return end-1
-                //else return start
+                //else return start//between start and end
             }
             let middle:Int = arr.count / 2
             if(idx > arr[middle]){/*index is in part2*/
