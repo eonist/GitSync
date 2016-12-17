@@ -50,6 +50,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 return start/*between start and end*/
             }
         }
+        //you need to offset in the bellow line
         let middle:Int = (end - start) / 2
         Swift.print("middle: " + "\(middle)")
         if(idx > arr[middle]){/*index is in part2*/
