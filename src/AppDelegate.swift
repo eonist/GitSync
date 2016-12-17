@@ -39,14 +39,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let sortedArr:[Int] = [1,4,6,7,8,9,12,15,22,26,33,122,455]
         
         func binarySearch(arr:[Int],_ idx:Int,_ start:Int,_ end:Int) -> Int{//arr[Stridable] or something indexable
-            if(arr.count == 1){
+            if(end-start == 1){
                 if(idx == arr[0]){
                     
                 }
             }
             let middle:Int = arr.count / 2
             if(idx > arr[middle]){/*index is in part2*/
-                return binarySearch(arr,idx,middle,arr.count-1)
+                return binarySearch(arr,idx,middle,arr.count)
             }else if(idx < arr[middle]){/*index is in part1*/
                 return binarySearch(arr,idx,0,middle)
             }else{/*index is at middleIndex*/
@@ -54,7 +54,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         
-        let insertAt:Int = binarySearch(sortedArr, 23, 0, sortedArr.count-1)
+        let insertAt:Int = binarySearch(sortedArr, 23, 0, sortedArr.count)
         Swift.print("insertAt: " + "\(insertAt)")
     }
     /**
