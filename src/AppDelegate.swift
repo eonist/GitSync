@@ -50,7 +50,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 return start/*between start and end*/
             }
         }
-        let middle:Int = arr.count / 2
+        let middle:Int = end - start / 2
+        Swift.print("middle: " + "\(middle)")
         if(idx > arr[middle]){/*index is in part2*/
             return binarySearch(arr,idx,middle,arr.count)
         }else if(idx < arr[middle]){/*index is in part1*/
