@@ -17,11 +17,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initApp()
         //binarySearchTest()
         
-        
-        ["a","b","c"].insert("x", 0)//x,a,b,c
-        ["a","b","c"].insert("x", 1)//a,x,b,c
-        ["a","b","c"].insert("x", 2)//q,b,x,c
-        ["a","b","c"].insert("x", 3)//a,b,c,x
+        var arr = ["a","b","c"]
+        arr.insertAt("x", 0)//x,a,b,c
+        arr = ["a","b","c"]
+        arr.insertAt("x", 1)//a,x,b,c
+        arr = ["a","b","c"]
+        arr.insertAt("x", 2)//q,b,x,c
+        arr = ["a","b","c"]
+        arr.insertAt("x", 3)//a,b,c,x
         
         //multiTaskTest()
         //multiCMDTest()
