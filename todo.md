@@ -15,6 +15,8 @@
                     //this will give you a chronologically sorted commit list (descending)
                     
                 //you then need to figure out how to update this sorted list on refresh (next)
+                    //you could keep a DP instance for ListView that you prepend new items onto
+                        //you compare the two lists by getting the first of ListView.dp and the first of ComitDB.sortedByDate.slice(0,100)
                 
     //Maybe use a simpler list while debugging and a non-fancy refresh button (to test out ideas and the GitSync algorithm)
     //Create the new Add and remove buttons that are bright blue so that they gathers the attention needed
