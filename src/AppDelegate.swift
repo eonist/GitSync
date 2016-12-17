@@ -61,7 +61,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
 
-        let insertAt:Int = closestIdx > 0 && closestIdx < sortedArr.count ? closestIdx : closestIdx//this line enables you to insert the new item correctly in the sorted array
+        let insertAt:Int = closestIdx == sortedArr.count - 1 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
         Swift.print("insertAt: " + "\(insertAt)")
         sortedArr.insertAt(item, insertAt)
         Swift.print("sortedArr: " + "\(sortedArr)")
