@@ -89,7 +89,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Swift.print("arr[mid]: " + "\(arr[mid])")
         if(i < arr[mid]){/*index is in part1*/
             Swift.print("a")
-            return closestIndex(arr,i,start,mid-1)
+            return closestIndex(arr,i,start,mid)
         }else if(i > arr[mid]){/*index is in part2*/
             Swift.print("b")
             return closestIndex(arr,i,mid+1,end)
