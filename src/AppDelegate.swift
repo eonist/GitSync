@@ -37,25 +37,27 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func binarySearchTest(){
         let sortedArr:[Int] = [1,4,6,7,8,9,12,15,22,26,33,122,455]
-        
-        func binarySearch(arr:[Int],_ idx:Int,_ start:Int,_ end:Int) -> Int{//arr[Stridable] or something indexable
-            if(end-start == 1){
-                //if (idx == arr[start]) return start
-                //else if (idx >= arr[end-1]) return end-1
-                //else return start//between start and end
-            }
-            let middle:Int = arr.count / 2
-            if(idx > arr[middle]){/*index is in part2*/
-                return binarySearch(arr,idx,middle,arr.count)
-            }else if(idx < arr[middle]){/*index is in part1*/
-                return binarySearch(arr,idx,0,middle)
-            }else{/*index is at middleIndex*/
-                return middle
-            }
-        }
-        
         let insertAt:Int = binarySearch(sortedArr, 23, 0, sortedArr.count)
         Swift.print("insertAt: " + "\(insertAt)")
+    }
+    func binarySearch(arr:[Int],_ idx:Int,_ start:Int,_ end:Int) -> Int{//arr[Stridable] or something indexable
+        if(end-start == 1){/*the range is narrowed down to 2 indecies: at start and at end*/
+            if (idx == arr[start]) {
+                return start
+            }else if (idx >= arr[end-1]) {
+                return end-1
+            }else {
+                return start/*between start and end*/
+            }
+        }
+        let middle:Int = arr.count / 2
+        if(idx > arr[middle]){/*index is in part2*/
+            return binarySearch(arr,idx,middle,arr.count)
+        }else if(idx < arr[middle]){/*index is in part1*/
+            return binarySearch(arr,idx,0,middle)
+        }else{/*index is at middleIndex*/
+            return middle
+        }
     }
     /**
      *
