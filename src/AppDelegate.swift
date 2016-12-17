@@ -18,16 +18,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         binarySearchTest()
         
         
-        //if 0
-            //insertAt 0
-        //if .count
-            //insertAt .count
-        //else
-            //insertAt i+1
-        
-        //the following line enables you to insert the new item correctly in the sorted array
-            //closestIndex > 0 && closesIndex < array.count ? insertAt(closestIndex+1) :insertAt(closestIndex)
-        
         //test it out with many cases
         //then test it with dictonary
         //then move on to sort other tasks
@@ -50,23 +40,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         var sortedArr:[Int] = [1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
         Swift.print("sortedArr.count: " + "\(sortedArr.count)")
         
-        //Continue here: figure out if you want to do insertAfter or insertAt or what (maybe look at legacy code?)
-            //0 means unsift
-            //arr.count means append
-            //other cases means before index
-        let item:Int = 456
+        let item:Int = 454
         let closestIdx:Int = closestIndex(sortedArr, item, 0, sortedArr.count-1)
         Swift.print("closestIndex: " + "\(closestIdx)")
         Swift.print("the value that currently occupies this index: " + "\(sortedArr[closestIdx])")
         
         
-        //COntinue here:
-            //either solve this in closestIndex or bellow.
-        let isTrue = sortedArr[closestIdx] > sortedArr.last
-        Swift.print("sortedArr[closestIdx]: " + "\(sortedArr[closestIdx])")
-        Swift.print("sortedArr.last: " + "\(sortedArr.last)")
-        Swift.print("isTrue: " + "\(isTrue)")
-        let insertAt:Int = sortedArr[closestIdx] > sortedArr.last ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
+        let insertAt:Int = item > sortedArr.last ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
         Swift.print("insertAt: " + "\(insertAt)")
         sortedArr.insertAt(item, insertAt)
         Swift.print("sortedArr: " + "\(sortedArr)")
