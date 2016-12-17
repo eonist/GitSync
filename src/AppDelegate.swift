@@ -37,15 +37,22 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func binarySearchTest(){
         //sorted arr: 1,4,6,7,8,9,12,15,22,26,33,122,455
+        
+        func binarySearch(arr:[Int],idx:Int,_ start:Int,_ end:Int){
+            let middle:Int = arr.count / 2
+            if(idx > arr[middle]){//index is in part2
+                return binarySearch(idx,middle,arr.count)
+            }
         //find index to insert: 23
             //let middle:Int = arr.length / 2
             //if(idx > arr[middle]){//index is in part2
-                //return binarySearch()
+                //return binarySearch(idx,start:middle,end:arr.count)
             //}else if(idx < arr[middle]){//index is in part1
-                //
+                //return binarySearch(idx,start:0,end:middle)
             //}else{//index is at middleIndex
                 //return middleIndex
             //}
+        }
     }
     /**
      *
