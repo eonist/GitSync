@@ -15,7 +15,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
-        
+        binarySearchTest()
         //multiTaskTest()
         //multiCMDTest()
         //shellTesting()
@@ -29,7 +29,19 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //commitDataTest()
         //relativeTimeTest()
     }
-        /**
+    /**
+     * NOTE: Binary search, also known as half-interval search or logarithmic search, is a search algorithm that finds the position of a target value within a sorted array.
+     * NOTE: Binary search compares the target value to the middle element of the array; if they are unequal, the half in which the target cannot lie is eliminated and the search continues on the remaining half until it is successful.
+     * NOTE: Binary search runs in at worst logarithmic time, making O(log n) comparisons, where n is the number of elements in the array and log is the logarithm. Binary search takes only constant (O(1)) space, meaning that the space taken by the algorithm is the same for any number of elements in the array.[5] Although specialized data structures designed for fast searching—such as hash tables—can be searched more efficiently, binary search applies to a wider range of search problems.
+     * IMPORTANT: Although the idea is simple, implementing binary search correctly requires attention to some subtleties about its exit conditions and midpoint calculation.
+     */
+    func binarySearchTest(){
+        //sorted arr: 1,4,6,7,8,9,12,15,22,26,33,122,455
+        //find index to insert: 23
+            //let halveIdx:Int = ceil(arr.length / 2)
+            //if(arr[halve])
+    }
+    /**
      *
      */
     func moreShellTesting(){
