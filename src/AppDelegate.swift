@@ -36,23 +36,20 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      * IMPORTANT: Although the idea is simple, implementing binary search correctly requires attention to some subtleties about its exit conditions and midpoint calculation.
      */
     func binarySearchTest(){
-        //sorted arr: 1,4,6,7,8,9,12,15,22,26,33,122,455
+        let sortedArr:[Int] = [1,4,6,7,8,9,12,15,22,26,33,122,455]
         
-        func binarySearch(arr:[Int],idx:Int,_ start:Int,_ end:Int){
+        func binarySearch(arr:[Int],_ idx:Int,_ start:Int,_ end:Int) -> Int{//arr[Stridable] or something indexable
             let middle:Int = arr.count / 2
             if(idx > arr[middle]){//index is in part2
-                return binarySearch(idx,middle,arr.count)
+                return binarySearch(arr,idx,middle,arr.count)
+            }else if(idx < arr[middle]){//index is in part1
+                return binarySearch(arr,idx,0,middle)
+            }else{//index is at middleIndex
+                return middle
             }
-        //find index to insert: 23
-            //let middle:Int = arr.length / 2
-            //if(idx > arr[middle]){//index is in part2
-                //return binarySearch(idx,start:middle,end:arr.count)
-            //}else if(idx < arr[middle]){//index is in part1
-                //return binarySearch(idx,start:0,end:middle)
-            //}else{//index is at middleIndex
-                //return middleIndex
-            //}
         }
+        
+        let insertAt:Int = binarySearch(sortedArr, <#T##idx: Int##Int#>, <#T##start: Int##Int#>, <#T##end: Int##Int#>)
     }
     /**
      *
