@@ -38,8 +38,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func binarySearchTest(){
         //sorted arr: 1,4,6,7,8,9,12,15,22,26,33,122,455
         //find index to insert: 23
-            //let halveIdx:Int = ceil(arr.length / 2)
-            //if(arr[halve])
+            //let middle:Int = ceil(arr.length / 2)
+            //if(idx > arr[middle]){
+                //
+            //}
     }
     /**
      *
