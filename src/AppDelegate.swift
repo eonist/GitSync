@@ -54,14 +54,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //0 means unsift
             //arr.count means append
             //other cases means before index
-        let item:Int = 2
+        let item:Int = 1
         let closestIdx:Int = closestIndex(sortedArr, item, 0, sortedArr.count-1)
         Swift.print("closestIndex: " + "\(closestIdx)")
         Swift.print("the value that currently occupies this index: " + "\(sortedArr[closestIdx])")
         
         
 
-        let insertAt:Int = closestIdx > 0 && closestIdx < sortedArr.count ? closestIdx+1 : closestIdx//this line enables you to insert the new item correctly in the sorted array
+        let insertAt:Int = closestIdx > 0 && closestIdx < sortedArr.count ? closestIdx : closestIdx//this line enables you to insert the new item correctly in the sorted array
         Swift.print("insertAt: " + "\(insertAt)")
         sortedArr.insertAt(item, insertAt)
         Swift.print("sortedArr: " + "\(sortedArr)")
