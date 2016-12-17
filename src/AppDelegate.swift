@@ -54,10 +54,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //0 means unsift
             //arr.count means append
             //other cases means before index
+        let item:Int = 0
+        let closestIdx:Int = closestIndex(sortedArr, 0, 0, sortedArr.count-1)
+        Swift.print("closestIndex: " + "\(closestIdx)")
+        Swift.print("the value that currently occupies this index: " + "\(sortedArr[closestIdx])")
         
-        let insertAfterIndex:Int = closestIndex(sortedArr, 0, 0, sortedArr.count-1)
-        Swift.print("insert after index: " + "\(insertAfterIndex)")
-        Swift.print("the value that currently occupies this index: " + "\(sortedArr[insertAfterIndex])")
+        //the following line enables you to insert the new item correctly in the sorted array
+        //closestIndex > 0 && closesIndex < array.count ? insertAt(closestIndex+1) :insertAt(closestIndex)
+        sortedArr.insertAt(<#T##item: Int##Int#>, <#T##index: Int##Int#>)
     }
     /**
      * This binarySearch finds a suitable index to insert an item in a sorted list (a regular binarySearch would return nil if no match is found, this implmentation returns the closestIndex)
