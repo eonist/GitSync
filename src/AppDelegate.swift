@@ -60,8 +60,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("the value that currently occupies this index: " + "\(sortedArr[closestIdx])")
         
         
-
-        let insertAt:Int = closestIdx == sortedArr.count - 1 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
+        //COntinue here:
+            //either solve this in closestIndex or bellow.
+        let insertAt:Int = closestIdx > sortedArr.last ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
         Swift.print("insertAt: " + "\(insertAt)")
         sortedArr.insertAt(item, insertAt)
         Swift.print("sortedArr: " + "\(sortedArr)")
