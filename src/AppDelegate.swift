@@ -39,8 +39,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //sorted arr: 1,4,6,7,8,9,12,15,22,26,33,122,455
         //find index to insert: 23
             //let middle:Int = ceil(arr.length / 2)
-            //if(idx > arr[middle]){
+            //if(idx > arr[middle]){//index is in part2
                 //
+            //}else if(idx < arr[middle]){//index is in part1
+                //
+            //}else{//index is at middleIndex
+                //return middleIndex
             //}
     }
     /**
