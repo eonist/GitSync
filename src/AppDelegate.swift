@@ -50,13 +50,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 return start/*between start and end*/
             }
         }
-        let middle:Int = end - start / 2
+        let middle:Int = (end - start) / 2
         Swift.print("middle: " + "\(middle)")
         if(idx > arr[middle]){/*index is in part2*/
-            return binarySearch(arr,idx,middle,arr.count)
+            Swift.print("part2")
+            return binarySearch(arr,idx,middle,end)
         }else if(idx < arr[middle]){/*index is in part1*/
-            return binarySearch(arr,idx,0,middle)
+            Swift.print("part1")
+            return binarySearch(arr,idx,start,middle)
         }else{/*index is at middleIndex*/
+            Swift.print("at middle")
             return middle
         }
     }
