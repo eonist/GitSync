@@ -67,6 +67,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Continue here: Reflection and unwrapping is working right out of the box
             //Moving on....to i guess storing the .xml and reloading the .xml file
         
+        //you then need to figure out how to update this sorted list on refresh (next)
+            //you could keep a DP instance for ListView that you prepend new items onto
+                //you compare the two lists by getting the first of ListView.dp and the first of ComitDB.sortedByDate.slice(0,100)
+                //then create a custom merge method that efficiently merges sortedByDates onto ListView.dp
+        
         let xml = Reflection.toXML(commitDB)/*Reflection*/
         Swift.print(xml.XMLString)//Output: <Temp><color type="NSColor">FFFF0000</color></Temp>
         let newInstance:CommitDB = CommitDB.unWrap(xml)!/*UnWrapping*/
