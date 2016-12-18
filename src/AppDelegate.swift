@@ -411,10 +411,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 }
 
 struct SortableCommit:Comparable{
-    var date:Int
-    var hash:String
-    var repoId:Int
-    init(){
-        
+    let date:Int
+    let hash:String
+    let repoId:Int
+    func < (a: SortableCommit, b: SortableCommit) -> Bool {
+        return lhs.date < rhs.date
+    }
+    
+    func == (a: SortableCommit, b: SortableCommit) -> Bool {
+        return lhs.name == rhs.name
     }
 }
