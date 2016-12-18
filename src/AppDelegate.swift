@@ -45,6 +45,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //then insert a tuple with (repo-id:Int,hash:String,date:Int) at an index you find with binarySearch
         //to retrive the last 100 items: db.sortedByDate.slice(0,100)
         //to retrive the last 100 from a speccific repo. Use git 
+        
+        //on refresh you should only insert commits that are new. So you need to query ...?
     }
     func binarySearchTest(){
         var sortedArr:[Int] = [1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
