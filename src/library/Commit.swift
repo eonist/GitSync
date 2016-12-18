@@ -8,8 +8,8 @@ struct Commit{
     let contributor:String
     let title:String
     let description:String
-    let date:String
-    let sortableDate:Int
+    let date:String/*2 min ago, 2016/12/12, feb 2, etc*/
+    let sortableDate:Int/*chronological descending date  in this format: yyyymmddhhmmss 20161201165959*/
     let hash:String
     let repoId:Int/*internal id system*/
     init(_ repoName:String,_ contributor:String,_ title:String,_ description:String,_ date:String, _ repoId:Int, _ hash:String,_ sortableDate:Int){
@@ -40,10 +40,10 @@ extension Commit:UnWrappable{
     }
 }
 func < (a: Commit, b: Commit) -> Bool {
-    return a.date < b.date
+    return a.sortableDate < b.sortableDate
 }
 func > (a: Commit, b: Commit) -> Bool {
-    return a.date > b.date
+    return a.sortableDate > b.sortableDate
 }
 func == (a: Commit, b: Commit) -> Bool {
     fatalError("not implemented yet")
