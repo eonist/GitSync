@@ -56,7 +56,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //you could keep a DP instance for ListView that you prepend new items onto
                 //you compare the two lists by getting the first of ListView.dp and the first of ComitDB.sortedByDate.slice(0,100)
                 //then create a custom merge method that efficiently merges sortedByDates onto ListView.dp
-        
+                //keep in mind that 2 commits can have the same commit time stamp, <---think about this
         
         //a:
             //16
