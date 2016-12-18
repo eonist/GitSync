@@ -50,21 +50,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //So you need to keep track of which commits are new for each repo locally. 
                 //you can do this with 'git show' when you refresh, rather that than complicating the dp
         
-        var sortedArr:[SortableCommit] = []
+        let commitDB = CommitDB()
         let itemA = SortableCommit(0,"fak42a",201602)
-        let closestIdx:Int = closestIndex(sortedArr, itemA, 0, sortedArr.endIndex)
-        Swift.print("closestIndex: " + "\(closestIdx)")
+        commitDB.add(itemA)
         
-        let insertAt:Int = itemA > sortedArr.last && sortedArr.count != 0 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
-        Swift.print("insertAt: " + "\(insertAt)")
-        sortedArr.insertAt(itemA, insertAt)
     }
     func binarySearchTest(){
-        var sortedArr:[Int] = []//[1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
+        /*var sortedArr:[Int] = []//[1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
         Swift.print("sortedArr.count: " + "\(sortedArr.count)")
         
         let item:Int = 454
         Swift.print("sortedArr.endIndex: " + "\(sortedArr.endIndex)")
+        
         let closestIdx:Int = closestIndex(sortedArr, item, 0, sortedArr.endIndex)
         Swift.print("closestIndex: " + "\(closestIdx)")
         
@@ -74,6 +71,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("insertAt: " + "\(insertAt)")
         sortedArr.insertAt(item, insertAt)
         Swift.print("sortedArr: " + "\(sortedArr)")
+        */
     }
     
     //this part isn't needed, the else part takes care of it
@@ -396,7 +394,7 @@ func == (a: SortableCommit, b: SortableCommit) -> Bool {
 }
 class CommitDB{
     var sortedArr:[SortableCommit]
-    init(_ sortedArr:[SortableCommit]){
+    init(_ sortedArr:[SortableCommit] = []){
         self.sortedArr = sortedArr
     }
     /**
