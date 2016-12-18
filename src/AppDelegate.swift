@@ -410,16 +410,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
-struct SortableCommit:Comparable{
-    let date:Int
-    let hash:String
-    let repoId:Int
-    init(_ repoId:Int,_ hash:String,_ date:Int){
-        self.repoId = repoId
-        self.hash = hash
-        self.date = date
-    }
-}
+
 func < (a: SortableCommit, b: SortableCommit) -> Bool {
     return a.date < b.date
 }
@@ -494,26 +485,5 @@ extension SortableCommit:UnWrappable{
         let hash:String = unWrap(xml,"hash")!
         let date:Int = unWrap(xml,"date")!
         return SortableCommit(repoId,hash,date) as? T
-    }
-}
-/**
- * DISCUSSION: Using struct is justified because the data is never modified. Just stored and reproduced
- */
-struct Commit{
-    let repoName:String
-    let contributor:String
-    let title:String
-    let description:String
-    let date:String
-    let sortableDate:Int
-    let hash:String
-    init(_ repoName:String,_ contributor:String,_ title:String,_ description:String,_ date:String,_ sortableDate:Int,_ hash:String){
-        self.repoName = repoName
-        self.contributor = contributor
-        self.title = title
-        self.description = description
-        self.date = date
-        self.sortableDate = sortableDate
-        self.hash = hash
     }
 }
