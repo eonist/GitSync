@@ -409,3 +409,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
+
+struct SortableCommit:Comparable{
+    var date:Int
+    var hash:String
+    var repoId:Int
+    init(){
+        
+    }
+}
