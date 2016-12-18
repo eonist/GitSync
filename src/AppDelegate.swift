@@ -51,8 +51,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //you can do this with 'git show' when you refresh, rather that than complicating the dp
         
         let commitDB = CommitDB()
-        let itemA = SortableCommit(0,"fak42a",201602)
-        commitDB.add(itemA)
+        commitDB.add(SortableCommit(0,"fak42a",201602))
+        commitDB.add(SortableCommit(0,"2fae23",201608))
+        commitDB.add(SortableCommit(5,"gr24g2",201601))
+        commitDB.add(SortableCommit(2,"24ggq2",201611))
+        commitDB.add(SortableCommit(1,"esvrg3",201606))
         
     }
     func binarySearchTest(){
