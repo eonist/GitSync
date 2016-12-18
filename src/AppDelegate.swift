@@ -50,12 +50,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //So you need to keep track of which commits are new for each repo locally. 
                 //you can do this with 'git show' when you refresh, rather that than complicating the dp
         
-        var sortedByDate:("repo-id":Int,"hash":String,"date":Int)?
-        
+        var sortedByDate:[(repoId:Int,hash:String,date:Int)] = []
+        sortedByDate.append((0,"fak42a",201602))
         
     }
     func binarySearchTest(){
-        var sortedArr:[Int] = [1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
+        var sortedArr:[Int] = []//[1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
         Swift.print("sortedArr.count: " + "\(sortedArr.count)")
         
         let item:Int = 454
