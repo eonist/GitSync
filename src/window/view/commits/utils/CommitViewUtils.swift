@@ -37,7 +37,7 @@ class CommitViewUtils {
         return args
     }
     /**
-     *
+     * Sets up a NSTask
      */
     static func configOperation(args:[String],_ localPath:String,_ repoTitle:String) -> (task:NSTask,pipe:NSPipe,repoTitle:String){
         let task = NSTask()
