@@ -72,7 +72,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //5
             //2
         
-        //{range:"all commits"} {auther:"made by eonist"} {where:"in the element repo"} {time-period:"this summer"}
         
         
         

@@ -76,3 +76,9 @@
     //cmd click on repo items will reveal edit icon in top bar for multi edit feature
     //Add support for tabbing the textfields
     //Add focus state support to the TextInput components
+    
+    
+### Ideas:
+    //Conversational search: (or via type-blocks similar to macOS search)
+        //{range:"all commits"} {author:"made by eonist"} {where:"in the element repo"} {time-period:"this summer"}
+        
