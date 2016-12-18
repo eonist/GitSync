@@ -53,8 +53,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //Continue here: 
             //things are working...moving on!
-            //store the commitDB to xml
-            
+            //commitDB -> xml (use reflection)
+            //XML -> CommitDB (xml parser)
         
         let commitDB = CommitDB()
         commitDB.add(SortableCommit(0,"fak42a",201602))
