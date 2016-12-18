@@ -72,7 +72,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //5
             //2
         
-        
+        //i want to find a commit that was made by eonist this past summer in the element repo. 
         
         let xml = Reflection.toXML(commitDB)/*Reflection*/
         Swift.print(xml.XMLString)//Output: <Temp><color type="NSColor">FFFF0000</color></Temp>
