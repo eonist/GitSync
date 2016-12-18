@@ -50,3 +50,20 @@ class CommitViewUtils {
         return (task,pipe,repoTitle)
     }
 }
+
+//let processedCommitData:Dictionary<String, String> = ["repo-name":repoTitle,"contributor":commitData.author,"title":subject,"description":compactBody,"date":relativeDate,"sortableDate":descendingDate,"hash":commitData.hash]
+/**
+ * NOTE: Using struct is justified because the data is never modified. Just stored and reproduced
+ */
+struct Commit{
+    let repoName:String
+    let contributor:String
+    let title:String
+    let description:String
+    let date:String
+    let sortableDate:Int
+    let hash:String
+    init(_ repoName:String,_ contributor:String,_ title:String,_ description:String,_ date:String,_ sortableDate:Int,_ hash:String){
+        
+    }
+}
