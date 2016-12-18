@@ -420,7 +420,7 @@ class CommitDB{
 }
 extension CommitDB{
     /**
-     * Adds an item to the sortedArr (at the correct index according to descending chronology)
+     * Adds an item to the sortedArr (at the correct index according to descending chronology, by using a custom binarySearch method)
      */
     func add(item:SortableCommit){
         let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
@@ -463,9 +463,17 @@ extension CommitDB{
         }
     }
 }
+extension SortableCommit:UnWrappable{
+    static func unWrap<T>(xml:XML) -> T? {
+        let repoId:Int = unWrap(xml,"repoId")!
+        let hash:String = unWrap(xml,"hash")!
+        let date:Int = unWrap(xml,"date")!
+        return SortableCommit(repoId,hash,date) as? T
+    }
+}
 extension CommitDB:UnWrappable{
     static func unWrap<T>(xml:XML) -> T? {
-        let date:Int = unWrap(xml,"date")
-        return Temp(color!) as? T
+        let sortedArr:[SortableCommit] = unWrap(xml,"sortedArr")!
+        return CommitDB(sortedArr) as? T
     }
 }
