@@ -62,7 +62,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         commitDB.add(Commit("","","","","",5,"gr24g2",201601))
         commitDB.add(Commit("","","","","",2,"24ggq2",201611))
         commitDB.add(Commit("","","","","",1,"esvrg3",201606))
-        commitDB.sortedArr.forEach{Swift.print($0.date)}
+        commitDB.sortedArr.forEach{Swift.print($0.sortableDate)}
         
         //Continue here: Reflection and unwrapping is working right out of the box
             //Moving on....to i guess storing the .xml and reloading the .xml file
