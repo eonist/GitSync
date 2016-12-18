@@ -42,7 +42,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //store in a repo-id collumn (appending)
         //store index of item in repo-id coulmn     in     (date column)
         //date column stores items in a chronologically descending order
-            //new items are first appended to 
+            //new items are first appended to the correct repo-id
+            //then insert
     }
     func binarySearchTest(){
         var sortedArr:[Int] = [1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
