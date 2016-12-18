@@ -59,19 +59,27 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         commitDB.sortedArr.forEach{Swift.print($0.date)}
     }
     func binarySearchTest(){
-        var sortedArr:[Int] = [1,4,6]//[1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
+        var sortedArr:[Int] = []//[1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
         Swift.print("sortedArr.count: " + "\(sortedArr.count)")
         
-        let item:Int = 0
-        Swift.print("sortedArr.endIndex: " + "\(sortedArr.endIndex)")
         
-        let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
-        Swift.print("closestIndex: " + "\(closestIdx)")
+       
+        func add(item:Int){
+            let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
+            Swift.print("closestIndex: " + "\(closestIdx)")
+            sortedArr.insertAt(item, closestIdx)
+            Swift.print("sortedArr: " + "\(sortedArr)")
+        }
+        
+        add(1)
+        add(6)
+        add(4)
+        
+        //Swift.print("sortedArr.endIndex: " + "\(sortedArr.endIndex)")
         
         //let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx  : closestIdx  //this line enables you to insert the new item correctly in the sorted array
         //Swift.print("insertAt: " + "\(insertAt)")
-        sortedArr.insertAt(item, closestIdx)
-        Swift.print("sortedArr: " + "\(sortedArr)")
+        
         /**/
     }
     
