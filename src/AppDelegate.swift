@@ -398,8 +398,6 @@ class CommitDB{
     var sortedArr:[SortableCommit]
     init(_ sortedArr:[SortableCommit]){
         self.sortedArr = sortedArr
-        let itemA = SortableCommit(0,"fak42a",201602)
-        
     }
     /**
      *
@@ -407,10 +405,9 @@ class CommitDB{
     func add(item:SortableCommit){
         let closestIdx:Int = closestIndex(sortedArr, item, 0, sortedArr.endIndex)
         Swift.print("closestIndex: " + "\(closestIdx)")
-        
-        let insertAt:Int = itemA > sortedArr.last && sortedArr.count != 0 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
+        let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
         Swift.print("insertAt: " + "\(insertAt)")
-        sortedArr.insertAt(itemA, insertAt)
+        sortedArr.insertAt(item, insertAt)
     }
     /**
      * This binarySearch finds a suitable index to insert an item in a sorted list (a regular binarySearch would return nil if no match is found, this implmentation returns the closestIndex)
