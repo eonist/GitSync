@@ -39,8 +39,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func databaseTest(){
-        //store in a repo-id collumn
-        //store ref to repo-id coulmn     in     date column
+        //store in a repo-id collumn (appending)
+        //store index of item in repo-id coulmn     in     (date column)
+        //date column
         //
     }
     func binarySearchTest(){
