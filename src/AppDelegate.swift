@@ -67,6 +67,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Continue here: Reflection and unwrapping is working right out of the box
             //Moving on....to i guess storing the .xml and reloading the .xml file
         
+        //you want to store more data in SortableCommit, the same info as in the Commit class actually. So SortableCommit should probably extend Commit. 
+            //test if reflection still works when extending
+        
         //you then need to figure out how to update this sorted list on refresh (next)
             //you could keep a DP instance for ListView that you prepend new items onto
                 //you compare the two lists by getting the first of ListView.dp and the first of ComitDB.sortedByDate.slice(0,100)
