@@ -79,7 +79,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print(xml.XMLString)//Output: <Temp><color type="NSColor">FFFF0000</color></Temp>
         let newInstance:CommitDB = CommitDB.unWrap(xml)!/*UnWrapping*/
         Swift.print("Printing sortedArr after unwrap: ")
-        newInstance.sortedArr.forEach{Swift.print($0.date)}
+        newInstance.sortedArr.forEach{Swift.print($0.sortableDate)}
         
     }
     func binarySearchTest(){

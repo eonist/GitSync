@@ -12,7 +12,7 @@ struct Commit{
     let sortableDate:Int
     let hash:String
     let repoId:Int/*internal id system*/
-    init(_ repoName:String,_ contributor:String,_ title:String,_ description:String,_ date:String,_ sortableDate:Int,_ hash:String, _ repoId:Int){
+    init(_ repoName:String,_ contributor:String,_ title:String,_ description:String,_ date:String, _ repoId:Int, _ hash:String,_ sortableDate:Int){
         self.repoName = repoName
         self.contributor = contributor
         self.title = title
