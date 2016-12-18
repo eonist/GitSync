@@ -411,15 +411,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
 }
 
-func < (a: SortableCommit, b: SortableCommit) -> Bool {
-    return a.date < b.date
-}
-func > (a: SortableCommit, b: SortableCommit) -> Bool {
-    return a.date > b.date
-}
-func == (a: SortableCommit, b: SortableCommit) -> Bool {
-    return a.date == b.date && a.hash == b.hash && a.repoId == b.repoId
-}
+
 class CommitDB{
     var sortedArr:[SortableCommit]
     init(_ sortedArr:[SortableCommit] = []){
@@ -476,14 +468,5 @@ extension CommitDB:UnWrappable{
     static func unWrap<T>(xml:XML) -> T? {
         let sortedArr:[SortableCommit?] = unWrap(xml, "sortedArr")
         return CommitDB(sortedArr.flatMap{$0}) as? T
-    }
-}
-//this makes SortableCommit unwrappable (XML->SortableCommit)
-extension SortableCommit:UnWrappable{
-    static func unWrap<T>(xml:XML) -> T? {
-        let repoId:Int = unWrap(xml,"repoId")!
-        let hash:String = unWrap(xml,"hash")!
-        let date:Int = unWrap(xml,"date")!
-        return SortableCommit(repoId,hash,date) as? T
     }
 }

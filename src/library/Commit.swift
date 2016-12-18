@@ -11,7 +11,7 @@ struct Commit{
     let date:String
     let sortableDate:Int
     let hash:String
-    let repoId:Int
+    let repoId:Int/*internal id system*/
     init(_ repoName:String,_ contributor:String,_ title:String,_ description:String,_ date:String,_ sortableDate:Int,_ hash:String, _ repoId:Int){
         self.repoName = repoName
         self.contributor = contributor
@@ -24,12 +24,23 @@ struct Commit{
     }
 }
 
-struct SortableCommit:Comparable{
-    let date:Int
-    let hash:String
-        init(_ repoId:Int,_ hash:String,_ date:Int){
-        self.repoId = repoId
-        self.hash = hash
-        self.date = date
+extension Commit:Comparable{
+}
+//this makes SortableCommit unwrappable (XML->SortableCommit)
+extension Commit:UnWrappable{
+    static func unWrap<T>(xml:XML) -> T? {
+        let repoId:Int = unWrap(xml,"repoId")!
+        let hash:String = unWrap(xml,"hash")!
+        let date:Int = unWrap(xml,"date")!
+        return Commit(repoName,hash,date) as? T
     }
+}
+func < (a: Commit, b: Commit) -> Bool {
+    return a.date < b.date
+}
+func > (a: Commit, b: Commit) -> Bool {
+    return a.date > b.date
+}
+func == (a: Commit, b: Commit) -> Bool {
+    return a.date == b.date && a.hash == b.hash && a.repoId == b.repoId
 }
