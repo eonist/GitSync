@@ -49,7 +49,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //on refresh you should only insert commits that are new. 
             //So you need to keep track of which commits are new for each repo locally. 
                 //you can do this with 'git show' when you refresh, rather that than complicating the dp
-        
+                    //then you only add commits that are newer than the locally newest commit. which you temp store before you commit or pull down changes
         
         //Continue here: 
             //things are working...moving on!
