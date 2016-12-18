@@ -15,8 +15,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
-        binarySearchTest()
-        //dataBaseTest()
+        //binarySearchTest()
+        dataBaseTest()
         
         //test it out with many cases
         //then test it with dictonary
@@ -75,6 +75,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         add(6)
         add(4)
         add(0)
+        add(7)
         Swift.print("sortedArr: " + "\(sortedArr)")
         
         
@@ -418,9 +419,9 @@ class CommitDB{
         
         let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
         Swift.print("closestIndex: " + "\(closestIdx)")
-        let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
-        Swift.print("insertAt: " + "\(insertAt)")
-        sortedArr.insertAt(item, insertAt)
+        //let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
+        //Swift.print("insertAt: " + "\(insertAt)")
+        sortedArr.insertAt(item, closestIndex)
     }
     /**
      * This binarySearch finds a suitable index to insert an item in a sorted list (a regular binarySearch would return nil if no match is found, this implmentation returns the closestIndex)
