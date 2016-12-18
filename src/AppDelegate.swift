@@ -46,7 +46,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //to retrive the last 100 items: db.sortedByDate.slice(0,100)
         //to retrive the last 100 from a speccific repo. Use git 
         
-        //on refresh you should only insert commits that are new. So you need to keep track of which commits are new for each repo
+        //on refresh you should only insert commits that are new. 
+            //So you need to keep track of which commits are new for each repo locally. 
+                //you can do this with 'git show' when you refresh, rather that than complicating the dp
+        
+        var sortedByDate:[("repo-id":Int,"hash":String,"date":Int)] = []
+        
+        
     }
     func binarySearchTest(){
         var sortedArr:[Int] = [1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
