@@ -57,11 +57,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //XML -> CommitDB (xml parser)
         
         let commitDB = CommitDB()
-        commitDB.add(Commit("","","","","",0,"fak42a",201602))
-        commitDB.add(Commit("","","","","",0,"2fae23",201608))
-        commitDB.add(Commit("","","","","",5,"gr24g2",201601))
-        commitDB.add(Commit("","","","","",2,"24ggq2",201611))
-        commitDB.add(Commit("","","","","",1,"esvrg3",201606))
+        commitDB.add(Commit("","","","","",201602,"fak42a",0))
+        commitDB.add(Commit("","","","","",201608,"2fae23",0))
+        commitDB.add(Commit("","","","","",201601,"gr24g2",5))
+        commitDB.add(Commit("","","","","",201611,"24ggq2",2))
+        commitDB.add(Commit("","","","","",201606,"esvrg3",1))
         commitDB.sortedArr.forEach{Swift.print($0.sortableDate)}
         
         //Continue here: Reflection and unwrapping is working right out of the box
