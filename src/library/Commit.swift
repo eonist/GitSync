@@ -46,5 +46,5 @@ func > (a: Commit, b: Commit) -> Bool {
     return a.date > b.date
 }
 func == (a: Commit, b: Commit) -> Bool {
-    return a.date == b.date && a.hash == b.hash && a.repoId == b.repoId
+    fatalError("not implemented yet")
 }
