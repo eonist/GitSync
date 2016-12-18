@@ -68,9 +68,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
         Swift.print("closestIndex: " + "\(closestIdx)")
         
-        let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx  : closestIdx  //this line enables you to insert the new item correctly in the sorted array
-        Swift.print("insertAt: " + "\(insertAt)")
-        sortedArr.insertAt(item, insertAt)
+        //let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx  : closestIdx  //this line enables you to insert the new item correctly in the sorted array
+        //Swift.print("insertAt: " + "\(insertAt)")
+        sortedArr.insertAt(item, closestIdx)
         Swift.print("sortedArr: " + "\(sortedArr)")
         /**/
     }
