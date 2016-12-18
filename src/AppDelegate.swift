@@ -56,7 +56,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         commitDB.add(SortableCommit(5,"gr24g2",201601))
         commitDB.add(SortableCommit(2,"24ggq2",201611))
         commitDB.add(SortableCommit(1,"esvrg3",201606))
-        
+        commitDB.sortedArr.forEach{Swift.print($0.date)}
     }
     func binarySearchTest(){
         /*var sortedArr:[Int] = []//[1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
