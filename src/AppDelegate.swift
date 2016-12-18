@@ -50,6 +50,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //So you need to keep track of which commits are new for each repo locally. 
                 //you can do this with 'git show' when you refresh, rather that than complicating the dp
         
+        
+        //Continue here: 
+            //things are working...moving on!
+        
         let commitDB = CommitDB()
         commitDB.add(SortableCommit(0,"fak42a",201602))
         commitDB.add(SortableCommit(0,"2fae23",201608))
