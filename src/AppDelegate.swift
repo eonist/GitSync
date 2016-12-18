@@ -35,7 +35,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //commitDataTest()
         //relativeTimeTest()
     }
-    
+    /**
+     *
+     */
+    func databaseTest(){
+        //store in a repo-id collumn
+        //store ref to repo-id coulmn     in     date column
+        //
+    }
     func binarySearchTest(){
         var sortedArr:[Int] = [1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
         Swift.print("sortedArr.count: " + "\(sortedArr.count)")
