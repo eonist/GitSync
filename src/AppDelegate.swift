@@ -426,3 +426,17 @@ func > (a: SortableCommit, b: SortableCommit) -> Bool {
 func == (a: SortableCommit, b: SortableCommit) -> Bool {
     return a.date == b.date && a.hash == b.hash && a.repoId == b.repoId
 }
+class CommitDB{
+    var sortedArr:[SortableCommit] = []
+    init(_ sortedArr:[SortableCommit]){
+        
+        let itemA = SortableCommit(0,"fak42a",201602)
+        let closestIdx:Int = closestIndex(sortedArr, itemA, 0, sortedArr.endIndex)
+        Swift.print("closestIndex: " + "\(closestIdx)")
+        
+        let insertAt:Int = itemA > sortedArr.last && sortedArr.count != 0 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
+        Swift.print("insertAt: " + "\(insertAt)")
+        sortedArr.insertAt(itemA, insertAt)
+    }
+    
+}
