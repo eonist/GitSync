@@ -413,8 +413,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 
 
 class CommitDB{
-    var sortedArr:[SortableCommit]
-    init(_ sortedArr:[SortableCommit] = []){
+    var sortedArr:[Commit]
+    init(_ sortedArr:[Commit] = []){
         self.sortedArr = sortedArr
     }
 }
@@ -422,7 +422,7 @@ extension CommitDB{
     /**
      * Adds an item to the sortedArr (at the correct index according to descending chronology, by using a custom binarySearch method)
      */
-    func add(item:SortableCommit){
+    func add(item:Commit){
         let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
         Swift.print("closestIndex: " + "\(closestIdx)")
         //let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
@@ -466,7 +466,7 @@ extension CommitDB{
 //this makes CommitDB unwrappable (XML->CommitDB)
 extension CommitDB:UnWrappable{
     static func unWrap<T>(xml:XML) -> T? {
-        let sortedArr:[SortableCommit?] = unWrap(xml, "sortedArr")
+        let sortedArr:[Commit?] = unWrap(xml, "sortedArr")
         return CommitDB(sortedArr.flatMap{$0}) as? T
     }
 }
