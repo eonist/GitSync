@@ -62,13 +62,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         var sortedArr:[Int] = [1,4,6]//[1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
         Swift.print("sortedArr.count: " + "\(sortedArr.count)")
         
-        let item:Int = 7
+        let item:Int = 0
         Swift.print("sortedArr.endIndex: " + "\(sortedArr.endIndex)")
         
         let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
         Swift.print("closestIndex: " + "\(closestIdx)")
         
-        let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
+        let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx  : closestIdx  //this line enables you to insert the new item correctly in the sorted array
         Swift.print("insertAt: " + "\(insertAt)")
         sortedArr.insertAt(item, insertAt)
         Swift.print("sortedArr: " + "\(sortedArr)")
