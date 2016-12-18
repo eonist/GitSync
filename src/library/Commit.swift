@@ -23,7 +23,6 @@ struct Commit{
         self.repoId = repoId
     }
 }
-
 extension Commit:Comparable{
 }
 //this makes SortableCommit unwrappable (XML->SortableCommit)
