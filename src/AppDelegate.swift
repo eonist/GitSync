@@ -72,7 +72,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //5
             //2
         
-        //all commits made by eonist in the element repo this summer
+        //{range:"all commits"} {auther:"made by eonist"} {where:"in the element repo"} {time-period:"this summer"}
         
         
         
