@@ -473,7 +473,7 @@ extension SortableCommit:UnWrappable{
 }
 extension CommitDB:UnWrappable{
     static func unWrap<T>(xml:XML) -> T? {
-        let sortedArr:[SortableCommit] = unWrap(xml,"sortedArr")!
+        let sortedArr:[SortableCommit] = unWrap(xml, "sortedArr")
         return CommitDB(sortedArr) as? T
     }
 }
