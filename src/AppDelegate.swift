@@ -41,7 +41,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func databaseTest(){
         //store in a repo-id collumn (appending)
         //store index of item in repo-id coulmn     in     (date column)
-        //date column
+        //date column stores items in a chronologically descending order
         //
     }
     func binarySearchTest(){
