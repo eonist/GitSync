@@ -44,6 +44,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //date column stores items in a chronologically descending order
             //new items are first appended to the correct repo-id
             //then insert a tuple with (repo-id,idx,date) at an index you find with binarySearch
+        //to retrive the last 100 items: db.sortedByDate.slice(0,100)
+        //to retrive the 
     }
     func binarySearchTest(){
         var sortedArr:[Int] = [1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
