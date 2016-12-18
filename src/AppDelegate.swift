@@ -390,10 +390,10 @@ struct SortableCommit:Comparable{
     let date:Int
     let hash:String
     let repoId:Int
-    init(_ date:Int,_ hash:String, _ repoId:Int){
-        self.date = date
-        self.hash = hash
+    init(_ repoId:Int,_ hash:String,_ date:Int){
         self.repoId = repoId
+        self.hash = hash
+        self.date = date
     }
 }
 func < (a: SortableCommit, b: SortableCommit) -> Bool {
