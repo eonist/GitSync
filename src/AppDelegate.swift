@@ -15,8 +15,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
-        //binarySearchTest()
-        dataBaseTest()
+        binarySearchTest()
+        //dataBaseTest()
         
         //test it out with many cases
         //then test it with dictonary
@@ -59,22 +59,20 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         commitDB.sortedArr.forEach{Swift.print($0.date)}
     }
     func binarySearchTest(){
-        /*var sortedArr:[Int] = []//[1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
+        var sortedArr:[Int] = [1,4,6]//[1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
         Swift.print("sortedArr.count: " + "\(sortedArr.count)")
         
-        let item:Int = 454
+        let item:Int = 7
         Swift.print("sortedArr.endIndex: " + "\(sortedArr.endIndex)")
         
-        let closestIdx:Int = closestIndex(sortedArr, item, 0, sortedArr.endIndex)
+        let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
         Swift.print("closestIndex: " + "\(closestIdx)")
-        
-        
         
         let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
         Swift.print("insertAt: " + "\(insertAt)")
         sortedArr.insertAt(item, insertAt)
         Swift.print("sortedArr: " + "\(sortedArr)")
-        */
+        /**/
     }
     
     //this part isn't needed, the else part takes care of it
@@ -407,7 +405,7 @@ class CommitDB{
         
         //Continue here: there could be something wrong with the closest index. investigate
         
-        let closestIdx:Int = closestIndex(sortedArr, item, 0, sortedArr.endIndex)
+        let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
         Swift.print("closestIndex: " + "\(closestIdx)")
         let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
         Swift.print("insertAt: " + "\(insertAt)")
@@ -425,7 +423,7 @@ class CommitDB{
      * TRIVIA:  YOu can also implement binary serach as iterative implementation by using a while loop
      * TODO: use range instead of start and end int?!?
      */
-    func closestIndex<T:Comparable>(arr:[T],_ i:T,_ start:Int,_ end:Int) -> Int{//arr[Stridable] or something indexable
+    static func closestIndex<T:Comparable>(arr:[T],_ i:T,_ start:Int,_ end:Int) -> Int{//arr[Stridable] or something indexable
         Swift.print("start: " + "\(start)")
         Swift.print("end: " + "\(end)")
         if(start == end){
