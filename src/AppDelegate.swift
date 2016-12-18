@@ -415,10 +415,12 @@ struct SortableCommit:Comparable{
     let hash:String
     let repoId:Int
     func < (a: SortableCommit, b: SortableCommit) -> Bool {
-        return lhs.date < rhs.date
+        return a.date < b.date
     }
-    
+    func > (a: SortableCommit, b: SortableCommit) -> Bool {
+        return a.date > b.date
+    }
     func == (a: SortableCommit, b: SortableCommit) -> Bool {
-        return lhs.name == rhs.name
+        return a.date == b.date && a.hash == b.hash && a.repoId == b.repoId
     }
 }
