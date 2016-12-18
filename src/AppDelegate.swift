@@ -417,13 +417,12 @@ class CommitDB{
     init(_ sortedArr:[SortableCommit] = []){
         self.sortedArr = sortedArr
     }
+}
+extension CommitDB{
     /**
-     *
+     * Adds an item to the sortedArr (at the correct index according to descending chronology)
      */
     func add(item:SortableCommit){
-        
-        //Continue here: there could be something wrong with the closest index. investigate
-        
         let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
         Swift.print("closestIndex: " + "\(closestIdx)")
         //let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
@@ -466,7 +465,7 @@ class CommitDB{
 }
 extension CommitDB:UnWrappable{
     static func unWrap<T>(xml:XML) -> T? {
-        let color:NSColor? = unWrap(xml,"color")
+        let date:Int = unWrap(xml,"date")
         return Temp(color!) as? T
     }
 }
