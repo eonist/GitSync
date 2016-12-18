@@ -59,9 +59,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("sortedArr.count: " + "\(sortedArr.count)")
         
         let item:Int = 454
-        let closestIdx:Int = closestIndex(sortedArr, item, 0, sortedArr.count-1)
+        Swift.print("sortedArr.endIndex: " + "\(sortedArr.endIndex)")
+        let closestIdx:Int = closestIndex(sortedArr, item, 0, sortedArr.endIndex)
         Swift.print("closestIndex: " + "\(closestIdx)")
-        Swift.print("the value that currently occupies this index: " + "\(sortedArr[closestIdx])")
+        
         
         
         let insertAt:Int = item > sortedArr.last ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
@@ -85,7 +86,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("start: " + "\(start)")
         Swift.print("end: " + "\(end)")
         if(start == end){
-            Swift.print("i doesn't exist, this is the closest: \(arr[start]) at: \(start) ")
+            Swift.print("i doesn't exist, this is the closest at: \(start) ")
             return start
         }
         let mid:Int = start + ((end - start) / 2)/*start + middle of the distance between start and end*/
