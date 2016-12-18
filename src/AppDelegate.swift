@@ -64,6 +64,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         commitDB.add(SortableCommit(1,"esvrg3",201606))
         commitDB.sortedArr.forEach{Swift.print($0.date)}
         
+        
+        let xml = Reflection.toXML(commitDB)/*Reflection*/
+        Swift.print(xml.XMLString)//Output: <Temp><color type="NSColor">FFFF0000</color></Temp>
+        let newInstance:CommitDB = CommitDB.unWrap(xml)!/*UnWrapping*/
+        Swift.print("Printing sortedArr after unwrap: ")
+        newInstance.sortedArr.forEach{Swift.print($0.date)}
+        
     }
     func binarySearchTest(){
         var sortedArr:[Int] = []//[1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
