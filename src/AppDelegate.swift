@@ -57,6 +57,23 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //you compare the two lists by getting the first of ListView.dp and the first of ComitDB.sortedByDate.slice(0,100)
                 //then create a custom merge method that efficiently merges sortedByDates onto ListView.dp
         
+        
+        //a:
+            //16
+            //15
+            //12 <--
+            //10
+            //5
+            //2
+        
+        //b:
+            //12 (<--first)
+            //10
+            //5
+            //2
+        
+        
+        
         let xml = Reflection.toXML(commitDB)/*Reflection*/
         Swift.print(xml.XMLString)//Output: <Temp><color type="NSColor">FFFF0000</color></Temp>
         let newInstance:CommitDB = CommitDB.unWrap(xml)!/*UnWrapping*/
