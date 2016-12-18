@@ -50,7 +50,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //So you need to keep track of which commits are new for each repo locally. 
                 //you can do this with 'git show' when you refresh, rather that than complicating the dp
         
-        var sortedByDate:[("repo-id":Int,"hash":String,"date":Int)] = []
+        var sortedByDate:("repo-id":Int,"hash":String,"date":Int)?
         
         
     }
