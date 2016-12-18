@@ -64,6 +64,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         commitDB.add(SortableCommit(1,"esvrg3",201606))
         commitDB.sortedArr.forEach{Swift.print($0.date)}
         
+        //Continue here: Reflection and unwrapping is working right out of the box
+            //Moving on....
         
         let xml = Reflection.toXML(commitDB)/*Reflection*/
         Swift.print(xml.XMLString)//Output: <Temp><color type="NSColor">FFFF0000</color></Temp>
