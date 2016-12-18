@@ -15,8 +15,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
-        binarySearchTest()
-        
+        //binarySearchTest()
+        dataBaseTest()
         
         //test it out with many cases
         //then test it with dictonary
@@ -38,7 +38,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     /**
      *
      */
-    func databaseTest(){
+    func dataBaseTest(){
         //store index of item in repo-id coulmn     in     (date column)
         //date column stores items in a chronologically descending order
             //new items are first appended to the correct repo-id
