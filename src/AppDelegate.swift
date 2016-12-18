@@ -50,8 +50,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //So you need to keep track of which commits are new for each repo locally. 
                 //you can do this with 'git show' when you refresh, rather that than complicating the dp
         
-        var sortedArr:[(repoId:Int,hash:String,date:Int)] = []
-        let itemA = (0,"fak42a",201602)
+        var sortedArr:[SortableCommit] = []
+        let itemA = SortableCommit(0,"fak42a",201602)
         let closestIdx:Int = closestIndex(sortedArr, itemA, 0, sortedArr.endIndex)
         Swift.print("closestIndex: " + "\(closestIdx)")
         
@@ -414,6 +414,11 @@ struct SortableCommit:Comparable{
     let date:Int
     let hash:String
     let repoId:Int
+    init(date:Int,_ hash:String, _ repoId:Int){
+        self.date = date
+        self.hash = hash
+        self.repoId = repoId
+    }
 }
 func < (a: SortableCommit, b: SortableCommit) -> Bool {
     return a.date < b.date
