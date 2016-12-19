@@ -56,7 +56,6 @@ class CommitsView:Element {
             $0.task.launch()
         }
     }
-
     /**
      * The handler for the NSTasks
      */
@@ -78,7 +77,6 @@ class CommitsView:Element {
         Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")
         createList()/*creates the GUI List*/
     }
-
     func onListSelect(event:ListEvent){
         Swift.print("CommitsView.onListSelect()")
         Sounds.play?.play()
