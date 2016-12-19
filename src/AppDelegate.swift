@@ -15,8 +15,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
-        
-        dataBaseTest()
+        ioTest()
+        //dataBaseTest()
     }
     /**
      *
@@ -25,6 +25,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let commitDB = CommitCache.read()
         commitDB.sortedArr.forEach{Swift.print($0.sortableDate)}
         /*
+        commitDB.add(Commit("","","","","",201609,"f2o33f",3))
         CommitCache.write(commitDB)
         */
     }
