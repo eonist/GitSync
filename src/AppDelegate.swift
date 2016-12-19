@@ -131,7 +131,7 @@ class Temp{
 }
 extension Temp:UnWrappable{
     static func unWrap<T>(xml:XML) -> T? {
-        let someDict:[Int:String]? = unWrap(xml,"someDict")
-        return Temp(someDict!) as? T
+        let someDict:[Int:String] = unWrap(xml,"someDict")
+        return Temp(someDict) as? T
     }
 }
