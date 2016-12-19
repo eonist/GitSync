@@ -2,8 +2,8 @@ import Foundation
 
 class CommitDB{
     var sortedArr:[Commit]/*Chronologically descending commits*/
-    var prevCommits:Dictionary<String,String>/*repoId:hash for the last commit made by a repo*/
-    init(_ sortedArr:[Commit] = [], _ prevCommits:Dictionary<String,String> = [:]){
+    var prevCommits:Dictionary<Int,String>/*repoId:hash for the last commit made by a repo*/
+    init(_ sortedArr:[Commit] = [], _ prevCommits:Dictionary<Int,String> = [:]){
         self.sortedArr = sortedArr
         self.prevCommits = prevCommits
     }
@@ -13,6 +13,7 @@ extension CommitDB{
      * Adds an item to the sortedArr (at the correct index according to descending chronology, by using a custom binarySearch method)
      */
     func add(item:Commit){
+        prevCommits[item.repoId] = item.hash/*store the last commit*/
         let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
         Swift.print("closestIndex: " + "\(closestIdx)")
         //let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
