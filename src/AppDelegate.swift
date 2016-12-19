@@ -33,7 +33,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //see xmlParser for tips in this regard
         //unwrap the xml to dict
         
-        //test with a class that has a dict
+        //Continue here: test with a class that has a dict
     }
     /**
      *
