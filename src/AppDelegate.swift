@@ -21,22 +21,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func dataBaseTest(){
-        //store index of item in repo-id coulmn     in     (date column)
-        //date column stores items in a chronologically descending order
-            //new items are first appended to the correct repo-id
-            //then insert a tuple with (repo-id:Int,hash:String,date:Int) at an index you find with binarySearch
-        //to retrive the last 100 items: db.sortedByDate.slice(0,100)
-        //to retrive the last 100 from a speccific repo. Use git 
         
-        //on refresh you should only insert commits that are new. 
-            //So you need to keep track of which commits are new for each repo locally. 
-                //you can do this with 'git show' when you refresh, rather that than complicating the dp
-                    //then you only add commits that are newer than the locally newest commit. which you temp store before you commit or pull down changes
-        
-        //Continue here: 
-            //things are working...moving on!
-            //commitDB -> xml (use reflection)
-            //XML -> CommitDB (xml parser)
         
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
@@ -45,40 +30,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         commitDB.add(Commit("","","","","",201611,"24ggq2",2))
         commitDB.add(Commit("","","","","",201606,"esvrg3",1))
         commitDB.sortedArr.forEach{Swift.print($0.sortableDate)}
-        
-        //Continue here: Reflection and unwrapping is working right out of the box
-            //Moving on....to i guess storing the .xml and reloading the .xml file
-        
-        //you want to store more data in SortableCommit, the same info as in the Commit class actually. So SortableCommit should probably extend Commit. 
-            //test if reflection still works when extending..it does
-        
-        //you then need to figure out how to update this sorted list on refresh (next)
-            //you could keep a DP instance for ListView that you prepend new items onto
-                //you compare the two lists by getting the first of ListView.dp and the first of ComitDB.sortedByDate.slice(0,100)
-                //then create a custom merge method that efficiently merges sortedByDates onto ListView.dp
-                //keep in mind that 2 commits can have the same commit time stamp, <---think about this
-        
-        //a:
-            //16
-            //15
-            //12 <--
-            //10
-            //5
-            //2
-        
-        //b:
-            //12 (<--first)
-            //10
-            //5
-            //2
-        
-        //its simple: 
-            //on refresh: you simply store the commitdb.sortedCommits.count
-                //then when refresh is complete you take the new count and substract the old. 
-                    //this number represents the num of items to prepend to the CommitsView.dp (this dp is max 100 items at all time)
-        
-        
-        
         
         let xml = Reflection.toXML(commitDB)/*Reflection*/
         Swift.print(xml.XMLString)//Output: <Temp><color type="NSColor">FFFF0000</color></Temp>
