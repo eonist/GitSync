@@ -21,6 +21,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func dataBaseTest(){
+        
+        //Continue here:
+            //store xml to disk
+            //retrive xml to structs
+            //loop through repos and check for new commits
+                //add new commits to CommitDB
+                
+        
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
         commitDB.add(Commit("","","","","",201608,"2fae23",0))
