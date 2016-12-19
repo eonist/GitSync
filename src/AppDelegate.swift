@@ -28,6 +28,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         commitDB.add(Commit("","","","","",201609,"f2o33f",3))
         CommitCache.write(commitDB)
         */
+        
+        //Continue here: reading and writing works...next task!
     }
     /**
      *
