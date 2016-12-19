@@ -1,8 +1,17 @@
 import Foundation
 
 class CommitCache {
-    //write commits to disk (xml)
-    
-    //read commits from disk (xml)
+    /**
+     * Read commits from disk (xml)
+     */
+    static func read(){
+        
+    }
+    /**
+     * Write commits to disk (xml)
+     */
+    static func write(){
+        
+    }
 }
 
