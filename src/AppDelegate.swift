@@ -41,7 +41,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //retrive xml to structs
             //When you add a new repo. The hash id of the first commit is added as the newest commit to that repo.
                 //this hash id is then updated to always represent the last commit?!?!?<--is this a good idea?
-                    //I think CommitDB should 
+                    //I think CommitDB should hold this index. 
             //loop through repos and get the last local commit
                 //
             //loop through repos and check for new commits
