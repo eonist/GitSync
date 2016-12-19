@@ -50,7 +50,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //Moving on....to i guess storing the .xml and reloading the .xml file
         
         //you want to store more data in SortableCommit, the same info as in the Commit class actually. So SortableCommit should probably extend Commit. 
-            //test if reflection still works when extending
+            //test if reflection still works when extending..it does
         
         //you then need to figure out how to update this sorted list on refresh (next)
             //you could keep a DP instance for ListView that you prepend new items onto
@@ -76,7 +76,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //on refresh: you simply store the commitdb.sortedCommits.count
                 //then when refresh is complete you take the new count and substract the old. 
                     //this number represents the num of items to prepend to the CommitsView.dp (this dp is max 100 items at all time)
-                    
+        
         
         
         
