@@ -5,6 +5,7 @@ class CommitCache {
      * Read commits from disk (xml)
      */
     static func read(){
+        let url:String = "~/Desktop/sortedcommits.xml"
         
     }
     /**
