@@ -2,7 +2,8 @@ import Foundation
 
 class CommitDB{
     var sortedArr:[Commit]
-    init(_ sortedArr:[Commit] = []){
+    var prevCommit:[Int]/**/
+    init(_ sortedArr:[Commit] = [], _ prevCommit:[Int]){
         self.sortedArr = sortedArr
     }
 }
