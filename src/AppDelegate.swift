@@ -26,7 +26,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //create a dict
         let someDict:[Int:String] = [0:"test"]
         let temp:Any = someDict
-        Swift.print("\(Bool(temp is Dictionary))")
+        Swift.print("\(temp is AnyDictionary)")
         //let xml:XML = Reflection.toXML(someDict)
         //Swift.print("xml.XMLString: " + "\(xml.XMLString)")
         //reflect the dict to xml
