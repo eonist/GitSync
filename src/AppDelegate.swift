@@ -27,7 +27,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //let someDict:[Int:String] = [0:"test"]
         //let temp:Any = someDict
         //Swift.print("\(temp is AnyDictionary)")
-        let temp:Temp = Temp()
+        let temp:Temp = Temp([0:"test",3:"testing",5:"more testing"])
         let xml:XML = Reflection.toXML(temp)
         Swift.print(xml.XMLString)
         
@@ -124,5 +124,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
 }
 class Temp{
-    let someDict:[Int:String] = [0:"test",3:"testing",5:"more testing"]
+    var someDict:[Int:String]
+    init(_ someDict:[Int:String]){
+        self.someDict = someDict
+    }
+}
+extension Temp:UnWrappable{
+    static func unWrap<T>(xml:XML) -> T? {
+        let color:NSColor? = unWrap(xml,"color")
+        return Temp(color!) as? T
+    }
 }
