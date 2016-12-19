@@ -27,6 +27,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //let someDict:[Int:String] = [0:"test"]
         //let temp:Any = someDict
         //Swift.print("\(temp is AnyDictionary)")
+        
+        //Continue here: Dictionary implemented...move on to adding lastCommit support for CommitDB
+        
         let temp:Temp = Temp([0:"test",3:"testing",5:"more testing"])
         let xml:XML = Reflection.toXML(temp)
         Swift.print(xml.XMLString)
