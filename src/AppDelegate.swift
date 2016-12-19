@@ -74,7 +74,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //its simple: 
             //on refresh: you simply store the commitdb.sortedCommits.count
-                //then when refresh is complete you take the new count
+                //then when refresh is complete you take the new count and substract the old. 
+                    //this number represents the num of items to prepend to the CommitsView.dp (this dp is max 100 items at all time)
+                    
         
         
         
