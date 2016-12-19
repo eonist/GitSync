@@ -81,4 +81,4 @@
 ### Ideas:
     //Conversational search: (or via type-blocks similar to macOS search)
         //{range:"all commits"} {author:"made by eonist"} {where:"in the element repo"} {time-period:"this summer"}
-        
+    //Auto-message: if the alteration is removing empty whitespace or empty lines. Create a case for this: Removed 3 empty lines, or Removed whitespace
