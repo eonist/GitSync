@@ -21,8 +21,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func dataBaseTest(){
-        
-        
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
         commitDB.add(Commit("","","","","",201608,"2fae23",0))
@@ -36,7 +34,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let newInstance:CommitDB = CommitDB.unWrap(xml)!/*UnWrapping*/
         Swift.print("Printing sortedArr after unwrap: ")
         newInstance.sortedArr.forEach{Swift.print($0.sortableDate)}
-        
     }
     func initApp(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
