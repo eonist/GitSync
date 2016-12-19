@@ -26,8 +26,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //store xml to disk
             //retrive xml to structs
             //loop through repos and check for new commits
-                //add new commits to CommitDB
-                
+                //insert new commits to CommitDB
+            //on loop complete
+                //
         
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
