@@ -2,9 +2,10 @@ import Foundation
 
 class CommitDB{
     var sortedArr:[Commit]
-    var prevCommit:[Int]/**/
-    init(_ sortedArr:[Commit] = [], _ prevCommit:[Int]){
+    var prevCommits:Dictionary<String,String>/*String:repoId,*/
+    init(_ sortedArr:[Commit] = [], _ prevCommits:Dictionary<String,Int> = [:]){
         self.sortedArr = sortedArr
+        self.prevCommits = prevCommits
     }
 }
 extension CommitDB{
