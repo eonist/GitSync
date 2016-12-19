@@ -15,8 +15,20 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
-        ioTest()
+        reflectionDictTest()
+        //ioTest()
         //dataBaseTest()
+    }
+    /**
+     *
+     */
+    func reflectionDictTest(){
+        //create a dict
+        //reflect the dict to xml
+            //see xmlParser for tips in this regard
+        //unwrap the xml to dict
+        
+        //test with a class that has a dict
     }
     /**
      *

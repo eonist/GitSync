@@ -1,5 +1,7 @@
 import Foundation
-
+/**
+ * DISCUSSION: The reason we have prevCommits, is to provide an easy way to find which commit from a repo was added to CommitDB
+ */
 class CommitDB{
     var sortedArr:[Commit]/*Chronologically descending commits*/
     var prevCommits:Dictionary<Int,String>/*repoId:hash for the last commit made by a repo*/
