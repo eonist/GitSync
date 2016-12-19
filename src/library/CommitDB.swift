@@ -1,9 +1,9 @@
 import Foundation
 
 class CommitDB{
-    var sortedArr:[Commit]
-    var prevCommits:Dictionary<String,String>/*String:repoId,*/
-    init(_ sortedArr:[Commit] = [], _ prevCommits:Dictionary<String,Int> = [:]){
+    var sortedArr:[Commit]/*Chronologically descending commits*/
+    var prevCommits:Dictionary<String,String>/*repoId:hash for the last commit made by a repo*/
+    init(_ sortedArr:[Commit] = [], _ prevCommits:Dictionary<String,String> = [:]){
         self.sortedArr = sortedArr
         self.prevCommits = prevCommits
     }
