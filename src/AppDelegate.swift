@@ -31,6 +31,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let xml:XML = Reflection.toXML(temp)
         Swift.print(xml.XMLString)
         
+        let newInstance:Temp =
         //Swift.print("xml.XMLString: " + "\(xml.XMLString)")
         //reflect the dict to xml
             //see xmlParser for tips in this regard
