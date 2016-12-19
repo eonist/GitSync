@@ -29,12 +29,12 @@ extension Commit:Comparable{
 extension Commit:UnWrappable{
     static func unWrap<T>(xml:XML) -> T? {
         let repoName:String = unWrap(xml, "repoName") ?? ""
-        let contributor:String = unWrap(xml, "contributor")!
-        let title:String = unWrap(xml, "title")!
-        let description:String = unWrap(xml, "description")!
-        let date:String = unWrap(xml, "date")!
+        let contributor:String = unWrap(xml, "contributor") ?? ""
+        let title:String = unWrap(xml, "title") ?? ""
+        let description:String = unWrap(xml, "description") ?? ""
+        let date:String = unWrap(xml, "date") ?? ""
         let sortableDate:Int = unWrap(xml, "sortableDate")!
-        let hash:String = unWrap(xml, "hash")!
+        let hash:String = unWrap(xml, "hash") ?? ""
         let repoId:Int = unWrap(xml, "repoId")!
         return Commit(repoName,contributor,title,description,date,sortableDate,hash,repoId) as? T
     }
