@@ -73,7 +73,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //2
         
         //its simple: 
-            //on refresh: you simply 
+            //on refresh: you simply store the commitdb.sortedCommits.count
+                //then when refresh is complete you take the new count
         
         
         
