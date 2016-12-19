@@ -31,7 +31,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let xml:XML = Reflection.toXML(temp)
         Swift.print(xml.XMLString)
         
-        let newInstance:Temp =
+        let newInstance:Temp = Temp.unWrap(xml)!
+        newInstance.someDict.forEach{
+            Swift.print("key: \($0.0) value: \($0.1)")
+        }
         //Swift.print("xml.XMLString: " + "\(xml.XMLString)")
         //reflect the dict to xml
             //see xmlParser for tips in this regard
