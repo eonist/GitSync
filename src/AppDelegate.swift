@@ -29,7 +29,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Swift.print("\(temp is AnyDictionary)")
         let temp:Temp = Temp()
         let xml:XML = Reflection.toXML(temp)
-        
+        //Swift.print(xml.XMLString)
         
         //Swift.print("xml.XMLString: " + "\(xml.XMLString)")
         //reflect the dict to xml
