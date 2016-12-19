@@ -25,8 +25,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func reflectionDictTest(){
         //create a dict
         let someDict:[Int:String] = [0:"test"]
-        let xml:XML = Reflection.toXML(someDict)
-        Swift.print("xml.XMLString: " + "\(xml.XMLString)")
+        so
+        //let xml:XML = Reflection.toXML(someDict)
+        //Swift.print("xml.XMLString: " + "\(xml.XMLString)")
         //reflect the dict to xml
             //see xmlParser for tips in this regard
         //unwrap the xml to dict
