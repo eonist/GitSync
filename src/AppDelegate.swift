@@ -119,3 +119,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
+class Temp{
+    let someDict:[Int:String] = [0:"test",3:"testing",5:"more testing"]
+}
