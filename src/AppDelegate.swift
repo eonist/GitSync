@@ -28,7 +28,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //loop through repos and check for new commits
                 //insert new commits to CommitDB
             //on loop complete
-                //
+                //populate CommitView
         
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
