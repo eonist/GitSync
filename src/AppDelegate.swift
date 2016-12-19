@@ -39,6 +39,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Continue here:
             //store xml to disk
             //retrive xml to structs
+            //loop through repos and get the last local commit
+                //
             //loop through repos and check for new commits
                 //insert new commits to CommitDB
             //on loop complete
