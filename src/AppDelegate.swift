@@ -15,8 +15,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
-        ioTest()
-        //dataBaseTest()
+        //ioTest()
+        dataBaseTest()
     }
     /**
      *
@@ -50,8 +50,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         commitDB.add(Commit("","","","","",201606,"esvrg3",1))
         commitDB.sortedArr.forEach{Swift.print($0.sortableDate)}
         
-        let xml = Reflection.toXML(commitDB)/*Reflection*/
-        Swift.print(xml.XMLString)//Output: <Temp><color type="NSColor">FFFF0000</color></Temp>
+        //let xml = Reflection.toXML(commitDB)/*Reflection*/
+        //Swift.print(xml.XMLString)//Output: <Temp><color type="NSColor">FFFF0000</color></Temp>
+        let url:String = CommitCache.url.tildePath
+        let xml = FileParser.xml(url)
         let newInstance:CommitDB = CommitDB.unWrap(xml)!/*UnWrapping*/
         Swift.print("Printing sortedArr after unwrap: ")
         newInstance.sortedArr.forEach{Swift.print($0.sortableDate)}
