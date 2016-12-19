@@ -72,7 +72,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //5
             //2
         
-        
+        //its simple: 
+            //on refresh: you simply 
         
         
         
