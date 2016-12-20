@@ -97,8 +97,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //sortedByDate should actually pop of the last item if the count excedes a limit
             //
         //The sortedByDate will have a date range (first..last)
-            //this date range will be important to keep the array at max count 🔑
-        
+            //this date range will be important to keep the array at max count 🔑 (when you add/remove new repos for instance)
+            //when you loop commits 
+                //only commits that are made after the last date in sortedByDate
         
         
         let commitDB = CommitDB()
