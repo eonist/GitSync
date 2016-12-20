@@ -23,14 +23,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func reflectionDictTest(){
-        //create a dict
-        //let someDict:[Int:String] = [0:"test"]
-        //let temp:Any = someDict
-        //Swift.print("\(temp is AnyDictionary)")
         
-        let temp:Temp = Temp([0:"test",3:"testing",5:"more testing"])
+        let temp:Temp = Temp([0:"test",3:"testing",5:"more testing"])//create a dict
         let xml:XML = Reflection.toXML(temp) //reflect the dict to xml
-        Swift.print(xml.XMLString)
+        Swift.print(xml.XMLString)//print the xml
         
         let newInstance:Temp = Temp.unWrap(xml)!//unwrap the xml to dict
         newInstance.someDict.forEach{
