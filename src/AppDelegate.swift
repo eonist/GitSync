@@ -111,7 +111,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     //let firstDate in range🚫
                     //find the index in sortedByDates🚫
                     //(sortedByDates.count - index)🚫
-                //else
+                //else //< 100
+                    //let avilable = max - sortedByDates.count
                     //
         
         let commitDB = CommitDB()
