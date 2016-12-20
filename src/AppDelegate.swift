@@ -103,7 +103,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     //make a git method that can find the hash of a commit nearest a data. 👈
         
         
-        //The new refresh commitDB algo🤖:
+        //The new refresh commitDB algo🤖: (this refresh method needs to be acceccable from many places, so add it in CommitDBUtils.refresh())
             //You loop the repos
                 //find the range of commits to add to CommitDB for this repo
                 //if CommitDB.sortedByDates.count > 100
@@ -129,7 +129,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //it stays in the CommitDb until its poped of the end (this is an edge case and could be dealt with later)
         //what happens if a repo is removed from the app?
             //for loop sortedByDates and remove items matching the repo hash, do the same for prevCommit Dictionary
-        
+                //then run the refresh algo🤖 to repopulate the CommitList
         
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
