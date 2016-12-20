@@ -104,7 +104,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         //The new commitDB algo:
-            //
+            //You loop the 
         
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
