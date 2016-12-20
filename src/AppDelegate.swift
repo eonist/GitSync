@@ -27,6 +27,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func commitDateRangeCountTest(){
         let chronoTime = "20161111205959"
         let gitTime = chronoTime.insertCharsAt([("-",4),("-",6),(" ",8),(":",10),(":",12)])//2016-11-11 20:59:59
+        Swift.print("gitTime: " + "\(gitTime)")
         
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         let repoList = XMLParser.toArray(repoXML)//or use dataProvider
