@@ -39,7 +39,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func ioTest(){
         let commitDB = CommitDBCache.read()
+        
+        Swift.print("Printing sortedArr after unwrap: ")
         commitDB.sortedArr.forEach{Swift.print($0.sortableDate)}
+        Swift.print("Printing prevCommits after unwrap: ")
+        commitDB.prevCommits.forEach{Swift.print("key: \($0.0) value: \($0.1)")}
         /*
         commitDB.add(Commit("","","","","",201609,"f2o33f",3))
         CommitDBCache.write(commitDB)
