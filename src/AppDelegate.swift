@@ -38,7 +38,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let localPath:String = repoList[1]["local-path"]!
         Swift.print("localPath: " + "\(localPath)")
         
-        let commitCount:String = GitParser.commitCount(localPath, after: gitTime)
+        let commitCount = GitParser.commitCount(localPath, after: gitTime)
         Swift.print("commitCount: " + "\(commitCount)")
     }
     /**
