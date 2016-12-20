@@ -69,7 +69,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //on loop complete
                 //populate CommitView w/ data from CommitDB
         
-        //Continue here, io works, db works 🚀
+        //Continue here, io works✅, db works✅,unwrap Dict works✅
             //make a plan for the next tasks: probably work with real data
                 //You need to find all commits from the first until the hash stored in CommitDB
                     //If no hash is stored in CommitDB for the repo
