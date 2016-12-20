@@ -103,7 +103,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     //make a git method that can find the hash of a commit nearest a data. 👈
         
         
-        //The new commitDB algo:🤖
+        //The new refresh commitDB algo🤖:
             //You loop the repos
                 //find the range of commits to add to CommitDB for this repo
                 //if CommitDB.sortedByDates.count > 100
@@ -121,7 +121,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //Continue here: 
             //do the git date range research and tests
-            //
+            //make the refresh CommitDB algo🤖 as described
         
         
         let commitDB = CommitDB()
