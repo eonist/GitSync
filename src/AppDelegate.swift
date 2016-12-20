@@ -86,8 +86,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     //loop over all new commits
                         //figure out which commits are new by using range 0..commitDB.prevCommits[repo-id].hash
             //3. when commitDB refresh is complete
-                //init 
+                //init app GUI
         
+        //You don't need to store more commits than nessaccery in CommitDB
         
         
         let commitDB = CommitDB()
