@@ -119,6 +119,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //add the commit log items to the CommitDB
         
         
+        //Continue here: 
+            //do the git date range research and tests
+            //
         
         
         let commitDB = CommitDB()
