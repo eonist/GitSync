@@ -103,14 +103,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     //make a git method that can find the hash of a commit nearest a data. 👈
         
         
-        //The new commitDB algo:
+        //The new commitDB algo:🤖
             //You loop the repos
                 //if CommitDB.sortedByDates.count > 100
                     //let lastDate = sortedByDates.last.date
                     //find the range of now..lastDate
                     //let firstDate in range
                     //find the index in sortedByDates
-                    //
+                    //sortedByDates.count -
                 //else
                     //
         
