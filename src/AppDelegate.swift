@@ -139,7 +139,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //do the git date range research and tests
                 //commit count after date ✅
                 //format chronological date to git time-> "2016-11-12 00:00:00" ✅
-                //then just grab the count range and wrap everything into nice method (test first) 🏀 
+                //then just grab the count range and wrap everything into nice method (make test first) 🏀 
             //make the refresh CommitDB algo🤖 as described
             //how do we refresh after commits and pushes to remote? 👉 after 👈 because -> simplicity 👌
         
