@@ -13,6 +13,7 @@ class CommitDB{
 extension CommitDB{
     /**
      * Adds an item to the sortedArr (at the correct index according to descending chronology, by using a custom binarySearch method)
+     * NOTE: items must be added one after the other. A Bulk add method wouldn't work
      */
     func add(item:Commit){
         prevCommits[item.repoId] = item.hash/*store the last commit*/
