@@ -88,7 +88,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //3. when commitDB refresh is complete
                 //init app GUI
         
-        //You don't need to store more commits than nessaccery in CommitDB
+        //You don't need to store more commits than nessaccery in CommitDB 🚫
             //max 100 commits per repo
                 //which means you need to store commits per repo after all
                 //to remove the correct item from sortedByDates array
@@ -99,7 +99,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //The sortedByDate will have a date range (first..last)
             //this date range will be important to keep the array at max count 🔑
-            
+        
         
         
         let commitDB = CommitDB()
