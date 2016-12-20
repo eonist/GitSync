@@ -90,7 +90,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //You don't need to store more commits than nessaccery in CommitDB
             //max 100 commits per repo
-                //which means you need 
+                //which means you need to store commits per repo after all
+                //to remove the correct item from sortedByDates array
+                    //store the index of the location 
         
         
         let commitDB = CommitDB()
