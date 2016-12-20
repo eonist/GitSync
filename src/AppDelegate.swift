@@ -69,6 +69,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //on loop complete
                 //populate CommitView w/ data from CommitDB
         
+        //Continue here, io works, db works
+            //make a plan for the next tasks: probably work with real data
+        
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
         commitDB.add(Commit("","","","","",201608,"2fae23",0))
