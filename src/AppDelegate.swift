@@ -123,7 +123,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //do the git date range research and tests
             //make the refresh CommitDB algo🤖 as described
             //how do we refresh after commits and pushes to remote? While or after?
-            
+            //what happens if a commit was deleted?
+                //maybe we should consider storing commits in 1 silo for each repo
+                
         
         
         let commitDB = CommitDB()
