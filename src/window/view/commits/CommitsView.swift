@@ -49,7 +49,7 @@ class CommitsView:Element {
             }
         }
         
-        let finalTask = operations[operations.count-1].task/*we listen to the last task for completion*/
+        let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
         NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
         
         operations.forEach{/*launch all tasks*/
@@ -69,7 +69,7 @@ class CommitsView:Element {
             //Swift.print(output)
             let commitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
             let processedCommitData = CommitViewUtils.processCommitData($0.repoTitle,commitData)
-            commitItems.append(processedCommitData)////we store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView
+            commitItems.append(processedCommitData)//We store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView
         }
         dp = DataProvider(commitItems)
         dp!.sort("sortableDate",false)/*sorts the list in ascending order*/
