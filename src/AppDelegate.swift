@@ -61,13 +61,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //retrive xml to structs
             //When you add a new repo. The hash id of the first commit is added as the newest commit to that repo.
                 //this hash id is then updated to always represent the last commit?!?!?<--is this a good idea?
-                    //I think CommitDB should hold this index. 
+                    //I think CommitDB should hold this index. yes!!!
             //loop through repos and get the last local commit
                 //
             //loop through repos and check for new commits
                 //insert new commits to CommitDB
             //on loop complete
-                //populate CommitView
+                //populate CommitView w/ data from CommitDB
         
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
@@ -82,6 +82,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let newInstance:CommitDB = CommitDB.unWrap(xml)!/*UnWrapping*/
         Swift.print("Printing sortedArr after unwrap: ")
         newInstance.sortedArr.forEach{Swift.print($0.sortableDate)}
+        newInstance.prevCommits.forEach{Swift.print("key: \($0.0) value: \($0.1)")}
     }
     func initApp(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
