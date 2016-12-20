@@ -98,7 +98,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //
         
         //The sortedByDate will have a date range (first..last)
-            //this date range 
+            //this date range will be important to keep the array at max count 🔑
+            
         
         
         let commitDB = CommitDB()
