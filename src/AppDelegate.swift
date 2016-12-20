@@ -42,11 +42,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func ioTest(){
-        let commitDB = CommitCache.read()
+        let commitDB = CommitDBCache.read()
         commitDB.sortedArr.forEach{Swift.print($0.sortableDate)}
         /*
         commitDB.add(Commit("","","","","",201609,"f2o33f",3))
-        CommitCache.write(commitDB)
+        CommitDBCache.write(commitDB)
         */
         
         //Continue here: reading and writing works...next task!

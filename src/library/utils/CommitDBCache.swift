@@ -1,12 +1,12 @@
 import Foundation
 
-class CommitCache {
+class CommitDBCache {
     static var url:String = "~/Desktop/sortedcommits.xml"
     /**
      * Read commits from disk (xml)
      */
     static func read()->CommitDB{
-        let url:String = CommitCache.url.tildePath
+        let url:String = CommitDBCache.url.tildePath
         let xml = FileParser.xml(url)
         Swift.print("xml.XMLString: " + "\(xml.XMLString)")
         let commitDB:CommitDB = CommitDB.unWrap(xml)!
@@ -21,7 +21,7 @@ class CommitCache {
         let xml = Reflection.toXML(commitDB)/*Reflection*/
         //Swift.print(xml.XMLString)
         let contentToWriteToDisk = xml.XMLString
-        FileModifier.write(CommitCache.url.tildePath, contentToWriteToDisk)
+        FileModifier.write(CommitDBCache.url.tildePath, contentToWriteToDisk)
     }
 }
 
