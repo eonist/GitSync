@@ -1,6 +1,7 @@
 import Foundation
 /**
  * DISCUSSION: The reason we have prevCommits, is to provide an easy way to find which commit from a repo was added to CommitDB
+ * CommitDB is a wrapper for git repos. Instead of querrying the many git repos at all time, we rather inteligently cache the data here
  */
 class CommitDB{
     var sortedArr:[Commit]/*Chronologically descending commits*/
