@@ -16,8 +16,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //initApp()
         //reflectionDictTest()
-        //ioTest()
-        dataBaseTest()
+        ioTest()
+        //dataBaseTest()
     }
     /**
      *
