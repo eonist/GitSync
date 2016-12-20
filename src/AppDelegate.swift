@@ -79,7 +79,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //then you store these commits to CommitDB, repoID is its index in repoList
                 //then you try refreshing again, and check if the commits are read and stored correctly etc
         
-        //Update CommitDB on App Init
+        //👉Update CommitDB on App Init👈
             //1. unwrap commitdb.xml
             //2. update CommitDB
                 //loop over all repos
