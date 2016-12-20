@@ -89,6 +89,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //init app GUI
         
         //You don't need to store more commits than nessaccery in CommitDB
+            //max 100 commits per repo
+                //which means you need 
         
         
         let commitDB = CommitDB()
