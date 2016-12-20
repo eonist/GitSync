@@ -44,7 +44,7 @@ class CommitsView:Element {
             let repoTitle = $0["title"]!//name of repo
             let args:[String] = CommitViewUtils.commitItems(localPath,maxCommitItems)/*creates an array of arguments that will return commit item logs*/
             args.forEach{
-                let operation = CommitViewUtils.configOperation([$0],localPath,repoTitle)
+                let operation = CommitViewUtils.configOperation([$0],localPath,repoTitle)/*setup the NSTask correctly*/
                 operations.append(operation)
             }
         }
