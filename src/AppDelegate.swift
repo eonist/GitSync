@@ -105,15 +105,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //The new commitDB algo:🤖
             //You loop the repos
+                //find the range of commits to add to CommitDB for this repo
                 //if CommitDB.sortedByDates.count > 100
                     //let lastDate = sortedByDates.last.date
-                    //find the range of now..lastDate in the repo
+                    //range = now..lastDate in the repo (date based) Needs --> 🔬
                     //let firstDate in range🚫 <-- add this optimization later
                     //find the index in sortedByDates🚫<-- add this optimization later
                     //(sortedByDates.count - index)🚫<-- add this optimization later
                 //else //< 100
-                    //let rest = max - sortedByDates.count
-                    //
+                    //let available = max - sortedByDates.count
+                    //range = 0..available (count based)
         
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
