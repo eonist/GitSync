@@ -73,7 +73,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //make a plan for the next tasks: probably work with real data
                 //You need to find all commits from the first until the hash stored in CommitDB
                     //If no hash is stored in CommitDB for the repo
-                        //
+                        //then the the range will be 0..commitCount
+                        //else range: 0..hash.from.CommitDB
                     //make a test for this
         
         
