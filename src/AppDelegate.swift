@@ -107,8 +107,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //You loop the repos
                 //find the range of commits to add to CommitDB for this repo
                 //if CommitDB.sortedByDates.count > 100
-                    //let lastDate = sortedByDates.last.date
-                    //range = now..lastDate in the repo (date based) Needs --> 🔬
+                    //let lastDate = .count > 0 ? sortedByDates.last.date : Int.min<--min represents max negative num
+                    //range = now..lastDate in the repo (date based) Needs --> 🔬 (how does querrying for date ranges in git work)
                     //let firstDate in range🚫 <-- add this optimization later
                     //find the index in sortedByDates🚫<-- add this optimization later
                     //(sortedByDates.count - index)🚫<-- add this optimization later
@@ -117,6 +117,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     //range = 0..available (count based)
                 //retrive the commit log items for this repo with the range speccified
                 //add the commit log items to the CommitDB
+        
+        
+        
         
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
