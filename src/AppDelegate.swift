@@ -92,7 +92,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //max 100 commits per repo
                 //which means you need to store commits per repo after all
                 //to remove the correct item from sortedByDates array
-                    //store the index of the location 
+                    //store the index of the location
+        
+        //sortedByDate should actually pop of the last item if the count excedes a limit
+            //
         
         
         let commitDB = CommitDB()
