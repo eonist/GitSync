@@ -104,7 +104,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         //The new commitDB algo:
-            //You loop the 
+            //You loop the repos
+                //if CommitDB.sortedByDates.count > 100
+                    //let lastDate = sortedByDates.last.date
+                    //find the range of now..lastDate
+                    //let firstDate in range
+                    //find the index in 
+                //else
+                    //
         
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
