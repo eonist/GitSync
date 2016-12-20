@@ -21,7 +21,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //chronologicalTime2GitTimeTest()
         
     }
-    
+    /**
+     *
+     */
+    func commitDateRangeCountTest(){
+        let chronoTime = "20161111205959"
+        let githubTime = chronoTime.insertCharsAt([("-",4),("-",6),(" ",8),(":",10),(":",12)])//2016-11-11 20:59:59
+        
+    }
     /**
      * //YYYYMMDDhhmmss -> YYYY-MM-DD hh:mm:ss
      */
