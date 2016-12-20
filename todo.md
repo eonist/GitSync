@@ -1,4 +1,4 @@
-### Continue here:
+### Continue here:🔨
     //Fix the CompactBody problem (occurs with Element MacOS repo) (Next)
     //Figure out a workflow to store commit logs in xml (maybe use reflection) because querying git is cpu intensive
         //you need to be able to easily extract commits based on date. 
