@@ -64,17 +64,17 @@ class CommitsView:Element {
         var commitItems:[Dictionary<String, String>] = []
         
         operations.forEach{
-            let data:NSData = $0.pipe.fileHandleForReading.readDataToEndOfFile()
-            let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
+            let data:NSData = $0.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
+            let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
             //Swift.print(output)
             let commitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
-            let processedCommitData = CommitViewUtils.processCommitData($0.repoTitle,commitData)
-            commitItems.append(processedCommitData)//We store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView
+            let processedCommitData = CommitViewUtils.processCommitData($0.repoTitle,commitData)/*Format the data*/
+            commitItems.append(processedCommitData)/*We store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView*/
         }
         dp = DataProvider(commitItems)
         dp!.sort("sortableDate",false)/*sorts the list in ascending order*/
         Swift.print("dp.count: " + "\(dp!.count)")
-        Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")
+        Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
         createList()/*creates the GUI List*/
     }
     func onListSelect(event:ListEvent){
