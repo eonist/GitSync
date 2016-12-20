@@ -28,22 +28,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //let temp:Any = someDict
         //Swift.print("\(temp is AnyDictionary)")
         
-        //Continue here: Dictionary implemented...move on to adding lastCommit support for CommitDB
-        
         let temp:Temp = Temp([0:"test",3:"testing",5:"more testing"])
-        let xml:XML = Reflection.toXML(temp)
+        let xml:XML = Reflection.toXML(temp) //reflect the dict to xml
         Swift.print(xml.XMLString)
         
-        let newInstance:Temp = Temp.unWrap(xml)!
+        let newInstance:Temp = Temp.unWrap(xml)!//unwrap the xml to dict
         newInstance.someDict.forEach{
             Swift.print("key: \($0.0) value: \($0.1)")
         }
         //Swift.print("xml.XMLString: " + "\(xml.XMLString)")
-        //reflect the dict to xml
-            //see xmlParser for tips in this regard
-        //unwrap the xml to dict
-        
-        //Continue here: test with a class that has a dict
     }
     /**
      *
