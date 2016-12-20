@@ -103,6 +103,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     //make a git method that can find the hash of a commit nearest a data. 👈
         
         
+        //The new commitDB algo:
+            //
+        
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
         commitDB.add(Commit("","","","","",201608,"2fae23",0))
