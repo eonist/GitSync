@@ -130,7 +130,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //do the git date range research and tests
             //make the refresh CommitDB algo🤖 as described
             //how do we refresh after commits and pushes to remote? 👉 after 👈 because -> simplicity 👌
-        
+            
 
         
         let commitDB = CommitDB()
