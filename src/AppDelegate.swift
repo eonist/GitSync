@@ -25,7 +25,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func chronologicalTime2GitTimeTest(){//format chronological date to git time-> "2016-11-12 00:00:00"
         var chronoTime = "20161111205959" //YYYYMMDDhhmmss -> YYYY-MM-DD hh:mm:ss
-        let githubTime = StringModifier.insertCharsAt(&chronoTime, [(":", 12),(":", 10)])
+        let githubTime = StringModifier.insertCharsAt(&chronoTime, [("-",4),("-",6),(" ",8),(":",10),(":",12)])
         Swift.print(githubTime)
 
     }
