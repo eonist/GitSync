@@ -206,7 +206,7 @@ class Test {
         
     }
     /**
-     *
+     * Test for commiting and pushing
      */
     func testGit(){
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
