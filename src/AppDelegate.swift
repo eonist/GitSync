@@ -72,7 +72,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Continue here, io works, db works
             //make a plan for the next tasks: probably work with real data
                 //You need to find all commits from the first until the hash stored in CommitDB
-                    
+                    //make a test for this
+                
         
         
         let commitDB = CommitDB()
