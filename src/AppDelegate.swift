@@ -108,9 +108,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //if CommitDB.sortedByDates.count > 100
                     //let lastDate = sortedByDates.last.date
                     //find the range of now..lastDate in the repo
-                    //let firstDate in range🚫
-                    //find the index in sortedByDates🚫
-                    //(sortedByDates.count - index)🚫
+                    //let firstDate in range🚫 <-- add this optimization later
+                    //find the index in sortedByDates🚫<-- add this optimization later
+                    //(sortedByDates.count - index)🚫<-- add this optimization later
                 //else //< 100
                     //let avilable = max - sortedByDates.count
                     //
