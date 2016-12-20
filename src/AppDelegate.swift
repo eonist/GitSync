@@ -17,7 +17,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initApp()
         //reflectionDictTest()
         //ioTest()
-        //dataBaseTest()
+        dataBaseTest()
     }
     /**
      *
@@ -78,10 +78,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         commitDB.sortedArr.forEach{Swift.print($0.sortableDate)}
         
         let xml = Reflection.toXML(commitDB)/*Reflection*/
-        Swift.print(xml.XMLString)//Output: <Temp><color type="NSColor">FFFF0000</color></Temp>
+        Swift.print(xml.XMLString)
         let newInstance:CommitDB = CommitDB.unWrap(xml)!/*UnWrapping*/
         Swift.print("Printing sortedArr after unwrap: ")
         newInstance.sortedArr.forEach{Swift.print($0.sortableDate)}
+        Swift.print("Printing prevCommits after unwrap: ")
         newInstance.prevCommits.forEach{Swift.print("key: \($0.0) value: \($0.1)")}
     }
     func initApp(){
