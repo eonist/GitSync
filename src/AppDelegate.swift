@@ -115,6 +115,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //else //< 100
                     //let available = max - sortedByDates.count
                     //range = 0..available (count based)
+                //retrive the commit log items for this repo with the range speccified
+                //add the commit log items to the CommitDB
         
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
