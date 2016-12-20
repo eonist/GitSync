@@ -109,7 +109,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     //let lastDate = sortedByDates.last.date
                     //find the range of now..lastDate
                     //let firstDate in range
-                    //find the index in 
+                    //find the index in sortedByDates
+                    //
                 //else
                     //
         
