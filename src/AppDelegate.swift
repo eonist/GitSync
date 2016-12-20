@@ -16,8 +16,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //initApp()
         //reflectionDictTest()
-        ioTest()
+        //ioTest()
         //dataBaseTest()
+    }
+    /**
+     *
+     */
+    func chronologicalTime2GitTimeTest(){//format chronological date to git time-> "2016-11-12 00:00"
+        let chronoTime = "20161111205959" //YYYYMMhhmmss -> YYYY-MM-hhmmss
     }
     /**
      *
