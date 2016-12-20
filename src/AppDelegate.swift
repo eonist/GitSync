@@ -107,10 +107,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //You loop the repos
                 //if CommitDB.sortedByDates.count > 100
                     //let lastDate = sortedByDates.last.date
-                    //find the range of now..lastDate
-                    //let firstDate in range
-                    //find the index in sortedByDates
-                    //(sortedByDates.count - index)
+                    //find the range of now..lastDate in the repo
+                    //let firstDate in range🚫
+                    //find the index in sortedByDates🚫
+                    //(sortedByDates.count - index)🚫
                 //else
                     //
         
