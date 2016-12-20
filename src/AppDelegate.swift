@@ -119,17 +119,19 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //add the commit log items to the CommitDB
         
         
-        //Continue here: 
-            //do the git date range research and tests
-            //make the refresh CommitDB algo🤖 as described
-            //how do we refresh after commits and pushes to remote? While or after?
-        
-        
         //what happens if a commit was deleted? -> 
             //it stays in the CommitDb until its poped of the end (this is an edge case and could be dealt with later)
         //what happens if a repo is removed from the app?
             //for loop sortedByDates and remove items matching the repo hash, do the same for prevCommit Dictionary
                 //then run the refresh algo🤖 to repopulate the CommitList
+        
+        
+        //Continue here:
+            //do the git date range research and tests
+            //make the refresh CommitDB algo🤖 as described
+            //how do we refresh after commits and pushes to remote? 👉 after 👈 because -> simplicity 👌
+        
+
         
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
