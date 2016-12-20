@@ -24,7 +24,7 @@
     //Take a look at how the GitSync apple-script is organized. and copy the workflow to swift 
     //Improve the compact-date parser (see twitter app and also other apps)
     //Translucent overlay for the menu 
-### Completed:
+### Completed:🏁
     //Figure out how to derive previous commit messages from repo's. You need from 0 to 10 latest commits.
         //Research custom "git log" commands ✅
         //Store each commit in an array with data capsules (date:"",author:"",subject:"",body:"") ✅
@@ -59,7 +59,7 @@
     //Create the commit message prompt w/ darkmode ✅
     //center-align repo-detail and add broader text input fields ✅
     //center-align the prefs ✅
-### Later
+### Later🖖
     //Figure out how you can update the FastList with new Items and not lose track of selected idx etc
         //Start testing this with the regular List
         //I think you can just append the DataProvider and refresh the visible items, then you just increment the selected idx for every append
@@ -70,7 +70,7 @@
     //attempt to add the switch skin functionality in a small isolated test (w/ styles from generic.css, just switching a few params)
     //Use the san-fran font (if you can find it)
     
-### Future
+### Future🔮
     //Animate the Menu Icons to wobble in and out on click (similar to twitter for iOS)
         //Make animated gif of this animation in double retina resolution
     //cmd click on repo items will reveal edit icon in top bar for multi edit feature
