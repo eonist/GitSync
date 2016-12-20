@@ -125,7 +125,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //how do we refresh after commits and pushes to remote? While or after?
             //what happens if a commit was deleted?
                 //maybe we should consider storing commits in 1 silo for each repo
-                
+                    //but at the same time keep the max 100 rule
         
         
         let commitDB = CommitDB()
