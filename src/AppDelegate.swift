@@ -19,15 +19,24 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //ioTest()
         //dataBaseTest()
         //chronologicalTime2GitTimeTest()
-        
+        commitDateRangeCountTest()
     }
     /**
      *
      */
     func commitDateRangeCountTest(){
         let chronoTime = "20161111205959"
-        let githubTime = chronoTime.insertCharsAt([("-",4),("-",6),(" ",8),(":",10),(":",12)])//2016-11-11 20:59:59
+        let gitTime = chronoTime.insertCharsAt([("-",4),("-",6),(" ",8),(":",10),(":",12)])//2016-11-11 20:59:59
         
+        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        Swift.print("repoList.count: " + "\(repoList.count)")
+        
+        let localPath:String = repoList[1]["local-path"]!
+        Swift.print("localPath: " + "\(localPath)")
+        
+        let commitCount:String = GitParser.commitCount(localPath, after: gitTime)
+        Swift.print("commitCount: " + "\(commitCount)")
     }
     /**
      * //YYYYMMDDhhmmss -> YYYY-MM-DD hh:mm:ss
