@@ -75,7 +75,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     //If no hash is stored in CommitDB for the repo
                         //then the the range will be 0..commitCount
                         //else range: 0..hash.from.CommitDB
-                    //make a test for this
+                //make a test for this
+                //then you store these commits to CommitDB, repoID is its index in repoList
+                //then you try refreshing again, and check if the commits are read and stored correctly etc
+                
         
         
         
