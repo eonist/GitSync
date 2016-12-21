@@ -71,16 +71,20 @@ class CommitDBUtils {
         //3. Retrieve the commit log items for this repo with the range specified
         //Swift.print("max: " + "\(commitCount)")
         let args:[String] = CommitViewUtils.commitItems(localPath,commitCount)/*creates an array of arguments that will return commit item logs*/
-        for (_,element) in args.enumerate(){
-            let operation = CommitViewUtils.configOperation([element],localPath,repoTitle,index)/*setup the NSTask correctly*/
-            operations.append(operation)
-        }
-        
-        let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
-        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
-        
-        operations.forEach{/*launch all tasks*/
-            $0.task.launch()
+        if(args.count > 0){
+            for (_,element) in args.enumerate(){
+                let operation = CommitViewUtils.configOperation([element],localPath,repoTitle,index)/*setup the NSTask correctly*/
+                operations.append(operation)
+            }
+            
+            let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
+            NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
+            
+            operations.forEach{/*launch all tasks*/
+                $0.task.launch()
+            }
+        }else{//no operations to launch and observe
+            iterate()//but we still need to iterate
         }
     }
     /**
