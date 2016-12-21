@@ -1,8 +1,7 @@
 import Foundation
-
+typealias CommitLogOperation = (task:NSTask,pipe:NSPipe,repoTitle:String,repoIndex:Int)
 class CommitViewUtils {
     typealias ProcessedCommitData = (date:NSDate,relativeDate:String,descendingDate:String,body:String,subject:String,hash:String,author:String)
-    typealias CommitLogOperation = (task:NSTask,pipe:NSPipe,repoTitle:String,repoIndex:Int)
     /**
      * -> ProcessedCommitData
      */

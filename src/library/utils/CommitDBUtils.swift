@@ -54,7 +54,7 @@ class CommitDBUtils {
             //Swift.print(output)
             let commitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
             let commit:Commit = CommitViewUtils.processCommitData($0.repoTitle,commitData,$0.repoIndex)/*Format the data*/
-            commitDB.add(commit)//add the commit log items to the CommitDB
+            commitDB.add(commit)/*add the commit log items to the CommitDB*/
         }
     }
 }
