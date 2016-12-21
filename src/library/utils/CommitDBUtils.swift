@@ -8,10 +8,12 @@ class CommitDBUtils {
     static var operations:[CommitLogOperation] = []
     static var startTime:NSDate?
     static var repoIndex:Int = 0
+    static var repoList:[[String:String]] = []
     /**
      * TODO: time test
      */
-    static func refresh(){
+    static func refresh(){//init refresh
+        startTime = NSDate()//measure the time of the refresh
         repoIndex = 0//reset
         
         //Continue here:
@@ -20,23 +22,28 @@ class CommitDBUtils {
                     //the problem is that commitDB doesnt have any commits until observer completes
                         //to solve this you need to iterate on complete
         
-        startTime = NSDate()//measure the time of the refresh
+        
         //1. You loop the repos
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
-        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        repoList = XMLParser.toArray(repoXML)//or use dataProvider
         Swift.print("repoList.count: " + "\(repoList.count)")
         
         //for (index,element) in repoList.enumerate(){/*Loops through repos*/
         //}
         
-        refreshRepo(repoIndex,repoList[repoIndex])
-        
         //repoList = [repoList[1]]//test with one repo the element ios repo
-        let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
-        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
         
-        operations.forEach{/*launch all tasks*/
-            $0.task.launch()
+        iterate()
+    }
+    /**
+     *
+     */
+    static func iterate(){
+        if(repoIndex < repoList.count){
+            refreshRepo(repoIndex,repoList[repoIndex])
+        }else{
+            Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+            Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
         }
     }
     /**
@@ -65,6 +72,13 @@ class CommitDBUtils {
             let operation = CommitViewUtils.configOperation([element],localPath,repoTitle,index)/*setup the NSTask correctly*/
             operations.append(operation)
         }
+        
+        let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
+        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
+        
+        operations.forEach{/*launch all tasks*/
+            $0.task.launch()
+        }
     }
     /**
      * The handler for the NSTasks
@@ -80,10 +94,10 @@ class CommitDBUtils {
             let commit:Commit = CommitViewUtils.processCommitData($0.repoTitle,commitData,$0.repoIndex)/*Format the data*/
             commitDB.add(commit)/*add the commit log items to the CommitDB*/
         }
-        Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
-        Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
+        
         //Swift.print("Printing sortedArr after refresh: ")
         //commitDB.sortedArr.forEach{Swift.print($0.sortableDate)}
+        iterate()
     }
 }
 
