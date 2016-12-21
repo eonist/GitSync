@@ -45,7 +45,7 @@
             //make a git method that can find the hash of a commit nearest a data. 👈
 
 
-//The new refresh commitDB algo🤖: (this refresh method needs to be accessible from many places) 
+//The new refresh commitDB algo🤖: (this refresh method needs to be accessible from many places and cancelable) 
 	//so add it in CommitDBUtils.refresh())👈👈👈
     //You loop the repos
         //find the range of commits to add to CommitDB for this repo
