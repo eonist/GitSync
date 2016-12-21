@@ -94,7 +94,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func dataBaseTest(){
         
         //Continue here:
-            //try to squash the 
+            //try to squash the 🐛 that doesnt pop pf the last date
+                // make aa small max size and keep adding items, then check the integrity of the array
         
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
