@@ -1,11 +1,11 @@
 import Foundation
 
 class CommitViewUtils {
-    
+    typealias ProcessedCommitData = (date:NSDate,relativeDate:String,descendingDate:String,compactBody:String,subject:String,hash:String)
     /**
      *
      */
-    static func processCommit(repoTitle:String,_ commitData:CommitData)->{
+    static func processCommitData(repoTitle:String,_ commitData:CommitData)->ProcessedCommitData{
         let date:NSDate = GitLogParser.date(commitData.date)
         //Swift.print("date.shortDate: " + "\(date.shortDate)")
         let relativeTime:(value:Int,type:String) = DateParser.relativeTime(NSDate(),date)[0]
@@ -23,8 +23,8 @@ class CommitViewUtils {
      *
      */
     static func processCommitData(repoTitle:String,_ commitData:CommitData)-> Dictionary<String, String>{
-        let data = processCommit(repoTitle,commitData)
-        let dict:Dictionary<String, String> = ["repo-name":repoTitle,"contributor":commitData.author,"title":subject,"description":compactBody,"date":relativeDate,"sortableDate":descendingDate,"hash":commitData.hash]
+        let data:ProcessedCommitData = processCommitData(repoTitle,commitData)
+        let dict:Dictionary<String, String> = ["repo-name":repoTitle,"contributor":commitData.author,"title":data.subject,"description":data.compactBody,"date":data.relativeDate,"sortableDate":data.descendingDate,"hash":commitData.hash]
         return dict
     }
     /**
