@@ -73,6 +73,7 @@ class CommitDBUtils {
         //Swift.print("max: " + "\(commitCount)")
         let args:[String] = CommitViewUtils.commitItems(localPath,commitCount)/*creates an array of arguments that will return commit item logs*/
         if(args.count > 0){
+            operations = []
             for (_,element) in args.enumerate(){
                 let operation = CommitViewUtils.configOperation([element],localPath,repoTitle,index)/*setup the NSTask correctly*/
                 operations.append(operation)
@@ -106,7 +107,7 @@ class CommitDBUtils {
             commitDB.add(commit)/*add the commit log items to the CommitDB*/
         }
         
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NSNotificationCenter.defaultCenter().removeObserver(notification)
         
         //Swift.print("Printing sortedArr after refresh: ")
         //commitDB.sortedArr.forEach{Swift.print($0.sortableDate)}
