@@ -73,7 +73,7 @@ class CommitDBUtils {
         //Swift.print("max: " + "\(commitCount)")
         let args:[String] = CommitViewUtils.commitItems(localPath,commitCount)/*creates an array of arguments that will return commit item logs*/
         if(args.count > 0){
-            operations = []
+            operations = []//reset the operations array
             for (_,element) in args.enumerate(){
                 let operation = CommitViewUtils.configOperation([element],localPath,repoTitle,index)/*setup the NSTask correctly*/
                 operations.append(operation)
