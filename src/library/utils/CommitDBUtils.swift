@@ -43,7 +43,7 @@ class CommitDBUtils {
             $0.task.launch()
         }
         
-        //Continue here: figure out how the prevCommit Dictionary plays into this 🏀
+        //Continue here: figure out how the prevCommit Dictionary plays into all this 🏀 -> maybe its unrelevant now
         
     }
     /**
