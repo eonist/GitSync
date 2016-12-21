@@ -6,7 +6,7 @@ class CommitViewUtils {
     /**
      *
      */
-    static func processCommitData(repoTitle:String,_ commitData:CommitData)->ProcessedCommitData{
+    static func processCommitData(repoTitle:String,_ commitData:CommitData, _ repoIndex:Int)->ProcessedCommitData{
         let date:NSDate = GitLogParser.date(commitData.date)
         //Swift.print("date.shortDate: " + "\(date.shortDate)")
         let relativeTime:(value:Int,type:String) = DateParser.relativeTime(NSDate(),date)[0]
@@ -20,18 +20,18 @@ class CommitViewUtils {
         return (date,relativeDate,descendingDate,compactBody,subject,commitData.hash,commitData.author)
     }
     /**
-     * Converter
+     * -> Dictionary<String, String>
      */
-    static func processCommitData(repoTitle:String,_ commitData:CommitData)-> Dictionary<String, String>{
-        let data:ProcessedCommitData = processCommitData(repoTitle,commitData)
-        let dict:Dictionary<String, String> = ["repo-name":repoTitle,"contributor":commitData.author,"title":data.subject,"description":data.body,"date":data.relativeDate,"sortableDate":data.descendingDate,"hash":commitData.hash]
+    static func processCommitData(repoTitle:String,_ commitData:CommitData, _ repoIndex:Int)-> Dictionary<String, String>{
+        let data:ProcessedCommitData = processCommitData(repoTitle,commitData,repoIndex)
+        let dict:[String:String] = ["repo-name":repoTitle,"contributor":commitData.author,"title":data.subject,"description":data.body,"date":data.relativeDate,"sortableDate":data.descendingDate,"hash":commitData.hash]
         return dict
     }
     /**
-     * Converter
+     * -> Commit
      */
-    static func processCommitData(repoTitle:String,_ commitData:CommitData)->Commit{
-        let data:ProcessedCommitData = processCommitData(repoTitle,commitData)
+    static func processCommitData(repoTitle:String,_ commitData:CommitData, _ repoIndex:Int)->Commit{
+        let data:ProcessedCommitData = processCommitData(repoTitle,commitData,repoIndex)
         let commit:Commit = Commit(repoTitle,data.author, data.subject, data.body, data.relativeDate, data.descendingDate.int, data.hash,0)
         //return
         return commit
