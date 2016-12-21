@@ -10,11 +10,11 @@
             //you need to create a custom CommitDB extends DataProvider with data-model: (Dict->Array->Dict)
                 //Stores commits by key: "repo-id" (repo-id is a unique incremental global id)
             //you also need to store a ref in an Array that stores all commits sorted by date (latest to oldest) (you insert commits by finding its index by halving the array until you find the right index)
-                //Do an experiment to figure out the halving technique (Binary search)
+                //Do an experiment to figure out the halving technique (Binary search) ✅
                 //you then slice CommitDB.sortedByDate from 0 until maxVisibleCommits (100) and use this array for the ListView
                     //this will give you a chronologically sorted commit list (descending)
                     
-                //you then need to figure out how to update this sorted list on refresh (next)
+                //you then need to figure out how to update this sorted list on refresh 🏀
                     //you could keep a DP instance for ListView that you prepend new items onto
                         //you compare the two lists by getting the first of ListView.dp and the first of ComitDB.sortedByDate.slice(0,100)
                         //then create a custom merge method that efficiently merges sortedByDates onto ListView.dp
