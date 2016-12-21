@@ -24,7 +24,6 @@ class CommitDBUtils {
                 let lastDate = commitDB.sortedArr.last!.sortableDate
                 let gitTime = Utils.gitTime(lastDate.string)
                 commitCount = GitParser.commitCount(localPath, after: gitTime).int//now..lastDate
-                
             }else {//< 100
                 commitCount = 100 - commitDB.sortedArr.count
                 //range = 0..available (count based)
@@ -35,7 +34,6 @@ class CommitDBUtils {
                 operations.append(operation)
             }
         }
-        
         let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
         NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
         
