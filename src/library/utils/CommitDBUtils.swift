@@ -17,6 +17,7 @@ class CommitDBUtils {
             //Something is wrong with commit range: print the lastDate and see if you can figure it out 🏀
                 //make the max items shorter to debug easier. and make the var static
                     //the problem is that commitDB doesnt have any commits until observer completes
+                        //to solve this you need to iterate on complete
         
         startTime = NSDate()//measure the time of the refresh
         //1. You loop the repos
