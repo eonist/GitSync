@@ -4,6 +4,7 @@ import Foundation
 //3. when the last operation completes you loop thorugh the operations to retrive the data
 
 class CommitDBUtils {
+    static var operations:[(task:NSTask,pipe:NSPipe,repoTitle:String)] = []
     /**
      *
      */
@@ -15,12 +16,17 @@ class CommitDBUtils {
         Swift.print("repoList.count: " + "\(repoList.count)")
         repoList.forEach{/*Loops through repos*/
             let localPath:String = $0["local-path"]!//local-path to repo
+            let repoTitle = $0["title"]!//name of repo
             //2. find the range of commits to add to CommitDB for this repo
             if(commitDB.sortedArr.count >= 100){
                 let lastDate = commitDB.sortedArr.last!.sortableDate
                 let gitTime = Utils.gitTime(lastDate.string)
-                let commitCount = GitParser.commitCount(localPath, after: gitTime)//now..lastDate
-                
+                let commitCount = GitParser.commitCount(localPath, after: gitTime).int//now..lastDate
+                let args:[String] = CommitViewUtils.commitItems(localPath,commitCount)/*creates an array of arguments that will return commit item logs*/
+                args.forEach{
+                    let operation = CommitViewUtils.configOperation([$0],localPath,repoTitle)/*setup the NSTask correctly*/
+                    operations.append(operation)
+                }
             }else {//< 100
                 
             }
