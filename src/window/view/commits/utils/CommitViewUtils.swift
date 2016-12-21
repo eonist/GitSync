@@ -1,7 +1,7 @@
 import Foundation
 
 class CommitViewUtils {
-    typealias ProcessedCommitData = (date:NSDate,relativeDate:String,descendingDate:String,body:String,subject:String,hash:String)
+    typealias ProcessedCommitData = (date:NSDate,relativeDate:String,descendingDate:String,body:String,subject:String,hash:String,author:String)
     /**
      *
      */
@@ -16,7 +16,7 @@ class CommitViewUtils {
         let compactBody:String = GitLogParser.compactBody(commitData.body)/*compact the commit msg body*/
         //Swift.print("compactBody: " + "\(compactBody)")
         let subject:String = StringParser.trim(commitData.subject, "'", "'")
-        return (date,relativeDate,descendingDate,compactBody,subject,commitData.hash)
+        return (date,relativeDate,descendingDate,compactBody,subject,commitData.hash,commitData.author)
     }
     /**
      * Converter
@@ -30,8 +30,9 @@ class CommitViewUtils {
      * Converter
      */
     static func processCommitData(repoTitle:String,_ commitData:CommitData)->CommitData{
-        let commitData:CommitData = ()
-        return
+        //let commitData:CommitData = ()
+        //return
+        fatalError("not implemented yet")
     }
     /**
      * PARAM: max = max Items Allowed per repo
