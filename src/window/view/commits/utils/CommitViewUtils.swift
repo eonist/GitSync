@@ -4,7 +4,7 @@ class CommitViewUtils {
     typealias ProcessedCommitData = (date:NSDate,relativeDate:String,descendingDate:String,body:String,subject:String,hash:String,author:String)
     typealias CommitLogOperation = (task:NSTask,pipe:NSPipe,repoTitle:String,repoIndex:Int)
     /**
-     *
+     * -> ProcessedCommitData
      */
     static func processCommitData(repoTitle:String,_ commitData:CommitData, _ repoIndex:Int)->ProcessedCommitData{
         let date:NSDate = GitLogParser.date(commitData.date)
