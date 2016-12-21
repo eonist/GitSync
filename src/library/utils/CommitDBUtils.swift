@@ -15,6 +15,7 @@ class CommitDBUtils {
         
         //Continue here:
             //Something is wrong with commit range: print the lastDate and see if you can figure it out 🏀
+                //make the max items shorter to debug easier. and make the var static
         
         
         startTime = NSDate()//measure the time of the refresh
