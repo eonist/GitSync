@@ -6,10 +6,12 @@ import Foundation
 class CommitDBUtils {
     static var commitDB = CommitDB()
     static var operations:[CommitLogOperation] = []
+    static var startTime:NSDate?
     /**
      * TODO: time test
      */
     static func refresh(){
+        startTime = NSDate()//measure time of the refresh
         //1. You loop the repos
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         let repoList = XMLParser.toArray(repoXML)//or use dataProvider
@@ -58,7 +60,7 @@ class CommitDBUtils {
             let commit:Commit = CommitViewUtils.processCommitData($0.repoTitle,commitData,$0.repoIndex)/*Format the data*/
             commitDB.add(commit)/*add the commit log items to the CommitDB*/
         }
-  
+        Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
         Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
         //Swift.print("Printing sortedArr after refresh: ")
         //commitDB.sortedArr.forEach{Swift.print($0.sortableDate)}
