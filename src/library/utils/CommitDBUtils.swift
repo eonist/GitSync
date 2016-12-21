@@ -8,14 +8,21 @@ class CommitDBUtils {
      *
      */
     static func refresh(commitDB:CommitDB){
-        //You loop the repos
+        //1. You loop the repos
+        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        //repoList = [repoList[1]]
+        Swift.print("repoList.count: " + "\(repoList.count)")
+        repoList.forEach{/*Loops through repos*/
+            let localPath:String = $0["local-path"]!//local-path to repo
             //find the range of commits to add to CommitDB for this repo
-        if(commitDB.sortedArr.count >= 100){
-            let lastDate = commitDB.sortedArr.last!.sortableDate
-            //range = now..lastDate in the repo (date based) Needs --> 🔬 (how does querying for date ranges in git work)
-            
-        }else {//< 100
-            
+            if(commitDB.sortedArr.count >= 100){
+                let lastDate = commitDB.sortedArr.last!.sortableDate
+                //range = now..lastDate in the repo (date based) Needs --> 🔬 (how does querying for date ranges in git work)
+                
+            }else {//< 100
+                
+            }
         }
     }
 }
