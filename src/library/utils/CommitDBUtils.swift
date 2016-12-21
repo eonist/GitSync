@@ -12,7 +12,8 @@ class CommitDBUtils {
     static func refresh(){
         //1. You loop the repos
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
-        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        var repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        repoList = [repoList[1]]//test with one repo the element ios repo
         //repoList = [repoList[1]]
         Swift.print("repoList.count: " + "\(repoList.count)")
         for (index,element) in repoList.enumerate(){/*Loops through repos*/
@@ -31,8 +32,8 @@ class CommitDBUtils {
             }
             //3. Retrieve the commit log items for this repo with the range specified
             let args:[String] = CommitViewUtils.commitItems(localPath,commitCount)/*creates an array of arguments that will return commit item logs*/
-            args.forEach{
-                let operation = CommitViewUtils.configOperation([$0],localPath,repoTitle,index)/*setup the NSTask correctly*/
+            for (_,element) in args.enumerate(){
+                let operation = CommitViewUtils.configOperation([element],localPath,repoTitle,index)/*setup the NSTask correctly*/
                 operations.append(operation)
             }
         }
