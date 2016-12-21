@@ -40,10 +40,10 @@ class CommitViewUtils {
      */
     static func commitItems(localPath:String,_ max:Int)->[String]{
         let commitCount:String = GitParser.commitCount(localPath)/*Get the commitCount of this repo*/
-        //Swift.print("commitCount: " + ">\(commitCount)<")
+        Swift.print("commitCount: " + ">\(commitCount)<")
         
         let length:Int = commitCount.int > max ? max : commitCount.int//20 = maxCount
-        //Swift.print("length: " + "\(length)")
+        Swift.print("length: " + "\(length)")
         
         var args:[String] = []
         let formating:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//

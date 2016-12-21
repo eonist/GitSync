@@ -27,10 +27,11 @@ class CommitDBUtils {
                 commitCount = GitParser.commitCount(localPath, after: gitTime).int//now..lastDate
             }else {//< 100
                 commitCount = 100 - commitDB.sortedArr.count
-                let repoCommitCount:Int = GitParser.commitCount(localPath).int/*Get the commitCount of this repo*/
-                commitCount = commitCount > repoCommitCount ? repoCommitCount : commitCount/* so that we don't query for commit items that doesnt exist */
+                
+                //commitCount = commitCount > repoCommitCount ? repoCommitCount : commitCount/* so that we don't query for commit items that doesnt exist */
             }
             //3. Retrieve the commit log items for this repo with the range specified
+            Swift.print("max: " + "\(commitCount)")
             let args:[String] = CommitViewUtils.commitItems(localPath,commitCount)/*creates an array of arguments that will return commit item logs*/
             for (_,element) in args.enumerate(){
                 let operation = CommitViewUtils.configOperation([element],localPath,repoTitle,index)/*setup the NSTask correctly*/
