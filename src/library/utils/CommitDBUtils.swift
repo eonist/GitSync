@@ -26,7 +26,7 @@ class CommitDBUtils {
         //1. You loop the repos
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
-        Swift.print("repoList.count: " + "\(repoList.count)")
+        //Swift.print("repoList.count: " + "\(repoList.count)")
         
         //for (index,element) in repoList.enumerate(){/*Loops through repos*/
         //}
@@ -62,8 +62,8 @@ class CommitDBUtils {
             Swift.print("lastDate: " + "\(lastDate)")
             let gitTime = Utils.gitTime(lastDate.string)
             let rangeCount:Int = GitParser.commitCount(localPath, after: gitTime).int//now..lastDate
-            Swift.print("rangeCount: " + "\(rangeCount)")
             commitCount = rangeCount > 100 ? 100 : rangeCount//force the value to be no more than max allowed
+            Swift.print("rangeCount: " + "\(rangeCount)")
         }else {//< 100
             commitCount = 100 - commitDB.sortedArr.count
             
@@ -96,7 +96,7 @@ class CommitDBUtils {
      * The handler for the NSTasks
      */
     static func observer(notification:NSNotification) {
-        Swift.print("the last task completed")
+        //Swift.print("the last task completed")
         
         operations.forEach{
             let data:NSData = $0.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
