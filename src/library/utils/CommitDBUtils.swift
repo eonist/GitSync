@@ -46,7 +46,10 @@ class CommitDBUtils {
             Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
             Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
             Swift.print("Printing sortedArr after refresh: ")
-            commitDB.sortedArr.forEach{Swift.print($0.sortableDate)}
+            commitDB.sortedArr.forEach{
+                let gitTime:String = Utils.gitTime($0.sortableDate.string)
+                Swift.print(gitTime)
+            }
         }
     }
     /**
