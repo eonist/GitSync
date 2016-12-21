@@ -45,24 +45,25 @@
             //make a git method that can find the hash of a commit nearest a data. 👈
 
 
-//The new refresh commitDB algo🤖: (this refresh method needs to be accessible from many places, so add it in CommitDBUtils.refresh())👈👈👈
+//The new refresh commitDB algo🤖: (this refresh method needs to be accessible from many places) 
+	//so add it in CommitDBUtils.refresh())👈👈👈
     //You loop the repos
         //find the range of commits to add to CommitDB for this repo
         //if CommitDB.sortedByDates.count > 100
             //let lastDate = .count > 0 ? sortedByDates.last.date : Int.min<--min represents max negative num
-            //range = now..lastDate in the repo (date based) Needs --> 🔬 (how does querrying for date ranges in git work)
+            //range = now..lastDate in the repo (date based) Needs --> 🔬 (how does querying for date ranges in git work)
             //let firstDate in range❌ <-- add this optimization later
             //find the index in sortedByDates❌<-- add this optimization later
             //(sortedByDates.count - index)❌<-- add this optimization later
         //else //< 100
             //let available = max - sortedByDates.count
             //range = 0..available (count based)
-        //retrive the commit log items for this repo with the range speccified
+        //retrieve the commit log items for this repo with the range specified
         //add the commit log items to the CommitDB
 
 
 //what happens if a commit was deleted? -> 
-    //it stays in the CommitDb until its poped of the end (this is an edge case and could be dealt with later)
+    //it stays in the CommitDb until its popped of the end (this is an edge case and could be dealt with later)
 //what happens if a repo is removed from the app?
     //for loop sortedByDates and remove items matching the repo hash, do the same for prevCommit Dictionary
         //then run the refresh algo🤖 to repopulate the CommitList
