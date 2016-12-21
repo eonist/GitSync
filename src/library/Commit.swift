@@ -6,8 +6,8 @@ import Foundation
 struct Commit{
     let repoName:String
     let contributor:String
-    let title:String
-    let description:String
+    let title:String /*'Commit title' aka 'commit subject'*/
+    let description:String/*'Commit description' aka 'commit body'*/
     let date:String/*2 min ago, 2016/12/12, feb 2, etc*/
     let sortableDate:Int/*chronological descending date  in this format: yyyymmddhhmmss 20161201165959*/
     let hash:String
