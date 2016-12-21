@@ -93,7 +93,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func dataBaseTest(){
         
-
+        //Continue here:
+            //try to squash the 
         
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
