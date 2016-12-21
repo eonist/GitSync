@@ -26,3 +26,7 @@ class CommitDBUtils {
         }
     }
 }
+
+private class Utils{
+    
+}
