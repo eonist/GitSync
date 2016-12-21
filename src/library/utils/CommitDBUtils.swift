@@ -18,7 +18,7 @@ class CommitDBUtils {
         for (index,element) in repoList.enumerate(){/*Loops through repos*/
             let localPath:String = element["local-path"]!//local-path to repo
             let repoTitle = element["title"]!//name of repo
-            //2. find the range of commits to add to CommitDB for this repo
+            //2. Find the range of commits to add to CommitDB for this repo
             var commitCount:Int
             if(commitDB.sortedArr.count >= 100){
                 let lastDate = commitDB.sortedArr.last!.sortableDate
@@ -28,6 +28,7 @@ class CommitDBUtils {
                 commitCount = 100 - commitDB.sortedArr.count
                 //range = 0..available (count based)
             }
+            //3. Retrieve the commit log items for this repo with the range specified
             let args:[String] = CommitViewUtils.commitItems(localPath,commitCount)/*creates an array of arguments that will return commit item logs*/
             args.forEach{
                 let operation = CommitViewUtils.configOperation([$0],localPath,repoTitle,index)/*setup the NSTask correctly*/
