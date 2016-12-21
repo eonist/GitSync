@@ -11,6 +11,12 @@ class CommitDBUtils {
      * TODO: time test
      */
     static func refresh(){
+        
+        
+        //Continue here:
+            //Something is wrong with commit range: print the lastDate and see if you can figure it out 🏀
+        
+        
         startTime = NSDate()//measure the time of the refresh
         //1. You loop the repos
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
