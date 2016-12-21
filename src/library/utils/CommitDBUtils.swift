@@ -16,7 +16,7 @@ class CommitDBUtils {
         //Continue here:
             //Something is wrong with commit range: print the lastDate and see if you can figure it out 🏀
                 //make the max items shorter to debug easier. and make the var static
-        
+                    //the problem is that commitDB doesnt have any commits until observer completes
         
         startTime = NSDate()//measure the time of the refresh
         //1. You loop the repos
@@ -29,6 +29,7 @@ class CommitDBUtils {
             let repoTitle = element["title"]!//name of repo
             //2. Find the range of commits to add to CommitDB for this repo
             var commitCount:Int
+            Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
             if(commitDB.sortedArr.count >= 100){
                 let lastDate = commitDB.sortedArr.last!.sortableDate
                 Swift.print("lastDate: " + "\(lastDate)")
