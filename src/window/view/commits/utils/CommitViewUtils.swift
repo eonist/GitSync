@@ -29,8 +29,9 @@ class CommitViewUtils {
     /**
      * Converter
      */
-    static func processCommitData(repoTitle:String,_ commitData:CommitData)->CommitData{
-        //let commitData:CommitData = ()
+    static func processCommitData(repoTitle:String,_ commitData:CommitData)->Commit{
+        let data:ProcessedCommitData = processCommitData(repoTitle,commitData)
+        let commit:Commit = Commit(data.repoName,data.author, data.title, data.description, data.relativeDate, data.date, data.hash,0)
         //return
         fatalError("not implemented yet")
     }
