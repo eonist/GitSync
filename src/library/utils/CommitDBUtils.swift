@@ -11,7 +11,7 @@ class CommitDBUtils {
      * TODO: time test
      */
     static func refresh(){
-        startTime = NSDate()//measure time of the refresh
+        startTime = NSDate()//measure the time of the refresh
         //1. You loop the repos
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         let repoList = XMLParser.toArray(repoXML)//or use dataProvider

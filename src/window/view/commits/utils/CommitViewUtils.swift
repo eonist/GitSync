@@ -43,7 +43,7 @@ class CommitViewUtils {
         //Swift.print("commitCount: " + ">\(commitCount)<")
         
         let length:Int = commitCount > max ? max : commitCount//20 = maxCount
-        //Swift.print("length: " + "\(length)")
+        Swift.print("length: " + "\(length)")
         
         var args:[String] = []
         let formating:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
