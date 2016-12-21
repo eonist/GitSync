@@ -109,6 +109,7 @@ class CommitDBUtils {
             if(output.count == 0){Swift.print("output: " + ">\(output)<")}
             let commitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
             let commit:Commit = CommitViewUtils.processCommitData($0.repoTitle,commitData,$0.repoIndex)/*Format the data*/
+            Swift.print("date: \(Utils.gitTime(commit.sortableDate.string))")
             commitDB.add(commit)/*add the commit log items to the CommitDB*/
         }
         
