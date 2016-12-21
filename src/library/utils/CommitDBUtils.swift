@@ -31,6 +31,7 @@ class CommitDBUtils {
             var commitCount:Int
             if(commitDB.sortedArr.count >= 100){
                 let lastDate = commitDB.sortedArr.last!.sortableDate
+                Swift.print("lastDate: " + "\(lastDate)")
                 let gitTime = Utils.gitTime(lastDate.string)
                 commitCount = GitParser.commitCount(localPath, after: gitTime).int//now..lastDate
             }else {//< 100
