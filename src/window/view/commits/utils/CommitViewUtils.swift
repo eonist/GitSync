@@ -2,6 +2,7 @@ import Foundation
 
 class CommitViewUtils {
     typealias ProcessedCommitData = (date:NSDate,relativeDate:String,descendingDate:String,body:String,subject:String,hash:String,author:String)
+    typealias CommitLogOperation = (task:NSTask,pipe:NSPipe,repoTitle:String,repoIndex:Int)
     /**
      *
      */
@@ -56,7 +57,7 @@ class CommitViewUtils {
     /**
      * Sets up a NSTask
      */
-    static func configOperation(args:[String],_ localPath:String,_ repoTitle:String) -> (task:NSTask,pipe:NSPipe,repoTitle:String){
+    static func configOperation(args:[String],_ localPath:String,_ repoTitle:String, _ repoIndex:Int) -> CommitLogOperation{
         let task = NSTask()
         task.currentDirectoryPath = localPath
         task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
@@ -64,6 +65,6 @@ class CommitViewUtils {
         let pipe = NSPipe()
         task.standardOutput = pipe
         //task.waitUntilExit()/*not needed if we use NSNotification*/
-        return (task,pipe,repoTitle)
+        return (task,pipe,repoTitle,repoIndex)
     }
 }

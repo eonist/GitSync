@@ -23,7 +23,7 @@ class CommitsView:Element {
     }
     var dp:DataProvider?  //Utils.dataProvider()//DataProvider(xml)
     var startTime:NSDate?
-    var operations:[(task:NSTask,pipe:NSPipe,repoTitle:String)] = []
+    var operations:[CommitLogOperation] = []
     /**
      * //try this answer: http://stackoverflow.com/questions/9400287/how-to-run-nstask-with-multiple-commands?rq=1
      * //try a simple case and then the git commands 20 and then 200 etc. use the timer to calc the time it takes
@@ -40,11 +40,11 @@ class CommitsView:Element {
         Swift.print("repoList.count: " + "\(repoList.count)")
         Swift.print("maxCommitItems: " + "\(maxCommitItems)")
         for (index, element) in repoList.enumerate(){/*Loops through repos*/
-            let localPath:String = $0["local-path"]!//local-path to repo
-            let repoTitle = $0["title"]!//name of repo
+            let localPath:String = element["local-path"]!//local-path to repo
+            let repoTitle = element["title"]!//name of repo
             let args:[String] = CommitViewUtils.commitItems(localPath,maxCommitItems)/*creates an array of arguments that will return commit item logs*/
             args.forEach{
-                let operation = CommitViewUtils.configOperation([$0],localPath,repoTitle)/*setup the NSTask correctly*/
+                let operation = CommitViewUtils.configOperation([$0],localPath,repoTitle,index)/*setup the NSTask correctly*/
                 operations.append(operation)
             }
         }
