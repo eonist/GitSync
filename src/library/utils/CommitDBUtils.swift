@@ -39,6 +39,21 @@ class CommitDBUtils {
             $0.task.launch()
         }
     }
+    /**
+     * The handler for the NSTasks
+     */
+    static func observer(notification:NSNotification) {
+        Swift.print("the last task completed")
+        
+        operations.forEach{
+            let data:NSData = $0.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
+            let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
+            //Swift.print(output)
+            
+            //Do something here🏀
+            
+        }
+    }
 }
 
 private class Utils{
