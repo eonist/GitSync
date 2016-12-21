@@ -42,7 +42,6 @@ class CommitDBUtils {
         //Swift.print("iterate: " + "\(repoIndex)")
         if(repoIndex < repoList.count){
             refreshRepo(repoIndex,repoList[repoIndex])
-            
         }else{
             Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
             Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
@@ -63,6 +62,7 @@ class CommitDBUtils {
             Swift.print("lastDate: " + "\(lastDate)")
             let gitTime = Utils.gitTime(lastDate.string)
             let rangeCount:Int = GitParser.commitCount(localPath, after: gitTime).int//now..lastDate
+            Swift.print("rangeCount: " + "\(rangeCount)")
             commitCount = rangeCount > 100 ? 100 : rangeCount//force the value to be no more than max allowed
         }else {//< 100
             commitCount = 100 - commitDB.sortedArr.count
