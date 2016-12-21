@@ -61,18 +61,19 @@
         //retrieve the commit log items for this repo with the range specified
         //add the commit log items to the CommitDB
 
-
+### Questions: 
 //what happens if a commit was deleted? -> 
-    //it stays in the CommitDb until its popped of the end (this is an edge case and could be dealt with later)
+    //it stays in the CommitDb until its popped of the end (on repo rollback -> loop the sorted list and remove -> then refresh) -> this is an edge case and could be dealt with later
 //what happens if a repo is removed from the app?
     //for loop sortedByDates and remove items matching the repo hash, do the same for prevCommit Dictionary
         //then run the refresh algo🤖 to repopulate the CommitList
-
+//how do we refresh after commits and pushes to remote? 
+	//we do it 👉 after 👈 because -> simplicity 👌
 
 //Continue here:
-    //do the git date range research and tests
+    //do the git date range research and tests ✅
         //commit count after date ✅
         //format chronological date to git time-> "2016-11-12 00:00:00" ✅
         //then just grab the count range and wrap everything into nice method (make test first) ✅
     //make the refresh CommitDB algo🤖 as described
-    //how do we refresh after commits and pushes to remote? 👉 after 👈 because -> simplicity 👌
+    
