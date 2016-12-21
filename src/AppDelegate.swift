@@ -16,9 +16,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //initApp()
         refreshCommitDBTest()
+        
         //reflectionDictTest()
         //ioTest()
-        //dataBaseTest()
+        //dataBaseTest()👈
         //chronologicalTime2GitTimeTest()
         //commitDateRangeCountTest()
     }
@@ -93,9 +94,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func dataBaseTest(){
         
-        //Continue here:
-            //try to squash the 🐛 that doesnt pop pf the last date
-                // make aa small max size and keep adding items, then check the integrity of the array and the .last.date
+        //Continue here:🏀
+            //so the problem is that you are creating an ascending array, when you need to make it descending
+                //aka higher Integer -> lower index
         
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
@@ -103,13 +104,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         commitDB.add(Commit("","","","","",201601,"gr24g2",5))
         commitDB.add(Commit("","","","","",201611,"24ggq2",2))
         commitDB.add(Commit("","","","","",201606,"esvrg3",1))
+        commitDB.add(Commit("","","","","",201606,"esvrg3",1))
+        commitDB.add(Commit("","","","","",201506,"g46j45",6))
         commitDB.sortedArr.forEach{Swift.print($0.sortableDate)}
         
+        /*
         let xml = Reflection.toXML(commitDB)/*Reflection*/
         Swift.print(xml.XMLString)
         let newInstance:CommitDB = CommitDB.unWrap(xml)!/*UnWrapping*/
         Swift.print("Printing sortedArr after unwrap: ")
         newInstance.sortedArr.forEach{Swift.print($0.sortableDate)}
+        */
         //Swift.print("Printing prevCommits after unwrap: ")
         //newInstance.prevCommits.forEach{Swift.print("key: \($0.0) value: \($0.1)")}
     }

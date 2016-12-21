@@ -16,12 +16,13 @@ class CommitDBUtils {
         startTime = NSDate()//measure the time of the refresh
         repoIndex = 0//reset
         
-        //Continue here:
-            //Something is wrong with commit range: print the lastDate and see if you can figure it out 🏀
-                //make the max items shorter to debug easier. and make the var static
-                    //the problem is that commitDB doesnt have any commits until observer completes
-                        //to solve this you need to iterate on complete
-        
+        //Continue here: 
+            //CommitListRefresh algo ✅
+            //Clean up the code, make comments, rename methods etc, maybe make a singleton? 🏀
+            //then do storing and unwrapping of commitDB combined with the refresh algo (only a few additions should be added on each refresh, and refresh time will be fast)
+            //then try adding and updating the CommitViewList with some dummy data before you hock up the refresh algo
+            //then hook up the refresh algo to the animation
+            //Research background thread for NSTask
         
         //1. You loop the repos
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
@@ -48,7 +49,7 @@ class CommitDBUtils {
             Swift.print("Printing sortedArr after refresh: ")
             commitDB.sortedArr.forEach{
                 let gitTime:String = Utils.gitTime($0.sortableDate.string)
-                //Swift.print(gitTime)
+                Swift.print("hash: \($0.hash) date: \(gitTime) repo: \($0.repoName) ")
             }
         }
     }
@@ -63,9 +64,9 @@ class CommitDBUtils {
         var commitCount:Int
         //Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
         if(commitDB.sortedArr.count >= 100){
-            let lastDate = commitDB.sortedArr.last!.sortableDate
-            Swift.print("lastDate: " + "\(lastDate)")
-            let gitTime = Utils.gitTime(lastDate.string)
+            let firstDate = commitDB.sortedArr.first!.sortableDate
+            Swift.print("firstDate: " + "\(firstDate)")
+            let gitTime = Utils.gitTime(firstDate.string)
             let rangeCount:Int = GitParser.commitCount(localPath, after: gitTime).int//now..lastDate
             commitCount = rangeCount > 100 ? 100 : rangeCount//force the value to be no more than max allowed
             Swift.print("rangeCount: " + "\(commitCount)")
@@ -103,25 +104,18 @@ class CommitDBUtils {
     static func observer(notification:NSNotification) {
         //Swift.print("the last task completed")
         
-        operations.forEach{
-            let data:NSData = $0.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
+        for (index,element) in operations.enumerate(){
+            let data:NSData = element.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
             let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
-            if(output.count == 0){Swift.print("output: " + ">\(output)<")}
-            let commitData:CommitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
-            
-            let commit:Commit = CommitViewUtils.processCommitData($0.repoTitle,commitData,$0.repoIndex)/*Format the data*/
-            if(commit.hash == "d06a2be"){
-                let temp:CommitData = GitLogParser.commitData(output)
-                Swift.print("temp.date: " + "\(temp.date)")
-                Swift.print("date \(Utils.gitTime(commit.sortableDate.string))")
-                Swift.print("output: " + "\(output)")
+            if(output.count > 0){
+                //Swift.print("output: " + ">\(output)<")
+                let commitData:CommitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
+                let commit:Commit = CommitViewUtils.processCommitData(element.repoTitle,commitData,element.repoIndex)/*Format the data*/
+                //Swift.print("repo: \(element.repoTitle) hash: \(commit.hash) date: \(Utils.gitTime(commit.sortableDate.string))")
+                commitDB.add(commit)/*add the commit log items to the CommitDB*/
+            }else{
+                Swift.print("-----ERROR: repo: \(element.repoTitle) at index: \(index) didnt work")
             }
-            
-            //continue here: 🏀
-                //it's a bug in how you convert the date -> create a specialized process method for the hash above and it should track the bug down
-            
-           // Swift.print("repo: \($0.repoTitle) hash: \(commit.hash) date: \(Utils.gitTime(commit.sortableDate.string))")
-            commitDB.add(commit)/*add the commit log items to the CommitDB*/
         }
         
         NSNotificationCenter.defaultCenter().removeObserver(notification.object!)
