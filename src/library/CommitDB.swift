@@ -37,23 +37,23 @@ extension CommitDB{
      * TODO: use range instead of start and end int?!?
      */
     static func closestIndex<T:Comparable>(arr:[T],_ i:T,_ start:Int,_ end:Int) -> Int{//arr[Stridable] or something indexable
-        Swift.print("start: " + "\(start)")
-        Swift.print("end: " + "\(end)")
+        //Swift.print("start: " + "\(start)")
+        //Swift.print("end: " + "\(end)")
         if(start == end){
             Swift.print("i doesn't exist, this is the closest at: \(start) ")
             return start
         }
         let mid:Int = start + ((end - start) / 2)/*start + middle of the distance between start and end*/
-        Swift.print("mid: " + "\(mid)")
+        //Swift.print("mid: " + "\(mid)")
         //Swift.print("arr[mid]: " + "\(arr[mid])")
         if(i < arr[mid]){/*index is in part1*/
-            Swift.print("a")
+            //Swift.print("a")
             return closestIndex(arr,i,start,mid)
         }else if(i > arr[mid]){/*index is in part2*/
-            Swift.print("b")
+            //Swift.print("b")
             return closestIndex(arr,i,mid+1,end)
         }else{/*index is at middleIndex*/
-            Swift.print("at middle: \(mid)")
+            //Swift.print("at middle: \(mid)")
             return mid
         }
     }
