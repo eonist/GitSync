@@ -43,9 +43,6 @@ class CommitDBUtils {
         operations.forEach{/*launch all tasks*/
             $0.task.launch()
         }
-        
-        //Continue here: figure out how the prevCommit Dictionary plays into all this 🏀 -> maybe its unrelevant now
-        
     }
     /**
      * The handler for the NSTasks
