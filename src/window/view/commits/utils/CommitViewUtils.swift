@@ -1,7 +1,7 @@
 import Foundation
 
 class CommitViewUtils {
-    typealias ProcessedCommitData = (date:NSDate,relativeDate:String,descendingDate:String,compactBody:String,subject:String,hash:String)
+    typealias ProcessedCommitData = (date:NSDate,relativeDate:String,descendingDate:String,body:String,subject:String,hash:String)
     /**
      *
      */
@@ -18,14 +18,20 @@ class CommitViewUtils {
         let subject:String = StringParser.trim(commitData.subject, "'", "'")
         return (date,relativeDate,descendingDate,compactBody,subject,commitData.hash)
     }
-
     /**
-     *
+     * Converter
      */
     static func processCommitData(repoTitle:String,_ commitData:CommitData)-> Dictionary<String, String>{
         let data:ProcessedCommitData = processCommitData(repoTitle,commitData)
-        let dict:Dictionary<String, String> = ["repo-name":repoTitle,"contributor":commitData.author,"title":data.subject,"description":data.compactBody,"date":data.relativeDate,"sortableDate":data.descendingDate,"hash":commitData.hash]
+        let dict:Dictionary<String, String> = ["repo-name":repoTitle,"contributor":commitData.author,"title":data.subject,"description":data.body,"date":data.relativeDate,"sortableDate":data.descendingDate,"hash":commitData.hash]
         return dict
+    }
+    /**
+     * Converter
+     */
+    static func processCommitData(repoTitle:String,_ commitData:CommitData)->CommitData{
+        let commitData:CommitData = ()
+        return
     }
     /**
      * PARAM: max = max Items Allowed per repo
