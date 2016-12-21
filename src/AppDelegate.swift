@@ -139,9 +139,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //if CommitDB.sortedByDates.count > 100
                     //let lastDate = .count > 0 ? sortedByDates.last.date : Int.min<--min represents max negative num
                     //range = now..lastDate in the repo (date based) Needs --> 🔬 (how does querrying for date ranges in git work)
-                    //let firstDate in range🚫 <-- add this optimization later
-                    //find the index in sortedByDates🚫<-- add this optimization later
-                    //(sortedByDates.count - index)🚫<-- add this optimization later
+                    //let firstDate in range❌ <-- add this optimization later
+                    //find the index in sortedByDates❌<-- add this optimization later
+                    //(sortedByDates.count - index)❌<-- add this optimization later
                 //else //< 100
                     //let available = max - sortedByDates.count
                     //range = 0..available (count based)
