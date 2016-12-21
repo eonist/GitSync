@@ -25,10 +25,7 @@ class CommitDBUtils {
                 let gitTime = Utils.gitTime(lastDate.string)
                 commitCount = GitParser.commitCount(localPath, after: gitTime).int//now..lastDate
             }else {//< 100
-                commitCount = 100 - commitDB.sortedArr.count
-                let repoCommitCount:String = GitParser.commitCount(localPath)/*Get the commitCount of this repo*/
-                commitCount = commitCount > repoCommitCount ? repoCommitCount : commitCount/**/
-                //range = 0..available (count based)
+                commitCount = 100 - commitDB.sortedArr.count/*no need to */
             }
             //3. Retrieve the commit log items for this repo with the range specified
             let args:[String] = CommitViewUtils.commitItems(localPath,commitCount)/*creates an array of arguments that will return commit item logs*/
