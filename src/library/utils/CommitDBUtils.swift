@@ -21,8 +21,7 @@ class CommitDBUtils {
             //2. Find the range of commits to add to CommitDB for this repo
             var commitCount:Int
             if(commitDB.sortedArr.count >= 100){
-                let date = sorted.count > 100 ? sorted[100].date : sorted.last.date
-                let lastDate = commitDB.sortedArr.last!.sortableDate
+                let lastDate = commitDB.sortedArr[99].sortableDate
                 let gitTime = Utils.gitTime(lastDate.string)
                 commitCount = GitParser.commitCount(localPath, after: gitTime).int//now..lastDate
             }else {//< 100
