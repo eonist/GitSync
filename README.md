@@ -1,10 +1,8 @@
-## Progress:
-
-## macOS app icon:  
+## GitSync:  
 
 <img width="314" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_logo_2016_blue.png">
 
-## App Demo:
+## Demo:
 
 <img width="558" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_take_3.mov.gif">
 
