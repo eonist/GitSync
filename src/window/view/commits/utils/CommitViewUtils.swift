@@ -31,7 +31,7 @@ class CommitViewUtils {
      */
     static func processCommitData(repoTitle:String,_ commitData:CommitData)->Commit{
         let data:ProcessedCommitData = processCommitData(repoTitle,commitData)
-        let commit:Commit = Commit("",data.author, data.subject, data.body, data.relativeDate, data.descendingDate.int, data.hash,0)
+        let commit:Commit = Commit(repoTitle,data.author, data.subject, data.body, data.relativeDate, data.descendingDate.int, data.hash,0)
         //return
         return commit
     }
