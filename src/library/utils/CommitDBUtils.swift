@@ -84,6 +84,7 @@ class CommitDBUtils {
             operations.forEach{/*launch all tasks*/
                 $0.task.launch()
             }
+            Swift.print("operations launched")
         }else{//no operations to launch and observe
             iterate()//but we still need to iterate
         }
