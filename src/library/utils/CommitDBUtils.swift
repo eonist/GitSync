@@ -39,10 +39,10 @@ class CommitDBUtils {
      *
      */
     static func iterate(){
-        Swift.print("iterate")
+        Swift.print("iterate: " + "\(repoIndex)")
         if(repoIndex < repoList.count){
             refreshRepo(repoIndex,repoList[repoIndex])
-            repoIndex++
+            
         }else{
             Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
             Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
@@ -52,6 +52,7 @@ class CommitDBUtils {
      *
      */
     static func refreshRepo(index:Int,_ element:[String:String]){
+        repoIndex += 1//increment the repoIndex
         let localPath:String = element["local-path"]!//local-path to repo
         let repoTitle = element["title"]!//name of repo
         //2. Find the range of commits to add to CommitDB for this repo
