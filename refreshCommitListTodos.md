@@ -30,7 +30,7 @@
     //3. when commitDB refresh is complete
         //init app GUI🚀
 
-//You don't need to store more commits than nessaccery in CommitDB 🚫
+//You don't need to store more commits than necessary in CommitDB 🚫
     //max 100 commits per repo
         //which means you need to store commits per repo after all
         //to remove the correct item from sortedByDates array
