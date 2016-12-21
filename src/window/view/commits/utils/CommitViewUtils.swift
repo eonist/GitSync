@@ -31,9 +31,9 @@ class CommitViewUtils {
      */
     static func processCommitData(repoTitle:String,_ commitData:CommitData)->Commit{
         let data:ProcessedCommitData = processCommitData(repoTitle,commitData)
-        let commit:Commit = Commit(data.repoName,data.author, data.title, data.description, data.relativeDate, data.date, data.hash,0)
+        let commit:Commit = Commit("",data.author, data.subject, data.body, data.relativeDate, data.descendingDate.int, data.hash,0)
         //return
-        fatalError("not implemented yet")
+        return commit
     }
     /**
      * PARAM: max = max Items Allowed per repo
