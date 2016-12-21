@@ -19,7 +19,7 @@ extension CommitDB{
     func add(item:Commit){
         //prevCommits[item.repoId] = item.hash/*store the last commit*/
         let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
-        Swift.print("closestIndex: " + "\(closestIdx)")
+        //Swift.print("closestIndex: " + "\(closestIdx)")
         //let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
         //Swift.print("insertAt: " + "\(insertAt)")
         sortedArr.insertAt(item, closestIdx)
@@ -40,7 +40,7 @@ extension CommitDB{
         //Swift.print("start: " + "\(start)")
         //Swift.print("end: " + "\(end)")
         if(start == end){
-            Swift.print("i doesn't exist, this is the closest at: \(start) ")
+            //Swift.print("i doesn't exist, this is the closest at: \(start) ")
             return start
         }
         let mid:Int = start + ((end - start) / 2)/*start + middle of the distance between start and end*/
