@@ -39,7 +39,7 @@ class CommitDBUtils {
      *
      */
     static func iterate(){
-        Swift.print("iterate: " + "\(repoIndex)")
+        //Swift.print("iterate: " + "\(repoIndex)")
         if(repoIndex < repoList.count){
             refreshRepo(repoIndex,repoList[repoIndex])
             
@@ -82,12 +82,12 @@ class CommitDBUtils {
             let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
             NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
             
-            Swift.print("init operation launching")
+            //Swift.print("init operation launching")
             operations.forEach{/*launch all tasks*/
-                Swift.print("launch")
+                //Swift.print("launch")
                 $0.task.launch()
             }
-            Swift.print("operations launched")
+            //Swift.print("operations launched")
         }else{//no operations to launch and observe
             iterate()//but we still need to iterate
         }
