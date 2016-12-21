@@ -116,7 +116,7 @@ class CommitDBUtils {
             }
             
             //continue here: 🏀
-                //it's a bug in how you convert the date -> 
+                //it's a bug in how you convert the date -> create a specialized process method for the hash above and it should track the bug down
             
            // Swift.print("repo: \($0.repoTitle) hash: \(commit.hash) date: \(Utils.gitTime(commit.sortableDate.string))")
             commitDB.add(commit)/*add the commit log items to the CommitDB*/
