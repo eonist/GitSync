@@ -48,7 +48,7 @@ class CommitDBUtils {
             Swift.print("Printing sortedArr after refresh: ")
             commitDB.sortedArr.forEach{
                 let gitTime:String = Utils.gitTime($0.sortableDate.string)
-                Swift.print(gitTime)
+                //Swift.print(gitTime)
             }
         }
     }
@@ -108,8 +108,12 @@ class CommitDBUtils {
             let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
             if(output.count == 0){Swift.print("output: " + ">\(output)<")}
             let commitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
+            
             let commit:Commit = CommitViewUtils.processCommitData($0.repoTitle,commitData,$0.repoIndex)/*Format the data*/
-            Swift.print("repo: \($0.repoTitle) hash: \(commit.hash) date: \(Utils.gitTime(commit.sortableDate.string))")
+            if(commit.hash == "d06a2be"){
+                Swift.print("output: " + "\(output)")
+            }
+           // Swift.print("repo: \($0.repoTitle) hash: \(commit.hash) date: \(Utils.gitTime(commit.sortableDate.string))")
             commitDB.add(commit)/*add the commit log items to the CommitDB*/
         }
         
