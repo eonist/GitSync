@@ -1,10 +1,11 @@
 import Foundation
 
 class CommitViewUtils {
+    
     /**
      *
      */
-    static func processCommit(repoTitle:String,_ commitData:CommitData)->(date:NSDate,relativeDate:String,descendingDate:String,compactBody:String,subject:String,hash:String){
+    static func processCommit(repoTitle:String,_ commitData:CommitData)->{
         let date:NSDate = GitLogParser.date(commitData.date)
         //Swift.print("date.shortDate: " + "\(date.shortDate)")
         let relativeTime:(value:Int,type:String) = DateParser.relativeTime(NSDate(),date)[0]
