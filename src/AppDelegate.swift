@@ -25,7 +25,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func refreshCommitDBTest(){
-        
+        CommitDBUtils.refresh()
     }
     /**
      * Finds commit count from a date until now

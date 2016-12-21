@@ -9,7 +9,7 @@ class CommitDBUtils {
     /**
      *
      */
-    static func refresh(commitDB:CommitDB){
+    static func refresh(){
         //1. You loop the repos
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         let repoList = XMLParser.toArray(repoXML)//or use dataProvider
