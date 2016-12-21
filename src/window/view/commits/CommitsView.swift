@@ -39,7 +39,7 @@ class CommitsView:Element {
         let maxCommitItems:Int = maxItems/repoList.count/*max commit items allowed per repo*/
         Swift.print("repoList.count: " + "\(repoList.count)")
         Swift.print("maxCommitItems: " + "\(maxCommitItems)")
-        for (index, element) repoList.enumerate(){/*Loops through repos*/
+        for (index, element) in repoList.enumerate(){/*Loops through repos*/
             let localPath:String = $0["local-path"]!//local-path to repo
             let repoTitle = $0["title"]!//name of repo
             let args:[String] = CommitViewUtils.commitItems(localPath,maxCommitItems)/*creates an array of arguments that will return commit item logs*/
