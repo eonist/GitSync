@@ -36,8 +36,9 @@
         //to remove the correct item from sortedByDates array
             //store the index of the location
 
-//sortedByDate should actually pop of the last item if the count exceeds a limit
+//sortedByDate should actually pop of the last item if the count exceeds a limit 🏀
     //
+	//
 //The sortedByDate will have a date range (first..last)
     //this date range will be important to keep the array at max count 🔑 (when you add/remove new repos for instance)
     //when you loop commits 
@@ -45,7 +46,7 @@
             //make a git method that can find the hash of a commit nearest a data. 👈
 
 
-//The new refresh commitDB algo🤖: (this refresh method needs to be accessible from many places and cancelable) 
+//The new refresh commitDB algo🤖: (this refresh method needs to be accessible from many places and cancelable) ✅
 	//so add it in CommitDBUtils.refresh())👈👈👈
     //You loop the repos
         //find the range of commits to add to CommitDB for this repo
@@ -75,5 +76,5 @@
         //commit count after date ✅
         //format chronological date to git time-> "2016-11-12 00:00:00" ✅
         //then just grab the count range and wrap everything into nice method (make test first) ✅
-    //make the refresh CommitDB algo🤖 as described
+    //make the refresh CommitDB algo🤖 as described ✅
     
