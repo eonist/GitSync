@@ -28,5 +28,14 @@ class CommitDBUtils {
 }
 
 private class Utils{
-    
+    /**
+     * Formats chronological date to git time-> "2016-11-12 00:00:00"
+     * NOTE: YYYYMMDDHHmmss -> YYYY-MM-DD HH:mm:ss
+     * Alt name: chronologicalTime2GitTime
+     * EXAMPLE: gitTime("20161111205959")//Output2016-11-11 20:59:59
+     */
+    static func gitTime(chronoTime:String)->String{
+        let gitTime = chronoTime.insertCharsAt([("-",4),("-",6),(" ",8),(":",10),(":",12)])
+        return gitTime
+    }
 }
