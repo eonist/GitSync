@@ -62,7 +62,8 @@ class CommitDBUtils {
             let lastDate = commitDB.sortedArr.last!.sortableDate
             Swift.print("lastDate: " + "\(lastDate)")
             let gitTime = Utils.gitTime(lastDate.string)
-            commitCount = GitParser.commitCount(localPath, after: gitTime).int//now..lastDate
+            let rangeCount:Int = GitParser.commitCount(localPath, after: gitTime).int//now..lastDate
+            commitCount = rangeCount > 100 ? 100 : rangeCount//force the value to be no more than max allowed
         }else {//< 100
             commitCount = 100 - commitDB.sortedArr.count
             
