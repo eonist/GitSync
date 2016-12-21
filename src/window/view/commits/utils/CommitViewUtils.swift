@@ -56,6 +56,7 @@ class CommitViewUtils {
     }
     /**
      * Sets up a NSTask
+     * PARAM: index: repoIndex aka repoHash aka repoUniversalIdentifier
      */
     static func configOperation(args:[String],_ localPath:String,_ repoTitle:String, _ repoIndex:Int) -> CommitLogOperation{
         let task = NSTask()
