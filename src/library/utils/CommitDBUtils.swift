@@ -1,4 +1,7 @@
 import Foundation
+//1. you create many Operations that store Task and Pipe
+//2. you then fire them of at once and listen to the last operation to complete
+//3. when the last operation completes you loop thorugh the operations to retrive the data
 
 class CommitDBUtils {
     /**
