@@ -104,6 +104,8 @@ class CommitDBUtils {
             commitDB.add(commit)/*add the commit log items to the CommitDB*/
         }
         
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: NSTaskDidTerminateNotification, object: <#T##AnyObject?#>)
+        
         //Swift.print("Printing sortedArr after refresh: ")
         //commitDB.sortedArr.forEach{Swift.print($0.sortableDate)}
         iterate()
