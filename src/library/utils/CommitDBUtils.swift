@@ -63,7 +63,7 @@ class CommitDBUtils {
             let gitTime = Utils.gitTime(lastDate.string)
             let rangeCount:Int = GitParser.commitCount(localPath, after: gitTime).int//now..lastDate
             commitCount = rangeCount > 100 ? 100 : rangeCount//force the value to be no more than max allowed
-            Swift.print("rangeCount: " + "\(rangeCount)")
+            Swift.print("rangeCount: " + "\(commitCount)")
         }else {//< 100
             commitCount = 100 - commitDB.sortedArr.count
             
