@@ -39,8 +39,10 @@ class CommitDBUtils {
      *
      */
     static func iterate(){
+        Swift.print("iterate")
         if(repoIndex < repoList.count){
             refreshRepo(repoIndex,repoList[repoIndex])
+            repoIndex++
         }else{
             Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
             Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
