@@ -12,7 +12,7 @@ class CommitDBUtils {
     static func refresh(){
         //1. You loop the repos
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
-        var repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
         Swift.print("repoList.count: " + "\(repoList.count)")
         //repoList = [repoList[1]]//test with one repo the element ios repo
         for (index,element) in repoList.enumerate(){/*Loops through repos*/
@@ -21,6 +21,7 @@ class CommitDBUtils {
             //2. Find the range of commits to add to CommitDB for this repo
             var commitCount:Int
             if(commitDB.sortedArr.count >= 100){
+                let date = sorted.count > 100 ? sorted[100].date : sorted.last.date
                 let lastDate = commitDB.sortedArr.last!.sortableDate
                 let gitTime = Utils.gitTime(lastDate.string)
                 commitCount = GitParser.commitCount(localPath, after: gitTime).int//now..lastDate
