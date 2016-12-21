@@ -52,7 +52,7 @@ class CommitDBUtils {
             //Swift.print(output)
             let commitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
             let processedCommitData = CommitViewUtils.processCommitData($0.repoTitle,commitData)/*Format the data*/
-            //_
+
             
             ["repo-name":repoTitle,"contributor":commitData.author,"title":subject,"description":compactBody,"date":relativeDate,"sortableDate":descendingDate,"hash":commitData.hash]
             let commit:Commit = Commit(repoName:String,_ contributor:String,_ title:String,_ description:String,_ date:String,_ sortableDate:Int,_ hash:String,_ repoId:Int)/*We store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView*/
