@@ -111,6 +111,7 @@ class CommitDBUtils {
             
             let commit:Commit = CommitViewUtils.processCommitData($0.repoTitle,commitData,$0.repoIndex)/*Format the data*/
             if(commit.hash == "d06a2be"){
+                Swift.print("date \(Utils.gitTime(commit.sortableDate.string))")
                 Swift.print("output: " + "\(output)")
             }
            // Swift.print("repo: \($0.repoTitle) hash: \(commit.hash) date: \(Utils.gitTime(commit.sortableDate.string))")
