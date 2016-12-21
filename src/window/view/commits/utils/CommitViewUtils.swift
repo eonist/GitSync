@@ -22,9 +22,9 @@ class CommitViewUtils {
      *
      */
     static func processCommitData(repoTitle:String,_ commitData:CommitData)-> Dictionary<String, String>{
-        let 
-        let processedCommitData:Dictionary<String, String> = ["repo-name":repoTitle,"contributor":commitData.author,"title":subject,"description":compactBody,"date":relativeDate,"sortableDate":descendingDate,"hash":commitData.hash]
-        return processedCommitData
+        let data = processCommitData
+        let dict:Dictionary<String, String> = ["repo-name":repoTitle,"contributor":commitData.author,"title":subject,"description":compactBody,"date":relativeDate,"sortableDate":descendingDate,"hash":commitData.hash]
+        return dict
     }
     /**
      * PARAM: max = max Items Allowed per repo
