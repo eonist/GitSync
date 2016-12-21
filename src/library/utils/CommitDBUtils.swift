@@ -107,10 +107,12 @@ class CommitDBUtils {
             let data:NSData = $0.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
             let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
             if(output.count == 0){Swift.print("output: " + ">\(output)<")}
-            let commitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
+            let commitData:CommitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
             
             let commit:Commit = CommitViewUtils.processCommitData($0.repoTitle,commitData,$0.repoIndex)/*Format the data*/
             if(commit.hash == "d06a2be"){
+                let temp:CommitData = GitLogParser.commitData(output)
+                Swift.print("temp.date: " + "\(temp.date)")
                 Swift.print("date \(Utils.gitTime(commit.sortableDate.string))")
                 Swift.print("output: " + "\(output)")
             }
