@@ -56,7 +56,7 @@ class CommitDBUtils {
         let repoTitle = element["title"]!//name of repo
         //2. Find the range of commits to add to CommitDB for this repo
         var commitCount:Int
-        Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
+        //Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
         if(commitDB.sortedArr.count >= 100){
             let lastDate = commitDB.sortedArr.last!.sortableDate
             Swift.print("lastDate: " + "\(lastDate)")
