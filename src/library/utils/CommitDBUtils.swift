@@ -5,7 +5,7 @@ import Foundation
 
 class CommitDBUtils {
     static var commitDB = CommitDB()
-    static var operations:[(task:NSTask,pipe:NSPipe,repoTitle:String)] = []
+    static var operations:[CommitLogOperation] = []
     /**
      *
      */
@@ -15,9 +15,9 @@ class CommitDBUtils {
         let repoList = XMLParser.toArray(repoXML)//or use dataProvider
         //repoList = [repoList[1]]
         Swift.print("repoList.count: " + "\(repoList.count)")
-        repoList.forEach{/*Loops through repos*/
-            let localPath:String = $0["local-path"]!//local-path to repo
-            let repoTitle = $0["title"]!//name of repo
+        for (index,element) in repoList.enumerate(){/*Loops through repos*/
+            let localPath:String = element["local-path"]!//local-path to repo
+            let repoTitle = element["title"]!//name of repo
             //2. find the range of commits to add to CommitDB for this repo
             if(commitDB.sortedArr.count >= 100){
                 let lastDate = commitDB.sortedArr.last!.sortableDate
@@ -25,7 +25,7 @@ class CommitDBUtils {
                 let commitCount = GitParser.commitCount(localPath, after: gitTime).int//now..lastDate
                 let args:[String] = CommitViewUtils.commitItems(localPath,commitCount)/*creates an array of arguments that will return commit item logs*/
                 args.forEach{
-                    let operation = CommitViewUtils.configOperation([$0],localPath,repoTitle)/*setup the NSTask correctly*/
+                    let operation = CommitViewUtils.configOperation([$0],localPath,repoTitle,index)/*setup the NSTask correctly*/
                     operations.append(operation)
                 }
             }else {//< 100
@@ -51,14 +51,8 @@ class CommitDBUtils {
             let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
             //Swift.print(output)
             let commitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
-            let processedCommitData = CommitViewUtils.processCommitData($0.repoTitle,commitData)/*Format the data*/
-
-            
-            ["repo-name":repoTitle,"contributor":commitData.author,"title":subject,"description":compactBody,"date":relativeDate,"sortableDate":descendingDate,"hash":commitData.hash]
-            let commit:Commit = Commit(repoName:String,_ contributor:String,_ title:String,_ description:String,_ date:String,_ sortableDate:Int,_ hash:String,_ repoId:Int)/*We store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView*/
-            //Do something here🏀
-            //add the commit log items to the CommitDB
-            commitDB.add(<#T##item: Commit##Commit#>)
+            let commit:Commit = CommitViewUtils.processCommitData($0.repoTitle,commitData,$0.repoIndex)/*Format the data*/
+            commitDB.add(commit)//add the commit log items to the CommitDB
         }
     }
 }
