@@ -7,11 +7,12 @@ class CommitDBUtils {
     static var commitDB = CommitDB()
     static var operations:[CommitLogOperation] = []
     static var startTime:NSDate?
+    static var repoIndex:Int = 0
     /**
      * TODO: time test
      */
     static func refresh(){
-        
+        repoIndex = 0//reset
         
         //Continue here:
             //Something is wrong with commit range: print the lastDate and see if you can figure it out 🏀
@@ -24,36 +25,45 @@ class CommitDBUtils {
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         let repoList = XMLParser.toArray(repoXML)//or use dataProvider
         Swift.print("repoList.count: " + "\(repoList.count)")
+        
+        //for (index,element) in repoList.enumerate(){/*Loops through repos*/
+        //}
+        
+        refreshRepo(repoIndex,repoList[repoIndex])
+        
         //repoList = [repoList[1]]//test with one repo the element ios repo
-        for (index,element) in repoList.enumerate(){/*Loops through repos*/
-            let localPath:String = element["local-path"]!//local-path to repo
-            let repoTitle = element["title"]!//name of repo
-            //2. Find the range of commits to add to CommitDB for this repo
-            var commitCount:Int
-            Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
-            if(commitDB.sortedArr.count >= 100){
-                let lastDate = commitDB.sortedArr.last!.sortableDate
-                Swift.print("lastDate: " + "\(lastDate)")
-                let gitTime = Utils.gitTime(lastDate.string)
-                commitCount = GitParser.commitCount(localPath, after: gitTime).int//now..lastDate
-            }else {//< 100
-                commitCount = 100 - commitDB.sortedArr.count
-                
-                //commitCount = commitCount > repoCommitCount ? repoCommitCount : commitCount/* so that we don't query for commit items that doesnt exist */
-            }
-            //3. Retrieve the commit log items for this repo with the range specified
-            //Swift.print("max: " + "\(commitCount)")
-            let args:[String] = CommitViewUtils.commitItems(localPath,commitCount)/*creates an array of arguments that will return commit item logs*/
-            for (_,element) in args.enumerate(){
-                let operation = CommitViewUtils.configOperation([element],localPath,repoTitle,index)/*setup the NSTask correctly*/
-                operations.append(operation)
-            }
-        }
         let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
         NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
         
         operations.forEach{/*launch all tasks*/
             $0.task.launch()
+        }
+    }
+    /**
+     *
+     */
+    static func refreshRepo(index:Int,_ element:[String:String]){
+        let localPath:String = element["local-path"]!//local-path to repo
+        let repoTitle = element["title"]!//name of repo
+        //2. Find the range of commits to add to CommitDB for this repo
+        var commitCount:Int
+        Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
+        if(commitDB.sortedArr.count >= 100){
+            let lastDate = commitDB.sortedArr.last!.sortableDate
+            Swift.print("lastDate: " + "\(lastDate)")
+            let gitTime = Utils.gitTime(lastDate.string)
+            commitCount = GitParser.commitCount(localPath, after: gitTime).int//now..lastDate
+        }else {//< 100
+            commitCount = 100 - commitDB.sortedArr.count
+            
+            //commitCount = commitCount > repoCommitCount ? repoCommitCount : commitCount/* so that we don't query for commit items that doesnt exist */
+        }
+        //3. Retrieve the commit log items for this repo with the range specified
+        //Swift.print("max: " + "\(commitCount)")
+        let args:[String] = CommitViewUtils.commitItems(localPath,commitCount)/*creates an array of arguments that will return commit item logs*/
+        for (_,element) in args.enumerate(){
+            let operation = CommitViewUtils.configOperation([element],localPath,repoTitle,index)/*setup the NSTask correctly*/
+            operations.append(operation)
         }
     }
     /**
