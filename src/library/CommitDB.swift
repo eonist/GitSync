@@ -5,10 +5,10 @@ import Foundation
  */
 class CommitDB{
     var sortedArr:[Commit]/*Chronologically descending commits*/
-    var prevCommits:Dictionary<Int,String>/*key:repoHash,value:commitHash for the last commit made by a repo*/
-    init(_ sortedArr:[Commit] = [], _ prevCommits:Dictionary<Int,String> = [:]){
+    //var prevCommits:Dictionary<Int,String>/*key:repoHash,value:commitHash for the last commit made by a repo*/
+    init(_ sortedArr:[Commit] = []/*, _ prevCommits:Dictionary<Int,String> = [:]*/){
         self.sortedArr = sortedArr
-        self.prevCommits = prevCommits
+        //self.prevCommits = prevCommits
     }
 }
 extension CommitDB{
@@ -17,7 +17,7 @@ extension CommitDB{
      * NOTE: items must be added one after the other. A Bulk add method wouldn't work
      */
     func add(item:Commit){
-        prevCommits[item.repoId] = item.hash/*store the last commit*/
+        //prevCommits[item.repoId] = item.hash/*store the last commit*/
         let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
         Swift.print("closestIndex: " + "\(closestIdx)")
         //let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
@@ -62,7 +62,7 @@ extension CommitDB{
 extension CommitDB:UnWrappable{
     static func unWrap<T>(xml:XML) -> T? {
         let sortedArr:[Commit?] = unWrap(xml, "sortedArr")
-        let prevCommits:[Int:String] = unWrap(xml,"prevCommits")
-        return CommitDB(sortedArr.flatMap{$0},prevCommits) as? T/*flatMap is used to remove any nil values*/
+        //let prevCommits:[Int:String] = unWrap(xml,"prevCommits")
+        return CommitDB(sortedArr.flatMap{$0}/*,prevCommits*/) as? T/*flatMap is used to remove any nil values*/
     }
 }

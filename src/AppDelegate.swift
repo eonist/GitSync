@@ -101,8 +101,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let newInstance:CommitDB = CommitDB.unWrap(xml)!/*UnWrapping*/
         Swift.print("Printing sortedArr after unwrap: ")
         newInstance.sortedArr.forEach{Swift.print($0.sortableDate)}
-        Swift.print("Printing prevCommits after unwrap: ")
-        newInstance.prevCommits.forEach{Swift.print("key: \($0.0) value: \($0.1)")}
+        //Swift.print("Printing prevCommits after unwrap: ")
+        //newInstance.prevCommits.forEach{Swift.print("key: \($0.0) value: \($0.1)")}
     }
     func initApp(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
