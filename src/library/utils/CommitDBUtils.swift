@@ -15,7 +15,7 @@ class CommitDBUtils {
         Swift.print("repoList.count: " + "\(repoList.count)")
         repoList.forEach{/*Loops through repos*/
             let localPath:String = $0["local-path"]!//local-path to repo
-            //find the range of commits to add to CommitDB for this repo
+            //2. find the range of commits to add to CommitDB for this repo
             if(commitDB.sortedArr.count >= 100){
                 let lastDate = commitDB.sortedArr.last!.sortableDate
                 //range = now..lastDate in the repo (date based) Needs --> 🔬 (how does querying for date ranges in git work)
