@@ -60,6 +60,10 @@ class CommitDBUtils {
             let commit:Commit = CommitViewUtils.processCommitData($0.repoTitle,commitData,$0.repoIndex)/*Format the data*/
             commitDB.add(commit)/*add the commit log items to the CommitDB*/
         }
+        
+        Swift.print("Printing sortedArr after refresh: ")
+        Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
+        //commitDB.sortedArr.forEach{Swift.print($0.sortableDate)}
     }
 }
 

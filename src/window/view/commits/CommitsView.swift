@@ -96,7 +96,7 @@ private class Utils{
      * Populates a DataProvider instance with data derived from commits in a repository
      */
     static func dataProvider()->DataProvider{
-        var commitItems:[Dictionary<String, String>] = []
+        var commitItems:[[String:String]] = []
         
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         let repoList = XMLParser.toArray(repoXML)//or use dataProvider
@@ -119,7 +119,7 @@ private class Utils{
             //Swift.print("result.count: " + "\(result.count)")
             let commitData = GitLogParser.commitData(result)/*Compartmentalizes the result into a Tuple*/
             //dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!
-            let processedCommitData = CommitViewUtils.processCommitData(repoTitle, commitData)
+            let processedCommitData:[String:String] = CommitViewUtils.processCommitData(repoTitle, commitData,1)
             commitItems.append(processedCommitData)////we store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView
         }
         //do some intensive cpu stuff here
