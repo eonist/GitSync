@@ -49,7 +49,9 @@ class CommitDBUtils {
             let data:NSData = $0.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
             let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
             //Swift.print(output)
-            
+            let commitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
+            let processedCommitData = CommitViewUtils.processCommitData($0.repoTitle,commitData)/*Format the data*/
+            commitItems.append(processedCommitData)/*We store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView*/
             //Do something here🏀
             
         }
