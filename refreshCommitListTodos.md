@@ -37,8 +37,8 @@
             //store the index of the location
 
 //sortedByDate should actually pop of the last item if the count exceeds a limit 🏀
-    //
-	//
+    //when you add an item -> then -> actually all you have to do is query :
+		//let date = sorted.count > 100 ? sorted[100].date : sorted.last.date🔥 
 //The sortedByDate will have a date range (first..last)
     //this date range will be important to keep the array at max count 🔑 (when you add/remove new repos for instance)
     //when you loop commits 
