@@ -32,7 +32,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func asyncTest(){
         isRunning = true
-        var taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
+        let taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
     
         dispatch_async(taskQueue, { () -> Void in
             
@@ -75,7 +75,20 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //3.
         
         NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleDataAvailableNotification, object: outputPipe.fileHandleForReading, queue: nil){  notification -> Void in
-        
+            let output = self.outputPipe.fileHandleForReading.availableData
+            let outputString:String = NSString(data:output, encoding:NSUTF8StringEncoding) as? String ?? ""/*decode the date to a string*/
+            
+            dispatch_async(dispatch_get_main_queue()) {//was->DispatchQueue.main.async(execute: {
+                let previousOutput = self.outputText.string ?? ""
+                let nextOutput = previousOutput + "\n" + outputString
+                self.outputText.string = nextOutput
+                
+                let range = NSRange(location:nextOutput.characters.count,length:0)
+                self.outputText.scrollRangeToVisible(range)
+            }
+            
+            
+           
         }
         
         //6.
