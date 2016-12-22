@@ -18,11 +18,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         //Continue here: 🏀
-            //keep trying the async test
-                //try storing each pipe and task in an array and see if that handles the problem with some tasks not completing
             //try to speed test the retrival of commits from repo
                 //first with the freshness algo set manualy
                 //then do a speed test where the repo list is not optimally sorted
+            //keep trying the async test
+                //try storing each pipe and task in an array and see if that handles the problem with some tasks not completing
+        
             //you could also try playing with async with Timers that go of and then execute something on main thread etc. 
                 //concurrent, parallism, ques etc. https://www.raywenderlich.com/79149/grand-central-dispatch-tutorial-swift-part-1
         _ = Test()
