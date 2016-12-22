@@ -40,7 +40,9 @@ class CommitDBUtils {
             let index:Int = totCommitCount < 100 ? totCommitCount : 100
             let cmd:String = "head~"+index.string+" --pretty=format:%ci --no-patch"
             let commitDate:String = GitParser.show(localPath, cmd)
-            let daysAgo:Int = 11//🏀
+            let date:NSDate = GitDateUtils.date(<#T##date: String##String#>)
+            let now:Int = DateParser.descendingDate(NSDate()).int
+            let timeAgo:Int = 11//🏀
         }
         //Swift.print("repoList.count: " + "\(repoList.count)")
         //for (index,element) in repoList.enumerate(){/*Loops through repos*/
