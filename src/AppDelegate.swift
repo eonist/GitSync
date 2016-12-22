@@ -39,6 +39,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         self.startTime = NSDate()//measure the time of the refresh
         Swift.print("run.before")
         run()
+        run()
         Swift.print("run.after")
     }
     /**
