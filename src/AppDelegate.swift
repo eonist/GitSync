@@ -62,11 +62,39 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //5.
             self.buildTask.waitUntilExit()
         })
-
-
-       
+    }
+    func captureStandardOutputAndRouteToTextView(task:NSTask) {
         
-
+        //1.
+        outputPipe = NSPipe()
+        task.standardOutput = outputPipe
+        
+        //2.
+        outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
+        
+        //3.
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable, object: outputPipe.fileHandleForReading , queue: nil) {
+        notification in
+        
+        //4.
+        let output = self.outputPipe.fileHandleForReading.availableData
+        let outputString = String(data: output, encoding: String.Encoding.utf8) ?? ""
+        
+        //5.
+        DispatchQueue.main.async(execute: {
+        let previousOutput = self.outputText.string ?? ""
+        let nextOutput = previousOutput + "\n" + outputString
+        self.outputText.string = nextOutput
+        
+        let range = NSRange(location:nextOutput.characters.count,length:0)
+        self.outputText.scrollRangeToVisible(range)
+        
+        })
+        
+        //6.
+        self.outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
+        
+        
     }
     /**
      *
