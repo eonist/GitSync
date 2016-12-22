@@ -16,7 +16,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
-        asyncTest()//it worked but test this with multiple items
+        asyncTest()
+        //Continue here: it worked but test this with multiple items🏀
         
         //refreshCommitDBTest()
         //reflectionDictTest()
