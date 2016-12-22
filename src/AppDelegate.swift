@@ -15,13 +15,19 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
-        refreshCommitDBTest()
+        //refreshCommitDBTest()
         
         //reflectionDictTest()
         //ioTest()
         //dataBaseTest()👈
         //chronologicalTime2GitTimeTest()
         //commitDateRangeCountTest()
+    }
+    /**
+     *
+     */
+    func asyncTest(){
+        
     }
     /**
      *
