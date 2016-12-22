@@ -43,7 +43,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             self.task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
             let cmd:String = "git rev-list HEAD --count"
             self.task.arguments = ["-c",cmd]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
-            self.pipe = NSPipe()
+            self.pipe = NSPipe()//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
             self.task.standardOutput = self.pipe
             //3.
             self.task.terminationHandler = {
@@ -74,7 +74,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         task.standardOutput = pipe
         
         //2.
-        pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
+        pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()// the fileHandleForReading is used to read the data in the pipe, You call waitForDataInBackgroundAndNotify on it to use a separate background thread to check for available data.
         
         //3.
         NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleDataAvailableNotification, object: pipe.fileHandleForReading, queue: nil){  notification -> Void in
