@@ -29,7 +29,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //commitDateRangeCountTest()
     }
     var pipes:[NSPipe] = []
-    var pipe:NSPipe!
+    //var pipe:NSPipe!
     //var tasks:[NSTask] = []
     //var task:NSTask!
     var startTime:NSDate?
@@ -65,7 +65,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 task in
                 dispatch_async(dispatch_get_main_queue()) {
                     
-                    let output = self.pipe.fileHandleForReading.availableData
+                    let output = pipe.fileHandleForReading.availableData
                     let outputString:String = NSString(data:output, encoding:NSUTF8StringEncoding) as? String ?? ""/*decode the date to a string*/
                     Swift.print("it worked, back on main thread output: " + "\(outputString)")
                     self.isRunning = false
@@ -85,7 +85,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func captureStandardOutputAndRouteToTextView(task:NSTask) {
         //1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
-        pipe = NSPipe()//we create a new pipe for each task
+        let pipe = NSPipe()//we create a new pipe for each task
         task.standardOutput = pipe
         
         //2.the fileHandleForReading is used to read the data in the pipe, You call waitForDataInBackgroundAndNotify on it to use a separate background thread to check for available data.
@@ -94,7 +94,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //3.Whenever data is available, waitForDataInBackgroundAndNotify notifies you by calling the block of code you register with NSNotificationCenter to handle NSFileHandleDataAvailableNotification.
         NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleDataAvailableNotification, object: pipe.fileHandleForReading, queue: nil){  notification -> Void in
             //4. Inside your notification handler, gets the data as an NSData object and converts it to a string.
-            let output = self.pipe.fileHandleForReading.availableData
+            let output = pipe.fileHandleForReading.availableData
             let outputString:String = NSString(data:output, encoding:NSUTF8StringEncoding) as? String ?? ""/*decode the date to a string*/
             
             dispatch_async(dispatch_get_main_queue()) {//was->DispatchQueue.main.async(execute: {
@@ -111,7 +111,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         
         //6.Finally, repeats the call to wait for data in the background. This creates a loop that will continually wait for available data, process that data, wait for available data, and so on.
-        self.pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
+        pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
         
         
     }
