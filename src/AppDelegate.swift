@@ -28,7 +28,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //chronologicalTime2GitTimeTest()
         //commitDateRangeCountTest()
     }
-    var pipes:[NSPipe] = []
+    //var pipes:[NSPipe] = []
     //var pipe:NSPipe!
     //var tasks:[NSTask] = []
     //var task:NSTask!
@@ -64,10 +64,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             task.terminationHandler = {
                 task in
                 dispatch_async(dispatch_get_main_queue()) {
-                    
-                    let output = pipe.fileHandleForReading.availableData
-                    let outputString:String = NSString(data:output, encoding:NSUTF8StringEncoding) as? String ?? ""/*decode the date to a string*/
-                    Swift.print("it worked, back on main thread output: " + "\(outputString)")
+                    Swift.print("it worked, back on main thread")
                     self.isRunning = false
                 }
             }
