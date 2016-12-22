@@ -43,7 +43,7 @@
     //this date range will be important to keep the array at max count 🔑 (when you add/remove new repos for instance)
     //when you loop commits 
         //only commits that are made after the last date in sortedByDate
-            //make a git method that can find the hash of a commit nearest a data. 👈
+            //make a git method that can find the hash of a commit nearest a data. ✅
 
 
 //The new refresh commitDB algo🤖: (this refresh method needs to be accessible from many places and cancelable) ✅
