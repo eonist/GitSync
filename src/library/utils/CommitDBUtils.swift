@@ -19,7 +19,7 @@ import Foundation
     //try async code to make it faster 🏀
         //basically you launch NSTask on a background thread
             //then you asign a call-back method on nsTask.termination handler on the main thread
-                //This will require some research
+                //This will require some research -> its unclear how NSNotification is still needed with this approache 
 
 class CommitDBUtils {
     static var commitDB = CommitDB()
