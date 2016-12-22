@@ -83,14 +83,17 @@ class Test {
         Swift.print("shellTesting")
         //let result:String = ShellUtils.run("ls","~/_projects/_code/_active/swift/Element-iOS")
         //Swift.print("result: " + "\(result)")
-        let cd = "~/_projects/_code/_active/swift/Element-iOS"
+        let cd = "~/_projects/_code/_active/swift/GitSyncOSX"//"~/_projects/_code/_active/swift/Element-iOS"
         let task = NSTask()
         task.currentDirectoryPath = cd
         task.launchPath = "~/Desktop/my_script.sh"//"/bin/sh"//"/usr/bin/env"//"/bin/bash"//
-        let logCMD:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
-        let cmd:String = "head~" + "0" + logCMD + " --no-patch"//--no-patch suppresses the diff output of git show
+        //let logCMD:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
+        //let cmd:String = "head~" + "0" + logCMD + " --no-patch"//--no-patch suppresses the diff output of git show
+        
         //convert the logItem to Tupple
-        let argument:String = "git show " + cmd
+        //let argument:String = "git show " + cmd
+        let argument = "git rev-list HEAD --count"
+        
         
         task.arguments = [argument]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
         task.environment = ["LC_ALL" : "en_US.UTF-8","HOME" : NSHomeDirectory()]
