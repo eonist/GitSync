@@ -29,9 +29,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //_ = Test()
         
         //initApp()
-        asyncTest()
+       
         
         refreshCommitDBTest()
+        asyncTest()
+        
         //reflectionDictTest()
         //ioTest()
         //dataBaseTest()

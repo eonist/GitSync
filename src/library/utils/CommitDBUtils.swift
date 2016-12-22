@@ -75,7 +75,7 @@ class CommitDBUtils {
                 Swift.print("-----ERROR: repo: \(element.repoTitle) at index: \(index) didnt work")
             }
         }
-        Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+        Swift.print("Time:-> " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
     }
     //Do a speed test: 🏀
         //query for commitCount for all repos and time it
