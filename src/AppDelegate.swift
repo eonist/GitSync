@@ -16,11 +16,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
+        asyncTest()
         //refreshCommitDBTest()
-        
         //reflectionDictTest()
         //ioTest()
-        //dataBaseTest()👈
+        //dataBaseTest()
         //chronologicalTime2GitTimeTest()
         //commitDateRangeCountTest()
     }
@@ -79,12 +79,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             let outputString:String = NSString(data:output, encoding:NSUTF8StringEncoding) as? String ?? ""/*decode the date to a string*/
             
             dispatch_async(dispatch_get_main_queue()) {//was->DispatchQueue.main.async(execute: {
+                Swift.print("on the main thread again: result" + "\(outputString)")
+                /*
                 let previousOutput = self.outputText.string ?? ""
                 let nextOutput = previousOutput + "\n" + outputString
                 self.outputText.string = nextOutput
-                
                 let range = NSRange(location:nextOutput.characters.count,length:0)
                 self.outputText.scrollRangeToVisible(range)
+                */
             }
             
             
