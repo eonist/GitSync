@@ -74,11 +74,10 @@ class CommitDBUtils {
             let gitTime = GitDateUtils.gitTime(firstDate.string)
             let rangeCount:Int = GitUtils.commitCount(localPath, after: gitTime).int//now..lastDate
             commitCount = rangeCount > 100 ? 100 : rangeCount//force the value to be no more than max allowed
-            Swift.print("\(repoTitle): rangeCount: " + "\(commitCount)")
         }else {//< 100
             commitCount = 100 - commitDB.sortedArr.count
-            //commitCount = commitCount > repoCommitCount ? repoCommitCount : commitCount/* so that we don't query for commit items that doesnt exist */
         }
+        Swift.print("\(repoTitle): rangeCount: " + "\(commitCount)")
         //3. Retrieve the commit log items for this repo with the range specified
         //Swift.print("max: " + "\(commitCount)")
         let args:[String] = CommitViewUtils.commitItems(localPath,commitCount)/*creates an array of arguments that will return commit item logs*/
