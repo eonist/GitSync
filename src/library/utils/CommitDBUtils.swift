@@ -36,8 +36,10 @@ class CommitDBUtils {
         var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
         repoList.forEach{/*sort the repoList based on freshness*/
             let localPath:String = $0["local-path"]!
-            let freshness:CGFloat = CommitDBUtils.freshness(localPath)
-            sortableRepoList.append(($0,freshness))
+            //let freshness:CGFloat = Utils.freshness(localPath)
+            //sortableRepoList.append(($0,freshness))
+            let totCommitCount:Int = GitUtils.commitCount(localPath).int-2//you may need to build a more robust commitCount method, it may be that there is a newLine etc
+            Swift.print("totCommitCount: " + "\(totCommitCount)")
         }
         sortableRepoList.sortInPlace({$0.freshness > $1.freshness})
         sortableRepoList.forEach{Swift.print($0.freshness)}
@@ -58,28 +60,6 @@ class CommitDBUtils {
         //you organize the results in the order they were launched and then start the sorting process 
         //see if you can't get this working on a background thread, or it will freeze your gui
     
-    /**
-     * Returns freshness of a repo (Basically the rate of commits per second the last 100 commits) 
-     * NOTE: If you made 50 commits the last 100 seconds that would be a rate at 0.5 commits per second
-     * Fresheness = (commits per second for the last 100 commits)
-     */
-    static func freshness(localPath:String)->CGFloat{
-        let totCommitCount:Int = GitUtils.commitCount(localPath).int-2//you may need to build a more robust commitCount method, it may be that there is a newLine etc
-        Swift.print("totCommitCount: " + "\(totCommitCount)")
-        let index:Int = totCommitCount < 100 ? totCommitCount : 100
-        var date:NSDate = NSDate()
-        let now:Int = DateParser.descendingDate(date).int
-        if(index > 0){//if the repo has commits
-            let cmd:String = "head~"+index.string+" --pretty=format:%ci --no-patch"
-            let commitDate:String = GitParser.show(localPath, cmd)
-            Swift.print("commitDate: " + "\(commitDate)")
-            date = GitDateUtils.date(commitDate)
-        }
-        let descendingDate:Int = DateParser.descendingDate(date).int
-        let timeAgo:Int = now - descendingDate//now - 2min ago = 120...etc
-        let ratio:CGFloat = index.cgFloat / timeAgo.cgFloat// -> commits per second (we use seconds as timeunit to get more presicion)
-        return ratio
-    }
     /**
      *
      */
@@ -155,5 +135,29 @@ class CommitDBUtils {
         }
         NSNotificationCenter.defaultCenter().removeObserver(notification.object!)
         iterate()
+    }
+}
+private class Utils{
+    /**
+     * Returns freshness of a repo (Basically the rate of commits per second the last 100 commits)
+     * NOTE: If you made 50 commits the last 100 seconds that would be a rate at 0.5 commits per second
+     * Fresheness = (commits per second for the last 100 commits)
+     */
+    static func freshness(localPath:String)->CGFloat{
+        let totCommitCount:Int = GitUtils.commitCount(localPath).int-2//you may need to build a more robust commitCount method, it may be that there is a newLine etc
+        Swift.print("totCommitCount: " + "\(totCommitCount)")
+        let index:Int = totCommitCount < 100 ? totCommitCount : 100
+        var date:NSDate = NSDate()
+        let now:Int = DateParser.descendingDate(date).int
+        if(index > 0){//if the repo has commits
+            let cmd:String = "head~"+index.string+" --pretty=format:%ci --no-patch"
+            let commitDate:String = GitParser.show(localPath, cmd)
+            Swift.print("commitDate: " + "\(commitDate)")
+            date = GitDateUtils.date(commitDate)
+        }
+        let descendingDate:Int = DateParser.descendingDate(date).int
+        let timeAgo:Int = now - descendingDate//now - 2min ago = 120...etc
+        let ratio:CGFloat = index.cgFloat / timeAgo.cgFloat// -> commits per second (we use seconds as timeunit to get more presicion)
+        return ratio
     }
 }
