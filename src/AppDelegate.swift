@@ -74,21 +74,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //3.
         
-        NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleDataAvailableNotification, object: outputPipe.fileHandleForReading, queue: nil){ Example
+        NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleDataAvailableNotification, object: outputPipe.fileHandleForReading, queue: nil){  notification -> Void in
         
-            let output = self.outputPipe.fileHandleForReading.availableData
-            let outputString = String(data: output, encoding: String.Encoding.utf8) ?? ""
-            
-            //5.
-            DispatchQueue.main.async(execute: {
-                let previousOutput = self.outputText.string ?? ""
-                let nextOutput = previousOutput + "\n" + outputString
-                self.outputText.string = nextOutput
-                
-                let range = NSRange(location:nextOutput.characters.count,length:0)
-                self.outputText.scrollRangeToVisible(range)
-        
-                }
         }
         
         //6.
