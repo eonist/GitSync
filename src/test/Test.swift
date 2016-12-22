@@ -5,7 +5,7 @@ class Test {
         //binarySearchTest()
         //multiTaskTest()
         //multiCMDTest()
-        //shellTesting()
+        shellTesting()
         //moreShellTesting()
         //trimTest()
         //commitLog()
@@ -85,6 +85,7 @@ class Test {
      *
      */
     func shellTesting(){
+        Swift.print("shellTesting")
         //let result:String = ShellUtils.run("ls","~/_projects/_code/_active/swift/Element-iOS")
         //Swift.print("result: " + "\(result)")
         let cd = "~/_projects/_code/_active/swift/Element-iOS"
@@ -241,10 +242,6 @@ class Test {
         bodyStr += "README.md\n"
         bodyStr += "'"
         
-        
-        
-        
-        
         //Swift.print("bodyStr: " + "\(bodyStr)")
         
         let compactBody = GitLogParser.compactBody(bodyStr)
@@ -253,8 +250,7 @@ class Test {
         Swift.print("compactBody-end")
     }
     func sortTest(){
-        
-        
+
         //Create a CommitData tuple object
         let a:(author:String,date:Int,subject:String,body:String) = (author:"eonist",date:20161203165939,subject:"a",body:"")
         let b:(author:String,date:Int,subject:String,body:String) = (author:"eonist",date:20161205165939,subject:"b",body:"")
@@ -263,7 +259,6 @@ class Test {
         //make a few items that you can sort
         
         var customArray = [a,b,c]
-        
         customArray.sortInPlace { (element1, element2) -> Bool in
             return element1.date < element2.date
         }
@@ -289,8 +284,6 @@ class Test {
         
         let date:NSDate = GitDateUtils.date(commitData.date)
         Swift.print("date.shortDate: " + "\(date.shortDate)")
-        
-        
     }
     /**
      *
