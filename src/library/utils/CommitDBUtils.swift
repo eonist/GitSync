@@ -33,7 +33,7 @@ class CommitDBUtils {
         //1. You loop the repos
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
-        var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []
+        var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
         repoList.forEach{/*sort the repoList based on freshness*/
             let localPath:String = $0["local-path"]!
             let freshness:CGFloat = CommitDBUtils.freshness(localPath)
