@@ -44,7 +44,8 @@ class CommitDBUtils {
             let descendingDate:Int = DateParser.descendingDate(date).int
             let now:Int = DateParser.descendingDate(NSDate()).int
             let timeAgo:Int = now - descendingDate//now - 2min ago = 120...etc
-            let ratio:CGFloat = index / timeAgo// 100 /
+            let ratio:CGFloat = index.cgFloat / timeAgo.cgFloat// -> commits per second
+            ratio
         }
         //Swift.print("repoList.count: " + "\(repoList.count)")
         //for (index,element) in repoList.enumerate(){/*Loops through repos*/
