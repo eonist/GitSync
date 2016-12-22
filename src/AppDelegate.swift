@@ -131,7 +131,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
     }
     /**
-     *
+     * NOTE: Even though the NSTask isnt explicitly run on a background thread, it seems to be anyway, as it blocks other background threads added later
      */
     func refreshCommitDBTest(){
         CommitDBUtils.refresh()
