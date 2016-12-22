@@ -34,6 +34,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     //var task:NSTask!
     var startTime:NSDate?
     dynamic var isRunning = false
+    var repoList:[[String:String]] = []
+    var index:Int = 0
     /**
      * Testing running an NSTask on a background thread
      */
@@ -41,14 +43,20 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         self.startTime = NSDate()//measure the time of the refresh
         Swift.print("run.before")
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
-        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        repoList = XMLParser.toArray(repoXML)//or use dataProvider
        
-        repoList.forEach{
-            let localPath:String = $0["local-path"]!
+        iterate()
+        Swift.print("run.after")
+    }
+    /**
+     *
+     */
+    func iterate(){
+        if(index < repoList.count){
+            let localPath:String = repoList[index]["local-path"]!
+            index++
             run(localPath)
         }
-        
-        Swift.print("run.after")
     }
     /**
      *
@@ -103,6 +111,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             dispatch_async(dispatch_get_main_queue()) {//was->DispatchQueue.main.async(execute: {
                 Swift.print("on the main thread again: result" + "\(outputString)")
                 Swift.print("Time: " + "\(abs(self.startTime!.timeIntervalSinceNow))")
+                self.iterate()
                 /*
                 let previousOutput = self.outputText.string ?? ""
                 let nextOutput = previousOutput + "\n" + outputString
