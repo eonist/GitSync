@@ -40,7 +40,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func asyncTest(){
         self.startTime = NSDate()//measure the time of the refresh
         Swift.print("run.before")
-        run()
+        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
+       
+        repoList.forEach{
+            let localPath:String = $0["local-path"]!
+            run(localPath)
+        }
+        
         Swift.print("run.after")
     }
     /**
