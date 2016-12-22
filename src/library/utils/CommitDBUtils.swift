@@ -41,6 +41,7 @@ class CommitDBUtils {
         }
         sortableRepoList.sortInPlace({$0.freshness > $1.freshness})
         sortableRepoList.forEach{Swift.print($0.freshness)}
+        Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
         //Swift.print("repoList.count: " + "\(repoList.count)")
         //for (index,element) in repoList.enumerate(){/*Loops through repos*/
         //}
@@ -48,10 +49,11 @@ class CommitDBUtils {
         //iterate()
     }
     /**
+     * 
      * Fresheness = (commits per second for the last 100 commits)
      */
     static func freshness(localPath:String)->CGFloat{
-        let totCommitCount:Int = GitUtils.commitCount(localPath).int-2//you may need to build a more robust commitCount method
+        let totCommitCount:Int = GitUtils.commitCount(localPath).int-2//you may need to build a more robust commitCount method, it may be that there is a newLine etc
         Swift.print("totCommitCount: " + "\(totCommitCount)")
         let index:Int = totCommitCount < 100 ? totCommitCount : 100
         var date:NSDate = NSDate()
