@@ -287,7 +287,7 @@ class Test {
         
         let commitData = GitLogParser.commitData(testString)
         
-        let date:NSDate = GitLogParser.date(commitData.date)
+        let date:NSDate = GitDateUtils.date(commitData.date)
         Swift.print("date.shortDate: " + "\(date.shortDate)")
         
         
