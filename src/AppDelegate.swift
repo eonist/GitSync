@@ -23,8 +23,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //chronologicalTime2GitTimeTest()
         //commitDateRangeCountTest()
     }
+    var outputPipe:Pipe!
+    var buildTask:Process!
     /**
-     *
+     * Testing running an NSTask on a background thread
      */
     func asyncTest(){
         
