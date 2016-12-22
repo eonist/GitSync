@@ -74,26 +74,22 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //3.
         
-        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:handler)/*{ notification in})*/
+        NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleDataAvailableNotification, object: outputPipe.fileHandleForReading, queue: nil){ Example
         
+            let output = self.outputPipe.fileHandleForReading.availableData
+            let outputString = String(data: output, encoding: String.Encoding.utf8) ?? ""
+            
+            //5.
+            DispatchQueue.main.async(execute: {
+                let previousOutput = self.outputText.string ?? ""
+                let nextOutput = previousOutput + "\n" + outputString
+                self.outputText.string = nextOutput
+                
+                let range = NSRange(location:nextOutput.characters.count,length:0)
+                self.outputText.scrollRangeToVisible(range)
         
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable, object: outputPipe.fileHandleForReading , queue: nil) {
-        notification in
-        
-        //4.
-        let output = self.outputPipe.fileHandleForReading.availableData
-        let outputString = String(data: output, encoding: String.Encoding.utf8) ?? ""
-        
-        //5.
-        DispatchQueue.main.async(execute: {
-        let previousOutput = self.outputText.string ?? ""
-        let nextOutput = previousOutput + "\n" + outputString
-        self.outputText.string = nextOutput
-        
-        let range = NSRange(location:nextOutput.characters.count,length:0)
-        self.outputText.scrollRangeToVisible(range)
-        
-        })
+                }
+        }
         
         //6.
         self.outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
