@@ -16,7 +16,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         //initApp()
-        asyncTest()
+        asyncTest()//it worked but test this with multiple items
+        
         //refreshCommitDBTest()
         //reflectionDictTest()
         //ioTest()
@@ -33,10 +34,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func asyncTest(){
         isRunning = true
         let taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
-    
         dispatch_async(taskQueue, { () -> Void in
-            
-            
             self.buildTask = NSTask()
             let localPath = "~/_projects/_code/_active/swift/GitSyncOSX"
             self.buildTask.currentDirectoryPath = localPath
