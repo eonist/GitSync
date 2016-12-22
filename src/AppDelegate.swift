@@ -34,6 +34,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      * Testing running an NSTask on a background thread
      */
     func asyncTest(){
+        //1. Sets isRunning to true. This enables the Stop button, since it’s bound to the
         isRunning = true
         let taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
         dispatch_async(taskQueue, { () -> Void in
