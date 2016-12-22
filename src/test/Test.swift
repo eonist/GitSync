@@ -97,15 +97,13 @@ class Test {
         
         //convert the logItem to Tupple
         //let argument:String = "git show " + cmd
-        
+        var args:[String] = []
         repoList.forEach{
             let localPath:String = $0["local-path"]!
-            
             let gitCMD = "git rev-list HEAD --count"
-            
-            task.arguments = ["cd " + cd, gitCMD]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
+            args += ["cd " + localPath, gitCMD]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
         }
-        
+        task.arguments = args
         task.environment = ["LC_ALL" : "en_US.UTF-8","HOME" : NSHomeDirectory()]
         let pipe = NSPipe()
         task.standardOutput = pipe
