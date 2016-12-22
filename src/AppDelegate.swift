@@ -26,12 +26,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
             //you could also try playing with async with Timers that go of and then execute something on main thread etc. 
                 //concurrent, parallism, ques etc. https://www.raywenderlich.com/79149/grand-central-dispatch-tutorial-swift-part-1
-        _ = Test()
+        //_ = Test()
         
         //initApp()
-        //asyncTest()
+        asyncTest()
         
-        //refreshCommitDBTest()
+        refreshCommitDBTest()
         //reflectionDictTest()
         //ioTest()
         //dataBaseTest()
