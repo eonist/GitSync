@@ -23,8 +23,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //chronologicalTime2GitTimeTest()
         //commitDateRangeCountTest()
     }
-    var outputPipe:Pipe!
-    var buildTask:Process!
+    var outputPipe:NSPipe!
+    var buildTask:NSTask!
     /**
      * Testing running an NSTask on a background thread
      */
@@ -35,31 +35,32 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         dispatch_async(taskQueue, { () -> Void in
             
             
-            let task = NSTask()
-            task.currentDirectoryPath = localPath
-            task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
+            self.buildTask = NSTask()
+            let localPath = "~/_projects/_code/_active/swift/GitSyncOSX"
+            self.buildTask.currentDirectoryPath = localPath
+            self.buildTask.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
             let cmd:String = "git rev-list HEAD --count"
-            task.arguments = ["-c",cmd]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
-            outputPipe = NSPipe()
-            task.standardOutput = outputPipe
-            
+            self.buildTask.arguments = ["-c",cmd]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
+            self.outputPipe = NSPipe()
+            self.buildTask.standardOutput = self.outputPipe
+            //3.
+            self.buildTask.terminationHandler = {
+                
+                task in
+                DispatchQueue.main.async(execute: {
+                    self.buildButton.isEnabled = true
+                    self.spinner.stopAnimation(self)
+                    self.isRunning = false
+                })
+                
+            }*/
         })
         
         /*self.buildTask = Process()
         self.buildTask.launchPath = path
         self.buildTask.arguments = arguments
         
-        //3.
-        self.buildTask.terminationHandler = {
-        
-        task in
-        DispatchQueue.main.async(execute: {
-        self.buildButton.isEnabled = true
-        self.spinner.stopAnimation(self)
-        self.isRunning = false
-        })
-        
-        }*/
+
     }
     /**
      *
