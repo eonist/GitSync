@@ -35,7 +35,6 @@ class CommitDBUtils {
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
         //var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
         
-        
         repoList.forEach{/*sort the repoList based on freshness*/
             let localPath:String = $0["local-path"]!
             //let freshness:CGFloat = Utils.freshness(localPath)
@@ -43,31 +42,37 @@ class CommitDBUtils {
             //let totCommitCount:Int = GitUtils.commitCount(localPath).int-2//you may need to build a more robust commitCount method, it may be that there is a newLine etc
             //Swift.print("totCommitCount: " + "\(totCommitCount)")
             let cmd:String = "git rev-list HEAD --count"
-            let args:[String] = [cmd]
-            for (_,element) in args.enumerate(){
-                let operation = CommitViewUtils.configOperation([element],localPath,"",0)/*setup the NSTask correctly*/
-                operations.append(operation)
-            }
+            let operation = CommitViewUtils.configOperation([cmd],localPath,"",0)/*setup the NSTask correctly*/
+            operations.append(operation)
         }
-       
-        
         
         let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
-        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
+        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:handler)/*{ notification in})*/
         operations.forEach{/*launch all tasks*/
             $0.task.launch()
         }
         
         //sortableRepoList.sortInPlace({$0.freshness > $1.freshness})
         //sortableRepoList.forEach{Swift.print($0.freshness)}
-        Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+        
         //Swift.print("repoList.count: " + "\(repoList.count)")
         //for (index,element) in repoList.enumerate(){/*Loops through repos*/
         //}
         //repoList = [repoList[1]]//test with one repo the element ios repo
         //iterate()
     }
-    
+    static func handler(notification:NSNotification) {
+        for (index,element) in operations.enumerate(){
+            let data:NSData = element.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
+            let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
+            if(output.count > 0){
+                Swift.print("output: " + "\(output)")
+            }else{
+                Swift.print("-----ERROR: repo: \(element.repoTitle) at index: \(index) didnt work")
+            }
+        }
+        Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+    }
     //Do a speed test: 🏀
         //query for commitCount for all repos and time it
         //query for dates at index 30 for all repos and time it
