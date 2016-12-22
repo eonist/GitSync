@@ -60,7 +60,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         dispatch_async(taskQueue, { () -> Void in
             //2. Creates a new Process object and assigns it to the TasksViewController‘s buildTask property. The launchPath property is the path to the executable you want to run. Assigns the BuildScript.command‘s path to the Process‘s launchPath, then assigns the arguments that were passed to runScript:to Process‘s arguments property. Process will pass the arguments to the executable, as though you had typed them into terminal.
             let task = NSTask()
-            let localPath = "~/_projects/_code/_active/swift/GitSyncOSX"
+            //let localPath = "~/_projects/_code/_active/swift/GitSyncOSX"
             task.currentDirectoryPath = localPath
             task.launchPath = "/bin/sh"
             let cmd:String = "git rev-list HEAD --count"
@@ -70,7 +70,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             task.terminationHandler = {
                 task in
                 dispatch_async(dispatch_get_main_queue()) {
-                    Swift.print("it worked, back on main thread")
+                    //Swift.print("it worked, back on main thread")
                     self.isRunning = false
                 }
             }
