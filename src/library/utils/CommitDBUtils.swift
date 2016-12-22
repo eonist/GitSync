@@ -40,11 +40,12 @@ class CommitDBUtils {
             sortableRepoList.append(($0,freshness))
         }
         sortableRepoList.sortInPlace({$0.freshness < $1.freshness})
+        sortableRepoList.forEach{Swift.print($0.freshness)}
         //Swift.print("repoList.count: " + "\(repoList.count)")
         //for (index,element) in repoList.enumerate(){/*Loops through repos*/
         //}
         //repoList = [repoList[1]]//test with one repo the element ios repo
-        iterate()
+        //iterate()
     }
     /**
      * Fresheness = (commits per second for the last 100 commits)
