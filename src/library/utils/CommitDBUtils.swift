@@ -34,13 +34,13 @@ class CommitDBUtils {
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
         
-        
         repoList.forEach{
             let localPath:String = $0["local-path"]!
             let totCommitCount:Int = GitUtils.commitCount(localPath).int
             let index:Int = totCommitCount < 100 ? totCommitCount : 100
             let cmd:String = "head~"+index.string+" --pretty=format:%ci --no-patch"
-            GitParser.show(localPath, cmd)
+            let commitDate:String = GitParser.show(localPath, cmd)
+            let daysAgo:Int = 11//🏀
         }
         //Swift.print("repoList.count: " + "\(repoList.count)")
         //for (index,element) in repoList.enumerate(){/*Loops through repos*/
