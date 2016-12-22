@@ -35,25 +35,31 @@ class CommitDBUtils {
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
         repoList.forEach{/*sort the repoList based on freshness*/
             let localPath:String = $0["local-path"]!
-            let totCommitCount:Int = GitUtils.commitCount(localPath).int//<- we may need to substract 1 here
-            let index:Int = totCommitCount < 100 ? totCommitCount : 100
-            var date:NSDate = NSDate()
-            let now:Int = DateParser.descendingDate(date).int
-            if(index > 0){//if the repo has commits
-                let cmd:String = "head~"+index.string+" --pretty=format:%ci --no-patch"
-                let commitDate:String = GitParser.show(localPath, cmd)
-                date = GitDateUtils.date(commitDate)
-            }
-            let descendingDate:Int = DateParser.descendingDate(date).int
-            let timeAgo:Int = now - descendingDate//now - 2min ago = 120...etc
-            let ratio:CGFloat = index.cgFloat / timeAgo.cgFloat// -> commits per second (we use seconds as timeunit to get more presicion)
-            ratio
+            freshness(localPath)
         }
         //Swift.print("repoList.count: " + "\(repoList.count)")
         //for (index,element) in repoList.enumerate(){/*Loops through repos*/
         //}
         //repoList = [repoList[1]]//test with one repo the element ios repo
         iterate()
+    }
+    /**
+     * Fresheness = (commits per second for the last 100 commits)
+     */
+    static func freshness(localPath:String)->CGFloat{
+        let totCommitCount:Int = GitUtils.commitCount(localPath).int//<- we may need to substract 1 here
+        let index:Int = totCommitCount < 100 ? totCommitCount : 100
+        var date:NSDate = NSDate()
+        let now:Int = DateParser.descendingDate(date).int
+        if(index > 0){//if the repo has commits
+            let cmd:String = "head~"+index.string+" --pretty=format:%ci --no-patch"
+            let commitDate:String = GitParser.show(localPath, cmd)
+            date = GitDateUtils.date(commitDate)
+        }
+        let descendingDate:Int = DateParser.descendingDate(date).int
+        let timeAgo:Int = now - descendingDate//now - 2min ago = 120...etc
+        let ratio:CGFloat = index.cgFloat / timeAgo.cgFloat// -> commits per second (we use seconds as timeunit to get more presicion)
+        return ratio
     }
     /**
      *
