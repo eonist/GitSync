@@ -75,12 +75,13 @@ class Test {
         
         
     }
-    
+    var startTime:NSDate?
     /**
      *
      */
     func shellTesting(){
         Swift.print("shellTesting")
+        self.startTime = NSDate()//measure the time of the refresh
         //let result:String = ShellUtils.run("ls","~/_projects/_code/_active/swift/Element-iOS")
         //Swift.print("result: " + "\(result)")
         let cd = "~/_projects/_code/_active/swift/GitSyncOSX"//"~/_projects/_code/_active/swift/Element-iOS"
