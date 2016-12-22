@@ -30,8 +30,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     var pipes:[NSPipe] = []
     var pipe:NSPipe!
-    var tasks:[NSTask] = []
-    var task:NSTask!
+    //var tasks:[NSTask] = []
+    //var task:NSTask!
     var startTime:NSDate?
     dynamic var isRunning = false
     /**
@@ -41,7 +41,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         self.startTime = NSDate()//measure the time of the refresh
         Swift.print("run.before")
         run()
-        run()
+        //run()
         Swift.print("run.after")
     }
     /**
@@ -53,15 +53,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
         dispatch_async(taskQueue, { () -> Void in
             //2. Creates a new Process object and assigns it to the TasksViewController‘s buildTask property. The launchPath property is the path to the executable you want to run. Assigns the BuildScript.command‘s path to the Process‘s launchPath, then assigns the arguments that were passed to runScript:to Process‘s arguments property. Process will pass the arguments to the executable, as though you had typed them into terminal.
-            self.task = NSTask()
+            let task = NSTask()
             let localPath = "~/_projects/_code/_active/swift/GitSyncOSX"
-            self.task.currentDirectoryPath = localPath
-            self.task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
+            task.currentDirectoryPath = localPath
+            task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
             let cmd:String = "git rev-list HEAD --count"
-            self.task.arguments = ["-c",cmd]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
+            task.arguments = ["-c",cmd]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
             
             //3.Process has a terminationHandler property that contains a block which is executed when the task is finished. This updates the UI to reflect that finished status as you did before.
-            self.task.terminationHandler = {
+            task.terminationHandler = {
                 task in
                 dispatch_async(dispatch_get_main_queue()) {
                     
@@ -71,13 +71,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     self.isRunning = false
                 }
             }
-            self.captureStandardOutputAndRouteToTextView(self.task)
+            self.captureStandardOutputAndRouteToTextView(task)
             
             //4.In order to run the task and execute the script, calls launch on the Process object. There are also methods to terminate, interrupt, suspend or resume an Process.
-            self.task.launch()
+            task.launch()
             
             //5.Calls waitUntilExit, which tells the Process object to block any further activity on the current thread until the task is complete. Remember, this code is running on a background thread. Your UI, which is running on the main thread, will still respond to user input.
-            self.task.waitUntilExit()
+            task.waitUntilExit()
         })
     }
     /**
