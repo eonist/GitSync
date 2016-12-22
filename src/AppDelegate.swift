@@ -25,12 +25,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //then do a speed test where the repo list is not optimally sorted
             //you could also try playing with async with Timers that go of and then execute something on main thread etc. 
                 //concurrent, parallism, ques etc. https://www.raywenderlich.com/79149/grand-central-dispatch-tutorial-swift-part-1
-        //_ = Test()
+        _ = Test()
         
         //initApp()
         //asyncTest()
         
-        refreshCommitDBTest()
+        //refreshCommitDBTest()
         //reflectionDictTest()
         //ioTest()
         //dataBaseTest()
