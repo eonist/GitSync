@@ -33,10 +33,13 @@ class CommitDBUtils {
         //1. You loop the repos
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []
         repoList.forEach{/*sort the repoList based on freshness*/
             let localPath:String = $0["local-path"]!
-            freshness(localPath)
+            let freshness:CGFloat = CommitDBUtils.freshness(localPath)
+            sortableRepoList.append(($0,freshness))
         }
+        sortableRepoList.sortInPlace({$0.freshness < $1.freshness})
         //Swift.print("repoList.count: " + "\(repoList.count)")
         //for (index,element) in repoList.enumerate(){/*Loops through repos*/
         //}
