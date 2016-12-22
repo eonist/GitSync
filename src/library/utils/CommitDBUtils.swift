@@ -6,17 +6,18 @@ import Foundation
 
 //Continue here: 
     //CommitListRefresh algo ✅
-    //Clean up the code, make comments, rename methods etc, maybe make a singleton? 🏀
+    //Clean up the code, make comments, rename methods etc, maybe make a singleton?
     //then do storing and unwrapping of commitDB combined with the refresh algo (only a few additions should be added on each refresh, and refresh time will be fast)
     //then try adding and updating the CommitViewList with some dummy data before you hock up the refresh algo
     //then hook up the refresh algo to the animation
     //Research background thread for NSTask
-    //Arrange the repos to make the algo faster
+    //Arrange the repos to make the algo faster ✅
         //ask each repo for what date is attached to commit nr 100  (we try to calc how fresh a repo is) (the freshest repo goes on top)
             //if the repo doesnt have a commit nr  100, then use the farthest commit and get the date. so if it has 10 updates per day we we stipulate how many updates would have been made at this rate if it had 100 commits
             //if a repo doesnt have commits at all, the rate is 0
         //100 commits over 5 days -> 20 commits per day -> commits per day is the number you sort the array with!?!?!?!?
-
+    //try async code to make it faster 🏀
+        //
 
 class CommitDBUtils {
     static var commitDB = CommitDB()
