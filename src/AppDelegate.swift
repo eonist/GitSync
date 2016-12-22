@@ -17,8 +17,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         
-        //Continue here: 🏀
-            //try to speed test the retrival of commits from repo
+        //Continue here:
+            //try to speed test the retrival of commits from repo 🏀
                 //first with the freshness algo set manualy
                 //then do a speed test where the repo list is not optimally sorted
             //keep trying the async test
