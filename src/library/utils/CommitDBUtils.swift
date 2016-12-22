@@ -37,12 +37,9 @@ class CommitDBUtils {
         
         repoList.forEach{
             let localPath:String = $0["local-path"]!
-            let totCommitCount = GitUtils.commitCount(localPath)
-            let index:Int = 100
-            if(totCommitCount < 100){
-                index = totCommitCount
-            }
-            let cmd:String = "head~100 --pretty=format:%ci --no-patch"
+            let totCommitCount:Int = GitUtils.commitCount(localPath).int
+            let index:Int = totCommitCount < 100 ? totCommitCount : 100
+            let cmd:String = "head~"+index.string+" --pretty=format:%ci --no-patch"
             GitParser.show(localPath, cmd)
         }
         //Swift.print("repoList.count: " + "\(repoList.count)")
