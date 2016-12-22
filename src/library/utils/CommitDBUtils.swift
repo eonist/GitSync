@@ -51,13 +51,16 @@ class CommitDBUtils {
      * Fresheness = (commits per second for the last 100 commits)
      */
     static func freshness(localPath:String)->CGFloat{
-        let totCommitCount:Int = GitUtils.commitCount(localPath).int//<- we may need to substract 1 here
+        let totCommitCount:Int = GitUtils.commitCount(localPath).int-1//<- we may need to substract 1 here
+        Swift.print("totCommitCount: " + "\(totCommitCount)")
         let index:Int = totCommitCount < 100 ? totCommitCount : 100
         var date:NSDate = NSDate()
         let now:Int = DateParser.descendingDate(date).int
         if(index > 0){//if the repo has commits
+            Swift.print("index: " + "\(index)")
             let cmd:String = "head~"+index.string+" --pretty=format:%ci --no-patch"
             let commitDate:String = GitParser.show(localPath, cmd)
+            Swift.print("commitDate: " + "\(commitDate)")
             date = GitDateUtils.date(commitDate)
         }
         let descendingDate:Int = DateParser.descendingDate(date).int
