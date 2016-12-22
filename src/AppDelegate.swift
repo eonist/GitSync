@@ -18,6 +18,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initApp()
         asyncTest()
         //Continue here: it worked but test this with multiple items🏀
+            //Add explination to the steps form the tutorial to make sense of things
         
         //refreshCommitDBTest()
         //reflectionDictTest()
@@ -26,8 +27,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //chronologicalTime2GitTimeTest()
         //commitDateRangeCountTest()
     }
-    var outputPipe:NSPipe!
-    var buildTask:NSTask!
+    var pipe:NSPipe!
+    var task:NSTask!
     dynamic var isRunning = false
     /**
      * Testing running an NSTask on a background thread
@@ -36,45 +37,45 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         isRunning = true
         let taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
         dispatch_async(taskQueue, { () -> Void in
-            self.buildTask = NSTask()
+            self.task = NSTask()
             let localPath = "~/_projects/_code/_active/swift/GitSyncOSX"
-            self.buildTask.currentDirectoryPath = localPath
-            self.buildTask.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
+            self.task.currentDirectoryPath = localPath
+            self.task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
             let cmd:String = "git rev-list HEAD --count"
-            self.buildTask.arguments = ["-c",cmd]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
-            self.outputPipe = NSPipe()
-            self.buildTask.standardOutput = self.outputPipe
+            self.task.arguments = ["-c",cmd]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
+            self.pipe = NSPipe()
+            self.task.standardOutput = self.pipe
             //3.
-            self.buildTask.terminationHandler = {
+            self.task.terminationHandler = {
                 task in
                 dispatch_async(dispatch_get_main_queue()) {
                     Swift.print("it worked, back on main thread")
                     self.isRunning = false
                 }
             }
-            
-            self.captureStandardOutputAndRouteToTextView(self.buildTask)
+            self.captureStandardOutputAndRouteToTextView(self.task)
             
             //4.
-            self.buildTask.launch()
+            self.task.launch()
             
             //5.
-            self.buildTask.waitUntilExit()
+            self.task.waitUntilExit()
         })
     }
+    /**
+     *
+     */
     func captureStandardOutputAndRouteToTextView(task:NSTask) {
-        
         //1.
-        outputPipe = NSPipe()
-        task.standardOutput = outputPipe
+        pipe = NSPipe()//we create a new pipe for each task 
+        task.standardOutput = pipe
         
         //2.
-        outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
+        pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
         
         //3.
-        
-        NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleDataAvailableNotification, object: outputPipe.fileHandleForReading, queue: nil){  notification -> Void in
-            let output = self.outputPipe.fileHandleForReading.availableData
+        NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleDataAvailableNotification, object: pipe.fileHandleForReading, queue: nil){  notification -> Void in
+            let output = self.pipe.fileHandleForReading.availableData
             let outputString:String = NSString(data:output, encoding:NSUTF8StringEncoding) as? String ?? ""/*decode the date to a string*/
             
             dispatch_async(dispatch_get_main_queue()) {//was->DispatchQueue.main.async(execute: {
@@ -87,13 +88,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 self.outputText.scrollRangeToVisible(range)
                 */
             }
-            
-            
-           
         }
         
         //6.
-        self.outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
+        self.pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
         
         
     }
@@ -102,7 +100,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func stopTask(){
         if isRunning {
-            buildTask.terminate()
+            task.terminate()
         }
     }
     /**
