@@ -48,6 +48,7 @@ class CommitDBUtils {
         
         let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
         NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:handler)/*{ notification in})*/
+        
         operations.forEach{/*launch all tasks*/
             $0.task.launch()
         }
