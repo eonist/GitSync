@@ -103,20 +103,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             dispatch_async(dispatch_get_main_queue()) {//was->DispatchQueue.main.async(execute: {
                 Swift.print("on the main thread again: result" + "\(outputString)")
                 Swift.print("Time: " + "\(abs(self.startTime!.timeIntervalSinceNow))")
-                /*
-                let previousOutput = self.outputText.string ?? ""
-                let nextOutput = previousOutput + "\n" + outputString
-                self.outputText.string = nextOutput
-                let range = NSRange(location:nextOutput.characters.count,length:0)
-                self.outputText.scrollRangeToVisible(range)
-                */
             }
         }
         
         //6.Finally, repeats the call to wait for data in the background. This creates a loop that will continually wait for available data, process that data, wait for available data, and so on.
         pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
-        
-        
     }
     /**
      *
