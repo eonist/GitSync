@@ -120,7 +120,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func stopTask(){
         if isRunning {
-            task.terminate()
+            //task.terminate()
         }
     }
     /**
