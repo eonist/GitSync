@@ -67,7 +67,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func captureStandardOutputAndRouteToTextView(task:NSTask) {
         //1.
-        pipe = NSPipe()//we create a new pipe for each task 
+        pipe = NSPipe()//we create a new pipe for each task
         task.standardOutput = pipe
         
         //2.
