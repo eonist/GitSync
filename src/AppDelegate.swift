@@ -43,8 +43,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             self.task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
             let cmd:String = "git rev-list HEAD --count"
             self.task.arguments = ["-c",cmd]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
-            self.pipe = NSPipe()//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
-            self.task.standardOutput = self.pipe
+            
             //3.
             self.task.terminationHandler = {
                 task in
@@ -69,15 +68,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func captureStandardOutputAndRouteToTextView(task:NSTask) {
-        //1.
+        //1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
         pipe = NSPipe()//we create a new pipe for each task
         task.standardOutput = pipe
         
-        //2.
-        pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()// the fileHandleForReading is used to read the data in the pipe, You call waitForDataInBackgroundAndNotify on it to use a separate background thread to check for available data.
+        //2.the fileHandleForReading is used to read the data in the pipe, You call waitForDataInBackgroundAndNotify on it to use a separate background thread to check for available data.
+        pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()//
         
-        //3.
+        //3.Whenever data is available, waitForDataInBackgroundAndNotify notifies you by calling the block of code you register with NSNotificationCenter to handle NSFileHandleDataAvailableNotification.
         NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleDataAvailableNotification, object: pipe.fileHandleForReading, queue: nil){  notification -> Void in
+            //4. Inside your notification handler, gets the data as an NSData object and converts it to a string.
             let output = self.pipe.fileHandleForReading.availableData
             let outputString:String = NSString(data:output, encoding:NSUTF8StringEncoding) as? String ?? ""/*decode the date to a string*/
             
