@@ -47,10 +47,9 @@ class CommitDBUtils {
             Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
             Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
             Swift.print("Printing sortedArr after refresh: ")
-            commitDB.sortedArr.forEach{
-                let gitTime:String = Utils.gitTime($0.sortableDate.string)
-                Swift.print("hash: \($0.hash) date: \(gitTime) repo: \($0.repoName) ")
-            }
+            /*commitDB.sortedArr.forEach{
+                Swift.print("hash: \($0.hash) date: \(Utils.gitTime($0.sortableDate.string)) repo: \($0.repoName) ")
+            }*/
         }
     }
     /**
@@ -65,14 +64,13 @@ class CommitDBUtils {
         //Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
         if(commitDB.sortedArr.count >= 100){
             let firstDate = commitDB.sortedArr.first!.sortableDate
-            Swift.print("firstDate: " + "\(firstDate)")
+            //Swift.print("firstDate: " + "\(firstDate)")
             let gitTime = Utils.gitTime(firstDate.string)
             let rangeCount:Int = GitParser.commitCount(localPath, after: gitTime).int//now..lastDate
             commitCount = rangeCount > 100 ? 100 : rangeCount//force the value to be no more than max allowed
-            Swift.print("rangeCount: " + "\(commitCount)")
+            Swift.print("\(repoTitle): rangeCount: " + "\(commitCount)")
         }else {//< 100
             commitCount = 100 - commitDB.sortedArr.count
-            
             //commitCount = commitCount > repoCommitCount ? repoCommitCount : commitCount/* so that we don't query for commit items that doesnt exist */
         }
         //3. Retrieve the commit log items for this repo with the range specified
