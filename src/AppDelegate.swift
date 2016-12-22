@@ -17,10 +17,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Simple git automation for macOS")
         
         
-        _ = Test()
+        //_ = Test()
         
         //initApp()
-        //asyncTest()
+        asyncTest()
         
         //refreshCommitDBTest()
         //reflectionDictTest()
