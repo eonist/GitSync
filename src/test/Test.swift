@@ -99,7 +99,7 @@ class Test {
         //let argument:String = "git show " + cmd
         var args:[String] = []
         repoList.forEach{
-            let localPath:String = $0["local-path"]!
+            let localPath:String = $0["local-path"]!.tildePath
             let gitCMD = "git rev-list HEAD --count"
             args += ["cd " + localPath, gitCMD]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
         }
