@@ -50,7 +50,8 @@ class CommitDBUtils {
     }
     
     //Do a speed test: 🏀
-        
+        //query for commitCount for all repos and time it
+        //query for dates at index 30 for all repos and time it
     
     /**
      * Returns freshness of a repo (Basically the rate of commits per second the last 100 commits) 
