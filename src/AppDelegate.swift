@@ -41,13 +41,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         self.startTime = NSDate()//measure the time of the refresh
         Swift.print("run.before")
         run()
-        //run()
         Swift.print("run.after")
     }
     /**
      *
      */
-    func run(){
+    func run(localPath:String){
         //1. Sets isRunning to true. this enables you to stop the process
         isRunning = true
         let taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
@@ -56,7 +55,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             let task = NSTask()
             let localPath = "~/_projects/_code/_active/swift/GitSyncOSX"
             task.currentDirectoryPath = localPath
-            task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
+            task.launchPath = "/bin/sh"
             let cmd:String = "git rev-list HEAD --count"
             task.arguments = ["-c",cmd]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
             
