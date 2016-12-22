@@ -47,15 +47,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             self.buildTask.terminationHandler = {
                 
                 task in
-                DispatchQueue.main.async(execute: {
-                    self.buildButton.isEnabled = true
-                    self.spinner.stopAnimation(self)
+                dispatch_get_main_queue(execute: {
+                    //self.buildButton.isEnabled = true
+                    //self.spinner.stopAnimation(self)
                     self.isRunning = false
                 })
                 
             }*/
         })
-        
+
+
+//dispatch_async(, { () -> Void in
         /*self.buildTask = Process()
         self.buildTask.launchPath = path
         self.buildTask.arguments = arguments
