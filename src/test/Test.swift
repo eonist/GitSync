@@ -95,17 +95,23 @@ class Test {
         //let argument:String = "git show " + cmd
         let argument = "git rev-list HEAD --count"
         
-        
         task.arguments = [argument]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
         task.environment = ["LC_ALL" : "en_US.UTF-8","HOME" : NSHomeDirectory()]
         let pipe = NSPipe()
         task.standardOutput = pipe
+        
+        //NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: task, queue: nil, usingBlock:handler)/*{ notification in})*/
+        
         task.launch()
         task.waitUntilExit()
         let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()
         let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
         Swift.print("output: " + "\(output)")
         Swift.print("task.terminationStatus: " + "\(task.terminationStatus)")
+        Swift.print("Time: " + "\(abs(self.startTime!.timeIntervalSinceNow))")
+    }
+    func handler(notification:NSNotification) {
+        Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
     }
     /**
      *
