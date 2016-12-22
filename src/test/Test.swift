@@ -81,6 +81,10 @@ class Test {
      */
     func shellTesting(){
         Swift.print("shellTesting")
+        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        
+        
         self.startTime = NSDate()//measure the time of the refresh
         //let result:String = ShellUtils.run("ls","~/_projects/_code/_active/swift/Element-iOS")
         //Swift.print("result: " + "\(result)")
@@ -93,9 +97,15 @@ class Test {
         
         //convert the logItem to Tupple
         //let argument:String = "git show " + cmd
-        let argument = "git rev-list HEAD --count"
         
-        task.arguments = ["cd " + cd, argument]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
+        repoList.forEach{
+            let localPath:String = $0["local-path"]!
+            
+            let gitCMD = "git rev-list HEAD --count"
+            
+            task.arguments = ["cd " + cd, gitCMD]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
+        }
+        
         task.environment = ["LC_ALL" : "en_US.UTF-8","HOME" : NSHomeDirectory()]
         let pipe = NSPipe()
         task.standardOutput = pipe
