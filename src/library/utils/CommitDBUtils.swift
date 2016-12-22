@@ -48,6 +48,10 @@ class CommitDBUtils {
         //repoList = [repoList[1]]//test with one repo the element ios repo
         //iterate()
     }
+    
+    //Do a speed test: 🏀
+        
+    
     /**
      * Returns freshness of a repo (Basically the rate of commits per second the last 100 commits) 
      * NOTE: If you made 50 commits the last 100 seconds that would be a rate at 0.5 commits per second
