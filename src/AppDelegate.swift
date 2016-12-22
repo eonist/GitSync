@@ -56,6 +56,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             let localPath:String = repoList[index]["local-path"]!
             index++
             run(localPath)
+        }else{
+            Swift.print("all runs completed")
+            Swift.print("Final time: " + "\(abs(self.startTime!.timeIntervalSinceNow))")
         }
     }
     /**
