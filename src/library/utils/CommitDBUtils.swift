@@ -33,6 +33,9 @@ class CommitDBUtils {
         //1. You loop the repos
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        
+        
+        
         //Swift.print("repoList.count: " + "\(repoList.count)")
         //for (index,element) in repoList.enumerate(){/*Loops through repos*/
         //}
@@ -69,7 +72,7 @@ class CommitDBUtils {
             let firstDate = commitDB.sortedArr.first!.sortableDate
             //Swift.print("firstDate: " + "\(firstDate)")
             let gitTime = GitDateUtils.gitTime(firstDate.string)
-            let rangeCount:Int = GitParser.commitCount(localPath, after: gitTime).int//now..lastDate
+            let rangeCount:Int = GitUtils.commitCount(localPath, after: gitTime).int//now..lastDate
             commitCount = rangeCount > 100 ? 100 : rangeCount//force the value to be no more than max allowed
             Swift.print("\(repoTitle): rangeCount: " + "\(commitCount)")
         }else {//< 100
