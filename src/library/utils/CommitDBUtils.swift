@@ -39,7 +39,7 @@ class CommitDBUtils {
             let freshness:CGFloat = CommitDBUtils.freshness(localPath)
             sortableRepoList.append(($0,freshness))
         }
-        sortableRepoList.sortInPlace({$0.freshness < $1.freshness})
+        sortableRepoList.sortInPlace({$0.freshness > $1.freshness})
         sortableRepoList.forEach{Swift.print($0.freshness)}
         //Swift.print("repoList.count: " + "\(repoList.count)")
         //for (index,element) in repoList.enumerate(){/*Loops through repos*/
