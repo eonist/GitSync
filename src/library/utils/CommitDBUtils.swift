@@ -34,15 +34,36 @@ class CommitDBUtils {
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
         var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
+        let args:[String] = []
         repoList.forEach{/*sort the repoList based on freshness*/
             let localPath:String = $0["local-path"]!
             //let freshness:CGFloat = Utils.freshness(localPath)
             //sortableRepoList.append(($0,freshness))
-            let totCommitCount:Int = GitUtils.commitCount(localPath).int-2//you may need to build a more robust commitCount method, it may be that there is a newLine etc
-            Swift.print("totCommitCount: " + "\(totCommitCount)")
+            //let totCommitCount:Int = GitUtils.commitCount(localPath).int-2//you may need to build a more robust commitCount method, it may be that there is a newLine etc
+            //Swift.print("totCommitCount: " + "\(totCommitCount)")
+            let cmd:String = "git rev-list HEAD --count"
+           
+            
+            
+                
+            
+            
+            
         }
-        sortableRepoList.sortInPlace({$0.freshness > $1.freshness})
-        sortableRepoList.forEach{Swift.print($0.freshness)}
+        operations = []//reset the operations array
+        for (_,element) in args.enumerate(){
+            let operation = CommitViewUtils.configOperation([element],localPath,repoTitle,index)/*setup the NSTask correctly*/
+            operations.append(operation)
+        }
+        
+        let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
+        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
+        operations.forEach{/*launch all tasks*/
+            $0.task.launch()
+        }
+        
+        //sortableRepoList.sortInPlace({$0.freshness > $1.freshness})
+        //sortableRepoList.forEach{Swift.print($0.freshness)}
         Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
         //Swift.print("repoList.count: " + "\(repoList.count)")
         //for (index,element) in repoList.enumerate(){/*Loops through repos*/
