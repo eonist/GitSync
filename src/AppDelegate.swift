@@ -112,7 +112,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             
             dispatch_async(dispatch_get_main_queue()) {//was->DispatchQueue.main.async(execute: {
                 Swift.print("on the main thread again: result" + "\(outputString)")
-                Swift.print("Time: " + "\(abs(self.startTime!.timeIntervalSinceNow))")
+                Swift.print("Time-async: " + "\(abs(self.startTime!.timeIntervalSinceNow))")
             }
         }
         
