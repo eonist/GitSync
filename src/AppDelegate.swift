@@ -44,22 +44,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("run.before")
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
-       
-        iterate()
-        Swift.print("run.after")
-    }
-    /**
-     *
-     */
-    func iterate(){
-        if(index < repoList.count){
-            let localPath:String = repoList[index]["local-path"]!
-            index++
+        repoList.forEach{
+            let localPath:String = $0["local-path"]!
             run(localPath)
-        }else{
-            Swift.print("all runs completed")
-            Swift.print("Final time: " + "\(abs(self.startTime!.timeIntervalSinceNow))")
         }
+        Swift.print("run.after")
     }
     /**
      *
@@ -114,7 +103,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             dispatch_async(dispatch_get_main_queue()) {//was->DispatchQueue.main.async(execute: {
                 Swift.print("on the main thread again: result" + "\(outputString)")
                 Swift.print("Time: " + "\(abs(self.startTime!.timeIntervalSinceNow))")
-                self.iterate()
                 /*
                 let previousOutput = self.outputText.string ?? ""
                 let nextOutput = previousOutput + "\n" + outputString
