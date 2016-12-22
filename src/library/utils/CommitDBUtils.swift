@@ -54,6 +54,9 @@ class CommitDBUtils {
         //query for dates at index 30 for all repos and time it
             //we may need to pipe the commitCount into the date query, to make things speedy
     
+    //to be really speedy you probably need to launch all requests at once and then wait for everything to complete
+        //you organize the results in the order they were launched and then start the sorting process 
+    
     /**
      * Returns freshness of a repo (Basically the rate of commits per second the last 100 commits) 
      * NOTE: If you made 50 commits the last 100 seconds that would be a rate at 0.5 commits per second
