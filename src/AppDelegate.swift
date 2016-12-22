@@ -9,7 +9,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     var repoFilePath:String = "~/Desktop/repo.xml"
     var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
     var fileWatcher:FileWatcher?
-    var startTime:NSDate?
+    
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
@@ -30,12 +30,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     var pipe:NSPipe!
     var task:NSTask!
+    var startTime:NSDate?
     dynamic var isRunning = false
     /**
      * Testing running an NSTask on a background thread
      */
     func asyncTest(){
-        startTime = NSDate()//measure the time of the refresh
+        self.startTime = NSDate()//measure the time of the refresh
         Swift.print("run.before")
         run()
         Swift.print("run.after")
@@ -95,7 +96,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             
             dispatch_async(dispatch_get_main_queue()) {//was->DispatchQueue.main.async(execute: {
                 Swift.print("on the main thread again: result" + "\(outputString)")
-                Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")
+                Swift.print("Time: " + "\(abs(self.startTime!.timeIntervalSinceNow))")
                 /*
                 let previousOutput = self.outputText.string ?? ""
                 let nextOutput = previousOutput + "\n" + outputString
