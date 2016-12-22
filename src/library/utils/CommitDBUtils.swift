@@ -3,6 +3,21 @@ import Foundation
 //2. you then fire them of at once and listen to the last operation to complete
 //3. when the last operation completes you loop thorugh the operations to retrive the data
 
+
+//Continue here: 
+    //CommitListRefresh algo ✅
+    //Clean up the code, make comments, rename methods etc, maybe make a singleton? 🏀
+    //then do storing and unwrapping of commitDB combined with the refresh algo (only a few additions should be added on each refresh, and refresh time will be fast)
+    //then try adding and updating the CommitViewList with some dummy data before you hock up the refresh algo
+    //then hook up the refresh algo to the animation
+    //Research background thread for NSTask
+    //Arrange the repos to make the algo faster
+        //ask each repo for what date is attached to commit nr 100  (we try to calc how fresh a repo is) (the freshest repo goes on top)
+            //if the repo doesnt have a commit nr  100, then use the farthest commit and get the date. so if it has 10 updates per day we we stipulate how many updates would have been made at this rate if it had 100 commits
+            //if a repo doesnt have commits at all, the rate is 0
+        //100 commits over 5 days -> 20 commits per day -> commits per day is the number you sort the array with!?!?!?!?
+
+
 class CommitDBUtils {
     static var commitDB = CommitDB()
     static var operations:[CommitLogOperation] = []
@@ -15,20 +30,6 @@ class CommitDBUtils {
     static func refresh(){//init refresh
         startTime = NSDate()//measure the time of the refresh
         repoIndex = 0//reset
-        
-        //Continue here: 
-            //CommitListRefresh algo ✅
-            //Clean up the code, make comments, rename methods etc, maybe make a singleton? 🏀
-            //then do storing and unwrapping of commitDB combined with the refresh algo (only a few additions should be added on each refresh, and refresh time will be fast)
-            //then try adding and updating the CommitViewList with some dummy data before you hock up the refresh algo
-            //then hook up the refresh algo to the animation
-            //Research background thread for NSTask
-            //Arrange the repos to make the algo faster
-                //ask each repo for what date is attached to commit nr 100  (we try to calc how fresh a repo is) (the freshest repo goes on top)
-                    //if the repo doesnt have a commit nr  100, then use the farthest commit and get the date. so if it has 10 updates per day we we stipulate how many updates would have been made at this rate if it had 100 commits
-                    //if a repo doesnt have commits at all, the rate is 0
-                //100 commits over 5 days -> 20 commits per day -> commits per day is the number you sort the array with!?!?!?!?
-            
                     
         //1. You loop the repos
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
@@ -47,9 +48,9 @@ class CommitDBUtils {
      */
     static func iterate(){
         //Swift.print("iterate: " + "\(repoIndex)")
-        if(repoIndex < repoList.count){
+        if(repoIndex < repoList.count){/*iterate*/
             refreshRepo(repoIndex,repoList[repoIndex])
-        }else{
+        }else{/*loop complete*/
             Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
             Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
             Swift.print("Printing sortedArr after refresh: ")
