@@ -52,6 +52,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      * Testing running an NSTask on a background thread
      */
     func asyncTest(){
+        Swift.print("asyncTest")
         self.startTime = NSDate()//measure the time of the refresh
         Swift.print("run.before")
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
