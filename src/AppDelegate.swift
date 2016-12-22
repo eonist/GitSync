@@ -18,8 +18,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //initApp()
         asyncTest()
-        //Continue here: it worked but test this with multiple items🏀
-            //Add explination to the steps form the tutorial to make sense of things
         
         //refreshCommitDBTest()
         //reflectionDictTest()
@@ -181,16 +179,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         CommitDBCache.write(commitDB)
         */
         
-        //Continue here: reading and writing works...next task!
     }
     /**
      *
      */
     func dataBaseTest(){
-        
-        //Continue here:🏀
-            //so the problem is that you are creating an ascending array, when you need to make it descending
-                //aka higher Integer -> lower index
+    
         
         let commitDB = CommitDB()
         commitDB.add(Commit("","","","","",201602,"fak42a",0))
