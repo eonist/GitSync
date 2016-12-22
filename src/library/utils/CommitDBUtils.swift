@@ -39,13 +39,13 @@ class CommitDBUtils {
             let totCommitCount:Int = GitUtils.commitCount(localPath).int
             let index:Int = totCommitCount < 100 ? totCommitCount : 100
             var date:NSDate = NSDate()
+            let now:Int = DateParser.descendingDate(date).int
             if(index > 0){
                 let cmd:String = "head~"+index.string+" --pretty=format:%ci --no-patch"
                 let commitDate:String = GitParser.show(localPath, cmd)
                 date = GitDateUtils.date(commitDate)
             }
             let descendingDate:Int = DateParser.descendingDate(date).int
-            let now:Int = DateParser.descendingDate(NSDate()).int
             let timeAgo:Int = now - descendingDate//now - 2min ago = 120...etc
             let ratio:CGFloat = index.cgFloat / timeAgo.cgFloat// -> commits per second
             ratio
