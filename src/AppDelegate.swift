@@ -28,7 +28,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //chronologicalTime2GitTimeTest()
         //commitDateRangeCountTest()
     }
+    var pipes:[NSPipe] = []
     var pipe:NSPipe!
+    var tasks:[NSTask] = []
     var task:NSTask!
     var startTime:NSDate?
     dynamic var isRunning = false
