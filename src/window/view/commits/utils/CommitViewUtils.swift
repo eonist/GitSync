@@ -39,7 +39,7 @@ class CommitViewUtils {
      * PARAM: max = max Items Allowed per repo
      */
     static func commitItems(localPath:String,_ max:Int)->[String]{
-        let commitCount:Int = GitParser.commitCount(localPath).int - 1/*Get the commitCount of this repo*/
+        let commitCount:Int = GitUtils.commitCount(localPath).int - 1/*Get the commitCount of this repo*/
         //Swift.print("commitCount: " + ">\(commitCount)<")
         
         let length:Int = commitCount > max ? max : commitCount//20 = maxCount
