@@ -57,10 +57,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
             self.captureStandardOutputAndRouteToTextView(self.task)
             
-            //4.
+            //4.In order to run the task and execute the script, calls launch on the Process object. There are also methods to terminate, interrupt, suspend or resume an Process.
             self.task.launch()
             
-            //5.
+            //5.Calls waitUntilExit, which tells the Process object to block any further activity on the current thread until the task is complete. Remember, this code is running on a background thread. Your UI, which is running on the main thread, will still respond to user input.
             self.task.waitUntilExit()
         })
     }
@@ -93,7 +93,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         
-        //6.
+        //6.Finally, repeats the call to wait for data in the background. This creates a loop that will continually wait for available data, process that data, wait for available data, and so on.
         self.pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
         
         
