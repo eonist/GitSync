@@ -53,15 +53,28 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     self.isRunning = false
                 }
             }
+            
+            self.captureStandardOutputAndRouteToTextView(self.buildTask)
+            
+            //4.
+            self.buildTask.launch()
+            
+            //5.
+            self.buildTask.waitUntilExit()
         })
 
 
-//dispatch_async(, { () -> Void in
-        /*self.buildTask = Process()
-        self.buildTask.launchPath = path
-        self.buildTask.arguments = arguments
+       
         
 
+    }
+    /**
+     *
+     */
+    func stopTask(){
+        if isRunning {
+            buildTask.terminate()
+        }
     }
     /**
      *
