@@ -17,7 +17,9 @@ import Foundation
             //if a repo doesnt have commits at all, the rate is 0
         //100 commits over 5 days -> 20 commits per day -> commits per day is the number you sort the array with!?!?!?!?
     //try async code to make it faster 🏀
-        //
+        //basically you launch NSTask on a background thread
+            //then you asign a call-back method on nsTask.termination handler on the main thread
+                //
 
 class CommitDBUtils {
     static var commitDB = CommitDB()
