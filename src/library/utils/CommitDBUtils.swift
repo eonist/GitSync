@@ -33,8 +33,9 @@ class CommitDBUtils {
         //1. You loop the repos
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
-        var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
-        let args:[String] = []
+        //var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
+        
+        
         repoList.forEach{/*sort the repoList based on freshness*/
             let localPath:String = $0["local-path"]!
             //let freshness:CGFloat = Utils.freshness(localPath)
@@ -42,19 +43,14 @@ class CommitDBUtils {
             //let totCommitCount:Int = GitUtils.commitCount(localPath).int-2//you may need to build a more robust commitCount method, it may be that there is a newLine etc
             //Swift.print("totCommitCount: " + "\(totCommitCount)")
             let cmd:String = "git rev-list HEAD --count"
-           
-            
-            
-                
-            
-            
-            
+            let args:[String] = [cmd]
+            for (_,element) in args.enumerate(){
+                let operation = CommitViewUtils.configOperation([element],localPath,"",0)/*setup the NSTask correctly*/
+                operations.append(operation)
+            }
         }
-        operations = []//reset the operations array
-        for (_,element) in args.enumerate(){
-            let operation = CommitViewUtils.configOperation([element],localPath,repoTitle,index)/*setup the NSTask correctly*/
-            operations.append(operation)
-        }
+       
+        
         
         let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
         NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
