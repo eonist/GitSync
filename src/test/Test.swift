@@ -3,7 +3,6 @@ import Foundation
 class Test {
     init(){
         //binarySearchTest()
-        //multiTaskTest()
         //multiCMDTest()
         shellTesting()
         //moreShellTesting()
@@ -20,15 +19,11 @@ class Test {
         var sortedArr:[Int] = []//[1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
         Swift.print("sortedArr.count: " + "\(sortedArr.count)")
         
-        
-        
         func add(item:Int){
             let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
             Swift.print("closestIndex: " + "\(closestIdx)")
             sortedArr.insertAt(item, closestIdx)
-            
         }
-        
         add(1)
         add(6)
         add(4)
