@@ -28,6 +28,19 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func asyncTest(){
         
+        var taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
+    
+        dispatch_async(taskQueue, { () -> Void in
+            let task = NSTask()
+            task.launchPath = "/bin/ls"
+            task.arguments = []
+            let pipe = NSPipe()
+            task.standardOutput = pipe
+            task.launch()
+            let data = pipe.fileHandleForReading.readDataToEndOfFile()
+            var dataString = NSString(data: data, encoding: NSUTF8StringEncoding)
+            NSLog(dataString) // TODO: write your own code
+        })
     }
     /**
      *
