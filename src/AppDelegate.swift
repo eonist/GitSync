@@ -47,15 +47,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             self.buildTask.standardOutput = self.outputPipe
             //3.
             self.buildTask.terminationHandler = {
-                
                 task in
-                dispatch_get_main_queue(execute: {
-                    //self.buildButton.isEnabled = true
-                    //self.spinner.stopAnimation(self)
+                dispatch_async(dispatch_get_main_queue()) {
+                    Swift.print("it worked, back on main thread")
                     self.isRunning = false
-                })
-                
-            }*/
+                }
+            }
         })
 
 
