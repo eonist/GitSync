@@ -24,9 +24,10 @@ class CommitDBUtils {
             //then hook up the refresh algo to the animation
             //Research background thread for NSTask
             //Arrange the repos to make the algo faster
-                //ask each repo for what date is attached to commit nr 100  (we try to calc how fresh a repo is)
-                    //if the repo doesnt have a commit nr  100, then use the farthest commit and get the date. then do some division to get a ratio nr to measure against
-                    
+                //ask each repo for what date is attached to commit nr 100  (we try to calc how fresh a repo is) (the freshest repo goes on top)
+                    //if the repo doesnt have a commit nr  100, then use the farthest commit and get the date. so if it has 10 updates per day we we stipulate how many updates would have been made at this rate if it had 100 commits
+                //100 commits over 5 days -> 20 commits per day
+        
                     
         //1. You loop the repos
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
