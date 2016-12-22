@@ -73,6 +73,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
         
         //3.
+        
+        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:handler)/*{ notification in})*/
+        
+        
         NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable, object: outputPipe.fileHandleForReading , queue: nil) {
         notification in
         
