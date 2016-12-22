@@ -85,13 +85,9 @@ class CommitDBUtils {
             
             let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
             NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
-            
-            //Swift.print("init operation launching")
             operations.forEach{/*launch all tasks*/
-                //Swift.print("launch")
                 $0.task.launch()
             }
-            //Swift.print("operations launched")
         }else{//no operations to launch and observe
             iterate()//but we still need to iterate
         }
@@ -101,7 +97,6 @@ class CommitDBUtils {
      */
     static func observer(notification:NSNotification) {
         //Swift.print("the last task completed")
-        
         for (index,element) in operations.enumerate(){
             let data:NSData = element.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
             let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
@@ -115,22 +110,7 @@ class CommitDBUtils {
                 Swift.print("-----ERROR: repo: \(element.repoTitle) at index: \(index) didnt work")
             }
         }
-        
         NSNotificationCenter.defaultCenter().removeObserver(notification.object!)
-        
         iterate()
-    }
-}
-
-private class Utils{
-    /**
-     * Formats chronological date to git time-> "2016-11-12 00:00:00"
-     * NOTE: YYYYMMDDHHmmss -> YYYY-MM-DD HH:mm:ss
-     * Alt name: chronologicalTime2GitTime
-     * EXAMPLE: gitTime("20161111205959")//Output2016-11-11 20:59:59
-     */
-    static func gitTime(chronoTime:String)->String{
-        let gitTime = chronoTime.insertCharsAt([("-",4),("-",6),(" ",8),(":",10),(":",12)])
-        return gitTime
     }
 }
