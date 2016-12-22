@@ -56,6 +56,7 @@ class CommitDBUtils {
     
     //to be really speedy you probably need to launch all requests at once and then wait for everything to complete
         //you organize the results in the order they were launched and then start the sorting process 
+        //see if you cant get this working on a background thread, or it will freeze your gui
     
     /**
      * Returns freshness of a repo (Basically the rate of commits per second the last 100 commits) 
