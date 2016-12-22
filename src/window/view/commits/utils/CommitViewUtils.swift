@@ -64,6 +64,7 @@ class CommitViewUtils {
         task.arguments = ["-c",args[0]]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
         let pipe = NSPipe()
         task.standardOutput = pipe
+
         //task.waitUntilExit()/*not needed if we use NSNotification*/
         return (task,pipe,repoTitle,repoIndex)
     }
