@@ -49,7 +49,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             self.task.terminationHandler = {
                 task in
                 dispatch_async(dispatch_get_main_queue()) {
-                    Swift.print("it worked, back on main thread")
+                    
+                    let output = self.pipe.fileHandleForReading.availableData
+                    let outputString:String = NSString(data:output, encoding:NSUTF8StringEncoding) as? String ?? ""/*decode the date to a string*/
+                    Swift.print("it worked, back on main thread output: " + "\(outputString)")
                     self.isRunning = false
                 }
             }
