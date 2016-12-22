@@ -33,16 +33,33 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         var taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
     
         dispatch_async(taskQueue, { () -> Void in
+            
+            
             let task = NSTask()
-            task.launchPath = "/bin/ls"
-            task.arguments = []
-            let pipe = NSPipe()
-            task.standardOutput = pipe
-            task.launch()
-            let data = pipe.fileHandleForReading.readDataToEndOfFile()
-            var dataString = NSString(data: data, encoding: NSUTF8StringEncoding)
-            NSLog(dataString) // TODO: write your own code
+            task.currentDirectoryPath = localPath
+            task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
+            let cmd:String = "git rev-list HEAD --count"
+            task.arguments = ["-c",cmd]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
+            outputPipe = NSPipe()
+            task.standardOutput = outputPipe
+            
         })
+        
+        /*self.buildTask = Process()
+        self.buildTask.launchPath = path
+        self.buildTask.arguments = arguments
+        
+        //3.
+        self.buildTask.terminationHandler = {
+        
+        task in
+        DispatchQueue.main.async(execute: {
+        self.buildButton.isEnabled = true
+        self.spinner.stopAnimation(self)
+        self.isRunning = false
+        })
+        
+        }*/
     }
     /**
      *
