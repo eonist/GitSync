@@ -9,6 +9,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     var repoFilePath:String = "~/Desktop/repo.xml"
     var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
     var fileWatcher:FileWatcher?
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
@@ -25,11 +26,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     var outputPipe:NSPipe!
     var buildTask:NSTask!
+    dynamic var isRunning = false
     /**
      * Testing running an NSTask on a background thread
      */
     func asyncTest(){
-        
+        isRunning = true
         var taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
     
         dispatch_async(taskQueue, { () -> Void in
