@@ -33,7 +33,7 @@ class CommitDBUtils {
         //1. You loop the repos
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
-        repoList.forEach{
+        repoList.forEach{/*sort the repoList based on freshness*/
             let localPath:String = $0["local-path"]!
             let totCommitCount:Int = GitUtils.commitCount(localPath).int//<- we may need to substract 1 here
             let index:Int = totCommitCount < 100 ? totCommitCount : 100
