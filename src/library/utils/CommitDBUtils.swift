@@ -23,6 +23,8 @@ class CommitDBUtils {
             //then try adding and updating the CommitViewList with some dummy data before you hock up the refresh algo
             //then hook up the refresh algo to the animation
             //Research background thread for NSTask
+            //if you arrange the repos according to how many items they will potentially add then the algo will be alot faster
+                
         
         //1. You loop the repos
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
