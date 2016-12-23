@@ -56,6 +56,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     dynamic var isRunning = false
     var repoList:[[String:String]] = []
     var index:Int = 0
+    var taskTerminatedCount:Int = 0
+    var notificationCount:Int = 0
+    var outputCount:Int = 0
     /**
      * Testing running an NSTask on a background thread
      */
@@ -98,7 +101,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             self.tasks[index].terminationHandler = {
                 task in
                 dispatch_async(dispatch_get_main_queue()) {
-                    Swift.print("task terminated, main-thread")
+                    self.taskTerminatedCount++
+                    Swift.print("task terminated, main-thread: \(self.taskTerminatedCount)")
                     self.isRunning = false
                 }
             }
@@ -128,9 +132,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //4. Inside your notification handler, gets the data as an NSData object and converts it to a string.
             let output = self.pipes[index].fileHandleForReading.availableData
             let outputString:String = NSString(data:output, encoding:NSUTF8StringEncoding) as? String ?? ""/*decode the date to a string*/
-            Swift.print("notify: \(title)")
+            self.notificationCount++
+            Swift.print("notify: \(title) count: \(self.notificationCount)")
             dispatch_async(dispatch_get_main_queue()) {//was->DispatchQueue.main.async(execute: {
-                Swift.print("\(title) main-thread: result \(outputString.trim("\n")) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow))")
+                self.outputCount++
+                Swift.print("\(title) main-thread: result \(outputString.trim("\n")) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
             }
         }
         //6.Finally, repeats the call to wait for data in the background. This creates a loop that will continually wait for available data, process that data, wait for available data, and so on.
