@@ -73,6 +73,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         for (index,element) in repoList.enumerate() {
             let localPath:String = element["local-path"]!
+            let title:String = element["title"]!
             run(localPath,index)
         }
         Swift.print("run.after")
