@@ -74,14 +74,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         for (index,element) in repoList.enumerate() {
             let localPath:String = element["local-path"]!
             let title:String = element["title"]!
-            run(localPath,index)
+            run(localPath,index,title)
         }
         Swift.print("run.after")
     }
     /**
      *
      */
-    func run(localPath:String,_ index:Int){
+    func run(localPath:String,_ index:Int,_ title:String){
         //1. Sets isRunning to true. this enables you to stop the process
         isRunning = true
         let taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
@@ -102,7 +102,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     self.isRunning = false
                 }
             }
-            self.captureStandardOutputAndRouteToTextView(index)
+            self.captureStandardOutputAndRouteToTextView(index,title)
             
             //4.In order to run the task and execute the script, calls launch on the Process object. There are also methods to terminate, interrupt, suspend or resume an Process.
             self.tasks[index].launch()
@@ -114,7 +114,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     /**
      *
      */
-    func captureStandardOutputAndRouteToTextView(index:Int) {
+    func captureStandardOutputAndRouteToTextView(index:Int,_ title:String) {
         //1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
         //self.pipes.append(NSPipe())//we create a new pipe for each task
         self.tasks[index].standardOutput = self.pipes[index]
@@ -129,7 +129,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             let outputString:String = NSString(data:output, encoding:NSUTF8StringEncoding) as? String ?? ""/*decode the date to a string*/
             
             dispatch_async(dispatch_get_main_queue()) {//was->DispatchQueue.main.async(execute: {
-                Swift.print("on the main thread again: result \(outputString.trim("\n")) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow))")
+                Swift.print("\(title) main-thread: result \(outputString.trim("\n")) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow))")
             }
         }
         //6.Finally, repeats the call to wait for data in the background. This creates a loop that will continually wait for available data, process that data, wait for available data, and so on.
