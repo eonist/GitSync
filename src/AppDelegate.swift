@@ -134,10 +134,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             let outputString:String = NSString(data:output, encoding:NSUTF8StringEncoding) as? String ?? ""/*decode the date to a string*/
             self.notificationCount++
             Swift.print("notify: \(title) count: \(self.notificationCount)")
-            dispatch_async(dispatch_get_main_queue()) {//was->DispatchQueue.main.async(execute: {
+            /*dispatch_async(dispatch_get_main_queue()) {//was->DispatchQueue.main.async(execute: {
+            
+            }*/
+            dispatch_async(dispatch_get_main_queue(), ^{
                 self.outputCount++
                 Swift.print("\(title) main-thread: result \(outputString.trim("\n")) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
-            }
+            })
         }
         //6.Finally, repeats the call to wait for data in the background. This creates a loop that will continually wait for available data, process that data, wait for available data, and so on.
         self.pipes[index].fileHandleForReading.waitForDataInBackgroundAndNotify()
