@@ -128,7 +128,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //4. Inside your notification handler, gets the data as an NSData object and converts it to a string.
             let output = self.pipes[index].fileHandleForReading.availableData
             let outputString:String = NSString(data:output, encoding:NSUTF8StringEncoding) as? String ?? ""/*decode the date to a string*/
-            
+            Swift.print("notify: \(title)")
             dispatch_async(dispatch_get_main_queue()) {//was->DispatchQueue.main.async(execute: {
                 Swift.print("\(title) main-thread: result \(outputString.trim("\n")) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow))")
             }
