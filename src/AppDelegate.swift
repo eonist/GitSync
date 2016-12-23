@@ -30,13 +30,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //_ = Test()
         
         //initApp()
-        tickerDate = NSDate()//measure the time of the refresh
+        
         
         
         //refreshCommitDBTest()
-        timer = Timer(0.01,true,self,"update")
-        timer!.start()
-        timer!.timer!.fire()
+        tickerDate = NSDate()//measure the time of the refresh
+        timer = Timer(0.05,true,self,"update")
+        /*timer!.start()
+        timer!.timer!.fire()*/
         asyncTest()
         
         
