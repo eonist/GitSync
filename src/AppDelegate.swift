@@ -66,6 +66,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("run.before")
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        repoList.forEach{_ in 
+            tasks.append(NSTask())
+        }
         for (index,element) in repoList.enumerate() {
             let localPath:String = element["local-path"]!
             run(localPath,index)
@@ -81,7 +84,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
         dispatch_async(taskQueue, { () -> Void in
             //2. Creates a new Process object and assigns it to the TasksViewController‘s buildTask property. The launchPath property is the path to the executable you want to run. Assigns the BuildScript.command‘s path to the Process‘s launchPath, then assigns the arguments that were passed to runScript:to Process‘s arguments property. Process will pass the arguments to the executable, as though you had typed them into terminal.
-            self.tasks.append(NSTask())
+            //self.tasks.append(NSTask())
             //let localPath = "~/_projects/_code/_active/swift/GitSyncOSX"
             self.tasks[index].currentDirectoryPath = localPath
             self.tasks[index].launchPath = "/bin/sh"
