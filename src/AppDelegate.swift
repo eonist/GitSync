@@ -33,8 +33,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         tickerDate = NSDate()//measure the time of the refresh
         
         
-        //refreshCommitDBTest()
-        asyncTest()
+        refreshCommitDBTest()
+        //asyncTest()
         timer = Timer(0.05,true,self,"update")
         timer!.start()
         timer!.timer!.fire()
@@ -46,9 +46,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //commitDateRangeCountTest()
     }
     func update() {
-        Swift.print("tick")
+        Swift.print("tick" + "\(abs(tickerDate!.timeIntervalSinceNow))")
         //timer!.timer!.fireDate
-        Swift.print("Time: " + "\(abs(tickerDate!.timeIntervalSinceNow))")
     }
     //var pipes:[NSPipe] = []
     //var pipe:NSPipe!
