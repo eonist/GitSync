@@ -22,10 +22,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //try to speed test the retrival of commits from repo 🏀
                 //first with the freshness algo set manualy
                 //then do a speed test where the repo list is not optimally sorted
-            //keep trying the async test
-                //try storing each pipe and task in an array and see if that handles the problem with some tasks not completing
-        
-            //you could also try playing with async with Timers that go of and then execute something on main thread etc. 
+            //you could also try playing with async with Timers that go of and then execute something on main thread etc.
                 //concurrent, parallism, ques etc. https://www.raywenderlich.com/79149/grand-central-dispatch-tutorial-swift-part-1
         //_ = Test()
         
@@ -90,6 +87,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         dispatch_async(taskQueue, { () -> Void in
             //2. Creates a new Process object and assigns it to the TasksViewController‘s buildTask property. The launchPath property is the path to the executable you want to run. Assigns the BuildScript.command‘s path to the Process‘s launchPath, then assigns the arguments that were passed to runScript:to Process‘s arguments property. Process will pass the arguments to the executable, as though you had typed them into terminal.
             //self.tasks.append(NSTask())
+            Swift.print(title + " launched")
             //let localPath = "~/_projects/_code/_active/swift/GitSyncOSX"
             self.tasks[index].currentDirectoryPath = localPath
             self.tasks[index].launchPath = "/bin/sh"
@@ -100,11 +98,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             self.tasks[index].terminationHandler = {
                 task in
                 dispatch_async(dispatch_get_main_queue()) {
-                    //Swift.print("it worked, back on main thread")
+                    Swift.print("task terminated, main-thread")
                     self.isRunning = false
                 }
             }
-            self.captureStandardOutputAndRouteToTextView(index,title)
+            self.captureStandardOutput(index,title)
             
             //4.In order to run the task and execute the script, calls launch on the Process object. There are also methods to terminate, interrupt, suspend or resume an Process.
             self.tasks[index].launch()
@@ -116,7 +114,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     /**
      *
      */
-    func captureStandardOutputAndRouteToTextView(index:Int,_ title:String) {
+    func captureStandardOutput(index:Int,_ title:String) {
+        Swift.print("captureStandardOutput: \(title)")
         //1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
         //self.pipes.append(NSPipe())//we create a new pipe for each task
         self.tasks[index].standardOutput = self.pipes[index]
