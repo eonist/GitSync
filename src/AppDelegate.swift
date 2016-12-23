@@ -75,7 +75,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     /**
      *
      */
-    func run(localPath:String){
+    func run(localPath:String,_ index:Int){
         //1. Sets isRunning to true. this enables you to stop the process
         isRunning = true
         let taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
