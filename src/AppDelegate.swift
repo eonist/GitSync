@@ -90,7 +90,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         dispatch_async(taskQueue, { () -> Void in
             //2. Creates a new Process object and assigns it to the TasksViewController‘s buildTask property. The launchPath property is the path to the executable you want to run. Assigns the BuildScript.command‘s path to the Process‘s launchPath, then assigns the arguments that were passed to runScript:to Process‘s arguments property. Process will pass the arguments to the executable, as though you had typed them into terminal.
             //self.tasks.append(NSTask())
-            Swift.print(title + " launched")
+            //Swift.print(title + " launched")
             //let localPath = "~/_projects/_code/_active/swift/GitSyncOSX"
             self.tasks[index].currentDirectoryPath = localPath
             self.tasks[index].launchPath = "/bin/sh"
@@ -119,7 +119,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func captureStandardOutput(index:Int,_ title:String) {
-        Swift.print("captureStandardOutput: \(title)")
+        //Swift.print("captureStandardOutput: \(title)")
         //1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
         //self.pipes.append(NSPipe())//we create a new pipe for each task
         self.tasks[index].standardOutput = self.pipes[index]
@@ -133,13 +133,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             let output = self.pipes[index].fileHandleForReading.availableData
             let outputString:String = NSString(data:output, encoding:NSUTF8StringEncoding) as? String ?? ""/*decode the date to a string*/
             self.notificationCount++
-            Swift.print("notify: \(title) resutl:\(outputString.trim("\n")) count: \(self.notificationCount)")
-            /*
+            //Swift.print("notify: \(title) resutl:\(outputString.trim("\n")) count: \(self.notificationCount)")
+            
             dispatch_async(dispatch_get_main_queue()){
                 self.outputCount++
                 Swift.print("\(title) main-thread: result \(outputString.trim("\n")) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
             }
-           */
+           /**/
         }
         //6.Finally, repeats the call to wait for data in the background. This creates a loop that will continually wait for available data, process that data, wait for available data, and so on.
         self.pipes[index].fileHandleForReading.waitForDataInBackgroundAndNotify()
