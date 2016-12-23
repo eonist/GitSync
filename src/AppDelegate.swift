@@ -35,8 +35,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //refreshCommitDBTest()
         asyncTest()
-        timer = Timer(0.5,true,self,"update")
+        timer = Timer(0.05,true,self,"update")
         timer!.start()
+        timer!.timer!.fire()
         
         //reflectionDictTest()
         //ioTest()
