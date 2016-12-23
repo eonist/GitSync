@@ -14,7 +14,7 @@
                 //you then slice CommitDB.sortedByDate from 0 until maxVisibleCommits (100) and use this array for the ListView
                     //this will give you a chronologically sorted commit list (descending)
                 //You need to figure out how to launch NSTasks on the background task 🏀
-                    //It works but sometimes some tasks never complete. Try to find more info on the next
+                    //It works but sometimes some tasks never complete. Try to find more info on the net
                     //Figure out if NSTasks runs on the main-thread (it does) ✅
                 //you then need to figure out how to update this sorted list on refresh 
                     //you could keep a DP instance for ListView that you prepend new items onto
