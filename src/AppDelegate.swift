@@ -68,6 +68,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
         repoList.forEach{_ in 
             tasks.append(NSTask())
+            self.pipes.append(NSPipe())
         }
         for (index,element) in repoList.enumerate() {
             let localPath:String = element["local-path"]!
@@ -113,7 +114,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func captureStandardOutputAndRouteToTextView(index:Int) {
         //1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
-        self.pipes.append(NSPipe())//we create a new pipe for each task
+        //self.pipes.append(NSPipe())//we create a new pipe for each task
         self.tasks[index].standardOutput = self.pipes[index]
         
         //2.the fileHandleForReading is used to read the data in the pipe, You call waitForDataInBackgroundAndNotify on it to use a separate background thread to check for available data.
