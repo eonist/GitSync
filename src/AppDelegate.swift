@@ -9,7 +9,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     var repoFilePath:String = "~/Desktop/repo.xml"
     var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
     var fileWatcher:FileWatcher?
-    
+    var timer:Timer?
+    var tickerDate:NSDate?
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
@@ -29,9 +30,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //_ = Test()
         
         //initApp()
-       
+        tickerDate = NSDate()//measure the time of the refresh
+        timer = Timer(0.5,true,self,"update")
+        timer!.start()
         
-        refreshCommitDBTest()
+        //refreshCommitDBTest()
         asyncTest()
         
         //reflectionDictTest()
@@ -39,6 +42,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //dataBaseTest()
         //chronologicalTime2GitTimeTest()
         //commitDateRangeCountTest()
+    }
+    func update() {
+        Swift.print("tick")
+        //timer!.timer!.fireDate
+        Swift.print("Time: " + "\(abs(tickerDate!.timeIntervalSinceNow))")
     }
     //var pipes:[NSPipe] = []
     //var pipe:NSPipe!
@@ -131,7 +139,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
     }
     /**
-     * NOTE: Even though the NSTask isnt explicitly run on a background thread, it seems to be anyway, as it blocks other background threads added later
+     * NOTE: Even though the NSTask isn't explicitly run on a background thread, it seems to be anyway, as it blocks other background threads added later, actually while doing a Repeating time intervall test, it blocked the timer. So its probably not runnign on a background thread after all
      */
     func refreshCommitDBTest(){
         CommitDBUtils.refresh()
