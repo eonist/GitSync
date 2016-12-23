@@ -13,11 +13,14 @@
                 //Do an experiment to figure out the halving technique (Binary search) ✅
                 //you then slice CommitDB.sortedByDate from 0 until maxVisibleCommits (100) and use this array for the ListView
                     //this will give you a chronologically sorted commit list (descending)
-                    
-                //you then need to figure out how to update this sorted list on refresh 🏀
+                //You need to figure out how to launch NSTasks on the background task 🏀
+                    //It works but sometimes some tasks never complete. Try to find more info on the next
+                    //Figure out if NSTasks runs on the main-thread (it does) ✅
+                //you then need to figure out how to update this sorted list on refresh 
                     //you could keep a DP instance for ListView that you prepend new items onto
                         //you compare the two lists by getting the first of ListView.dp and the first of ComitDB.sortedByDate.slice(0,100)
                         //then create a custom merge method that efficiently merges sortedByDates onto ListView.dp
+                
                 
     //Maybe use a simpler list while debugging and a non-fancy refresh button (to test out ideas and the GitSync algorithm)
     //Create the new Add and remove buttons that are bright blue so that they gathers the attention needed
