@@ -123,9 +123,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         self.pipes[index].fileHandleForReading.waitForDataInBackgroundAndNotify()//
         
         //3.Whenever data is available, waitForDataInBackgroundAndNotify notifies you by calling the block of code you register with NSNotificationCenter to handle NSFileHandleDataAvailableNotification.
-        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification/*NSFileHandleDataAvailableNotification*/, object: self.tasks[index]/*.fileHandleForReading*/, queue: nil){  notification -> Void in
+        NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleDataAvailableNotification, object: self.pipes[index].fileHandleForReading, queue: nil){  notification -> Void in
             //4. Inside your notification handler, gets the data as an NSData object and converts it to a string.
-            let output = self.pipes[index].fileHandleForReading.readDataToEndOfFile()/*fileHandleForReading.availableData*/
+            let output = self.pipes[index].fileHandleForReading.availableData
             let outputString:String = NSString(data:output, encoding:NSUTF8StringEncoding) as? String ?? ""/*decode the date to a string*/
             
             dispatch_async(dispatch_get_main_queue()) {//was->DispatchQueue.main.async(execute: {
@@ -133,7 +133,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         //6.Finally, repeats the call to wait for data in the background. This creates a loop that will continually wait for available data, process that data, wait for available data, and so on.
-        //self.pipes[index].fileHandleForReading.waitForDataInBackgroundAndNotify()
+        self.pipes[index].fileHandleForReading.waitForDataInBackgroundAndNotify()
     }
     /**
      *
