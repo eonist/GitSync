@@ -66,6 +66,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("run.before")
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        Swift.print("repoList.count: " + "\(repoList.count)")
         repoList.forEach{_ in 
             tasks.append(NSTask())
             self.pipes.append(NSPipe())
@@ -127,7 +128,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             let outputString:String = NSString(data:output, encoding:NSUTF8StringEncoding) as? String ?? ""/*decode the date to a string*/
             
             dispatch_async(dispatch_get_main_queue()) {//was->DispatchQueue.main.async(execute: {
-                Swift.print("on the main thread again: result \(outputString) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow))")
+                Swift.print("on the main thread again: result \(outputString.trim("\n")) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow))")
             }
         }
         //6.Finally, repeats the call to wait for data in the background. This creates a loop that will continually wait for available data, process that data, wait for available data, and so on.
