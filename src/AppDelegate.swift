@@ -66,7 +66,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("run.before")
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
-        for (index,element) in repoList{
+        for (index,element) in repoList.enumerate() {
             let localPath:String = element["local-path"]!
             run(localPath,index)
         }
