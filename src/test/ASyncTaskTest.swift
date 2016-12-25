@@ -34,20 +34,20 @@ class ASyncTaskTest {
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
         Swift.print("repoList.count: " + "\(repoList.count)")
-        repoList.forEach{
+        for (index,element) in repoList.enumerate(){
             let task = NSTask()
             let pipe = NSPipe()
             task.standardOutput = pipe//1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
-            let localPath:String = $0["local-path"]!
-            let title:String = $0["title"]!
-            run(localPath,title,task,pipe)
+            let localPath:String = element["local-path"]!
+            let title:String = element["title"]!
+            run(localPath,title,task,pipe,index)
         }
         Swift.print("run.after")
     }
     /**
      * NOTE: task.waitUntilExit() //is only needed if we stream data
      */
-    func run(localPath:String,_ title:String,_ task:NSTask, _ pipe:NSPipe){
+    func run(localPath:String,_ title:String,_ task:NSTask, _ pipe:NSPipe,_ index:Int){
         let taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
         dispatch_async(taskQueue, { () -> Void in
             task.currentDirectoryPath = localPath
@@ -58,9 +58,7 @@ class ASyncTaskTest {
                 dispatch_async(dispatch_get_main_queue()){//back on the main thread
                     let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
                     let output:String = (NSString(data:data, encoding:NSUTF8StringEncoding) as! String).trim("\n")/*decode the date to a string*/
-                    
-                    self.complete(output)
-                    //Swift.print("\(title) main-thread: result \(output) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
+                    self.complete(output,index)
                     
                 }
             }
@@ -68,13 +66,12 @@ class ASyncTaskTest {
         })
     }
     /**
-     *
+     * PARAM: index: indicates which task completed
      */
-    func complete(result:String){
-        let index:Int = results.count
+    func complete(result:String,_ index:Int){
+        Swift.print("index: " + "\(index)")
         self.results += result
-        
-        // a task completed, which one? see index
+        //Swift.print("\(title) main-thread: result \(output) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
         if(self.outputCount == self.repoList.count){
             Swift.print("all tasks completed")
             self.results.forEach{Swift.print($0)}
