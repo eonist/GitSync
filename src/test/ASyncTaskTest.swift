@@ -6,7 +6,7 @@ import Foundation
  */
 class ASyncTaskTest {
     var startTime:NSDate?
-    dynamic var isRunning = false
+    //dynamic var isRunning = false
     var repoList:[[String:String]] = []
     
     var taskTerminatedCount:Int = 0
@@ -63,10 +63,3 @@ class ASyncTaskTest {
         })
     }
 }
-
-
-//continue here:
-    //Try to sketch out scenarios you need:🏀
-    //maybe you need background serial qeues for lining up tasks.
-        //how do we return the result for such a scenario
-    //complete the post about Threading ✅
