@@ -60,10 +60,10 @@ class ASyncTaskTest {
                 dispatch_async(dispatch_get_main_queue()){//back on the main thread
                     self.outputCount++
                     self.results += output
-                    Swift.print("\(title) main-thread: result \(output) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
+                    //Swift.print("\(title) main-thread: result \(output) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
                     if(self.outputCount == self.repoList.count){
                         Swift.print("all tasks completed")
-                        Swift.print("self.results.count: " + "\(self.results.count)")
+                        self.results.forEach{Swift.print($0)}
                     }
                 }
             }
