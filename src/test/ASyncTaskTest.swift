@@ -10,6 +10,7 @@ class ASyncTaskTest {
      * 1. Create, NSTask,NSPipe,LocalPath, Command and run the code
      * 2. Attaches the task to a concurrent background-thread (spins up many cores at once)
      * 3. Completion callback on the main thread -> (NSTask,Output)
+     * 4. When the entire batch of tasks has completed
      */
     init(){
         
@@ -21,4 +22,4 @@ class ASyncTaskTest {
     //Try to sketch out scenarios you need:🏀
     //maybe you need background serial qeues for lining up tasks.
         //how do we return the result for such a scenario
-    //complete the post about Threading
+    //complete the post about Threading ✅
