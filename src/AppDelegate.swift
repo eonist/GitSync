@@ -102,14 +102,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             task.arguments = ["-c",cmd]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
             
             //3.Process has a terminationHandler property that contains a block which is executed when the task is finished. This updates the UI to reflect that finished status as you did before.
+            /*
+            //this wont work, the NSNOtification will sometimes never complete
             task.terminationHandler = {
                 task in
-                dispatch_async(dispatch_get_main_queue()) {
+                dispatch_sync(dispatch_get_main_queue()) {
                     //self.taskTerminatedCount++
                     Swift.print("task terminated, main-thread")
                     //self.isRunning = false
                 }
-            }
+            }*/
             self.captureStandardOutput(task, pipe,title)
             
             //4.In order to run the task and execute the script, calls launch on the Process object. There are also methods to terminate, interrupt, suspend or resume an Process.
