@@ -16,7 +16,7 @@ class ASyncTaskTest {
     //var outputCount:Int = 0
     
     //TODO: retrive all commits needed to populate CommitsDB async (time it) 🏀
-    //TODO: setup the the main gitsync algo on a background thread
+    //TODO: Test parts of the gitsync algo on a background thread (a couple of steps)
     
     /**
      * Testing running an NSTask on a background thread
