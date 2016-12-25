@@ -104,10 +104,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //3.Process has a terminationHandler property that contains a block which is executed when the task is finished. This updates the UI to reflect that finished status as you did before.
             
             //this wont work, the NSNOtification will sometimes never complete
-            task.terminationHandler = {
+            /*task.terminationHandler = {
                 task in
                 Swift.print("complete")
-            }/**/
+            }*/
             self.captureStandardOutput(task, pipe,title)
             
             //4.In order to run the task and execute the script, calls launch on the Process object. There are also methods to terminate, interrupt, suspend or resume an Process.
