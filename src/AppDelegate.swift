@@ -143,7 +143,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
            /**/
         }
-        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: pipe.fileHandleForReading, queue: nil){  notification -> Void in
+        
+        
+        
+        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: task, queue: nil){  notification -> Void in
             Swift.print("completed")
         }
 
