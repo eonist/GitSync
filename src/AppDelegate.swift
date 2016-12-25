@@ -104,7 +104,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //3.Process has a terminationHandler property that contains a block which is executed when the task is finished. This updates the UI to reflect that finished status as you did before.
             
             //this wont work, the NSNOtification will sometimes never complete
-            task.terminationHandler = {
+            task.terminationHandler = {/*Avoid using NSNotification if you use this callback, as it will block NSNotification from fireing sometimes*/
                 task in
                 //Swift.print("complete")
                 let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
@@ -118,7 +118,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             task.launch()
             
             //5.Calls waitUntilExit, which tells the Process object to block any further activity on the current thread until the task is complete. Remember, this code is running on a background thread. Your UI, which is running on the main thread, will still respond to user input.
-            task.waitUntilExit()
+            //task.waitUntilExit()//<-- not needed I think
         })
     }
     /**
