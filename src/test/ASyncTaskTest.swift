@@ -71,7 +71,9 @@ class ASyncTaskTest {
      *
      */
     func complete(result:String){
+        let index:Int = results.count
         self.results += result
+        
         // a task completed, which one? see index
         if(self.outputCount == self.repoList.count){
             Swift.print("all tasks completed")
