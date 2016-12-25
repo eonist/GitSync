@@ -71,6 +71,18 @@ class ASyncTaskTest {
             task.launch()/*In order to run the task and execute the script, calls launch on the Process object. There are also methods to terminate, interrupt, suspend or resume an Process.*/
         })
     }
+    /**
+     *
+     */
+    func complete(){
+        
+    }
+    /**
+     *
+     */
+    func error(numOfTasksComepleted:Int){
+        Swift.print("Work items complete: " + "\(numOfTasksComepleted)")
+    }
 }
 
 
