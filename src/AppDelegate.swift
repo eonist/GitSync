@@ -72,21 +72,19 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
         Swift.print("repoList.count: " + "\(repoList.count)")
-        repoList.forEach{_ in 
-            tasks.append(NSTask())
-            self.pipes.append(NSPipe())
-        }
-        for (index,element) in repoList.enumerate() {
-            let localPath:String = element["local-path"]!
-            let title:String = element["title"]!
-            run(localPath,index,title)
+        repoList.forEach{
+            let task = NSTask()
+            let pipe = NSPipe()
+            let localPath:String = $0["local-path"]!
+            let title:String = $0["title"]!
+            run(localPath,title,task)
         }
         Swift.print("run.after")
     }
     /**
      *
      */
-    func run(localPath:String,_ index:Int,_ title:String){
+    func run(localPath:String,_ title:String,_ task:NSTask, _ pipe:NSPipe){
         //1. Sets isRunning to true. this enables you to stop the process
         isRunning = true
         let taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
@@ -95,10 +93,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //self.tasks.append(NSTask())
             //Swift.print(title + " launched")
             //let localPath = "~/_projects/_code/_active/swift/GitSyncOSX"
-            self.tasks[index].currentDirectoryPath = localPath
-            self.tasks[index].launchPath = "/bin/sh"
+            task.currentDirectoryPath = localPath
+            task.launchPath = "/bin/sh"
             let cmd:String = "git rev-list HEAD --count"
-            self.tasks[index].arguments = ["-c",cmd]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
+            task.arguments = ["-c",cmd]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
             
             //3.Process has a terminationHandler property that contains a block which is executed when the task is finished. This updates the UI to reflect that finished status as you did before.
             /*self.tasks[index].terminationHandler = {
@@ -112,10 +110,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             self.captureStandardOutput(index,title)
             
             //4.In order to run the task and execute the script, calls launch on the Process object. There are also methods to terminate, interrupt, suspend or resume an Process.
-            self.tasks[index].launch()
+            task.launch()
             
             //5.Calls waitUntilExit, which tells the Process object to block any further activity on the current thread until the task is complete. Remember, this code is running on a background thread. Your UI, which is running on the main thread, will still respond to user input.
-            self.tasks[index].waitUntilExit()
+            task.waitUntilExit()
         })
     }
     /**
