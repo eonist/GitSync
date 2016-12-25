@@ -51,9 +51,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("tick" + "\(abs(tickerDate!.timeIntervalSinceNow))")
         //timer!.timer!.fireDate
     }
-    var pipes:[NSPipe] = []
+    //var pipes:[NSPipe] = []
     //var pipe:NSPipe!
-    var tasks:[NSTask] = []
+    //var tasks:[NSTask] = []
     //var task:NSTask!
     var startTime:NSDate?
     dynamic var isRunning = false
