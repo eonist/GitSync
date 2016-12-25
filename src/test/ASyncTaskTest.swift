@@ -9,9 +9,9 @@ class ASyncTaskTest {
     //dynamic var isRunning = false
     var repoList:[[String:String]] = []
     
-    var taskTerminatedCount:Int = 0
-    var notificationCount:Int = 0
-    var outputCount:Int = 0
+    //var taskTerminatedCount:Int = 0
+    //var notificationCount:Int = 0
+    //var outputCount:Int = 0
     var results:[String] = []
     
     var timer:Timer?
@@ -20,7 +20,7 @@ class ASyncTaskTest {
      * Testing running an NSTask on a background thread
      * 1. Create, NSTask,NSPipe,LocalPath, Command and run the code
      * 2. Attaches the task to a concurrent background-thread (spins up many cores at once)
-     * 3. Completion callback on the main thread -> (NSTask,Output)
+     * 3. Completion callback on the main thread -> (work-item-index,Output)
      * 4. When the entire batch of tasks has completed
      */
     init(){
@@ -71,7 +71,7 @@ class ASyncTaskTest {
         Swift.print("index: " + "\(index)")
         self.results += result
         //Swift.print("\(title) main-thread: result \(output) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
-        if(self.outputCount == self.repoList.count){
+        if(self.results.count == self.repoList.count){
             Swift.print("all tasks completed")
             self.results.forEach{Swift.print($0)}//all tasks are comeplete, do something
         }
