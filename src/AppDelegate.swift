@@ -104,10 +104,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //3.Process has a terminationHandler property that contains a block which is executed when the task is finished. This updates the UI to reflect that finished status as you did before.
             
             //this wont work, the NSNOtification will sometimes never complete
-            /*task.terminationHandler = {
+            task.terminationHandler = {
                 task in
-                Swift.print("complete")
-            }*/
+                //Swift.print("complete")
+                let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
+                let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
+                
+                Swift.print("completed " + "output.count: " + "\(output.trim("\n"))")
+            }
             self.captureStandardOutput(task, pipe,title)
             
             //4.In order to run the task and execute the script, calls launch on the Process object. There are also methods to terminate, interrupt, suspend or resume an Process.
@@ -146,14 +150,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }*/
         
         
-        
-        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: task, queue: nil){  notification -> Void in
+        /*When Using NSFileHandleDataAvailableNotification and  NSTaskDidTerminateNotification together you can only get data in one location as you sort of empty the pipe when you get the data*/
+        /*NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: task, queue: nil){  notification -> Void in
             
             let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
             let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
 
             Swift.print("completed " + "output.count: " + "\(output.trim("\n"))")
-        }
+        }*/
 
         
         
