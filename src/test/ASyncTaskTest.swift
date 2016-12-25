@@ -15,6 +15,9 @@ class ASyncTaskTest {
     init(){
         
     }
+    func run(localPath:String,_ title:String,_ task:NSTask, _ pipe:NSPipe){
+        
+    }
 }
 
 
