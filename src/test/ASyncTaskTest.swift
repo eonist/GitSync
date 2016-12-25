@@ -58,13 +58,10 @@ class ASyncTaskTest {
                 dispatch_async(dispatch_get_main_queue()){//back on the main thread
                     let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
                     let output:String = (NSString(data:data, encoding:NSUTF8StringEncoding) as! String).trim("\n")/*decode the date to a string*/
-                    self.outputCount++
-                    self.results += output
+                    
+                    self.complete(output)
                     //Swift.print("\(title) main-thread: result \(output) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
-                    if(self.outputCount == self.repoList.count){
-                        Swift.print("all tasks completed")
-                        self.results.forEach{Swift.print($0)}
-                    }
+                    
                 }
             }
             task.launch()/*In order to run the task and execute the script, calls launch on the Process object. There are also methods to terminate, interrupt, suspend or resume an Process.*/
@@ -73,8 +70,13 @@ class ASyncTaskTest {
     /**
      *
      */
-    func comeplete(index:Int){
+    func complete(result:String){
+        self.results += result
         // a task completed, which one? see index
+        if(self.outputCount == self.repoList.count){
+            Swift.print("all tasks completed")
+            self.results.forEach{Swift.print($0)}
+        }
     }
     /**
      *
