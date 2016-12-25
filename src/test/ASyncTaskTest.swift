@@ -36,26 +36,26 @@ class ASyncTaskTest {
         Swift.print("repoList.count: " + "\(repoList.count)")
         for (index,element) in repoList.enumerate(){
             let task = NSTask()
-            let pipe = NSPipe()
-            task.standardOutput = pipe//1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
             let localPath:String = element["local-path"]!
-            let title:String = element["title"]!
-            run(localPath,title,task,index)
+            //let title:String = element["title"]!
+            task.currentDirectoryPath = localPath
+            task.launchPath = "/bin/sh"
+            let cmd:String = "git rev-list HEAD --count"
+            task.arguments = ["-c",cmd]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
+            let pipe = NSPipe()
+            task.standardOutput = pipe//1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object
+            run(task,index)
         }
         Swift.print("run.after")
     }
     /**
      * NOTE: task.waitUntilExit() //is only needed if we stream data
      */
-    func run(localPath:String,_ title:String,_ task:NSTask,_ index:Int){
+    func run(task:NSTask,_ index:Int){
         let taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
         dispatch_async(taskQueue, { () -> Void in
-            task.currentDirectoryPath = localPath
-            task.launchPath = "/bin/sh"
-            let cmd:String = "git rev-list HEAD --count"
-            task.arguments = ["-c",cmd]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
             task.terminationHandler = { task in/*Avoid using NSNotification if you use this callback, as it will block NSNotification from fireing sometimes*/
-                dispatch_async(dispatch_get_main_queue()){//back on the main thread
+                dispatch_async(dispatch_get_main_queue()){/*back on the main thread*/
                     let data:NSData = task.standardOutput!.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
                     let output:String = (NSString(data:data, encoding:NSUTF8StringEncoding) as! String).trim("\n")/*decode the date to a string*/
                     self.complete(output,index)
