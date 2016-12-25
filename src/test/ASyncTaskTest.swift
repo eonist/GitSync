@@ -59,7 +59,6 @@ class ASyncTaskTest {
                     let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
                     let output:String = (NSString(data:data, encoding:NSUTF8StringEncoding) as! String).trim("\n")/*decode the date to a string*/
                     self.complete(output,index)
-                    
                 }
             }
             task.launch()/*In order to run the task and execute the script, calls launch on the Process object. There are also methods to terminate, interrupt, suspend or resume an Process.*/
@@ -74,20 +73,8 @@ class ASyncTaskTest {
         //Swift.print("\(title) main-thread: result \(output) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
         if(self.outputCount == self.repoList.count){
             Swift.print("all tasks completed")
-            self.results.forEach{Swift.print($0)}
+            self.results.forEach{Swift.print($0)}//all tasks are comeplete, do something
         }
-    }
-    /**
-     *
-     */
-    func allComplete(){
-        //all tasks are comeplete, so something
-    }
-    /**
-     *
-     */
-    func error(numOfTasksComepleted:Int){
-        Swift.print("Work items complete: " + "\(numOfTasksComepleted)")
     }
 }
 
@@ -98,4 +85,4 @@ class ASyncTaskTest {
 //2. Define a completion handler for the work
 //3. launch the work
 //4. the completion handler is notified, read the data from an array on the main thread
-//5. setup an error handler aswell, if things fail (where you handle the error)
+
