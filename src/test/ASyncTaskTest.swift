@@ -76,6 +76,8 @@ class ASyncTaskTest {
 
 
 //1. Define a bunch of work ()
+    //do the work item async
+    //on work item complete
 //2. Define a completion handler for the work
 //3. launch the work
 //4. the completion handler is notified, read the data from an array on the main thread
