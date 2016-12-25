@@ -77,7 +77,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             let pipe = NSPipe()
             let localPath:String = $0["local-path"]!
             let title:String = $0["title"]!
-            run(localPath,title,task)
+            run(localPath,title,task,pipe)
         }
         Swift.print("run.after")
     }
@@ -107,7 +107,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     self.isRunning = false
                 }
             }*/
-            self.captureStandardOutput(index,title)
+            self.captureStandardOutput(task, pipe,title)
             
             //4.In order to run the task and execute the script, calls launch on the Process object. There are also methods to terminate, interrupt, suspend or resume an Process.
             task.launch()
@@ -119,19 +119,19 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     /**
      *
      */
-    func captureStandardOutput(index:Int,_ title:String) {
+    func captureStandardOutput(task:NSTask, _ pipe:NSPipe,_ title:String) {
         //Swift.print("captureStandardOutput: \(title)")
         //1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
         //self.pipes.append(NSPipe())//we create a new pipe for each task
-        self.tasks[index].standardOutput = self.pipes[index]
+        task.standardOutput = pipe
         
         //2.the fileHandleForReading is used to read the data in the pipe, You call waitForDataInBackgroundAndNotify on it to use a separate background thread to check for available data.
-        self.pipes[index].fileHandleForReading.waitForDataInBackgroundAndNotify()//
+        pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()//
         
         //3.Whenever data is available, waitForDataInBackgroundAndNotify notifies you by calling the block of code you register with NSNotificationCenter to handle NSFileHandleDataAvailableNotification.
-        NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleDataAvailableNotification, object: self.pipes[index].fileHandleForReading, queue: nil){  notification -> Void in
+        NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleDataAvailableNotification, object: pipe.fileHandleForReading, queue: nil){  notification -> Void in
             //4. Inside your notification handler, gets the data as an NSData object and converts it to a string.
-            let output = self.pipes[index].fileHandleForReading.availableData
+            let output = pipe.fileHandleForReading.availableData
             let outputString:String = NSString(data:output, encoding:NSUTF8StringEncoding) as? String ?? ""/*decode the date to a string*/
             self.notificationCount++
             //Swift.print("notify: \(title) resutl:\(outputString.trim("\n")) count: \(self.notificationCount)")
@@ -143,7 +143,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
            /**/
         }
         //6.Finally, repeats the call to wait for data in the background. This creates a loop that will continually wait for available data, process that data, wait for available data, and so on.
-        self.pipes[index].fileHandleForReading.waitForDataInBackgroundAndNotify()
+        pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
     }
     /**
      *
