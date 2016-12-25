@@ -37,6 +37,7 @@ class ASyncTaskTest {
         repoList.forEach{
             let task = NSTask()
             let pipe = NSPipe()
+            task.standardOutput = pipe//1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
             let localPath:String = $0["local-path"]!
             let title:String = $0["title"]!
             run(localPath,title,task,pipe)
@@ -67,7 +68,7 @@ class ASyncTaskTest {
                     }
                 }
             }
-            task.standardOutput = pipe//1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
+            
             //pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()//2.the fileHandleForReading is used to read the data in the pipe, You call waitForDataInBackgroundAndNotify on it to use a separate background thread to check for available data.
             task.launch()/*In order to run the task and execute the script, calls launch on the Process object. There are also methods to terminate, interrupt, suspend or resume an Process.*/
         })
