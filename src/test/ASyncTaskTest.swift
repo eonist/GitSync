@@ -85,4 +85,4 @@ class ASyncTaskTest {
 //2. Define a completion handler for the work
 //3. launch the work
 //4. the completion handler is notified, read the data from an array on the main thread
-
+//5. Error handler -> you define this if a task fails, look at the failure code of the nstask and handle it accordingly. 
