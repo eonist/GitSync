@@ -136,7 +136,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             self.notificationCount++
             //Swift.print("notify: \(title) resutl:\(outputString.trim("\n")) count: \(self.notificationCount)")
             
-            dispatch_async(dispatch_get_main_queue()){
+            dispatch_async(dispatch_get_main_queue()){//back on the main thread
                 self.outputCount++
                 Swift.print("\(title) main-thread: result \(outputString.trim("\n")) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
             }
