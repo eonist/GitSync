@@ -90,6 +90,8 @@ class ASyncTaskTest {
 
 //Serial work on a background thread: (use this when one thing after the other has to happen, and their order of completion matters)
 
-//1. define a session of tasks on a async background thread wrapped in a sync 
+//1. define a session of tasks on a async - serial: qeue
 //2. when the last task completes call a completion handler on main thread
-//3.
+//3. complete handles the result and moves on to other potential tasks
+
+
