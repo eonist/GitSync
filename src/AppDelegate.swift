@@ -132,14 +132,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //3.Whenever data is available, waitForDataInBackgroundAndNotify notifies you by calling the block of code you register with NSNotificationCenter to handle NSFileHandleDataAvailableNotification.
         NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleDataAvailableNotification, object: pipe.fileHandleForReading, queue: nil){  notification -> Void in
             //4. Inside your notification handler, gets the data as an NSData object and converts it to a string.
-            let output = pipe.fileHandleForReading.availableData
-            let outputString:String = NSString(data:output, encoding:NSUTF8StringEncoding) as? String ?? ""/*decode the date to a string*/
+            /*let output = pipe.fileHandleForReading.availableData
+            let outputString:String = NSString(data:output, encoding:NSUTF8StringEncoding) as? String ?? ""/*decode the date to a string*/*/
             self.notificationCount++
             //Swift.print("notify: \(title) resutl:\(outputString.trim("\n")) count: \(self.notificationCount)")
             
             dispatch_async(dispatch_get_main_queue()){//back on the main thread
                 self.outputCount++
-                Swift.print("\(title) main-thread: result \(outputString.trim("\n")) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
+                //Swift.print("\(title) main-thread: result \(outputString.trim("\n")) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
             }
            /**/
         }
@@ -147,7 +147,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: task, queue: nil){  notification -> Void in
-            Swift.print("completed")
+            
+            let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
+            let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
+
+            Swift.print("completed " + "output.count: " + "\(output.count)")
         }
 
         
