@@ -5,6 +5,16 @@ import Foundation
  * 3. Batch completion callback on main thread (all tasks completed) use own extension method to launch batch tasks
  */
 class ASyncTaskTest {
+    var startTime:NSDate?
+    dynamic var isRunning = false
+    var repoList:[[String:String]] = []
+    
+    var taskTerminatedCount:Int = 0
+    var notificationCount:Int = 0
+    var outputCount:Int = 0
+    
+    var timer:Timer?
+    var tickerDate:NSDate?
     /**
      * Testing running an NSTask on a background thread
      * 1. Create, NSTask,NSPipe,LocalPath, Command and run the code
@@ -13,7 +23,24 @@ class ASyncTaskTest {
      * 4. When the entire batch of tasks has completed
      */
     init(){
+        Swift.print("ASyncTaskTest.init()")
+        self.startTime = NSDate()//measure the time of the refresh
         
+        tickerDate = NSDate()//measure the time of the refresh
+        timer = Timer(0.05,true,self,"update")
+        
+        Swift.print("run.before")
+        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+        repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        Swift.print("repoList.count: " + "\(repoList.count)")
+        repoList.forEach{
+            let task = NSTask()
+            let pipe = NSPipe()
+            let localPath:String = $0["local-path"]!
+            let title:String = $0["title"]!
+            run(localPath,title,task,pipe)
+        }
+        Swift.print("run.after")
     }
     /**
      * NOTE: task.waitUntilExit() //is only needed if we stream data
