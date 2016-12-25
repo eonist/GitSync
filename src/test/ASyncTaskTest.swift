@@ -15,7 +15,8 @@ class ASyncTaskTest {
     //var notificationCount:Int = 0
     //var outputCount:Int = 0
     
-    //TODO: retrive all commits needed for 
+    //TODO: retrive all commits needed to populate CommitsDB async (time it)
+    //TODO: setup the 
     
     /**
      * Testing running an NSTask on a background thread
