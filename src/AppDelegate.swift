@@ -143,6 +143,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
            /**/
         }
+        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: pipe.fileHandleForReading, queue: nil){  notification -> Void in
+            Swift.print("completed")
+        }
+
+        
+        
         //6.Finally, repeats the call to wait for data in the background. This creates a loop that will continually wait for available data, process that data, wait for available data, and so on.
         pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
     }
