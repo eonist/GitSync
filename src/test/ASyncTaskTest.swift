@@ -2,7 +2,7 @@ import Foundation
 /**
  * 1. Launch multiple NSTasks on the background thread concurrently
  * 2. Completion callback with result on the main thread
- * 3. 
+ * 3. Batch completion callback on main thread (all tasks completed) use own extension method to launch batch tasks
  */
 class ASyncTaskTest {
     /**
