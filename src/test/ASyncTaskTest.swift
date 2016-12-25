@@ -75,8 +75,8 @@ class ASyncTaskTest {
 }
 
 
-//1. Define a bunch of work
+//1. Define a bunch of work ()
 //2. Define a completion handler for the work
 //3. launch the work
-//4. read the result of the work in the completion handler (the work is stored as)
-//5. setup an error handler aswell, if things fail
+//4. the completion handler is notified, read the data from an array on the main thread
+//5. setup an error handler aswell, if things fail (where you handle the error)
