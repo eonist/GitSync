@@ -12,7 +12,7 @@ class ASyncTaskTest {
     var taskTerminatedCount:Int = 0
     var notificationCount:Int = 0
     var outputCount:Int = 0
-    var results:[String] = []
+    
     
     var timer:Timer?
     var tickerDate:NSDate?
@@ -47,6 +47,7 @@ class ASyncTaskTest {
      * NOTE: task.waitUntilExit() //is only needed if we stream data
      */
     func run(localPath:String,_ title:String,_ task:NSTask, _ pipe:NSPipe){
+        var results:[String] = []
         let taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
         dispatch_async(taskQueue, { () -> Void in
             task.currentDirectoryPath = localPath
@@ -59,11 +60,11 @@ class ASyncTaskTest {
                 //Swift.print("completed " + "output.count: " + "\(output.trim("\n"))")
                 dispatch_async(dispatch_get_main_queue()){//back on the main thread
                     self.outputCount++
-                    self.results += output
+                    results += output
                     //Swift.print("\(title) main-thread: result \(output) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
                     if(self.outputCount == self.repoList.count){
                         Swift.print("all tasks completed")
-                        self.results.forEach{Swift.print($0)}
+                        results.forEach{Swift.print($0)}
                     }
                 }
             }
@@ -78,5 +79,5 @@ class ASyncTaskTest {
 //1. Define a bunch of work
 //2. Define a completion handler for the work
 //3. launch the work
-//4. read the result of the work in the completion handler 
-//5. setup an error handler aswell
+//4. read the result of the work in the completion handler (the work is stored as)
+//5. setup an error handler aswell, if things fail
