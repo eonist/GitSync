@@ -9,8 +9,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     var repoFilePath:String = "~/Desktop/repo.xml"
     var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
     var fileWatcher:FileWatcher?
-    var timer:Timer?
-    var tickerDate:NSDate?
+
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
@@ -34,8 +33,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         _ = ThreadTesting()
         
         //refreshCommitDBTest()
-        tickerDate = NSDate()//measure the time of the refresh
-        timer = Timer(0.05,true,self,"update")
+        
         /*timer!.start()
         timer!.timer!.fire()*/
         
@@ -47,15 +45,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //chronologicalTime2GitTimeTest()
         //commitDateRangeCountTest()
     }
-    func update() {
-        Swift.print("tick" + "\(abs(tickerDate!.timeIntervalSinceNow))")
-        //timer!.timer!.fireDate
-    }
-    //var pipes:[NSPipe] = []
-    //var pipe:NSPipe!
-    //var tasks:[NSTask] = []
-    //var task:NSTask!
-        
+            
     /**
      * NOTE: Even though the NSTask isn't explicitly run on a background thread, it seems to be anyway, as it blocks other background threads added later, actually while doing a Repeating time intervall test, it blocked the timer. So its probably not runnign on a background thread after all
      */
