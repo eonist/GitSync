@@ -64,6 +64,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     var outputCount:Int = 0
     /**
      * Testing running an NSTask on a background thread
+     * 1. 
      */
     func asyncTest(){
         Swift.print("asyncTest")
