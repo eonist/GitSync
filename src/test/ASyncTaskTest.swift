@@ -55,7 +55,11 @@ class ASyncTaskTest {
             task.terminationHandler = { task in/*Avoid using NSNotification if you use this callback, as it will block NSNotification from fireing sometimes*/
                 let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
                 let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
-                Swift.print("completed " + "output.count: " + "\(output.trim("\n"))")
+                //Swift.print("completed " + "output.count: " + "\(output.trim("\n"))")
+                dispatch_async(dispatch_get_main_queue()){//back on the main thread
+                    self.outputCount++
+                    Swift.print("\(title) main-thread: result \(output.trim("\n")) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
+                }
             }
             task.standardOutput = pipe//1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
             pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()//2.the fileHandleForReading is used to read the data in the pipe, You call waitForDataInBackgroundAndNotify on it to use a separate background thread to check for available data.

@@ -89,6 +89,7 @@ class Test {
         //let result:String = ShellUtils.run("ls","~/_projects/_code/_active/swift/Element-iOS")
         //Swift.print("result: " + "\(result)")
         let cd = "~/_projects/_code/_active/swift/GitSyncOSX".tildePath//"~/_projects/_code/_active/swift/Element-iOS"
+        cd
         let task = NSTask()
         //task.currentDirectoryPath = cd
         task.launchPath = "~/Desktop/my_script.sh"//"/bin/sh"//"/usr/bin/env"//"/bin/bash"//
