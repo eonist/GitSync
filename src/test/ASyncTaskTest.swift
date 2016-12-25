@@ -95,3 +95,6 @@ class ASyncTaskTest {
 //3. complete handles the result and moves on to other potential tasks
 
 
+// At first we should string many sessions together like in GitSync applescript, this avoids problems. later we can add more concurrency
+
+
