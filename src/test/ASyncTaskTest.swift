@@ -74,7 +74,7 @@ class ASyncTaskTest {
     /**
      *
      */
-    func complete(){
+    func allComplete(){
         
     }
     /**
