@@ -112,7 +112,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 
                 Swift.print("completed " + "output.count: " + "\(output.trim("\n"))")
             }
-            self.captureStandardOutput(task, pipe,title)
+            //1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
+            //self.pipes.append(NSPipe())//we create a new pipe for each task
+            task.standardOutput = pipe
+            
+            //2.the fileHandleForReading is used to read the data in the pipe, You call waitForDataInBackgroundAndNotify on it to use a separate background thread to check for available data.
+            pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()//
+            //self.captureStandardOutput(task, pipe,title)
             
             //4.In order to run the task and execute the script, calls launch on the Process object. There are also methods to terminate, interrupt, suspend or resume an Process.
             task.launch()
@@ -162,7 +168,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         //6.Finally, repeats the call to wait for data in the background. This creates a loop that will continually wait for available data, process that data, wait for available data, and so on.
-        pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
+        //pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
     }
     /**
      *
