@@ -6,16 +6,17 @@ import Foundation
  */
 class ASyncTaskTest {
     var startTime:NSDate?
-    //dynamic var isRunning = false
+    var timer:Timer?
+    var tickerDate:NSDate?
     var repoList:[[String:String]] = []
-    
+    var results:[String] = []
+    //dynamic var isRunning = false
     //var taskTerminatedCount:Int = 0
     //var notificationCount:Int = 0
     //var outputCount:Int = 0
-    var results:[String] = []
     
-    var timer:Timer?
-    var tickerDate:NSDate?
+    //TODO:
+    
     /**
      * Testing running an NSTask on a background thread
      * 1. Create, NSTask,NSPipe,LocalPath, Command and run the code
