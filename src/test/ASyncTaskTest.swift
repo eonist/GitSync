@@ -15,3 +15,12 @@ class ASyncTaskTest {
         
     }
 }
+
+
+//continue here: 🏀
+
+    //Try to sketch out scenarios you need:
+
+    //maybe you need background serial qeues for lining up tasks.
+
+    //
