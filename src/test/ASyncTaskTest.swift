@@ -12,7 +12,7 @@ class ASyncTaskTest {
     var taskTerminatedCount:Int = 0
     var notificationCount:Int = 0
     var outputCount:Int = 0
-    
+    var results:[String] = []
     
     var timer:Timer?
     var tickerDate:NSDate?
@@ -47,7 +47,6 @@ class ASyncTaskTest {
      * NOTE: task.waitUntilExit() //is only needed if we stream data
      */
     func run(localPath:String,_ title:String,_ task:NSTask, _ pipe:NSPipe){
-        var results:[String] = []
         let taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
         dispatch_async(taskQueue, { () -> Void in
             task.currentDirectoryPath = localPath
@@ -60,16 +59,16 @@ class ASyncTaskTest {
                 //Swift.print("completed " + "output.count: " + "\(output.trim("\n"))")
                 dispatch_async(dispatch_get_main_queue()){//back on the main thread
                     self.outputCount++
-                    results += output
+                    self.results += output
                     //Swift.print("\(title) main-thread: result \(output) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
                     if(self.outputCount == self.repoList.count){
                         Swift.print("all tasks completed")
-                        results.forEach{Swift.print($0)}
+                        self.results.forEach{Swift.print($0)}
                     }
                 }
             }
             task.standardOutput = pipe//1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
-            pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()//2.the fileHandleForReading is used to read the data in the pipe, You call waitForDataInBackgroundAndNotify on it to use a separate background thread to check for available data.
+            //pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()//2.the fileHandleForReading is used to read the data in the pipe, You call waitForDataInBackgroundAndNotify on it to use a separate background thread to check for available data.
             task.launch()/*In order to run the task and execute the script, calls launch on the Process object. There are also methods to terminate, interrupt, suspend or resume an Process.*/
         })
     }
