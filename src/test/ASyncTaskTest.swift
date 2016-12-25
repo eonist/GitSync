@@ -12,6 +12,7 @@ class ASyncTaskTest {
     var taskTerminatedCount:Int = 0
     var notificationCount:Int = 0
     var outputCount:Int = 0
+    var results:[String] = []
     
     var timer:Timer?
     var tickerDate:NSDate?
@@ -54,11 +55,16 @@ class ASyncTaskTest {
             task.arguments = ["-c",cmd]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
             task.terminationHandler = { task in/*Avoid using NSNotification if you use this callback, as it will block NSNotification from fireing sometimes*/
                 let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
-                let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
+                let output:String = (NSString(data:data, encoding:NSUTF8StringEncoding) as! String).trim("\n")/*decode the date to a string*/
                 //Swift.print("completed " + "output.count: " + "\(output.trim("\n"))")
                 dispatch_async(dispatch_get_main_queue()){//back on the main thread
                     self.outputCount++
-                    Swift.print("\(title) main-thread: result \(output.trim("\n")) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
+                    self.results += output
+                    Swift.print("\(title) main-thread: result \(output) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
+                    if(self.outputCount == self.repoList.count){
+                        Swift.print("all tasks completed")
+                        Swift.print("self.results.count: " + "\(self.results.count)")
+                    }
                 }
             }
             task.standardOutput = pipe//1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
