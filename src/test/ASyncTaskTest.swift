@@ -78,6 +78,7 @@ class ASyncTaskTest {
     }
 }
 
+//Async work on background threads: (use this when you need a batch of values retrived)
 
 //1. Define a bunch of work ()
     //do the work item async
@@ -85,4 +86,8 @@ class ASyncTaskTest {
 //2. Define a completion handler for the work
 //3. launch the work
 //4. the completion handler is notified, read the data from an array on the main thread
-//5. Error handler -> you define this if a task fails, look at the failure code of the nstask and handle it accordingly. 
+//5. Error handler -> you define this if a task fails, look at the failure code of the nstask and handle it accordingly.
+
+//Serial work on a background thread: (use this when one thing after the other has to happen)
+
+//. define a session of tasks
