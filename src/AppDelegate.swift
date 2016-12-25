@@ -30,7 +30,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //initApp()
         
-        _ = ThreadTesting()
+        //_ = ThreadTesting()
+        _ = ASyncTaskTest()
         
         //refreshCommitDBTest()
         
