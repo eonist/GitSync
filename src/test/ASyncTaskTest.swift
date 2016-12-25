@@ -58,7 +58,6 @@ class ASyncTaskTest {
                 dispatch_async(dispatch_get_main_queue()){//back on the main thread
                     let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
                     let output:String = (NSString(data:data, encoding:NSUTF8StringEncoding) as! String).trim("\n")/*decode the date to a string*/
-                    //Swift.print("completed " + "output.count: " + "\(output.trim("\n"))")
                     self.outputCount++
                     self.results += output
                     //Swift.print("\(title) main-thread: result \(output) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
@@ -74,8 +73,14 @@ class ASyncTaskTest {
     /**
      *
      */
+    func comeplete(index:Int){
+        // a task completed, which one? see index
+    }
+    /**
+     *
+     */
     func allComplete(){
-        
+        //all tasks are comeplete, so something
     }
     /**
      *
