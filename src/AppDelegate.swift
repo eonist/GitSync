@@ -59,15 +59,3 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
-private class Temp{
-    var someDict:[Int:String]
-    init(_ someDict:[Int:String]){
-        self.someDict = someDict
-    }
-}
-extension Temp:UnWrappable{
-    static func unWrap<T>(xml:XML) -> T? {
-        let someDict:[Int:String] = unWrap(xml,"someDict")
-        return Temp(someDict) as? T
-    }
-}

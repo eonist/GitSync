@@ -120,3 +120,15 @@ class Test2 {
         //newInstance.prevCommits.forEach{Swift.print("key: \($0.0) value: \($0.1)")}
     }
 }
+private class Temp{
+    var someDict:[Int:String]
+    init(_ someDict:[Int:String]){
+        self.someDict = someDict
+    }
+}
+extension Temp:UnWrappable{
+    static func unWrap<T>(xml:XML) -> T? {
+        let someDict:[Int:String] = unWrap(xml,"someDict")
+        return Temp(someDict) as? T
+    }
+}
