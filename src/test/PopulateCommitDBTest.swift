@@ -11,7 +11,7 @@ class PopulateCommitDB {
      *
      */
     func refresh(){
-        
+        freshnessSort()
         
         
         
