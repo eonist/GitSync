@@ -44,7 +44,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         timer!.start()*/
         
         //reflectionDictTest()
-        ioTest()
+        //ioTest()
         //dataBaseTest()
         //chronologicalTime2GitTimeTest()
         //commitDateRangeCountTest()
