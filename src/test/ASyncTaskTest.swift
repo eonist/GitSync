@@ -1,7 +1,4 @@
 import Foundation
-var bgQueue = {return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)}//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
-//there is also these: DISPATCH_QUEUE_PRIORITY_DEFAULT,DISPATCH_QUEUE_PRIORITY_HIGH,DISPATCH_QUEUE_PRIORITY_LOW
-
 /**
  * 1. Launch multiple NSTasks on the background thread concurrently
  * 2. Completion callback with result on the main thread
