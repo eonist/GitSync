@@ -34,7 +34,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //_ = ThreadTesting()
 
         //_ = ASyncTaskTest()
-        _ = PopulateCommitDB()
+        //_ = PopulateCommitDB()
         
         //test!.refresh()
         //refreshCommitDBTest()
@@ -44,7 +44,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         timer!.start()*/
         
         //reflectionDictTest()
-        //ioTest()
+        ioTest()
         //dataBaseTest()
         //chronologicalTime2GitTimeTest()
         //commitDateRangeCountTest()
@@ -106,6 +106,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      * Reflection and unwrapping with commitDB
      */
     func ioTest(){
+        
+        //TODO: figure out if arrays are recreated in the same order as they were originaly created
+        
         Swift.print("ioTest()")
         let commitDB = CommitDBCache.read()
         
