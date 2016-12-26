@@ -1,7 +1,9 @@
 import Foundation
 
 class PopulateCommitDB {
+    var startTime:NSDate
     init(){
+        startTime = NSDate()//measure the time of the refresh
         refresh()
     }
     /**
@@ -21,6 +23,7 @@ class PopulateCommitDB {
         sortableRepoList.sortInPlace({$0.freshness > $1.freshness})
         sortableRepoList.forEach{Swift.print($0.repo["title"])}
         
+        Swift.print("Time:-> " + "\(abs(startTime.timeIntervalSinceNow))")/*How long it took*/
         //Swift.print("repoList.count: " + "\(repoList.count)")
         
         //sort repos by freshness: (makes the process of populating CommitsDB much faster)
