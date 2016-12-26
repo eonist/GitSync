@@ -16,7 +16,7 @@ class PopulateCommitDB {
         //copy over the iterate code✅
             //use generic git methods instead of the custom NSNotification code✅
             //on a bg-thread -> for loop each task then -> jump on the mainThread when complete -> update UI ✅
-            //print how many commits are retrived for each repo🏀
+            //print how many commits are retrived for each repo✅
             //bring the caching of CommitDB into the workflow
         
         //Swift.print("repoList.count: " + "\(repoList.count)")
@@ -83,7 +83,7 @@ class PopulateCommitDB {
         }else {//< 100
             commitCount = 100 - commitDB.sortedArr.count
         }
-        Swift.print("\(repoTitle): rangeCount: " + "\(commitCount)")
+        //Swift.print("\(repoTitle): rangeCount: " + "\(commitCount)")
         //3. Retrieve the commit log items for this repo with the range specified
         //Swift.print("max: " + "\(commitCount)")
         let results:[String] = Utils.commitItems(localPath, commitCount)/*creates an array commit item logs, from repo*/
