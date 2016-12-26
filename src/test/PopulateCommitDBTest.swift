@@ -8,13 +8,14 @@ class PopulateCommitDB {
     init(){
         startTime = NSDate()//measure the time of the refresh
         timer = Timer(0.5,true,self,"update")
-        timer!.start()
-        refresh()
+        
+
     }
     /**
      *
      */
     func refresh(){
+        timer!.start()
         freshnessSort()
         
         //copy over the iterate code✅
