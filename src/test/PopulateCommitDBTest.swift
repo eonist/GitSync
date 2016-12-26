@@ -13,6 +13,9 @@ class PopulateCommitDB {
     func refresh(){
         freshnessSort()
         
+        //copy over the iterate code
+            //use generic git methods instead of the custom NSNotification code
+            //on a bg-thread -> for loop each task then -> jump on the mainThread when complete -> update UI
         
         
         //Swift.print("repoList.count: " + "\(repoList.count)")
