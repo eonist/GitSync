@@ -34,7 +34,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //_ = ThreadTesting()
 
         //_ = ASyncTaskTest()
-        //test = PopulateCommitDB()
+        _ = PopulateCommitDB()
         
         //test!.refresh()
         //refreshCommitDBTest()
@@ -44,7 +44,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         timer!.start()*/
         
         //reflectionDictTest()
-        ioTest()
+        //ioTest()
         //dataBaseTest()
         //chronologicalTime2GitTimeTest()
         //commitDateRangeCountTest()
@@ -103,7 +103,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Swift.print("xml.XMLString: " + "\(xml.XMLString)")
     }
     /**
-     *
+     * Reflection and unwrapping with commitDB
      */
     func ioTest(){
         Swift.print("ioTest()")
