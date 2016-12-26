@@ -81,16 +81,12 @@ class PopulateCommitDB {
         Swift.print("\(repoTitle): rangeCount: " + "\(commitCount)")
         //3. Retrieve the commit log items for this repo with the range specified
         //Swift.print("max: " + "\(commitCount)")
-        
-        
-        let results = Utils.commitItems(localPath, commitCount)/*creates an array commit item logs*/
-        
+        let results:[String] = Utils.commitItems(localPath, commitCount)/*creates an array commit item logs, from repo*/
         if(results.count > 0){
-            for (_,element) in results.enumerate(){
-                
-                if(element.count > 0){
+            results.forEach{
+                if($0.count > 0){
                     //Swift.print("output: " + ">\(output)<")
-                    let commitData:CommitData = GitLogParser.commitData(element)/*Compartmentalizes the result into a Tuple*/
+                    let commitData:CommitData = GitLogParser.commitData($0)/*Compartmentalizes the result into a Tuple*/
                     let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
                     //Swift.print("repo: \(element.repoTitle) hash: \(commit.hash) date: \(Utils.gitTime(commit.sortableDate.string))")
                     commitDB.add(commit)/*add the commit log items to the CommitDB*/
@@ -98,8 +94,8 @@ class PopulateCommitDB {
                     Swift.print("-----ERROR: repo: \(repoTitle) at index: \(index) didnt work")
                 }
             }
-        }else{//no operations to launch and observe
-            iterate()//but we still need to iterate
+        }else{
+            //no commitItems to append (because they where to old or non existed)
         }
     }
     /**
