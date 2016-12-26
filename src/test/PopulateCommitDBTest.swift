@@ -35,7 +35,7 @@ class PopulateCommitDB {
         
     }
     /**
-     *
+     * Sort the repoList so that the freshest repos are parsed first 
      */
     func freshnessSort(){
         async(bgQueue, { () -> Void in//run the task on a background thread
@@ -53,7 +53,7 @@ class PopulateCommitDB {
         })
     }
     /**
-     * Adds commits to COmmitDB
+     * Adds commits to CommitDB
      */
     func refreshRepos(){
         sortableRepoList.forEach{
