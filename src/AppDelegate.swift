@@ -10,6 +10,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
     var fileWatcher:FileWatcher?
     var test:ThreadTesting?
+    var timer:Timer?
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
@@ -38,8 +39,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //refreshCommitDBTest()
         
        
-        let timer = Timer(0.50,true,self,"update")
-        timer.start()
+        timer = Timer(0.50,true,self,"update")
+        timer!.start()
         
         //reflectionDictTest()
         //ioTest()
