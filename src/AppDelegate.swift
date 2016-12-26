@@ -36,8 +36,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //_ = ASyncTaskTest()
         test = PopulateCommitDB()
         
-        test!.timer = Timer(0.50,true,test!,"update")
-        test!.timer!.start()
         //test!.refresh()
         //refreshCommitDBTest()
         

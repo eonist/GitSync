@@ -3,16 +3,12 @@ import Foundation
 class PopulateCommitDB {
     var commitDB = CommitDB()
     var startTime:NSDate
-    var timer:Timer?
     var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
     init(){
         startTime = NSDate()//measure the time of the refresh
         freshnessSort()
     }
-    func update() {
-        Swift.print("tick")
-        //timer!.timer!.fireDate
-    }
+   
     /**
      *
      */
