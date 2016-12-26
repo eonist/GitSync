@@ -10,6 +10,11 @@ class PopulateCommitDB {
      *
      */
     func refresh(){
+        async(bgQueue, { () -> Void in
+            async(mainQueue){/*back on the main thread*/
+                self.onFreshnessSortComplete()
+            }
+        })
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         let repoList = XMLParser.toArray(repoXML)//or use dataProvider
         var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
@@ -38,5 +43,11 @@ class PopulateCommitDB {
         
         //add new commits to CommitDB with a binarySearch
         
+    }
+    /**
+     *
+     */
+    func onFreshnessSortComplete(){
+        Swift.print("onFreshnessSortComplete")
     }
 }
