@@ -54,6 +54,14 @@ class PopulateCommitDB {
     /**
      *
      */
+    func refreshRepos(){
+        sortableRepoList.forEach{
+            refreshRepo(repoIndex,$0)
+        }
+    }
+    /**
+     *
+     */
     func refreshRepo(index:Int,_ element:[String:String]){
         repoIndex += 1//increment the repoIndex
         let localPath:String = element["local-path"]!//local-path to repo
