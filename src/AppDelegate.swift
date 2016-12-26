@@ -9,7 +9,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     var repoFilePath:String = "~/Desktop/repo.xml"
     var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
     var fileWatcher:FileWatcher?
-    var test:ThreadTesting?
+    var test:PopulateCommitDB?
     var timer:Timer?
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
@@ -34,7 +34,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //_ = ThreadTesting()
 
         //_ = ASyncTaskTest()
-        _ = PopulateCommitDB()
+        test = PopulateCommitDB()
+        
+        test!.timer = Timer(0.50,true,test!,"update")
+        test!.timer!.start()
         //test!.refresh()
         //refreshCommitDBTest()
         
