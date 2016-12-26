@@ -1,6 +1,9 @@
 import Foundation
 
 class PopulateCommitDB {
+    init(){
+        refresh()
+    }
     /**
      *
      */
