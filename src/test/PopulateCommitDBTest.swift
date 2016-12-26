@@ -2,6 +2,7 @@ import Foundation
 
 class PopulateCommitDB {
     var startTime:NSDate
+    var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
     init(){
         startTime = NSDate()//measure the time of the refresh
         refresh()
@@ -10,24 +11,7 @@ class PopulateCommitDB {
      *
      */
     func refresh(){
-        async(bgQueue, { () -> Void in//run the task on a background thread
-            let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
-            let repoList = XMLParser.toArray(repoXML)//or use dataProvider
-            var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
-            
-            repoList.forEach{/*sort the repoList based on freshness*/
-                let localPath:String = $0["local-path"]!
-                let freshness:CGFloat = CommitDBUtils.freshness(localPath)
-                sortableRepoList.append(($0,freshness))
-            }
-            
-            sortableRepoList.sortInPlace({$0.freshness > $1.freshness})
-            sortableRepoList.forEach{Swift.print($0.repo["title"])}
-            
-            async(mainQueue){/*jump back on the main thread*/
-                self.onFreshnessSortComplete()
-            }
-        })
+        
         
         
         
@@ -49,8 +33,27 @@ class PopulateCommitDB {
     /**
      *
      */
+    func freshnessSort(){
+        async(bgQueue, { () -> Void in//run the task on a background thread
+            let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+            let repoList = XMLParser.toArray(repoXML)//or use dataProvider
+            repoList.forEach{/*sort the repoList based on freshness*/
+                let localPath:String = $0["local-path"]!
+                let freshness:CGFloat = CommitDBUtils.freshness(localPath)
+                self.sortableRepoList.append(($0,freshness))
+            }
+            self.sortableRepoList.sortInPlace({$0.freshness > $1.freshness})//sort
+            async(mainQueue){/*jump back on the main thread*/
+                self.onFreshnessSortComplete()
+            }
+        })
+    }
+    /**
+     *
+     */
     func onFreshnessSortComplete(){
         Swift.print("onFreshnessSortComplete")
+        sortableRepoList.forEach{Swift.print($0.repo["title"])}
         Swift.print("Time:-> " + "\(abs(startTime.timeIntervalSinceNow))")/*How long it took*/
     }
 }
