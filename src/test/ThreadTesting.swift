@@ -14,7 +14,6 @@ class ThreadTesting {
     
     init(){
         //asyncTest()
-        
         tickerDate = NSDate()//measure the time of the refresh
         timer = Timer(0.05,true,self,"update")
         timer?.start()
