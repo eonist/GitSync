@@ -9,9 +9,6 @@ class PopulateCommitDB {
         startTime = NSDate()//measure the time of the refresh
         refresh()
     }
-    /**
-     *
-     */
     func refresh(){
         freshnessSort()
     }
@@ -24,7 +21,7 @@ class PopulateCommitDB {
             let repoList = XMLParser.toArray(repoXML)//or use dataProvider
             repoList.forEach{/*sort the repoList based on freshness*/
                 let localPath:String = $0["local-path"]!
-                let freshness:CGFloat = CommitDBUtils.freshness(localPath)
+                let freshness:CGFloat = CommitDBRefreshTest.freshness(localPath)
                 self.sortableRepoList.append(($0,freshness))
             }
             self.sortableRepoList.sortInPlace({$0.freshness > $1.freshness})//sort

@@ -77,12 +77,12 @@ class CommitDBUtils {
         }
         Swift.print("Time:-> " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
     }
-    //Do a speed test: 🏀
-        //query for commitCount for all repos and time it
+    //Do a speed test:
+        //query for commitCount for all repos and time it ✅
         //query for dates at index 30 for all repos and time it
             //we may need to pipe the commitCount into the date query, to make things speedy
     
-    //to be really speedy you probably need to launch all requests at once and then wait for everything to complete
+    //to be really speedy you probably need to launch all requests at once and then wait for everything to complete 🚫
         //you organize the results in the order they were launched and then start the sorting process 
         //see if you can't get this working on a background thread, or it will freeze your gui
     
