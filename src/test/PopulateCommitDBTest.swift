@@ -3,9 +3,12 @@ import Foundation
 class PopulateCommitDB {
     var commitDB = CommitDB()
     var startTime:NSDate
+    var timer:Timer?
     var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
     init(){
         startTime = NSDate()//measure the time of the refresh
+        timer = Timer(0.5,true,self,"update")
+        timer!.start()
         refresh()
     }
     /**
@@ -124,6 +127,10 @@ class PopulateCommitDB {
             Swift.print("hash: \($0.hash) date: \(GitDateUtils.gitTime($0.sortableDate.string)) repo: \($0.repoName) ")
         }
         Swift.print("onRefreshReposComplete() Time: " + "\(abs(startTime.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+    }
+    func update() {
+        Swift.print("tick" + "\(abs(startTime.timeIntervalSinceNow))")
+        //timer!.timer!.fireDate
     }
 }
 
