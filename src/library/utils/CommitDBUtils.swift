@@ -10,16 +10,16 @@ import Foundation
     //then do storing and unwrapping of commitDB combined with the refresh algo (only a few additions should be added on each refresh, and refresh time will be fast)
     //then try adding and updating the CommitViewList with some dummy data before you hock up the refresh algo
     //then hook up the refresh algo to the animation
-    //Research background thread for NSTask
+    //Research background thread for NSTask ✅
     //Arrange the repos to make the algo faster ✅
         //ask each repo for what date is attached to commit nr 100  (we try to calc how fresh a repo is) (the freshest repo goes on top)
             //if the repo doesnt have a commit nr  100, then use the farthest commit and get the date. so if it has 10 updates per day we we stipulate how many updates would have been made at this rate if it had 100 commits
             //if a repo doesnt have commits at all, the rate is 0
         //100 commits over 5 days -> 20 commits per day -> commits per day is the number you sort the array with!?!?!?!?
-    //try async code to make it faster 🏀
-        //basically you launch NSTask on a background thread
-            //then you asign a call-back method on nsTask.termination handler on the main thread
-                //This will require some research -> its unclear how NSNotification is still needed with this approache 
+    //try async code to make it faster ✅
+        //basically you launch NSTask on a background thread ✅
+            //then you asign a call-back method on nsTask.termination handler on the main thread ✅
+                //This will require some research -> it's unclear how NSNotification is still needed with this approache (it isnt) ✅
 
 class CommitDBUtils {
     static var commitDB = CommitDB()
@@ -170,14 +170,14 @@ class CommitDBUtils {
      */
     static func freshness(localPath:String)->CGFloat{
         let totCommitCount:Int = GitUtils.commitCount(localPath).int-2//you may need to build a more robust commitCount method, it may be that there is a newLine etc
-        Swift.print("totCommitCount: " + "\(totCommitCount)")
+        //Swift.print("totCommitCount: " + "\(totCommitCount)")
         let index:Int = totCommitCount < 100 ? totCommitCount : 100
         var date:NSDate = NSDate()
         let now:Int = DateParser.descendingDate(date).int
         if(index > 0){//if the repo has commits
             let cmd:String = "head~"+index.string+" --pretty=format:%ci --no-patch"
             let commitDate:String = GitParser.show(localPath, cmd)
-            Swift.print("commitDate: " + "\(commitDate)")
+            //Swift.print("commitDate: " + "\(commitDate)")
             date = GitDateUtils.date(commitDate)
         }
         let descendingDate:Int = DateParser.descendingDate(date).int
