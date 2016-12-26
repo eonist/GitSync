@@ -15,7 +15,11 @@ class CompileCommitListTest {
             sortableRepoList.append(($0,freshness))
         }
 
-
+        sortableRepoList.sortInPlace({$0.freshness > $1.freshness})
+        sortableRepoList.forEach{Swift.print($0.freshness)}
+        
+        //Swift.print("repoList.count: " + "\(repoList.count)")
+        
         //sort repos by freshness: (makes the process of populating CommitsDB much faster)
         //we run the sorting algo on a bg thread as serial work (one by one) and then notifying mainThread on allComplete
         
