@@ -13,9 +13,9 @@ class PopulateCommitDB {
      */
     func refresh(){
         freshnessSort()
-        
-        //copy over the iterate code
-            //use generic git methods instead of the custom NSNotification code
+        refreshRepos()
+        //copy over the iterate code✅
+            //use generic git methods instead of the custom NSNotification code✅
             //on a bg-thread -> for loop each task then -> jump on the mainThread when complete -> update UI
         
         
@@ -35,7 +35,7 @@ class PopulateCommitDB {
         
     }
     /**
-     * Sort the repoList so that the freshest repos are parsed first 
+     * Sort the repoList so that the freshest repos are parsed first (optimization)
      */
     func freshnessSort(){
         async(bgQueue, { () -> Void in//run the task on a background thread
@@ -59,6 +59,13 @@ class PopulateCommitDB {
         sortableRepoList.forEach{
             refreshRepo($0.repo)
         }
+        Swift.print("refreshRepo complete Time: " + "\(abs(startTime.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+        Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
+        Swift.print("Printing sortedArr after refresh: ")
+        commitDB.sortedArr.forEach{
+            Swift.print("hash: \($0.hash) date: \(GitDateUtils.gitTime($0.sortableDate.string)) repo: \($0.repoName) ")
+        }
+
     }
     /**
      * Adds commit items to CommitDB if they are newer than the oldest commit in CommitDB
