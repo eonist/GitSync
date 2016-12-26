@@ -5,6 +5,8 @@ class CompileCommitListTest {
      *
      */
     func refresh(){
+        
+        CommitDBUtils.freshness("")
         //sort repos by freshness: (makes the process of populating CommitsDB much faster)
         //we run the sorting algo on a bg thread as serial work (one by one) and then notifying mainThread on allComplete
         
