@@ -3,11 +3,11 @@ import Foundation
 class PopulateCommitDB {
     var commitDB = CommitDB()
     var startTime:NSDate
-    var timer:Timer?
+    //var timer:Timer?
     var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
     init(){
         startTime = NSDate()//measure the time of the refresh
-        
+        freshnessSort()
         
 
     }
@@ -16,9 +16,9 @@ class PopulateCommitDB {
      */
     func refresh(){
         //figure out the timer bug
-        timer = Timer(0.5,true,self,"update")
-        timer!.start()
-        freshnessSort()
+        //timer = Timer(0.5,true,self,"update")
+        //timer!.start()
+        
         
         //copy over the iterate code✅
             //use generic git methods instead of the custom NSNotification code✅
