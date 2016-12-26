@@ -56,7 +56,7 @@ class ASyncTaskTest {
     func run(task:NSTask,_ index:Int){
         dispatch_async(bgQueue(), { () -> Void in
             task.terminationHandler = { task in/*Avoid using NSNotification if you use this callback, as it will block NSNotification from fireing sometimes*/
-                dispatch_async(mainQueue()()){/*back on the main thread*/
+                dispatch_async(mainQueue()){/*back on the main thread*/
                     let data:NSData = task.standardOutput!.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
                     let output:String = (NSString(data:data, encoding:NSUTF8StringEncoding) as! String).trim("\n")/*decode the date to a string*/
                     self.complete(output,index)
