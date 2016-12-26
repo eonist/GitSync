@@ -21,7 +21,7 @@ import Foundation
             //then you asign a call-back method on nsTask.termination handler on the main thread ✅
                 //This will require some research -> it's unclear how NSNotification is still needed with this approache (it isnt) ✅
 
-class CommitDBUtils {
+class CommitDBRefreshTest {
     static var commitDB = CommitDB()
     static var operations:[CommitLogOperation] = []
     static var startTime:NSDate?
