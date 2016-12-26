@@ -81,27 +81,15 @@ class PopulateCommitDB {
         Swift.print("\(repoTitle): rangeCount: " + "\(commitCount)")
         //3. Retrieve the commit log items for this repo with the range specified
         //Swift.print("max: " + "\(commitCount)")
-        let args:[String] = CommitViewUtils.commitItems(localPath,commitCount)/*creates an array of arguments that will return commit item logs*/
         
         
+        let results = Utils.commitItems(localPath, commitCount)/*creates an array commit item logs*/
         
-        if(args.count > 0){
-            for (_,element) in args.enumerate(){
+        if(results.count > 0){
+            for (_,element) in results.enumerate(){
                 let operation = CommitViewUtils.configOperation([element],localPath,repoTitle,index)/*setup the NSTask correctly*/
 
-                let task = NSTask()
-                task.currentDirectoryPath = localPath
-                task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
-                task.arguments = ["-c",args[0]]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
-                let pipe = NSPipe()
-                task.standardOutput = pipe
                 
-                
-                task.waitUntilExit()
-                task.launch()
-                
-                let data:NSData = element.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
-                let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
                 if(output.count > 0){
                     //Swift.print("output: " + ">\(output)<")
                     let commitData:CommitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
