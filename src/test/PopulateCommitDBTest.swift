@@ -63,9 +63,9 @@ class PopulateCommitDB {
     /**
      *
      */
-    func refreshRepo(element:[String:String]){
-        let localPath:String = element["local-path"]!//local-path to repo
-        let repoTitle = element["title"]!//name of repo
+    func refreshRepo(repo:[String:String]){
+        let localPath:String = repo["local-path"]!//local-path to repo
+        let repoTitle = repo["title"]!//name of repo
         //2. Find the range of commits to add to CommitDB for this repo
         var commitCount:Int
         //Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
@@ -87,24 +87,16 @@ class PopulateCommitDB {
         
         if(results.count > 0){
             for (_,element) in results.enumerate(){
-                let operation = CommitViewUtils.configOperation([element],localPath,repoTitle,index)/*setup the NSTask correctly*/
-
                 
-                if(output.count > 0){
+                if(element.count > 0){
                     //Swift.print("output: " + ">\(output)<")
-                    let commitData:CommitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
-                    let commit:Commit = CommitViewUtils.processCommitData(element.repoTitle,commitData,element.repoIndex)/*Format the data*/
+                    let commitData:CommitData = GitLogParser.commitData(element)/*Compartmentalizes the result into a Tuple*/
+                    let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
                     //Swift.print("repo: \(element.repoTitle) hash: \(commit.hash) date: \(Utils.gitTime(commit.sortableDate.string))")
                     commitDB.add(commit)/*add the commit log items to the CommitDB*/
                 }else{
-                    Swift.print("-----ERROR: repo: \(element.repoTitle) at index: \(index) didnt work")
+                    Swift.print("-----ERROR: repo: \(repoTitle) at index: \(index) didnt work")
                 }
-            }
-            
-            let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
-            NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
-            operations.forEach{/*launch all tasks*/
-                $0.task.launch()
             }
         }else{//no operations to launch and observe
             iterate()//but we still need to iterate
