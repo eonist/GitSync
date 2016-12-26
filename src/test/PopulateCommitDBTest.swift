@@ -8,10 +8,7 @@ class PopulateCommitDB {
     init(){
         startTime = NSDate()//measure the time of the refresh
         timer = Timer(0.50,true,self,"update")
-        
-        //freshnessSort()
-        
-
+        freshnessSort()
     }
     func update() {
         Swift.print("tick")
@@ -21,10 +18,7 @@ class PopulateCommitDB {
      *
      */
     func refresh(){
-        //figure out the timer bug
-        //timer = Timer(0.5,true,self,"update")
-        //timer!.start()
-        timer!.start()
+       
         
         //copy over the iterate code✅
             //use generic git methods instead of the custom NSNotification code✅
