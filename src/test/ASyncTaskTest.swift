@@ -1,5 +1,7 @@
 import Foundation
 var bgQueue = {return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)}//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
+//there is also these: DISPATCH_QUEUE_PRIORITY_DEFAULT,DISPATCH_QUEUE_PRIORITY_HIGH,DISPATCH_QUEUE_PRIORITY_LOW
+
 /**
  * 1. Launch multiple NSTasks on the background thread concurrently
  * 2. Completion callback with result on the main thread
@@ -55,7 +57,7 @@ class ASyncTaskTest {
      * NOTE: task.waitUntilExit() //is only needed if we stream data
      */
     func run(task:NSTask,_ index:Int){
-        dispatch_async(bgQueue, { () -> Void in
+        dispatch_async(bgQueue(), { () -> Void in
             task.terminationHandler = { task in/*Avoid using NSNotification if you use this callback, as it will block NSNotification from fireing sometimes*/
                 dispatch_async(dispatch_get_main_queue()){/*back on the main thread*/
                     let data:NSData = task.standardOutput!.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
