@@ -167,6 +167,7 @@ private class Utils{
     /**
      * Returns freshness of a repo (Basically the rate of commits per second the last 100 commits)
      * NOTE: If you made 50 commits the last 100 seconds that would be a rate at 0.5 commits per second
+     * NOTE: It works by finding the date of the commit 100 commits ago from the latest commit, then dividing the timelaps since that date by 100
      * Fresheness = (commits per second for the last 100 commits)
      */
     static func freshness(localPath:String)->CGFloat{
