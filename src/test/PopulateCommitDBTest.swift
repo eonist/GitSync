@@ -1,6 +1,6 @@
 import Foundation
 
-class CompileCommitListTest {
+class PopulateCommitDB {
     /**
      *
      */
