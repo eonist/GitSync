@@ -11,24 +11,26 @@ class PopulateCommitDB {
      */
     func refresh(){
         async(bgQueue, { () -> Void in
+            let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+            let repoList = XMLParser.toArray(repoXML)//or use dataProvider
+            var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
+            
+            repoList.forEach{/*sort the repoList based on freshness*/
+                let localPath:String = $0["local-path"]!
+                let freshness:CGFloat = CommitDBUtils.freshness(localPath)
+                sortableRepoList.append(($0,freshness))
+            }
+            
+            sortableRepoList.sortInPlace({$0.freshness > $1.freshness})
+            sortableRepoList.forEach{Swift.print($0.repo["title"])}
+            
             async(mainQueue){/*back on the main thread*/
                 self.onFreshnessSortComplete()
             }
         })
-        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
-        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
-        var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
         
-        repoList.forEach{/*sort the repoList based on freshness*/
-            let localPath:String = $0["local-path"]!
-            let freshness:CGFloat = CommitDBUtils.freshness(localPath)
-            sortableRepoList.append(($0,freshness))
-        }
-
-        sortableRepoList.sortInPlace({$0.freshness > $1.freshness})
-        sortableRepoList.forEach{Swift.print($0.repo["title"])}
         
-        Swift.print("Time:-> " + "\(abs(startTime.timeIntervalSinceNow))")/*How long it took*/
+        
         //Swift.print("repoList.count: " + "\(repoList.count)")
         
         //sort repos by freshness: (makes the process of populating CommitsDB much faster)
@@ -49,5 +51,6 @@ class PopulateCommitDB {
      */
     func onFreshnessSortComplete(){
         Swift.print("onFreshnessSortComplete")
+        Swift.print("Time:-> " + "\(abs(startTime.timeIntervalSinceNow))")/*How long it took*/
     }
 }
