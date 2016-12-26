@@ -8,7 +8,7 @@ class CommitDBCache {
     static func read()->CommitDB{
         let url:String = CommitDBCache.url.tildePath
         let xml = FileParser.xml(url)
-        Swift.print("xml.XMLString: " + "\(xml.XMLString)")
+        //Swift.print("xml.XMLString: " + "\(xml.XMLString)")
         let commitDB:CommitDB = CommitDB.unWrap(xml)!
         //Swift.print("Printing sortedArr after unwrap: ")
         //commitDB.sortedArr.forEach{Swift.print($0.sortableDate)}
