@@ -1,5 +1,8 @@
 import Foundation
 
+//Continue here: 
+    //try to populate the 
+
 class PopulateCommitDB {
     var commitDB:CommitDB/* = CommitDB()*/
     var startTime:NSDate
@@ -18,7 +21,7 @@ class PopulateCommitDB {
             //use generic git methods instead of the custom NSNotification code✅
             //on a bg-thread -> for loop each task then -> jump on the mainThread when complete -> update UI ✅
             //print how many commits are retrived for each repo✅
-            //bring the caching of CommitDB into the workflow
+            //bring the caching of CommitDB into the workflow ✅
         
         //Swift.print("repoList.count: " + "\(repoList.count)")
         

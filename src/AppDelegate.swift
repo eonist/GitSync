@@ -34,7 +34,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //_ = ThreadTesting()
 
         //_ = ASyncTaskTest()
-        //_ = PopulateCommitDB()
+        _ = PopulateCommitDB()
         
         //test!.refresh()
         //refreshCommitDBTest()
