@@ -131,3 +131,23 @@ class PopulateCommitDB {
         Swift.print("Time:-> " + "\(abs(startTime.timeIntervalSinceNow))")/*How long it took*/
     }
 }
+
+
+private class Utils{
+    /**
+     * PARAM: max = max Items Allowed per repo
+     */
+    static func commitItems(localPath:String,_ max:Int)->[String]{
+        let commitCount:Int = GitUtils.commitCount(localPath).int - 1/*Get the commitCount of this repo*/
+        //Swift.print("commitCount: " + ">\(commitCount)<")
+        let length:Int = commitCount > max ? max : commitCount//20 = maxCount
+        //Swift.print("length: \(length) max: \(max)")
+        var args:[String] = []
+        let formating:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
+        for i in 0..<length{
+            let cmd:String = "git show head~" + "\(i)" + formating + " --no-patch"//--no-patch suppresses the diff output of git show
+            args.append(cmd)
+        }
+        return args
+    }
+}
