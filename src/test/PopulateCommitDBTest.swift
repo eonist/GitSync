@@ -17,11 +17,13 @@ class PopulateCommitDB {
         //copy over the iterate code✅
             //use generic git methods instead of the custom NSNotification code✅
             //on a bg-thread -> for loop each task then -> jump on the mainThread when complete -> update UI ✅
-            //do the tick-tick-test to make sure Everything runs on the bgThread
+            //do the tick-tick-test to make sure Everything runs on the bgThread 🏀
+            //print how many commits are retrived for each repo
+            //bring the caching of CommitDB into the workflow
         
         //Swift.print("repoList.count: " + "\(repoList.count)")
         
-        //sort repos by freshness: (makes the process of populating CommitsDB much faster)
+        //sort repos by freshness: (makes the process of populating CommitsDB much faster) ✅
         //we run the sorting algo on a bg thread as serial work (one by one) and then notifying mainThread on allComplete
         
         
