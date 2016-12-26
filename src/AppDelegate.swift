@@ -30,16 +30,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //initApp()
         
-        _ = ThreadTesting()
+        //_ = ThreadTesting()
 
         //_ = ASyncTaskTest()
-        //test = PopulateCommitDB()
+        //_ = PopulateCommitDB()
         //test!.refresh()
         //refreshCommitDBTest()
         
        
-        
-        
+        let timer = Timer(0.50,true,self,"update")
+        timer.start()
         
         //reflectionDictTest()
         //ioTest()
