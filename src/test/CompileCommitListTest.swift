@@ -5,8 +5,17 @@ class CompileCommitListTest {
      *
      */
     func refresh(){
+        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
+        var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
         
-        CommitDBUtils.freshness("")
+        repoList.forEach{/*sort the repoList based on freshness*/
+            let localPath:String = $0["local-path"]!
+            let freshness:CGFloat = CommitDBUtils.freshness(localPath)
+            sortableRepoList.append(($0,freshness))
+        }
+
+
         //sort repos by freshness: (makes the process of populating CommitsDB much faster)
         //we run the sorting algo on a bg thread as serial work (one by one) and then notifying mainThread on allComplete
         

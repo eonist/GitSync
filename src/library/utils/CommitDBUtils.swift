@@ -49,7 +49,7 @@ class CommitDBUtils {
             operations.append(operation)
         }
         
-        let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
+        let finalTask = operations[operations.count-1].task/*We listen to the last task for completion,this works because the NSTasks run in a serial fashion*/
         NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:handler)/*{ notification in})*/
         
         operations.forEach{/*launch all tasks*/
