@@ -53,7 +53,7 @@ class PopulateCommitDB {
         })
     }
     /**
-     *
+     * Adds commits to COmmitDB
      */
     func refreshRepos(){
         sortableRepoList.forEach{
@@ -61,7 +61,7 @@ class PopulateCommitDB {
         }
     }
     /**
-     *
+     * Adds commit items to CommitDB if they are newer than the oldest commit in CommitDB
      */
     func refreshRepo(repo:[String:String]){
         let localPath:String = repo["local-path"]!//local-path to repo
