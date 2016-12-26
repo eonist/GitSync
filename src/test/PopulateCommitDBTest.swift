@@ -19,7 +19,7 @@ class PopulateCommitDB {
         }
 
         sortableRepoList.sortInPlace({$0.freshness > $1.freshness})
-        sortableRepoList.forEach{Swift.print($0.freshness)}
+        sortableRepoList.forEach{Swift.print($0.repo["title"])}
         
         //Swift.print("repoList.count: " + "\(repoList.count)")
         
