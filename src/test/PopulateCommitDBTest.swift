@@ -10,7 +10,7 @@ class PopulateCommitDB {
      *
      */
     func refresh(){
-        async(bgQueue, { () -> Void in
+        async(bgQueue, { () -> Void in//run the task on a background thread
             let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
             let repoList = XMLParser.toArray(repoXML)//or use dataProvider
             var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
@@ -24,7 +24,7 @@ class PopulateCommitDB {
             sortableRepoList.sortInPlace({$0.freshness > $1.freshness})
             sortableRepoList.forEach{Swift.print($0.repo["title"])}
             
-            async(mainQueue){/*back on the main thread*/
+            async(mainQueue){/*jump back on the main thread*/
                 self.onFreshnessSortComplete()
             }
         })
