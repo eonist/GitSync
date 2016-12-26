@@ -124,7 +124,6 @@ class PopulateCommitDB {
         Swift.print("onRefreshReposComplete() Time: " + "\(abs(startTime.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
         CommitDBCache.write(commitDB)//write data to disk, we could also do this on app exit
     }
-    
 }
 
 

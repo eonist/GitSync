@@ -116,10 +116,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         /*
         commitDB.add(Commit("","","","","",201609,"f2o33f",3))
         CommitDBCache.write(commitDB)
-        */
-        
-        
-        
+        */ 
     }
     /**
      *
