@@ -17,34 +17,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         Swift.print("GitSync - Simple git automation for macOS")
         
-        
-        //Continue here:
-            //runing NSTask on a background thread is now working, its a bit of a hassle to setup ✅
-                //try to clean the setup process🏀
-                //try retriving the commits from repo on a background thread🏀
-                //try to make the speedy commit count method (combines rev-list and show->error etc)
-            //try to speed test the retrival of commits from repo
-                //first with the freshness algo set manualy
-                //then do a speed test where the repo list is not optimally sorted
-        
         //_ = Test()
-        
         //initApp()
-        
-        //_ = ThreadTesting()
 
-        //_ = ASyncTaskTest()
-        _ = PopulateCommitDB()
-        
-        //test!.refresh()
-        //refreshCommitDBTest()
-        
-       
-        //reflectionDictTest()
-        //ioTest()
-        //dataBaseTest()
-        //chronologicalTime2GitTimeTest()
-        //commitDateRangeCountTest()
     }
     
     func initApp(){
