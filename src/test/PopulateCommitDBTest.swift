@@ -1,6 +1,7 @@
 import Foundation
 
 class PopulateCommitDB {
+    var commitDB = CommitDB()
     var startTime:NSDate
     var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
     init(){
@@ -56,14 +57,13 @@ class PopulateCommitDB {
      */
     func refreshRepos(){
         sortableRepoList.forEach{
-            refreshRepo(repoIndex,$0)
+            refreshRepo($0.repo)
         }
     }
     /**
      *
      */
-    func refreshRepo(index:Int,_ element:[String:String]){
-        repoIndex += 1//increment the repoIndex
+    func refreshRepo(element:[String:String]){
         let localPath:String = element["local-path"]!//local-path to repo
         let repoTitle = element["title"]!//name of repo
         //2. Find the range of commits to add to CommitDB for this repo
@@ -83,10 +83,31 @@ class PopulateCommitDB {
         //Swift.print("max: " + "\(commitCount)")
         let args:[String] = CommitViewUtils.commitItems(localPath,commitCount)/*creates an array of arguments that will return commit item logs*/
         if(args.count > 0){
-            operations = []//reset the operations array
             for (_,element) in args.enumerate(){
                 let operation = CommitViewUtils.configOperation([element],localPath,repoTitle,index)/*setup the NSTask correctly*/
-                operations.append(operation)
+
+                let task = NSTask()
+                task.currentDirectoryPath = localPath
+                task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
+                task.arguments = ["-c",args[0]]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
+                let pipe = NSPipe()
+                task.standardOutput = pipe
+                
+                
+                task.waitUntilExit()
+                task.launch()
+                
+                let data:NSData = element.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
+                let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
+                if(output.count > 0){
+                    //Swift.print("output: " + ">\(output)<")
+                    let commitData:CommitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
+                    let commit:Commit = CommitViewUtils.processCommitData(element.repoTitle,commitData,element.repoIndex)/*Format the data*/
+                    //Swift.print("repo: \(element.repoTitle) hash: \(commit.hash) date: \(Utils.gitTime(commit.sortableDate.string))")
+                    commitDB.add(commit)/*add the commit log items to the CommitDB*/
+                }else{
+                    Swift.print("-----ERROR: repo: \(element.repoTitle) at index: \(index) didnt work")
+                }
             }
             
             let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
