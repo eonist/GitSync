@@ -6,7 +6,6 @@ import Foundation
  */
 class ASyncTaskTest {
     var startTime:NSDate?
-    var timer:Timer?
     var tickerDate:NSDate?
     var repoList:[[String:String]] = []
     var results:[String] = []
@@ -30,7 +29,6 @@ class ASyncTaskTest {
         self.startTime = NSDate()//measure the time of the refresh
         
         tickerDate = NSDate()//measure the time of the refresh
-        timer = Timer(0.05,true,self,"update")
         
         Swift.print("run.before")
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml

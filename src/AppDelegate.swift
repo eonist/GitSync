@@ -34,7 +34,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //_ = ThreadTesting()
         //_ = ASyncTaskTest()
         test = PopulateCommitDB()
-
         
         //refreshCommitDBTest()
         
@@ -48,7 +47,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //chronologicalTime2GitTimeTest()
         //commitDateRangeCountTest()
     }
-            
+    func update() {
+        Swift.print("tick")
+        //timer!.timer!.fireDate
+    }
     /**
      * NOTE: Even though the NSTask isn't explicitly run on a background thread, it seems to be anyway, as it blocks other background threads added later, actually while doing a Repeating time intervall test, it blocked the timer. So its probably not runnign on a background thread after all
      */
