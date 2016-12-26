@@ -142,12 +142,13 @@ private class Utils{
         //Swift.print("commitCount: " + ">\(commitCount)<")
         let length:Int = commitCount > max ? max : commitCount//20 = maxCount
         //Swift.print("length: \(length) max: \(max)")
-        var args:[String] = []
+        var results:[String] = []
         let formating:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
         for i in 0..<length{
-            let cmd:String = "git show head~" + "\(i)" + formating + " --no-patch"//--no-patch suppresses the diff output of git show
-            args.append(cmd)
+            let cmd:String = "head~" + "\(i)" + formating + " --no-patch"
+            let result:String = GitParser.show(localPath, cmd)//--no-patch suppresses the diff output of git show
+            results.append(result)
         }
-        return args
+        return results
     }
 }
