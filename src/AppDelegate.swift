@@ -34,7 +34,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //_ = ThreadTesting()
 
         //_ = ASyncTaskTest()
-        test = PopulateCommitDB()
+        //test = PopulateCommitDB()
         
         //test!.refresh()
         //refreshCommitDBTest()
@@ -44,7 +44,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         timer!.start()*/
         
         //reflectionDictTest()
-        //ioTest()
+        ioTest()
         //dataBaseTest()
         //chronologicalTime2GitTimeTest()
         //commitDateRangeCountTest()
@@ -106,6 +106,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func ioTest(){
+        Swift.print("ioTest()")
         let commitDB = CommitDBCache.read()
         
         Swift.print("Printing sortedArr after unwrap: ")
@@ -116,6 +117,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         commitDB.add(Commit("","","","","",201609,"f2o33f",3))
         CommitDBCache.write(commitDB)
         */
+        
+        
         
     }
     /**
