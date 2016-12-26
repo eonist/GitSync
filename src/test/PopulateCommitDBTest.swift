@@ -7,7 +7,7 @@ class PopulateCommitDB {
     var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
     init(){
         startTime = NSDate()//measure the time of the refresh
-        timer = Timer(0.5,true,self,"update")
+        
         
 
     }
@@ -15,6 +15,8 @@ class PopulateCommitDB {
      *
      */
     func refresh(){
+        //figure out the timer bug
+        timer = Timer(0.5,true,self,"update")
         timer!.start()
         freshnessSort()
         
