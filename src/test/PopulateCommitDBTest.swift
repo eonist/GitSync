@@ -3,13 +3,19 @@ import Foundation
 class PopulateCommitDB {
     var commitDB = CommitDB()
     var startTime:NSDate
-    //var timer:Timer?
+    var timer:Timer?
     var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
     init(){
         startTime = NSDate()//measure the time of the refresh
-        freshnessSort()
+        timer = Timer(0.50,true,self,"update")
+        
+        //freshnessSort()
         
 
+    }
+    func update() {
+        Swift.print("tick")
+        //timer!.timer!.fireDate
     }
     /**
      *
@@ -18,7 +24,7 @@ class PopulateCommitDB {
         //figure out the timer bug
         //timer = Timer(0.5,true,self,"update")
         //timer!.start()
-        
+        timer!.start()
         
         //copy over the iterate code✅
             //use generic git methods instead of the custom NSNotification code✅
@@ -131,10 +137,7 @@ class PopulateCommitDB {
         }
         Swift.print("onRefreshReposComplete() Time: " + "\(abs(startTime.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
     }
-    func update() {
-        Swift.print("tick" + "\(abs(startTime.timeIntervalSinceNow))")
-        //timer!.timer!.fireDate
-    }
+    
 }
 
 
