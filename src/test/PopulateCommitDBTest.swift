@@ -1,10 +1,11 @@
 import Foundation
 
 class PopulateCommitDB {
-    var commitDB = CommitDB()
+    var commitDB:CommitDB/* = CommitDB()*/
     var startTime:NSDate
     var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
     init(){
+        commitDB = CommitDBCache.read()
         startTime = NSDate()//measure the time of the refresh
         refresh()
     }
