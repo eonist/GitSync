@@ -59,13 +59,13 @@ class PopulateCommitDB {
         sortableRepoList.forEach{
             refreshRepo($0.repo)
         }
-        Swift.print("refreshRepo complete Time: " + "\(abs(startTime.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+        
         Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
         Swift.print("Printing sortedArr after refresh: ")
         commitDB.sortedArr.forEach{
             Swift.print("hash: \($0.hash) date: \(GitDateUtils.gitTime($0.sortableDate.string)) repo: \($0.repoName) ")
         }
-
+        Swift.print("refreshRepo() complete Time: " + "\(abs(startTime.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
     }
     /**
      * Adds commit items to CommitDB if they are newer than the oldest commit in CommitDB
