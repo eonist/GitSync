@@ -13,7 +13,7 @@ class PopulateCommitDB {
      */
     func refresh(){
         freshnessSort()
-        refreshRepos()
+        
         //copy over the iterate code✅
             //use generic git methods instead of the custom NSNotification code✅
             //on a bg-thread -> for loop each task then -> jump on the mainThread when complete -> update UI
@@ -111,7 +111,8 @@ class PopulateCommitDB {
     func onFreshnessSortComplete(){
         Swift.print("onFreshnessSortComplete")
         sortableRepoList.forEach{Swift.print($0.repo["title"])}
-        Swift.print("Time:-> " + "\(abs(startTime.timeIntervalSinceNow))")/*How long it took*/
+        Swift.print("onFreshnessSortComplete() Time:-> " + "\(abs(startTime.timeIntervalSinceNow))")/*How long it took*/
+        refreshRepos()
     }
 }
 
