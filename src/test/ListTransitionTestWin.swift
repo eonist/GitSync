@@ -26,8 +26,10 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        //List goes here
-        "Desktop/ElCapitan/assets/xml/list.xml"
+        /*List goes here*/
+        let dp = DataProvider(FileParser.xml("Desktop/ElCapitan/assets/xml/list.xml"))/*Loads xml from a xml file on the desktop*/
+        let list:List = self.addSubView(List(140, 72, NaN, dp,self))
+        list
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
