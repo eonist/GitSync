@@ -31,7 +31,7 @@ class ListTransitionTestView:TitleView{
         //list()
     }
     /**
-     *
+     * 
      */
     func sliderFastList(){
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
