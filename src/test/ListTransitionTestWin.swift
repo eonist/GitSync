@@ -27,7 +27,7 @@ class ListTransitionTestView:TitleView{
     }
     func createGUI(){
         //List goes here
-        
+        "Desktop/ElCapitan/assets/xml/list.xml"
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
