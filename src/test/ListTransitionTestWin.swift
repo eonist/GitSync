@@ -26,7 +26,21 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        /*List goes here*/
+        fastList()
+        //list()
+    }
+    /**
+     *
+     */
+    func fastList(){
+        let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
+        let list = addSubView(FastList(140,73,24,dp,self))
+        list
+    }
+    /**
+     *
+     */
+    func list(){
         let dp = DataProvider(FileParser.xml("~/Desktop/ElCapitan/assets/xml/list.xml".tildePath))/*Loads xml from a xml file on the desktop*/
         let list = self.addSubView(List(140, 144, NaN, dp,self))
         list
