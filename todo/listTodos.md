@@ -18,3 +18,5 @@ You need to do many test with fast list
 ## Thoughts:
 
 The current FastList is very "Item-centric" when animating the list. It may be easier to buil FastList around moving a very tall view instead. The current implementation calculates the position of a virtual view, and then offsets the items accordingly, but the code is complicated and future additions to the code may prove hard to accomplish. A really tall view may be easier to reason with when adding new features as long as Apple hasn't put any restrictions on very tall views. 
+
+The First iteration of the FastList will have severe problems with list that are bellow the maxVisible height
