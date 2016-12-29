@@ -34,9 +34,9 @@ class ListTransitionTestView:TitleView{
      *
      */
     func sliderFastList(){
+        let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         let sliderList:ISliderList = self.addSubView(SliderFastList(140, 73, 24, dp, self))
         sliderList
-        /**/
         //ListModifier.select(sliderList, "white")
     }
     /**
