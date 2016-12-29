@@ -22,7 +22,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //_ = PopulateCommitDB()
     }
     func initTestWin(){
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",true)
         win = ListTransitionTestWin(600,400)
     }
     func initApp(){
