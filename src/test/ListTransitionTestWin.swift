@@ -27,7 +27,7 @@ class ListTransitionTestView:TitleView{
     }
     func createGUI(){
         /*List goes here*/
-        let dp = DataProvider(FileParser.xml("Desktop/ElCapitan/assets/xml/list.xml"))/*Loads xml from a xml file on the desktop*/
+        let dp = DataProvider(FileParser.xml("Desktop/ElCapitan/assets/xml/list.xml".tildePath))/*Loads xml from a xml file on the desktop*/
         let list:List = self.addSubView(List(140, 72, NaN, dp,self))
         list
     }
