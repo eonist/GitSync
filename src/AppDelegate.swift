@@ -22,10 +22,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //_ = PopulateCommitDB()
     }
     func initTestWin(){
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",true)
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
         win = ListTransitionTestWin(600,400)
         
-        let url:String = "~/Desktop/ElCapitan/explorer.css"
+        /*let url:String = "~/Desktop/ElCapitan/explorer.css"
         fileWatcher = FileWatcher([url.tildePath])
         fileWatcher!.event = { event in
             //Swift.print(self)
@@ -38,7 +38,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 ElementModifier.floatChildren(view)
             }
         }
-        fileWatcher!.start()
+        fileWatcher!.start()*/
     }
     func initApp(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
