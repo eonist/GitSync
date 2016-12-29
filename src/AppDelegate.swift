@@ -24,15 +24,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func initTestWin(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",true)
         win = ListTransitionTestWin(600,400)
-    }
-    func initApp(){
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
         
-        win = MainWin(MainView.w,MainView.h)
-        //win = ConflictDialogWin(380,400)
-        //win = CommitDialogWin(400,356)
-        
-        let url:String = "~/Desktop/ElCapitan/gitsync.css"
+        let url:String = "~/Desktop/ElCapitan/explorer.css"
         fileWatcher = FileWatcher([url.tildePath])
         fileWatcher!.event = { event in
             //Swift.print(self)
@@ -46,6 +39,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         fileWatcher!.start()
+    }
+    func initApp(){
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
+        
+        win = MainWin(MainView.w,MainView.h)
+        //win = ConflictDialogWin(380,400)
+        //win = CommitDialogWin(400,356)
+        
+        
     }
     func applicationWillTerminate(aNotification:NSNotification) {
         //store the app prefs
