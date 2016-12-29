@@ -1,33 +1,12 @@
 ### Continue here:🔨
-    //Fix the CompactBody problem (occurs with Element MacOS repo) (Next)
-    //Figure out a workflow to store commit logs in xml (maybe use reflection) because querying git is cpu intensive
-        //you need to be able to easily extract commits based on date. 
-            //so storing the same amount as the max visible amount is important
-            //when you hit refresh you only gather commits that are not in DP (use first Hash from existing commits and first hash from repo to get the range you need)
-                //This requires a standalone test to get right
-            //When you add a Repo to the address-book you also load max visible commits to DP
-            //dp.getItemsByKey("repo-id")
-            //you need to create a custom CommitDB extends DataProvider with data-model: (Dict->Array->Dict)
-                //Stores commits by key: "repo-id" (repo-id is a unique incremental global id)
-            //you also need to store a ref in an Array that stores all commits sorted by date (latest to oldest) (you insert commits by finding its index by halving the array until you find the right index)
-                //Do an experiment to figure out the halving technique (Binary search) ✅
-                //you then slice CommitDB.sortedByDate from 0 until maxVisibleCommits (100) and use this array for the ListView
-                    //this will give you a chronologically sorted commit list (descending)
-                //You need to figure out how to launch NSTasks on the background task 🏀
-                    //It works but sometimes some tasks never complete. Try to find more info on the net
-                    //Figure out if NSTasks runs on the main-thread (it does) ✅
-                //you then need to figure out how to update this sorted list on refresh 
-                    //you could keep a DP instance for ListView that you prepend new items onto
-                        //you compare the two lists by getting the first of ListView.dp and the first of ComitDB.sortedByDate.slice(0,100)
-                        //then create a custom merge method that efficiently merges sortedByDates onto ListView.dp
-                
-                
-    //Maybe use a simpler list while debugging and a non-fancy refresh button (to test out ideas and the GitSync algorithm)
-    //Create the new Add and remove buttons that are bright blue so that they gathers the attention needed
+    //Maybe use a simpler list while debugging and a non-fancy refresh button (to test out ideas and the GitSync algorithm) 👈
+    //then create a custom merge method that efficiently merges sortedByDates onto ListView.dp
     //Take a look at how the GitSync apple-script is organized. and copy the workflow to swift 
-    //Improve the compact-date parser (see twitter app and also other apps)
-    //Translucent overlay for the menu 
+    //Improve the compact-date parser (see twitter app and also other apps) ✨
+    //Translucent overlay for the menu ✨
+    //Fix the CompactBody problem (occurs with Element MacOS repo) (soon)
 ### Completed:🏁
+    //Figure out a workflow to store commit logs in xml (maybe use reflection) because querying git is cpu intensive ✅            
     //CommitListRefresh algo ✅
     //Figure out how to derive previous commit messages from repo's. You need from 0 to 10 latest commits.
         //Research custom "git log" commands ✅

@@ -18,7 +18,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //_ = Test()
         //initApp()
-        _ = PopulateCommitDB()
+        initTestWin()
+        //_ = PopulateCommitDB()
+    }
+    func initTestWin(){
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
+        win = ListTransitionTestWin(600,400)
     }
     func initApp(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
