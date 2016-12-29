@@ -26,8 +26,18 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        fastList()
+        sliderFastList()
+        //fastList()
         //list()
+    }
+    /**
+     *
+     */
+    func sliderFastList(){
+        let sliderList:ISliderList = self.addSubView(SliderFastList(140, 73, 24, dp, self))
+        sliderList
+        /**/
+        //ListModifier.select(sliderList, "white")
     }
     /**
      *
