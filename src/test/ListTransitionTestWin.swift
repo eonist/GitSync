@@ -41,7 +41,7 @@ class ListTransitionTestView:TitleView{
         
         let list = self.addSubView(SliderFastList(140, 73, 24, dp, self))
         //ListModifier.select(list, "white")
-        FastListModifier.select(list, 3)
+        //FastListModifier.select(list, 3)
     }
     /**
      *
