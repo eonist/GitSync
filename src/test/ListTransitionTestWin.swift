@@ -26,9 +26,16 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        sliderFastList()
+        fastList2()
+        //sliderFastList()
         //fastList()
         //list()
+    }
+    /**
+     *
+     */
+    func fastList2(){
+        
     }
     /**
      *
