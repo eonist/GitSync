@@ -31,4 +31,7 @@ onProgress -> you calculate the item.y above top and bellow bottom -> use modulo
 onProgress -> you find the index of the top-item -> use modulo
 onProgress -> you place items at index * itemHeight -> in the itemContainer
 onProgress -> you set item.y on a modulo-loop 🔑 -> Basically you use item.index % num_of_items_to_cover -> remainder -> 4 -> iterate dp.items.count times from 4 but pin between min and max
-onProgress -> 
+onProgress -> figure out how to apply data to new visible items -> we could use a temp prevVisibleRange and figure out which items to remove and add
+
+setSize -> reCalc num_of_items_to_cover -> and add/remove visibleItems accordingly
+setSize -> adjust the mask
