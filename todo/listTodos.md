@@ -15,10 +15,20 @@ You need to do many test with fast list
 2. If your moving when the transition happens, try to copy the momentum of the animation.
 
 
-## Thoughts:
+## Thoughts: 💭
 
-- The current FastList is very "Item-centric" when animating the list. It may be easier to buil FastList around moving a very tall view instead. The current implementation calculates the position of a virtual view, and then offsets the items accordingly, but the code is complicated and future additions to the code may prove hard to accomplish. A really tall view may be easier to reason with when adding new features as long as Apple hasn't put any restrictions on very tall views. 
+- The current FastList is very "Item-centric" when animating the list. It may be easier to build FastList around moving a very tall view instead. The current implementation calculates the position of a virtual view, and then offsets the items accordingly, but the code is complicated and future additions to the code may prove hard to accomplish. A really tall view may be easier to reason with when adding new features as long as Apple hasn't put any restrictions on very tall views. 
 
 - The First iteration of the FastList will have problems with list that are bellow the maxVisible height. Try doing the tall-view idea. With the intimate knowledge of building the First iteration of the fast list it should not be to difficult to implement the tall-view idea. Start by drawing on paper and putting down some code ideas.
 
-## Brainstorm log:
+## Brainstorm log: 🔬
+
+itemContainer.height = Item.height * items.count
+
+onProgress -> you move the itemContainer.y up and down
+onProgress -> you calculate the visible top and bottom of the itemContainer
+onProgress -> you calculate the item.y above top and bellow bottom -> use modulo
+onProgress -> you find the index of the top-item -> use modulo
+onProgress -> you place items at index * itemHeight -> in the itemContainer
+onProgress -> you set item.y on a modulo-loop 🔑 -> Basically you use item.index % num_of_items_to_cover -> remainder -> 4 -> iterate dp.items.count times from 4 but pin between min and max
+onProgress -> 
