@@ -26,16 +26,20 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        sliderFastList2()
+        rbSliderFastList2()
+        //sliderFastList2()
         //fastList2()
         //sliderFastList()
         //fastList()
         //list()
     }
     func rbSliderFastList2(){
-        //implement this 
+        let dp:DataProvider = DataProvider("~/Desktop/assets/xml/longlist.xml".tildePath)
+        let list = self.addSubView(RBSliderFastList(140, 145, 24, dp, self))
+        list
         //also research limitations in min max y positions in an NSView, min max height properties 🏀
     }
+    
     func sliderFastList2(){
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         let list = self.addSubView(SliderFastList2(140, 73, 24, dp, self))
