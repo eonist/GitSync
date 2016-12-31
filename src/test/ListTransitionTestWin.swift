@@ -33,7 +33,8 @@ class ListTransitionTestView:TitleView{
         //list()
     }
     func rbSliderFastList2(){
-        //implement this 🏀
+        //implement this 
+        //also research limitations in min max y positions in an NSView, min max height properties 🏀
     }
     func sliderFastList2(){
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
