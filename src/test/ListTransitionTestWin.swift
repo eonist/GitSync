@@ -35,7 +35,7 @@ class ListTransitionTestView:TitleView{
     }
     func rbSliderFastList2(){
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/longlist.xml".tildePath)
-        let list = self.addSubView(RBSliderFastList(140, 145, 24, dp, self))
+        let list = self.addSubView(RBSliderFastList2(140, 145, 24, dp, self))
         list
     }
     
