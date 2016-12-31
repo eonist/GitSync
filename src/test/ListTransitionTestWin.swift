@@ -32,25 +32,19 @@ class ListTransitionTestView:TitleView{
         //fastList()
         //list()
     }
-    /**
-     *
-     */
+    func rbSliderFastList2(){
+        //implement this 🏀
+    }
     func sliderFastList2(){
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         let list = self.addSubView(SliderFastList2(140, 73, 24, dp, self))
         list
     }
-    /**
-     *
-     */
     func fastList2(){
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         let list = addSubView(FastList2(140,73,24,dp,self))
         list
     }
-    /**
-     *
-     */
     func sliderFastList(){
         var dp:DataProvider
         dp = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
@@ -61,17 +55,11 @@ class ListTransitionTestView:TitleView{
         //ListModifier.select(list, "white")
         FastListModifier.select(list, 5)
     }
-    /**
-     *
-     */
     func fastList(){
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         let list = addSubView(FastList(140,73,24,dp,self))
         list
     }
-    /**
-     *
-     */
     func list(){
         let dp = DataProvider(FileParser.xml("~/Desktop/ElCapitan/assets/xml/list.xml".tildePath))/*Loads xml from a xml file on the desktop*/
         let list = self.addSubView(List(140, 144, NaN, dp,self))
