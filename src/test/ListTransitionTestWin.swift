@@ -41,7 +41,7 @@ class ListTransitionTestView:TitleView{
         
         //Continue here:🏀
             //hide slider when it's not needed
-            //figure out how to move the itemContainer when items.height < height -> use 
+            //figure out how to move the itemContainer when items.height < height -> use SliderList and SliderFastList to test
         
         let list = self.addSubView(RBSliderFastList2(140, 145, 24, dp, self))
         list
