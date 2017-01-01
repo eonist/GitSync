@@ -39,7 +39,9 @@ class ListTransitionTestView:TitleView{
         dp.addItem(["title":"orange"])
         dp.addItem(["title":"purple"])
         
-        //hide 
+        //Continue here:
+            //hide slider when its not needed
+            
         
         let list = self.addSubView(RBSliderFastList2(140, 145, 24, dp, self))
         list
