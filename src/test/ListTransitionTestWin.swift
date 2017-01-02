@@ -76,9 +76,9 @@ class ListTransitionTestView:TitleView{
         let dp:DataProvider = DataProvider()
         dp.addItem(["title":"pink"])
         dp.addItem(["title":"orange"])
+        dp.addItem(["title":"purple"])
 
-
-        let list = addSubView(SliderList(140,73,24,dp,self))
+        let list = addSubView(SliderList(140,145,24,dp,self))
         list
     }
     func list(){
