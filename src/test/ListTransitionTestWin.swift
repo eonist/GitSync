@@ -26,12 +26,12 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        //rbSliderFastList2()
+        rbSliderFastList2()
         //sliderFastList2()
         //fastList2()
         //sliderFastList()
         //fastList()
-        sliderList()
+        //sliderList()
         //list()
     }
     func rbSliderFastList2(){
