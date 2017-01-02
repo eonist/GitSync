@@ -41,6 +41,6 @@ setSize -> adjust the mask
 ## Brainstorm log (insert new data)
 
 1. Change dataProvider item data
-2. Change dataProvider (insertAt,removeAt,append,prepend) -> requires different events to be sent to the presenter
+2. Change dataProvider (insertAt,removeAt,append,prepend) -> requires different events to be sent to the presenter -> Or just send one update event to presenter and let it decide what happened. ?!?
 3. insertAt -> if idx within visibleRange -> grab item from end and insert, update idx for items > insertAtIndex
 4. insertAt -> if idx < visibleTop -> assign new indices to visibleItems
