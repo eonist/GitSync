@@ -6,12 +6,12 @@ If you change the dp while scrolling, what happens?
 You need to do many test with fast list
 - small lists (how does fast list behave?)✅ (fixed now)
 - Long list to smaller list (keep visual position) 🏀
-- Long list to tiny list (align list to top i guess) 
+- Long list to tiny list (align list to top I guess) 
 - Small list to long list 
 - No list to small list
 - No list to long list
 - New list to list
-- Adjust ListSize
+- Adjust ListSize -> (add/remove items from the VisibleItems arr)
 
 1. Try to maintain the position index when transitioning between lists.
 2. If your moving when the transition happens, try to copy the momentum of the animation.
