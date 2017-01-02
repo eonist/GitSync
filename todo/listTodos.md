@@ -11,6 +11,7 @@ You need to do many test with fast list
 - No list to small list
 - No list to long list
 - New list to list
+- Adjust ListSize
 
 1. Try to maintain the position index when transitioning between lists.
 2. If your moving when the transition happens, try to copy the momentum of the animation.
