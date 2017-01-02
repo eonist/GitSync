@@ -26,11 +26,12 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        rbSliderFastList2()
+        //rbSliderFastList2()
         //sliderFastList2()
         //fastList2()
         //sliderFastList()
         //fastList()
+        sliderList()
         //list()
     }
     func rbSliderFastList2(){
@@ -72,7 +73,13 @@ class ListTransitionTestView:TitleView{
         list
     }
     func sliderList(){
-        
+        let dp:DataProvider = DataProvider()
+        dp.addItem(["title":"pink"])
+        dp.addItem(["title":"orange"])
+
+
+        let list = addSubView(SliderList(140,73,24,dp,self))
+        list
     }
     func list(){
         let dp = DataProvider(FileParser.xml("~/Desktop/ElCapitan/assets/xml/list.xml".tildePath))/*Loads xml from a xml file on the desktop*/
