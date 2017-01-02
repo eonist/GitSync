@@ -71,6 +71,9 @@ class ListTransitionTestView:TitleView{
         let list = addSubView(FastList(140,73,24,dp,self))
         list
     }
+    func sliderList(){
+        
+    }
     func list(){
         let dp = DataProvider(FileParser.xml("~/Desktop/ElCapitan/assets/xml/list.xml".tildePath))/*Loads xml from a xml file on the desktop*/
         let list = self.addSubView(List(140, 144, NaN, dp,self))
