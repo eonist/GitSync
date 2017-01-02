@@ -4,8 +4,9 @@ If you change the dp while scrolling, what happens?
 
 
 You need to do many test with fast list
-- small lists (how does fast list behave?)
-- Long list to small list (keep visual position)
+- small lists (how does fast list behave?)✅ (fixed now)
+- Long list to smaller list (keep visual position) 🏀
+- Long list to tiny list (align list to top i guess) 
 - Small list to long list 
 - No list to small list
 - No list to long list
