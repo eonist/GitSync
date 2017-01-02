@@ -23,7 +23,7 @@ You need to do many test with fast list
 
 - The First iteration of the FastList will have problems with list that are bellow the maxVisible height. Try doing the tall-view idea. With the intimate knowledge of building the First iteration of the fast list it should not be to difficult to implement the tall-view idea. Start by drawing on paper and putting down some code ideas.
 
-## Brainstorm log: 🔬
+## Brainstorm log (fastlist-scrolling): 🔬
 
 itemContainer.height = Item.height * items.count
 
@@ -37,3 +37,10 @@ onProgress -> figure out how to apply data to new visible items -> we could use 
 
 setSize -> reCalc num_of_items_to_cover -> and add/remove visibleItems accordingly
 setSize -> adjust the mask
+
+## Brainstorm log (insert new data)
+
+1. Change dataProvider item data
+2. Change dataProvider (insertAt,removeAt,append,prepend) -> requires different events to be sent to the presenter
+3. insertAt -> if idx within visibleRange -> grab item from end and insert, update idx for items > insertAtIndex
+4. insertAt -> if idx < visibleTop -> assign new indices to visibleItems
