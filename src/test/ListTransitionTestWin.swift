@@ -26,8 +26,8 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        //rbSliderFastList2()
-        sliderFastList2()
+        rbSliderFastList2()
+        //sliderFastList2()
         //fastList2()
         //sliderFastList()
         //fastList()
@@ -35,7 +35,7 @@ class ListTransitionTestView:TitleView{
         //list()
     }
     func rbSliderFastList2(){
-        let dp:DataProvider = DataProvider()//DataProvider("~/Desktop/ElCapitan/assets/xml/list.xml".tildePath)//longlist.xml
+        let dp:DataProvider = DataProvider("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath)//longlist.xml//DataProvider()//
         dp.addItem(["title":"pink"])
         dp.addItem(["title":"orange"])
         dp.addItem(["title":"purple"])
@@ -44,11 +44,13 @@ class ListTransitionTestView:TitleView{
         list
     }
     func sliderFastList2(){
-        let addBtn = addSubView(TextButton(100,24,"add",self))
+        
         
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         let list = self.addSubView(SliderFastList2(140, 73, 24, dp, self))
         list
+        
+        let addBtn = addSubView(TextButton(100,24,"add",self))
         
         func onAdd(event:Event){
             if(event.type == ButtonEvent.upInside){
