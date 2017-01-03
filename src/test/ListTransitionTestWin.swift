@@ -50,16 +50,18 @@ class ListTransitionTestView:TitleView{
     }
     func fastList2(){
         let addBtn = addSubView(TextButton(100,24,"add",self))
-        func onAdd(event:Event){
-            if(event.type == ButtonEvent.upInside){
-                Swift.print("added item to list")
-            }
-        }
-        addBtn.event = onAdd
         
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         let list = addSubView(FastList2(140,73,24,dp,self))
         list
+        
+        func onAdd(event:Event){
+            if(event.type == ButtonEvent.upInside){
+                Swift.print("added item to list")
+                list.dataProvider.addItemAt(["title":"fuschia"], 2)//add item at index 2
+            }
+        }
+        addBtn.event = onAdd
     }
     func sliderFastList(){
         var dp:DataProvider
