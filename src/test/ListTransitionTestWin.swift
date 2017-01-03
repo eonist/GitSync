@@ -27,8 +27,8 @@ class ListTransitionTestView:TitleView{
     }
     func createGUI(){
         //rbSliderFastList2()
-        //sliderFastList2()
-        fastList2()
+        sliderFastList2()
+        //fastList2()
         //sliderFastList()
         //fastList()
         //sliderList()
@@ -59,21 +59,17 @@ class ListTransitionTestView:TitleView{
         addBtn.event = onAdd
         
         //Continue here: 🏀
-        //add test code to sliderFastList2
-        //test cases where items fall outside the visible-items
-        //try to readjust scroll progress after add/remove
+            //add test code to sliderFastList2
+            //test cases where items fall outside the visible-items
+            //try to readjust scroll progress after add/remove
 
         
         
     }
     func fastList2(){
-        
-        
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         let list = addSubView(FastList2(140,73,24,dp,self))
         list
-        
-        
     }
     func sliderFastList(){
         var dp:DataProvider
