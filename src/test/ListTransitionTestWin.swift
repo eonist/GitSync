@@ -58,7 +58,7 @@ class ListTransitionTestView:TitleView{
         func onAdd(event:Event){
             if(event.type == ButtonEvent.upInside){
                 Swift.print("added item to list")
-                list.dataProvider.addItemAt(["title":"fuchsia"], 2)//add item at index 2
+                list.dataProvider.addItemAt(["title":"fuchsia"], 1)//add item at index 2
             }
         }
         addBtn.event = onAdd
