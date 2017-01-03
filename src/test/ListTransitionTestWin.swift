@@ -51,7 +51,9 @@ class ListTransitionTestView:TitleView{
     func fastList2(){
         let addBtn = addSubView(TextButton(100,24,"add",self))
         func onAdd(event:Event){
-            Swift.print("added item to list")
+            if(event.type == ButtonEvent.upInside){
+                Swift.print("added item to list")
+            }
         }
         addBtn.event = onAdd
         
