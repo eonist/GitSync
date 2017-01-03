@@ -60,18 +60,6 @@ class ListTransitionTestView:TitleView{
         }
         addBtn.event = onAdd
         
-        //Continue here: 🏀
-            //add test code to sliderFastList2✅
-            //test cases where items fall above the visible-items✅
-                //try to re-adjust scroll progress after add/remove
-                //re-adjust slider-thumb-size after add/remove
-                //re-adjust lableContainer after add/remove
-                //re-adjust y-positions of all items
-            //bellow visible items: 
-                //re-adjust slider-thumb-size
-
-        
-        
     }
     func fastList2(){
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
