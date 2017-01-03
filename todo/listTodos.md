@@ -44,3 +44,14 @@ setSize -> adjust the mask
 2. Change dataProvider (insertAt,removeAt,append,prepend) -> requires different events to be sent to the presenter -> DataProviderEvents already include add,remove, remove all etc,
 3. insertAt -> if idx within visibleRange -> grab item from end and insert, update idx for items > insertAtIndex
 4. insertAt -> if idx < visibleTop -> assign new indices to visibleItems 
+
+//Continue here: 🏀
+	//add test code to sliderFastList2✅
+	//test cases where items fall above the visible-items✅
+		//try to re-adjust scroll progress after add/remove
+		//re-adjust slider-thumb-size after add/remove
+		//re-adjust lableContainer after add/remove
+		//re-adjust y-positions of all items
+	//bellow visible items: 
+		//re-adjust slider-thumb-size
+
