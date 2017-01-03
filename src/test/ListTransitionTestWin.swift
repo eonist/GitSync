@@ -62,6 +62,12 @@ class ListTransitionTestView:TitleView{
             }
         }
         addBtn.event = onAdd
+        
+        //Continue here: 🏀
+            //add test code to sliderFastList2
+            //test cases where items fall outside the visible-items
+            //try to readjust scroll progress after add/remove
+        
     }
     func sliderFastList(){
         var dp:DataProvider
