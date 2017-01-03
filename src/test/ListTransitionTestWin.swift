@@ -49,8 +49,11 @@ class ListTransitionTestView:TitleView{
         list
     }
     func fastList2(){
-        let addBtn = addSubView(Button())
-        
+        let addBtn = addSubView(Button(100,24,self))
+        func onAdd(event:Event){
+            Swift.print("added item to list")
+        }
+        addBtn.event = onAdd
         
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         let list = addSubView(FastList2(140,73,24,dp,self))
