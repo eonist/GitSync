@@ -49,7 +49,7 @@ class ListTransitionTestView:TitleView{
         list
     }
     func fastList2(){
-        let addBtn = addSubView(Button(100,24,self))
+        let addBtn = addSubView(TextButton(100,24,"add",self))
         func onAdd(event:Event){
             Swift.print("added item to list")
         }
