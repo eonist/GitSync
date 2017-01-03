@@ -35,7 +35,7 @@ class ListTransitionTestView:TitleView{
         //list()
     }
     func rbSliderFastList2(){
-        let dp:DataProvider = DataProvider("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath)//longlist.xml//DataProvider()//
+        let dp:DataProvider = DataProvider()//DataProvider("~/Desktop/ElCapitan/assets/xml/list.xml".tildePath)//longlist.xml
         dp.addItem(["title":"pink"])
         dp.addItem(["title":"orange"])
         dp.addItem(["title":"purple"])
