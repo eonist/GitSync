@@ -61,9 +61,12 @@ class ListTransitionTestView:TitleView{
         addBtn.event = onAdd
         
         //Continue here: 🏀
-            //add test code to sliderFastList2
-            //test cases where items fall outside the visible-items
-            //try to readjust scroll progress after add/remove
+            //add test code to sliderFastList2✅
+            //test cases where items fall outside the visible-items✅
+            //try to re-adjust scroll progress after add/remove
+            //re-adjust slider size after add/remove
+            //re-adjust lableContainer after add/remove
+            //re-adjust 
 
         
         
