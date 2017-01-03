@@ -26,9 +26,9 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        rbSliderFastList2()
+        //rbSliderFastList2()
         //sliderFastList2()
-        //fastList2()
+        fastList2()
         //sliderFastList()
         //fastList()
         //sliderList()
@@ -49,6 +49,9 @@ class ListTransitionTestView:TitleView{
         list
     }
     func fastList2(){
+        let addBtn = addSubView(Button())
+        
+        
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         let list = addSubView(FastList2(140,73,24,dp,self))
         list
