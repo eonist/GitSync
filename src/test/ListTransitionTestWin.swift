@@ -44,15 +44,11 @@ class ListTransitionTestView:TitleView{
         list
     }
     func sliderFastList2(){
-        
-        
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         let list = self.addSubView(SliderFastList2(140, 73, 24, dp, self))
         list
-        
+        /*add*/
         let addBtn = addSubView(TextButton(100,24,"add",self))
-        let removeBtn = addSubView(TextButton(100,24,"remove",self))
-        
         func onAdd(event:Event){
             if(event.type == ButtonEvent.upInside){
                 Swift.print("added item to list")
@@ -60,7 +56,8 @@ class ListTransitionTestView:TitleView{
             }
         }
         addBtn.event = onAdd
-        
+        /*remove*/
+        let removeBtn = addSubView(TextButton(100,24,"remove",self))
         func onRemove(event:Event){
             if(event.type == ButtonEvent.upInside){
                 Swift.print("remove item at index: 1")
