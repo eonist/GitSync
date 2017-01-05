@@ -67,8 +67,7 @@ class ListTransitionTestView:TitleView{
                 list.dataProvider.removeItemAt(1)
             }
         }
-        addBtn.event = onRemove
-        
+        removeBtn.event = onRemove
     }
     func fastList2(){
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
