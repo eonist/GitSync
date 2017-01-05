@@ -52,7 +52,7 @@ class ListTransitionTestView:TitleView{
         func onAdd(event:Event){
             if(event.type == ButtonEvent.upInside){
                 Swift.print("added item to list")
-                list.dataProvider.addItemAt(["title":"fuchsia"], 1)//add item at index 2
+                list.dataProvider.addItemAt(["title":"fuchsia"], 0)//add item at index 2
             }
         }
         addBtn.event = onAdd
@@ -61,7 +61,7 @@ class ListTransitionTestView:TitleView{
         func onRemove(event:Event){
             if(event.type == ButtonEvent.upInside){
                 Swift.print("remove item at index: 1")
-                list.dataProvider.removeItemAt(1)
+                list.dataProvider.removeItemAt(0)
             }
         }
         removeBtn.event = onRemove
