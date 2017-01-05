@@ -51,6 +51,7 @@ class ListTransitionTestView:TitleView{
         list
         
         let addBtn = addSubView(TextButton(100,24,"add",self))
+        let removeBtn = addSubView(TextButton(100,24,"remove",self))
         
         func onAdd(event:Event){
             if(event.type == ButtonEvent.upInside){
@@ -59,6 +60,14 @@ class ListTransitionTestView:TitleView{
             }
         }
         addBtn.event = onAdd
+        
+        func onRemove(event:Event){
+            if(event.type == ButtonEvent.upInside){
+                Swift.print("added item to list")
+                list.dataProvider.removeItemAt(1)
+            }
+        }
+        addBtn.event = onRemove
         
     }
     func fastList2(){
