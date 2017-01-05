@@ -63,7 +63,7 @@ class ListTransitionTestView:TitleView{
         
         func onRemove(event:Event){
             if(event.type == ButtonEvent.upInside){
-                Swift.print("added item to list")
+                Swift.print("remove item at index: 1")
                 list.dataProvider.removeItemAt(1)
             }
         }
