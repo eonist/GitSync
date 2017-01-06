@@ -26,6 +26,7 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
+        dpTests()
         //rbSliderFastList2()
         //sliderFastList2()
         //fastList2()
@@ -49,10 +50,22 @@ class ListTransitionTestView:TitleView{
         //big list
     }
     /**
-     *
+     * try to add and remove items. count the items after🏀
      */
     func dpTests(){
-        //try to add and remove items. count the items after🏀
+        let dp:DataProvider = DataProvider()//DataProvider("~/Desktop/ElCapitan/assets/xml/list.xml".tildePath)//longlist.xml
+        dp.addItem(["title":"pink"])
+        Swift.print("dp.count: " + "\(dp.count)")
+        dp.addItem(["title":"orange"])
+        Swift.print("dp.count: " + "\(dp.count)")
+        dp.addItem(["title":"purple"])
+        Swift.print("dp.count: " + "\(dp.count)")
+        dp.removeItemAt(0)
+        Swift.print("dp.count: " + "\(dp.count)")
+        dp.removeItemAt(0)
+        Swift.print("dp.count: " + "\(dp.count)")
+        dp.removeItemAt(0)
+        Swift.print("dp.count: " + "\(dp.count)")
     }
     func rbSliderFastList2(){
         let dp:DataProvider = DataProvider()//DataProvider("~/Desktop/ElCapitan/assets/xml/list.xml".tildePath)//longlist.xml
