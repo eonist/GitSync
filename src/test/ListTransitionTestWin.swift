@@ -48,6 +48,7 @@ class ListTransitionTestView:TitleView{
     func fastList3(){
         //add small list
         //big list
+        //then start adding removing items
     }
     /**
      * Try to add and remove items. count the items after
