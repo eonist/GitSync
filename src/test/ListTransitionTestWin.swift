@@ -27,12 +27,32 @@ class ListTransitionTestView:TitleView{
     }
     func createGUI(){
         //rbSliderFastList2()
-        sliderFastList2()
+        //sliderFastList2()
         //fastList2()
         //sliderFastList()
         //fastList()
         //sliderList()
         //list()
+    }
+    /**
+     *
+     */
+    func sliderFastList3(){
+        //add small list
+        //big list
+    }
+    /**
+     *
+     */
+    func fastList3(){
+        //add small list
+        //big list
+    }
+    /**
+     *
+     */
+    func dpTests(){
+        //try to add and remove items. count the items after🏀
     }
     func rbSliderFastList2(){
         let dp:DataProvider = DataProvider()//DataProvider("~/Desktop/ElCapitan/assets/xml/list.xml".tildePath)//longlist.xml
