@@ -21,10 +21,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initTestWin()
         //_ = PopulateCommitDB()
         
-        var arr = [["name":"Alf"],["name":"Bert"],["name":"Bill"],["name":"John"],["name":"James"],["name":"Chuck"]]
-        let match = ["Bert","James","Chuck"]
-        let result = ArrayModifier.removeManyByKey(&arr, match, "name")
-        print("result: " + "\(result)")//Alf,Bill,John
+        let arr = [1,2,3]
+        
     }
     func initTestWin(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
