@@ -26,7 +26,8 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        sliderFastList3()
+        rbSliderFastList3()
+        //sliderFastList3()
         //fastList3()
         //dpTests()
         //rbSliderFastList2()
@@ -37,8 +38,6 @@ class ListTransitionTestView:TitleView{
         //sliderList()
         //list()
     }
-    
-    //TODO: Make rbsliderlist3🏀
     func rbSliderFastList3(){
         let dp:DataProvider = DataProvider("~/Desktop/ElCapitan/assets/xml/list.xml".tildePath)//longlist.xml//DataProvider()//
         /*dp.addItem(["title":"pink"])
