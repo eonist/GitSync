@@ -21,7 +21,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initTestWin()
         //_ = PopulateCommitDB()
         
-        ArrayModifier.removeManyByKey(&<#T##array: [Dictionary<String, T>]##[Dictionary<String, T>]#>, <#T##many: Array<T>##Array<T>#>, <#T##key: String##String#>)
+        var arr = [["name":"Alf"],["name":"Bert"],["name":"Bill"],["name":"John"],["name":"James"],["name":"Chuck"]]
+        var match = ["Bert","James","Chuck"]
+        let result = ArrayModifier.removeManyByKey(&arr, match, "name")
+        print("result: " + )//Alf,Bill,John
     }
     func initTestWin(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
