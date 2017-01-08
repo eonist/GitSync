@@ -25,7 +25,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let match = ["Bert","James","Chuck"]
         let result = ArrayModifier.removeManyByKey(&arr, match, "name")
         print("result: " + "\(result)")//Alf,Bill,John
-        result.description
     }
     func initTestWin(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
