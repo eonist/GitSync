@@ -22,8 +22,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //_ = PopulateCommitDB()
         
         var arr = [1,2,3,4,5,6]
-        let newArr = ArrayModifier.splitAtEvery(arr, 2)
-        Swift.print(newArr)//([1, 2, 3], [4, 5, 6])
+        let result = arr.slice2(0, 0)
+        Swift.print(result)
+        let res2 = arr[0..<0]
+        Swift.print(res2)
+        
+        //let newArr = ArrayModifier.splitAtEvery(arr, 2)
+        //Swift.print(newArr)//([1, 2, 3], [4, 5, 6])
     }
     func initTestWin(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
