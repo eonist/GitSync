@@ -18,8 +18,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //_ = Test()
         //initApp()
-        initTestWin()
+        //initTestWin()
         //_ = PopulateCommitDB()
+        
+        ArrayModifier.removeManyByKey(&<#T##array: [Dictionary<String, T>]##[Dictionary<String, T>]#>, <#T##many: Array<T>##Array<T>#>, <#T##key: String##String#>)
     }
     func initTestWin(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
