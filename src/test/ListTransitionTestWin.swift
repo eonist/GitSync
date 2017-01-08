@@ -51,7 +51,10 @@ class ListTransitionTestView:TitleView{
         //big list
         //then start adding removing items
         
-        let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
+        let dp:DataProvider = DataProvider()//DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
+        //dp.addItem(["title":"pink"])
+        //dp.addItem(["title":"orange"])
+        //dp.addItem(["title":"purple"])
         let list = addSubView(FastList3(140,73,24,dp,self))
         list
     }
