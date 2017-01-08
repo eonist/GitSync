@@ -26,7 +26,8 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        dpTests()
+        fastList3()
+        //dpTests()
         //rbSliderFastList2()
         //sliderFastList2()
         //fastList2()
@@ -49,6 +50,10 @@ class ListTransitionTestView:TitleView{
         //add small list
         //big list
         //then start adding removing items
+        
+        let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
+        let list = addSubView(FastList3(140,73,24,dp,self))
+        list
     }
     /**
      * Try to add and remove items. count the items after
