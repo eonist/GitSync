@@ -22,9 +22,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //_ = PopulateCommitDB()
         
         var arr = [1,2,3,4,5,6]
-        let result = arr.slice2(4, 5)
+        let result = arr.slice2(0, 6)
         Swift.print(result)
-        let res2 = arr[4..<5]
+        let res2 = arr[0..<6]
         Swift.print(res2)
         
         //let newArr = ArrayModifier.splitAtEvery(arr, 2)
