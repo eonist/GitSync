@@ -23,7 +23,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let arr = ["1","2","3","4","5","6"]
         let newArr = ArrayModifier.splitAtEvery(arr,3)
-        Swift.print(newArr)
+        Swift.print(newArr)//[["1", "2", "3"], ["4", "5", "6"]]
         
         //let newArr = ArrayModifier.splitAtEvery(arr, 2)
         //Swift.print(newArr)//([1, 2, 3], [4, 5, 6])
