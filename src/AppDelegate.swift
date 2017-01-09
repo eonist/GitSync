@@ -22,7 +22,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //_ = PopulateCommitDB()
         
         let ranArr = ArrayParser.uniqueRandom(0, 4)
-        Swift.print(ranArr)
+        Swift.print(ranArr)//[3, 1, 0, 4, 2]
         
         
        
