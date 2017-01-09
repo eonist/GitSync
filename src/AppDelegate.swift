@@ -25,6 +25,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let contains = ArrayAsserter.contains([1,2,3], [1,2], false)
         Swift.print("contains: " + "\(contains)")
        
+        let contains2 = ArrayAsserter.contains([1,2,3], [1,2], true)
+        Swift.print("contains2: " + "\(contains2)")
         
         //let newArr = ArrayModifier.splitAtEvery(arr, 2)
         //Swift.print(newArr)//([1, 2, 3], [4, 5, 6])
