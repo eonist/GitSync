@@ -21,9 +21,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initTestWin()
         //_ = PopulateCommitDB()
         
-        let arr = ["1","2","3","4","5","6"]
-        let newArr = ArrayModifier.splitAtEvery(arr,3)
-        Swift.print(newArr)//[["1", "2", "3"], ["4", "5", "6"]]
+        let ranArr = ArrayParser.uniqueRandom(0, 4)
+        Swift.print(ranArr)
         
         //let newArr = ArrayModifier.splitAtEvery(arr, 2)
         //Swift.print(newArr)//([1, 2, 3], [4, 5, 6])
