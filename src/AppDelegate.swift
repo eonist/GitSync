@@ -21,10 +21,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initTestWin()
         //_ = PopulateCommitDB()
         
-        let ranArr = ArrayParser.uniqueRandom(0, 4)
-        Swift.print(ranArr)//[3, 1, 0, 4, 2]
-        
-        
+        let arr = [1,2,3]
+        let contains = ArrayAsserter.contains(arr, [2])
+        Swift.print("contains: " + "\(contains)")
        
         
         //let newArr = ArrayModifier.splitAtEvery(arr, 2)
