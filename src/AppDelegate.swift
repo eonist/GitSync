@@ -21,8 +21,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initTestWin()
         //_ = PopulateCommitDB()
         
-        let arr = [1,2,3]
-        let contains = ArrayAsserter.contains(arr, [2])
+
+        let contains = ArrayAsserter.contains([1,2,3], [1,2], false)
         Swift.print("contains: " + "\(contains)")
        
         
