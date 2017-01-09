@@ -21,9 +21,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initTestWin()
         //_ = PopulateCommitDB()
         
-        var arr:Array = ["a","b","b","c","b","d","c"]
-        let newArr = ArrayModifier.removeDuplicates(arr)
-        Swift.print(newArr)
+        var arr:Array = [2,4,1,2,0]
+        ArrayModifier.numericSort(&arr)
+        Swift.print(arr)
         
         //let newArr = ArrayModifier.splitAtEvery(arr, 2)
         //Swift.print(newArr)//([1, 2, 3], [4, 5, 6])
