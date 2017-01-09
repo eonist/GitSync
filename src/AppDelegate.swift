@@ -24,8 +24,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //let ranArr = ArrayParser.uniqueRandom(0, 4)
         //Swift.print(ranArr)
         
-        let diceRoll = Int(arc4random_uniform(6) + 1)
-        Swift.print("diceRoll: " + "\(diceRoll)")
+        
+        Swift.print("diceRoll: " + "\(Int(arc4random_uniform(6) + 1))")
+        Swift.print("diceRoll: " + "\(Int(arc4random_uniform(6) + 1))")
+        Swift.print("diceRoll: " + "\(Int(arc4random_uniform(6) + 1))")
+        Swift.print("diceRoll: " + "\(Int(arc4random_uniform(6) + 1))")
         
         //let newArr = ArrayModifier.splitAtEvery(arr, 2)
         //Swift.print(newArr)//([1, 2, 3], [4, 5, 6])
