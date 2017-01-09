@@ -18,7 +18,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //_ = Test()
         //initApp()
-        //initTestWin()
+        initTestWin()
         //_ = PopulateCommitDB()
         
 
