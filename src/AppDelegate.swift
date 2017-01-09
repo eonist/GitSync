@@ -21,6 +21,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initTestWin()
         //_ = PopulateCommitDB()
         
+        var arr = ["1","2","3","4","5"]
+        ArrayModifier.replaceMany(&arr, [], [])
         
         
         //let newArr = ArrayModifier.splitAtEvery(arr, 2)
