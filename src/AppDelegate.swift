@@ -21,8 +21,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initTestWin()
         //_ = PopulateCommitDB()
         
-        let ranArr = ArrayParser.uniqueRandom(0, 4)
-        Swift.print(ranArr)
+        //let ranArr = ArrayParser.uniqueRandom(0, 4)
+        //Swift.print(ranArr)
+        
+        let diceRoll = Int(arc4random_uniform(6) + 1)
+        Swift.print("diceRoll: " + "\(diceRoll)")
         
         //let newArr = ArrayModifier.splitAtEvery(arr, 2)
         //Swift.print(newArr)//([1, 2, 3], [4, 5, 6])
