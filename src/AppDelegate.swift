@@ -18,18 +18,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //_ = Test()
         //initApp()
-        initTestWin()
+        //initTestWin()
         //_ = PopulateCommitDB()
         
-
-        let contains = ArrayAsserter.contains([1,2,3], [1,2], false)
-        Swift.print("contains: " + "\(contains)")
-       
-        let contains2 = ArrayAsserter.contains([1,2,3], [1,2], true)
-        Swift.print("contains2: " + "\(contains2)")
+        Swift.print(ArrayAsserter.equals(["",""], ["","",""]))//false
+        Swift.print(ArrayAsserter.equals([1,2], [1,2]))//true
         
-        //let newArr = ArrayModifier.splitAtEvery(arr, 2)
-        //Swift.print(newArr)//([1, 2, 3], [4, 5, 6])
     }
     func initTestWin(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
