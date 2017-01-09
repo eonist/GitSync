@@ -21,7 +21,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initTestWin()
         //_ = PopulateCommitDB()
         
-        var arr:Array = [2,4,1,2,0]
+        var arr:Array = [5,4,1,2,0]
         ArrayModifier.numericSort(&arr)
         Swift.print(arr)
         
