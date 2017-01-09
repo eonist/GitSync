@@ -22,8 +22,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //_ = PopulateCommitDB()
         
         var arr:Array = ["a","b","b","c","b","d","c"]
-        ArrayModifier.removeDuplicates(arr)
-        Swift.print(arr)
+        let newArr = ArrayModifier.removeDuplicates(arr)
+        Swift.print(newArr)
         
         //let newArr = ArrayModifier.splitAtEvery(arr, 2)
         //Swift.print(newArr)//([1, 2, 3], [4, 5, 6])
