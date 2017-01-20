@@ -10,7 +10,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
     var fileWatcher:FileWatcher?
     var test:PopulateCommitDB?
-    var timer:Timer?
+    var timer:SimpleTimer?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
          Swift.print("GitSync - Simple git automation for macOS")
@@ -50,7 +50,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         win = MainWin(MainView.w,MainView.h)
         //win = ConflictDialogWin(380,400)
         //win = CommitDialogWin(400,356)
-        
         
     }
     func applicationWillTerminate(_ aNotification: Notification) {
