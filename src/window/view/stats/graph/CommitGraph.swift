@@ -90,7 +90,8 @@ class CommitGraph:Graph{
         updateDateText()
     }
     /**
-	 * ReCalc the hValue indicators (each week has a different max hValue etc)
+	 * Interpolates
+	 * NOTE: ReCalc the hValue indicators (each week has a different max hValue etc)
 	 */
     func interpolateValue(val:CGFloat){
         Swift.print("interpolateValue() val: " + "\(val)")
@@ -102,7 +103,7 @@ class CommitGraph:Graph{
         }
         /*GraphLine*/
         let path:IPath = PolyLineGraphicUtils.path(positions)/*convert points to a Path*/
-        let cgPath = CGPathUtils.compile(CGPathCreateMutable(), path)
+        let cgPath = CGPathUtils.compile(CGPathCreateMutable(), path)//convert path to cgPath, ideally we should create the cgPath from the points
         graphLine!.line!.cgPath = cgPath.copy()
         graphLine!.line!.draw()
     }
