@@ -18,13 +18,13 @@ class CommitGraph:Graph{
         dateText = addSubView(TextArea(180,24,"-",self,"date"))
         updateDateText()
     }
-    override func touchesEndedWithEvent(event: NSEvent) {
+    override func touchesEndedWithEvent(event: NSEvent) {//for debugging
         //Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")
     }
-    override func touchesCancelledWithEvent(event: NSEvent) {
+    override func touchesCancelledWithEvent(event: NSEvent) {//for debugging
         //Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
     }
-    var twoFingersTouches:NSMutableDictionary?//temp storage
+    var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
 	/**
      * To avoid duplicate code we could extract the content of this method into an GestureUtils method. Return nil if there isnt 2 touches and set the array only if != nil
      */
@@ -49,8 +49,8 @@ class CommitGraph:Graph{
         //Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
         let touches:Set<NSTouch> = event.touchesMatchingPhase(NSTouchPhase.Ended, inView: self)
         if(touches.count > 0){
-            let beginTouches:NSMutableDictionary = self.twoFingersTouches!
-            self.twoFingersTouches = nil//reset the twoFingerTouches data
+            let beginTouches:NSMutableDictionary = self.twoFingersTouches!/*copy the twoFingerTouches data*/
+            self.twoFingersTouches = nil/*reset the twoFingerTouches data*/
             
             let magnitudes:NSMutableArray = NSMutableArray()
             
