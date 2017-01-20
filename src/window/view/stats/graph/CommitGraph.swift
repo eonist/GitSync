@@ -37,6 +37,10 @@ class CommitGraph:Graph{
             }
         }
     }
+	/**
+     * Detects if a two finger left or right swipe has occured
+	 * TODO: To avoid duplicate code we could extract the content of this class to a Utility method, GestureUtils? and either of 3 enums could be returened. .leftSwipe, .rightSwipe .none
+     */
     override func touchesMovedWithEvent(event: NSEvent) {
         //Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
         
