@@ -25,7 +25,10 @@ class CommitGraph:Graph{
         //Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
     }
     var twoFingersTouches:NSMutableDictionary?//temp storage
-    override func touchesBeganWithEvent(event: NSEvent) {
+	/**
+     * To avoid duplicate code we could extract the content of this method into an GestureUtils method. Return nil if there isnt 2 touches and set the array only if != nil
+     */
+    override func touchesBeganWithEvent(event:NSEvent) {
         //Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
         if(event.type == NSEventType.EventTypeGesture){//was NSEventTypeGesture, could maybe be: EventTypeBeginGesture
             let touches:NSSet = event.touchesMatchingPhase(NSTouchPhase.Any, inView: self) //touchesMatchingPhase:NSTouchPhaseAny inView:self
@@ -44,7 +47,6 @@ class CommitGraph:Graph{
      */
     override func touchesMovedWithEvent(event: NSEvent) {
         //Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
-        
         let touches:Set<NSTouch> = event.touchesMatchingPhase(NSTouchPhase.Ended, inView: self)
         if(touches.count > 0){
             let beginTouches:NSMutableDictionary = self.twoFingersTouches!
