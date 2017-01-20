@@ -7,7 +7,7 @@ class StatusUtils{
 	 * Returns a descriptive status list of the current git changes
 	 * NOTE: you may use short staus, but you must interpret the message if the state has an empty space infront of it
 	 */
-	class func generateStatusList(localRepoPath:String)->[Dictionary<String,String>]{
+	class func generateStatusList(_ localRepoPath:String)->[Dictionary<String,String>]{
 		let theStatus:String = GitParser.status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
 		Swift.print("theStatus: " + "\(theStatus)")
 		let theStatusList:Array = StringParser.paragraphs(theStatus) //--store each line as items in a list
@@ -32,7 +32,7 @@ class StatusUtils{
 	 * @Param: theStatusList is a list with status messages like: {"?? test.txt"," M index.html","A home.html"}
 	 * NOTE: can also be "UU" unmerged paths
  	 */
-	class func transformStatusList(theStatusList:Array<String>)->[Dictionary<String,String>]{
+	class func transformStatusList(_ theStatusList:Array<String>)->[Dictionary<String,String>]{
         Swift.print("transformStatusList()")
 		var transformedList:[Dictionary<String,String>] = []
         for theStatusItem:String in theStatusList {
@@ -45,7 +45,7 @@ class StatusUtils{
             let matches:[NSTextCheckingResult] = RegExp.matches(theStatusItem, "^( )*([MARDU?]{1,2}) (.+)$") //--returns 3 capturing groups,
             let theStatusParts:NSTextCheckingResult = matches[0]
             enum StatusParts:Int{ case first = 0, second , third, fourth}
-            let second:String = theStatusParts.rangeAtIndex(StatusParts.second.rawValue).length > 0 ? RegExp.value(theStatusItem,theStatusParts,StatusParts.second.rawValue) : ""
+            let second:String = theStatusParts.rangeAt(StatusParts.second.rawValue).length > 0 ? RegExp.value(theStatusItem,theStatusParts,StatusParts.second.rawValue) : ""
             Swift.print("second: " + "\(second)")
             let third:String = RegExp.value(theStatusItem,theStatusParts,StatusParts.third.rawValue)
             Swift.print("third: " + "\(third)")
@@ -81,7 +81,7 @@ class StatusUtils{
 	 * NOTE: even if a file is removed, its status needs to be added to the next commit
 	 * TODO: Squash some of the states together with if or or or etc..
 	 */
-	class func processStatusList(localRepoPath:String, _ statusList:[Dictionary<String,String>]){
+	class func processStatusList(_ localRepoPath:String, _ statusList:[Dictionary<String,String>]){
 		Swift.print("processStatusList()")
         for statusItem:Dictionary<String,String> in statusList{
 			//--log "len of status_item: " & (length of statusItem)
@@ -93,15 +93,15 @@ class StatusUtils{
 			switch state {
 				case "Untracked files": //--this is when there exists a new file
 					Swift.print("1. " + "Untracked files")
-					GitModifier.add(localRepoPath, fileName) //add the file to the next commit
+					_ = GitModifier.add(localRepoPath, fileName) //add the file to the next commit
 				case "Changes not staged for commit": //--this is when you have not added a file that has changed to the next commit
 					Swift.print("2. " + "Changes not staged for commit")
-					GitModifier.add(localRepoPath, fileName) //--add the file to the next commit
+					_ = GitModifier.add(localRepoPath, fileName) //--add the file to the next commit
 				case "Changes to be committed"://--this is when you have added a file to the next commit, but not commited it
                     Swift.print("3. " + "Changes to be committed")//do nothing here
 				case "Unmerged path": //--This is when you have files that have to be resolved first, but eventually added aswell
 					Swift.print("4. " + "Unmerged path")
-					GitModifier.add(localRepoPath, fileName) //add the file to the next commit
+					_ = GitModifier.add(localRepoPath, fileName) //add the file to the next commit
                 default :
 					//throw error
 					break

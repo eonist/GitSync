@@ -24,7 +24,7 @@ class CommitDialogView:TitleView{
      */
     func createGUI(){
         let guiContainer = addSubView(Container(frame.width,frame.height,self,"gui"))
-        guiContainer.addSubView(Element(NaN, NaN, guiContainer, "topRuler"))
+        _ = guiContainer.addSubView(Element(NaN, NaN, guiContainer, "topRuler"))
         
         //Repository: Element - iOS
         repoTextInput = guiContainer.addSubView(TextInput(width, 32, "Repository: ", "Element - iOS", guiContainer,"repo"))
@@ -34,7 +34,7 @@ class CommitDialogView:TitleView{
         descTextInput = guiContainer.addSubView(TextInput(width, 32, "Commit description: ", "4 Files changed", guiContainer,"desc"))
         //Ok,Cancel buttons
         
-        guiContainer.addSubView(Element(NaN, NaN, guiContainer, "ruler"))
+        _ = guiContainer.addSubView(Element(NaN, NaN, guiContainer, "ruler"))
         
         let confirmSection:Section = guiContainer.addSubView(Section(NaN,NaN,guiContainer,"confirm"))
         okButton = confirmSection.addSubView(TextButton(NaN,NaN,"OK",confirmSection,"ok"))//ok button
@@ -42,5 +42,5 @@ class CommitDialogView:TitleView{
         
     }
     
-    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }

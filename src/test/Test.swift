@@ -19,10 +19,10 @@ class Test {
         var sortedArr:[Int] = []//[1,4,6,7,8,9,12,15,22,22,22,26,33,122,455]
         Swift.print("sortedArr.count: " + "\(sortedArr.count)")
         
-        func add(item:Int){
+        func add(_ item:Int){
             let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
             Swift.print("closestIndex: " + "\(closestIdx)")
-            sortedArr.insertAt(item, closestIdx)
+            _ = sortedArr.insertAt(item, closestIdx)
         }
         add(1)
         add(6)
@@ -57,17 +57,16 @@ class Test {
     *
     */
     func moreShellTesting(){
-        func executeCommand(command: String, args: [String]) -> NSString {
-            let task = NSTask()
+        func executeCommand(_ command: String, args: [String]) -> NSString {
+            let task = Process()
             task.launchPath = command
             task.arguments = args
-            let pipe = NSPipe()
+            let pipe = Pipe()
             task.standardOutput = pipe
             task.launch()
             let data = pipe.fileHandleForReading.readDataToEndOfFile()
-            let output = NSString(data: data, encoding: NSUTF8StringEncoding)
+            let output = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
             return output!
-            
         }
         
         let commandOutput = executeCommand("/bin/sh", args: ["-c","echo Hello, I am here!"])
@@ -89,8 +88,8 @@ class Test {
         //let result:String = ShellUtils.run("ls","~/_projects/_code/_active/swift/Element-iOS")
         //Swift.print("result: " + "\(result)")
         let cd = "~/_projects/_code/_active/swift/GitSyncOSX".tildePath//"~/_projects/_code/_active/swift/Element-iOS"
-        cd
-        let task = NSTask()
+        _ = cd
+        let task = Process()
         //task.currentDirectoryPath = cd
         task.launchPath = "~/Desktop/my_script.sh"//"/bin/sh"//"/usr/bin/env"//"/bin/bash"//
         //let logCMD:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
@@ -106,20 +105,20 @@ class Test {
         }
         task.arguments = args
         task.environment = ["LC_ALL" : "en_US.UTF-8","HOME" : NSHomeDirectory()]
-        let pipe = NSPipe()
+        let pipe = Pipe()
         task.standardOutput = pipe
         
         //NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: task, queue: nil, usingBlock:handler)/*{ notification in})*/
         
         task.launch()
         task.waitUntilExit()
-        let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
+        let data:Data = pipe.fileHandleForReading.readDataToEndOfFile()
+        let output:String = NSString(data:data, encoding:String.Encoding.utf8.rawValue) as! String
         Swift.print("output: " + "\(output)")
         Swift.print("task.terminationStatus: " + "\(task.terminationStatus)")
         Swift.print("Time: " + "\(abs(self.startTime!.timeIntervalSinceNow))")
     }
-    func handler(notification:NSNotification) {
+    func handler(notification:Notification) {
         Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
     }
     /**
@@ -170,9 +169,9 @@ class Test {
         /**
          *
          */
-        func trim(str:String){
+        func trim(_ str:String){
             let pattern = "^(?:'?\n*)(.*?)(?:\n*'?)$"//"(?:^'?\n*)(.*?)(?:(\n+?'?$)|('$)|$)"
-            let options:NSRegularExpressionOptions = [.CaseInsensitive, .DotMatchesLineSeparators]
+            let options:NSRegularExpression.Options = [.caseInsensitive, .dotMatchesLineSeparators]
             str.matches(pattern,options).forEach{//its not pretty but it works
                 if($0.numberOfRanges > 1){
                     let body = $0.value(str, 1)/*capturing group 1*/
@@ -273,7 +272,7 @@ class Test {
         //make a few items that you can sort
         
         var customArray = [a,b,c]
-        customArray.sortInPlace { (element1, element2) -> Bool in
+        customArray.sort { (element1, element2) -> Bool in
             return element1.date < element2.date
         }
         customArray.forEach{Swift.print($0.subject)}
@@ -296,14 +295,14 @@ class Test {
         
         let commitData = GitLogParser.commitData(testString)
         
-        let date:NSDate = GitDateUtils.date(commitData.date)
+        let date:Date = GitDateUtils.date(commitData.date)
         Swift.print("date.shortDate: " + "\(date.shortDate)")
     }
     /**
      *
      */
     func relativeTimeTest(){
-        let today:NSDate = NSDate()
+        let today:Date = Date()
         Swift.print("today.shortDate: " + "\(today.shortDate)")
         
         let threeDaysAgo = today.offsetByDays(-3)

@@ -5,7 +5,7 @@ class DescUtils{
 	/*
 	 * Returns a "Git Commit Message Description" derived from a "git status list" with "status items records"
 	 */
-	class func sequenceDescription(statusList:[Dictionary<String,String>])->String{
+	class func sequenceDescription(_ statusList:[Dictionary<String,String>])->String{
 		var descText:String = ""
 		var modifiedItems:[Dictionary<String,String>] = []
 		var deletedItems:[Dictionary<String,String>] = []
@@ -30,7 +30,7 @@ class DescUtils{
 	/*
 	 * Returns a paragraph with a detailed description for Deleted, added and modified files
 	 */
-	class func descriptionParagraph(theList:[Dictionary<String,String>], _ prefixText:String)->String{
+	class func descriptionParagraph(_ theList:[Dictionary<String,String>], _ prefixText:String)->String{
 		var descText:String = ""
 		if (theList.count > 0) {
 			var theSuffix:String = " file"

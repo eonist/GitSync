@@ -23,7 +23,7 @@ class DebugView:Element{
         //add a stop button (TexteButton)
         stopButton = addSubView(TextButton(100,24,"stop",self))
     }
-    override func onEvent(event: Event) {
+    override func onEvent(_ event: Event) {
         if(event.assert(SliderEvent.change, volumeSlider)){
             let volumSliderProgress = (event as! SliderEvent).progress
             Swift.print("volumSliderProgress: " + "\(volumSliderProgress)")

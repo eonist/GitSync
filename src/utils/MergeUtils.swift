@@ -10,13 +10,13 @@ class MergeUtils{
      * NOTE: prompts the users if a merge conflicts occure
      * TODO: we should use two branch params here since its entirly possible to merge from a different remote branch
      */
-    class func manualMerge(localPath:String, _ remotePath:String, _ branch:String){
+    class func manualMerge(_ localPath:String, _ remotePath:String, _ branch:String){
         Swift.print("MergeUtils.manualMerge()")
         if (GitAsserter.hasUnMergedPaths(localPath)) { //Asserts if there are unmerged paths that needs resolvment
             Swift.print("has unmerged paths to resolve")
             MergeUtils.resolveMergeConflicts(localPath, branch, GitParser.unMergedFiles(localPath))//Asserts if there are unmerged paths that needs resolvment
         }
-        GitSync.doCommit(localPath)//its best practice to always commit any uncommited files before you attempt to pull.
+        _ = GitSync.doCommit(localPath)//its best practice to always commit any uncommited files before you attempt to pull.
         //try
         GitUtils.manualPull(localPath, remotePath, branch)//manual clone down files
         
@@ -34,7 +34,7 @@ class MergeUtils{
  	 * Promts the user with a list of options to aid in resolving merge conflicts
  	 * @param branch: the branch you tried to merge into
  	 */
-	class func resolveMergeConflicts(localRepoPath:String, _ branch:String, _ unMergedFiles:Array<String>){
+	class func resolveMergeConflicts(_ localRepoPath:String, _ branch:String, _ unMergedFiles:Array<String>){
 		//log "resolve_merge_conflicts()"
 		//log ("MergeUtil's resolve_merge_conflicts()")
         for unMergedFile:String in unMergedFiles {
@@ -60,41 +60,41 @@ class MergeUtils{
  	 * Handles the choice made in the merge conflict dialog
  	 * TODO: test the open file clauses
  	 */
-	class func handleMergeConflictDialog(selected:String, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:Array<String>){
+	class func handleMergeConflictDialog(_ selected:String, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:Array<String>){
 		//log "handle_merge_conflict_dialog()"
 		//print("MergeUtil's handle_merge_conflict_dialog(): " & (item 1 of the_action))
 		//last_selected_action = selected
 		
         switch selected{
             case options[0]://keep local version
-				GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)
+				_ = GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)
 			case options[1]://keep remote version
-				GitModifier.checkOut(localRepoPath, "--theirs", unmergedFile)
+				_ = GitModifier.checkOut(localRepoPath, "--theirs", unmergedFile)
 			case options[2]://keep mix of both versions
-				GitModifier.checkOut(localRepoPath, branch, unmergedFile)
+				_ = GitModifier.checkOut(localRepoPath, branch, unmergedFile)
 			case options[3]://open local version
-				GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)
+				_ = GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)
 				FileUtils.openFile(localRepoPath + unmergedFile)
 			case options[4]://open remote version
-				GitModifier.checkOut(localRepoPath, "--theirs", unmergedFile)
+				_ = GitModifier.checkOut(localRepoPath, "--theirs", unmergedFile)
 				FileUtils.openFile(localRepoPath + unmergedFile)
 			case options[5]://open mix of both versions
-				GitModifier.checkOut(localRepoPath, branch, unmergedFile)
+				_ = GitModifier.checkOut(localRepoPath, branch, unmergedFile)
 				FileUtils.openFile(localRepoPath + unmergedFile)
 			case options[6]://keep all local versions
-				GitModifier.checkOut(localRepoPath, "--ours", "*")
+				_ = GitModifier.checkOut(localRepoPath, "--ours", "*")
 			case options[7]://keep all remote versions
-				GitModifier.checkOut(localRepoPath, "--theirs", "*")
+				_ = GitModifier.checkOut(localRepoPath, "--theirs", "*")
 			case options[8]://keep all local and remote versions
-				GitModifier.checkOut(localRepoPath, branch, "*")
+				_ = GitModifier.checkOut(localRepoPath, branch, "*")
 			case options[9]://open all local versions
-				GitModifier.checkOut(localRepoPath, "--ours", "*")
+				_ = GitModifier.checkOut(localRepoPath, "--ours", "*")
 				FileUtils.openFiles([])//localRepoPath unmergedFiles
 			case options[10]://open all remote versions
-				GitModifier.checkOut(localRepoPath, "--theirs", "*")
+				_ = GitModifier.checkOut(localRepoPath, "--theirs", "*")
 				FileUtils.openFiles([])//localRepoPath,unmergedFiles
 			case options[11]://open all mixed versions
-				GitModifier.checkOut(localRepoPath, branch, "*")
+				_ = GitModifier.checkOut(localRepoPath, branch, "*")
 				FileUtils.openFiles([])//localRepoPath,unmergedFiles
         default:
 				break;

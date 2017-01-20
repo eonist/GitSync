@@ -27,7 +27,7 @@ class RepoView:Element {
         list!.dataProvider.addItemAt(["title":"New repo","local-path":"~/Desktop/","remote-path":"https://github.com/userName/repoName.git","interval":"0","keychain-item-name":"","branch":"master","broadcast":"false","subscribe":"true","auto-sync":"false"], 0)
         ListModifier.selectAt(list!, 0)
         let repoItem:Dictionary<String,String> = list!.dataProvider.getItemAt(list!.selectedIndex)!
-        Navigation.setView(String(RepoDetailView))
+        Navigation.setView("\(RepoDetailView.self)")
         (Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
         //list!.onEvent(ListEvent(ListEvent.select,0,list!))
     }
@@ -37,12 +37,12 @@ class RepoView:Element {
     }
     func onListSelect(){
         Sounds.play?.play()
-        Navigation.setView(String(RepoDetailView))
+        Navigation.setView("\(RepoDetailView.self)")
         RepoView.selectedListItemIndex = list!.selectedIndex
         let repoItem:Dictionary<String,String> = list!.dataProvider.getItemAt(RepoView.selectedListItemIndex)!
         (Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
     }
-    override func onEvent(event:Event) {
+    override func onEvent(_ event:Event) {
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
         //else if(event.type == ButtonEvent.upInside && event.origin === topBar!.backButton){onBackButtonClick()}
         else if(event.type == ListEvent.select){onListSelect()}

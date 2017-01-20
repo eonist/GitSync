@@ -50,7 +50,7 @@ class CommitDBRefreshTest {
         }
         
         let finalTask = operations[operations.count-1].task/*We listen to the last task for completion,this works because the NSTasks run in a serial fashion*/
-        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:handler)/*{ notification in})*/
+        NotificationCenter.default.addObserver(forName: Process.didTerminateNotification, object: finalTask, queue: nil, using:handler)/*{ notification in})*/
         
         operations.forEach{/*launch all tasks*/
             $0.task.launch()
@@ -65,10 +65,10 @@ class CommitDBRefreshTest {
         //repoList = [repoList[1]]//test with one repo the element ios repo
         //iterate()
     }
-    static func handler(notification:NSNotification) {
-        for (index,element) in operations.enumerate(){
-            let data:NSData = element.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
-            let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
+    static func handler(_ notification:Notification) {
+        for (index,element) in operations.enumerated(){
+            let data:Data = element.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
+            let output:String = NSString(data:data, encoding:String.Encoding.utf8.rawValue) as! String/*decode the date to a string*/
             if(output.count > 0){
                 Swift.print("output: " + "\(output)")
             }else{
@@ -105,7 +105,7 @@ class CommitDBRefreshTest {
     /**
      *
      */
-    static func refreshRepo(index:Int,_ element:[String:String]){
+    static func refreshRepo(_ index:Int,_ element:[String:String]){
         repoIndex += 1//increment the repoIndex
         let localPath:String = element["local-path"]!//local-path to repo
         let repoTitle = element["title"]!//name of repo
@@ -127,13 +127,13 @@ class CommitDBRefreshTest {
         let args:[String] = CommitViewUtils.commitItems(localPath,commitCount)/*creates an array of arguments that will return commit item logs*/
         if(args.count > 0){
             operations = []//reset the operations array
-            for (_,element) in args.enumerate(){
+            for (_,element) in args.enumerated(){
                 let operation = CommitViewUtils.configOperation([element],localPath,repoTitle,index)/*setup the NSTask correctly*/
                 operations.append(operation)
             }
             
             let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
-            NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
+            NotificationCenter.default.addObserver(forName: Process.didTerminateNotification, object: finalTask, queue: nil, using:observer)/*{ notification in})*/
             operations.forEach{/*launch all tasks*/
                 $0.task.launch()
             }
@@ -144,11 +144,11 @@ class CommitDBRefreshTest {
     /**
      * The handler for the NSTasks
      */
-    static func observer(notification:NSNotification) {
+    static func observer(_ notification:Notification) {
         //Swift.print("the last task completed")
-        for (index,element) in operations.enumerate(){
-            let data:NSData = element.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
-            let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
+        for (index,element) in operations.enumerated(){
+            let data:Data = element.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
+            let output:String = NSString(data:data, encoding:String.Encoding.utf8.rawValue) as! String/*decode the date to a string*/
             if(output.count > 0){
                 //Swift.print("output: " + ">\(output)<")
                 let commitData:CommitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
@@ -159,7 +159,7 @@ class CommitDBRefreshTest {
                 Swift.print("-----ERROR: repo: \(element.repoTitle) at index: \(index) didnt work")
             }
         }
-        NSNotificationCenter.defaultCenter().removeObserver(notification.object!)
+        NotificationCenter.default.removeObserver(notification.object!)
         iterate()
     }
     /**
@@ -168,11 +168,11 @@ class CommitDBRefreshTest {
      * NOTE: It works by finding the date of the commit 100 commits ago from the latest commit, then dividing the timelaps since that date by 100
      * Fresheness = (commits per second for the last 100 commits)
      */
-    static func freshness(localPath:String)->CGFloat{
+    static func freshness(_ localPath:String)->CGFloat{
         let totCommitCount:Int = GitUtils.commitCount(localPath).int-2//you may need to build a more robust commitCount method, it may be that there is a newLine etc
         //Swift.print("totCommitCount: " + "\(totCommitCount)")
         let index:Int = totCommitCount < 100 ? totCommitCount : 100
-        var date:NSDate = NSDate()
+        var date:Date = Date()
         let now:Int = DateParser.descendingDate(date).int
         if(index > 0){//if the repo has commits
             let cmd:String = "head~"+index.string+" --pretty=format:%ci --no-patch"

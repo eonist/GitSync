@@ -45,7 +45,7 @@ class ListTransitionTestView:TitleView{
         dp.addItem(["title":"purple"])*/
         
         let list = addSubView(RBSliderFastList3(140, 145, 24, dp, self))
-        list
+        _ = list
     }
     /**
      *
@@ -58,7 +58,7 @@ class ListTransitionTestView:TitleView{
         dp.addItem(["title":"orange"])
         dp.addItem(["title":"purple"])*/
         let list = addSubView(SliderFastList2(140, 145, 24, dp, self))
-        list
+        _ = list
     }
     /**
      *
@@ -73,7 +73,7 @@ class ListTransitionTestView:TitleView{
         //dp.addItem(["title":"orange"])
         //dp.addItem(["title":"purple"])
         let list = addSubView(FastList3(140,73,24,dp,self))
-        list
+        _ = list
     }
     /**
      * Try to add and remove items. count the items after
@@ -93,9 +93,9 @@ class ListTransitionTestView:TitleView{
         dp.addItem(["title":"pink"])
         dp.addItem(["title":"orange"])
         dp.addItem(["title":"purple"])
-        dp.removeItemAt(0)
-        dp.removeItemAt(0)
-        dp.removeItemAt(0)
+        _ = dp.removeItemAt(0)
+        _ = dp.removeItemAt(0)
+        _ = dp.removeItemAt(0)
     }
     func rbSliderFastList2(){
         let dp:DataProvider = DataProvider()//DataProvider("~/Desktop/ElCapitan/assets/xml/list.xml".tildePath)//longlist.xml
@@ -104,7 +104,7 @@ class ListTransitionTestView:TitleView{
         dp.addItem(["title":"purple"])
         
         let list = self.addSubView(RBSliderFastList2(140, 145, 24, dp, self))
-        list
+        _ = list
     }
     func sliderFastList2(){
         let dp:DataProvider = DataProvider()//DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
@@ -112,7 +112,7 @@ class ListTransitionTestView:TitleView{
         dp.addItem(["title":"orange"])
         dp.addItem(["title":"purple"])
         let list = self.addSubView(SliderFastList2(140, 73, 24, dp, self))
-        list
+        _ = list
         /*add*/
         let addBtn = addSubView(TextButton(100,24,"add",self))
         func onAdd(event:Event){
@@ -127,7 +127,7 @@ class ListTransitionTestView:TitleView{
         func onRemove(event:Event){
             if(event.type == ButtonEvent.upInside){
                 Swift.print("remove item at index: 0")
-                list.dataProvider.removeItemAt(0)
+                _ = list.dataProvider.removeItemAt(0)
             }
         }
         removeBtn.event = onRemove
@@ -135,7 +135,7 @@ class ListTransitionTestView:TitleView{
     func fastList2(){
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         let list = addSubView(FastList2(140,73,24,dp,self))
-        list
+        _ = list
     }
     func sliderFastList(){
         var dp:DataProvider
@@ -150,7 +150,7 @@ class ListTransitionTestView:TitleView{
     func fastList(){
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         let list = addSubView(FastList(140,73,24,dp,self))
-        list
+        _ = list
     }
     func sliderList(){
         let dp:DataProvider = DataProvider()
@@ -159,12 +159,12 @@ class ListTransitionTestView:TitleView{
         dp.addItem(["title":"purple"])
 
         let list = addSubView(SliderList(140,145,24,dp,self))
-        list
+        _ = list
     }
     func list(){
         let dp = DataProvider(FileParser.xml("~/Desktop/ElCapitan/assets/xml/list.xml".tildePath))/*Loads xml from a xml file on the desktop*/
         let list = self.addSubView(List(140, 144, NaN, dp,self))
-        list
+        _ = list
     }
-    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }

@@ -26,7 +26,7 @@ class RepoDetailView:Element {
     /**
      * Populates the UI elements with data from the dp item
      */
-    func setRepoData(repoData:Dictionary<String,String>){
+    func setRepoData(_ repoData:Dictionary<String,String>){
         nameTextInput!.inputTextArea!.setTextValue(repoData["title"]!)
         localPathTextInput!.inputTextArea!.setTextValue(repoData["local-path"]!)
         remotePathTextInput!.inputTextArea!.setTextValue(repoData["remote-path"]!)
@@ -39,7 +39,7 @@ class RepoDetailView:Element {
     /**
      * Modifies the dataProvider item on UI change
      */
-    override func onEvent(event:Event) {
+    override func onEvent(_ event:Event) {
         let i:Int = RepoView.selectedListItemIndex
         let dp:DataProvider = RepoView.dp!
         switch true{
@@ -80,11 +80,11 @@ class RepoItemTopBar:Element{
     func onRemoveButtonClick(){
         Swift.print("onRemoveButtonClick")
         Sounds.delete?.play()
-        RepoView.dp!.removeItemAt(RepoView.selectedListItemIndex)//remove from item from RepoView.list at the repoView.list.selectedIndex
+        _ = RepoView.dp!.removeItemAt(RepoView.selectedListItemIndex)//remove from item from RepoView.list at the repoView.list.selectedIndex
         RepoView.selectedListItemIndex = -1//-1 means no item is selected
         Navigation.setView(MenuView.repos)
     }
-    override func onEvent(event:Event) {
+    override func onEvent(_ event:Event) {
         if(event.assert(ButtonEvent.upInside, backButton)){onBackButtonClick()}
         else if(event.assert(ButtonEvent.upInside, removeButton)){onRemoveButtonClick()}
     }

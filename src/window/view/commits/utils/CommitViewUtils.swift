@@ -1,14 +1,14 @@
 import Foundation
-typealias CommitLogOperation = (task:NSTask,pipe:NSPipe,repoTitle:String,repoIndex:Int)
+typealias CommitLogOperation = (task:Process,pipe:Pipe,repoTitle:String,repoIndex:Int)
 class CommitViewUtils {
-    typealias ProcessedCommitData = (date:NSDate,relativeDate:String,descendingDate:String,body:String,subject:String,hash:String,author:String)
+    typealias ProcessedCommitData = (date:Date,relativeDate:String,descendingDate:String,body:String,subject:String,hash:String,author:String)
     /**
      * -> ProcessedCommitData
      */
-    static func processCommitData(repoTitle:String,_ commitData:CommitData, _ repoIndex:Int)->ProcessedCommitData{
-        let date:NSDate = GitDateUtils.date(commitData.date)
+    static func processCommitData(_ repoTitle:String,_ commitData:CommitData, _ repoIndex:Int)->ProcessedCommitData{
+        let date:Date = GitDateUtils.date(commitData.date)
         //Swift.print("date.shortDate: " + "\(date.shortDate)")
-        let relativeTime:(value:Int,type:String) = DateParser.relativeTime(NSDate(),date)[0]
+        let relativeTime:(value:Int,type:String) = DateParser.relativeTime(Date(),date)[0]
         let relativeDate:String = relativeTime.value.string + relativeTime.type/*create date like 3s,4m,5h,6w,2y*/
         //Swift.print("relativeDate: " + "\(relativeDate)")
         let descendingDate:String = DateParser.descendingDate(date)
@@ -21,7 +21,7 @@ class CommitViewUtils {
     /**
      * -> Dictionary<String, String>
      */
-    static func processCommitData(repoTitle:String,_ commitData:CommitData, _ repoIndex:Int)-> Dictionary<String, String>{
+    static func processCommitData(_ repoTitle:String,_ commitData:CommitData, _ repoIndex:Int)-> Dictionary<String, String>{
         let data:ProcessedCommitData = processCommitData(repoTitle,commitData,repoIndex)
         let dict:[String:String] = ["repo-name":repoTitle,"contributor":commitData.author,"title":data.subject,"description":data.body,"date":data.relativeDate,"sortableDate":data.descendingDate,"hash":commitData.hash]
         return dict
@@ -29,7 +29,7 @@ class CommitViewUtils {
     /**
      * -> Commit
      */
-    static func processCommitData(repoTitle:String,_ commitData:CommitData, _ repoIndex:Int)->Commit{
+    static func processCommitData(_ repoTitle:String,_ commitData:CommitData, _ repoIndex:Int)->Commit{
         let data:ProcessedCommitData = processCommitData(repoTitle,commitData,repoIndex)
         let commit:Commit = Commit(repoTitle,data.author, data.subject, data.body, data.relativeDate, data.descendingDate.int, data.hash,0)
         //return
@@ -38,7 +38,7 @@ class CommitViewUtils {
     /**
      * PARAM: max = max Items Allowed per repo
      */
-    static func commitItems(localPath:String,_ max:Int)->[String]{
+    static func commitItems(_ localPath:String,_ max:Int)->[String]{
         let commitCount:Int = GitUtils.commitCount(localPath).int - 1/*Get the commitCount of this repo*/
         //Swift.print("commitCount: " + ">\(commitCount)<")
         let length:Int = commitCount > max ? max : commitCount//20 = maxCount
@@ -55,12 +55,12 @@ class CommitViewUtils {
      * Sets up a NSTask
      * PARAM: index: repoIndex aka repoHash aka repoUniversalIdentifier
      */
-    static func configOperation(args:[String],_ localPath:String,_ repoTitle:String, _ repoIndex:Int) -> CommitLogOperation{
-        let task = NSTask()
+    static func configOperation(_ args:[String],_ localPath:String,_ repoTitle:String, _ repoIndex:Int) -> CommitLogOperation{
+        let task = Process()
         task.currentDirectoryPath = localPath
         task.launchPath = "/bin/sh"//"/usr/bin/env"//"/bin/bash"//"~/Desktop/my_script.sh"//
         task.arguments = ["-c",args[0]]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
-        let pipe = NSPipe()
+        let pipe = Pipe()
         task.standardOutput = pipe
 
         //task.waitUntilExit()/*not needed if we use NSNotification*/

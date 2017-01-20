@@ -18,17 +18,17 @@ extension CommitDB{
      * Adds an item to the sortedArr (at the correct index according to descending chronology, by using a custom binarySearch method)
      * NOTE: items must be added one after the other. A Bulk add method wouldn't work
      */
-    func add(item:Commit){
+    func add(_ item:Commit){
         //prevCommits[item.repoId] = item.hash/*store the last commit*/
         
         let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
         //Swift.print("closestIndex: " + "\(closestIdx)")
         //let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
         //Swift.print("insertAt: " + "\(insertAt)")
-        sortedArr.insertAt(item, closestIdx)
+        _ = sortedArr.insertAt(item, closestIdx)
         //Swift.print("closestIdx: " + "\(closestIdx)")
         
-        if(sortedArr.count > max){sortedArr.shift()}//keeps the array at max items
+        if(sortedArr.count > max){_ = sortedArr.shift()}/*keeps the array at max items*/
     }
     /**
      * This binarySearch finds a suitable index to insert an item in a sorted list (a regular binarySearch would return nil if no match is found, this implmentation returns the closestIndex)
@@ -42,7 +42,7 @@ extension CommitDB{
      * TRIVIA:  YOu can also implement binary serach as iterative implementation by using a while loop
      * TODO: use range instead of start and end int?!?
      */
-    static func closestIndex<T:Comparable>(arr:[T],_ i:T,_ start:Int,_ end:Int) -> Int{//arr[Stridable] or something indexable
+    static func closestIndex<T:Comparable>(_ arr:[T],_ i:T,_ start:Int,_ end:Int) -> Int{//arr[Stridable] or something indexable
         //Swift.print("start: " + "\(start)")
         //Swift.print("end: " + "\(end)")
         if(start == end){

@@ -24,7 +24,7 @@ class PopulateCommitDB {
                 let freshness:CGFloat = CommitDBRefreshTest.freshness(localPath)
                 self.sortableRepoList.append(($0,freshness))
             }
-            self.sortableRepoList.sortInPlace({$0.freshness > $1.freshness})//sort
+            self.sortableRepoList.sort(by: {$0.freshness > $1.freshness})//sort
             async(mainQueue){/*jump back on the main thread*/
                 self.onFreshnessSortComplete()
             }
@@ -46,7 +46,7 @@ class PopulateCommitDB {
     /**
      * Adds commit items to CommitDB if they are newer than the oldest commit in CommitDB
      */
-    func refreshRepo(repo:[String:String]){
+    func refreshRepo(_ repo:[String:String]){
         let localPath:String = repo["local-path"]!//local-path to repo
         let repoTitle = repo["title"]!//name of repo
         //2. Find the range of commits to add to CommitDB for this repo
@@ -109,7 +109,7 @@ private class Utils{
     /**
      * PARAM: max = max Items Allowed per repo
      */
-    static func commitItems(localPath:String,_ max:Int)->[String]{
+    static func commitItems(_ localPath:String,_ max:Int)->[String]{
         let commitCount:Int = GitUtils.commitCount(localPath).int - 1/*Get the commitCount of this repo*/
         //Swift.print("commitCount: " + ">\(commitCount)<")
         let length:Int = commitCount > max ? max : commitCount//20 = maxCount

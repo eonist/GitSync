@@ -25,5 +25,5 @@ class MainView:TitleView{
         menuView!.selectGroup!.selectedAt(0)/*Selects the correct menu icon*/
     
     }
-    required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
+    required init(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }

@@ -39,7 +39,7 @@ class CommitsListItem:Button,ISelectable{
         dateText = container.addSubView(Text(180,24,date,container,"date"))
         dateText!.isInteractive = false
     }
-    override func mouseUpInside(event: MouseEvent) {
+    override func mouseUpInside(_ event: MouseEvent) {
         isSelected = true
         super.mouseUpInside(event)
         self.event!(SelectEvent(SelectEvent.select,self/*,self*/))
@@ -47,7 +47,7 @@ class CommitsListItem:Button,ISelectable{
     /**
      * Sets data to the UI elements
      */
-    func setData(data:Dictionary<String,String>){
+    func setData(_ data:Dictionary<String,String>){
         titleText!.setText(data["title"]!)
         repoNameText!.setText(data["repo-name"]!)
         contributorText!.setText(data["contributor"]!)
@@ -57,14 +57,14 @@ class CommitsListItem:Button,ISelectable{
     /**
      * @Note: do not add a dispatch event here, that is the responsibilyy of the caller
      */
-    func setSelected(isSelected:Bool){
+    func setSelected(_ isSelected:Bool){
         self.isSelected = isSelected
         setSkinState(getSkinState())
     }
     func getSelected() -> Bool {
         return self.isSelected
     }
-    override func setSkinState(skinState:String) {
+    override func setSkinState(_ skinState:String) {
         //Swift.print("\(self.dynamicType)" + " setSkinState() skinState: " + "\(skinState)")
         super.setSkinState(skinState)
         titleText!.setSkinState(skinState)
@@ -73,9 +73,9 @@ class CommitsListItem:Button,ISelectable{
         return isSelected ? SkinStates.selected + " " + super.getSkinState() : super.getSkinState();
     }
     override func getClassType() -> String {
-        return String(CommitsListItem)
+        return "\(CommitsListItem.self)"
     }
-    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
 

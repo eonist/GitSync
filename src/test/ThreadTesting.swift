@@ -9,13 +9,13 @@ class ThreadTesting {
     var notificationCount:Int = 0
     var outputCount:Int = 0
     
-    var timer:Timer?
+    var timer:SimpleTimer?
     var tickerDate:NSDate?
     
     init(){
         //asyncTest()
         tickerDate = NSDate()//measure the time of the refresh
-        timer = Timer(0.05,true,self,"update")
+        timer = SimpleTimer(0.05,true,self,#selector(update))
     }
     /**
      * Testing running an NSTask on a background thread
@@ -31,8 +31,8 @@ class ThreadTesting {
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
         Swift.print("repoList.count: " + "\(repoList.count)")
         repoList.forEach{
-            let task = NSTask()
-            let pipe = NSPipe()
+            let task = Process()
+            let pipe = Pipe()
             let localPath:String = $0["local-path"]!
             let title:String = $0["title"]!
             run(localPath,title,task,pipe)
@@ -42,11 +42,13 @@ class ThreadTesting {
     /**
      *
      */
-    func run(localPath:String,_ title:String,_ task:NSTask, _ pipe:NSPipe){
+    func run(_ localPath:String,_ title:String,_ task:Process, _ pipe:Pipe){
         //1. Sets isRunning to true. this enables you to stop the process
         isRunning = true
-        let taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
-        dispatch_async(taskQueue, { () -> Void in
+        let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)//swift 3-> let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
+        //swift 3 update, the bellow line is totally changes in swift 3, do research
+        taskQueue.async {
+            
             //2. Creates a new Process object and assigns it to the TasksViewController‘s buildTask property. The launchPath property is the path to the executable you want to run. Assigns the BuildScript.command‘s path to the Process‘s launchPath, then assigns the arguments that were passed to runScript:to Process‘s arguments property. Process will pass the arguments to the executable, as though you had typed them into terminal.
             //self.tasks.append(NSTask())
             //Swift.print(title + " launched")
@@ -62,9 +64,8 @@ class ThreadTesting {
             task.terminationHandler = {/*Avoid using NSNotification if you use this callback, as it will block NSNotification from fireing sometimes*/
                 task in
                 //Swift.print("complete")
-                let data:NSData = pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
-                let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
-                
+                let data:Data = pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
+                let output:String = NSString(data:data, encoding:String.Encoding.utf8.rawValue) as! String/*decode the date to a string*/
                 Swift.print("completed " + "output.count: " + "\(output.trim("\n"))")
             }
             //1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
@@ -80,12 +81,12 @@ class ThreadTesting {
             
             //5.Calls waitUntilExit, which tells the Process object to block any further activity on the current thread until the task is complete. Remember, this code is running on a background thread. Your UI, which is running on the main thread, will still respond to user input.
             //task.waitUntilExit()//<-- not needed I think
-        })
+        }
     }
     /**
      *
      */
-    func captureStandardOutput(task:NSTask, _ pipe:NSPipe,_ title:String) {
+    func captureStandardOutput(_ task:Process, _ pipe:Pipe,_ title:String) {
         //Swift.print("captureStandardOutput: \(title)")
         //1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object.
         //self.pipes.append(NSPipe())//we create a new pipe for each task
@@ -133,7 +134,7 @@ class ThreadTesting {
             //task.terminate()
         }
     }
-    func update() {
+    @objc func update() {
         Swift.print("tick" + "\(abs(tickerDate!.timeIntervalSinceNow))")
         //timer!.timer!.fireDate
     }

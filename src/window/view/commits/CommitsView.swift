@@ -39,7 +39,7 @@ class CommitsView:Element {
         let maxCommitItems:Int = maxItems/repoList.count/*max commit items allowed per repo*/
         Swift.print("repoList.count: " + "\(repoList.count)")
         Swift.print("maxCommitItems: " + "\(maxCommitItems)")
-        for (index, element) in repoList.enumerate(){/*Loops through repos*/
+        for (index, element) in repoList.enumerated(){/*Loops through repos*/
             let localPath:String = element["local-path"]!//local-path to repo
             let repoTitle = element["title"]!//name of repo
             let args:[String] = CommitViewUtils.commitItems(localPath,maxCommitItems)/*creates an array of arguments that will return commit item logs*/
@@ -50,7 +50,7 @@ class CommitsView:Element {
         }
         
         let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
-        NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification, object: finalTask, queue: nil, usingBlock:observer)/*{ notification in})*/
+        NotificationCenter.default.addObserver(forName: Process.didTerminateNotification, object: finalTask, queue: nil, using:observer)/*{ notification in})*/
         
         operations.forEach{/*launch all tasks*/
             $0.task.launch()
@@ -59,34 +59,35 @@ class CommitsView:Element {
     /**
      * The handler for the NSTasks
      */
-    func observer(notification:NSNotification) {
+    func observer(notification:Notification) {
         Swift.print("the last task completed")
         var commitItems:[Dictionary<String, String>] = []
         
         operations.forEach{
-            let data:NSData = $0.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
-            let output:String = NSString(data:data, encoding:NSUTF8StringEncoding) as! String/*decode the date to a string*/
+            let data:Data = $0.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
+            //Swift 3 update on the line bellow
+            let output:String = NSString(data:data, encoding:String.Encoding.utf8.rawValue) as! String/*decode the date to a string*/
             //Swift.print(output)
             let commitData = GitLogParser.commitData(output)/*Compartmentalizes the result into a Tuple*/
             let processedCommitData:[String:String] = CommitViewUtils.processCommitData($0.repoTitle,commitData,$0.repoIndex)/*Format the data*/
             commitItems.append(processedCommitData)/*We store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView*/
         }
         dp = DataProvider(commitItems)
-        dp!.sort("sortableDate",false)/*sorts the list in ascending order*/
+        _ = dp!.sort("sortableDate",false)/*sorts the list in ascending order*/
         Swift.print("dp.count: " + "\(dp!.count)")
         Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
         createList()/*creates the GUI List*/
     }
-    func onListSelect(event:ListEvent){
+    func onListSelect(_ event:ListEvent){
         Swift.print("CommitsView.onListSelect()")
         Sounds.play?.play()
-        Navigation.setView(String(CommitDetailView))
+        Navigation.setView("\(CommitDetailView.self)")
         //RepoView.selectedListItemIndex = list!.selectedIndex
         Swift.print("event.index: " + "\(event.index)")
         let commitData:Dictionary<String,String> = list!.dataProvider.getItemAt(event.index)!
         (Navigation.currentView as! CommitDetailView).setCommitData(commitData)//updates the UI elements with the selected commit item
     }
-    override func onEvent(event:Event) {
+    override func onEvent(_ event:Event) {
         if(event.type == ListEvent.select){onListSelect(event as! ListEvent)}
         //else {super.onEvent(event)}//forward other events
     }
@@ -125,7 +126,7 @@ private class Utils{
         //do some intensive cpu stuff here
         Swift.print("Time: " + "\(abs(startTime.timeIntervalSinceNow))")
         let dp = DataProvider(commitItems)
-        dp.sort("sortableDate")/*sorts the list in ascending order*/
+        _ = dp.sort("sortableDate")/*sorts the list in ascending order*/
         //Swift.print("dp.count: " + "\(dp.count)")
         
         

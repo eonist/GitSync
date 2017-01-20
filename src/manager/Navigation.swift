@@ -9,7 +9,7 @@ class Navigation {
     /**
      * Navigate between views
      */
-    static func setView(viewName:String){
+    static func setView(_ viewName:String){
         Navigation.activeView = viewName
         Swift.print("Navigation.setView() viewName: " + "\(viewName)")
         let mainView:MainView = MainWin.mainView!
@@ -31,15 +31,15 @@ class Navigation {
             case MenuView.prefs:
                 Swift.print("set prefs win")
                 mainView.currentView = mainView.addSubView(PrefsView(width,height,mainView))
-            case String(RepoDetailView):
+            case "\(RepoDetailView.self)":
                 mainView.currentView = mainView.addSubView(RepoDetailView(width,height,mainView))
-            case String(ConflictDialogView):
+            case "\(ConflictDialogView.self)":
                 mainView.currentView = mainView.addSubView(ConflictDialogView(width,height,mainView))
-            case String(DebugView):
+            case "\(DebugView.self)":
                 mainView.currentView = mainView.addSubView(DebugView(width,height,mainView))
-            case String(TestView):
+            case "\(TestView.self)":
                 mainView.currentView = mainView.addSubView(TestView(width,height,mainView))
-            case String(CommitDetailView):
+            case "\(CommitDetailView.self)":
                 Swift.print("set CommitDetailView win")
                 mainView.currentView = mainView.addSubView(CommitDetailView(width,height,mainView))
             default:

@@ -24,7 +24,7 @@ class TestView:Element {
         let dp = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         //let sliderList:ISliderList = self.addSubView(SliderList(140, 73, 24, dp, self))
         let sliderList:ISliderList = self.addSubView(SliderFastList(140, 73, 24, dp, self))
-        sliderList
+        _ = sliderList
         /**/
         //ListModifier.select(sliderList, "white")
     }
@@ -36,7 +36,7 @@ class TestView:Element {
         let dp:DataProvider = DataProvider(xml)
         //let sliderList:ISliderList = self.addSubView(SliderList(140, 73, 24, dp, self))
         let list = self.addSubView(RBSliderList(140, 73, 24, dp, self))
-        list
+        _ = list
     }
     /**
      *
@@ -46,12 +46,12 @@ class TestView:Element {
         let dp:DataProvider = DataProvider(xml)
         //let sliderList:ISliderList = self.addSubView(SliderList(140, 73, 24, dp, self))
         let list = self.addSubView(RBSliderFastList(140, 145, 24, dp, self))
-        list
+        _ = list
     }
     /**
      *
      */
-    override func onEvent(event:Event) {
+    override func onEvent(_ event:Event) {
         if(event.assert(SliderEvent.change, volumeSlider)){
             let volumSliderProgress = (event as! SliderEvent).progress
             //Swift.print("volumSliderProgress: " + "\(volumSliderProgress)")

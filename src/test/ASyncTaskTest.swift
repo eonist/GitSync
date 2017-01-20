@@ -34,15 +34,15 @@ class ASyncTaskTest {
         let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
         repoList = XMLParser.toArray(repoXML)//or use dataProvider
         Swift.print("repoList.count: " + "\(repoList.count)")
-        for (index,element) in repoList.enumerate(){
-            let task = NSTask()
+        for (index,element) in repoList.enumerated(){
+            let task = Process()
             let localPath:String = element["local-path"]!
             //let title:String = element["title"]!
             task.currentDirectoryPath = localPath
             task.launchPath = "/bin/sh"
             let cmd:String = "git rev-list HEAD --count"
             task.arguments = ["-c",cmd]//["echo", "hello world","  echo","again","&& echo again","\n echo again"]//["ls"]//"-c", "/usr/bin/killall Dock",
-            let pipe = NSPipe()
+            let pipe = Pipe()
             task.standardOutput = pipe//1.//Creates an Pipe and attaches it to buildTask‘s standard output. Pipe is a class representing the same kind of pipe that you created in Terminal. Anything that is written to buildTask‘s stdout will be provided to this Pipe object
             run(task,index)
         }
@@ -51,12 +51,12 @@ class ASyncTaskTest {
     /**
      * NOTE: task.waitUntilExit() //is only needed if we stream data
      */
-    func run(task:NSTask,_ index:Int){
+    func run(_ task:Process,_ index:Int){
         async(bgQueue, { () -> Void in
             task.terminationHandler = { task in/*Avoid using NSNotification if you use this callback, as it will block NSNotification from fireing sometimes*/
                 async(mainQueue){/*back on the main thread*/
-                    let data:NSData = task.standardOutput!.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
-                    let output:String = (NSString(data:data, encoding:NSUTF8StringEncoding) as! String).trim("\n")/*decode the date to a string*/
+                    let data:Data = (task.standardOutput! as AnyObject).fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
+                    let output:String = (NSString(data:data, encoding:String.Encoding.utf8.rawValue) as! String).trim("\n")/*decode the date to a string*/
                     self.complete(output,index)
                 }
             }
@@ -66,9 +66,9 @@ class ASyncTaskTest {
     /**
      * PARAM: index: indicates which task completed
      */
-    func complete(result:String,_ index:Int){
+    func complete(_ result:String,_ index:Int){
         Swift.print("index: " + "\(index)")
-        self.results += result
+        _ = self.results += result
         //Swift.print("\(title) main-thread: result \(output) Time-async:  \(abs(self.startTime!.timeIntervalSinceNow)) count: \(self.outputCount)")
         if(self.results.count == self.repoList.count){
             Swift.print("all tasks completed")

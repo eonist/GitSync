@@ -14,12 +14,12 @@ class CommitsList:RBSliderFastList{
         progressIndicator!.frame.y = -45//hide at init
         progressIndicator!.animator!.event = onEvent
     }
-    override func spawn(idx:Int) -> Element {
+    override func spawn(_ idx:Int) -> Element {
         let dpItem = dataProvider.items[idx]
         let item:CommitsListItem = CommitsListItem(width, itemHeight ,dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!, false, self.lableContainer)
         return item
     }
-    override func spoof(listItem:FastListItem) {
+    override func spoof(_ listItem:FastListItem) {
         let item:CommitsListItem = listItem.item as! CommitsListItem
         let idx:Int = listItem.idx/*the index of the data in dataProvider*/
         let selected:Bool = idx == selectedIdx//dpItem["selected"]!.bool
@@ -89,7 +89,7 @@ class CommitsList:RBSliderFastList{
             isInDeactivateRefreshModeState = false//reset
         }
     }
-    override func onEvent(event:Event) {
+    override func onEvent(_ event:Event) {
         //Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
         if(event.assert(AnimEvent.completed, progressIndicator!.animator)){
             loopAnimationCompleted()
@@ -98,7 +98,7 @@ class CommitsList:RBSliderFastList{
         }
         super.onEvent(event)
     }
-    override func setProgress(value:CGFloat) {
+    override func setProgress(_ value:CGFloat) {
         super.setProgress(value)
         onProgress()
     }
