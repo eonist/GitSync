@@ -7,4 +7,10 @@ class BarGraph {
         //create dummy methods with sudo code that calcs the bars and draws them etc
         //test it
         //create the touch point visualisations
+    /**
+     *
+     */
+    func helloWorld(){
+        
+    }
 }
