@@ -103,7 +103,8 @@ class CommitGraph:Graph{
         }
         /*GraphLine*/
         let path:IPath = PolyLineGraphicUtils.path(positions)/*convert points to a Path*/
-        let cgPath = CGPathUtils.compile(CGPathCreateMutable(), path)//convert path to cgPath, ideally we should create the cgPath from the points
+        //TODO: ideally we should create the cgPath from the points use CGPathParser.polyline
+		let cgPath = CGPathUtils.compile(CGPathCreateMutable(), path)//convert path to cgPath
         graphLine!.line!.cgPath = cgPath.copy()
         graphLine!.line!.draw()
     }
