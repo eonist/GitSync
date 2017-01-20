@@ -138,16 +138,19 @@ class CommitGraph:Graph{
         //curDate
         dateText!.setTextValue(lastWeekDate.shortDate + " - " + curDate.shortDate)
     }
+	/**
+     * Returns Arrays of values for x and y axis. (In this case days and values)
+     */
     static func graphData(dayOffset:Int,_ currentDate:NSDate) -> (hValues:[CGFloat],hValNames:[String]){
         var dayNames:[String] = []
-        var values:[CGFloat] = []//commits in a single day
+        var values:[CGFloat] = []/*commits in a single day*/
         for i in (0..<7).reverse() {
             let date = Utils.date(currentDate, dayOffset-i)
             Swift.print("date: " + "\(date)")
             let shortNameDayOfWeek:String = date.shortDayName
             Swift.print("shortNameDayOfWeek: " + "\(shortNameDayOfWeek)")
             dayNames.append(shortNameDayOfWeek)
-            let val:CGFloat = NumberParser.random(4, 24).cgFloat//generate hValues via random, as we use faux data atm
+            let val:CGFloat = NumberParser.random(4, 24).cgFloat//generate hValues via random, as we use faux data for now
             values.append(val)
         }
         return (values,dayNames)
