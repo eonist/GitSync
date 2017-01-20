@@ -50,7 +50,7 @@ class CommitGraph:Graph{
         let touches:Set<NSTouch> = event.touchesMatchingPhase(NSTouchPhase.Ended, inView: self)
         if(touches.count > 0){
             let beginTouches:NSMutableDictionary = self.twoFingersTouches!
-            self.twoFingersTouches = nil
+            self.twoFingersTouches = nil//reset the twoFingerTouches data
             
             let magnitudes:NSMutableArray = NSMutableArray()
             
