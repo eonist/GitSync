@@ -11,7 +11,7 @@ class BarGraph:Graph {
         createBars(graphPts)
     }
     /**
-     *
+     * Creates the Bars
      */
     func createBars(_ graphPts:[CGPoint]){
         //graphArea?.addSubview()
@@ -20,6 +20,18 @@ class BarGraph:Graph {
             let bar:Bar = graphArea!.addSubView(Bar(NaN,barHeight,graphArea))//width is set in the css
             bars.append(bar)
             bar.setPosition($0)//remember to offset with half the width in the css
+        }
+    }
+    /**
+     * Horizontal lines (static)
+     */
+    func createHLines(){
+        let count:Int = vValues.count-2
+        var y:CGFloat = spacing!.height
+        for _ in 0..<count{
+            let hLine = graphArea!.addSubView(Element(newSize!.width-(spacing!.width*2),NaN,graphArea,"hLine"))
+            hLine.setPosition(CGPoint(spacing!.width,y))
+            y += spacing!.height
         }
     }
     /**
@@ -43,24 +55,13 @@ class BarGraph:Graph {
             //Swift.print("swipe none")
         }
     }
-    override func touchesEnded(with event: NSEvent) {//for debugging
+    override func touchesEnded(with event:NSEvent) {//for debugging
         //Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")
     }
-    override func touchesCancelled(with event: NSEvent) {//for debugging
+    override func touchesCancelled(with event:NSEvent) {//for debugging
         //Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
     }
-    /**
-     * Horizontal lines (static)
-     */
-    func createHLines(){
-        let count:Int = vValues.count-2
-        var y:CGFloat = spacing!.height
-        for _ in 0..<count{
-            let hLine = graphArea!.addSubView(Element(newSize!.width-(spacing!.width*2),NaN,graphArea,"hLine"))
-            hLine.setPosition(CGPoint(spacing!.width,y))
-            y += spacing!.height
-        }
-    }
+    
     override func createVLines(_ size:CGSize, _ position:CGPoint, _ spacing:CGSize) {//we don't want VLines in the BarGraph
         //createHLines()//instead of vLines we create hLines
     }
