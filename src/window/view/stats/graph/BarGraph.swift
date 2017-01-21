@@ -105,6 +105,19 @@ class Bar:Element{
         graphic!.draw()
     }
 }
+private class Utils{
+    /**
+     *
+     */
+    static func vValues()->[CGFloat]{
+        var values:[CGFloat] = []/*commits in a single day*/
+        for _ in (0..<7).reversed() {
+            let val:CGFloat = IntParser.random(4, 24).cgFloat/*generate vValues via random, as we use faux data for now*/
+            values.append(val)
+        }
+        return values
+    }
+}
 //Continue here:
     //Extract the gesture out of CommitGraph✅
     //override createGraph✅
