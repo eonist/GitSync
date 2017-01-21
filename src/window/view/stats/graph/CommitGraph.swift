@@ -81,7 +81,7 @@ class CommitGraph:Graph{
         graphLine!.line!.draw()
     }
     var graphPts:[CGPoint] = []
-    var initGraphPts:[CGPoint] = []
+    var initGraphPts:[CGPoint] = []/*animates from these points*/
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
      */
