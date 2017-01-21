@@ -67,7 +67,6 @@ class BarGraph:Graph {
      */
     func interpolateValue(_ val:CGFloat){
         Swift.print("interpolateValue() val: " + "\(val)")
-        var positions:[CGPoint] = []
         for i in 0..<graphPts.count{
             let pos:CGPoint = initGraphPts[i].interpolate(graphPts[i], val)/*interpolates from one point to another*/
             let barHeight:CGFloat = newSize!.height - spacing!.height - pos.y
