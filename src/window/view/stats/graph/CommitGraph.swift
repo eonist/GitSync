@@ -135,7 +135,7 @@ private class Utils{
             let shortNameDayOfWeek:String = date.shortDayName
             Swift.print("shortNameDayOfWeek: " + "\(shortNameDayOfWeek)")
             dayNames.append(shortNameDayOfWeek)
-            let val:CGFloat = IntParser.random(4, 24).cgFloat//generate hValues via random, as we use faux data for now
+            let val:CGFloat = IntParser.random(4, 24).cgFloat/*generate vValues via random, as we use faux data for now*/
             values.append(val)
         }
         return (values,dayNames)
