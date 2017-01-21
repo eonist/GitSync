@@ -177,3 +177,6 @@ private class Utils{
         return date
     }
 }
+class GestureUtils{
+    
+}
