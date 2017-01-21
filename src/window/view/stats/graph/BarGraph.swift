@@ -58,6 +58,7 @@ class BarGraph:Graph {
         graphPts = GraphUtils.points(newSize!, newPostition!, spacing!, vValues, maxValue)
         initGraphPts = graphPoints.map{$0.frame.origin}//grabs the location of where the pts are now
         Swift.print("initGraphPts: " + "\(initGraphPts)")
+        Swift.print("graphPts: " + "\(graphPts)")
         /*GraphPoints*/
         
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/
