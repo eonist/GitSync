@@ -44,7 +44,7 @@ class ListTransitionTestView:TitleView{
      */
     func barGraphTest(){
         let graphContainer = addSubView(Container(width,height,self,"graph"))
-        let graph = graphContainer.addSubView(Graph(width,height-48/*,4*/,graphContainer))
+        let graph = graphContainer.addSubView(BarGraph(width,height-48/*,4*/,graphContainer))
         _ = graph
     }
     func rbSliderFastList3(){

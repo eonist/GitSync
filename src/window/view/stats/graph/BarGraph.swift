@@ -55,6 +55,7 @@ class BarGraph:Graph {
     override func touchesCancelled(with event: NSEvent) {//for debugging
         //Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
     }
+    override func getClassType() -> String {return "\(Graph.self)"}
     required init(coder: NSCoder) { fatalError("init(coder:) has not been implemented")}
 }
 class Bar:Element{
