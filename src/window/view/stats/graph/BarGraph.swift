@@ -39,7 +39,7 @@ class BarGraph:Graph {
      *
      */
     func iterate(){
-        graphData = Utils.graphData(dayOffset, currentDate)
+        vValues = Utils.vValues()
         updateGraph()
     }
     /**
