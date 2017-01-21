@@ -23,7 +23,7 @@ class BarGraph:Graph {
     func createBars(_ graphPts:[CGPoint]){
         //graphArea?.addSubview()
         graphPts.forEach{
-            let barHeight:CGFloat = newSize!.height - $0.y
+            let barHeight:CGFloat = newSize!.height - spacing!.height - $0.y
             let bar:Bar = graphArea!.addSubView(Bar(NaN,barHeight,graphArea))//width is set in the css
             bars.append(bar)
             bar.setPosition($0)//remember to offset with half the width in the css
