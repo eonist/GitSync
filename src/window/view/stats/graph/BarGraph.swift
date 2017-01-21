@@ -11,7 +11,7 @@ class BarGraph:Graph {
     /**
      *
      */
-    func createBarGraph(_ graphRect:CGRect, _ graphPoints:[CGPoint]){
-        
+    func createBarGraph(_ graphPoints:[CGPoint]){
+        //graphArea?.addSubview(<#T##aView: NSView##NSView#>)
     }
 }
