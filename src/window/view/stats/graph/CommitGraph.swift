@@ -31,15 +31,7 @@ class CommitGraph:Graph{
      */
     override func touchesBegan(with event:NSEvent) {
         //Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
-        if(event.type == NSEventType.gesture){//was NSEventTypeGesture, could maybe be: EventTypeBeginGesture
-            let touches:NSSet = event.touches(matching: NSTouchPhase.any, in: self) as NSSet //touchesMatchingPhase:NSTouchPhaseAny inView:self
-            if(touches.count == 2){
-                self.twoFingersTouches = NSMutableDictionary()
-                for touch in touches {//
-                    self.twoFingersTouches![(touch as! NSTouch).identity] = touch//was [ setObject: forKey:];
-                }
-            }
-        }
+        
     }
 	/**
      * Detects if a two finger left or right swipe has occured
@@ -181,12 +173,16 @@ class GestureUtils{
     /**
      *
      */
-    func temp(){
-        let nsColor:NSColor = NSColor.red
-        let ciColor:CIColor = CIColor(color: nsColor)!
-        print(ciColor.red)//1.0
-        print(ciColor.green)//0.0
-        print(ciColor.blue)//0.0
-        print(ciColor.alpha)//1.0 /*or use nsColor.alphaComponent*/
+    static func twoFingersTouches(_ view:NSView, _ event:NSEvent)->NSMutableDictionary?{
+        var twoFingersTouches:NSMutableDictionary? = nil
+        if(event.type == NSEventType.gesture){//was NSEventTypeGesture, could maybe be: EventTypeBeginGesture
+            let touches:NSSet = event.touches(matching: NSTouchPhase.any, in: self) as NSSet //touchesMatchingPhase:NSTouchPhaseAny inView:self
+            if(touches.count == 2){
+                twoFingersTouches = NSMutableDictionary()
+                for touch in touches {//
+                    twoFingersTouches![(touch as! NSTouch).identity] = touch//was [ setObject: forKey:];
+                }
+            }
+        }
     }
 }
