@@ -24,7 +24,7 @@ class BarGraph:Graph {
         //graphArea?.addSubview()
         graphPts.forEach{
             let barHeight:CGFloat = newSize!.height - $0.y
-            let bar:Bar = graphArea!.addSubView(Bar(NaN,newSize!.height,graphArea))//width is set in the css
+            let bar:Bar = graphArea!.addSubView(Bar(NaN,barHeight,graphArea))//width is set in the css
             bars.append(bar)
             bar.setPosition($0)//remember to offset with half the width in the css
         }
