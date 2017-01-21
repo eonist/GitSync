@@ -77,3 +77,4 @@ class Bar:Element{
     //test it
     //create the touch point visualisations
     //don't do the rounded look before you have the square look working
+    //download AppleWatch mockup image (optionally .SVG)
