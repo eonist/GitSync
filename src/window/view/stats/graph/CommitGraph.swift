@@ -1,7 +1,6 @@
 import Cocoa
 class CommitGraph:Graph{
     var dateText:TextArea?
-    var animator:Animator?
     var currentDate:Date = Date()
     var dayOffset:Int = 0
     var graphData:(vValues:[CGFloat],hValNames:[String])
@@ -10,6 +9,7 @@ class CommitGraph:Graph{
     /*Gesture related*/
     var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
     /*Animation related*/
+    var animator:Animator?
     var graphPts:[CGPoint] = []/*Animates to these points*/
     var initGraphPts:[CGPoint] = []/*Animates from these points*/
     
