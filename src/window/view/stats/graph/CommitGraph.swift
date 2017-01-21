@@ -40,41 +40,7 @@ class CommitGraph:Graph{
      */
     override func touchesMoved(with event:NSEvent) {
         //Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
-        let touches:Set<NSTouch> = event.touches(matching: NSTouchPhase.ended, in: self)
-        if(touches.count > 0){
-            let beginTouches:NSMutableDictionary = self.twoFingersTouches!/*copy the twoFingerTouches data*/
-            self.twoFingersTouches = nil/*reset the twoFingerTouches data*/
-            
-            let magnitudes:NSMutableArray = NSMutableArray()
-            
-            for touch in touches {
-                let beginTouch:NSTouch? = beginTouches.object(forKey: touch.identity) as? NSTouch
-                if (beginTouch == nil) {continue}
-                let magnitude:Float = Float(touch.normalizedPosition.x) - Float(beginTouch!.normalizedPosition.x)
-                magnitudes.add(NSNumber(value: magnitude))
-            }
-            var sum:Float = 0
-            
-            for magnitude in magnitudes{
-                sum += (magnitude as AnyObject).floatValue
-            }
-            // See if absolute sum is long enough to be considered a complete gesture
-            let absoluteSum:Float = fabsf(sum)
-            let kSwipeMinimumLength:Float = 0.1
-            if (absoluteSum < kSwipeMinimumLength) {return}
-            
-            // Handle the actual swipe
-            // This might need to be > (i am using flipped coordinates)
-            if (sum > 0){
-                Swift.print("go back")
-                //Do something here
-                iterate(-1)
-            }else{
-                Swift.print("go forward")
-                iterate(1)
-                //Do something else here
-            }
-        } 
+        
     }
     /**
      * Offsets the currentDate by +-7 days
@@ -182,5 +148,45 @@ class GestureUtils{
             }
         }
         return twoFingersTouches
+    }
+    /**
+     *
+     */
+    static func swipe(_ event:NSEvent, _ inout twoFingersTouches:NSMutableDictionary?){
+        let touches:Set<NSTouch> = event.touches(matching: NSTouchPhase.ended, in: self)
+        if(touches.count > 0){
+            let beginTouches:NSMutableDictionary = twoFingersTouches!/*copy the twoFingerTouches data*/
+            self.twoFingersTouches = nil/*reset the twoFingerTouches data*/
+            
+            let magnitudes:NSMutableArray = NSMutableArray()
+            
+            for touch in touches {
+                let beginTouch:NSTouch? = beginTouches.object(forKey: touch.identity) as? NSTouch
+                if (beginTouch == nil) {continue}
+                let magnitude:Float = Float(touch.normalizedPosition.x) - Float(beginTouch!.normalizedPosition.x)
+                magnitudes.add(NSNumber(value: magnitude))
+            }
+            var sum:Float = 0
+            
+            for magnitude in magnitudes{
+                sum += (magnitude as AnyObject).floatValue
+            }
+            // See if absolute sum is long enough to be considered a complete gesture
+            let absoluteSum:Float = fabsf(sum)
+            let kSwipeMinimumLength:Float = 0.1
+            if (absoluteSum < kSwipeMinimumLength) {return}
+            
+            // Handle the actual swipe
+            // This might need to be > (i am using flipped coordinates)
+            if (sum > 0){
+                Swift.print("go back")
+                //Do something here
+                iterate(-1)
+            }else{
+                Swift.print("go forward")
+                iterate(1)
+                //Do something else here
+            }
+        }
     }
 }
