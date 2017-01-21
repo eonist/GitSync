@@ -1,6 +1,7 @@
 import Cocoa
 
 class BarGraph:Graph {
+    var bars:[bar] = []
     //Continue here:
         //Extract the gesture out of CommitGraph
         //override createGraph
@@ -11,7 +12,7 @@ class BarGraph:Graph {
     /**
      *
      */
-    func createBarGraph(_ size:CGSize,_ graphPoints:[CGPoint]){
+    func createBarGraph(_ size:CGSize,_ graphPts:[CGPoint]){
         //graphArea?.addSubview()
         graphPts.forEach{
             let graphPoint:Element = graphArea!.addSubView(Bar(NaN,NaN,graphArea,"graphPoint"))
