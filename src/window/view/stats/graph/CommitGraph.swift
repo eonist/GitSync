@@ -40,13 +40,15 @@ class CommitGraph:Graph{
         //Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
         let swipeType:SwipeType = GestureUtils.swipe(self, event, &twoFingersTouches)
         if (swipeType == .right){
-            Swift.print("go back")
+            Swift.print("swipe right")
             //Do something here
             iterate(-1)
         }else if(swipeType == .left){
-            Swift.print("go forward")
+            Swift.print("swipe left")
             iterate(1)
             //Do something else here
+        }else{
+            Swift.print("swipe none")
         }
     }
     /**
@@ -139,7 +141,7 @@ private class Utils{
         return date
     }
 }
-enum SwipeTypes{
+enum SwipeType{
     case left,right,none
 }
 class GestureUtils{
