@@ -78,8 +78,9 @@ class Bar:Element{
         //I think the most apropriate way is to make a custom skin and add it as a subView wich would implement :ISkin etc, see TextSkin for details
         //Somehow derive the style data and make a basegraphic with it
         let lineStyle:ILineStyle = StylePropertyParser.lineStyle(skin!)!//<--grab the style from that was resolved to this component
+        let fillStyle:IFillStyle = StylePropertyParser.fillStyle(skin!)
         //LineStyleParser.describe(lineStyle)
-        rect = RoundRectGraphic(width,height,Fillet(),nil,nil)
+        rect = RoundRectGraphic(width,height,Fillet(width/2),fillStyle,nil)
         _ = addSubView(rect!.graphic)
         rect!.draw()
     }
