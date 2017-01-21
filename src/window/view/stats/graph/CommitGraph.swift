@@ -6,10 +6,11 @@ class CommitGraph:Graph{
     var dayOffset:Int = 0
     var graphData:(vValues:[CGFloat],hValNames:[String])
     var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
-    var graphPts:[CGPoint] = []
-    var initGraphPts:[CGPoint] = []/*animates from these points*/
     override var vValues:[CGFloat] {return graphData.vValues}//,20,33,19//[14,8,13,17,25,9,14]
     override var hValNames:[String] {return graphData.hValNames}//["T","W","T","F","S","S","M"]//"10/12","13","14",
+    /*Animation related*/
+    var graphPts:[CGPoint] = []/*animates to these points*/
+    var initGraphPts:[CGPoint] = []/*animates from these points*/
     
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement?, _ id: String? = nil) {
         graphData =  Utils.graphData(dayOffset, currentDate)
