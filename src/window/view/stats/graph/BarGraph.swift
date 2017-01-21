@@ -3,6 +3,9 @@ import Cocoa
 class BarGraph:Graph {
     var bars:[Bar] = []
     var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
+    /*Animation related*/
+    var graphPts:[CGPoint] = []/*animates to these points*/
+    var initGraphPts:[CGPoint] = []/*animates from these points*/
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement?, _ id: String? = nil) {
         super.init(width, height, parent, id)
         self.acceptsTouchEvents = true/*Enables gestures*/
@@ -39,8 +42,22 @@ class BarGraph:Graph {
      *
      */
     func iterate(){
-        vValues = Utils.vValues()
+        super.vValues = Utils.vValues()
         updateGraph()
+    }
+    /**
+     *
+     */
+    func updateGraph(){
+        let maxValue:CGFloat = NumberParser.max(vValues)//Finds the largest number in among vValues
+        
+        graphPts = GraphUtils.points(newSize!, newPostition!, spacing!, vValues, maxValue)
+        initGraphPts = graphPoints.map{$0.frame.origin}//grabs the location of where the pts are now
+        /*GraphPoints*/
+        
+        if(animator != nil){animator!.stop()}/*stop any previous running animation*/
+        animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Easing.easeInQuad)
+        animator!.start()
     }
     /**
      * Detects when touches are made
