@@ -11,7 +11,7 @@ class BarGraph:NSView {
     /**
      *
      */
-    func createBarGraph(){
+    func createBarGraph(_ graphRect:CGRect, _ graphPoints:[CGPoint]){
         
     }
 }
