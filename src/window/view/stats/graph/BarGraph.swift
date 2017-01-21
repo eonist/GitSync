@@ -7,13 +7,7 @@ class BarGraph:Graph {
         super.init(width, height, parent, id)
         self.acceptsTouchEvents = true/*Enables gestures*/
     }
-    //Continue here:
-        //Extract the gesture out of CommitGraph
-        //override createGraph
-        //create dummy methods with sudo code that calcs the bars and draws them etc
-        //test it
-        //create the touch point visualisations
-        //don't do the rounded look before you have the square look working
+    
     override func createGraph(_ graphPts:[CGPoint]) {
         createBars(graphPts)
     }
@@ -57,8 +51,15 @@ class BarGraph:Graph {
         //Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
     }
     override func getClassType() -> String {return "\(Graph.self)"}
-    required init(coder: NSCoder) { fatalError("init(coder:) has not been implemented")}
+    required init(coder:NSCoder) { fatalError("init(coder:) has not been implemented")}
 }
 class Bar:Element{
     
 }
+//Continue here:
+    //Extract the gesture out of CommitGraph✅
+    //override createGraph✅
+    //create dummy methods with sudo code that calcs the bars and draws them etc✅
+    //test it
+    //create the touch point visualisations
+    //don't do the rounded look before you have the square look working
