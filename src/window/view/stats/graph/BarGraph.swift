@@ -45,6 +45,7 @@ class BarGraph:Graph {
      *
      */
     func iterate(){
+        Swift.print("iterate")
         updateGraph()
     }
     /**
@@ -90,8 +91,10 @@ class BarGraph:Graph {
         let swipeType:SwipeType = GestureUtils.swipe(self, event, &twoFingersTouches)
         if (swipeType == .right){
             Swift.print("swipe right")
+            iterate()
         }else if(swipeType == .left){
             Swift.print("swipe left")
+            iterate()
         }else{
             //Swift.print("swipe none")
         }
@@ -147,7 +150,7 @@ class Bar:Element{
 }
 private class Utils{
     /**
-     *
+     * Generates random y-axis values
      */
     static func vValues()->[CGFloat]{
         var values:[CGFloat] = []/*commits in a single day*/
