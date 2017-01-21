@@ -23,7 +23,7 @@ class CommitGraph:Graph{
         updateDateText()
     }
 	/**
-     *
+     * Detects when touches are made
      */
     override func touchesBegan(with event:NSEvent) {
         //Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
