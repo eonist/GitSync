@@ -188,7 +188,7 @@ class GestureUtils{
             // See if absolute sum is long enough to be considered a complete gesture
             let absoluteSum:Float = fabsf(sum)
             let kSwipeMinimumLength:Float = 0.1
-            if (absoluteSum < kSwipeMinimumLength) {return}
+            if (absoluteSum < kSwipeMinimumLength) {return .none}
             
             // Handle the actual swipe
             // This might need to be > (i am using flipped coordinates)
