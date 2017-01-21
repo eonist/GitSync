@@ -1,6 +1,6 @@
 import Cocoa
 
-class BarGraph:NSView {
+class BarGraph:Graph {
     //Continue here:
         //Extract the gesture out of CommitGraph
         //override createGraph
