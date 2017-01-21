@@ -50,6 +50,19 @@ class BarGraph:Graph {
     override func touchesCancelled(with event: NSEvent) {//for debugging
         //Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
     }
+    /**
+     * Horizontal lines (static)
+     */
+    func createHLines(){
+        let count:Int = hValNames.count
+        var x:CGFloat = spacing!.width
+        for _ in 0..<count{
+            //TODO: change the props, and add css
+            let vLine = graphArea!.addSubView(Element(NaN,newSize!.height-(spacing!.height*2),graphArea,"hLine"))
+            vLine.setPosition(CGPoint(x,spacing!.height))
+            x += spacing!.width
+        }
+    }
     override func createVLines(_ size: CGSize, _ position: CGPoint, _ spacing: CGSize) {}//we don't want VLines in the BarGraph
     override func getClassType() -> String {return "\(Graph.self)"}
     required init(coder:NSCoder) { fatalError("init(coder:) has not been implemented")}
