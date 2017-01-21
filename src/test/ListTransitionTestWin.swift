@@ -26,6 +26,7 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
+        barGraphTest()
         //rbSliderFastList3()
         //sliderFastList3()
         //fastList3()
@@ -37,6 +38,14 @@ class ListTransitionTestView:TitleView{
         //fastList()
         //sliderList()
         //list()
+    }
+    /**
+     *
+     */
+    func barGraphTest(){
+        let graphContainer = addSubView(Container(width,height,self,"graph"))
+        let graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
+        _ = graph
     }
     func rbSliderFastList3(){
         let dp:DataProvider = DataProvider("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath)//longlist.xml,list.xml//DataProvider()//
