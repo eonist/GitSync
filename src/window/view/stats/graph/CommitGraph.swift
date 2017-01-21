@@ -46,7 +46,12 @@ class CommitGraph:Graph{
         animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Easing.easeInQuad)
         animator!.start()
         
-        /*VerticalBar*/
+        updateVTags(maxValue)
+    }
+    /**
+     * VerticalBar (y-axis tags)
+     */
+    func updateVTags(_ maxValue:CGFloat){
         let strings:[String] = GraphUtils.verticalIndicators(vCount, maxValue)
         for i in 0..<strings.count{
             leftBarItems[i].setTextValue(strings[i])
