@@ -9,13 +9,16 @@ class BarGraph:Graph {
         //test it
         //create the touch point visualisations
         //don't do the rounded look before you have the square look working
+    override func createGraph(_ graphPts: [CGPoint]) {
+        createBars(graphPts)
+    }
     /**
      *
      */
-    func createBarGraph(_ size:CGSize,_ graphPts:[CGPoint]){
+    func createBars(_ graphPts:[CGPoint]){
         //graphArea?.addSubview()
         graphPts.forEach{
-            let bar:Bar = graphArea!.addSubView(Bar(NaN,size.height,graphArea))//width is set in the css
+            let bar:Bar = graphArea!.addSubView(Bar(NaN,newSize!.height,graphArea))//width is set in the css
             bars.append(bar)
             bar.setPosition($0)//remember to offset with half the width in the css
         }
