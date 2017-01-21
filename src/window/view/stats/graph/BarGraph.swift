@@ -36,6 +36,13 @@ class BarGraph:Graph {
         }
     }
     /**
+     *
+     */
+    func iterate(){
+        graphData = Utils.graphData(dayOffset, currentDate)
+        updateGraph()
+    }
+    /**
      * Detects when touches are made
      */
     override func touchesBegan(with event:NSEvent) {
