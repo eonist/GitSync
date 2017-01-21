@@ -31,7 +31,7 @@ class CommitGraph:Graph{
      */
     override func touchesBegan(with event:NSEvent) {
         //Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
-        
+        twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
     }
 	/**
      * Detects if a two finger left or right swipe has occured
@@ -49,12 +49,9 @@ class CommitGraph:Graph{
             
             for touch in touches {
                 let beginTouch:NSTouch? = beginTouches.object(forKey: touch.identity) as? NSTouch
-                
                 if (beginTouch == nil) {continue}
-                
                 let magnitude:Float = Float(touch.normalizedPosition.x) - Float(beginTouch!.normalizedPosition.x)
                 magnitudes.add(NSNumber(value: magnitude))
-
             }
             var sum:Float = 0
             
@@ -176,7 +173,7 @@ class GestureUtils{
     static func twoFingersTouches(_ view:NSView, _ event:NSEvent)->NSMutableDictionary?{
         var twoFingersTouches:NSMutableDictionary? = nil
         if(event.type == NSEventType.gesture){//was NSEventTypeGesture, could maybe be: EventTypeBeginGesture
-            let touches:NSSet = event.touches(matching: NSTouchPhase.any, in: self) as NSSet //touchesMatchingPhase:NSTouchPhaseAny inView:self
+            let touches:NSSet = event.touches(matching: NSTouchPhase.any, in: view) as NSSet //touchesMatchingPhase:NSTouchPhaseAny inView:self
             if(touches.count == 2){
                 twoFingersTouches = NSMutableDictionary()
                 for touch in touches {//
@@ -184,5 +181,6 @@ class GestureUtils{
                 }
             }
         }
+        return twoFingersTouches
     }
 }
