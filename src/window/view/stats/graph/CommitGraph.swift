@@ -164,7 +164,7 @@ class GestureUtils{
      * TODO: To avoid duplicate code we could extract the content of this class to a Utility method, GestureUtils? and either of 3 enums could be returened. .leftSwipe, .rightSwipe .none
      * TODO: also make up and down swipe detectors, and do more research into how this could be done easier. Maybe you even have some clues in the notes about gestures etc.
      */
-    static func swipe(_ view:NSView, _ event:NSEvent, _ twoFingersTouches:inout NSMutableDictionary?){
+    static func swipe(_ view:NSView, _ event:NSEvent, _ twoFingersTouches:inout NSMutableDictionary?) -> SwipeType{
         let touches:Set<NSTouch> = event.touches(matching: NSTouchPhase.ended, in: view)
         if(touches.count > 0){
             let beginTouches:NSMutableDictionary = twoFingersTouches!/*copy the twoFingerTouches data*/
@@ -192,13 +192,13 @@ class GestureUtils{
             // This might need to be > (i am using flipped coordinates)
             if (sum > 0){
                 Swift.print("go back")
-                //Do something here
-                iterate(-1)
-            }else{
+                return .right
+            }else /*if(sum < 0)*/{
                 Swift.print("go forward")
-                iterate(1)
-                //Do something else here
+                return .left
             }
         }
+        Swift.print("no swipe direction detected")
+        return .none
     }
 }
