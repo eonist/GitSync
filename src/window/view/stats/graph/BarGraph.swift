@@ -14,7 +14,7 @@ class BarGraph:Graph {
         //test it
         //create the touch point visualisations
         //don't do the rounded look before you have the square look working
-    override func createGraph(_ graphPts: [CGPoint]) {
+    override func createGraph(_ graphPts:[CGPoint]) {
         createBars(graphPts)
     }
     /**
