@@ -23,6 +23,7 @@ class BarGraph:Graph {
      */
     func createBars(_ graphPts:[CGPoint]){
         //graphArea?.addSubview()
+        self.graphPts = graphPts
         graphPts.forEach{
             let barHeight:CGFloat = newSize!.height - spacing!.height - $0.y
             let bar:Bar = graphArea!.addSubView(Bar(NaN,barHeight,graphArea))//width is set in the css
@@ -55,7 +56,7 @@ class BarGraph:Graph {
     func updateGraph(){
         let maxValue:CGFloat = NumberParser.max(vValues)//Finds the largest number in among vValues
         
-        initGraphPts = graphPoints.map{$0.frame.origin}//grabs the location of where the pts are now
+        initGraphPts = graphPts.map{$0}//grabs the location of where the pts are now
         graphPts = GraphUtils.points(newSize!, newPostition!, spacing!, vValues, maxValue)
         
         Swift.print("initGraphPts: " + "\(initGraphPts)")
