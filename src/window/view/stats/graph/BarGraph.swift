@@ -70,11 +70,12 @@ class BarGraph:Graph {
         var positions:[CGPoint] = []
         for i in 0..<graphPts.count{
             let pos:CGPoint = initGraphPts[i].interpolate(graphPts[i], val)/*interpolates from one point to another*/
-            positions.append(pos)
-            graphPoints[i].setPosition(pos)//moves the points
+            let barHeight:CGFloat = newSize!.height - spacing!.height - pos.y
+            let bar:Bar = graphArea!.addSubView(Bar(NaN,barHeight,graphArea))//width is set in the css
+            bars.append(bar)
+            bar.setPosition(pos)
         }
         /*GraphLine*/
-        
     }
     /**
      * Detects when touches are made
