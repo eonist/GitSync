@@ -1,7 +1,7 @@
 import Cocoa
 
 class BarGraph:Graph {
-    var bars:[bar] = []
+    var bars:[Bar] = []
     //Continue here:
         //Extract the gesture out of CommitGraph
         //override createGraph
@@ -15,9 +15,9 @@ class BarGraph:Graph {
     func createBarGraph(_ size:CGSize,_ graphPts:[CGPoint]){
         //graphArea?.addSubview()
         graphPts.forEach{
-            let graphPoint:Element = graphArea!.addSubView(Bar(NaN,NaN,graphArea,"graphPoint"))
-            graphPoints.append(graphPoint)
-            graphPoint.setPosition($0)
+            let bar:Bar = graphArea!.addSubView(Bar(NaN,NaN,graphArea,"graphPoint"))
+            bars.append(bar)
+            bar.setPosition($0)
             //style the button similar to VolumSlider knob (with a blue center, a shadow and white border, test different designs)
             //set the size as 12px and offset to -6 (so that its centered)
         }
