@@ -5,13 +5,16 @@ class CommitGraph:Graph{
     var currentDate:Date = Date()
     var dayOffset:Int = 0
     var graphData:(hValues:[CGFloat],hValNames:[String])
+    var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
+    var graphPts:[CGPoint] = []
+    var initGraphPts:[CGPoint] = []/*animates from these points*/
     override var hValues:[CGFloat] {return graphData.hValues}//,20,33,19//[14,8,13,17,25,9,14]
     override var hValNames:[String] {return graphData.hValNames}//["T","W","T","F","S","S","M"]//"10/12","13","14",
     
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement?, _ id: String? = nil) {
-        graphData =  CommitGraph.graphData(dayOffset, currentDate)
+        graphData =  Utils.graphData(dayOffset, currentDate)
         super.init(width, height, parent, id)
-        self.acceptsTouchEvents = true
+        self.acceptsTouchEvents = true/*Enables gestures*/
     }
     override func resolveSkin() {
         super.resolveSkin()
@@ -19,13 +22,6 @@ class CommitGraph:Graph{
         dateText = addSubView(TextArea(180,24,"-",self,"date"))
         updateDateText()
     }
-    override func touchesEnded(with event: NSEvent) {//for debugging
-        //Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")
-    }
-    override func touchesCancelled(with event: NSEvent) {//for debugging
-        //Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
-    }
-    var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
 	/**
      *
      */
@@ -51,6 +47,12 @@ class CommitGraph:Graph{
             Swift.print("swipe none")
         }
     }
+    override func touchesEnded(with event: NSEvent) {//for debugging
+        //Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")
+    }
+    override func touchesCancelled(with event: NSEvent) {//for debugging
+        //Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
+    }
     /**
      * Offsets the currentDate by +-7 days
      */
@@ -62,8 +64,7 @@ class CommitGraph:Graph{
         updateDateText()
     }
     
-    var graphPts:[CGPoint] = []
-    var initGraphPts:[CGPoint] = []/*animates from these points*/
+   
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
      */
