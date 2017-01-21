@@ -17,6 +17,7 @@ class BarGraph:Graph {
         //graphArea?.addSubview()
         graphPts.forEach{
             let barHeight:CGFloat = newSize!.height - spacing!.height - $0.y
+            
             let bar:Bar = graphArea!.addSubView(Bar(NaN,barHeight,graphArea))//width is set in the css
             bars.append(bar)
             bar.setPosition($0)//remember to offset with half the width in the css
@@ -90,6 +91,15 @@ class Bar:Element{
     }
     override func setSize(_ width:CGFloat, _ height:CGFloat) {
         //update the line, implement this if you need win resize support for this component
+    }
+    /**
+     *
+     */
+    func setBarHeight(_ height:CGFloat){
+        let w = getWidth()
+        if(height < w && height > 0){//clamps the height to width unless its 0 at which point it doesnt render
+            graphic?.setSizeValue(CGSize(w,height))
+        }
     }
 }
 //Continue here:
