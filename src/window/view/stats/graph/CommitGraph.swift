@@ -4,11 +4,11 @@ class CommitGraph:Graph{
     var animator:Animator?
     var currentDate:Date = Date()
     var dayOffset:Int = 0
-    var graphData:(hValues:[CGFloat],hValNames:[String])
+    var graphData:(vValues:[CGFloat],hValNames:[String])
     var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
     var graphPts:[CGPoint] = []
     var initGraphPts:[CGPoint] = []/*animates from these points*/
-    override var hValues:[CGFloat] {return graphData.hValues}//,20,33,19//[14,8,13,17,25,9,14]
+    override var vValues:[CGFloat] {return graphData.vValues}//,20,33,19//[14,8,13,17,25,9,14]
     override var hValNames:[String] {return graphData.hValNames}//["T","W","T","F","S","S","M"]//"10/12","13","14",
     
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement?, _ id: String? = nil) {
@@ -67,9 +67,9 @@ class CommitGraph:Graph{
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
      */
     func updateGraph(){
-        let maxValue:CGFloat = NumberParser.max(hValues)
+        let maxValue:CGFloat = NumberParser.max(vValues)
         
-        graphPts = GraphUtils.points(newSize!, newPostition!, spacing!, hValues, maxValue)
+        graphPts = GraphUtils.points(newSize!, newPostition!, spacing!, vValues, maxValue)
         initGraphPts = graphPoints.map{$0.frame.origin}//<--should work
         /*GraphPoints*/
         
@@ -126,7 +126,7 @@ private class Utils{
     /**
      * Returns Arrays of values for x and y axis. (In this case days and values)
      */
-    static func graphData(_ dayOffset:Int,_ currentDate:Date) -> (hValues:[CGFloat],hValNames:[String]){
+    static func graphData(_ dayOffset:Int,_ currentDate:Date) -> (vValues:[CGFloat],hValNames:[String]){
         var dayNames:[String] = []
         var values:[CGFloat] = []/*commits in a single day*/
         for i in (0..<7).reversed() {

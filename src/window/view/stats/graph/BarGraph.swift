@@ -53,7 +53,7 @@ class BarGraph:Graph {
      * Horizontal lines (static)
      */
     func createHLines(){
-        let count:Int = hValNames.count
+        let count:Int = vValues.count
         var y:CGFloat = spacing!.height
         for _ in 0..<count{
             let hLine = graphArea!.addSubView(Element(newSize!.width-(spacing!.width*2),NaN,graphArea,"hLine"))
