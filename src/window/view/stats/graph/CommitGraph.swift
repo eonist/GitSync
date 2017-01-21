@@ -27,7 +27,7 @@ class CommitGraph:Graph{
     }
     var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
 	/**
-     * To avoid duplicate code we could extract the content of this method into an GestureUtils method. Return nil if there isnt 2 touches and set the array only if != nil
+     *
      */
     override func touchesBegan(with event:NSEvent) {
         //Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
@@ -35,8 +35,6 @@ class CommitGraph:Graph{
     }
 	/**
      * Detects if a two finger left or right swipe has occured
-	 * TODO: To avoid duplicate code we could extract the content of this class to a Utility method, GestureUtils? and either of 3 enums could be returened. .leftSwipe, .rightSwipe .none
-	 * TODO: also make up and down swipe detectors, and do more research into how this could be done easier. Maybe you even have some clues in the notes about gestures etc.
      */
     override func touchesMoved(with event:NSEvent) {
         //Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
@@ -134,7 +132,7 @@ private class Utils{
 }
 class GestureUtils{
     /**
-     *
+     * To avoid duplicate code we could extract the content of this method into an GestureUtils method. Return nil if there isnt 2 touches and set the array only if != nil
      */
     static func twoFingersTouches(_ view:NSView, _ event:NSEvent)->NSMutableDictionary?{
         var twoFingersTouches:NSMutableDictionary? = nil
@@ -149,8 +147,12 @@ class GestureUtils{
         }
         return twoFingersTouches
     }
+    enum SwipeTypes{
+        case left,right,none
+    }
     /**
-     *
+     * TODO: To avoid duplicate code we could extract the content of this class to a Utility method, GestureUtils? and either of 3 enums could be returened. .leftSwipe, .rightSwipe .none
+     * TODO: also make up and down swipe detectors, and do more research into how this could be done easier. Maybe you even have some clues in the notes about gestures etc.
      */
     static func swipe(_ view:NSView, _ event:NSEvent, _ twoFingersTouches:inout NSMutableDictionary?){
         let touches:Set<NSTouch> = event.touches(matching: NSTouchPhase.ended, in: view)
