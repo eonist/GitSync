@@ -68,7 +68,8 @@ class BarGraph:Graph {
     required init(coder:NSCoder) { fatalError("init(coder:) has not been implemented")}
 }
 class Bar:Element{
-    //
+    //Use Graphics lib instead of the skin framework to draw the bars.
+    //Stub out the code first, then test
 }
 //Continue here:
     //Extract the gesture out of CommitGraph✅
