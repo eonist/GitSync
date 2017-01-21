@@ -99,9 +99,10 @@ class Bar:Element{
         let w = getWidth()
         if(height < w && height > 0){//clamps the height to width unless its 0 at which point it doesn't render
             graphic?.setSizeValue(CGSize(w,w))
-        }else if(){
-            
+        }else{ //h >= w || h == 0
+            graphic?.setSizeValue(CGSize(w,height))
         }
+        graphic!.draw()
     }
 }
 //Continue here:
