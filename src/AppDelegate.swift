@@ -18,11 +18,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
          
          //_ = Test()
          //initApp()
-         //initTestWin()
+         initTestWin()
          //_ = PopulateCommitDB()
          
-         Swift.print(ArrayAsserter.equals(["",""], ["","",""]))//false
-         Swift.print(ArrayAsserter.equals([1,2], [1,2]))//true
+         //Swift.print(ArrayAsserter.equals(["",""], ["","",""]))//false
+         //Swift.print(ArrayAsserter.equals([1,2], [1,2]))//true
          /**/
     }
     func initTestWin(){

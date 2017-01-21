@@ -26,7 +26,7 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        rbSliderFastList3()
+        //rbSliderFastList3()
         //sliderFastList3()
         //fastList3()
         //dpTests()
