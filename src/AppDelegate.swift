@@ -26,7 +26,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
          /**/
     }
     func initTestWin(){
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
+        //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
         win = ListTransitionTestWin(600,400)/*Debugging Different List components*/
         
         /*let url:String = "~/Desktop/ElCapitan/explorer.css"
