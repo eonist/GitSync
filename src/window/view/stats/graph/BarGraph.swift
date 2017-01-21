@@ -62,13 +62,12 @@ class BarGraph:Graph {
         }
     }
     override func createVLines(_ size:CGSize, _ position:CGPoint, _ spacing:CGSize) {//we don't want VLines in the BarGraph
-        createHLines()//instead ov vLines we create hLines
+        createHLines()//instead of vLines we create hLines
     }
     override func getClassType() -> String {return "\(Graph.self)"}
     required init(coder:NSCoder) { fatalError("init(coder:) has not been implemented")}
 }
 class Bar:Element{
-    
 }
 //Continue here:
     //Extract the gesture out of CommitGraph✅
