@@ -152,11 +152,11 @@ class GestureUtils{
     /**
      *
      */
-    static func swipe(_ event:NSEvent, _ inout twoFingersTouches:NSMutableDictionary?){
-        let touches:Set<NSTouch> = event.touches(matching: NSTouchPhase.ended, in: self)
+    static func swipe(_ view:NSView, _ event:NSEvent, _ twoFingersTouches:inout NSMutableDictionary?){
+        let touches:Set<NSTouch> = event.touches(matching: NSTouchPhase.ended, in: view)
         if(touches.count > 0){
             let beginTouches:NSMutableDictionary = twoFingersTouches!/*copy the twoFingerTouches data*/
-            self.twoFingersTouches = nil/*reset the twoFingerTouches data*/
+            twoFingersTouches = nil/*reset the twoFingerTouches data*/
             
             let magnitudes:NSMutableArray = NSMutableArray()
             
