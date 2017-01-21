@@ -2,10 +2,14 @@ import Cocoa
 
 class BarGraph:Graph {
     var bars:[Bar] = []
+    override var vValues: [CGFloat] {return Utils.vValues()}
+    /*Gesture related*/
     var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
     /*Animation related*/
-    var graphPts:[CGPoint] = []/*animates to these points*/
-    var initGraphPts:[CGPoint] = []/*animates from these points*/
+    var animator:Animator?
+    var graphPts:[CGPoint] = []/*Animates to these points*/
+    var initGraphPts:[CGPoint] = []/*Animates from these points*/
+    
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement?, _ id: String? = nil) {
         super.init(width, height, parent, id)
         self.acceptsTouchEvents = true/*Enables gestures*/
@@ -42,7 +46,7 @@ class BarGraph:Graph {
      *
      */
     func iterate(){
-        super.vValues = Utils.vValues()
+        
         updateGraph()
     }
     /**
