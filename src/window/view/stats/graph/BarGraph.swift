@@ -71,6 +71,10 @@ class BarGraph:Graph {
      * Interpolates between 0 and 1 while the duration of the animation
      */
     func interpolateValue(_ val:CGFloat){
+        
+        //Continue here:
+            //To debug this problem all you have to do is create debug rects that mark the graph area, then you clean up the point creation etc
+        
         Swift.print("interpolateValue() val: \(val)")
         for i in 0..<graphPts.count{
             let pos:CGPoint = initGraphPts[i].interpolate(graphPts[i], val)/*interpolates from one point to another*/
