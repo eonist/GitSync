@@ -3,7 +3,7 @@ import Cocoa
 class BarGraph:Graph {
     var bars:[Bar] = []
     var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
-    override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement?, _ id: String? = nil) {
+    override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement?, _ id: String? = nil) {
         super.init(width, height, parent, id)
         self.acceptsTouchEvents = true/*Enables gestures*/
     }
