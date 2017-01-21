@@ -80,7 +80,7 @@ class Bar:Element{
         //let lineStyle:ILineStyle = StylePropertyParser.lineStyle(skin!)!//<--grab the style from that was resolved to this component
         let fillStyle:IFillStyle = StylePropertyParser.fillStyle(skin!)
         //LineStyleParser.describe(lineStyle)
-        graphic = RoundRectGraphic(0,0,width,height,Fillet(width/2),fillStyle,nil)
+        graphic = RoundRectGraphic(0,0,getWidth(),getHeight(),Fillet(getWidth()/2),fillStyle,nil)
         _ = addSubView(graphic!.graphic)
         graphic!.draw()
     }
