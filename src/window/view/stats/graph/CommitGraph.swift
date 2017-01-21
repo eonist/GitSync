@@ -63,8 +63,6 @@ class CommitGraph:Graph{
         updateGraph()
         updateDateText()
     }
-    
-   
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
      */
