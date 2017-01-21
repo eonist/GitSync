@@ -47,7 +47,7 @@ class BarGraph:Graph {
         }else if(swipeType == .left){
             Swift.print("swipe left")
         }else{
-            Swift.print("swipe none")
+            //Swift.print("swipe none")
         }
     }
     override func touchesEnded(with event: NSEvent) {//for debugging

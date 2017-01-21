@@ -193,14 +193,14 @@ class GestureUtils{
             // Handle the actual swipe
             // This might need to be > (i am using flipped coordinates)
             if (sum > 0){
-                Swift.print("go back")
+                //Swift.print("go back")
                 return .right
             }else /*if(sum < 0)*/{
-                Swift.print("go forward")
+                //Swift.print("go forward")
                 return .left
             }
         }
-        Swift.print("no swipe direction detected")
+        //Swift.print("no swipe direction detected")
         return .none
     }
 }
