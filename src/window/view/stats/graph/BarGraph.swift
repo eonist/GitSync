@@ -50,6 +50,7 @@ class BarGraph:Graph {
     override func touchesCancelled(with event: NSEvent) {//for debugging
         //Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
     }
+    override func createVLines(_ size: CGSize, _ position: CGPoint, _ spacing: CGSize) {}//we don't want VLines in the BarGraph
     override func getClassType() -> String {return "\(Graph.self)"}
     required init(coder:NSCoder) { fatalError("init(coder:) has not been implemented")}
 }
