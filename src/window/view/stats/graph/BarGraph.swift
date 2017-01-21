@@ -97,8 +97,10 @@ class Bar:Element{
      */
     func setBarHeight(_ height:CGFloat){
         let w = getWidth()
-        if(height < w && height > 0){//clamps the height to width unless its 0 at which point it doesnt render
-            graphic?.setSizeValue(CGSize(w,height))
+        if(height < w && height > 0){//clamps the height to width unless its 0 at which point it doesn't render
+            graphic?.setSizeValue(CGSize(w,w))
+        }else if(){
+            
         }
     }
 }
