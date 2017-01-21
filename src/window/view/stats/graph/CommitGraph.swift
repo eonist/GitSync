@@ -57,29 +57,11 @@ class CommitGraph:Graph{
     func iterate(_ iteration:Int){
         Swift.print("iterate" + "\(iteration)")
         dayOffset += (7*iteration)
-        graphData = CommitGraph.graphData(dayOffset, currentDate)
+        graphData = Utils.graphData(dayOffset, currentDate)
         updateGraph()
         updateDateText()
     }
-    /**
-	 * Interpolates between 0 and 1 while the duration of the animation
-	 * NOTE: ReCalc the hValue indicators (each week has a different max hValue etc)
-	 */
-    func interpolateValue(_ val:CGFloat){
-        Swift.print("interpolateValue() val: " + "\(val)")
-        var positions:[CGPoint] = []
-        for i in 0..<graphPts.count{
-            let pos:CGPoint = initGraphPts[i].interpolate(graphPts[i], val)/*interpolates from one point to another*/
-            positions.append(pos)
-            graphPoints[i].setPosition(pos)//moves the points
-        }
-        /*GraphLine*/
-        let path:IPath = PolyLineGraphicUtils.path(positions)/*convert points to a Path*/
-        //TODO: Ideally we should create the CGPath from the points use CGPathParser.polyline
-		let cgPath = CGPathUtils.compile(CGMutablePath(), path)//convert path to cgPath
-        graphLine!.line!.cgPath = cgPath.clone()//applies the new path
-        graphLine!.line!.draw()//draws the path
-    }
+    
     var graphPts:[CGPoint] = []
     var initGraphPts:[CGPoint] = []/*animates from these points*/
     /**
@@ -112,7 +94,37 @@ class CommitGraph:Graph{
         //curDate
         dateText!.setTextValue(lastWeekDate.shortDate + " - " + curDate.shortDate)
     }
-	/**
+    /**
+     * Interpolates between 0 and 1 while the duration of the animation
+     * NOTE: ReCalc the hValue indicators (each week has a different max hValue etc)
+     */
+    func interpolateValue(_ val:CGFloat){
+        Swift.print("interpolateValue() val: " + "\(val)")
+        var positions:[CGPoint] = []
+        for i in 0..<graphPts.count{
+            let pos:CGPoint = initGraphPts[i].interpolate(graphPts[i], val)/*interpolates from one point to another*/
+            positions.append(pos)
+            graphPoints[i].setPosition(pos)//moves the points
+        }
+        /*GraphLine*/
+        let path:IPath = PolyLineGraphicUtils.path(positions)/*convert points to a Path*/
+        //TODO: Ideally we should create the CGPath from the points use CGPathParser.polyline
+        let cgPath = CGPathUtils.compile(CGMutablePath(), path)//convert path to cgPath
+        graphLine!.line!.cgPath = cgPath.clone()//applies the new path
+        graphLine!.line!.draw()//draws the path
+    }
+    required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+}
+private class Utils{
+    /**
+     * Returns a Date instance for a currentDate and dayOffset
+     */
+    static func date(_ currentDate:Date,_ dayOffset:Int) -> Date{
+        let calendar = Calendar.current
+        let date:Date = calendar.date(byAdding: .day, value: dayOffset, to: currentDate)!
+        return date
+    }
+    /**
      * Returns Arrays of values for x and y axis. (In this case days and values)
      */
     static func graphData(_ dayOffset:Int,_ currentDate:Date) -> (hValues:[CGFloat],hValNames:[String]){
@@ -128,17 +140,6 @@ class CommitGraph:Graph{
             values.append(val)
         }
         return (values,dayNames)
-    }
-    required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
-}
-private class Utils{
-    /**
-     * Returns a Date instance for a currentDate and dayOffset
-     */
-    static func date(_ currentDate:Date,_ dayOffset:Int) -> Date{
-        let calendar = Calendar.current
-        let date:Date = calendar.date(byAdding: .day, value: dayOffset, to: currentDate)!
-        return date
     }
 }
 enum SwipeType{
