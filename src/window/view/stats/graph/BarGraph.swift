@@ -45,7 +45,6 @@ class BarGraph:Graph {
      *
      */
     func iterate(){
-        
         updateGraph()
     }
     /**
@@ -70,11 +69,11 @@ class BarGraph:Graph {
         for i in 0..<graphPts.count{
             let pos:CGPoint = initGraphPts[i].interpolate(graphPts[i], val)/*interpolates from one point to another*/
             let barHeight:CGFloat = newSize!.height - spacing!.height - pos.y
-            let bar:Bar = graphArea!.addSubView(Bar(NaN,barHeight,graphArea))//width is set in the css
-            bars.append(bar)
-            bar.setPosition(pos)
+            let bar:Bar = bars[i]
+            bar.setPosition(CGPoint(bar.frame.origin.x,pos.y))
+            bar.setBarHeight(barHeight)
+            bar.graphic!.draw()
         }
-        /*GraphLine*/
     }
     /**
      * Detects when touches are made
