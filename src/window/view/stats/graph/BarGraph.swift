@@ -24,10 +24,9 @@ class BarGraph:Graph {
         //graphArea?.addSubview()
         graphPts.forEach{
             let barHeight:CGFloat = newSize!.height - spacing!.height - $0.y
-            
             let bar:Bar = graphArea!.addSubView(Bar(NaN,barHeight,graphArea))//width is set in the css
             bars.append(bar)
-            bar.setPosition($0)//remember to offset with half the width in the css
+            bar.setPosition($0)
         }
     }
     /**
@@ -62,6 +61,20 @@ class BarGraph:Graph {
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/
         animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Easing.easeInQuad)
         animator!.start()
+    }
+    /**
+     * Interpolates between 0 and 1 while the duration of the animation
+     */
+    func interpolateValue(_ val:CGFloat){
+        Swift.print("interpolateValue() val: " + "\(val)")
+        var positions:[CGPoint] = []
+        for i in 0..<graphPts.count{
+            let pos:CGPoint = initGraphPts[i].interpolate(graphPts[i], val)/*interpolates from one point to another*/
+            positions.append(pos)
+            graphPoints[i].setPosition(pos)//moves the points
+        }
+        /*GraphLine*/
+        
     }
     /**
      * Detects when touches are made
