@@ -15,9 +15,9 @@ class BarGraph:Graph {
     func createBarGraph(_ size:CGSize,_ graphPts:[CGPoint]){
         //graphArea?.addSubview()
         graphPts.forEach{
-            let bar:Bar = graphArea!.addSubView(Bar(NaN,size.height,graphArea))
+            let bar:Bar = graphArea!.addSubView(Bar(NaN,size.height,graphArea))//width is set in the css
             bars.append(bar)
-            bar.setPosition($0)
+            bar.setPosition($0)//remember to offset with half the width in the css
         }
     }
 }
