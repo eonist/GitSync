@@ -12,6 +12,7 @@ class BarGraph:Graph {
     
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement?, _ id: String? = nil) {
         super.init(width, height, parent, id)
+        
         self.acceptsTouchEvents = true/*Enables gestures*/
     }
     override func createGraph(_ graphPts:[CGPoint]) {
@@ -56,6 +57,7 @@ class BarGraph:Graph {
         
         graphPts = GraphUtils.points(newSize!, newPostition!, spacing!, vValues, maxValue)
         initGraphPts = graphPoints.map{$0.frame.origin}//grabs the location of where the pts are now
+        Swift.print("initGraphPts: " + "\(initGraphPts)")
         /*GraphPoints*/
         
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/
