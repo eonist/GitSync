@@ -55,12 +55,12 @@ class BarGraph:Graph {
      */
     func createHLines(){
         let count:Int = hValNames.count
-        var x:CGFloat = spacing!.width
+        var y:CGFloat = spacing!.height
         for _ in 0..<count{
-            //TODO: change the props, and add css
-            let vLine = graphArea!.addSubView(Element(NaN,newSize!.height-(spacing!.height*2),graphArea,"hLine"))
-            vLine.setPosition(CGPoint(x,spacing!.height))
-            x += spacing!.width
+            
+            let hLine = graphArea!.addSubView(Element(newSize!.width-(spacing!.width*2),NaN,graphArea,"hLine"))
+            hLine.setPosition(CGPoint(spacing!.width,y))
+            y += spacing!.height
         }
     }
     override func createVLines(_ size: CGSize, _ position: CGPoint, _ spacing: CGSize) {}//we don't want VLines in the BarGraph
