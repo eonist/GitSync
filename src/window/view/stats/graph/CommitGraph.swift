@@ -22,37 +22,6 @@ class CommitGraph:Graph{
         dateText = addSubView(TextArea(180,24,"-",self,"date"))
         updateDateText()
     }
-	/**
-     * Detects when touches are made
-     */
-    override func touchesBegan(with event:NSEvent) {
-        //Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
-        twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
-    }
-	/**
-     * Detects if a two finger left or right swipe has occured
-     */
-    override func touchesMoved(with event:NSEvent) {
-        //Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
-        let swipeType:SwipeType = GestureUtils.swipe(self, event, &twoFingersTouches)
-        if (swipeType == .right){
-            Swift.print("swipe right")
-            //Do something here
-            iterate(-1)
-        }else if(swipeType == .left){
-            Swift.print("swipe left")
-            iterate(1)
-            //Do something else here
-        }else{
-            Swift.print("swipe none")
-        }
-    }
-    override func touchesEnded(with event: NSEvent) {//for debugging
-        //Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")
-    }
-    override func touchesCancelled(with event: NSEvent) {//for debugging
-        //Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
-    }
     /**
      * Offsets the currentDate by +-7 days
      */
@@ -111,6 +80,37 @@ class CommitGraph:Graph{
         let cgPath = CGPathUtils.compile(CGMutablePath(), path)//convert path to cgPath
         graphLine!.line!.cgPath = cgPath.clone()//applies the new path
         graphLine!.line!.draw()//draws the path
+    }
+    /**
+     * Detects when touches are made
+     */
+    override func touchesBegan(with event:NSEvent) {
+        //Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
+        twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
+    }
+    /**
+     * Detects if a two finger left or right swipe has occured
+     */
+    override func touchesMoved(with event:NSEvent) {
+        //Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
+        let swipeType:SwipeType = GestureUtils.swipe(self, event, &twoFingersTouches)
+        if (swipeType == .right){
+            Swift.print("swipe right")
+            //Do something here
+            iterate(-1)
+        }else if(swipeType == .left){
+            Swift.print("swipe left")
+            iterate(1)
+            //Do something else here
+        }else{
+            Swift.print("swipe none")
+        }
+    }
+    override func touchesEnded(with event: NSEvent) {//for debugging
+        //Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")
+    }
+    override func touchesCancelled(with event: NSEvent) {//for debugging
+        //Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
     }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
