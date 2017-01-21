@@ -70,7 +70,7 @@ class BarGraph:Graph {
 class Bar:Element{
     //Use Graphics lib instead of the skin framework to draw the bars.
     //Stub out the code first, then test
-    var rect:RoundRectGraphic?//<--we could also use PolyLineGraphic, but we may support curvey Graphs in the future
+    var graphic:RoundRectGraphic?//<--we could also use PolyLineGraphic, but we may support curvey Graphs in the future
     
     override func resolveSkin() {
         //Swift.print("GraphLine.resolveSkin")
@@ -80,9 +80,9 @@ class Bar:Element{
         //let lineStyle:ILineStyle = StylePropertyParser.lineStyle(skin!)!//<--grab the style from that was resolved to this component
         let fillStyle:IFillStyle = StylePropertyParser.fillStyle(skin!)
         //LineStyleParser.describe(lineStyle)
-        rect = RoundRectGraphic(0,0,width,height,Fillet(width/2),fillStyle,nil)
-        _ = addSubView(rect!.graphic)
-        rect!.draw()
+        graphic = RoundRectGraphic(0,0,width,height,Fillet(width/2),fillStyle,nil)
+        _ = addSubView(graphic!.graphic)
+        graphic!.draw()
     }
     override func setSkinState(_ skinState:String) {
         //update the line, implement this if you want to be able to set the theme of this component
