@@ -57,13 +57,12 @@ class BarGraph:Graph {
         let count:Int = hValNames.count
         var y:CGFloat = spacing!.height
         for _ in 0..<count{
-            
             let hLine = graphArea!.addSubView(Element(newSize!.width-(spacing!.width*2),NaN,graphArea,"hLine"))
             hLine.setPosition(CGPoint(spacing!.width,y))
             y += spacing!.height
         }
     }
-    override func createVLines(_ size: CGSize, _ position: CGPoint, _ spacing: CGSize) {}//we don't want VLines in the BarGraph
+    override func createVLines(_ size:CGSize, _ position:CGPoint, _ spacing:CGSize) {}//we don't want VLines in the BarGraph
     override func getClassType() -> String {return "\(Graph.self)"}
     required init(coder:NSCoder) { fatalError("init(coder:) has not been implemented")}
 }
@@ -74,7 +73,7 @@ class Bar:Element{
     //Extract the gesture out of CommitGraph✅
     //override createGraph✅
     //create dummy methods with sudo code that calcs the bars and draws them etc✅
-    //test it
+    //dashed line support in css for that ultimate BarGraph look
     //create the touch point visualisations
     //don't do the rounded look before you have the square look working
     //download AppleWatch mockup image (optionally .SVG)
