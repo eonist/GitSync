@@ -178,5 +178,15 @@ private class Utils{
     }
 }
 class GestureUtils{
-    
+    /**
+     *
+     */
+    func temp(){
+        let nsColor:NSColor = NSColor.red
+        let ciColor:CIColor = CIColor(color: nsColor)!
+        print(ciColor.red)//1.0
+        print(ciColor.green)//0.0
+        print(ciColor.blue)//0.0
+        print(ciColor.alpha)//1.0 /*or use nsColor.alphaComponent*/
+    }
 }
