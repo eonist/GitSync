@@ -38,7 +38,16 @@ class CommitGraph:Graph{
      */
     override func touchesMoved(with event:NSEvent) {
         //Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
-        
+        let swipeType:SwipeType = GestureUtils.swipe(self, event, &twoFingersTouches)
+        if (swipeType == .right){
+            Swift.print("go back")
+            //Do something here
+            iterate(-1)
+        }else if(swipeType == .left){
+            Swift.print("go forward")
+            iterate(1)
+            //Do something else here
+        }
     }
     /**
      * Offsets the currentDate by +-7 days
@@ -130,6 +139,9 @@ private class Utils{
         return date
     }
 }
+enum SwipeTypes{
+    case left,right,none
+}
 class GestureUtils{
     /**
      * To avoid duplicate code we could extract the content of this method into an GestureUtils method. Return nil if there isnt 2 touches and set the array only if != nil
@@ -147,9 +159,7 @@ class GestureUtils{
         }
         return twoFingersTouches
     }
-    enum SwipeTypes{
-        case left,right,none
-    }
+    
     /**
      * TODO: To avoid duplicate code we could extract the content of this class to a Utility method, GestureUtils? and either of 3 enums could be returened. .leftSwipe, .rightSwipe .none
      * TODO: also make up and down swipe detectors, and do more research into how this could be done easier. Maybe you even have some clues in the notes about gestures etc.
