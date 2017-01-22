@@ -17,15 +17,15 @@ class BarGraph:Graph {
         self.acceptsTouchEvents = true/*Enables gestures*/
     }
     override func createGraph() {
-        //createBars(graphPts)
+        createBars()
         createGraphPoints()
     }
     /**
      * Creates the Bars
      */
-    func createBars(_ graphPts:[CGPoint]){
+    func createBars(){
         //graphArea?.addSubview()
-        self.graphPts = graphPts
+        
         graphPts.forEach{
             let barHeight:CGFloat = $0.y.distance(to:newSize!.height - spacing!.height)// - $0.y
             let bar:Bar = graphArea!.addSubView(Bar(NaN,barHeight,graphArea))//width is set in the css
@@ -87,7 +87,7 @@ class BarGraph:Graph {
             graphPoints[i].setPosition(pos)//moves the points
         }
         //Swift.print("interpolateValue() val: \(val)")
-        /*for e in 0..<graphPts.count{
+        for e in 0..<graphPts.count{
             let pos:CGPoint = initGraphPts[e].interpolate(graphPts[e], val)/*interpolates from one point to another*/
             //if(i == 0){Swift.print("pos.y: " + "\(pos.y)")}
             let barHeight:CGFloat = pos.y.distance(to: newSize!.height - (spacing!.height ))//pos.y 
@@ -95,7 +95,7 @@ class BarGraph:Graph {
             bar.setPosition(CGPoint(bar.frame.origin.x,pos.y))
             bar.setBarHeight(barHeight)
             bar.graphic!.draw()
-        }*/
+        }
     }
     /**
      * Detects when touches are made
