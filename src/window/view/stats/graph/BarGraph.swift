@@ -184,16 +184,15 @@ class BarGraph:Graph {
             //Swift.print("id: " + "\(id)")
             Swift.print("touchType: " + "\(touchType(touch.phase))")
             //Swift.print("touch.isResting: " + "\(touch.isResting)")
-            if(touch.phase == .ended && begginingTouches.count == 0){
+            if(touch.phase == .ended/* && begginingTouches.count == 0*/){
                 let ellipse:EllipseGraphic? = debugCircDict.removeValue(forKey: id)
                 ellipse?.graphic.removeFromSuperview()
             }
             
         }
     }
-    override func touchesCancelled(with event: NSEvent){
-        //super.touchesCancelled
-        Swift.print("touchesCancelled")
+    override func touchesCancelled(with event:NSEvent) {//for debugging
+        Swift.print("touchesCancelledWithEvent: " + "\(event)")
     }
     /**
      *
@@ -215,9 +214,7 @@ class BarGraph:Graph {
             return "no match"
         }
     }
-    override func touchesCancelled(with event:NSEvent) {//for debugging
-        Swift.print("touchesCancelledWithEvent: " + "\(event)")
-    }
+    
     
     override func createVLines(_ size:CGSize, _ position:CGPoint, _ spacing:CGSize) {//we don't want VLines in the BarGraph
         //createHLines()//instead of vLines we create hLines
