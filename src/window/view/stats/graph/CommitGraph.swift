@@ -161,10 +161,10 @@ class GestureUtils{
         if(event.type == NSEventType.gesture){//was NSEventTypeGesture, could maybe be: EventTypeBeginGesture
             let touches:NSSet = event.touches(matching: NSTouchPhase.any, in: view) as NSSet //touchesMatchingPhase:NSTouchPhaseAny inView:self
             if(touches.count == 2){
-                twoFingersTouches = NSMutableDictionary()
+                twoFingersTouches = [String:NSTouch]()
                 for touch in touches {//
-                    Swift.print("id: "+"\((touch as! NSTouch).identity)")
-                    twoFingersTouches![(touch as! NSTouch).identity] = touch/*assigns each touch to the identity of the same touch*///was [ setObject: forKey:];
+                    //Swift.print("id: "+"\((touch as! NSTouch).identity)")
+                    twoFingersTouches!["\((touch as! NSTouch).identity)"] = touch as? NSTouch/*assigns each touch to the identity of the same touch*///was [ setObject: forKey:];
                 }
             }
         }

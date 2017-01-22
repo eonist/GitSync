@@ -5,7 +5,7 @@ class BarGraph:Graph {
     var tempVValues:[CGFloat]
     override var vValues:[CGFloat] {return tempVValues}
     /*Gesture related*/
-    var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
+    var twoFingersTouches:[String:NSTouch]?/*temp storage for the twoFingerTouches data*/
     /*Animation related*/
     var animator:Animator?
     //var graphPts:[CGPoint] = []/*Animates to these points*/
