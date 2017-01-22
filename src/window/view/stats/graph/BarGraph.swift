@@ -172,15 +172,19 @@ class BarGraph:Graph {
     
     override func touchesEnded(with event:NSEvent) {//for debugging
         Swift.print("touchesEndedWithEvent: " + "\(event)")
-        Swift.print("event.touches: " + "\(event.touches.)")
-        let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.ended, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
+        
+        let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
+        Swift.print("touches.count: " + "\(touches.count)")
         for touch in touches {
             let id:String = "\(touch.identity)"
             Swift.print("id: " + "\(id)")
             Swift.print("touch.phase: " + "\(touch.phase)")
             Swift.print("touch.isResting: " + "\(touch.isResting)")
-            let ellipse:EllipseGraphic? = debugCircDict.removeValue(forKey: id)
-            ellipse?.graphic.removeFromSuperview()
+            if(touch.phase == .ended){
+                let ellipse:EllipseGraphic? = debugCircDict.removeValue(forKey: id)
+                ellipse?.graphic.removeFromSuperview()
+            }
+            
         }
     }
     override func touchesCancelled(with event:NSEvent) {//for debugging
