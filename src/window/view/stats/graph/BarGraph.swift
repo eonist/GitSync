@@ -108,7 +108,7 @@ class BarGraph:Graph {
             //Swift.print("id: "+"\((touch as! NSTouch).identity)")
             let id:String = "\(touch.identity)"
             let pos:CGPoint = event.localPos(self) - CGPoint(20,20)//touch.normalizedPosition
-            Swift.print("pos: " + "\(pos)")
+            //Swift.print("pos: " + "\(pos)")
             let touchPos:CGPoint = touch.normalizedPosition
             
             Swift.print("touchPos: " + "\(touchPos)")
