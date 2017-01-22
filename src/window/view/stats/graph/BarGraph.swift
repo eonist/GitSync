@@ -108,7 +108,6 @@ class BarGraph:Graph {
             //Swift.print("id: "+"\((touch as! NSTouch).identity)")
             let id = "\((touch).identity)"
             let pos = touch.normalizedPosition
-            
             let ellipse = EllipseGraphic(pos.x-20,pos.y-20,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
             debugCircDict[id] = ellipse
             addSubview(ellipse.graphic)
