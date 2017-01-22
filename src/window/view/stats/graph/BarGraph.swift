@@ -180,12 +180,13 @@ class BarGraph:Graph {
         Swift.print("endingTouches.count: " + "\(endingTouches.count)")
         let begginingTouches:Set<NSTouch> = event.touches(matching:.began, in: self)
         Swift.print("begginingTouches.count: " + "\(begginingTouches.count)")
-        for touch in touches {
+        let stationaryTouches:Set<NSTouch> = event.touches(matching:.stationary, in: self)
+        for touch in endingTouches {
             let id:String = "\(touch.identity)"
             //Swift.print("id: " + "\(id)")
             Swift.print("touchType: " + "\(touchType(touch.phase))")
             //Swift.print("touch.isResting: " + "\(touch.isResting)")
-            if(touch.phase == .ended/* && begginingTouches.count == 0*/){
+            if(stationaryTouches.count > 0 || touches.count == 1/* && begginingTouches.count == 0*/){
                 let ellipse:EllipseGraphic? = debugCircDict.removeValue(forKey: id)
                 ellipse?.graphic.removeFromSuperview()
             }
