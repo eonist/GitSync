@@ -120,11 +120,11 @@ class BarGraph:Graph {
             let viewRatio:CGFloat = width/height
             var touchArea:CGSize = CGSize(width,height)
             if(deviceRatio > viewRatio){//device is wider than view
-                touchArea.height = height
+                touchArea.height = height/viewRatio
                 touchArea.width = width
             }else if(deviceRatio < viewRatio){//view is wider than device
                 touchArea.height = height
-                touchArea.width = height * deviceRatio
+                touchArea.width = width * deviceRatio
             }//else rato are the same
             
             let ellipse = EllipseGraphic(pos.x,pos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
