@@ -163,6 +163,7 @@ class GestureUtils{
             if(touches.count == 2){
                 twoFingersTouches = NSMutableDictionary()
                 for touch in touches {//
+                    Swift.print("id: "+"\((touch as! NSTouch).identity)")
                     twoFingersTouches![(touch as! NSTouch).identity] = touch/*assigns each touch to the identity of the same touch*///was [ setObject: forKey:];
                 }
             }
