@@ -56,6 +56,7 @@ class BarGraph:Graph {
      *
      */
     func updateGraph(){
+        //recalc the maxValue
         maxValue = GraphUtils.maxValue(vValues)//NumberParser.max(vValues)//Finds the largest number in among vValues
         
         //initGraphPts = self.graphPts.map{$0}//grabs the location of where the pts are now
