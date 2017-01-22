@@ -57,6 +57,7 @@ class BarGraph:Graph {
      */
     func updateGraph(){
         tempVValues = Utils.vValues()//random data is set
+        Swift.print("tempVValues: " + "\(tempVValues)")
         //recalc the maxValue
         maxValue = GraphUtils.maxValue(vValues)//NumberParser.max(vValues)//Finds the largest number in among vValues
         
@@ -65,8 +66,8 @@ class BarGraph:Graph {
         graphPts = GraphUtils.points(newSize!, newPosition!, spacing!, vValues, maxValue!)
         initGraphPts = graphPoints.map{$0.frame.origin}//grabs the location of where the pts are now
         
-        Swift.print("initGraphPts: " + "\(initGraphPts)")
-        Swift.print("graphPts: " + "\(graphPts)")
+        //Swift.print("initGraphPts: " + "\(initGraphPts)")
+        //Swift.print("graphPts: " + "\(graphPts)")
         /*GraphPoints*/
         
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/
