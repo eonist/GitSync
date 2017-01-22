@@ -161,7 +161,7 @@ class GestureUtils{
     static func twoFingersTouches(_ view:NSView, _ event:NSEvent)->[String:NSTouch]?{
         var twoFingersTouches:[String:NSTouch]? = nil//NSMutualDictionary was used before and didn't require casting id to string, revert if sideeffects manifest
         if(event.type == NSEventType.gesture){// could maybe be: EventTypeBeginGesture
-            let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: view)  //touchesMatchingPhase:NSTouchPhaseAny inView:self
+            let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: view)//touchesMatchingPhase:NSTouchPhaseAny inView:self
             if(touches.count == 2){
                 twoFingersTouches = [String:NSTouch]()
                 for touch in touches {//

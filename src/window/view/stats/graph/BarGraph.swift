@@ -102,12 +102,20 @@ class BarGraph:Graph {
     override func touchesBegan(with event:NSEvent) {
         Swift.print("touchesBeganWithEvent: " + "\(event)")
         twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
+        let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: view)//touchesMatchingPhase:NSTouchPhaseAny inView:self
+        if(touches.count == 2){
+            twoFingersTouches = [String:NSTouch]()
+            for touch in touches {//
+                //Swift.print("id: "+"\((touch as! NSTouch).identity)")
+                twoFingersTouches!["\((touch).identity)"] = touch/*assigns each touch to the identity of the same touch*///was [ setObject: forKey:];
+            }
+        }
     }
     /**
      * Detects if a two finger left or right swipe has occured
      */
     override func touchesMoved(with event:NSEvent) {
-        Swift.print("touchesMovedWithEvent: " + "\(event)")
+        //Swift.print("touchesMovedWithEvent: " + "\(event)")
         let swipeType:SwipeType = GestureUtils.swipe(self, event, twoFingersTouches)
         if (swipeType == .right){
             Swift.print("swipe right")
