@@ -109,6 +109,14 @@ class BarGraph:Graph {
             let id:String = "\(touch.identity)"
             let pos:CGPoint = event.localPos(self) - CGPoint(20,20)//touch.normalizedPosition
             Swift.print("pos: " + "\(pos)")
+            var touchPos:CGPoint?
+            if #available(OSX 10.12.2, *) {
+                touchPos = touch.location(in: self) - CGPoint(20,20)
+            } else {
+                // Fallback on earlier versions
+            }
+            Swift.print("touchPos: " + "\(touchPos)")
+            
             let ellipse = EllipseGraphic(pos.x,pos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
             debugCircDict[id] = ellipse
             addSubview(ellipse.graphic)
