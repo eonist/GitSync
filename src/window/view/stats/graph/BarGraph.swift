@@ -175,6 +175,7 @@ class BarGraph:Graph {
         let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.ended, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
         for touch in touches {
             let id:String = "\(touch.identity)"
+            Swift.print("id: " + "\(id)")
             let ellipse:EllipseGraphic? = debugCircDict.removeValue(forKey: id)
             ellipse?.graphic.removeFromSuperview()
         }
