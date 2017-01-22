@@ -79,8 +79,6 @@ class BarGraph:Graph {
      */
     func interpolateValue(_ val:CGFloat){
         
-        //Continue here:
-            //To debug this problem all you have to do is create debug rects that mark the graph area, then you clean up the point creation etc
         /*GraphPoints*/
         /*for i in 0..<graphPts.count{
             let pos:CGPoint = initGraphPts[i].interpolate(graphPts[i], val)/*interpolates from one point to another*/
