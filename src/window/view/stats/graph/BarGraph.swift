@@ -63,9 +63,9 @@ class BarGraph:Graph {
         
         //initGraphPts = self.graphPts.map{$0}//grabs the location of where the pts are now
         //self.graphPts = GraphUtils.points(newSize!, newPostition!, spacing!, vValues, maxValue)
-        graphPts = GraphUtils.points(newSize!, newPosition!, spacing!, vValues, maxValue!)
-        initGraphPts = graphPoints.map{$0.frame.origin}//grabs the location of where the pts are now
         
+        initGraphPts = graphPts.map{$0}//grabs the location of where the pts are now
+        graphPts = GraphUtils.points(newSize!, newPosition!, spacing!, vValues, maxValue!)
         //Swift.print("initGraphPts: " + "\(initGraphPts)")
         //Swift.print("graphPts: " + "\(graphPts)")
         /*GraphPoints*/
