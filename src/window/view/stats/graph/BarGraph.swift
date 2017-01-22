@@ -176,6 +176,11 @@ class BarGraph:Graph {
         super.touchesEnded(with:event)
         //Swift.print("touchesEndedWithEvent: " + "\(event)")
         
+        
+        //i think you can solve this by checking the id of begining touch if it matches a touch that is stored in debugCircs
+        //
+        
+        
         let touches:Set<NSTouch> = event.touches(matching:.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
         Swift.print("touches.count: " + "\(touches.count)")
         let endingTouches:Set<NSTouch> = event.touches(matching:.ended, in: self)
