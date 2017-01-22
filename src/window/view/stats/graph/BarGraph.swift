@@ -118,14 +118,14 @@ class BarGraph:Graph {
             Swift.print("deviceSize: " + "\(deviceSize)")
             let deviceRatio:CGFloat = deviceSize.width/deviceSize.height
             let viewRatio:CGFloat = width/height
-            let touchArea:CGSize = CGSize(width,height)
+            var touchArea:CGSize = CGSize(width,height)
             if(deviceRatio > viewRatio){//device is wider than view
-                touchArea.width = width
+                touchArea.height = height
+                touchArea.width = height * deviceRatio
             }else if(deviceRatio < viewRatio){//view is wider than device
-                
-            }else{
-                
-            }
+                touchArea.height = height
+                touchArea.width = height * deviceRatio
+            }//else rato are the same
             
             let ellipse = EllipseGraphic(pos.x,pos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
             debugCircDict[id] = ellipse
