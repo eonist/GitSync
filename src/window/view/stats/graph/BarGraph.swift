@@ -3,7 +3,7 @@ import Cocoa
 class BarGraph:Graph {
     var bars:[Bar] = []
     var tempVValues:[CGFloat]
-    override var vValues:[CGFloat] {return tempVValues}
+    override var vValues:[CGFloat] {return []}
     /*Gesture related*/
     var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
     /*Animation related*/
