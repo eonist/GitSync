@@ -16,7 +16,7 @@ class BarGraph:Graph {
     }
     override func createGraph() {
         //createBars(graphPts)
-        createGraphPoints(newSize!,newPostition!,spacing!,graphPts)
+        createGraphPoints()
     }
     /**
      * Creates the Bars
@@ -25,7 +25,7 @@ class BarGraph:Graph {
         //graphArea?.addSubview()
         self.graphPts = graphPts
         graphPts.forEach{
-            let barHeight:CGFloat = newSize!.height - spacing!.height - $0.y
+            let barHeight:CGFloat = $0.y.distance(to:newSize!.height - spacing!.height)// - $0.y
             let bar:Bar = graphArea!.addSubView(Bar(NaN,barHeight,graphArea))//width is set in the css
             bars.append(bar)
             bar.setPosition($0)
