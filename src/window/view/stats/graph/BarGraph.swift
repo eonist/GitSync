@@ -54,7 +54,7 @@ class BarGraph:Graph {
      *
      */
     func updateGraph(){
-        let maxValue:CGFloat = NumberParser.max(vValues)//Finds the largest number in among vValues
+        let maxValue:CGFloat = GraphUtils.maxValue(vValues)//NumberParser.max(vValues)//Finds the largest number in among vValues
         
         //initGraphPts = self.graphPts.map{$0}//grabs the location of where the pts are now
         //self.graphPts = GraphUtils.points(newSize!, newPostition!, spacing!, vValues, maxValue)
