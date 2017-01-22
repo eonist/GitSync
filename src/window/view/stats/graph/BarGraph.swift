@@ -116,6 +116,8 @@ class BarGraph:Graph {
             //find the ratio of the device
             let deviceSize:CGSize = touch.deviceSize
             Swift.print("deviceSize: " + "\(deviceSize)")
+            let deviceRatio:CGFloat = deviceSize.width/deviceSize.height
+            
             
             let ellipse = EllipseGraphic(pos.x,pos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
             debugCircDict[id] = ellipse
