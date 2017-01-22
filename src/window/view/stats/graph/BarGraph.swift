@@ -7,14 +7,14 @@ class BarGraph:Graph {
     var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
     /*Animation related*/
     var animator:Animator?
-    var graphPts:[CGPoint] = []/*Animates to these points*/
+    //var graphPts:[CGPoint] = []/*Animates to these points*/
     var initGraphPts:[CGPoint] = []/*Animates from these points*/
     
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement?, _ id: String? = nil) {
         super.init(width, height, parent, id)
         self.acceptsTouchEvents = true/*Enables gestures*/
     }
-    override func createGraph(_ graphPts:[CGPoint]) {
+    override func createGraph() {
         //createBars(graphPts)
         createGraphPoints(newSize!,newPostition!,spacing!,graphPts)
     }
