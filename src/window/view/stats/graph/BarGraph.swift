@@ -102,13 +102,14 @@ class BarGraph:Graph {
     override func touchesBegan(with event:NSEvent) {
         Swift.print("touchesBeganWithEvent: " + "\(event)")
         twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
-        let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
+        let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.began, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
         
         for touch in touches {//
             //Swift.print("id: "+"\((touch as! NSTouch).identity)")
             let id:String = "\(touch.identity)"
-            let pos:CGPoint = touch.normalizedPosition
-            let ellipse = EllipseGraphic(pos.x-20,pos.y-20,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
+            let pos:CGPoint = event.localPos(self) - CGPoint(20,20)//touch.normalizedPosition
+            Swift.print("pos: " + "\(pos)")
+            let ellipse = EllipseGraphic(pos.x,pos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
             debugCircDict[id] = ellipse
             addSubview(ellipse.graphic)
             ellipse.draw()
@@ -119,6 +120,17 @@ class BarGraph:Graph {
      */
     override func touchesMoved(with event:NSEvent) {
         //Swift.print("touchesMovedWithEvent: " + "\(event)")
+        /*DebugCirc*/
+        let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
+        for touch in touches {
+            let id:String = "\(touch.identity)"
+            let pos:CGPoint = event.localPos(self) - CGPoint(20,20)//offset pos // touch.normalizedPosition
+            //Swift.print("pos: " + "\(pos)")
+            let ellipse:EllipseGraphic? = debugCircDict[id]
+            ellipse?.setPosition(pos)
+            ellipse?.draw()
+        }
+        /*swipe detection*/
         let swipeType:SwipeType = GestureUtils.swipe(self, event, twoFingersTouches)
         if (swipeType == .right){
             Swift.print("swipe right")
@@ -129,14 +141,7 @@ class BarGraph:Graph {
         }else{
             //Swift.print("swipe none")
         }
-        /*DebugCirc*/
-        let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
-        for touch in touches {
-            let id:String = "\(touch.identity)"
-            let pos:CGPoint = touch.normalizedPosition - CGPoint(10,10)//offset pos
-            let ellipse:EllipseGraphic? = debugCircDict[id]
-            ellipse?.setPosition(pos)
-        }
+        
     }
     
     //Basically:
@@ -154,7 +159,7 @@ class BarGraph:Graph {
     
     override func touchesEnded(with event:NSEvent) {//for debugging
         Swift.print("touchesEndedWithEvent: " + "\(event)")
-        let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
+        let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.ended, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
         for touch in touches {
             let id:String = "\(touch.identity)"
             let ellipse:EllipseGraphic? = debugCircDict.removeValue(forKey: id)
