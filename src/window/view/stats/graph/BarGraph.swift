@@ -178,7 +178,7 @@ class BarGraph:Graph {
         for touch in touches {
             let id:String = "\(touch.identity)"
             Swift.print("id: " + "\(id)")
-            Swift.print("touch.phase: " + "\(touch.phase)")
+            Swift.print("touchType: " + "\(touchType(touch.phase))")
             Swift.print("touch.isResting: " + "\(touch.isResting)")
             if(touch.phase == .ended){
                 let ellipse:EllipseGraphic? = debugCircDict.removeValue(forKey: id)
@@ -190,25 +190,21 @@ class BarGraph:Graph {
     /**
      *
      */
-    func touchType(phase:NSTouchPhase){
+    func touchType(_ phase:NSTouchPhase) -> String{
         if(phase == .began){
-            
+            return "began"
         }else if(phase == .moved){
-            
+            return "moved"
         }else if(phase == .stationary){
-            
+            return "stationary"
         }else if(phase == .ended){
-            
+            return "ended"
         }else if(phase == .cancelled){
-            
+            return "cancelled"
         }else if(phase == .touching){
-            
-        }else if(phase == .cancelled){
-            
-        }else if(phase == .cancelled){
-            
+            return "touching"
         }else{
-            
+            return "no match"
         }
     }
     override func touchesCancelled(with event:NSEvent) {//for debugging
