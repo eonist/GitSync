@@ -146,6 +146,12 @@ class BarGraph:Graph {
     
     override func touchesEnded(with event:NSEvent) {//for debugging
         Swift.print("touchesEndedWithEvent: " + "\(event)")
+        let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
+        
+        for touch in touches {//
+            let id = "\((touch).identity)"
+            debugCircDict.remove(at: id)
+        }
     }
     override func touchesCancelled(with event:NSEvent) {//for debugging
         Swift.print("touchesCancelledWithEvent: " + "\(event)")
