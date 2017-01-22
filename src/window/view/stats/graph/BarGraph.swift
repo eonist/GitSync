@@ -113,6 +113,10 @@ class BarGraph:Graph {
             
             Swift.print("touchPos: " + "\(touchPos)")
             
+            //find the ratio of the device
+            let deviceSize:CGSize = touch.deviceSize
+            Swift.print("deviceSize: " + "\(deviceSize)")
+            
             let ellipse = EllipseGraphic(pos.x,pos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
             debugCircDict[id] = ellipse
             addSubview(ellipse.graphic)
