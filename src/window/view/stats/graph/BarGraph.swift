@@ -174,7 +174,7 @@ class BarGraph:Graph {
     
     override func touchesEnded(with event:NSEvent) {//for debugging
         super.touchesEnded(with:event)
-        Swift.print("touchesEndedWithEvent: " + "\(event)")
+        //Swift.print("touchesEndedWithEvent: " + "\(event)")
         
         let touches:Set<NSTouch> = event.touches(matching:.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
         Swift.print("touches.count: " + "\(touches.count)")
