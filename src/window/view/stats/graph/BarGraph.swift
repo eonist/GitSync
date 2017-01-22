@@ -109,12 +109,8 @@ class BarGraph:Graph {
             let id:String = "\(touch.identity)"
             let pos:CGPoint = event.localPos(self) - CGPoint(20,20)//touch.normalizedPosition
             Swift.print("pos: " + "\(pos)")
-            var touchPos:CGPoint?
-            if #available(OSX 10.12.2, *) {
-                touchPos = touch.location(in: self) - CGPoint(20,20)
-            } else {
-                // Fallback on earlier versions
-            }
+            let touchPos:CGPoint = touch.normalizedPosition
+            
             Swift.print("touchPos: " + "\(touchPos)")
             
             let ellipse = EllipseGraphic(pos.x,pos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
@@ -164,6 +160,12 @@ class BarGraph:Graph {
             //loop though event.touches
                 //remove debugCirc[movingTouch.id]
                 //remove debugCirc from view
+    
+    
+    //Finding location of touches:
+        //the normalizedTouch is the relative location on the trackpad. values range from 0-1. And are y-flipped
+        //you could set debugCirc to mouseLoc if 1 tohc occurs
+            //and then relative pos if more touches are added
     
     override func touchesEnded(with event:NSEvent) {//for debugging
         Swift.print("touchesEndedWithEvent: " + "\(event)")
