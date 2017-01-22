@@ -18,7 +18,7 @@ class BarGraph:Graph {
     }
     override func createGraph() {
         createBars()
-        createGraphPoints()
+        //createGraphPoints()
     }
     /**
      * Creates the Bars
@@ -82,10 +82,10 @@ class BarGraph:Graph {
         //Continue here:
             //To debug this problem all you have to do is create debug rects that mark the graph area, then you clean up the point creation etc
         /*GraphPoints*/
-        for i in 0..<graphPts.count{
+        /*for i in 0..<graphPts.count{
             let pos:CGPoint = initGraphPts[i].interpolate(graphPts[i], val)/*interpolates from one point to another*/
             graphPoints[i].setPosition(pos)//moves the points
-        }
+        }*/
         //Swift.print("interpolateValue() val: \(val)")
         for e in 0..<graphPts.count{
             let pos:CGPoint = initGraphPts[e].interpolate(graphPts[e], val)/*interpolates from one point to another*/
