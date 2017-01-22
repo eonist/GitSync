@@ -199,8 +199,7 @@ class GestureUtils{
             let kSwipeMinimumLength:CGFloat = 0.1
             if (absoluteSum < kSwipeMinimumLength) {return .none}//return early if no swipe gesture was made
             
-            // Handle the actual swipe
-            // This might need to be > (i am using flipped coordinates)
+            // Handle the actual swipe (This might need to be > (i am using flipped coordinates))
             if (sum > 0){
                 //Swift.print("go back")
                 return .right
