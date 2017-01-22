@@ -180,7 +180,7 @@ class GestureUtils{
         if(touches.count > 0 && twoFingersTouches != nil){
             let beginTouches:NSMutableDictionary = twoFingersTouches!/*copy the twoFingerTouches data*/
             twoFingersTouches = nil/*reset the twoFingerTouches data*/
-            let magnitudes:NSMutableArray = NSMutableArray()
+            let magnitudes:NSMutableArray = NSMutableArray()/*magnitude definition: the great size or extent of something.*/
             for touch in touches {
                 let beginTouch:NSTouch? = beginTouches.object(forKey: touch.identity) as? NSTouch
                 if (beginTouch == nil) {continue}
