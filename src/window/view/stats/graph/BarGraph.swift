@@ -109,9 +109,9 @@ class BarGraph:Graph {
             let id:String = "\(touch.identity)"
             //let pos:CGPoint = event.localPos(self)// - CGPoint(20,20)//touch.normalizedPosition
             //Swift.print("pos: " + "\(pos)")
-            
-            newPos -= CGPoint(20,20)//set to pivot of circ
-            let ellipse = EllipseGraphic(newPos.x,newPos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
+            var touchPos = touch.pos(self)
+            touchPos -= CGPoint(20,20)//set to pivot of circ
+            let ellipse = EllipseGraphic(touchPos.x,touchPos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
             debugCircDict[id] = ellipse
             addSubview(ellipse.graphic)
             ellipse.draw()
