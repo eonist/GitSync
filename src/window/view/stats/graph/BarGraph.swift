@@ -79,7 +79,7 @@ class BarGraph:Graph {
         for i in 0..<graphPts.count{
             let pos:CGPoint = initGraphPts[i].interpolate(graphPts[i], val)/*interpolates from one point to another*/
             //if(i == 0){Swift.print("pos.y: " + "\(pos.y)")}
-            let barHeight:CGFloat = pos.y.distance(to: <#T##CGFloat#>)//pos.y newSize!.height - spacing!.height
+            let barHeight:CGFloat = pos.y.distance(to: newSize!.height - (spacing!.height ))//pos.y 
             let bar:Bar = bars[i]
             bar.setPosition(CGPoint(bar.frame.origin.x,pos.y))
             bar.setBarHeight(barHeight)
