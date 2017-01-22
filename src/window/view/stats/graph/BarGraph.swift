@@ -187,7 +187,7 @@ class BarGraph:Graph {
             //Swift.print("id: " + "\(id)")
             Swift.print("touchType: " + "\(touchType(touch.phase))")
             //Swift.print("touch.isResting: " + "\(touch.isResting)")
-            if(stationaryTouches.count > 0 || touches.count == 1/* && begginingTouches.count == 0*/){
+            if(stationaryTouches.count > 0 || endingTouches.count == touches.count/* && begginingTouches.count == 0*/){
                 let ellipse:EllipseGraphic? = debugCircDict.removeValue(forKey: id)
                 ellipse?.graphic.removeFromSuperview()
             }
