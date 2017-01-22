@@ -171,7 +171,8 @@ class GestureUtils{
     }
     
     /**
-     * TODO: To avoid duplicate code we could extract the content of this class to a Utility method, GestureUtils? and either of 3 enums could be returened. .leftSwipe, .rightSwipe .none
+     * Detects 2 finger (left/right) swipe gesture
+     * NOTE: To avoid duplicate code we could extract the content of this class to a Utility method, GestureUtils? and either of 3 enums could be returened. .leftSwipe, .rightSwipe .none
      * TODO: also make up and down swipe detectors, and do more research into how this could be done easier. Maybe you even have some clues in the notes about gestures etc.
      */
     static func swipe(_ view:NSView, _ event:NSEvent, _ twoFingersTouches:inout NSMutableDictionary?) -> SwipeType{
@@ -179,9 +180,7 @@ class GestureUtils{
         if(touches.count > 0 && twoFingersTouches != nil){
             let beginTouches:NSMutableDictionary = twoFingersTouches!/*copy the twoFingerTouches data*/
             twoFingersTouches = nil/*reset the twoFingerTouches data*/
-            
             let magnitudes:NSMutableArray = NSMutableArray()
-            
             for touch in touches {
                 let beginTouch:NSTouch? = beginTouches.object(forKey: touch.identity) as? NSTouch
                 if (beginTouch == nil) {continue}
@@ -189,7 +188,6 @@ class GestureUtils{
                 magnitudes.add(NSNumber(value: magnitude))
             }
             var sum:Float = 0
-            
             for magnitude in magnitudes{
                 sum += (magnitude as AnyObject).floatValue
             }
