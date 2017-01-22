@@ -181,6 +181,7 @@ class BarGraph:Graph {
         let begginingTouches:Set<NSTouch> = event.touches(matching:.began, in: self)
         Swift.print("begginingTouches.count: " + "\(begginingTouches.count)")
         let stationaryTouches:Set<NSTouch> = event.touches(matching:.stationary, in: self)
+        Swift.print("stationaryTouches.count: " + "\(stationaryTouches.count)")
         for touch in endingTouches {
             let id:String = "\(touch.identity)"
             //Swift.print("id: " + "\(id)")
