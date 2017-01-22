@@ -176,15 +176,15 @@ class GestureUtils{
      * TODO: also make up and down swipe detectors, and do more research into how this could be done easier. Maybe you even have some clues in the notes about gestures etc.
      */
     static func swipe(_ view:NSView, _ event:NSEvent, _ twoFingersTouches:inout NSMutableDictionary?) -> SwipeType{
-        let touches:Set<NSTouch> = event.touches(matching: NSTouchPhase.ended, in: view)
-        if(touches.count > 0 && twoFingersTouches != nil){
+        let movingtouches:Set<NSTouch> = event.touches(matching: NSTouchPhase.ended, in: view)
+        if(movingtouches.count > 0 && twoFingersTouches != nil){
             let beginTouches:NSMutableDictionary = twoFingersTouches!/*copy the twoFingerTouches data*/
             twoFingersTouches = nil/*reset the twoFingerTouches data*/
             let magnitudes:NSMutableArray = NSMutableArray()/*magnitude definition: the great size or extent of something.*/
-            for touch in touches {
-                let beginTouch:NSTouch? = beginTouches.object(forKey: touch.identity) as? NSTouch
+            for movingTouch in movingtouches {
+                let beginTouch:NSTouch? = beginTouches.object(forKey: movingTouch.identity) as? NSTouch
                 if (beginTouch == nil) {continue}
-                let magnitude:Float = Float(touch.normalizedPosition.x) - Float(beginTouch!.normalizedPosition.x)
+                let magnitude:Float = Float(movingTouch.normalizedPosition.x) - Float(beginTouch!.normalizedPosition.x)
                 magnitudes.add(NSNumber(value: magnitude))
             }
             var sum:Float = 0
