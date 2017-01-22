@@ -183,16 +183,16 @@ class GestureUtils{
         if(movingtouches.count > 0 && twoFingersTouches != nil){
             let beginTouches:[String:NSTouch] = twoFingersTouches!/*copy the twoFingerTouches data*/
             //twoFingersTouches = nil/*reset the twoFingerTouches data*///<---no need to reset it seems
-            let magnitudes:NSMutableArray = NSMutableArray()/*magnitude definition: the great size or extent of something.*/
+            var magnitudes:[Float] = []/*magnitude definition: the great size or extent of something.*/
             for movingTouch in movingtouches {
                 let beginTouch:NSTouch? = beginTouches["\(movingTouch.identity)"]
                 if (beginTouch == nil) {continue}
                 let magnitude:Float = Float(movingTouch.normalizedPosition.x) - Float(beginTouch!.normalizedPosition.x)
-                magnitudes.add(NSNumber(value: magnitude))
+                magnitudes.append(magnitude)
             }
             var sum:Float = 0
             for magnitude in magnitudes{
-                sum += (magnitude as AnyObject).floatValue
+                sum += magnitude
             }
             // See if absolute sum is long enough to be considered a complete gesture
             let absoluteSum:Float = fabsf(sum)
