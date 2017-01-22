@@ -109,8 +109,7 @@ class BarGraph:Graph {
             let id:String = "\(touch.identity)"
             //let pos:CGPoint = event.localPos(self)// - CGPoint(20,20)//touch.normalizedPosition
             //Swift.print("pos: " + "\(pos)")
-            var touchPos = touch.pos(self)
-            touchPos -= CGPoint(20,20)//set to pivot of circ
+            var touchPos = touch.pos(self) - CGPoint(20,20)//set to pivot of circ
             let ellipse = EllipseGraphic(touchPos.x,touchPos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
             debugCircDict[id] = ellipse
             addSubview(ellipse.graphic)
@@ -131,11 +130,12 @@ class BarGraph:Graph {
         let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
         for touch in touches {
             let id:String = "\(touch.identity)"
-            let pos:CGPoint = event.localPos(self) - CGPoint(20,20)//offset pos // touch.normalizedPosition
+            let touchPos = touch.pos(self) - CGPoint(20,20)//offset pos // touch.normalizedPosition
+            //let pos:CGPoint = event.localPos(self)
             //Swift.print("pos: " + "\(pos)")
             let ellipse:EllipseGraphic? = debugCircDict[id]
-            //ellipse?.setPosition(pos)
-            //ellipse?.draw()
+            ellipse?.setPosition(touchPos)
+            ellipse?.draw()
         }
         /*swipe detection*/
         let swipeType:SwipeType = GestureUtils.swipe(self, event, twoFingersTouches)
