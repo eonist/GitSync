@@ -10,7 +10,7 @@ class CommitGraph:Graph{
     var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
     /*Animation related*/
     var animator:Animator?
-    var graphPts:[CGPoint] = []/*Animates to these points*/
+    //var graphPts:[CGPoint] = []/*Animates to these points*/
     var initGraphPts:[CGPoint] = []/*Animates from these points*/
     
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement?, _ id: String? = nil) {
