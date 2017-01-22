@@ -159,7 +159,7 @@ class GestureUtils{
      * To avoid duplicate code we could extract the content of this method into an GestureUtils method. Return nil if there isnt 2 touches and set the array only if != nil
      */
     static func twoFingersTouches(_ view:NSView, _ event:NSEvent)->[String:NSTouch]?{
-        var twoFingersTouches:[String:NSTouch]? = nil
+        var twoFingersTouches:[String:NSTouch]? = nil//NSMutualDictionary was used before and didn't require casting id to string, revert if sideeffects manifest
         if(event.type == NSEventType.gesture){//was NSEventTypeGesture, could maybe be: EventTypeBeginGesture
             let touches:NSSet = event.touches(matching: NSTouchPhase.any, in: view) as NSSet //touchesMatchingPhase:NSTouchPhaseAny inView:self
             if(touches.count == 2){
