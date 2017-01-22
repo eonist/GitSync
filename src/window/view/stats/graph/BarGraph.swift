@@ -133,8 +133,9 @@ class BarGraph:Graph {
         let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
         for touch in touches {
             let id:String = "\(touch.identity)"
+            let pos:CGPoint = touch.normalizedPosition - CGPoint(10,10)//offset pos
             let ellipse:EllipseGraphic? = debugCircDict[id]
-            ellipse?.setPosition(touch.normalizedPosition)
+            ellipse?.setPosition(pos)
         }
     }
     
