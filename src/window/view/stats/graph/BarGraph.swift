@@ -118,6 +118,15 @@ class BarGraph:Graph {
             //Swift.print("swipe none")
         }
     }
+    
+    //Basically:
+        //onTouchBegan
+            //create debugCircle 
+            //add the debugCirc to a dictionary that uses the touch.id for key
+        //onTouchMove
+            //loop though debugCircDict
+                //debugCirc[id]
+    
     override func touchesEnded(with event:NSEvent) {//for debugging
         Swift.print("touchesEndedWithEvent: " + "\(event)")
     }
