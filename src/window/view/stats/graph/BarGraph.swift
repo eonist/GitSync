@@ -174,9 +174,10 @@ class BarGraph:Graph {
         
         Swift.print("touchesEndedWithEvent: " + "\(event)")
         
-        let touches:Set<NSTouch> = event.touches(matching:.ended, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
+        let touches:Set<NSTouch> = event.touches(matching:.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
         Swift.print("touches.count: " + "\(touches.count)")
-        
+        let endingTouches:Set<NSTouch> = event.touches(matching:.ended, in: self)
+        Swift.print("endingTouches.count: " + "\(endingTouches.count)")
         let begginingTouches:Set<NSTouch> = event.touches(matching:.began, in: self)
         Swift.print("begginingTouches.count: " + "\(begginingTouches.count)")
         for touch in touches {
