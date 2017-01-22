@@ -126,8 +126,8 @@ class BarGraph:Graph {
             }else if(deviceRatio < viewRatio){//view is wider than device
                 touchArea.height = height
                 touchArea.width = width / deviceRatio
-            }//else rato are the same
-            var touchAreaPos:CGPoint = CGPoint()
+            }//else ratios are the same
+            var touchAreaPos:CGPoint = CGPoint((width - touchArea.width)/2,(height - touchArea.height)/2)
             
             let ellipse = EllipseGraphic(pos.x,pos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
             debugCircDict[id] = ellipse
