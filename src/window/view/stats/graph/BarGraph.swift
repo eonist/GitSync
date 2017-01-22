@@ -2,7 +2,7 @@ import Cocoa
 
 class BarGraph:Graph {
     var bars:[Bar] = []
-    override var vValues: [CGFloat] {return Utils.vValues()}
+    
     /*Gesture related*/
     var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
     /*Animation related*/
@@ -15,6 +15,7 @@ class BarGraph:Graph {
         self.acceptsTouchEvents = true/*Enables gestures*/
     }
     override func createGraph() {
+        vValues = Utils.vValues()
         //createBars(graphPts)
         createGraphPoints()
     }
