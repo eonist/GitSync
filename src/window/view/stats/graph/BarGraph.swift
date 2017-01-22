@@ -4,7 +4,6 @@ class BarGraph:Graph {
     var bars:[Bar] = []
     var tempVValues:[CGFloat]
     override var vValues:[CGFloat] {return tempVValues}
-    
     /*Gesture related*/
     var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
     /*Animation related*/
