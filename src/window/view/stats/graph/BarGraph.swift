@@ -109,27 +109,7 @@ class BarGraph:Graph {
             let id:String = "\(touch.identity)"
             //let pos:CGPoint = event.localPos(self)// - CGPoint(20,20)//touch.normalizedPosition
             //Swift.print("pos: " + "\(pos)")
-            let touchPos:CGPoint = CGPoint(touch.normalizedPosition.x,1 + (touch.normalizedPosition.y * -1))//flip the touch coordinates
             
-            Swift.print("touchPos: " + "\(touchPos)")
-            
-            //find the ratio of the device
-            let deviceSize:CGSize = touch.deviceSize
-            Swift.print("deviceSize: " + "\(deviceSize)")
-            let deviceRatio:CGFloat = deviceSize.width/deviceSize.height
-            let viewRatio:CGFloat = width/height
-            var touchArea:CGSize = CGSize(width,height)
-            
-            if(deviceRatio > viewRatio){//device is wider than view
-                touchArea.height = height/viewRatio
-                touchArea.width = width
-            }else if(deviceRatio < viewRatio){//view is wider than device
-                touchArea.height = height
-                touchArea.width = width / deviceRatio
-            }//else ratios are the same
-            let touchAreaPos:CGPoint = CGPoint((width - touchArea.width)/2,(height - touchArea.height)/2)
-            var newPos = CGPoint(touchPos.x * touchArea.width,touchPos.y * touchArea.height)
-            newPos += touchAreaPos
             newPos -= CGPoint(20,20)//set to pivot of circ
             let ellipse = EllipseGraphic(newPos.x,newPos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
             debugCircDict[id] = ellipse
