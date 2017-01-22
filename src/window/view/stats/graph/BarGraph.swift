@@ -129,6 +129,13 @@ class BarGraph:Graph {
         }else{
             //Swift.print("swipe none")
         }
+        /*DebugCirc*/
+        let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
+        for touch in touches {
+            let id:String = "\(touch.identity)"
+            let ellipse:EllipseGraphic? = debugCircDict[id]
+            ellipse?.setPosition(touch.normalizedPosition)
+        }
     }
     
     //Basically:
@@ -149,7 +156,8 @@ class BarGraph:Graph {
         let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
         for touch in touches {
             let id:String = "\(touch.identity)"
-            debugCircDict.removeValue(forKey: id)
+            let ellipse:EllipseGraphic? = debugCircDict.removeValue(forKey: id)
+            ellipse?.graphic.removeFromSuperview()
         }
     }
     override func touchesCancelled(with event:NSEvent) {//for debugging
