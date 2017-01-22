@@ -121,7 +121,7 @@ class BarGraph:Graph {
             var touchArea:CGSize = CGSize(width,height)
             if(deviceRatio > viewRatio){//device is wider than view
                 touchArea.height = height
-                touchArea.width = height * deviceRatio
+                touchArea.width = width
             }else if(deviceRatio < viewRatio){//view is wider than device
                 touchArea.height = height
                 touchArea.width = height * deviceRatio
