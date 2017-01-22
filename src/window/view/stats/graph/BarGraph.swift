@@ -11,11 +11,12 @@ class BarGraph:Graph {
     var initGraphPts:[CGPoint] = []/*Animates from these points*/
     
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement?, _ id: String? = nil) {
+        
         super.init(width, height, parent, id)
+        vValues = Utils.vValues()
         self.acceptsTouchEvents = true/*Enables gestures*/
     }
     override func createGraph() {
-        vValues = Utils.vValues()
         //createBars(graphPts)
         createGraphPoints()
     }
