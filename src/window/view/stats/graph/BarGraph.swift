@@ -100,6 +100,7 @@ class BarGraph:Graph {
      * Detects when touches are made
      */
     override func touchesBegan(with event:NSEvent) {
+        super.touchesBegan(with:event)
         Swift.print("touchesBeganWithEvent: " + "\(event)")
         //twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
         let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.began, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
@@ -125,6 +126,7 @@ class BarGraph:Graph {
      * Detects if a two finger left or right swipe has occured
      */
     override func touchesMoved(with event:NSEvent) {
+        super.touchesMoved(with:event)
         //Swift.print("touchesMovedWithEvent: " + "\(event)")
         /*DebugCirc*/
         let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
@@ -171,7 +173,7 @@ class BarGraph:Graph {
             //and then relative pos if more touches are added
     
     override func touchesEnded(with event:NSEvent) {//for debugging
-        
+        super.touchesEnded(with:event)
         Swift.print("touchesEndedWithEvent: " + "\(event)")
         
         let touches:Set<NSTouch> = event.touches(matching:.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
@@ -196,6 +198,7 @@ class BarGraph:Graph {
     }
     override func touchesCancelled(with event:NSEvent) {//for debugging
         Swift.print("touchesCancelledWithEvent: " + "\(event)")
+        super.touchesCancelled(with:event)
     }
     /**
      *
