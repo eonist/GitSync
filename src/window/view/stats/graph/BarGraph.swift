@@ -123,11 +123,14 @@ class BarGraph:Graph {
         //onTouchBegan
             //create debugCircle 
             //add the debugCirc to a dictionary that uses the touch.id for key
+            //add debugCirc to view
         //onTouchMove
             //loop though event.touches
                 //debugCirc[movingTouch.id].setPosition(movingTouch.normalizedPosition)
         //onTouchEnded
-            //
+            //loop though event.touches
+                //remove debugCirc[movingTouch.id]
+                //remove debugCirc from view
     
     override func touchesEnded(with event:NSEvent) {//for debugging
         Swift.print("touchesEndedWithEvent: " + "\(event)")
