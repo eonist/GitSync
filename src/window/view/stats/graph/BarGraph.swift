@@ -119,10 +119,10 @@ class BarGraph:Graph {
         }
     }
     override func touchesEnded(with event:NSEvent) {//for debugging
-        //Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")
+        Swift.print("touchesEndedWithEvent: " + "\(event)")
     }
     override func touchesCancelled(with event:NSEvent) {//for debugging
-        //Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
+        Swift.print("touchesCancelledWithEvent: " + "\(event)")
     }
     
     override func createVLines(_ size:CGSize, _ position:CGPoint, _ spacing:CGSize) {//we don't want VLines in the BarGraph
