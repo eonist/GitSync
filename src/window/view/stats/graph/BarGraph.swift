@@ -135,6 +135,11 @@ class BarGraph:Graph {
             debugCircDict[id] = ellipse
             addSubview(ellipse.graphic)
             ellipse.draw()
+            
+            
+            //Continue here: Sort of works, 
+                //make it into a Utility method 
+                //and debug if the touch area is working with a rect with a green stroke
         }
     }
     /**
