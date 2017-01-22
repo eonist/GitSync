@@ -2,6 +2,7 @@ import Cocoa
 
 class BarGraph:Graph {
     var bars:[Bar] = []
+    override var vValues: [CGFloat] {return tempVValues}
     var tempVValues: [CGFloat]
     /*Gesture related*/
     var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
@@ -11,7 +12,7 @@ class BarGraph:Graph {
     var initGraphPts:[CGPoint] = []/*Animates from these points*/
     
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement?, _ id: String? = nil) {
-        tempVValues = Utils.vValues()
+        tempVValues = Utils.vValues()//random data is set only once
         super.init(width, height, parent, id)
         self.acceptsTouchEvents = true/*Enables gestures*/
     }
