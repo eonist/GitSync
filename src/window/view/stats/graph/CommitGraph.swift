@@ -183,20 +183,20 @@ class GestureUtils{
         if(movingtouches.count > 0 && twoFingersTouches != nil){
             let beginTouches:[String:NSTouch] = twoFingersTouches!/*copy the twoFingerTouches data*/
             //twoFingersTouches = nil/*reset the twoFingerTouches data*///<---no need to reset it seems
-            var magnitudes:[Float] = []/*magnitude definition: the great size or extent of something.*/
+            var magnitudes:[CGFloat] = []/*magnitude definition: the great size or extent of something.*/
             for movingTouch in movingtouches {
                 let beginTouch:NSTouch? = beginTouches["\(movingTouch.identity)"]
                 if (beginTouch == nil) {continue}
-                let magnitude:Float = Float(movingTouch.normalizedPosition.x) - Float(beginTouch!.normalizedPosition.x)
+                let magnitude:CGFloat = movingTouch.normalizedPosition.x - beginTouch!.normalizedPosition.x
                 magnitudes.append(magnitude)
             }
-            var sum:Float = 0
+            var sum:CGFloat = 0
             for magnitude in magnitudes{
                 sum += magnitude
             }
             // See if absolute sum is long enough to be considered a complete gesture
-            let absoluteSum:Float = fabsf(sum)
-            let kSwipeMinimumLength:Float = 0.1
+            let absoluteSum:CGFloat = abs(sum)//force value to be positive
+            let kSwipeMinimumLength:CGFloat = 0.1
             if (absoluteSum < kSwipeMinimumLength) {return .none}//return early if no swipe gesture was made
             
             // Handle the actual swipe
