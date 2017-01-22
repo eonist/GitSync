@@ -106,11 +106,14 @@ class BarGraph:Graph {
         
         for touch in touches {//
             //Swift.print("id: "+"\((touch as! NSTouch).identity)")
-            let id = ["\((touch).identity)"]
+            let id = "\((touch).identity)"
             let pos = touch.normalizedPosition
-            debugCircDict[id] = 
+            
+            let ellipse = EllipseGraphic(pos.x-20,pos.y-20,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
+            debugCircDict[id] = ellipse
+            addSubview(ellipse.graphic)
+            ellipse.draw()
         }
-        
     }
     /**
      * Detects if a two finger left or right swipe has occured
