@@ -178,11 +178,11 @@ class GestureUtils{
      * NOTE: To avoid duplicate code we could extract the content of this class to a Utility method, GestureUtils? and either of 3 enums could be returened. .leftSwipe, .rightSwipe .none
      * TODO: also make up and down swipe detectors, and do more research into how this could be done easier. Maybe you even have some clues in the notes about gestures etc.
      */
-    static func swipe(_ view:NSView, _ event:NSEvent, _ twoFingersTouches:inout [String:NSTouch]?) -> SwipeType{
+    static func swipe(_ view:NSView, _ event:NSEvent, _ twoFingersTouches:[String:NSTouch]?) -> SwipeType{
         let movingtouches:Set<NSTouch> = event.touches(matching: NSTouchPhase.ended, in: view)
         if(movingtouches.count > 0 && twoFingersTouches != nil){
             let beginTouches:[String:NSTouch] = twoFingersTouches!/*copy the twoFingerTouches data*/
-            twoFingersTouches = nil/*reset the twoFingerTouches data*/
+            //twoFingersTouches = nil/*reset the twoFingerTouches data*/
             let magnitudes:NSMutableArray = NSMutableArray()/*magnitude definition: the great size or extent of something.*/
             for movingTouch in movingtouches {
                 let beginTouch:NSTouch? = beginTouches["\(movingTouch.identity)"]

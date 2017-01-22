@@ -107,7 +107,7 @@ class BarGraph:Graph {
      */
     override func touchesMoved(with event:NSEvent) {
         Swift.print("touchesMovedWithEvent: " + "\(event)")
-        let swipeType:SwipeType = GestureUtils.swipe(self, event, &twoFingersTouches)
+        let swipeType:SwipeType = GestureUtils.swipe(self, event, twoFingersTouches)
         if (swipeType == .right){
             Swift.print("swipe right")
             iterate()
