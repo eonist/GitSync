@@ -76,6 +76,7 @@ class CommitGraph:Graph{
     func interpolateValue(_ val:CGFloat){
         Swift.print("interpolateValue() val: " + "\(val)")
         var positions:[CGPoint] = []
+        /*GraphPoints*/
         for i in 0..<graphPts.count{
             let pos:CGPoint = initGraphPts[i].interpolate(graphPts[i], val)/*interpolates from one point to another*/
             positions.append(pos)

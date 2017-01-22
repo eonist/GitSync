@@ -16,7 +16,8 @@ class BarGraph:Graph {
         self.acceptsTouchEvents = true/*Enables gestures*/
     }
     override func createGraph(_ graphPts:[CGPoint]) {
-        createBars(graphPts)
+        //createBars(graphPts)
+        createGraphPoints(newSize!,newPostition!,spacing!,graphPts)
     }
     /**
      * Creates the Bars
@@ -56,8 +57,10 @@ class BarGraph:Graph {
     func updateGraph(){
         let maxValue:CGFloat = NumberParser.max(vValues)//Finds the largest number in among vValues
         
-        initGraphPts = self.graphPts.map{$0}//grabs the location of where the pts are now
-        self.graphPts = GraphUtils.points(newSize!, newPostition!, spacing!, vValues, maxValue)
+        //initGraphPts = self.graphPts.map{$0}//grabs the location of where the pts are now
+        //self.graphPts = GraphUtils.points(newSize!, newPostition!, spacing!, vValues, maxValue)
+        graphPts = GraphUtils.points(newSize!, newPostition!, spacing!, vValues, maxValue)
+        initGraphPts = graphPoints.map{$0.frame.origin}//grabs the location of where the pts are now
         
         Swift.print("initGraphPts: " + "\(initGraphPts)")
         Swift.print("graphPts: " + "\(graphPts)")
@@ -74,9 +77,13 @@ class BarGraph:Graph {
         
         //Continue here:
             //To debug this problem all you have to do is create debug rects that mark the graph area, then you clean up the point creation etc
-        
-        Swift.print("interpolateValue() val: \(val)")
+        /*GraphPoints*/
         for i in 0..<graphPts.count{
+            let pos:CGPoint = initGraphPts[i].interpolate(graphPts[i], val)/*interpolates from one point to another*/
+            graphPoints[i].setPosition(pos)//moves the points
+        }
+        Swift.print("interpolateValue() val: \(val)")
+        /*for i in 0..<graphPts.count{
             let pos:CGPoint = initGraphPts[i].interpolate(graphPts[i], val)/*interpolates from one point to another*/
             //if(i == 0){Swift.print("pos.y: " + "\(pos.y)")}
             let barHeight:CGFloat = pos.y.distance(to: newSize!.height - (spacing!.height ))//pos.y 
@@ -84,7 +91,7 @@ class BarGraph:Graph {
             bar.setPosition(CGPoint(bar.frame.origin.x,pos.y))
             bar.setBarHeight(barHeight)
             bar.graphic!.draw()
-        }
+        }*/
     }
     /**
      * Detects when touches are made
