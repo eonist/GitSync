@@ -182,7 +182,7 @@ class GestureUtils{
         let movingtouches:Set<NSTouch> = event.touches(matching: NSTouchPhase.ended, in: view)
         if(movingtouches.count > 0 && twoFingersTouches != nil){
             let beginTouches:[String:NSTouch] = twoFingersTouches!/*copy the twoFingerTouches data*/
-            //twoFingersTouches = nil/*reset the twoFingerTouches data*/
+            //twoFingersTouches = nil/*reset the twoFingerTouches data*///<---no need to reset it seems
             let magnitudes:NSMutableArray = NSMutableArray()/*magnitude definition: the great size or extent of something.*/
             for movingTouch in movingtouches {
                 let beginTouch:NSTouch? = beginTouches["\(movingTouch.identity)"]
