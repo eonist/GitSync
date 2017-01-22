@@ -106,8 +106,8 @@ class BarGraph:Graph {
         
         for touch in touches {//
             //Swift.print("id: "+"\((touch as! NSTouch).identity)")
-            let id = "\((touch).identity)"
-            let pos = touch.normalizedPosition
+            let id:String = "\(touch.identity)"
+            let pos:CGPoint = touch.normalizedPosition
             let ellipse = EllipseGraphic(pos.x-20,pos.y-20,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
             debugCircDict[id] = ellipse
             addSubview(ellipse.graphic)
@@ -147,10 +147,9 @@ class BarGraph:Graph {
     override func touchesEnded(with event:NSEvent) {//for debugging
         Swift.print("touchesEndedWithEvent: " + "\(event)")
         let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
-        
-        for touch in touches {//
-            let id = "\((touch).identity)"
-            debugCircDict.remove(at: id)
+        for touch in touches {
+            let id:String = "\(touch.identity)"
+            debugCircDict.removeValue(forKey: id)
         }
     }
     override func touchesCancelled(with event:NSEvent) {//for debugging
