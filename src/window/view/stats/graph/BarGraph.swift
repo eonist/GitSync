@@ -187,6 +187,30 @@ class BarGraph:Graph {
             
         }
     }
+    /**
+     *
+     */
+    func touchType(phase:NSTouchPhase){
+        if(phase == .began){
+            
+        }else if(phase == .moved){
+            
+        }else if(phase == .stationary){
+            
+        }else if(phase == .ended){
+            
+        }else if(phase == .cancelled){
+            
+        }else if(phase == .touching){
+            
+        }else if(phase == .cancelled){
+            
+        }else if(phase == .cancelled){
+            
+        }else{
+            
+        }
+    }
     override func touchesCancelled(with event:NSEvent) {//for debugging
         Swift.print("touchesCancelledWithEvent: " + "\(event)")
     }
