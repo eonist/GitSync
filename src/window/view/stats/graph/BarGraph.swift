@@ -126,6 +126,8 @@ class BarGraph:Graph {
         //onTouchMove
             //loop though event.touches
                 //debugCirc[movingTouch.id].setPosition(movingTouch.normalizedPosition)
+        //onTouchEnded
+            //
     
     override func touchesEnded(with event:NSEvent) {//for debugging
         Swift.print("touchesEndedWithEvent: " + "\(event)")
