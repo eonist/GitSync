@@ -101,7 +101,7 @@ class BarGraph:Graph {
      */
     override func touchesBegan(with event:NSEvent) {
         Swift.print("touchesBeganWithEvent: " + "\(event)")
-        twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
+        //twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
         let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.began, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
         
         for touch in touches {//
@@ -138,7 +138,7 @@ class BarGraph:Graph {
             ellipse?.draw()
         }
         /*swipe detection*/
-        let swipeType:SwipeType = GestureUtils.swipe(self, event, twoFingersTouches)
+        /*let swipeType:SwipeType = GestureUtils.swipe(self, event, twoFingersTouches)
         if (swipeType == .right){
             Swift.print("swipe right")
             iterate()
@@ -148,7 +148,7 @@ class BarGraph:Graph {
         }else{
             //Swift.print("swipe none")
         }
-        
+        */
     }
     
     //Basically:
@@ -171,6 +171,7 @@ class BarGraph:Graph {
             //and then relative pos if more touches are added
     
     override func touchesEnded(with event:NSEvent) {//for debugging
+        
         Swift.print("touchesEndedWithEvent: " + "\(event)")
         
         let touches:Set<NSTouch> = event.touches(matching:.ended, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
@@ -180,15 +181,19 @@ class BarGraph:Graph {
         Swift.print("begginingTouches.count: " + "\(begginingTouches.count)")
         for touch in touches {
             let id:String = "\(touch.identity)"
-            Swift.print("id: " + "\(id)")
+            //Swift.print("id: " + "\(id)")
             Swift.print("touchType: " + "\(touchType(touch.phase))")
-            Swift.print("touch.isResting: " + "\(touch.isResting)")
+            //Swift.print("touch.isResting: " + "\(touch.isResting)")
             if(touch.phase == .ended && begginingTouches.count == 0){
                 let ellipse:EllipseGraphic? = debugCircDict.removeValue(forKey: id)
                 ellipse?.graphic.removeFromSuperview()
             }
             
         }
+    }
+    override func touchesCancelled(with event: NSEvent){
+        //super.touchesCancelled
+        Swift.print("touchesCancelled")
     }
     /**
      *
