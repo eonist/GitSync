@@ -2,7 +2,7 @@ import Cocoa
 
 class BarGraph:Graph {
     var bars:[Bar] = []
-    var tempVValues:[CGFloat]//instead of lazy
+    var tempVValues:[CGFloat]
     override var vValues:[CGFloat] {return tempVValues}
     /*Gesture related*/
     var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
@@ -12,7 +12,7 @@ class BarGraph:Graph {
     var initGraphPts:[CGPoint] = []/*Animates from these points*/
     
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement?, _ id: String? = nil) {
-        tempVValues = Utils.vValues()//random data is set only once
+        tempVValues = Utils.vValues()//random data is set on init
         super.init(width, height, parent, id)
         self.acceptsTouchEvents = true/*Enables gestures*/
     }
@@ -56,6 +56,7 @@ class BarGraph:Graph {
      *
      */
     func updateGraph(){
+        tempVValues = Utils.vValues()//random data is set
         //recalc the maxValue
         maxValue = GraphUtils.maxValue(vValues)//NumberParser.max(vValues)//Finds the largest number in among vValues
         
@@ -84,7 +85,7 @@ class BarGraph:Graph {
             let pos:CGPoint = initGraphPts[i].interpolate(graphPts[i], val)/*interpolates from one point to another*/
             graphPoints[i].setPosition(pos)//moves the points
         }
-        Swift.print("interpolateValue() val: \(val)")
+        //Swift.print("interpolateValue() val: \(val)")
         /*for e in 0..<graphPts.count{
             let pos:CGPoint = initGraphPts[e].interpolate(graphPts[e], val)/*interpolates from one point to another*/
             //if(i == 0){Swift.print("pos.y: " + "\(pos.y)")}
