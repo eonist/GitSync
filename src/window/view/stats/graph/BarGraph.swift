@@ -11,7 +11,7 @@ class BarGraph:Graph {
     //var graphPts:[CGPoint] = []/*Animates to these points*/
     var initGraphPts:[CGPoint] = []/*Animates from these points*/
     /*Debugging*/
-    //var debugCircDict = [String:EllipseGraphic]()
+    var debugCircDict = [String:EllipseGraphic]()
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement?, _ id: String? = nil) {
         tempVValues = Utils.vValues()//random data is set on init
         super.init(width, height, parent, id)
