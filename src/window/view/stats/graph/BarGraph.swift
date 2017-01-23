@@ -104,7 +104,9 @@ class BarGraph:Graph {
         super.touchesBegan(with:event)
         Swift.print("touchesBeganWithEvent: " + "\(event)")
         //twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
-        let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: self)
+        let allTouches:Set<NSTouch> = event.touches(matching:.any, in: self)
+        Swift.print("allTouches.count: " + "\(allTouches.count)")
+        let touches:Set<NSTouch> = event.touches(matching:.began, in: self)
         for touch in touches {//
             //Swift.print("id: "+"\((touch as! NSTouch).identity)")
             let id:String = "\(touch.identity)"
