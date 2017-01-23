@@ -129,6 +129,7 @@ class BarGraph:Graph {
         //Swift.print("touchesMovedWithEvent: " + "\(event)")
         /*DebugCirc*/
         let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
+        Swift.print("touches.count: " + "\(touches.count)")
         for touch in touches {
             let id:String = "\(touch.identity)"
             let touchPos = touch.pos(self) - CGPoint(20,20)//offset pos // touch.normalizedPosition
