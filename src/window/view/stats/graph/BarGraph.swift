@@ -98,27 +98,23 @@ class BarGraph:Graph {
     }
     /**
      * Detects when touches are made
+     * NOTE: event.localPos(self) equals the pos of the mouseCursor
      */
     override func touchesBegan(with event:NSEvent) {
         super.touchesBegan(with:event)
         Swift.print("touchesBeganWithEvent: " + "\(event)")
         //twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
-        let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.began, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
-        
+        let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: self)
         for touch in touches {//
             //Swift.print("id: "+"\((touch as! NSTouch).identity)")
             let id:String = "\(touch.identity)"
             //let pos:CGPoint = event.localPos(self)// - CGPoint(20,20)//touch.normalizedPosition
             //Swift.print("pos: " + "\(pos)")
-            var touchPos = touch.pos(self) - CGPoint(20,20)//set to pivot of circ
+            let touchPos = touch.pos(self) - CGPoint(20,20)//set to pivot of circ
             let ellipse = EllipseGraphic(touchPos.x,touchPos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
             debugCircDict[id] = ellipse//add the debugCirc to a dictionary that uses the touch.id for key
             addSubview(ellipse.graphic)
             ellipse.draw()
-            
-            //Continue here: Sort of works, 
-                //make it into a Utility method 
-                //and debug if the touch area is working with a rect with a green stroke
         }
     }
     /**
