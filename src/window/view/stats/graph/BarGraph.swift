@@ -11,7 +11,7 @@ class BarGraph:Graph {
     //var graphPts:[CGPoint] = []/*Animates to these points*/
     var initGraphPts:[CGPoint] = []/*Animates from these points*/
     /*Debugging*/
-    var debugCircDict = [String:EllipseGraphic]()
+    //var debugCircDict = [String:EllipseGraphic]()
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement?, _ id: String? = nil) {
         tempVValues = Utils.vValues()//random data is set on init
         super.init(width, height, parent, id)
@@ -111,11 +111,10 @@ class BarGraph:Graph {
             //let pos:CGPoint = event.localPos(self)// - CGPoint(20,20)//touch.normalizedPosition
             //Swift.print("pos: " + "\(pos)")
             var touchPos = touch.pos(self) - CGPoint(20,20)//set to pivot of circ
-            let ellipse = EllipseGraphic(touchPos.x,touchPos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
-            debugCircDict[id] = ellipse
-            addSubview(ellipse.graphic)
-            ellipse.draw()
-            
+            //let ellipse = EllipseGraphic(touchPos.x,touchPos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
+            //debugCircDict[id] = ellipse
+            //addSubview(ellipse.graphic)
+            //ellipse.draw()
             
             //Continue here: Sort of works, 
                 //make it into a Utility method 
@@ -135,9 +134,9 @@ class BarGraph:Graph {
             let touchPos = touch.pos(self) - CGPoint(20,20)//offset pos // touch.normalizedPosition
             //let pos:CGPoint = event.localPos(self)
             //Swift.print("pos: " + "\(pos)")
-            let ellipse:EllipseGraphic? = debugCircDict[id]
-            ellipse?.setPosition(touchPos)
-            ellipse?.draw()
+            //let ellipse:EllipseGraphic? = debugCircDict[id]
+            //ellipse?.setPosition(touchPos)
+            //ellipse?.draw()
         }
         /*swipe detection*/
         /*let swipeType:SwipeType = GestureUtils.swipe(self, event, twoFingersTouches)
@@ -180,7 +179,7 @@ class BarGraph:Graph {
         //i think you can solve this by checking the id of begining touch if it matches a touch that is stored in debugCircs
         //it could be that you remove and add nsviews, try without
         //search github for similar code
-        //try 
+        //try to log the touch ids in a literal way, and dont use debugCirc
         
         
         let touches:Set<NSTouch> = event.touches(matching:.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
@@ -198,8 +197,8 @@ class BarGraph:Graph {
             //Swift.print("touch.isResting: " + "\(touch.isResting)")
             if(stationaryTouches.count > 0 || endingTouches.count == touches.count/* && begginingTouches.count == 0*/){
                 if(begginingTouches.count == 0){
-                    let ellipse:EllipseGraphic? = debugCircDict.removeValue(forKey: id)
-                    ellipse?.graphic.removeFromSuperview()
+                    //let ellipse:EllipseGraphic? = debugCircDict.removeValue(forKey: id)
+                    //ellipse?.graphic.removeFromSuperview()
                 }
             }
         }
