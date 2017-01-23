@@ -111,10 +111,10 @@ class BarGraph:Graph {
             //let pos:CGPoint = event.localPos(self)// - CGPoint(20,20)//touch.normalizedPosition
             //Swift.print("pos: " + "\(pos)")
             var touchPos = touch.pos(self) - CGPoint(20,20)//set to pivot of circ
-            //let ellipse = EllipseGraphic(touchPos.x,touchPos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
-            //debugCircDict[id] = ellipse
-            //addSubview(ellipse.graphic)
-            //ellipse.draw()
+            let ellipse = EllipseGraphic(touchPos.x,touchPos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
+            debugCircDict[id] = ellipse
+            addSubview(ellipse.graphic)
+            ellipse.draw()
             
             //Continue here: Sort of works, 
                 //make it into a Utility method 
@@ -135,9 +135,9 @@ class BarGraph:Graph {
             let touchPos = touch.pos(self) - CGPoint(20,20)//offset pos // touch.normalizedPosition
             //let pos:CGPoint = event.localPos(self)
             //Swift.print("pos: " + "\(pos)")
-            //let ellipse:EllipseGraphic? = debugCircDict[id]
-            //ellipse?.setPosition(touchPos)
-            //ellipse?.draw()
+            let ellipse:EllipseGraphic? = debugCircDict[id]
+            ellipse?.setPosition(touchPos)
+            ellipse?.draw()
         }
         /*swipe detection*/
         /*let swipeType:SwipeType = GestureUtils.swipe(self, event, twoFingersTouches)
@@ -176,32 +176,27 @@ class BarGraph:Graph {
         super.touchesEnded(with:event)
         //Swift.print("touchesEndedWithEvent: " + "\(event)")
         
-        
-        //i think you can solve this by checking the id of begining touch if it matches a touch that is stored in debugCircs
+        //I think you can solve this by checking the id of begining touch if it matches a touch that is stored in debugCircs
         //it could be that you remove and add nsviews, try without
         //search github for similar code
         //try to log the touch ids in a literal way, and dont use debugCirc
-        
         
         let touches:Set<NSTouch> = event.touches(matching:.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
         Swift.print("touches.count: " + "\(touches.count)")
         let endingTouches:Set<NSTouch> = event.touches(matching:.ended, in: self)
         Swift.print("endingTouches.count: " + "\(endingTouches.count)")
-        let begginingTouches:Set<NSTouch> = event.touches(matching:.began, in: self)
+        /*let begginingTouches:Set<NSTouch> = event.touches(matching:.began, in: self)
         Swift.print("begginingTouches.count: " + "\(begginingTouches.count)")
         let stationaryTouches:Set<NSTouch> = event.touches(matching:.stationary, in: self)
         Swift.print("stationaryTouches.count: " + "\(stationaryTouches.count)")
-        for touch in endingTouches {
-            let id:String = "\(touch.identity)"
+        */
+        for endingTouch in endingTouches {
+            let id:String = "\(endingTouch.identity)"
             //Swift.print("id: " + "\(id)")
-            Swift.print("touchType: " + "\(touchType(touch.phase))")
+            //Swift.print("touchType: " + "\(touchType(touch.phase))")
             //Swift.print("touch.isResting: " + "\(touch.isResting)")
-            if(stationaryTouches.count > 0 || endingTouches.count == touches.count/* && begginingTouches.count == 0*/){
-                if(begginingTouches.count == 0){
-                    //let ellipse:EllipseGraphic? = debugCircDict.removeValue(forKey: id)
-                    //ellipse?.graphic.removeFromSuperview()
-                }
-            }
+            let ellipse:EllipseGraphic? = debugCircDict.removeValue(forKey:id)
+            ellipse?.graphic.removeFromSuperview()
         }
     }
     override func swipe(with event: NSEvent) {
