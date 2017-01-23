@@ -96,6 +96,14 @@ class BarGraph:Graph {
             bar.graphic!.draw()
         }
     }
+    
+    
+    //Continue here: 
+        //try to make a small rect
+        //try to make some nice colors
+        //try to add to playground
+        //record vid -> gif -> add to element readme
+    
     /**
      * Detects when touches are made
      * NOTE: event.localPos(self) equals the pos of the mouseCursor
