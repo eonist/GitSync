@@ -203,6 +203,9 @@ class BarGraph:Graph {
             }
         }
     }
+    override func swipe(with event: NSEvent) {
+        Swift.print("swipe")
+    }
     override func touchesCancelled(with event:NSEvent) {//for debugging
         Swift.print("touchesCancelledWithEvent: " + "\(event)")
         super.touchesCancelled(with:event)
