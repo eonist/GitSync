@@ -167,67 +167,26 @@ class BarGraph:Graph {
                 //remove debugCirc from view
     
     
-    //Finding location of touches:
-        //the normalizedTouch is the relative location on the trackpad. values range from 0-1. And are y-flipped
-        //you could set debugCirc to mouseLoc if 1 tohc occurs
-            //and then relative pos if more touches are added
     
     override func touchesEnded(with event:NSEvent) {//for debugging
         super.touchesEnded(with:event)
         //Swift.print("touchesEndedWithEvent: " + "\(event)")
         
-        //I think you can solve this by checking the id of begining touch if it matches a touch that is stored in debugCircs
-        //it could be that you remove and add nsviews, try without
-        //search github for similar code
-        //try to log the touch ids in a literal way, and dont use debugCirc
-        
         let touches:Set<NSTouch> = event.touches(matching:.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
         Swift.print("touches.count: " + "\(touches.count)")
         let endingTouches:Set<NSTouch> = event.touches(matching:.ended, in: self)
         Swift.print("endingTouches.count: " + "\(endingTouches.count)")
-        /*let begginingTouches:Set<NSTouch> = event.touches(matching:.began, in: self)
-        Swift.print("begginingTouches.count: " + "\(begginingTouches.count)")
-        let stationaryTouches:Set<NSTouch> = event.touches(matching:.stationary, in: self)
-        Swift.print("stationaryTouches.count: " + "\(stationaryTouches.count)")
-        */
+      
         for endingTouch in endingTouches {
             let id:String = "\(endingTouch.identity)"
-            //Swift.print("id: " + "\(id)")
-            //Swift.print("touchType: " + "\(touchType(touch.phase))")
-            //Swift.print("touch.isResting: " + "\(touch.isResting)")
             let ellipse:EllipseGraphic? = debugCircDict.removeValue(forKey:id)
             ellipse?.graphic.removeFromSuperview()
         }
-    }
-    override func swipe(with event: NSEvent) {
-        Swift.print("swipe")
     }
     override func touchesCancelled(with event:NSEvent) {//for debugging
         Swift.print("touchesCancelledWithEvent: " + "\(event)")
         super.touchesCancelled(with:event)
     }
-    /**
-     *
-     */
-    func touchType(_ phase:NSTouchPhase) -> String{
-        if(phase == .began){
-            return "began"
-        }else if(phase == .moved){
-            return "moved"
-        }else if(phase == .stationary){
-            return "stationary"
-        }else if(phase == .ended){
-            return "ended"
-        }else if(phase == .cancelled){
-            return "cancelled"
-        }else if(phase == .touching){
-            return "touching"
-        }else{
-            return "no match"
-        }
-    }
-    
-    
     override func createVLines(_ size:CGSize, _ position:CGPoint, _ spacing:CGSize) {//we don't want VLines in the BarGraph
         //createHLines()//instead of vLines we create hLines
     }
