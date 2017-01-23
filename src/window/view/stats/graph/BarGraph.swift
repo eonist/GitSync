@@ -1,4 +1,5 @@
 import Cocoa
+@testable import Utils
 
 class BarGraph:Graph {
     var bars:[Bar] = []
@@ -101,13 +102,7 @@ class BarGraph:Graph {
         }
     }
     
-    
-    //Continue here: 
-        //try to make a small rect
-        //remove leftBar and bottomBar✅
-        //try to make some nice colors
-        //try to add to playground
-        //record vid -> gif -> add to element readme
+
     
     /**
      * Detects when touches are made
@@ -229,6 +224,11 @@ private class Utils{
     //override createGraph✅
     //create dummy methods with sudo code that calcs the bars and draws them etc✅
     //dashed line support in css for that ultimate BarGraph look
-    //create the touch point visualisations
-    //don't do the rounded look before you have the square look working
+    //create the touch point visualisations✅
+    //don't do the rounded look before you have the square look working✅
     //download AppleWatch mockup image (optionally .SVG)
+    //try to make a small rect
+    //remove leftBar and bottomBar✅
+    //try to make some nice colors
+    //try to add to playground 👈
+    //record vid -> gif -> add to element readme
