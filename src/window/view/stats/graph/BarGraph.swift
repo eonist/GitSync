@@ -2,13 +2,12 @@ import Cocoa
 
 class BarGraph:Graph {
     var bars:[Bar] = []
-    var tempVValues:[CGFloat]
+    var tempVValues:[CGFloat]/*we need a temp storage for the random data*/
     override var vValues:[CGFloat] {return tempVValues}
     /*Gesture related*/
     var twoFingersTouches:[String:NSTouch]?/*temp storage for the twoFingerTouches data*/
     /*Animation related*/
     var animator:Animator?
-    //var graphPts:[CGPoint] = []/*Animates to these points*/
     var initGraphPts:[CGPoint] = []/*Animates from these points*/
     /*Debugging*/
     var debugCircDict = [String:EllipseGraphic]()
