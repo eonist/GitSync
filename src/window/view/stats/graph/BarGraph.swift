@@ -25,8 +25,6 @@ class BarGraph:Graph {
      * Creates the Bars
      */
     func createBars(){
-        //graphArea?.addSubview()
-        
         graphPts.forEach{
             let barHeight:CGFloat = $0.y.distance(to:newSize!.height - spacing!.height)// - $0.y
             let bar:Bar = graphArea!.addSubView(Bar(NaN,barHeight,graphArea))//width is set in the css
@@ -47,7 +45,7 @@ class BarGraph:Graph {
         }
     }
     /**
-     *
+     * Iterate the graph datas
      */
     func iterate(){
         Swift.print("iterate")
@@ -100,6 +98,7 @@ class BarGraph:Graph {
     
     //Continue here: 
         //try to make a small rect
+        //remove leftBar and bottomBar
         //try to make some nice colors
         //try to add to playground
         //record vid -> gif -> add to element readme
