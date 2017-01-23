@@ -112,7 +112,7 @@ class BarGraph:Graph {
             //Swift.print("pos: " + "\(pos)")
             var touchPos = touch.pos(self) - CGPoint(20,20)//set to pivot of circ
             let ellipse = EllipseGraphic(touchPos.x,touchPos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
-            debugCircDict[id] = ellipse
+            debugCircDict[id] = ellipse//add the debugCirc to a dictionary that uses the touch.id for key
             addSubview(ellipse.graphic)
             ellipse.draw()
             
@@ -152,22 +152,6 @@ class BarGraph:Graph {
         }
         */
     }
-    
-    //Basically:
-        //onTouchBegan
-            //create debugCircle 
-            //add the debugCirc to a dictionary that uses the touch.id for key
-            //add debugCirc to view
-        //onTouchMove
-            //loop though event.touches
-                //debugCirc[movingTouch.id].setPosition(movingTouch.normalizedPosition)
-        //onTouchEnded
-            //loop though event.touches
-                //remove debugCirc[movingTouch.id]
-                //remove debugCirc from view
-    
-    
-    
     override func touchesEnded(with event:NSEvent) {//for debugging
         super.touchesEnded(with:event)
         //Swift.print("touchesEndedWithEvent: " + "\(event)")
