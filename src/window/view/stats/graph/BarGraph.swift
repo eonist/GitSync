@@ -103,17 +103,11 @@ class BarGraph:Graph {
     override func touchesBegan(with event:NSEvent) {
         super.touchesBegan(with:event)
         Swift.print("touchesBeganWithEvent: " + "\(event)")
-        //twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
-        let allTouches:Set<NSTouch> = event.touches(matching:.any, in: self)
-        allTouches.forEach{
-            Swift.print("$0.touchType: " + "\($0.touchType)")
-        }
+        twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
         let touches:Set<NSTouch> = event.touches(matching:.began, in: self)
         for touch in touches {//
             //Swift.print("id: "+"\((touch as! NSTouch).identity)")
             let id:String = "\(touch.identity)"
-            //let pos:CGPoint = event.localPos(self)// - CGPoint(20,20)//touch.normalizedPosition
-            //Swift.print("pos: " + "\(pos)")
             let touchPos = touch.pos(self) - CGPoint(20,20)//set to pivot of circ
             let ellipse = EllipseGraphic(touchPos.x,touchPos.y,40,40,FillStyle(NSColor.white.alpha(0.5)),nil)
             debugCircDict[id] = ellipse//add the debugCirc to a dictionary that uses the touch.id for key
