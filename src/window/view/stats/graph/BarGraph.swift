@@ -180,6 +180,7 @@ class BarGraph:Graph {
         //i think you can solve this by checking the id of begining touch if it matches a touch that is stored in debugCircs
         //it could be that you remove and add nsviews, try without
         //search github for similar code
+        //try 
         
         
         let touches:Set<NSTouch> = event.touches(matching:.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
