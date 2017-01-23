@@ -24,7 +24,7 @@ class BarGraph:Graph {
     override func createLeftBar() {
         //dont create the leftBar
     }
-    override func createBottomBar() -> CGFloat {
+    override func createBottomBar() {
         //dont create the bottomBar
     }
     /**
