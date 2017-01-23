@@ -140,7 +140,7 @@ class BarGraph:Graph {
             ellipse?.draw()
         }
         /*swipe detection*/
-        /*let swipeType:SwipeType = GestureUtils.swipe(self, event, twoFingersTouches)
+        let swipeType:SwipeType = GestureUtils.swipe(self, event, twoFingersTouches)
         if (swipeType == .right){
             Swift.print("swipe right")
             iterate()
@@ -150,7 +150,6 @@ class BarGraph:Graph {
         }else{
             //Swift.print("swipe none")
         }
-        */
     }
     override func touchesEnded(with event:NSEvent) {//for debugging
         super.touchesEnded(with:event)
