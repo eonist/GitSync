@@ -103,6 +103,7 @@ class BarGraph:Graph {
     override func touchesBegan(with event:NSEvent) {
         Swift.print("touchesBeganWithEvent: " + "\(event)")
         twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
+        /*DebugCirc*/
         let touches:Set<NSTouch> = event.touches(matching:.began, in: self)
         for touch in touches {//
             //Swift.print("id: "+"\((touch as! NSTouch).identity)")
@@ -121,7 +122,7 @@ class BarGraph:Graph {
         //Swift.print("touchesMovedWithEvent: " + "\(event)")
         /*DebugCirc*/
         let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
-        Swift.print("touches.count: " + "\(touches.count)")
+        //Swift.print("touches.count: " + "\(touches.count)")
         for touch in touches {
             let id:String = "\(touch.identity)"
             let touchPos = touch.pos(self) - CGPoint(20,20)//offset pos // touch.normalizedPosition
@@ -142,7 +143,7 @@ class BarGraph:Graph {
         }
     }
     override func touchesEnded(with event:NSEvent) {//for debugging
-        //Swift.print("touchesEndedWithEvent: " + "\(event)")
+        Swift.print("touchesEndedWithEvent: " + "\(event)")
         let endingTouches:Set<NSTouch> = event.touches(matching:.ended, in: self)
         //Swift.print("endingTouches.count: " + "\(endingTouches.count)")
         for endingTouch in endingTouches {
