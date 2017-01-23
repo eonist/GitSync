@@ -4,6 +4,7 @@ class BarGraph:Graph {
     var bars:[Bar] = []
     var tempVValues:[CGFloat]/*we need a temp storage for the random data*/
     override var vValues:[CGFloat] {return tempVValues}
+    override var ratio: CGFloat {return 4/4}/*square look*/
     /*Gesture related*/
     var twoFingersTouches:[String:NSTouch]?/*temp storage for the twoFingerTouches data*/
     /*Animation related*/
