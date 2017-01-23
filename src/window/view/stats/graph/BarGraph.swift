@@ -21,6 +21,12 @@ class BarGraph:Graph {
         createBars()
         //createGraphPoints()
     }
+    override func createLeftBar() {
+        //dont create the leftBar
+    }
+    override func createBottomBar() -> CGFloat {
+        //dont create the bottomBar
+    }
     /**
      * Creates the Bars
      */
