@@ -104,7 +104,7 @@ class BarGraph:Graph {
     
     //Continue here: 
         //try to make a small rect
-        //remove leftBar and bottomBar
+        //remove leftBar and bottomBar✅
         //try to make some nice colors
         //try to add to playground
         //record vid -> gif -> add to element readme
