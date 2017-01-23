@@ -101,7 +101,6 @@ class BarGraph:Graph {
      * NOTE: event.localPos(self) equals the pos of the mouseCursor
      */
     override func touchesBegan(with event:NSEvent) {
-        super.touchesBegan(with:event)
         Swift.print("touchesBeganWithEvent: " + "\(event)")
         twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
         let touches:Set<NSTouch> = event.touches(matching:.began, in: self)
@@ -119,7 +118,6 @@ class BarGraph:Graph {
      * Detects if a two finger left or right swipe has occured
      */
     override func touchesMoved(with event:NSEvent) {
-        super.touchesMoved(with:event)
         //Swift.print("touchesMovedWithEvent: " + "\(event)")
         /*DebugCirc*/
         let touches:Set<NSTouch> = event.touches(matching:NSTouchPhase.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
@@ -127,8 +125,6 @@ class BarGraph:Graph {
         for touch in touches {
             let id:String = "\(touch.identity)"
             let touchPos = touch.pos(self) - CGPoint(20,20)//offset pos // touch.normalizedPosition
-            //let pos:CGPoint = event.localPos(self)
-            //Swift.print("pos: " + "\(pos)")
             let ellipse:EllipseGraphic? = debugCircDict[id]
             ellipse?.setPosition(touchPos)
             ellipse?.draw()
@@ -146,14 +142,9 @@ class BarGraph:Graph {
         }
     }
     override func touchesEnded(with event:NSEvent) {//for debugging
-        super.touchesEnded(with:event)
         //Swift.print("touchesEndedWithEvent: " + "\(event)")
-        
-        let touches:Set<NSTouch> = event.touches(matching:.any, in: self)//touchesMatchingPhase:NSTouchPhaseAny inView:self
-        Swift.print("touches.count: " + "\(touches.count)")
         let endingTouches:Set<NSTouch> = event.touches(matching:.ended, in: self)
-        Swift.print("endingTouches.count: " + "\(endingTouches.count)")
-      
+        //Swift.print("endingTouches.count: " + "\(endingTouches.count)")
         for endingTouch in endingTouches {
             let id:String = "\(endingTouch.identity)"
             let ellipse:EllipseGraphic? = debugCircDict.removeValue(forKey:id)
