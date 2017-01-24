@@ -12,7 +12,6 @@ class ListTransitionTestWin:Window {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-import Foundation
 
 class ListTransitionTestView:TitleView{
        override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {
@@ -45,8 +44,8 @@ class ListTransitionTestView:TitleView{
      */
     func uiSwitchTest(){
         Swift.print("uiSwitchTest")
-        
-        let toggleSwitch = addSubView(Switch(140,80,80,0,self))
+        let container:Container = addSubView(Container(NaN, NaN, self, "switchContainer"))
+        let toggleSwitch = container.addSubView(Switch(140,80,80,0,container))
         toggleSwitch.setProgressValue(1)
         func onVolumeSliderChange(event: Event) {
             if(event.assert(SliderEvent.change, toggleSwitch)){
