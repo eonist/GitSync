@@ -26,7 +26,8 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        barGraphTest()
+        uiSwitchTest()
+        //barGraphTest()
         //rbSliderFastList3()
         //sliderFastList3()
         //fastList3()
@@ -38,6 +39,22 @@ class ListTransitionTestView:TitleView{
         //fastList()
         //sliderList()
         //list()
+    }
+    /**
+     *
+     */
+    func uiSwitchTest(){
+        Swift.print("uiSwitchTest")
+        
+        let toggleSwitch = addSubView(Switch(120,20,20,0,self))
+        toggleSwitch.setProgressValue(0.5)
+        func onVolumeSliderChange(event: Event) {
+            if(event.assert(SliderEvent.change, toggleSwitch)){
+                let volumSliderProgress = (event as! SliderEvent).progress
+                Swift.print("volumSliderProgress: " + "\(volumSliderProgress)")
+            }
+        }
+        toggleSwitch.event = onVolumeSliderChange
     }
     /**
      *
