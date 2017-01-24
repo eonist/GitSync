@@ -30,18 +30,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
         win = ListTransitionTestWin(600,400)/*Debugging Different List components*/
         
-        let url:String = "~/Desktop/ElCapitan/gitsync.css"
+        let url:String = "~/Desktop/ElCapitan/"
         fileWatcher = FileWatcher([url.tildePath])
         fileWatcher!.event = { event in
             //Swift.print(self)
             Swift.print(event.description)
-            if(event.fileChange && event.path == url.tildePath) {
-                Swift.print("update to the file happened")
-                StyleManager.addStylesByURL(url,true)
-                let view:NSView = self.win!.contentView!//MainWin.mainView!
-                ElementModifier.refreshSkin(view as! IElement)
-                ElementModifier.floatChildren(view)
-            }
+            Swift.print("update to the file happened: " + "\(event.path)")
+            /* if(event.fileChange && event.path == url.tildePath) {
+             }*/
+            StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
+            let view:NSView = self.win!.contentView!//MainWin.mainView!
+            ElementModifier.refreshSkin(view as! IElement)
+            ElementModifier.floatChildren(view)
         }
         fileWatcher!.start()
     }
