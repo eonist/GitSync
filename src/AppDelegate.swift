@@ -30,20 +30,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
         win = ListTransitionTestWin(600,400)/*Debugging Different List components*/
         
-        /*let url:String = "~/Desktop/ElCapitan/explorer.css"
-         fileWatcher = FileWatcher([url.tildePath])
-         fileWatcher!.event = { event in
-         //Swift.print(self)
-         Swift.print(event.description)
-         if(event.fileChange && event.path == url.tildePath) {
-         Swift.print("update to the file happened")
-         StyleManager.addStylesByURL(url,true)
-         let view:NSView = self.win!.contentView!//MainWin.mainView!
-         ElementModifier.refreshSkin(view as! IElement)
-         ElementModifier.floatChildren(view)
-         }
-         }
-         fileWatcher!.start()*/
+        let url:String = "~/Desktop/ElCapitan/gitsync.css"
+        fileWatcher = FileWatcher([url.tildePath])
+        fileWatcher!.event = { event in
+            //Swift.print(self)
+            Swift.print(event.description)
+            if(event.fileChange && event.path == url.tildePath) {
+                Swift.print("update to the file happened")
+                StyleManager.addStylesByURL(url,true)
+                let view:NSView = self.win!.contentView!//MainWin.mainView!
+                ElementModifier.refreshSkin(view as! IElement)
+                ElementModifier.floatChildren(view)
+            }
+        }
+        fileWatcher!.start()
     }
     func initApp(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
