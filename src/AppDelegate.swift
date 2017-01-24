@@ -18,12 +18,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
          
          //_ = Test()
          //initApp()
-         initTestWin()
+         //initTestWin()
          //_ = PopulateCommitDB()
-         
-         //Swift.print(ArrayAsserter.equals(["",""], ["","",""]))//false
-         //Swift.print(ArrayAsserter.equals([1,2], [1,2]))//true
-         /**/
+        
+        
+        
+        print(FilePathParser.fileExtension("~/Desktop/temp.xml"))
+        
+        print("test")
     }
     func initTestWin(){
         //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
@@ -39,7 +41,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             /* if(event.fileChange && event.path == url.tildePath) {
              }*/
             //you could assert for .css file changes, so that .ds etc doesnt trigger events etc
-            FilePathParser.fileName(<#T##fileURL: URL##URL#>, <#T##withExtension: Bool##Bool#>)
+            
             StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
             let view:NSView = self.win!.contentView!//MainWin.mainView!
             ElementModifier.refreshSkin(view as! IElement)
