@@ -38,6 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Swift.print("update to the file happened: " + "\(event.path)")
             /* if(event.fileChange && event.path == url.tildePath) {
              }*/
+            //you could assert for .css file changes, so that .ds etc doesnt trigger events etc
             StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
             let view:NSView = self.win!.contentView!//MainWin.mainView!
             ElementModifier.refreshSkin(view as! IElement)
