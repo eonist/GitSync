@@ -21,10 +21,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
          //initTestWin()
          //_ = PopulateCommitDB()
         
-        
-        
-        print(FilePathParser.fileExtension("~/Desktop/temp.xml"))
-        
         print("test")
     }
     func initTestWin(){
@@ -36,16 +32,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         fileWatcher = FileWatcher([url.tildePath])
         fileWatcher!.event = { event in
             //Swift.print(self)
-            Swift.print(event.description)
-            Swift.print("update to the file happened: " + "\(event.path)")
-            /* if(event.fileChange && event.path == url.tildePath) {
-             }*/
-            //you could assert for .css file changes, so that .ds etc doesnt trigger events etc
-            
-            StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
-            let view:NSView = self.win!.contentView!//MainWin.mainView!
-            ElementModifier.refreshSkin(view as! IElement)
-            ElementModifier.floatChildren(view)
+            if(event.fileChange && FilePathParser.fileExtension(event.path) == "css") {//assert for .css file changes, so that .ds etc doesnt trigger events etc
+                Swift.print(event.description)
+                Swift.print("update to the file happened: " + "\(event.path)")
+                StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
+                let view:NSView = self.win!.contentView!//MainWin.mainView!
+                ElementModifier.refreshSkin(view as! IElement)
+                ElementModifier.floatChildren(view)
+            }
         }
         fileWatcher!.start()
     }
