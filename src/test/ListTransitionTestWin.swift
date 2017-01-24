@@ -47,7 +47,7 @@ class ListTransitionTestView:TitleView{
         Swift.print("uiSwitchTest")
         
         let toggleSwitch = addSubView(Switch(70,40,40,0,self))
-        toggleSwitch.setProgressValue(0.5)
+        toggleSwitch.setProgressValue(1)
         func onVolumeSliderChange(event: Event) {
             if(event.assert(SliderEvent.change, toggleSwitch)){
                 let volumSliderProgress = (event as! SliderEvent).progress
