@@ -39,6 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             /* if(event.fileChange && event.path == url.tildePath) {
              }*/
             //you could assert for .css file changes, so that .ds etc doesnt trigger events etc
+            FilePathParser.fileName(<#T##fileURL: URL##URL#>, <#T##withExtension: Bool##Bool#>)
             StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
             let view:NSView = self.win!.contentView!//MainWin.mainView!
             ElementModifier.refreshSkin(view as! IElement)
