@@ -45,7 +45,7 @@ class ListTransitionTestView:TitleView{
     func uiSwitchTest(){
         Swift.print("uiSwitchTest")
         let container:Container = addSubView(Container(NaN, NaN, self, "switchContainer"))
-        let toggleSwitch = container.addSubView(Switch(140,80,80,0,container))
+        let toggleSwitch = container.addSubView(Switch(140,80,100,true,0,container))
         toggleSwitch.setProgressValue(1)
         func onVolumeSliderChange(event: Event) {
             if(event.assert(SliderEvent.change, toggleSwitch)){
