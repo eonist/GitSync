@@ -25,8 +25,8 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        uiSwitchTest()
-        //barGraphTest()
+        //uiSwitchTest()
+        barGraphTest()
         //rbSliderFastList3()
         //sliderFastList3()
         //fastList3()
