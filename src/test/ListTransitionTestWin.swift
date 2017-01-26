@@ -12,7 +12,6 @@ class ListTransitionTestWin:Window {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-
 class ListTransitionTestView:TitleView{
        override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {
         //self.title = "Resolve merge conflict:"//Title: Resolve sync conflict:
@@ -25,8 +24,8 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        //uiSwitchTest()
-        barGraphTest()
+        uiSwitchTest()
+        //barGraphTest()
         //rbSliderFastList3()
         //sliderFastList3()
         //fastList3()
