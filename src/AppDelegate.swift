@@ -13,7 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var timer:SimpleTimer?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-         Swift.print("GitSync - The futrure is automated")//Simple git automation for macOS
+         Swift.print("GitSync - The future is automated")//Simple git automation for macOS, The autonomouse git client
          NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
          
          //_ = Test()
