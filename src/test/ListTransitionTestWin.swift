@@ -42,7 +42,6 @@ class ListTransitionTestView:TitleView{
     }
     
     var animator:Animator?
-    
     var ellipse:EllipseGraphic?
     /**
      *
@@ -50,9 +49,9 @@ class ListTransitionTestView:TitleView{
     func animTest(){
         let btn = addSubView(Button(96,24))
         /*Ellipse*/
-        let ellipse = EllipseGraphic(0,100,50,50,FillStyle(NSColor.blue),nil)
-        _ = addSubView(ellipse.graphic)
-        ellipse.draw()
+        ellipse = EllipseGraphic(0,100,50,50,FillStyle(NSColor.blue),nil)
+        _ = addSubView(ellipse!.graphic)
+        ellipse!.draw()
         
         func onButtonDown(event:Event){
             if(event.type == ButtonEvent.upInside){
