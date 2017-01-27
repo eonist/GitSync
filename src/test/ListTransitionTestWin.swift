@@ -41,6 +41,9 @@ class ListTransitionTestView:TitleView{
         //list()
     }
     
+    var animator:Animator?
+    
+    var ellipse:EllipseGraphic?
     /**
      *
      */
@@ -54,10 +57,15 @@ class ListTransitionTestView:TitleView{
         func onButtonDown(event:Event){
             if(event.type == ButtonEvent.upInside){
                 Swift.print("click")
+                animator = Animator(Animation.sharedInstance,0.5,0,300,progress,Easing.easeLinear)
+                animator!.start()
             }
         }
         btn.event = onButtonDown
     
+    }
+    func progress(value:CGFloat){
+        ellipse!.graphic.frame.x = value
     }
     /**
      *
