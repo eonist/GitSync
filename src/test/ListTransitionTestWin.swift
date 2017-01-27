@@ -57,7 +57,7 @@ class ListTransitionTestView:TitleView{
         func onButtonDown(event:Event){
             if(event.type == ButtonEvent.upInside){
                 Swift.print("click")
-                animator = Animator(Animation.sharedInstance,0.5,0,300,progress,Back.easeOutBack)
+                animator = Animator(Animation.sharedInstance,0.5,0,300,progress,Back.easeOut)
                 animator!.start()
             }
         }
