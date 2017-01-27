@@ -1,5 +1,5 @@
 import Foundation
-
+@testable import Utils
 /**
  * DISCUSSION: Using struct is justified because the data is never modified. Just stored and reproduced
  */
