@@ -51,7 +51,9 @@ class ListTransitionTestView:TitleView{
         ellipse.draw()
         
         func onButtonDown(event:Event){
-            Swift.print("click")
+            if(event.type == ButtonEvent.upInside){
+                Swift.print("click")
+            }
         }
         btn.event = onButtonDown
     
