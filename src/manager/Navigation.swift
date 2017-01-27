@@ -1,4 +1,5 @@
 import Cocoa
+@testable import Utils
 
 /**
  * TODO: Migrate to its own .swift file when appropriate

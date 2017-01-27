@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 /**
  * Utility methods for merging branches
  */

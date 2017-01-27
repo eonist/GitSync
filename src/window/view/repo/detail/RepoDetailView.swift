@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 
 class RepoDetailView:Element {
     var topBar:RepoItemTopBar?

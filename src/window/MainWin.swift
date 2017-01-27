@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 
 class MainWin:Window {
     static var mainView:MainView?

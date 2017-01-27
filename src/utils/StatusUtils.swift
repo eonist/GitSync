@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 /*
  * Utils for paraing the git status list
  */

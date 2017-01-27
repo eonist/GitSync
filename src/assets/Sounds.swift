@@ -1,4 +1,5 @@
 import Cocoa
+@testable import Utils
 
 class Sounds {
     static let path:String = "~/_projects/_code/_active/swift/GitSyncOSX/try_these_sounds/"
