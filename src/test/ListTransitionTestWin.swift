@@ -1,4 +1,5 @@
 import Cocoa
+@testable import Utils
 
 class ListTransitionTestWin:Window {
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
