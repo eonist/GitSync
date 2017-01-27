@@ -24,7 +24,7 @@ class CommitDialogView:TitleView{
      *
      */
     func createGUI(){
-        let guiContainer = addSubView(Container(frame.width,frame.height,self,"gui"))
+        let guiContainer = addSubView(Container(frame.size.width,frame.size.height,self,"gui"))
         _ = guiContainer.addSubView(Element(NaN, NaN, guiContainer, "topRuler"))
         
         //Repository: Element - iOS
