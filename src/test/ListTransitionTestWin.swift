@@ -13,15 +13,13 @@ class ListTransitionTestWin:Window {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 enum Letters: IColor {
-    case a = PaintColor()
-    case b = PaintColor()
-    case c = PaintColor()
+    case a = ""
+    case b = ""
+    case c = ""
 }
 
-class PaintColor:IColor{
-    init(){
-        
-    }
+protocol PaintColor:String,IColor{
+    
 }
 protocol IColor{
     
