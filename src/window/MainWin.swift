@@ -8,7 +8,7 @@ class MainWin:Window {
         WinModifier.align(self, Alignment.centerCenter, Alignment.centerCenter,CGPoint(6,0))/*aligns the window to the screen*/
     }
     override func resolveSkin() {
-        MainWin.mainView = MainView(frame.width,frame.height,"")/*Sets the mainview of the window*/
+        MainWin.mainView = MainView(frame.size.width,frame.size.height,"")/*Sets the mainview of the window*/
         self.contentView = MainWin.mainView!
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}

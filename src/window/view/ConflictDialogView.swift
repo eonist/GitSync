@@ -29,9 +29,9 @@ class ConflictDialogView:TitleView{
      */
     func createGUI(){
         Swift.print("createGUI()")
-        Swift.print("frame.width: " + "\(frame.width)")
-        Swift.print("frame.height: " + "\(frame.height)")
-        let guiContainer = addSubView(Container(frame.width,frame.height,self,"gui"))
+        Swift.print("frame.width: " + "\(frame.size.width)")
+        Swift.print("frame.height: " + "\(frame.size.height)")
+        let guiContainer = addSubView(Container(frame.size.width,frame.size.height,self,"gui"))
         //guiContainer.addSubView(TextArea(NaN,NaN,"Resolve merge conflict:",guiContainer,"conflictText"))
         _ = guiContainer.addSubView(Element(NaN, NaN, guiContainer, "topRuler"))
         
