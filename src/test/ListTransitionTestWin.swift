@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 
 class ListTransitionTestWin:Window {
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
@@ -11,6 +11,25 @@ class ListTransitionTestWin:Window {
         self.contentView = ListTransitionTestView(frame.width,frame.height)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+}
+enum {
+    case red = PaintColor, blue, orange
+}
+class PaintColor:IColor{
+    init(){
+        
+    }
+}
+protocol IColor{
+    
+}
+private class Testing{
+    /**
+     *
+     */
+    static func test(){
+        
+    }
 }
 class ListTransitionTestView:TitleView{
        override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {
@@ -45,7 +64,7 @@ class ListTransitionTestView:TitleView{
     func animTest(){
         let btn = addSubView(Button(96,24))
         /*Ellipse*/
-        let ellipse = EllipseGraphic(0,100,50,50,Fill(),nil)
+        let ellipse = EllipseGraphic(0,100,50,50,FillStyle(NSColor.blue),nil)
         addSubview(ellipse.graphic)
         ellipse.draw()
         
