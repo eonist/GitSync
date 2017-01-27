@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 /**
  * TestView when making the progressIndicator
  */
