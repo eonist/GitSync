@@ -24,7 +24,8 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        uiSwitchTest()
+        animTest()
+        //uiSwitchTest()
         //barGraphTest()
         //rbSliderFastList3()
         //sliderFastList3()
@@ -37,6 +38,18 @@ class ListTransitionTestView:TitleView{
         //fastList()
         //sliderList()
         //list()
+    }
+    /**
+     *
+     */
+    func animTest(){
+        let btn = addSubView(Button(96,24))
+        func onButtonDown(event:Event){
+            
+        }
+        btn.event = onButtonDown
+        
+        
     }
     /**
      *
