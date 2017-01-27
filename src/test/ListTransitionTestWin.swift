@@ -47,7 +47,7 @@ class ListTransitionTestView:TitleView{
      *
      */
     func animTest(){
-        StyleManager.addStyle("Button#test{float:left;clear:left;}")
+        StyleManager.addStyle("Button#test{fill:green;float:left;clear:left;}")
         let btn = addSubView(Button(96,24,self,"test"))
         /*Ellipse*/
         ellipse = EllipseGraphic(0,100,50,50,FillStyle(NSColor.blue),nil)
@@ -57,7 +57,7 @@ class ListTransitionTestView:TitleView{
         func onButtonDown(event:Event){
             if(event.type == ButtonEvent.upInside){
                 Swift.print("click")
-                animator = Animator(Animation.sharedInstance,0.5,0,300,progress,Easing.easeLinear)
+                animator = Animator(Animation.sharedInstance,0.5,0,300,progress,Easing.)
                 animator!.start()
             }
         }
