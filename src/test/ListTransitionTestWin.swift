@@ -12,9 +12,12 @@ class ListTransitionTestWin:Window {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-enum {
-    case red = PaintColor, blue, orange
+enum Letters: IColor {
+    case a = PaintColor()
+    case b = PaintColor()
+    case c = PaintColor()
 }
+
 class PaintColor:IColor{
     init(){
         
