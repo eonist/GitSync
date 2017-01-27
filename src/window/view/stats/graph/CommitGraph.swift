@@ -45,7 +45,7 @@ class CommitGraph:Graph{
         /*GraphPoints*/
         
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/
-        animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Quad.easeInQuad)
+        animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Quad.easeIn)
         animator!.start()
         
         updateVTags(maxValue)
