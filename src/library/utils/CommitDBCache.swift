@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 
 class CommitDBCache {
     static var url:String = "~/Desktop/sortedcommits.xml"
