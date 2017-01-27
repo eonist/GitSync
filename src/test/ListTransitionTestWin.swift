@@ -65,7 +65,7 @@ class ListTransitionTestView:TitleView{
     
     }
     func progress(value:CGFloat){
-        ellipse!.graphic.frame.x = value
+        ellipse!.graphic.X = value
     }
     /**
      *
