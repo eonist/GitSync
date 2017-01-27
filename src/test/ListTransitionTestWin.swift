@@ -12,26 +12,7 @@ class ListTransitionTestWin:Window {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-enum Letters: IColor {
-    case a = ""
-    case b = ""
-    case c = ""
-}
 
-protocol PaintColor:String,IColor{
-    
-}
-protocol IColor{
-    
-}
-private class Testing{
-    /**
-     *
-     */
-    static func test(){
-        
-    }
-}
 class ListTransitionTestView:TitleView{
        override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {
         //self.title = "Resolve merge conflict:"//Title: Resolve sync conflict:
@@ -66,15 +47,14 @@ class ListTransitionTestView:TitleView{
         let btn = addSubView(Button(96,24))
         /*Ellipse*/
         let ellipse = EllipseGraphic(0,100,50,50,FillStyle(NSColor.blue),nil)
-        addSubview(ellipse.graphic)
+        _ = addSubView(ellipse.graphic)
         ellipse.draw()
         
         func onButtonDown(event:Event){
-            
+            Swift.print("click")
         }
         btn.event = onButtonDown
-        
-        
+    
     }
     /**
      *
