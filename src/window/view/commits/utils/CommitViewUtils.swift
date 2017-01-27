@@ -1,4 +1,6 @@
 import Foundation
+@testable import Utils
+
 typealias CommitLogOperation = (task:Process,pipe:Pipe,repoTitle:String,repoIndex:Int)
 class CommitViewUtils {
     typealias ProcessedCommitData = (date:Date,relativeDate:String,descendingDate:String,body:String,subject:String,hash:String,author:String)

@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 /**
  * NOTE: this must be a view, if you want to be consistent between macOS and iOS
  */

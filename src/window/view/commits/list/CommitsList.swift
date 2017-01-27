@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 
 class CommitsList:RBSliderFastList{
     /*The following variables exists to facilitate the pull to refresh functionality*/

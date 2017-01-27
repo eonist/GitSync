@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 
 class CommitDialogWin:Window {
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){

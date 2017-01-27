@@ -1,4 +1,6 @@
 import Cocoa
+@testable import Utils
+
 class CommitGraph:Graph{
     var dateText:TextArea?
     var currentDate:Date = Date()
