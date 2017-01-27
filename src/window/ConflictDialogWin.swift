@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 
 class ConflictDialogWin:Window {
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){

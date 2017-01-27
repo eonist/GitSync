@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 
 class MainView:TitleView{
     static let w:CGFloat = 540
@@ -19,7 +20,7 @@ class MainView:TitleView{
         Sounds.startup?.play()
         MainWin.mainView = self
         
-        menuView = addSubView(MenuView(frame.width,48,self))
+        menuView = addSubView(MenuView(frame.size.width,48,self))
         
         Navigation.setView(MenuView.commits)/*adds the correct view to MainView*/
         menuView!.selectGroup!.selectedAt(0)/*Selects the correct menu icon*/
