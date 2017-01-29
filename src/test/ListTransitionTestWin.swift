@@ -75,15 +75,12 @@ class ListTransitionTestView:TitleView{
         Swift.print("uiSwitchTest")
         let container:Container = addSubView(Container(NaN, NaN, self, "switchContainer"))
         let toggleSwitch = container.addSubView(Switch(140,80,false,container))
-        _ = toggleSwitch
-        /*func onVolumeSliderChange(event: Event) {
-         if(event.assert(SliderEvent.change, toggleSwitch)){
-         let volumSliderProgress = (event as! SliderEvent).progress
-         _ = volumSliderProgress
-         //Swift.print("volumSliderProgress: " + "\(volumSliderProgress)")
-         }
-         }
-         toggleSwitch.event = onVolumeSliderChange*/
+        func onEvent(event:Event){/*this is the event handler*/
+            if(event.assert(CheckEvent.check, toggleSwitch)){
+                Swift.print("onEvent() isChecked" + "\((event as! CheckEvent).isChecked)")
+            }
+        }
+        toggleSwitch.event = onEvent/*adds the event handler to the event exit point in the toggleSwitch*/
     }
     /**
      *
