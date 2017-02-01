@@ -1,5 +1,6 @@
 import Cocoa
 @testable import Utils
+@testable import Element
 /**
  * This is the main class for the application
  * TODO: An idea is to hide parts of the interface when the mouse is not over the app (anim in and out) (maybe)
