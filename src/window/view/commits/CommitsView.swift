@@ -1,5 +1,6 @@
 import Cocoa
 @testable import Utils
+@testable import Element
 
 class CommitsView:Element {
     static let w:CGFloat = MainView.w

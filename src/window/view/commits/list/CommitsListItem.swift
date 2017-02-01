@@ -1,5 +1,6 @@
 import Foundation
 @testable import Utils
+@testable import Element
 /**
  * NOTE: repo-name,contributor,title,description,date
  */

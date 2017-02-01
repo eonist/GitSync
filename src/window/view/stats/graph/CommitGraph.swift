@@ -1,5 +1,6 @@
 import Cocoa
 @testable import Utils
+@testable import Element
 
 class CommitGraph:Graph{
     var dateText:TextArea?

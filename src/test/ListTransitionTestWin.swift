@@ -1,5 +1,6 @@
 import Cocoa
 @testable import Utils
+@testable import Element
 
 class ListTransitionTestWin:Window {
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){

@@ -1,5 +1,6 @@
 import Cocoa
 @testable import Utils
+@testable import Element
 /**
  * NOTE: The reasoning behind having this menu is that when a skeptical user tries the app for the first time, the first thing they do is browse around. If the menu system is too clever they wont even do that. 
  */

@@ -1,5 +1,6 @@
 import Foundation
 @testable import Utils
+@testable import Element
 
 class CommitDialogView:TitleView{
     var repoTextInput:TextInput?
