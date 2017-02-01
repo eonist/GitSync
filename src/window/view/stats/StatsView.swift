@@ -1,5 +1,6 @@
 import Cocoa
 @testable import Utils
+@testable import Element
 /**
  * TODO: When entering the Graph component, you should animate the graph component from the old data to the new data, if there is new data. Very satesfiyng seeing your day commit graph go up after a long day of work
  */

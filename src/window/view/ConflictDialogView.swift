@@ -1,5 +1,6 @@
 import Foundation
 @testable import Utils
+@testable import Element
 /**
  * TODO: Make the review buttons as a clickable text in the keep radiobuttons. 
  * TODO: Inline the radiobuttons: Keep: (x) local, () remote, () both

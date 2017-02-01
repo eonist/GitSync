@@ -1,5 +1,6 @@
 import Foundation
 @testable import Utils
+@testable import Element
 /**
  * Enables you to view the commit title and commit description of a single commit
  */

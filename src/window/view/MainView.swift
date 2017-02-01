@@ -1,5 +1,6 @@
 import Foundation
 @testable import Utils
+@testable import Element
 
 class MainView:TitleView{
     static let w:CGFloat = 540

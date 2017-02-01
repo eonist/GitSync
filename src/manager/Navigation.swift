@@ -1,5 +1,6 @@
 import Cocoa
 @testable import Utils
+@testable import Element
 
 /**
  * TODO: Migrate to its own .swift file when appropriate
