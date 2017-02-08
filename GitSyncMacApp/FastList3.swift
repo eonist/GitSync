@@ -44,20 +44,28 @@ class FastList3:Element,IList{
             //Figure out a fast workflow ✅
         
     }
-    
+    var greenRect:RectGraphic?
     override func resolveSkin() {
         super.resolveSkin()
         maxVisibleItems = round(height / itemHeight).int
         lableContainer = addSubView(Container(width,height,self,"lable"))
         
         let redframe:CGRect = CGRect(1,1,width,height)
-        let redRect = RectGraphic(40,40,200,200,nil,LineStyle(1,.red))
+        let redRect = RectGraphic(redframe.x,redframe.y,redframe.width,redframe.height,nil,LineStyle(1,.red))
         addSubview(redRect.graphic)
         redRect.draw()
         
         
-        let blueframe:CGRect = CGRect(0,0,width,height)
+        let blueframe:CGRect = CGRect(0,0,width,itemsHeight)
+        let blueRect = RectGraphic(blueframe.x,blueframe.y,blueframe.width,blueframe.height,nil,LineStyle(1,.blue))
+        lableContainer.addSubview(blueRect.graphic)
+        blueRect.draw()
+        
         let greenframe:CGRect = CGRect(0,0,width,height)
+        let greenRect = RectGraphic(greenframe.x,greenframe.y,greenframe.width,greenframe.height,nil,LineStyle(1,.green))
+        lableContainer.addSubview(greenRect.graphic)
+        greenRect.draw()
+        
         let purpleframe:CGRect = CGRect(0,0,width,height)
         
         let numOfItems:Int = Swift.min(maxVisibleItems!+1, dataProvider.count)
@@ -66,10 +74,16 @@ class FastList3:Element,IList{
     }
     func setProgress(_ progress:CGFloat){
         ListModifier.scrollTo(self, progress)/*moves the labelContainer up and down*/
-        let curVisibleRange:Range<Int> = Utils.curVisibleItems(self, maxVisibleItems!+1)
-        if(curVisibleRange != prevVisibleRange){/*Optimization: only set if it's not the same as prev range*/
-            spoof(curVisibleRange)/*spoof items in the new range*/
-            prevVisibleRange = curVisibleRange
+        let curVisibleRange = Utils.curVisibleItems(self, maxVisibleItems!+1)
+        /**/
+        let greenframe:CGRect = CGRect(0,0,width,height)
+        let greenRect = RectGraphic(greenframe.x,greenframe.y,greenframe.width,greenframe.height,nil,LineStyle(1,.green))
+        lableContainer.addSubview(greenRect.graphic)
+        greenRect.draw()
+        /**/
+        if(curVisibleRange.range != prevVisibleRange){/*Optimization: only set if it's not the same as prev range*/
+            spoof(curVisibleRange.range)/*spoof items in the new range*/
+            prevVisibleRange = curVisibleRange.range
         }
     }
     /**
@@ -140,7 +154,7 @@ private class Utils{
     /**
      *
      */
-    static func curVisibleItems(_ list:IList,_ maxVisibleItems:Int)->Range<Int>{
+    static func curVisibleItems(_ list:IList,_ maxVisibleItems:Int)->(range:Range<Int>,top:CGFloat){
         let visibleItemsTop:CGFloat = abs(list.lableContainer!.y > 0 ? 0 : list.lableContainer!.y)//NumberParser.minMax(-1*lableContainer!.y, 0, itemHeight * dataProvider.count - height)
         //Swift.print("visibleItemsTop: " + "\(visibleItemsTop)")
         //let visibleBottom:CGFloat = visibleItemsTop + height
@@ -157,7 +171,7 @@ private class Utils{
         //Swift.print("bottomItemIndex: " + "\(bottomItemIndex)")
         //Swift.print("topItemIndex: " + "\(topItemIndex)")
         let curVisibleRange:Range<Int> = topItemIndex..<bottomItemIndex
-        return curVisibleRange
+        return (curVisibleRange,visibleItemsTop)
     }
     /**
      * When you add/remove items from a list, the list changes size. This method returns a value that lets you keep the same position of the list after a add/remove items change
