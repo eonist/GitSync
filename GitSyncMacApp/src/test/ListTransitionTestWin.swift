@@ -46,7 +46,7 @@ class ListTransitionTestView:TitleView{
     var animator:Animator?
     var ellipse:EllipseGraphic?
     /**
-     *
+     * Tests the animation suite
      */
     func animTest(){
         StyleManager.addStyle("Button#test{fill:green;float:left;clear:left;}")
