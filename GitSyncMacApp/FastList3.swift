@@ -7,7 +7,7 @@ class FastList3:Element,IList{
     var dataProvider:DataProvider/*data storage*/
     var lableContainer:Container?/*holds the list items*/
     var maxVisibleItems:Int?/*this will be calculated on init and on setSize calls*/
-    var prevVisibleRange:Range<Int>?
+    var prevVisibleRange:Range<Int>?/*PrevVisibleRange is set on each frame tick and is used to calc how many new items that needs to be rendered/removed*/
     var visibleItems:[FastListItem] = []//fastlistitem also stores the absolute integer that cooresponds to the db.item
     init(_ width:CGFloat, _ height:CGFloat, _ itemHeight:CGFloat = NaN,_ dataProvider:DataProvider? = nil, _ parent:IElement?, _ id:String? = nil){
         self.itemHeight = itemHeight
@@ -101,7 +101,7 @@ class FastList3:Element,IList{
      * (spoof == apply/reuse)
      */
     func spoof(_ cur:Range<Int>){
-        let prev = prevVisibleRange!
+        let prev = prevVisibleRange!/*we assign the value to a simpler shorter named variable*/
         let diff = prev.start - cur.start
         if(abs(diff) >= maxVisibleItems!+1){//spoof every item
             Swift.print("all")
