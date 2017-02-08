@@ -99,12 +99,17 @@ class FastList3:Element,IList{
     }
     /**
      * (spoof == apply/reuse)
+     * NOTE: This method grabs items from pool and append or prepend them
      */
     func spoof(_ cur:Range<Int>){
         let prev = prevVisibleRange!/*we assign the value to a simpler shorter named variable*/
         let diff = prev.start - cur.start
         
         //TODO: Extract the maxVisibleItems variable into two variables, one that is within and one that is buffed with 1 item on top and 1 bellow
+        //re-implement pool to spoof from
+        //Figure out how you should calc pool, 
+            //think also in the context of resizing list size 
+            //and adding/removing items in dp
         
         if(abs(diff) >= maxVisibleItems!+1){//spoof every item
             Swift.print("all")
@@ -130,6 +135,7 @@ class FastList3:Element,IList{
     }
     /**
      * (spoof == apply/reuse)
+     * NOTE: This method just applies data
      */
     func spoof(_ listItem:FastListItem){/*override this to use custom ItemList items*/
         Swift.print("spoof: " + "\(listItem.idx)")
