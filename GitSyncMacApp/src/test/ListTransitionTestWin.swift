@@ -28,11 +28,11 @@ class ListTransitionTestView:TitleView{
     }
     func createGUI(){
         //animTest()
-        uiSwitchTest()
+        //uiSwitchTest()
         //barGraphTest()
         //rbSliderFastList3()
         //sliderFastList3()
-        //fastList3()
+        fastList3()
         //dpTests()
         //rbSliderFastList2()
         //sliderFastList2()
