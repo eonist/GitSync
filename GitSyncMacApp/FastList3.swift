@@ -44,12 +44,21 @@ class FastList3:Element,IList{
             //Figure out a fast workflow ✅
         
     }
+    
     override func resolveSkin() {
         super.resolveSkin()
         maxVisibleItems = round(height / itemHeight).int
         lableContainer = addSubView(Container(width,height,self,"lable"))
         
-        let frame:CGRect = CGRect()
+        let redframe:CGRect = CGRect(1,1,width,height)
+        let redRect = RectGraphic(40,40,200,200,nil,LineStyle(1,.red))
+        addSubview(redRect.graphic)
+        redRect.draw()
+        
+        
+        let blueframe:CGRect = CGRect(0,0,width,height)
+        let greenframe:CGRect = CGRect(0,0,width,height)
+        let purpleframe:CGRect = CGRect(0,0,width,height)
         
         let numOfItems:Int = Swift.min(maxVisibleItems!+1, dataProvider.count)
         prevVisibleRange = 0..<numOfItems//<--this should be the same range as we set bellow no?
