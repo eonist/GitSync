@@ -103,6 +103,9 @@ class FastList3:Element,IList{
     func spoof(_ cur:Range<Int>){
         let prev = prevVisibleRange!/*we assign the value to a simpler shorter named variable*/
         let diff = prev.start - cur.start
+        
+        //TODO: Extract the maxVisibleItems variable into two variables, one that is within and one that is buffed with 1 item on top and 1 bellow
+        
         if(abs(diff) >= maxVisibleItems!+1){//spoof every item
             Swift.print("all")
             for i in 0..<visibleItems.count {
