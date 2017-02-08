@@ -48,6 +48,9 @@ class FastList3:Element,IList{
         super.resolveSkin()
         maxVisibleItems = round(height / itemHeight).int
         lableContainer = addSubView(Container(width,height,self,"lable"))
+        
+        let frame:CGRect = CGRect()
+        
         let numOfItems:Int = Swift.min(maxVisibleItems!+1, dataProvider.count)
         prevVisibleRange = 0..<numOfItems//<--this should be the same range as we set bellow no?
         spawn(0..<numOfItems)
