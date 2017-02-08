@@ -1,6 +1,7 @@
 import Cocoa
 @testable import Utils
 @testable import Element
+@testable import GitSyncMac
 
 class ListTransitionTestWin:Window {
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
