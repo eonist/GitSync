@@ -45,28 +45,33 @@ class FastList3:Element,IList{
         
     }
     var greenRect:RectGraphic?
+    var purpleRect:RectGraphic?
+    
     override func resolveSkin() {
         super.resolveSkin()
         maxVisibleItems = round(height / itemHeight).int
         lableContainer = addSubView(Container(width,height,self,"lable"))
         
-        let redframe:CGRect = CGRect(1,1,width,height)
-        let redRect = RectGraphic(redframe.x,redframe.y,redframe.width,redframe.height,nil,LineStyle(1,.red))
+        let redFrame:CGRect = CGRect(1,1,width,height)
+        let redRect = RectGraphic(redFrame.x,redFrame.y,redFrame.size.width,redFrame.size.height,nil,LineStyle(1,.red))
         addSubview(redRect.graphic)
         redRect.draw()
         
         
-        let blueframe:CGRect = CGRect(0,0,width,itemsHeight)
-        let blueRect = RectGraphic(blueframe.x,blueframe.y,blueframe.width,blueframe.height,nil,LineStyle(1,.blue))
-        lableContainer.addSubview(blueRect.graphic)
+        let blueFrame:CGRect = CGRect(0,0,width,itemsHeight)
+        let blueRect = RectGraphic(blueFrame.x,blueFrame.y,blueFrame.size.width,blueFrame.size.height,nil,LineStyle(1,.blue))
+        lableContainer!.addSubview(blueRect.graphic)
         blueRect.draw()
         
         let greenFrame:CGRect = CGRect(0,0,width,height)
-        let greenRect = RectGraphic(greenFrame.x,greenFrame.y,greenFrame.width,greenFrame.height,nil,LineStyle(1,.green))
-        lableContainer.addSubview(greenRect.graphic)
-        greenRect.draw()
+        greenRect = RectGraphic(greenFrame.x,greenFrame.y,greenFrame.size.width,greenFrame.size.height,nil,LineStyle(1,.green))
+        lableContainer!.addSubview(greenRect!.graphic)
+        greenRect!.draw()
         
-        let purpleframe:CGRect = CGRect(0,0,width,height)
+        let purpleFrame:CGRect = CGRect(0,0,width,height)
+        purpleRect = RectGraphic(purpleFrame.x,purpleFrame.y,purpleFrame.size.width,purpleFrame.size.height,nil,LineStyle(1,.purple))
+        lableContainer!.addSubview(purpleRect!.graphic)
+        purpleRect!.draw()
         
         let numOfItems:Int = Swift.min(maxVisibleItems!+1, dataProvider.count)
         prevVisibleRange = 0..<numOfItems//<--this should be the same range as we set bellow no?
@@ -75,12 +80,17 @@ class FastList3:Element,IList{
     func setProgress(_ progress:CGFloat){
         ListModifier.scrollTo(self, progress)/*moves the labelContainer up and down*/
         let curVisibleRange = Utils.curVisibleItems(self, maxVisibleItems!+1)
-        /**/
+        /*GreenRect*/
         let top:CGFloat = curVisibleRange.top
-        let greenFrame:CGRect = CGRect(0,0,width,height)
-        let greenRect = RectGraphic(greenFrame.x,greenFrame.y,greenFrame.width,greenFrame.height,nil,LineStyle(1,.green))
-        lableContainer.addSubview(greenRect.graphic)
-        greenRect.draw()
+        let greenFrame:CGRect = CGRect(0,top,width,maxVisibleItems!*itemHeight)
+        greenRect!.setPosition(greenFrame.origin)
+        greenRect!.setSizeValue(greenFrame.size)
+        greenRect!.draw()
+        /*PurpleRect*/
+        let purpleFrame:CGRect = CGRect(0,top-itemHeight,width,(maxVisibleItems!*itemHeight)+(itemHeight*2))
+        purpleRect!.setPosition(purpleFrame.origin)
+        purpleRect!.setSizeValue(purpleFrame.size)
+        purpleRect!.draw()
         /**/
         if(curVisibleRange.range != prevVisibleRange){/*Optimization: only set if it's not the same as prev range*/
             spoof(curVisibleRange.range)/*spoof items in the new range*/
