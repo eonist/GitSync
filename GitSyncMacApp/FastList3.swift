@@ -61,8 +61,8 @@ class FastList3:Element,IList{
         lableContainer.addSubview(blueRect.graphic)
         blueRect.draw()
         
-        let greenframe:CGRect = CGRect(0,0,width,height)
-        let greenRect = RectGraphic(greenframe.x,greenframe.y,greenframe.width,greenframe.height,nil,LineStyle(1,.green))
+        let greenFrame:CGRect = CGRect(0,0,width,height)
+        let greenRect = RectGraphic(greenFrame.x,greenFrame.y,greenFrame.width,greenFrame.height,nil,LineStyle(1,.green))
         lableContainer.addSubview(greenRect.graphic)
         greenRect.draw()
         
@@ -76,8 +76,9 @@ class FastList3:Element,IList{
         ListModifier.scrollTo(self, progress)/*moves the labelContainer up and down*/
         let curVisibleRange = Utils.curVisibleItems(self, maxVisibleItems!+1)
         /**/
-        let greenframe:CGRect = CGRect(0,0,width,height)
-        let greenRect = RectGraphic(greenframe.x,greenframe.y,greenframe.width,greenframe.height,nil,LineStyle(1,.green))
+        let top:CGFloat = curVisibleRange.top
+        let greenFrame:CGRect = CGRect(0,0,width,height)
+        let greenRect = RectGraphic(greenFrame.x,greenFrame.y,greenFrame.width,greenFrame.height,nil,LineStyle(1,.green))
         lableContainer.addSubview(greenRect.graphic)
         greenRect.draw()
         /**/
