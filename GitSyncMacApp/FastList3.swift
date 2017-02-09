@@ -229,10 +229,7 @@ private class Utils{
         let newLableContainerY = -(newItemsHeight-maskHeight)*newProgress
         return (newLableContainerY,newProgress)
     }
-    
 }
-
-
 
 //Tests:
     //Continusly and randomly try to add items to the list on repeate, while you scroll up and down
