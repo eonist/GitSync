@@ -104,9 +104,11 @@ class ListTransitionTestView:TitleView{
         
         //continue here: 
             //3 buttons: addToTop,addToBottom,addToCenter (float:right,clear:Right) (red,blue,green)
-        let container = Container()
+        let container = addSubView(Container(100,100,self))
         
-        var btnTop = Button(80,20,)
+        var btnTop = addSubView(Button(80,20,container,"top"))
+        var btnBottom = addSubView(Button(80,20,container,"bottom"))
+        var btnCenter = addSubView(Button(80,20,container,"center"))
         
             //3 event listeners that inserts to .dp -> use DataProviderModifier.add -> DataProviderEvent.add
             //add event handler in FastList3. that supports add -> see similar eventHandler in List
