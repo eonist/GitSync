@@ -139,6 +139,12 @@ class FastList3:Element,IList{
         item.y = listItem.idx * itemHeight/*position the item*/
     }
     /**
+     *
+     */
+    func updatePool(){
+        
+    }
+    /**
      * (spawn == create something)
      */
     private func spawn(_ range:CountableRange<Int>){
