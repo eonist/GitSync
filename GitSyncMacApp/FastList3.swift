@@ -176,9 +176,8 @@ class FastList3:Element,IList{
         let startIdx:Int = pool.first!.idx
         let endIdx:Int = pool.last!.idx
         if(range.start >= startIdx && range.start <= endIdx){//within
-            let mergableRangeStart = range.start
-            let mergableRangeEnd = endIdx
-            reUse(<#T##cur: Range<Int>##Range<Int>#>)
+            let mergableRange = range.start..<range.start + pool.count
+            reUse(mergableRange)
         }
     }
     /**
