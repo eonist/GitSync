@@ -92,6 +92,10 @@ class ListTransitionTestView:TitleView{
         let graph = graphContainer.addSubView(BarGraph(200,200/*,4*/,graphContainer))
         _ = graph
     }
+    
+    var btnTop:SelectTextButton?
+    var btnBottom:SelectTextButton?
+    var btnCenter:SelectTextButton?
     func rbSliderFastList3(){
         let dp:DataProvider = DataProvider("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath)//longlist.xml,list.xml//DataProvider()//
         /*dp.addItem(["title":"pink"])
@@ -106,9 +110,11 @@ class ListTransitionTestView:TitleView{
             //3 buttons: addToTop,addToBottom,addToCenter (float:right,clear:Right) (red,blue,green)
         let container = addSubView(Container(100,100,self))
         
-        var btnTop = addSubView(Button(80,20,container,"top"))
-        var btnBottom = addSubView(Button(80,20,container,"bottom"))
-        var btnCenter = addSubView(Button(80,20,container,"center"))
+        
+        
+        btnTop = addSubView(SelectTextButton(80,20,"top",container))
+        btnBottom = addSubView(SelectTextButton(80,20,"bottom",container))
+        btnCenter = addSubView(SelectTextButton(80,20,"center",container))
         
             //3 event listeners that inserts to .dp -> use DataProviderModifier.add -> DataProviderEvent.add
             //add event handler in FastList3. that supports add -> see similar eventHandler in List
