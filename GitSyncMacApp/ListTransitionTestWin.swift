@@ -102,15 +102,14 @@ class ListTransitionTestView:TitleView{
         dp.addItem(["title":"orange"])
         dp.addItem(["title":"purple"])*/
         
-        let list = addSubView(RBSliderFastList3(140, 145, 24, dp, self))
+        let list:IList = addSubView(RBSliderFastList3(140, 145, 24, dp, self))
         _ = list
         
         
         //continue here: 
             //3 buttons: addToTop,addToBottom,addToCenter (float:right,clear:Right) (red,blue,green)
-        let container = addSubView(Container(100,100,self))
-        
-        
+        StyleManager.addStyle("Container#btn{float:right;clear:none;}")
+        let container = addSubView(Container(100,100,self,"btn"))
         
         btnTop = addSubView(TextButton(80,20,"top",container))
         btnBottom = addSubView(TextButton(80,20,"bottom",container))
@@ -119,7 +118,7 @@ class ListTransitionTestView:TitleView{
         func onButtonEvent(_ event:Event){
             if(event.type == ButtonEvent.upInside){
                 if(event.origin === btnTop){
-                    
+                    DataProviderModifier.addItemAtIndex(list.db, <#T##index: Array<Int>##Array<Int>#>, <#T##item: Dictionary<String, String>##Dictionary<String, String>#>)
                 }else if(event.origin === btnBottom){
                     
                 }else if(event.origin === btnCenter){
