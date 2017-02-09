@@ -160,12 +160,29 @@ class FastList3:Element,IList{
         let item:SelectTextButton = SelectTextButton(getWidth(), itemHeight ,"", false, lableContainer)
         return item
     }
+    
+    //what happens when many items are inserted into dp?🏀
+        //figure out which items are within visible range
+        //reUse all items from the startIndex of the intersecting range unitl the end of visibleItems.range
+    
+    /**
+     * Creates and adds items to the _lableContainer
+     * TODO: possibly move into ListModifier, TreeList has its mergeAt in an Utils class see how it does it
+     */
+    func mergeAt(_ indecies:Range<Int>){//TODO: possible rename to something better, placeAt? insertAt?
+        var i:Int = index
+        for object:Dictionary<String,String> in objects {//TODO: use for i
+            let item:SelectTextButton = SelectTextButton(getWidth(), itemHeight ,object["title"]!, false, lableContainer)
+            lableContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
+            i += 1
+        }
+    }
     /**
      * TODO: you need to update the float of the lables after an update
      */
     func onDataProviderEvent(_ event:DataProviderEvent){
-        if(event.type === DataProviderEvent.add){/*This is called when a new item is added to the DataProvider instance*/
-            mergeAt(event.items, event.startIndex)
+        if(event.type == DataProviderEvent.add){/*This is called when a new item is added to the DataProvider instance*/
+            mergeAt(event.startIndex)
         }
     }
     override func onEvent(_ event:Event) {
