@@ -138,7 +138,6 @@ class FastList3:Element,IList{
             let fastlistItem:FastListItem = (createPoolItem(),0)
             pool.append(fastlistItem)
         }
-        
     }
     /**
      *
