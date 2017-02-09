@@ -175,7 +175,11 @@ class FastList3:Element,IList{
         
         let startIdx:Int = pool.first!.idx
         let endIdx:Int = pool.last!.idx
-        
+        if(range.start >= startIdx && range.start <= endIdx){//within
+            let mergableRangeStart = range.start
+            let mergableRangeEnd = endIdx
+            reUse(<#T##cur: Range<Int>##Range<Int>#>)
+        }
     }
     /**
      * TODO: you need to update the float of the lables after an update
