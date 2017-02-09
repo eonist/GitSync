@@ -226,10 +226,13 @@ private class Utils{
 //Question:
     //what happens when an item is inserted into dp?
         //if the item is within visible range, 
-            //updatingPool() -> which may increase pool.count
+            //
             //remove the last item in visible items (as it will be pushed bellow limit anyway)
                 //append the removed item to pool
             //insert the item
+    //what happens when view resizes?
+        //updatingPool() -> which may increase/decrease pool.count
+        //
             
 // NOTE: keep in mind that if an item is inserted above visible items, you need to -itemHeight on an offset.y or else the whole list will apear to jump while scrolling, this will leave the list forever offset, but this can be accounted for by storing the offset and using it within calculations 🚫
 // NOTE: If you insert above visible area, all you do is -1 on the cur visibleItems range -> which then doesnt result in a diff change and doesnt result in a new spoof. it just keeps on scrolling perfectly in the next frame tick 👌
