@@ -100,6 +100,12 @@ class ListTransitionTestView:TitleView{
         
         let list = addSubView(RBSliderFastList3(140, 145, 24, dp, self))
         _ = list
+        
+        
+        //continue here: 
+            //3 buttons: addToTop,addToBottom,addToCenter (float:right,clear:Right) (red,blue,green)
+            //3 event listeners that inserts to .dp -> use DataProviderModifier.add -> DataProviderEvent.add -> 
+            //
     }
     /**
      *
