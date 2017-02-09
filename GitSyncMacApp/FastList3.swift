@@ -170,12 +170,9 @@ class FastList3:Element,IList{
      * TODO: possibly move into ListModifier, TreeList has its mergeAt in an Utils class see how it does it
      */
     func mergeAt(_ indecies:Range<Int>){//TODO: possible rename to something better, placeAt? insertAt?
-        var i:Int = index
-        for object:Dictionary<String,String> in objects {//TODO: use for i
-            let item:SelectTextButton = SelectTextButton(getWidth(), itemHeight ,object["title"]!, false, lableContainer)
-            lableContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
-            i += 1
-        }
+        updatePool()//create enough pool items
+        var i:Int = index 
+        
     }
     /**
      * TODO: you need to update the float of the lables after an update
