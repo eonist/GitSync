@@ -104,7 +104,8 @@ class ListTransitionTestView:TitleView{
         
         //continue here: 
             //3 buttons: addToTop,addToBottom,addToCenter (float:right,clear:Right) (red,blue,green)
-            //3 event listeners that inserts to .dp -> use DataProviderModifier.add -> DataProviderEvent.add -> 
+            //3 event listeners that inserts to .dp -> use DataProviderModifier.add -> DataProviderEvent.add
+            //add event handler in FastList3. that supports add -> see similar eventHadnler in List
             //
     }
     /**
