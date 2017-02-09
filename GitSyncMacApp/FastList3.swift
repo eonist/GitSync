@@ -9,24 +9,13 @@ class FastList3:Element,IList{
     var maxVisibleItems:Int?/*this will be calculated on init and on setSize calls*/
     var prevVisibleRange:Range<Int>?/*PrevVisibleRange is set on each frame tick and is used to calc how many new items that needs to be rendered/removed*/
     var visibleItems:[FastListItem] = []//fastlistitem also stores the absolute integer that cooresponds to the db.item
-    var pool:Array
+    var pool:[FastListItem] = []
     init(_ width:CGFloat, _ height:CGFloat, _ itemHeight:CGFloat = NaN,_ dataProvider:DataProvider? = nil, _ parent:IElement?, _ id:String? = nil){
         self.itemHeight = itemHeight
         self.dataProvider = dataProvider ?? DataProvider()/*<--if it's nil then a DB is created*/
         super.init(width, height, parent, id)
         self.dataProvider.event = self.onEvent/*Add event handler for the dataProvider*/
         //layer!.masksToBounds = true/*masks the children to the frame, I don't think this works...seem to work now*/
-        
-        //Next:
-            //add a red rect above where the mask is
-            //Add a blue rect above all the items in the itemContainer (use itemsHeight)
-            //Add a green rect that represents the range to render (everything inside this rect must be rendered) (it goes in the itemContainer)
-                //The green rect can never be 
-            //Add a purple rect that represents the buffer area, 1-item above top and 1-item bellow bottom
-        
-        //Rules:
-            //Always try to show 1 item above topLimit
-            //Always try to show 1 item bellow bottomLimit
         
         //Tests:
             //Continusly and randomly try to add items to the list on repeate, while you scroll up and down
@@ -40,25 +29,26 @@ class FastList3:Element,IList{
             //spoof(range) could use an array.diff method and generate individual spoof(fastlistitem) that way
         
         //Continue here:
-            //Add debug rects
-            //move fastlist3 and rb....3 to private folder while working on them for faster debugging.
+            //Add debug rects ✅
+            //move fastlist3 and rb....3 to private folder while working on them for faster debugging. ✅
             //Figure out a fast workflow ✅
         
     }
-    var greenRect:RectGraphic?
-    var purpleRect:RectGraphic?
+    var greenRect:RectGraphic?/*green rect that represents the range to render (everything inside this rect must be rendered) (it goes in the itemContainer)*/
+    var purpleRect:RectGraphic?/*purple rect that represents the buffer area, 1-item above top and 1-item bellow bottom*/
     
     override func resolveSkin() {
         super.resolveSkin()
         maxVisibleItems = round(height / itemHeight).int
         lableContainer = addSubView(Container(width,height,self,"lable"))
         
+        /*red rect above where the mask is*/
         let redFrame:CGRect = CGRect(1,1,width,height)
         let redRect = RectGraphic(redFrame.x,redFrame.y,redFrame.size.width,redFrame.size.height,nil,LineStyle(1,.red))
         addSubview(redRect.graphic)
         redRect.draw()
         
-        
+        /*blue rect above all the items in the itemContainer (use itemsHeight)*/
         let blueFrame:CGRect = CGRect(0,0,width,itemsHeight)
         let blueRect = RectGraphic(blueFrame.x,blueFrame.y,blueFrame.size.width,blueFrame.size.height,nil,LineStyle(1,.blue))
         lableContainer!.addSubview(blueRect.graphic)
