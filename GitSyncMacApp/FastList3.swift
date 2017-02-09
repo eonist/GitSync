@@ -16,8 +16,7 @@ class FastList3:Element,IList{
         super.init(width, height, parent, id)
         self.dataProvider.event = self.onEvent/*Add event handler for the dataProvider*/
         //layer!.masksToBounds = true/*masks the children to the frame, I don't think this works...seem to work now*/
-        
-        
+    
     }
     var greenRect:RectGraphic?/*green rect that represents the range to render (everything inside this rect must be rendered) (it goes in the itemContainer)*/
     var purpleRect:RectGraphic?/*purple rect that represents the buffer area, 1-item above top and 1-item bellow bottom*/
