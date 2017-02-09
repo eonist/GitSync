@@ -136,7 +136,7 @@ class FastList3:Element,IList{
             Swift.print("prepend ")
             var items = visibleItems.splice2(visibleItems.count-diff, diff)//grab items from the bottom
             for i in 0..<items.count {
-                items[i] = (items[i].item, cur.start + i);
+                items[i] = (items[i].item, cur.start + i);//and move them to the top
                 spoof(items[i])
             }//assign correct absolute idx
             visibleItems = items + visibleItems/*prepend to list*/
@@ -144,7 +144,7 @@ class FastList3:Element,IList{
             Swift.print("append")
             var items = visibleItems.splice2(0, -1*(diff))//grab items from the top
             for i in 0..<items.count {
-                items[i] = (items[i].item, prev.end + i)
+                items[i] = (items[i].item, prev.end + i)//and move them to the bottom
                 spoof(items[i])
             }//assign correct absolute idx
             visibleItems += items/*append to list*/
