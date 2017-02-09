@@ -150,7 +150,7 @@ class FastList3:Element,IList{
                 lableContainer!.addSubview(item.item)
             }
         }else{
-            fatalError("This can't happen")
+            fatalError("This can't happen: numOfItems: \(numOfItems)  pool.count: \(pool.count)")
         }
     }
     /**

@@ -106,9 +106,9 @@ class ListTransitionTestView:TitleView{
         _ = list
         
         var css = "Container#btn{float:left;clear:none;}"
-        css += ""
+        css += "Container#btn TextButton{margin:6px;}"
         
-        StyleManager.addStyle()
+        StyleManager.addStyle(css)
         let container = addSubView(Container(100,100,self,"btn"))
         
         btnTop = container.addSubView(TextButton(80,20,"top",container))
