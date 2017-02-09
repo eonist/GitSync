@@ -129,8 +129,8 @@ class FastList3:Element,IList{
             Swift.print("all")
             for i in 0..<pool.count {
                 let idx = cur.start + i
-                visibleItems[i] = (pool[i], idx)
-                spoof(visibleItems[i])
+                pool[i] = (pool[i].item, idx)
+                spoof(pool[i])
             }
         }else if(diff.positive){//cur.start is less than prev.start
             Swift.print("prepend ")
@@ -139,7 +139,7 @@ class FastList3:Element,IList{
                 bottomItems[i] = (bottomItems[i].item, cur.start + i);//and move them to the top
                 spoof(bottomItems[i])
             }//assign correct absolute idx
-            visibleItems = bottomItems + visibleItems/*prepend to list*/
+            pool = bottomItems + visibleItems/*prepend to list*/
         }else if(diff.negative){//cur.start is more than prev.start
             Swift.print("append")
             var topItems = visibleItems.splice2(0, -1*(diff))//grab items from the top
@@ -147,7 +147,7 @@ class FastList3:Element,IList{
                 topItems[i] = (topItems[i].item, prev.end + i)//and move them to the bottom
                 spoof(topItems[i])
             }//assign correct absolute idx
-            visibleItems += topItems/*append to list*/
+            pool += topItems/*append to list*/
         }
     }
     /**
@@ -158,28 +158,27 @@ class FastList3:Element,IList{
         numOfItems = Swift.min(numOfItems, dataProvider.count)//if a list only has 3 items and the height can fit 5, pool will never need to be bigger than 3 anyway
         if(pool.count == 0){//pool is empty, fill it up
             for _ in 0..<numOfItems{
-                let item = createPoolItem()
+                let item:FastListItem = (createPoolItem(),0)
                 pool.append(item)
-                lableContainer!.addSubview(item)
+                lableContainer!.addSubview(item.item)
             }
         }else if(numOfItems < pool.count){//pool needs more items
             let numOfItemsNeeded = numOfItems - pool.count
             for _ in 0..<numOfItemsNeeded{
-                let item = createPoolItem()
-                pool.append(createPoolItem())
-                lableContainer!.addSubview(item)
+                let item:FastListItem = (createPoolItem(),0)
+                pool.append(item)
+                lableContainer!.addSubview(item.item)
             }
         }else if(numOfItems > pool.count){//pool needs less items
             let numOfItemsUnNeeded = numOfItems - pool.count
             for _ in 0..<numOfItemsUnNeeded{
-                let item = createPoolItem()
+                let item:FastListItem = (createPoolItem(),0)
                 pool.removeLast()
-                lableContainer!.addSubview(item)
+                lableContainer!.addSubview(item.item)
             }
         }else{
             fatalError("This can't happen")
         }
-        
     }
     /**
      *
