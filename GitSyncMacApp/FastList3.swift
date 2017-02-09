@@ -213,7 +213,7 @@ private class Utils{
     //When you remove an item that falls outside the perimeter, then move it to the "pool"
     //if an item is not available in pool and you need it, then create a new one
     //Pool can only have 1 surplus item at the time, you dont want to hold many items that are not in use -> after resize for instance
-    //Figure out the pooling in the context that db.count may change while scrolling🏀
+    //Figure out the pooling in the context that db.count may change while scrolling 
         //only move items to buffer when it moves outside top or bottom limit 🚫
         //you insert item before the animation frame tick 👍
     //spoof(range) could use an array.diff method and generate individual spoof(fastlistitem) that way

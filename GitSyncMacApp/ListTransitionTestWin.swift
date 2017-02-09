@@ -122,7 +122,7 @@ class ListTransitionTestView:TitleView{
                 }else if(event.origin === btnBottom){
                     list.dataProvider.addItem(["title":"magenta","property":""])
                 }else if(event.origin === btnCenter){
-                    list.dataProvider.addItemAt(["title":"cyan","property":""], (list.dataProvider.count/2).int)
+                    list.dataProvider.addItemAt(["title":"cyan","property":""], (list.dataProvider.count/2))
                 }
             }
         }
