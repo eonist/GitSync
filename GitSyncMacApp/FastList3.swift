@@ -173,7 +173,8 @@ class FastList3:Element,IList{
     func mergeAt(_ range:Range<Int>){//TODO: possible rename to something better, placeAt? insertAt?
         updatePool()//create enough pool items
         
-        
+        let startIdx:Int = pool.first!.idx
+        let endIdx:Int = pool.last!.idx
     }
     /**
      * TODO: you need to update the float of the lables after an update
