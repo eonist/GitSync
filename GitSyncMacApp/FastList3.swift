@@ -142,6 +142,7 @@ class FastList3:Element,IList{
      *
      */
     func updatePool(){
+        let numOfItems:Int = floor(height / itemHeight).int + 1//TODO: use floor not round
         
     }
     /**
