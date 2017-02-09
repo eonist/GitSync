@@ -227,9 +227,9 @@ private class Utils{
     //what happens when an item is inserted into dp?
         //if the item is within visible range, 
             //
-            //remove the last item in visible items (as it will be pushed bellow limit anyway)
-                //append the removed item to pool
-            //insert the item
+            //splice the last item in visible items (as it will be pushed bellow limit anyway)
+                //insert the item at the relative index (not absolute index)
+                
     //what happens when view resizes?
         //updatingPool() -> which may increase/decrease pool.count
         //call reUse with a new range based on -> floor(height/itemHeight) + 1
