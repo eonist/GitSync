@@ -134,7 +134,7 @@ class FastList3:Element,IList{
             }
         }else if(diff.positive){//cur.start is less than prev.start
             Swift.print("prepend ")
-            var items = visibleItems.splice2(visibleItems.count-diff, diff)//grab the end items
+            var items = visibleItems.splice2(visibleItems.count-diff, diff)//grab items from the bottom
             for i in 0..<items.count {
                 items[i] = (items[i].item, cur.start + i);
                 spoof(items[i])
