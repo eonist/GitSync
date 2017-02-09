@@ -140,9 +140,15 @@ class FastList3:Element,IList{
                 pool.append(createPoolItem())
             }
         }else if(numOfItems < pool.count){//pool needs more items
-            
+            let numOfItemsNeeded = numOfItems - pool.count
+            for _ in 0..<numOfItemsNeeded{
+                pool.append(createPoolItem())
+            }
         }else if(numOfItems > pool.count){//pool needs less items
-            
+            let numOfItemsUnNeeded = numOfItems - pool.count
+            for _ in 0..<numOfItemsUnNeeded{
+                pool.removeLast()
+            }
         }else{
             fatalError("This can't happen")
         }
