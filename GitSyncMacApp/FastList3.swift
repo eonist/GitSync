@@ -39,7 +39,7 @@ class FastList3:Element,IList{
     
     override func resolveSkin() {
         super.resolveSkin()
-        maxVisibleItems = round(height / itemHeight).int
+        maxVisibleItems = round(height / itemHeight).int//TODO: use floor not round
         lableContainer = addSubView(Container(width,height,self,"lable"))
         
         /*red rect above where the mask is*/
