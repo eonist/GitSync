@@ -51,7 +51,8 @@ class FastList3:Element,IList{
         
         let numOfItems:Int = Swift.min(maxVisibleItems!+1, dataProvider.count)
         prevVisibleRange = 0..<numOfItems//<--this should be the same range as we set bellow no?
-        spawn(0..<numOfItems)
+        //spawn(0..<numOfItems)
+        updatePool()//creates a pool of items ready to be
     }
     func setProgress(_ progress:CGFloat){
         ListModifier.scrollTo(self, progress)/*moves the labelContainer up and down*/
@@ -137,17 +138,23 @@ class FastList3:Element,IList{
         numOfItems = Swift.min(numOfItems, dataProvider.count)//if a list only has 3 items and the height can fit 5, pool will never need to be bigger than 3 anyway
         if(pool.count == 0){//pool is empty, fill it up
             for _ in 0..<numOfItems{
-                pool.append(createPoolItem())
+                let item = createPoolItem()
+                pool.append(item)
+                lableContainer!.addSubview(item)
             }
         }else if(numOfItems < pool.count){//pool needs more items
             let numOfItemsNeeded = numOfItems - pool.count
             for _ in 0..<numOfItemsNeeded{
+                let item = createPoolItem()
                 pool.append(createPoolItem())
+                lableContainer!.addSubview(item)
             }
         }else if(numOfItems > pool.count){//pool needs less items
             let numOfItemsUnNeeded = numOfItems - pool.count
             for _ in 0..<numOfItemsUnNeeded{
+                let item = createPoolItem()
                 pool.removeLast()
+                lableContainer!.addSubview(item)
             }
         }else{
             fatalError("This can't happen")
