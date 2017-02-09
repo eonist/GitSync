@@ -229,7 +229,7 @@ private class Utils{
             //
             //splice the last item in visible items (as it will be pushed bellow limit anyway)
                 //insert the item at the relative index (not absolute index)
-                
+                //loop the items after the relative index and add
     //what happens when view resizes?
         //updatingPool() -> which may increase/decrease pool.count
         //call reUse with a new range based on -> floor(height/itemHeight) + 1
