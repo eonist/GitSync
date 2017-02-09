@@ -164,7 +164,8 @@ class FastList3:Element,IList{
     //what happens when many items are inserted into dp?🏀
         //figure out which items are within visible range
         //reUse all items from the startIndex of the intersecting range unitl the end of visibleItems.range
-    
+    //what happens when many items that are not in range are added to dp?
+        //a soloution could be to insert each item at 
     /**
      * Creates and adds items to the _lableContainer
      * TODO: possibly move into ListModifier, TreeList has its mergeAt in an Utils class see how it does it
