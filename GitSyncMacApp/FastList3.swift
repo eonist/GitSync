@@ -8,7 +8,7 @@ class FastList3:Element,IList{
     var lableContainer:Container?/*holds the list items*/
     var maxVisibleItems:Int?/*this will be calculated on init and on setSize calls*/
     var prevVisibleRange:Range<Int>?/*PrevVisibleRange is set on each frame tick and is used to calc how many new items that needs to be rendered/removed*/
-    var visibleItems:[FastListItem] = []//fastlistitem also stores the absolute integer that cooresponds to the db.item
+    //var visibleItems:[FastListItem] = []//fastlistitem also stores the absolute integer that cooresponds to the db.item
     var pool:[FastListItem] = []
     init(_ width:CGFloat, _ height:CGFloat, _ itemHeight:CGFloat = NaN,_ dataProvider:DataProvider? = nil, _ parent:IElement?, _ id:String? = nil){
         self.itemHeight = itemHeight
@@ -52,7 +52,7 @@ class FastList3:Element,IList{
         prevVisibleRange = 0..<numOfItems//<--this should be the same range as we set bellow no?
         //spawn(0..<numOfItems)
         updatePool()//creates a pool of items ready to be used
-        
+        reUse(prevVisibleRange!)
     }
     func setProgress(_ progress:CGFloat){
         ListModifier.scrollTo(self, progress)/*moves the labelContainer up and down*/
@@ -92,6 +92,7 @@ class FastList3:Element,IList{
      * NOTE: This method grabs items from pool and append or prepend them
      */
     func reUse(_ cur:Range<Int>){
+        Swift.print("reUse: " + "\(cur)")
         let prev = prevVisibleRange!/*we assign the value to a simpler shorter named variable*/
         let diff = prev.start - cur.start
         
@@ -104,15 +105,15 @@ class FastList3:Element,IList{
             }
         }else if(diff.positive){//cur.start is less than prev.start
             Swift.print("prepend ")
-            var bottomItems = visibleItems.splice2(visibleItems.count-diff, diff)//grab items from the bottom
+            var bottomItems = pool.splice2(pool.count-diff, diff)//grab items from the bottom
             for i in 0..<bottomItems.count {
                 bottomItems[i] = (bottomItems[i].item, cur.start + i);//and move them to the top
                 reUse(bottomItems[i])
             }//assign correct absolute idx
-            pool = bottomItems + visibleItems/*prepend to list*/
+            pool = bottomItems + pool/*prepend to list*/
         }else if(diff.negative){//cur.start is more than prev.start
             Swift.print("append")
-            var topItems = visibleItems.splice2(0, -1*(diff))//grab items from the top
+            var topItems = pool.splice2(0, -1*(diff))//grab items from the top
             for i in 0..<topItems.count {
                 topItems[i] = (topItems[i].item, prev.end + i)//and move them to the bottom
                 reUse(topItems[i])
