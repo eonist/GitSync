@@ -49,10 +49,11 @@ class FastList3:Element,IList{
         purpleRect!.draw()
         
         let numOfItems:Int = Swift.min(maxVisibleItems!+1, dataProvider.count)
-        prevVisibleRange = 0..<numOfItems//<--this should be the same range as we set bellow no?
+        let curVisibleRange = 0..<numOfItems//<--this should be the same range as we set bellow no?
         //spawn(0..<numOfItems)
         updatePool()//creates a pool of items ready to be used
-        reUse(prevVisibleRange!)
+        reUse(curVisibleRange)
+        prevVisibleRange = curVisibleRange
     }
     func setProgress(_ progress:CGFloat){
         ListModifier.scrollTo(self, progress)/*moves the labelContainer up and down*/
