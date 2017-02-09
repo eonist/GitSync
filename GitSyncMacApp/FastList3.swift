@@ -9,7 +9,7 @@ class FastList3:Element,IList{
     var maxVisibleItems:Int?/*this will be calculated on init and on setSize calls*/
     var prevVisibleRange:Range<Int>?/*PrevVisibleRange is set on each frame tick and is used to calc how many new items that needs to be rendered/removed*/
     var visibleItems:[FastListItem] = []//fastlistitem also stores the absolute integer that cooresponds to the db.item
-    var pool:[Element] = []
+    var pool:[FastListItem] = []
     init(_ width:CGFloat, _ height:CGFloat, _ itemHeight:CGFloat = NaN,_ dataProvider:DataProvider? = nil, _ parent:IElement?, _ id:String? = nil){
         self.itemHeight = itemHeight
         self.dataProvider = dataProvider ?? DataProvider()/*<--if it's nil then a DB is created*/
@@ -134,20 +134,20 @@ class FastList3:Element,IList{
             }
         }else if(diff.positive){//cur.start is less than prev.start
             Swift.print("prepend ")
-            var items = visibleItems.splice2(visibleItems.count-diff, diff)//grab items from the bottom
-            for i in 0..<items.count {
-                items[i] = (items[i].item, cur.start + i);//and move them to the top
-                spoof(items[i])
+            var bottomItems = visibleItems.splice2(visibleItems.count-diff, diff)//grab items from the bottom
+            for i in 0..<bottomItems.count {
+                bottomItems[i] = (bottomItems[i].item, cur.start + i);//and move them to the top
+                spoof(bottomItems[i])
             }//assign correct absolute idx
-            visibleItems = items + visibleItems/*prepend to list*/
+            visibleItems = bottomItems + visibleItems/*prepend to list*/
         }else if(diff.negative){//cur.start is more than prev.start
             Swift.print("append")
-            var items = visibleItems.splice2(0, -1*(diff))//grab items from the top
-            for i in 0..<items.count {
-                items[i] = (items[i].item, prev.end + i)//and move them to the bottom
-                spoof(items[i])
+            var topItems = visibleItems.splice2(0, -1*(diff))//grab items from the top
+            for i in 0..<topItems.count {
+                topItems[i] = (topItems[i].item, prev.end + i)//and move them to the bottom
+                spoof(topItems[i])
             }//assign correct absolute idx
-            visibleItems += items/*append to list*/
+            visibleItems += topItems/*append to list*/
         }
     }
     /**
