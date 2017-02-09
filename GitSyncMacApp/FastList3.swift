@@ -157,27 +157,7 @@ class FastList3:Element,IList{
         let item:SelectTextButton = SelectTextButton(getWidth(), itemHeight ,"", false, lableContainer)
         return item
     }
-    /**
-     * (spawn == create something)
-     */
-    private func spawn(_ range:CountableRange<Int>){
-        for i in range{/*we need an extra item to cover the entire area*/
-            let item:Element = spawn(i)
-            visibleItems.append((item,i))
-            _ = lableContainer!.addSubView(item)
-            item.y = i * itemHeight
-        }
-    }
-    /**
-     * (spawn == create something)
-     */
-    func spawn(_ idx:Int)->Element{/*override this to use custom ItemList items*/
-        Swift.print("spawn: " + "\(idx)")
-        let dpItem = dataProvider.items[idx]
-        let title:String = dpItem["title"]!
-        let item:SelectTextButton = SelectTextButton(getWidth(), itemHeight ,title, false, lableContainer)
-        return item
-    }
+    
     override func getClassType() -> String {return "\(List.self)"}
     required init(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
