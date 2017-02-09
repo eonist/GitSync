@@ -164,19 +164,13 @@ class FastList3:Element,IList{
     //what happens when many items are inserted into dp?🏀
         //figure out which items are within visible range
         //reUse all items from the startIndex of the intersecting range unitl the end of visibleItems.range
-    //what happens when many items that are not in range are added to dp?
-        //a soloution would be to find the min and max idx of the items and then create a range from this. and do the same as item Range
-    /**
-     * Creates and adds items to the _lableContainer
-     * TODO: possibly move into ListModifier, TreeList has its mergeAt in an Utils class see how it does it
-     */
+    
     func mergeAt(_ range:Range<Int>){//TODO: possible rename to something better, placeAt? insertAt?
         updatePool()//create enough pool items
-        
         let startIdx:Int = pool.first!.idx
         let endIdx:Int = pool.last!.idx
         if(range.start >= startIdx && range.start <= endIdx){//within
-            let mergableRange = range.start..<range.start + pool.count
+            let mergableRange:Range<Int> = range.start..<range.start + pool.count
             reUse(mergableRange)
         }
     }
@@ -262,6 +256,8 @@ private class Utils{
     //what happens when many items are inserted into dp?
         //figure out which items are within visible range
             //reUse all items from the startIndex of the intersecting range unitl the end of visibleItems.range
+    //what happens when many items that are not in range are added to dp?
+        //a soloution would be to find the min and max idx of the items and then create a range from this. and do the same as item Range
     //what happens when view resizes?
         //updatingPool() -> which may increase/decrease pool.count
         //call reUse with a new range based on -> floor(height/itemHeight) + 1
