@@ -127,7 +127,7 @@ class FastList3:Element,IList{
     }
     /**
      * NOTE: keep in mind that if an item is inserted above visible items, you need to -itemHeight on an offset.y or else the whole list will apear to jump while scrolling, this will leave the list forever offset, but this can be accounted for by storing the offset and using it within calculations 🚫
-     * NOTE: If you insert above visible area, all you do is -1 on the cur visibleItems range -> which then results in 
+     * NOTE: If you insert above visible area, all you do is -1 on the cur visibleItems range -> which then doesnt result in a diff change and doesnt result in a new spoof. it just keeps on scrolling perfectly in the next frame tick 👌
      * NOTE: You might need to create more expressive debug rects to see bugs easier
      */
     func reUse(){
