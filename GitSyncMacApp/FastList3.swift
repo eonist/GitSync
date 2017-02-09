@@ -126,6 +126,12 @@ class FastList3:Element,IList{
         }
     }
     /**
+     *
+     */
+    func reUse(){
+        //
+    }
+    /**
      * (spoof == apply/reuse)
      * NOTE: This method just applies data
      */
