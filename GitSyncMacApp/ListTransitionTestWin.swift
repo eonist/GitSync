@@ -118,11 +118,11 @@ class ListTransitionTestView:TitleView{
         func onButtonEvent(_ event:Event){
             if(event.type == ButtonEvent.upInside){
                 if(event.origin === btnTop){
-                    list.dataProvider.addItemAt(["title":"tangerine",], 0)
+                    list.dataProvider.addItemAt(["title":"tangerine","property":""], 0)
                 }else if(event.origin === btnBottom){
-                    
+                    list.dataProvider.addItem(["title":"magenta","property":""], 0)
                 }else if(event.origin === btnCenter){
-                    
+                    list.dataProvider.addItem(["title":"cyan","property":""], 0)
                 }
             }
         }
