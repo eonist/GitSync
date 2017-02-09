@@ -182,7 +182,7 @@ class FastList3:Element,IList{
      */
     func onDataProviderEvent(_ event:DataProviderEvent){
         if(event.type == DataProviderEvent.add){/*This is called when a new item is added to the DataProvider instance*/
-            mergeAt(event.startIndex)
+            mergeAt(event.startIndex..<event.items.count)
         }
     }
     override func onEvent(_ event:Event) {
