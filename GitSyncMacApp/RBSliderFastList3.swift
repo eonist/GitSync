@@ -30,7 +30,7 @@ class RBSliderFastList3:FastList3,IRBSliderList{
      * PARAM value: is the final y value for the lableContainer
      */
     override func setProgress(_ value:CGFloat){
-        let itemsHeight = self.itemsHeight//TODO: Use a precalculated itemsHeight instead of recalculating it on every setProgress call
+        let itemsHeight = self.itemsHeight//TODO: Use a precalculated itemsHeight instead of recalculating it on every setProgress call, what if dp.count changes though?
         progressValue = value / (itemsHeight < height ? height : -(itemsHeight - height))/*calc scalar from value, if itemsHeight is to small then use height instead*/
         super.setProgress(progressValue!)
         slider!.setProgressValue(progressValue!)
