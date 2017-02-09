@@ -164,24 +164,11 @@ class FastList3:Element,IList{
      * TODO: you need to update the float of the lables after an update
      */
     func onDataProviderEvent(_ event:DataProviderEvent){
-        if(event.type === DataProviderEvent.add){
-            
-        }
-        switch(){
-        case DataProviderEvent.add: mergeAt(event.items, event.startIndex);/*This is called when a new item is added to the DataProvider instance*/
-        case DataProviderEvent.remove: lableContainer!.removeSubviewAt(event.startIndex); /*This is called when an item is removed form the DataProvider instance*/
-        case DataProviderEvent.removeAll: ViewModifier.removeAllOfType(lableContainer!, ISelectable.self/*<--this may not work, see your comparing protocol and class code*/)/*This is called when all item is removed form the DataProvider instance*/
-        case DataProviderEvent.sort: DepthModifier.sortByList(lableContainer!,"text","title", dataProvider.items)/*This is called when the items in the DataProvider instance is sorted*/
-        case DataProviderEvent.dataChange: /*Not implimented yet*/ break;/*This is called when the items in the DataProvider instance is sorted*/
-        case DataProviderEvent.replace: /*This is called when an item is replaced from the DataProvider instance*/
-            self.lableContainer!.removeSubviewAt(event.startIndex)
+        if(event.type === DataProviderEvent.add){/*This is called when a new item is added to the DataProvider instance*/
             mergeAt(event.items, event.startIndex)
-        default:fatalError("event type not supported"); break;
         }
-        
     }
     override func onEvent(_ event:Event) {
-        
         if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
         super.onEvent(event)// we stop propegation by not forwarding events to super. The ListEvents go directly to super so they wont be stopped.
     }
