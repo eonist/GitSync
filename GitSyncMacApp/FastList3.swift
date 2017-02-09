@@ -17,21 +17,6 @@ class FastList3:Element,IList{
         self.dataProvider.event = self.onEvent/*Add event handler for the dataProvider*/
         //layer!.masksToBounds = true/*masks the children to the frame, I don't think this works...seem to work now*/
         
-        //Tests:
-            //Continusly and randomly try to add items to the list on repeate, while you scroll up and down
-        
-        //Ideas:
-            //When you remove an item that falls outside the perimeter, then move it to the "pool"
-            //if an item is not available in pool and you need it, then create a new one
-            //Pool can only have 1 surplus item at the time, you dont want to hold many items that are not in use -> after resize for instance
-            //Figure out the pooling in the context that db.count may change while scrolling🏀
-                //only move items to buffer when it moves outside top or bottom limit
-            //spoof(range) could use an array.diff method and generate individual spoof(fastlistitem) that way
-        
-        //Continue here:
-            //Add debug rects ✅
-            //move fastlist3 and rb....3 to private folder while working on them for faster debugging. ✅
-            //Figure out a fast workflow ✅
         
     }
     var greenRect:RectGraphic?/*green rect that represents the range to render (everything inside this rect must be rendered) (it goes in the itemContainer)*/
@@ -126,17 +111,10 @@ class FastList3:Element,IList{
         }
     }
     /**
-     * NOTE: keep in mind that if an item is inserted above visible items, you need to -itemHeight on an offset.y or else the whole list will apear to jump while scrolling, this will leave the list forever offset, but this can be accounted for by storing the offset and using it within calculations 🚫
-     * NOTE: If you insert above visible area, all you do is -1 on the cur visibleItems range -> which then doesnt result in a diff change and doesnt result in a new spoof. it just keeps on scrolling perfectly in the next frame tick 👌
-     * NOTE: You might need to create more expressive debug rects to see bugs easier
+     *
      */
     func reUse(){
-        //what happens when an item is inserted into dp?
-            //if the item is within visible range, 
-                //updatingPool() -> which may increase pool.count
-                //remove the last item in visible items (as it will be pushed bellow limit anyway)
-                    //append the removed item to pool
-                //insert the item
+        
     }
     /**
      * (spoof == apply/reuse)
@@ -231,3 +209,34 @@ private class Utils{
     }
     
 }
+
+
+
+//Tests:
+    //Continusly and randomly try to add items to the list on repeate, while you scroll up and down
+
+//Ideas:
+    //When you remove an item that falls outside the perimeter, then move it to the "pool"
+    //if an item is not available in pool and you need it, then create a new one
+    //Pool can only have 1 surplus item at the time, you dont want to hold many items that are not in use -> after resize for instance
+    //Figure out the pooling in the context that db.count may change while scrolling🏀
+        //only move items to buffer when it moves outside top or bottom limit
+    //spoof(range) could use an array.diff method and generate individual spoof(fastlistitem) that way
+
+//Continue here:
+    //Add debug rects ✅
+    //move fastlist3 and rb....3 to private folder while working on them for faster debugging. ✅
+    //Figure out a fast workflow ✅
+    
+    
+    //what happens when an item is inserted into dp?
+        //if the item is within visible range, 
+            //updatingPool() -> which may increase pool.count
+            //remove the last item in visible items (as it will be pushed bellow limit anyway)
+                //append the removed item to pool
+            //insert the item
+            
+// NOTE: keep in mind that if an item is inserted above visible items, you need to -itemHeight on an offset.y or else the whole list will apear to jump while scrolling, this will leave the list forever offset, but this can be accounted for by storing the offset and using it within calculations 🚫
+// NOTE: If you insert above visible area, all you do is -1 on the cur visibleItems range -> which then doesnt result in a diff change and doesnt result in a new spoof. it just keeps on scrolling perfectly in the next frame tick 👌
+// NOTE: You might need to create more expressive debug rects to see bugs easier
+ 
