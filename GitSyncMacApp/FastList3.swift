@@ -185,6 +185,10 @@ class FastList3:Element,IList{
             mergeAt(event.startIndex..<end)
         }
     }
+    
+    //Continue here: 
+        //You need to override the onDataProviderEvent in RBFastSlider
+    
     override func onEvent(_ event:Event) {
         if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
         super.onEvent(event)// we stop propegation by not forwarding events to super. The ListEvents go directly to super so they wont be stopped.
