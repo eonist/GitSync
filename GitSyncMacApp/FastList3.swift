@@ -139,8 +139,12 @@ class FastList3:Element,IList{
             for _ in 0..<numOfItems{
                 pool.append(createPoolItem())
             }
-        }else if(){
+        }else if(numOfItems < pool.count){//pool needs more items
             
+        }else if(numOfItems > pool.count){//pool needs less items
+            
+        }else{
+            fatalError("This can't happen")
         }
         
     }
