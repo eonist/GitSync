@@ -132,7 +132,9 @@ class FastList3:Element,IList{
         //what happens when an item is inserted into dp?
             //if the item is within visible range, 
                 //updatingPool() -> which may increase pool.count
-                //remove the last item in visible items
+                //remove the last item in visible items (as it will be pushed bellow limit anyway)
+                    //append the removed item to pool
+                //insert the item 
     }
     /**
      * (spoof == apply/reuse)
