@@ -175,6 +175,7 @@ class FastList3:Element,IList{
         
         let startIdx:Int = pool.first!.idx
         let endIdx:Int = pool.last!.idx
+        
     }
     /**
      * TODO: you need to update the float of the lables after an update
