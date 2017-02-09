@@ -110,6 +110,7 @@ class FastList3:Element,IList{
         //Figure out how you should calc pool, 
             //think also in the context of resizing list size 
             //and adding/removing items in dp
+            //pool should be based on fllor(height/itemHeight) + 1
         
         if(abs(diff) >= maxVisibleItems!+1){//spoof every item
             Swift.print("all")
