@@ -51,7 +51,8 @@ class FastList3:Element,IList{
         let numOfItems:Int = Swift.min(maxVisibleItems!+1, dataProvider.count)
         prevVisibleRange = 0..<numOfItems//<--this should be the same range as we set bellow no?
         //spawn(0..<numOfItems)
-        updatePool()//creates a pool of items ready to be
+        updatePool()//creates a pool of items ready to be used
+        
     }
     func setProgress(_ progress:CGFloat){
         ListModifier.scrollTo(self, progress)/*moves the labelContainer up and down*/
@@ -80,13 +81,6 @@ class FastList3:Element,IList{
     func spoof(_ cur:Range<Int>){
         let prev = prevVisibleRange!/*we assign the value to a simpler shorter named variable*/
         let diff = prev.start - cur.start
-        
-        //TODO: Extract the maxVisibleItems variable into two variables, one that is within and one that is buffed with 1 item on top and 1 bellow
-        //re-implement pool to spoof from
-        //Figure out how you should calc pool, 
-            //think also in the context of resizing list size 
-            //and adding/removing items in dp
-            //pool should be based on fllor(height/itemHeight) + 1
         
         if(abs(diff) >= maxVisibleItems!+1){//spoof every item
             Swift.print("all")
@@ -262,3 +256,10 @@ private class Utils{
 // NOTE: If you insert above visible area, all you do is -1 on the cur visibleItems range -> which then doesnt result in a diff change and doesnt result in a new spoof. it just keeps on scrolling perfectly in the next frame tick 👌
 // NOTE: You might need to create more expressive debug rects to see bugs easier
  
+
+//TODO: Extract the maxVisibleItems variable into two variables, one that is within and one that is buffed with 1 item on top and 1 bellow
+//re-implement pool to spoof from
+//Figure out how you should calc pool, 
+    //think also in the context of resizing list size 
+    //and adding/removing items in dp
+    //pool should be based on fllor(height/itemHeight) + 1
