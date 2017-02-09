@@ -9,7 +9,7 @@ class FastList3:Element,IList{
     var maxVisibleItems:Int?/*this will be calculated on init and on setSize calls*/
     var prevVisibleRange:Range<Int>?/*PrevVisibleRange is set on each frame tick and is used to calc how many new items that needs to be rendered/removed*/
     var visibleItems:[FastListItem] = []//fastlistitem also stores the absolute integer that cooresponds to the db.item
-    var pool:[FastListItem] = []
+    var pool:[IElement] = []
     init(_ width:CGFloat, _ height:CGFloat, _ itemHeight:CGFloat = NaN,_ dataProvider:DataProvider? = nil, _ parent:IElement?, _ id:String? = nil){
         self.itemHeight = itemHeight
         self.dataProvider = dataProvider ?? DataProvider()/*<--if it's nil then a DB is created*/
@@ -135,8 +135,7 @@ class FastList3:Element,IList{
     func updatePool(){
         let numOfItems:Int = floor(height / itemHeight).int + 1//TODO: use floor not round
         for _ in 0..<numOfItems{
-            let fastlistItem:FastListItem = (createPoolItem(),0)
-            pool.append(fastlistItem)
+            pool.append(createPoolItem())
         }
     }
     /**
@@ -228,7 +227,8 @@ private class Utils{
     //move fastlist3 and rb....3 to private folder while working on them for faster debugging. ✅
     //Figure out a fast workflow ✅
     
-    
+
+//Question:
     //what happens when an item is inserted into dp?
         //if the item is within visible range, 
             //updatingPool() -> which may increase pool.count
