@@ -126,7 +126,7 @@ class FastList3:Element,IList{
         }
     }
     /**
-     *
+     * NOTE: keep in mind that if an item is inserted above visible items, you need to -itemHeight on an offset.y or else the whole list will apear to jump while scrolling, this will leave the list forever offset, but this can be accounted for by storing the offset and using it within calculations
      */
     func reUse(){
         //what happens when an item is inserted into dp?
@@ -134,7 +134,7 @@ class FastList3:Element,IList{
                 //updatingPool() -> which may increase pool.count
                 //remove the last item in visible items (as it will be pushed bellow limit anyway)
                     //append the removed item to pool
-                //insert the item 
+                //insert the item
     }
     /**
      * (spoof == apply/reuse)
