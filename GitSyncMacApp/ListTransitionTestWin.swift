@@ -116,7 +116,20 @@ class ListTransitionTestView:TitleView{
         btnBottom = addSubView(TextButton(80,20,"bottom",container))
         btnCenter = addSubView(TextButton(80,20,"center",container))
         
-        
+        func onButtonEvent(_ event:Event){
+            if(event.type == ButtonEvent.upInside){
+                if(event.origin === btnTop){
+                    
+                }else if(event.origin === btnBottom){
+                    
+                }else if(event.origin === btnCenter){
+                    
+                }
+            }
+        }
+        btnTop!.event = onButtonEvent()
+        btnBottom!.event = onButtonEvent()
+        btnCenter!.event = onButtonEvent()
         
             //3 event listeners that inserts to .dp -> use DataProviderModifier.add -> DataProviderEvent.add
             //add event handler in FastList3. that supports add -> see similar eventHandler in List
