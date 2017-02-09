@@ -149,6 +149,8 @@ class FastList3:Element,IList{
                 pool.removeLast()
                 lableContainer!.addSubview(item.item)
             }
+        }else if(numOfItems == pool.count){
+            
         }else{
             fatalError("This can't happen: numOfItems: \(numOfItems)  pool.count: \(pool.count)")
         }
