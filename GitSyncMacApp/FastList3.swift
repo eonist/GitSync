@@ -160,7 +160,9 @@ class FastList3:Element,IList{
         let item:SelectTextButton = SelectTextButton(getWidth(), itemHeight ,"", false, lableContainer)
         return item
     }
-    
+    override func onEvent(_ event: Event) {
+        <#code#>
+    }
     override func getClassType() -> String {return "\(List.self)"}
     required init(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
