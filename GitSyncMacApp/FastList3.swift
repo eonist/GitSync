@@ -49,7 +49,7 @@ class FastList3:Element,IList{
         purpleRect!.draw()
         
         let numOfItems:Int = Swift.min(maxVisibleItems!+1, dataProvider.count)
-        let curVisibleRange = 0..<numOfItems//<--this should be the same range as we set bellow no?
+        let curVisibleRange:Range<Int> = 0..<numOfItems//<--this should be the same range as we set bellow no?
         //spawn(0..<numOfItems)
         updatePool()//creates a pool of items ready to be used
         reUse(curVisibleRange)
