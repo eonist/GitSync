@@ -146,6 +146,13 @@ class FastList3:Element,IList{
         
     }
     /**
+     *
+     */
+    func createPoolItem()->Element{
+        let item:SelectTextButton = SelectTextButton(getWidth(), itemHeight ,"", false, lableContainer)
+        return item
+    }
+    /**
      * (spawn == create something)
      */
     private func spawn(_ range:CountableRange<Int>){
