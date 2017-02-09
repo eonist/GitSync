@@ -105,10 +105,7 @@ class ListTransitionTestView:TitleView{
         let list:IList = addSubView(RBSliderFastList3(140, 145, 24, dp, self))
         _ = list
         
-        
-        //continue here: 
-            //3 buttons: addToTop,addToBottom,addToCenter (float:right,clear:Right) (red,blue,green)
-        StyleManager.addStyle("Container#btn{float:left;clear:none;}")
+        StyleManager.addStyle("Container#btn{float:right;clear:none;}")
         let container = addSubView(Container(100,100,self,"btn"))
         
         btnTop = addSubView(TextButton(80,20,"top",container))
