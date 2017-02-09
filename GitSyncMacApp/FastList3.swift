@@ -169,9 +169,9 @@ class FastList3:Element,IList{
      * Creates and adds items to the _lableContainer
      * TODO: possibly move into ListModifier, TreeList has its mergeAt in an Utils class see how it does it
      */
-    func mergeAt(_ indecies:Range<Int>){//TODO: possible rename to something better, placeAt? insertAt?
+    func mergeAt(_ range:Range<Int>){//TODO: possible rename to something better, placeAt? insertAt?
         updatePool()//create enough pool items
-        var i:Int = index 
+        
         
     }
     /**
