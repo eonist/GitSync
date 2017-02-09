@@ -50,7 +50,7 @@ class FastList3:Element,IList{
         
         let numOfItems:Int = Swift.min(maxVisibleItems!+1, dataProvider.count)
         let curVisibleRange:Range<Int> = 0..<numOfItems//<--this should be the same range as we set bellow no?
-        prevVisibleRange = -numOfItems..<0
+        prevVisibleRange = -numOfItems..<0//this creates the correct diff later on.
         
         updatePool()//creates a pool of items ready to be used
         reUse(curVisibleRange)
