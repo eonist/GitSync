@@ -104,12 +104,7 @@ class FastList3:Element,IList{
             visibleItems += items/*append to list*/
         }
     }
-    /**
-     *
-     */
-    func reUse(){
-        
-    }
+    
     /**
      * (spoof == apply/reuse)
      * NOTE: This method just applies data
@@ -122,6 +117,35 @@ class FastList3:Element,IList{
         let title:String = dpItem["title"]!
         item.setTextValue(title)
         item.y = listItem.idx * itemHeight/*position the item*/
+    }
+    /**
+     *
+     */
+    func reUse(_ cur:Range<Int>){
+        let prev = prevVisibleRange!/*we assign the value to a simpler shorter named variable*/
+        let diff = prev.start - cur.start
+        
+        if(abs(diff) >= maxVisibleItems!+1){//spoof every item
+            Swift.print("all")
+            for i in 0..<visibleItems.count {
+                let idx = cur.start + i
+                visibleItems[i] = (visibleItems[i].item, idx)
+                spoof(visibleItems[i])
+            }
+        }else if(diff.positive){//cur.start is less than prev.start
+            Swift.print("prepend ")
+            var items = visibleItems.splice2(visibleItems.count-diff, diff)//grab the end items
+            for i in 0..<items.count {items[i] = (items[i].item, cur.start + i);spoof(items[i])}//assign correct absolute idx
+            visibleItems = items + visibleItems/*prepend to list*/
+        }else if(diff.negative){//cur.start is more than prev.start
+            Swift.print("append")
+            var items = visibleItems.splice2(0, -1*(diff))//grab items from the top
+            for i in 0..<items.count {
+                items[i] = (items[i].item, prev.end + i)
+                spoof(items[i])
+            }//assign correct absolute idx
+            visibleItems += items/*append to list*/
+        }
     }
     /**
      *
