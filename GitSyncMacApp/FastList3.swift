@@ -129,7 +129,9 @@ class FastList3:Element,IList{
      *
      */
     func reUse(){
-        //
+        //what happens when an item is inserted into dp?
+            //if the item is within visible range, 
+                //
     }
     /**
      * (spoof == apply/reuse)
