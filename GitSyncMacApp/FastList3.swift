@@ -70,46 +70,16 @@ class FastList3:Element,IList{
         purpleRect!.draw()
         /**/
         if(curVisibleRange.range != prevVisibleRange){/*Optimization: only set if it's not the same as prev range*/
-            spoof(curVisibleRange.range)/*spoof items in the new range*/
+            reUse(curVisibleRange.range)/*spoof items in the new range*/
             prevVisibleRange = curVisibleRange.range
-        }
-    }
-    /**
-     * (spoof == apply/reuse)
-     * NOTE: This method grabs items from pool and append or prepend them
-     */
-    func spoof(_ cur:Range<Int>){
-        let prev = prevVisibleRange!/*we assign the value to a simpler shorter named variable*/
-        let diff = prev.start - cur.start
-        
-        if(abs(diff) >= maxVisibleItems!+1){//spoof every item
-            Swift.print("all")
-            for i in 0..<visibleItems.count {
-                let idx = cur.start + i
-                visibleItems[i] = (visibleItems[i].item, idx)
-                spoof(visibleItems[i])
-            }
-        }else if(diff.positive){//cur.start is less than prev.start
-            Swift.print("prepend ")
-            var items = visibleItems.splice2(visibleItems.count-diff, diff)//grab the end items
-            for i in 0..<items.count {items[i] = (items[i].item, cur.start + i);spoof(items[i])}//assign correct absolute idx
-            visibleItems = items + visibleItems/*prepend to list*/
-        }else if(diff.negative){//cur.start is more than prev.start
-            Swift.print("append")
-            var items = visibleItems.splice2(0, -1*(diff))//grab items from the top
-            for i in 0..<items.count {
-                items[i] = (items[i].item, prev.end + i)
-                spoof(items[i])
-            }//assign correct absolute idx
-            visibleItems += items/*append to list*/
         }
     }
     
     /**
      * (spoof == apply/reuse)
-     * NOTE: This method just applies data
+     *
      */
-    func spoof(_ listItem:FastListItem){/*override this to use custom ItemList items*/
+    func reUse(_ listItem:FastListItem){/*override this to use custom ItemList items*/
         Swift.print("spoof: " + "\(listItem.idx)")
         let item:SelectTextButton = listItem.item as! SelectTextButton
         let idx:Int = listItem.idx/*the index of the data in dataProvider*/
@@ -119,7 +89,7 @@ class FastList3:Element,IList{
         item.y = listItem.idx * itemHeight/*position the item*/
     }
     /**
-     *
+     * NOTE: This method grabs items from pool and append or prepend them
      */
     func reUse(_ cur:Range<Int>){
         let prev = prevVisibleRange!/*we assign the value to a simpler shorter named variable*/
@@ -130,14 +100,14 @@ class FastList3:Element,IList{
             for i in 0..<pool.count {
                 let idx = cur.start + i
                 pool[i] = (pool[i].item, idx)
-                spoof(pool[i])
+                reUse(pool[i])
             }
         }else if(diff.positive){//cur.start is less than prev.start
             Swift.print("prepend ")
             var bottomItems = visibleItems.splice2(visibleItems.count-diff, diff)//grab items from the bottom
             for i in 0..<bottomItems.count {
                 bottomItems[i] = (bottomItems[i].item, cur.start + i);//and move them to the top
-                spoof(bottomItems[i])
+                reUse(bottomItems[i])
             }//assign correct absolute idx
             pool = bottomItems + visibleItems/*prepend to list*/
         }else if(diff.negative){//cur.start is more than prev.start
@@ -145,13 +115,13 @@ class FastList3:Element,IList{
             var topItems = visibleItems.splice2(0, -1*(diff))//grab items from the top
             for i in 0..<topItems.count {
                 topItems[i] = (topItems[i].item, prev.end + i)//and move them to the bottom
-                spoof(topItems[i])
+                reUse(topItems[i])
             }//assign correct absolute idx
             pool += topItems/*append to list*/
         }
     }
     /**
-     *
+     * NOTE: This method just applies data
      */
     func updatePool(){
         var numOfItems:Int = floor(height / itemHeight).int + 1//TODO: use floor not round
