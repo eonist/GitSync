@@ -30,9 +30,14 @@ class SliderFastList3:FastList3,ISliderList {
     }
     override func onDataProviderEvent(_ event: DataProviderEvent) {
         super.onDataProviderEvent(event)
-        sliderInterval = floor(ListParser.itemsHeight(self) - height)/itemHeight
-        let thumbHeight:CGFloat = SliderParser.thumbSize(height/itemsHeight, slider!.height/*<--this should probably be .getHeight()*/);
-        slider!.setThumbHeightValue(thumbHeight)
+        if(event.type == DataProviderEvent.add){
+            
+            /*Updates the slider interval and the sliderThumbSize*/
+            sliderInterval = floor(ListParser.itemsHeight(self) - height)/itemHeight
+            let thumbHeight:CGFloat = SliderParser.thumbSize(height/itemsHeight, slider!.height/*<--this should probably be .getHeight()*/);
+            slider!.setThumbHeightValue(thumbHeight)
+        }
+        
         //TODO: Add hide slider asssert here see SliderList for implementation
     }
     override func onEvent(_ event:Event) {
