@@ -1,7 +1,9 @@
 import Cocoa
 @testable import Utils
 @testable import Element
-
+/**
+ * TODO: Implement setSize, see SliderList for implementation
+ */
 class SliderFastList3:FastList3,ISliderList {
     var slider:VSlider?
     var sliderInterval:CGFloat?
