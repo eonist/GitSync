@@ -176,6 +176,7 @@ class FastList3:Element,IList{
         Swift.print("range.start: " + "\(range.start)")
         if(range.start >= firstPoolIdx && range.start <= lastPoolIdx){//within
             let mergableRange = range.start..<lastPoolIdx
+            Swift.print("mergableRange: " + "\(mergableRange)")
             for i in mergableRange{/*For loop because the act of adding an item doesnt require shuffling from top to bottoom or bottom to top*/
                 Swift.print("reuse: i: \(i)")
                 let item:FastListItem = pool[i]
