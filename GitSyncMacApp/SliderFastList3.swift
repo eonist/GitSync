@@ -36,6 +36,8 @@ class SliderFastList3:FastList3,ISliderList {
             sliderInterval = floor(ListParser.itemsHeight(self) - height)/itemHeight
             let thumbHeight:CGFloat = SliderParser.thumbSize(height/itemsHeight, slider!.height/*<--this should probably be .getHeight()*/);
             slider!.setThumbHeightValue(thumbHeight)
+            let progress:CGFloat = SliderParser.progress(lableContainer!.y, height, itemsHeight)//TODO: use getHeight() instead of height
+            slider!.setProgressValue(progress)
         }
         
         //TODO: Add hide slider asssert here see SliderList for implementation
