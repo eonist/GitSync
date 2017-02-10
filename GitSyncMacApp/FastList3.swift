@@ -175,7 +175,7 @@ class FastList3:Element,IList{
         Swift.print("lastPoolIdx: " + "\(lastPoolIdx)")
         Swift.print("range.start: " + "\(range.start)")
         if(range.start >= firstPoolIdx && range.start <= lastPoolIdx){//within
-            let mergableRange:Range<Int> = range.start..<range.start + pool.count
+            let mergableRange:Range<Int> = range.start..<lastPoolIdx
             reUse(mergableRange)
         }
     }
