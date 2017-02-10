@@ -170,8 +170,11 @@ class FastList3:Element,IList{
     func mergeAt(_ range:Range<Int>){//TODO: possible rename to something better, placeAt? insertAt?
         updatePool()//creates enough pool items
         let firstPoolIdx:Int = pool.first!.idx
-        let endIdx:Int = pool.last!.idx
-        if(range.start >= firstPoolIdx && range.start <= endIdx){//within
+        Swift.print("firstPoolIdx: " + "\(firstPoolIdx)")
+        let lastPoolIdx:Int = pool.last!.idx
+        Swift.print("lastPoolIdx: " + "\(lastPoolIdx)")
+        Swift.print("range.start: " + "\(range.start)")
+        if(range.start >= firstPoolIdx && range.start <= lastPoolIdx){//within
             let mergableRange:Range<Int> = range.start..<range.start + pool.count
             reUse(mergableRange)
         }
