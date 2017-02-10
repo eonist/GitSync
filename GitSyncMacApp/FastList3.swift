@@ -184,6 +184,8 @@ class FastList3:Element,IList{
                 
                 //continue here. 
                     //keep testing and figure out bugs etc
+                    //more debugging tools == more understanding
+                    //use indecies in the text in the items 0. blue, etc
             }
         }
     }
