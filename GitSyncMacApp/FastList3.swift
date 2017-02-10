@@ -193,6 +193,8 @@ class FastList3:Element,IList{
                     fatalError("can't happen")
                 }
                 
+                //Continue here: try to write the above with functional code
+                
             }
         }
     }
