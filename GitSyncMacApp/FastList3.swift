@@ -77,19 +77,7 @@ class FastList3:Element,IList{
         }
     }
     
-    /**
-     * (spoof == apply/reuse)
-     *
-     */
-    func reUse(_ listItem:FastListItem){/*override this to use custom ItemList items*/
-        Swift.print("spoof: " + "\(listItem.idx)")
-        let item:SelectTextButton = listItem.item as! SelectTextButton
-        let idx:Int = listItem.idx/*the index of the data in dataProvider*/
-        let dpItem = dataProvider.items[idx]
-        let title:String = dpItem["title"]!
-        item.setTextValue(title)
-        item.y = listItem.idx * itemHeight/*position the item*/
-    }
+    
     /**
      * NOTE: This method grabs items from pool and append or prepend them
      */
@@ -122,6 +110,18 @@ class FastList3:Element,IList{
             }//assign correct absolute idx
             pool += topItems/*append to list*/
         }
+    }
+    /**
+     * (spoof == apply/reuse)
+     */
+    func reUse(_ listItem:FastListItem){/*override this to use custom ItemList items*/
+        Swift.print("spoof: " + "\(listItem.idx)")
+        let item:SelectTextButton = listItem.item as! SelectTextButton
+        let idx:Int = listItem.idx/*the index of the data in dataProvider*/
+        let dpItem = dataProvider.items[idx]
+        let title:String = dpItem["title"]!
+        item.setTextValue(title)
+        item.y = listItem.idx * itemHeight/*position the item*/
     }
     /**
      * NOTE: This method just applies data
@@ -176,8 +176,11 @@ class FastList3:Element,IList{
         Swift.print("range.start: " + "\(range.start)")
         if(range.start >= firstPoolIdx && range.start <= lastPoolIdx){//within
             let mergableRange:Range<Int> = range.start..<lastPoolIdx
-            reUse(mergableRange)
             
+            for i in mergableRange{
+                let item:FastListItem = pool[i]
+                reUse(item)
+            }
         }
     }
     /**
