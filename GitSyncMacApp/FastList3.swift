@@ -179,7 +179,7 @@ class FastList3:Element,IList{
             Swift.print("mergableRange: " + "\(mergableRange)")
             for i in mergableRange{/*For loop because the act of adding an item doesnt require shuffling from top to bottoom or bottom to top*/
                 Swift.print("reuse: i: \(i)")
-                let item:FastListItem?
+                var item:FastListItem?
                 for poolItem in pool{
                     if(i == poolItem.idx){
                         item = poolItem
