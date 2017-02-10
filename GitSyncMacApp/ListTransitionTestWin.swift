@@ -102,7 +102,7 @@ class ListTransitionTestView:TitleView{
         dp.addItem(["title":"orange"])
         dp.addItem(["title":"purple"])*/
         
-        let list:IList = addSubView(RBSliderFastList3(140, 145, 24, dp, self))
+        let list:IList = addSubView(SliderFastList3(140, 145, 24, dp, self))/*RBSliderFastList3*/
         _ = list
         
         var css = "Container#btn{float:left;clear:none;}"
