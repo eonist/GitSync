@@ -177,6 +177,7 @@ class FastList3:Element,IList{
         if(range.start >= firstPoolIdx && range.start <= lastPoolIdx){//within
             let mergableRange:Range<Int> = range.start..<lastPoolIdx
             reUse(mergableRange)
+            
         }
     }
     /**
