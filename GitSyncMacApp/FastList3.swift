@@ -187,9 +187,11 @@ class FastList3:Element,IList{
                 
                     //when you add an item, inform some GUI which range changed etc
                 
-                    //Create some debug tools:
+                    //Create some debug tools: -> (this will take time but will bring clearity to how things should work)
                         //use indecies in the text in the items 0. blue, etc (their idx in dp)
-                        //
+                        //the current pool start idx, end idx
+                        //when (add,remove) happens -> inform a text component which idxes were effected and by what. repos, changeContent etc. 
+                
             }
         }
     }
