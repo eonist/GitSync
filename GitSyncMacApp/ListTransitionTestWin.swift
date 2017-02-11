@@ -92,7 +92,7 @@ class ListTransitionTestView:TitleView{
         let graph = graphContainer.addSubView(BarGraph(200,200/*,4*/,graphContainer))
         _ = graph
     }
-    
+    var list:SliderFastList3?
     var btnTop:TextButton?
     var btnBottom:TextButton?
     var btnCenter:TextButton?
@@ -104,8 +104,7 @@ class ListTransitionTestView:TitleView{
         dp.addItem(["title":"orange"])
         dp.addItem(["title":"purple"])*/
         
-        let list = addSubView(SliderFastList3(140, 145, 24, dp, self))/*RBSliderFastList3*/
-        _ = list
+        list = addSubView(SliderFastList3(140, 145, 24, dp, self))/*RBSliderFastList3*/
         
         var css = "Container#btn{float:left;clear:none;}"
         css += "Container#btn TextButton{margin:6px;}"
@@ -124,22 +123,15 @@ class ListTransitionTestView:TitleView{
         
         //continue here: override onScrollwheel instead to debug with
         
-        func onListEvent(_ event:Event){
-            //Swift.print("onListEvent: " + "\(event.type)")
-            if(event.type == SliderEvent.change){onSliderChange(event.cast())}/*events from the slider*/
-            
-        }
-        
-        list.event = onListEvent
         
         func onButtonEvent(_ event:Event){
             if(event.type == ButtonEvent.upInside){
                 if(event.origin === btnTop){
-                    list.dataProvider.addItemAt(["title":"tangerine","property":""], 0)
+                    list!.dataProvider.addItemAt(["title":"tangerine","property":""], 0)
                 }else if(event.origin === btnBottom){
-                    list.dataProvider.addItem(["title":"magenta","property":""])
+                    list!.dataProvider.addItem(["title":"magenta","property":""])
                 }else if(event.origin === btnCenter){
-                    list.dataProvider.addItemAt(["title":"cyan","property":""], (list.dataProvider.count/2))
+                    list!.dataProvider.addItemAt(["title":"cyan","property":""], (list!.dataProvider.count/2))
                 }
             }
         }
@@ -148,8 +140,8 @@ class ListTransitionTestView:TitleView{
         btnCenter!.event = onButtonEvent
     }
     override func scrollWheel(with event:NSEvent) {
-        startIdxText.setTextValue(list.pool.first!.idx.string)
-        endIdxText.setTextValue(list.pool.last!.idx.string)
+        startIdxText!.setTextValue(list!.pool.first!.idx.string)
+        endIdxText!.setTextValue(list!.pool.last!.idx.string)
         
         super.scrollWheel(with:event)/*forwards the event other delegates higher up in the stack*/
     }
@@ -267,7 +259,7 @@ class ListTransitionTestView:TitleView{
         let list = addSubView(SliderList(140,145,24,dp,self))
         _ = list
     }
-    func list(){
+    func createList(){
         let dp = DataProvider(FileParser.xml("~/Desktop/ElCapitan/assets/xml/list.xml".tildePath))/*Loads xml from a xml file on the desktop*/
         let list = self.addSubView(List(140, 144, NaN, dp,self))
         _ = list
