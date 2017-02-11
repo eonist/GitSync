@@ -131,7 +131,7 @@ class ListTransitionTestView:TitleView{
         func onListEvent(_ event:Event){
             Swift.print("onListEvent")
             if(event.type == SliderEvent.change){onSliderChange(event.cast())}/*events from the slider*/
-            super.onEvent(event)
+            list.onEvent(event)
         }
         
         list.event = onListEvent
