@@ -139,6 +139,9 @@ class ListTransitionTestView:TitleView{
         btnBottom!.event = onButtonEvent
         btnCenter!.event = onButtonEvent
     }
+    
+    //Continue here: use InputText component with description.
+    
     override func scrollWheel(with event:NSEvent) {
         startIdxText!.setTextValue(list!.pool.first!.idx.string)
         endIdxText!.setTextValue(list!.pool.last!.idx.string)
