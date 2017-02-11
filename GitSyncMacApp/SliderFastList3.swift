@@ -43,13 +43,10 @@ class SliderFastList3:FastList3,ISliderList {
         
         //TODO: Add hide slider asssert here see SliderList for implementation
     }
-    /**
-     * NOTE: this method didn't forward SliderEvents before because hey fired too rapidly, But this event needs to propegate so it is now forwarded
-     */
     override func onEvent(_ event:Event) {
         //Swift.print("SliderFastList3.onEvent: " + "\(event.type)")
         if(event.assert(SliderEvent.change, slider)){onSliderChange(event.cast())}/*events from the slider*/
-        super.onEvent(event)
+        else {super.onEvent(event)}
     }
 }
 private class Utils{
