@@ -102,7 +102,7 @@ class ListTransitionTestView:TitleView{
         dp.addItem(["title":"orange"])
         dp.addItem(["title":"purple"])*/
         
-        let list:IList = addSubView(SliderFastList3(140, 145, 24, dp, self))/*RBSliderFastList3*/
+        let list = addSubView(SliderFastList3(140, 145, 24, dp, self))/*RBSliderFastList3*/
         _ = list
         
         var css = "Container#btn{float:left;clear:none;}"
@@ -118,6 +118,15 @@ class ListTransitionTestView:TitleView{
         /*Text*/
         let startIdxText = container.addSubView(Text(100,20,"",container))
         let endIdxText = container.addSubView(Text(100,20,"",container))
+        
+        /**
+         *
+         */
+        func onListEvent(_ event:Event){
+            
+        }
+        
+        list.event = onListEvent
         
         func onButtonEvent(_ event:Event){
             if(event.type == ButtonEvent.upInside){

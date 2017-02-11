@@ -181,17 +181,6 @@ class FastList3:Element,IList{
                // Swift.print("reuse: i: \(i)")
                 let item:FastListItem? = ArrayParser.first(pool, i, {$0.idx == $1})
                 reUse(item!)
-                
-                //continue here. 
-                    //keep testing and figure out bugs etc
-                
-                    //when you add an item, inform some GUI which range changed etc
-                
-                    //Create some debug tools: -> (this will take time but will bring clearity to how things should work)
-                        //the current pool start idx, end idx
-                        //when (add,remove) happens -> inform a text component which idxes were effected and by what. repos, changeContent etc.
-                        //Because finding the bugs will make the code smaller and that will result in it being easier to add features
-                
             }
         }
     }
