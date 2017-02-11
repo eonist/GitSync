@@ -25,6 +25,7 @@ class SliderFastList3:FastList3,ISliderList {
      * Captures SliderEvent.change and then adjusts the List accordingly
      */
     func onSliderChange(_ sliderEvent:SliderEvent){/*Handler for the SliderEvent.change*/
+        Swift.print("SliderFastList3.onSliderChange")
         setProgress(sliderEvent.progress)
         //ListModifier.scrollTo(self,sliderEvent.progress)
     }
