@@ -115,6 +115,10 @@ class ListTransitionTestView:TitleView{
         btnBottom = container.addSubView(TextButton(80,20,"bottom",container))
         btnCenter = container.addSubView(TextButton(80,20,"center",container))
         
+        /*Text*/
+        let startIdxText = container.addSubView(Text(100,20,"",container))
+        let endIdxText = container.addSubView(Text(100,20,"",container))
+        
         func onButtonEvent(_ event:Event){
             if(event.type == ButtonEvent.upInside){
                 if(event.origin === btnTop){
