@@ -108,7 +108,6 @@ class ListTransitionTestView:TitleView{
         var css = "Container#btn{float:left;clear:none;}"
         css += "Container#btn TextButton{margin:6px;}"
         
-        
         StyleManager.addStyle(css)
         let container = addSubView(Container(100,100,self,"btn"))
         
@@ -124,7 +123,7 @@ class ListTransitionTestView:TitleView{
          *
          */
         func onSliderChange(_ sliderEvent:SliderEvent){
-            
+            startIdxText
         }
         /**
          *
