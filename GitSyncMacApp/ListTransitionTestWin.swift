@@ -120,6 +120,8 @@ class ListTransitionTestView:TitleView{
         let startIdxText = container.addSubView(TextArea(100,20,"",container))
         let endIdxText = container.addSubView(TextArea(100,20,"",container))
         
+        //override onScrollwheel instead to debug with
+        
         /**
          *
          */
