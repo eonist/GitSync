@@ -107,6 +107,7 @@ class ListTransitionTestView:TitleView{
         
         var css = "Container#btn{float:left;clear:none;}"
         css += "Container#btn TextButton{margin:6px;}"
+        css += "Container#btn TextButton{margin:6px;}"
         
         StyleManager.addStyle(css)
         let container = addSubView(Container(100,100,self,"btn"))
@@ -116,16 +117,16 @@ class ListTransitionTestView:TitleView{
         btnCenter = container.addSubView(TextButton(80,20,"center",container))
         
         /*Text*/
-        let startIdxText = container.addSubView(Text(100,20,"",container))
-        let endIdxText = container.addSubView(Text(100,20,"",container))
+        let startIdxText = container.addSubView(TextArea(100,20,"",container))
+        let endIdxText = container.addSubView(TextArea(100,20,"",container))
         
         /**
          *
          */
         func onSliderChange(_ sliderEvent:SliderEvent){
             Swift.print("TestWin.onSliderChange")
-            startIdxText.setText(list.pool.first!.idx.string)
-            startIdxText.setText(list.pool.last!.idx.string)
+            startIdxText.setTextValue(list.pool.first!.idx.string)
+            startIdxText.setTextValue(list.pool.last!.idx.string)
         }
         /**
          *
