@@ -129,7 +129,7 @@ class ListTransitionTestView:TitleView{
             startIdxText.setTextValue(list.pool.last!.idx.string)
         }
         func onListEvent(_ event:Event){
-            Swift.print("onListEvent")
+            Swift.print("onListEvent: " + "\(event.type)")
             if(event.type == SliderEvent.change){onSliderChange(event.cast())}/*events from the slider*/
             
         }
