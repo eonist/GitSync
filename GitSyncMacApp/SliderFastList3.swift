@@ -43,9 +43,12 @@ class SliderFastList3:FastList3,ISliderList {
         
         //TODO: Add hide slider asssert here see SliderList for implementation
     }
+    /**
+     * NOTE: this method didn't forward SliderEvents before because hey fired too rapidly, But this event needs to propegate so it is now forwarded
+     */
     override func onEvent(_ event:Event) {
         if(event.assert(SliderEvent.change, slider)){onSliderChange(event.cast())}/*events from the slider*/
-        else {super.onEvent(event)}//forward dataProviderEvents etc, but not SliderEvents as they fire too rapidly
+        super.onEvent(event)
     }
 }
 private class Utils{
