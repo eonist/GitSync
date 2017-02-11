@@ -96,6 +96,8 @@ class ListTransitionTestView:TitleView{
     var btnTop:TextButton?
     var btnBottom:TextButton?
     var btnCenter:TextButton?
+    var startIdxText:TextArea?
+    var endIdxText:TextArea?
     func rbSliderFastList3(){
         let dp:DataProvider = DataProvider("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath)//longlist.xml,list.xml//DataProvider()//
         /*dp.addItem(["title":"pink"])
@@ -117,19 +119,11 @@ class ListTransitionTestView:TitleView{
         btnCenter = container.addSubView(TextButton(80,20,"center",container))
         
         /*Text*/
-        let startIdxText = container.addSubView(TextArea(100,20,"",container))
-        let endIdxText = container.addSubView(TextArea(100,20,"",container))
+        startIdxText = container.addSubView(TextArea(100,20,"",container))
+        endIdxText = container.addSubView(TextArea(100,20,"",container))
         
         //continue here: override onScrollwheel instead to debug with
         
-        /**
-         *
-         */
-        func onSliderChange(_ sliderEvent:SliderEvent){
-            //Swift.print("TestWin.onSliderChange")
-            startIdxText.setTextValue(list.pool.first!.idx.string)
-            endIdxText.setTextValue(list.pool.last!.idx.string)
-        }
         func onListEvent(_ event:Event){
             //Swift.print("onListEvent: " + "\(event.type)")
             if(event.type == SliderEvent.change){onSliderChange(event.cast())}/*events from the slider*/
@@ -152,6 +146,12 @@ class ListTransitionTestView:TitleView{
         btnTop!.event = onButtonEvent
         btnBottom!.event = onButtonEvent
         btnCenter!.event = onButtonEvent
+    }
+    override func scrollWheel(with event:NSEvent) {
+        startIdxText.setTextValue(list.pool.first!.idx.string)
+        endIdxText.setTextValue(list.pool.last!.idx.string)
+        
+        super.scrollWheel(with:event)/*forwards the event other delegates higher up in the stack*/
     }
     /**
      *
