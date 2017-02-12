@@ -149,6 +149,7 @@ class ListTransitionTestView:TitleView{
         btnTop!.event = onButtonEvent
         btnBottom!.event = onButtonEvent
         btnCenter!.event = onButtonEvent
+        removeBtnCenter!.event = onButtonEvent
     }
     
     
