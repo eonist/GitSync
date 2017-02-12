@@ -93,9 +93,12 @@ class ListTransitionTestView:TitleView{
         _ = graph
     }
     var list:SliderFastList3?
+    /*Add*/
     var btnTop:TextButton?
     var btnBottom:TextButton?
     var btnCenter:TextButton?
+    /*Remove*/
+    var removeBtnCenter:TextButton?
     var startIdxText:TextInput?
     var endIdxText:TextInput?
     var addItemIdxText:TextInput?
@@ -119,7 +122,7 @@ class ListTransitionTestView:TitleView{
         btnBottom = container.addSubView(TextButton(100,20,"Add bottom",container))
         btnCenter = container.addSubView(TextButton(100,20,"Add center",container))
         /*Remove*/
-        btnCenter = container.addSubView(TextButton(100,20,"Remove center",container))
+        removeBtnCenter = container.addSubView(TextButton(100,20,"Remove center",container))
         /*Text*/
         startIdxText = container.addSubView(TextInput(120,20,"Start idx:","",container))
         endIdxText = container.addSubView(TextInput(120,20,"End idx: ","",container))
@@ -136,6 +139,8 @@ class ListTransitionTestView:TitleView{
                     list!.dataProvider.addItem(["title":"magenta","property":""])
                 }else if(event.origin === btnCenter){
                     list!.dataProvider.addItemAt(["title":"cyan","property":""], (list!.dataProvider.count/2))
+                }else if(event.origin === removeBtnCenter){
+                    list!.dataProvider.removeItemAt(<#T##index: Int##Int#>)
                 }
             }
         }
