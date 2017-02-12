@@ -162,12 +162,10 @@ class FastList3:Element,IList{
         let item:SelectTextButton = SelectTextButton(getWidth(), itemHeight ,"", false, lableContainer)
         return item
     }
-    
-    //what happens when many items are inserted into dp?🏀
-        //figure out which items are within visible range
-        //reUse all items from the startIndex of the intersecting range unitl the end of visibleItems.range
-    
-    func mergeAt(_ range:Range<Int>){//TODO: possible rename to something better, placeAt? insertAt?
+    /**
+     * NOTE: reUses all items from the startIndex of the intersecting range unitl the end of visibleItems.range
+     */
+    func updateRange(_ range:Range<Int>){
         updatePool()/*Creates enough pool items*/
         let firstPoolIdx:Int = pool.first!.idx
         Swift.print("firstPoolIdx: " + "\(firstPoolIdx)")
@@ -190,9 +188,10 @@ class FastList3:Element,IList{
     func onDataProviderEvent(_ event:DataProviderEvent){
         if(event.type == DataProviderEvent.add){/*This is called when a new item is added to the DataProvider instance*/
             let endIdx:Int = event.startIndex + event.items.count
-            mergeAt(event.startIndex..<endIdx)
+            updateRange(event.startIndex..<endIdx)
         }else if(event.type == DataProviderEvent.remove){
-            updatePool()
+            let endIdx:Int = event.startIndex + event.items.count
+            updateRange(event.startIndex..<endIdx)
         }
     }
     override func onEvent(_ event:Event) {
