@@ -108,7 +108,7 @@ class ListTransitionTestView:TitleView{
         
         var css = "Container#btn{float:left;clear:none;}"
         css += "Container#btn TextButton{margin:6px;}"
-        css += "Container#btn TextArea{margin:6px;}"
+        css += "Container#btn TextInput{margin:6px;}"
         
         StyleManager.addStyle(css)
         let container = addSubView(Container(100,100,self,"btn"))
@@ -145,8 +145,8 @@ class ListTransitionTestView:TitleView{
             //create special events that propegate and inform the debug gui
     
     override func scrollWheel(with event:NSEvent) {
-        startIdxText!.setTextValue(list!.pool.first!.idx.string)
-        endIdxText!.setTextValue(list!.pool.last!.idx.string)
+        startIdxText!.inputTextArea!.setTextValue(list!.pool.first!.idx.string)
+        endIdxText!.inputTextArea!.setTextValue(list!.pool.last!.idx.string)
         
         super.scrollWheel(with:event)/*forwards the event other delegates higher up in the stack*/
     }
