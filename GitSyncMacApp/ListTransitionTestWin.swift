@@ -112,17 +112,17 @@ class ListTransitionTestView:TitleView{
         list = addSubView(SliderFastList3(140, 145, 24, dp, self))/*RBSliderFastList3*/
         
         var css = "Container#btn{float:left;clear:none;}"
-        css += "Container#btn TextButton{margin:6px;}"
+        css += "Container#btn TextButton{margin:6px;width:120px;}"
         css += "Container#btn TextInput{margin:6px;}"
         
         StyleManager.addStyle(css)
-        let container = addSubView(Container(100,100,self,"btn"))
+        let container = addSubView(Container(200,100,self,"btn"))
         /*Add*/
-        btnTop = container.addSubView(TextButton(100,20,"Add top",container))
-        btnBottom = container.addSubView(TextButton(100,20,"Add bottom",container))
-        btnCenter = container.addSubView(TextButton(100,20,"Add center",container))
+        btnTop = container.addSubView(TextButton(160,20,"Add top",container))
+        btnBottom = container.addSubView(TextButton(160,20,"Add bottom",container))
+        btnCenter = container.addSubView(TextButton(160,20,"Add center",container))
         /*Remove*/
-        removeBtnCenter = container.addSubView(TextButton(100,20,"Remove center",container))
+        removeBtnCenter = container.addSubView(TextButton(160,20,"Remove center",container))
         /*Text*/
         startIdxText = container.addSubView(TextInput(120,20,"Start idx:","",container))
         endIdxText = container.addSubView(TextInput(120,20,"End idx: ","",container))
