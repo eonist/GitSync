@@ -142,9 +142,6 @@ class ListTransitionTestView:TitleView{
         btnCenter!.event = onButtonEvent
     }
     
-    //Continue here: use InputText component with description.
-        //then add textfields about add item, at what idx, which idxes got reused, which got moved etc
-            //create special events that propegate and inform the debug gui
     
     override func scrollWheel(with event:NSEvent) {
         startIdxText!.inputTextArea!.setTextValue(list!.pool.first!.idx.string)
