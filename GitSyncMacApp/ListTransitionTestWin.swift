@@ -96,8 +96,8 @@ class ListTransitionTestView:TitleView{
     var btnTop:TextButton?
     var btnBottom:TextButton?
     var btnCenter:TextButton?
-    var startIdxText:TextArea?
-    var endIdxText:TextArea?
+    var startIdxText:TextInput?
+    var endIdxText:TextInput?
     func rbSliderFastList3(){
         let dp:DataProvider = DataProvider("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath)//longlist.xml,list.xml//DataProvider()//
         /*dp.addItem(["title":"pink"])
@@ -118,8 +118,8 @@ class ListTransitionTestView:TitleView{
         btnCenter = container.addSubView(TextButton(80,20,"center",container))
         
         /*Text*/
-        startIdxText = container.addSubView(TextArea(100,20,"",container))
-        endIdxText = container.addSubView(TextArea(100,20,"",container))
+        startIdxText = container.addSubView(TextInput(120,20,"Start idx:","",container))
+        endIdxText = container.addSubView(TextInput(120,20,"End idx: ","",container))
         
         //continue here: override onScrollwheel instead to debug with
         
