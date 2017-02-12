@@ -99,6 +99,7 @@ class ListTransitionTestView:TitleView{
     var startIdxText:TextInput?
     var endIdxText:TextInput?
     var addItemIdxText:TextInput?
+    var removeItemIdxText:TextInput?
     func rbSliderFastList3(){
         let dp:DataProvider = DataProvider("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath)//longlist.xml,list.xml//DataProvider()//
         /*dp.addItem(["title":"pink"])
@@ -124,7 +125,7 @@ class ListTransitionTestView:TitleView{
         
         /*Add item idx text*/
         addItemIdxText = container.addSubView(TextInput(120,20,"Add item at:","",container))
-        
+        removeItemIdxText = container.addSubView(TextInput(120,20,"Remove item at:","",container))
         
         func onButtonEvent(_ event:Event){
             if(event.type == ButtonEvent.upInside){
@@ -155,6 +156,8 @@ class ListTransitionTestView:TitleView{
             /*update pool idexes: */
             startIdxText!.inputTextArea!.setTextValue(list!.pool.first!.idx.string)
             endIdxText!.inputTextArea!.setTextValue(list!.pool.last!.idx.string)
+        }else if(event.type == DataProviderEvent.remove){
+            
         }
     }
     override func onEvent(_ event: Event) {
