@@ -152,6 +152,16 @@ class ListTransitionTestView:TitleView{
         
         super.scrollWheel(with:event)/*forwards the event other delegates higher up in the stack*/
     }
+    func onDataProviderEvent(_ event:DataProviderEvent){
+        if(event.type == DataProviderEvent.add){/*This is called when a new item is added to the DataProvider instance*/
+            event.startIndex
+            addItemIdxText!.inputTextArea!.setTextValue(<#T##text: String##String#>)
+        }
+    }
+    override func onEvent(_ event: Event) {
+        if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
+        
+    }
     /**
      *
      */
