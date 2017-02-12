@@ -118,18 +118,18 @@ class ListTransitionTestView:TitleView{
         StyleManager.addStyle(css)
         let container = addSubView(Container(200,100,self,"btn"))
         /*Add*/
-        btnTop = container.addSubView(TextButton(160,20,"Add top",container))
-        btnBottom = container.addSubView(TextButton(160,20,"Add bottom",container))
-        btnCenter = container.addSubView(TextButton(160,20,"Add center",container))
+        btnTop = container.addSubView(TextButton(NaN,20,"Add top",container))
+        btnBottom = container.addSubView(TextButton(NaN,20,"Add bottom",container))
+        btnCenter = container.addSubView(TextButton(NaN,20,"Add center",container))
         /*Remove*/
-        removeBtnCenter = container.addSubView(TextButton(160,20,"Remove center",container))
+        removeBtnCenter = container.addSubView(TextButton(NaN,20,"Remove center",container))
         /*Text*/
         startIdxText = container.addSubView(TextInput(120,20,"Start idx:","",container))
         endIdxText = container.addSubView(TextInput(120,20,"End idx: ","",container))
         
         /*Add item idx text*/
-        addItemIdxText = container.addSubView(TextInput(120,20,"Add item at:","",container))
-        removeItemIdxText = container.addSubView(TextInput(120,20,"Remove item at:","",container))
+        addItemIdxText = container.addSubView(TextInput(120,20,"Add at:","",container))
+        removeItemIdxText = container.addSubView(TextInput(120,20,"Remove at:","",container))
         
         func onButtonEvent(_ event:Event){
             if(event.type == ButtonEvent.upInside){
@@ -140,7 +140,9 @@ class ListTransitionTestView:TitleView{
                 }else if(event.origin === btnCenter){
                     list!.dataProvider.addItemAt(["title":"cyan","property":""], (list!.dataProvider.count/2))
                 }else if(event.origin === removeBtnCenter){
-                    _ = list!.dataProvider.removeItemAt(list!.dataProvider.count/2)
+                    let removeAt:Int = list!.dataProvider.count/2
+                    Swift.print("onButtonEvent.removeAt: " + "\(removeAt)")
+                    _ = list!.dataProvider.removeItemAt(removeAt)
                 }
             }
         }
