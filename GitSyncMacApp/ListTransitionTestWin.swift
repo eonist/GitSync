@@ -157,7 +157,7 @@ class ListTransitionTestView:TitleView{
             startIdxText!.inputTextArea!.setTextValue(list!.pool.first!.idx.string)
             endIdxText!.inputTextArea!.setTextValue(list!.pool.last!.idx.string)
         }else if(event.type == DataProviderEvent.remove){
-            removeItemIdxText?.setInputText(<#T##text: String##String#>)
+            removeItemIdxText?.setInputText(event.startIndex.string)
         }
     }
     override func onEvent(_ event: Event) {
