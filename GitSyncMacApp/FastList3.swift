@@ -174,7 +174,7 @@ class FastList3:Element,IList{
         Swift.print("range.start: " + "\(range.start)")
         
         
-        //Continue here: The dp.count is lower after remove action. 
+        //Continue here: The dp.count is lower after remove action. 🏀
             //figure out how to deal with this scenario
         
         
