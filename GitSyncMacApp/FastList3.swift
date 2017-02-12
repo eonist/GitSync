@@ -172,6 +172,11 @@ class FastList3:Element,IList{
         let lastPoolIdx:Int = pool.last!.idx
         Swift.print("lastPoolIdx: " + "\(lastPoolIdx)")
         Swift.print("range.start: " + "\(range.start)")
+        
+        
+        //Continue here: The dp.count is lower after remove action. 
+        
+        
         if(range.start >= firstPoolIdx && range.start <= lastPoolIdx){//within TODO: use a RangeAsserter method here
             let mergableRange = range.start...lastPoolIdx
             Swift.print("mergableRange: " + "\(mergableRange)")
