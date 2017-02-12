@@ -114,11 +114,12 @@ class ListTransitionTestView:TitleView{
         
         StyleManager.addStyle(css)
         let container = addSubView(Container(100,100,self,"btn"))
-        
-        btnTop = container.addSubView(TextButton(80,20,"top",container))
-        btnBottom = container.addSubView(TextButton(80,20,"bottom",container))
-        btnCenter = container.addSubView(TextButton(80,20,"center",container))
-        
+        /*Add*/
+        btnTop = container.addSubView(TextButton(100,20,"Add top",container))
+        btnBottom = container.addSubView(TextButton(100,20,"Add bottom",container))
+        btnCenter = container.addSubView(TextButton(100,20,"Add center",container))
+        /*Remove*/
+        btnCenter = container.addSubView(TextButton(100,20,"Remove center",container))
         /*Text*/
         startIdxText = container.addSubView(TextInput(120,20,"Start idx:","",container))
         endIdxText = container.addSubView(TextInput(120,20,"End idx: ","",container))
