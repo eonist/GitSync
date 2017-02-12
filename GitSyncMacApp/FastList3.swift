@@ -168,7 +168,7 @@ class FastList3:Element,IList{
         //reUse all items from the startIndex of the intersecting range unitl the end of visibleItems.range
     
     func mergeAt(_ range:Range<Int>){//TODO: possible rename to something better, placeAt? insertAt?
-        updatePool()//creates enough pool items
+        updatePool()/*Creates enough pool items*/
         let firstPoolIdx:Int = pool.first!.idx
         Swift.print("firstPoolIdx: " + "\(firstPoolIdx)")
         let lastPoolIdx:Int = pool.last!.idx
