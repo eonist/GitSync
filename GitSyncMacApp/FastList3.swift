@@ -175,6 +175,7 @@ class FastList3:Element,IList{
         
         
         //Continue here: The dp.count is lower after remove action. 
+            //figure out how to deal with this scenario
         
         
         if(range.start >= firstPoolIdx && range.start <= lastPoolIdx){//within TODO: use a RangeAsserter method here
