@@ -195,10 +195,6 @@ class FastList3:Element,IList{
             updatePool()
         }
     }
-    
-    //Continue here: 
-        //You need to override the onDataProviderEvent in SliderFastList and update the SliderHeight etc, then move on to RBSliderFastList
-    
     override func onEvent(_ event:Event) {
         if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
         super.onEvent(event)// we stop propegation by not forwarding events to super. The ListEvents go directly to super so they wont be stopped.
