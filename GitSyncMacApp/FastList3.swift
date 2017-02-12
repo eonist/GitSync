@@ -191,6 +191,8 @@ class FastList3:Element,IList{
         if(event.type == DataProviderEvent.add){/*This is called when a new item is added to the DataProvider instance*/
             let endIdx:Int = event.startIndex + event.items.count
             mergeAt(event.startIndex..<endIdx)
+        }else if(event.type == DataProviderEvent.remove){
+            
         }
     }
     
