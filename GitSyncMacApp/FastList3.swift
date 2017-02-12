@@ -124,7 +124,7 @@ class FastList3:Element,IList{
         item.y = listItem.idx * itemHeight/*position the item*/
     }
     /**
-     * NOTE: This method just applies data
+     * Replensih / drain the pool (aka add / remove items)
      */
     func updatePool(){
         var numOfItems:Int = floor(height / itemHeight).int + 1//TODO: use floor not round
@@ -192,7 +192,7 @@ class FastList3:Element,IList{
             let endIdx:Int = event.startIndex + event.items.count
             mergeAt(event.startIndex..<endIdx)
         }else if(event.type == DataProviderEvent.remove){
-            
+            updatePool()
         }
     }
     
