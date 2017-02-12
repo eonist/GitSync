@@ -140,7 +140,7 @@ class ListTransitionTestView:TitleView{
                 }else if(event.origin === btnCenter){
                     list!.dataProvider.addItemAt(["title":"cyan","property":""], (list!.dataProvider.count/2))
                 }else if(event.origin === removeBtnCenter){
-                    list!.dataProvider.removeItemAt(<#T##index: Int##Int#>)
+                    _ = list!.dataProvider.removeItemAt(list!.dataProvider.count/2)
                 }
             }
         }
