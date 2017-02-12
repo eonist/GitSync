@@ -154,13 +154,15 @@ class ListTransitionTestView:TitleView{
     }
     func onDataProviderEvent(_ event:DataProviderEvent){
         if(event.type == DataProviderEvent.add){/*This is called when a new item is added to the DataProvider instance*/
-            event.startIndex
-            addItemIdxText!.inputTextArea!.setTextValue(<#T##text: String##String#>)
+            addItemIdxText!.inputTextArea!.setTextValue(event.startIndex.string)
+            /*update pool idexes: */
+            startIdxText!.inputTextArea!.setTextValue(list!.pool.first!.idx.string)
+            endIdxText!.inputTextArea!.setTextValue(list!.pool.last!.idx.string)
         }
     }
     override func onEvent(_ event: Event) {
         if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
-        
+        super.onEvent(event)
     }
     /**
      *
