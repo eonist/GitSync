@@ -131,8 +131,8 @@ class ListTransitionTestView:TitleView{
         startIdxText = container.addSubView(TextInput(120,20,"Start idx:","",container))
         endIdxText = container.addSubView(TextInput(120,20,"End idx: ","",container))
         /*Add item idx text*/
-        addItemIdxText = container.addSubView(TextInput(120,20,"Add at:","",container))
-        removeItemIdxText = container.addSubView(TextInput(120,20,"Remove at:","",container))
+        addItemIdxText = container.addSubView(TextInput(120,20,"Add at: ","",container))
+        removeItemIdxText = container.addSubView(TextInput(120,20,"Remove at: ","",container))
         
         func onButtonEvent(_ event:Event){
             if(event.type == ButtonEvent.upInside){
