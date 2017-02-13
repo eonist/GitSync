@@ -145,7 +145,7 @@ class FastList3:Element,IList{
         //Continue here: you need to use dp.count when finding numOfItemsUnNeeded
             
         else if(dataProvider.count < itemsToFillHeight){
-            let numOfItemsUnNeeded = itemsToFillHeight - dataProvider.count
+            let numOfItemsUnNeeded = pool.count - dataProvider.count
             Swift.print("❤️️ drain pool: \(numOfItemsUnNeeded)")
             for _ in 0..<numOfItemsUnNeeded{
                 let item:FastListItem? = pool.popLast()
