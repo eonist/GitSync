@@ -108,6 +108,11 @@ class ListTransitionTestView:TitleView{
     var removeItemIdxText:TextInput?
     var dbCountText:TextInput?
     var poolCountText:TextInput?
+    
+    //Continue here:
+        //Debug the reUse method with a textField that displays the pool indecies on each scroll/dp.event -> [2,3,4,5,6] etc
+    
+    
     func rbSliderFastList3(){
         let dp:DataProvider = DataProvider()//DataProvider("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath)//longlist.xml,list.xml//DataProvider()//
         dp.addItem(["title":"pink"])
