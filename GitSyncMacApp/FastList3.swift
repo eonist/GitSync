@@ -138,6 +138,8 @@ class FastList3:Element,IList{
             }
         }else if(numOfItems < pool.count){//pool needs more items
             Swift.print("💚 pool needs more items")
+            Swift.print("numOfItems: " + "\(numOfItems)")
+            Swift.print("pool.count: " + "\(pool.count)")
             let numOfItemsNeeded = numOfItems - pool.count
             for _ in 0..<numOfItemsNeeded{
                 let item:FastListItem = (createPoolItem(),0)
