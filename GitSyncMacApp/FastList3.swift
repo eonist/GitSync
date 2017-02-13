@@ -127,12 +127,12 @@ class FastList3:Element,IList{
      * Replensih / drain the pool (aka add / remove items)
      */
     func updatePool(){
-        
         //itemsToFillHeight
         let itemsToFillHeight:Int = floor(height / itemHeight).int + 1
         
         //case A: (db.count >= itemsToFillHeight) -> make sure poolItems.count == itemsToFillHeight
         if(dataProvider.count >= itemsToFillHeight){
+            Swift.print("💚 replenish pool")
             let numOfItemsNeeded = itemsToFillHeight - pool.count
             for _ in 0..<numOfItemsNeeded{
                 let item:FastListItem = (createPoolItem(),0)
@@ -141,52 +141,16 @@ class FastList3:Element,IList{
             }
         }
         //case B: (db.count < itemsToFillHeight) -> make sure poolItems.count == db.count
-        else if(dataProvider.count >= itemsToFillHeight){
-            let numOfItemsUnNeeded = numOfItems - pool.count
+        else if(dataProvider.count < itemsToFillHeight){
+            Swift.print("❤️️ drain pool")
+            let numOfItemsUnNeeded = itemsToFillHeight - pool.count
             for _ in 0..<numOfItemsUnNeeded{
                 let item:FastListItem = (createPoolItem(),0)
                 pool.removeLast()
                 lableContainer!.addSubview(item.item)
             }
         }else{
-            //shouldn't happen
-        }
-        
-        
-        //case C:
-        
-        let numOfItems:Int = floor(height / itemHeight).int + 1//TODO: use floor not round
-        //numOfItems = Swift.min(numOfItems, dataProvider.count)//if a list only has 3 items and the height can fit 5, pool will never need to be bigger than 3 anyway
-        if(pool.count == 0){//pool is empty, fill it up
-            Swift.print("💙 pool is empty, fill it up")
-            for _ in 0..<numOfItems{
-                let item:FastListItem = (createPoolItem(),0)
-                pool.append(item)
-                lableContainer!.addSubview(item.item)
-            }
-        }else if(numOfItems > dataProvider.count){//pool needs more items
-            Swift.print("💚 pool needs more items")
-            Swift.print("numOfItems: " + "\(numOfItems)")
-            Swift.print("pool.count: " + "\(pool.count)")
-            let numOfItemsNeeded = numOfItems - pool.count
-            for _ in 0..<numOfItemsNeeded{
-                let item:FastListItem = (createPoolItem(),0)
-                pool.append(item)
-                lableContainer!.addSubview(item.item)
-            }
-        }else if(numOfItems < dataProvider.count){//pool needs less items
-            Swift.print("❤️️ pool needs less items")
-            let numOfItemsUnNeeded = numOfItems - pool.count
-            for _ in 0..<numOfItemsUnNeeded{
-                let item:FastListItem = (createPoolItem(),0)
-                pool.removeLast()
-                lableContainer!.addSubview(item.item)
-            }
-        }else if(numOfItems == pool.count){//pool has just the right amount of items, do nothing
-            Swift.print("💛 pool has just the right amount of items, do nothing")
-            //do nothing
-        }else{
-            fatalError("This can't happen: numOfItems: \(numOfItems)  pool.count: \(pool.count)")
+            fatalError("shouldn't happen")
         }
     }
     /**
