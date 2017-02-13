@@ -130,9 +130,9 @@ class FastList3:Element,IList{
         
         //itemsToFillHeight
         
-        //case A: (db.count > itemsToFillHeight) -> 
+        //case A: (db.count >= itemsToFillHeight) -> make sure poolItems.count == itemsToFillHeight
         
-        //case B: (db.count < itemsToFillHeight) ->
+        //case B: (db.count < itemsToFillHeight) -> make sure poolItems.count == db.count
         
         //case C:
         
