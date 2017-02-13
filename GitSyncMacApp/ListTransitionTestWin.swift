@@ -149,7 +149,7 @@ class ListTransitionTestView:TitleView{
                 }else if(event.origin === removeBtnTop){
                     _ = list!.dataProvider.removeItemAt(0)
                 }else if(event.origin === removeBtnBottom){
-                    _ = list!.dataProvider.removeItemAt(list!.dataProvider.)
+                    _ = list!.dataProvider.removeItemAt(list!.dataProvider.count)
                 }
             }
         }
