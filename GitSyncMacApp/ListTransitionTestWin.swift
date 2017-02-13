@@ -107,6 +107,7 @@ class ListTransitionTestView:TitleView{
     var addItemIdxText:TextInput?
     var removeItemIdxText:TextInput?
     var dbCountText:TextInput?
+    var poolCountText:TextInput?
     func rbSliderFastList3(){
         let dp:DataProvider = DataProvider()//DataProvider("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath)//longlist.xml,list.xml//DataProvider()//
         dp.addItem(["title":"pink"])
