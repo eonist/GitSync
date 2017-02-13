@@ -138,7 +138,8 @@ class ListTransitionTestView:TitleView{
         /*Add item idx text*/
         addItemIdxText = textContainer.addSubView(TextInput(120,20,"Add at: ","",textContainer))
         removeItemIdxText = textContainer.addSubView(TextInput(120,20,"Remove at: ","",textContainer))
-        dbCountText = textContainer.addSubView(TextInput(120,20,"db.count: ","",textContainer))
+        dbCountText = textContainer.addSubView(TextInput(120,20,"db.count: ",list!.dataProvider.count.string,textContainer))
+        poolCountText = textContainer.addSubView(TextInput(120,20,"db.count: ",list!.dataProvider.count.string,textContainer))
         
         func onButtonEvent(_ event:Event){
             if(event.type == ButtonEvent.upInside){
@@ -169,7 +170,7 @@ class ListTransitionTestView:TitleView{
     override func scrollWheel(with event:NSEvent) {
         startIdxText!.inputTextArea!.setTextValue(list!.pool.first!.idx.string)
         endIdxText!.inputTextArea!.setTextValue(list!.pool.last!.idx.string)
-        
+        poolCountText!.setInputText(list!.pool.count.string)
         super.scrollWheel(with:event)/*forwards the event other delegates higher up in the stack*/
     }
     func onDataProviderEvent(_ event:DataProviderEvent){
@@ -182,6 +183,7 @@ class ListTransitionTestView:TitleView{
             removeItemIdxText?.setInputText(event.startIndex.string)
         }
         dbCountText!.setInputText(list!.dataProvider.count.string)
+        poolCountText!.setInputText(list!.pool.count.string)
     }
     override func onEvent(_ event: Event) {
         if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
