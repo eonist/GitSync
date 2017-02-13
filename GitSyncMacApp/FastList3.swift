@@ -127,9 +127,7 @@ class FastList3:Element,IList{
      * Replensih / drain the pool (aka add / remove items)
      */
     func updatePool(){
-        //itemsToFillHeight
-        Swift.print("dp.count: " + "\(dp.count)")
-        Swift.print("pool.count: " + "\(pool.count)")
+        Swift.print("👉 updatePool  dp.count:  \(dp.count) pool.count:  \(pool.count)")
         let itemsToFillHeight:Int = floor(height / itemHeight).int + 1
         Swift.print("itemsToFillHeight: " + "\(itemsToFillHeight)")
         if(dp.count > pool.count /*&& dp.count < itemsToFillHeight*/){
@@ -163,7 +161,7 @@ class FastList3:Element,IList{
      * NOTE: reUses all items from the startIndex of the intersecting range unitl the end of visibleItems.range
      */
     func updateRange(_ range:Range<Int>){
-        Swift.print("updateRange" + "range: " + "\(range)")
+        Swift.print("👉 updateRange" + "range: " + "\(range)")
         updatePool()/*Creates enough pool items*/
         if(pool.count == 0){return}//exit early
         let firstPoolIdx:Int = pool.first!.idx
@@ -173,7 +171,7 @@ class FastList3:Element,IList{
         Swift.print("range.start: " + "\(range.start)")
         
         if(range.start >= firstPoolIdx && range.start <= lastPoolIdx){//within TODO: use a RangeAsserter method here
-            let mergableRange = range.start...lastPoolIdx
+            let mergableRange = range.start..<lastPoolIdx
             Swift.print("mergableRange: " + "\(mergableRange)")
             for i in mergableRange{/*For loop because the act of adding an item doesn't require shuffling from top to bottoom or bottom to top*/
                // Swift.print("reuse: i: \(i)")
