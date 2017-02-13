@@ -135,6 +135,7 @@ class ListTransitionTestView:TitleView{
         /*Add item idx text*/
         addItemIdxText = textContainer.addSubView(TextInput(120,20,"Add at: ","",textContainer))
         removeItemIdxText = textContainer.addSubView(TextInput(120,20,"Remove at: ","",textContainer))
+        dbCountText = textContainer.addSubView(TextInput(120,20,"db.count: ","",textContainer))
         
         func onButtonEvent(_ event:Event){
             if(event.type == ButtonEvent.upInside){
