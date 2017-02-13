@@ -163,19 +163,14 @@ class FastList3:Element,IList{
      * NOTE: reUses all items from the startIndex of the intersecting range unitl the end of visibleItems.range
      */
     func updateRange(_ range:Range<Int>){
+        Swift.print("updateRange" + "range: " + "\(range)")
         updatePool()/*Creates enough pool items*/
-        Swift.print("range: " + "\(range)")
         if(pool.count == 0){return}//exit early
         let firstPoolIdx:Int = pool.first!.idx
         Swift.print("firstPoolIdx: " + "\(firstPoolIdx)")
         let lastPoolIdx:Int = pool.last!.idx
         Swift.print("lastPoolIdx: " + "\(lastPoolIdx)")
         Swift.print("range.start: " + "\(range.start)")
-        
-        
-        //Continue here: The dp.count is lower after remove action. 🏀
-            //figure out how to deal with this scenario
-        
         
         if(range.start >= firstPoolIdx && range.start <= lastPoolIdx){//within TODO: use a RangeAsserter method here
             let mergableRange = range.start...lastPoolIdx
