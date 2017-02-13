@@ -43,6 +43,16 @@ class RBSliderFastList3:FastList3,IRBSliderList{
         if(event.phase == NSEventPhase.changed){setProgress(mover!.result)}/*direct manipulation*/
         super.scrollWheel(with:event)/*keep forwarding the scrollWheel event for NSViews higher up the hierarcy to listen to*/
     }
+    override func onEvent(_ event:Event) {
+        if(event.assert(SliderEvent.change,slider)){
+            onSliderChange(event.cast())
+        }else if(event.assert(AnimEvent.stopped, mover!)){
+            scrollAnimStopped()
+        }
+        super.onEvent(event)
+    }
+}
+extension RBSliderFastList3{
     /**
      * EventHandler for the Slider change event
      */
@@ -66,13 +76,5 @@ class RBSliderFastList3:FastList3,IRBSliderList{
     func scrollAnimStopped(){
         //Swift.print("RBSliderList.scrollAnimStopped()")
         slider!.thumb!.fadeOut()
-    }
-    override func onEvent(_ event:Event) {
-        if(event.assert(SliderEvent.change,slider)){
-            onSliderChange(event.cast())
-        }else if(event.assert(AnimEvent.stopped, mover!)){
-            scrollAnimStopped()
-        }
-        super.onEvent(event)
     }
 }
