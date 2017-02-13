@@ -129,7 +129,8 @@ class FastList3:Element,IList{
     func updatePool(){
         //itemsToFillHeight
         let itemsToFillHeight:Int = floor(height / itemHeight).int + 1
-        
+        Swift.print("itemsToFillHeight: " + "\(itemsToFillHeight)")
+        Swift.print("pool.count: " + "\(pool.count)")
         //case A: (db.count >= itemsToFillHeight) -> make sure poolItems.count == itemsToFillHeight
         if(dataProvider.count >= itemsToFillHeight){
             Swift.print("💚 replenish pool")
