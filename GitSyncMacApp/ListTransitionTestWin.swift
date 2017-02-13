@@ -106,10 +106,10 @@ class ListTransitionTestView:TitleView{
     var addItemIdxText:TextInput?
     var removeItemIdxText:TextInput?
     func rbSliderFastList3(){
-        let dp:DataProvider = DataProvider("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath)//longlist.xml,list.xml//DataProvider()//
-        /*dp.addItem(["title":"pink"])
+        let dp:DataProvider = DataProvider()//DataProvider("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath)//longlist.xml,list.xml//DataProvider()//
+        dp.addItem(["title":"pink"])
         dp.addItem(["title":"orange"])
-        dp.addItem(["title":"purple"])*/
+        dp.addItem(["title":"purple"])/**/
         
         list = addSubView(SliderFastList3(140, 145, 24, dp, self))/*RBSliderFastList3*/
         
