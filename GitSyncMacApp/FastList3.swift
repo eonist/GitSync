@@ -136,7 +136,8 @@ class FastList3:Element,IList{
             let numOfItemsNeeded =  min - pool.count
             Swift.print("💚 replenish pool: \(numOfItemsNeeded)")
             for _ in 0..<numOfItemsNeeded{
-                let item:FastListItem = (createPoolItem(),0)
+                let idx:Int = pool.count > 0 ? pool.last!.idx + 1 : 0
+                let item:FastListItem = (createPoolItem(),idx)
                 pool.append(item)
                 lableContainer!.addSubview(item.item)
             }
