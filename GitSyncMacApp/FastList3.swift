@@ -173,7 +173,7 @@ class FastList3:Element,IList{
         let lastPoolIdx:Int = pool.last!.idx
         Swift.print("lastPoolIdx: " + "\(lastPoolIdx)")
         Swift.print("range.start: " + "\(range.start)")
-        
+         
         if(range.start >= firstPoolIdx && range.start <= lastPoolIdx){//within TODO: use a RangeAsserter method here
             let min = range.start
             let max = Swift.min(lastPoolIdx + 1,dp.count)//clip to max possible idx, bug fix
