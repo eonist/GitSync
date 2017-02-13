@@ -180,7 +180,7 @@ class ListTransitionTestView:TitleView{
         }else if(event.type == DataProviderEvent.remove){
             removeItemIdxText?.setInputText(event.startIndex.string)
         }
-        dbCountText!.setInputText("")
+        dbCountText!.setInputText(list!.dataProvider.count.string)
     }
     override func onEvent(_ event: Event) {
         if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
