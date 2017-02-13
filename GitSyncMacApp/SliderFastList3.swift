@@ -22,8 +22,7 @@ class SliderFastList3:FastList3,ISliderList {
         super.scrollWheel(with:event)/*forwards the event other delegates higher up in the stack*/
     }
     override func setProgress(_ value:CGFloat){
-        let itemsHeight = self.itemsHeight//TODO: Use a precalculated itemsHeight instead of recalculating it on every setProgress call, what if dp.count changes though?
-        let progressValue = value / (itemsHeight < height ? height : -(itemsHeight - height))/*calc scalar from value, if itemsHeight is to small then use height instead*/
+        let progressValue = self.itemsHeight < height ? 0 : value
         Swift.print("progressValue: " + "\(progressValue)")
         super.setProgress(progressValue)
     }
