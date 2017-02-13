@@ -133,8 +133,10 @@ class ListTransitionTestView:TitleView{
         removeBtnCenter = container.addSubView(TextButton(NaN,20,"Remove center",container))
         removeBtnBottom = container.addSubView(TextButton(NaN,20,"Remove bottom",container))
         /*Text*/
-        startIdxText = textContainer.addSubView(TextInput(120,20,"Start idx:","",textContainer))
-        endIdxText = textContainer.addSubView(TextInput(120,20,"End idx: ","",textContainer))
+        let startIdx:String = list!.pool.first?.idx.string ?? ""
+        let endIdx:String = list!.pool.last?.idx.string ?? ""
+        startIdxText = textContainer.addSubView(TextInput(120,20,"Start idx:",startIdx,textContainer))
+        endIdxText = textContainer.addSubView(TextInput(120,20,"End idx: ",endIdx,textContainer))
         /*Add item idx text*/
         addItemIdxText = textContainer.addSubView(TextInput(120,20,"Add at: ","",textContainer))
         removeItemIdxText = textContainer.addSubView(TextInput(120,20,"Remove at: ","",textContainer))
@@ -168,8 +170,8 @@ class ListTransitionTestView:TitleView{
         removeBtnBottom!.event = onButtonEvent
     }
     override func scrollWheel(with event:NSEvent) {
-        startIdxText!.inputTextArea!.setTextValue(list!.pool.first!.idx.string)
-        endIdxText!.inputTextArea!.setTextValue(list!.pool.last!.idx.string)
+        startIdxText!.setInputText(list!.pool.first!.idx.string)
+        endIdxText!.setInputText(list!.pool.last!.idx.string)
         poolCountText!.setInputText(list!.pool.count.string)
         super.scrollWheel(with:event)/*forwards the event other delegates higher up in the stack*/
     }
