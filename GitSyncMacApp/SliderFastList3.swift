@@ -21,6 +21,10 @@ class SliderFastList3:FastList3,ISliderList {
         scroll(event)/*forwards the event to the extension method*/
         super.scrollWheel(with:event)/*forwards the event other delegates higher up in the stack*/
     }
+    
+    //Continue here:
+        //if item is removed and itemsHeight is less than height then -> set progress to 0👈
+    
     override func setProgress(_ value:CGFloat){
         let progressValue = self.itemsHeight < height ? 0 : value
         Swift.print("progressValue: " + "\(progressValue)")
