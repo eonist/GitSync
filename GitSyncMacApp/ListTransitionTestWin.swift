@@ -156,10 +156,10 @@ class ListTransitionTestView:TitleView{
         btnTop!.event = onButtonEvent
         btnBottom!.event = onButtonEvent
         btnCenter!.event = onButtonEvent
+        removeBtnTop!.event = onButtonEvent
         removeBtnCenter!.event = onButtonEvent
+        removeBtnBottom!.event = onButtonEvent
     }
-    
-    
     override func scrollWheel(with event:NSEvent) {
         startIdxText!.inputTextArea!.setTextValue(list!.pool.first!.idx.string)
         endIdxText!.inputTextArea!.setTextValue(list!.pool.last!.idx.string)
