@@ -38,11 +38,13 @@ class FastList3:Element,IList{
         lableContainer!.addSubview(blueRect.graphic)
         blueRect.draw()
         
+        /*green rect that represents the range to render*/
         let greenFrame:CGRect = CGRect(0,0,width,height)
         greenRect = RectGraphic(greenFrame.x,greenFrame.y,greenFrame.size.width,greenFrame.size.height,nil,LineStyle(1,.green))
         lableContainer!.addSubview(greenRect!.graphic)
         greenRect!.draw()
         
+        /*purple rect that represents the buffer area, 1-item above top and 1-item bellow bottom*/
         let purpleFrame:CGRect = CGRect(0,0,width,height)
         purpleRect = RectGraphic(purpleFrame.x,purpleFrame.y,purpleFrame.size.width,purpleFrame.size.height,nil,LineStyle(1,.purple))
         lableContainer!.addSubview(purpleRect!.graphic)
