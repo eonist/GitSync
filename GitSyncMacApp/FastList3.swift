@@ -142,12 +142,11 @@ class FastList3:Element,IList{
         }
         //case B: (db.count < itemsToFillHeight) -> make sure poolItems.count == db.count
         else if(dataProvider.count < itemsToFillHeight){
-            Swift.print("❤️️ drain pool: \()")
             let numOfItemsUnNeeded = itemsToFillHeight - pool.count
+            Swift.print("❤️️ drain pool: \(numOfItemsUnNeeded)")
             for _ in 0..<numOfItemsUnNeeded{
-                let item:FastListItem = (createPoolItem(),0)
-                pool.removeLast()
-                lableContainer!.addSubview(item.item)
+                let item:FastListItem? = pool.popLast()
+                item!.item.removeFromSuperview()
             }
         }else{
             fatalError("shouldn't happen")
