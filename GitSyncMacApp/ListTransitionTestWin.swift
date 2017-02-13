@@ -140,7 +140,7 @@ class ListTransitionTestView:TitleView{
                 }else if(event.origin === btnCenter){
                     list!.dataProvider.addItemAt(["title":"cyan","property":""], (list!.dataProvider.count/2))
                 }else if(event.origin === removeBtnCenter){
-                    let removeAt:Int = list!.dataProvider.count/2
+                    let removeAt:Int = floor(CGFloat(list!.dataProvider.count)/2).int
                     Swift.print("onButtonEvent.removeAt: " + "\(removeAt)")
                     _ = list!.dataProvider.removeItemAt(removeAt)
                 }
