@@ -149,7 +149,9 @@ class FastList3:Element,IList{
             Swift.print("❤️️ drain pool: \(numOfItemsUnNeeded)")
             
             //case a: add
+                //dp.count > pool.count && dp.count < itemsToFillHeight
             //case b: remove
+                //dp.count < 
             
             for _ in 0..<numOfItemsUnNeeded{
                 let item:FastListItem? = pool.popLast()
