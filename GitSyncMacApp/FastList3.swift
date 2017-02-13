@@ -127,6 +127,11 @@ class FastList3:Element,IList{
      * Replensih / drain the pool (aka add / remove items)
      */
     func updatePool(){
+        
+        //itemsToFillHeight
+        
+        //
+        
         let numOfItems:Int = floor(height / itemHeight).int + 1//TODO: use floor not round
         //numOfItems = Swift.min(numOfItems, dataProvider.count)//if a list only has 3 items and the height can fit 5, pool will never need to be bigger than 3 anyway
         if(pool.count == 0){//pool is empty, fill it up
