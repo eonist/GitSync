@@ -167,6 +167,8 @@ class FastList3:Element,IList{
      */
     func updateRange(_ range:Range<Int>){
         updatePool()/*Creates enough pool items*/
+        Swift.print("range: " + "\(range)")
+        if(pool.count == 0){return}//exit early
         let firstPoolIdx:Int = pool.first!.idx
         Swift.print("firstPoolIdx: " + "\(firstPoolIdx)")
         let lastPoolIdx:Int = pool.last!.idx
