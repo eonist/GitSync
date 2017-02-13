@@ -146,6 +146,10 @@ class ListTransitionTestView:TitleView{
                     let removeAt:Int = floor(CGFloat(list!.dataProvider.count)/2).int
                     Swift.print("onButtonEvent.removeAt: " + "\(removeAt)")
                     _ = list!.dataProvider.removeItemAt(removeAt)
+                }else if(event.origin === removeBtnTop){
+                    _ = list!.dataProvider.removeItemAt(0)
+                }else if(event.origin === removeBtnBottom){
+                    _ = list!.dataProvider.removeItemAt(list!.dataProvider.)
                 }
             }
         }
