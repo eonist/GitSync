@@ -26,7 +26,6 @@ class SliderFastList3:FastList3,ISliderList {
         let progressValue = value / (itemsHeight < height ? height : -(itemsHeight - height))/*calc scalar from value, if itemsHeight is to small then use height instead*/
         Swift.print("progressValue: " + "\(progressValue)")
         super.setProgress(progressValue)
-        
     }
     /**
      * Captures SliderEvent.change and then adjusts the List accordingly

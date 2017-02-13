@@ -58,6 +58,9 @@ class FastList3:Element,IList{
         reUse(curVisibleRange)
         
     }
+    /**
+     * PARAM: progress (0-1)
+     */
     func setProgress(_ progress:CGFloat){
         ListModifier.scrollTo(self, progress)/*moves the labelContainer up and down*/
         let curVisibleRange = Utils.curVisibleItems(self, maxVisibleItems!+1)
