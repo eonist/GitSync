@@ -130,7 +130,7 @@ class FastList3:Element,IList{
         Swift.print("👉 updatePool  dp.count:  \(dp.count) pool.count:  \(pool.count)")
         let itemsToFillHeight:Int = floor(height / itemHeight).int + 1
         Swift.print("itemsToFillHeight: " + "\(itemsToFillHeight)")
-        if(dp.count > pool.count && dp.count < itemsToFillHeight){
+        if(dp.count > pool.count){
             
             let min:Int = Swift.min(dp.count,itemsToFillHeight)
             let numOfItemsNeeded =  min - pool.count
