@@ -129,9 +129,7 @@ class FastList3:Element,IList{
     func updatePool(){
         //itemsToFillHeight
         let itemsToFillHeight:Int = floor(height / itemHeight).int + 1
-        //case A: (db.count >= itemsToFillHeight) -> make sure poolItems.count == itemsToFillHeight
-        if(dataProvider.count >= itemsToFillHeight){
-            
+        if(dp.count > pool.count && dp.count < itemsToFillHeight){
             let numOfItemsNeeded = itemsToFillHeight - pool.count
             Swift.print("💚 replenish pool: \(numOfItemsNeeded)")
             for _ in 0..<numOfItemsNeeded{
@@ -140,19 +138,9 @@ class FastList3:Element,IList{
                 lableContainer!.addSubview(item.item)
             }
         }
-        //case B: (db.count < itemsToFillHeight) -> make sure poolItems.count == db.count
-            
-        //Continue here: you need to use dp.count when finding numOfItemsUnNeeded
-            
-        else if(dataProvider.count < itemsToFillHeight){
-            let numOfItemsUnNeeded = pool.count - dataProvider.count
+        else if(dp.count < pool.count){
+            let numOfItemsUnNeeded = pool.count - dp.count
             Swift.print("❤️️ drain pool: \(numOfItemsUnNeeded)")
-            
-            //case a: add
-                //dp.count > pool.count && dp.count < itemsToFillHeight
-            //case b: remove
-                //dp.count < 
-            
             for _ in 0..<numOfItemsUnNeeded{
                 let item:FastListItem? = pool.popLast()
                 item!.item.removeFromSuperview()
