@@ -149,7 +149,7 @@ class FastList3:Element,IList{
                 item!.item.removeFromSuperview()
             }
         }else{
-            fatalError("shouldn't happen")
+            Swift.print("💛 do nothing")
         }
     }
     /**
