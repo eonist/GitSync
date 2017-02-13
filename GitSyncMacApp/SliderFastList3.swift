@@ -21,6 +21,12 @@ class SliderFastList3:FastList3,ISliderList {
         scroll(event)/*forwards the event to the extension method*/
         super.scrollWheel(with:event)/*forwards the event other delegates higher up in the stack*/
     }
+    override func setProgress(_ value:CGFloat){
+        let itemsHeight = self.itemsHeight//TODO: Use a precalculated itemsHeight instead of recalculating it on every setProgress call, what if dp.count changes though?
+        let progressValue = value / (itemsHeight < height ? height : -(itemsHeight - height))/*calc scalar from value, if itemsHeight is to small then use height instead*/
+        super.setProgress(progressValue)
+        
+    }
     /**
      * Captures SliderEvent.change and then adjusts the List accordingly
      */
