@@ -129,10 +129,22 @@ class FastList3:Element,IList{
     func updatePool(){
         
         //itemsToFillHeight
+        let itemsToFillHeight:Int = floor(height / itemHeight).int + 1
         
         //case A: (db.count >= itemsToFillHeight) -> make sure poolItems.count == itemsToFillHeight
-        
+        if(dataProvider.count >= itemsToFillHeight){
+            let numOfItemsNeeded = pool.count
+            for _ in 0..<numOfItemsNeeded{
+                let item:FastListItem = (createPoolItem(),0)
+                pool.append(item)
+                lableContainer!.addSubview(item.item)
+            }
+        }
         //case B: (db.count < itemsToFillHeight) -> make sure poolItems.count == db.count
+        else if(dataProvider.count >= itemsToFillHeight){
+            
+        }
+        
         
         //case C:
         
