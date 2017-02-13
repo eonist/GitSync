@@ -133,7 +133,7 @@ class FastList3:Element,IList{
         
         //case A: (db.count >= itemsToFillHeight) -> make sure poolItems.count == itemsToFillHeight
         if(dataProvider.count >= itemsToFillHeight){
-            let numOfItemsNeeded = pool.count
+            let numOfItemsNeeded = itemsToFillHeight - pool.count
             for _ in 0..<numOfItemsNeeded{
                 let item:FastListItem = (createPoolItem(),0)
                 pool.append(item)
@@ -142,7 +142,14 @@ class FastList3:Element,IList{
         }
         //case B: (db.count < itemsToFillHeight) -> make sure poolItems.count == db.count
         else if(dataProvider.count >= itemsToFillHeight){
-            
+            let numOfItemsUnNeeded = numOfItems - pool.count
+            for _ in 0..<numOfItemsUnNeeded{
+                let item:FastListItem = (createPoolItem(),0)
+                pool.removeLast()
+                lableContainer!.addSubview(item.item)
+            }
+        }else{
+            //shouldn't happen
         }
         
         
