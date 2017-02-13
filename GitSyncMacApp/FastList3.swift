@@ -131,8 +131,9 @@ class FastList3:Element,IList{
         let itemsToFillHeight:Int = floor(height / itemHeight).int + 1
         //case A: (db.count >= itemsToFillHeight) -> make sure poolItems.count == itemsToFillHeight
         if(dataProvider.count >= itemsToFillHeight){
-            Swift.print("💚 replenish pool: \()")
+            
             let numOfItemsNeeded = itemsToFillHeight - pool.count
+            Swift.print("💚 replenish pool: \(numOfItemsNeeded)")
             for _ in 0..<numOfItemsNeeded{
                 let item:FastListItem = (createPoolItem(),0)
                 pool.append(item)
