@@ -101,10 +101,12 @@ class ListTransitionTestView:TitleView{
     var removeBtnTop:TextButton?
     var removeBtnCenter:TextButton?
     var removeBtnBottom:TextButton?
+    /*Text*/
     var startIdxText:TextInput?
     var endIdxText:TextInput?
     var addItemIdxText:TextInput?
     var removeItemIdxText:TextInput?
+    var dbCountText:TextInput?
     func rbSliderFastList3(){
         let dp:DataProvider = DataProvider()//DataProvider("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath)//longlist.xml,list.xml//DataProvider()//
         dp.addItem(["title":"pink"])
@@ -178,6 +180,7 @@ class ListTransitionTestView:TitleView{
         }else if(event.type == DataProviderEvent.remove){
             removeItemIdxText?.setInputText(event.startIndex.string)
         }
+        dbCountText!.setInputText("")
     }
     override func onEvent(_ event: Event) {
         if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
