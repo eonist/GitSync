@@ -133,7 +133,7 @@ class FastList3:Element,IList{
         if(dp.count > pool.count /*&& dp.count < itemsToFillHeight*/){
             
             let min:Int = Swift.min(dp.count,itemsToFillHeight)
-            //let numOfItemsNeeded =  - Swift.min(pool.count,db.count)
+            let numOfItemsNeeded =  pool.count
             Swift.print("💚 replenish pool: \(numOfItemsNeeded)")
             for _ in 0..<numOfItemsNeeded{
                 let item:FastListItem = (createPoolItem(),0)
