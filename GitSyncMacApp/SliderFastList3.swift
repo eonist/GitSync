@@ -24,6 +24,7 @@ class SliderFastList3:FastList3,ISliderList {
     
     //Continue here:
         //if item is removed and itemsHeight is less than height then -> set progress to 0👈
+        //if item is removed from bottom, try to figure out 
     
     override func setProgress(_ value:CGFloat){
         let progressValue = self.itemsHeight < height ? 0 : value
