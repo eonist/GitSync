@@ -76,8 +76,6 @@ class FastList3:Element,IList{
             prevVisibleRange = curVisibleRange.range
         }
     }
-    
-    
     /**
      * NOTE: This method grabs items from pool and append or prepend them
      */
