@@ -28,7 +28,7 @@ class SliderFastList3:FastList3,ISliderList {
     
     override func setProgress(_ value:CGFloat){
         let progressValue = self.itemsHeight < height ? 0 : value
-        Swift.print("progressValue: " + "\(progressValue)")
+        //Swift.print("progressValue: " + "\(progressValue)")
         super.setProgress(progressValue)
     }
     /**
