@@ -98,9 +98,9 @@ class ListTransitionTestView:TitleView{
     var btnBottom:TextButton?
     var btnCenter:TextButton?
     /*Remove*/
+    var removeBtnTop:TextButton?
     var removeBtnCenter:TextButton?
-    var removeBtnCenter:TextButton?
-    var removeBtnCenter:TextButton?
+    var removeBtnBottom:TextButton?
     var startIdxText:TextInput?
     var endIdxText:TextInput?
     var addItemIdxText:TextInput?
@@ -123,7 +123,6 @@ class ListTransitionTestView:TitleView{
         btnTop = container.addSubView(TextButton(NaN,20,"Add top",container))
         btnCenter = container.addSubView(TextButton(NaN,20,"Add center",container))
         btnBottom = container.addSubView(TextButton(NaN,20,"Add bottom",container))
-        
         /*Remove*/
         removeBtnTop = container.addSubView(TextButton(NaN,20,"Remove top",container))
         removeBtnCenter = container.addSubView(TextButton(NaN,20,"Remove center",container))
@@ -131,7 +130,6 @@ class ListTransitionTestView:TitleView{
         /*Text*/
         startIdxText = container.addSubView(TextInput(120,20,"Start idx:","",container))
         endIdxText = container.addSubView(TextInput(120,20,"End idx: ","",container))
-        
         /*Add item idx text*/
         addItemIdxText = container.addSubView(TextInput(120,20,"Add at:","",container))
         removeItemIdxText = container.addSubView(TextInput(120,20,"Remove at:","",container))
