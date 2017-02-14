@@ -147,7 +147,7 @@ class ListTransitionTestView:TitleView{
         removeItemIdxText = textContainer.addSubView(TextInput(120,20,"Remove at: ","",textContainer))
         dbCountText = textContainer.addSubView(TextInput(120,20,"db.count: ",list!.dataProvider.count.string,textContainer))
         poolCountText = textContainer.addSubView(TextInput(120,20,"pool.count: ",list!.pool.count.string,textContainer))
-        let poolIndeciesStr:[String] = list!.pool.map{$0.idx.string}
+        let poolIndeciesStr:String = list!.pool.reduce{$0.idx.string + }
         poolIndeciesText = textContainer.addSubView(TextInput(120,20,"pool idxs: ",list!.pool.count.string,textContainer))
         
         func onButtonEvent(_ event:Event){
