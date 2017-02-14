@@ -191,6 +191,7 @@ class ListTransitionTestView:TitleView{
         list!.pool.forEach{poolIndeciesStr += $0.idx.string + ", "}
         poolIndeciesText?.setInputText(poolIndeciesStr)
          */
+        
         super.scrollWheel(with:event)/*forwards the event other delegates higher up in the stack*/
     }
     func onDataProviderEvent(_ event:DataProviderEvent){
