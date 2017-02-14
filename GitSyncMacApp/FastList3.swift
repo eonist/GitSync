@@ -210,7 +210,12 @@ class FastList3:Element,IList{
             //if progress is > 0 && < 1 
                 //try to stay in the same position
                 // if itemsHeight < height
-                    //
+                    //align to top
+            
+            //Continue here:
+                //work with List instead, then once that is stable -> start to work with FastList and try to find a simple solution for buffering items, Should work with shuffeling aswell
+                //Try to implement shuffeling on List
+            
         }
     }
     override func onEvent(_ event:Event) {
