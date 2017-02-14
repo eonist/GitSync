@@ -198,16 +198,20 @@ class ListTransitionTestView:TitleView{
         if(event.type == DataProviderEvent.add){/*This is called when a new item is added to the DataProvider instance*/
             addItemIdxText!.inputTextArea!.setTextValue(event.startIndex.string)
             /*update pool idexes: */
+            /*
             startIdxText!.inputTextArea!.setTextValue(list!.pool.first!.idx.string)
             endIdxText!.inputTextArea!.setTextValue(list!.pool.last!.idx.string)
+            */
         }else if(event.type == DataProviderEvent.remove){
             removeItemIdxText?.setInputText(event.startIndex.string)
         }
         dbCountText!.setInputText(list!.dataProvider.count.string)
+        /*
         poolCountText!.setInputText(list!.pool.count.string)
         var poolIndeciesStr:String = ""
         list!.pool.forEach{poolIndeciesStr += $0.idx.string + ", "}
         poolIndeciesText?.setInputText(poolIndeciesStr)
+        */
     }
     override func onEvent(_ event: Event) {
         if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
