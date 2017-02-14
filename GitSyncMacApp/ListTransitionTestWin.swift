@@ -182,7 +182,8 @@ class ListTransitionTestView:TitleView{
         startIdxText!.setInputText(list!.pool.first!.idx.string)
         endIdxText!.setInputText(list!.pool.last!.idx.string)
         poolCountText!.setInputText(list!.pool.count.string)
-        let poolIndeciesStr:String = list!.pool.map{$0.idx.string}.reduce(""){$0 + "," + $1}
+        let poolIndeciesStr:String = ""
+        list!.pool.forEach{poolIndeciesStr += $0.idx.string + ", "}
         poolIndeciesText?.setInputText(poolIndeciesStr)
         super.scrollWheel(with:event)/*forwards the event other delegates higher up in the stack*/
     }
