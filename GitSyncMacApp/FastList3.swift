@@ -87,7 +87,9 @@ class FastList3:Element,IList{
     func reUse(_ cur:Range<Int>){
         Swift.print("reUse: " + "\(cur)")
         let prev = prevVisibleRange!/*we assign the value to a simpler shorter named variable*/
+        Swift.print("prev: " + "\(prev)")
         let diff = prev.start - cur.start
+        Swift.print("diff: " + "\(diff)")
         
         if(abs(diff) >= maxVisibleItems!+1){//spoof every item
             Swift.print("all")
