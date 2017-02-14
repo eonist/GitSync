@@ -92,7 +92,7 @@ class ListTransitionTestView:TitleView{
         let graph = graphContainer.addSubView(BarGraph(200,200/*,4*/,graphContainer))
         _ = graph
     }
-    var list:SliderFastList3?
+    var list:SliderList?
     /*Add*/
     var btnTop:TextButton?
     var btnBottom:TextButton?
@@ -119,7 +119,7 @@ class ListTransitionTestView:TitleView{
         dp.addItem(["title":"orange"])
         dp.addItem(["title":"purple"])
         
-        list = addSubView(SliderFastList3(140, 145, 24, dp, self))/*RBSliderFastList3*/
+        list = addSubView(SliderList(140, 145, 24, dp, self))/*RBSliderFastList3*/
         
         var css = "Container#btn{float:left;clear:none;}"
         css += "Container#btn TextButton{margin:6px;width:120px;}"
@@ -140,18 +140,21 @@ class ListTransitionTestView:TitleView{
         removeBtnCenter = container.addSubView(TextButton(NaN,20,"Remove center",container))
         removeBtnBottom = container.addSubView(TextButton(NaN,20,"Remove bottom",container))
         /*Text*/
+        /*
         let startIdx:String = list!.pool.first?.idx.string ?? ""
         let endIdx:String = list!.pool.last?.idx.string ?? ""
         startIdxText = textContainer.addSubView(TextInput(120,20,"Start idx:",startIdx,textContainer))
         endIdxText = textContainer.addSubView(TextInput(120,20,"End idx: ",endIdx,textContainer))
+        */
         /*Add item idx text*/
         addItemIdxText = textContainer.addSubView(TextInput(120,20,"Add at: ","",textContainer))
         removeItemIdxText = textContainer.addSubView(TextInput(120,20,"Remove at: ","",textContainer))
         dbCountText = textContainer.addSubView(TextInput(120,20,"db.count: ",list!.dataProvider.count.string,textContainer))
+        /*
         poolCountText = textContainer.addSubView(TextInput(120,20,"pool.count: ",list!.pool.count.string,textContainer))
         let poolIndeciesStr:String = list!.pool.map{$0.idx.string}.reduce(""){$0 + "," + $1}
         poolIndeciesText = textContainer.addSubView(TextInput(120,20,"pool idxs: ",poolIndeciesStr,textContainer,"poolIdx"))
-        
+        */
         func onButtonEvent(_ event:Event){
             if(event.type == ButtonEvent.upInside){
                 if(event.origin === btnTop){
@@ -179,12 +182,15 @@ class ListTransitionTestView:TitleView{
         removeBtnBottom!.event = onButtonEvent
     }
     override func scrollWheel(with event:NSEvent) {
+        /*
         startIdxText!.setInputText(list!.pool.first!.idx.string)
         endIdxText!.setInputText(list!.pool.last!.idx.string)
         poolCountText!.setInputText(list!.pool.count.string)
+ 
         var poolIndeciesStr:String = ""
         list!.pool.forEach{poolIndeciesStr += $0.idx.string + ", "}
         poolIndeciesText?.setInputText(poolIndeciesStr)
+         */
         super.scrollWheel(with:event)/*forwards the event other delegates higher up in the stack*/
     }
     func onDataProviderEvent(_ event:DataProviderEvent){
