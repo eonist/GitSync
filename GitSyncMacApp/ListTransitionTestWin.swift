@@ -125,7 +125,7 @@ class ListTransitionTestView:TitleView{
         css += "Container#btn TextButton{margin:6px;width:120px;}"
         css += "Container#text{float:left;clear:none;}"
         css += "Container#text TextInput{margin:6px;}"
-        css += "Container#text TextInput#poolIdx TextArea{width:100px;}"
+        css += "Container#text TextInput#poolIdx TextArea{width:120px;}"
         
         
         StyleManager.addStyle(css)
@@ -182,7 +182,7 @@ class ListTransitionTestView:TitleView{
         startIdxText!.setInputText(list!.pool.first!.idx.string)
         endIdxText!.setInputText(list!.pool.last!.idx.string)
         poolCountText!.setInputText(list!.pool.count.string)
-        let poolIndeciesStr:String = ""
+        var poolIndeciesStr:String = ""
         list!.pool.forEach{poolIndeciesStr += $0.idx.string + ", "}
         poolIndeciesText?.setInputText(poolIndeciesStr)
         super.scrollWheel(with:event)/*forwards the event other delegates higher up in the stack*/
@@ -199,7 +199,8 @@ class ListTransitionTestView:TitleView{
         }
         dbCountText!.setInputText(list!.dataProvider.count.string)
         poolCountText!.setInputText(list!.pool.count.string)
-        let poolIndeciesStr:String = list!.pool.map{$0.idx.string}.reduce(""){$0 + "," + $1}
+        var poolIndeciesStr:String = ""
+        list!.pool.forEach{poolIndeciesStr += $0.idx.string + ", "}
         poolIndeciesText?.setInputText(poolIndeciesStr)
     }
     override func onEvent(_ event: Event) {
