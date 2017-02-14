@@ -201,7 +201,11 @@ class FastList3:Element,IList{
             let endIdx:Int = event.startIndex + event.items.count
             updateRange(event.startIndex..<endIdx)
             
-            //if item 0 is removed then 
+            //if progress is 0
+                //align to top after remove or add
+            //if progress is 1
+                //align to bottom after remove or add
+                //if
         }
     }
     override func onEvent(_ event:Event) {
