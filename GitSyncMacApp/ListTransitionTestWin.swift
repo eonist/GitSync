@@ -125,6 +125,8 @@ class ListTransitionTestView:TitleView{
         css += "Container#text{float:left;clear:none;}"
         css += "Container#btn TextButton{margin:6px;width:120px;}"
         css += "Container#btn TextInput{margin:6px;}"
+        css += "Container#btn TextInput#poolIdx TextArea{width:100px;}"
+        
         
         StyleManager.addStyle(css)
         let container = addSubView(Container(150,100,self,"btn"))
@@ -148,7 +150,7 @@ class ListTransitionTestView:TitleView{
         dbCountText = textContainer.addSubView(TextInput(120,20,"db.count: ",list!.dataProvider.count.string,textContainer))
         poolCountText = textContainer.addSubView(TextInput(120,20,"pool.count: ",list!.pool.count.string,textContainer))
         let poolIndeciesStr:String = list!.pool.map{$0.idx.string}.reduce(""){$0 + "," + $1}
-        poolIndeciesText = textContainer.addSubView(TextInput(120,20,"pool idxs: ",poolIndeciesStr,textContainer))
+        poolIndeciesText = textContainer.addSubView(TextInput(120,20,"pool idxs: ",poolIndeciesStr,textContainer,"poolIdx"))
         
         func onButtonEvent(_ event:Event){
             if(event.type == ButtonEvent.upInside){
