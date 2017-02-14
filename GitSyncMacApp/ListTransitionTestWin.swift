@@ -198,7 +198,6 @@ class ListTransitionTestView:TitleView{
         }
         dbCountText!.setInputText(list!.dataProvider.count.string)
         poolCountText!.setInputText(list!.pool.count.string)
-        Swift.print("list!.pool: " + "\(list!.pool)")
         let poolIndeciesStr:String = list!.pool.map{$0.idx.string}.reduce(""){$0 + "," + $1}
         poolIndeciesText?.setInputText(poolIndeciesStr)
     }
