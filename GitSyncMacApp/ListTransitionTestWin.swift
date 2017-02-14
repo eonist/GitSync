@@ -108,6 +108,7 @@ class ListTransitionTestView:TitleView{
     var removeItemIdxText:TextInput?
     var dbCountText:TextInput?
     var poolCountText:TextInput?
+    var poolIndeciesText:TextInput?
     
     //Continue here:
         //Debug the reUse method with a textField that displays the pool indecies on each scroll/dp.event -> [2,3,4,5,6] etc
@@ -146,6 +147,7 @@ class ListTransitionTestView:TitleView{
         removeItemIdxText = textContainer.addSubView(TextInput(120,20,"Remove at: ","",textContainer))
         dbCountText = textContainer.addSubView(TextInput(120,20,"db.count: ",list!.dataProvider.count.string,textContainer))
         poolCountText = textContainer.addSubView(TextInput(120,20,"pool.count: ",list!.pool.count.string,textContainer))
+        poolIndeciesText
         
         func onButtonEvent(_ event:Event){
             if(event.type == ButtonEvent.upInside){
