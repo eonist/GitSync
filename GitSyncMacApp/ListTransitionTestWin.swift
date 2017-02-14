@@ -125,7 +125,7 @@ class ListTransitionTestView:TitleView{
         css += "Container#btn TextButton{margin:6px;width:120px;}"
         css += "Container#text{float:left;clear:none;}"
         css += "Container#text TextInput{margin:6px;}"
-        css += "Container#text TextInput#poolIdx TextArea{width:120px;}"
+        css += "Container#text TextInput#poolIdx TextArea{width:140px;}"
         
         
         StyleManager.addStyle(css)
