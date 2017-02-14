@@ -122,10 +122,10 @@ class ListTransitionTestView:TitleView{
         list = addSubView(SliderFastList3(140, 145, 24, dp, self))/*RBSliderFastList3*/
         
         var css = "Container#btn{float:left;clear:none;}"
-        css += "Container#text{float:left;clear:none;}"
         css += "Container#btn TextButton{margin:6px;width:120px;}"
-        css += "Container#btn TextInput{margin:6px;}"
-        css += "Container#btn TextInput#poolIdx TextArea{width:100px;}"
+        css += "Container#text{float:left;clear:none;}"
+        css += "Container#text TextInput{margin:6px;}"
+        css += "Container#text TextInput#poolIdx TextArea{width:100px;}"
         
         
         StyleManager.addStyle(css)
@@ -182,6 +182,8 @@ class ListTransitionTestView:TitleView{
         startIdxText!.setInputText(list!.pool.first!.idx.string)
         endIdxText!.setInputText(list!.pool.last!.idx.string)
         poolCountText!.setInputText(list!.pool.count.string)
+        let poolIndeciesStr:String = list!.pool.map{$0.idx.string}.reduce(""){$0 + "," + $1}
+        poolIndeciesText?.setInputText(poolIndeciesStr)
         super.scrollWheel(with:event)/*forwards the event other delegates higher up in the stack*/
     }
     func onDataProviderEvent(_ event:DataProviderEvent){
