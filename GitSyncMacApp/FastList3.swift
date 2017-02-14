@@ -201,6 +201,7 @@ class FastList3:Element,IList{
             let endIdx:Int = event.startIndex + event.items.count
             updateRange(event.startIndex..<endIdx)
             
+            //if item 0 is removed then 
         }
     }
     override func onEvent(_ event:Event) {
