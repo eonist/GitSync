@@ -205,7 +205,12 @@ class FastList3:Element,IList{
                 //align to top after remove or add
             //if progress is 1
                 //align to bottom after remove or add
-                //if
+                //if itemsHeight < height
+                    //align to top
+            //if progress is > 0 && < 1 
+                //try to stay in the same position
+                // if itemsHeight < height
+                    //
         }
     }
     override func onEvent(_ event:Event) {
