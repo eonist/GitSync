@@ -200,6 +200,7 @@ class FastList3:Element,IList{
         }else if(event.type == DataProviderEvent.remove){
             let endIdx:Int = event.startIndex + event.items.count
             updateRange(event.startIndex..<endIdx)
+            reUse()
         }
     }
     override func onEvent(_ event:Event) {
