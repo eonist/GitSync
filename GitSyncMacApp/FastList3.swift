@@ -57,7 +57,7 @@ class FastList3:Element,IList{
         updatePool()//creates a pool of items ready to be used
         reUse(curVisibleRange)
         
-    }
+    }   
     /**
      * PARAM: progress (0-1)
      */
