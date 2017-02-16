@@ -32,7 +32,7 @@ class FastList4:Element,IList {
         renderItems(range)
     }
     /**
-     *
+     * TODO: You can optimize the range stuff later when all cases work
      */
     func renderItems(_ range:Range<Int>){
         var inActive:[FastListItem] = []
