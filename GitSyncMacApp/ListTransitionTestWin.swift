@@ -43,7 +43,7 @@ class ListTransitionTestView:TitleView{
         //fastList()
         //sliderList()
         //list()
-                
+        
     }
     
     var animator:Animator?
@@ -122,6 +122,13 @@ class ListTransitionTestView:TitleView{
          dp.addItem(["title":"purple"])*/
         
         list = addSubView(SliderList(140, 145, 24, dp, self))/*RBSliderFastList3*/
+        
+        
+        //continue here:
+            //test FastList4
+            //add SliderFastList4
+            //test SliderFastList4
+        
         
         var css = "Container#btn{float:left;clear:none;}"
         css += "Container#btn TextButton{margin:6px;width:120px;}"
