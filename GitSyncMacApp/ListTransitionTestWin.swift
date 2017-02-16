@@ -37,13 +37,14 @@ class ListTransitionTestView:TitleView{
          */
         func intersection(_ a:Range<Int>, _ b:Range<Int>) -> Range<Int>{
             let start:Int?
-            if(RangeAsserter.within(a, b.start)){
-                start = b.start
-            }
+            if(RangeAsserter.within(a, b.start)){start = b.start}
+            else if(RangeAsserter.within(b, a.start)){start = a.start}
             
-            if(RangeAsserter.within(b, a.start)){
-                end = b.start
-            }
+            let end:Int?
+            if(RangeAsserter.within(a, b.end)){end = b.end}
+            else if(RangeAsserter.within(b, a.end)){start = a.end}
+            
+            start != nil && end != nil
         }
         
         let abDiff = RangeParser.difference(b)
