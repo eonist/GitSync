@@ -57,9 +57,9 @@ class ListTransitionTestView:TitleView{
             return (nil,nil)
         }
         
-        let diff = difference(0..<4, 2..<7)
+        let diff = difference(0..<4, 2..<7)//0..<2, 4..<7
         Swift.print("diff.0: " + "\(diff.0)")
-        
+        Swift.print("diff.1: " + "\(diff.1)")
     }
     
     var animator:Animator?
