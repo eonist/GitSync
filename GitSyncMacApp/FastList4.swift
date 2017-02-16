@@ -42,7 +42,7 @@ class FastList4:Element,IList {
         }
         
         //Continue here: 
-            //
+            //find items to remove and add
         
     }
     /**
