@@ -59,8 +59,8 @@ class FastList4:Element,IList {
                 reUse(fastListItem)//applies data and position
                 items.append(fastListItem)
             }
-            
-            let idx:Int = i - firstOldIdx//index in pool
+            let idx:Int = items.first!.idx - firstOldIdx//index in pool
+            _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
         }
     }
     /**
