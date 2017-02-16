@@ -36,6 +36,7 @@ class FastList4:Element,IList {
         let new = visibleItemRange
         let intersection = RangeParser.intersection(old, new)
         
+        
         //Continue here: 
             //diff the curVisRange with the range
         
