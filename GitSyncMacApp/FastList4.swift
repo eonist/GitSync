@@ -41,7 +41,8 @@ class FastList4:Element,IList {
             let firstOldIdx:Int = pool.first!.idx
             let startIdx:Int = intersection!.start - firstOldIdx
             active = pool.splice2(startIdx, intersection!.length)
-            inActive = pool.map{}
+            inActive = pool.splice2(0,pool.count)
+            
         }
         
         //Continue here: 
