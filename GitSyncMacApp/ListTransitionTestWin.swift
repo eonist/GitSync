@@ -29,7 +29,6 @@ class ListTransitionTestView:TitleView{
     }
     func createGUI(){
         
-        
         //animTest()
         //uiSwitchTest()
         //barGraphTest()
