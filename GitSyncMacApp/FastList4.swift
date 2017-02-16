@@ -145,8 +145,13 @@ class FastList4:Element,IList {
         if(currentVisibleItemRange != range){/*Optimization: only set if it's not the same as prev range*/
             renderItems(range)
         }
-        for i in event.startIndex...lastVisibleItem{
-            reUse(<#T##listItem: FastListItem##FastListItem#>)
+        /*render affected items*/
+        let startIdx = event.startIndex - firstVisibleItem
+        let endIdx = lastVisibleItem - firstVisibleItem
+        
+        for i in startIdx...endIdx{
+            let fastListItem = pool[i]
+            reUse(fastListItem)
         }
     }
     override func onEvent(_ event:Event) {
