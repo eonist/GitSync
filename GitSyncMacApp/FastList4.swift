@@ -67,9 +67,11 @@ class FastList4:Element,IList {
                 reUse(fastListItem)//applies data and position
                 items.append(fastListItem)
             }
-            var idx:Int = items.first!.idx - firstOldIdx//index in pool
-            idx = idx.clip(0, pool.count)
-            _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
+            if(items.count > 0){
+                var idx:Int = items.first!.idx - firstOldIdx//index in pool
+                idx = idx.clip(0, pool.count)
+                _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
+            }
         }
         Swift.print("pool.count: " + "\(pool.count)")
         
@@ -83,9 +85,11 @@ class FastList4:Element,IList {
                 reUse(fastListItem)//applies data and position
                 items.append(fastListItem)
             }
-            var idx:Int = items.first!.idx - firstOldIdx//index in pool
-            idx = idx.clip(0, pool.count)
-            _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
+            if(items.count > 0){
+                var idx:Int = items.first!.idx - firstOldIdx//index in pool
+                idx = idx.clip(0, pool.count)
+                _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
+            }
         }
         Swift.print("pool.count: " + "\(pool.count)")
         //clear inActive array, if any are left, can happen after resize etc
@@ -114,6 +118,7 @@ class FastList4:Element,IList {
         lableContainer!.addSubview(item)
         return item
     }
+    override func getClassType() -> String {return "\(List.self)"}
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
