@@ -105,6 +105,8 @@ class FastList4:Element,IList {
                 _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
             }
         }
+        
+        Swift.print("add: \((diff2.0 != nil ? diff2.0!.length : 0) + (diff2.1 != nil ? diff2.1!.length : 0))")
         //Swift.print("pool.count: " + "\(pool.count)")
         //clear inActive array, if any are left, can happen after resize etc
         //Swift.print("inActive.count: " + "\(inActive.count)")
