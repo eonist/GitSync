@@ -44,23 +44,9 @@ class ListTransitionTestView:TitleView{
         //sliderList()
         //list()
         
-        /**
-         * The items in PARAM: b that are not within PARAM: a
-         */
-        func difference<T>(_ a:Range<T>, _ b:Range<T>) -> (Range<T>?,Range<T>?){
-            let exclusion = RangeParser.exclusion(a, b)
-            var range1:Range<T>?
-            if(exclusion.0 != nil && RangeAsserter.contains(b,exclusion.0!)){
-                range1 = exclusion.0
-            }
-            var range2:Range<T>?
-            if(exclusion.1 != nil && RangeAsserter.contains(b,exclusion.1!)){
-                range2 = exclusion.1
-            }
-            return (range1,range2)
-        }
         
-        let diff = difference(0..<4, 2..<7)//4..<7,nil
+        
+        let diff = RangeParser.difference(0..<4, 2..<7)//nil,4..<7
         Swift.print("diff.0: " + "\(diff.0)")
         Swift.print("diff.1: " + "\(diff.1)")
         
