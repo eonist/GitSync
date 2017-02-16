@@ -26,6 +26,10 @@ class FastList4:Element,IList {
         _ = visibleItemRangeWithinView
         
         lableContainer = addSubView(Container(width,height,self,"lable"))
+        
+        let range = visibleItemRange
+        Swift.print("range: " + "\(range)")
+        renderItems(range)
     }
     /**
      *
@@ -35,8 +39,10 @@ class FastList4:Element,IList {
         var inActive:[FastListItem] = []
         /**/
         let old = currentVisibleItemRange
-        let new = visibleItemRange
+        Swift.print("old: " + "\(old)")
+        let new = range
         let firstOldIdx:Int = pool.first!.idx
+        Swift.print("firstOldIdx: " + "\(firstOldIdx)")
         /*figure out which items to remove from pool*/
         let diff = RangeParser.difference(new, old)//may return 1 or 2 ranges
         if(diff.1 != nil){
