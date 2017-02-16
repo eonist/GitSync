@@ -42,6 +42,8 @@ class FastList4:Element,IList {
             let startIdx:Int = intersection!.start - firstOldIdx
             active = pool.splice2(startIdx, intersection!.length)//temp store intersecting items
             inActive = pool.splice2(0,pool.count)//remove the rest from pool
+            //find new to add
+            let itemsToAdd = RangeParser.intersection(intersection!, new)
             
         }
         
