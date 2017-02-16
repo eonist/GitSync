@@ -66,6 +66,7 @@ class FastList4:Element,IList {
             let start = diff.0!.start - firstOldIdx
             inActive += pool.splice2(start, diff.0!.length)
         }
+        Swift.print("remove: \(inActive.count)")
         /*figure out which items to add to pool*/
         let diff2 = RangeParser.difference(old,new)
         //Swift.print("diff2: " + "\(diff2)")
