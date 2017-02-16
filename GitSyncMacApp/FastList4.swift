@@ -59,7 +59,23 @@ class FastList4:Element,IList {
                 reUse(fastListItem)//applies data and position
                 items.append(fastListItem)
             }
-            let idx:Int = items.first!.idx - firstOldIdx//index in pool
+            var idx:Int = items.first!.idx - firstOldIdx//index in pool
+            idx = idx.clip(0, pool.count)
+            _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
+        }
+        
+        if(diff2.0 != nil){
+            let startIdx = diff2.0!.start
+            let endIdx = diff2.0!.end
+            var items:[FastListItem] = []
+            for i in (startIdx...endIdx){
+                let item:Element = inActive.count > 0 ? inActive.popLast()!.item : createItem(i)
+                let fastListItem:FastListItem = (item:item,idx:i)
+                reUse(fastListItem)//applies data and position
+                items.append(fastListItem)
+            }
+            var idx:Int = items.first!.idx - firstOldIdx//index in pool
+            idx = idx.clip(0, pool.count)
             _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
         }
     }
