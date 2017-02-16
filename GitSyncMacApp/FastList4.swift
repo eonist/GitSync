@@ -37,7 +37,7 @@ class FastList4:Element,IList {
     func setProgress(_ progress:CGFloat){
         ListModifier.scrollTo(self, progress)/*moves the labelContainer up and down*/
         let range:Range<Int> = visibleItemRange.start..<Swift.min(visibleItemRange.end,dp.count)
-        Swift.print("range: " + "\(range)")
+        //Swift.print("range: " + "\(range)")
         /**/
         if(currentVisibleItemRange != range){/*Optimization: only set if it's not the same as prev range*/
             renderItems(range)
@@ -47,11 +47,11 @@ class FastList4:Element,IList {
      * TODO: You can optimize the range stuff later when all cases work
      */
     func renderItems(_ range:Range<Int>){
-        Swift.print("new: " + "\(range)")
+        //Swift.print("new: " + "\(range)")
         var inActive:[FastListItem] = []
         /**/
         let old = currentVisibleItemRange
-        Swift.print("old: " + "\(old)")
+        //Swift.print("old: " + "\(old)")
         let new = range
         let firstOldIdx:Int = old.start
         //Swift.print("firstOldIdx: " + "\(firstOldIdx)")
@@ -67,10 +67,10 @@ class FastList4:Element,IList {
             let start = diff.0!.start - firstOldIdx
             inActive += pool.splice2(start, diff.0!.length)
         }
-        Swift.print("remove: \(inActive.count)")
+        //Swift.print("remove: \(inActive.count)")
         /*figure out which items to add to pool*/
         let diff2 = RangeParser.difference(old,new)
-        Swift.print("diff2: " + "\(diff2)")
+        //Swift.print("diff2: " + "\(diff2)")
         
        
         if(diff2.1 != nil){
@@ -108,7 +108,7 @@ class FastList4:Element,IList {
             }
         }
         
-        Swift.print("add: \((diff2.0 != nil ? diff2.0!.length : 0) + (diff2.1 != nil ? diff2.1!.length : 0))")
+        //Swift.print("add: \((diff2.0 != nil ? diff2.0!.length : 0) + (diff2.1 != nil ? diff2.1!.length : 0))")
         //Swift.print("pool.count: " + "\(pool.count)")
         //clear inActive array, if any are left, can happen after resize etc
         //Swift.print("inActive.count: " + "\(inActive.count)")
