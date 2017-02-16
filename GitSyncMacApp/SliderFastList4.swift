@@ -30,25 +30,12 @@ class SliderFastList4:FastList4,ISliderList {
      * Captures SliderEvent.change and then adjusts the List accordingly
      */
     func onSliderChange(_ sliderEvent:SliderEvent){/*Handler for the SliderEvent.change*/
-        //Swift.print("SliderFastList3.onSliderChange")
+        //Swift.print("SliderFastList4.onSliderChange")
         setProgress(sliderEvent.progress)
         //ListModifier.scrollTo(self,sliderEvent.progress)
     }
-    override func onDataProviderEvent(_ event: DataProviderEvent) {
-        super.onDataProviderEvent(event)
-        //if(event.type == DataProviderEvent.add){}
-        
-        /*Updates the slider interval and the sliderThumbSize*/
-        sliderInterval = floor(ListParser.itemsHeight(self) - height)/itemHeight
-        let thumbHeight:CGFloat = SliderParser.thumbSize(height/itemsHeight, slider!.height/*<--this should probably be .getHeight()*/);
-        slider!.setThumbHeightValue(thumbHeight)
-        let progress:CGFloat = SliderParser.progress(lableContainer!.y, height, itemsHeight)//TODO: use getHeight() instead of height
-        slider!.setProgressValue(progress)
-        
-        //TODO: Add hide slider asssert here see SliderList for implementation
-    }
     override func onEvent(_ event:Event) {
-        //Swift.print("SliderFastList3.onEvent: " + "\(event.type)")
+        //Swift.print("SliderFastList4.onEvent: " + "\(event.type)")
         if(event.assert(SliderEvent.change, slider)){onSliderChange(event.cast())}/*events from the slider*/
         else {super.onEvent(event)}
     }

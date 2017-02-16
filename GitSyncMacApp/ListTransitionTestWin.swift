@@ -94,7 +94,7 @@ class ListTransitionTestView:TitleView{
         let graph = graphContainer.addSubView(BarGraph(200,200/*,4*/,graphContainer))
         _ = graph
     }
-    var list:FastList4?
+    var list:SliderFastList4?
     /*Add*/
     var btnTop:TextButton?
     var btnBottom:TextButton?
@@ -123,7 +123,7 @@ class ListTransitionTestView:TitleView{
         dp.addItem(["title":"purple"])
         */
         
-        list = addSubView(FastList4(140, 145, 24, dp, self))/*RBSliderFastList3*/
+        list = addSubView(SliderFastList4(140, 145, 24, dp, self))/*RBSliderFastList3*/
         
         
         //continue here:
