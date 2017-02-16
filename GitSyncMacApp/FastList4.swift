@@ -71,11 +71,7 @@ class FastList4:Element,IList {
         let diff2 = RangeParser.difference(old,new)
         Swift.print("diff2: " + "\(diff2)")
         
-        //Continue here:
-            //the problem is probably that the ranges you compare arent created equal, 
-            //one has an extra item to cover the entire space, the other doesnt have this. 
-            //Unify these and you should be in good shape
-        
+       
         if(diff2.1 != nil){
             let startIdx = diff2.1!.start
             let endIdx = diff2.1!.end
@@ -159,6 +155,7 @@ extension FastList4{
     var currentVisibleItemRange:Range<Int>{
         let firstIdx:Int = pool.count > 0 ? pool.first!.idx : 0
         let lastIdx:Int = pool.count > 0 ? pool.last!.idx : 0
+        Swift.print("lastIdx: " + "\(lastIdx)")
         let currentVisibleItemRange:Range<Int> = firstIdx..<lastIdx
         return currentVisibleItemRange
     }
