@@ -125,7 +125,7 @@ class ListTransitionTestView:TitleView{
         
         list = addSubView(SliderFastList4(140, 145, 24, dp, self))/*RBSliderFastList3*/
         
-        
+        list?.setProgress(0.4)
         //continue here:
             //test FastList4
             //add SliderFastList4
