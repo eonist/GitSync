@@ -56,11 +56,12 @@ class FastList4:Element,IList {
         /*figure out which items to add to pool*/
         let diff2 = RangeParser.difference(old,new)
         Swift.print("diff2: " + "\(diff2)")
+        
         if(diff2.1 != nil){
             let startIdx = diff2.1!.start
             let endIdx = diff2.1!.end
             var items:[FastListItem] = []
-            for i in (startIdx...endIdx){
+            for i in (startIdx..<endIdx){
                 let item:Element = inActive.count > 0 ? inActive.popLast()!.item : createItem(i)
                 let fastListItem:FastListItem = (item:item,idx:i)
                 reUse(fastListItem)//applies data and position
@@ -70,11 +71,13 @@ class FastList4:Element,IList {
             idx = idx.clip(0, pool.count)
             _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
         }
+        Swift.print("pool.count: " + "\(pool.count)")
+        
         if(diff2.0 != nil){
             let startIdx = diff2.0!.start
             let endIdx = diff2.0!.end
             var items:[FastListItem] = []
-            for i in (startIdx...endIdx){
+            for i in (startIdx..<endIdx){
                 let item:Element = inActive.count > 0 ? inActive.popLast()!.item : createItem(i)
                 let fastListItem:FastListItem = (item:item,idx:i)
                 reUse(fastListItem)//applies data and position
@@ -84,7 +87,7 @@ class FastList4:Element,IList {
             idx = idx.clip(0, pool.count)
             _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
         }
-        
+        Swift.print("pool.count: " + "\(pool.count)")
         //clear inActive array, if any are left, can happen after resize etc
         Swift.print("inActive.count: " + "\(inActive.count)")
         
