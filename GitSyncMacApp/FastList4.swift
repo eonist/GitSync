@@ -146,7 +146,7 @@ class FastList4:Element,IList {
             renderItems(range)
         }
         /*render affected items if item is within visible view*/
-        if(event.startIndex > firstVisibleItem && event.startIndex < lastVisibleItem){
+        if(event.startIndex >= firstVisibleItem && event.startIndex <= lastVisibleItem){
             let startIdx = event.startIndex - firstVisibleItem
             let endIdx = lastVisibleItem - firstVisibleItem
             
