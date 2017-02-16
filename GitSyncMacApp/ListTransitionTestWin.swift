@@ -45,7 +45,7 @@ class ListTransitionTestView:TitleView{
         //list()
         
         /**
-         *
+         * difference(0..<4, 2..<7)//0..<2, 4..<7
          */
         func difference<T>(_ a:Range<T>, _ b:Range<T>) -> (Range<T>?,Range<T>?){
             let intersection = RangeParser.intersection(a,b)
