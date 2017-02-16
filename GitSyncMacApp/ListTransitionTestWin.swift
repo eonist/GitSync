@@ -40,8 +40,8 @@ class ListTransitionTestView:TitleView{
             if(RangeAsserter.within(a, b.start)){
                 start = b.start
             }
-            let end:Int?
-            if(RangeAsserter.within(a, b.end)){
+            
+            if(RangeAsserter.within(b, a.start)){
                 end = b.start
             }
         }
