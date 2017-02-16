@@ -28,10 +28,16 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
+        
+        let a:Range<Int> = 0..<4
+        let b:Range<Int> = 2..<7
+        
+        let abDiff = RangeParser.difference(b)
+        Swift.print("abDiff: " + "\(abDiff)")
         //animTest()
         //uiSwitchTest()
         //barGraphTest()
-        rbSliderFastList3()
+        //rbSliderFastList3()
         //sliderFastList3()
         //fastList3()
         //dpTests()
