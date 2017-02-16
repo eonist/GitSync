@@ -29,17 +29,11 @@ class ListTransitionTestView:TitleView{
     }
     func createGUI(){
         
-        let a:Range<Int> = 0..<4
-        let b:Range<Int> = 2..<7
         
-        
-        
-        let intersects = RangeParser.intersection(a,b)
-        Swift.print("intersects: " + "\(intersects)")
         //animTest()
         //uiSwitchTest()
         //barGraphTest()
-        //rbSliderFastList3()
+        rbSliderFastList3()
         //sliderFastList3()
         //fastList3()
         //dpTests()
