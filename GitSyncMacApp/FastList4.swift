@@ -46,17 +46,17 @@ class FastList4:Element,IList {
      * TODO: You can optimize the range stuff later when all cases work
      */
     func renderItems(_ range:Range<Int>){
-        Swift.print("new: " + "\(range)")
+        //Swift.print("new: " + "\(range)")
         var inActive:[FastListItem] = []
         /**/
         let old = currentVisibleItemRange
-        Swift.print("old: " + "\(old)")
+        //Swift.print("old: " + "\(old)")
         let new = range
         let firstOldIdx:Int = old.start
-        Swift.print("firstOldIdx: " + "\(firstOldIdx)")
+        //Swift.print("firstOldIdx: " + "\(firstOldIdx)")
         /*figure out which items to remove from pool*/
         let diff = RangeParser.difference(new, old)//may return 1 or 2 ranges
-        Swift.print("diff: " + "\(diff)")
+        //Swift.print("diff: " + "\(diff)")
         
         if(diff.1 != nil){
             let start = diff.1!.start - firstOldIdx
@@ -68,7 +68,7 @@ class FastList4:Element,IList {
         }
         /*figure out which items to add to pool*/
         let diff2 = RangeParser.difference(old,new)
-        Swift.print("diff2: " + "\(diff2)")
+        //Swift.print("diff2: " + "\(diff2)")
         
         if(diff2.1 != nil){
             let startIdx = diff2.1!.start
@@ -86,7 +86,7 @@ class FastList4:Element,IList {
                 _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
             }
         }
-        Swift.print("pool.count: " + "\(pool.count)")
+        //Swift.print("pool.count: " + "\(pool.count)")
         
         if(diff2.0 != nil){
             let startIdx = diff2.0!.start
@@ -104,9 +104,9 @@ class FastList4:Element,IList {
                 _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
             }
         }
-        Swift.print("pool.count: " + "\(pool.count)")
+        //Swift.print("pool.count: " + "\(pool.count)")
         //clear inActive array, if any are left, can happen after resize etc
-        Swift.print("inActive.count: " + "\(inActive.count)")
+        //Swift.print("inActive.count: " + "\(inActive.count)")
         
         inActive.forEach{$0.item.removeFromSuperview()}
         inActive.removeAll()
