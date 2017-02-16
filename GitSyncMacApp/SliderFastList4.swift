@@ -21,13 +21,11 @@ class SliderFastList4:FastList4,ISliderList {
         scroll(event)/*forwards the event to the extension method*/
         super.scrollWheel(with:event)/*forwards the event other delegates higher up in the stack*/
     }
-    
     override func setProgress(_ value:CGFloat){
         let progressValue = self.itemsHeight < height ? 0 : value
         //Swift.print("progressValue: " + "\(progressValue)")
         super.setProgress(progressValue)
     }
-    
     /**
      * Captures SliderEvent.change and then adjusts the List accordingly
      */

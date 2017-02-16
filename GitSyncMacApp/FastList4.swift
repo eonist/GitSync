@@ -36,22 +36,10 @@ class FastList4:Element,IList {
      */
     func setProgress(_ progress:CGFloat){
         ListModifier.scrollTo(self, progress)/*moves the labelContainer up and down*/
-        let curVisibleRange = Utils.curVisibleItems(self, maxVisibleItems!+1)
-        /*GreenRect*/
-        let top:CGFloat = curVisibleRange.top
-        let greenFrame:CGRect = CGRect(0,top,width,maxVisibleItems!*itemHeight)
-        greenRect!.setPosition(greenFrame.origin)
-        greenRect!.setSizeValue(greenFrame.size)
-        greenRect!.draw()
-        /*PurpleRect*/
-        let purpleFrame:CGRect = CGRect(0,top-itemHeight,width,(maxVisibleItems!*itemHeight)+(itemHeight*2))
-        purpleRect!.setPosition(purpleFrame.origin)
-        purpleRect!.setSizeValue(purpleFrame.size)
-        purpleRect!.draw()
+        let range:Range<Int> = visibleItemRange.start..<Swift.min(visibleItemRange.end,dp.count)
         /**/
-        if(curVisibleRange.range != prevVisibleRange){/*Optimization: only set if it's not the same as prev range*/
-            reUse(curVisibleRange.range)/*spoof items in the new range*/
-            prevVisibleRange = curVisibleRange.range
+        if(currentVisibleItemRange != range){/*Optimization: only set if it's not the same as prev range*/
+            renderItems(range)
         }
     }
     /**
