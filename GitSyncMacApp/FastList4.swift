@@ -46,11 +46,11 @@ class FastList4:Element,IList {
      * TODO: You can optimize the range stuff later when all cases work
      */
     func renderItems(_ range:Range<Int>){
-        //Swift.print("new: " + "\(range)")
+        Swift.print("new: " + "\(range)")
         var inActive:[FastListItem] = []
         /**/
         let old = currentVisibleItemRange
-        //Swift.print("old: " + "\(old)")
+        Swift.print("old: " + "\(old)")
         let new = range
         let firstOldIdx:Int = old.start
         //Swift.print("firstOldIdx: " + "\(firstOldIdx)")
