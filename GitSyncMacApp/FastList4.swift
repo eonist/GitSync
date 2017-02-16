@@ -50,6 +50,7 @@ class FastList4:Element,IList {
         
         //figure out which items to add to pool
         
+        let diff2 = RangeParser.difference(old,new)
         
     }
     /**
