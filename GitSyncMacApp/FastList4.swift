@@ -149,7 +149,7 @@ class FastList4:Element,IList {
         let startIdx = event.startIndex - firstVisibleItem
         let endIdx = lastVisibleItem - firstVisibleItem
         
-        for i in startIdx...endIdx{
+        for i in startIdx..<endIdx{
             let fastListItem = pool[i]
             reUse(fastListItem)
         }
