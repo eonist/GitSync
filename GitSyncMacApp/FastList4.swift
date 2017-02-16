@@ -78,6 +78,10 @@ class FastList4:Element,IList {
             idx = idx.clip(0, pool.count)
             _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
         }
+        
+        //clear inActive array, if any are left, can happen after resize etc
+        inActive.forEach{$0.item.removeFromSuperview()}
+        inActive.removeAll()
     }
     /**
      *
