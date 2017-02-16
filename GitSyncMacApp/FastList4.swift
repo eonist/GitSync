@@ -7,8 +7,7 @@ class FastList4:Element,IList {
     var dataProvider:DataProvider/*data storage*/
     var lableContainer:Container?/*holds the list items*/
     var pool:[FastListItem] = []
-    var active:[FastListItem] = []
-    var inActive:[FastListItem] = []
+    
     init(_ width:CGFloat, _ height:CGFloat, _ itemHeight:CGFloat = NaN,_ dataProvider:DataProvider? = nil, _ parent:IElement?, _ id:String? = nil){
         self.itemHeight = itemHeight
         self.dataProvider = dataProvider ?? DataProvider()/*<--if it's nil then a DB is created*/
@@ -32,13 +31,17 @@ class FastList4:Element,IList {
      *
      */
     func renderItems(_ range:Range<Int>){
+        var active:[FastListItem] = []
+        var inActive:[FastListItem] = []
+        /**/
         let old = currentVisibleItemRange
         let new = visibleItemRange
         let intersection = RangeParser.intersection(old, new)
         if(intersection != nil){
             let firstOldIdx:Int = pool.first!.idx
             let startIdx:Int = intersection!.start - firstOldIdx
-            let intersectingItems = pool.splice2(startIdx, intersection!.length)
+            active = pool.splice2(startIdx, intersection!.length)
+            inActive
         }
         
         //Continue here: 
