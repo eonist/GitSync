@@ -27,7 +27,7 @@ class FastList4:Element,IList {
         let visibleItemRangeWithinView:Range<Int> = visibleItemRange
         _ = visibleItemRangeWithinView
         
-        let range = visibleItemRange
+        let range:Range<Int> = visibleItemRange.start..<Swift.min(visibleItemRange.end,dp.count)
         Swift.print("range: " + "\(range)")
         renderItems(range)
     }
@@ -35,7 +35,6 @@ class FastList4:Element,IList {
      *
      */
     func renderItems(_ range:Range<Int>){
-        
         var inActive:[FastListItem] = []
         /**/
         let old = currentVisibleItemRange
