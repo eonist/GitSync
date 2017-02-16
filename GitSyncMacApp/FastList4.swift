@@ -42,7 +42,7 @@ class FastList4:Element,IList {
         }
         
         //Continue here: 
-            //diff the curVisRange with the range
+            //
         
     }
     /**
