@@ -32,7 +32,7 @@ class ListTransitionTestView:TitleView{
         //animTest()
         //uiSwitchTest()
         //barGraphTest()
-        //rbSliderFastList3()
+        rbSliderFastList3()
         //sliderFastList3()
         //fastList3()
         //dpTests()
@@ -43,14 +43,7 @@ class ListTransitionTestView:TitleView{
         //fastList()
         //sliderList()
         //list()
-        
-        
-        
-        let diff = RangeParser.difference(0..<4, 2..<7)//nil,4..<7
-        Swift.print("diff.0: " + "\(diff.0)")
-        Swift.print("diff.1: " + "\(diff.1)")
-        
-        
+                
     }
     
     var animator:Animator?
