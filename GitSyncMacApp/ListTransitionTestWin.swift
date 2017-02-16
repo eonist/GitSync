@@ -125,11 +125,8 @@ class ListTransitionTestView:TitleView{
         
         list = addSubView(SliderFastList4(140, 145, 24, dp, self))/*RBSliderFastList3*/
         
-        list?.setProgress(0.4)
-        //continue here:
-            //test FastList4
-            //add SliderFastList4
-            //test SliderFastList4
+        //list!.setProgress(0.5)
+       
         
         
         var css = "Container#btn{float:left;clear:none;}"
