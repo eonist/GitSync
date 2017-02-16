@@ -28,7 +28,7 @@ class FastList4:Element,IList {
         _ = visibleItemRangeWithinView
         
         let range:Range<Int> = visibleItemRange.start..<Swift.min(visibleItemRange.end,dp.count)
-        Swift.print("range: " + "\(range)")
+        //Swift.print("range: " + "\(range)")
         renderItems(range)
     }
     /**
@@ -69,7 +69,7 @@ class FastList4:Element,IList {
         Swift.print("remove: \(inActive.count)")
         /*figure out which items to add to pool*/
         let diff2 = RangeParser.difference(old,new)
-        //Swift.print("diff2: " + "\(diff2)")
+        Swift.print("diff2: " + "\(diff2)")
         
         if(diff2.1 != nil){
             let startIdx = diff2.1!.start
@@ -118,7 +118,7 @@ class FastList4:Element,IList {
      *
      */
     func reUse(_ listItem:FastListItem){/*override this to use custom ItemList items*/
-        Swift.print("reUse: " + "\(listItem.idx)")
+        //Swift.print("reUse: " + "\(listItem.idx)")
         let item:SelectTextButton = listItem.item as! SelectTextButton
         let idx:Int = listItem.idx/*the index of the data in dataProvider*/
         let dpItem = dataProvider.items[idx]
