@@ -45,6 +45,7 @@ class FastList4:Element,IList {
         Swift.print("firstOldIdx: " + "\(firstOldIdx)")
         /*figure out which items to remove from pool*/
         let diff = RangeParser.difference(new, old)//may return 1 or 2 ranges
+        Swift.print("diff: " + "\(diff)")
         if(diff.1 != nil){
             let start = diff.1!.start - firstOldIdx
             inActive += pool.splice2(start, diff.1!.length)
@@ -55,6 +56,7 @@ class FastList4:Element,IList {
         }
         /*figure out which items to add to pool*/
         let diff2 = RangeParser.difference(old,new)
+        Swift.print("diff2: " + "\(diff2)")
         if(diff2.1 != nil){
             let startIdx = diff2.1!.start
             let endIdx = diff2.1!.end
@@ -69,7 +71,6 @@ class FastList4:Element,IList {
             idx = idx.clip(0, pool.count)
             _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
         }
-        
         if(diff2.0 != nil){
             let startIdx = diff2.0!.start
             let endIdx = diff2.0!.end
@@ -86,6 +87,8 @@ class FastList4:Element,IList {
         }
         
         //clear inActive array, if any are left, can happen after resize etc
+        Swift.print("inActive.count: " + "\(inActive.count)")
+        
         inActive.forEach{$0.item.removeFromSuperview()}
         inActive.removeAll()
     }
