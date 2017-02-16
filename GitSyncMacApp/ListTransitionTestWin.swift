@@ -120,6 +120,9 @@ class ListTransitionTestView:TitleView{
         dp.addItem(["title":"purple"])
         */
         
+        //Continue here:
+            //All seem to work, but how is reusing 
+        
         list = addSubView(SliderFastList4(140, 145, 24, dp, self))/*RBSliderFastList3*/
         
         var css = "Container#btn{float:left;clear:none;}"
