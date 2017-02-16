@@ -39,7 +39,7 @@ class FastList4:Element,IList {
         let diff = RangeParser.difference(new, old)//may return 1 or 2 ranges
         
         if(diff.0 != nil){
-            
+            inActive += 
         }
         if(diff.1 != nil){
             
