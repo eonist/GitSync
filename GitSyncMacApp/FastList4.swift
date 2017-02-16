@@ -52,10 +52,23 @@ class FastList4:Element,IList {
         if(diff2.1 != nil){
             let startIdx = diff2.1!.start
             let endIdx = diff2.1!.end
-            for i in (0..<4).reversed(){
-                
+            for i in (startIdx..<endIdx).reversed(){
+                let item:FastListItem =
+                pool.insertAt(<#T##item: Element##Element#>, <#T##index: Int##Int#>)
             }
         }
+    }
+    /**
+     * 
+     */
+    func reUse(_ listItem:FastListItem){/*override this to use custom ItemList items*/
+        Swift.print("reUse: " + "\(listItem.idx)")
+        let item:SelectTextButton = listItem.item as! SelectTextButton
+        let idx:Int = listItem.idx/*the index of the data in dataProvider*/
+        let dpItem = dataProvider.items[idx]
+        let title:String = dpItem["title"]!
+        item.setTextValue(idx.string + " " + title)
+        item.y = listItem.idx * itemHeight/*position the item*/
     }
     /**
      *
