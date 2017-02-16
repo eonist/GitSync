@@ -140,8 +140,11 @@ class FastList4:Element,IList {
      * TODO: you need to update the float of the lables after an update
      */
     func onDataProviderEvent(_ event:DataProviderEvent){
-         alignLableContainer(event)
-        
+        alignLableContainer(event)
+        let range:Range<Int> = visibleItemRange.start..<Swift.min(visibleItemRange.end,dp.count)
+        if(currentVisibleItemRange != range){/*Optimization: only set if it's not the same as prev range*/
+            renderItems(range)
+        }
     }
     override func onEvent(_ event:Event) {
         if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
