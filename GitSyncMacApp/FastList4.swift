@@ -48,10 +48,8 @@ class FastList4:Element,IList {
             inActive += pool.splice2(start, diff.0!.length)
         }
         
+        //figure out which items to add to pool
         
-        
-        //Continue here: 
-            //find items to remove and add
         
     }
     /**
