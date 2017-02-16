@@ -154,8 +154,8 @@ extension FastList4{
      */
     var currentVisibleItemRange:Range<Int>{
         let firstIdx:Int = pool.count > 0 ? pool.first!.idx : 0
-        let lastIdx:Int = pool.count > 0 ? pool.last!.idx : 0
-        Swift.print("lastIdx: " + "\(lastIdx)")
+        let lastIdx:Int = pool.count > 0 ? pool.first!.idx + pool.count : 0
+        //Swift.print("lastIdx: " + "\(lastIdx)")
         let currentVisibleItemRange:Range<Int> = firstIdx..<lastIdx
         return currentVisibleItemRange
     }
