@@ -35,13 +35,11 @@ class FastList4:Element,IList {
         let old = currentVisibleItemRange
         let new = visibleItemRange
         let intersection = RangeParser.intersection(old, new)
-        
-        let intersectingItems:[FastListItem] = []
-        let firstOldIdx:Int = pool.first!.idx
-        for i in intersection!.start...intersection!.end{
-            ArrayModifier.removeRange(&<#T##array: Array<T>##Array<T>#>, <#T##rangeStart: Int##Int#>, <#T##rangeEnd: Int##Int#>)
+        if(intersection != nil){
+            let firstOldIdx:Int = pool.first!.idx
+            let startIdx:Int = intersection!.start - firstOldIdx
+            let intersectingItems = pool.splice2(startIdx, intersection!.length)
         }
-        
         
         //Continue here: 
             //diff the curVisRange with the range
