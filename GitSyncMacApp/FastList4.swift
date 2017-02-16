@@ -56,6 +56,7 @@ class FastList4:Element,IList {
         /*figure out which items to remove from pool*/
         let diff = RangeParser.difference(new, old)//may return 1 or 2 ranges
         Swift.print("diff: " + "\(diff)")
+        
         if(diff.1 != nil){
             let start = diff.1!.start - firstOldIdx
             inActive += pool.splice2(start, diff.1!.length)
