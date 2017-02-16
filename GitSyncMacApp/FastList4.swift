@@ -31,17 +31,17 @@ class FastList4:Element,IList {
      *
      */
     func renderItems(_ range:Range<Int>){
-        var active:[FastListItem] = []
+        
         var inActive:[FastListItem] = []
         /**/
         let old = currentVisibleItemRange
         let new = visibleItemRange
-        let intersection = RangeParser.intersection(old, new)
-        if(intersection != nil){
+        let diff = RangeParser.difference(old, new)//may return 1 or 2 ranges
+        if(diff != nil){
             let firstOldIdx:Int = pool.first!.idx
             let startIdx:Int = intersection!.start - firstOldIdx
-            active = pool.splice2(startIdx, intersection!.length)//temp store intersecting items
-            inActive = pool.splice2(0,pool.count)//remove the rest from pool
+            
+            inActive = pool.splice2(0,pool.count)
             //find new to add
             let itemsToAdd = RangeParser.intersection(intersection!, new)
             
