@@ -33,7 +33,7 @@ class ListTransitionTestView:TitleView{
         let b:Range<Int> = 2..<7
         
         /**
-         *
+         * NOTE: edges are considered intersecting, use absolulteIntersection
          */
         func intersection(_ a:Range<Int>, _ b:Range<Int>) -> Range<Int>?{
             var start:Int?
