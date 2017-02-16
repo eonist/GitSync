@@ -33,9 +33,10 @@ class ListTransitionTestView:TitleView{
         let b:Range<Int> = 2..<7
         
         /**
-         * NOTE: edges are considered intersecting, use absolulteIntersection
+         * Returns the intersection between PARAM: a and PARAM: b
+         * NOTE: edges are considered intersecting, use absolulteIntersection if you need non-edge cases
          */
-        func intersection(_ a:Range<Int>, _ b:Range<Int>) -> Range<Int>?{
+        func intersection<T>(_ a:Range<T>, _ b:Range<T>) -> Range<T>?{
             var start:Int?
             if(RangeAsserter.within(a, b.start)){start = b.start}
             else if(RangeAsserter.within(b, a.start)){start = a.start}
