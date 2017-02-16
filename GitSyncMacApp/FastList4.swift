@@ -100,6 +100,7 @@ class FastList4:Element,IList {
      */
     func createItem(_ index:Int) -> Element{
         let item:SelectTextButton = SelectTextButton(getWidth(), itemHeight ,"", false, lableContainer)
+        lableContainer!.addSubview(item)
         return item
     }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
