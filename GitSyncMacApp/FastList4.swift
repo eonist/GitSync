@@ -36,8 +36,16 @@ class FastList4:Element,IList {
         /**/
         let old = currentVisibleItemRange
         let new = visibleItemRange
-        let diff = RangeParser.difference(old, new)//may return 1 or 2 ranges
-        if(diff != nil){
+        let diff = RangeParser.difference(new, old)//may return 1 or 2 ranges
+        
+        if(diff.0 != nil){
+            
+        }
+        if(diff.1 != nil){
+            
+        }
+        
+        /*if(diff != nil){
             let firstOldIdx:Int = pool.first!.idx
             let startIdx:Int = intersection!.start - firstOldIdx
             
@@ -45,7 +53,7 @@ class FastList4:Element,IList {
             //find new to add
             let itemsToAdd = RangeParser.intersection(intersection!, new)
             
-        }
+        }*/
         
         //Continue here: 
             //find items to remove and add
