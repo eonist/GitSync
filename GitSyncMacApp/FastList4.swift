@@ -38,22 +38,17 @@ class FastList4:Element,IList {
         let new = visibleItemRange
         let diff = RangeParser.difference(new, old)//may return 1 or 2 ranges
         
-        if(diff.0 != nil){
-            inActive += 
-        }
+        let firstOldIdx:Int = pool.first!.idx
         if(diff.1 != nil){
-            
+            let start = diff.1!.start - firstOldIdx
+            inActive += pool.splice2(start, diff.1!.length)
+        }
+        if(diff.0 != nil){
+            let start = diff.0!.start - firstOldIdx
+            inActive += pool.splice2(start, diff.0!.length)
         }
         
-        /*if(diff != nil){
-            let firstOldIdx:Int = pool.first!.idx
-            let startIdx:Int = intersection!.start - firstOldIdx
-            
-            inActive = pool.splice2(0,pool.count)
-            //find new to add
-            let itemsToAdd = RangeParser.intersection(intersection!, new)
-            
-        }*/
+        
         
         //Continue here: 
             //find items to remove and add
