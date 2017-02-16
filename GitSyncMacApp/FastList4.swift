@@ -49,8 +49,12 @@ class FastList4:Element,IList {
         }
         /*figure out which items to add to pool*/
         let diff2 = RangeParser.difference(old,new)
-        if(diff2.0 != nil){
-            
+        if(diff2.1 != nil){
+            let startIdx = diff2.1!.start
+            let endIdx = diff2.1!.end
+            for (i in 0..<4).reversed{
+                
+            }
         }
     }
     /**
