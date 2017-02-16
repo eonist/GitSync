@@ -122,7 +122,8 @@ class ListTransitionTestView:TitleView{
         
         //Continue here:
             //All seem to work, but how is rendering newly added or removed items suppose to work?
-                //you could 
+                //you could mark a range dirty, and loop over a range with reUse
+                //Or draw and figure out an elegant solution, itt needs to also support remove, although i think remove already works
         
         list = addSubView(SliderFastList4(140, 145, 24, dp, self))/*RBSliderFastList3*/
         
