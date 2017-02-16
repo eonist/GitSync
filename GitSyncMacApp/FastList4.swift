@@ -52,7 +52,7 @@ class FastList4:Element,IList {
         if(diff2.1 != nil){
             let startIdx = diff2.1!.start
             let endIdx = diff2.1!.end
-            for (i in 0..<4).reversed{
+            for i in (0..<4).reversed(){
                 
             }
         }
