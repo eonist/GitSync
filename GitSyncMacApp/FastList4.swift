@@ -54,9 +54,11 @@ class FastList4:Element,IList {
             let endIdx = diff2.1!.end
             for i in (startIdx..<endIdx).reversed(){
                 let item:Element = inActive.count > 0 ? inActive.popLast()!.item : createItem(i)
-                /*let idx:Int = i - firstOldIdx*/
-                let fastListItem:FastListItem = (item,i)
-                pool.insertAt(<#T##item: Element##Element#>, <#T##index: Int##Int#>)
+                /**/
+                let fastListItem:FastListItem = (item:item,idx:i)
+                reUse(fastListItem)//applies data and position
+                let idx:Int = i - firstOldIdx//index in pool
+                pool.insertAt(fastListItem.item, <#T##index: Int##Int#>)
             }
         }
     }
