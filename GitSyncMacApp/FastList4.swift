@@ -39,7 +39,7 @@ class FastList4:Element,IList {
         let intersectingItems:[FastListItem] = []
         let firstOldIdx:Int = pool.first!.idx
         for i in intersection!.start...intersection!.end{
-            
+            ArrayModifier.removeRange(&<#T##array: Array<T>##Array<T>#>, <#T##rangeStart: Int##Int#>, <#T##rangeEnd: Int##Int#>)
         }
         
         
