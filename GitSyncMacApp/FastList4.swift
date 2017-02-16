@@ -17,15 +17,15 @@ class FastList4:Element,IList {
     }
     override func resolveSkin() {
         super.resolveSkin()
-        //Continue here: 
-            //calc visibleItems based on lableContainer.y and height
-        let numOfItemsThatCanFitHeight:Int = numOfItemsThatCanFit
-        _ = numOfItemsThatCanFitHeight
+    
+        lableContainer = addSubView(Container(width,height,self,"lable"))
         
+        /*let numOfItemsThatCanFitHeight:Int = numOfItemsThatCanFit
+         _ = numOfItemsThatCanFitHeight*/
+        
+        /*calc visibleItems based on lableContainer.y and height*/
         let visibleItemRangeWithinView:Range<Int> = visibleItemRange
         _ = visibleItemRangeWithinView
-        
-        lableContainer = addSubView(Container(width,height,self,"lable"))
         
         let range = visibleItemRange
         Swift.print("range: " + "\(range)")
