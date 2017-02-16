@@ -127,7 +127,8 @@ class ListTransitionTestView:TitleView{
                 //When you add an item within top and bottom you should reUse at index of new item until bottom visible item 
                 //the same with remove.
                 //Although the prefered methodology would be:
-                    //
+                    //insert a new item, and move the other items
+                    //remove an item and move the other items
         
         list = addSubView(SliderFastList4(140, 145, 24, dp, self))/*RBSliderFastList3*/
         
