@@ -112,10 +112,7 @@ class ListTransitionTestView:TitleView{
     var poolCountText:TextInput?
     var poolIndeciesText:TextInput?
     
-    //Continue here:
-        //Debug the reUse method with a textField that displays the pool indecies on each scroll/dp.event -> [2,3,4,5,6] etc
-    
-    func rbSliderFastList3(){////
+    func rbSliderFastList3(){
         let dp:DataProvider = DataProvider("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath)//longlist.xml,list.xml//DataProvider()//
         /*
         dp.addItem(["title":"pink"])
@@ -124,7 +121,6 @@ class ListTransitionTestView:TitleView{
         */
         
         list = addSubView(SliderFastList4(140, 145, 24, dp, self))/*RBSliderFastList3*/
-        
         
         var css = "Container#btn{float:left;clear:none;}"
         css += "Container#btn TextButton{margin:6px;width:120px;}"
