@@ -40,7 +40,7 @@ class FastList4:Element,IList {
         let old = currentVisibleItemRange
         Swift.print("old: " + "\(old)")
         let new = range
-        let firstOldIdx:Int = pool.first!.idx
+        let firstOldIdx:Int = old.start
         Swift.print("firstOldIdx: " + "\(firstOldIdx)")
         /*figure out which items to remove from pool*/
         let diff = RangeParser.difference(new, old)//may return 1 or 2 ranges
