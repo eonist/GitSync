@@ -136,6 +136,23 @@ class FastList4:Element,IList {
         lableContainer!.addSubview(item)
         return item
     }
+    /**
+     * TODO: you need to update the float of the lables after an update
+     */
+    func onDataProviderEvent(_ event:DataProviderEvent){
+        if(event.type == DataProviderEvent.add){/*This is called when a new item is added to the DataProvider instance*/
+            let endIdx:Int = event.startIndex + event.items.count
+            //updateRange(event.startIndex..<endIdx)
+        }else if(event.type == DataProviderEvent.remove){
+            let endIdx:Int = event.startIndex + event.items.count
+            //updateRange(event.startIndex..<endIdx)
+            
+        }
+    }
+    override func onEvent(_ event:Event) {
+        if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
+        super.onEvent(event)// we stop propegation by not forwarding events to super. The ListEvents go directly to super so they wont be stopped.
+    }
     override func getClassType() -> String {return "\(List.self)"}
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
