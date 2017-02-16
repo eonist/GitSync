@@ -36,9 +36,9 @@ class FastList4:Element,IList {
         /**/
         let old = currentVisibleItemRange
         let new = visibleItemRange
-        let diff = RangeParser.difference(new, old)//may return 1 or 2 ranges
-        
         let firstOldIdx:Int = pool.first!.idx
+        /*figure out which items to remove from pool*/
+        let diff = RangeParser.difference(new, old)//may return 1 or 2 ranges
         if(diff.1 != nil){
             let start = diff.1!.start - firstOldIdx
             inActive += pool.splice2(start, diff.1!.length)
@@ -47,11 +47,11 @@ class FastList4:Element,IList {
             let start = diff.0!.start - firstOldIdx
             inActive += pool.splice2(start, diff.0!.length)
         }
-        
-        //figure out which items to add to pool
-        
+        /*figure out which items to add to pool*/
         let diff2 = RangeParser.difference(old,new)
-        
+        if(diff2.0 != nil){
+            
+        }
     }
     /**
      *
