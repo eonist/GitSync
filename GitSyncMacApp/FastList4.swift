@@ -30,6 +30,10 @@ class FastList4:Element,IList {
      *
      */
     func renderItems(_ range:Range<Int>){
+        let old = currentVisibleItemRange
+        let new = visibleItemRange
+        let intersection = RangeParser.intersection(old, new)
+        
         //Continue here: 
             //diff the curVisRange with the range
         
