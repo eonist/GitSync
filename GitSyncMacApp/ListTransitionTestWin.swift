@@ -35,20 +35,20 @@ class ListTransitionTestView:TitleView{
         /**
          *
          */
-        func intersection(_ a:Range<Int>, _ b:Range<Int>) -> Range<Int>{
-            let start:Int?
+        func intersection(_ a:Range<Int>, _ b:Range<Int>) -> Range<Int>?{
+            var start:Int?
             if(RangeAsserter.within(a, b.start)){start = b.start}
             else if(RangeAsserter.within(b, a.start)){start = a.start}
             
-            let end:Int?
+            var end:Int?
             if(RangeAsserter.within(a, b.end)){end = b.end}
-            else if(RangeAsserter.within(b, a.end)){start = a.end}
+            else if(RangeAsserter.within(b, a.end)){end = a.end}
             
-            start != nil && end != nil
+            return start != nil && end != nil ? start!..<end! : nil
         }
         
-        let abDiff = RangeParser.difference(b)
-        Swift.print("abDiff: " + "\(abDiff)")
+        let intersects = intersection(a,b)
+        Swift.print("intersects: " + "\(intersects)")
         //animTest()
         //uiSwitchTest()
         //barGraphTest()
