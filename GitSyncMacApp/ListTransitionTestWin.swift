@@ -32,6 +32,15 @@ class ListTransitionTestView:TitleView{
         let a:Range<Int> = 0..<4
         let b:Range<Int> = 2..<7
         
+        /**
+         *
+         */
+        func intersection(_ a:Range<Int>, _ b:Range<Int>) -> Range<Int>{
+            if(a.start >= b.start && ){
+                
+            }
+        }
+        
         let abDiff = RangeParser.difference(b)
         Swift.print("abDiff: " + "\(abDiff)")
         //animTest()
