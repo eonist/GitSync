@@ -110,7 +110,7 @@ class FastList4:Element,IList {
         inActive.removeAll()
     }
     /**
-     *
+     * Apply new data / align items
      */
     func reUse(_ listItem:FastListItem){/*override this to use custom ItemList items*/
         //Swift.print("reUse: " + "\(listItem.idx)")
@@ -130,7 +130,7 @@ class FastList4:Element,IList {
         return item
     }
     /**
-     *
+     * DP has changed
      */
     func onDataProviderEvent(_ event:DataProviderEvent){
         alignLableContainer(event)
