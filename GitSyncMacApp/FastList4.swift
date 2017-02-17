@@ -36,6 +36,7 @@ class FastList4:Element,IList {
         }
     }
     /**
+     * Creates, applies data and aligns items defined in PARAM: range
      * TODO: You can optimize the range stuff later when all cases work (it would be possible to creat a custom diff method that is simpler and faster than using generic intersection,diff and exclude)
      */
     func renderItems(_ range:Range<Int>){
