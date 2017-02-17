@@ -7,6 +7,7 @@ import Foundation
  * TODO: test if resize works, by spawning new items etc
  */
 class FastList4:Element,IList {
+    var selectedIdx:Int?/*This cooresponds to the "absolute" index in dp*/
     var itemHeight:CGFloat/*The list item height, each item must have the same height*/
     var dataProvider:DataProvider/*data storage*/
     var lableContainer:Container?/*holds the list items*/
