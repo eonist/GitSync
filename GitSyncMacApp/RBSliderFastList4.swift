@@ -13,7 +13,7 @@ class RBSliderFastList4:FastList4,IRBSliderList{
     /*Slider*/
     var slider:VSlider?
     var sliderInterval:CGFloat?
-    var rbContainer:Container?
+    var rbContainer:Container?/*needed for the overshot animation*/
     override func resolveSkin() {
         super.resolveSkin()
         rbContainer = addSubView(Container(width,height,self,"rb"))
@@ -66,6 +66,12 @@ class RBSliderFastList4:FastList4,IRBSliderList{
      */
     override func onDataProviderEvent(_ event:DataProviderEvent) {
         super.onDataProviderEvent(event)
+        /*Update RubberBand*/
+        let frame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be renamed to maskRect
+        let itemsRect = CGRect(0,0,width,max(itemsHeight,height))/*represents the total size of the content *///TODO: could be ranmed to contentRect
+        mover!.frame = frame
+        mover!.itemsRect = itemsRect
+        /*Update the slider*/
         updateSlider()
     }
     override func onEvent(_ event:Event) {
