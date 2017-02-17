@@ -48,7 +48,7 @@ class RBSliderFastList4:FastList4,IRBSliderList{
         if(progressValue! < 0){
             rbContainer!.y = (height/2) * -progressValue!
         }else if(progressValue! > 1){
-            rbContainer!.y = (height/2) * -(progressValue!-1)//(from 0 to -1)
+            rbContainer!.y = (height/2) * -(progressValue!-1)
         }else{
             rbContainer!.y = 0/*default position*/
         }
