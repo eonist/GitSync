@@ -20,8 +20,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
         //_ = Test()
-        //initApp()
-        initTestWin()
+        initApp()
+        //initTestWin()
         //_ = PopulateCommitDB()
         
         print("test")
@@ -47,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         fileWatcher!.start()
     }
     func initApp(){
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
         
         win = MainWin(MainView.w,MainView.h)
         //win = ConflictDialogWin(380,400)
