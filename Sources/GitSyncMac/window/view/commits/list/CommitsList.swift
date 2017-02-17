@@ -11,8 +11,8 @@ class CommitsList:RBSliderFastList4{
     var hasReleasedBeyondTop:Bool = false
     
     //Continue here:
-        //fix overshot 👈
-        //fix the bug where items blink when you scroll
+        //fix the bug where items blink when you scroll👈 
+            //I think its because you remove items rather than try to hide
         //The commit dp seems all wrong. Many commits are missing etc. use the tests classes and fix i
         //try to correct the time-bug when loading commit-items
     
