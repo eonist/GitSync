@@ -43,10 +43,10 @@ class RBSliderFastList4:FastList4,IRBSliderList{
         let progress = progressValue!.clip(0, 1)
         super.setProgress(progress)/*moves the lableContainer up and down*/
         slider!.setProgressValue(progressValue!)
-        //find the values that is outside 0 and 1
+        /*finds the values that is outside 0 and 1*/
         Swift.print("progressValue!: " + "\(progressValue!)")
         if(progressValue! < 0){
-            rbContainer!.y = (height/2) * -progressValue!
+            rbContainer!.y = (height/2) * -progressValue!/*the half height is to limit the rubber effect, should probably be done else where*/
         }else if(progressValue! > 1){
             rbContainer!.y = (height/2) * -(progressValue!-1)
         }else{
