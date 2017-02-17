@@ -94,7 +94,7 @@ class ListTransitionTestView:TitleView{
         let graph = graphContainer.addSubView(BarGraph(200,200/*,4*/,graphContainer))
         _ = graph
     }
-    var list:SliderFastList4?
+    var list:RBSliderFastList4?
     /*Add*/
     var btnTop:TextButton?
     var btnBottom:TextButton?
@@ -121,7 +121,7 @@ class ListTransitionTestView:TitleView{
         */
         
         
-        list = addSubView(SliderFastList4(140, 145, 24, dp, self))/*RBSliderFastList3*/
+        list = addSubView(RBSliderFastList4(140, 145, 24, dp, self))/*RBSliderFastList3*/
         
         var css = "Container#btn{float:left;clear:none;}"
         css += "Container#btn TextButton{margin:6px;width:120px;}"

@@ -44,7 +44,12 @@ class RBSliderFastList4:FastList4,IRBSliderList{
         super.setProgress(progress)/*moves the lableContainer up and down*/
         slider!.setProgressValue(progressValue!)
         //find the values that is outside 0 and 1
-        
+        Swift.print("progressValue!: " + "\(progressValue!)")
+        if(progressValue! < 0){
+            
+        }else if(progressValue! > 1){
+            
+        }
     }
     /**
      * NOTE: this method overides the Native NSView scrollWheel method
