@@ -51,13 +51,12 @@ class FastList4:Element,IList {
         var inActive:[FastListItem] = []
         let old = currentVisibleItemRange
         //Swift.print("old: " + "\(old)")
-        let new = range
         let firstOldIdx:Int = old.start
         //Swift.print("firstOldIdx: " + "\(firstOldIdx)")
         /**
          * Figure out which items to remove from pool
          */
-        let diff = RangeParser.difference(new, old)//may return 1 or 2 ranges
+        let diff = RangeParser.difference(range, old)//may return 1 or 2 ranges
         //Swift.print("diff: " + "\(diff)")
         if(diff.1 != nil){
             let start = diff.1!.start - firstOldIdx
@@ -71,7 +70,7 @@ class FastList4:Element,IList {
         /**
          * Figure out which items to add to pool
          */
-        let diff2 = RangeParser.difference(old,new)
+        let diff2 = RangeParser.difference(old,range)
         //Swift.print("diff2: " + "\(diff2)")
         if(diff2.1 != nil){
             let startIdx = diff2.1!.start
@@ -90,7 +89,6 @@ class FastList4:Element,IList {
             }
         }
         //Swift.print("pool.count: " + "\(pool.count)")
-        
         if(diff2.0 != nil){
             let startIdx = diff2.0!.start
             let endIdx = diff2.0!.end
@@ -107,7 +105,6 @@ class FastList4:Element,IList {
                 _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
             }
         }
-        
         //Swift.print("add: \((diff2.0 != nil ? diff2.0!.length : 0) + (diff2.1 != nil ? diff2.1!.length : 0))")
         //Swift.print("pool.count: " + "\(pool.count)")
         //clear inActive array, if any are left, can happen after resize etc
