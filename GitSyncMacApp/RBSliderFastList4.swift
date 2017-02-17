@@ -40,8 +40,10 @@ class RBSliderFastList4:FastList4,IRBSliderList{
     override func setProgress(_ value:CGFloat){
         let itemsHeight = self.itemsHeight//TODO: Use a precalculated itemsHeight instead of recalculating it on every setProgress call, what if dp.count changes though?
         progressValue = value / (itemsHeight < height ? height : -(itemsHeight - height))/*calc scalar from value, if itemsHeight is to small then use height instead*/
-        super.setProgress(progressValue!)
+        let progress = progressValue!.clip(0, 1)
+        super.setProgress(progress)/*moves the lableContainer up and down*/
         slider!.setProgressValue(progressValue!)
+        
     }
     /**
      * NOTE: this method overides the Native NSView scrollWheel method
