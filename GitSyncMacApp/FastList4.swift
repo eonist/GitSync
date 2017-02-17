@@ -52,6 +52,8 @@ class FastList4:Element,IList {
         let idx:Int = listItem.idx/*the index of the data in dataProvider*/
         let dpItem = dataProvider.items[idx]
         let title:String = dpItem["title"]!
+        let selected:Bool = idx == selectedIdx//dpItem["selected"]!.bool
+        if(item.selected != selected){ item.setSelected(selected)}//only set this if the selected state is different from the current selected state in the ISelectable
         item.setTextValue(idx.string + " " + title)
         item.y = listItem.idx * itemHeight/*position the item*/
     }
