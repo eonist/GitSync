@@ -35,10 +35,10 @@ class FastList4:Element,IList {
      * NOTE: override this method in SliderFastList and RBSliderFastList
      */
     func setProgress(_ progress:CGFloat){
-        Swift.print("FastList4.setProgress: " + "\(progress)")
+        //Swift.print("FastList4.setProgress: " + "\(progress)")
         ListModifier.scrollTo(self, progress)/*moves the labelContainer up and down*/
         let range:Range<Int> = visibleItemRange.start..<Swift.min(visibleItemRange.end,dp.count)
-        Swift.print("range: " + "\(range)")
+        //Swift.print("range: " + "\(range)")
         if(currentVisibleItemRange != range){/*Optimization: only set if it's not the same as prev range*/
             renderItems(range)
         }
