@@ -43,9 +43,9 @@ class RBSliderFastList4:FastList4,IRBSliderList{
         
         if(itemsHeight < height){//when there is few items in view, different overshoot rules apply, this should be written more elegant
             progressValue = value / height
-            Swift.print("progressValue: " + "\(progressValue)")
+            //Swift.print("progressValue: " + "\(progressValue)")
             let y = progressValue! * height
-            Swift.print("y: " + "\(y)")
+            //Swift.print("y: " + "\(y)")
             rbContainer!.y = y
         }else{
             progressValue = value /  -(itemsHeight - height)/*calc scalar from value, if itemsHeight is to small then use height instead*/
@@ -53,14 +53,14 @@ class RBSliderFastList4:FastList4,IRBSliderList{
             super.setProgress(progress)/*moves the lableContainer up and down*/
             slider!.setProgressValue(progressValue!)
             /*finds the values that is outside 0 and 1*/
-            Swift.print("progressValue!: " + "\(progressValue!)")
+            //Swift.print("progressValue!: " + "\(progressValue!)")
             if(progressValue! < 0){
                 let y1 = itemsHeight * -progressValue!
-                Swift.print("y1: " + "\(y1)")
+                //Swift.print("y1: " + "\(y1)")
                 rbContainer!.y = y1/*the half height is to limit the rubber effect, should probably be done else where*/
             }else if(progressValue! > 1){
                 let y2 = itemsHeight * -(progressValue!-1)
-                Swift.print("y2: " + "\(y2)")
+                //Swift.print("y2: " + "\(y2)")
                 rbContainer!.y = y2
             }else{
                 rbContainer!.y = 0/*default position*/
