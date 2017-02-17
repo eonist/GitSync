@@ -74,6 +74,7 @@ class CommitsView:Element {
             let processedCommitData:[String:String] = CommitViewUtils.processCommitData($0.repoTitle,commitData,$0.repoIndex)/*Format the data*/
             commitItems.append(processedCommitData)/*We store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView*/
         }
+        Swift.print("commitItems.count: " + "\(commitItems.count)")
         dp = DataProvider(commitItems)
         _ = dp!.sort("sortableDate",false)/*sorts the list in ascending order*/
         Swift.print("dp.count: " + "\(dp!.count)")
