@@ -155,7 +155,6 @@ class FastList4:Element,IList {
                 reUse(fastListItem)
             }
         }
-        
     }
     override func onEvent(_ event:Event) {
         if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
