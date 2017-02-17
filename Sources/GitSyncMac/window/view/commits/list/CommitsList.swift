@@ -30,6 +30,7 @@ class CommitsList:RBSliderFastList4{
         return item
     }
     override func reUse(_ listItem:FastListItem) {
+        Swift.print("reUse: idx: " + "\(listItem.idx)")
         let item:CommitsListItem = listItem.item as! CommitsListItem
         let idx:Int = listItem.idx/*the index of the data in dataProvider*/
         let selected:Bool = idx == selectedIdx//dpItem["selected"]!.bool
