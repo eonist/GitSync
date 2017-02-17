@@ -40,28 +40,30 @@ class RBSliderFastList4:FastList4,IRBSliderList{
     override func setProgress(_ value:CGFloat){
         Swift.print("value: " + "\(value)")
         let itemsHeight = self.itemsHeight//TODO: Use a precalculated itemsHeight instead of recalculating it on every setProgress call, what if dp.count changes though?
-        let a = (itemsHeight < height ? -height : -(itemsHeight - height))
-        if(){
-            
-        }
-        Swift.print("a: " + "\(a)")
-        progressValue = value / a/*calc scalar from value, if itemsHeight is to small then use height instead*/
-        let progress = progressValue!.clip(0, 1)
-        super.setProgress(progress)/*moves the lableContainer up and down*/
-        slider!.setProgressValue(progressValue!)
-        /*finds the values that is outside 0 and 1*/
-        Swift.print("progressValue!: " + "\(progressValue!)")
-        if(progressValue! < 0){
-            let y1 = (height/2) * -progressValue!
-            Swift.print("y1: " + "\(y1)")
-            rbContainer!.y = y1/*the half height is to limit the rubber effect, should probably be done else where*/
-        }else if(progressValue! > 1){
-            let y2 = (height/2) * -(progressValue!-1)
-            Swift.print("y2: " + "\(y2)")
-            rbContainer!.y = y2
+        
+        if(itemsHeight < height){
+            progressValue = value / -height
         }else{
-            rbContainer!.y = 0/*default position*/
+            progressValue = value /  -(itemsHeight - height)/*calc scalar from value, if itemsHeight is to small then use height instead*/
+            let progress = progressValue!.clip(0, 1)
+            super.setProgress(progress)/*moves the lableContainer up and down*/
+            slider!.setProgressValue(progressValue!)
+            /*finds the values that is outside 0 and 1*/
+            Swift.print("progressValue!: " + "\(progressValue!)")
+            if(progressValue! < 0){
+                let y1 = (height/2) * -progressValue!
+                Swift.print("y1: " + "\(y1)")
+                rbContainer!.y = y1/*the half height is to limit the rubber effect, should probably be done else where*/
+            }else if(progressValue! > 1){
+                let y2 = (height/2) * -(progressValue!-1)
+                Swift.print("y2: " + "\(y2)")
+                rbContainer!.y = y2
+            }else{
+                rbContainer!.y = 0/*default position*/
+            }
         }
+        
+        
     }
     /**
      * NOTE: this method overides the Native NSView scrollWheel method
