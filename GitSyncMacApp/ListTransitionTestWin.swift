@@ -94,7 +94,7 @@ class ListTransitionTestView:TitleView{
         let graph = graphContainer.addSubView(BarGraph(200,200/*,4*/,graphContainer))
         _ = graph
     }
-    var list:SliderFastList4?
+    var list:SliderList?
     /*Add*/
     var btnTop:TextButton?
     var btnBottom:TextButton?
@@ -120,17 +120,8 @@ class ListTransitionTestView:TitleView{
         dp.addItem(["title":"purple"])
         */
         
-        //Continue here:
-            //All seem to work, but how is rendering newly added or removed items suppose to work?
-                //you could mark a range dirty, and loop over a range with reUse
-                //Or draw and figure out an elegant solution, itt needs to also support remove as it doesnt render correctly either
-                //When you add an item within top and bottom you should reUse at index of new item until bottom visible item 
-                //the same with remove.
-                //Although the prefered methodology would be:
-                    //insert a new item, and move the other items
-                    //remove an item and move the other items
         
-        list = addSubView(SliderFastList4(140, 145, 24, dp, self))/*RBSliderFastList3*/
+        list = addSubView(SliderList(140, 145, 24, dp, self))/*RBSliderFastList3*/
         
         var css = "Container#btn{float:left;clear:none;}"
         css += "Container#btn TextButton{margin:6px;width:120px;}"
