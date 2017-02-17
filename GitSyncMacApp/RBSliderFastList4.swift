@@ -46,11 +46,11 @@ class RBSliderFastList4:FastList4,IRBSliderList{
         //find the values that is outside 0 and 1
         Swift.print("progressValue!: " + "\(progressValue!)")
         if(progressValue! < 0){
-            rbContainer.y = height * progressValue!
+            rbContainer!.y = height * -progressValue!
         }else if(progressValue! > 1){
-            
+            rbContainer!.y = height * -(1 - progressValue!)
         }else{
-            rbContainer.y = 0
+            rbContainer!.y = 0/*default position*/
         }
     }
     /**
