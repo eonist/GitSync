@@ -148,8 +148,8 @@ class FastList4:Element,IList {
         /*render affected items if item is within visible view*/
         if(event.startIndex >= firstVisibleItem && event.startIndex <= lastVisibleItem){
             let startIdx = event.startIndex - firstVisibleItem
-            let endIdx = Swift.min(dp.count,lastVisibleItem) - firstVisibleItem
-            
+            var endIdx = lastVisibleItem - firstVisibleItem
+            endIdx = Swift.min(dp.count,endIdx)
             for i in startIdx..<endIdx{
                 let fastListItem = pool[i]
                 reUse(fastListItem)
