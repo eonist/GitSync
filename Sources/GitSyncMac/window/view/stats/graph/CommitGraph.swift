@@ -104,8 +104,8 @@ class CommitGraph:Graph{
      */
     override func touchesMoved(with event:NSEvent) {
         //Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
-        fatalError("out of order")
-        /*let swipeType:SwipeType = GestureUtils.swipe(self, event, &twoFingersTouches)
+        
+        let swipeType:SwipeType = GestureUtils.swipe(self, event, twoFingersTouches)
         if (swipeType == .right){
             Swift.print("swipe right")
             //Do something here
@@ -116,7 +116,7 @@ class CommitGraph:Graph{
             //Do something else here
         }else{
             Swift.print("swipe none")
-        }*/
+        }
     }
     override func touchesEnded(with event: NSEvent) {//for debugging
         //Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")
