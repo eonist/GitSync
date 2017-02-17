@@ -9,6 +9,11 @@ class CommitsList:RBSliderFastList{
     var isInDeactivateRefreshModeState:Bool = false
     var isTwoFingersTouching = false/*is Two Fingers Touching the Touch-Pad*/
     var hasReleasedBeyondTop:Bool = false
+    
+    //Continue here:
+        //try to implement RBSliderFastList4
+        //try to correct the time-bug when loading commit-items
+    
     override func resolveSkin() {
         super.resolveSkin()
         let piContainer = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
