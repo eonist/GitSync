@@ -46,9 +46,13 @@ class RBSliderFastList4:FastList4,IRBSliderList{
         /*finds the values that is outside 0 and 1*/
         Swift.print("progressValue!: " + "\(progressValue!)")
         if(progressValue! < 0){
-            rbContainer!.y = (height/2) * -progressValue!/*the half height is to limit the rubber effect, should probably be done else where*/
+            let y = (height/2) * -progressValue!
+            Swift.print("y: " + "\(y)")
+            rbContainer!.y = y/*the half height is to limit the rubber effect, should probably be done else where*/
         }else if(progressValue! > 1){
-            rbContainer!.y = (height/2) * -(progressValue!-1)
+            let y = (height/2) * -(progressValue!-1)
+            Swift.print("y: " + "\(y)")
+            rbContainer!.y = y
         }else{
             rbContainer!.y = 0/*default position*/
         }
