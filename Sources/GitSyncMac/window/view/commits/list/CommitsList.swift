@@ -77,10 +77,10 @@ class CommitsList:RBSliderFastList4{
         }
         super.onEvent(event)
     }
-    override func setProgress(_ value:CGFloat) {
-        super.setProgress(value)
-        onProgress()
-    }
+    /*override func setProgress(_ value:CGFloat) {
+     super.setProgress(value)
+     onProgress()
+     }*/
 }
 extension CommitsList{
     
