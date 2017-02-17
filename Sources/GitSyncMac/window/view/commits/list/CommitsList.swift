@@ -21,12 +21,12 @@ class CommitsList:RBSliderFastList4{
         progressIndicator!.frame.y = -45//hide at init
         progressIndicator!.animator!.event = onEvent
     }
-    override func createItem(_ index: Int) -> Element {
+    override func createItem(_ index:Int) -> Element {
         let dpItem = dataProvider.items[index]
         let item:CommitsListItem = CommitsListItem(width, itemHeight ,dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!, false, self.lableContainer)
         return item
     }
-    override func reUse(_ listItem: FastListItem) {
+    override func reUse(_ listItem:FastListItem) {
         let item:CommitsListItem = listItem.item as! CommitsListItem
         let idx:Int = listItem.idx/*the index of the data in dataProvider*/
         let selected:Bool = idx == selectedIdx//dpItem["selected"]!.bool
