@@ -48,6 +48,8 @@ class RBSliderFastList4:FastList4,IRBSliderList{
         if(progressValue! < 0){
             rbContainer!.y = height * -progressValue!
         }else if(progressValue! > 1){
+            let a = (1 - progressValue!)/*0<->1*/
+            let 
             rbContainer!.y = height * -(1 - progressValue!)
             //Continue here:
                 //figure out the above calculation, its more like start low then grow to max -1 (from 0 to -1)
