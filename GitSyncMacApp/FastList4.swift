@@ -138,16 +138,7 @@ class FastList4:Element,IList {
         if(currentVisibleItemRange != range){/*Optimization: only set if it's not the same as prev range*/
             renderItems(range)
         }
-        /*render affected items if item is within visible view*/
-        if(event.startIndex >= firstVisibleItem && event.startIndex <= lastVisibleItem){
-            let startIdx = event.startIndex - firstVisibleItem
-            var endIdx = lastVisibleItem - firstVisibleItem
-            endIdx = Swift.min(dp.count,endIdx)
-            for i in startIdx..<endIdx{
-                let fastListItem = pool[i]
-                reUse(fastListItem)
-            }
-        }
+        reUseFromIdx(event.startIndex)
     }
     override func onEvent(_ event:Event) {
         if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
@@ -176,5 +167,21 @@ extension FastList4{
         //Swift.print("lastIdx: " + "\(lastIdx)")
         let currentVisibleItemRange:Range<Int> = firstIdx..<lastIdx
         return currentVisibleItemRange
+    }
+    /**
+     * reUses all items from idx, to end idx in pool
+     * NOTE: this method is called after dp change: add/remove
+     */
+    func reUseFromIdx(_ idx:Int){
+        /*render affected items if item is within visible view*/
+        if(idx >= firstVisibleItem && idx <= lastVisibleItem){
+            let startIdx = idx - firstVisibleItem
+            var endIdx = lastVisibleItem - firstVisibleItem
+            endIdx = Swift.min(dp.count,endIdx)
+            for i in startIdx..<endIdx{
+                let fastListItem = pool[i]
+                reUse(fastListItem)
+            }
+        }
     }
 }
