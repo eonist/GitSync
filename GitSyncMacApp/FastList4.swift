@@ -31,13 +31,12 @@ class FastList4:Element,IList {
         ListModifier.scrollTo(self, progress)/*moves the labelContainer up and down*/
         let range:Range<Int> = visibleItemRange.start..<Swift.min(visibleItemRange.end,dp.count)
         //Swift.print("range: " + "\(range)")
-        /**/
         if(currentVisibleItemRange != range){/*Optimization: only set if it's not the same as prev range*/
             renderItems(range)
         }
     }
     /**
-     * TODO: You can optimize the range stuff later when all cases work
+     * TODO: You can optimize the range stuff later when all cases work (it would be possible to creat a custom diff method that is simpler and faster than using generic intersection,diff and exclude)
      */
     func renderItems(_ range:Range<Int>){
         //Swift.print("new: " + "\(range)")
@@ -102,7 +101,9 @@ class FastList4:Element,IList {
         //Swift.print("pool.count: " + "\(pool.count)")
         //clear inActive array, if any are left, can happen after resize etc
         //Swift.print("inActive.count: " + "\(inActive.count)")
-        /*This could be usefull when size of view changes from big to small etc, or when going from many items to few*/
+        /**
+         * This could be usefull when size of view changes from big to small etc, or when going from many items to few
+         */
         inActive.forEach{$0.item.removeFromSuperview()}
         inActive.removeAll()
     }
@@ -119,7 +120,7 @@ class FastList4:Element,IList {
         item.y = listItem.idx * itemHeight/*position the item*/
     }
     /**
-     *
+     * CreatesItem (override this to create custom ListItems)
      */
     func createItem(_ index:Int) -> Element{
         let item:SelectTextButton = SelectTextButton(getWidth(), itemHeight ,"", false, lableContainer)
@@ -127,7 +128,7 @@ class FastList4:Element,IList {
         return item
     }
     /**
-     * TODO: you need to update the float of the lables after an update
+     *
      */
     func onDataProviderEvent(_ event:DataProviderEvent){
         alignLableContainer(event)
