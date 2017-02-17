@@ -26,6 +26,7 @@ class FastList4:Element,IList {
     }
     /**
      * PARAM: progress (0-1)
+     * NOTE: setProgress is in this class because RBFastSliderList doesnt extend SliderList, and both classes needs to extend this method
      */
     func setProgress(_ progress:CGFloat){
         ListModifier.scrollTo(self, progress)/*moves the labelContainer up and down*/
