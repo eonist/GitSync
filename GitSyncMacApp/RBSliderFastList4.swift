@@ -23,10 +23,10 @@ class RBSliderFastList4:FastList4,IRBSliderList{
         let itemsRect = CGRect(0,0,width,max(itemsHeight,height))/*represents the total size of the content *///TODO: could be ranmed to contentRect
         mover = RubberBand(Animation.sharedInstance,setProgress,frame,itemsRect)
         mover!.event = onEvent/*Add an eventHandler for the mover object, avoids logging missing eventHandler, this has no functionality in this class, but may have in classes that extends this class*/
-        /*slider*/
         
         //TODO:It could be possible to just call updateSlider() instead of the bellow calculations
         
+        /*slider*/
         sliderInterval = floor(itemsHeight - height)/itemHeight// :TODO: use ScrollBarUtils.interval instead?// :TODO: explain what this is in a comment
         slider = addSubView(VSlider(itemHeight,height,0,0,self))/*add vSlider to view*/
         if(itemsHeight <= height){slider!.thumb!.setDisabled(true);slider!.thumb!.alpha = 0}/*if there is no need for the slider, then hide it*/
@@ -46,9 +46,11 @@ class RBSliderFastList4:FastList4,IRBSliderList{
         //find the values that is outside 0 and 1
         Swift.print("progressValue!: " + "\(progressValue!)")
         if(progressValue! < 0){
-            
+            rbContainer.y = height * progressValue!
         }else if(progressValue! > 1){
             
+        }else{
+            rbContainer.y = 0
         }
     }
     /**
