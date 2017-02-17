@@ -11,7 +11,9 @@ class CommitsList:RBSliderFastList4{
     var hasReleasedBeyondTop:Bool = false
     
     //Continue here:
-        //try to implement RBSliderFastList4 👈
+        //fix overshot 👈
+        //fix the bug where items blink when you scroll
+        //The commit dp seems all wrong. Many commits are missing etc. use the tests classes and fix it
         //try to correct the time-bug when loading commit-items
     
     override func resolveSkin() {
