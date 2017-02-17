@@ -66,8 +66,6 @@ class RBSliderFastList4:FastList4,IRBSliderList{
                 rbContainer!.y = 0/*default position*/
             }
         }
-        
-        
     }
     /**
      * NOTE: this method overides the Native NSView scrollWheel method
