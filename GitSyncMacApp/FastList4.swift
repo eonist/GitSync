@@ -37,79 +37,6 @@ class FastList4:Element,IList {
         }
     }
     /**
-     * Creates, applies data and aligns items defined in PARAM: range
-     * TODO: You can optimize the range stuff later when all cases work (it would be possible to creat a custom diff method that is simpler and faster than using generic intersection,diff and exclude)
-     */
-    func renderItems(_ range:Range<Int>){
-        //Swift.print("new: " + "\(range)")
-        var inActive:[FastListItem] = []
-        let old = currentVisibleItemRange
-        //Swift.print("old: " + "\(old)")
-        let firstOldIdx:Int = old.start
-        //Swift.print("firstOldIdx: " + "\(firstOldIdx)")
-        /**
-         * Figure out which items to remove from pool
-         */
-        let diff = RangeParser.difference(range, old)//may return 1 or 2 ranges
-        //Swift.print("diff: " + "\(diff)")
-        if(diff.1 != nil){
-            let start = diff.1!.start - firstOldIdx
-            inActive += pool.splice2(start, diff.1!.length)
-        }
-        if(diff.0 != nil){
-            let start = diff.0!.start - firstOldIdx
-            inActive += pool.splice2(start, diff.0!.length)
-        }
-        //Swift.print("remove: \(inActive.count)")
-        /**
-         * Figure out which items to add to pool
-         */
-        let diff2 = RangeParser.difference(old,range)
-        //Swift.print("diff2: " + "\(diff2)")
-        if(diff2.1 != nil){
-            let startIdx = diff2.1!.start
-            let endIdx = diff2.1!.end
-            var items:[FastListItem] = []
-            for i in (startIdx..<endIdx){
-                let item:Element = inActive.count > 0 ? inActive.popLast()!.item : createItem(i)
-                let fastListItem:FastListItem = (item:item,idx:i)
-                reUse(fastListItem)//applies data and position
-                items.append(fastListItem)
-            }
-            if(items.count > 0){
-                var idx:Int = items.first!.idx - firstOldIdx//index in pool
-                idx = idx.clip(0, pool.count)
-                _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
-            }
-        }
-        //Swift.print("pool.count: " + "\(pool.count)")
-        if(diff2.0 != nil){
-            let startIdx = diff2.0!.start
-            let endIdx = diff2.0!.end
-            var items:[FastListItem] = []
-            for i in (startIdx..<endIdx){
-                let item:Element = inActive.count > 0 ? inActive.popLast()!.item : createItem(i)
-                let fastListItem:FastListItem = (item:item,idx:i)
-                reUse(fastListItem)//applies data and position
-                items.append(fastListItem)
-            }
-            if(items.count > 0){
-                var idx:Int = items.first!.idx - firstOldIdx//index in pool
-                idx = idx.clip(0, pool.count)
-                _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
-            }
-        }
-        //Swift.print("add: \((diff2.0 != nil ? diff2.0!.length : 0) + (diff2.1 != nil ? diff2.1!.length : 0))")
-        //Swift.print("pool.count: " + "\(pool.count)")
-        //clear inActive array, if any are left, can happen after resize etc
-        //Swift.print("inActive.count: " + "\(inActive.count)")
-        /**
-         * This could be usefull when size of view changes from big to small etc, or when going from many items to few
-         */
-        inActive.forEach{$0.item.removeFromSuperview()}
-        inActive.removeAll()
-    }
-    /**
      * Apply new data / align items
      * NOTE: override this to use custom ItemList items
      */
@@ -187,5 +114,79 @@ extension FastList4{
                 reUse(fastListItem)
             }
         }
+    }
+    /**
+     * Creates, applies data and aligns items defined in PARAM: range
+     * TODO: You can optimize the range stuff later when all cases work (it would be possible to creat a custom diff method that is simpler and faster than using generic intersection,diff and exclude)
+     * NOTE: this method is inside an extension because it doesn't need to be overriden by super classes
+     */
+    func renderItems(_ range:Range<Int>){
+        //Swift.print("new: " + "\(range)")
+        var inActive:[FastListItem] = []
+        let old = currentVisibleItemRange
+        //Swift.print("old: " + "\(old)")
+        let firstOldIdx:Int = old.start
+        //Swift.print("firstOldIdx: " + "\(firstOldIdx)")
+        /**
+         * Figure out which items to remove from pool
+         */
+        let diff = RangeParser.difference(range, old)//may return 1 or 2 ranges
+        //Swift.print("diff: " + "\(diff)")
+        if(diff.1 != nil){
+            let start = diff.1!.start - firstOldIdx
+            inActive += pool.splice2(start, diff.1!.length)
+        }
+        if(diff.0 != nil){
+            let start = diff.0!.start - firstOldIdx
+            inActive += pool.splice2(start, diff.0!.length)
+        }
+        //Swift.print("remove: \(inActive.count)")
+        /**
+         * Figure out which items to add to pool
+         */
+        let diff2 = RangeParser.difference(old,range)
+        //Swift.print("diff2: " + "\(diff2)")
+        if(diff2.1 != nil){
+            let startIdx = diff2.1!.start
+            let endIdx = diff2.1!.end
+            var items:[FastListItem] = []
+            for i in (startIdx..<endIdx){
+                let item:Element = inActive.count > 0 ? inActive.popLast()!.item : createItem(i)
+                let fastListItem:FastListItem = (item:item,idx:i)
+                reUse(fastListItem)//applies data and position
+                items.append(fastListItem)
+            }
+            if(items.count > 0){
+                var idx:Int = items.first!.idx - firstOldIdx//index in pool
+                idx = idx.clip(0, pool.count)
+                _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
+            }
+        }
+        //Swift.print("pool.count: " + "\(pool.count)")
+        if(diff2.0 != nil){
+            let startIdx = diff2.0!.start
+            let endIdx = diff2.0!.end
+            var items:[FastListItem] = []
+            for i in (startIdx..<endIdx){
+                let item:Element = inActive.count > 0 ? inActive.popLast()!.item : createItem(i)
+                let fastListItem:FastListItem = (item:item,idx:i)
+                reUse(fastListItem)//applies data and position
+                items.append(fastListItem)
+            }
+            if(items.count > 0){
+                var idx:Int = items.first!.idx - firstOldIdx//index in pool
+                idx = idx.clip(0, pool.count)
+                _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
+            }
+        }
+        //Swift.print("add: \((diff2.0 != nil ? diff2.0!.length : 0) + (diff2.1 != nil ? diff2.1!.length : 0))")
+        //Swift.print("pool.count: " + "\(pool.count)")
+        //clear inActive array, if any are left, can happen after resize etc
+        //Swift.print("inActive.count: " + "\(inActive.count)")
+        /**
+         * This could be usefull when size of view changes from big to small etc, or when going from many items to few
+         */
+        inActive.forEach{$0.item.removeFromSuperview()}
+        inActive.removeAll()
     }
 }
