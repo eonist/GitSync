@@ -136,9 +136,10 @@ class FastList4:Element,IList {
         alignLableContainer(event)
         let range:Range<Int> = visibleItemRange.start..<Swift.min(visibleItemRange.end,dp.count)
         if(currentVisibleItemRange != range){/*Optimization: only set if it's not the same as prev range*/
-            renderItems(range)
+            renderItems(range)/*the visible range has changed, render it*/
+        }else{
+            reUseFromIdx(event.startIndex)/*the visible range hasn't changed, but the data has changed, apply new data*/
         }
-        reUseFromIdx(event.startIndex)
     }
     override func onEvent(_ event:Event) {
         if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
