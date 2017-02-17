@@ -33,39 +33,7 @@ class CommitsList:RBSliderFastList{
         item.setData(dataProvider.items[idx])
         if(item.selected != selected){item.setSelected(selected)}//only set this if the selected state is different from the current selected state in the ISelectable
     }
-    /**
-     * Happens when you use the scrollwheel or use the slider (also works while there still is momentum) (This content of this method could be inside setProgress, but its easier to reason with if it is its own method)
-     * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
-     */
-    func onProgress(){
-        //Swift.print("CommitsList.onScroll() progressValue: " + "\(progressValue!)" + " hasPulledAndReleasedBeyondRefreshSpace: \(hasPulledAndReleasedBeyondRefreshSpace)")
-        let value = mover!.result
-        if(value >  0 && value < 60){//between 0 and 60
-            //Swift.print("start progressing the ProgressIndicator")
-            let scalarVal:CGFloat = value / 60//0 to 1 (value settle on near 0)
-            if(hasPulledAndReleasedBeyondRefreshSpace){//isInRefreshMode
-                progressIndicator!.frame.y = -45 + (scalarVal * 60)
-            }else if(isTwoFingersTouching || hasReleasedBeyondTop){
-                progressIndicator!.frame.y = 15//<--this could be set else where but something kept interfering with it
-                progressIndicator!.reveal(scalarVal)//the progress indicator needs to be able to be able to reveal it self 1 tick at the time in the init state
-            }
-        }else if(value > 60){
-            progressIndicator!.frame.y = 15
-        }
-    }
-    /**
-     * Basically not in refreshState
-     */
-    func loopAnimationCompleted(){
-        //Swift.print("CommitList.loopAnimationCompleted()")
-        isInDeactivateRefreshModeState = true
-        mover!.frame.y = 0
-        mover!.hasStopped = false/*reset this value to false, so that the FrameAnimatior can start again*/
-        mover!.isDirectlyManipulating = false
-        mover!.value = mover!.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
-        mover!.start()
-        //progressIndicator!.reveal(0)//reset all line alphas to 0
-    }
+    
     override func scrollWheelEnter() {
         isTwoFingersTouching = true
         super.scrollWheelEnter()
@@ -108,5 +76,41 @@ class CommitsList:RBSliderFastList{
     override func setProgress(_ value:CGFloat) {
         super.setProgress(value)
         onProgress()
+    }
+}
+extension CommitsList{
+    
+    /**
+     * Basically not in refreshState
+     */
+    func loopAnimationCompleted(){
+        //Swift.print("CommitList.loopAnimationCompleted()")
+        isInDeactivateRefreshModeState = true
+        mover!.frame.y = 0
+        mover!.hasStopped = false/*reset this value to false, so that the FrameAnimatior can start again*/
+        mover!.isDirectlyManipulating = false
+        mover!.value = mover!.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
+        mover!.start()
+        //progressIndicator!.reveal(0)//reset all line alphas to 0
+    }
+    /**
+     * Happens when you use the scrollwheel or use the slider (also works while there still is momentum) (This content of this method could be inside setProgress, but its easier to reason with if it is its own method)
+     * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
+     */
+    func onProgress(){
+        //Swift.print("CommitsList.onScroll() progressValue: " + "\(progressValue!)" + " hasPulledAndReleasedBeyondRefreshSpace: \(hasPulledAndReleasedBeyondRefreshSpace)")
+        let value = mover!.result
+        if(value >  0 && value < 60){//between 0 and 60
+            //Swift.print("start progressing the ProgressIndicator")
+            let scalarVal:CGFloat = value / 60//0 to 1 (value settle on near 0)
+            if(hasPulledAndReleasedBeyondRefreshSpace){//isInRefreshMode
+                progressIndicator!.frame.y = -45 + (scalarVal * 60)
+            }else if(isTwoFingersTouching || hasReleasedBeyondTop){
+                progressIndicator!.frame.y = 15//<--this could be set else where but something kept interfering with it
+                progressIndicator!.reveal(scalarVal)//the progress indicator needs to be able to be able to reveal it self 1 tick at the time in the init state
+            }
+        }else if(value > 60){
+            progressIndicator!.frame.y = 15
+        }
     }
 }
