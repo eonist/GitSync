@@ -49,16 +49,16 @@ class FastList4:Element,IList {
     func renderItems(_ range:Range<Int>){
         //Swift.print("new: " + "\(range)")
         var inActive:[FastListItem] = []
-        /**/
         let old = currentVisibleItemRange
         //Swift.print("old: " + "\(old)")
         let new = range
         let firstOldIdx:Int = old.start
         //Swift.print("firstOldIdx: " + "\(firstOldIdx)")
-        /*figure out which items to remove from pool*/
+        /**
+         * Figure out which items to remove from pool
+         */
         let diff = RangeParser.difference(new, old)//may return 1 or 2 ranges
         //Swift.print("diff: " + "\(diff)")
-        
         if(diff.1 != nil){
             let start = diff.1!.start - firstOldIdx
             inActive += pool.splice2(start, diff.1!.length)
@@ -68,11 +68,11 @@ class FastList4:Element,IList {
             inActive += pool.splice2(start, diff.0!.length)
         }
         //Swift.print("remove: \(inActive.count)")
-        /*figure out which items to add to pool*/
+        /**
+         * Figure out which items to add to pool
+         */
         let diff2 = RangeParser.difference(old,new)
         //Swift.print("diff2: " + "\(diff2)")
-        
-       
         if(diff2.1 != nil){
             let startIdx = diff2.1!.start
             let endIdx = diff2.1!.end
@@ -112,7 +112,7 @@ class FastList4:Element,IList {
         //Swift.print("pool.count: " + "\(pool.count)")
         //clear inActive array, if any are left, can happen after resize etc
         //Swift.print("inActive.count: " + "\(inActive.count)")
-        /*This could be usefull when size of view changes from big to small etc*/
+        /*This could be usefull when size of view changes from big to small etc, or when going from many items to few*/
         inActive.forEach{$0.item.removeFromSuperview()}
         inActive.removeAll()
     }
