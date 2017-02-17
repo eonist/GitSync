@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 @testable import Element
 
-class CommitsList:RBSliderFastList{
+class CommitsList:RBSliderFastList4{
     /*The following variables exists to facilitate the pull to refresh functionality*/
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
@@ -21,12 +21,12 @@ class CommitsList:RBSliderFastList{
         progressIndicator!.frame.y = -45//hide at init
         progressIndicator!.animator!.event = onEvent
     }
-    override func spawn(_ idx:Int) -> Element {
+    override func createItem(_ index: Int) -> Element {
         let dpItem = dataProvider.items[idx]
         let item:CommitsListItem = CommitsListItem(width, itemHeight ,dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!, false, self.lableContainer)
         return item
     }
-    override func spoof(_ listItem:FastListItem) {
+    override func reUse(_ listItem: FastListItem) {
         let item:CommitsListItem = listItem.item as! CommitsListItem
         let idx:Int = listItem.idx/*the index of the data in dataProvider*/
         let selected:Bool = idx == selectedIdx//dpItem["selected"]!.bool
