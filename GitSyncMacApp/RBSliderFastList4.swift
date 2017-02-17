@@ -42,7 +42,11 @@ class RBSliderFastList4:FastList4,IRBSliderList{
         let itemsHeight = self.itemsHeight//TODO: Use a precalculated itemsHeight instead of recalculating it on every setProgress call, what if dp.count changes though?
         
         if(itemsHeight < height){
-            progressValue = value / -height
+            progressValue = value / height
+            Swift.print("progressValue: " + "\(progressValue)")
+            let y = progressValue! * height
+            Swift.print("y: " + "\(y)")
+            rbContainer!.y = y
         }else{
             progressValue = value /  -(itemsHeight - height)/*calc scalar from value, if itemsHeight is to small then use height instead*/
             let progress = progressValue!.clip(0, 1)
