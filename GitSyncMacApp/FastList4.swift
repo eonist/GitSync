@@ -27,6 +27,7 @@ class FastList4:Element,IList {
     /**
      * PARAM: progress (0-1)
      * NOTE: setProgress is in this class because RBFastSliderList doesnt extend SliderList, and both classes needs to extend this method
+     * NOTE: override this method in SliderFastList and RBSliderFastList
      */
     func setProgress(_ progress:CGFloat){
         ListModifier.scrollTo(self, progress)/*moves the labelContainer up and down*/
@@ -104,12 +105,11 @@ extension FastList4{
      * NOTE: this method is called after dp change: add/remove
      */
     func reUseFromIdx(_ idx:Int){
-        /*render affected items if item is within visible view*/
         if(idx >= firstVisibleItem && idx <= lastVisibleItem){
             let startIdx = idx - firstVisibleItem
             var endIdx = lastVisibleItem - firstVisibleItem
             endIdx = Swift.min(dp.count,endIdx)
-            for i in startIdx..<endIdx{
+            for i in startIdx..<endIdx{/*reUse affected items if item is within visible view*/
                 let fastListItem = pool[i]
                 reUse(fastListItem)
             }
