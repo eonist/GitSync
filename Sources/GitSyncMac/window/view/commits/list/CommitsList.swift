@@ -33,7 +33,7 @@ class CommitsList:RBSliderFastList4{
         let selected:Bool = idx == selectedIdx//dpItem["selected"]!.bool
         item.setData(dataProvider.items[idx])
         if(item.selected != selected){item.setSelected(selected)}//only set this if the selected state is different from the current selected state in the ISelectable
-        item.y = listItem.idx * itemHeight/*position the item*/
+        item.y = idx * itemHeight/*position the item*/
     }
     override func scrollWheelEnter() {
         isTwoFingersTouching = true
