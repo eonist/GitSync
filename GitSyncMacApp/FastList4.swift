@@ -123,7 +123,8 @@ class FastList4:Element,IList {
         item.y = listItem.idx * itemHeight/*position the item*/
     }
     /**
-     * CreatesItem (override this to create custom ListItems)
+     * CreatesItem
+     * NOTE: override this to create custom ListItems
      */
     func createItem(_ index:Int) -> Element{
         let item:SelectTextButton = SelectTextButton(getWidth(), itemHeight ,"", false, lableContainer)
@@ -132,6 +133,7 @@ class FastList4:Element,IList {
     }
     /**
      * DP has changed
+     * override this method if dp change can affect the super class
      */
     func onDataProviderEvent(_ event:DataProviderEvent){
         alignLableContainer(event)
