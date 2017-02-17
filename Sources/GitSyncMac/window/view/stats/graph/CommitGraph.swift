@@ -10,7 +10,7 @@ class CommitGraph:Graph{
     override var vValues:[CGFloat] {return graphData.vValues}//,20,33,19//[14,8,13,17,25,9,14]
     override var hValNames:[String] {return graphData.hValNames}//["T","W","T","F","S","S","M"]//"10/12","13","14",
     /*Gesture related*/
-    var twoFingersTouches:NSMutableDictionary?/*temp storage for the twoFingerTouches data*/
+    var twoFingersTouches:[String:NSTouch]?/*temp storage for the twoFingerTouches data*/
     /*Animation related*/
     var animator:Animator?
     //var graphPts:[CGPoint] = []/*Animates to these points*/
@@ -97,8 +97,7 @@ class CommitGraph:Graph{
      */
     override func touchesBegan(with event:NSEvent) {
         //Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
-        fatalError("out of order")
-        //twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
+        twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
     }
     /**
      * Detects if a two finger left or right swipe has occured
