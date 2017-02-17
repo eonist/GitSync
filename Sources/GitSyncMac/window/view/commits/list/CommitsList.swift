@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 @testable import Element
 
-class CommitsList:RBSliderFastList{
+class CommitsList:RBSliderFastList4{
     /*The following variables exists to facilitate the pull to refresh functionality*/
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
