@@ -112,7 +112,7 @@ class FastList4:Element,IList {
         //Swift.print("pool.count: " + "\(pool.count)")
         //clear inActive array, if any are left, can happen after resize etc
         //Swift.print("inActive.count: " + "\(inActive.count)")
-        
+        /*This could be usefull when size of view changes from big to small etc*/
         inActive.forEach{$0.item.removeFromSuperview()}
         inActive.removeAll()
     }
