@@ -11,7 +11,7 @@ class CommitsList:RBSliderFastList4{
     var hasReleasedBeyondTop:Bool = false
     
     //Continue here:
-        //try to implement RBSliderFastList4
+        //try to implement RBSliderFastList4 👈
         //try to correct the time-bug when loading commit-items
     
     override func resolveSkin() {
@@ -22,7 +22,7 @@ class CommitsList:RBSliderFastList4{
         progressIndicator!.animator!.event = onEvent
     }
     override func createItem(_ index: Int) -> Element {
-        let dpItem = dataProvider.items[idx]
+        let dpItem = dataProvider.items[index]
         let item:CommitsListItem = CommitsListItem(width, itemHeight ,dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!, false, self.lableContainer)
         return item
     }
@@ -33,7 +33,6 @@ class CommitsList:RBSliderFastList4{
         item.setData(dataProvider.items[idx])
         if(item.selected != selected){item.setSelected(selected)}//only set this if the selected state is different from the current selected state in the ISelectable
     }
-    
     override func scrollWheelEnter() {
         isTwoFingersTouching = true
         super.scrollWheelEnter()
