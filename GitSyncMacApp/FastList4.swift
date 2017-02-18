@@ -49,7 +49,7 @@ class FastList4:Element,IList {
      * NOTE: override this to use custom ItemList items
      */
     func reUse(_ listItem:FastListItem){
-        Swift.print("FastList4.reUse: " + "\(listItem.idx)")
+        //Swift.print("FastList4.reUse: " + "\(listItem.idx)")
         let item:SelectTextButton = listItem.item as! SelectTextButton
         let idx:Int = listItem.idx/*the index of the data in dataProvider*/
         let dpItem = dataProvider.items[idx]
