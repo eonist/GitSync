@@ -22,6 +22,7 @@ class CommitsView:Element {
         //Swift.print("dp.count(): " + "\(dp.count)")
         //Swift.print("CommitsView.width: " + "\(width)")
         list = addSubView(CommitsList(CommitsView.w, CommitsView.h, 102, dp, self,"commitsList"))
+        let idx:Int = ArrayParser.first(list!.pool, CommitsView.selectedIdx, {$0.idx == $1})
         ListModifier.selectAt(list!, CommitsView.selectedIdx)
     }
     var dp:DataProvider?  //Utils.dataProvider()//DataProvider(xml)
