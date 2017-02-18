@@ -212,10 +212,14 @@ extension FastList4{
             }
         }
     }
+    /**
+     * Sets an item to selected, deselects other items, works with dp indecies
+     */
     func selectAt(dpIdx:Int){/*convenience*/
         let idx:Int? = ArrayParser.first(pool, dpIdx, {$0.idx == $1})?.item.idx/*Converts dpIndex to lableContainerIdx*/
-        Swift.print("idx: " + "\(idx)")
+        //Swift.print("idx: " + "\(idx)")
         if(idx != nil){ListModifier.selectAt(self, idx!)}
+        selectedIdx = dpIdx
     }
 }
 
