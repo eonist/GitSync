@@ -57,9 +57,10 @@ class CommitsListItem:Button,ISelectable{
         dateText!.setText(data["date"]!)
     }
     /**
-     * @Note: do not add a dispatch event here, that is the responsibilyy of the caller
+     * NOTE: do not add a dispatch event here, that is the responsibilyy of the caller
      */
     func setSelected(_ isSelected:Bool){
+        Swift.print("setSelected(): " + "\(isSelected)")
         self.isSelected = isSelected
         setSkinState(getSkinState())
     }
