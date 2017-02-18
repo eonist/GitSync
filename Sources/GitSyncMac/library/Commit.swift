@@ -1,6 +1,6 @@
 import Foundation
 @testable import Utils
-@testable import Element
+
 /**
  * DISCUSSION: Using struct is justified because the data is never modified. Just stored and reproduced
  */
@@ -29,8 +29,8 @@ extension Commit:Comparable{
 //this makes SortableCommit unwrappable (XML->SortableCommit)
 extension Commit/*:UnWrappable*/{
     static func unWrap<T>(_ xml:XML) -> T? {
-        let name:String = unWrap(xml, "name")!
-        let repoName:String = unWrap(xml, "repoName")!
+        
+        let repoName:String = unWrap(xml, "repoName") ?? ""
         let contributor:String = unWrap(xml, "contributor") ?? ""
         let title:String = unWrap(xml, "title") ?? ""
         let description:String = unWrap(xml, "description") ?? ""
