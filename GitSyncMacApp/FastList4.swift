@@ -94,7 +94,7 @@ class FastList4:Element,IList {
         super.onEvent(ListEvent(ListEvent.select,selectedIdx ?? -1,self))/*if selectedIdx is nil then use -1 in the event*///TODO: probably use FastListEvent here in the future
     }
     override func onEvent(_ event:Event) {
-        Swift.print("FastList4.onEvent even.type: \(event.type) origin: \(ClassAsserter.ofType(event.origin,CommitsListItem.self))" )
+        Swift.print("FastList4.onEvent even.type: \(event.type) origin: \(ClassAsserter.ofType(event.origin, CommitsListItem.self))" )
         if(event.type == ButtonEvent.upInside && event.immediate === lableContainer){onListItemUpInside(event as! ButtonEvent)}// :TODO: should listen for SelectEvent here
         else if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
         super.onEvent(event)// we stop propegation by not forwarding events to super. The ListEvents go directly to super so they wont be stopped.
