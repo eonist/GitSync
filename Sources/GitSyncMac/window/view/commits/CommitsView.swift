@@ -26,7 +26,7 @@ class CommitsView:Element {
     }
     var dp:DataProvider?  //Utils.dataProvider()//DataProvider(xml)
     var startTime:NSDate?
-    static var operations:[CommitLogOperation] = []
+    var operations:[CommitLogOperation] = []
     /**
      * //try this answer: http://stackoverflow.com/questions/9400287/how-to-run-nstask-with-multiple-commands?rq=1
      * //try a simple case and then the git commands 20 and then 200 etc. use the timer to calc the time it takes
@@ -49,25 +49,25 @@ class CommitsView:Element {
             let args:[String] = CommitViewUtils.commitItems(localPath,maxCommitItems)/*creates an array of arguments that will return commit item logs*/
             args.forEach{
                 let operation = CommitViewUtils.configOperation([$0],localPath,repoTitle,index)/*setup the NSTask correctly*/
-                CommitsView.operations.append(operation)
+                operations.append(operation)
             }
         }
         
-        let finalTask = CommitsView.operations[CommitsView.operations.count-1].task/*We listen to the last task for completion*/
-        NotificationCenter.default.addObserver(forName: Process.didTerminateNotification, object: finalTask, queue: nil, using:CommitsView.observer)/*{ notification in})*/
+        let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
+        NotificationCenter.default.addObserver(forName: Process.didTerminateNotification, object: finalTask, queue: nil, using:observer)/*{ notification in})*/
         //Swift.print("💚 operations.count: " + "\(operations.count)")
-        CommitsView.operations.forEach{/*launch all tasks*/
+        operations.forEach{/*launch all tasks*/
             $0.task.launch()
         }
     }
     /**
      * The handler for the NSTasks
      */
-    static func observer(notification:Notification) {
+    func observer(notification:Notification) {
         Swift.print("the last task completed")
         var commitItems:[Dictionary<String, String>] = []
         
-        CommitsView.operations.forEach{
+        operations.forEach{
             let data:Data = $0.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
             //Swift 3 update on the line bellow
             let output:String = NSString(data:data, encoding:String.Encoding.utf8.rawValue) as! String/*decode the date to a string*/
@@ -77,11 +77,11 @@ class CommitsView:Element {
             commitItems.append(processedCommitData)/*We store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView*/
         }
         Swift.print("commitItems.count: " + "\(commitItems.count)")
-        let dp = DataProvider(commitItems)
-        _ = dp.sort("sortableDate",false)/*sorts the list in ascending order*/
-        Swift.print("dp.count: " + "\(dp.count)")
-        //Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
-        //createList()/*creates the GUI List*/
+        dp = DataProvider(commitItems)
+        _ = dp!.sort("sortableDate",false)/*sorts the list in ascending order*/
+        Swift.print("dp.count: " + "\(dp!.count)")
+        Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+        createList()/*creates the GUI List*/
     }
     /**
      * Eventhandler when a CommitsListItem is clicked
