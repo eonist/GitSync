@@ -83,6 +83,9 @@ class CommitsView:Element {
         Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
         createList()/*creates the GUI List*/
     }
+    /**
+     * Eventhandler when a CommitsListItem is clicked
+     */
     func onListSelect(_ event:ListEvent){
         Swift.print("CommitsView.onListSelect()")
         Sounds.play?.play()
