@@ -27,7 +27,7 @@ struct Commit{
 extension Commit:Comparable{
 }
 //this makes SortableCommit unwrappable (XML->SortableCommit)
-extension Commit/*:UnWrappable*/{
+extension Commit:UnWrappable{
     static func unWrap<T>(_ xml:XML) -> T? {
         
         let repoName:String = unWrap(xml, "repoName") ?? ""
