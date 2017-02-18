@@ -32,15 +32,15 @@ class CommitsView:Element {
      */
     func loadCommits(){
         startTime = NSDate()
-        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)/*Where the repo details recide*/
         let repoList = XMLParser.toArray(repoXML)//or use dataProvider
         //repoList = [repoList[1]]
-        Swift.print("repoList.count: " + "\(repoList.count)")
+        //Swift.print("repoList.count: " + "\(repoList.count)")
         
         let maxItems:Int = 100/*the amount of items to retrive*/
         let maxCommitItems:Int = maxItems/repoList.count/*max commit items allowed per repo*/
-        Swift.print("💚 repoList.count: " + "\(repoList.count)")
-        Swift.print("💚 maxCommitItems: " + "\(maxCommitItems)")
+        //Swift.print("💚 repoList.count: " + "\(repoList.count)")
+        //Swift.print("💚 maxCommitItems: " + "\(maxCommitItems)")
         
         for (index, element) in repoList.enumerated(){/*Loops through repos*/
             let localPath:String = element["local-path"]!//local-path to repo
@@ -54,7 +54,7 @@ class CommitsView:Element {
         
         let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
         NotificationCenter.default.addObserver(forName: Process.didTerminateNotification, object: finalTask, queue: nil, using:observer)/*{ notification in})*/
-        Swift.print("💚 operations.count: " + "\(operations.count)")
+        //Swift.print("💚 operations.count: " + "\(operations.count)")
         operations.forEach{/*launch all tasks*/
             $0.task.launch()
         }
