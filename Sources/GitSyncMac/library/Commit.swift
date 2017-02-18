@@ -29,7 +29,6 @@ extension Commit:Comparable{
 //this makes SortableCommit unwrappable (XML->SortableCommit)
 extension Commit:UnWrappable{
     static func unWrap<T>(_ xml:XML) -> T? {
-        
         let repoName:String = unWrap(xml, "repoName") ?? ""
         let contributor:String = unWrap(xml, "contributor") ?? ""
         let title:String = unWrap(xml, "title") ?? ""
