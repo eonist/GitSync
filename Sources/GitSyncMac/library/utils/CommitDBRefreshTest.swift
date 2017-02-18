@@ -170,17 +170,17 @@ class CommitDBRefreshTest {
      * Fresheness = (commits per second for the last 100 commits)
      */
     static func freshness(_ localPath:String)->CGFloat{
-        Swift.print("freshness() localPath: " + "\(localPath)")
+        //Swift.print("freshness() localPath: " + "\(localPath)")
         let totCommitCount:Int = GitUtils.commitCount(localPath).int-3//you may need to build a more robust commitCount method, it may be that there is a newLine etc
-        Swift.print("totCommitCount: " + "\(totCommitCount)")
+        //Swift.print("totCommitCount: " + "\(totCommitCount)")
         let index:Int = totCommitCount < 100 ? totCommitCount : 100
         var date:Date = Date()
         let now:Int = DateParser.descendingDate(date).int
         if(index > 0){//if the repo has commits
             let cmd:String = "head~"+index.string+" --pretty=format:%ci --no-patch"
-            Swift.print("cmd: " + "\(cmd)")
+            //Swift.print("cmd: " + "\(cmd)")
             let commitDate:String = GitParser.show(localPath, cmd)
-            Swift.print("commitDate: " + "\(commitDate)")
+            //Swift.print("commitDate: " + "\(commitDate)")
             date = GitDateUtils.date(commitDate)
         }
         let descendingDate:Int = DateParser.descendingDate(date).int
