@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Utils
 @testable import Element
 
@@ -9,13 +9,7 @@ class CommitsList:RBSliderFastList4{
     var isInDeactivateRefreshModeState:Bool = false
     var isTwoFingersTouching = false/*is Two Fingers Touching the Touch-Pad*/
     var hasReleasedBeyondTop:Bool = false
-    
-    //Continue here:
-        //fix the bug where items blink when you scroll👈 
-            //I think its because you remove items rather than try to hide
-        //The commit dp seems all wrong. Many commits are missing etc. use the tests classes and fix i
-        //try to correct the time-bug when loading commit-items
-    
+
     override func resolveSkin() {
         super.resolveSkin()
         let piContainer = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
@@ -24,13 +18,14 @@ class CommitsList:RBSliderFastList4{
         progressIndicator!.animator!.event = onEvent
     }
     override func createItem(_ index:Int) -> Element {
+        //Swift.print("CommitsList.createItem index: \(index)")
         let dpItem = dataProvider.items[index]
         let item:CommitsListItem = CommitsListItem(width, itemHeight ,dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!, false, self.lableContainer)
         lableContainer!.addSubview(item)
         return item
     }
     override func reUse(_ listItem:FastListItem) {
-        Swift.print("reUse: idx: " + "\(listItem.idx)")
+        //Swift.print("CommitsList.reUse: idx: " + "\(listItem.idx)")
         let item:CommitsListItem = listItem.item as! CommitsListItem
         let idx:Int = listItem.idx/*the index of the data in dataProvider*/
         let selected:Bool = idx == selectedIdx//dpItem["selected"]!.bool

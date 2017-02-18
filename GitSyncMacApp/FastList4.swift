@@ -12,13 +12,14 @@ class FastList4:Element,IList {
     var dataProvider:DataProvider/*data storage*/
     var lableContainer:Container?/*holds the list items*/
     var pool:[FastListItem] = []
+    var inActive:[FastListItem] = []//Stores pool item that are not in-use
     
     init(_ width:CGFloat, _ height:CGFloat, _ itemHeight:CGFloat = NaN,_ dataProvider:DataProvider? = nil, _ parent:IElement?, _ id:String? = nil){
         self.itemHeight = itemHeight
         self.dataProvider = dataProvider ?? DataProvider()/*<--if it's nil then a DB is created*/
         super.init(width, height, parent, id)
         self.dataProvider.event = self.onEvent/*Add event handler for the dataProvider*/
-        layer!.masksToBounds = true/*masks the children to the frame, I don't think this works, seem to work now*/
+        layer!.masksToBounds = true/*masks the children to the frame*/
     }
     override func resolveSkin() {
         super.resolveSkin()
@@ -48,7 +49,7 @@ class FastList4:Element,IList {
      * NOTE: override this to use custom ItemList items
      */
     func reUse(_ listItem:FastListItem){
-        //Swift.print("reUse: " + "\(listItem.idx)")
+        Swift.print("FastList4.reUse: " + "\(listItem.idx)")
         let item:SelectTextButton = listItem.item as! SelectTextButton
         let idx:Int = listItem.idx/*the index of the data in dataProvider*/
         let dpItem = dataProvider.items[idx]
@@ -63,6 +64,7 @@ class FastList4:Element,IList {
      * NOTE: override this to create custom ListItems
      */
     func createItem(_ index:Int) -> Element{
+        Swift.print("createItem index: " + "\(index)")
         let item:SelectTextButton = SelectTextButton(getWidth(), itemHeight ,"", false, lableContainer)
         lableContainer!.addSubview(item)
         return item
@@ -96,51 +98,18 @@ class FastList4:Element,IList {
     }
     override func getClassType() -> String {return "\(List.self)"}
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    
 }
 
 extension FastList4{
-    /**
-     * Returns the range to render (based on items in DP and how the lableContainer is positioned)
-     */
-    var visibleItemRange:Range<Int>{
-        let firstVisibleItemThatCrossTopOfView = firstVisibleItem
-        let lastVisibleItemThatIsWithinBottomOfView = lastVisibleItem
-        let visibleItemRange:Range<Int> = firstVisibleItemThatCrossTopOfView..<lastVisibleItemThatIsWithinBottomOfView
-        return visibleItemRange
-    }
-    /**
-     * Returns the current visible item range in List
-     */
-    var currentVisibleItemRange:Range<Int>{
-        let firstIdx:Int = pool.count > 0 ? pool.first!.idx : 0
-        let lastIdx:Int = pool.count > 0 ? pool.first!.idx + pool.count : 0
-        //Swift.print("lastIdx: " + "\(lastIdx)")
-        let currentVisibleItemRange:Range<Int> = firstIdx..<lastIdx
-        return currentVisibleItemRange
-    }
-    /**
-     * reUses all items from idx, to end idx in pool
-     * NOTE: this method is called after dp change: add/remove
-     */
-    func reUseFromIdx(_ idx:Int){
-        if(idx >= firstVisibleItem && idx <= lastVisibleItem){
-            let startIdx = idx - firstVisibleItem
-            var endIdx = lastVisibleItem - firstVisibleItem
-            endIdx = Swift.min(dp.count,endIdx)
-            for i in startIdx..<endIdx{/*reUse affected items if item is within visible view*/
-                let fastListItem = pool[i]
-                reUse(fastListItem)
-            }
-        }
-    }
     /**
      * Creates, applies data and aligns items defined in PARAM: range
      * TODO: You can optimize the range stuff later when all cases work (it would be possible to creat a custom diff method that is simpler and faster than using generic intersection,diff and exclude)
      * NOTE: this method is inside an extension because it doesn't need to be overriden by super classes
      */
     func renderItems(_ range:Range<Int>){
-        //Swift.print("new: " + "\(range)")
-        var inActive:[FastListItem] = []
+        //Swift.print("renderItems.range: " + "\(range)")
+        
         let old = currentVisibleItemRange
         //Swift.print("old: " + "\(old)")
         let firstOldIdx:Int = old.start
@@ -204,7 +173,52 @@ extension FastList4{
         /**
          * This could be usefull when size of view changes from big to small etc, or when going from many items to few
          */
-        inActive.forEach{$0.item.removeFromSuperview()}
-        inActive.removeAll()
+        /**/
+        //Swift.print("inActive: " + "\(inActive.count)")
+    }
+    /**
+     * Returns the range to render (based on items in DP and how the lableContainer is positioned)
+     */
+    var visibleItemRange:Range<Int>{
+        let firstVisibleItemThatCrossTopOfView = firstVisibleItem
+        let lastVisibleItemThatIsWithinBottomOfView = lastVisibleItem
+        let visibleItemRange:Range<Int> = firstVisibleItemThatCrossTopOfView..<lastVisibleItemThatIsWithinBottomOfView
+        return visibleItemRange
+    }
+    /**
+     * Returns the current visible item range in List
+     */
+    var currentVisibleItemRange:Range<Int>{
+        let firstIdx:Int = pool.count > 0 ? pool.first!.idx : 0
+        let lastIdx:Int = pool.count > 0 ? pool.first!.idx + pool.count : 0
+        //Swift.print("lastIdx: " + "\(lastIdx)")
+        let currentVisibleItemRange:Range<Int> = firstIdx..<lastIdx
+        return currentVisibleItemRange
+    }
+    /**
+     * reUses all items from idx, to end idx in pool
+     * NOTE: this method is called after dp change: add/remove
+     */
+    func reUseFromIdx(_ idx:Int){
+        if(idx >= firstVisibleItem && idx <= lastVisibleItem){
+            let startIdx = idx - firstVisibleItem
+            var endIdx = lastVisibleItem - firstVisibleItem
+            endIdx = Swift.min(dp.count,endIdx)
+            for i in startIdx..<endIdx{/*reUse affected items if item is within visible view*/
+                let fastListItem = pool[i]
+                reUse(fastListItem)
+            }
+        }
     }
 }
+
+/*
+ //call this method after resize etc
+ 
+ inActive.forEach{
+    Swift.print("remove inactive")
+    $0.item.removeFromSuperview()
+ }
+ inActive.removeAll()
+ 
+ */
