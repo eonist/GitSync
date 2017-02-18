@@ -88,12 +88,13 @@ class FastList4:Element,IList {
     func onListItemUpInside(_ buttonEvent:ButtonEvent) {
         Swift.print("FastList4.onListItemUpInside() ")
         let viewIndex:Int = lableContainer!.indexOf(buttonEvent.origin as! NSView)
+        Swift.print("viewIndex: " + "\(viewIndex)")
         ListModifier.selectAt(self,viewIndex)//unSelect all other visibleItems
         pool.forEach{if($0.item === buttonEvent.origin){selectedIdx = $0.idx}}/*We extract the index by searching for the origin among the visibleItems, the view doesn't store the index it self, but the visibleItems store absolute indecies*/
         super.onEvent(ListEvent(ListEvent.select,selectedIdx ?? -1,self))/*if selectedIdx is nil then use -1 in the event*///TODO: probably use FastListEvent here in the future
     }
     override func onEvent(_ event:Event) {
-        Swift.print("FastList4.onEvent even.type: \(event.type)" )
+        //Swift.print("FastList4.onEvent even.type: \(event.type)" )
         if(event.type == ButtonEvent.upInside && event.immediate === lableContainer){onListItemUpInside(event as! ButtonEvent)}// :TODO: should listen for SelectEvent here
         else if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
         super.onEvent(event)// we stop propegation by not forwarding events to super. The ListEvents go directly to super so they wont be stopped.

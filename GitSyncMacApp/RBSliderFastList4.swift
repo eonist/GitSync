@@ -89,7 +89,7 @@ class RBSliderFastList4:FastList4,IRBSliderList{
         updateSlider()
     }
     override func onEvent(_ event:Event) {
-        Swift.print("RBSliderFastList4.onEvent even.type: \(event.type)" )
+        //Swift.print("RBSliderFastList4.onEvent even.type: \(event.type)" )
         if(event.assert(SliderEvent.change,slider)){
             onSliderChange(event.cast())
         }else if(event.assert(AnimEvent.stopped, mover!)){
