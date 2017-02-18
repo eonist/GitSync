@@ -23,12 +23,18 @@ class FastList4:Element,IList {
     }
     override func resolveSkin() {
         super.resolveSkin()
-        lableContainer = addSubView(Container(width,height,self,"lable"))
+        createLableContainer()
         /*calc visibleItems based on lableContainer.y and height*/
         let visibleRange:Range<Int> = visibleItemRange/*visible ItemRange Within View*/
         let range:Range<Int> = visibleRange.start..<min(dp.count,visibleRange.end)/*clip the range*/
         //Swift.print("range: " + "\(range)")
         renderItems(range)
+    }
+    /**
+     * Overridable
+     */
+    func createLableContainer(){
+        lableContainer = addSubView(Container(width,height,self,"lable"))
     }
     /**
      * PARAM: progress (0-1)
