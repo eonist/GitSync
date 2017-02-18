@@ -46,7 +46,6 @@ class CommitsList:RBSliderFastList4{
             mover!.frame.y = 60
             progressIndicator!.start()//1. start spinning the progressIndicator
             hasPulledAndReleasedBeyondRefreshSpace = true
-            
         }else if (value > 0){
             hasReleasedBeyondTop = true
             //scrollController!.mover.topMargin = 0
@@ -55,7 +54,7 @@ class CommitsList:RBSliderFastList4{
         }
     }
     override func scrollAnimStopped(){
-        Swift.print("💛 CommitsList.scrollAnimStopped()")
+        //Swift.print("💛 CommitsList.scrollAnimStopped()")
         super.scrollAnimStopped()
         if(isInDeactivateRefreshModeState){
             //Swift.print("reset refreshState")
