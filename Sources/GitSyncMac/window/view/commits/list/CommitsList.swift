@@ -39,7 +39,7 @@ class CommitsList:RBSliderFastList4{
     }
     override func scrollWheelExit(){
         isTwoFingersTouching = false
-        //Swift.print("CommitList.scrollWheelExit()")
+        Swift.print("💜 CommitList.scrollWheelExit()")
         let value = mover!.result
         if(value > 60){
             //Swift.print("start animation the ProgressIndicator")
@@ -55,7 +55,7 @@ class CommitsList:RBSliderFastList4{
         }
     }
     override func scrollAnimStopped(){
-        //Swift.print("CommitsList.scrollAnimStopped()")
+        Swift.print("💛 CommitsList.scrollAnimStopped()")
         super.scrollAnimStopped()
         if(isInDeactivateRefreshModeState){
             //Swift.print("reset refreshState")
@@ -83,7 +83,7 @@ extension CommitsList{
      * Basically not in refreshState
      */
     func loopAnimationCompleted(){
-        //Swift.print("CommitList.loopAnimationCompleted()")
+        Swift.print("❤️️ CommitList.loopAnimationCompleted()")
         isInDeactivateRefreshModeState = true
         mover!.frame.y = 0
         mover!.hasStopped = false/*reset this value to false, so that the FrameAnimatior can start again*/
