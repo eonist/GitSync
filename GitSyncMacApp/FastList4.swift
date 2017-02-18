@@ -213,10 +213,9 @@ extension FastList4{
         }
     }
     func selectAt(dpIdx:Int){/*convenience*/
-        let itemIdx:Int? = ArrayParser.first(list!.pool, CommitsView.selectedIdx, {$0.idx == $1})?.item.idx
-        Swift.print("itemIdx: " + "\(itemIdx)")
-        
-        if(itemIdx != nil){list!.selectAt(itemIdx!)}
+        let idx:Int? = ArrayParser.first(pool, dpIdx, {$0.idx == $1})?.item.idx/*Converts dpIndex to lableContainerIdx*/
+        Swift.print("idx: " + "\(idx)")
+        if(idx != nil){ListModifier.selectAt(self, idx!)}
     }
 }
 
