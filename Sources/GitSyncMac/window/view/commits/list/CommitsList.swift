@@ -46,6 +46,9 @@ class CommitsList:RBSliderFastList4{
             mover!.frame.y = 60
             progressIndicator!.start()//1. start spinning the progressIndicator
             hasPulledAndReleasedBeyondRefreshSpace = true
+            
+            /*start downloading commits here*/
+            
         }else if (value > 0){
             hasReleasedBeyondTop = true
             //scrollController!.mover.topMargin = 0
