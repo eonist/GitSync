@@ -213,7 +213,9 @@ extension FastList4{
         }
     }
     func selectAt(_ index:Int){/*convenience*/
-        ListModifier.selectAt(self, index)
+        let selectable:ISelectable = list.lableContainer!.subviews[index] as! ISelectable
+        if(!selectable.getSelected()) {selectable.setSelected(true)}
+        SelectModifier.unSelectAllExcept(selectable, list.lableContainer!)
     }
 }
 
