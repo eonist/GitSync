@@ -20,7 +20,7 @@ class CommitsList:RBSliderFastList4{
     override func createItem(_ index:Int) -> Element {
         //Swift.print("CommitsList.createItem index: \(index)")
         let dpItem = dataProvider.items[index]
-        let item:CommitsListItem = CommitsListItem(width, itemHeight ,dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!, false, self.lableContainer)
+        let item:CommitsListItem = CommitsListItem(width, itemHeight ,dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!, false, lableContainer)
         lableContainer!.addSubview(item)
         return item
     }
