@@ -219,6 +219,7 @@ extension FastList4{
         let idx:Int? = ArrayParser.first(pool, dpIdx, {$0.idx == $1})?.item.idx/*Converts dpIndex to lableContainerIdx*/
         //Swift.print("idx: " + "\(idx)")
         if(idx != nil){ListModifier.selectAt(self, idx!)}
+        else{}
         selectedIdx = dpIdx
     }
 }
