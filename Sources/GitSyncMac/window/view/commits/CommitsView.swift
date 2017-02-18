@@ -26,7 +26,7 @@ class CommitsView:Element {
     }
     var dp:DataProvider?  //Utils.dataProvider()//DataProvider(xml)
     var startTime:NSDate?
-    var operations:[CommitLogOperation] = []
+    static var operations:[CommitLogOperation] = []
     /**
      * //try this answer: http://stackoverflow.com/questions/9400287/how-to-run-nstask-with-multiple-commands?rq=1
      * //try a simple case and then the git commands 20 and then 200 etc. use the timer to calc the time it takes
@@ -49,14 +49,14 @@ class CommitsView:Element {
             let args:[String] = CommitViewUtils.commitItems(localPath,maxCommitItems)/*creates an array of arguments that will return commit item logs*/
             args.forEach{
                 let operation = CommitViewUtils.configOperation([$0],localPath,repoTitle,index)/*setup the NSTask correctly*/
-                operations.append(operation)
+                CommitsView.operations.append(operation)
             }
         }
         
-        let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
+        let finalTask = CommitsView.operations[CommitsView.operations.count-1].task/*We listen to the last task for completion*/
         NotificationCenter.default.addObserver(forName: Process.didTerminateNotification, object: finalTask, queue: nil, using:CommitsView.observer)/*{ notification in})*/
         //Swift.print("💚 operations.count: " + "\(operations.count)")
-        operations.forEach{/*launch all tasks*/
+        CommitsView.operations.forEach{/*launch all tasks*/
             $0.task.launch()
         }
     }
@@ -67,7 +67,7 @@ class CommitsView:Element {
         Swift.print("the last task completed")
         var commitItems:[Dictionary<String, String>] = []
         
-        operations.forEach{
+        CommitsView.operations.forEach{
             let data:Data = $0.pipe.fileHandleForReading.readDataToEndOfFile()/*retrive the date from the nstask output*/
             //Swift 3 update on the line bellow
             let output:String = NSString(data:data, encoding:String.Encoding.utf8.rawValue) as! String/*decode the date to a string*/
@@ -79,9 +79,9 @@ class CommitsView:Element {
         Swift.print("commitItems.count: " + "\(commitItems.count)")
         let dp = DataProvider(commitItems)
         _ = dp.sort("sortableDate",false)/*sorts the list in ascending order*/
-        Swift.print("dp.count: " + "\(dp!.count)")
+        Swift.print("dp.count: " + "\(dp.count)")
         //Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
-        createList()/*creates the GUI List*/
+        //createList()/*creates the GUI List*/
     }
     /**
      * Eventhandler when a CommitsListItem is clicked
