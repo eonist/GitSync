@@ -219,7 +219,7 @@ extension FastList4{
         let idx:Int? = ArrayParser.first(pool, dpIdx, {$0.idx == $1})?.item.idx/*Converts dpIndex to lableContainerIdx*/
         //Swift.print("idx: " + "\(idx)")
         if(idx != nil){ListModifier.selectAt(self, idx!)}
-        else{}
+        else{SelectModifier.selectAll(lableContainer!, false)}/*unSelect all if an item outside visible view is selected*/
         selectedIdx = dpIdx
     }
 }
