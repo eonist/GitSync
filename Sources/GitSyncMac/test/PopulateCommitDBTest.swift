@@ -62,7 +62,7 @@ class PopulateCommitDB {
         }else {//< 100
             commitCount = 100 - commitDB.sortedArr.count
         }
-        Swift.print("\(repoTitle): rangeCount: " + "\(commitCount)")
+        Swift.print("💙\(repoTitle): rangeCount: " + "\(commitCount)")
         //3. Retrieve the commit log items for this repo with the range specified
         //Swift.print("max: " + "\(commitCount)")
         let results:[String] = Utils.commitItems(localPath, commitCount)/*creates an array commit item logs, from repo*/
@@ -88,7 +88,7 @@ class PopulateCommitDB {
     func onFreshnessSortComplete(){
         Swift.print("onFreshnessSortComplete")
         sortableRepoList.forEach{Swift.print($0.repo["title"]!)}
-        Swift.print("onFreshnessSortComplete() Time:-> " + "\(abs(startTime.timeIntervalSinceNow))")/*How long it took*/
+        Swift.print("💛 onFreshnessSortComplete() Time:-> " + "\(abs(startTime.timeIntervalSinceNow))")/*How long it took*/
         refreshRepos()
     }
     /**
@@ -100,7 +100,7 @@ class PopulateCommitDB {
         commitDB.sortedArr.forEach{
             Swift.print("hash: \($0.hash) date: \(GitDateUtils.gitTime($0.sortableDate.string)) repo: \($0.repoName) ")
         }
-        Swift.print("onRefreshReposComplete() Time: " + "\(abs(startTime.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+        Swift.print("💚 onRefreshReposComplete() Time: " + "\(abs(startTime.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
         CommitDBCache.write(commitDB)//write data to disk, we could also do this on app exit
     }
 }
