@@ -122,7 +122,7 @@ class CommitDBRefreshTest {
         }else {//< 100
             commitCount = 100 - commitDB.sortedArr.count
         }
-        Swift.print("\(repoTitle): rangeCount: " + "\(commitCount)")
+        Swift.print("💜\(repoTitle): rangeCount: " + "\(commitCount)")
         //3. Retrieve the commit log items for this repo with the range specified
         //Swift.print("max: " + "\(commitCount)")
         let args:[String] = CommitViewUtils.commitItems(localPath,commitCount)/*creates an array of arguments that will return commit item logs*/
