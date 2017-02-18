@@ -160,14 +160,14 @@ class CommitsTopBar:Element{
 
 //Continue here: 
     //parsing log now works.
-        //lets try and parse the last 20 items from every repo and combine them in a dataprovider (done)
-            //store in a array-dictionary and create the dp after you have sorted the the arr-dict (done)
-                //then try to populate the GUI (done)
-                    //remember to store the relative date and compacted body. You should not do any data processing when you display in the GUI (done)
+        //lets try and parse the last 20 items from every repo and combine them in a dataprovider ✅
+            //store in a array-dictionary and create the dp after you have sorted the the arr-dict ✅
+                //then try to populate the GUI ✅
+                    //remember to store the relative date and compacted body. You should not do any data processing when you display in the GUI ✅
                         //You can always get the full body from the hash when going to CommentDetailView
 
 
-//TODO: Use RegExp to convert the commit data item to an Triplet item in an array (done)
+//TODO: Use RegExp to convert the commit data item to an Triplet item in an array ✅
     //or find the first two linebreaks and split at these integers, then you will have 3 seperate string parts <---easier
 
 
