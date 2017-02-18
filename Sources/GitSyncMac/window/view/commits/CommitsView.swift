@@ -3,6 +3,7 @@ import Cocoa
 @testable import Element
 
 class CommitsView:Element {
+    static var selectedIdx:Int = 1
     static let w:CGFloat = MainView.w
     static let h:CGFloat = MainView.h-48
     //var topBar:CommitsTopBar?
@@ -21,7 +22,7 @@ class CommitsView:Element {
         //Swift.print("dp.count(): " + "\(dp.count)")
         //Swift.print("CommitsView.width: " + "\(width)")
         list = addSubView(CommitsList(CommitsView.w, CommitsView.h, 102, dp, self,"commitsList"))
-        //ListModifier.selectAt(list!, 1)
+        ListModifier.selectAt(list!, CommitsView.selectedIdx)
     }
     var dp:DataProvider?  //Utils.dataProvider()//DataProvider(xml)
     var startTime:NSDate?
