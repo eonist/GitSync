@@ -63,7 +63,7 @@ class CommitsList:RBSliderFastList4{
         }
     }
     override func onEvent(_ event:Event) {
-        //Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
+        Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
         if(event.assert(AnimEvent.completed, progressIndicator!.animator)){
             loopAnimationCompleted()
         }else if(event.assert(AnimEvent.stopped, mover!)){
