@@ -212,6 +212,9 @@ extension FastList4{
             }
         }
     }
+    func selectAt(_ index:Int){/*convenience*/
+        ListModifier.selectAt(self, index)
+    }
 }
 
 /*
