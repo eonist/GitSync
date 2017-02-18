@@ -17,6 +17,7 @@ class PopulateCommitDB {
      * Sort the repoList so that the freshest repos are parsed first (optimization)
      */
     func freshnessSort(){
+        Swift.print("💜 freshnessSort()")
         async(bgQueue, { () -> Void in//run the task on a background thread
             let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
             let repoList = XMLParser.toArray(repoXML)//or use dataProvider
