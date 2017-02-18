@@ -212,10 +212,11 @@ extension FastList4{
             }
         }
     }
-    func selectAt(_ index:Int){/*convenience*/
-        let selectable:ISelectable = list.lableContainer!.subviews[index] as! ISelectable
-        if(!selectable.getSelected()) {selectable.setSelected(true)}
-        SelectModifier.unSelectAllExcept(selectable, list.lableContainer!)
+    func selectAt(dpIdx:Int){/*convenience*/
+        let itemIdx:Int? = ArrayParser.first(list!.pool, CommitsView.selectedIdx, {$0.idx == $1})?.item.idx
+        Swift.print("itemIdx: " + "\(itemIdx)")
+        
+        if(itemIdx != nil){list!.selectAt(itemIdx!)}
     }
 }
 
