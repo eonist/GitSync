@@ -22,8 +22,9 @@ class CommitsView:Element {
         //Swift.print("dp.count(): " + "\(dp.count)")
         //Swift.print("CommitsView.width: " + "\(width)")
         list = addSubView(CommitsList(CommitsView.w, CommitsView.h, 102, dp, self,"commitsList"))
-        let itemIdx:Int = ArrayParser.first(list!.pool, CommitsView.selectedIdx, {$0.idx == $1})?.item.idx
-        _ = itemIdx
+        let itemIdx:Int? = ArrayParser.first(list!.pool, CommitsView.selectedIdx, {$0.idx == $1})?.item.idx
+        Swift.print("itemIdx: " + "\(itemIdx)")
+        
         
         ListModifier.selectAt(list!, CommitsView.selectedIdx)
     }
