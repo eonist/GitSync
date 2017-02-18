@@ -54,7 +54,7 @@ class CommitsView:Element {
         }
         
         let finalTask = operations[operations.count-1].task/*We listen to the last task for completion*/
-        NotificationCenter.default.addObserver(forName: Process.didTerminateNotification, object: finalTask, queue: nil, using:observer)/*{ notification in})*/
+        NotificationCenter.default.addObserver(forName: Process.didTerminateNotification, object: finalTask, queue: nil, using:CommitsView.observer)/*{ notification in})*/
         //Swift.print("💚 operations.count: " + "\(operations.count)")
         operations.forEach{/*launch all tasks*/
             $0.task.launch()
@@ -63,7 +63,7 @@ class CommitsView:Element {
     /**
      * The handler for the NSTasks
      */
-    func observer(notification:Notification) {
+    static func observer(notification:Notification) {
         Swift.print("the last task completed")
         var commitItems:[Dictionary<String, String>] = []
         
@@ -77,10 +77,10 @@ class CommitsView:Element {
             commitItems.append(processedCommitData)/*We store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView*/
         }
         Swift.print("commitItems.count: " + "\(commitItems.count)")
-        dp = DataProvider(commitItems)
-        _ = dp!.sort("sortableDate",false)/*sorts the list in ascending order*/
+        let dp = DataProvider(commitItems)
+        _ = dp.sort("sortableDate",false)/*sorts the list in ascending order*/
         Swift.print("dp.count: " + "\(dp!.count)")
-        Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+        //Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
         createList()/*creates the GUI List*/
     }
     /**
