@@ -17,8 +17,9 @@ class RBSliderFastList4:FastList4,IRBSliderList{
     override func resolveSkin() {
         super.resolveSkin()
         rbContainer = addSubView(Container(width,height,self,"rb"))
-        rbContainer!.addSubview(lableContainer!)//add lable Container inside rbContainer
         lableContainer!.parent = rbContainer//important
+        rbContainer!.addSubview(lableContainer!)//add lable Container inside rbContainer
+        
         /*RubberBand*/
         let frame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be renamed to maskRect
         let itemsRect = CGRect(0,0,width,max(itemsHeight,height))/*represents the total size of the content *///TODO: could be ranmed to contentRect
