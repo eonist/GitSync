@@ -16,8 +16,9 @@ class RBSliderFastList4:FastList4,IRBSliderList{
     var rbContainer:Container?/*needed for the overshot animation*/
     override func resolveSkin() {
         super.resolveSkin()
-        
-    
+        rbContainer = addSubView(Container(width,height,self,"rb"))
+        rbContainer!.addSubview(lableContainer!)//add lable Container inside rbContainer
+        lableContainer!.parent = rbContainer!
         /*RubberBand*/
         let frame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be renamed to maskRect
         let itemsRect = CGRect(0,0,width,max(itemsHeight,height))/*represents the total size of the content *///TODO: could be ranmed to contentRect
@@ -34,10 +35,7 @@ class RBSliderFastList4:FastList4,IRBSliderList{
         slider!.setThumbHeightValue(thumbHeight)/*set the init thumbHeight*/
         setProgress(0)/*<--Not really needed, but nice to have while debugging*/
     }
-    override func createLableContainer() {
-        rbContainer = addSubView(Container(width,height,self,"rb"))
-        lableContainer = rbContainer!.addSubView(Container(width,height,rbContainer,"lable"))//add lable Container inside rbContainer
-    }
+    
     /**
      * PARAM value: is the final y value for the lableContainer
      */
