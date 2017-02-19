@@ -59,7 +59,7 @@ extension CommitDB{
         //Swift.print("end: " + "\(end)")
         if(start == end){
             Swift.print("❤️️ i doesn't exist, this is the closest at: \(start) ")
-            return start
+            return arr[start] != i ? start : nil
         }
         let mid:Int = start + ((end - start) / 2)/*start + middle of the distance between start and end*/
         //Swift.print("mid: " + "\(mid)")
@@ -70,12 +70,9 @@ extension CommitDB{
         }else if(i > arr[mid]){/*index is in part2*/
             //Swift.print("b")
             return closestIndex(arr,i,mid+1,end)
-        }else if(arr[mid-1] != i){/*index is at middleIndex*/
+        }else{/*index is at middleIndex*/
             //Swift.print("at middle: \(mid)")
-            return mid
-        }else{
-            Swift.print("🖤 end: \(end)")
-            return nil
+            return arr[mid] != i ? mid : nil
         }
     }
 }
