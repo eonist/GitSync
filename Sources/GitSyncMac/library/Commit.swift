@@ -4,7 +4,7 @@ import Foundation
 /**
  * DISCUSSION: Using struct is justified because the data is never modified. Just stored and reproduced
  */
-struct Commit{
+struct Commit:ExpressibleByDictionaryLiteral{
     let repoName:String
     let contributor:String
     let title:String /*'Commit title' aka 'commit subject'*/
@@ -25,7 +25,12 @@ struct Commit{
         self.hash = hash
         self.repoId = repoId
     }
+    
+    init(dictionaryLiteral elements: (String, Commit)...) {
+        <#code#>
+    }
 }
+
 extension Commit:Comparable{
 }
 func == (lhs: Commit, rhs: Commit) -> Bool {
