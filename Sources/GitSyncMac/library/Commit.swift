@@ -26,7 +26,7 @@ struct Commit:ExpressibleByDictionaryLiteral{
         self.repoId = repoId
     }
     
-    init(dictionaryLiteral elements: (String, Commit)...) {
+    init(dictionaryLiteral elements: (key:String, value:Commit)...) {
         <#code#>
     }
 }
