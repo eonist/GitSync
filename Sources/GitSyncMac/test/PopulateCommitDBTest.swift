@@ -96,10 +96,11 @@ class PopulateCommitDB {
         Swift.print("commitDB.sortedArr.count: " + "\(commitDP.items.count)")
         Swift.print("Printing sortedArr after refresh: ")
         commitDP.items.forEach{
-            Swift.print("hash: \($0["hash"]) date: \(GitDateUtils.gitTime($0["sortableDate"]!)) repo: \($0["repo-name"]!) ")
+            Swift.print("hash: \($0["hash"]!) date: \(GitDateUtils.gitTime($0["sortableDate"]!)) repo: \($0["repo-name"]!) ")
         }
         Swift.print("💚 onRefreshReposComplete() Time: " + "\(abs(startTime.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
         CommitDPCache.write(commitDP)//write data to disk, we could also do this on app exit
+        Swift.print("Written to disk")
     }
 }
 
