@@ -6,10 +6,16 @@ import Foundation
  * TODO: it would be significatly faster if we knew the freshesht commit for each repo. -> store a Dict of repoHash, descChronoDate -> and assert on each add wether to store a new freshest item or not
  */
 class CommitDP:DataProvider{
+    var max:Int = 100
 }
 extension CommitDP{
     func add(_ item:[String:String]){
-        
+        let closestIdx:Int = CommitDP.closestIndex(items, item, 0, items.endIndex)
+        if(!items.existAtOrBefore(closestIdx,item)){//TODO:ideally this should be handled in the binarySearch algo, but this is a quick fix, that doesnt hurt performance
+            Swift.print("💚 insert at: \(closestIdx)")
+            _ = items.insertAt(item, closestIdx)/*insertAt always adds infront of the index*/
+        }
+        if(items.count > max){_ = items.shift()}/*keeps the array at max items*/
     }
     static func closestIndex(_ arr:[[String:String]],_ i:[String:String],_ start:Int,_ end:Int) -> Int{
         if(start == end){
