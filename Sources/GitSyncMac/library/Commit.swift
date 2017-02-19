@@ -26,6 +26,10 @@ struct Commit{
 }
 extension Commit:Comparable{
 }
+public func ==(lhs: Commit, rhs: Commit) -> Bool
+    return lhs.hash == rhs.hash
+}
+
 //this makes SortableCommit unwrappable (XML->SortableCommit)
 extension Commit:UnWrappable{
     static func unWrap<T>(_ xml:XML) -> T? {
