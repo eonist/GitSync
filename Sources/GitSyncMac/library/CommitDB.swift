@@ -11,7 +11,7 @@ class CommitDP:DataProvider{
 extension CommitDP{
     func add(_ item:[String:String]){
         let closestIdx:Int = CommitDP.closestIndex(items, item, 0, items.endIndex)
-        if(!items.existAtOrBefore(closestIdx,item)){//TODO:ideally this should be handled in the binarySearch algo, but this is a quick fix, that doesnt hurt performance
+        if(!ArrayAsserter.existAtOrBefore(items,closestIdx,item)){//TODO:ideally this should be handled in the binarySearch algo, but this is a quick fix, that doesnt hurt performance
             Swift.print("💚 insert at: \(closestIdx)")
             _ = items.insertAt(item, closestIdx)/*insertAt always adds infront of the index*/
         }
