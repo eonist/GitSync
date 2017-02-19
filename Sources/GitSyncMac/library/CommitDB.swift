@@ -28,13 +28,13 @@ extension CommitDB{
             return
         }//break
         */
-        let closestIdx:Int? = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
+        let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
         //Swift.print("closestIndex: " + "\(closestIdx)")
         //let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
         //Swift.print("insertAt: " + "\(insertAt)")
-        if(closestIdx != nil){
+        if(sortedArr[closestIdx] != item){
             Swift.print("💚 insert")
-            _ = sortedArr.insertAt(item, closestIdx!)
+            _ = sortedArr.insertAt(item, closestIdx)
         }else{
             Swift.print("💛 no insert")
         }
@@ -54,12 +54,12 @@ extension CommitDB{
      * TRIVIA:  YOu can also implement binary serach as iterative implementation by using a while loop
      * TODO: use range instead of start and end int?!?
      */
-    static func closestIndex<T:Comparable>(_ arr:[T],_ i:T,_ start:Int,_ end:Int) -> Int?{//arr[Stridable] or something indexable
+    static func closestIndex<T:Comparable>(_ arr:[T],_ i:T,_ start:Int,_ end:Int) -> Int{//arr[Stridable] or something indexable
         //Swift.print("start: " + "\(start)")
         //Swift.print("end: " + "\(end)")
         if(start == end){
-            Swift.print("❤️️ i doesn't exist, this is the closest at: \(start) ")
-            return arr[start] != i ? start : nil
+            //Swift.print("❤️️ i doesn't exist, this is the closest at: \(start) ")
+            return start
         }
         let mid:Int = start + ((end - start) / 2)/*start + middle of the distance between start and end*/
         //Swift.print("mid: " + "\(mid)")
@@ -72,7 +72,7 @@ extension CommitDB{
             return closestIndex(arr,i,mid+1,end)
         }else{/*index is at middleIndex*/
             //Swift.print("at middle: \(mid)")
-            return arr[mid] != i ? mid : nil
+            return mid
         }
     }
 }
