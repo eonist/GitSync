@@ -44,6 +44,8 @@ extension CommitDB{
                 Swift.print("💛 no insert")
             }
         }
+        //continue here:
+            //sortarr may be empty
         
         //Swift.print("closestIdx: " + "\(closestIdx)")
         
