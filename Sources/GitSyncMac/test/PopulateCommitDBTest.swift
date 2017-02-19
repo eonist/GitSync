@@ -84,11 +84,10 @@ class PopulateCommitDB {
         }
     }
     /**
-     *
+     * Freshness level of every repo is calculated
      */
     func onFreshnessSortComplete(){
-        Swift.print("onFreshnessSortComplete")
-        sortableRepoList.forEach{Swift.print($0.repo["title"]!)}
+        //sortableRepoList.forEach{Swift.print($0.repo["title"]!)}
         Swift.print("💛 onFreshnessSortComplete() Time:-> " + "\(abs(startTime.timeIntervalSinceNow))")/*How long it took*/
         refreshRepos()
     }
