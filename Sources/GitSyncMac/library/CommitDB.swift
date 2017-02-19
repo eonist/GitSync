@@ -15,15 +15,18 @@ class CommitDB{
         //self.prevCommits = prevCommits
     }
     init(_ dicts:[Dictionary<String,Any>]){
-        let temp:[(String,Any)] = []
+        var temp:[(String,Any)] = []
         dicts.forEach{
             let dict:Dictionary<String,Any> = $0
             for (k,v) in dict {
-                
+                temp.append((k,v))
             }
         }
-        self.sortedArr// = dicts.map{Commit(dictionaryLiteral: )}
+        self.sortedArr = temp.map{Commit(dictionaryLiteral: $0)}
     }
+}
+class DataP{
+    
 }
 extension CommitDB{
     /**
