@@ -69,6 +69,7 @@ extension CommitDB{
             //Swift.print("at middle: \(mid)")
             return mid
         }else{
+            Swift.print("🖤 end: \(end)")
             return end
         }
     }
