@@ -28,11 +28,13 @@ extension CommitDB{
             return
         }//break
         */
-        let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
+        let closestIdx:Int? = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
         //Swift.print("closestIndex: " + "\(closestIdx)")
         //let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
         //Swift.print("insertAt: " + "\(insertAt)")
-        _ = sortedArr.insertAt(item, closestIdx)
+        if(closestIdx != nil){
+            _ = sortedArr.insertAt(item, closestIdx)
+        }
         //Swift.print("closestIdx: " + "\(closestIdx)")
         
         if(sortedArr.count > max){_ = sortedArr.shift()}/*keeps the array at max items*/
@@ -49,7 +51,7 @@ extension CommitDB{
      * TRIVIA:  YOu can also implement binary serach as iterative implementation by using a while loop
      * TODO: use range instead of start and end int?!?
      */
-    static func closestIndex<T:Comparable>(_ arr:[T],_ i:T,_ start:Int,_ end:Int) -> Int{//arr[Stridable] or something indexable
+    static func closestIndex<T:Comparable>(_ arr:[T],_ i:T,_ start:Int,_ end:Int) -> Int?{//arr[Stridable] or something indexable
         //Swift.print("start: " + "\(start)")
         //Swift.print("end: " + "\(end)")
         if(start == end){
@@ -70,7 +72,7 @@ extension CommitDB{
             return mid
         }else{
             Swift.print("🖤 end: \(end)")
-            return end
+            return nil
         }
     }
 }
