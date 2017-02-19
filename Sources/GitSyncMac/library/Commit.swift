@@ -39,13 +39,13 @@ extension Commit: ExpressibleByDictionaryLiteral {
 
 extension Commit:Comparable{
 }
-func == (lhs: Commit<<#K: Hashable#>, Any>, rhs: Commit<<#K: Hashable#>, Any>) -> Bool {
+func == (lhs: Commit<String, Any>, rhs: Commit<String, Any>) -> Bool {
     return lhs.hash == rhs.hash
 }
-func < (a: Commit, b: Commit) -> Bool {
+func < (a: Commit<String, Any>, b: Commit<String, Any>) -> Bool {
     return a.sortableDate < b.sortableDate
 }
-func > (a: Commit, b: Commit) -> Bool {
+func > (a: Commit<String, Any>, b: Commit<String, Any>) -> Bool {
     return a.sortableDate > b.sortableDate
 }
 
