@@ -21,8 +21,8 @@ extension CommitDB{
      */
     func add(_ item:Commit){
         //prevCommits[item.repoId] = item.hash/*store the last commit*/
-        let dup:Commit? = ArrayParser.first(self.sortedArr, item, {$0.hash == $1.hash})
-        if(dup == nil){
+        let hasDup = ArrayAssert.has(self.sortedArr, item, {$0.hash == $1.hash})
+        if(hasDup){
             Swift.print("🖤 dup")
             return
         }//break
