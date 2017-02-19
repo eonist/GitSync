@@ -26,7 +26,7 @@ class PopulateCommitDB {
                 let freshness:CGFloat = CommitDBRefreshTest.freshness(localPath)
                 self.sortableRepoList.append(($0,freshness))
             }
-            self.sortableRepoList.sort(by: {$0.freshness > $1.freshness})//sorts repos according to freshness, the freshest first the least fresh at the botom
+            self.sortableRepoList.sort(by: {$0.freshness > $1.freshness})/*sorts repos according to freshness, the freshest first the least fresh at the botom*/
             async(mainQueue){/*jump back on the main thread*/
                 self.onFreshnessSortComplete()
             }
@@ -37,7 +37,7 @@ class PopulateCommitDB {
      */
     func refreshRepos(){
         async(bgQueue, { () -> Void in/*run the task on a background thread*/
-            self.sortableRepoList.forEach{
+            self.sortableRepoList.forEach{/*the arr is sorted from freshest to least fresh*/
                 self.refreshRepo($0.repo)
             }
             async(mainQueue){/*jump back on the main thread*/
