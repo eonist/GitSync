@@ -57,7 +57,7 @@ class PopulateCommitDB {
         if(commitDB.sortedArr.count >= 100){
             let firstDate = commitDB.sortedArr.first!.sortableDate/*the first date is always the least distant date*/
             //Swift.print("firstDate: " + "\(firstDate)")
-            let gitTime = GitDateUtils.gitTime(firstDate.string)
+            let gitTime = GitDateUtils.gitTime(firstDate.string)/*converts descending date to git time*/
             let rangeCount:Int = GitUtils.commitCount(localPath, after: gitTime).int//now..lastDate
             commitCount = rangeCount > 100 ? 100 : rangeCount//force the value to be no more than max allowed
         }else {//< 100
