@@ -35,14 +35,15 @@ extension CommitDB{
       
         
         
-            var a:Bool{return (closestIdx > sortedArr.count && sortedArr[closestIdx-1] != item)}
-            var b:Bool {return sortedArr[closestIdx] != item}
-            if(a && b){
-                Swift.print("💚 insert")
-                _ = sortedArr.insertAt(item, closestIdx)
-            }else{
-                Swift.print("💛 no insert")
-            }
+        var a:Bool{return (sortedArr.count > 0 && closestIdx > sortedArr.count && sortedArr[closestIdx-1] != item)}
+        var b:Bool {return sortedArr.count > 0 && sortedArr[closestIdx] != item}
+        var c:Bool {return a && b}
+        if(sortedArr.count == 0 || c){
+            Swift.print("💚 insert")
+            _ = sortedArr.insertAt(item, closestIdx)
+        }else{
+            Swift.print("💛 no insert")
+        }
         
         //continue here:
             //sortarr may be empty
