@@ -26,7 +26,10 @@ class CommitDB{
     }
 }
 class DataPro{
-    
+    var items:[Dictionary<String, String>]
+    init(_ items:[Dictionary<String, String>] = []){
+        self.items = items
+    }
 }
 extension CommitDB{
     /**

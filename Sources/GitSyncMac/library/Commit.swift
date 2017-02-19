@@ -24,14 +24,14 @@ struct Commit{
         self.repoId = repoId
     }
 }
-extension Commit: ExpressibleByDictionaryLiteral {
-    init(dictionaryLiteral elements: (String, Any)...) {
-        self.init()
-        for (key, value) in elements {
-            if("\(key)" == "repoName"){self.repoName = "\(value)"}
-        }
-    }
-}
+/*extension Commit: ExpressibleByDictionaryLiteral {
+ init(dictionaryLiteral elements: (String, Any)...) {
+ self.init()
+ for (key, value) in elements {
+ if("\(key)" == "repoName"){self.repoName = "\(value)"}
+ }
+ }
+ }*/
 
 extension Commit:Comparable{
 }
