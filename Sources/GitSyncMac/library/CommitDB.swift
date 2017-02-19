@@ -7,12 +7,15 @@ import Foundation
  */
 class CommitDB{
     var max:Int = 100
+    var dicts:[Dictionary<String,String>]
     var sortedArr:[Commit]/*Chronologically descending commits like: 19:00,19:15,19:59*/
     //var prevCommits:Dictionary<Int,String>/*key:repoHash,value:commitHash for the last commit made by a repo*/
     init(_ sortedArr:[Commit] = []/*, _ prevCommits:Dictionary<Int,String> = [:]*/){
         self.sortedArr = sortedArr
         //self.prevCommits = prevCommits
+        self.dicts = sortedArr as! [Dictionary<String, String>]
     }
+    
 }
 extension CommitDB{
     /**
