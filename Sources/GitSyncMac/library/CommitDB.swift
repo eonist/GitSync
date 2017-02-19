@@ -42,10 +42,13 @@ extension CommitDB{
             if(arr.count > 0 && idx-1 > 0 && idx-1 < arr.count-1){
                 itemExistsAtIdxBefore = arr[idx-1] == item
             }
-            
-            
             Swift.print("itemExistsAtIdxBefore: " + "\(itemExistsAtIdxBefore)")
-            let itemExistsAtIdxAfter:Bool = arr.count > 0 && idx == 0 && arr[0] == item
+            var itemExistsAtIdxAfter:Bool = false
+            if(arr.count > 0 && idx+1 > 0 && idx+1 < arr.count-1){
+                itemExistsAtIdxAfter = arr[idx+1] == item
+            }
+            
+            
             Swift.print("itemExistsAtIdxAfter: " + "\(itemExistsAtIdxAfter)")
             return itemExistsAtIdxBefore || itemExistsAtIdxAfter
         }
