@@ -38,14 +38,14 @@ extension CommitDB{
          */
         func existAt(_ arr:[Commit],_ idx:Int, _ item:Commit) -> Bool{
             //arr[closestIdx-1]
-            let itemExistsAtIdx:Bool = idx < arr.count-1 && arr[closestIdx] == item
-            idx == arr.count
-            return itemExistsAtIdx
+            let itemExistsAtIdxBefore:Bool = idx > 0 && idx < arr.count && arr[closestIdx-1] == item
+
+            return itemExistsAtIdxBefore
         }
         
-        
+        //insertAt always adds infront of the index
         if(existAt(sortedArr,closestIdx,item) == false){
-            Swift.print("💚 insert")
+            Swift.print("💚 insert at: \(closestIdx)")
             _ = sortedArr.insertAt(item, closestIdx)
         }else{
             Swift.print("💛 no insert")
