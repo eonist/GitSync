@@ -64,4 +64,11 @@ private class Utils{
         return itemAlreadyExistAtIdx() || itemExistsAtIdxBefore()
     }
 }
-
+//this makes CommitDB unwrappable (XML->CommitDB)
+/*extension CommitDP:UnWrappable{
+ static func unWrap<T>(_ xml:XML) -> T? {
+ let sortedArr:[Commit?] = unWrap(xml, "sortedArr")
+ //let prevCommits:[Int:String] = unWrap(xml,"prevCommits")
+ return CommitDB(sortedArr.flatMap{$0}/*,prevCommits*/) as? T/*flatMap is used to remove any nil values*/
+ }
+ }*/
