@@ -21,7 +21,7 @@ extension CommitDB{
      */
     func add(_ item:Commit){
         //prevCommits[item.repoId] = item.hash/*store the last commit*/
-        let hasDup = ArrayAssert.has(self.sortedArr, item, {$0.hash == $1.hash})
+        let hasDup = ArrayAsserter.has(self.sortedArr, item, {$0.hash == $1.hash})
         if(hasDup){
             Swift.print("🖤 dup")
             return
