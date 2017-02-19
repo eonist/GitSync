@@ -37,8 +37,10 @@ extension CommitDB{
         
         var a:Bool{return (sortedArr.count > 0 && closestIdx > sortedArr.count && sortedArr[closestIdx-1] != item)}
         var b:Bool {return sortedArr.count > 0 && sortedArr[closestIdx] != item}
-        var c:Bool {return a && b}
-        if(sortedArr.count == 0 || c){
+        var c:Bool {return a || b}
+        let d = c
+        Swift.print("d: " + "\(d)")
+        if(sortedArr.count == 0 || d){
             Swift.print("💚 insert")
             _ = sortedArr.insertAt(item, closestIdx)
         }else{
