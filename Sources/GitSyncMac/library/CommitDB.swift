@@ -40,12 +40,13 @@ extension CommitDB{
             //arr[closestIdx-1]
             var itemExistsAtIdxBefore:Bool = false
             if(arr.count > 0 && idx-1 > 0 && idx-1 < arr.count-1){
-                itemExistsAtIdxBefore = arr[idx-1] == item
+                itemExistsAtIdxBefore = arr[idx-1].hash == item.hash
             }
             Swift.print("itemExistsAtIdxBefore: " + "\(itemExistsAtIdxBefore)")
             var itemExistsAtIdxAfter:Bool = false
             if(arr.count > 0 && idx+1 > 0 && idx+1 < arr.count-1){
-                itemExistsAtIdxAfter = arr[idx+1] == item
+                
+                itemExistsAtIdxAfter = arr[idx+1].hash == item.hash
             }
             
             
