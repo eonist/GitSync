@@ -37,15 +37,17 @@ extension CommitDB{
          *
          */
         func existAt(_ arr:[Commit],_ idx:Int, _ item:Commit) -> Bool{
+            Swift.print("item.hash: " + "\(item.hash)")
             //arr[closestIdx-1]
             var itemExistsAtIdxBefore:Bool = false
             if(arr.count > 0 && idx-1 > 0 && idx-1 < arr.count-1){
+                Swift.print("arr[idx-1].hash: " + "\(arr[idx-1].hash)")
                 itemExistsAtIdxBefore = arr[idx-1].hash == item.hash
             }
             Swift.print("itemExistsAtIdxBefore: " + "\(itemExistsAtIdxBefore)")
             var itemExistsAtIdxAfter:Bool = false
             if(arr.count > 0 && idx+1 > 0 && idx+1 < arr.count-1){
-                
+                Swift.print("arr[idx+1].hash: " + "\(arr[idx+1].hash)")
                 itemExistsAtIdxAfter = arr[idx+1].hash == item.hash
             }
             
