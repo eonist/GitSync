@@ -93,7 +93,7 @@ class PopulateCommitDB {
         refreshRepos()
     }
     /**
-     *
+     * The final complete call
      */
     func onRefreshReposComplete(){
         Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
