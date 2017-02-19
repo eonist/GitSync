@@ -72,6 +72,7 @@ class PopulateCommitDB {
                 //Swift.print("output: " + ">\(output)<")
                 let commitData:CommitData = GitLogParser.commitData($0)/*Compartmentalizes the result into a Tuple*/
                 let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
+                let commitDict:[String:String] = CommitViewUtils.processCommitData(repoTitle, commitData, 0)
                 //Swift.print("repo: \(element.repoTitle) hash: \(commit.hash) date: \(Utils.gitTime(commit.sortableDate.string))")
                 commitDB.add(commit)/*add the commit log items to the CommitDB*/
             }else{
