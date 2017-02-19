@@ -59,7 +59,7 @@ extension CommitDB{
             
             
             Swift.print("itemExistsAtIdxAfter: " + "\(itemExistsAtIdxAfter)")
-            return itemExistsAtIdxBefore || itemExistsAtIdxAfter || itemAlreadyExistAtIdx
+            return itemExistsAtIdxBefore || itemExistsAtIdxAfter || itemAlreadyExistAtIdx
         }
         
         //insertAt always adds infront of the index
