@@ -22,7 +22,7 @@ class CommitDPCache {
         let xml = Reflection.toXML(commitDP)/*Reflection*/
         //Swift.print(xml.XMLString)
         let contentToWriteToDisk = xml.xmlString
-        _ = FileModifier.write(CommitDBCache.url.tildePath, contentToWriteToDisk)
+        _ = FileModifier.write(CommitDPCache.url.tildePath, contentToWriteToDisk)
     }
 }
 
