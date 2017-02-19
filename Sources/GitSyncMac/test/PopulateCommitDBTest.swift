@@ -37,7 +37,7 @@ class PopulateCommitDB {
      */
     func refreshRepos(){
         async(bgQueue, { () -> Void in/*run the task on a background thread*/
-            self.sortableRepoList.forEach{/*the arr is sorted from freshest to least fresh*/
+            self.sortableRepoList.forEach{/*the arr is already sorted from freshest to least fresh*/
                 self.refreshRepo($0.repo)
             }
             async(mainQueue){/*jump back on the main thread*/
