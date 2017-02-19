@@ -143,7 +143,7 @@ class CommitDBRefreshTest {
         }
     }
     /**
-     * The handler for the NSTasks
+     * The handler for the repoRefresh NSTasks
      */
     static func observer(_ notification:Notification) {
         //Swift.print("the last task completed")
