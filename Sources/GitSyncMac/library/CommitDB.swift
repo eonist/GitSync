@@ -25,7 +25,7 @@ class CommitDB{
         self.sortedArr = temp.map{Commit(dictionaryLiteral: $0)}
     }
 }
-class DataP{
+class DataPro{
     
 }
 extension CommitDB{
