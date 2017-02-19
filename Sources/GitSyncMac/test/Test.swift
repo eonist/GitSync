@@ -21,7 +21,7 @@ class Test {
         Swift.print("sortedArr.count: " + "\(sortedArr.count)")
         
         func add(_ item:Int){
-            let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)!
+            let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
             Swift.print("closestIndex: " + "\(closestIdx)")
             _ = sortedArr.insertAt(item, closestIdx)
         }
