@@ -42,9 +42,9 @@ private class Utils{
      * Asserts if an item is at or before PARAM: idx
      * NOTE: Usefull in conjunction with ArrayModifier.insertAt()// to assert if an item already exists at that idx or not. to avoid dups
      */
-    static func existAtOrBefore<T>(_ arr:[T],_ idx:Int, _ item:T) -> Bool where T:Equatable{
-        func itemAlreadyExistAtIdx()->Bool {return (arr.valid(idx) && arr[idx] == item) }
-        func itemExistsAtIdxBefore()->Bool {return (arr.valid(idx-1) && arr[idx-1] == item)}
+    static func existAtOrBefore(_ arr:[[String:String]],_ idx:Int, _ item:[String:String]) -> Bool {
+        func itemAlreadyExistAtIdx()->Bool {return (arr.valid(idx) && arr[idx]["hash"] == item["hash"]) }
+        func itemExistsAtIdxBefore()->Bool {return (arr.valid(idx-1) && arr[idx-1]["hash"] == item["hash"])}
         return itemAlreadyExistAtIdx() || itemExistsAtIdxBefore()
     }
 }
