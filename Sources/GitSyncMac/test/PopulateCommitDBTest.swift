@@ -2,7 +2,8 @@ import Foundation
 @testable import Utils
 
 class PopulateCommitDB {
-    var commitDB:CommitDB/* = CommitDB()*/
+    //var commitDB:CommitDB/* = CommitDB()*/
+    var commitDP:CommitDP
     var startTime:NSDate
     var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
     init(){
