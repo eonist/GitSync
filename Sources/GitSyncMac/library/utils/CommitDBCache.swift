@@ -19,7 +19,7 @@ class CommitDBCache {
      * Write commits to disk (xml)
      */
     static func write(_ commitDB:CommitDB){
-        let xml = Reflection.toXML(commitDB)/*Reflection*/
+        let xml:XML = Reflection.toXML(commitDB)/*Reflection*/
         //Swift.print(xml.XMLString)
         let contentToWriteToDisk = xml.xmlString
         _ = FileModifier.write(CommitDBCache.url.tildePath, contentToWriteToDisk)

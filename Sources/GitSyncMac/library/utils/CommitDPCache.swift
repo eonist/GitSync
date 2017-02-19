@@ -19,8 +19,8 @@ class CommitDPCache {
      * Write commits to disk (xml)
      */
     static func write(_ commitDP:CommitDP){
-        let xml = Reflection.toXML(commitDP)/*Reflection*/
-        //Swift.print(xml.XMLString)
+        let xml:XML = Reflection.toXML(commitDP)/*Reflection*/
+        Swift.print(xml.XMLString.count)
         let contentToWriteToDisk = xml.xmlString
         _ = FileModifier.write(CommitDPCache.url.tildePath, contentToWriteToDisk)
     }
