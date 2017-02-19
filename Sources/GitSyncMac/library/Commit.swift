@@ -13,8 +13,8 @@ struct Commit:ExpressibleByDictionaryLiteral{
     let sortableDate:Int/*chronological descending date  in this format: yyyymmddhhmmss 20161201165959*/
     let hash:String
     let repoId:Int/*internal id system*/
-    var key:String {return hash}
-    var value:Commit {return self}
+    //var key:String {return hash}
+    //var value:Commit {return self}
     init(_ repoName:String,_ contributor:String,_ title:String,_ description:String,_ date:String,_ sortableDate:Int,_ hash:String,_ repoId:Int){
         self.repoName = repoName
         self.contributor = contributor
@@ -24,6 +24,10 @@ struct Commit:ExpressibleByDictionaryLiteral{
         self.sortableDate = sortableDate
         self.hash = hash
         self.repoId = repoId
+    }
+    
+    init(dictionaryLiteral: (Self.Key, Self.Value)...){
+        
     }
 }
 extension Commit:Comparable{
