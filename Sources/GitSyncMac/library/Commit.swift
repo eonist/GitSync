@@ -26,7 +26,7 @@ struct Commit{
 }
 extension Commit:Comparable{
 }
-public func ==(lhs: Commit, rhs: Commit) -> Bool
+func == (lhs: Commit, rhs: Commit) -> Bool {
     return lhs.hash == rhs.hash
 }
 
