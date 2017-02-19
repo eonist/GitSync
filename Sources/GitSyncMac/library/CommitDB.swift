@@ -39,16 +39,14 @@ extension CommitDB{
         
         
         //insertAt always adds infront of the index
-        /*
-         if(sortedArr.existAtOrBefore(closestIdx,item)){
-         Swift.print("💛 no insert already exist at: \(closestIdx)" )
-         }else{
-         Swift.print("💚 insert at: \(closestIdx)")
-         _ = sortedArr.insertAt(item, closestIdx)
-         
-         }
-         
-         */
+        if(sortedArr.existAtOrBefore(closestIdx,item)){
+            Swift.print("💛 no insert already exist at: \(closestIdx)" )
+        }else{
+            Swift.print("💚 insert at: \(closestIdx)")
+            _ = sortedArr.insertAt(item, closestIdx)
+            
+        }
+        
         
         //continue here:
             //sortarr may be empty
