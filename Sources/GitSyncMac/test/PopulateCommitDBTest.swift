@@ -7,7 +7,7 @@ class PopulateCommitDB {
     var startTime:NSDate
     var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
     init(){
-        commitDB = CommitDBCache.read()
+        commitDP = CommitDPCache.read()
         startTime = NSDate()//measure the time of the refresh
         refresh()
     }
@@ -96,10 +96,10 @@ class PopulateCommitDB {
         Swift.print("commitDB.sortedArr.count: " + "\(commitDP.items.count)")
         Swift.print("Printing sortedArr after refresh: ")
         commitDP.items.forEach{
-            Swift.print("hash: \($0["hash"]) date: \(GitDateUtils.gitTime($0["sortableDate"])) repo: \($0["repoName"]) ")
+            Swift.print("hash: \($0["hash"]) date: \(GitDateUtils.gitTime($0["sortableDate"]!)) repo: \($0["repoName"]!) ")
         }
         Swift.print("💚 onRefreshReposComplete() Time: " + "\(abs(startTime.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
-        CommitDBCache.write(commitDP)//write data to disk, we could also do this on app exit
+        CommitDPCache.write(commitDP)//write data to disk, we could also do this on app exit
     }
 }
 
