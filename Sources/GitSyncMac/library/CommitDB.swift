@@ -5,7 +5,7 @@ import Foundation
  * CommitDB is a wrapper for git repos. Instead of querrying the many git repos at all time, we rather inteligently cache the data because some parts of the GUI frequently asks for an updated state of the last 100 commits -> this would be cpu instensive to recalculate often so we cache the data instead, and only ask the repos for data that isnt cached
  * TODO: it would be significatly faster if we knew the freshesht commit for each repo. -> store a Dict of repoHash, descChronoDate -> and assert on each add wether to store a new freshest item or not
  */
-class CommitDB{
+class CommitDB:DataPro{
     var max:Int = 100
     //var arr:[Dictionary<String,String>]
     var sortedArr:[Commit]/*Chronologically descending commits like: 19:00,19:15,19:59*/
@@ -14,16 +14,17 @@ class CommitDB{
         self.sortedArr = sortedArr
         //self.prevCommits = prevCommits
     }
-    init(_ dicts:[Dictionary<String,Any>]){
-        var temp:[(String,Any)] = []
-        dicts.forEach{
-            let dict:Dictionary<String,Any> = $0
-            for (k,v) in dict {
-                temp.append((k,v))
-            }
-        }
-        self.sortedArr = temp.map{Commit(dictionaryLiteral: $0)}
-    }
+    /* init(_ dicts:[Dictionary<String,Any>]){
+     var temp:[(String,Any)] = []
+     dicts.forEach{
+     let dict:Dictionary<String,Any> = $0
+     for (k,v) in dict {
+     temp.append((k,v))
+     }
+     }
+     self.sortedArr = temp.map{Commit(dictionaryLiteral: $0)}
+     }
+     */
 }
 class DataPro{
     var items:[Dictionary<String, String>]
