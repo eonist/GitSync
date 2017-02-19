@@ -29,6 +29,13 @@ extension Commit:Comparable{
 func == (lhs: Commit, rhs: Commit) -> Bool {
     return lhs.hash == rhs.hash
 }
+func < (a: Commit, b: Commit) -> Bool {
+    return a.sortableDate < b.sortableDate
+}
+func > (a: Commit, b: Commit) -> Bool {
+    return a.sortableDate > b.sortableDate
+}
+
 
 //this makes SortableCommit unwrappable (XML->SortableCommit)
 extension Commit:UnWrappable{
@@ -44,12 +51,4 @@ extension Commit:UnWrappable{
         return Commit(repoName,contributor,title,description,date,sortableDate,hash,repoId) as? T
     }
 }
-func < (a: Commit, b: Commit) -> Bool {
-    return a.sortableDate < b.sortableDate
-}
-func > (a: Commit, b: Commit) -> Bool {
-    return a.sortableDate > b.sortableDate
-}
-func == (a: Commit, b: Commit) -> Bool {
-    fatalError("not implemented yet")
-}
+
