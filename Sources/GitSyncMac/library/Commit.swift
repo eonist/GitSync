@@ -25,8 +25,6 @@ struct Commit{
         self.hash = hash
         self.repoId = repoId
     }
-    
-    
 }
 extension Commit: ExpressibleByDictionaryLiteral {
     init(dictionaryLiteral elements: (String, Any)...) {
