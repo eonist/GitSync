@@ -61,7 +61,7 @@ class PopulateCommitDB {
             let rangeCount:Int = GitUtils.commitCount(localPath, after: gitTime).int/*Finds the num of commits from now until */
             commitCount = rangeCount > 100 ? 100 : rangeCount//force the value to be no more than max allowed
         }else {//< 100
-            commitCount = 100 - commitDB.sortedArr.count
+            commitCount = 100 - commitDB.sortedArr.count//TODO:this is wrong. 
         }
         Swift.print("💙\(repoTitle): rangeCount: " + "\(commitCount)")
         //3. Retrieve the commit log items for this repo with the range specified
@@ -108,6 +108,7 @@ class PopulateCommitDB {
 
 private class Utils{
     /**
+     * Returns an array of commitItems at PARAM: localPath and limited with PARAM: max
      * PARAM: max = max Items Allowed per repo
      */
     static func commitItems(_ localPath:String,_ max:Int)->[String]{
