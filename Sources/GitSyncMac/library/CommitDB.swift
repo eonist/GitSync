@@ -15,7 +15,7 @@ class CommitDB{
         //self.prevCommits = prevCommits
     }
     init(_ dicts:[Dictionary<String,Any>]){
-        self.sortedArr = dicts.map{Commit($0)}
+        self.sortedArr = dicts.map{Commit(dictionaryLiteral: $0)}
     }
 }
 extension CommitDB{
