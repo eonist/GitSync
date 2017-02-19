@@ -105,12 +105,12 @@ class PopulateCommitDB {
 private class Utils{
     /**
      * Returns an array of commitItems at PARAM: localPath and limited with PARAM: max
-     * PARAM: max = max Items Allowed per repo
+     * PARAM: limit = max Items Allowed per repo
      */
-    static func commitItems(_ localPath:String,_ max:Int)->[String]{
-        let commitCount:Int = GitUtils.commitCount(localPath).int - 1/*Get the commitCount of this repo*/
+    static func commitItems(_ localPath:String,_ limit:Int)->[String]{
+        let commitCount:Int = GitUtils.commitCount(localPath).int - 1/*Get the total commitCount of this repo*/
         //Swift.print("commitCount: " + ">\(commitCount)<")
-        let length:Int = commitCount > max ? max : commitCount//20 = maxCount
+        let length:Int = Swift.min(commitCount,limit)
         //Swift.print("length: \(length) max: \(max)")
         var results:[String] = []
         let formating:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
