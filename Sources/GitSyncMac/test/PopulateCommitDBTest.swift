@@ -55,8 +55,8 @@ class PopulateCommitDB {
         //2. Find the range of commits to add to CommitDB for this repo
         var commitCount:Int
         //Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
-        if(commitDB.sortedArr.count > 0){
-            let firstDate = commitDB.sortedArr.first!.sortableDate/*the first date is always the furthest distant date 19:00,19:15,19:59 etc*/
+        if(commitDP.items.count > 0){
+            let firstDate:Int = commitDP.items.first!["sortableDate"]!.int/*the first date is always the furthest distant date 19:00,19:15,19:59 etc*/
             //Swift.print("firstDate: " + "\(firstDate)")
             let gitTime = GitDateUtils.gitTime(firstDate.string)/*converts descending date to git time*/
             let rangeCount:Int = GitUtils.commitCount(localPath, after: gitTime).int/*Finds the num of commits from now until */
@@ -72,10 +72,10 @@ class PopulateCommitDB {
             if($0.count > 0){//resulting string must have characters
                 //Swift.print("output: " + ">\(output)<")
                 let commitData:CommitData = GitLogParser.commitData($0)/*Compartmentalizes the result into a Tuple*/
-                let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
+                //let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
                 let commitDict:[String:String] = CommitViewUtils.processCommitData(repoTitle, commitData, 0)
                 //Swift.print("repo: \(element.repoTitle) hash: \(commit.hash) date: \(Utils.gitTime(commit.sortableDate.string))")
-                commitDB.add(commit)/*add the commit log items to the CommitDB*/
+                commitDP.add(commitDict)/*add the commit log items to the CommitDB*/
             }else{
                 Swift.print("-----ERROR: repo: \(repoTitle) at index: \(index) didnt work")
             }
