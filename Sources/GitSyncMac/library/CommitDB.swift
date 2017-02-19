@@ -51,15 +51,8 @@ extension CommitDB{
                 itemExistsAtIdxBefore = arr[idx-1].hash == item.hash
             }
             Swift.print("itemExistsAtIdxBefore: " + "\(itemExistsAtIdxBefore)")
-            var itemExistsAtIdxAfter:Bool = false
-            if(arr.count > 0 && idx+1 > 0 && idx+1 < arr.count-1){
-                Swift.print("arr[idx+1].hash: " + "\(arr[idx+1].hash)")
-                itemExistsAtIdxAfter = arr[idx+1].hash == item.hash
-            }
             
-            
-            Swift.print("itemExistsAtIdxAfter: " + "\(itemExistsAtIdxAfter)")
-            return itemExistsAtIdxBefore || itemExistsAtIdxAfter || itemAlreadyExistAtIdx
+            return itemAlreadyExistAtIdx || itemExistsAtIdxBefore
         }
         
         //insertAt always adds infront of the index
