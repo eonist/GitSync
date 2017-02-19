@@ -4,7 +4,7 @@ import Foundation
 /**
  * DISCUSSION: Using struct is justified because the data is never modified. Just stored and reproduced
  */
-struct Commit{
+struct Commit<K:Hashable, V>{
     let repoName:String
     let contributor:String
     let title:String /*'Commit title' aka 'commit subject'*/
@@ -27,6 +27,14 @@ struct Commit{
     }
     
     
+}
+extension Commit: ExpressibleByDictionaryLiteral {
+    init(dictionaryLiteral elements: (K, V)...) {
+        self.init()
+        for (key, value) in elements {
+            self[key] = value
+        }
+    }
 }
 
 extension Commit:Comparable{
