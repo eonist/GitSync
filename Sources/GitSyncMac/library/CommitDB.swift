@@ -62,7 +62,7 @@ extension CommitDB{
 //this makes CommitDB unwrappable (XML->CommitDB)
 extension CommitDB:UnWrappable{
     static func unWrap<T>(_ xml:XML) -> T? {
-        let sortedArr:[Dictionary<String, String>?] = unWrap(xml, "sortedArr")
+        let sortedArr:[Dictionary<String, String>] = unWrap(xml, "items")
         //let prevCommits:[Int:String] = unWrap(xml,"prevCommits")
         return CommitDB(sortedArr.flatMap{$0}/*,prevCommits*/) as? T/*flatMap is used to remove any nil values*/
     }
