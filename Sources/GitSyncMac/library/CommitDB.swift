@@ -38,9 +38,9 @@ extension CommitDB{
          */
         func existAt(_ arr:[Commit],_ idx:Int, _ item:Commit) -> Bool{
             //arr[closestIdx-1]
-            let itemExistsAtIdxBefore:Bool = idx > 0 && idx < arr.count && arr[closestIdx-1] == item
-
-            return itemExistsAtIdxBefore
+            let itemExistsAtIdxBefore:Bool = idx > 0 && idx < arr.count && arr[idx-1] == item
+            let itemExistsAtIdxAfter:Bool = arr.count > 0 && idx == 0 && arr[0] == item
+            return itemExistsAtIdxBefore || itemExistsAtIdxAfter
         }
         
         //insertAt always adds infront of the index
