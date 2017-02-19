@@ -5,49 +5,6 @@ import Foundation
  * CommitDB is a wrapper for git repos. Instead of querrying the many git repos at all time, we rather inteligently cache the data because some parts of the GUI frequently asks for an updated state of the last 100 commits -> this would be cpu instensive to recalculate often so we cache the data instead, and only ask the repos for data that isnt cached
  * TODO: it would be significatly faster if we knew the freshesht commit for each repo. -> store a Dict of repoHash, descChronoDate -> and assert on each add wether to store a new freshest item or not
  */
-class CommitDP:DataProvider{
-    var max:Int = 100
-}
-extension CommitDP{
-    func add(_ item:[String:String]){
-        let closestIdx:Int = CommitDP.closestIndex(items, item, 0, items.endIndex)
-        if(!ArrayAsserter.existAtOrBefore(items,closestIdx,item)){//TODO:ideally this should be handled in the binarySearch algo, but this is a quick fix, that doesnt hurt performance
-            Swift.print("💚 insert at: \(closestIdx)")
-            _ = items.insertAt(item, closestIdx)/*insertAt always adds infront of the index*/
-        }
-        if(items.count > max){_ = items.shift()}/*keeps the array at max items*/
-    }
-    static func closestIndex(_ arr:[[String:String]],_ i:[String:String],_ start:Int,_ end:Int) -> Int{
-        if(start == end){
-            //Swift.print("❤️️ i doesn't exist, this is the closest at: \(start) ")
-            return start
-        }
-        let mid:Int = start + ((end - start) / 2)/*start + middle of the distance between start and end*/
-        //Swift.print("mid: " + "\(mid)")
-        //Swift.print("arr[mid]: " + "\(arr[mid])")
-        if(i["sortableDate"]!.int < arr[mid]["sortableDate"]!.int){/*index is in part1*/
-            //Swift.print("a")
-            return closestIndex(arr,i,start,mid)
-        }else if(i["sortableDate"]!.int > arr[mid]["sortableDate"]!.int){/*index is in part2*/
-            //Swift.print("b")
-            return closestIndex(arr,i,mid+1,end)
-        }else{/*index is at middleIndex*/
-            //Swift.print("at middle: \(mid)")
-            return mid
-        }
-    }
-}
-private class Utils{
-    /**
-     * Asserts if an item is at or before PARAM: idx
-     * NOTE: Usefull in conjunction with ArrayModifier.insertAt()// to assert if an item already exists at that idx or not. to avoid dups
-     */
-    static func existAtOrBefore(_ arr:[[String:String]],_ idx:Int, _ item:[String:String]) -> Bool {
-        func itemAlreadyExistAtIdx()->Bool {return (arr.valid(idx) && arr[idx]["hash"] == item["hash"]) }
-        func itemExistsAtIdxBefore()->Bool {return (arr.valid(idx-1) && arr[idx-1]["hash"] == item["hash"])}
-        return itemAlreadyExistAtIdx() || itemExistsAtIdxBefore()
-    }
-}
 class CommitDB{
     var max:Int = 100
     var sortedArr:[Commit] /*{get items}*//*Chronologically descending commits like: 19:00,19:15,19:59*/
