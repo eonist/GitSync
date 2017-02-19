@@ -63,9 +63,11 @@ extension CommitDB{
         }else if(i > arr[mid]){/*index is in part2*/
             //Swift.print("b")
             return closestIndex(arr,i,mid+1,end)
-        }else{/*index is at middleIndex*/
+        }else if(arr[mid] != i){/*index is at middleIndex*/
             //Swift.print("at middle: \(mid)")
             return mid
+        }else{
+            return end
         }
     }
 }
