@@ -14,6 +14,14 @@ class CommitDB{
         //self.prevCommits = prevCommits
     }
 }
+extension CommitDB: ExpressibleByDictionaryLiteral {
+    convenience init(dictionaryLiteral elements: (K, V)...) {
+        self.init()
+        for (key, value) in elements {
+            self[key] = value
+        }
+    }
+}
 extension CommitDB{
     /**
      * Adds an item to the sortedArr (at the correct index according to descending chronology, by using a custom binarySearch method)
