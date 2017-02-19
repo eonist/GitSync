@@ -88,7 +88,7 @@ class CommitDBRefreshTest {
         //see if you can't get this working on a background thread, or it will freeze your gui
     
     /**
-     *
+     * Refreshes every repo
      */
     static func iterate(){
         //Swift.print("iterate: " + "\(repoIndex)")
@@ -104,7 +104,7 @@ class CommitDBRefreshTest {
         }
     }
     /**
-     *
+     * 
      */
     static func refreshRepo(_ index:Int,_ element:[String:String]){
         repoIndex += 1//increment the repoIndex
