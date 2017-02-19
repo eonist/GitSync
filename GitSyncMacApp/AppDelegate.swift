@@ -22,13 +22,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //_ = Test()
         //initApp()
         //initTestWin()
-        //_ = PopulateCommitDB()
+        _ = PopulateCommitDB()
         
         //print("test")
         
-        let temp:Temp = Temp()
-        let xml:XML = Reflection.toXML(temp)
-        Swift.print("xml.xmlString: " + "\(xml.xmlString)")
+        /*let temp:Temp = Temp()
+         let xml:XML = Reflection.toXML(temp)
+         Swift.print("xml.xmlString: " + "\(xml.xmlString)")*/
     }
     func initTestWin(){
         //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
