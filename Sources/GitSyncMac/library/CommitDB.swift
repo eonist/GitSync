@@ -33,14 +33,16 @@ extension CommitDB{
         //let insertAt:Int = item > sortedArr.last && sortedArr.count != 0 ? closestIdx + 1 : closestIdx  //this line enables you to insert the new item correctly in the sorted array
         //Swift.print("insertAt: " + "\(insertAt)")
       
+        /**
+         *
+         */
+        func existAt(_ arr:[Commit],_ idx:Int) -> Bool{
+            arr[closestIdx-1]
+            arr[closestIdx]
+        }
         
         
-        var a:Bool{return (sortedArr.count > 0 && closestIdx > sortedArr.count && sortedArr[closestIdx-1] != item)}
-        var b:Bool {return closestIdx < sortedArr.count  && sortedArr[closestIdx] != item}
-        var c:Bool {return a || b}
-        let d = c
-        Swift.print("d: " + "\(d)")
-        if(sortedArr.count == 0 || d){
+        if(existAt(sortedArr,closestIdx) == false){
             Swift.print("💚 insert")
             _ = sortedArr.insertAt(item, closestIdx)
         }else{
