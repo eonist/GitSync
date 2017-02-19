@@ -7,18 +7,7 @@ import Foundation
  */
 class CommitDP:DataProvider{
     //var max:Int = 100
-    //var items:[Dictionary<String, String>]//ideally it should be string,AnyObject//TODO:Maybe make this public getter private setter
-    //private var allowDuplicates:Bool = true
-    /**
-     * Constructs the DataProvider class
-     * PARAM: object: Creates a new DataProvider object using a list, XML instance or an array of data objects as the data source.
-     * EXAMPLE: Array syntax: [{title:"orange", property:harry}, {title:"blue", property:"no"}]; //property is optional
-     * TODO: Possibly add support for ...args see PointParser.sum function for similar functionality
-     */
-    /*init(_ items:[Dictionary<String, String>] = []){
-     self.items = items
-     //super.init()
-     }*/
+    
 }
 extension CommitDP{
     /**
