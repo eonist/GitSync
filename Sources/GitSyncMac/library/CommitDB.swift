@@ -18,9 +18,11 @@ class CommitDB{
         let temp:[(String,Any)] = []
         dicts.forEach{
             let dict:Dictionary<String,Any> = $0
-            dict.for
+            for (k,v) in dict {
+                
+            }
         }
-        self.sortedArr = dicts.map{Commit(dictionaryLiteral: )}
+        self.sortedArr// = dicts.map{Commit(dictionaryLiteral: )}
     }
 }
 extension CommitDB{
