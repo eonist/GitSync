@@ -34,6 +34,8 @@ extension CommitDB{
         //Swift.print("insertAt: " + "\(insertAt)")
         if(closestIdx != nil){
             _ = sortedArr.insertAt(item, closestIdx!)
+        }else{
+            Swift.print("💛 no insert")
         }
         //Swift.print("closestIdx: " + "\(closestIdx)")
         
