@@ -104,7 +104,7 @@ class CommitDBRefreshTest {
         }
     }
     /**
-     * 
+     *
      */
     static func refreshRepo(_ index:Int,_ element:[String:String]){
         repoIndex += 1//increment the repoIndex
@@ -120,7 +120,7 @@ class CommitDBRefreshTest {
             let rangeCount:Int = GitUtils.commitCount(localPath, after: gitTime).int//now..lastDate
             commitCount = rangeCount > 100 ? 100 : rangeCount//force the value to be no more than max allowed
         }else {//< 100
-            commitCount = 100 - commitDB.sortedArr.count
+            commitCount = 100 - commitDB.sortedArr.count//TODO:this cant be correct
         }
         Swift.print("💜\(repoTitle): rangeCount: " + "\(commitCount)")
         //3. Retrieve the commit log items for this repo with the range specified
