@@ -123,24 +123,3 @@ private class Utils{
     }
 }
 
-//copy over the iterate code✅
-    //use generic git methods instead of the custom NSNotification code✅
-    //on a bg-thread -> for loop each task then -> jump on the mainThread when complete -> update UI ✅
-    //print how many commits are retrived for each repo✅
-    //bring the caching of CommitDB into the workflow ✅
-
-//Swift.print("repoList.count: " + "\(repoList.count)")
-
-//sort repos by freshness: (makes the process of populating CommitsDB much faster) ✅
-//we run the sorting algo on a bg thread as serial work (one by one) and then notifying mainThread on allComplete ✅
-
-
-//get the 100 last commits from every repo: ✅
-    //we populate the CommitsDB on a bg thread as serial work (one by one) and then notifying mainThread on allComplete
-    //for each repo in sortedRepos (aka sorted by freshness)
-        //get commit count
-        //retrive only commits that are newer than the most distante time in the CommitsDB 
-
-//add new commits to CommitDB with a binarySearch ✅
-
-
