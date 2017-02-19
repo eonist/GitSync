@@ -36,13 +36,15 @@ extension CommitDB{
         /**
          *
          */
-        func existAt(_ arr:[Commit],_ idx:Int) -> Bool{
-            arr[closestIdx-1]
-            arr[closestIdx]
+        func existAt(_ arr:[Commit],_ idx:Int, _ item:Commit) -> Bool{
+            //arr[closestIdx-1]
+            let itemExistsAtIdx:Bool = idx < arr.count-1 && arr[closestIdx] == item
+            idx == arr.count
+            return itemExistsAtIdx
         }
         
         
-        if(existAt(sortedArr,closestIdx) == false){
+        if(existAt(sortedArr,closestIdx,item) == false){
             Swift.print("💚 insert")
             _ = sortedArr.insertAt(item, closestIdx)
         }else{
