@@ -22,9 +22,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //_ = Test()
         //initApp()
         //initTestWin()
-        _ = PopulateCommitDB()
+        //_ = PopulateCommitDB()
         
-        print("test")
+        //print("test")
+        
+        let temp:Temp = Temp()
+        let xml:XML = Reflection.toXML(temp)
+        Swift.print("xml.xmlString: " + "\(xml.xmlString)")
     }
     func initTestWin(){
         //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
@@ -70,4 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         print("Good-bye")
     }
+}
+class Temp{
+    let temp:[[String:String]] = [["a":"b"],["1":"2"]]
 }
