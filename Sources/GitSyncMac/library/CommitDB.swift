@@ -34,7 +34,7 @@ extension CommitDB{
         //Swift.print("insertAt: " + "\(insertAt)")
       
         
-        if(sortedArr.count > 0){
+        
             var a:Bool{return (closestIdx > sortedArr.count && sortedArr[closestIdx-1] != item)}
             var b:Bool {return sortedArr[closestIdx] != item}
             if(a && b){
@@ -43,7 +43,7 @@ extension CommitDB{
             }else{
                 Swift.print("💛 no insert")
             }
-        }
+        
         //continue here:
             //sortarr may be empty
         
