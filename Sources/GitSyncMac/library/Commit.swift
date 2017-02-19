@@ -32,7 +32,7 @@ extension Commit: ExpressibleByDictionaryLiteral {
     init(dictionaryLiteral elements: (K, V)...) {
         self.init()
         for (key, value) in elements {
-            self[key] = value
+            if(key == "repoName"){self.repoName == value}
         }
     }
 }
