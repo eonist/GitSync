@@ -36,14 +36,10 @@ extension CommitDB{
         /**
          *
          */
-        func existAt(_ arr:[Commit],_ idx:Int, _ item:Commit) -> Bool{
-            var itemAlreadyExistAtIdx:Bool {return arr.valid(idx) && arr[idx] == item }
-            var itemExistsAtIdxBefore:Bool {return arr.valid(idx-1) && arr[idx-1] == item}
-            return itemAlreadyExistAtIdx || itemExistsAtIdxBefore
-        }
+        
         
         //insertAt always adds infront of the index
-        if(existAt(sortedArr,closestIdx,item)){
+        if(existAtOrBefore(sortedArr,closestIdx,item)){
             Swift.print("💛 no insert already exist at: \(closestIdx)" )
         }else{
             Swift.print("💚 insert at: \(closestIdx)")
