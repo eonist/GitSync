@@ -79,6 +79,7 @@ private class Utils{
 //this makes CommitDB unwrappable (XML->CommitDB)
 extension CommitDP:UnWrappable{
     static func unWrap<T>(_ xml:XML) -> T? {
+        Swift.print("xml.xmlString.count: " + "\(xml.xmlString.count)")
         let items:[[String:String]?] = unWrap(xml, "items")
         //let prevCommits:[Int:String] = unWrap(xml,"prevCommits")
         return CommitDP(items.flatMap{$0}/*,prevCommits*/) as? T/*flatMap is used to remove any nil values*/
