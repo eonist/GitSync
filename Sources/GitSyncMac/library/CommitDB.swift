@@ -20,24 +20,11 @@ extension CommitDB{
      * NOTE: items must be added one after the other. A Bulk add method wouldn't work
      */
     func add(_ item:Commit){
-        //prevCommits[item.repoId] = item.hash/*store the last commit*/
-        /*
-        let hasDup = ArrayAsserter.has(self.sortedArr, item, {$0.hash == $1.hash})
-        if(hasDup){
-            Swift.print("🖤 dup")
-            return
-        }//break
-        */
         let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
-        //Swift.print("closestIndex: " + "\(closestIdx)"
-        
-        //insertAt always adds infront of the index
-        if(!sortedArr.existAtOrBefore(closestIdx,item)){
+        if(!sortedArr.existAtOrBefore(closestIdx,item)){//TODO:ideally this should be handled in the binarySearch algo, but this is a quick fix, that doesnt hurt performance
             Swift.print("💚 insert at: \(closestIdx)")
-            _ = sortedArr.insertAt(item, closestIdx)
+            _ = sortedArr.insertAt(item, closestIdx)/*insertAt always adds infront of the index*/
         }
-        //Swift.print("closestIdx: " + "\(closestIdx)")
-        
         if(sortedArr.count > max){_ = sortedArr.shift()}/*keeps the array at max items*/
     }
     /**
