@@ -54,13 +54,15 @@ class PopulateCommitDB {
         //2. Find the range of commits to add to CommitDB for this repo
         var commitCount:Int
         //Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
-        
-        let firstDate = commitDB.sortedArr.first!.sortableDate/*the first date is always the furthest distant date 19:00,19:15,19:59 etc*/
-        //Swift.print("firstDate: " + "\(firstDate)")
-        let gitTime = GitDateUtils.gitTime(firstDate.string)/*converts descending date to git time*/
-        let rangeCount:Int = GitUtils.commitCount(localPath, after: gitTime).int/*Finds the num of commits from now until */
-        commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
-        
+        if(commitDB.sortedArr.count > 0){
+            let firstDate = commitDB.sortedArr.first!.sortableDate/*the first date is always the furthest distant date 19:00,19:15,19:59 etc*/
+            //Swift.print("firstDate: " + "\(firstDate)")
+            let gitTime = GitDateUtils.gitTime(firstDate.string)/*converts descending date to git time*/
+            let rangeCount:Int = GitUtils.commitCount(localPath, after: gitTime).int/*Finds the num of commits from now until */
+            commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
+        }else {//< 100
+            commitCount = 100
+        }
         Swift.print("💙\(repoTitle): rangeCount: " + "\(commitCount)")
         //3. Retrieve the commit log items for this repo with the range specified
         //Swift.print("max: " + "\(commitCount)")
