@@ -11,8 +11,24 @@ extension CommitDP{
     func add(_ item:[String:String]){
         
     }
-    static func closestIndex<T:Comparable>(_ arr:[T],_ i:T,_ start:Int,_ end:Int) -> Int{
-        
+    static func closestIndex(_ arr:[[String:String]],_ i:[String:String],_ start:Int,_ end:Int) -> Int{
+        if(start == end){
+            //Swift.print("❤️️ i doesn't exist, this is the closest at: \(start) ")
+            return start
+        }
+        let mid:Int = start + ((end - start) / 2)/*start + middle of the distance between start and end*/
+        //Swift.print("mid: " + "\(mid)")
+        //Swift.print("arr[mid]: " + "\(arr[mid])")
+        if(i["sortableDate"]!.int < arr[mid]["sortableDate"]!.int){/*index is in part1*/
+            //Swift.print("a")
+            return closestIndex(arr,i,start,mid)
+        }else if(i["sortableDate"]!.int > arr[mid]["sortableDate"]!.int){/*index is in part2*/
+            //Swift.print("b")
+            return closestIndex(arr,i,mid+1,end)
+        }else{/*index is at middleIndex*/
+            //Swift.print("at middle: \(mid)")
+            return mid
+        }
     }
 }
 class CommitDB{
