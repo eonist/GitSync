@@ -5,8 +5,20 @@ import Foundation
  * CommitDB is a wrapper for git repos. Instead of querrying the many git repos at all time, we rather inteligently cache the data because some parts of the GUI frequently asks for an updated state of the last 100 commits -> this would be cpu instensive to recalculate often so we cache the data instead, and only ask the repos for data that isnt cached
  * TODO: it would be significatly faster if we knew the freshesht commit for each repo. -> store a Dict of repoHash, descChronoDate -> and assert on each add wether to store a new freshest item or not
  */
-class CommitDP:DataProvider{
-    var max:Int = 100
+class CommitDP{
+    //var max:Int = 100
+    var items:[Dictionary<String, String>]//ideally it should be string,AnyObject//TODO:Maybe make this public getter private setter
+    //private var allowDuplicates:Bool = true
+    /**
+     * Constructs the DataProvider class
+     * PARAM: object: Creates a new DataProvider object using a list, XML instance or an array of data objects as the data source.
+     * EXAMPLE: Array syntax: [{title:"orange", property:harry}, {title:"blue", property:"no"}]; //property is optional
+     * TODO: Possibly add support for ...args see PointParser.sum function for similar functionality
+     */
+    init(_ items:[Dictionary<String, String>] = []){
+        self.items = items
+        //super.init()
+    }
 }
 extension CommitDP{
     /**
@@ -19,7 +31,7 @@ extension CommitDP{
             Swift.print("💚 insert at: \(closestIdx)")
             _ = items.insertAt(item, closestIdx)/*insertAt always adds infront of the index*/
         }
-        if(items.count > max){_ = items.shift()}/*keeps the array at max items*/
+        if(items.count > /*max*/100){_ = items.shift()}/*keeps the array at max items*/
     }
     /**
      * This binarySearch finds a suitable index to insert an item in a sorted list (a regular binarySearch would return nil if no match is found, this implmentation returns the closestIndex)
