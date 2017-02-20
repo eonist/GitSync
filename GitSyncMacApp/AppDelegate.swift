@@ -30,7 +30,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //remove code from CommitsView and add the above
         
-        //print("test")
         
         /*
          let temp:Temp = Temp()
