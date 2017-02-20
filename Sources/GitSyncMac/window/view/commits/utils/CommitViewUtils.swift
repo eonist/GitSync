@@ -28,15 +28,7 @@ class CommitViewUtils {
         let dict:[String:String] = ["repo-name":repoTitle,"contributor":commitData.author,"title":data.subject,"description":data.body,"date":data.relativeDate,"sortableDate":data.descendingDate,"hash":commitData.hash,"gitDate":commitData.date]
         return dict
     }
-    /**
-     * -> Commit
-     */
-    static func processCommitData(_ repoTitle:String,_ commitData:CommitData, _ repoIndex:Int)->Commit{
-        let data:ProcessedCommitData = processCommitData(repoTitle,commitData,repoIndex)
-        let commit:Commit = Commit(repoTitle,data.author, data.subject, data.body, data.relativeDate, data.descendingDate.int, data.hash,0)
-        //return
-        return commit
-    }
+    
     /**
      * PARAM: max = max Items Allowed per repo
      */
@@ -67,5 +59,18 @@ class CommitViewUtils {
 
         //task.waitUntilExit()/*not needed if we use NSNotification*/
         return (task,pipe,repoTitle,repoIndex)
+    }
+}
+//DEPRECATED
+extension CommitViewUtils{
+    /**
+     * -> Commit
+     * DEPRECATED
+     */
+    static func processCommitData(_ repoTitle:String,_ commitData:CommitData, _ repoIndex:Int)->Commit{
+        let data:ProcessedCommitData = processCommitData(repoTitle,commitData,repoIndex)
+        let commit:Commit = Commit(repoTitle,data.author, data.subject, data.body, data.relativeDate, data.descendingDate.int, data.hash,0)
+        //return
+        return commit
     }
 }
