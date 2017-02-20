@@ -21,7 +21,7 @@ extension CommitDP{
             addItemAt(item, closestIdx)
             //_ = items.insertAt(item, closestIdx)
         }
-        if(items.count > /*max*/100){items.popLast()}/*keeps the array at max items*/
+        if(items.count > /*max*/100){_ = items.popLast()}/*keeps the array at max items*/
     }
     /**
      * This binarySearch finds a suitable index to insert an item in a sorted list (a regular binarySearch would return nil if no match is found, this implmentation returns the closestIndex)
