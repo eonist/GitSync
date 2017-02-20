@@ -21,7 +21,7 @@ class CommitsList:RBSliderFastList4{
         func onComplete(){
             Swift.print("CommitDP refresh finished!!! ")
         }
-        dataProvider = CommitDPCache.read()
+        
         
         CommitDPRefresher.commitDP = dp as? CommitDP
         CommitDPRefresher.onComplete = onComplete
