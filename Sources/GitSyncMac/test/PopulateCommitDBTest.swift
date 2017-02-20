@@ -5,15 +5,13 @@ import Foundation
 
 class PopulateCommitDB {
     //var commitDB:CommitDB/* = CommitDB()*/
-    var commitDP:CommitDP
-    var startTime:NSDate
+    static var commitDP:CommitDP?
+    static var startTime:NSDate?
     static var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
-    init(){
+    
+    static func refresh(){
         commitDP = CommitDPCache.read()
         startTime = NSDate()//measure the time of the refresh
-        refresh()
-    }
-    func refresh(){
         PopulateCommitDB.freshnessSort()
     }
     /**
@@ -51,14 +49,14 @@ class PopulateCommitDB {
     /**
      * Adds commit items to CommitDB if they are newer than the oldest commit in CommitDB
      */
-    func refreshRepo(_ repo:[String:String]){
+    static func refreshRepo(_ repo:[String:String]){
         let localPath:String = repo["local-path"]!//local-path to repo
         let repoTitle = repo["title"]!//name of repo
         //2. Find the range of commits to add to CommitDB for this repo
         var commitCount:Int
         //Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
-        if(commitDP.items.count > 0){
-            let firstDate:Int = commitDP.items.first!["sortableDate"]!.int/*the first date is always the furthest distant date 19:00,19:15,19:59 etc*/
+        if(commitDP!.items.count > 0){
+            let firstDate:Int = commitDP!.items.first!["sortableDate"]!.int/*the first date is always the furthest distant date 19:00,19:15,19:59 etc*/
             //Swift.print("firstDate: " + "\(firstDate)")
             let gitTime = GitDateUtils.gitTime(firstDate.string)/*converts descending date to git time*/
             let rangeCount:Int = GitUtils.commitCount(localPath, after: gitTime).int/*Finds the num of commits from now until */
@@ -77,7 +75,7 @@ class PopulateCommitDB {
                 //let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
                 let commitDict:[String:String] = CommitViewUtils.processCommitData(repoTitle, commitData, 0)
                 //Swift.print("repo: \(element.repoTitle) hash: \(commit.hash) date: \(Utils.gitTime(commit.sortableDate.string))")
-                commitDP.add(commitDict)/*add the commit log items to the CommitDB*/
+                commitDP!.add(commitDict)/*add the commit log items to the CommitDB*/
             }else{
                 Swift.print("-----ERROR: repo: \(repoTitle) at index: \(index) didnt work")
             }
@@ -88,20 +86,20 @@ class PopulateCommitDB {
      */
     static func onFreshnessSortComplete(){
         //sortableRepoList.forEach{Swift.print($0.repo["title"]!)}
-        Swift.print("💛 onFreshnessSortComplete() Time:-> " + "\(abs(startTime.timeIntervalSinceNow))")/*How long it took*/
+        Swift.print("💛 onFreshnessSortComplete() Time:-> " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long it took*/
         refreshRepos()
     }
     /**
      * The final complete call
      */
-    func onRefreshReposComplete(){
-        Swift.print("commitDB.sortedArr.count: " + "\(commitDP.items.count)")
+    static func onRefreshReposComplete(){
+        Swift.print("commitDB.sortedArr.count: " + "\(commitDP!.items.count)")
         Swift.print("Printing sortedArr after refresh: ")
-        commitDP.items.forEach{
+        commitDP!.items.forEach{
             Swift.print("hash: \($0["hash"]!) date: \(GitDateUtils.gitTime($0["sortableDate"]!)) repo: \($0["repo-name"]!) ")
         }
-        Swift.print("💚 onRefreshReposComplete() Time: " + "\(abs(startTime.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
-        CommitDPCache.write(commitDP)//write data to disk, we could also do this on app exit
+        Swift.print("💚 onRefreshReposComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+        CommitDPCache.write(commitDP!)//write data to disk, we could also do this on app exit
         Swift.print("Written to disk")
     }
 }
