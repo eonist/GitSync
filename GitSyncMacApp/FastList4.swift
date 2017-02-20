@@ -100,9 +100,7 @@ class FastList4:Element,IList {
     }
     override func getClassType() -> String {return "\(List.self)"}
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
-    
 }
-
 extension FastList4{
     /**
      * Creates, applies data and aligns items defined in PARAM: range
@@ -111,7 +109,6 @@ extension FastList4{
      */
     func renderItems(_ range:Range<Int>){
         //Swift.print("renderItems.range: " + "\(range)")
-        
         let old = currentVisibleItemRange
         //Swift.print("old: " + "\(old)")
         let firstOldIdx:Int = old.start
