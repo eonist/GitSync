@@ -3,7 +3,7 @@ import Foundation
 
 class Test {
     init(){
-        binarySearchTest()
+        //binarySearchTest()
         //multiCMDTest()
         //shellTesting()
         //moreShellTesting()
@@ -11,7 +11,7 @@ class Test {
         //commitLog()
         //commitShow()
         //dateTest()
-        //compactBody()
+        compactBody()
         //sortTest()
         //commitDataTest()
         //relativeTimeTest()
@@ -250,18 +250,19 @@ class Test {
      */
     func compactBody(){
         var bodyStr:String = ""
-        bodyStr += "'\n"
+        bodyStr += "'"
         bodyStr += "\n"
+        bodyStr += "\r"
         bodyStr += "Modified 1 file:\n"
         bodyStr += "README.md\n"
         bodyStr += "'"
         
-        //Swift.print("bodyStr: " + "\(bodyStr)")
+        Swift.print("bodyStr: " + "\(bodyStr)")
         
         let compactBody = GitLogParser.compactBody(bodyStr)
-        Swift.print("compactBody-start")
+        Swift.print("---compactBody-start---")
         Swift.print(compactBody)
-        Swift.print("compactBody-end")
+        Swift.print("---compactBody-end---")
     }
     func sortTest(){
 

@@ -17,7 +17,7 @@
 
 **Stage 2 (Feb)**  
 1. ~~CommitItemView~~  
-2. Connect the GitSync algorithm to the app 🏀  
+2. Connect the GitSync algorithm to the app 👈  
 3. Animate dark->light mode (if applicable)  
 4. Fine tune UI (sounds,font,animations,app.icon)  
 5. TreeList in RepoView  
