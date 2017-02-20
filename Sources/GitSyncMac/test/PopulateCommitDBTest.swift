@@ -8,8 +8,9 @@ class PopulateCommitDB {
     static var commitDP:CommitDP?
     static var startTime:NSDate?
     static var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
-    
+    static var isRefreshing:Bool = false/*avoids refreshing when the refresh has already started*/
     static func refresh(){
+        isRefreshing = true
         commitDP = CommitDPCache.read()
         startTime = NSDate()//measure the time of the refresh
         sortableRepoList = []
@@ -101,6 +102,7 @@ class PopulateCommitDB {
         }
         Swift.print("💚 onRefreshReposComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
         CommitDPCache.write(commitDP!)//write data to disk, we could also do this on app exit
+        isRefreshing = false
         Swift.print("Written to disk")
     }
 }
