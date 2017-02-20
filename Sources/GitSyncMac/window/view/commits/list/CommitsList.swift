@@ -44,6 +44,7 @@ class CommitsList:RBSliderFastList4{
     }
     override func scrollWheelEnter() {
         Swift.print("scrollWheelEnter")
+        reUseAll()/*Refresh*/
         isTwoFingersTouching = true
         super.scrollWheelEnter()
     }
@@ -96,7 +97,7 @@ extension CommitsList{
      */
     func loopAnimationCompleted(){
         Swift.print("❤️️ CommitList.loopAnimationCompleted()")
-        pool.forEach{reUse($0)}//force a refresh of all items
+        reUseAll()/*Refresh*/
         progressIndicator!.progress(0)
         progressIndicator!.stop()
         isInDeactivateRefreshModeState = true

@@ -222,6 +222,12 @@ extension FastList4{
         else{SelectModifier.selectAll(lableContainer!, false)}/*unSelect all if an item outside visible view is selected*/
         selectedIdx = dpIdx
     }
+    /**
+     * force a refresh of all items
+     */
+    func reUseAll(){
+        pool.forEach{reUse($0)}
+    }
 }
 
 /*
