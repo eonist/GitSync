@@ -1,6 +1,8 @@
 import Foundation
 @testable import Utils
 
+//try to make this class as static as possible
+
 class PopulateCommitDB {
     //var commitDB:CommitDB/* = CommitDB()*/
     var commitDP:CommitDP
