@@ -16,7 +16,7 @@ extension CommitDP{
      */
     func add(_ item:[String:String]){
         let closestIdx:Int = CommitDP.closestIndex(items, item, 0, items.endIndex)
-        if(!Utils.existAtOrBefore(items,closestIdx,item)){//TODO:ideally this should be handled in the binarySearch algo, but this is a quick fix, that doesnt hurt performance
+        if(!Utils.existAtOrAfter(items,closestIdx,item)){//TODO:ideally this should be handled in the binarySearch algo, but this is a quick fix, that doesnt hurt performance
             Swift.print("💚 insert at: \(closestIdx) item.date: \(GitDateUtils.gitTime(item["sortableDate"]!))" )
             addItemAt(item, closestIdx)
             //_ = items.insertAt(item, closestIdx)
@@ -64,6 +64,14 @@ private class Utils{
         func itemAlreadyExistAtIdx()->Bool {return (arr.valid(idx) && arr[idx]["hash"] == item["hash"]) }
         func itemExistsAtIdxBefore()->Bool {return (arr.valid(idx-1) && arr[idx-1]["hash"] == item["hash"])}
         return itemAlreadyExistAtIdx() || itemExistsAtIdxBefore()
+    }
+    /**
+     * New
+     */
+    static func existAtOrAfter(_ arr:[[String:String]],_ idx:Int, _ item:[String:String]) -> Bool {
+        func itemAlreadyExistAtIdx()->Bool {return (arr.valid(idx) && arr[idx]["hash"] == item["hash"]) }
+        func itemExistsAtIdxAfter()->Bool {return (arr.valid(idx+1) && arr[idx+1]["hash"] == item["hash"])}
+        return itemAlreadyExistAtIdx() || itemExistsAtIdxAfter()
     }
 }
 //this makes CommitDB unwrappable (XML->CommitDB)
