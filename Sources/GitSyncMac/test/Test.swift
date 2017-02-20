@@ -3,9 +3,9 @@ import Foundation
 
 class Test {
     init(){
-        //binarySearchTest()
+        binarySearchTest()
         //multiCMDTest()
-        shellTesting()
+        //shellTesting()
         //moreShellTesting()
         //trimTest()
         //commitLog()

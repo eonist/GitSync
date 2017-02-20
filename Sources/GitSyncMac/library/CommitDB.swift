@@ -36,6 +36,7 @@ extension CommitDB{
      * DISCUSSION: Is it a problem that the array must be sorted first? It depends. Keep in mind that sorting takes time -- the combination of binary search plus sorting may be slower than doing a simple linear search. Binary search shines in situations where you sort just once and then do many searches.
      * TRIVIA:  YOu can also implement binary serach as iterative implementation by using a while loop
      * TODO: use range instead of start and end int?!?
+     * IMPORTANT: to return ascending array, just turn the < and > 
      */
     static func closestIndex<T:Comparable>(_ arr:[T],_ i:T,_ start:Int,_ end:Int) -> Int{//arr[Stridable] or something indexable
         //Swift.print("start: " + "\(start)")

@@ -43,10 +43,10 @@ extension CommitDP{
         let mid:Int = start + ((end - start) / 2)/*start + middle of the distance between start and end*/
         //Swift.print("mid: " + "\(mid)")
         //Swift.print("arr[mid]: " + "\(arr[mid])")
-        if(i["sortableDate"]!.int < arr[mid]["sortableDate"]!.int){/*index is in part1*/
+        if(i["sortableDate"]!.int > arr[mid]["sortableDate"]!.int){/*index is in part1*/
             //Swift.print("a")
             return closestIndex(arr,i,start,mid)
-        }else if(i["sortableDate"]!.int > arr[mid]["sortableDate"]!.int){/*index is in part2*/
+        }else if(i["sortableDate"]!.int < arr[mid]["sortableDate"]!.int){/*index is in part2*/
             //Swift.print("b")
             return closestIndex(arr,i,mid+1,end)
         }else{/*index is at middleIndex*/
