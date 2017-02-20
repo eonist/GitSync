@@ -54,7 +54,12 @@ class CommitsListItem:Button,ISelectable{
         repoNameText!.setText(data["repo-name"]!)
         contributorText!.setText(data["contributor"]!)
         descText!.setText(data["description"]!)
-        dateText!.setText(data["date"]!)
+        /**/
+        let date:Date = GitDateUtils.date(data["gitDate"]!)
+        //Swift.print("date.shortDate: " + "\(date.shortDate)")
+        let relativeTime:(value:Int,type:String) = DateParser.relativeTime(Date(),date)[0]
+        let relativeDate:String = relativeTime.value.string + relativeTime.type/*create date like 3s,4m,5h,6w,2y*/
+        dateText!.setText(relativeDate)
     }
     /**
      * NOTE: do not add a dispatch event here, that is the responsibilyy of the caller
