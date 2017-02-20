@@ -26,7 +26,7 @@ class CommitDPRefresher {
             let repoList = XMLParser.toArray(repoXML)//or use dataProvider
             repoList.forEach{/*sort the repoList based on freshness*/
                 let localPath:String = $0["local-path"]!
-                let freshness:CGFloat = freshness(localPath)
+                let freshness:CGFloat = CommitDBRefreshTest.freshness(localPath)
                 self.sortableRepoList.append(($0,freshness))
             }
             self.sortableRepoList.sort(by: {$0.freshness > $1.freshness})/*sorts repos according to freshness, the freshest first the least fresh at the botom*/
