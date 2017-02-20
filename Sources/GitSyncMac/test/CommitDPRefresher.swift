@@ -59,9 +59,9 @@ class CommitDPRefresher {
         var commitCount:Int
         //Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
         if(commitDP!.items.count > 0){
-            let firstDate:Int = commitDP!.items.first!["sortableDate"]!.int/*the first date is always the furthest distant date 19:00,19:15,19:59 etc*/
-            //Swift.print("firstDate: " + "\(firstDate)")
-            let gitTime = GitDateUtils.gitTime(firstDate.string)/*converts descending date to git time*/
+            let lastDate:Int = commitDP!.items.last!["sortableDate"]!.int/*the last date is always the furthest distant date 19:59,19:15,19:00 etc*/
+            //Swift.print("lastDate: " + "\(lastDate)")
+            let gitTime = GitDateUtils.gitTime(lastDate.string)/*converts descending date to git time*/
             let rangeCount:Int = GitUtils.commitCount(localPath, after: gitTime).int/*Finds the num of commits from now until */
             commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
         }else {//< 100
