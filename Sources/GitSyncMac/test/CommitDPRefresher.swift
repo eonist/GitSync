@@ -77,7 +77,7 @@ class CommitDPRefresher {
                 //Swift.print("output: " + ">\(output)<")
                 let commitData:CommitData = GitLogParser.commitData($0)/*Compartmentalizes the result into a Tuple*/
                 //let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
-                let commitDict:[String:String] = CommitViewUtils.processCommitData(repoTitle, commitData, 0)
+                let commitDict:[String:String] = CommitViewUtils.processCommitData(repoTitle, commitData, 0)//<---TODO:add repo idx here
                 //Swift.print("repo: \(element.repoTitle) hash: \(commit.hash) date: \(Utils.gitTime(commit.sortableDate.string))")
                 commitDP!.add(commitDict)/*add the commit log items to the CommitDB*/
             }else{
