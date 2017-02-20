@@ -9,7 +9,7 @@ class CommitViewUtils {
      */
     static func processCommitData(_ repoTitle:String,_ commitData:CommitData, _ repoIndex:Int)->ProcessedCommitData{
         let date:Date = GitDateUtils.date(commitData.date)
-        Swift.print("date.shortDate: " + "\(date.shortDate)")
+        //Swift.print("date.shortDate: " + "\(date.shortDate)")
         let relativeTime:(value:Int,type:String) = DateParser.relativeTime(Date(),date)[0]
         let relativeDate:String = relativeTime.value.string + relativeTime.type/*create date like 3s,4m,5h,6w,2y*/
         //Swift.print("relativeDate: " + "\(relativeDate)")
