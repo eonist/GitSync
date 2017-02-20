@@ -27,6 +27,9 @@ class CommitsList:RBSliderFastList4{
         CommitDPRefresher.onComplete = onComplete
         CommitDPRefresher.refresh()
     }
+    /**
+     * Create ListItem
+     */
     override func createItem(_ index:Int) -> Element {
         //Swift.print("CommitsList.createItem index: \(index)")
         let dpItem = dataProvider.items[index]
@@ -34,6 +37,9 @@ class CommitsList:RBSliderFastList4{
         lableContainer!.addSubview(item)
         return item
     }
+    /**
+     * Apply data to ListItem
+     */
     override func reUse(_ listItem:FastListItem) {
         //Swift.print("CommitsList.reUse: idx: " + "\(listItem.idx)")
         let item:CommitsListItem = listItem.item as! CommitsListItem
@@ -49,7 +55,7 @@ class CommitsList:RBSliderFastList4{
     }
     override func scrollWheelExit(){
         isTwoFingersTouching = false
-        //Swift.print("💜 CommitList.scrollWheelExit()")
+        Swift.print("💜 CommitList.scrollWheelExit()")
         let value = mover!.result
         if(value > 60){
             //Swift.print("start animation the ProgressIndicator")
@@ -67,7 +73,7 @@ class CommitsList:RBSliderFastList4{
         }
     }
     override func scrollAnimStopped(){
-        //Swift.print("💛 CommitsList.scrollAnimStopped()")
+        Swift.print("💛 CommitsList.scrollAnimStopped()")
         super.scrollAnimStopped()
         if(isInDeactivateRefreshModeState){
             //Swift.print("reset refreshState")
@@ -95,7 +101,7 @@ extension CommitsList{
      * Basically not in refreshState
      */
     func loopAnimationCompleted(){
-        //Swift.print("❤️️ CommitList.loopAnimationCompleted()")
+        Swift.print("❤️️ CommitList.loopAnimationCompleted()")
         isInDeactivateRefreshModeState = true
         mover!.frame.y = 0
         mover!.hasStopped = false/*reset this value to false, so that the FrameAnimatior can start again*/
