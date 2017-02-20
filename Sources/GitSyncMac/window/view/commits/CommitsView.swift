@@ -21,9 +21,9 @@ class CommitsView:Element {
         //let xml = FileParser.xml("~/Desktop/commits.xml".tildePath)
         //Swift.print("dp.count(): " + "\(dp.count)")
         //Swift.print("CommitsView.width: " + "\(width)")
-        list = addSubView(CommitsList(CommitsView.w, CommitsView.h, 102, DataProvider(), self,"commitsList"))
-        list!.selectAt(dpIdx: CommitsView.selectedIdx)
         
+        list = addSubView(CommitsList(CommitsView.w, CommitsView.h, 102, dp, self,"commitsList"))
+        list!.selectAt(dpIdx: CommitsView.selectedIdx)
         
     }
     /**
