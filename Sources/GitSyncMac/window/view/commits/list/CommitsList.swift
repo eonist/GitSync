@@ -103,6 +103,7 @@ extension CommitsList{
      */
     func loopAnimationCompleted(){
         Swift.print("❤️️ CommitList.loopAnimationCompleted()")
+        progressIndicator!.progress(0)
         progressIndicator!.stop()
         isInDeactivateRefreshModeState = true
         mover!.frame.y = 0
