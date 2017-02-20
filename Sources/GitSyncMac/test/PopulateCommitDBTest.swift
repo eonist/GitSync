@@ -7,19 +7,19 @@ class PopulateCommitDB {
     //var commitDB:CommitDB/* = CommitDB()*/
     var commitDP:CommitDP
     var startTime:NSDate
-    var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
+    static var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
     init(){
         commitDP = CommitDPCache.read()
         startTime = NSDate()//measure the time of the refresh
         refresh()
     }
     func refresh(){
-        freshnessSort()
+        PopulateCommitDB.freshnessSort()
     }
     /**
      * Sort the repoList so that the freshest repos are parsed first (optimization)
      */
-    func freshnessSort(){
+    static func freshnessSort(){
         Swift.print("💜 freshnessSort()")
         async(bgQueue, { () -> Void in//run the task on a background thread
             let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
@@ -38,7 +38,7 @@ class PopulateCommitDB {
     /**
      * Adds commits to CommitDB
      */
-    func refreshRepos(){
+    static func refreshRepos(){
         async(bgQueue, { () -> Void in/*run the task on a background thread*/
             self.sortableRepoList.forEach{/*the arr is already sorted from freshest to least fresh*/
                 self.refreshRepo($0.repo)
@@ -86,7 +86,7 @@ class PopulateCommitDB {
     /**
      * Freshness level of every repo is calculated
      */
-    func onFreshnessSortComplete(){
+    static func onFreshnessSortComplete(){
         //sortableRepoList.forEach{Swift.print($0.repo["title"]!)}
         Swift.print("💛 onFreshnessSortComplete() Time:-> " + "\(abs(startTime.timeIntervalSinceNow))")/*How long it took*/
         refreshRepos()
