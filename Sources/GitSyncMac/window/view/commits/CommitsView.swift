@@ -13,7 +13,6 @@ class CommitsView:Element {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         //topBar = addSubView(CommitsTopBar(width-12,36,self))
         //add a container
-        
         createList()/*creates the GUI List*/
     }
     func createList(){
@@ -24,6 +23,8 @@ class CommitsView:Element {
         //Swift.print("CommitsView.width: " + "\(width)")
         list = addSubView(CommitsList(CommitsView.w, CommitsView.h, 102, DataProvider(), self,"commitsList"))
         list!.selectAt(dpIdx: CommitsView.selectedIdx)
+        
+        
     }
     /**
      * Eventhandler when a CommitsListItem is clicked

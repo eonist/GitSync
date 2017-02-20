@@ -16,6 +16,8 @@ class CommitsList:RBSliderFastList4{
         progressIndicator = piContainer.addSubView(ProgressIndicator(30,30,piContainer))
         progressIndicator!.frame.y = -45//hide at init
         progressIndicator!.animator!.event = onEvent
+        
+        
     }
     override func createItem(_ index:Int) -> Element {
         //Swift.print("CommitsList.createItem index: \(index)")

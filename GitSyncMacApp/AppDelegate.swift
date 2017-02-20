@@ -19,14 +19,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
         //_ = Test()
-        //initApp()
+        initApp()
         //initTestWin()
-        func onComplete(){
-            Swift.print("CommitDB finished!!! ")
-        }
-        CommitDPRefresher.commitDP = CommitDPCache.read()
-        CommitDPRefresher.onComplete = onComplete
-        CommitDPRefresher.refresh()
+        /*func onComplete(){
+         Swift.print("CommitDB finished!!! ")
+         }
+         CommitDPRefresher.commitDP = CommitDPCache.read()
+         CommitDPRefresher.onComplete = onComplete
+         CommitDPRefresher.refresh()*/
         
         //remove code from CommitsView and add the above
         
