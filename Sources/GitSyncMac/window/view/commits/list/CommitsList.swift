@@ -18,6 +18,14 @@ class CommitsList:RBSliderFastList4{
         progressIndicator!.animator!.event = onEvent
         
         
+        func onComplete(){
+            Swift.print("CommitDP refresh finished!!! ")
+        }
+        dataProvider = CommitDPCache.read()
+        
+        CommitDPRefresher.commitDP = dp as? CommitDP
+        CommitDPRefresher.onComplete = onComplete
+        CommitDPRefresher.refresh()
     }
     override func createItem(_ index:Int) -> Element {
         //Swift.print("CommitsList.createItem index: \(index)")
