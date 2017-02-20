@@ -7,7 +7,7 @@ class Test2 {
         //_ = ThreadTesting()
         
         //_ = ASyncTaskTest()
-        _ = PopulateCommitDB()
+        //CommitDPRefresher
         
         
         //test!.refresh()

@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //_ = Test()
         //initApp()
         //initTestWin()
-        PopulateCommitDB.refresh()
+        CommitDPRefresher.refresh()
         
         //print("test")
         
