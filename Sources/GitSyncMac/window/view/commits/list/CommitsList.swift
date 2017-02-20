@@ -17,15 +17,8 @@ class CommitsList:RBSliderFastList4{
         progressIndicator!.frame.y = -45//hide at init
         progressIndicator!.animator!.event = onEvent
         
-        
-        func onComplete(){
-            Swift.print("CommitDP refresh finished!!! ")
-        }
-        
-        
         CommitDPRefresher.commitDP = dp as? CommitDP
         CommitDPRefresher.onComplete = loopAnimationCompleted
-        
     }
     /**
      * Create ListItem
@@ -97,7 +90,6 @@ class CommitsList:RBSliderFastList4{
     }
 }
 extension CommitsList{
-    
     /**
      * Basically not in refreshState
      */
