@@ -12,6 +12,7 @@ class PopulateCommitDB {
     static func refresh(){
         commitDP = CommitDPCache.read()
         startTime = NSDate()//measure the time of the refresh
+        sortableRepoList = []
         PopulateCommitDB.freshnessSort()
     }
     /**
