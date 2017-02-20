@@ -25,7 +25,7 @@ class CommitViewUtils {
      */
     static func processCommitData(_ repoTitle:String,_ commitData:CommitData, _ repoIndex:Int)-> Dictionary<String, String>{
         let data:ProcessedCommitData = processCommitData(repoTitle,commitData,repoIndex)
-        let dict:[String:String] = ["repo-name":repoTitle,"contributor":commitData.author,"title":data.subject,"description":data.body,"date":data.relativeDate,"sortableDate":data.descendingDate,"hash":commitData.hash,]
+        let dict:[String:String] = ["repo-name":repoTitle,"contributor":commitData.author,"title":data.subject,"description":data.body,"date":data.relativeDate,"sortableDate":data.descendingDate,"hash":commitData.hash,"gitDate":commitData.date]
         return dict
     }
     /**
