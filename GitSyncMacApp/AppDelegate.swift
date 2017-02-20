@@ -32,9 +32,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //print("test")
         
-        /*let temp:Temp = Temp()
+        /*
+         let temp:Temp = Temp()
          let xml:XML = Reflection.toXML(temp)
-         Swift.print("xml.xmlString: " + "\(xml.xmlString)")*/
+         Swift.print("xml.xmlString: " + "\(xml.xmlString)")
+         */
     }
     func initTestWin(){
         //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
