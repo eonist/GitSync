@@ -95,7 +95,7 @@ extension CommitsList{
      */
     func loopAnimationCompleted(){
         Swift.print("❤️️ CommitList.loopAnimationCompleted()")
-        pool.forEach{reUse($0)}
+        pool.forEach{reUse($0)}//force a refresh of all items
         progressIndicator!.progress(0)
         progressIndicator!.stop()
         isInDeactivateRefreshModeState = true
