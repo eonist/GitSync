@@ -119,7 +119,8 @@ private class Utils{
         let commitCount:Int = GitUtils.commitCount(localPath).int - 1/*Get the total commitCount of this repo*/
         Swift.print("commitCount: " + ">\(commitCount)<")
         let len:Int = Swift.min(commitCount,limit)
-        Swift.print("len: \(len) max: \(max)")
+        Swift.print("len: " + "\(len)")
+        Swift.print("limit: \(limit)")
         var results:[String] = []
         let formating:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
         for i in 0..<len{
@@ -127,7 +128,7 @@ private class Utils{
             let result:String = GitParser.show(localPath, cmd)//--no-patch suppresses the diff output of git show
             results.append(result)
         }
-        return results
+        return results.reversed()
     }
 }
 
