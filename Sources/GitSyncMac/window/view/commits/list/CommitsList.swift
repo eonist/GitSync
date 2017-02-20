@@ -43,6 +43,7 @@ class CommitsList:RBSliderFastList4{
         item.y = idx * itemHeight/*position the item*/
     }
     override func scrollWheelEnter() {
+        Swift.print("scrollWheelEnter")
         isTwoFingersTouching = true
         super.scrollWheelEnter()
     }
