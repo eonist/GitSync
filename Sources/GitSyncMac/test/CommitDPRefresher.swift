@@ -63,6 +63,7 @@ class CommitDPRefresher {
             //Swift.print("lastDate: " + "\(lastDate)")
             let gitTime = GitDateUtils.gitTime(lastDate.string)/*converts descending date to git time*/
             let rangeCount:Int = GitUtils.commitCount(localPath, after: gitTime).int/*Finds the num of commits from now until */
+            Swift.print("rangeCount now..last: " + "\(rangeCount)")
             commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
         }else {//< 100
             commitCount = 100
