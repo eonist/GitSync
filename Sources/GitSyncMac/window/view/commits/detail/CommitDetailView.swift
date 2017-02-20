@@ -15,7 +15,7 @@ class CommitDetailView:Element {
         repoNameText!.isInteractive = false
         titleText = addSubView(Text(280,24,"commit title",self,"title"))
         titleText!.isInteractive = false
-        descText = addSubView(Text(180,50,"commit desc",self,"description"))
+        descText = addSubView(Text(180,120,"commit desc",self,"description"))
         descText!.isInteractive = false
     }
     /**
