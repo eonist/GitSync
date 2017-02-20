@@ -24,8 +24,8 @@ class CommitsList:RBSliderFastList4{
         
         
         CommitDPRefresher.commitDP = dp as? CommitDP
-        CommitDPRefresher.onComplete = onComplete
-        CommitDPRefresher.refresh()
+        CommitDPRefresher.onComplete = loopAnimationCompleted
+        
     }
     /**
      * Create ListItem
@@ -64,6 +64,7 @@ class CommitsList:RBSliderFastList4{
             hasPulledAndReleasedBeyondRefreshSpace = true
             
             /*start downloading commits here*/
+            CommitDPRefresher.refresh()
             
         }else if (value > 0){
             hasReleasedBeyondTop = true
@@ -84,7 +85,7 @@ class CommitsList:RBSliderFastList4{
     override func onEvent(_ event:Event) {
         //Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
         if(event.assert(AnimEvent.completed, progressIndicator!.animator)){
-            loopAnimationCompleted()
+            //loopAnimationCompleted()
         }else if(event.assert(AnimEvent.stopped, mover!)){
             scrollAnimStopped()
         }
