@@ -13,7 +13,7 @@ class CommitsView:Element {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         //topBar = addSubView(CommitsTopBar(width-12,36,self))
         //add a container
-        loadCommits()
+        
         createList()/*creates the GUI List*/
     }
     func createList(){
@@ -44,48 +44,6 @@ class CommitsView:Element {
         if(event.type == ListEvent.select){onListSelect(event as! ListEvent)}
         //else {super.onEvent(event)}//forward other events
     }
-}
-private class Utils{
-    /**
-     * Populates a DataProvider instance with data derived from commits in a repository
-     */
-    static func dataProvider()->DataProvider{
-        var commitItems:[[String:String]] = []
-        
-        let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
-        let repoList = XMLParser.toArray(repoXML)//or use dataProvider
-        //Swift.print("repoList.count: " + "\(repoList.count)")
-        
-        let localPath = repoList[1]["local-path"]
-        //Swift.print("localPath: " + "\(localPath)")
-        let repoTitle = repoList[1]["title"]!
-        let commitCount:String = GitUtils.commitCount(localPath!)/*Get the commitCount of this repo*/
-        //Swift.print("commitCount: " + ">\(commitCount)<")
-        let length:Int = commitCount.int > 20 ? 20 : commitCount.int//20 = maxCount
-        let logCMD:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
-        let startTime = NSDate()
-        
-        for i in 0..<length{
-            //replace 31 with i bellow:
-            let cmd:String = "head~" + i.string + logCMD + " --no-patch"//--no-patch suppresses the diff output of git show
-            //convert the logItem to Tupple
-            let result:String = GitParser.show(localPath!, cmd)
-            //Swift.print("result.count: " + "\(result.count)")
-            let commitData = GitLogParser.commitData(result)/*Compartmentalizes the result into a Tuple*/
-            //dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!
-            let processedCommitData:[String:String] = CommitViewUtils.processCommitData(repoTitle, commitData,1)
-            commitItems.append(processedCommitData)////we store the full hash in the CommitData and in the dp item, so that when you click on an item you can generate all commit details in the CommitDetailView
-        }
-        //do some intensive cpu stuff here
-        Swift.print("Time: " + "\(abs(startTime.timeIntervalSinceNow))")
-        let dp = DataProvider(commitItems)
-        _ = dp.sort("sortableDate")/*sorts the list in ascending order*/
-        //Swift.print("dp.count: " + "\(dp.count)")
-        
-        
-        return dp
-    }
-    
 }
 
 
