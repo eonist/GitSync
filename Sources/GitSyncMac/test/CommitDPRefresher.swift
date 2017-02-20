@@ -117,12 +117,12 @@ private class Utils{
      */
     static func commitItems(_ localPath:String,_ limit:Int)->[String]{
         let commitCount:Int = GitUtils.commitCount(localPath).int - 1/*Get the total commitCount of this repo*/
-        //Swift.print("commitCount: " + ">\(commitCount)<")
-        let length:Int = Swift.min(commitCount,limit)
-        //Swift.print("length: \(length) max: \(max)")
+        Swift.print("commitCount: " + ">\(commitCount)<")
+        let len:Int = Swift.min(commitCount,limit)
+        Swift.print("len: \(len) max: \(max)")
         var results:[String] = []
         let formating:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b"//"-3 --oneline"//
-        for i in 0..<length{
+        for i in 0..<len{
             let cmd:String = "head~" + "\(i)" + formating + " --no-patch"
             let result:String = GitParser.show(localPath, cmd)//--no-patch suppresses the diff output of git show
             results.append(result)
