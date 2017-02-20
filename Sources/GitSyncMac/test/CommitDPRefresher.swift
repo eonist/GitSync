@@ -9,6 +9,8 @@ class CommitDPRefresher {
     static var startTime:NSDate?
     static var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
     static var isRefreshing:Bool = false/*avoids refreshing when the refresh has already started*/
+    static var onComplete:
+    
     static func refresh(){
         isRefreshing = true
         commitDP = CommitDPCache.read()
