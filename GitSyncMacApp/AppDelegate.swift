@@ -24,6 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         func onComplete(){
             Swift.print("CommitDB finished!!! ")
         }
+        CommitDPRefresher.commitDP = CommitDPCache.read()
         CommitDPRefresher.onComplete = onComplete
         CommitDPRefresher.refresh()
         

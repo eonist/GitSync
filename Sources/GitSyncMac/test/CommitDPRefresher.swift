@@ -13,7 +13,6 @@ class CommitDPRefresher {
     
     static func refresh(){
         isRefreshing = true
-        commitDP = CommitDPCache.read()
         startTime = NSDate()//measure the time of the refresh
         sortableRepoList = []
         freshnessSort()
