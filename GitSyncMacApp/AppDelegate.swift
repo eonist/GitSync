@@ -27,6 +27,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         CommitDPRefresher.onComplete = onComplete
         CommitDPRefresher.refresh()
         
+        //remove code from CommitsView and add the above
+        
         //print("test")
         
         /*let temp:Temp = Temp()
