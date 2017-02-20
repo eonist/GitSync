@@ -108,6 +108,9 @@ extension RBSliderFastList4{//TODO:rather extend IRBSliderFastList
         ListModifier.scrollTo(self, sliderEvent.progress)
         mover!.value = lableContainer!.frame.y
     }
+    /**
+     * When two fingers are touches the track-pad this method is called
+     */
     func scrollWheelEnter(){//2. spring to refreshStatePosition
         //Swift.print("RBSliderFastList.scrollWheelEnter()" + "\(progressValue)")
         if(itemsHeight >= height){slider!.thumb!.fadeIn()}/*fades in the slider*/
