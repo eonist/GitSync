@@ -9,7 +9,7 @@ class CommitDPRefresher {
     static var startTime:NSDate?
     static var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
     static var isRefreshing:Bool = false/*avoids refreshing when the refresh has already started*/
-    static var onComplete:()->Void = {print("⚠️️ commit refresh completed but no onComplete is currently attached")}
+    static var onComplete:()->Void = {print("⚠️️⚠️️⚠️️ Commit refresh completed but no onComplete is currently attached")}
     
     static func refresh(){
         isRefreshing = true
@@ -105,6 +105,7 @@ class CommitDPRefresher {
         Swift.print("💚 onRefreshReposComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
         CommitDPCache.write(commitDP!)//write data to disk, we could also do this on app exit
         isRefreshing = false
+        onComplete()//calls a dynamic onComplete method
         Swift.print("Written to disk")
     }
 }

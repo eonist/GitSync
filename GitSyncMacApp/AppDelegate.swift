@@ -21,6 +21,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //_ = Test()
         //initApp()
         //initTestWin()
+        func onComplete(){
+            Swift.print("CommitDB finished!!! ")
+        }
+        CommitDPRefresher.onComplete = onComplete
         CommitDPRefresher.refresh()
         
         //print("test")
