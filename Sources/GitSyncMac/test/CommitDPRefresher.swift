@@ -32,11 +32,11 @@ class CommitDPRefresher {
     }
     /**
      * Adds commit items to CommitDB if they are newer than the oldest commit in CommitDB
+     * 1. Find the range of commits to add to CommitDB for this repo
+     * 2. Retrieve the commit log items for this repo with the range specified
      */
     static func refreshRepo(_ repo:RepoItem){
-        //2. Find the range of commits to add to CommitDB for this repo
         var commitCount:Int
-        //Swift.print("commitDB.sortedArr.count: " + "\(commitDB.sortedArr.count)")
         if(commitDP!.items.count > 0){
             let lastDate:Int = commitDP!.items.last!["sortableDate"]!.int/*the last date is always the furthest distant date 19:59,19:15,19:00 etc*/
             //Swift.print("lastDate: " + "\(lastDate)")
@@ -48,16 +48,12 @@ class CommitDPRefresher {
             commitCount = 100
         }
         Swift.print("💙\(repo.title): rangeCount: " + "\(commitCount)")
-        //3. Retrieve the commit log items for this repo with the range specified
-        //Swift.print("max: " + "\(commitCount)")
-        let results:[String] = Utils.commitItems(repo.localPath, commitCount)/*creates an array commit item logs, from repo*/
+        let results:[String] = Utils.commitItems(repo.localPath, commitCount)/*creates an array raw commit item logs, from repo*/
         results.forEach{
             if($0.count > 0){//resulting string must have characters
-                //Swift.print("output: " + ">\(output)<")
                 let commitData:CommitData = GitLogParser.commitData($0)/*Compartmentalizes the result into a Tuple*/
                 //let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
                 let commitDict:[String:String] = CommitViewUtils.processCommitData(repo.title, commitData, 0)//<---TODO:add repo idx here
-                //Swift.print("repo: \(element.repoTitle) hash: \(commit.hash) date: \(Utils.gitTime(commit.sortableDate.string))")
                 commitDP!.add(commitDict)/*add the commit log items to the CommitDB*/
             }else{
                 Swift.print("-----ERROR: repo: \(repo.title) at index: \(index) didn't work")
