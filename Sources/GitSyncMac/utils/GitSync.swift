@@ -12,6 +12,9 @@ class GitSync{
      */
     static func doCommit(_ localRepoPath:String)->Bool{
         Swift.print("doCommit()")
+        
+        
+        
         let statusList = StatusUtils.generateStatusList(localRepoPath)//get current status
         Swift.print("statusList.count: " + "\(statusList.count)")
         if (statusList.count > 0) {
