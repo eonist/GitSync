@@ -2,13 +2,12 @@ import Foundation
 @testable import Utils
 
 //try to make this class as static as possible
-
+typealias RepoItem = (localPath:String,interval:Int,branch:String,keyChainItemName:String,broadcast:Bool,title:String,subscribe:Bool,autoSync:Bool,remotePath:String)
 class CommitDPRefresher {
-    typealias RepoItem = (localPath:String,interval:Int,branch:String,keyChainItemName:String,broadcast:Bool,title:String,subscribe:Bool,autoSync:Bool,remotePath:String)
     //var commitDB:CommitDB/* = CommitDB()*/
     static var commitDP:CommitDP?
     static var startTime:NSDate?
-    static var sortableRepoList:[(repo:RepoItem,freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
+    
     static var isRefreshing:Bool = false/*avoids refreshing when the refresh has already started*/
     static var onComplete:()->Void = {print("⚠️️⚠️️⚠️️ Commit refresh completed but no onComplete is currently attached")}
     /**
@@ -18,7 +17,7 @@ class CommitDPRefresher {
     static func refresh(){
         isRefreshing = true/*avoid calling refresh when this is true, it is set to false on completion*/
         startTime = NSDate()//measure the time of the refresh
-        sortableRepoList = []//reset the array
+        //sortableRepoList = []//reset the array
         FreshnessUtils.freshnessSort()//begin process on a background thread
     }
     
