@@ -92,9 +92,9 @@ private class Utils{
         Swift.print("len: " + "\(len)")
         Swift.print("limit: \(limit)")
         var results:[String] = []
-        let formating:String = " --pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
+        let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
         for i in 0..<len{
-            let cmd:String = "head~" + "\(i)" + formating + " --no-patch"
+            let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
             let result:String = GitParser.show(localPath, cmd)//--no-patch suppresses the diff output of git show
             results.append(result)
         }
