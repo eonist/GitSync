@@ -21,9 +21,9 @@ class MergeUtils{
         }
         _ = GitSync.commit(repo.localPath)//it1s best practice to always commit any uncommited files before you attempt to pull.
         //try
-        GitUtils.manualPull(repo)//manual clone down files
         
-        let hasManualPullReturnedError:Bool = false
+        
+        let hasManualPullReturnedError:Bool = GitUtils.manualPull(repo)//manual clone down files
         if(hasManualPullReturnedError){
             //make a list of unmerged files
             let unMergedFiles:[String] = GitParser.unMergedFiles(repo.localPath)//compile a list of conflicting files somehow
