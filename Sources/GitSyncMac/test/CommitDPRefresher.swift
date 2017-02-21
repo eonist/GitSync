@@ -34,7 +34,7 @@ class CommitDPRefresher {
                 self.sortableRepoList.append(($0,freshness))
             }
             self.sortableRepoList.sort(by: {$0.freshness > $1.freshness})/*sorts repos according to freshness, the freshest first the least fresh at the botom*/
-            async(mainQueue){/*jump back on the main thread*/
+            async(mainQueue){/*Jump back on the main thread*/
                 self.onFreshnessSortComplete()
             }
         })
