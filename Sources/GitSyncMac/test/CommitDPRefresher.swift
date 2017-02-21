@@ -8,7 +8,7 @@ class CommitDPRefresher {
     //var commitDB:CommitDB/* = CommitDB()*/
     static var commitDP:CommitDP?
     static var startTime:NSDate?
-    static var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
+    static var sortableRepoList:[(repo:RepoItem,freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
     static var isRefreshing:Bool = false/*avoids refreshing when the refresh has already started*/
     static var onComplete:()->Void = {print("⚠️️⚠️️⚠️️ Commit refresh completed but no onComplete is currently attached")}
     /**
@@ -31,10 +31,10 @@ class CommitDPRefresher {
             let repoList = XMLParser.toArray(repoXML)//or use dataProvider
             
             repoList.forEach{/*sort the repoList based on freshness*/
-                let repoItem:RepoItem = ()
-                let localPath:String = $0["local-path"]!
-                let freshness:CGFloat = FreshnessUtils.freshness(localPath)
-                self.sortableRepoList.append(($0,freshness))
+                let repoItem:RepoItem = (localPath:$0["local-path"]!,interval:$0["interval"]!.int,branch:$0["branch"]!,keyChainItemName:$0["keychain-item-name"]!,broadcast:$0["broadcast"]!.bool,title:$0["title"]!,subscribe:$0["subscribe"]!.bool,autoSync:$0["auto-sync"]!.bool,remotePath:$0["remote-path"]!)
+                
+                let freshness:CGFloat = FreshnessUtils.freshness(repoItem.localPath)
+                self.sortableRepoList.append((repoItem,freshness))
             }
             self.sortableRepoList.sort(by: {$0.freshness > $1.freshness})/*sorts repos according to freshness, the freshest first the least fresh at the botom*/
             async(mainQueue){/*Jump back on the main thread*/
