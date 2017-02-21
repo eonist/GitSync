@@ -9,7 +9,7 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     weak var window: NSWindow!
-    var repoFilePath:String = "~/Desktop/repo.xml"
+    var repoFilePath:String = "~/Desktop/assets/xml/list.xml"
     var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
     var fileWatcher:FileWatcher?
     var timer:SimpleTimer?
