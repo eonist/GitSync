@@ -32,16 +32,16 @@ class GitSync{
     /**
      * Handles the process of making a commit for a single repository
      */
-    static func initCommit(_ repo:RepoItem,_ branch:String){
+    static func initCommit(_ repoItem:RepoItem,_ branch:String){
         //log "GitSync's handle_commit_interval() a repo with doCommit " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
-        let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repo.localPath)//Asserts if there are unmerged paths that needs resolvment
+        let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.localPath)//Asserts if there are unmerged paths that needs resolvment
         Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
         if(hasUnMergedpaths){
             Swift.print("has unmerged paths to resolve")
-            let unMergedFiles = GitParser.unMergedFiles(repo.localPath) //Asserts if there are unmerged paths that needs resolvment
-            MergeUtils.resolveMergeConflicts(repo.localPath, branch, unMergedFiles)
+            let unMergedFiles = GitParser.unMergedFiles(repoItem.localPath) //Asserts if there are unmerged paths that needs resolvment
+            MergeUtils.resolveMergeConflicts(repoItem.localPath, branch, unMergedFiles)
         }
-        let hasCommited = GitSync.doCommit(repo.localPath) //if there were no commits false will be returned
+        let hasCommited = GitSync.doCommit(repoItem.localPath) //if there were no commits false will be returned
         Swift.print("hasCommited: " + "\(hasCommited)")
     }
     /**
@@ -50,20 +50,20 @@ class GitSync{
      * NOTE: this method performs a "manual pull" on every interval
      * TODO: contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
      */
-    static func initPush(_ repo:RepoItem,_ branch:String){
+    static func initPush(_ repoItem:RepoItem,_ branch:String){
         Swift.print("initPush")
-        var remotePath:String = repo.remotePath
+        var remotePath:String = repoItem.remotePath
         if(remotePath.test("^https://.+$")){remotePath = remotePath.subString(8, remotePath.count)}/*support for partial and full url,strip away the https://, since this will be added later*/
-        let gitRepo:GitRepo = (repo.localPath, remotePath, branch)
-        MergeUtils.manualMerge(gitRepo)//commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
+        let repo:GitRepo = (repoItem.localPath, remotePath, repoItem.branch)
+        MergeUtils.manualMerge(repo)//commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
         let hasLocalCommits = GitAsserter.hasLocalCommits(repo.localPath, branch) //TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
         Swift.print("hasLocalCommits: " + "\(hasLocalCommits)")
         if (hasLocalCommits) { //only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
-            let keychainPassword = KeyChainParser.password(repo.keyChainItemName)
+            let keychainPassword = KeyChainParser.password(repoItem.keyChainItemName)
             Swift.print("keychainPassword: 🔑" + "\(keychainPassword)")
-            Swift.print("repo.keyChainItemName: " + "\(repo.keyChainItemName)")
-            let key:GitKey = (repo.keyChainItemName, keychainPassword)
-            let pushCallBack = GitModifier.push(gitRepo,key)
+            Swift.print("repo.keyChainItemName: " + "\(repoItem.keyChainItemName)")
+            let key:GitKey = (repoItem.keyChainItemName, keychainPassword)
+            let pushCallBack = GitModifier.push(repo,key)
             Swift.print("pushCallBack: " + "\(pushCallBack)")
         }
     }

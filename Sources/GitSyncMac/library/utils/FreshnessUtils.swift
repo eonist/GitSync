@@ -1,6 +1,6 @@
 import Foundation
 @testable import Utils
-
+/*Storage tuple for the GitSyncAPp*/
 typealias RepoItem = (localPath:String,interval:Int,branch:String,keyChainItemName:String,broadcast:Bool,title:String,subscribe:Bool,autoSync:Bool,remotePath:String)
 class FreshnessUtils{
     /**
