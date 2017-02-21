@@ -32,18 +32,17 @@ class GitSync{
     /**
      * Handles the process of making a commit for a single repository
      */
-    class func initCommit(_ repoItem:Dictionary<String,String>,_ branch:String){
+    class func initCommit(_ repo:RepoItem,_ branch:String){
         //log "GitSync's handle_commit_interval() a repo with doCommit " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
-        let localPath:String = repoItem["local-path"]!
         //Swift.print("localPath: " + "\(localPath)")
-        let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(localPath)//Asserts if there are unmerged paths that needs resolvment
+        let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repo.localPath)//Asserts if there are unmerged paths that needs resolvment
         Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
         if(hasUnMergedpaths){
             Swift.print("has unmerged paths to resolve")
-            let unMergedFiles = GitParser.unMergedFiles(localPath) //Asserts if there are unmerged paths that needs resolvment
-            MergeUtils.resolveMergeConflicts(localPath, branch, unMergedFiles)
+            let unMergedFiles = GitParser.unMergedFiles(repo.localPath) //Asserts if there are unmerged paths that needs resolvment
+            MergeUtils.resolveMergeConflicts(repo.localPath, branch, unMergedFiles)
         }
-        let hasCommited = GitSync.doCommit(localPath) //if there were no commits false will be returned
+        let hasCommited = GitSync.doCommit(repo.localPath) //if there were no commits false will be returned
         Swift.print("hasCommited: " + "\(hasCommited)")
     }
     /**
