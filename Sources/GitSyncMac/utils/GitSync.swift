@@ -10,7 +10,7 @@ class GitSync{
      * TODO: add branch parameter to this call
      * NOTE: this a purly local method, does not need to communicate with remote servers etc..
      */
-    static func doCommit(_ localRepoPath:String)->Bool{
+    static func doCommit(_ localRepoPath:String){
         Swift.print("doCommit()")
         
         bgQueue.async {
@@ -30,10 +30,18 @@ class GitSync{
                 Swift.print("nothing to add or commit")
                 return false //break the flow since there is nothing to commit or process
             }
-            mainQueue.
-            onCommitComplete()
+            mainQueue.async {
+                GitSync.onCommitComplete()
+            }
+            
         }
         
+        
+    }
+    /**
+     *
+     */
+    static func onCommitComplete(){
         
     }
     /**
