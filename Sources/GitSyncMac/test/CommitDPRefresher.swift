@@ -30,7 +30,7 @@ class CommitDPRefresher {
             let repoList = XMLParser.toArray(repoXML)//or use dataProvider
             repoList.forEach{/*sort the repoList based on freshness*/
                 let localPath:String = $0["local-path"]!
-                let freshness:CGFloat = CommitDBRefreshTest.freshness(localPath)
+                let freshness:CGFloat = FreshnessUtils.freshness(localPath)
                 self.sortableRepoList.append(($0,freshness))
             }
             self.sortableRepoList.sort(by: {$0.freshness > $1.freshness})/*sorts repos according to freshness, the freshest first the least fresh at the botom*/
@@ -116,6 +116,7 @@ class CommitDPRefresher {
 
 private class Utils{
     /**
+     * Basically 
      * Returns an array of commitItems at PARAM: localPath and limited with PARAM: max
      * PARAM: limit = max Items Allowed per repo
      */
@@ -132,7 +133,6 @@ private class Utils{
             let result:String = GitParser.show(localPath, cmd)//--no-patch suppresses the diff output of git show
             results.append(result)
         }
-        return results.reversed()
+        return results.reversed()//reversed is a temp fix
     }
 }
-
