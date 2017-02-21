@@ -15,9 +15,11 @@ class MergeUtils{
         Swift.print("MergeUtils.manualMerge()")
         if (GitAsserter.hasUnMergedPaths(repo.localPath)) { //Asserts if there are unmerged paths that needs resolvment
             Swift.print("has unmerged paths to resolve")
-            MergeUtils.resolveMergeConflicts(repo.localPath, repo.branch, GitParser.unMergedFiles(repo.localPath))//Asserts if there are unmerged paths that needs resolvment
+            mainQueue.async {
+                MergeUtils.resolveMergeConflicts(repo.localPath, repo.branch, GitParser.unMergedFiles(repo.localPath))//Asserts if there are unmerged paths that needs resolvment
+            } 
         }
-        _ = GitSync.doCommit(repo.localPath)//it1s best practice to always commit any uncommited files before you attempt to pull.
+        _ = GitSync.commit(repo.localPath)//it1s best practice to always commit any uncommited files before you attempt to pull.
         //try
         GitUtils.manualPull(repo)//manual clone down files
         

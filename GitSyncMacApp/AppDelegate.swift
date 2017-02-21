@@ -37,7 +37,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         GitSync.onCommitComplete = onCommitComplete
         GitSync.initCommit(repoList.first!)
-        //GitSync.initPush(repoList.first!)
+        func onPushComplete(_ hasPushed:Bool){
+            Swift.print("AppDelegate.onPushComplete() hasPushed: " + "\(hasPushed)")
+        }
+        GitSync.onPushComplete = onPushComplete
+        GitSync.initPush(repoList.first!)
     }
     /**
      *
