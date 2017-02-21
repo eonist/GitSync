@@ -58,13 +58,10 @@ class GitSync{
         let hasLocalCommits = GitAsserter.hasLocalCommits(repo.localPath, branch) //TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
         Swift.print("hasLocalCommits: " + "\(hasLocalCommits)")
         if (hasLocalCommits) { //only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
-            let theKeychainItemName = repo.keyChainItemName
-            //Swift.print("theKeychainItemName: " + "\(theKeychainItemName)")
-            let keychainPassword = KeyChainParser.password(theKeychainItemName)
-            Swift.print("keychainPassword: " + "\(keychainPassword)")
-            let remoteAccountName = theKeychainItemName
-            Swift.print("remoteAccountName: " + "\(remoteAccountName)")
-            let pushCallBack = GitModifier.push(repo.localPath, remotePath, remoteAccountName, keychainPassword, branch)
+            let keychainPassword = KeyChainParser.password(repo.keyChainItemName)
+            Swift.print("keychainPassword: 🔑" + "\(keychainPassword)")
+            Swift.print("repo.keyChainItemName: " + "\(repo.keyChainItemName)")
+            let pushCallBack = GitModifier.push(repo.localPath, remotePath, repo.keyChainItemName, keychainPassword, branch)
             Swift.print("pushCallBack: " + "\(pushCallBack)")
         }
     }
