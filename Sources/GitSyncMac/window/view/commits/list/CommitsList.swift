@@ -59,7 +59,7 @@ class CommitsList:RBSliderFastList4{
             hasPulledAndReleasedBeyondRefreshSpace = true
             
             /*start downloading commits here*/
-            CommitDPRefresher.refresh()
+            CommitDPRefresher.refresh()//👈👈👈
             
         }else if (value > 0){
             hasReleasedBeyondTop = true
