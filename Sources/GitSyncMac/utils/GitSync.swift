@@ -10,12 +10,12 @@ class GitSync{
      * TODO: add branch parameter to this call
      * NOTE: this a purly local method, does not need to communicate with remote servers etc..
      */
-    static func doCommit(_ localRepoPath:String){
+    static func doCommit(_ localRepoPath:String)->Bool{
         Swift.print("doCommit()")
-        bgQueue.async {
+        
             let statusList = StatusUtils.generateStatusList(localRepoPath)//get current status
             Swift.print("statusList.count: " + "\(statusList.count)")
-            var hasCommited:Bool = false
+        
             if (statusList.count > 0) {
                 Swift.print("doCommit().there is something to add or commit")
                 StatusUtils.processStatusList(localRepoPath, statusList) //process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del
@@ -25,22 +25,15 @@ class GitSync{
                 //Swift.print("commitMsgDesc: >" + "\(commitMsgDesc)" + "<")
                 let commitResult = GitModifier.commit(localRepoPath, (title,desc)) //commit
                 Swift.print("commitResult: " + "\(commitResult)")
-                hasCommited = true//return true to indicate that the commit completed
+                return true//return true to indicate that the commit completed
             }else{
                 Swift.print("nothing to add or commit")
-                hasCommited = false //break the flow since there is nothing to commit or process
+                return false //break the flow since there is nothing to commit or process
             }
-            mainQueue.async {
-                GitSync.onCommitComplete(hasCommited)
-            }
-        }
+        
+        
     }
-    /**
-     * completion handler for doCommit
-     */
-    static func onCommitComplete(_ hasCommited:Bool){
-        Swift.print("onCommitComplete() hasCommited: " + "\(hasCommited)")
-    }
+   
     /**
      * Handles the process of making a commit for a single repository
      */
@@ -53,8 +46,19 @@ class GitSync{
             let unMergedFiles = GitParser.unMergedFiles(repoItem.localPath) //Asserts if there are unmerged paths that needs resolvment
             MergeUtils.resolveMergeConflicts(repoItem.localPath, repoItem.branch, unMergedFiles)
         }
-        let hasCommited = GitSync.doCommit(repoItem.localPath) //if there were no commits false will be returned
-        Swift.print("hasCommited: " + "\(hasCommited)")
+        bgQueue.async {
+            let hasCommited = GitSync.doCommit(repoItem.localPath) //if there were no commits false will be returned
+            Swift.print("hasCommited: " + "\(hasCommited)")
+        }
+        mainQueue.async {
+            GitSync.onCommitComplete(hasCommited)
+        }
+    }
+    /**
+     * completion handler for initCommit
+     */
+    static func onCommitComplete(_ hasCommited:Bool){
+        Swift.print("onCommitComplete() hasCommited: " + "\(hasCommited)")
     }
     /**
      * Handles the process of making a push for a single repository
