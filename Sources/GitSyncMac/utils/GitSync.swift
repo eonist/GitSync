@@ -10,7 +10,7 @@ class GitSync{
      * TODO: add branch parameter to this call
      * NOTE: this a purly local method, does not need to communicate with remote servers etc..
      */
-    class func doCommit(_ localRepoPath:String)->Bool{
+    static func doCommit(_ localRepoPath:String)->Bool{
         Swift.print("doCommit()")
         let statusList = StatusUtils.generateStatusList(localRepoPath)//get current status
         Swift.print("statusList.count: " + "\(statusList.count)")
@@ -32,7 +32,7 @@ class GitSync{
     /**
      * Handles the process of making a commit for a single repository
      */
-    class func initCommit(_ repo:RepoItem,_ branch:String){
+    static func initCommit(_ repo:RepoItem,_ branch:String){
         //log "GitSync's handle_commit_interval() a repo with doCommit " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
         let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repo.localPath)//Asserts if there are unmerged paths that needs resolvment
         Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
@@ -50,7 +50,7 @@ class GitSync{
      * NOTE: this method performs a "manual pull" on every interval
      * TODO: contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
      */
-    class func initPush(_ repo:RepoItem,_ branch:String){
+    static func initPush(_ repo:RepoItem,_ branch:String){
         Swift.print("initPush")
         var remotePath:String = repo.remotePath
         if(remotePath.test("^https://.+$")){remotePath = remotePath.subString(8, remotePath.count)}/*support for partial and full url,strip away the https://, since this will be added later*/

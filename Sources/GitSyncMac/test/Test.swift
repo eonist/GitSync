@@ -241,8 +241,8 @@ class Test {
         let remoteAccountName = theKeychainItemName
         Swift.print("remoteAccountName: " + "\(remoteAccountName)")
         
-        GitSync.initCommit(repoList[1], "master")
-        GitSync.initPush(repoList[1], "master")
+        //GitSync.initCommit(repoList[1], "master")
+        //GitSync.initPush(repoList[1], "master")
         
     }
     /**
