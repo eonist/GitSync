@@ -4,6 +4,7 @@ import Foundation
 class FreshnessUtils{
     /**
      * Sort the repoList so that the freshest repos are parsed first (optimization)
+     * PARAM: repoFilePath: the the repo file contains info about each repo to sort.
      */
     static func freshnessSort(_ repoFilePath:String){
         Swift.print("💜 freshnessSort()")

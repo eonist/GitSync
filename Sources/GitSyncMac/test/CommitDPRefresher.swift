@@ -6,21 +6,17 @@ typealias RepoItem = (localPath:String,interval:Int,branch:String,keyChainItemNa
 class CommitDPRefresher {
     //var commitDB:CommitDB/* = CommitDB()*/
     static var commitDP:CommitDP?
-    static var startTime:NSDate?
-    
+    static var startTime:NSDate?//debugging
     static var isRefreshing:Bool = false/*avoids refreshing when the refresh has already started*/
     static var onComplete:()->Void = {print("⚠️️⚠️️⚠️️ Commit refresh completed but no onComplete is currently attached")}
     /**
      * Inits the refresh process
-     *
      */
     static func refresh(){
         isRefreshing = true/*avoid calling refresh when this is true, it is set to false on completion*/
         startTime = NSDate()//measure the time of the refresh
-        //sortableRepoList = []//reset the array
         FreshnessUtils.freshnessSort("~/Desktop/assets/xml/list.xml")//begin process on a background thread
     }
-    
     /**
      * Adds commits to CommitDB
      */
