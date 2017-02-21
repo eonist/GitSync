@@ -9,7 +9,8 @@
 ## Progress:
 
 **2017-02-21**  
-Connect the GitSync algorithm to the app
+- Connect the GitSync algorithm to the app  
+- Commit title and desc are now escaped  
 
 ## GUI mock-ups:   
 

@@ -4,7 +4,7 @@ import Foundation
 class AutoSync {
     static var onComplete:()->Void = {print("⚠️️⚠️️⚠️️ AutoSync.sync() completed but no onComplete is currently attached")}
     /**
-     * The GitSync automation algo
+     * The GitSync automation algo (Basically Commits and pushes)
      */
     static func sync(){
         let repoXML = FileParser.xml(RepoView.repoList.tildePath)

@@ -3,6 +3,9 @@ import Foundation
 
 //try to make this class as static as possible
 typealias CommitDPRefresher = Refresh//temp
+/**
+ * Basically creates/updates a list of the latest commits
+ */
 class Refresh{//TODO:rename to refresh
     //var commitDB:CommitDB/* = CommitDB()*/
     static var commitDP:CommitDP?
@@ -77,8 +80,6 @@ class Refresh{//TODO:rename to refresh
         Swift.print("Written to disk")
     }
 }
-
-
 private class Utils{
     /**
      * Basically creates an array of commit data from the latest commit until limit (limit:3 returns the 3 last commits)
