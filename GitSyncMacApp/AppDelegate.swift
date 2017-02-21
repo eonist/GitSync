@@ -19,9 +19,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
         //_ = Test()
-        //initApp()
+        initApp()
         //initTestWin()
-        commitTest()
+        //commitTest()
         //refreshReposTest()
     }
     /**

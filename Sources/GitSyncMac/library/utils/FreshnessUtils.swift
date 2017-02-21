@@ -10,7 +10,7 @@ class FreshnessUtils{
         Swift.print("💜 freshnessSort()")
         var sortableRepoList:[(repo:RepoItem,freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
         async(bgQueue, { () -> Void in//run the task on a background thread
-            let repoXML = FileParser.xml(_ repoFilePath.tildePath)//~/Desktop/repo2.xml
+            let repoXML = FileParser.xml(repoFilePath.tildePath)//~/Desktop/repo2.xml
             let repoList = XMLParser.toArray(repoXML)//or use dataProvider
             
             repoList.forEach{/*sort the repoList based on freshness*/

@@ -7,7 +7,6 @@ import Foundation
  */
 class CommitDP:DataProvider{
     //var max:Int = 100
-    
 }
 extension CommitDP{
     /**
