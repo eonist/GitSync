@@ -5,6 +5,7 @@ import Foundation
  * TODO: should remember previous selected item between transitions
  */
 class RepoView:Element {
+    static var repoList:String = "~/Desktop/assets/xml/list.xml"
     var topBar:TopBar?
     static var dp:DataProvider?
     var list:List?
@@ -16,7 +17,7 @@ class RepoView:Element {
         topBar = addSubView(TopBar(width-12,44,self))
         
         if(RepoView.dp == nil){/*loads 1 time*/
-            let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+            let xml = FileParser.xml(RepoView.repoList.tildePath)//~/Desktop/repo2.xml
             RepoView.dp = DataProvider(xml)
         }
         
