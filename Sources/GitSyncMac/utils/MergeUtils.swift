@@ -11,15 +11,15 @@ class MergeUtils{
      * NOTE: prompts the users if a merge conflicts occure
      * TODO: we should use two branch params here since its entirly possible to merge from a different remote branch
      */
-    class func manualMerge(_ localPath:String, _ remotePath:String, _ branch:String){
+    class func manualMerge(repo:GitRepo){
         Swift.print("MergeUtils.manualMerge()")
-        if (GitAsserter.hasUnMergedPaths(localPath)) { //Asserts if there are unmerged paths that needs resolvment
+        if (GitAsserter.hasUnMergedPaths(repo.localPath)) { //Asserts if there are unmerged paths that needs resolvment
             Swift.print("has unmerged paths to resolve")
-            MergeUtils.resolveMergeConflicts(localPath, branch, GitParser.unMergedFiles(localPath))//Asserts if there are unmerged paths that needs resolvment
+            MergeUtils.resolveMergeConflicts(repo.localPath, repo.branch, GitParser.unMergedFiles(repo.localPath))//Asserts if there are unmerged paths that needs resolvment
         }
-        _ = GitSync.doCommit(localPath)//its best practice to always commit any uncommited files before you attempt to pull.
+        _ = GitSync.doCommit(repo.localPath)//it1s best practice to always commit any uncommited files before you attempt to pull.
         //try
-        GitUtils.manualPull(localPath, remotePath, branch)//manual clone down files
+        GitUtils.manualPull(repo)//manual clone down files
         
         
         
