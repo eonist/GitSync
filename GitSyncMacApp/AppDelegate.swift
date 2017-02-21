@@ -21,21 +21,42 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //_ = Test()
         initApp()
         //initTestWin()
+        
+        
+        //remove code from CommitsView and add the above
+        
+        
+        
+         let temp:Temp = Temp()
+         let xml:XML = Reflection.toXML(temp)
+         Swift.print("xml.xmlString: " + "\(xml.xmlString)")
+         /**/
+    }
+    /**
+     *
+     */
+    func commitTest(){
+        
+        /*
+         let repoXML = FileParser.xml(repoFilePath.tildePath)
+         let repoList = XMLParser.toArray(repoXML)
+         Swift.print("repoList.count: " + "\(repoList.count)")
+         
+         GitSync.initCommit(repoList[0], "master")
+         GitSync.initPush(repoList[0], "master")
+         */
+        
+    }
+    /**
+     *
+     */
+    func RefreshReposTest(){
         /*func onComplete(){
          Swift.print("CommitDB finished!!! ")
          }
          CommitDPRefresher.commitDP = CommitDPCache.read()
          CommitDPRefresher.onComplete = onComplete
          CommitDPRefresher.refresh()*/
-        
-        //remove code from CommitsView and add the above
-        
-        
-        /*
-         let temp:Temp = Temp()
-         let xml:XML = Reflection.toXML(temp)
-         Swift.print("xml.xmlString: " + "\(xml.xmlString)")
-         */
     }
     func initTestWin(){
         //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
