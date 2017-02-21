@@ -49,7 +49,7 @@ private class Utils{
         var date:Date = Date()
         let now:Int = DateParser.descendingDate(date).int
         if(index > 0){//if the repo has commits
-            let cmd:String = "head~"+index.string+" --pretty=format:%ci --no-patch"
+            let cmd:String = "head~"+index.string+" " + "--pretty=format:%ci".encode()! + " --no-patch"
             //Swift.print("cmd: " + "\(cmd)")
             let commitDate:String = GitParser.show(localPath, cmd)
             //Swift.print("commitDate: " + "\(commitDate)")
