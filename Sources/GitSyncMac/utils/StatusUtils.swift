@@ -6,7 +6,7 @@ import Foundation
 class StatusUtils{
 	/*
 	 * Returns a descriptive status list of the current git changes
-	 * NOTE: you may use short staus, but you must interpret the message if the state has an empty space infront of it
+	 * NOTE: you may use short status, but you must interpret the message if the state has an empty space infront of it
 	 */
 	class func generateStatusList(_ localRepoPath:String)->[Dictionary<String,String>]{
 		let theStatus:String = GitParser.status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list

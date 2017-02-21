@@ -14,25 +14,27 @@ class GitSync{
         Swift.print("doCommit()")
         
         bgQueue.async {
-            <#code#>
+            let statusList = StatusUtils.generateStatusList(localRepoPath)//get current status
+            Swift.print("statusList.count: " + "\(statusList.count)")
+            if (statusList.count > 0) {
+                Swift.print("doCommit().there is something to add or commit")
+                StatusUtils.processStatusList(localRepoPath, statusList) //process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del
+                let title = CommitUtils.sequenceCommitMsgTitle(statusList) //sequence commit msg title for the commit
+                //Swift.print("commitMsgTitle: " + "\(commitMsgTitle)")
+                let desc = DescUtils.sequenceDescription(statusList)//sequence commit msg description for the commit
+                //Swift.print("commitMsgDesc: >" + "\(commitMsgDesc)" + "<")
+                let commitResult = GitModifier.commit(localRepoPath, (title,desc)) //commit
+                Swift.print("commitResult: " + "\(commitResult)")
+                return true//return true to indicate that the commit completed
+            }else{
+                Swift.print("nothing to add or commit")
+                return false //break the flow since there is nothing to commit or process
+            }
+            mainQueue.
+            onCommitComplete()
         }
         
-        let statusList = StatusUtils.generateStatusList(localRepoPath)//get current status
-        Swift.print("statusList.count: " + "\(statusList.count)")
-        if (statusList.count > 0) {
-            Swift.print("doCommit().there is something to add or commit")
-            StatusUtils.processStatusList(localRepoPath, statusList) //process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del
-            let title = CommitUtils.sequenceCommitMsgTitle(statusList) //sequence commit msg title for the commit
-            //Swift.print("commitMsgTitle: " + "\(commitMsgTitle)")
-            let desc = DescUtils.sequenceDescription(statusList)//sequence commit msg description for the commit
-            //Swift.print("commitMsgDesc: >" + "\(commitMsgDesc)" + "<")
-            let commitResult = GitModifier.commit(localRepoPath, (title,desc)) //commit
-            Swift.print("commitResult: " + "\(commitResult)")
-            return true//return true to indicate that the commit completed
-        }else{
-            Swift.print("nothing to add or commit")
-            return false //break the flow since there is nothing to commit or process
-        }
+        
     }
     /**
      * Handles the process of making a commit for a single repository
