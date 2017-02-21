@@ -12,7 +12,6 @@ class GitSync{
      */
     static func doCommit(_ localRepoPath:String){
         Swift.print("doCommit()")
-        
         bgQueue.async {
             let statusList = StatusUtils.generateStatusList(localRepoPath)//get current status
             Swift.print("statusList.count: " + "\(statusList.count)")
@@ -37,7 +36,7 @@ class GitSync{
         }
     }
     /**
-     *
+     * completion handler for doCommit
      */
     static func onCommitComplete(_ hasCommited:Bool){
         Swift.print("onCommitComplete() hasCommited: " + "\(hasCommited)")
