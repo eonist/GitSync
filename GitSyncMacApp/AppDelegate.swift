@@ -21,33 +21,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //_ = Test()
         //initApp()
         //initTestWin()
-        
+        commitTest()
+        //refreshReposTest()
     }
     /**
      *
      */
     func commitTest(){
-        
-        /*
          let repoXML = FileParser.xml(repoFilePath.tildePath)
          let repoList = XMLParser.toArray(repoXML)
          Swift.print("repoList.count: " + "\(repoList.count)")
          
          GitSync.initCommit(repoList[0], "master")
          GitSync.initPush(repoList[0], "master")
-         */
-        
     }
     /**
      *
      */
-    func RefreshReposTest(){
-        /*func onComplete(){
-         Swift.print("CommitDB finished!!! ")
-         }
-         CommitDPRefresher.commitDP = CommitDPCache.read()
-         CommitDPRefresher.onComplete = onComplete
-         CommitDPRefresher.refresh()*/
+    func refreshReposTest(){
+        func onComplete(){
+            Swift.print("CommitDB finished!!! ")
+        }
+        CommitDPRefresher.commitDP = CommitDPCache.read()
+        CommitDPRefresher.onComplete = onComplete
+        CommitDPRefresher.refresh()
     }
     func initTestWin(){
         //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
@@ -94,4 +91,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
-
