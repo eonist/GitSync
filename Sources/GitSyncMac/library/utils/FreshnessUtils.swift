@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 
 class FreshnessUtils{
     /**
@@ -22,6 +23,17 @@ class FreshnessUtils{
             }
         })
     }
+    /**
+     * Freshness level of every repo is calculated
+     */
+    static func onFreshnessSortComplete(){
+        //sortableRepoList.forEach{Swift.print($0.repo["title"]!)}
+        Swift.print("💛 onFreshnessSortComplete() Time:-> " + "\(abs(CommitDPRefresher.startTime!.timeIntervalSinceNow))")/*How long it took*/
+        CommitDPRefresher.refreshRepos()
+    }
+}
+
+private class Utils{
     /**
      * Returns freshness level of a repo (Basically the rate of commits per second the last 100 commits)
      * NOTE: If you made 50 commits the last 100 seconds that would be a rate at 0.5 commits per second

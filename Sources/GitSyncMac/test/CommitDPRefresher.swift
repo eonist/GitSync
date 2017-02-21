@@ -19,29 +19,9 @@ class CommitDPRefresher {
         isRefreshing = true/*avoid calling refresh when this is true, it is set to false on completion*/
         startTime = NSDate()//measure the time of the refresh
         sortableRepoList = []//reset the array
-        freshnessSort()//begin process on a background thread
+        FreshnessUtils.freshnessSort()//begin process on a background thread
     }
-    /**
-     * Sort the repoList so that the freshest repos are parsed first (optimization)
-     */
-    static func freshnessSort(){
-        Swift.print("💜 freshnessSort()")
-        async(bgQueue, { () -> Void in//run the task on a background thread
-            let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
-            let repoList = XMLParser.toArray(repoXML)//or use dataProvider
-            
-            repoList.forEach{/*sort the repoList based on freshness*/
-                let repoItem:RepoItem = (localPath:$0["local-path"]!,interval:$0["interval"]!.int,branch:$0["branch"]!,keyChainItemName:$0["keychain-item-name"]!,broadcast:$0["broadcast"]!.bool,title:$0["title"]!,subscribe:$0["subscribe"]!.bool,autoSync:$0["auto-sync"]!.bool,remotePath:$0["remote-path"]!)
-                
-                let freshness:CGFloat = FreshnessUtils.freshness(repoItem.localPath)
-                self.sortableRepoList.append((repoItem,freshness))
-            }
-            self.sortableRepoList.sort(by: {$0.freshness > $1.freshness})/*sorts repos according to freshness, the freshest first the least fresh at the botom*/
-            async(mainQueue){/*Jump back on the main thread*/
-                self.onFreshnessSortComplete()
-            }
-        })
-    }
+    
     /**
      * Adds commits to CommitDB
      */
@@ -89,14 +69,7 @@ class CommitDPRefresher {
             }
         }//if results.count == 0 then -> no commitItems to append (because they where to old or non existed)
     }
-    /**
-     * Freshness level of every repo is calculated
-     */
-    static func onFreshnessSortComplete(){
-        //sortableRepoList.forEach{Swift.print($0.repo["title"]!)}
-        Swift.print("💛 onFreshnessSortComplete() Time:-> " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long it took*/
-        refreshRepos()
-    }
+    
     /**
      * The final complete call
      */
