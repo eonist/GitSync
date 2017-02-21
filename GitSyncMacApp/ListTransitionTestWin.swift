@@ -87,7 +87,7 @@ class ListTransitionTestView:TitleView{
         toggleSwitch.event = onEvent/*adds the event handler to the event exit point in the toggleSwitch*/
     }
     /**
-     *
+     * 
      */
     func barGraphTest(){
         let graphContainer = addSubView(Container(width,height,self,"graph"))

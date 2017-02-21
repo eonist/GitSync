@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 @testable import Element
 /**
- * MERGE Conflict dialog view
+ * Commit creation dialog view
  */
 class CommitDialogView:TitleView{
     var repoTextInput:TextInput?
