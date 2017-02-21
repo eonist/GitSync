@@ -23,12 +23,17 @@ class MergeUtils{
         //try
         GitUtils.manualPull(repo)//manual clone down files
         
-        
-        
+        let hasManualPullReturnedError:Bool = false
+        if(hasManualPullReturnedError){
+            //make a list of unmerged files
+            set unmerged_files to GitParser's unmerged_files(local_path) --compile a list of conflicting files somehow
+        }else{
+            
+        }
         //TODO: ⚠️️Complete the bellow calls⚠️️
         
         //error
-        //make a list of unmerged files
+        
         //resolve these files
         //commit
     }
