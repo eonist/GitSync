@@ -32,8 +32,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
          let repoList = XMLParser.toArray(repoXML)
          Swift.print("repoList.count: " + "\(repoList.count)")
          Swift.print("repoList[0]: " + "\(repoList[0])")
-         GitSync.initCommit(repoList[0], "master")
-         GitSync.initPush(repoList[0], "master")
+         //GitSync.initCommit(repoList[0], "master")
+         //GitSync.initPush(repoList[0], "master")
     }
     /**
      *
