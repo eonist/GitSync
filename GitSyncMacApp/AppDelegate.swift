@@ -33,11 +33,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("repoList.count: " + "\(repoList.count)")
         Swift.print("repoList[0]: " + "\(repoList[0])")
         func onCommitComplete(_ hasCommited:Bool){
-            Swift.print("AppDelegate.onCommitComplete() hasCommited: " + "\(hasCommited)")
+            Swift.print("🍊 AppDelegate.onCommitComplete() hasCommited: " + "\(hasCommited)")
             GitSync.initPush(repoList.first!)
         }
         func onPushComplete(_ hasPushed:Bool){
-            Swift.print("AppDelegate.onPushComplete() hasPushed: " + "\(hasPushed)")
+            Swift.print("🍏 AppDelegate.onPushComplete() hasPushed: " + "\(hasPushed)")
         }
         GitSync.onPushComplete = onPushComplete/*Attach eventHandler*/
         GitSync.onCommitComplete = onCommitComplete/*Attach eventHandler*/
