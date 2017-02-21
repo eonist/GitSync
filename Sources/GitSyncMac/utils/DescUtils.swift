@@ -28,7 +28,7 @@ class DescUtils{
 		descText += descriptionParagraph(deletedItems, "Deleted ") + "\n"
 		descText += descriptionParagraph(modifiedItems, "Modified ")
 		
-        descText = StringParser.decode(descText)!
+        //descText = StringParser.decode(descText)!
         
         return descText
 	}

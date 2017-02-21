@@ -52,7 +52,7 @@ class CommitUtils{
 			commitMessage +=  "Files renamed: " + "\(numOfRenamedFiles)"
 		}
         
-        commitMessage = StringParser.decode(commitMessage)!
+        //commitMessage = StringParser.decode(commitMessage)!
         
 		return commitMessage
 	}
