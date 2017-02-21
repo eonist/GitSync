@@ -30,7 +30,6 @@ class MergeUtils{
         }else{
             Swift.print("Success no resolvment needed")
         }
-        
     }
     //property options : {}
 	/*

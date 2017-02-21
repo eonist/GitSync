@@ -18,7 +18,7 @@ class CommitsList:RBSliderFastList4{
         progressIndicator!.animator!.event = onEvent
         
         CommitDPRefresher.commitDP = dp as? CommitDP
-        CommitDPRefresher.onComplete = loopAnimationCompleted
+        CommitDPRefresher.onComplete = loopAnimationCompleted //👈👈👈 Attach the refresh.completion handler here
     }
     /**
      * Create ListItem

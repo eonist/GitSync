@@ -16,15 +16,9 @@ class CommitsView:Element {
         createList()/*creates the GUI List*/
     }
     func createList(){
-        //let dp:DataProvider = DataProvider()
-        //dp.addItems([["title":"brown"],["title":"pink"],["title":"purple"]])
-        //let xml = FileParser.xml("~/Desktop/commits.xml".tildePath)
-        //Swift.print("dp.count(): " + "\(dp.count)")
-        //Swift.print("CommitsView.width: " + "\(width)")
-        let dp = CommitDPCache.read()
+        let dp = CommitDPCache.read()/*Creates the dp based on cached data from previous app runs*/
         list = addSubView(CommitsList(CommitsView.w, CommitsView.h, 102, dp, self,"commitsList"))
         list!.selectAt(dpIdx: CommitsView.selectedIdx)
-        
     }
     /**
      * Eventhandler when a CommitsListItem is clicked
