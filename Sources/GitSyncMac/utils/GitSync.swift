@@ -60,9 +60,8 @@ class GitSync{
     /**
      * completion handler for initCommit
      */
-    static func onCommitComplete(_ hasCommited:Bool){
-        Swift.print("onCommitComplete() hasCommited: " + "\(hasCommited)")
-    }
+    static var onCommitComplete:(_ hasCommited:Bool)->Void = {_ in Swift.print("⚠️️⚠️️⚠️️ onCommitComplete() hasCommited: but no onComplete is currently attached")}
+   
     /**
      * Handles the process of making a push for a single repository
      * NOTE: We must always merge the remote branch into the local branch before we push our changes.
