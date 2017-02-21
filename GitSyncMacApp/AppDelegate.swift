@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //_ = Test()
         //initApp()
         //initTestWin()
-        //commitTest()
+        commitTest()
         //refreshReposTest()
     }
     /**
@@ -35,9 +35,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         func onCommitComplete(_ hasCommited:Bool){
             Swift.print("AppDelegate.onCommitComplete() hasCommited: " + "\(hasCommited)")
         }
-        
-        GitSync.initCommit(repoList.first!, "master")
-        GitSync.initPush(repoList.first!, "master")
+        GitSync.onCommitComplete = onCommitComplete
+        GitSync.initCommit(repoList.first!)
+        //GitSync.initPush(repoList.first!)
     }
     /**
      *
