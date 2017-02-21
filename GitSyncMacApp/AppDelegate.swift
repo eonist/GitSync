@@ -43,7 +43,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Swift.print("🍏 AppDelegate.onPushComplete() hasPushed: " + "\(hasPushed)")
             idx += 1
             if(idx < repoList.count){
-                GitSync.initCommit(repoList[idx])
+                GitSync.initCommit(repoList[idx])//👈 iterate repo items
+            }else{
+                Swift.print("All repos are complete ")
             }
         }
         GitSync.onPushComplete = onPushComplete/*Attach eventHandler*/
