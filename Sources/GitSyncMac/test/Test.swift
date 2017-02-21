@@ -246,7 +246,7 @@ class Test {
         
     }
     /**
-     *
+     * Compacts the description of a commit (test)
      */
     func compactBody(){
         var bodyStr:String = ""
