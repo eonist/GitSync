@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 /**
  * Utility methods for parsing the the "git status message" 
  */
@@ -50,6 +51,9 @@ class CommitUtils{
 			if (commitMessage.characters.count > 0) {  commitMessage +=  ", "}// --append comma
 			commitMessage +=  "Files renamed: " + "\(numOfRenamedFiles)"
 		}
+        
+        commitMessage = StringParser.decode(commitMessage)!
+        
 		return commitMessage
 	}
 }

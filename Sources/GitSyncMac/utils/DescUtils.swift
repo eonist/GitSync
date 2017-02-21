@@ -1,3 +1,5 @@
+import Foundation
+@testable import Utils
 /**
  * Utility methods for generating the "Git Commit Message Description"
  */
@@ -25,7 +27,10 @@ class DescUtils{
 		descText += descriptionParagraph(addedItems, "Added ") + "\n" //--add an extra line break at the end "paragraph like"
 		descText += descriptionParagraph(deletedItems, "Deleted ") + "\n"
 		descText += descriptionParagraph(modifiedItems, "Modified ")
-		return descText
+		
+        descText = StringParser.decode(descText)!
+        
+        return descText
 	}
 	/*
 	 * Returns a paragraph with a detailed description for Deleted, added and modified files
