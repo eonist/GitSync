@@ -61,7 +61,9 @@ class GitSync{
             let keychainPassword = KeyChainParser.password(repo.keyChainItemName)
             Swift.print("keychainPassword: 🔑" + "\(keychainPassword)")
             Swift.print("repo.keyChainItemName: " + "\(repo.keyChainItemName)")
-            let pushCallBack = GitModifier.push(repo.localPath, remotePath, , branch)
+            let key:GitKey = (repo.keyChainItemName, keychainPassword)
+            let repoItem:GitRepo = (repo.localPath, remotePath, branch)
+            let pushCallBack = GitModifier.push(repoItem,key)
             Swift.print("pushCallBack: " + "\(pushCallBack)")
         }
     }
