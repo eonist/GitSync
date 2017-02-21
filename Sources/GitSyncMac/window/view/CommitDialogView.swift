@@ -1,7 +1,9 @@
 import Foundation
 @testable import Utils
 @testable import Element
-
+/**
+ * MERGE Conflict dialog view
+ */
 class CommitDialogView:TitleView{
     var repoTextInput:TextInput?
     var titleTextInput:TextInput?
@@ -41,7 +43,6 @@ class CommitDialogView:TitleView{
         let confirmSection:Section = guiContainer.addSubView(Section(NaN,NaN,guiContainer,"confirm"))
         okButton = confirmSection.addSubView(TextButton(NaN,NaN,"OK",confirmSection,"ok"))//ok button
         cancelButton = confirmSection.addSubView(TextButton(NaN,NaN,"Cancel",confirmSection,"cancel"))//cancel button (stops the sync)
-        
     }
     
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
