@@ -34,7 +34,6 @@ class GitSync{
      */
     class func initCommit(_ repo:RepoItem,_ branch:String){
         //log "GitSync's handle_commit_interval() a repo with doCommit " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
-        //Swift.print("localPath: " + "\(localPath)")
         let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repo.localPath)//Asserts if there are unmerged paths that needs resolvment
         Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
         if(hasUnMergedpaths){
@@ -51,24 +50,21 @@ class GitSync{
      * NOTE: this method performs a "manual pull" on every interval
      * TODO: contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
      */
-    class func initPush(_ repoItem:Dictionary<String,String>,_ branch:String){
+    class func initPush(_ repo:RepoItem,_ branch:String){
         Swift.print("initPush")
-        let localPath:String = repoItem["local-path"]!
-        var remotePath:String = repoItem["remote-path"]!
-        
+        var remotePath:String = repo.remotePath
         if(remotePath.test("^https://.+$")){remotePath = remotePath.subString(8, remotePath.count)}/*support for partial and full url,strip away the https://, since this will be added later*/
-        
-        MergeUtils.manualMerge(localPath, remotePath, branch)//commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
-        let hasLocalCommits = GitAsserter.hasLocalCommits(localPath, branch) //TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
+        MergeUtils.manualMerge(repo.localPath, remotePath, branch)//commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
+        let hasLocalCommits = GitAsserter.hasLocalCommits(repo.localPath, branch) //TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
         Swift.print("hasLocalCommits: " + "\(hasLocalCommits)")
         if (hasLocalCommits) { //only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
-            let theKeychainItemName = repoItem["keychain-item-name"]!
+            let theKeychainItemName = repo.keyChainItemName
             //Swift.print("theKeychainItemName: " + "\(theKeychainItemName)")
             let keychainPassword = KeyChainParser.password(theKeychainItemName)
             Swift.print("keychainPassword: " + "\(keychainPassword)")
             let remoteAccountName = theKeychainItemName
             Swift.print("remoteAccountName: " + "\(remoteAccountName)")
-            let pushCallBack = GitModifier.push(localPath, remotePath, remoteAccountName, keychainPassword, branch)
+            let pushCallBack = GitModifier.push(repo.localPath, remotePath, remoteAccountName, keychainPassword, branch)
             Swift.print("pushCallBack: " + "\(pushCallBack)")
         }
     }

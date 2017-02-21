@@ -29,10 +29,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      */
     func commitTest(){
         let repoXML = FileParser.xml(repoFilePath.tildePath)
-        let repoList:[RepoItem] = XMLParser.toArray(repoXML).map{$0}
+        let repoList:[RepoItem] = XMLParser.toArray(repoXML).map{(localPath:$0["local-path"]!,interval:$0["interval"]!.int,branch:$0["branch"]!,keyChainItemName:$0["keychain-item-name"]!,broadcast:$0["broadcast"]!.bool,title:$0["title"]!,subscribe:$0["subscribe"]!.bool,autoSync:$0["auto-sync"]!.bool,remotePath:$0["remote-path"]!)}
         Swift.print("repoList.count: " + "\(repoList.count)")
         Swift.print("repoList[0]: " + "\(repoList[0])")
-        GitSync.initCommit(repoList[0], "master")
+        GitSync.initCommit(repoList.first, "master")
         GitSync.initPush(repoList[0], "master")
     }
     /**
