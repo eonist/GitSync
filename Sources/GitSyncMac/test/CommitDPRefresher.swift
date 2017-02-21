@@ -26,7 +26,7 @@ class CommitDPRefresher {
                 self.refreshRepo($0.repo)
             }
             async(mainQueue){/*jump back on the main thread*/
-                self.onRefreshReposComplete()
+                self.onRefreshReposComplete()/*All repo items are now refreshed, the entire refresh process is finished*/
             }
         })
     }
@@ -77,7 +77,7 @@ class CommitDPRefresher {
         Swift.print("💚 onRefreshReposComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
         CommitDPCache.write(commitDP!)//write data to disk, we could also do this on app exit
         isRefreshing = false
-        onComplete()//calls a dynamic onComplete method
+        onComplete()//calls a dynamic onComplete method, other classes can override this variable to get callback
         Swift.print("Written to disk")
     }
 }
