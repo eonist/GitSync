@@ -12,12 +12,12 @@ class FreshnessUtils{
         var sortableRepoList:[(repo:RepoItem,freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
         async(bgQueue, { () -> Void in//run the task on a background thread
             let repoXML = FileParser.xml(repoFilePath.tildePath)//~/Desktop/repo2.xml
-            let repoList = XMLParser.toArray(repoXML)//or use dataProvider
-            
+            let repoList:[RepoItem] = XMLParser.toArray(repoXML).map{
+                (localPath:$0["local-path"]!,interval:$0["interval"]!.int,branch:$0["branch"]!,keyChainItemName:$0["keychain-item-name"]!,broadcast:$0["broadcast"]!.bool,title:$0["title"]!,subscribe:$0["subscribe"]!.bool,autoSync:$0["auto-sync"]!.bool,remotePath:$0["remote-path"]!)
+            }
             repoList.forEach{/*sort the repoList based on freshness*/
-                let repoItem:RepoItem = (localPath:$0["local-path"]!,interval:$0["interval"]!.int,branch:$0["branch"]!,keyChainItemName:$0["keychain-item-name"]!,broadcast:$0["broadcast"]!.bool,title:$0["title"]!,subscribe:$0["subscribe"]!.bool,autoSync:$0["auto-sync"]!.bool,remotePath:$0["remote-path"]!)
-                let freshness:CGFloat = Utils.freshness(repoItem.localPath)
-                sortableRepoList.append((repoItem,freshness))
+                let freshness:CGFloat = Utils.freshness($0.localPath)
+                sortableRepoList.append(($0,freshness))
             }
             sortableRepoList.sort(by: {$0.freshness > $1.freshness})/*sorts repos according to freshness, the freshest first the least fresh at the botom*/
             async(mainQueue){/*Jump back on the main thread*/
