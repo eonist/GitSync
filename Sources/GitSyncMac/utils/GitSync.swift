@@ -54,7 +54,8 @@ class GitSync{
         Swift.print("initPush")
         var remotePath:String = repo.remotePath
         if(remotePath.test("^https://.+$")){remotePath = remotePath.subString(8, remotePath.count)}/*support for partial and full url,strip away the https://, since this will be added later*/
-        MergeUtils.manualMerge(repo.localPath, remotePath, branch)//commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
+        let gitRepo:GitRepo = (repo.localPath, remotePath, branch)
+        MergeUtils.manualMerge()//commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
         let hasLocalCommits = GitAsserter.hasLocalCommits(repo.localPath, branch) //TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
         Swift.print("hasLocalCommits: " + "\(hasLocalCommits)")
         if (hasLocalCommits) { //only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
@@ -63,7 +64,7 @@ class GitSync{
             Swift.print("repo.keyChainItemName: " + "\(repo.keyChainItemName)")
             let key:GitKey = (repo.keyChainItemName, keychainPassword)
             let repoItem:GitRepo = (repo.localPath, remotePath, branch)
-            let pushCallBack = GitModifier.push(repoItem,key)
+            let pushCallBack = GitModifier.push(,key)
             Swift.print("pushCallBack: " + "\(pushCallBack)")
         }
     }
