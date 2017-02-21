@@ -24,9 +24,9 @@ class CommitDPRefresher {
     /**
      * Adds commits to CommitDB
      */
-    static func refreshRepos(){
+    static func refreshRepos(_ sortableRepoList:[(repo:RepoItem,freshness:CGFloat)]){
         async(bgQueue, { () -> Void in/*run the task on a background thread*/
-            self.sortableRepoList.forEach{/*the arr is already sorted from freshest to least fresh*/
+            sortableRepoList.forEach{/*the arr is already sorted from freshest to least fresh*/
                 self.refreshRepo($0.repo)
             }
             async(mainQueue){/*jump back on the main thread*/
