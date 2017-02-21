@@ -10,7 +10,7 @@ class CommitDPRefresher {
     static var sortableRepoList:[(repo:[String:String],freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
     static var isRefreshing:Bool = false/*avoids refreshing when the refresh has already started*/
     static var onComplete:()->Void = {print("⚠️️⚠️️⚠️️ Commit refresh completed but no onComplete is currently attached")}
-    
+    jd
     static func refresh(){
         isRefreshing = true
         startTime = NSDate()//measure the time of the refresh
