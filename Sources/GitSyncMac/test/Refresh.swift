@@ -3,7 +3,7 @@ import Foundation
 
 //try to make this class as static as possible
 
-class CommitDPRefresher {
+class CommitDPRefresher {//TODO:rename to refresh
     //var commitDB:CommitDB/* = CommitDB()*/
     static var commitDP:CommitDP?
     static var startTime:NSDate?//debugging
