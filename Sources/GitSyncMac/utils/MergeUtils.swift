@@ -28,7 +28,7 @@ class MergeUtils{
             MergeUtils.resolveMergeConflicts(repo.localPath, repo.branch, unMergedFiles)//Asserts if there are unmerged paths that needs resolvment
             _ = GitSync.commit(repo.localPath)//add,commit if any files has an altered status
         }else{
-            //success no resolvment needed
+            Swift.print("Success no resolvment needed")
         }
         
     }
