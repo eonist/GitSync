@@ -17,8 +17,15 @@ class CommitsList:RBSliderFastList4{
         progressIndicator!.frame.y = -45//hide at init
         progressIndicator!.animator!.event = onEvent
         
+        
         CommitDPRefresher.commitDP = dp as? CommitDP
         CommitDPRefresher.onComplete = loopAnimationCompleted //👈👈👈 Attach the refresh.completion handler here
+        
+        
+        CommitDPRefresher.refresh()
+        
+        
+        AutoSync.onComplete
     }
     /**
      * Create ListItem
@@ -59,7 +66,7 @@ class CommitsList:RBSliderFastList4{
             hasPulledAndReleasedBeyondRefreshSpace = true
             
             /*start downloading commits here*/
-            CommitDPRefresher.refresh()//👈👈👈
+            AutoSync.sync()//👈👈👈 starts the auto sync process
             
         }else if (value > 0){
             hasReleasedBeyondTop = true

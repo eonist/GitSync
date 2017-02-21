@@ -2,8 +2,8 @@ import Foundation
 @testable import Utils
 
 //try to make this class as static as possible
-typealias Refresh = CommitDPRefresher
-class CommitDPRefresher {//TODO:rename to refresh
+typealias CommitDPRefresher = Refresh//temp
+class Refresh{//TODO:rename to refresh
     //var commitDB:CommitDB/* = CommitDB()*/
     static var commitDP:CommitDP?
     static var startTime:NSDate?//debugging
