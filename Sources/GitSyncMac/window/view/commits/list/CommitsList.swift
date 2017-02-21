@@ -18,14 +18,13 @@ class CommitsList:RBSliderFastList4{
         progressIndicator!.animator!.event = onEvent
         
         
-        CommitDPRefresher.commitDP = dp as? CommitDP
-        CommitDPRefresher.onComplete = loopAnimationCompleted //👈👈👈 Attach the refresh.completion handler here
+        Refresh.commitDP = dp as? CommitDP
+        Refresh.onComplete = loopAnimationCompleted //👈👈👈 Attach the refresh.completion handler here
         
-        
-        CommitDPRefresher.refresh()
-        
-        
-        AutoSync.onComplete
+        func onAutoSyncComplete(){
+            Refresh.refresh()//👈 start the refresh process
+        }
+        AutoSync.onComplete = onAutoSyncComplete
     }
     /**
      * Create ListItem
