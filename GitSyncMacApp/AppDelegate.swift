@@ -19,18 +19,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
         //_ = Test()
-        initApp()
+        //initApp()
         //initTestWin()
         
-        
-        //remove code from CommitsView and add the above
-        
-        
-        
-         let temp:Temp = Temp()
-         let xml:XML = Reflection.toXML(temp)
-         Swift.print("xml.xmlString: " + "\(xml.xmlString)")
-         /**/
     }
     /**
      *
@@ -103,6 +94,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
-class Temp{
-    let temp:[[String:String]] = [["a":"b"],["1":"2"]]
-}
+
