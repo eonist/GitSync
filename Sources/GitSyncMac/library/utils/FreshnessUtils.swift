@@ -1,6 +1,7 @@
 import Foundation
 @testable import Utils
 
+typealias RepoItem = (localPath:String,interval:Int,branch:String,keyChainItemName:String,broadcast:Bool,title:String,subscribe:Bool,autoSync:Bool,remotePath:String)
 class FreshnessUtils{
     /**
      * Sort the repoList so that the freshest repos are parsed first (optimization)

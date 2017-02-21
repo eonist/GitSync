@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 
 //try to make this class as static as possible
-typealias RepoItem = (localPath:String,interval:Int,branch:String,keyChainItemName:String,broadcast:Bool,title:String,subscribe:Bool,autoSync:Bool,remotePath:String)
+
 class CommitDPRefresher {
     //var commitDB:CommitDB/* = CommitDB()*/
     static var commitDP:CommitDP?
