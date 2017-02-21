@@ -2,8 +2,8 @@ import Foundation
 @testable import Utils
 /*Storage tuple for the GitSyncAPp*/
 typealias RepoItem = (localPath:String,interval:Int,branch:String,keyChainItemName:String,broadcast:Bool,title:String,subscribe:Bool,autoSync:Bool,remotePath:String)
-typealias FreshnessUtils = Refreshutils//temp
-class FreshnessUtils{
+typealias FreshnessUtils = RefreshUtils//temp
+class RefreshUtils{
     /**
      * Sort the repoList so that the freshest repos are parsed first (optimization)
      * PARAM: repoFilePath: the the repo file contains info about each repo to sort.
