@@ -2,8 +2,15 @@ import Foundation
 @testable import Utils
 
 class GitSync{
-    /*Completion handler for initCommit*/
+    /**
+     * Completion handler for initCommit
+     * NOTE: is finally called if something is commited or not
+     */
     static var onCommitComplete:(_ hasCommited:Bool)->Void = {_ in Swift.print("⚠️️⚠️️⚠️️ onCommitComplete() hasCommited: but no onComplete is currently attached")}
+    /**
+     * Completion handler for initPush
+     * NOTE: is called if something is pushed or not.
+     */
     static var onPushComplete:(_ hasPushed:Bool)->Void = {_ in Swift.print("⚠️️⚠️️⚠️️ onPushComplete() hasCommited: but no onComplete is currently attached")}
     /**
      * Handles the process of making a commit for a single repository
