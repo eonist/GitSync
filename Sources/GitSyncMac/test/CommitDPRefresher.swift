@@ -4,6 +4,7 @@ import Foundation
 //try to make this class as static as possible
 
 class CommitDPRefresher {
+    typealias RepoItem = (localPath:String,interval:Int,branch:String,keyChainItemName:String,broadcast:Bool,title:String,subscribe:Bool,autoSync:Bool,remotePath:String)
     //var commitDB:CommitDB/* = CommitDB()*/
     static var commitDP:CommitDP?
     static var startTime:NSDate?
@@ -28,8 +29,9 @@ class CommitDPRefresher {
         async(bgQueue, { () -> Void in//run the task on a background thread
             let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
             let repoList = XMLParser.toArray(repoXML)//or use dataProvider
-            let repoItem:(localPath:String,interval:Int,branch:String,keyChainItemName:String,broadcast:Bool,title:String,subscribe:Bool,autoSync:Bool,)
+            
             repoList.forEach{/*sort the repoList based on freshness*/
+                let repoItem:RepoItem = ()
                 let localPath:String = $0["local-path"]!
                 let freshness:CGFloat = FreshnessUtils.freshness(localPath)
                 self.sortableRepoList.append(($0,freshness))
