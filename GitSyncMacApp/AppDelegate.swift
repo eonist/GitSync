@@ -20,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //_ = Test()
         //initApp()
         //initTestWin()
-        initCommitPush()
+        AutoSync.sync()
         //refreshReposTest()
     }
     /**

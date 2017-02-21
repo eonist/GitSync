@@ -2,10 +2,11 @@ import Foundation
 @testable import Utils
 
 class AutoSync {
+    static var onComplete:()->Void = {print("⚠️️⚠️️⚠️️ AutoSync.sync() completed but no onComplete is currently attached")}
     /**
      * The GitSync automation algo
      */
-    static func initCommitPush(){
+    static func sync(){
         let repoXML = FileParser.xml(RepoView.repoList.tildePath)
         let repoList:[RepoItem] = XMLParser.toArray(repoXML).map{(localPath:$0["local-path"]!,interval:$0["interval"]!.int,branch:$0["branch"]!,keyChainItemName:$0["keychain-item-name"]!,broadcast:$0["broadcast"]!.bool,title:$0["title"]!,subscribe:$0["subscribe"]!.bool,autoSync:$0["auto-sync"]!.bool,remotePath:$0["remote-path"]!)}
         //Swift.print("repoList.count: " + "\(repoList.count)")
@@ -23,6 +24,7 @@ class AutoSync {
                 GitSync.initCommit(repoList[idx])//👈 iterate repo items
             }else{
                 Swift.print("🏁🏁🏁 All repos are complete")//now read commits to list
+                onComplete()
             }
         }
         GitSync.onPushComplete = onPushComplete/*Attach eventHandler*/
