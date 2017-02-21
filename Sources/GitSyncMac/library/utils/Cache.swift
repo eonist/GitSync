@@ -1,6 +1,6 @@
 import Foundation
 @testable import Utils
-
+typealias Cache = CommitDPCache
 class CommitDPCache {
     static var url:String = "~/Desktop/sortedcommits.xml"
     /**
