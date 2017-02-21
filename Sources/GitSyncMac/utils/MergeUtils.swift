@@ -26,7 +26,9 @@ class MergeUtils{
         let hasManualPullReturnedError:Bool = false
         if(hasManualPullReturnedError){
             //make a list of unmerged files
-            set unmerged_files to GitParser's unmerged_files(local_path) --compile a list of conflicting files somehow
+            øet GitParser.unMergedFiles(repo.localPath)
+            MergeUtils.resolveMergeConflicts(repo.localPath, repo.branch, )//Asserts if there are unmerged paths that needs resolvment
+            //compile a list of conflicting files somehow
         }else{
             
         }
