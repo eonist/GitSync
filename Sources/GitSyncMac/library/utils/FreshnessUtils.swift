@@ -2,20 +2,18 @@ import Foundation
 @testable import Utils
 
 class FreshnessUtils{
-    
     /**
      * Sort the repoList so that the freshest repos are parsed first (optimization)
      */
-    static func freshnessSort(){
+    static func freshnessSort(_ repoFilePath:String){
         Swift.print("💜 freshnessSort()")
         var sortableRepoList:[(repo:RepoItem,freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
         async(bgQueue, { () -> Void in//run the task on a background thread
-            let repoXML = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)//~/Desktop/repo2.xml
+            let repoXML = FileParser.xml(_ repoFilePath.tildePath)//~/Desktop/repo2.xml
             let repoList = XMLParser.toArray(repoXML)//or use dataProvider
             
             repoList.forEach{/*sort the repoList based on freshness*/
                 let repoItem:RepoItem = (localPath:$0["local-path"]!,interval:$0["interval"]!.int,branch:$0["branch"]!,keyChainItemName:$0["keychain-item-name"]!,broadcast:$0["broadcast"]!.bool,title:$0["title"]!,subscribe:$0["subscribe"]!.bool,autoSync:$0["auto-sync"]!.bool,remotePath:$0["remote-path"]!)
-                
                 let freshness:CGFloat = Utils.freshness(repoItem.localPath)
                 sortableRepoList.append((repoItem,freshness))
             }

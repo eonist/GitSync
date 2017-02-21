@@ -18,7 +18,7 @@ class CommitDPRefresher {
         isRefreshing = true/*avoid calling refresh when this is true, it is set to false on completion*/
         startTime = NSDate()//measure the time of the refresh
         //sortableRepoList = []//reset the array
-        FreshnessUtils.freshnessSort()//begin process on a background thread
+        FreshnessUtils.freshnessSort("~/Desktop/assets/xml/list.xml")//begin process on a background thread
     }
     
     /**
