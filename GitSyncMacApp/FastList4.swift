@@ -112,7 +112,6 @@ extension FastList4{
         let firstOldIdx:Int = old.start
         /*⚠️️⚠️️⚠️️Figure out which items to remove from pool⚠️️⚠️️⚠️️*/
         let diff = RangeParser.difference(range, old)//may return 1 or 2 ranges
-        //Swift.print("diff: " + "\(diff)")
         if(diff.1 != nil){
             let start = diff.1!.start - firstOldIdx
             inActive += pool.splice2(start, diff.1!.length)
@@ -121,10 +120,8 @@ extension FastList4{
             let start = diff.0!.start - firstOldIdx
             inActive += pool.splice2(start, diff.0!.length)
         }
-        //Swift.print("remove: \(inActive.count)")
         /*⚠️️⚠️️⚠️️Figure out which items to add to pool⚠️️⚠️️⚠️️*/
         let diff2 = RangeParser.difference(old,range)
-        //Swift.print("diff2: " + "\(diff2)")
         if(diff2.1 != nil){
             let startIdx = diff2.1!.start
             let endIdx = diff2.1!.end
@@ -132,7 +129,7 @@ extension FastList4{
             for i in (startIdx..<endIdx){
                 let item:Element = inActive.count > 0 ? inActive.popLast()!.item : createItem(i)
                 let fastListItem:FastListItem = (item:item,idx:i)
-                reUse(fastListItem)//applies data and position
+                reUse(fastListItem)/*applies data and position*/
                 items.append(fastListItem)
             }
             if(items.count > 0){
@@ -141,7 +138,6 @@ extension FastList4{
                 _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
             }
         }
-        //Swift.print("pool.count: " + "\(pool.count)")
         if(diff2.0 != nil){
             let startIdx = diff2.0!.start
             let endIdx = diff2.0!.end
@@ -158,10 +154,7 @@ extension FastList4{
                 _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
             }
         }
-        //Swift.print("add: \((diff2.0 != nil ? diff2.0!.length : 0) + (diff2.1 != nil ? diff2.1!.length : 0))")
-        //Swift.print("pool.count: " + "\(pool.count)")
         
-        //Swift.print("inActive: " + "\(inActive.count)")/*This could be usefull when size of view changes from big to small etc, or when going from many items to few*/
     }
     /**
      * Returns the range to render (based on items in DP and how the lableContainer is positioned)
@@ -218,6 +211,7 @@ extension FastList4{
 /*
  //call this method after resize etc
  //clear inActive array, if any are left, can happen after resize etc
+ //This could be usefull when size of view changes from big to small etc, or when going from many items to few
  
  inActive.forEach{
     Swift.print("remove inactive")
