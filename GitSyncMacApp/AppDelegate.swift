@@ -21,6 +21,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //initTestWin()
         //AutoSync.sync()
         //refreshReposTest()
+        /*let a:Range<Int> = 0..<10
+         let b:Range<Int> = 10..<15
+         let diff = RangeParser.difference(a, b)
+         Swift.print("diff: " + "\(diff)")*/
     }
     /**
      *
