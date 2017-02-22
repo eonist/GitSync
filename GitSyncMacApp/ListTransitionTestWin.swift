@@ -221,34 +221,6 @@ class ListTransitionTestView:TitleView{
         super.onEvent(event)
     }
     /**
-     *
-     */
-    func sliderFastList3(){
-        //add small list
-        //big list
-        let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)//DataProvider()//
-        /*dp.addItem(["title":"pink"])
-        dp.addItem(["title":"orange"])
-        dp.addItem(["title":"purple"])*/
-        let list = addSubView(SliderFastList3(140, 145, 24, dp, self))
-        _ = list
-    }
-    /**
-     *
-     */
-    func fastList3(){
-        //add small list
-        //big list
-        //then start adding removing items
-        
-        let dp:DataProvider = DataProvider()//DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
-        //dp.addItem(["title":"pink"])
-        //dp.addItem(["title":"orange"])
-        //dp.addItem(["title":"purple"])
-        let list = addSubView(FastList3(140,73,24,dp,self))
-        _ = list
-    }
-    /**
      * Try to add and remove items. count the items after
      */
     func dpTests(){
@@ -305,11 +277,7 @@ class ListTransitionTestView:TitleView{
         }
         removeBtn.event = onRemove
     }
-    func fastList2(){
-        let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
-        let list = addSubView(FastList2(140,73,24,dp,self))
-        _ = list
-    }
+
     func sliderFastList(){
         var dp:DataProvider
         dp = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
