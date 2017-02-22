@@ -4,15 +4,15 @@ import Cocoa
 /**
  * This is a list that can support infinite list items, while still being fast, memory-convervative and responsive. To support 1000's of data items, just use DataProvider, To support millions, consider using a DataProvider that derive its data from a database (SQLite or other)
  * NOTE: Supporting variable item height will require advance caching system for keeping track of item heights.📚 The challenge is to not have to loop through 1000's of items to get the correct .y coordinate (remember setProgress may be called 60 times per second)
- * TODO: test if resize works, by spawning new items etc
+ * TODO: Add resize support (test if resize works, by spawning new items etc)
  */
 class FastList4:Element,IList {
     var selectedIdx:Int?/*This cooresponds to the "absolute" index in dp*/
     var itemHeight:CGFloat/*The list item height, each item must have the same height*/
     var dataProvider:DataProvider/*data storage*/
     var lableContainer:Container?/*holds the list items*/
-    var pool:[FastListItem] = []
-    var inActive:[FastListItem] = []//Stores pool item that are not in-use
+    var pool:[FastListItem] = []/*Stores the FastListItems*/
+    var inActive:[FastListItem] = []/*Stores pool item that are not in-use*/
     
     init(_ width:CGFloat, _ height:CGFloat, _ itemHeight:CGFloat = NaN,_ dataProvider:DataProvider? = nil, _ parent:IElement?, _ id:String? = nil){
         self.itemHeight = itemHeight
@@ -24,10 +24,8 @@ class FastList4:Element,IList {
     override func resolveSkin() {
         super.resolveSkin()
         lableContainer = addSubView(Container(width,height,self,"lable"))
-        /*calc visibleItems based on lableContainer.y and height*/
-        let visibleRange:Range<Int> = visibleItemRange/*visible ItemRange Within View*/
+        let visibleRange:Range<Int> = visibleItemRange/*visible ItemRange Within View, calcs visibleItems based on lableContainer.y and height*/
         let range:Range<Int> = visibleRange.start..<min(dp.count,visibleRange.end)/*clip the range*/
-        //Swift.print("range: " + "\(range)")
         renderItems(range)
     }
     /**
@@ -36,10 +34,8 @@ class FastList4:Element,IList {
      * NOTE: override this method in SliderFastList and RBSliderFastList
      */
     func setProgress(_ progress:CGFloat){
-        //Swift.print("FastList4.setProgress: " + "\(progress)")
         ListModifier.scrollTo(self, progress)/*moves the labelContainer up and down*/
         let range:Range<Int> = visibleItemRange.start..<Swift.min(visibleItemRange.end,dp.count)
-        //Swift.print("setProgress() range: " + "\(range)")
         if(currentVisibleItemRange != range){/*Optimization: only set if it's not the same as prev range*/
             renderItems(range)
         }
@@ -49,7 +45,6 @@ class FastList4:Element,IList {
      * NOTE: override this to use custom ItemList items
      */
     func reUse(_ listItem:FastListItem){
-        //Swift.print("FastList4.reUse: " + "\(listItem.idx)")
         let item:SelectTextButton = listItem.item as! SelectTextButton
         let idx:Int = listItem.idx/*the index of the data in dataProvider*/
         let dpItem = dataProvider.items[idx]
@@ -86,14 +81,12 @@ class FastList4:Element,IList {
      * This is called when a item in the lableContainer has send the ButtonEvent.upInside event
      */
     func onListItemUpInside(_ buttonEvent:ButtonEvent) {
-        //Swift.print("FastList4.onListItemUpInside() ")
         let viewIndex:Int = lableContainer!.indexOf(buttonEvent.origin as! NSView)
         ListModifier.selectAt(self,viewIndex)//unSelect all other visibleItems
         pool.forEach{if($0.item === buttonEvent.origin){selectedIdx = $0.idx}}/*We extract the index by searching for the origin among the visibleItems, the view doesn't store the index it self, but the visibleItems store absolute indecies*/
         super.onEvent(ListEvent(ListEvent.select,selectedIdx ?? -1,self))/*if selectedIdx is nil then use -1 in the event*///TODO: probably use FastListEvent here in the future
     }
     override func onEvent(_ event:Event) {
-        //Swift.print("FastList4.onEvent even.type: \(event.type) event.origin.superview: \(event.origin.superview)" )
         if(event.type == ButtonEvent.upInside && event.origin.superview === lableContainer){onListItemUpInside(event as! ButtonEvent)}// :TODO: should listen for SelectEvent here
         else if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
         super.onEvent(event)// we stop propegation by not forwarding events to super. The ListEvents go directly to super so they wont be stopped.
@@ -171,7 +164,6 @@ extension FastList4{
     var currentVisibleItemRange:Range<Int>{
         let firstIdx:Int = pool.count > 0 ? pool.first!.idx : 0
         let lastIdx:Int = pool.count > 0 ? pool.first!.idx + pool.count : 0
-        //Swift.print("lastIdx: " + "\(lastIdx)")
         let currentVisibleItemRange:Range<Int> = firstIdx..<lastIdx
         return currentVisibleItemRange
     }
@@ -195,7 +187,6 @@ extension FastList4{
      */
     func selectAt(dpIdx:Int){/*convenience*/
         let idx:Int? = ArrayParser.first(pool, dpIdx, {$0.idx == $1})?.item.idx/*Converts dpIndex to lableContainerIdx*/
-        //Swift.print("idx: " + "\(idx)")
         if(idx != nil){ListModifier.selectAt(self, idx!)}
         else{SelectModifier.selectAll(lableContainer!, false)}/*unSelect all if an item outside visible view is selected*/
         selectedIdx = dpIdx
