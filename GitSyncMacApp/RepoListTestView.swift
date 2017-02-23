@@ -77,20 +77,13 @@ class RepoListTestView:TitleView{
     }
     func popUpMenu(_ event:NSEvent) {
         Swift.print("popUpMenu: " + "\(popUpMenu)" )
-        let theMenu = NSMenu(title: "Contextual menu")
-        let menuItems:[(title:String,selector:Swift.Selector)] = [("New folder", #selector(newFolder)),("New repo", #selector(newRepo)),("Rename", #selector(rename)),("Cut", #selector(cut)),("Paste", #selector(paste)),("Delete", #selector(delete))]
+        let menu = NSMenu(title: "Contextual menu")
+        let menuItems:[(title:String,selector:Foundation.Selector)] = [("New folder", #selector(newFolder)),("New repo", #selector(newRepo)),("Rename", #selector(rename)),("Cut", #selector(cut)),("Paste", #selector(paste)),("Delete", #selector(delete))]
         menuItems.forEach{
-            let action1MenuItem = NSMenuItem(title: $0.0, action: #selector(action1), keyEquivalent: "")
-            theMenu.addItem(action1MenuItem)
+            let action1MenuItem = NSMenuItem(title: $0.title, action: $0.selector, keyEquivalent: "")
+            menu.addItem(action1MenuItem)
         }
-        
-        
-        
-        //theMenu.addItem(withTitle: "Action 1", action: Selector(("action1:")), keyEquivalent: "")
-        theMenu.addItem(withTitle: "Action 2", action: Selector(("action2:")), keyEquivalent: "")
-        
-        
-        NSMenu.popUpContextMenu(theMenu, with: event, for: self)
+        NSMenu.popUpContextMenu(menu, with: event, for: self)
     }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
