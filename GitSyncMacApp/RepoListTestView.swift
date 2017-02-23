@@ -57,7 +57,7 @@ class RepoListTestView:TitleView{
     func newFolder(sender: AnyObject) {
         Swift.print("newFolder")
         let idx = TreeListParser.selectedIndex(treeList!)
-        let a:String = "<item title=\"Herbs\" isOpen=\"true\">"
+        let a:String = "<item title=\"New folder\" isOpen=\"false\" isFolder=\"true\">"
         let b:String = ""
         let c:String = "</item>"
        
