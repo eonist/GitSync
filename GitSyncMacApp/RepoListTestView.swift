@@ -73,11 +73,7 @@ class RepoListTestView:TitleView{
         //theMenu.addItem(withTitle: "Action 1", action: Selector(("action1:")), keyEquivalent: "")
         theMenu.addItem(withTitle: "Action 2", action: Selector(("action2:")), keyEquivalent: "")
         
-        for item: AnyObject in theMenu.items {
-            if let menuItem = item as? NSMenuItem {
-                menuItem.target = self
-            }
-        }
+        
         
         NSMenu.popUpContextMenu(theMenu, with: event, for: self)
     }
