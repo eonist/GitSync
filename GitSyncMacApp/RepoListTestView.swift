@@ -65,16 +65,27 @@ class RepoListTestView:TitleView{
     }
     func rename(sender: AnyObject) {
         Swift.print("rename")
+        Swift.print("Promt rename popup")
     }
+    var clipBoard:XML?
     func cut(sender: AnyObject) {
         Swift.print("cut")
+        let idx = TreeListParser.selectedIndex(treeList!)
+        clipBoard = treeList!.node.removeAt(idx)
     }
     func paste(sender: AnyObject) {
         Swift.print("paste")
+        if(clipBoard != nil){
+            //"<item title=\"Fish\"/>".xml
+            let idx = TreeListParser.selectedIndex(treeList!)
+            treeList!.node.addAt(idx, clipBoard!)/*new*/
+        }
+        
     }
     func delete(sender: AnyObject) {
         Swift.print("delete")
         let idx = TreeListParser.selectedIndex(treeList!)
+        _ = treeList!.node.removeAt(idx)
     }
     func popUpMenu(_ event:NSEvent) {
         Swift.print("popUpMenu: " + "\(popUpMenu)" )
