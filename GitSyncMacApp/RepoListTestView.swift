@@ -68,6 +68,7 @@ class RepoListTestView:TitleView{
     func popUpMenu(_ event:NSEvent) {
         Swift.print("popUpMenu: " + "\(popUpMenu)" )
         let theMenu = NSMenu(title: "Contextual menu")
+        let menuItems = ["New folder", "New repo", "Rename","Cut","Paste",""]
         let action1MenuItem = NSMenuItem(title: "Action 1", action: #selector(action1), keyEquivalent: "")
         theMenu.addItem(action1MenuItem)
         //theMenu.addItem(withTitle: "Action 1", action: Selector(("action1:")), keyEquivalent: "")
