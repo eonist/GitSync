@@ -3,6 +3,10 @@ import Cocoa
 @testable import Element
 @testable import GitSyncMac
 
+//Continue here: 
+    //Draw prompt windows for GitSync, Unified, easy to use. 
+    //Implement 
+
 class RepoListTestView:TitleView{
     var treeList:TreeList?
     var rightClickItemIdx:[Int]?
@@ -54,6 +58,7 @@ class RepoListTestView:TitleView{
     }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
+
 /**
  * Right click Context menu methods
  */
