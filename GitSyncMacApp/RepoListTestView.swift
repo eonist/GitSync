@@ -73,7 +73,7 @@ class RepoListTestView:TitleView{
             Swift.print("$0: " + "\($0)")
         }
         
-        let action1MenuItem = NSMenuItem(title: "Action 1", action: Selector("action2"), keyEquivalent: "")
+        let action1MenuItem = NSMenuItem(title: "Action 1", action: #selector(action1), keyEquivalent: "")
         theMenu.addItem(action1MenuItem)
         //theMenu.addItem(withTitle: "Action 1", action: Selector(("action1:")), keyEquivalent: "")
         theMenu.addItem(withTitle: "Action 2", action: Selector(("action2:")), keyEquivalent: "")
