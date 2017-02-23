@@ -47,6 +47,8 @@ class RepoListTestView:TitleView{
             Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
         }
     }
+    //Continue here: 
+        //implement rightClick event from Button rightClick -> handleRightClick at RepoListVIew
     
     override func rightMouseDown(with event: NSEvent) {
         Swift.print("rightMouseDown: " )
