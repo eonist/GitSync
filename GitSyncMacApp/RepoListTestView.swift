@@ -57,30 +57,24 @@ class RepoListTestView:TitleView{
         popUpMenu(event)
     }
     
-    func action1(sender: AnyObject) {
-        Swift.print("Urk, action 1")
+    func newFolder(sender: AnyObject) {
+        Swift.print("newFolder")
     }
-    func action2(sender: AnyObject) {
-        Swift.print("Urk, action 2")
+    func newRepo(sender: AnyObject) {
+        Swift.print("newRepo")
     }
-    func action2(sender: AnyObject) {
-        Swift.print("Urk, action 2")
+    func rename(sender: AnyObject) {
+        Swift.print("rename")
     }
-    func action2(sender: AnyObject) {
-        Swift.print("Urk, action 2")
+    func cut(sender: AnyObject) {
+        Swift.print("cut")
     }
-    func action2(sender: AnyObject) {
-        Swift.print("Urk, action 2")
+    func paste(sender: AnyObject) {
+        Swift.print("paste")
     }
-    func action2(sender: AnyObject) {
-        Swift.print("Urk, action 2")
+    func delete(sender: AnyObject) {
+        Swift.print("delete")
     }
-    newFolder
-    newRepo
-    rename
-    cut
-    paste
-    delete
     func popUpMenu(_ event:NSEvent) {
         Swift.print("popUpMenu: " + "\(popUpMenu)" )
         let theMenu = NSMenu(title: "Contextual menu")
