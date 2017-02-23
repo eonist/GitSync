@@ -35,7 +35,6 @@ class RepoListTestView:TitleView{
         _ = treeList!.node.removeAt([1])
         treeList!.node.addAt([1], "<item title=\"Fish\"/>".xml)/*new*/
     }
-    
     func onTreeListEvent(event:Event) {//adds local event handler
         //Swift.print("event: " + "\(event)")
         if(event.type == SelectEvent.select && event.immediate === treeList){
@@ -53,12 +52,10 @@ class RepoListTestView:TitleView{
             popUpMenu((event as! ButtonEvent).event!)
         }
     }
-    
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
-    
 }
 /**
- * Right click Context menu methods:
+ * Right click Context menu methods
  */
 extension RepoListTestView{
     /**
