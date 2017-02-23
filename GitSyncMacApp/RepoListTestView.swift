@@ -61,20 +61,26 @@ class RepoListTestView:TitleView{
         treeList!.node.addAt(idx, a.xml)//"<item title=\"New folder\"/>"
         Swift.print("Promt folder name popup")
     }
+    func newIdx(_ idx:[Int]) -> [Int] {
+        let child:XML = XMLParser.childAt(treeList!.node.xml, idx)!
+        let itemData = TreeListUtils.itemData(child)
+        if(itemData.hasChildren){//isFolder, add within
+            return idx + [0]
+        }else{//is not folder, add bellow
+            idx[idx.count-1] = idx.last! + 1
+        }
+        return idx
+    }
     func newRepo(sender:AnyObject) {
         Swift.print("newRepo")
         var idx = TreeListParser.selectedIndex(treeList!)
         Swift.print("idx: " + "\(idx)")
         //let selectedXML:XML = XMLParser.childAt(treeList!.node.xml, idx)!
-        let child:XML = XMLParser.childAt(treeList!.node.xml, idx)!
+        
         //Swift.print("child: " + "\(child)")
-        let itemData = TreeListUtils.itemData(child)
-        if(itemData.hasChildren){//isFolder, add within
-            idx += [0]
-        }else{//is not folder, add bellow
-            idx[idx.count-1] = idx.last! + 1
-        }
-        treeList!.node.addAt(idx, "<item title=\"New repo\"/>".xml)
+        
+        
+        treeList!.node.addAt(newIdx(idx), "<item title=\"New repo\"/>".xml)
         Swift.print("Promt repo name popup")
     }
     func rename(sender: AnyObject) {
