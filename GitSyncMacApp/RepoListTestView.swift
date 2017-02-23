@@ -33,7 +33,7 @@ class RepoListTestView:TitleView{
         treeList!.node.addAt([1], "<item title=\"Fish\"/>".xml)/*new*/
     }
     func onTreeListEvent(event:Event) {//adds local event handler
-        Swift.print("event: " + "\(event)")
+        //Swift.print("event: " + "\(event)")
         if(event.type == SelectEvent.select && event.immediate === treeList){
             Swift.print("event.origin: " + "\(event.origin)")
             let selectedIndex:Array = TreeListParser.selectedIndex(treeList!)
