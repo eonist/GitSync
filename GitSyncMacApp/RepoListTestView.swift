@@ -4,6 +4,7 @@ import Cocoa
 @testable import GitSyncMac
 
 class RepoListTestView:TitleView{
+    var treeList:TreeList?
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {
         //self.title = "Resolve merge conflict:"//Title: Resolve sync conflict:
         super.init(width, height, parent, "listTransitionTestView")
@@ -15,22 +16,40 @@ class RepoListTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        let treeList = card.addSubView(SliderTreeList(140, 192, 24, Node(xml),card))
-        _ = treeList
-        func onTreeListEvent(event:Event) {//adds local event handler
-            if(event.type == SelectEvent.select && event.immediate === treeList){
-                Swift.print("event.origin: " + "\(event.origin)")
-                
-                let selectedIndex:Array = TreeListParser.selectedIndex(treeList)
-                Swift.print("selectedIndex: " + "\(selectedIndex)")
-                //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
-                let selectedXML:XML = XMLParser.childAt(treeList.node.xml, selectedIndex)!
-                //print("selectedXML: " + selectedXML);
-                Swift.print("selectedXML.toXMLString():")
-                Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
-            }
+        let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
+        treeList = addSubView(SliderTreeList(140, 192, 24, Node(xml),self))
+        
+        
+        
+        treeList!.event = onTreeListEvent//add local event listener
+        
+        
+        
+        
+        Swift.print("selected: " + "\(TreeListParser.selected(treeList))")
+        Swift.print("selectedIndex: " + "\(TreeListParser.selectedIndex(treeList))")//Output:  [2,2,0]
+        Swift.print("selected Title: " + "\(XMLParser.attributesAt(treeList!.node.xml, TreeListParser.selectedIndex(treeList))!["title"])")//Output: Oregano
+        TreeListModifier.unSelectAll(treeList)
+        
+        TreeListModifier.selectAt(treeList, [2])
+        TreeListModifier.collapseAt(treeList, [])//closes the treeList
+        TreeListModifier.explodeAt(treeList,[])//opens the treeList
+        
+        _ = treeList!.node.removeAt([1])
+        treeList!.node.addAt([1], "<item title=\"Fish\"/>".xml)/*new*/
+    }
+    func onTreeListEvent(event:Event) {//adds local event handler
+        if(event.type == SelectEvent.select && event.immediate === treeList){
+            Swift.print("event.origin: " + "\(event.origin)")
+            
+            let selectedIndex:Array = TreeListParser.selectedIndex(treeList)
+            Swift.print("selectedIndex: " + "\(selectedIndex)")
+            //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
+            let selectedXML:XML = XMLParser.childAt(treeList.node.xml, selectedIndex)!
+            //print("selectedXML: " + selectedXML);
+            Swift.print("selectedXML.toXMLString():")
+            Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
         }
-        treeList.event = onTreeListEvent//add local event listener
     }
     override func mouseUpInside(_ event:MouseEvent) {
         Swift.print("mouseUpInside: " + "\(event)")
