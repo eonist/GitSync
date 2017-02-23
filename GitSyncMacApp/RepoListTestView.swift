@@ -18,9 +18,7 @@ class RepoListTestView:TitleView{
     func createGUI(){
         let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
         treeList = addSubView(SliderTreeList(140, 192, 24, Node(xml),self))
-        
         treeList!.event = onTreeListEvent//add event listener
-        
         
         Swift.print("selected: " + "\(TreeListParser.selected(treeList!))")
         Swift.print("selectedIndex: " + "\(TreeListParser.selectedIndex(treeList!))")//Output:  [2,2,0]
@@ -46,14 +44,6 @@ class RepoListTestView:TitleView{
             Swift.print("selectedXML.toXMLString():")
             Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
         }
-    }
-    //Continue here: 
-        //implement rightClick event from Button rightClick -> handleRightClick at RepoListVIew
-    
-    override func rightMouseDown(with event: NSEvent) {
-        Swift.print("rightMouseDown: " )
-        super.rightMouseUp(with:event)
-        popUpMenu(event)
     }
     /**
      * TODO: A bug is that when you add a folder and its the last item then the list isnt resized
