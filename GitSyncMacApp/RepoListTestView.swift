@@ -32,6 +32,7 @@ class RepoListTestView:TitleView{
         _ = treeList!.node.removeAt([1])
         treeList!.node.addAt([1], "<item title=\"Fish\"/>".xml)/*new*/
     }
+    var rightClickItemIdx:[Int]?
     func onTreeListEvent(event:Event) {//adds local event handler
         //Swift.print("event: " + "\(event)")
         if(event.type == SelectEvent.select && event.immediate === treeList){
@@ -44,8 +45,8 @@ class RepoListTestView:TitleView{
             Swift.print("selectedXML.toXMLString():")
             Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
         }else if(event.type == ButtonEvent.rightMouseDown){
-            let idx:[Int] = TreeListParser.index(treeList!, event.origin as! NSView)
-            Swift.print("RightMouseDown.idx: " + "\(idx)")
+            rightClickItemIdx = TreeListParser.index(treeList!, event.origin as! NSView)
+            Swift.print("RightMouseDown() rightClickItemIdx: " + "\(rightClickItemIdx)")
             popUpMenu((event as! ButtonEvent).event!)
         }
     }
