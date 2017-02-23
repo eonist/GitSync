@@ -71,7 +71,8 @@ class RepoListTestView:TitleView{
         let itemData = TreeListUtils.itemData(child)
         if(itemData.hasChildren){
             Swift.print("itemData.hasChildren: " + "\(itemData.hasChildren)")
-            treeList!.node.addAt(idx, "<item title=\"New repo\"/>".xml)
+            let newIdx = idx + [0]
+            treeList!.node.addAt(newIdx, "<item title=\"New repo\"/>".xml)
         }
         //
         Swift.print("Promt repo name popup")
