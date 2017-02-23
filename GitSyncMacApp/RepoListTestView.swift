@@ -72,16 +72,12 @@ class RepoListTestView:TitleView{
         menuItems.forEach{
             Swift.print("$0: " + "\($0)")
         }
+        
         let action1MenuItem = NSMenuItem(title: "Action 1", action: Selector("action2"), keyEquivalent: "")
         theMenu.addItem(action1MenuItem)
         //theMenu.addItem(withTitle: "Action 1", action: Selector(("action1:")), keyEquivalent: "")
         theMenu.addItem(withTitle: "Action 2", action: Selector(("action2:")), keyEquivalent: "")
         
-        for item: AnyObject in theMenu.items {
-            if let menuItem = item as? NSMenuItem {
-                menuItem.target = self
-            }
-        }
         
         NSMenu.popUpContextMenu(theMenu, with: event, for: self)
     }
