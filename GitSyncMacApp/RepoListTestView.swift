@@ -64,6 +64,8 @@ class RepoListTestView:TitleView{
     }
     func newRepo(sender: AnyObject) {
         Swift.print("newRepo")
+        let idx = TreeListParser.selectedIndex(treeList!)
+        treeList!.node.addAt(idx, "<item title=\"New repo\"/>".xml)
     }
     func rename(sender: AnyObject) {
         Swift.print("rename")
