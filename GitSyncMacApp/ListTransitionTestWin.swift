@@ -43,6 +43,7 @@ class ListTransitionTestView:TitleView{
         
     }
     
+    
     var animator:Animator?
     var ellipse:EllipseGraphic?
     /**
