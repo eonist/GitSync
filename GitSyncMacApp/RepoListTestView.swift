@@ -7,6 +7,7 @@ import Cocoa
     //1. Draw prompt windows for GitSync, Unified, easy to use.
     //2. Implement promt windows for TreeListRightCLick rename and new file and folder and delete
     //3. A templating system for promts?
+    //4. Content in promt must be RBSlideable
 
 class RepoListTestView:TitleView{
     var treeList:TreeList?
