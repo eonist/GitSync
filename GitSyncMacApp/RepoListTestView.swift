@@ -55,7 +55,7 @@ class RepoListTestView:TitleView{
      */
     func newFolder(sender:AnyObject) {
         Swift.print("newFolder")
-        let idx = TreeListParser.selectedIndex(treeList!)
+        let idx = rightClickItemIdx!
         let a:String = "<item title=\"New folder\" isOpen=\"false\" hasChildren=\"true\"></item>"
         treeList!.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
         Swift.print("Promt folder name popup")
@@ -77,7 +77,7 @@ class RepoListTestView:TitleView{
     }
     func newRepo(sender:AnyObject) {
         Swift.print("newRepo")
-        let idx = TreeListParser.selectedIndex(treeList!)
+        let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
         treeList!.node.addAt(newIdx(idx), "<item title=\"New repo\"/>".xml)
         Swift.print("Promt repo name popup")
@@ -89,20 +89,20 @@ class RepoListTestView:TitleView{
     var clipBoard:XML?
     func cut(sender: AnyObject) {
         Swift.print("cut")
-        let idx = TreeListParser.selectedIndex(treeList!)
+        let idx = rightClickItemIdx!
         clipBoard = treeList!.node.removeAt(idx)
     }
     func paste(sender: AnyObject) {
         Swift.print("paste")
         if(clipBoard != nil){
             //"<item title=\"Fish\"/>".xml
-            let idx = TreeListParser.selectedIndex(treeList!)
+            let idx = rightClickItemIdx!
             treeList!.node.addAt(newIdx(idx), clipBoard!)
         }
     }
     func delete(sender: AnyObject) {
         Swift.print("delete")
-        let idx = TreeListParser.selectedIndex(treeList!)
+        let idx = rightClickItemIdx!
         _ = treeList!.node.removeAt(idx)
     }
     func popUpMenu(_ event:NSEvent) {
