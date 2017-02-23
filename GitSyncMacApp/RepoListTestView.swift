@@ -5,6 +5,9 @@ import Cocoa
 
 class RepoListTestView:TitleView{
     var treeList:TreeList?
+    var rightClickItemIdx:[Int]?
+    var clipBoard:XML?
+    
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {
         //self.title = "Resolve merge conflict:"//Title: Resolve sync conflict:
         super.init(width, height, parent, "listTransitionTestView")
@@ -32,7 +35,7 @@ class RepoListTestView:TitleView{
         _ = treeList!.node.removeAt([1])
         treeList!.node.addAt([1], "<item title=\"Fish\"/>".xml)/*new*/
     }
-    var rightClickItemIdx:[Int]?
+    
     func onTreeListEvent(event:Event) {//adds local event handler
         //Swift.print("event: " + "\(event)")
         if(event.type == SelectEvent.select && event.immediate === treeList){
@@ -50,6 +53,14 @@ class RepoListTestView:TitleView{
             popUpMenu((event as! ButtonEvent).event!)
         }
     }
+    
+    required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    
+}
+/**
+ * Right click Context menu methods:
+ */
+extension RepoListTestView{
     /**
      * TODO: A bug is that when you add a folder and its the last item then the list isnt resized
      */
@@ -61,7 +72,7 @@ class RepoListTestView:TitleView{
         Swift.print("Promt folder name popup")
     }
     /**
-     * Returns a new idx 
+     * Returns a new idx
      * NOTE: isFolder -> add within, is not folder -> add bellow
      */
     func newIdx(_ idx:[Int]) -> [Int] {
@@ -86,7 +97,6 @@ class RepoListTestView:TitleView{
         Swift.print("rename")
         Swift.print("Promt rename popup")
     }
-    var clipBoard:XML?
     func cut(sender: AnyObject) {
         Swift.print("cut")
         let idx = rightClickItemIdx!
@@ -110,10 +120,10 @@ class RepoListTestView:TitleView{
         let menu = NSMenu(title: "Contextual menu")
         let menuItems:[(title:String,selector:Foundation.Selector)] = [("New folder", #selector(newFolder)),("New repo", #selector(newRepo)),("Rename", #selector(rename)),("Cut", #selector(cut)),("Paste", #selector(paste)),("Delete", #selector(delete))]
         menuItems.forEach{
-            let action1MenuItem = NSMenuItem(title: $0.title, action: $0.selector, keyEquivalent: "")
-            menu.addItem(action1MenuItem)
+            let menuItem = NSMenuItem(title: $0.title, action: $0.selector, keyEquivalent: "")
+            menu.addItem(menuItem)
         }
         NSMenu.popUpContextMenu(menu, with: event, for: self)
     }
-    required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+
 }
