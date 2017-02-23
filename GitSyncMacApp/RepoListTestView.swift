@@ -35,7 +35,6 @@ class RepoListTestView:TitleView{
     func onTreeListEvent(event:Event) {//adds local event handler
         if(event.type == SelectEvent.select && event.immediate === treeList){
             Swift.print("event.origin: " + "\(event.origin)")
-            
             let selectedIndex:Array = TreeListParser.selectedIndex(treeList!)
             Swift.print("selectedIndex: " + "\(selectedIndex)")
             //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
@@ -43,7 +42,9 @@ class RepoListTestView:TitleView{
             //print("selectedXML: " + selectedXML);
             Swift.print("selectedXML.toXMLString():")
             Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
-        }//else if(event.assert(ButtonEvent, ))
+        }else if(event.type == ButtonEvent.rightMouseDown){
+            
+        }
     }
     /**
      * TODO: A bug is that when you add a folder and its the last item then the list isnt resized
