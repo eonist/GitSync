@@ -63,7 +63,7 @@ class RepoListTestView:TitleView{
     }
     func newRepo(sender:AnyObject) {
         Swift.print("newRepo")
-        let idx = TreeListParser.selectedIndex(treeList!)
+        var idx = TreeListParser.selectedIndex(treeList!)
         Swift.print("idx: " + "\(idx)")
         //let selectedXML:XML = XMLParser.childAt(treeList!.node.xml, idx)!
         let child:XML = XMLParser.childAt(treeList!.node.xml, idx)!
@@ -71,8 +71,9 @@ class RepoListTestView:TitleView{
         let itemData = TreeListUtils.itemData(child)
         if(itemData.hasChildren){
             Swift.print("itemData.hasChildren: " + "\(itemData.hasChildren)")
-            treeList!.node.addAt(idx + [0], "<item title=\"New repo\"/>".xml)
-        }
+            idx += [0]
+        }else{idx[idx.count-1] = idx.last! + 1}
+        treeList!.node.addAt(idx, "<item title=\"New repo\"/>".xml)
         Swift.print("Promt repo name popup")
     }
     func rename(sender: AnyObject) {
