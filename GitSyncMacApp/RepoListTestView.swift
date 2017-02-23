@@ -48,8 +48,8 @@ class RepoListTestView:TitleView{
         }
     }
   
-    override func rightMouseUp(with event: NSEvent) {
-        Swift.print("rightMouseUp: " )
+    override func rightMouseDown(with event: NSEvent) {
+        Swift.print("rightMouseDown: " )
         super.rightMouseUp(with:event)
         popUpMenu(event)
     }
