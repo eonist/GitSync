@@ -19,33 +19,31 @@ class RepoListTestView:TitleView{
         let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
         treeList = addSubView(SliderTreeList(140, 192, 24, Node(xml),self))
         
+        treeList!.event = onTreeListEvent//add event listener
         
+        /*
+        Swift.print("selected: " + "\(TreeListParser.selected(treeList!))")
+        Swift.print("selectedIndex: " + "\(TreeListParser.selectedIndex(treeList!))")//Output:  [2,2,0]
+        Swift.print("selected Title: " + "\(XMLParser.attributesAt(treeList!.node.xml, TreeListParser.selectedIndex(treeList!))!["title"])")//Output: Oregano
+        TreeListModifier.unSelectAll(treeList!)
         
-        treeList!.event = onTreeListEvent//add local event listener
-        
-        
-        
-        
-        Swift.print("selected: " + "\(TreeListParser.selected(treeList))")
-        Swift.print("selectedIndex: " + "\(TreeListParser.selectedIndex(treeList))")//Output:  [2,2,0]
-        Swift.print("selected Title: " + "\(XMLParser.attributesAt(treeList!.node.xml, TreeListParser.selectedIndex(treeList))!["title"])")//Output: Oregano
-        TreeListModifier.unSelectAll(treeList)
-        
-        TreeListModifier.selectAt(treeList, [2])
-        TreeListModifier.collapseAt(treeList, [])//closes the treeList
-        TreeListModifier.explodeAt(treeList,[])//opens the treeList
+        TreeListModifier.selectAt(treeList!, [2])
+        TreeListModifier.collapseAt(treeList!, [])//closes the treeList
+        TreeListModifier.explodeAt(treeList!,[])//opens the treeList
         
         _ = treeList!.node.removeAt([1])
         treeList!.node.addAt([1], "<item title=\"Fish\"/>".xml)/*new*/
+        */
+
     }
     func onTreeListEvent(event:Event) {//adds local event handler
         if(event.type == SelectEvent.select && event.immediate === treeList){
             Swift.print("event.origin: " + "\(event.origin)")
             
-            let selectedIndex:Array = TreeListParser.selectedIndex(treeList)
+            let selectedIndex:Array = TreeListParser.selectedIndex(treeList!)
             Swift.print("selectedIndex: " + "\(selectedIndex)")
             //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
-            let selectedXML:XML = XMLParser.childAt(treeList.node.xml, selectedIndex)!
+            let selectedXML:XML = XMLParser.childAt(treeList!.node.xml, selectedIndex)!
             //print("selectedXML: " + selectedXML);
             Swift.print("selectedXML.toXMLString():")
             Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
