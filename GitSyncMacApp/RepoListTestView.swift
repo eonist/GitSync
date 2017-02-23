@@ -64,11 +64,13 @@ class RepoListTestView:TitleView{
     func newRepo(sender:AnyObject) {
         Swift.print("newRepo")
         let idx = TreeListParser.selectedIndex(treeList!)
+        Swift.print("idx: " + "\(idx)")
         //let selectedXML:XML = XMLParser.childAt(treeList!.node.xml, idx)!
         let child:XML = XMLParser.childAt(treeList!.node.xml, idx)!
-        Swift.print("child: " + "\(child)")
+        //Swift.print("child: " + "\(child)")
         let itemData = TreeListUtils.itemData(child)
         if(itemData.hasChildren){
+            Swift.print("itemData.hasChildren: " + "\(itemData.hasChildren)")
             treeList!.node.addAt(idx, "<item title=\"New repo\"/>".xml)
         }
         //
