@@ -8,9 +8,8 @@ class RepoListTestView:TitleView{
         //self.title = "Resolve merge conflict:"//Title: Resolve sync conflict:
         super.init(width, height, parent, "listTransitionTestView")
     }
-    
     override func resolveSkin() {
-        Swift.print("ListTransitionTestView.resolveSkin()")
+        Swift.print("RepoListTestView.resolveSkin()")
         super.resolveSkin()
         Swift.print(ElementParser.stackString(self))
         createGUI()
