@@ -21,7 +21,7 @@ class RepoListTestView:TitleView{
         
         treeList!.event = onTreeListEvent//add event listener
         
-        /*
+        
         Swift.print("selected: " + "\(TreeListParser.selected(treeList!))")
         Swift.print("selectedIndex: " + "\(TreeListParser.selectedIndex(treeList!))")//Output:  [2,2,0]
         Swift.print("selected Title: " + "\(XMLParser.attributesAt(treeList!.node.xml, TreeListParser.selectedIndex(treeList!))!["title"])")//Output: Oregano
@@ -33,8 +33,6 @@ class RepoListTestView:TitleView{
         
         _ = treeList!.node.removeAt([1])
         treeList!.node.addAt([1], "<item title=\"Fish\"/>".xml)/*new*/
-        */
-
     }
     func onTreeListEvent(event:Event) {//adds local event handler
         if(event.type == SelectEvent.select && event.immediate === treeList){
@@ -70,7 +68,9 @@ class RepoListTestView:TitleView{
     func popUpMenu(_ event:NSEvent) {
         Swift.print("popUpMenu: " + "\(popUpMenu)" )
         let theMenu = NSMenu(title: "Contextual menu")
-        theMenu.addItem(withTitle: "Action 1", action: Selector(("action1:")), keyEquivalent: "")
+        let action1MenuItem = NSMenuItem(title: "Action 1", action: #selector(action1), keyEquivalent: "")
+        theMenu.addItem(action1MenuItem)
+        //theMenu.addItem(withTitle: "Action 1", action: Selector(("action1:")), keyEquivalent: "")
         theMenu.addItem(withTitle: "Action 2", action: Selector(("action2:")), keyEquivalent: "")
         
         for item: AnyObject in theMenu.items {
