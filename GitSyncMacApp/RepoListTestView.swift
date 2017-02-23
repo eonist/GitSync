@@ -69,10 +69,11 @@ class RepoListTestView:TitleView{
         let child:XML = XMLParser.childAt(treeList!.node.xml, idx)!
         //Swift.print("child: " + "\(child)")
         let itemData = TreeListUtils.itemData(child)
-        if(itemData.hasChildren){
-            Swift.print("itemData.hasChildren: " + "\(itemData.hasChildren)")
+        if(itemData.hasChildren){//isFolder, add within
             idx += [0]
-        }else{idx[idx.count-1] = idx.last! + 1}
+        }else{//is not folder, add bellow
+            idx[idx.count-1] = idx.last! + 1
+        }
         treeList!.node.addAt(idx, "<item title=\"New repo\"/>".xml)
         Swift.print("Promt repo name popup")
     }
