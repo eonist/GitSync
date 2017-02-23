@@ -74,6 +74,7 @@ class RepoListTestView:TitleView{
     }
     func delete(sender: AnyObject) {
         Swift.print("delete")
+        let idx = TreeListParser.selectedIndex(treeList!)
     }
     func popUpMenu(_ event:NSEvent) {
         Swift.print("popUpMenu: " + "\(popUpMenu)" )
