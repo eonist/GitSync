@@ -43,7 +43,7 @@ class RepoListTestView:TitleView{
             //print("selectedXML: " + selectedXML);
             Swift.print("selectedXML.toXMLString():")
             Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
-        }
+        }//else if(event.assert(ButtonEvent, ))
     }
     /**
      * TODO: A bug is that when you add a folder and its the last item then the list isnt resized
