@@ -15,7 +15,22 @@ class RepoListTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        
+        let treeList = card.addSubView(SliderTreeList(140, 192, 24, Node(xml),card))
+        _ = treeList
+        func onTreeListEvent(event:Event) {//adds local event handler
+            if(event.type == SelectEvent.select && event.immediate === treeList){
+                Swift.print("event.origin: " + "\(event.origin)")
+                
+                let selectedIndex:Array = TreeListParser.selectedIndex(treeList)
+                Swift.print("selectedIndex: " + "\(selectedIndex)")
+                //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
+                let selectedXML:XML = XMLParser.childAt(treeList.node.xml, selectedIndex)!
+                //print("selectedXML: " + selectedXML);
+                Swift.print("selectedXML.toXMLString():")
+                Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
+            }
+        }
+        treeList.event = onTreeListEvent//add local event listener
     }
     override func mouseUpInside(_ event:MouseEvent) {
         Swift.print("mouseUpInside: " + "\(event)")
