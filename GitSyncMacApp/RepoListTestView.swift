@@ -58,7 +58,7 @@ class RepoListTestView:TitleView{
         Swift.print("newFolder")
         let idx = TreeListParser.selectedIndex(treeList!)
         let a:String = "<item title=\"New folder\" isOpen=\"false\" hasChildren=\"true\"></item>"
-        treeList!.node.addAt(idx, a.xml)//"<item title=\"New folder\"/>"
+        treeList!.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
         Swift.print("Promt folder name popup")
     }
     /**
