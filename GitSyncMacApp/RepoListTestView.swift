@@ -53,7 +53,9 @@ class RepoListTestView:TitleView{
         super.rightMouseUp(with:event)
         popUpMenu(event)
     }
-    
+    /**
+     * TODO: A bug is that when you add a folder and its the last item then the list isnt resized
+     */
     func newFolder(sender:AnyObject) {
         Swift.print("newFolder")
         let idx = TreeListParser.selectedIndex(treeList!)
