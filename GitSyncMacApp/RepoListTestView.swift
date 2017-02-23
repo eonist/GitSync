@@ -47,7 +47,7 @@ class RepoListTestView:TitleView{
             Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
         }
     }
-  
+    
     override func rightMouseDown(with event: NSEvent) {
         Swift.print("rightMouseDown: " )
         super.rightMouseUp(with:event)
@@ -100,9 +100,8 @@ class RepoListTestView:TitleView{
         if(clipBoard != nil){
             //"<item title=\"Fish\"/>".xml
             let idx = TreeListParser.selectedIndex(treeList!)
-            treeList!.node.addAt(idx, clipBoard!)
+            treeList!.node.addAt(newIdx(idx), clipBoard!)
         }
-        
     }
     func delete(sender: AnyObject) {
         Swift.print("delete")
