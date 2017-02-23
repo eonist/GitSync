@@ -65,7 +65,7 @@ class RepoListTestView:TitleView{
         Swift.print("newRepo")
         let idx = TreeListParser.selectedIndex(treeList!)
         let selectedXML:XML = XMLParser.childAt(treeList!.node.xml, idx)!
-        selectedXML.
+        
         treeList!.node.addAt(idx, "<item title=\"New repo\"/>".xml)
         Swift.print("Promt repo name popup")
     }
