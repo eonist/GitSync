@@ -47,12 +47,9 @@ class RepoListTestView:TitleView{
             Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
         }
     }
-    override func mouseUpInside(_ event:MouseEvent) {
-        Swift.print("mouseUpInside: " + "\(event)")
-        super.mouseUpInside(event)
-    }
+  
     override func rightMouseUp(with event: NSEvent) {
-        Swift.print("rightMouseUp: " + "\(event)")
+        Swift.print("rightMouseUp: " )
         super.rightMouseUp(with:event)
         popUpMenu(event)
     }
