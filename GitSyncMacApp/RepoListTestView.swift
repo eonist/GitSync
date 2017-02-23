@@ -43,7 +43,9 @@ class RepoListTestView:TitleView{
             Swift.print("selectedXML.toXMLString():")
             Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
         }else if(event.type == ButtonEvent.rightMouseDown){
-            
+            let idx:[Int] = TreeListParser.index(treeList!, event.origin as! NSView)
+            Swift.print("RightMouseDown.idx: " + "\(idx)")
+            popUpMenu((event as! ButtonEvent).event!)
         }
     }
     /**
