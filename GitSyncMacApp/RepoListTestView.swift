@@ -59,6 +59,8 @@ class RepoListTestView:TitleView{
     
     func newFolder(sender: AnyObject) {
         Swift.print("newFolder")
+        let idx = TreeListParser.selectedIndex(treeList!)
+        treeList!.node.addAt(idx, "<item title=\"New folder\"/>".xml)
     }
     func newRepo(sender: AnyObject) {
         Swift.print("newRepo")
@@ -78,7 +80,7 @@ class RepoListTestView:TitleView{
         if(clipBoard != nil){
             //"<item title=\"Fish\"/>".xml
             let idx = TreeListParser.selectedIndex(treeList!)
-            treeList!.node.addAt(idx, clipBoard!)/*new*/
+            treeList!.node.addAt(idx, clipBoard!)
         }
         
     }
