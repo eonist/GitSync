@@ -42,15 +42,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         func recFlatMap<T>(_ arr:[AnyObject]) -> [T]{
             var result:[T] = []
             Swift.print("arr.count: " + "\(arr.count)")
-            for i in 0..<arr.count{
-                let item:AnyObject = arr[i]
-                Swift.print("item: " + "\(item)")
-                if(item is AnyArray){
+            arr.forEach{
+                Swift.print("$0: " + "\($0)")
+                if($0 is AnyArray){
                     Swift.print("is AnyArray")
-                    let a:[AnyObject] = item as! [AnyObject]
+                    let a:[AnyObject] = $0 as! [AnyObject]
                     result += recFlatMap(a)
                 }else{
-                    result.append(arr[i] as! T)
+                    result.append($0 as! T)
                 }
             }
             return result
