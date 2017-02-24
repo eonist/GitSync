@@ -45,12 +45,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let arr:[Any] = [[[1],[2,3]],[[4,5],[6]]]
         /*let flatMapArr = arr.flatMap{$0}
          Swift.print(flatMapArr.flatMap{$0})// [[1], [2, 3], [4, 5], [6]]*/
-        func recFlatMap(_ arr:[AnyObject]) -> [AnyObject]{
-            return arr.flatMap{
+        func recFlatMap<T>(_ arr:[T]) -> [T]{
+            let result = arr.flatMap{
                 if($0 is AnyArray){
-                    return recFlatMap($0)
-                }else{return $0}
+                     
+                }else{ $0}
             }
+            
+            return result
         }
         
         let x2:[Int] = arr.recursiveFlatmap()
