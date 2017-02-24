@@ -35,17 +35,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         xmlStr += "</items>"
         
         
+        /*
+         let arr = XMLParser.arr(xmlStr.xml)
+         Swift.print("arr: " + "\(arr)")
+         Swift.print("arr.count: " + "\(arr.count)")
+         Swift.print("arr[1].count: " + "\(arr[1].count)")
+         */
         
-        let arr = XMLParser.arr(xmlStr.xml)
-        Swift.print("arr: " + "\(arr)")
-        Swift.print("arr.count: " + "\(arr.count)")
-        Swift.print("arr[1].count: " + "\(arr[1].count)")
-        
-        
-        let nestedArray = [[1,2,[9,9,9],3], [4,5,6]]
-        
-        let flattenedArray = nestedArray.flatMap { $0 }
-        Swift.print("flattenedArray: " + "\(flattenedArray)") // [1, 2, 3, 4, 5, 6]
+        let arr = [[[1],[2,3]],[[4,5],[6]]]
+        let flatMapArr = arr.flatMap{$0}
+        Swift.print(flatMapArr.flatMap{$0})// [[1], [2, 3], [4, 5], [6]]
     }
     /**
      *
