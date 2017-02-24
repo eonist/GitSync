@@ -53,10 +53,9 @@ class RepoView:Element {
         Navigation.setView("\(RepoDetailView.self)")
         let selectedIndex:Array = TreeListParser.selectedIndex(treeList!)
         RepoView.selectedListItemIndex = selectedIndex
-        //let selectedXML:XML = XMLParser.childAt(treeList!.node.xml, selectedIndex)!
-        //print("selectedXML: " + selectedXML);
-        let repoItem:Dictionary<String,String> = list!.dataProvider.getItemAt(RepoView.selectedListItemIndex)!
-        (Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
+        
+        //let repoItem:Dictionary<String,String> = NodeParser
+        //(Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
     }
     override func onEvent(_ event:Event) {
         //if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
