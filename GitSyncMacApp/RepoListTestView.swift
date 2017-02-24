@@ -91,7 +91,7 @@ extension ContextMenu{
         Swift.print("newFolder")
         let idx = rightClickItemIdx!
         let a:String = "<item title=\"New folder\" isOpen=\"false\" hasChildren=\"true\"></item>"
-        treeList!.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
+        treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
         Swift.print("Promt folder name popup")
     }
     /**
@@ -100,7 +100,7 @@ extension ContextMenu{
      */
     func newIdx(_ idx:[Int]) -> [Int] {
         var idx = idx
-        let child:XML = XMLParser.childAt(treeList!.node.xml, idx)!
+        let child:XML = XMLParser.childAt(treeList.node.xml, idx)!
         let itemData = TreeListUtils.itemData(child)
         if(itemData.hasChildren){//isFolder, add within
             idx += [0]
@@ -113,25 +113,25 @@ extension ContextMenu{
         Swift.print("newRepo")
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
-        treeList!.node.addAt(newIdx(idx), "<item title=\"New repo\"/>".xml)
+        treeList.node.addAt(newIdx(idx), "<item title=\"New repo\"/>".xml)
         Swift.print("Promt repo name popup")
     }
     func cut(sender: AnyObject) {
         Swift.print("cut")
         let idx = rightClickItemIdx!
-        clipBoard = treeList!.node.removeAt(idx)
+        clipBoard = treeList.node.removeAt(idx)
     }
     func paste(sender: AnyObject) {
         Swift.print("paste")
         if(clipBoard != nil){
             //"<item title=\"Fish\"/>".xml
             let idx = rightClickItemIdx!
-            treeList!.node.addAt(newIdx(idx), clipBoard!)
+            treeList.node.addAt(newIdx(idx), clipBoard!)
         }
     }
     func delete(sender: AnyObject) {
         Swift.print("delete")
         let idx = rightClickItemIdx!
-        _ = treeList!.node.removeAt(idx)
+        _ = treeList.node.removeAt(idx)
     }
 }
