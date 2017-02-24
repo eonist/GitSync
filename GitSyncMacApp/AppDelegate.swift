@@ -42,10 +42,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("arr[1].count: " + "\(arr[1].count)")
         
         
-        let nestedArray = [[1,2,3], [4,5,6]]
+        let nestedArray = [[1,2,[9,9,9],3], [4,5,6]]
         
         let flattenedArray = nestedArray.flatMap { $0 }
-        flattenedArray // [1, 2, 3, 4, 5, 6]
+        Swift.print("flattenedArray: " + "\(flattenedArray)") // [1, 2, 3, 4, 5, 6]
     }
     /**
      *
