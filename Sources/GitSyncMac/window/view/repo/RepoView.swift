@@ -12,7 +12,7 @@ class RepoView:Element {
     static var selectedListItemIndex:[Int] = []
     //static var dp:DataProvider?
     static var xml:XML?
-    var treeList:TreeList?
+    static var treeList:TreeList?
     var contextMenu:ContextMenu?
     
     override func resolveSkin() {
