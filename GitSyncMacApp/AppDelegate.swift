@@ -75,9 +75,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             _ = FileModifier.write("~/Desktop/gitsyncprefs.xml".tildePath, xml.xmlString)
         }
         //store the repo xml
+        /*
         if(RepoView.dp != nil){//make sure the data has been read and written to first
             _ = FileModifier.write("~/Desktop/assets/xml/list.xml".tildePath, RepoView.dp!.xml.xmlString)
         }
+        */
         print("Good-bye")
     }
 }

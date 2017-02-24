@@ -74,6 +74,7 @@ class RepoItemTopBar:Element{
         backButton = addSubView(Button(NaN,NaN,self,"back"))
         removeButton = addSubView(Button(NaN,NaN,self,"remove"))
     }
+    /*
     func onBackButtonClick(){
         Swift.print("onBackButtonClick()")
         Sounds.disable?.play()
@@ -86,8 +87,9 @@ class RepoItemTopBar:Element{
         RepoView.selectedListItemIndex = -1//-1 means no item is selected
         Navigation.setView(MenuView.repos)
     }
+    */
     override func onEvent(_ event:Event) {
-        if(event.assert(ButtonEvent.upInside, backButton)){onBackButtonClick()}
-        else if(event.assert(ButtonEvent.upInside, removeButton)){onRemoveButtonClick()}
+        //if(event.assert(ButtonEvent.upInside, backButton)){onBackButtonClick()}
+        //else if(event.assert(ButtonEvent.upInside, removeButton)){onRemoveButtonClick()}
     }
 }
