@@ -55,12 +55,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     }else{
                         result.append(arr[i] as! T)
                     }
-                    
                 }
             }
             return result
         }
-        
         let flatArr:[[String:AnyObject]] = recFlatMap(arr as [AnyObject])
         Swift.print("flatArr.count: " + "\(flatArr.count)")
         Swift.print("flatArr: " + "\(flatArr)")
