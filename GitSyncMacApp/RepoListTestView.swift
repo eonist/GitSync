@@ -5,8 +5,7 @@ import Cocoa
 
 class RepoListTestView:TitleView{
     var treeList:TreeList?
-    var rightClickItemIdx:[Int]?
-    var clipBoard:XML?
+    
     
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {
         //self.title = "Resolve merge conflict:"//Title: Resolve sync conflict:
@@ -59,6 +58,30 @@ class RepoListTestView:TitleView{
  * Right click Context menu methods
  */
 extension RepoListTestView{
+    
+    func popUpMenu(_ event:NSEvent) {
+        Swift.print("popUpMenu: " + "\(popUpMenu)" )
+        let menu = NSMenu(title: "Contextual menu")
+        
+        NSMenu.popUpContextMenu(menu, with: event, for: self)
+    }
+
+}
+
+class ContextMenu:NSMenu{
+    var rightClickItemIdx:[Int]?
+    var clipBoard:XML?
+    init() {
+        super.init(title:"Contextual menu")
+        let menuItems:[(title:String,selector:Foundation.Selector)] = [("New folder", #selector(newFolder)),("New repo", #selector(newRepo)),("Cut", #selector(cut)),("Paste", #selector(paste)),("Delete", #selector(delete))]
+        menuItems.forEach{
+            let menuItem = NSMenuItem(title: $0.title, action: $0.selector, keyEquivalent: "")
+            self.addItem(menuItem)
+        }
+    }
+    required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+}
+extension ContextMenu{
     /**
      * TODO: A bug is that when you add a folder and its the last item then the list isnt resized
      */
@@ -109,23 +132,4 @@ extension RepoListTestView{
         let idx = rightClickItemIdx!
         _ = treeList!.node.removeAt(idx)
     }
-    func popUpMenu(_ event:NSEvent) {
-        Swift.print("popUpMenu: " + "\(popUpMenu)" )
-        let menu = NSMenu(title: "Contextual menu")
-        let menuItems:[(title:String,selector:Foundation.Selector)] = [("New folder", #selector(newFolder)),("New repo", #selector(newRepo)),("Cut", #selector(cut)),("Paste", #selector(paste)),("Delete", #selector(delete))]
-        menuItems.forEach{
-            let menuItem = NSMenuItem(title: $0.title, action: $0.selector, keyEquivalent: "")
-            menu.addItem(menuItem)
-        }
-        NSMenu.popUpContextMenu(menu, with: event, for: self)
-    }
-
-}
-
-class ContextMenu:NSMenu{
-    init() {
-        super.init(title:"Contextual menu")
-    }
-    
-    required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
