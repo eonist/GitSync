@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("GitSync - The future is automated")//Simple git automation for macOS, The autonomouse git client
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         //_ = Test()
-        //initApp()
+        initApp()
         //initTestWin()
         //AutoSync.sync()
         //refreshReposTest()
@@ -25,6 +25,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
          let b:Range<Int> = 10..<15
          let diff = RangeParser.difference(a, b)
          Swift.print("diff: " + "\(diff)")*/
+        
+    }
+    /**
+     *
+     */
+    func recursiveFlatMapTest(){
         
         var xmlStr = "<items>"
         xmlStr += "<item title=\"orange\" property=\"harry\"/>"
@@ -36,7 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //let arr:[Any] = [["title":"a"],[[["title":"b"],["title":"c"]],["title":"d"]]]//
         let arr:[Any] = XMLParser.arr(xmlStr.xml)//[0,[1],[[2],[3]]]
-    
+        
         /**
          *
          */
@@ -64,7 +70,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
          */
         
         //let arr:[Any] = [[[1],[2,3]],[[4,5],[6]]]
-                
+        
         //let x2:[Int] = arr.recursiveFlatmap()
         //Swift.print(x2)
     }
