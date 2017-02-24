@@ -7,7 +7,7 @@ class AutoSync {
      * The GitSync automation algo (Basically Commits and pushes)
      */
     static func sync(){
-        let repoXML = FileParser.xml(RepoView.repoList.tildePath)
+        let repoXML = FileParser.xml(RepoView.repoList.tildePath)//TODO: this should be cached
         
         //research how you can flatten a 3d array, see if you already have code for this in xmlparser maybe?
         
