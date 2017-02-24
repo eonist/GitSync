@@ -34,18 +34,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         xmlStr += "<item title=\"blue\" property=\"na\"/>"
         xmlStr += "</items>"
         
+        let arr = XMLParser.arr(xmlStr.xml)
         
+        let flatArr:[[String:Any]] = arr.recursiveFlatmap()
+        Swift.print("flatArr.count: " + "\(flatArr.count)")
+        flatArr.forEach{
+            Swift.print($0)
+        }
         /*
-         let arr = XMLParser.arr(xmlStr.xml)
+         
          Swift.print("arr: " + "\(arr)")
          Swift.print("arr.count: " + "\(arr.count)")
          Swift.print("arr[1].count: " + "\(arr[1].count)")
          */
         
-        let arr:[Any] = [[[1],[2,3]],[[4,5],[6]]]
+        //let arr:[Any] = [[[1],[2,3]],[[4,5],[6]]]
                 
-        let x2:[Int] = arr.recursiveFlatmap()
-        Swift.print(x2)
+        //let x2:[Int] = arr.recursiveFlatmap()
+        //Swift.print(x2)
     }
     /**
      *
