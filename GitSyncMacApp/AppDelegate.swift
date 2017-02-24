@@ -42,12 +42,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         /**
          *
          */
-        func recFlatMap<T>(_ arr:[Any]) -> [T]{
+        func recFlatMap<T>(_ arr:AnyArray) -> [T]{
             var result:[T] = []
             Swift.print("arr.count: " + "\(arr.count)")
             for i in 0..<arr.count{
-                if(arr[i] is Array<Any>){
-                    let a:[Any] = arr[i]
+                if(arr[i] is AnyArray){
+                    let a:[AnyObject] = arr[i] as! [AnyObject]
                     result += recFlatMap(a)
                 }else{
                     result.append(arr[i] as! T)
@@ -56,7 +56,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return result
         }
         
-        let flatArr:[Int] = recFlatMap(arr)
+        let flatArr:[Int] = recFlatMap(arr as [AnyObject])
         Swift.print("flatArr.count: " + "\(flatArr.count)")
         Swift.print("flatArr: " + "\(flatArr)")
         /*
