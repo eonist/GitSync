@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         xmlStr += "<item title=\"blue\" property=\"na\"/>"
         xmlStr += "</items>"
         
-        let arr = XMLParser.arr(xmlStr.xml)
+        let arr = [[1],[[2],[3]]]//XMLParser.arr(xmlStr.xml)
         
         
         
@@ -44,10 +44,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         func recFlatMap<T>(_ arr:[Any]) -> [T]{
             var result:[T] = []
             arr.forEach{
-                if($0 is AnyArray){
+                if($0 is Array<Any>){
                     result += recFlatMap(arr)
                 }else{
-                    result += [$0 as! T]
+                    result.append($0 as! T)
                 }
             }
             return result
