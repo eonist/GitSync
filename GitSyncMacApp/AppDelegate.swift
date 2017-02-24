@@ -42,29 +42,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
          Swift.print("arr[1].count: " + "\(arr[1].count)")
          */
         
-        let arr = [[[1],[2,3]],[[4,5],[6]]]
+        let arr:[Any] = [[[1],[2,3]],[[4,5],[6]]]
         /*let flatMapArr = arr.flatMap{$0}
          Swift.print(flatMapArr.flatMap{$0})// [[1], [2, 3], [4, 5], [6]]*/
         
         
-        func recursiveFlatmap<T, U: Any>(list: [U]) -> [T] {
-            var results = [T]()
-            results.reserveCapacity(list.count)
-            
-            for element in list {
-                if let subList = element as? [U] {
-                    results += recursiveFlatmap(list: subList)
-                } else if let element = element as? T {
-                    results.append(element)
-                }
-            }
-            
-            return results
-        }
-        
-        //let arr = [1, [[2]], [3, [4, [5, 6, [7, [8]]]]]]
-        let flattened: [Int] = recursiveFlatmap(list: arr) // [1, 2, 3, 4, 5, 6, 7, 8]
-        Swift.print("flattened: " + "\(flattened)")
+        let x2:[Int] = arr.recursiveFlatmap()
+        Swift.print(x2)
     }
     /**
      *
