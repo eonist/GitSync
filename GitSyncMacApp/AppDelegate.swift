@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         xmlStr += "<item title=\"blue\" property=\"na\"/>"
         xmlStr += "</items>"
         
-        let arr:[Any] = XMLParser.arr(xmlStr.xml)//[0,[1],[[2],[3]]]
+        let arr:[Any] = [["a"],[["b","c"],"d"]]//XMLParser.arr(xmlStr.xml)//[0,[1],[[2],[3]]]
     
         /**
          *
@@ -55,7 +55,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
             return result
         }
-        let flatArr:[[String:Any]] = recFlatMap(arr as [AnyObject])
+        let flatArr:[String] = recFlatMap(arr as [AnyObject])
         Swift.print("flatArr.count: " + "\(flatArr.count)")
         Swift.print("flatArr: " + "\(flatArr)")
         /*
