@@ -77,7 +77,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //store the repo xml
         
         if(RepoView.node != nil){//make sure the data has been read and written to first
-            _ = FileModifier.write(RepoView.repoList.tildePath, RepoView.node!.xml!.xmlString)
+            _ = FileModifier.write(RepoView.repoList.tildePath, RepoView.node!.xml.xmlString)
         }
         print("Good-bye")
     }
