@@ -7,7 +7,7 @@ import Cocoa
  */
 class RepoView:Element {
     static var repoList:String = "~/Desktop/repo2.xml"//"~/Desktop/assets/xml/list.xml"
-    var topBar:TopBar?
+    //var topBar:TopBar?
     //var list:List?
     static var selectedListItemIndex:[Int] = []
     //static var dp:DataProvider?
@@ -19,7 +19,7 @@ class RepoView:Element {
         Swift.print("RepoView.resolveSkin()")
         
         self.skin = SkinResolver.skin(self)//super.resolveSkin()//
-        topBar = addSubView(TopBar(width-12,44,self))
+        //topBar = addSubView(TopBar(width-12,44,self))
         
         if(RepoView.xml == nil){/*loads 1 time*/
             RepoView.xml = FileParser.xml(RepoView.repoList.tildePath)//
