@@ -47,7 +47,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     let a:[AnyObject] = arr[i] as! [AnyObject]
                     result += recFlatMap(a)
                 }else{
-                    result.append(arr[i] as! T)
+                    if(arr[i]["xml"] != nil && arr[i]["xml"] is AnyArray){
+                        result += recFlatMap(arr[i]["xml"] as! [AnyObject])
+                    }else{
+                        result.append(arr[i] as! T)
+                    }
+                    
                 }
             }
             return result
