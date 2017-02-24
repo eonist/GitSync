@@ -36,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let arr = XMLParser.arr(xmlStr.xml)
         
-        let flatArr:[[String:Any]]
+        
         
         /**
          *
@@ -47,12 +47,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 if($0 is AnyArray){
                     result += recFlatMap(arr)
                 }else{
-                    
+                    result += [$0 as! T]
                 }
             }
             return result
         }
         
+        let flatArr:[[String:Any]] = recFlatMap(arr)
+        Swift.print("flatArr.count: " + "\(flatArr.count)")
+        Swift.print("flatArr: " + "\(flatArr)")
         /*
          
          Swift.print("arr: " + "\(arr)")
