@@ -5,9 +5,10 @@ import Foundation
  * TODO: should remember previous selected item between transitions
  */
 class RepoView:Element {
-    static var repoList:String = "~/Desktop/assets/xml/list.xml"
+    static var repoList:String = "~/Desktop/repo2.xml"//"~/Desktop/assets/xml/list.xml"
     var topBar:TopBar?
-    static var dp:DataProvider?
+    //static var dp:DataProvider?
+    static var xml:XML?
     //var list:List?
     var treeList:TreeList?
     static var selectedListItemIndex:Int = -1
@@ -17,12 +18,11 @@ class RepoView:Element {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()//
         topBar = addSubView(TopBar(width-12,44,self))
         
-        if(RepoView.dp == nil){/*loads 1 time*/
-            let xml = FileParser.xml(RepoView.repoList.tildePath)//~/Desktop/repo2.xml
-            RepoView.dp = DataProvider(xml)
+        if(RepoView.xml == nil){/*loads 1 time*/
+            RepoView.xml = FileParser.xml(RepoView.repoList.tildePath)//
+            //RepoView.dp = DataProvider(xml)
         }
-        let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
-        treeList = addSubView(SliderTreeList(140, 192, 24, Node(xml),self))
+        treeList = addSubView(SliderTreeList(140, 192, 24, Node(RepoView.xml!),self))
         //list = addSubView(List(width, height-24, NaN, RepoView.dp,self))
         //if(RepoView.selectedListItemIndex != -1){list!.selectAt(RepoView.selectedListItemIndex)}
     }

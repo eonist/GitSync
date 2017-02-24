@@ -42,8 +42,8 @@ class RepoDetailView:Element {
      * Modifies the dataProvider item on UI change
      */
     override func onEvent(_ event:Event) {
-        let i:Int = RepoView.selectedListItemIndex
-        let dp:DataProvider = RepoView.dp!
+        let i:Int = -1//RepoView.selectedListItemIndex
+        let dp:DataProvider = DataProvider()//RepoView.dp!
         switch true{
             case event.assert(Event.update,immediate:nameTextInput):
                 dp.setValue(i, "title", (event as! TextFieldEvent).stringValue)
