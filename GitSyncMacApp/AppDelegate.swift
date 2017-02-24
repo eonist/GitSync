@@ -38,7 +38,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let flatArr:[[String:Any]]
         
-        
+        /**
+         *
+         */
+        func recFlatMap<T>(_ arr:[Any]) -> [T]{
+            var result:[T] = []
+            arr.forEach{
+                if($0 is AnyArray){
+                    result += recFlatMap(arr)
+                }else{
+                    
+                }
+            }
+            return result
+        }
         
         /*
          
