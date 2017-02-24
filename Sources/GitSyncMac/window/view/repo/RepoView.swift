@@ -8,7 +8,8 @@ class RepoView:Element {
     static var repoList:String = "~/Desktop/assets/xml/list.xml"
     var topBar:TopBar?
     static var dp:DataProvider?
-    var list:List?
+    //var list:List?
+    var treeList:TreeList?
     static var selectedListItemIndex:Int = -1
     override func resolveSkin() {
         Swift.print("RepoView.resolveSkin()")
@@ -20,10 +21,26 @@ class RepoView:Element {
             let xml = FileParser.xml(RepoView.repoList.tildePath)//~/Desktop/repo2.xml
             RepoView.dp = DataProvider(xml)
         }
-        
-        list = addSubView(List(width, height-24, NaN, RepoView.dp,self))
-        if(RepoView.selectedListItemIndex != -1){list!.selectAt(RepoView.selectedListItemIndex)}
+        let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
+        treeList = addSubView(SliderTreeList(140, 192, 24, Node(xml),self))
+        treeList!.event = onTreeListEvent//add event listener
+        //list = addSubView(List(width, height-24, NaN, RepoView.dp,self))
+        //if(RepoView.selectedListItemIndex != -1){list!.selectAt(RepoView.selectedListItemIndex)}
     }
+    func onTreeListEvent(event:Event) {//adds local event handler
+        //Swift.print("event: " + "\(event)")
+        if(event.type == SelectEvent.select && event.immediate === treeList){
+            //Swift.print("event.origin: " + "\(event.origin)")
+            let selectedIndex:Array = TreeListParser.selectedIndex(treeList!)
+            Swift.print("RepoView.onTreeListEvent() selectedIndex: " + "\(selectedIndex)")
+            //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
+            let selectedXML:XML = XMLParser.childAt(treeList!.node.xml, selectedIndex)!
+            //print("selectedXML: " + selectedXML);
+            //Swift.print("selectedXML.toXMLString():")
+            //Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
+        }
+    }
+    /*
     func onAddButtonClick(){
         Swift.print("addButton.click")
         Sounds.play?.play()
@@ -34,6 +51,7 @@ class RepoView:Element {
         (Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
         //list!.onEvent(ListEvent(ListEvent.select,0,list!))
     }
+ 
     func onBackButtonClick(){
         Swift.print("onBackButtonClick()")
         Navigation.setView(MenuView.commits)
@@ -45,6 +63,7 @@ class RepoView:Element {
         let repoItem:Dictionary<String,String> = list!.dataProvider.getItemAt(RepoView.selectedListItemIndex)!
         (Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
     }
+     */
     override func onEvent(_ event:Event) {
         if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
         //else if(event.type == ButtonEvent.upInside && event.origin === topBar!.backButton){onBackButtonClick()}
