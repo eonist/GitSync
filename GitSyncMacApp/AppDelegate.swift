@@ -26,7 +26,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
          let diff = RangeParser.difference(a, b)
          Swift.print("diff: " + "\(diff)")*/
         
+        var xmlStr = "<items>"
+        xmlStr += "<item title=\"orange\" property=\"harry\"/>"
+        xmlStr += "<item title=\"blue\" property=\"na\"/>"
+        xmlStr += "</items>"
         
+        
+        
+        let arr = XMLParser.arr(xmlStr.xml)
+        Swift.print("arr.count: " + "\(arr.count)")
     }
     /**
      *
