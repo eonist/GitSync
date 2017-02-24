@@ -44,9 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             var result:[T] = []
             Swift.print("arr.count: " + "\(arr.count)")
             arr.forEach{
-                Swift.print("$0: " + "\($0)")
                 if($0 is AnyArray){
-                    Swift.print("is AnyArray")
                     let a:[AnyObject] = $0 as! [AnyObject]
                     result += recFlatMap(a)
                 }else{
@@ -55,7 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
             return result
         }
-        let flatArr:[[String:String]] = recFlatMap(arr as [AnyObject])
+        let flatArr:[[String:String]] = arr.recursiveFlatmap()//recFlatMap(arr as [AnyObject])
         Swift.print("flatArr.count: " + "\(flatArr.count)")
         Swift.print("flatArr: " + "\(flatArr)")
         /*
@@ -136,7 +134,6 @@ extension Collection {
                 results.append(element)
             }
         }
-        
         return results
     }
 }
