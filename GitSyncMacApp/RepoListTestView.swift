@@ -5,7 +5,7 @@ import Cocoa
 
 class RepoListTestView:TitleView{
     var treeList:TreeList?
-    
+    let contextMenu:ContextMenu?
     
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {
         //self.title = "Resolve merge conflict:"//Title: Resolve sync conflict:
@@ -33,6 +33,8 @@ class RepoListTestView:TitleView{
         
         _ = treeList!.node.removeAt([1])
         treeList!.node.addAt([1], "<item title=\"Fish\"/>".xml)/*new*/
+        
+        contextMenu = ContextMenu()
     }
     func onTreeListEvent(event:Event) {//adds local event handler
         //Swift.print("event: " + "\(event)")
@@ -49,29 +51,22 @@ class RepoListTestView:TitleView{
             rightClickItemIdx = TreeListParser.index(treeList!, event.origin as! NSView)
             Swift.print("RightMouseDown() rightClickItemIdx: " + "\(rightClickItemIdx)")
             popUpMenu((event as! ButtonEvent).event!)
+            
+            
+            NSMenu.popUpContextMenu(menu, with: event, for: self)
         }
     }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
 /**
- * Right click Context menu methods
+ * Right click menu
  */
-extension RepoListTestView{
-    
-    func popUpMenu(_ event:NSEvent) {
-        Swift.print("popUpMenu: " + "\(popUpMenu)" )
-        let menu = NSMenu(title: "Contextual menu")
-        
-        NSMenu.popUpContextMenu(menu, with: event, for: self)
-    }
-
-}
-
 class ContextMenu:NSMenu{
     var rightClickItemIdx:[Int]?
     var clipBoard:XML?
     var treeList:TreeList
+    var rightClickItemIdx:[Int]?
     init(_ treeList:TreeList) {
         self.treeList = treeList
         super.init(title:"Contextual menu")
@@ -83,6 +78,9 @@ class ContextMenu:NSMenu{
     }
     required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
+/**
+ * Right click Context menu methods
+ */
 extension ContextMenu{
     /**
      * TODO: A bug is that when you add a folder and its the last item then the list isnt resized
