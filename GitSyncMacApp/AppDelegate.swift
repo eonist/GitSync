@@ -44,11 +44,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Swift.print("arr.count: " + "\(arr.count)")
             for i in 0..<arr.count{
                 let item:AnyObject = arr[i]
+                Swift.print("item: " + "\(item)")
                 if(item is AnyArray){
+                    Swift.print("is AnyArray")
                     let a:[AnyObject] = item as! [AnyObject]
                     result += recFlatMap(a)
                 }else{
                     if(item is AnyDictionary && item["xml"] != nil && item["xml"] is AnyArray){
+                        Swift.print("is AnyDict")
                         let dict:[String:Any] = item as! [String : Any]
                         let temp:Any = dict["xml"] as Any
                         result += recFlatMap(temp as! [AnyObject])
@@ -59,7 +62,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
             return result
         }
-        let flatArr:[[String:AnyObject]] = recFlatMap(arr as [AnyObject])
+        let flatArr:[[String:Any]] = recFlatMap(arr as [AnyObject])
         Swift.print("flatArr.count: " + "\(flatArr.count)")
         Swift.print("flatArr: " + "\(flatArr)")
         /*
