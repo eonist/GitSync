@@ -121,3 +121,11 @@ extension RepoListTestView{
     }
 
 }
+
+class ContextMenu:NSMenu{
+    init() {
+        super.init(title:"Contextual menu")
+    }
+    
+    required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+}
