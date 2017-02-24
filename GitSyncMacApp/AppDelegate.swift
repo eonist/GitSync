@@ -35,10 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         xmlStr += "</items>"
         
         let arr:[Any] = XMLParser.arr(xmlStr.xml)//[0,[1],[[2],[3]]]
-        
-        
-        
-        
+    
         /**
          *
          */
