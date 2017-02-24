@@ -72,7 +72,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //let arr:[Any] = [[[1],[2,3]],[[4,5],[6]]]
         
         //let x2:[Int] = arr.recursiveFlatmap()
-        //Swift.print(x2)
+        //Swift.print(x2)//1,2,3,4,5,6
     }
     /**
      *
@@ -130,17 +130,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
-extension Collection {
-    func recursiveFlatmap<T>() -> [T] {
-        var results = [T]()
-        for element in self {
-            if let sublist = element as? [Self.Generator.Element] {
-                results += sublist.recursiveFlatmap()
-            } else if let element = element as? T {
-                results.append(element)
-            }
-        }
-        return results
-    }
-}
+
 
