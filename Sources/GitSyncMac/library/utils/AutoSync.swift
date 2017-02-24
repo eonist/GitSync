@@ -8,6 +8,9 @@ class AutoSync {
      */
     static func sync(){
         let repoXML = FileParser.xml(RepoView.repoList.tildePath)
+        
+        //research how you can flatten a 3d array, see if you already have code for this in xmlparser maybe?
+        
         let repoList:[RepoItem] = XMLParser.toArray(repoXML).map{(localPath:$0["local-path"]!,interval:$0["interval"]!.int,branch:$0["branch"]!,keyChainItemName:$0["keychain-item-name"]!,broadcast:$0["broadcast"]!.bool,title:$0["title"]!,subscribe:$0["subscribe"]!.bool,autoSync:$0["auto-sync"]!.bool,remotePath:$0["remote-path"]!)}
         //Swift.print("repoList.count: " + "\(repoList.count)")
         //Swift.print("repoList[0]: " + "\(repoList[0])")
