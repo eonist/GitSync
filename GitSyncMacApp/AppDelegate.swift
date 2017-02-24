@@ -28,6 +28,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         var xmlStr = "<items>"
         xmlStr += "<item title=\"orange\" property=\"harry\"/>"
+        xmlStr += "<items>"
+        xmlStr += "<item title=\"blueberry\" property=\"John\"/>"
+        xmlStr += "</items>"
         xmlStr += "<item title=\"blue\" property=\"na\"/>"
         xmlStr += "</items>"
         
