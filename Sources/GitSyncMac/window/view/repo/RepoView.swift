@@ -23,23 +23,10 @@ class RepoView:Element {
         }
         let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
         treeList = addSubView(SliderTreeList(140, 192, 24, Node(xml),self))
-        treeList!.event = onTreeListEvent//add event listener
         //list = addSubView(List(width, height-24, NaN, RepoView.dp,self))
         //if(RepoView.selectedListItemIndex != -1){list!.selectAt(RepoView.selectedListItemIndex)}
     }
-    func onTreeListEvent(event:Event) {//adds local event handler
-        //Swift.print("event: " + "\(event)")
-        if(event.type == SelectEvent.select && event.immediate === treeList){
-            //Swift.print("event.origin: " + "\(event.origin)")
-            let selectedIndex:Array = TreeListParser.selectedIndex(treeList!)
-            Swift.print("RepoView.onTreeListEvent() selectedIndex: " + "\(selectedIndex)")
-            //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
-            let selectedXML:XML = XMLParser.childAt(treeList!.node.xml, selectedIndex)!
-            //print("selectedXML: " + selectedXML);
-            //Swift.print("selectedXML.toXMLString():")
-            //Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
-        }
-    }
+    
     /*
     func onAddButtonClick(){
         Swift.print("addButton.click")
@@ -65,10 +52,21 @@ class RepoView:Element {
     }
      */
     override func onEvent(_ event:Event) {
-        if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
+        //if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
         //else if(event.type == ButtonEvent.upInside && event.origin === topBar!.backButton){onBackButtonClick()}
-        else if(event.type == ListEvent.select){onListSelect()}
+        //else if(event.type == ListEvent.select){onListSelect()}
         //else if(event.type == SelectEvent.select && event.immediate === list){super.onEvent(event)}//forward this event to the parent
+        
+        if(event.type == SelectEvent.select && event.immediate === treeList){
+            //Swift.print("event.origin: " + "\(event.origin)")
+            let selectedIndex:Array = TreeListParser.selectedIndex(treeList!)
+            Swift.print("RepoView.onTreeListEvent() selectedIndex: " + "\(selectedIndex)")
+            //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
+            //let selectedXML:XML = XMLParser.childAt(treeList!.node.xml, selectedIndex)!
+            //print("selectedXML: " + selectedXML);
+            //Swift.print("selectedXML.toXMLString():")
+            //Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
+        }
     }
 }
 
