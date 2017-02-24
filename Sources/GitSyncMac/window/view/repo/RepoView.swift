@@ -47,6 +47,8 @@ class RepoView:Element {
         Swift.print("onBackButtonClick()")
         Navigation.setView(MenuView.commits)
     }
+     */
+
     func onListSelect(){
         Sounds.play?.play()
         Navigation.setView("\(RepoDetailView.self)")
@@ -54,7 +56,6 @@ class RepoView:Element {
         let repoItem:Dictionary<String,String> = list!.dataProvider.getItemAt(RepoView.selectedListItemIndex)!
         (Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
     }
-     */
     override func onEvent(_ event:Event) {
         //if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
         //else if(event.type == ButtonEvent.upInside && event.origin === topBar!.backButton){onBackButtonClick()}
@@ -70,6 +71,7 @@ class RepoView:Element {
             //print("selectedXML: " + selectedXML);
             //Swift.print("selectedXML.toXMLString():")
             //Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
+            onListSelect()
         }else if(event.type == ButtonEvent.rightMouseDown){
             contextMenu!.rightClickItemIdx = TreeListParser.index(treeList!, event.origin as! NSView)
             Swift.print("RightMouseDown() rightClickItemIdx: " + "\(contextMenu!.rightClickItemIdx)")
