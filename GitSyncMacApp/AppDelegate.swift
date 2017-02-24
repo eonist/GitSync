@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         xmlStr += "<item title=\"blue\" property=\"na\"/>"
         xmlStr += "</items>"
         
-        let arr:[Any] = [["a"],[["b","c"],"d"]]//XMLParser.arr(xmlStr.xml)//[0,[1],[[2],[3]]]
+        let arr:[Any] = [["title":"a"],[[["title":"b"],["title":"c"]],["title":"d"]]]//XMLParser.arr(xmlStr.xml)//[0,[1],[[2],[3]]]
     
         /**
          *
