@@ -11,8 +11,9 @@ class RepoView:Element {
     //var list:List?
     static var selectedListItemIndex:[Int] = []
     //static var dp:DataProvider?
-    static var xml:XML?
-    static var treeList:TreeList?
+    
+    static var node:Node?
+    var treeList:TreeList?// {return RepoView.list}
     var contextMenu:ContextMenu?
     
     override func resolveSkin() {
@@ -21,11 +22,11 @@ class RepoView:Element {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()//
         //topBar = addSubView(TopBar(width-12,44,self))
         
-        if(RepoView.xml == nil){/*loads 1 time*/
-            RepoView.xml = FileParser.xml(RepoView.repoList.tildePath)//
-            //RepoView.dp = DataProvider(xml)
+        if(RepoView.node == nil){/*loads 1 time*/
+            let xml = FileParser.xml(RepoView.repoList.tildePath)//
+            RepoView.node = Node(xml)
         }
-        treeList = addSubView(SliderTreeList(width, height-24, 24, Node(RepoView.xml!),self))
+        treeList = addSubView(SliderTreeList(width, height-24, 24, RepoView.node!,self))
         contextMenu = ContextMenu(treeList!)
         //list = addSubView(List(width, height-24, NaN, RepoView.dp,self))
         //if(RepoView.selectedListItemIndex != -1){list!.selectAt(RepoView.selectedListItemIndex)}
