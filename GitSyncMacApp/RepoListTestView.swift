@@ -3,12 +3,6 @@ import Cocoa
 @testable import Element
 @testable import GitSyncMac
 
-//Continue here: 
-    //1. Draw prompt windows for GitSync, Unified, easy to use.
-    //2. Implement promt windows for TreeListRightCLick rename and new file and folder and delete
-    //3. A templating system for promts?
-    //4. Content in promt must be RBSlideable
-
 class RepoListTestView:TitleView{
     var treeList:TreeList?
     var rightClickItemIdx:[Int]?
@@ -97,10 +91,6 @@ extension RepoListTestView{
         treeList!.node.addAt(newIdx(idx), "<item title=\"New repo\"/>".xml)
         Swift.print("Promt repo name popup")
     }
-    func rename(sender: AnyObject) {
-        Swift.print("rename")
-        Swift.print("Promt rename popup")
-    }
     func cut(sender: AnyObject) {
         Swift.print("cut")
         let idx = rightClickItemIdx!
@@ -122,7 +112,7 @@ extension RepoListTestView{
     func popUpMenu(_ event:NSEvent) {
         Swift.print("popUpMenu: " + "\(popUpMenu)" )
         let menu = NSMenu(title: "Contextual menu")
-        let menuItems:[(title:String,selector:Foundation.Selector)] = [("New folder", #selector(newFolder)),("New repo", #selector(newRepo)),("Rename", #selector(rename)),("Cut", #selector(cut)),("Paste", #selector(paste)),("Delete", #selector(delete))]
+        let menuItems:[(title:String,selector:Foundation.Selector)] = [("New folder", #selector(newFolder)),("New repo", #selector(newRepo)),("Cut", #selector(cut)),("Paste", #selector(paste)),("Delete", #selector(delete))]
         menuItems.forEach{
             let menuItem = NSMenuItem(title: $0.title, action: $0.selector, keyEquivalent: "")
             menu.addItem(menuItem)
