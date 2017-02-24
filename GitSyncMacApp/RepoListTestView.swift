@@ -70,14 +70,9 @@ class ContextMenu:NSMenu{
         menuItems.forEach{
             let menuItem = NSMenuItem(title: $0.title, action: $0.selector, keyEquivalent: "")
             self.addItem(menuItem)
+            menuItem.target = self
         }
     }
-    required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
-}
-/**
- * Right click Context menu methods
- */
-extension ContextMenu{
     /**
      * TODO: A bug is that when you add a folder and its the last item then the list isnt resized
      */
@@ -128,4 +123,11 @@ extension ContextMenu{
         let idx = rightClickItemIdx!
         _ = treeList.node.removeAt(idx)
     }
+    required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+}
+/**
+ * Right click Context menu methods
+ */
+extension ContextMenu{
+    
 }
