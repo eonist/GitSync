@@ -37,6 +37,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         let arr = XMLParser.arr(xmlStr.xml)
+        Swift.print("arr: " + "\(arr)")
         Swift.print("arr.count: " + "\(arr.count)")
         Swift.print("arr[1].count: " + "\(arr[1].count)")
     }
