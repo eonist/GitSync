@@ -25,7 +25,7 @@ class RepoView:Element {
             RepoView.xml = FileParser.xml(RepoView.repoList.tildePath)//
             //RepoView.dp = DataProvider(xml)
         }
-        treeList = addSubView(SliderTreeList(width, 200/*height-24*/, NaN, Node(RepoView.xml!),self))
+        treeList = addSubView(SliderTreeList(width, height-24, 24, Node(RepoView.xml!),self))
         contextMenu = ContextMenu(treeList!)
         //list = addSubView(List(width, height-24, NaN, RepoView.dp,self))
         //if(RepoView.selectedListItemIndex != -1){list!.selectAt(RepoView.selectedListItemIndex)}
