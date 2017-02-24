@@ -11,7 +11,7 @@ class RepoView:Element {
     static var xml:XML?
     //var list:List?
     var treeList:TreeList?
-    static var selectedListItemIndex:Int = -1
+    //static var selectedListItemIndex:Int = -1
     override func resolveSkin() {
         Swift.print("RepoView.resolveSkin()")
         
