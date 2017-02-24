@@ -71,7 +71,9 @@ extension RepoListTestView{
 class ContextMenu:NSMenu{
     var rightClickItemIdx:[Int]?
     var clipBoard:XML?
-    init() {
+    var treeList:TreeList
+    init(_ treeList:TreeList) {
+        self.treeList = treeList
         super.init(title:"Contextual menu")
         let menuItems:[(title:String,selector:Foundation.Selector)] = [("New folder", #selector(newFolder)),("New repo", #selector(newRepo)),("Cut", #selector(cut)),("Paste", #selector(paste)),("Delete", #selector(delete))]
         menuItems.forEach{
