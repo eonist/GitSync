@@ -55,7 +55,7 @@ class RepoView:Element {
         RepoView.selectedListItemIndex = selectedIndex
         
         let repoItem:Dictionary<String,String> = NodeParser.dataAt(treeList!.node, selectedIndex)
-        //(Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
+        (Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
     }
     override func onEvent(_ event:Event) {
         //if(event.type == ButtonEvent.upInside && event.origin === topBar!.addButton){onAddButtonClick()}
