@@ -43,12 +43,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             var result:[T] = []
             Swift.print("arr.count: " + "\(arr.count)")
             for i in 0..<arr.count{
-                if(arr[i] is AnyArray){
-                    let a:[AnyObject] = arr[i] as! [AnyObject]
+                let item:AnyObject = arr[i]
+                if(item is AnyArray){
+                    let a:[AnyObject] = item as! [AnyObject]
                     result += recFlatMap(a)
                 }else{
-                    if(arr[i]["xml"] != nil && arr[i]["xml"] is AnyArray){
-                        result += recFlatMap(arr[i]["xml"] as! [AnyObject])
+                    if(item["xml"] != nil && item["xml"] is AnyArray){
+                        let temp:[AnyObject] = item["xml"]
+                        result += recFlatMap(temp)
                     }else{
                         result.append(arr[i] as! T)
                     }
