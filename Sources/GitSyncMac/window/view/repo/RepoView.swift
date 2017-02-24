@@ -54,7 +54,7 @@ class RepoView:Element {
         let selectedIndex:Array = TreeListParser.selectedIndex(treeList!)
         RepoView.selectedListItemIndex = selectedIndex
         
-        //let repoItem:Dictionary<String,String> = NodeParser
+        let repoItem:Dictionary<String,String> = NodeParser.dataAt(treeList!.node, selectedIndex)
         //(Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
     }
     override func onEvent(_ event:Event) {
