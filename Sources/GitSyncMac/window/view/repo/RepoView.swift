@@ -1,17 +1,20 @@
 import Foundation
 @testable import Utils
 @testable import Element
+@testable import GitSyncMac
 /**
  * TODO: should remember previous selected item between transitions
  */
 class RepoView:Element {
     static var repoList:String = "~/Desktop/repo2.xml"//"~/Desktop/assets/xml/list.xml"
     var topBar:TopBar?
+    //var list:List?
+    //static var selectedListItemIndex:Int = -1
     //static var dp:DataProvider?
     static var xml:XML?
-    //var list:List?
     var treeList:TreeList?
-    //static var selectedListItemIndex:Int = -1
+    var contextMenu:ContextMenu?
+    
     override func resolveSkin() {
         Swift.print("RepoView.resolveSkin()")
         
@@ -23,6 +26,7 @@ class RepoView:Element {
             //RepoView.dp = DataProvider(xml)
         }
         treeList = addSubView(SliderTreeList(140, 192, 24, Node(RepoView.xml!),self))
+        contextMenu = ContextMenu(treeList!)
         //list = addSubView(List(width, height-24, NaN, RepoView.dp,self))
         //if(RepoView.selectedListItemIndex != -1){list!.selectAt(RepoView.selectedListItemIndex)}
     }
@@ -66,6 +70,10 @@ class RepoView:Element {
             //print("selectedXML: " + selectedXML);
             //Swift.print("selectedXML.toXMLString():")
             //Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
+        }else if(event.type == ButtonEvent.rightMouseDown){
+            contextMenu!.rightClickItemIdx = TreeListParser.index(treeList!, event.origin as! NSView)
+            Swift.print("RightMouseDown() rightClickItemIdx: " + "\(contextMenu!.rightClickItemIdx)")
+            NSMenu.popUpContextMenu(contextMenu!, with: (event as! ButtonEvent).event!, for: self)
         }
     }
 }
