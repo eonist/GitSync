@@ -9,7 +9,7 @@ class RepoView:Element {
     static var repoList:String = "~/Desktop/repo2.xml"//"~/Desktop/assets/xml/list.xml"
     var topBar:TopBar?
     //var list:List?
-    //static var selectedListItemIndex:Int = -1
+    static var selectedListItemIndex:[Int] = []
     //static var dp:DataProvider?
     static var xml:XML?
     var treeList:TreeList?
@@ -48,11 +48,13 @@ class RepoView:Element {
         Navigation.setView(MenuView.commits)
     }
      */
-
     func onListSelect(){
         Sounds.play?.play()
         Navigation.setView("\(RepoDetailView.self)")
-        RepoView.selectedListItemIndex = list!.selectedIndex
+        let selectedIndex:Array = TreeListParser.selectedIndex(treeList!)
+        RepoView.selectedListItemIndex = selectedIndex
+        //let selectedXML:XML = XMLParser.childAt(treeList!.node.xml, selectedIndex)!
+        //print("selectedXML: " + selectedXML);
         let repoItem:Dictionary<String,String> = list!.dataProvider.getItemAt(RepoView.selectedListItemIndex)!
         (Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
     }
@@ -67,8 +69,7 @@ class RepoView:Element {
             let selectedIndex:Array = TreeListParser.selectedIndex(treeList!)
             Swift.print("RepoView.onTreeListEvent() selectedIndex: " + "\(selectedIndex)")
             //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
-            //let selectedXML:XML = XMLParser.childAt(treeList!.node.xml, selectedIndex)!
-            //print("selectedXML: " + selectedXML);
+            
             //Swift.print("selectedXML.toXMLString():")
             //Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
             onListSelect()
