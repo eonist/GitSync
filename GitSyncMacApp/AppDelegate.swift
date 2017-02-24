@@ -46,8 +46,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             var result:[T] = []
             Swift.print("arr.count: " + "\(arr.count)")
             arr.forEach{
-                if($0 is AnyArray){
-                    result += recFlatMap(arr)
+                if($0 is Array<Any>){
+                    result += recFlatMap($0 as! Array<Any>)
                 }else{
                     result.append($0 as! T)
                 }
