@@ -47,11 +47,11 @@ class RepoListTestView:TitleView{
             //print("selectedXML: " + selectedXML);
             Swift.print("selectedXML.toXMLString():")
             Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
-        }else if(event.type == ButtonEvent.rightMouseDown){
-            contextMenu!.rightClickItemIdx = TreeListParser.index(treeList!, event.origin as! NSView)
-            Swift.print("RightMouseDown() rightClickItemIdx: " + "\(contextMenu!.rightClickItemIdx)")
-            NSMenu.popUpContextMenu(contextMenu!, with: (event as! ButtonEvent).event!, for: self)
-        }
+        }/*else if(event.type == ButtonEvent.rightMouseDown){
+         contextMenu!.rightClickItemIdx = TreeListParser.index(treeList!, event.origin as! NSView)
+         Swift.print("RightMouseDown() rightClickItemIdx: " + "\(contextMenu!.rightClickItemIdx)")
+         NSMenu.popUpContextMenu(contextMenu!, with: (event as! ButtonEvent).event!, for: self)
+         }*/
     }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
