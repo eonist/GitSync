@@ -36,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let arr = XMLParser.arr(xmlStr.xml)
         
-        let flatArr:[[String:Any]] = arr.recursiveFlatmap()
+        let flatArr:[AnyDictionary] = arr.recursiveFlatmap()
         Swift.print("flatArr.count: " + "\(flatArr.count)")
         flatArr.forEach{
             Swift.print($0)
