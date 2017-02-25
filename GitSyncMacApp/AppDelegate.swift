@@ -29,7 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let localPath:String = repoList[1].localPath
         Swift.print("localPath: " + "\(localPath)")
         
-        rateOfCommits(repoList)
+        let repoCommits:[[Int]] = rateOfCommits(repoList)
     }
     static func rateOfCommits(_ repoList:[RepoItem] )->[[Int]]{
         var repoCommits:[[Int]] = []
