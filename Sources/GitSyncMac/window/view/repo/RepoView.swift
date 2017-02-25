@@ -32,7 +32,13 @@ class RepoView:Element {
         RepoView.selectedListItemIndex = selectedIndex
         //TODO: Use the RepoItem on the bellow line see AutoSync class for implementation
         let repoItemDict:[String:String] = NodeParser.dataAt(treeList!.node, selectedIndex)
-        let repoItem:RepoItem = RepoUtils.repoItem(repoItemDict)
+        let repoItem:RepoItem
+        if(repoItemDict["hasChildren"] != nil || repoItemDict["isOpen"] != nil){
+            repoItem = (localPath:"",interval:0,branch:"",keyChainItemName:"",broadcast:false,title:dict["title"]!,subscribe:false,autoSync:false,remotePath:"")
+        }else{
+            repoItem = RepoUtils.repoItem(repoItemDict)
+        }
+        
         (Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
     }
     override func onEvent(_ event:Event) {
