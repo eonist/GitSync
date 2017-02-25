@@ -68,7 +68,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         //Continue here:
-            //A problem is that 
+            //A problem is that the Dicts get flattened too, figure this out and your set
         
         /*
          
