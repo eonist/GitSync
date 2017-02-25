@@ -22,7 +22,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let arr:[String] = ["a","b","b","c","b","d","c"]
         var z:[String] = []
         z = arr.filter{
-            z.index(of: $0) != nil
+            let idx = z.index(of: $0)
+            Swift.print("idx: " + "\(idx)")
+            Swift.print("z.count: " + "\(z.count)")
+            return idx == nil
         }
         Swift.print("z: " + "\(z)")
         
