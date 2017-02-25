@@ -45,14 +45,17 @@ class AutoSync {
     }
 }
 extension AutoSync{
+    /**
+     * Returns an array of RepoItems derived from a nested xml Structure
+     */
     var repoList:[RepoItem]{
         let repoXML:XML
         if(RepoView.node != nil){
             repoXML = RepoView.node!.xml
         }else{
-            repoXML = FileParser.xml(RepoView.repoList.tildePath)//TODO: this should be cached
+            repoXML = FileParser.xml(RepoView.repoList.tildePath)
         }
-        let arr:[Any] = XMLParser.arr(repoXML)
+        let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
         let flatArr:[[String:String]] = arr.recursiveFlatmap()
         /*
          Swift.print("flatArr.count: " + "\(flatArr.count)")
@@ -61,8 +64,10 @@ extension AutoSync{
          }
          */
         let repoList:[RepoItem] = flatArr.filter{
-            ($0["hasChildren"] == nil) && ($0["isOpen"] == nil)//skip folders
-            }.map{(localPath:$0["local-path"]!,interval:$0["interval"]!.int,branch:$0["branch"]!,keyChainItemName:$0["keychain-item-name"]!,broadcast:$0["broadcast"]!.bool,title:$0["title"]!,subscribe:$0["subscribe"]!.bool,autoSync:$0["auto-sync"]!.bool,remotePath:$0["remote-path"]!)}
+            ($0["hasChildren"] == nil) && ($0["isOpen"] == nil)//skips folders
+            }.map{//create array of tuples
+                (localPath:$0["local-path"]!,interval:$0["interval"]!.int,branch:$0["branch"]!,keyChainItemName:$0["keychain-item-name"]!,broadcast:$0["broadcast"]!.bool,title:$0["title"]!,subscribe:$0["subscribe"]!.bool,autoSync:$0["auto-sync"]!.bool,remotePath:$0["remote-path"]!)
+        }
         //Swift.print("repoList.count: " + "\(repoList.count)")
         //Swift.print("repoList[0]: " + "\(repoList[0])")
         return repoList
