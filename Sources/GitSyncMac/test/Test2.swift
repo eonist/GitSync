@@ -43,6 +43,7 @@ class Test2 {
         Swift.print("localPath: " + "\(localPath)")
         
         let commitCount = GitUtils.commitCount(localPath, after: gitTime)
+        //let commitCount = GitUtils.commitCount
         Swift.print("commitCount: " + "\(commitCount)")
     }
     /**
