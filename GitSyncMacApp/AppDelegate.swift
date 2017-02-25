@@ -75,6 +75,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if(RepoView.node != nil){//make sure the data has been read and written to first
             _ = FileModifier.write(RepoView.repoList.tildePath, RepoView.node!.xml.xmlString)
+            //Swift.print("RepoList was saved")
         }
         print("Good-bye")
     }
