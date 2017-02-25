@@ -51,7 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return repoCommits
     }
     /**
-     * Returns an commitCount for 7 ddays in an Array of 7 Int from PARAM: repoItem
+     * Returns an commitCount for 7 days in an Array of 7 Int from PARAM: repoItem
      */
     func rateOfCommits(_ repoItem:RepoItem) -> [Int]{
         Swift.print("repoItem.title: \(repoItem.title) localPath: \(repoItem.localPath)")
