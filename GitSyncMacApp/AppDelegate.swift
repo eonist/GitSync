@@ -19,18 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //_ = Test2()
         //rateOfCommitsTest()
         
-        let arr:[String] = ["a","b","b","c","b","d","c"]
-        var z:[String] = []
-        arr.forEach{
-            if(z.index(of: $0) == nil) {z.append($0)}
-        }
-        Swift.print("z: " + "\(z)")//["a", "b", "c", "d"]
-        
-        /*
-        var z:Array = arr.filter(
-        func (a:*,b:int,c:Array)->Bool {
-            return ((z ? z : z = Array()).indexOf(a) >= 0 ? false : (z.append(a) >= 0)); }, self)//;  (more functional, maybe faster?)
-        */
+    
         //initApp()
         
         //initTestWin()
@@ -42,6 +31,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      */
     func rateOfCommitsTest(){
         let repoList:[RepoItem] = RepoUtils.repoList//.filter{$0.title == "GitSync - macOS"}
+        
+        
+        var result:[RepoItem] = []
+        repoList.forEach{
+            if(result.index(of: $0) == nil) {result.append($0)}
+        }
+        
+        
+        
         let repoCommits:[[Int]] = rateOfCommits(repoList)
         Swift.print("repoCommits.count: " + "\(repoCommits.count)")
         var result:[Int] = [0,0,0,0,0,0,0]//7 items
