@@ -19,12 +19,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //_ = Test2()
         //rateOfCommitsTest()
         
-        var arr:[String] = ["a","b","b","c","b","d","c"]
+        let arr:[String] = ["a","b","b","c","b","d","c"]
         var z:[String] = []
         z = arr.filter{
-            z.index(of: $0)
+            z.index(of: $0) != nil
         }
-        //Swift.print("z: " + "\(z)")
+        Swift.print("z: " + "\(z)")
         
         /*
         var z:Array = arr.filter(
