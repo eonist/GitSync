@@ -42,7 +42,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         flatArr.forEach{
             Swift.print("$0: " + "\($0)")
         }
-        let repoList:[RepoItem] = flatArr.map{(localPath:$0["local-path"]!,interval:$0["interval"]!.int,branch:$0["branch"]!,keyChainItemName:$0["keychain-item-name"]!,broadcast:$0["broadcast"]!.bool,title:$0["title"]!,subscribe:$0["subscribe"]!.bool,autoSync:$0["auto-sync"]!.bool,remotePath:$0["remote-path"]!)}
+        let repoList:[RepoItem] = flatArr.map{
+            (localPath:$0["local-path"]!,interval:$0["interval"]!.int,branch:$0["branch"]!,keyChainItemName:$0["keychain-item-name"]!,broadcast:$0["broadcast"]!.bool,title:$0["title"]!,subscribe:$0["subscribe"]!.bool,autoSync:$0["auto-sync"]!.bool,remotePath:$0["remote-path"]!)
+        }
         Swift.print("repoList.count: " + "\(repoList.count)")
     }
     /**
