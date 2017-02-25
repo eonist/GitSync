@@ -18,93 +18,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         //_ = Test()
         //initApp()
-        //recursiveFlatMapTest()
-        flattenNestedXMLTest()
         
         //initTestWin()
         //AutoSync.sync()
         //refreshReposTest()
-        /*let a:Range<Int> = 0..<10
-         let b:Range<Int> = 10..<15
-         let diff = RangeParser.difference(a, b)
-         Swift.print("diff: " + "\(diff)")*/
+        
         
     }
-    /**
-     *
-     */
-    func flattenNestedXMLTest(){
-        let repoXML = FileParser.xml(RepoView.repoList.tildePath)//TODO: this should be cached
-        
-        //research how you can flatten a 3d array, see if you already have code for this in xmlparser maybe?
-        let temp:[Any] = XMLParser.arr(repoXML)
-        let flatArr:[[String:String]] = temp.recursiveFlatmap()
-        Swift.print("flatArr.count: " + "\(flatArr.count)")
-        flatArr.forEach{
-            Swift.print("$0: " + "\($0)")
-        }
-        let repoList:[RepoItem] = flatArr.filter{
-            ($0["hasChildren"] == nil) && ($0["isOpen"] == nil)//skip folders
-            }.map{(localPath:$0["local-path"]!,interval:$0["interval"]!.int,branch:$0["branch"]!,keyChainItemName:$0["keychain-item-name"]!,broadcast:$0["broadcast"]!.bool,title:$0["title"]!,subscribe:$0["subscribe"]!.bool,autoSync:$0["auto-sync"]!.bool,remotePath:$0["remote-path"]!)}
-        Swift.print("repoList.count: " + "\(repoList.count)")
-        repoList.forEach{
-            Swift.print("$0.title: " + "\($0.title)")
-        }
-    }
-    /**
-     *
-     */
-    func recursiveFlatMapTest(){
-        
-        var xmlStr = "<items>"
-        xmlStr += "<item title=\"orange\" property=\"harry\"/>"
-        xmlStr += "<items>"
-        xmlStr += "<item title=\"blueberry\" property=\"John\" color=\"blue\"/>"
-        xmlStr += "</items>"
-        xmlStr += "<item title=\"blue\" property=\"na\"/>"
-        xmlStr += "</items>"
-        
-        //let arr:[Any] = [["title":"a"],[[["title":"b"],["title":"c"]],["title":"d"]]]//
-        let arr:[Any] = XMLParser.arr(xmlStr.xml)//[0,[1],[[2],[3]]]
-        
-        /**
-         *
-         */
-        func recFlatMap<T>(_ arr:[AnyObject]) -> [T]{
-            var result:[T] = []
-            Swift.print("arr.count: " + "\(arr.count)")
-            arr.forEach{
-                if($0 is AnyArray){
-                    let a:[AnyObject] = $0 as! [AnyObject]
-                    result += recFlatMap(a)
-                }else{
-                    result.append($0 as! T)
-                }
-            }
-            return result
-        }
-        let flatArr:[[String:String]] = arr.recursiveFlatmap()//recFlatMap(arr as [AnyObject])
-        Swift.print("flatArr.count: " + "\(flatArr.count)")
-        //Swift.print("flatArr: " + "\(flatArr)")
-        flatArr.forEach{
-            Swift.print("$0: " + "\($0)")
-        }
-        
-        //Continue here:
-            //A problem is that the Dicts get flattened too, figure this out and your set👌
-        
-        /*
-         
-         Swift.print("arr: " + "\(arr)")
-         Swift.print("arr.count: " + "\(arr.count)")
-         Swift.print("arr[1].count: " + "\(arr[1].count)")
-         */
-        
-        //let arr:[Any] = [[[1],[2,3]],[[4,5],[6]]]
-        
-        //let x2:[Int] = arr.recursiveFlatmap()
-        //Swift.print(x2)//1,2,3,4,5,6
-    }
+    
     /**
      *
      */
