@@ -21,14 +21,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let arr:[String] = ["a","b","b","c","b","d","c"]
         var z:[String] = []
-        _ = arr.filter{
-            if(z.index(of: $0) == nil){
-                z.append($0)
-                return true
-            }else {
-               return false
-            }
+        arr.forEach{
             
+            if(z.index(of: $0) == nil) {z.append($0)}
         }
         Swift.print("z: " + "\(z)")
         
