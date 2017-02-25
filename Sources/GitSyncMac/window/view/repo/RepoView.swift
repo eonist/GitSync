@@ -27,8 +27,8 @@ class RepoView:Element {
         //list = addSubView(List(width, height-24, NaN, RepoView.dp,self))
         //if(RepoView.selectedListItemIndex != -1){list!.selectAt(RepoView.selectedListItemIndex)}
     }
-    
-    func onListSelect(){
+    func onTreeListSelect(){
+        Swift.print("RepoView.onTreeListSelect()")
         //Sounds.play?.play()
         Navigation.setView("\(RepoDetailView.self)")
         let selectedIndex:Array = TreeListParser.selectedIndex(treeList!)
@@ -43,10 +43,9 @@ class RepoView:Element {
             let selectedIndex:Array = TreeListParser.selectedIndex(treeList!)
             Swift.print("RepoView.onTreeListEvent() selectedIndex: " + "\(selectedIndex)")
             //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
-            
             //Swift.print("selectedXML.toXMLString():")
             //Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
-            onListSelect()
+            onTreeListSelect()
         }else if(event.type == ButtonEvent.rightMouseDown){
             contextMenu!.rightClickItemIdx = TreeListParser.index(treeList!, event.origin as! NSView)
             Swift.print("RightMouseDown() rightClickItemIdx: " + "\(contextMenu!.rightClickItemIdx)")
