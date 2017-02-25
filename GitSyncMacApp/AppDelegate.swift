@@ -32,9 +32,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let repoCommits:[[Int]] = rateOfCommits(repoList)
         Swift.print("repoCommits.count: " + "\(repoCommits.count)")
         var result:[Int] = [0,0,0,0,0,0,0]//7 items
-        repoCommits.forEach{//fires 9 times
-            for i in 0..<7{
-                result[i] = (result[i] + $0[i])
+        for e in 0..<repoCommits.count{//fires 9 times
+            let repoCommit = repoCommits[e]
+            for i in 0..<repoCommit.count{//fires 7 times
+                result[i] = (result[i] + repoCommit[i])
             }
         }
         Swift.print("result: " + "\(result)")
