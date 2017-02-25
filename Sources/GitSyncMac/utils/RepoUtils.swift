@@ -4,8 +4,6 @@ import Foundation
  * Utility methods for parsing the repository.xml file
  */
 class RepoUtils{
-	
-	
     /**
      * Returns an array of RepoItems derived from a nested xml Structure
      */
@@ -34,7 +32,7 @@ class RepoUtils{
         return repoList
     }
     /**
-     * Returns a RepoItem
+     * Conforms repoItem data and returns a RepoItem that can be used with git
      * TODO: if the interval values is not set, then use default values
      * TODO: test if the full/partly file path still works?
      */
