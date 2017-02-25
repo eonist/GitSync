@@ -16,12 +16,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         Swift.print("GitSync - The future is automated")//Simple git automation for macOS, The autonomouse git client
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
-        _ = Test2()
+        //_ = Test2()
+        rateOfCommitsTest()
         //initApp()
         
         //initTestWin()
         //AutoSync.sync()
         //refreshReposTest()
+    }
+    static func rateOfCommitsTest(){
+        let repoList:[RepoItem] = RepoUtils.repoList
+        let localPath:String = repoList[1].localPath
+        Swift.print("localPath: " + "\(localPath)")
+        
+        //let commitCount = GitUtils.commitCount(localPath, after: gitTime)
+        
+        let commitCount = GitUtils.commitCount(localPath, since: GitDateUtils.gitTime(Date().offsetByDays(-14)), until: GitDateUtils.gitTime(Date()))
+        Swift.print("commitCount: " + "\(commitCount)")
     }
     /**
      *
