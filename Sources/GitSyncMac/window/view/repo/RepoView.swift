@@ -24,6 +24,23 @@ class RepoView:Element {
         contextMenu = ContextMenu(treeList!)
         if(RepoView.selectedListItemIndex.count > 0){TreeListModifier.selectAt(treeList!, RepoView.selectedListItemIndex)}
     }
+    override func onEvent(_ event:Event) {
+        if(event.type == SelectEvent.select && event.immediate === treeList){
+            //Swift.print("event.origin: " + "\(event.origin)")
+            let selectedIndex:Array = TreeListParser.selectedIndex(treeList!)
+            Swift.print("RepoView.onTreeListEvent() selectedIndex: " + "\(selectedIndex)")
+            //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
+            //Swift.print("selectedXML.toXMLString():")
+            //Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
+            onTreeListSelect()
+        }else if(event.type == ButtonEvent.rightMouseDown){
+            contextMenu!.rightClickItemIdx = TreeListParser.index(treeList!, event.origin as! NSView)
+            Swift.print("RightMouseDown() rightClickItemIdx: " + "\(contextMenu!.rightClickItemIdx)")
+            NSMenu.popUpContextMenu(contextMenu!, with: (event as! ButtonEvent).event!, for: self)
+        }
+    }
+}
+extension RepoView{
     func onTreeListSelect(){
         Swift.print("RepoView.onTreeListSelect()")
         //Sounds.play?.play()
@@ -40,21 +57,6 @@ class RepoView:Element {
             repoItem = RepoUtils.repoItem(repoItemDict)
         }
         (Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
-    }
-    override func onEvent(_ event:Event) {
-        if(event.type == SelectEvent.select && event.immediate === treeList){
-            //Swift.print("event.origin: " + "\(event.origin)")
-            let selectedIndex:Array = TreeListParser.selectedIndex(treeList!)
-            Swift.print("RepoView.onTreeListEvent() selectedIndex: " + "\(selectedIndex)")
-            //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
-            //Swift.print("selectedXML.toXMLString():")
-            //Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
-            onTreeListSelect()
-        }else if(event.type == ButtonEvent.rightMouseDown){
-            contextMenu!.rightClickItemIdx = TreeListParser.index(treeList!, event.origin as! NSView)
-            Swift.print("RightMouseDown() rightClickItemIdx: " + "\(contextMenu!.rightClickItemIdx)")
-            NSMenu.popUpContextMenu(contextMenu!, with: (event as! ButtonEvent).event!, for: self)
-        }
     }
 }
 /**
