@@ -17,7 +17,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("GitSync - The future is automated")//Simple git automation for macOS, The autonomouse git client
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         //_ = Test2()
-        rateOfCommitsTest()
+        //rateOfCommitsTest()
+        
+        var arr:Array = ["a","b","b","c","b","d","c"]
+        var z:Array = arr
+        Swift.print("z: " + "\(z)")
+        /*
+        var z:Array = arr.filter(
+        func (a:*,b:int,c:Array)->Bool {
+            return ((z ? z : z = Array()).indexOf(a) >= 0 ? false : (z.append(a) >= 0)); }, self)//;  (more functional, maybe faster?)
+        */
         //initApp()
         
         //initTestWin()
