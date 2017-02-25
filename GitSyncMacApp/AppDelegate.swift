@@ -34,18 +34,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         repoList.forEach{
             let localPath:String = $0.localPath
             var commits:[Int] = []
-            for i in (0..<7).reversed(){
+            for i in (0..<7).reversed(){//7 days
                 let dayOffset:Int = -i
                 let sinceDate:Date = Date().offsetByDays(dayOffset)
                 let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
                 let untilGitDate:String = GitDateUtils.gitTime(Date())
-                let commitCount = GitUtils.commitCount(localPath, since: sinceGitDate, until:untilGitDate )
-                Swift.print("commitCount: " + "\(commitCount)")
-                commits.append(commitCount)
+                let commitCount:String = GitUtils.commitCount(localPath, since: sinceGitDate, until:untilGitDate )
+                //Swift.print("commitCount: " + "\(commitCount)")
+                commits.append(commitCount.int)
             }
         }
-        
-        
     }
     /**
      *
