@@ -20,11 +20,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //initApp()
         //recursiveFlatMapTest()
         //flattenNestedXMLTest()
-        let array = ["Orange", "Apple", "Apple Juice"]
-        let filteredArray = array.filter() {
-            return $0.hasPrefix("Apple")
-            }.map{$0.lowercased()}
-        Swift.print("filteredArray: " + "\(filteredArray)")
+        let result = ["Orange", "Apple", "Apple Juice"].filter() {$0.hasPrefix("Apple")}.map{$0.lowercased()}
+        Swift.print(result)//"apple", "apple juice"
         //initTestWin()
         //AutoSync.sync()
         //refreshReposTest()
