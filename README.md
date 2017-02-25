@@ -1,6 +1,9 @@
 ![mit](https://img.shields.io/badge/License-MIT-brightgreen.svg) ![platform](https://img.shields.io/badge/Platform-macOS-blue.svg) ![Lang](https://img.shields.io/badge/Language-Swift-orange.svg) [![codebeat badge](https://codebeat.co/badges/5c7a5051-2fa6-45c1-9c2c-0db5fe70837b)](https://codebeat.co/projects/github-com-eonist-gitsyncosx)
 
 ## Progress:
+**2017-02-25**
+- AutoSync now parses 3d XML via recursiveFlatMap 
+- Implemented TreeList in RepoView 
 
 **2017-02-21**  
 - Connect the GitSync algorithm to the app  
