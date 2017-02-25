@@ -42,8 +42,9 @@ class Test2 {
         let localPath:String = repoList[1]["local-path"]!
         Swift.print("localPath: " + "\(localPath)")
         
-        let commitCount = GitUtils.commitCount(localPath, after: gitTime)
-        //let commitCount = GitUtils.commitCount
+        //let commitCount = GitUtils.commitCount(localPath, after: gitTime)
+        
+        let commitCount = GitUtils.commitCount(localPath, since: "01-Dec-2016", until: "31-Dec-2016")
         Swift.print("commitCount: " + "\(commitCount)")
     }
     /**
