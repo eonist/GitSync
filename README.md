@@ -6,12 +6,16 @@
 - Graph support for: Day,Month,Year
 
 ## Progress:
+**2017-02-26**  
+- Folders can now me renamed
+- Commit count for DateRange now works
+
 **2017-02-25**
 - AutoSync now parses 3d XML via recursiveFlatMap 
 - Implemented TreeList in RepoView 
 
 **2017-02-21**  
-- Connect the GitSync algorithm to the app  
+- Connected the GitSync algorithm to the app  
 - Commit title and desc are now escaped  
 
 ## GitSync:  
