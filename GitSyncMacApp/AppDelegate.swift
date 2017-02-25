@@ -19,9 +19,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //_ = Test()
         //initApp()
         //recursiveFlatMapTest()
-        //flattenNestedXMLTest()
-        let result = ["Orange", "Apple", "Apple Juice"].filter() {$0.hasPrefix("Apple")}.map{$0.lowercased()}
-        Swift.print(result)//"apple", "apple juice"
+        flattenNestedXMLTest()
+        
         //initTestWin()
         //AutoSync.sync()
         //refreshReposTest()
@@ -48,6 +47,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             ($0["hasChildren"] == nil) && ($0["isOpen"] == nil)
             }.map{(localPath:$0["local-path"]!,interval:$0["interval"]!.int,branch:$0["branch"]!,keyChainItemName:$0["keychain-item-name"]!,broadcast:$0["broadcast"]!.bool,title:$0["title"]!,subscribe:$0["subscribe"]!.bool,autoSync:$0["auto-sync"]!.bool,remotePath:$0["remote-path"]!)}
         Swift.print("repoList.count: " + "\(repoList.count)")
+        repoList.forEach{
+            Swift.print("$0.title: " + "\($0.title)")
+        }
     }
     /**
      *
