@@ -34,6 +34,7 @@ class RepoDetailView:Element {
         broadCastCheckBoxButton!.setChecked(repoItem.broadcast)
         subscribeCheckBoxButton!.setChecked(repoItem.subscribe)
         autoMessageCheckBoxButton!.setChecked(repoItem.autoSync)
+        autoSyncCheckBoxButton!.setChecked(repoItem.autoSync)
         //autoSyncIntervalLeverSpinner!.setValue(repoData["interval"]!.cgFloat)
     }
     /**
