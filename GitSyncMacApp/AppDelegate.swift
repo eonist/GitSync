@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("localPath: " + "\(localPath)")
         
         //let commitCount = GitUtils.commitCount(localPath, after: gitTime)
-        
+        var repoCommits:[[Int]] = []
         repoList.forEach{
             let localPath:String = $0.localPath
             var commits:[Int] = []
@@ -43,6 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //Swift.print("commitCount: " + "\(commitCount)")
                 commits.append(commitCount.int)
             }
+            repoCommits.append(commits)
         }
     }
     /**
