@@ -24,6 +24,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //AutoSync.sync()
         //refreshReposTest()
     }
+    /**
+     *
+     */
     func rateOfCommitsTest(){
         let repoList:[RepoItem] = RepoUtils.repoList
         let localPath:String = repoList[1].localPath
@@ -40,7 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("result: " + "\(result)")
     }
     /**
-     * Returns an array with 7 arrays with commits per day for PARAM: repo
+     * Returns an array with with week summaries of commit counts from PARAM: repoList
      */
     func rateOfCommits(_ repoList:[RepoItem] )->[[Int]]{
         var repoCommits:[[Int]] = []
@@ -51,7 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return repoCommits
     }
     /**
-     *
+     * Returns an commitCount for 7 ddays in an Array of 7 Int from PARAM: repoItem
      */
     func rateOfCommits(_ repoItem:RepoItem) -> [Int]{
         let localPath:String = repoItem.localPath
