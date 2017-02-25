@@ -26,14 +26,14 @@ class RepoDetailView:Element {
     /**
      * Populates the UI elements with data from the dp item
      */
-    func setRepoData(_ repoData:Dictionary<String,String>){
-        nameTextInput!.inputTextArea!.setTextValue(repoData["title"]!)
-        localPathTextInput!.inputTextArea!.setTextValue(repoData["local-path"]!)
-        remotePathTextInput!.inputTextArea!.setTextValue(repoData["remote-path"]!)
-        branchTextInput!.inputTextArea!.setTextValue(repoData["branch"]!)
-        broadCastCheckBoxButton!.setChecked(repoData["broadcast"]!.bool)
-        subscribeCheckBoxButton!.setChecked(repoData["subscribe"]!.bool)
-        autoMessageCheckBoxButton!.setChecked(repoData["auto-sync"]!.bool)
+    func setRepoData(_ repoItem:RepoItem){
+        nameTextInput!.inputTextArea!.setTextValue(repoItem.title)
+        localPathTextInput!.inputTextArea!.setTextValue(repoItem.localPath)
+        remotePathTextInput!.inputTextArea!.setTextValue(repoItem.remotePath)
+        branchTextInput!.inputTextArea!.setTextValue(repoItem.branch)
+        broadCastCheckBoxButton!.setChecked(repoItem.broadcast)
+        subscribeCheckBoxButton!.setChecked(repoItem.subscribe)
+        autoMessageCheckBoxButton!.setChecked(repoItem.autoSync)
         //autoSyncIntervalLeverSpinner!.setValue(repoData["interval"]!.cgFloat)
     }
     /**
