@@ -3,7 +3,6 @@ import Foundation
 @testable import Element
 
 class RepoDetailView:Element {
-    var topBar:RepoItemTopBar?
     var nameTextInput:TextInput?
     var localPathTextInput:TextInput?
     var remotePathTextInput:TextInput?
@@ -15,7 +14,6 @@ class RepoDetailView:Element {
     
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
-        topBar = addSubView(RepoItemTopBar(width-24,NaN,self))
         nameTextInput = addSubView(TextInput(width, 32, "Name: ", "", self))
         localPathTextInput = addSubView(TextInput(width, 32, "Local-path: ", "", self))
         remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", "", self))
@@ -64,32 +62,5 @@ class RepoDetailView:Element {
             default:
                 break;
         }
-    }
-}
-class RepoItemTopBar:Element{
-    var backButton:Button?
-    var removeButton:Button?
-    override func resolveSkin() {
-        self.skin = SkinResolver.skin(self)//super.resolveSkin()
-        backButton = addSubView(Button(NaN,NaN,self,"back"))
-        removeButton = addSubView(Button(NaN,NaN,self,"remove"))
-    }
-    /*
-    func onBackButtonClick(){
-        Swift.print("onBackButtonClick()")
-        Sounds.disable?.play()
-        Navigation.setView(MenuView.repos)
-    }
-    func onRemoveButtonClick(){
-        Swift.print("onRemoveButtonClick")
-        Sounds.delete?.play()
-        _ = RepoView.dp!.removeItemAt(RepoView.selectedListItemIndex)//remove from item from RepoView.list at the repoView.list.selectedIndex
-        RepoView.selectedListItemIndex = -1//-1 means no item is selected
-        Navigation.setView(MenuView.repos)
-    }
-    */
-    override func onEvent(_ event:Event) {
-        //if(event.assert(ButtonEvent.upInside, backButton)){onBackButtonClick()}
-        //else if(event.assert(ButtonEvent.upInside, removeButton)){onRemoveButtonClick()}
     }
 }
