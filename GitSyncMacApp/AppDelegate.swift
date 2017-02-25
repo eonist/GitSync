@@ -25,7 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //refreshReposTest()
     }
     /**
-     *
+     * CommitCount per day for all projects in the last 7 days.
      */
     func rateOfCommitsTest(){
         let repoList:[RepoItem] = RepoUtils.repoList
@@ -57,6 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      * Returns an commitCount for 7 ddays in an Array of 7 Int from PARAM: repoItem
      */
     func rateOfCommits(_ repoItem:RepoItem) -> [Int]{
+        Swift.print("repoItem.title: " + "\(repoItem.title)")
         let localPath:String = repoItem.localPath
         var commits:[Int] = []
         for i in (0..<7).reversed(){//7 days
