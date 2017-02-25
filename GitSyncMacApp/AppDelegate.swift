@@ -36,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var xmlStr = "<items>"
         xmlStr += "<item title=\"orange\" property=\"harry\"/>"
         xmlStr += "<items>"
-        xmlStr += "<item title=\"blueberry\" property=\"John\"/>"
+        xmlStr += "<item title=\"blueberry\" property=\"John\" color=\"blue\"/>"
         xmlStr += "</items>"
         xmlStr += "<item title=\"blue\" property=\"na\"/>"
         xmlStr += "</items>"
