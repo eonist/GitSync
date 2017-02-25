@@ -32,7 +32,7 @@ class RepoView:Element {
         RepoView.selectedListItemIndex = selectedIndex
         //TODO: Use the RepoItem on the bellow line see AutoSync class for implementation
         let repoItemDict:[String:String] = NodeParser.dataAt(treeList!.node, selectedIndex)
-        let repoItem:RepoItem
+        var repoItem:RepoItem
         if(repoItemDict["hasChildren"] != nil || repoItemDict["isOpen"] != nil){/*Support for folders*/
             repoItem = RepoUtils.emptyRepoItem
             repoItem.title = repoItemDict["title"]!
