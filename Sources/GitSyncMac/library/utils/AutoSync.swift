@@ -46,7 +46,12 @@ class AutoSync {
 }
 extension AutoSync{
     var repoList:[RepoItem]{
-        let repoXML = FileParser.xml(RepoView.repoList.tildePath)//TODO: this should be cached
+        let repoXML:XML
+        if(RepoView.node != nil){
+            repoXML = RepoView.node!.xml
+        }else{
+            repoXML = FileParser.xml(RepoView.repoList.tildePath)//TODO: this should be cached
+        }
         let arr:[Any] = XMLParser.arr(repoXML)
         let flatArr:[[String:String]] = arr.recursiveFlatmap()
         /*
