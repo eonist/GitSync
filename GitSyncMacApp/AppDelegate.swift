@@ -56,7 +56,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func rateOfCommits(_ repoItem:RepoItem) -> [Int]{
         Swift.print("repoItem.title: \(repoItem.title) localPath: \(repoItem.localPath)")
         var commits:[Int] = []
-        for i in (0..<7).reversed(){//7 days
+        for i in (0...7).reversed(){//7 days
             let dayOffset:Int = -i
             let sinceDate:Date = Date().offsetByDays(dayOffset)
             let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
