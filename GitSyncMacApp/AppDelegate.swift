@@ -29,7 +29,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let localPath:String = repoList[1].localPath
         Swift.print("localPath: " + "\(localPath)")
         
-        //let commitCount = GitUtils.commitCount(localPath, after: gitTime)
+        
+    }
+    static func rateOfCommits()->[[Int]]{
         var repoCommits:[[Int]] = []
         repoList.forEach{
             let localPath:String = $0.localPath
@@ -45,6 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
             repoCommits.append(commits)
         }
+        return repoCommits
     }
     /**
      *
