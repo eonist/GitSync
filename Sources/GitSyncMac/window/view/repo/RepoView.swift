@@ -7,8 +7,6 @@ import Cocoa
  */
 class RepoView:Element {
     static var repoList:String = "~/Desktop/repo2.xml"//"~/Desktop/assets/xml/list.xml"
-    //var topBar:TopBar?
-    //var list:List?
     static var selectedListItemIndex:[Int] = []
     //static var dp:DataProvider?
     
@@ -18,7 +16,6 @@ class RepoView:Element {
     
     override func resolveSkin() {
         Swift.print("RepoView.resolveSkin()")
-        
         self.skin = SkinResolver.skin(self)//super.resolveSkin()//
         //topBar = addSubView(TopBar(width-12,44,self))
         
