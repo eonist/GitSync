@@ -30,17 +30,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func rateOfCommitsTest(){
         let repoList:[RepoItem] = RepoUtils.repoList
         let repoCommits:[[Int]] = rateOfCommits(repoList)
-        /*
-         repoCommits.append([10, 10, 10, 10, 10, 0, 0])
-         repoCommits.append([2, 2, 2, 2, 2, 2, 2])
-         repoCommits.append([2, 2, 2, 2, 2, 2, 2])
-        */
         Swift.print("repoCommits.count: " + "\(repoCommits.count)")
         var result:[Int] = [0,0,0,0,0,0,0]//7 items
-        for e in 0..<repoCommits.count{//fires 9 times
-            let repoCommit = repoCommits[e]
-            for i in 0..<repoCommit.count{//fires 7 times
-                result[i] = (result[i] + repoCommit[i])
+        repoCommits.forEach{
+            for i in $0.indices{
+                result[i] = result[i] + $0[i]
             }
         }
         Swift.print("result: " + "\(result)")
