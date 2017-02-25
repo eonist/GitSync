@@ -6,7 +6,7 @@ import Foundation
 class RepoUtils{
     static var emptyRepoItem:RepoItem = (localPath:"",interval:0,branch:"",keyChainItemName:"",broadcast:false,title:"",subscribe:false,autoSync:false,remotePath:"")
     /**
-     * Returns an array of RepoItems derived from a nested xml Structure
+     * Returns a flat Array of RepoItems derived from a nested xml Structure
      */
     static var repoList:[RepoItem]{
         let repoXML:XML
