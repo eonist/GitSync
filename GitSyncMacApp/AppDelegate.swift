@@ -54,15 +54,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      * Returns an commitCount for 7 ddays in an Array of 7 Int from PARAM: repoItem
      */
     func rateOfCommits(_ repoItem:RepoItem) -> [Int]{
-        Swift.print("repoItem.title: " + "\(repoItem.title)")
-        let localPath:String = repoItem.localPath
+        Swift.print("repoItem.title: \(repoItem.title) localPath: \(repoItem.localPath)")
         var commits:[Int] = []
         for i in (0..<7).reversed(){//7 days
             let dayOffset:Int = -i
             let sinceDate:Date = Date().offsetByDays(dayOffset)
             let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
             let untilGitDate:String = GitDateUtils.gitTime(Date())
-            let commitCount:String = GitUtils.commitCount(localPath, since: sinceGitDate, until:untilGitDate )
+            let commitCount:String = GitUtils.commitCount(repoItem.localPath, since: sinceGitDate, until:untilGitDate )
             //Swift.print("commitCount: " + "\(commitCount)")
             commits.append(commitCount.int)
         }
