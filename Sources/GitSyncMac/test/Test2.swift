@@ -29,7 +29,7 @@ class Test2 {
      * Finds commit count from a date until now
      */
     func commitDateRangeCountTest(){
-        let chronoTime = "2016"+"11"+"11"+"20"+"59"+"59"
+        let chronoTime = "2016"+"11"+"11"+"20"+"59"+"59"//yyyy-mm-dd-hh-mm-ss
         let gitTime = chronoTime.insertCharsAt([("-",4),("-",6),(" ",8),(":",10),(":",12)])//2016-11-11 20:59:59
         Swift.print("gitTime: " + "\(gitTime)")
         //gitTime = gitTime.encode()!
