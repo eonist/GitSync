@@ -44,7 +44,7 @@ class Test2 {
         
         //let commitCount = GitUtils.commitCount(localPath, after: gitTime)
         
-        let commitCount = GitUtils.commitCount(localPath, since: "01-Dec-2016 20:59:59", until: "31-Dec-2016 20:59:59")
+        let commitCount = GitUtils.commitCount(localPath, since: "01-Dec-2016 20:59:59", until: "20-Feb-2017 20:59:59")
         Swift.print("commitCount: " + "\(commitCount)")
     }
     /**
