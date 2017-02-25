@@ -58,7 +58,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var commits:[Int] = []
         for i in (1...7).reversed(){//7 days
             let dayOffset:Int = -i
-            Swift.print("dayOffset: " + "\(dayOffset)")
             let sinceDate:Date = Date().offsetByDays(dayOffset)
             let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
             let untilGitDate:String = GitDateUtils.gitTime(Date())
