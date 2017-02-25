@@ -33,7 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("repoCommits.count: " + "\(repoCommits.count)")
         var result:[Int] = [0,0,0,0,0,0,0]//7 items
         repoCommits.forEach{
-            for i in $0.indices{
+            for i in 0..<7{
                 result[i] = result[i] + $0[i]
             }
         }
