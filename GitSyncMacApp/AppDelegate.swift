@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         var arr:[String] = ["a","b","b","c","b","d","c"]
         var z:[String] = []
-        _ = arr.filter{
+        z = arr.filter{
             z.index(of: $0)
         }
         //Swift.print("z: " + "\(z)")
