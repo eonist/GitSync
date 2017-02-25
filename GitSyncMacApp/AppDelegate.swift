@@ -19,16 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //_ = Test2()
         //rateOfCommitsTest()
         //initApp()
-        let tempArray = [[1,2,3],[4,5,6]]
         
-        
-        var result:[Int] = [0,0,0]
-        tempArray.forEach{
-            for i in $0.indices{
-                result[i] = result[i] + $0[i]
-            }
-        }
-        Swift.print(result)
         //initTestWin()
         //AutoSync.sync()
         //refreshReposTest()
@@ -39,7 +30,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("localPath: " + "\(localPath)")
         
         let repoCommits:[[Int]] = rateOfCommits(repoList)
-        //let res = tempArray.map{$0.reduce(0/*<-init value*/){$0 + $1}}
+        
+        var result:[Int] = [0,0,0,0,0,0,0]//7 items
+        repoCommits.forEach{
+            for i in $0.indices{
+                result[i] = result[i] + $0[i]
+            }
+        }
+        Swift.print("result: " + "\(result)")
     }
     static func rateOfCommits(_ repoList:[RepoItem] )->[[Int]]{
         var repoCommits:[[Int]] = []
