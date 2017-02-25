@@ -7,7 +7,7 @@ class AutoSync {
      * The GitSync automation algo (Basically Commits and pushes)
      */
     static func sync(){
-        let repoList:[RepoItem] = self.repoList
+        let repoList:[RepoItem] = RepoUtils.repoList
         var idx:Int = 0
         
         func onCommitComplete(_ hasCommited:Bool){

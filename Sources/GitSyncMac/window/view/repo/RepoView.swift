@@ -8,8 +8,6 @@ import Cocoa
 class RepoView:Element {
     static var repoList:String = "~/Desktop/repo2.xml"//"~/Desktop/assets/xml/list.xml"
     static var selectedListItemIndex:[Int] = []
-    //static var dp:DataProvider?
-    
     static var node:Node?
     var treeList:TreeList?// {return RepoView.list}
     var contextMenu:ContextMenu?
@@ -24,7 +22,6 @@ class RepoView:Element {
         }
         treeList = addSubView(SliderTreeList(width, height-24, 24, RepoView.node!,self))
         contextMenu = ContextMenu(treeList!)
-        //list = addSubView(List(width, height-24, NaN, RepoView.dp,self))
         //if(RepoView.selectedListItemIndex != -1){list!.selectAt(RepoView.selectedListItemIndex)}
     }
     func onTreeListSelect(){
