@@ -18,7 +18,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         //_ = Test()
         //initApp()
-        recursiveFlatMapTest()
+        //recursiveFlatMapTest()
+        flattenNestedXMLTest()
         //initTestWin()
         //AutoSync.sync()
         //refreshReposTest()
@@ -27,6 +28,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
          let diff = RangeParser.difference(a, b)
          Swift.print("diff: " + "\(diff)")*/
         
+    }
+    /**
+     *
+     */
+    func flattenNestedXMLTest(){
+        let repoXML = FileParser.xml(RepoView.repoList.tildePath)//TODO: this should be cached
+        
+        //research how you can flatten a 3d array, see if you already have code for this in xmlparser maybe?
+        let temp:[Any] = XMLParser.arr(repoXML)
+        let flatArr:[[String:String]] = temp.recursiveFlatmap()
+        Swift.print("flatArr.count: " + "\(flatArr.count)")
+        flatArr.forEach{
+            Swift.print("$0: " + "\($0)")
+        }
+        let repoList:[RepoItem] = flatArr.map{(localPath:$0["local-path"]!,interval:$0["interval"]!.int,branch:$0["branch"]!,keyChainItemName:$0["keychain-item-name"]!,broadcast:$0["broadcast"]!.bool,title:$0["title"]!,subscribe:$0["subscribe"]!.bool,autoSync:$0["auto-sync"]!.bool,remotePath:$0["remote-path"]!)}
+        Swift.print("repoList.count: " + "\(repoList.count)")
     }
     /**
      *
