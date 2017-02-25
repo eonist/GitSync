@@ -33,12 +33,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let repoList:[RepoItem] = RepoUtils.repoList//.filter{$0.title == "GitSync - macOS"}
         
         
-        var result:[RepoItem] = []
-        repoList.forEach{
-            if(result.index(of: $0) == nil) {result.append($0)}
-        }
-        
-        
         
         let repoCommits:[[Int]] = rateOfCommits(repoList)
         Swift.print("repoCommits.count: " + "\(repoCommits.count)")
