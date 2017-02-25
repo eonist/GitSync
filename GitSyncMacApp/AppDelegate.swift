@@ -62,7 +62,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         let flatArr:[[String:String]] = arr.recursiveFlatmap()//recFlatMap(arr as [AnyObject])
         Swift.print("flatArr.count: " + "\(flatArr.count)")
-        Swift.print("flatArr: " + "\(flatArr)")
+        //Swift.print("flatArr: " + "\(flatArr)")
+        flatArr.forEach{
+            Swift.print("$0: " + "\($0)")
+        }
+        
+        //Continue here:
+            //A problem is that 
+        
         /*
          
          Swift.print("arr: " + "\(arr)")
