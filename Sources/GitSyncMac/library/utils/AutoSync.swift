@@ -66,10 +66,16 @@ extension AutoSync{
         let repoList:[RepoItem] = flatArr.filter{
             ($0["hasChildren"] == nil) && ($0["isOpen"] == nil)//skips folders
             }.map{//create array of tuples
-                (localPath:$0["local-path"]!,interval:$0["interval"]!.int,branch:$0["branch"]!,keyChainItemName:$0["keychain-item-name"]!,broadcast:$0["broadcast"]!.bool,title:$0["title"]!,subscribe:$0["subscribe"]!.bool,autoSync:$0["auto-sync"]!.bool,remotePath:$0["remote-path"]!)
+                repoItem($0)
         }
         //Swift.print("repoList.count: " + "\(repoList.count)")
         //Swift.print("repoList[0]: " + "\(repoList[0])")
         return repoList
+    }
+    /**
+     *
+     */
+    static func repoItem(_ dict:[String:String]) -> RepoItem{
+        return (localPath:dict["local-path"]!,interval:dict["interval"]!.int,branch:dict["branch"]!,keyChainItemName:dict["keychain-item-name"]!,broadcast:dict["broadcast"]!.bool,title:dict["title"]!,subscribe:dict["subscribe"]!.bool,autoSync:dict["auto-sync"]!.bool,remotePath:dict["remote-path"]!)
     }
 }

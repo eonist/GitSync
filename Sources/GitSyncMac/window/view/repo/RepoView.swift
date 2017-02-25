@@ -35,6 +35,8 @@ class RepoView:Element {
         RepoView.selectedListItemIndex = selectedIndex
         //TODO: Use the RepoItem on the bellow line see AutoSync class for implementation
         let repoItem:Dictionary<String,String> = NodeParser.dataAt(treeList!.node, selectedIndex)
+        
+        
         (Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
     }
     override func onEvent(_ event:Event) {

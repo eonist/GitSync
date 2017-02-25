@@ -6,7 +6,7 @@ import Foundation
 class RepoUtils{
 	/**
 	 * Returns a list with repo values derived from an XML file
- 	 * @param file_path 
+ 	 * PARAM: file_path
  	 * TODO: if the interval values is not set, then use default values
 	 * TODO: test if the full/partly file path still works?
 	 */
