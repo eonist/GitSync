@@ -66,7 +66,7 @@ extension AutoSync{
         let repoList:[RepoItem] = flatArr.filter{
             ($0["hasChildren"] == nil) && ($0["isOpen"] == nil)//skips folders
             }.map{//create array of tuples
-                repoItem($0)
+                AutoSync.repoItem($0)
         }
         //Swift.print("repoList.count: " + "\(repoList.count)")
         //Swift.print("repoList[0]: " + "\(repoList[0])")
