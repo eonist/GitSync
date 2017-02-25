@@ -19,7 +19,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //_ = Test()
         //initApp()
         //recursiveFlatMapTest()
-        flattenNestedXMLTest()
+        //flattenNestedXMLTest()
+        let array = ["Orange", "Apple", "Apple Juice"]
+        let filteredArray = array.filter() {
+            return $0.hasPrefix("Apple")
+        }
+        Swift.print("filteredArray: " + "\(filteredArray)")
         //initTestWin()
         //AutoSync.sync()
         //refreshReposTest()
