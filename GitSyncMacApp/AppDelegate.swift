@@ -20,7 +20,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //rateOfCommitsTest()
         
         var arr:Array = ["a","b","b","c","b","d","c"]
-        var z:Array = arr
+        var z:Array = arr.filter{
+            z != nil ? z = [] :
+        }
         Swift.print("z: " + "\(z)")
         
         /*
