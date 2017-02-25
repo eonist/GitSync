@@ -17,9 +17,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("GitSync - The future is automated")//Simple git automation for macOS, The autonomouse git client
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         //_ = Test2()
-        rateOfCommitsTest()
+        //rateOfCommitsTest()
         //initApp()
+        let tempArray = [[1,2,3],[4,5,6]]
         
+        
+        var result:[Int] = [0,0,0]
+        tempArray.forEach{
+            for i in $0.indices{
+                result[i] = result[i] + $0[i]
+            }
+        }
+        Swift.print(result)
         //initTestWin()
         //AutoSync.sync()
         //refreshReposTest()
