@@ -47,17 +47,17 @@ class RepoDetailView:Element {
             case event.assert(Event.update,immediate:nameTextInput):
                 attrib["title"] = (event as! TextFieldEvent).stringValue
             case event.assert(Event.update,immediate:localPathTextInput):
-                dp.setValue(i, "local-path", (event as! TextFieldEvent).stringValue)
+                attrib["local-path"] = (event as! TextFieldEvent).stringValue
             case event.assert(Event.update,immediate:remotePathTextInput):
-                dp.setValue(i, "remote-path", (event as! TextFieldEvent).stringValue)
+                attrib["remote-path"] = (event as! TextFieldEvent).stringValue
             case event.assert(Event.update,immediate:remotePathTextInput):
-                dp.setValue(i, "branch", (event as! TextFieldEvent).stringValue)
+                attrib["branch"] = (event as! TextFieldEvent).stringValue
             case event.assert(CheckEvent.check,immediate:broadCastCheckBoxButton):
-                dp.setValue(i, "broadcast", String((event as! CheckEvent).isChecked))
+                attrib["broadcast"] = String((event as! CheckEvent).isChecked)
             case event.assert(CheckEvent.check,immediate:subscribeCheckBoxButton):
-                dp.setValue(i, "subscribe", String((event as! CheckEvent).isChecked))
+                attrib["subscribe"] = String((event as! CheckEvent).isChecked)
             case event.assert(CheckEvent.check,immediate:autoMessageCheckBoxButton):
-                dp.setValue(i, "auto-sync", String((event as! CheckEvent).isChecked))
+                attrib["auto-sync"] = String((event as! CheckEvent).isChecked)
             //case event.assert(SpinnerEvent.change, autoSyncIntervalLeverSpinner):
                 //dp.setValue(i, "interval", (event as! SpinnerEvent).value.string)
             default:
