@@ -22,7 +22,7 @@ class RepoView:Element {
         }
         treeList = addSubView(SliderTreeList(width, height-24, 24, RepoView.node!,self))
         contextMenu = ContextMenu(treeList!)
-        if(RepoView.selectedListItemIndex != -1){list!.selectAt(RepoView.selectedListItemIndex)}
+        if(RepoView.selectedListItemIndex.count > 0){TreeListModifier.selectAt(treeList!, RepoView.selectedListItemIndex)}
     }
     func onTreeListSelect(){
         Swift.print("RepoView.onTreeListSelect()")
