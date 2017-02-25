@@ -29,9 +29,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      */
     func rateOfCommitsTest(){
         let repoList:[RepoItem] = RepoUtils.repoList
-        let localPath:String = repoList[1].localPath
-        Swift.print("localPath: " + "\(localPath)")
-        
         let repoCommits:[[Int]] = rateOfCommits(repoList)
         
         var result:[Int] = [0,0,0,0,0,0,0]//7 items
