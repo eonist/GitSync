@@ -17,7 +17,7 @@ class Test2 {
         //ioTest()
         //dataBaseTest()
         //chronologicalTime2GitTimeTest()
-        //commitDateRangeCountTest()
+        commitDateRangeCountTest()
     }
     /**
      * NOTE: Even though the NSTask isn't explicitly run on a background thread, it seems to be anyway, as it blocks other background threads added later, actually while doing a Repeating time intervall test, it blocked the timer. So its probably not runnign on a background thread after all
@@ -29,7 +29,7 @@ class Test2 {
      * Finds commit count from a date until now
      */
     func commitDateRangeCountTest(){
-        let chronoTime = "20161111205959"
+        let chronoTime = "2016"+"11"+"11"+"20"+"59"+"59"
         let gitTime = chronoTime.insertCharsAt([("-",4),("-",6),(" ",8),(":",10),(":",12)])//2016-11-11 20:59:59
         Swift.print("gitTime: " + "\(gitTime)")
         //gitTime = gitTime.encode()!
