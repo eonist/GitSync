@@ -22,6 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var arr:Array = ["a","b","b","c","b","d","c"]
         var z:Array = arr
         Swift.print("z: " + "\(z)")
+        
         /*
         var z:Array = arr.filter(
         func (a:*,b:int,c:Array)->Bool {
