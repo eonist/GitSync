@@ -22,14 +22,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let arr:[String] = ["a","b","b","c","b","d","c"]
         var z:[String] = []
         _ = arr.filter{
-            let idx = z.index(of: $0)
-            Swift.print("idx: " + "\(idx)")
-            Swift.print("z.count: " + "\(z.count)")
-            if(idx == nil){
+            if(z.index(of: $0) == nil){
                 z.append($0)
-                
+                return true
+            }else {
+               return false
             }
-            return idx == nil
+            
         }
         Swift.print("z: " + "\(z)")
         
