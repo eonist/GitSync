@@ -42,10 +42,10 @@ class RepoDetailView:Element {
     override func onEvent(_ event:Event) {
         let i:[Int] = RepoView.selectedListItemIndex
         let node:Node = RepoView.node!
-        let attrib:[String:String] = node
+        var attrib:[String:String] = XMLParser.attributesAt(node.xml, i)!
         switch true{
             case event.assert(Event.update,immediate:nameTextInput):
-                node.setAttributeAt(i, <#T##attributes: Dictionary<String, String>##Dictionary<String, String>#>)
+                attrib["title"] = (event as! TextFieldEvent).stringValue
             case event.assert(Event.update,immediate:localPathTextInput):
                 dp.setValue(i, "local-path", (event as! TextFieldEvent).stringValue)
             case event.assert(Event.update,immediate:remotePathTextInput):
@@ -63,6 +63,6 @@ class RepoDetailView:Element {
             default:
                 break;
         }
-        
+        node.setAttributeAt(i, attrib)
     }
 }
