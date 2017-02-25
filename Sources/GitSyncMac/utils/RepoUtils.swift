@@ -42,6 +42,15 @@ class RepoUtils{
      *
      */
     static func repoItem(_ dict:[String:String]) -> RepoItem{
+        var localPath:String = XMLParser.attribute(child,"local-path")! //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
+        localPath = ShellUtils.run("echo " + StringModifier.wrapWith(localPath,"'") + " | sed 's/ /\\\\ /g'")//--Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths.
+        var remotePath:String = dict["remote-path""]
+        remotePath = RegExp.replace(remotePath,"^https://.+$","")//support for partial and full url, strip away the https://, since this will be added later
+        //print(remotePath)
+        let keychainItemName:String = dict["keychain-item-name"]
+        let interval:String = dict["interval"]//default is 1min
+        let repoItem:Dictionary<String,String> = ["localPath":localPath,"remotePath":remotePath,"keychainItemName":keychainItemName,"interval":interval]
+        
         return (localPath:dict["local-path"]!,interval:dict["interval"]!.int,branch:dict["branch"]!,keyChainItemName:dict["keychain-item-name"]!,broadcast:dict["broadcast"]!.bool,title:dict["title"]!,subscribe:dict["subscribe"]!.bool,autoSync:dict["auto-sync"]!.bool,remotePath:dict["remote-path"]!)
     }
 }
