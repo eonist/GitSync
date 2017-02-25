@@ -21,9 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         var arr:[String] = ["a","b","b","c","b","d","c"]
         var z:Array = arr.filter{
-            if(z == nil){
-                 z = []
-            }
+            (z ?? [])
             
             
         }
