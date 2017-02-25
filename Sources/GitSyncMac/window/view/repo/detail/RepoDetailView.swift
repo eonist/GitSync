@@ -62,5 +62,6 @@ class RepoDetailView:Element {
             default:
                 break;
         }
+        
     }
 }
