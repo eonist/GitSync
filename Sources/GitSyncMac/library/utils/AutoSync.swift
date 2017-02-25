@@ -51,9 +51,9 @@ extension AutoSync{
     var repoList:[RepoItem]{
         let repoXML:XML
         if(RepoView.node != nil){
-            repoXML = RepoView.node!.xml
+            repoXML = RepoView.node!.xml//re-use if it already exists
         }else{
-            repoXML = FileParser.xml(RepoView.repoList.tildePath)
+            repoXML = FileParser.xml(RepoView.repoList.tildePath)//or load a fresh copy
         }
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
         let flatArr:[[String:String]] = arr.recursiveFlatmap()
