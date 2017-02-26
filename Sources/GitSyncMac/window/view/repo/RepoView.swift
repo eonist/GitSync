@@ -124,7 +124,7 @@ extension ContextMenu{
         Swift.print("clipBoard: " + "\(clipBoard)")
     }
     
-    //continue here: add move up down top bottom. 
+    
     
     func paste(sender: AnyObject) {
         Swift.print("paste")
@@ -139,5 +139,18 @@ extension ContextMenu{
         Swift.print("delete")
         let idx = rightClickItemIdx!
         _ = treeList.node.removeAt(idx)
+    }
+    
+    //continue here: add move up down top bottom. 
+ 
+    func moveUp(sender: AnyObject){
+        let idx = rightClickItemIdx!
+        _ = TreeListModifier.moveUp(treeList, idx)
+    }
+    /**
+     *
+     */
+    func moveDown(){
+        
     }
 }
