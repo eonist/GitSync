@@ -32,8 +32,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var repoList:[RepoItem] = RepoUtils.repoList//.filter{$0.title == "GitSync - macOS"}
         Swift.print("repoList.count: " + "\(repoList.count)")
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
+        Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
         let repoCommits:[[Int]] = rateOfCommits(repoList)
-        Swift.print("After removal of dupes - repoCommits.count: " + "\(repoCommits.count)")
+        
         var result:[Int] = [0,0,0,0,0,0,0]//7 items
         repoCommits.forEach{
             for i in $0.indices{
