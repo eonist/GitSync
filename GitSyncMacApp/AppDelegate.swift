@@ -95,6 +95,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
             let untilDate:Date = Date().offsetByDays(dayOffset+1)
             let untilGitDate:String = GitDateUtils.gitTime(untilDate)
+            
             let commitCount:String = GitUtils.commitCount(repoItem.localPath, since: sinceGitDate, until:untilGitDate)
             //Swift.print("commitCount: " + "\(commitCount)")
             commits.append(commitCount.int)
