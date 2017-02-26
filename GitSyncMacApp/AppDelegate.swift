@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("GitSync - The future is automated")//Simple git automation for macOS, The autonomouse git client
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         //_ = Test2()
-        rateOfCommitsTest()
+        //rateOfCommitsTest()
      
         //initApp()
         
@@ -27,10 +27,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //AutoSync.sync()
         //refreshReposTest()
         var arr:[(i:Int,s:String,result:String)] = [(0,"a",""),(1,"b",""),(2,"c",""),(3,"d","")]
-        
+        var i:Int = 0
+        func onComplete(){
+            i += 1
+            Swift.print("onComplete: " + "\(i)")
+            if(i == arr.count){
+                Swift.print("all concurrent tasks completed")
+            }
+        }
         for i in arr.indices {
             bgQueue.async {
                 arr[i].result = arr[i].i.string + arr[i].s
+                mainQueue.async {
+                    onComplete()
+                }
             }
         }
         
