@@ -80,6 +80,7 @@ class ContextMenu:NSMenu{
         menuItems.append(("Move down", #selector(moveDown)))
         menuItems.append(("Move top", #selector(moveToTop)))
         menuItems.append(("Move bottom", #selector(moveToBottom)))
+        menuItems.append(("Open in finder", #selector(openInFinder)))
         
         menuItems.forEach{
             let menuItem = NSMenuItem(title: $0.title, action: $0.selector, keyEquivalent: "")
@@ -174,5 +175,8 @@ extension ContextMenu{
     func moveToBottom(sender: AnyObject){
         let idx = rightClickItemIdx!
         _ = TreeListModifier.moveToBottom(treeList, idx)
+    }
+    func openInFinder(sender: AnyObject){
+        
     }
 }
