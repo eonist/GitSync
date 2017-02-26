@@ -67,7 +67,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         repoCommits.forEach{
             for i in $0.indices{
                 bgQueue.async {
-                    let commitCount:String = GitUtils.commitCount($0.localPath, $0.since , $0.until)
+                    let work:CommitCountWork = $0[i]
+                    let commitCount:String = GitUtils.commitCount(work.localPath, work.since , work.until)
                     //result[i] = result[i] + $0[i]
                 }
                 
