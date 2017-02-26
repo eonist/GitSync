@@ -187,11 +187,13 @@ extension ContextMenu{
                 FileUtils.showFileInFinder(repoItem.localPath)
             }
         }
-        
     }
     func openURL(sender:AnyObject){
-        if let url = URL(string: "https://www.google.com"), NSWorkspace.shared().open(url) {
-            print("default browser was successfully opened")
-        }
+        let idx = rightClickItemIdx!
+        let itemData:ItemData = TreeListUtils.itemData(treeList.node.xml, idx)
+        if(!itemData.hasChildren){//only repos can be opened in finder
+            let repoItem = RepoUtils.repoItem(treeList.node.xml, idx)
+            
+        }  
     }
 }
