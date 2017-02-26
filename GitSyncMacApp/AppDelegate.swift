@@ -53,6 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //Swift.print("onComplete: " + "\(i)")
             if(idx == totCount){
                 Swift.print("all concurrent tasks completed")
+                /*loop 3d-structure*/
                 for i in repoCommits.indices{
                     for e in repoCommits[i].indices{
                         result[i] = result[i] + repoCommits[i][e].commitCount
@@ -62,7 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         
-        
+        /*Loop 3d-structure*/
         for i in repoCommits.indices{
             for e in repoCommits[i].indices{
                 bgQueue.async {
