@@ -140,17 +140,21 @@ extension ContextMenu{
         let idx = rightClickItemIdx!
         _ = treeList.node.removeAt(idx)
     }
-    
-    //continue here: add move up down top bottom. 
- 
+    /*move up down top bottom.*/
     func moveUp(sender: AnyObject){
         let idx = rightClickItemIdx!
         _ = TreeListModifier.moveUp(treeList, idx)
     }
-    /**
-     *
-     */
     func moveDown(sender: AnyObject){
-        
+        let idx = rightClickItemIdx!
+        _ = TreeListModifier.moveDown(treeList, idx)
+    }
+    func moveToTop(sender: AnyObject){
+        let idx = rightClickItemIdx!
+        _ = TreeListModifier.moveToTop(treeList, idx)
+    }
+    func moveToBottom(sender: AnyObject){
+        let idx = rightClickItemIdx!
+        _ = TreeListModifier.moveToBottom(treeList, idx)
     }
 }
