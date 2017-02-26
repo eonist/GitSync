@@ -33,7 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("repoList.count: " + "\(repoList.count)")
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         let repoCommits:[[Int]] = rateOfCommits(repoList)
-        Swift.print("after removal of dupes - repoCommits.count: " + "\(repoCommits.count)")
+        Swift.print("After removal of dupes - repoCommits.count: " + "\(repoCommits.count)")
         var result:[Int] = [0,0,0,0,0,0,0]//7 items
         repoCommits.forEach{
             for i in $0.indices{
