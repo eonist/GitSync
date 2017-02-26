@@ -54,6 +54,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             if(i == totCount){
                 Swift.print("all concurrent tasks completed")
                 Swift.print("result: " + "\(result)")
+                for i in repoCommits.indices{
+                    for e in repoCommits[i].indices{
+                        bgQueue.async {
+                            let work:CommitCountWork = repoCommits[i][e]
+                            let commitCount:String = GitUtils.commitCount(work.localPath, work.since , work.until)
+                            mainQueue.async {
+                                repoCommits[i][e].commitCount = commitCount.int
+                                onComplete()
+                            }
+                            //result[i] = result[i] + $0[i]
+                        }
+                    }
+                }
             }
         }
         
