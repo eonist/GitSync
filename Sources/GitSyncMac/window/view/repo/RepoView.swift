@@ -125,6 +125,7 @@ extension ContextMenu{
         Swift.print("paste")
         if(clipBoard != nil){
             //"<item title=\"Fish\"/>".xml
+            Swift.print("clipBoard: " + "\(clipBoard)")
             let idx = rightClickItemIdx!
             treeList.node.addAt(newIdx(idx), clipBoard!)
         }
