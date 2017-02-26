@@ -81,6 +81,7 @@ class ContextMenu:NSMenu{
         menuItems.append(("Move top", #selector(moveToTop)))
         menuItems.append(("Move bottom", #selector(moveToBottom)))
         menuItems.append(("Open in finder", #selector(openInFinder)))
+        menuItems.append(("Open URL", #selector(openURL)))
         //continue here: add Open in github
         menuItems.forEach{
             let menuItem = NSMenuItem(title: $0.title, action: $0.selector, keyEquivalent: "")
@@ -88,7 +89,7 @@ class ContextMenu:NSMenu{
             menuItem.target = self
         }
         self.insertItem(NSMenuItem.separator(), at: 6)/*Separator*/
-        self.insertItem(NSMenuItem.separator(), at: 10)/*Separator*/
+        self.insertItem(NSMenuItem.separator(), at: 11)/*Separator*/
     }
     required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
@@ -179,17 +180,19 @@ extension ContextMenu{
     func openInFinder(sender: AnyObject){
         let idx = rightClickItemIdx!
         let child:XML = XMLParser.childAt(treeList.node.xml, idx)!
+        RepoUtils.repoItem(<#T##dict: [String : String]##[String : String]#>)
         let dict:[String:String] = child.attribs
         if((dict["hasChildren"] == nil) && (dict["isOpen"] == nil)){//only repos can be opened in finder
             if(dict["local-path"] != nil && FileAsserter.exists(dict["local-path"]!.tildePath)){//make sure local-path exists
                 let filePath:String = dict["local-path"]!
                 Swift.print("filePath: " + "\(filePath)")
-                let expandedFilePath:String = filePath.tildePath
-                Swift.print("expandedFilePath: " + "\(expandedFilePath)")
-                let fileURL:URL = expandedFilePath.url
-                Swift.print("fileURL: " + "\(fileURL)")
-                NSWorkspace.shared().activateFileViewerSelecting([fileURL])
+                FileUtils.showFileInFinder(filePath)
             }
+        }
+    }
+    func openURL(sender:AnyObject){
+        if let url = URL(string: "https://www.google.com"), NSWorkspace.shared().open(url) {
+            print("default browser was successfully opened")
         }
     }
 }
