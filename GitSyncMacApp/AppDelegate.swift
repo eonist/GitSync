@@ -45,8 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
         var repoCommits:[[CommitCountWork]] = rateOfCommits(repoList)
-        var flatRepoCommits:[CommitCountWork] = repoCommits.flatMap{$0}
-        var totCount:Int = flatRepoCommits.count
+        var totCount:Int = repoCommits.flatMap{$0}.count
 
         var i:Int = 0
         func onComplete(/*_ idx:Int,_ result:String*/){
