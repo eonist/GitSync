@@ -18,26 +18,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         //_ = Test2()
         //rateOfCommitsTest()
-        
-        let frst = first([("a",0),("x",1),("b",0),("b",1),("c",2)], ("b",1), {$0.1 == $1.1 && $0.0 == $1.0})
-        Swift.print("frst: " + "\(frst)")
+     
         //initApp()
         
         //initTestWin()
         //AutoSync.sync()
         //refreshReposTest()
     }
-    /**
-     * Example:
-     */
-    func first<T>(_ arr:[T], _ match:T, _ condition:(_ a:T, _ b:T)->Bool)->T?{
-        for item in arr{
-            if(condition(item,match)){
-                return item
-            }
-        }
-        return nil
-    }
+   
     /**
      * CommitCount per day for all projects in the last 7 days.
      */
