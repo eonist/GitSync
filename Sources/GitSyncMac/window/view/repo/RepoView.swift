@@ -69,7 +69,17 @@ class ContextMenu:NSMenu{
     init(_ treeList:TreeList) {
         self.treeList = treeList
         super.init(title:"Contextual menu")
-        let menuItems:[(title:String,selector:Foundation.Selector)] = [("New folder", #selector(newFolder)),("New repo", #selector(newRepo)),("Cut", #selector(cut)),("Paste", #selector(paste)),("Delete", #selector(delete))]
+        var menuItems:[(title:String,selector:Foundation.Selector)] = []
+        menuItems.append(("New folder", #selector(newFolder)))
+        menuItems.append(("New repo", #selector(newRepo)))
+        menuItems.append(("Cut", #selector(cut)))
+        menuItems.append(("Paste", #selector(paste)))
+        menuItems.append(("Delete", #selector(delete)))
+        menuItems.append(("moveUp", #selector(moveUp)))
+        menuItems.append(("moveDown", #selector(moveDown)))
+        menuItems.append(("moveToTop", #selector(moveToTop)))
+        menuItems.append(("moveToBottom", #selector(moveToBottom)))
+        
         menuItems.forEach{
             let menuItem = NSMenuItem(title: $0.title, action: $0.selector, keyEquivalent: "")
             self.addItem(menuItem)
@@ -123,9 +133,6 @@ extension ContextMenu{
         clipBoard = treeList.node.removeAt(idx)
         Swift.print("clipBoard: " + "\(clipBoard)")
     }
-    
-    
-    
     func paste(sender: AnyObject) {
         Swift.print("paste")
         if(clipBoard != nil){
