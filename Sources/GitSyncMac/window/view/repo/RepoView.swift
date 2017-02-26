@@ -113,8 +113,7 @@ extension ContextMenu{
      */
     func newIdx(_ idx:[Int]) -> [Int] {
         var idx = idx
-        let child:XML = XMLParser.childAt(treeList.node.xml, idx)!
-        let itemData = TreeListUtils.itemData(child)
+        let itemData:ItemData = TreeListUtils.itemData(treeList.node.xml,idx)
         if(itemData.hasChildren){//isFolder, add within
             idx += [0]
         }else{//is not folder, add bellow
@@ -180,13 +179,13 @@ extension ContextMenu{
     func openInFinder(sender: AnyObject){
         let idx = rightClickItemIdx!
         let repoItem = RepoUtils.repoItem(treeList.node.xml, idx)
-        if((dict["hasChildren"] == nil) && (dict["isOpen"] == nil)){//only repos can be opened in finder
-            if(dict["local-path"] != nil && FileAsserter.exists(dict["local-path"]!.tildePath)){//make sure local-path exists
-                let filePath:String = dict["local-path"]!
-                Swift.print("filePath: " + "\(filePath)")
-                FileUtils.showFileInFinder(filePath)
-            }
-        }
+        /*if((dict["hasChildren"] == nil) && (dict["isOpen"] == nil)){//only repos can be opened in finder
+         if(dict["local-path"] != nil && FileAsserter.exists(dict["local-path"]!.tildePath)){//make sure local-path exists
+         let filePath:String = dict["local-path"]!
+         Swift.print("filePath: " + "\(filePath)")
+         FileUtils.showFileInFinder(filePath)
+         }
+         }*/
     }
     func openURL(sender:AnyObject){
         if let url = URL(string: "https://www.google.com"), NSWorkspace.shared().open(url) {
