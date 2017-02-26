@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //_ = Test2()
         //rateOfCommitsTest()
         
-        let frst = first(["a","b","c"], "b", {$0 == $1})
+        let frst = first([("a",0),("x",1),("b",0),("b",1),("c",2)], ("b",1), {$0.1 == $1.1 && $0.0 == $1.0})
         Swift.print("frst: " + "\(frst)")
         //initApp()
         
