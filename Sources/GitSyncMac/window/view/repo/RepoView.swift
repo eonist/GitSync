@@ -72,6 +72,7 @@ class ContextMenu:NSMenu{
         var menuItems:[(title:String,selector:Foundation.Selector)] = []
         menuItems.append(("New folder", #selector(newFolder)))
         menuItems.append(("New repo", #selector(newRepo)))
+        menuItems.append(("Copy", #selector(copy)))
         menuItems.append(("Cut", #selector(cut)))
         menuItems.append(("Paste", #selector(paste)))
         menuItems.append(("Delete", #selector(delete)))
