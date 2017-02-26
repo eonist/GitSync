@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("GitSync - The future is automated")//Simple git automation for macOS, The autonomouse git client
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         //_ = Test2()
-        //rateOfCommitsTest()
+        rateOfCommitsTest()
      
         //initApp()
         
@@ -29,9 +29,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      * CommitCount per day for all projects in the last 7 days.
      */
     func rateOfCommitsTest(){
-        let repoList:[RepoItem] = RepoUtils.repoList//.filter{$0.title == "GitSync - macOS"}
-        
-        repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})
+        var repoList:[RepoItem] = RepoUtils.repoList//.filter{$0.title == "GitSync - macOS"}
+        repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         let repoCommits:[[Int]] = rateOfCommits(repoList)
         Swift.print("repoCommits.count: " + "\(repoCommits.count)")
         var result:[Int] = [0,0,0,0,0,0,0]//7 items
