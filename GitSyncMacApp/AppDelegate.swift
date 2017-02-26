@@ -64,8 +64,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     let work:CommitCountWork = repoCommits[i][e]
                     Swift.print("launched a work item: " + "\(work.localPath)")
                     let commitCount:String = GitUtils.commitCount(work.localPath, work.since , work.until)//👈👈👈 do some work
+                    
                     mainQueue.async {
-                        repoCommits[i][e].commitCount = commitCount.int
+                        repoCommits[i][e].commitCount = commitCount == "" ? 0 : commitCount.int
                         onComplete()
                     }
                 }
