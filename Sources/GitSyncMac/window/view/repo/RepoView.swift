@@ -122,7 +122,7 @@ extension ContextMenu{
         Swift.print("newRepo")
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
-        let xml:XML = ["title":"Element OSX","local-path":"~/Desktop/test","remote-path":"https://github.com/eonist/test.git","interval":"30","keychain-item-name":"eonist","branch":"master","broadcast":"true","subscribe":"true","auto-sync":"true"].xml
+        let xml:XML = ["title":"New repo","local-path":"~/Desktop/test","remote-path":"https://github.com/eonist/test.git","interval":"30","keychain-item-name":"eonist","branch":"master","broadcast":"true","subscribe":"true","auto-sync":"true"].xml
         Swift.print("xml.xmlString: " + "\(xml.xmlString)")
         treeList.node.addAt(newIdx(idx), xml)
         //Swift.print("Promt repo name popup")
