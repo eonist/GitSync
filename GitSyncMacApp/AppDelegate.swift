@@ -19,12 +19,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //_ = Test2()
         //rateOfCommitsTest()
         
-    
+        let frst = first(["a","b","c"], "b", {$0 == $1})
+        Swift.print("frst: " + "\(frst)")
         //initApp()
         
         //initTestWin()
         //AutoSync.sync()
         //refreshReposTest()
+    }
+    /**
+     * Example:
+     */
+    func first<T>(_ arr:[T], _ match:T, _ condition:(_ a:T, _ b:T)->Bool)->T?{
+        for item in arr{
+            if(condition(item,match)){
+                return item
+            }
+        }
+        return nil
     }
     /**
      * CommitCount per day for all projects in the last 7 days.
