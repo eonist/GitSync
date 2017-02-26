@@ -26,7 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //initTestWin()
         //AutoSync.sync()
         //refreshReposTest()
-        let arr:[(i:Int,s:String,result:String)] = [(0,"a"),(1,"b"),(2,"c"),(3,"d")]
+        var arr:[(i:Int,s:String,result:String)] = [(0,"a",""),(1,"b",""),(2,"c",""),(3,"d","")]
         
         arr.forEach{
             bgQueue.async {
