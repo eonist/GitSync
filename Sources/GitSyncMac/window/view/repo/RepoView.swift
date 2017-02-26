@@ -193,7 +193,7 @@ extension ContextMenu{
         let itemData:ItemData = TreeListUtils.itemData(treeList.node.xml, idx)
         if(!itemData.hasChildren){//only repos can be opened in finder
             let repoItem = RepoUtils.repoItem(treeList.node.xml, idx)
-            
+            NetworkUtils.openURLInDefaultBrowser(repoItem.remotePath)
         }  
     }
 }
