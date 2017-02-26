@@ -64,14 +64,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let repoCommits:[[CommitCountWork]] = rateOfCommits(repoList)
         
         var result:[Int] = [0,0,0,0,0,0,0]//7 items
-        repoCommits.forEach{
-            let works:[CommitCountWork] = $0
-            for i in works.indices{
+        for i in repoCommits.indices{
+            for e in repoCommits[i].indices{
                 bgQueue.async {
-                    let work:CommitCountWork = works[i]
+                    let work:CommitCountWork = repoCommits[i][e]
                     let commitCount:String = GitUtils.commitCount(work.localPath, work.since , work.until)
                     mainQueue.async {
-                        <#code#>
+                        repoCommits[i][e].commitCount = commitCount.string
                     }
                     //result[i] = result[i] + $0[i]
                 }
@@ -95,7 +94,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /**
      * Returns an commitCount for 7 days in an Array of 7 Int from PARAM: repoItem
      */
-    typealias CommitCountWork = (localPath:String,since:String,until:String,commitCount:Int)
+    typealias CommitCountWork = (localPath:String,since:String,until:String,commitCount:String)
     func rateOfCommits(_ repoItem:RepoItem) -> [CommitCountWork]{
         Swift.print("repoItem.title: \(repoItem.title) localPath: \(repoItem.localPath)")
         //var commits:[Int] = []
@@ -106,7 +105,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
             let untilDate:Date = Date().offsetByDays(dayOffset+1)
             let untilGitDate:String = GitDateUtils.gitTime(untilDate)
-            let comitCountWork:CommitCountWork = (repoItem.localPath,sinceGitDate,untilGitDate,0)
+            let comitCountWork:CommitCountWork = (repoItem.localPath,sinceGitDate,untilGitDate,"0")
             commitCountWorks.append(comitCountWork)
             //let commitCount:String = GitUtils.commitCount(repoItem.localPath, since: , until:)
             //Swift.print("commitCount: " + "\(commitCount)")
