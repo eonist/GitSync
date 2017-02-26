@@ -126,6 +126,13 @@ extension ContextMenu{
         treeList.node.addAt(newIdx(idx), xml)
         //Swift.print("Promt repo name popup")
     }
+    func copy(sender: AnyObject) {
+        Swift.print("copy")
+        let idx = rightClickItemIdx!
+        Swift.print("idx: " + "\(idx)")
+        clipBoard = treeList.node.xml.childAt(idx)
+        Swift.print("clipBoard: " + "\(clipBoard)")
+    }
     func cut(sender: AnyObject) {
         Swift.print("cut")
         let idx = rightClickItemIdx!
