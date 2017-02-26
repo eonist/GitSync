@@ -17,9 +17,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("GitSync - The future is automated")//Simple git automation for macOS, The autonomouse git client
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         //_ = Test2()
-        //rateOfCommitsTest()
+        rateOfCommitsTest()
      
-        initApp()
+        //initApp()
         
         //Continue: Figure out concurrent threads, check your research
         
@@ -62,6 +62,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             for e in repoCommits[i].indices{
                 bgQueue.async {
                     let work:CommitCountWork = repoCommits[i][e]
+                    Swift.print("launched a work item: " + "\(work.localPath)")
                     let commitCount:String = GitUtils.commitCount(work.localPath, work.since , work.until)//👈👈👈 do some work
                     mainQueue.async {
                         repoCommits[i][e].commitCount = commitCount.int
