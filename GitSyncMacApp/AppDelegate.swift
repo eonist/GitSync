@@ -61,7 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("repoList.count: " + "\(repoList.count)")
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
-        let repoCommits:[[Int]] = rateOfCommits(repoList)
+        let repoCommits:[[CommitCountWork]] = rateOfCommits(repoList)
         
         var result:[Int] = [0,0,0,0,0,0,0]//7 items
         repoCommits.forEach{
@@ -74,10 +74,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /**
      * Returns an array with with week summaries of commit counts from PARAM: repoList
      */
-    func rateOfCommits(_ repoList:[RepoItem] )->[[Int]]{
-        var repoCommits:[[Int]] = []
+    func rateOfCommits(_ repoList:[RepoItem] )->[[CommitCountWork]]{
+        var repoCommits:[[CommitCountWork]] = []
         repoList.forEach{
-            let commits:[Int] = rateOfCommits($0)
+            let commits:[CommitCountWork] = rateOfCommits($0)
             _ = repoCommits += commits
         }
         
@@ -86,22 +86,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /**
      * Returns an commitCount for 7 days in an Array of 7 Int from PARAM: repoItem
      */
-    func rateOfCommits(_ repoItem:RepoItem) -> [Int]{
+    typealias CommitCountWork = (localPath:String,since:String,until:String)
+    func rateOfCommits(_ repoItem:RepoItem) -> [CommitCountWork]{
         Swift.print("repoItem.title: \(repoItem.title) localPath: \(repoItem.localPath)")
-        var commits:[Int] = []
+        //var commits:[Int] = []
+        var commitCountWorks:[CommitCountWork] = []
         for i in (1...7).reversed(){//7 days
             let dayOffset:Int = -i
             let sinceDate:Date = Date().offsetByDays(dayOffset)
             let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
             let untilDate:Date = Date().offsetByDays(dayOffset+1)
             let untilGitDate:String = GitDateUtils.gitTime(untilDate)
-            let commitData:(localPath:String,since:String,until:String) = (repoItem.localPath,sinceGitDate,untilGitDate)
+            let comitCountWork:CommitCountWork = (repoItem.localPath,sinceGitDate,untilGitDate)
+            commitCountWorks.append(comitCountWork)
             //let commitCount:String = GitUtils.commitCount(repoItem.localPath, since: , until:)
             //Swift.print("commitCount: " + "\(commitCount)")
-            commits.append(commitCount.int)
+            //commits.append(commitCount.int)
         }
-        Swift.print("commits: " + "\(commits)")
-        return commits
+        //Swift.print("commits: " + "\(commits)")
+        return commitCountWorks
     }
     /**
      *
