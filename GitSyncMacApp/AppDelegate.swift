@@ -25,14 +25,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //AutoSync.sync()
         //refreshReposTest()
     }
-   
     /**
      * CommitCount per day for all projects in the last 7 days.
      */
     func rateOfCommitsTest(){
         let repoList:[RepoItem] = RepoUtils.repoList//.filter{$0.title == "GitSync - macOS"}
-        
-        
         
         let repoCommits:[[Int]] = rateOfCommits(repoList)
         Swift.print("repoCommits.count: " + "\(repoCommits.count)")
