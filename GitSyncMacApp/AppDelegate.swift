@@ -21,6 +21,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      
         //initApp()
         
+        //Continue: 
+        
         //initTestWin()
         //AutoSync.sync()
         //refreshReposTest()
