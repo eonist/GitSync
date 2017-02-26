@@ -67,12 +67,12 @@ class ContextMenu:NSMenu{
     var clipBoard:XML?
     var treeList:TreeList
     init(_ treeList:TreeList) {
-        self.treeList = treeList
+        self.treeList = treeList//Element - mac
         super.init(title:"Contextual menu")
         var menuItems:[(title:String,selector:Foundation.Selector)] = []
         menuItems.append(("New folder", #selector(newFolder)))
         menuItems.append(("New repo", #selector(newRepo)))
-        menuItems.append(("Copy", #selector(copy)))
+        menuItems.append(("Copy", #selector(doCopy)))
         menuItems.append(("Cut", #selector(cut)))
         menuItems.append(("Paste", #selector(paste)))
         menuItems.append(("Delete", #selector(delete)))
@@ -127,7 +127,7 @@ extension ContextMenu{
         treeList.node.addAt(newIdx(idx), xml)
         //Swift.print("Promt repo name popup")
     }
-    func copy(sender: AnyObject) {
+    func doCopy(sender: AnyObject) {
         Swift.print("copy")
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
