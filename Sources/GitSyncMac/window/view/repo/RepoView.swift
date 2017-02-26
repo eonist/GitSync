@@ -123,6 +123,9 @@ extension ContextMenu{
         clipBoard = treeList.node.removeAt(idx)
         Swift.print("clipBoard: " + "\(clipBoard)")
     }
+    
+    //continue here: add move up down top bottom. 
+    
     func paste(sender: AnyObject) {
         Swift.print("paste")
         if(clipBoard != nil){
