@@ -180,10 +180,11 @@ extension ContextMenu{
         let idx = rightClickItemIdx!
         let child:XML = XMLParser.childAt(treeList.node.xml, idx)!
         let dict:[String:String] = child.attribs
-        if((dict["hasChildren"] != nil) || (dict["isOpen"] != nil)){
-            
+        if((dict["hasChildren"] == nil) && (dict["isOpen"] == nil)){//only repos can be opened in finder
+            if let localPath:String = dict["local-path"]{
+                let fileURL:URL = localPath.tildePath.url
+                NSWorkspace.shared().activateFileViewerSelecting([fileURL])
+            }
         }
-        let files = [NSURL(fileURLWithPath: filename)];
-        NSWorkspace.sharedWorkspace().activateFileViewerSelectingURLs(files);
     }
 }
