@@ -39,27 +39,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      * CommitCount per day for all projects in the last 7 days.
      */
     func rateOfCommitsTest(){
+        var result:[Int] = [0,0,0,0,0,0,0]//7 items
         var repoList:[RepoItem] = RepoUtils.repoList//.filter{$0.title == "GitSync - macOS"}
         Swift.print("repoList.count: " + "\(repoList.count)")
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
         var repoCommits:[[CommitCountWork]] = rateOfCommits(repoList)
-        var totCount:Int = 0
-        repoCommits.forEach{
-            totCount += $0.count
-        }
-        
+        var totCount:Int = repoCommits.flatMap{$0}.count
+
         var i:Int = 0
         func onComplete(/*_ idx:Int,_ result:String*/){
             i += 1
             //Swift.print("onComplete: " + "\(i)")
-            if(i == arr.count){
+            if(i == totCount){
                 Swift.print("all concurrent tasks completed")
-                Swift.print("arr: " + "\(arr)")//[(0, "a", "0a"), (1, "b", "1b"), (2, "c", "2c"), (3, "d", "3d")]
+                Swift.print("result: " + "\(result)")
             }
         }
         
-        var result:[Int] = [0,0,0,0,0,0,0]//7 items
+        
         for i in repoCommits.indices{
             for e in repoCommits[i].indices{
                 bgQueue.async {
@@ -67,13 +65,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     let commitCount:String = GitUtils.commitCount(work.localPath, work.since , work.until)
                     mainQueue.async {
                         repoCommits[i][e].commitCount = commitCount.int
+                        onComplete()
                     }
                     //result[i] = result[i] + $0[i]
                 }
                 
             }
         }
-        Swift.print("result: " + "\(result)")
+        
     }
     /**
      * Returns an array with with week summaries of commit counts from PARAM: repoList
