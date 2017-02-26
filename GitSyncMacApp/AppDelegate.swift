@@ -30,6 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      */
     func rateOfCommitsTest(){
         var repoList:[RepoItem] = RepoUtils.repoList//.filter{$0.title == "GitSync - macOS"}
+        Swift.print("repoList.count: " + "\(repoList.count)")
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         let repoCommits:[[Int]] = rateOfCommits(repoList)
         Swift.print("repoCommits.count: " + "\(repoCommits.count)")
