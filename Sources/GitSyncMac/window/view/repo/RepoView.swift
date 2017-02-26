@@ -139,7 +139,7 @@ extension ContextMenu{
         Swift.print("cut")
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
-        clipBoard = treeList.node.removeAt(idx).copy() as? XML
+        clipBoard = treeList.node.removeAt(idx)
         Swift.print("clipBoard: " + "\(clipBoard)")
     }
     func paste(sender: AnyObject) {
@@ -148,7 +148,7 @@ extension ContextMenu{
             //"<item title=\"Fish\"/>".xml
             Swift.print("clipBoard: " + "\(self.clipBoard)")
             let idx = rightClickItemIdx!
-            treeList.node.addAt(newIdx(idx), clipBoard!)
+            treeList.node.addAt(newIdx(idx), clipBoard!.copy() as! XML)
         }
     }
     func delete(sender: AnyObject) {
