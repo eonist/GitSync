@@ -47,26 +47,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var repoCommits:[[CommitCountWork]] = rateOfCommits(repoList)
         var totCount:Int = repoCommits.flatMap{$0}.count
 
-        var i:Int = 0
-        func onComplete(/*_ idx:Int,_ result:String*/){
-            i += 1
+        var idx:Int = 0
+        func onComplete(){
+            idx += 1
             //Swift.print("onComplete: " + "\(i)")
-            if(i == totCount){
+            if(idx == totCount){
                 Swift.print("all concurrent tasks completed")
-                Swift.print("result: " + "\(result)")
                 for i in repoCommits.indices{
                     for e in repoCommits[i].indices{
-                        bgQueue.async {
-                            let work:CommitCountWork = repoCommits[i][e]
-                            let commitCount:String = GitUtils.commitCount(work.localPath, work.since , work.until)
-                            mainQueue.async {
-                                repoCommits[i][e].commitCount = commitCount.int
-                                onComplete()
-                            }
-                            //result[i] = result[i] + $0[i]
-                        }
+                        result[i] = result[i] + repoCommits[i][e].commitCount
                     }
                 }
+                Swift.print("result: " + "\(result)")
             }
         }
         
@@ -80,7 +72,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         repoCommits[i][e].commitCount = commitCount.int
                         onComplete()
                     }
-                    //result[i] = result[i] + $0[i]
                 }
             }
         }
