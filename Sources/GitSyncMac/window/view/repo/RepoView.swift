@@ -178,5 +178,12 @@ extension ContextMenu{
     }
     func openInFinder(sender: AnyObject){
         let idx = rightClickItemIdx!
+        let child:XML = XMLParser.childAt(treeList.node.xml, idx)!
+        let dict:[String:String] = child.attribs
+        if((dict["hasChildren"] != nil) || (dict["isOpen"] != nil)){
+            
+        }
+        let files = [NSURL(fileURLWithPath: filename)];
+        NSWorkspace.sharedWorkspace().activateFileViewerSelectingURLs(files);
     }
 }
