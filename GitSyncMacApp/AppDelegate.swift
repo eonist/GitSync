@@ -72,7 +72,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 
             }
         }
-        
     }
     /**
      * Returns an array with with week summaries of commit counts from PARAM: repoList
