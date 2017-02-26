@@ -69,7 +69,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     }
                     //result[i] = result[i] + $0[i]
                 }
-                
             }
         }
     }
