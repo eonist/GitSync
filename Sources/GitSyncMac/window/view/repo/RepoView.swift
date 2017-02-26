@@ -119,7 +119,9 @@ extension ContextMenu{
     func cut(sender: AnyObject) {
         Swift.print("cut")
         let idx = rightClickItemIdx!
+        Swift.print("idx: " + "\(idx)")
         clipBoard = treeList.node.removeAt(idx)
+        Swift.print("clipBoard: " + "\(clipBoard)")
     }
     func paste(sender: AnyObject) {
         Swift.print("paste")
