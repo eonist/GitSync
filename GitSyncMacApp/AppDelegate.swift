@@ -28,9 +28,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //refreshReposTest()
         var arr:[(i:Int,s:String,result:String)] = [(0,"a",""),(1,"b",""),(2,"c",""),(3,"d","")]
         
-        for obj in arr{
+        for i in arr.indices {
             bgQueue.async {
-                obj.result = obj.i.string + obj.s
+                arr[i].result = arr[i].i.string + arr[i].s
             }
         }
         
