@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("GitSync - The future is automated")//Simple git automation for macOS, The autonomouse git client
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         //_ = Test2()
-        //rateOfCommitsTest()
+        rateOfCommitsTest()
      
         //initApp()
         
@@ -28,12 +28,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //refreshReposTest()
         
         
-    }
-    /**
-     *
-     */
-    func doWork(){
-        print("working: ")
     }
     /**
      * CommitCount per day for all projects in the last 7 days.
@@ -56,7 +50,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 /*loop 3d-structure*/
                 for i in repoCommits.indices{
                     for e in repoCommits[i].indices{
-                        result[i] = result[i] + repoCommits[i][e].commitCount
+                        result[i] = result[i] + repoCommits[i][e].commitCount//👈👈👈 place count in array
                     }
                 }
                 Swift.print("result: " + "\(result)")
@@ -68,7 +62,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             for e in repoCommits[i].indices{
                 bgQueue.async {
                     let work:CommitCountWork = repoCommits[i][e]
-                    let commitCount:String = GitUtils.commitCount(work.localPath, work.since , work.until)
+                    let commitCount:String = GitUtils.commitCount(work.localPath, work.since , work.until)//👈👈👈 do some work
                     mainQueue.async {
                         repoCommits[i][e].commitCount = commitCount.int
                         onComplete()
@@ -86,7 +80,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let commits:[CommitCountWork] = rateOfCommits($0)
             _ = repoCommits += commits
         }
-        
         return repoCommits
     }
     /**
