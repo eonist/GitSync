@@ -66,7 +66,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var result:[Int] = [0,0,0,0,0,0,0]//7 items
         repoCommits.forEach{
             for i in $0.indices{
-                result[i] = result[i] + $0[i]
+                bgQueue.async {
+                    let commitCount:String = GitUtils.commitCount($0.localPath, $0.since , $0.until)
+                    //result[i] = result[i] + $0[i]
+                }
+                
             }
         }
         Swift.print("result: " + "\(result)")
@@ -86,7 +90,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /**
      * Returns an commitCount for 7 days in an Array of 7 Int from PARAM: repoItem
      */
-    typealias CommitCountWork = (localPath:String,since:String,until:String)
+    typealias CommitCountWork = (localPath:String,since:String,until:String,commitCount:Int)
     func rateOfCommits(_ repoItem:RepoItem) -> [CommitCountWork]{
         Swift.print("repoItem.title: \(repoItem.title) localPath: \(repoItem.localPath)")
         //var commits:[Int] = []
@@ -97,7 +101,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
             let untilDate:Date = Date().offsetByDays(dayOffset+1)
             let untilGitDate:String = GitDateUtils.gitTime(untilDate)
-            let comitCountWork:CommitCountWork = (repoItem.localPath,sinceGitDate,untilGitDate)
+            let comitCountWork:CommitCountWork = (repoItem.localPath,sinceGitDate,untilGitDate,0)
             commitCountWorks.append(comitCountWork)
             //let commitCount:String = GitUtils.commitCount(repoItem.localPath, since: , until:)
             //Swift.print("commitCount: " + "\(commitCount)")
