@@ -146,9 +146,10 @@ extension ContextMenu{
         Swift.print("paste")
         if(clipBoard != nil){
             //"<item title=\"Fish\"/>".xml
-            Swift.print("clipBoard: " + "\(clipBoard)")
+            Swift.print("clipBoard: " + "\(self.clipBoard)")
             let idx = rightClickItemIdx!
-            treeList.node.addAt(newIdx(idx), clipBoard!)
+            let clipBoard:XML = self.clipBoard!
+            treeList.node.addAt(newIdx(idx), clipBoard)
         }
     }
     func delete(sender: AnyObject) {
