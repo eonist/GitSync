@@ -113,7 +113,7 @@ extension ContextMenu{
      */
     func newIdx(_ idx:[Int]) -> [Int] {
         var idx = idx
-        let itemData:ItemData = TreeListUtils.itemData(treeList.node.xml,idx)
+        let itemData:ItemData = TreeListUtils.itemData(treeList.node.xml, idx)
         if(itemData.hasChildren){//isFolder, add within
             idx += [0]
         }else{//is not folder, add bellow
