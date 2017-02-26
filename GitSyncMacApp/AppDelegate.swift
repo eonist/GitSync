@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      
         //initApp()
         
-        //Continue: 
+        //Continue: Figure out concurrent threads, check your research
         
         //initTestWin()
         //AutoSync.sync()
