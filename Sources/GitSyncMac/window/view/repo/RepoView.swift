@@ -150,7 +150,7 @@ extension ContextMenu{
     /**
      *
      */
-    func moveDown(){
+    func moveDown(sender: AnyObject){
         
     }
 }
