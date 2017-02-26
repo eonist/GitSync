@@ -182,7 +182,12 @@ extension ContextMenu{
         let dict:[String:String] = child.attribs
         if((dict["hasChildren"] == nil) && (dict["isOpen"] == nil)){//only repos can be opened in finder
             if(dict["local-path"] != nil && FileAsserter.exists(dict["local-path"]!.tildePath)){//make sure local-path exists
-                let fileURL:URL = dict["local-path"]!.tildePath.url
+                let filePath:String = dict["local-path"]!
+                Swift.print("filePath: " + "\(filePath)")
+                let expandedFilePath:String = filePath.tildePath
+                Swift.print("expandedFilePath: " + "\(expandedFilePath)")
+                let fileURL:URL = expandedFilePath.url
+                Swift.print("fileURL: " + "\(fileURL)")
                 NSWorkspace.shared().activateFileViewerSelecting([fileURL])
             }
         }
