@@ -98,16 +98,6 @@ class ContextMenu:NSMenu{
  */
 extension ContextMenu{
     /**
-     * TODO: A bug is that when you add a folder and its the last item then the list isnt resized
-     */
-    func newFolder(sender:AnyObject) {
-        Swift.print("newFolder")
-        let idx = rightClickItemIdx!
-        let a:String = "<item title=\"New folder\" isOpen=\"false\" hasChildren=\"true\"></item>"
-        treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
-        Swift.print("Promt folder name popup")
-    }
-    /**
      * Returns a new idx
      * NOTE: isFolder -> add within, is not folder -> add bellow
      */
@@ -121,6 +111,17 @@ extension ContextMenu{
         }
         return idx
     }
+    /**
+     * TODO: A bug is that when you add a folder and its the last item then the list isnt resized
+     */
+    func newFolder(sender:AnyObject) {
+        Swift.print("newFolder")
+        let idx = rightClickItemIdx!
+        let a:String = "<item title=\"New folder\" isOpen=\"false\" hasChildren=\"true\"></item>"
+        treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
+        Swift.print("Promt folder name popup")
+    }
+    
     func newRepo(sender:AnyObject) {
         Swift.print("newRepo")
         let idx = rightClickItemIdx!
@@ -178,14 +179,15 @@ extension ContextMenu{
     }
     func openInFinder(sender: AnyObject){
         let idx = rightClickItemIdx!
-        let repoItem = RepoUtils.repoItem(treeList.node.xml, idx)
-        /*if((dict["hasChildren"] == nil) && (dict["isOpen"] == nil)){//only repos can be opened in finder
-         if(dict["local-path"] != nil && FileAsserter.exists(dict["local-path"]!.tildePath)){//make sure local-path exists
-         let filePath:String = dict["local-path"]!
-         Swift.print("filePath: " + "\(filePath)")
-         FileUtils.showFileInFinder(filePath)
-         }
-         }*/
+        let itemData:ItemData = TreeListUtils.itemData(treeList.node.xml, idx)
+        if(!itemData.hasChildren){//only repos can be opened in finder
+            let repoItem = RepoUtils.repoItem(treeList.node.xml, idx)
+            if(FileAsserter.exists(repoItem.localPath.tildePath)){//make sure local-path exists
+                Swift.print("repoItem.localPath: " + "\(repoItem.localPath)")
+                FileUtils.showFileInFinder(repoItem.localPath)
+            }
+        }
+        
     }
     func openURL(sender:AnyObject){
         if let url = URL(string: "https://www.google.com"), NSWorkspace.shared().open(url) {
