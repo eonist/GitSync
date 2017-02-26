@@ -26,25 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //initTestWin()
         //AutoSync.sync()
         //refreshReposTest()
-        var arr:[(i:Int,s:String,result:String)] = [(0,"a",""),(1,"b",""),(2,"c",""),(3,"d","")]
-        var i:Int = 0
-        func onComplete(/*_ idx:Int,_ result:String*/){
-            i += 1
-            Swift.print("onComplete: " + "\(i)")
-            if(i == arr.count){
-                Swift.print("all concurrent tasks completed")
-                Swift.print("arr: " + "\(arr)")//[(0, "a", "0a"), (1, "b", "1b"), (2, "c", "2c"), (3, "d", "3d")]
-            }
-        }
-        for i in arr.indices {
-            bgQueue.async {
-                let res:String = arr[i].i.string + arr[i].s
-                mainQueue.async {
-                    arr[i].result = res//assinging of values must happen on mainThread
-                    onComplete()
-                }
-            }
-        }
+        
         
     }
     /**
@@ -61,7 +43,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("repoList.count: " + "\(repoList.count)")
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
-        let repoCommits:[[CommitCountWork]] = rateOfCommits(repoList)
+        var repoCommits:[[CommitCountWork]] = rateOfCommits(repoList)
+        
+        var i:Int = 0
+        func onComplete(/*_ idx:Int,_ result:String*/){
+            i += 1
+            //Swift.print("onComplete: " + "\(i)")
+            if(i == arr.count){
+                Swift.print("all concurrent tasks completed")
+                Swift.print("arr: " + "\(arr)")//[(0, "a", "0a"), (1, "b", "1b"), (2, "c", "2c"), (3, "d", "3d")]
+            }
+        }
         
         var result:[Int] = [0,0,0,0,0,0,0]//7 items
         for i in repoCommits.indices{
@@ -70,7 +62,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     let work:CommitCountWork = repoCommits[i][e]
                     let commitCount:String = GitUtils.commitCount(work.localPath, work.since , work.until)
                     mainQueue.async {
-                        repoCommits[i][e].commitCount = commitCount.string
+                        repoCommits[i][e].commitCount = commitCount.int
                     }
                     //result[i] = result[i] + $0[i]
                 }
@@ -94,7 +86,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /**
      * Returns an commitCount for 7 days in an Array of 7 Int from PARAM: repoItem
      */
-    typealias CommitCountWork = (localPath:String,since:String,until:String,commitCount:String)
+    typealias CommitCountWork = (localPath:String,since:String,until:String,commitCount:Int)
     func rateOfCommits(_ repoItem:RepoItem) -> [CommitCountWork]{
         Swift.print("repoItem.title: \(repoItem.title) localPath: \(repoItem.localPath)")
         //var commits:[Int] = []
@@ -105,7 +97,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
             let untilDate:Date = Date().offsetByDays(dayOffset+1)
             let untilGitDate:String = GitDateUtils.gitTime(untilDate)
-            let comitCountWork:CommitCountWork = (repoItem.localPath,sinceGitDate,untilGitDate,"0")
+            let comitCountWork:CommitCountWork = (repoItem.localPath,sinceGitDate,untilGitDate,0)
             commitCountWorks.append(comitCountWork)
             //let commitCount:String = GitUtils.commitCount(repoItem.localPath, since: , until:)
             //Swift.print("commitCount: " + "\(commitCount)")
