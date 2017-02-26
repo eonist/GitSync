@@ -78,9 +78,9 @@ class ContextMenu:NSMenu{
         menuItems.append(("Delete", #selector(delete)))
         menuItems.append(("Move up", #selector(moveUp)))
         menuItems.append(("Move down", #selector(moveDown)))
-        menuItems.append(("Move bop", #selector(moveToTop)))
+        menuItems.append(("Move top", #selector(moveToTop)))
         menuItems.append(("Move bottom", #selector(moveToBottom)))
-        
+        //submenu!.addMenuItem(NSMenuItem.separatorItem())/*Separator*/
         menuItems.forEach{
             let menuItem = NSMenuItem(title: $0.title, action: $0.selector, keyEquivalent: "")
             self.addItem(menuItem)
