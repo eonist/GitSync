@@ -181,8 +181,8 @@ extension ContextMenu{
         let child:XML = XMLParser.childAt(treeList.node.xml, idx)!
         let dict:[String:String] = child.attribs
         if((dict["hasChildren"] == nil) && (dict["isOpen"] == nil)){//only repos can be opened in finder
-            if let localPath:String = dict["local-path"]{
-                let fileURL:URL = localPath.tildePath.url
+            if(dict["local-path"] != nil && FileAsserter.exists(dict["local-path"]!.tildePath)){//make sure local-path exists
+                let fileURL:URL = dict["local-path"]!.tildePath.url
                 NSWorkspace.shared().activateFileViewerSelecting([fileURL])
             }
         }
