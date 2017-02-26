@@ -80,12 +80,14 @@ class ContextMenu:NSMenu{
         menuItems.append(("Move down", #selector(moveDown)))
         menuItems.append(("Move top", #selector(moveToTop)))
         menuItems.append(("Move bottom", #selector(moveToBottom)))
-        //submenu!.addMenuItem(NSMenuItem.separatorItem())/*Separator*/
+        
         menuItems.forEach{
             let menuItem = NSMenuItem(title: $0.title, action: $0.selector, keyEquivalent: "")
             self.addItem(menuItem)
             menuItem.target = self
         }
+        self.insertItem(NSMenuItem.separator(), at: 5)/*Separator*/
+        self.insertItem(NSMenuItem.separator(), at: 9)/*Separator*/
     }
     required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
