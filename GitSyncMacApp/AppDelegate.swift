@@ -26,6 +26,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //initTestWin()
         //AutoSync.sync()
         //refreshReposTest()
+        let arr:[(i:Int,s:String,result:String)] = [(0,"a"),(1,"b"),(2,"c"),(3,"d")]
+        
+        arr.forEach{
+            bgQueue.async {
+                <#code#>
+            }
+        }
+        
+    }
+    /**
+     *
+     */
+    func doWork(){
+        print("working: ")
     }
     /**
      * CommitCount per day for all projects in the last 7 days.
@@ -69,7 +83,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
             let untilDate:Date = Date().offsetByDays(dayOffset+1)
             let untilGitDate:String = GitDateUtils.gitTime(untilDate)
-            let commitCount:String = GitUtils.commitCount(repoItem.localPath, since: sinceGitDate, until:untilGitDate )
+            let commitCount:String = GitUtils.commitCount(repoItem.localPath, since: sinceGitDate, until:untilGitDate)
             //Swift.print("commitCount: " + "\(commitCount)")
             commits.append(commitCount.int)
         }
