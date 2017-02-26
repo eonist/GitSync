@@ -177,6 +177,6 @@ extension ContextMenu{
         _ = TreeListModifier.moveToBottom(treeList, idx)
     }
     func openInFinder(sender: AnyObject){
-        
+        let idx = rightClickItemIdx!
     }
 }
