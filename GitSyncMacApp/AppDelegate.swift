@@ -70,7 +70,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 bgQueue.async {
                     let work:CommitCountWork = works[i]
                     let commitCount:String = GitUtils.commitCount(work.localPath, work.since , work.until)
-                    mainQueue
+                    mainQueue.async {
+                        <#code#>
+                    }
                     //result[i] = result[i] + $0[i]
                 }
                 
