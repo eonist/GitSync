@@ -29,7 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var arr:[(i:Int,s:String,result:String)] = [(0,"a",""),(1,"b",""),(2,"c",""),(3,"d","")]
         
         var i:Int = 0
-        func onComplete(){
+        func onComplete(_ idx:Int, _ ){
             i += 1
             Swift.print("onComplete: " + "\(i)")
             if(i == arr.count){
