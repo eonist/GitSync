@@ -46,14 +46,14 @@ private class Utils{
      */
     static func freshness(_ localPath:String)->CGFloat{
         //Swift.print("freshness() localPath: " + "\(localPath)")
-        let totCommitCount:Int = GitUtils.commitCount(localPath).int-3/*Returns total commit count for a repo*///TODO: you may need to build a more robust commitCount method, it may be that there is a newLine etc
+        let totCommitCount:Int = GitUtils.commitCount(localPath).int-3//👈Git call/*Returns total commit count for a repo*///TODO: you may need to build a more robust commitCount method, it may be that there is a newLine etc
         //Swift.print("totCommitCount: " + "\(totCommitCount)")
         let index:Int = totCommitCount < 100 ? totCommitCount : 100
         var date:Date = Date()//now
         if(index > 0){//if the repo has commits
             let cmd:String = "head~"+index.string+" " + "--pretty=format:%ci".encode()! + " --no-patch"
             //Swift.print("cmd: " + "\(cmd)")
-            let commitDate:String = GitParser.show(localPath, cmd)
+            let commitDate:String = GitParser.show(localPath, cmd)//👈Git call
             //Swift.print("commitDate: " + "\(commitDate)")
             date = GitDateUtils.date(commitDate)
         }
