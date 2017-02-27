@@ -27,7 +27,7 @@ class Freshness {
         for i in repos.indices{/*sort the repoList based on freshness*/
             let repo = repos[i]
             bgQueue.async{//run the task on a background thread
-                let freshness:CGFloat = Utils.freshness(repo.localPath)
+                let freshness:CGFloat = Utils.freshness(repo.localPath)/*Calls git 2 times*/
                 sortableRepoList.append((repo,freshness))
                 mainQueue.async{/*Jump back on the main thread*/
                     onComplete()
