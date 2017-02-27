@@ -11,15 +11,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     weak var window: NSWindow!
     var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
     var fileWatcher:FileWatcher?
-    var timer:SimpleTimer?
+    //var timer:SimpleTimer?
+    let startTime:Date = Date()
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         Swift.print("GitSync - The future is automated")//Simple git automation for macOS, The autonomouse git client
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         //_ = Test2()
-        let startTime:Date = Date()
+        
         rateOfCommitsTest()
-        Swift.print("Time: " + "\(abs(startTime.timeIntervalSinceNow))")
+        
         //initApp()
         
         //Continue: Figure out concurrent threads, check your research
@@ -53,6 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     }
                 }
                 Swift.print("result: " + "\(result)")
+                Swift.print("Time: " + "\(abs(startTime.timeIntervalSinceNow))")
             }
         }
         
