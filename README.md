@@ -1,16 +1,20 @@
 ![mit](https://img.shields.io/badge/License-MIT-brightgreen.svg) ![platform](https://img.shields.io/badge/Platform-macOS-blue.svg) ![Lang](https://img.shields.io/badge/Language-Swift-orange.svg) [![codebeat badge](https://codebeat.co/badges/5c7a5051-2fa6-45c1-9c2c-0db5fe70837b)](https://codebeat.co/projects/github-com-eonist-gitsyncosx)
 
 ## Milestones:
-- Concurrent AutoSync
+- Concurrent AutoSync 👈
 - Responsive UI
-- Graph support for: Day,Month,Year
+- Graph support for: Day,Month,Year (via pinch)
 
 ## Progress:
+**2017-02-28**
+- Added refresh range exclude algo
+- Auto-sync is now a concurrent process
 
 **2017-02-27**  
-- Added copy,up,down,top,bottom to menu
+- Added copy,up,down,top,bottom,duplicate to menu
 - Open Repo in browser/finder
 - Commit counter is now a concurrent processes
+- Graph is now a concurrent processes
 
 **2017-02-26**  
 - Folders can now me renamed
