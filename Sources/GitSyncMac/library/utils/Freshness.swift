@@ -18,11 +18,12 @@ class Freshness {
         func onComplete(){
             
         }
-        let repoList = RepoUtils.repoList
-        repoList.forEach{/*sort the repoList based on freshness*/
+        let repos = RepoUtils.repoList
+        for i in repos.indices{/*sort the repoList based on freshness*/
+            let repo = repos[i]
             bgQueue.async{//run the task on a background thread
-                let freshness:CGFloat = Utils.freshness($0.localPath)
-                sortableRepoList.append(($0,freshness))
+                let freshness:CGFloat = Utils.freshness(repo.localPath)
+                sortableRepoList.append((repo,freshness))
                 
                 sortableRepoList.sort(by: {$0.freshness > $1.freshness})/*sorts repos according to freshness, the freshest first the least fresh at the botom*/
                 mainQueue.async{/*Jump back on the main thread*/
