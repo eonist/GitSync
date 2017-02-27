@@ -17,8 +17,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("GitSync - The future is automated")//Simple git automation for macOS, The autonomouse git client
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         //_ = Test2()
+        let startTime:Date = Date()
         rateOfCommitsTest()
-        
+        Swift.print("Time: " + "\(abs(startTime.timeIntervalSinceNow))")
         //initApp()
         
         //Continue: Figure out concurrent threads, check your research
