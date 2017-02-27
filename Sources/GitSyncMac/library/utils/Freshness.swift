@@ -51,7 +51,7 @@ private class Utils{
         let index:Int = totCommitCount < 100 ? totCommitCount : 100
         var date:Date = Date()//now
         if(index > 0){//if the repo has commits
-            let cmd:String = "head~"+index.string+" " + "--pretty=format:%ci".encode()! + " --no-patch"
+            let cmd:String = "head~"+index.string+" " + "--pretty=format:%ci".encode()! + " --no-patch"//cmd that returns "2015-12-03 16:59:09 +0100"
             //Swift.print("cmd: " + "\(cmd)")
             let commitDate:String = GitParser.show(localPath, cmd)//👈Git call
             //Swift.print("commitDate: " + "\(commitDate)")
