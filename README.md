@@ -6,6 +6,12 @@
 - Graph support for: Day,Month,Year
 
 ## Progress:
+
+**2017-02-27**  
+- Added copy,up,down,top,bottom to menu
+- Open Repo in browser/finder
+- Commit counter is now a concurrent processes
+
 **2017-02-26**  
 - Folders can now me renamed
 - Commit count for DateRange now works

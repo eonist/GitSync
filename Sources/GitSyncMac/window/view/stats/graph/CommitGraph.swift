@@ -7,6 +7,7 @@ class CommitGraph:Graph{
     var currentDate:Date = Date()
     var dayOffset:Int = 0
     var graphData:(vValues:[CGFloat],hValNames:[String])
+    /*we override this var so that the super class can derive data from graphData*/
     override var vValues:[CGFloat] {return graphData.vValues}//,20,33,19//[14,8,13,17,25,9,14]
     override var hValNames:[String] {return graphData.hValNames}//["T","W","T","F","S","S","M"]//"10/12","13","14",
     /*Gesture related*/
@@ -17,16 +18,45 @@ class CommitGraph:Graph{
     var initGraphPts:[CGPoint] = []/*Animates from these points*/
     
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement?, _ id: String? = nil) {
-        graphData =  Utils.graphData(dayOffset, currentDate)
+        graphData =  Utils.defaultGraphData(dayOffset, currentDate)//set init data, at dayoffset: 0
         super.init(width, height, parent, id)
         self.acceptsTouchEvents = true/*Enables gestures*/
     }
     override func resolveSkin() {
         super.resolveSkin()
-        //Continue here: add the current date: 16/10/11 - 16/10/18  center aligned text on top (The CommitGraph doesnt need anything more features, as its just about showing your commit count the last 7 days and so)
-        dateText = addSubView(TextArea(180,24,"-",self,"date"))
+        dateText = addSubView(TextArea(180,24,"-",self,"date"))/*A TextField that displays the time range of the graph*/
         updateDateText()
     }
+    /**
+     * Detects when touches are made
+     */
+    override func touchesBegan(with event:NSEvent) {
+        //Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
+        twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
+    }
+    /**
+     * Detects if a two finger left or right swipe has occured
+     */
+    override func touchesMoved(with event:NSEvent) {
+        //Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
+        let swipeType:SwipeType = GestureUtils.swipe(self, event, twoFingersTouches)
+        if (swipeType == .right){
+            Swift.print("swipe right")
+            //Do something here
+            iterate(-1)
+        }else if(swipeType == .left){
+            Swift.print("swipe left")
+            iterate(1)
+            //Do something else here
+        }else{
+            Swift.print("swipe none")
+        }
+    }
+    override func touchesEnded(with event: NSEvent) {/*Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")*/}//for debugging
+    override func touchesCancelled(with event: NSEvent) {/* //Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")*/}//for debugging
+    required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+}
+extension CommitGraph{
     /**
      * Offsets the currentDate by +-7 days
      */
@@ -66,9 +96,9 @@ class CommitGraph:Graph{
      * Updates the DateText UI Element
      */
     func updateDateText(){
-        let curDate = Utils.date(self.currentDate, self.dayOffset)
+        let curDate = self.currentDate.offsetByDays(self.dayOffset)
         Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
-        let lastWeekDate = Utils.date(self.currentDate, self.dayOffset-7)
+        let lastWeekDate = self.currentDate.offsetByDays(self.dayOffset-7)
         //curDate
         dateText!.setTextValue(lastWeekDate.shortDate + " - " + curDate.shortDate)
     }
@@ -92,63 +122,36 @@ class CommitGraph:Graph{
         graphLine!.line!.cgPath = cgPath.clone()//applies the new path
         graphLine!.line!.draw()//draws the path
     }
-    /**
-     * Detects when touches are made
-     */
-    override func touchesBegan(with event:NSEvent) {
-        //Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
-        twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
-    }
-    /**
-     * Detects if a two finger left or right swipe has occured
-     */
-    override func touchesMoved(with event:NSEvent) {
-        //Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
-        
-        let swipeType:SwipeType = GestureUtils.swipe(self, event, twoFingersTouches)
-        if (swipeType == .right){
-            Swift.print("swipe right")
-            //Do something here
-            iterate(-1)
-        }else if(swipeType == .left){
-            Swift.print("swipe left")
-            iterate(1)
-            //Do something else here
-        }else{
-            Swift.print("swipe none")
-        }
-    }
-    override func touchesEnded(with event: NSEvent) {//for debugging
-        //Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")
-    }
-    override func touchesCancelled(with event: NSEvent) {//for debugging
-        //Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")
-    }
-    required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 private class Utils{
     /**
-     * Returns a Date instance for a currentDate and dayOffset
-     */
-    static func date(_ currentDate:Date,_ dayOffset:Int) -> Date{
-        let calendar = Calendar.current
-        let date:Date = calendar.date(byAdding: .day, value: dayOffset, to: currentDate)!
-        return date
-    }
-    /**
      * Returns Arrays of values for x and y axis. (In this case days and values)
+     * Return: hValNames: horisontal Day names M,T,W,T,F,S,S aka mon,tue,wed...
+     * Return: vValues: commmits that day
      */
     static func graphData(_ dayOffset:Int,_ currentDate:Date) -> (vValues:[CGFloat],hValNames:[String]){
         var dayNames:[String] = []
         var values:[CGFloat] = []/*commits in a single day*/
         for i in (0..<7).reversed() {
-            let date = Utils.date(currentDate, dayOffset-i)
-            Swift.print("date: " + "\(date)")
+            let date = currentDate.offsetByDays(dayOffset-i)
+            //Swift.print("date: " + "\(date)")
             let shortNameDayOfWeek:String = date.shortDayName
-            Swift.print("shortNameDayOfWeek: " + "\(shortNameDayOfWeek)")
+            //Swift.print("shortNameDayOfWeek: " + "\(shortNameDayOfWeek)")
             dayNames.append(shortNameDayOfWeek)
             let val:CGFloat = IntParser.random(4, 24).cgFloat/*generate vValues via random, as we use faux data for now*/
             values.append(val)
+        }
+        return (values,dayNames)
+    }
+    /**
+     * Default values for graph (init)
+     */
+    static func defaultGraphData(_ dayOffset:Int,_ currentDate:Date) -> (vValues:[CGFloat],hValNames:[String]){
+        var dayNames:[String] = []
+        var values:[CGFloat] = []
+        for i in (0..<7).reversed() {
+            dayNames.append(currentDate.offsetByDays(dayOffset-i).shortDayName)
+            values.append(0.0)
         }
         return (values,dayNames)
     }

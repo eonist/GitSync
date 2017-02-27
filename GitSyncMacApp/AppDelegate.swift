@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         //_ = Test2()
         
-        rateOfCommitsTest()
+        //rateOfCommitsTest()
         
         initApp()
         
@@ -30,10 +30,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //refreshReposTest()
     }
     /**
-     * CommitCount per day for all projects in the last 7 days.
+     * CommitCount per day for all projects in the last 7 days where the user is "eonist"
      */
     func rateOfCommitsTest(){
-        var result:[Int] = [0,0,0,0,0,0,0]//7 items
+        var result:[Int] = [0,0,0,0,0,0,0]
         var repoList:[RepoItem] = RepoUtils.repoList//.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
         Swift.print("repoList.count: " + "\(repoList.count)")
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
@@ -106,6 +106,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         //Swift.print("commits: " + "\(commits)")
         return commitCountWorks
+        
+        
     }
     /**
      *
