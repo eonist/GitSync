@@ -2,7 +2,6 @@ import Foundation
 @testable import Utils
 /*Storage tuple for the GitSyncAPp*/
 typealias RepoItem = (localPath:String,interval:Int,branch:String,keyChainItemName:String,broadcast:Bool,title:String,subscribe:Bool,autoSync:Bool,remotePath:String)
-typealias FreshnessUtils = RefreshUtils//temp
 class Freshness {
     /**
      * Freshness level of every repo is calculated
@@ -13,7 +12,7 @@ class Freshness {
      * PARAM: repoFilePath: the the repo file contains info about each repo to sort.
      */
     func freshnessSort(_ repoFilePath:String){
-        Swift.print("💜 freshnessSort()")
+        Swift.print("💜 Freshness.freshnessSort()")
         var sortableRepoList:[(repo:RepoItem,freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
         bgQueue.async{//run the task on a background thread
             let repoXML = FileParser.xml(repoFilePath.tildePath)//~/Desktop/repo2.xml
@@ -56,11 +55,3 @@ private class Utils{
         return ratio
     }
 }
-
-/*
-func onFreshnessSortComplete(_ sortableRepoList:[(repo:RepoItem,freshness:CGFloat)]){
-    //sortableRepoList.forEach{Swift.print($0.repo["title"]!)}
-    Swift.print("💛 onFreshnessSortComplete() Time:-> " + "\(abs(CommitDPRefresher.startTime!.timeIntervalSinceNow))")/*How long it took*/
-    CommitDPRefresher.refreshRepos(sortableRepoList)
-}
-*/
