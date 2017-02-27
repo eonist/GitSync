@@ -19,9 +19,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         //_ = Test2()
         
-        //rateOfCommitsTest()
+        rateOfCommitsTest()
         
-        initApp()
+        //initApp()
         
         //Continue: Figure out concurrent threads, check your research
         
@@ -33,28 +33,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      * CommitCount per day for all projects in the last 7 days where the user is "eonist"
      */
     func rateOfCommitsTest(){
-        var result:[Int] = [0,0,0,0,0,0,0]
-        var repoList:[RepoItem] = RepoUtils.repoList//.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
-        Swift.print("repoList.count: " + "\(repoList.count)")
-        repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
-        Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
-        var repoCommits:[[CommitCountWork]] = rateOfCommits(repoList,0)
-        var totCount:Int = repoCommits.flatMap{$0}.count
-
-        
-        
-        
+        initRateOfCommitsProcess()
     }
+    var repoCommits:[[CommitCountWork]]?
+    var totCount:Int?
+    var result:[Int] = [0,0,0,0,0,0,0]
     var idx:Int = 0
+    
     func onComplete(){
         idx += 1
         //Swift.print("onComplete: " + "\(i)")
         if(idx == totCount){
             Swift.print("all concurrent tasks completed: totCount \(totCount)")
             /*loop 3d-structure*/
-            for i in repoCommits.indices{
-                for e in repoCommits[i].indices{
-                    result[e] = result[e] + repoCommits[i][e].commitCount//👈👈👈 place count in array
+            for i in repoCommits!.indices{
+                for e in repoCommits![i].indices{
+                    result[e] = result[e] + repoCommits![i][e].commitCount//👈👈👈 place count in array
                 }
             }
             Swift.print("result: " + "\(result)")
@@ -65,16 +59,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      *
      */
     func initRateOfCommitsProcess(){
+        var repoList:[RepoItem] = RepoUtils.repoList//.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
+        Swift.print("repoList.count: " + "\(repoList.count)")
+        repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
+        Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
+        repoCommits = rateOfCommits(repoList,0)
+        totCount = repoCommits!.flatMap{$0}.count
         /*Loop 3d-structure*/
-        for i in repoCommits.indices{
-            for e in repoCommits[i].indices{
+        for i in repoCommits!.indices{
+            for e in repoCommits![i].indices{
                 bgQueue.async {
-                    let work:CommitCountWork = repoCommits[i][e]
+                    let work:CommitCountWork = self.repoCommits![i][e]
                     //Swift.print("launched a work item: " + "\(work.localPath)")
                     let commitCount:String = GitUtils.commitCount(work.localPath, since:work.since , until:work.until)//👈👈👈 do some work
                     mainQueue.async {
-                        repoCommits[i][e].commitCount = commitCount.int
-                        onComplete()
+                        self.repoCommits![i][e].commitCount = commitCount.int
+                        self.onComplete()
                     }
                 }
             }
