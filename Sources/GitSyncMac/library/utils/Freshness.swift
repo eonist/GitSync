@@ -11,12 +11,11 @@ class Freshness {
      * Sort the repoList so that the freshest repos are parsed first (optimization)
      * PARAM: repoFilePath: the the repo file contains info about each repo to sort.
      */
-    func initFreshnessSort(_ repoFilePath:String){
+    func initFreshnessSort(){
         Swift.print("💜 Freshness.freshnessSort()")
         var sortableRepoList:[(repo:RepoItem,freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
         bgQueue.async{//run the task on a background thread
-            let repoXML = FileParser.xml(repoFilePath.tildePath)
-            let repoList:[RepoItem] = XMLParser.toArray(repoXML).map{(localPath:$0["local-path"]!,interval:$0["interval"]!.int,branch:$0["branch"]!,keyChainItemName:$0["keychain-item-name"]!,broadcast:$0["broadcast"]!.bool,title:$0["title"]!,subscribe:$0["subscribe"]!.bool,autoSync:$0["auto-sync"]!.bool,remotePath:$0["remote-path"]!)}
+            let repoList = RepoUtils.repoList
             repoList.forEach{/*sort the repoList based on freshness*/
                 let freshness:CGFloat = Utils.freshness($0.localPath)
                 sortableRepoList.append(($0,freshness))
