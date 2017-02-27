@@ -165,7 +165,7 @@ private class Utils{
             let val:CGFloat = IntParser.random(4, 24).cgFloat/*generate vValues via random, as we use faux data for now*/
             values.append(val)
         }
-        return (values,dayNames)
+        return dayNames
     }
     /**
      * Default values for graph (init)
