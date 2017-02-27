@@ -12,7 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
     var fileWatcher:FileWatcher?
     //var timer:SimpleTimer?
-    let startTime:Date = Date()
+    var startTime:Date? = nil
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         Swift.print("GitSync - The future is automated")//Simple git automation for macOS, The autonomouse git client
@@ -33,6 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      * CommitCount per day for all projects in the last 7 days where the user is "eonist"
      */
     func rateOfCommitsTest(){
+        startTime = Date()
         initRateOfCommitsProcess()
     }
     var repoCommits:[[CommitCountWork]]?
@@ -52,7 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
             }
             Swift.print("result: " + "\(result)")
-            Swift.print("Time: " + "\(abs(startTime.timeIntervalSinceNow))")
+            Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")
         }
     }
     /**
@@ -63,7 +64,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("repoList.count: " + "\(repoList.count)")
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
-        repoCommits = rateOfCommits(repoList,0)
+        repoCommits = rateOfCommits(repoList,0/*<--dayOffset*/)
         totCount = repoCommits!.flatMap{$0}.count
         /*Loop 3d-structure*/
         for i in repoCommits!.indices{
