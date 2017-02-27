@@ -7,7 +7,7 @@ typealias CommitDPRefresher = Refresh//temp
  * Basically creates/updates a list of the latest commits
  */
 class Refresh{//TODO:rename to refresh
-    //var commitDB:CommitDB/* = CommitDB()*/ 
+    //var commitDB:CommitDB/* = CommitDB()*/
     var commitDP:CommitDP?
     var startTime:NSDate?//debugging
     var isRefreshing:Bool = false/*avoids refreshing when the refresh has already started*/
@@ -20,9 +20,9 @@ class Refresh{//TODO:rename to refresh
      */
     func initRefresh(){
         isRefreshing = true/*avoid calling refresh when this is true, it is set to false on completion*/
-        startTime = NSDate()//measure the time of the refresh
         let freshness = Freshness()
         freshness.onFreshnessSortComplete = refreshRepos//👈
+        startTime = NSDate()/*Measure the time of the refresh*/
         freshness.initFreshnessSort()//begin process on a background thread
     }
     /**
