@@ -114,8 +114,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         //Swift.print("commits: " + "\(commits)")
         return commitCountWorks
-        
-        
     }
     /**
      *
@@ -173,6 +171,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         print("Good-bye")
     }
+}
+
+class RateOfCommits{
+    
 }
 
 
