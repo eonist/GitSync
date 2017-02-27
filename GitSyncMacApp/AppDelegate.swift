@@ -19,9 +19,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         //_ = Test2()
         
-        rateOfCommitsTest()
+        //rateOfCommitsTest()
         
-        //initApp()
+        initApp()
         
         //Continue: Figure out concurrent threads, check your research
         
