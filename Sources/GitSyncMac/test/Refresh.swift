@@ -59,21 +59,10 @@ class Refresh{//TODO:rename to refresh
 class RefreshUtils{
     /**
      * Adds commit items to CommitDB if they are newer than the oldest commit in CommitDB
-     * 1. Find the range of commits to add to CommitDB for this repo
-     * 2. Retrieve the commit log items for this repo with the range specified
+     * Retrieve the commit log items for this repo with the range specified
      */
     static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem){
-        var commitCount:Int
-        if(dp.items.count > 0){
-            let lastDate:Int = dp.items.last!["sortableDate"]!.int/*the last date is always the furthest distant date 19:59,19:15,19:00 etc*/
-            //Swift.print("lastDate: " + "\(lastDate)")
-            let gitTime = GitDateUtils.gitTime(lastDate.string)/*converts descending date to git time*/
-            let rangeCount:Int = GitUtils.commitCount(repo.localPath, after: gitTime).int//👈Git call /*Finds the num of commits from now until */
-            Swift.print("rangeCount now..last: " + "\(rangeCount)")
-            commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
-        }else {//< 100
-            commitCount = 100
-        }
+        let commitCount:Int = self.commitCount(dp,repo)
         Swift.print("💙\(repo.title): rangeCount: " + "\(commitCount)")
         let results:[String] = Utils.commitItems(repo.localPath, commitCount)/*creates an array raw commit item logs, from repo*/
         results.forEach{
@@ -86,6 +75,23 @@ class RefreshUtils{
                 Swift.print("-----ERROR: repo: \(repo.title) at index: \(index) didn't work")
             }
         }//if results.count == 0 then -> no commitItems to append (because they where to old or non existed)
+    }
+    /**
+     * Find the range of commits to add to CommitDB for this repo
+     */
+    private static func commitCount(_ dp:CommitDP,_ repo:RepoItem)->Int{
+        var commitCount:Int
+        if(dp.items.count > 0){
+            let lastDate:Int = dp.items.last!["sortableDate"]!.int/*the last date is always the furthest distant date 19:59,19:15,19:00 etc*/
+            //Swift.print("lastDate: " + "\(lastDate)")
+            let gitTime = GitDateUtils.gitTime(lastDate.string)/*converts descending date to git time*/
+            let rangeCount:Int = GitUtils.commitCount(repo.localPath, after: gitTime).int//👈Git call /*Finds the num of commits from now until */
+            Swift.print("rangeCount now..last: " + "\(rangeCount)")
+            commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
+        }else {//< 100
+            commitCount = 100
+        }
+        return commitCount
     }
 }
 private class Utils{
