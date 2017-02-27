@@ -39,8 +39,7 @@ private class Utils{
         let totCommitCount:Int = GitUtils.commitCount(localPath).int-3//you may need to build a more robust commitCount method, it may be that there is a newLine etc
         //Swift.print("totCommitCount: " + "\(totCommitCount)")
         let index:Int = totCommitCount < 100 ? totCommitCount : 100
-        var date:Date = Date()
-        let now:Int = DateParser.descendingDate(date).int
+        var date:Date = Date()//now
         if(index > 0){//if the repo has commits
             let cmd:String = "head~"+index.string+" " + "--pretty=format:%ci".encode()! + " --no-patch"
             //Swift.print("cmd: " + "\(cmd)")
@@ -49,6 +48,7 @@ private class Utils{
             date = GitDateUtils.date(commitDate)
         }
         let descendingDate:Int = DateParser.descendingDate(date).int
+        let now:Int = DateParser.descendingDate(date).int//Chrono time
         let timeAgo:Int = now - descendingDate//now - 2min ago = 120...etc
         let ratio:CGFloat = index.cgFloat / timeAgo.cgFloat// -> commits per second (we use seconds as timeunit to get more presicion)
         return ratio
