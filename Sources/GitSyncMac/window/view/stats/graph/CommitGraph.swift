@@ -5,7 +5,7 @@ import Cocoa
 class CommitGraph:Graph{
     var dateText:TextArea?
     var currentDate:Date = Date()
-    var dayOffset:Int = 0
+    var dayOffset:Int = 0/*Current dayOffset*/
     var graphData:(vValues:[CGFloat],hValNames:[String])
     /*we override this var so that the super class can derive data from graphData*/
     override var vValues:[CGFloat] {return graphData.vValues}//,20,33,19//[14,8,13,17,25,9,14]
@@ -25,7 +25,7 @@ class CommitGraph:Graph{
     override func resolveSkin() {
         super.resolveSkin()
         dateText = addSubView(TextArea(180,24,"-",self,"date"))/*A TextField that displays the time range of the graph*/
-        updateDateText()
+        iterate(dayOffset)
     }
     /**
      * Detects when touches are made
