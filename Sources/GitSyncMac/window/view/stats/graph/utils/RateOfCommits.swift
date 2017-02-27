@@ -1,6 +1,5 @@
 import Foundation
 @testable import Utils
-@testable import GitSyncMac
 
 class RateOfCommits{
     typealias CommitCountWork = (localPath:String,since:String,until:String,commitCount:Int)
