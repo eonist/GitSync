@@ -14,11 +14,16 @@ class Freshness {
     func initFreshnessSort(){
         Swift.print("💜 Freshness.freshnessSort()")
         var sortableRepoList:[(repo:RepoItem,freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
-        
-        func onComplete(){
-            
-        }
         let repos = RepoUtils.repoList
+        var idx:Int = 0//reset this value onComplete if you plan to reuse the freshness instance
+        func onComplete(){
+            idx += 1
+            if(idx == repos.count){
+                /*all freshness calls completed at this point*/
+                self.onFreshnessSortComplete(sortableRepoList)
+            }
+        }
+        
         for i in repos.indices{/*sort the repoList based on freshness*/
             let repo = repos[i]
             bgQueue.async{//run the task on a background thread
@@ -27,7 +32,7 @@ class Freshness {
                 
                 sortableRepoList.sort(by: {$0.freshness > $1.freshness})/*sorts repos according to freshness, the freshest first the least fresh at the botom*/
                 mainQueue.async{/*Jump back on the main thread*/
-                    self.onFreshnessSortComplete(sortableRepoList)
+                    
                 }
             }
         }
