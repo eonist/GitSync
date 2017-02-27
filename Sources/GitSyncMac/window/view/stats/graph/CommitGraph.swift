@@ -64,6 +64,13 @@ extension CommitGraph{
         Swift.print("iterate" + "\(iteration)")
         dayOffset += (7*iteration)
         graphData = Utils.graphData(dayOffset, currentDate)
+        let rateOfCommits = RateOfCommits()
+        func onComplete(_ results:[Int]){
+            Swift.print("Appdelegate.onComplete()")
+            Swift.print("results.count: " + "\(results.count)")
+        }
+        rateOfCommits.onComplete = onComplete
+        rateOfCommits.initRateOfCommitsProcess(0)
         updateGraph()
         updateDateText()
     }
@@ -143,6 +150,7 @@ private class Utils{
         }
         return (values,dayNames)
     }
+    
     /**
      * Default values for graph (init)
      */
