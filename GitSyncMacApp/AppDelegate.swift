@@ -129,10 +129,14 @@ class RateOfCommits{
             }
         }
     }
+    /**
+     * Everytime a work task completes
+     */
     func onComplete(){
         idx += 1
         //Swift.print("onComplete: " + "\(i)")
         if(idx == totCount){
+            /*At this point all tasks hvae complted*/
             Swift.print("all concurrent tasks completed: totCount \(totCount)")
             /*loop 3d-structure*/
             for i in repoCommits!.indices{
