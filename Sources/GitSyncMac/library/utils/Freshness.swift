@@ -7,7 +7,7 @@ class Freshness {
     /**
      * Freshness level of every repo is calculated
      */
-    var onFreshnessSortComplete:()->Void = {print("⚠️️⚠️️⚠️️ Commit refresh completed but no onComplete is currently attached")}
+    var onFreshnessSortComplete:(_ sortableRepoList:[(repo:RepoItem,freshness:CGFloat)])->Void = {_ in print("⚠️️⚠️️⚠️️ Freshness.onFreshnessSortComplete completed but no onComplete is currently attached")}
     /**
      * Sort the repoList so that the freshest repos are parsed first (optimization)
      * PARAM: repoFilePath: the the repo file contains info about each repo to sort.
