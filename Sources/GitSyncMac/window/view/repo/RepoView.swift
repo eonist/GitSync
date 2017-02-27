@@ -72,6 +72,7 @@ class ContextMenu:NSMenu{
         var menuItems:[(title:String,selector:Foundation.Selector)] = []
         menuItems.append(("New folder", #selector(newFolder)))
         menuItems.append(("New repo", #selector(newRepo)))
+        menuItems.append(("Copy", #selector(duplicate)))
         menuItems.append(("Copy", #selector(doCopy)))
         menuItems.append(("Cut", #selector(cut)))
         menuItems.append(("Paste", #selector(paste)))
@@ -130,6 +131,13 @@ extension ContextMenu{
         Swift.print("xml.xmlString: " + "\(xml.xmlString)")
         treeList.node.addAt(newIdx(idx), xml)
         //Swift.print("Promt repo name popup")
+    }
+    func duplicate(sender: AnyObject) {
+        Swift.print("duplicate")
+        let idx = rightClickItemIdx!
+        Swift.print("idx: " + "\(idx)")
+        let xml:XML = treeList.node.xml.childAt(idx)!
+        treeList.node.addAt(newIdx(idx), xml.copy() as! XML)
     }
     func doCopy(sender: AnyObject) {
         Swift.print("copy")
