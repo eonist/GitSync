@@ -94,7 +94,7 @@ class RefreshUtils{
             Swift.print("rangeCount now..last: " + "\(rangeCount)")
             commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
         }else {//< 100
-            commitCount = 100
+            commitCount = 100//you need to fill top up dp with 100 if dp.count = 0, ⚠️️ this wont work if repo doesnt have alot of commits though
         }
         return commitCount
     }
