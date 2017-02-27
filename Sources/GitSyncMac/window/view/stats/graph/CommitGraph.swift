@@ -66,17 +66,10 @@ extension CommitGraph{
         //graphData = Utils.graphData(dayOffset, currentDate)
         let rateOfCommits = RateOfCommits()
         func onComplete(_ results:[Int]){
-            Swift.print("Appdelegate.onComplete()")
+            Swift.print("CommitGraph.onComplete()")
             Swift.print("results.count: " + "\(results.count)")
             graphData.vValues = results.map{$0.cgFloat}
             graphData.hValNames = Utils.hValNames(dayOffset, currentDate)
-            let rateOfCommits = RateOfCommits()
-            func onComplete(_ results:[Int]){
-                Swift.print("Appdelegate.onComplete()")
-                Swift.print("results.count: " + "\(results.count)")
-            }
-            rateOfCommits.onComplete = onComplete
-            rateOfCommits.initRateOfCommitsProcess(0)
             updateGraph()
             updateDateText()
         }
