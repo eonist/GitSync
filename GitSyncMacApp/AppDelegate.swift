@@ -103,8 +103,6 @@ class RateOfCommits{
     var idx:Int = 0
     var startTime:Date? = nil
     
-    //continue here: add oncomplete handler above initiator
-    
     var onComplete:(_ result:[Int])->Void = {_ in print("⚠️️⚠️️⚠️️ no onComplete is currently attached")}
     /**
      * Initiates the process
