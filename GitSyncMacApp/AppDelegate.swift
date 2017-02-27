@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      */
     func rateOfCommitsTest(){
         startTime = Date()
-        initRateOfCommitsProcess()
+        initRateOfCommitsProcess(0/*<--dayOffset*/)
     }
     var repoCommits:[[CommitCountWork]]?
     var totCount:Int?
@@ -59,12 +59,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /**
      *
      */
-    func initRateOfCommitsProcess(){
+    func initRateOfCommitsProcess(_ dayOffset:Int){
         var repoList:[RepoItem] = RepoUtils.repoList//.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
         Swift.print("repoList.count: " + "\(repoList.count)")
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
-        repoCommits = rateOfCommits(repoList,0/*<--dayOffset*/)
+        repoCommits = rateOfCommits(repoList,dayOffset)
         totCount = repoCommits!.flatMap{$0}.count
         /*Loop 3d-structure*/
         for i in repoCommits!.indices{
