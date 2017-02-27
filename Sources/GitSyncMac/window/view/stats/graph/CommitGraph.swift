@@ -153,7 +153,7 @@ private class Utils{
     /**
      *
      */
-    static func hValNames(_ dayOffset:Int,_ currentDate:Date){
+    static func hValNames(_ dayOffset:Int,_ currentDate:Date) -> hValNames:[String]{
         var dayNames:[String] = []
         var values:[CGFloat] = []/*commits in a single day*/
         for i in (0..<7).reversed() {
