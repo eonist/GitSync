@@ -102,6 +102,7 @@ class RateOfCommits{
     var result:[Int] = [0,0,0,0,0,0,0]
     var idx:Int = 0
     var startTime:Date? = nil
+    static var onComplete:()->Void = {print("⚠️️⚠️️⚠️️ no onComplete is currently attached")}
     /**
      * Initiates the process
      */
@@ -122,7 +123,7 @@ class RateOfCommits{
                     let commitCount:String = GitUtils.commitCount(work.localPath, since:work.since , until:work.until)//👈👈👈 do some work
                     mainQueue.async {
                         self.repoCommits![i][e].commitCount = commitCount.int
-                        self.onComplete()
+                        self.onRateOfCommitComplete()
                     }
                 }
             }
@@ -131,7 +132,7 @@ class RateOfCommits{
     /**
      * Everytime a work task completes
      */
-    func onComplete(){
+    func onRateOfCommitComplete(){
         idx += 1
         //Swift.print("onComplete: " + "\(i)")
         if(idx == totCount){
