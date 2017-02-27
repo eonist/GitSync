@@ -2,18 +2,19 @@ import Foundation
 @testable import Utils
 /*Storage tuple for the GitSyncAPp*/
 typealias RepoItem = (localPath:String,interval:Int,branch:String,keyChainItemName:String,broadcast:Bool,title:String,subscribe:Bool,autoSync:Bool,remotePath:String)
+typealias FreshnessItem = (repo:RepoItem,freshness:CGFloat)
 /**
  * Freshness level of every repo is calculated
  */
 class Freshness { 
-    var onFreshnessSortComplete:(_ sortableRepoList:[(repo:RepoItem,freshness:CGFloat)])->Void = {_ in print("⚠️️⚠️️⚠️️ Freshness.onFreshnessSortComplete completed but no onComplete is currently attached")}
+    var onFreshnessSortComplete:(_ sortableRepoList:[FreshnessItem])->Void = {_ in print("⚠️️⚠️️⚠️️ Freshness.onFreshnessSortComplete completed but no onComplete is currently attached")}
     /**
      * Sort the repoList so that the freshest repos are parsed first (optimization)
      * PARAM: repoFilePath: the the repo file contains info about each repo to sort.
      */
     func initFreshnessSort(){
         Swift.print("💜 Freshness.freshnessSort()")
-        var sortableRepoList:[(repo:RepoItem,freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
+        var sortableRepoList:[FreshnessItem] = []//we may need more precision than CGFloat, consider using Double or better
         let repos = RepoUtils.repoList
         var idx:Int = 0//reset this value onComplete if you plan to reuse the freshness instance
         func onComplete(){

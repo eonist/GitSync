@@ -29,7 +29,7 @@ class Refresh{//TODO:rename to refresh
      * Adds commits to CommitDB
      * NOTE: This method is called from the freshness onComplete
      */
-    func refreshRepos(_ sortableRepoList:[(repo:RepoItem,freshness:CGFloat)]){
+    func refreshRepos(_ sortableRepoList:[FreshnessItem]){
         Swift.print("💛 Freshness.onFreshnessSortComplete() Time:-> " + "\(abs(self.startTime!.timeIntervalSinceNow))")/*How long it took*/
         bgQueue.async{/*run the task on a background thread*/
             sortableRepoList.forEach{/*the arr is already sorted from freshest to least fresh*/
