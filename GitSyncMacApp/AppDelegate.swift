@@ -44,7 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             idx += 1
             //Swift.print("onComplete: " + "\(i)")
             if(idx == totCount){
-                Swift.print("all concurrent tasks completed")
+                Swift.print("all concurrent tasks completed: totCount \(totCount)")
                 /*loop 3d-structure*/
                 for i in repoCommits.indices{
                     for e in repoCommits[i].indices{
@@ -60,7 +60,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             for e in repoCommits[i].indices{
                 bgQueue.async {
                     let work:CommitCountWork = repoCommits[i][e]
-                    Swift.print("launched a work item: " + "\(work.localPath)")
+                    //Swift.print("launched a work item: " + "\(work.localPath)")
                     let commitCount:String = GitUtils.commitCount(work.localPath, since:work.since , until:work.until)//👈👈👈 do some work
                     
                     mainQueue.async {
@@ -87,7 +87,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      */
     typealias CommitCountWork = (localPath:String,since:String,until:String,commitCount:Int)
     func rateOfCommits(_ repoItem:RepoItem) -> [CommitCountWork]{
-        Swift.print("repoItem.title: \(repoItem.title) localPath: \(repoItem.localPath)")
+        //Swift.print("repoItem.title: \(repoItem.title) localPath: \(repoItem.localPath)")
         //var commits:[Int] = []
         var commitCountWorks:[CommitCountWork] = []
         for i in (1...7).reversed(){//7 days
