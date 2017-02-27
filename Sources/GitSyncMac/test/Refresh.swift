@@ -18,7 +18,9 @@ class Refresh{//TODO:rename to refresh
     static func refresh(){
         isRefreshing = true/*avoid calling refresh when this is true, it is set to false on completion*/
         startTime = NSDate()//measure the time of the refresh
-        FreshnessUtils.freshnessSort("~/Desktop/assets/xml/list.xml")//begin process on a background thread
+        let freshness = Freshness()
+        freshness.onFreshnessSortComplete = refreshRepos
+        freshness.freshnessSort("~/Desktop/assets/xml/list.xml")//begin process on a background thread
     }
     /**
      * Adds commits to CommitDB
