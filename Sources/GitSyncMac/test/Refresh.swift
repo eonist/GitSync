@@ -23,7 +23,7 @@ class Refresh{//TODO:rename to refresh
         startTime = NSDate()//measure the time of the refresh
         let freshness = Freshness()
         freshness.onFreshnessSortComplete = refreshRepos//👈
-        freshness.initFreshnessSort(RepoView.repoList)//begin process on a background thread
+        freshness.initFreshnessSort()//begin process on a background thread
     }
     /**
      * Adds commits to CommitDB
