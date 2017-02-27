@@ -48,9 +48,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         func onComplete(){
             Swift.print("🏆🏆🏆 CommitDB finished!!! ")
         }
-        CommitDPRefresher.commitDP = CommitDPCache.read()
-        CommitDPRefresher.onComplete = onComplete
-        CommitDPRefresher.refresh()
+        //CommitDPRefresher.commitDP = CommitDPCache.read()
+        //CommitDPRefresher.onComplete = onComplete
+        //CommitDPRefresher.refresh()
     }
     func initTestWin(){
         //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
