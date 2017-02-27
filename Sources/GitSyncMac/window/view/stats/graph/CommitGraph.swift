@@ -155,15 +155,10 @@ private class Utils{
      */
     static func hValNames(_ dayOffset:Int,_ currentDate:Date) -> [String]{
         var dayNames:[String] = []
-        var values:[CGFloat] = []/*commits in a single day*/
         for i in (0..<7).reversed() {
             let date = currentDate.offsetByDays(dayOffset-i)
-            //Swift.print("date: " + "\(date)")
             let shortNameDayOfWeek:String = date.shortDayName
-            //Swift.print("shortNameDayOfWeek: " + "\(shortNameDayOfWeek)")
             dayNames.append(shortNameDayOfWeek)
-            let val:CGFloat = IntParser.random(4, 24).cgFloat/*generate vValues via random, as we use faux data for now*/
-            values.append(val)
         }
         return dayNames
     }
