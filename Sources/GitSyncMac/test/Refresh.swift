@@ -94,7 +94,7 @@ class RefreshUtils{
             Swift.print("rangeCount now..last: " + "\(rangeCount)")
             commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
         }else {//< 100
-            commitCount = 100//you need to fill top up dp with 100 if dp.count = 0, ⚠️️ this wont work if repo doesnt have alot of commits though
+            commitCount = 100//you need to fill top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
         }
         return commitCount
     }
@@ -106,9 +106,9 @@ private class Utils{
      * PARAM: limit = max Items Allowed per repo
      */
     static func commitItems(_ localPath:String,_ limit:Int)->[String]{
-        let commitCount:Int = GitUtils.commitCount(localPath).int - 1//👈Git call/*Get the total commitCount of this repo*/
+        let totCommitCount:Int = GitUtils.commitCount(localPath).int - 1//👈Git call/*Get the total commitCount of this repo*/
         //Swift.print("commitCount: " + ">\(commitCount)<")
-        let len:Int = Swift.min(commitCount,limit)
+        let len:Int = Swift.min(totCommitCount,limit)
         //Swift.print("len: " + "\(len)")
         //Swift.print("limit: \(limit)")
         var results:[String] = []
