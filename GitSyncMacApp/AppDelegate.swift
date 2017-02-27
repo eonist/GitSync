@@ -26,15 +26,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //initTestWin()
         //AutoSync.sync()
         //refreshReposTest()
-        
-        
     }
     /**
      * CommitCount per day for all projects in the last 7 days.
      */
     func rateOfCommitsTest(){
         var result:[Int] = [0,0,0,0,0,0,0]//7 items
-        var repoList:[RepoItem] = RepoUtils.repoList.filter{$0.title == "GitSync"}
+        var repoList:[RepoItem] = RepoUtils.repoList//.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
         Swift.print("repoList.count: " + "\(repoList.count)")
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
@@ -50,7 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 /*loop 3d-structure*/
                 for i in repoCommits.indices{
                     for e in repoCommits[i].indices{
-                        result[i] = result[i] + repoCommits[i][e].commitCount//👈👈👈 place count in array
+                        result[e] = result[e] + repoCommits[i][e].commitCount//👈👈👈 place count in array
                     }
                 }
                 Swift.print("result: " + "\(result)")
