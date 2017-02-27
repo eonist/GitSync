@@ -17,8 +17,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("GitSync - The future is automated")//Simple git automation for macOS, The autonomouse git client
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         //_ = Test2()
-        rateOfCommitsTest()
-     
+        //rateOfCommitsTest()
+        let repoList:[RepoItem] = RepoUtils.repoList.filter{$0.title == "GitSync"}
+        let repoItem = repoList.first!
+        let dayOffset:Int = -1
+        let sinceDate:Date = Date().offsetByDays(dayOffset)
+        let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
+        let untilDate:Date = Date().offsetByDays(dayOffset+1)
+        let untilGitDate:String = GitDateUtils.gitTime(untilDate)
+        let work:CommitCountWork = (repoItem.localPath,sinceGitDate,untilGitDate,0)
+        let commitCount:String = GitUtils.commitCount(work.localPath, work.since , work.until)//👈👈👈 do some work
+        Swift.print("commitCount: " + "\(commitCount)")
         //initApp()
         
         //Continue: Figure out concurrent threads, check your research
