@@ -18,7 +18,7 @@ class CommitsList:RBSliderFastList{
         progressIndicator!.animator!.event = onEvent
         
         
-        Refresh.commitDP = dp as? CommitDP
+        Refresh.commitDP = dp as? CommitDP//attach the dp that RBSliderFastList uses
         Refresh.onComplete = loopAnimationCompleted //👈👈👈 Attach the refresh.completion handler here
         
         func onAutoSyncComplete(){
