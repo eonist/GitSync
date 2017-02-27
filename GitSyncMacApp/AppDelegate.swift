@@ -104,22 +104,6 @@ class RateOfCommits{
         startTime = Date()
         initRateOfCommitsProcess(0/*<--dayOffset*/)
     }
-    
-    func onComplete(){
-        idx += 1
-        //Swift.print("onComplete: " + "\(i)")
-        if(idx == totCount){
-            Swift.print("all concurrent tasks completed: totCount \(totCount)")
-            /*loop 3d-structure*/
-            for i in repoCommits!.indices{
-                for e in repoCommits![i].indices{
-                    result[e] = result[e] + repoCommits![i][e].commitCount//👈👈👈 place count in array
-                }
-            }
-            Swift.print("result: " + "\(result)")
-            Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")
-        }
-    }
     /**
      *
      */
@@ -143,6 +127,21 @@ class RateOfCommits{
                     }
                 }
             }
+        }
+    }
+    func onComplete(){
+        idx += 1
+        //Swift.print("onComplete: " + "\(i)")
+        if(idx == totCount){
+            Swift.print("all concurrent tasks completed: totCount \(totCount)")
+            /*loop 3d-structure*/
+            for i in repoCommits!.indices{
+                for e in repoCommits![i].indices{
+                    result[e] = result[e] + repoCommits![i][e].commitCount//👈👈👈 place count in array
+                }
+            }
+            Swift.print("result: " + "\(result)")
+            Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")
         }
     }
     /**
