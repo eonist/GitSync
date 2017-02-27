@@ -68,7 +68,7 @@ class RefreshUtils{
             let lastDate:Int = dp.items.last!["sortableDate"]!.int/*the last date is always the furthest distant date 19:59,19:15,19:00 etc*/
             //Swift.print("lastDate: " + "\(lastDate)")
             let gitTime = GitDateUtils.gitTime(lastDate.string)/*converts descending date to git time*/
-            let rangeCount:Int = GitUtils.commitCount(repo.localPath, after: gitTime).int/*Finds the num of commits from now until */
+            let rangeCount:Int = GitUtils.commitCount(repo.localPath, after: gitTime).int//👈Git call /*Finds the num of commits from now until */
             Swift.print("rangeCount now..last: " + "\(rangeCount)")
             commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
         }else {//< 100
@@ -78,7 +78,7 @@ class RefreshUtils{
         let results:[String] = Utils.commitItems(repo.localPath, commitCount)/*creates an array raw commit item logs, from repo*/
         results.forEach{
             if($0.count > 0){//resulting string must have characters
-                let commitData:CommitData = GitLogParser.commitData($0)/*Compartmentalizes the result into a Tuple*/
+                let commitData:CommitData = GitLogParser.commitData($0)//👈Git call /*Compartmentalizes the result into a Tuple*/
                 //let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
                 let commitDict:[String:String] = CommitViewUtils.processCommitData(repo.title, commitData, 0)//<---TODO:add repo idx here
                 dp.add(commitDict)/*add the commit log items to the CommitDB*/
