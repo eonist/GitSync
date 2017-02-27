@@ -38,26 +38,33 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("repoList.count: " + "\(repoList.count)")
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
-        var repoCommits:[[CommitCountWork]] = rateOfCommits(repoList)
+        var repoCommits:[[CommitCountWork]] = rateOfCommits(repoList,0)
         var totCount:Int = repoCommits.flatMap{$0}.count
 
-        var idx:Int = 0
-        func onComplete(){
-            idx += 1
-            //Swift.print("onComplete: " + "\(i)")
-            if(idx == totCount){
-                Swift.print("all concurrent tasks completed: totCount \(totCount)")
-                /*loop 3d-structure*/
-                for i in repoCommits.indices{
-                    for e in repoCommits[i].indices{
-                        result[e] = result[e] + repoCommits[i][e].commitCount//👈👈👈 place count in array
-                    }
-                }
-                Swift.print("result: " + "\(result)")
-                Swift.print("Time: " + "\(abs(startTime.timeIntervalSinceNow))")
-            }
-        }
         
+        
+        
+    }
+    var idx:Int = 0
+    func onComplete(){
+        idx += 1
+        //Swift.print("onComplete: " + "\(i)")
+        if(idx == totCount){
+            Swift.print("all concurrent tasks completed: totCount \(totCount)")
+            /*loop 3d-structure*/
+            for i in repoCommits.indices{
+                for e in repoCommits[i].indices{
+                    result[e] = result[e] + repoCommits[i][e].commitCount//👈👈👈 place count in array
+                }
+            }
+            Swift.print("result: " + "\(result)")
+            Swift.print("Time: " + "\(abs(startTime.timeIntervalSinceNow))")
+        }
+    }
+    /**
+     *
+     */
+    func initRateOfCommitsProcess(){
         /*Loop 3d-structure*/
         for i in repoCommits.indices{
             for e in repoCommits[i].indices{
@@ -76,10 +83,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /**
      * Returns an array with with week summaries of commit counts from PARAM: repoList
      */
-    func rateOfCommits(_ repoList:[RepoItem] )->[[CommitCountWork]]{
+    func rateOfCommits(_ repoList:[RepoItem],_ dayOffset:Int)->[[CommitCountWork]]{
         var repoCommits:[[CommitCountWork]] = []
         repoList.forEach{
-            let commits:[CommitCountWork] = rateOfCommits($0)
+            let commits:[CommitCountWork] = rateOfCommits($0,dayOffset)
             _ = repoCommits += commits
         }
         return repoCommits
@@ -88,12 +95,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      * Returns an commitCount for 7 days in an Array of 7 Int from PARAM: repoItem
      */
     typealias CommitCountWork = (localPath:String,since:String,until:String,commitCount:Int)
-    func rateOfCommits(_ repoItem:RepoItem) -> [CommitCountWork]{
+    func rateOfCommits(_ repoItem:RepoItem, _ dayOffset:Int) -> [CommitCountWork]{
         //Swift.print("repoItem.title: \(repoItem.title) localPath: \(repoItem.localPath)")
         //var commits:[Int] = []
         var commitCountWorks:[CommitCountWork] = []
         for i in (1...7).reversed(){//7 days
-            let dayOffset:Int = -i
+            let dayOffset:Int = dayOffset-i
             let sinceDate:Date = Date().offsetByDays(dayOffset)
             let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
             let untilDate:Date = Date().offsetByDays(dayOffset+1)
