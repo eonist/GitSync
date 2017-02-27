@@ -34,7 +34,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      */
     func rateOfCommitsTest(){
         let rateOfCommits = RateOfCommits()
-        
+        func onComplete(_ results:[Int]){
+            Swift.print("Appdelegate.onComplete()")
+            Swift.print("results.count: " + "\(results.count)")
+        }
+        rateOfCommits.onComplete = onComplete
         rateOfCommits.initRateOfCommitsProcess(0)
     }
     
