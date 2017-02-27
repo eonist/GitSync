@@ -33,7 +33,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      * CommitCount per day for all projects in the last 7 days where the user is "eonist"
      */
     func rateOfCommitsTest(){
+        let rateOfCommits = RateOfCommits()
         
+        rateOfCommits.initRateOfCommitsProcess(0)
     }
     
     /**
@@ -100,14 +102,11 @@ class RateOfCommits{
     var result:[Int] = [0,0,0,0,0,0,0]
     var idx:Int = 0
     var startTime:Date? = nil
-    init(){
-        startTime = Date()
-        initRateOfCommitsProcess(0/*<--dayOffset*/)
-    }
     /**
-     *
+     * Initiates the process
      */
     func initRateOfCommitsProcess(_ dayOffset:Int){
+        startTime = Date()
         var repoList:[RepoItem] = RepoUtils.repoList//.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
         Swift.print("repoList.count: " + "\(repoList.count)")
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
