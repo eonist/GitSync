@@ -102,7 +102,10 @@ class RateOfCommits{
     var result:[Int] = [0,0,0,0,0,0,0]
     var idx:Int = 0
     var startTime:Date? = nil
-    static var onComplete:()->Void = {print("⚠️️⚠️️⚠️️ no onComplete is currently attached")}
+    
+    //continue here: add oncomplete handler above initiator
+    
+    var onComplete:(_ result:[Int])->Void = {_ in print("⚠️️⚠️️⚠️️ no onComplete is currently attached")}
     /**
      * Initiates the process
      */
@@ -146,6 +149,7 @@ class RateOfCommits{
             }
             Swift.print("result: " + "\(result)")
             Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")
+            onComplete(result)
         }
     }
     /**
