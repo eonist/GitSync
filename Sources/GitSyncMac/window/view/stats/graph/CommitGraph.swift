@@ -63,7 +63,9 @@ extension CommitGraph{
     func iterate(_ iteration:Int){
         Swift.print("iterate" + "\(iteration)")
         dayOffset += (7*iteration)
-        graphData = Utils.graphData(dayOffset, currentDate)
+        //graphData = Utils.graphData(dayOffset, currentDate)
+        graphData.vValues = 
+        graphData.hValNames = Utils.hValNames(dayOffset, currentDate)
         let rateOfCommits = RateOfCommits()
         func onComplete(_ results:[Int]){
             Swift.print("Appdelegate.onComplete()")
@@ -132,25 +134,6 @@ extension CommitGraph{
 }
 private class Utils{
     /**
-     * Returns Arrays of values for x and y axis. (In this case days and values)
-     * Return: hValNames: horisontal Day names M,T,W,T,F,S,S aka mon,tue,wed...
-     * Return: vValues: commmits that day
-     */
-    static func graphData(_ dayOffset:Int,_ currentDate:Date) -> (vValues:[CGFloat],hValNames:[String]){
-        var dayNames:[String] = []
-        var values:[CGFloat] = []/*commits in a single day*/
-        for i in (0..<7).reversed() {
-            let date = currentDate.offsetByDays(dayOffset-i)
-            //Swift.print("date: " + "\(date)")
-            let shortNameDayOfWeek:String = date.shortDayName
-            //Swift.print("shortNameDayOfWeek: " + "\(shortNameDayOfWeek)")
-            dayNames.append(shortNameDayOfWeek)
-            let val:CGFloat = IntParser.random(4, 24).cgFloat/*generate vValues via random, as we use faux data for now*/
-            values.append(val)
-        }
-        return (values,dayNames)
-    }
-    /**
      *
      */
     static func hValNames(_ dayOffset:Int,_ currentDate:Date) -> [String]{
@@ -175,3 +158,24 @@ private class Utils{
         return (values,dayNames)
     }
 }
+/**
+ * Returns Arrays of values for x and y axis. (In this case days and values)
+ * Return: hValNames: horisontal Day names M,T,W,T,F,S,S aka mon,tue,wed...
+ * Return: vValues: commmits that day
+ */
+/*
+ static func graphData(_ dayOffset:Int,_ currentDate:Date) -> (vValues:[CGFloat],hValNames:[String]){
+    var dayNames:[String] = []
+    var values:[CGFloat] = []/*commits in a single day*/
+    for i in (0..<7).reversed() {
+        let date = currentDate.offsetByDays(dayOffset-i)
+        //Swift.print("date: " + "\(date)")
+        let shortNameDayOfWeek:String = date.shortDayName
+        //Swift.print("shortNameDayOfWeek: " + "\(shortNameDayOfWeek)")
+        dayNames.append(shortNameDayOfWeek)
+        let val:CGFloat = IntParser.random(4, 24).cgFloat/*generate vValues via random, as we use faux data for now*/
+        values.append(val)
+    }
+    return (values,dayNames)
+}
+ */
