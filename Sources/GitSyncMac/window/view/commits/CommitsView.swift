@@ -31,7 +31,7 @@ class CommitsView:Element {
         CommitsView.selectedIdx = list!.selectedIdx!
         
         Swift.print("event.index: " + "\(event.index)")
-        let commitData:Dictionary<String,String> = list!.dataProvider.getItemAt(event.index)!
+        let commitData:[String:String] = list!.dataProvider.getItemAt(event.index)!
         (Navigation.currentView as! CommitDetailView).setCommitData(commitData)//updates the UI elements with the selected commit item
     }
     override func onEvent(_ event:Event) {
