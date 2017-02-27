@@ -1,12 +1,12 @@
 import Foundation
 
 class Freshness {
-    var onComplete:()->Void = {print("⚠️️⚠️️⚠️️ Commit refresh completed but no onComplete is currently attached")}
+    var onFreshnessSortComplete:()->Void = {print("⚠️️⚠️️⚠️️ Commit refresh completed but no onComplete is currently attached")}
     /**
      * Sort the repoList so that the freshest repos are parsed first (optimization)
      * PARAM: repoFilePath: the the repo file contains info about each repo to sort.
      */
-    static func freshnessSort(_ repoFilePath:String){
+    func freshnessSort(_ repoFilePath:String){
         Swift.print("💜 freshnessSort()")
         var sortableRepoList:[(repo:RepoItem,freshness:CGFloat)] = []//we may need more precision than CGFloat, consider using Double or better
         async(bgQueue, { () -> Void in//run the task on a background thread
@@ -25,7 +25,7 @@ class Freshness {
     /**
      * Freshness level of every repo is calculated
      */
-    static func onFreshnessSortComplete(_ sortableRepoList:[(repo:RepoItem,freshness:CGFloat)]){
+    func onFreshnessSortComplete(_ sortableRepoList:[(repo:RepoItem,freshness:CGFloat)]){
         //sortableRepoList.forEach{Swift.print($0.repo["title"]!)}
         Swift.print("💛 onFreshnessSortComplete() Time:-> " + "\(abs(CommitDPRefresher.startTime!.timeIntervalSinceNow))")/*How long it took*/
         CommitDPRefresher.refreshRepos(sortableRepoList)
