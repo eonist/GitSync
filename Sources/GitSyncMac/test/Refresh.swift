@@ -106,7 +106,7 @@ private class Utils{
      * PARAM: limit = max Items Allowed per repo
      */
     static func commitItems(_ localPath:String,_ limit:Int)->[String]{
-        let commitCount:Int = GitUtils.commitCount(localPath).int - 1/*Get the total commitCount of this repo*/
+        let commitCount:Int = GitUtils.commitCount(localPath).int - 1//👈Git call/*Get the total commitCount of this repo*/
         //Swift.print("commitCount: " + ">\(commitCount)<")
         let len:Int = Swift.min(commitCount,limit)
         //Swift.print("len: " + "\(len)")
