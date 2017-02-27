@@ -26,6 +26,7 @@ class Refresh{//TODO:rename to refresh
      * Adds commits to CommitDB
      */
     static func refreshRepos(_ sortableRepoList:[(repo:RepoItem,freshness:CGFloat)]){
+        Swift.print("💛 Freshness.onFreshnessSortComplete() Time:-> " + "\(abs(CommitDPRefresher.startTime!.timeIntervalSinceNow))")/*How long it took*/
         async(bgQueue, { () -> Void in/*run the task on a background thread*/
             sortableRepoList.forEach{/*the arr is already sorted from freshest to least fresh*/
                 self.refreshRepo($0.repo)
