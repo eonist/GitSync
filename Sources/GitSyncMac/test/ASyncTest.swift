@@ -19,7 +19,7 @@ class ASyncTest {
         func onOuterComplete(_ IDX:Int){
             Swift.print("all inner async tasks completed on outer async id: \(IDX)")
             outerIdx += 1
-            if(IDX == 3){
+            if(IDX == 2){
                 allOuterTasksCompleted()
             }
         }
