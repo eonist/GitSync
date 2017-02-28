@@ -10,14 +10,16 @@ class ASyncTest {
      */
     init(){
         let group = DispatchGroup()
-        Swift.print("start 4 async processes")
-        for i in 0..<4{
-            bg.async{/*do 2 things at the same time*/
-                Swift.print("init: \(i)")
-                group.enter()
-                sleep(IntParser.random(2, 4).uint32)/*simulates task that takes between 1 and 6 secs*/
-                group.leave()
-            }
+        Swift.print("1")
+        bg.async{/*do 2 things at the same time*/
+            group.enter()
+            sleep(IntParser.random(2, 4).uint32)/*simulates task that takes between 1 and 6 secs*/
+            group.leave()
+        }
+        bg.async{/*do 2 things at the same time*/
+            group.enter()
+            sleep(IntParser.random(5, 7).uint32)/*simulates task that takes between 1 and 6 secs*/
+            group.leave()
         }
         group.wait()
         group.notify(queue: bg, execute: {
