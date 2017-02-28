@@ -25,7 +25,7 @@ class ASyncTest {
                         }
                     }
                     for e in 0..<2{
-                        Swift.print("inner async started e: \(e)")
+                        //Swift.print("inner async started e: \(e)")
                         bg.async{//do 2 things async
                             sleep(IntParser.random(1, 6).uint32)
                             //Swift.print("i: \(i) e: \(e)")
@@ -35,7 +35,7 @@ class ASyncTest {
                 }
             }
         }
-        Swift.print("---results:---")
+        Swift.print("---outer async tasks results:---")
         /*
         var i:Int = 0
         func onComplete(/*_ idx:Int,_ result:String*/){
