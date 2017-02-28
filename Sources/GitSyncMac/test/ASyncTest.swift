@@ -13,6 +13,9 @@ class ASyncTest {
             bg.async {
                 main.async {
                     var idx:Int = 0
+                    func onAllComplete(){
+                        Swift.print("all inner async tasks completed on outer async id: \(i)")
+                    }
                     func onComplete(){
                         idx += 1
                         if(idx == 2){
