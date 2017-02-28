@@ -44,7 +44,7 @@ class Refresh{//TODO:rename to refresh
         //Swift.print("💛 Freshness.onFreshnessSortComplete() Time:-> " + "\(abs(self.startTime!.timeIntervalSinceNow))")/*How long it took*/
         let repos = RepoUtils.repoList
         repoCount = repos.count
-        for i in repos.indices{/*the arr is already sorted from freshest to least fresh*/
+        for i in repos.indices{
             bgQueue.async{/*run the task on a background thread*/
                 RefreshUtils.refreshRepo(self.commitDP!,repos[i])
                 mainQueue.async{/*jump back on the main thread*/
