@@ -1,7 +1,6 @@
 import Foundation
 @testable import Utils
 
-//try to make this class as static as possible
 typealias CommitDPRefresher = Refresh//temp
 /**
  * Basically creates/updates a list of the latest commits
