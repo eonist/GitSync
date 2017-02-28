@@ -20,9 +20,9 @@ class ASyncTest {
             Swift.print("all inner async tasks completed on outer async id: \(IDX)")
             outerIdx += 1
             Swift.print("outerIdx: " + "\(outerIdx)")
-            if(IDX == 3){
+            if(outerIdx == 3){
                 allOuterTasksCompleted()
-                Swift.print("finished")
+                
             }
         }
         for i in 0..<3{//do 3 things async
