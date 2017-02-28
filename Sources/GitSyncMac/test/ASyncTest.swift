@@ -1,6 +1,9 @@
 import Foundation
 @testable import Utils
 
+//do 3 things async, 
+//then in each 3 things do 4 things async but do something on mainthread when these 4 things are all finished
+
 class ASyncTest {
     /**
      *
