@@ -12,25 +12,23 @@ class ASyncTest {
         for i in 0..<3{//do 3 things async
             bg.async {
                 Swift.print("---outer async started i: \(i)---")
-                main.sync {
-                    var idx:Int = 0
-                    func onAllInnerComplete(){
-                        Swift.print("all inner async tasks completed on outer async id: \(i)")
+                var idx:Int = 0
+                func onAllInnerComplete(){
+                    Swift.print("all inner async tasks completed on outer async id: \(i)")
+                }
+                func onInnerComplete(_ index:Int){
+                    Swift.print("inner async task completed e: \(index)")
+                    idx += 1
+                    if(idx == 2){
+                        onAllInnerComplete()
                     }
-                    func onInnerComplete(_ index:Int){
-                        Swift.print("inner async task completed e: \(index)")
-                        idx += 1
-                        if(idx == 2){
-                            onAllInnerComplete()
-                        }
-                    }
-                    for e in 0..<2{
-                        Swift.print("===inner async started e: \(e)===")
-                        bg.async{//do 2 things async
-                            sleep(IntParser.random(1, 6).uint32)
-                            //Swift.print("i: \(i) e: \(e)")
-                            onInnerComplete(e)
-                        }
+                }
+                for e in 0..<2{
+                    Swift.print("===inner async started e: \(e)===")
+                    bg.async{//do 2 things async
+                        sleep(IntParser.random(1, 6).uint32)
+                        //Swift.print("i: \(i) e: \(e)")
+                        onInnerComplete(e)
                     }
                 }
             }
