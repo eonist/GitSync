@@ -30,7 +30,7 @@ class ASyncTest {
                     Swift.print("inner async task completed e: \(index)")
                     innerIdx += 1/*increment counter*/
                     if(innerIdx == 2){
-                        main.async{/*we must jump back on main thread, */
+                        main.async{/*we must jump back on main thread, because we want to manipulate a variable that resids on the main thread*/
                             onOuterComplete(i)
                         }
                     }
