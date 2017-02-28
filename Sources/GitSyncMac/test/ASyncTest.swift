@@ -13,8 +13,10 @@ class ASyncTest {
             bgQueue.async {
                 mainQueue.async {
                     for _ in 0..<4{
-                        bgQueue.async{//do 4 things async
-                            
+                        bgQueue.sync{
+                            bgQueue.async{//do 4 things async
+                                delay()
+                            }
                         }
                     }
                 }
