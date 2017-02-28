@@ -31,12 +31,12 @@ class Refresh{//TODO:rename to refresh
     func refreshRepos(/*_ sortableRepoList:[FreshnessItem]*/){
         //Swift.print("💛 Freshness.onFreshnessSortComplete() Time:-> " + "\(abs(self.startTime!.timeIntervalSinceNow))")/*How long it took*/
         let repos = RepoUtils.repoList
-        bgQueue.async{/*run the task on a background thread*/
-            repos.forEach{/*the arr is already sorted from freshest to least fresh*/
+        for i in repos.indices{/*the arr is already sorted from freshest to least fresh*/
+            bgQueue.async{/*run the task on a background thread*/
                 RefreshUtils.refreshRepo(self.commitDP!,$0)
-            }
-            mainQueue.async{/*jump back on the main thread*/
-                self.onRefreshReposComplete()/*All repo items are now refreshed, the entire refresh process is finished*/
+                mainQueue.async{/*jump back on the main thread*/
+                    self.onRefreshReposComplete()/*All repo items are now refreshed, the entire refresh process is finished*/
+                }
             }
         }
     }
