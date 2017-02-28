@@ -9,14 +9,14 @@ class ASyncTest {
      *
      */
     init(){
-        for _ in 0..<3{//do 3 things async
+        for i in 0..<3{//do 3 things async
             bgQueue.async {
                 mainQueue.async {
                     for e in 0..<4{
                         bgQueue.sync{
                             bgQueue.async{//do 4 things async
                                 sleep(IntParser.random(1, 6).uint32)
-                                print(e)
+                                Swift.print("i: \(i) e: \()")
                             }
                         }
                     }
