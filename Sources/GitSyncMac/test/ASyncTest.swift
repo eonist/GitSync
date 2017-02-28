@@ -10,11 +10,11 @@ class ASyncTest {
      */
     init(){
         for i in 0..<3{//do 3 things async
-            bgQueue.async {
-                mainQueue.async {
+            bg.async {
+                main.async {
                     for e in 0..<2{
-                        bgQueue.sync{
-                            bgQueue.async{//do 2 things async
+                        bg.sync{
+                            bg.async{//do 2 things async
                                 sleep(IntParser.random(1, 6).uint32)
                                 Swift.print("i: \(i) e: \(e)")
                             }
