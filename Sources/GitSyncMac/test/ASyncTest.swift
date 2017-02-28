@@ -38,7 +38,7 @@ class ASyncTest {
                 for e in 0..<2{
                     Swift.print("===inner async started e: \(e)===")
                     bg.async{/*do 2 things at the same time*/
-                        sleep(IntParser.random(1, 6).uint32)/*simulates task that takes between 1 and 6 secs*/
+                        sleep(2/*IntParser.random(1, 6).uint32*/)/*simulates task that takes between 1 and 6 secs*/
                         onInnerComplete(e)
                     }
                 }
