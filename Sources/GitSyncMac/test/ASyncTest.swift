@@ -13,17 +13,12 @@ class ASyncTest {
             bg.async {
                 main.async {
                     var edx:Int = 0
-                    bg.sync{
-                        
-                        for e in 0..<2{
-                            bg.async{//do 2 things async
-                                sleep(IntParser.random(1, 6).uint32)
-                                //Swift.print("i: \(i) e: \(e)")
-                                edx += 1
-                            }
+                    for e in 0..<2{
+                        bg.async{//do 2 things async
+                            sleep(IntParser.random(1, 6).uint32)
+                            //Swift.print("i: \(i) e: \(e)")
+                            edx += 1
                         }
-                        
-                        //Swift.print("i: \(i) e: \(e)")//e should always be 1 here
                     }
                     Swift.print("edx: " + "\(edx)")
                     
