@@ -11,16 +11,14 @@ class ASyncTest {
     init(){
         let group = DispatchGroup()
         Swift.print("1")
-        bg.async{/*do 2 things at the same time*/
-            group.enter()
-            sleep(IntParser.random(2, 4).uint32)/*simulates task that takes between 1 and 6 secs*/
-            group.leave()
+        for _ in 0..<2{
+            bg.async{/*do 2 things at the same time*/
+                group.enter()
+                sleep(IntParser.random(2, 3).uint32)/*simulates task that takes between 1 and 6 secs*/
+                group.leave()
+            }
         }
-        bg.async{/*do 2 things at the same time*/
-            group.enter()
-            sleep(IntParser.random(5, 7).uint32)/*simulates task that takes between 1 and 6 secs*/
-            group.leave()
-        }
+        
         group.wait()
         group.notify(queue: bg, execute: {
             Swift.print("🏁 allTasksCompleted: 🏁")
