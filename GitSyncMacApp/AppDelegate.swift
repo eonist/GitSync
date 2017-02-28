@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //initApp()
         
-        _ = AsyncTest()
+        _ = ASyncTest()
         
         //Continue: Figure out concurrent threads, check your research
         
