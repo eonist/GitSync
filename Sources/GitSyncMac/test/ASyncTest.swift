@@ -16,7 +16,8 @@ class ASyncTest {
                     func onAllComplete(){
                         Swift.print("all inner async tasks completed on outer async id: \(i)")
                     }
-                    func onComplete(){
+                    func onComplete(_ index:Int){
+                        Swift.print("inner async task completed e: \(index)")
                         idx += 1
                         if(idx == 2){
                             onAllComplete()
@@ -26,7 +27,7 @@ class ASyncTest {
                         bg.async{//do 2 things async
                             sleep(IntParser.random(1, 6).uint32)
                             //Swift.print("i: \(i) e: \(e)")
-                            onComplete()
+                            onComplete(e)
                         }
                     }
                 }
