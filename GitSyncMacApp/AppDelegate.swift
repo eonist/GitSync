@@ -20,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //rateOfCommitsTest()
         
-        //initApp()
+        initApp()
         
         //Continue: Figure out concurrent threads, check your research
         
