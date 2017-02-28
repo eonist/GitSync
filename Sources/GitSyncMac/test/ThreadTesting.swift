@@ -22,7 +22,7 @@ class ThreadTesting {
      * Testing running an NSTask on a background thread
      * 1. create, NSTask,NSPipe,LocalPath, Command and run the code
      * 2. attaches the task to a concurrent background-thread (spins up many cores at once)
-     * 3.
+     * 3. 
      */
     func asyncTest(){
         Swift.print("asyncTest")
