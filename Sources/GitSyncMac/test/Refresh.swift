@@ -119,12 +119,10 @@ private class Utils{
      * PARAM: limit = max Items Allowed per repo
      */
     static func commitItems(_ localPath:String,_ limit:Int)->[String]{
-        let len = limit
-        //Swift.print("len: " + "\(len)")
         //Swift.print("limit: \(limit)")
         var results:[String] = []
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
-        for i in 0..<len{
+        for i in 0..<limit{
             let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
             let result:String = GitParser.show(localPath, cmd)//--no-patch suppresses the diff output of git show
             results.append(result)
