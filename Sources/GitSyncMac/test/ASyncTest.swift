@@ -30,7 +30,9 @@ class ASyncTest {
                     Swift.print("inner async task completed e: \(index)")
                     innerIdx += 1/*increment counter*/
                     if(innerIdx == 2){
-                        onOuterComplete(i)
+                        main.async{// we must jump back on main thread
+                            onOuterComplete(i)
+                        }
                     }
                 }
                 for e in 0..<2{
