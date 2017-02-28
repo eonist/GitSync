@@ -10,6 +10,7 @@ class ASyncTest {
      */
     init(){
         for i in 0..<3{//do 3 things async
+            Swift.print("outer async started i: \(i)")
             bg.async {
                 main.async {
                     var idx:Int = 0
@@ -24,6 +25,7 @@ class ASyncTest {
                         }
                     }
                     for e in 0..<2{
+                        Swift.print("inner async started e: \(e)")
                         bg.async{//do 2 things async
                             sleep(IntParser.random(1, 6).uint32)
                             //Swift.print("i: \(i) e: \(e)")
@@ -33,6 +35,7 @@ class ASyncTest {
                 }
             }
         }
+        Swift.print("---results:---")
         /*
         var i:Int = 0
         func onComplete(/*_ idx:Int,_ result:String*/){
