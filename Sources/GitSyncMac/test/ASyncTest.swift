@@ -11,9 +11,10 @@ class ASyncTest {
     init(){
         let group = DispatchGroup()
         Swift.print("1")
-        for _ in 0..<2{
+        for _ in 0..<4{
             bg.async{/*do 2 things at the same time*/
                 group.enter()
+                Swift.print("iterate")
                 sleep(IntParser.random(2, 3).uint32)/*simulates task that takes between 1 and 6 secs*/
                 group.leave()
             }
