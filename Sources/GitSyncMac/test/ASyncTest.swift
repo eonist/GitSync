@@ -9,13 +9,17 @@ class ASyncTest {
      *
      */
     init(){
-        var arr:[(i:Int,s:String,result:String)] = [(0,"a",""),(1,"b",""),(2,"c",""),(3,"d","")]
-        for i in arr.indices {
+        let arr:[Int] = [0,1,2]
+        for _ in arr.indices {
             bgQueue.async {
-                let res:String = arr[i].i.string + arr[i].s
                 mainQueue.async {
-                    arr[i].result = res//assinging of values must happen on mainThread
-                    onComplete()
+                    let arr2:[Int] = [0,1,2]
+                    arr2.forEach{
+                        bgQueue.async{
+                            
+                        }
+                    }
+                    
                 }
             }
         }
