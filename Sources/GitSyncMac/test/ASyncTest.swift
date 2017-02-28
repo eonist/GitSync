@@ -12,7 +12,7 @@ class ASyncTest {
         for i in 0..<3{//do 3 things async
             bg.async {
                 Swift.print("---outer async started i: \(i)---")
-                main.async {
+                main.sync {
                     var idx:Int = 0
                     func onAllInnerComplete(){
                         Swift.print("all inner async tasks completed on outer async id: \(i)")
