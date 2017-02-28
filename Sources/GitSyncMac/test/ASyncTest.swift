@@ -16,12 +16,13 @@ class ASyncTest {
                 for _ in 0..<2{
                     bg.async{/*do 2 things at the same time*/
                         sleep(2/*IntParser.random(1, 6).uint32*/)/*simulates task that takes between 1 and 6 secs*/
+                        Swift.print("i: \(i) e:\(e)")
                     }
                 }
             }
         }
         group.leave()
         group.wait()
-        
+        Swift.print("🏁 allTasksCompleted: 🏁")
     }
 }
