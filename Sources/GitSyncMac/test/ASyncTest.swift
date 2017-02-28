@@ -26,6 +26,7 @@ class ASyncTest {
                         //Swift.print("i: \(i) e: \(e)")//e should always be 1 here
                     }
                     Swift.print("edx: " + "\(edx)")
+                    
                 }
             }
         }
