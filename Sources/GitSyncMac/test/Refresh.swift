@@ -61,11 +61,6 @@ class RefreshUtils{
      * Adds commit items to CommitDB if they are newer than the oldest commit in CommitDB
      * Retrieve the commit log items for this repo with the range specified
      */
-    
-    //Continue here: 
-        // you need to rethink how refresh works to make it work in concurrency
-    
-    
     static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem){
         let commitCount:Int = self.commitCount(dp,repo)
         Swift.print("💙\(repo.title): rangeCount: " + "\(commitCount)")
