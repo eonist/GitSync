@@ -33,7 +33,7 @@ class Refresh{//TODO:rename to refresh
         let repos = RepoUtils.repoList
         for i in repos.indices{/*the arr is already sorted from freshest to least fresh*/
             bgQueue.async{/*run the task on a background thread*/
-                RefreshUtils.refreshRepo(self.commitDP!,$0)
+                RefreshUtils.refreshRepo(self.commitDP!,repos[i])
                 mainQueue.async{/*jump back on the main thread*/
                     self.onRefreshReposComplete()/*All repo items are now refreshed, the entire refresh process is finished*/
                 }
