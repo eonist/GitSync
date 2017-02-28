@@ -11,8 +11,6 @@ class ASyncTest {
     init(){
         let group = DispatchGroup()
         Swift.print("1")
-        
-            
             for _ in 0..<4{
                 bg.async{/*do 2 things at the same time*/
                     group.enter()
@@ -20,10 +18,6 @@ class ASyncTest {
                     group.leave()
                 }
             }
-            
-            
-           
-        
         group.wait()
         group.notify(queue: bg, execute: {
             Swift.print("🏁 allTasksCompleted: 🏁")
