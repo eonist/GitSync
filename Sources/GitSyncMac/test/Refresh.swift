@@ -9,7 +9,7 @@ class Refresh{//TODO:rename to refresh
     //var commitDB:CommitDB/* = CommitDB()*/
     var commitDP:CommitDP?
     //var startTime:NSDate?//debugging
-    var isRefreshing:Bool = false/*avoids refreshing when the refresh has already started*/
+    //var isRefreshing:Bool = false/*avoids refreshing when the refresh has already started*/
     var onComplete:()->Void = {print("⚠️️⚠️️⚠️️ Refresh.onComplete() completed but no onComplete is currently attached")}
     init(_ commitDP:CommitDP){
         self.commitDP = commitDP
@@ -18,11 +18,12 @@ class Refresh{//TODO:rename to refresh
      * Inits the refresh process
      */
     func initRefresh(){
-        isRefreshing = true/*avoid calling refresh when this is true, it is set to false on completion*/
+        //isRefreshing = true/*avoid calling refresh when this is true, it is set to false on completion*/
         //let freshness = Freshness()
         //freshness.onFreshnessSortComplete = refreshRepos//👈
         //startTime = NSDate()/*Measure the time of the refresh*/
         //freshness.initFreshnessSort()//begin process on a background thread
+        refreshRepos()
     }
     var repoCount:Int?
     var idx:Int = 0
@@ -63,7 +64,7 @@ class Refresh{//TODO:rename to refresh
         }
         //Swift.print("💚 onRefreshReposComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
         CommitDPCache.write(commitDP!)//write data to disk, we could also do this on app exit
-        isRefreshing = false
+        //isRefreshing = false
         onComplete()//calls a dynamic onComplete method, other classes can override this variable to get callback
         Swift.print("Written to disk")
     }
