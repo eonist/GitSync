@@ -14,32 +14,29 @@ class ASyncTest {
         func allOuterTasksCompleted(){
             Swift.print("🏁 allOuterTasksCompleted: 🏁")
         }
-        func onOuterComplete(_ IDX:Int){
-            Swift.print("all inner async tasks completed on outer async id: \(IDX)")
+        func onOuterComplete(_ index:Int){
+            Swift.print("all inner async tasks completed on outer async id: \(index)")
             outerIdx += 1
             Swift.print("outerIdx: " + "\(outerIdx)")
             if(outerIdx == 3){
                 allOuterTasksCompleted()
             }
         }
-        for i in 0..<3{//do 3 things async
-            bg.async {
-                
+        for i in 0..<3{
+            bg.async {/*do 3 things at the same time*/
                 Swift.print("---outer async started i: \(i)---")
-                var idx:Int = 0
-                
+                var innerIdx:Int = 0
                 func onInnerComplete(_ index:Int){
                     Swift.print("inner async task completed e: \(index)")
-                    idx += 1
-                    if(idx == 2){
+                    innerIdx += 1/*increment counter*/
+                    if(innerIdx == 2){
                         onOuterComplete(i)
                     }
                 }
                 for e in 0..<2{
                     Swift.print("===inner async started e: \(e)===")
-                    bg.async{//do 2 things async
-                        sleep(IntParser.random(1, 6).uint32)
-                        //Swift.print("i: \(i) e: \(e)")
+                    bg.async{/*do 2 things at the same time*/
+                        sleep(IntParser.random(1, 6).uint32)/*simulates task that takes between 1 and 6 secs*/
                         onInnerComplete(e)
                     }
                 }
