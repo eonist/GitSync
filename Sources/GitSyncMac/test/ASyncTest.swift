@@ -23,6 +23,7 @@ class ASyncTest {
         }
         group.leave()
         group.wait()
+        
         Swift.print("🏁 allTasksCompleted: 🏁")
     }
 }
