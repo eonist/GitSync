@@ -12,10 +12,11 @@ class ASyncTest {
         for _ in 0..<3{//do 3 things async
             bgQueue.async {
                 mainQueue.async {
-                    for _ in 0..<4{
+                    for e in 0..<4{
                         bgQueue.sync{
                             bgQueue.async{//do 4 things async
-                                delay()
+                                sleep(IntParser.random(1, 6).uint32)
+                                print(e)
                             }
                         }
                     }
