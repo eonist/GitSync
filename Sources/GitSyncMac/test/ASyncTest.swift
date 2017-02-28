@@ -13,12 +13,14 @@ class ASyncTest {
         Swift.print("1")
         bg.async{/*do 2 things at the same time*/
             group.enter()
-            sleep(IntParser.random(2, 6).uint32)/*simulates task that takes between 1 and 6 secs*/
+            sleep(IntParser.random(2, 4).uint32)/*simulates task that takes between 1 and 6 secs*/
             group.leave()
         }
         group.wait()
+        group.notify(queue: bg, execute: {
+            Swift.print("🏁 allTasksCompleted: 🏁")
+        })
         
-        Swift.print("🏁 allTasksCompleted: 🏁")
     }
 }
 /*
