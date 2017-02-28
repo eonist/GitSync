@@ -12,16 +12,20 @@ class ASyncTest {
         for i in 0..<3{//do 3 things async
             bg.async {
                 main.async {
-                    var edx:Int = 0
+                    var idx:Int = 0
+                    func onComplete(){
+                        idx += 1
+                        if(idx == 2){
+                            onAllComplete()
+                        }
+                    }
                     for e in 0..<2{
                         bg.async{//do 2 things async
                             sleep(IntParser.random(1, 6).uint32)
                             //Swift.print("i: \(i) e: \(e)")
-                            edx += 1
+                            onComplete()
                         }
                     }
-                    Swift.print("edx: " + "\(edx)")
-                    
                 }
             }
         }
