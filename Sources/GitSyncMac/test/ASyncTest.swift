@@ -9,6 +9,9 @@ class ASyncTest {
      *
      */
     init(){
+        func onAllOuterComplete(_ IDX:Int){
+            Swift.print("onAllOuterComplete: ")
+        }
         for i in 0..<3{//do 3 things async
             bg.async {
                 Swift.print("---outer async started i: \(i)---")
