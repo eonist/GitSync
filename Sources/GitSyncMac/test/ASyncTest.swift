@@ -14,7 +14,7 @@ class ASyncTest {
          *
          */
         func allOuterTasksCompleted(){
-            Swift.print("allOuterTasksCompleted: ")
+            Swift.print("🏁 allOuterTasksCompleted: 🏁")
         }
         func onOuterComplete(_ IDX:Int){
             Swift.print("all inner async tasks completed on outer async id: \(IDX)")
@@ -22,6 +22,7 @@ class ASyncTest {
             Swift.print("outerIdx: " + "\(outerIdx)")
             if(IDX == 3){
                 allOuterTasksCompleted()
+                Swift.print("finished")
             }
         }
         for i in 0..<3{//do 3 things async
