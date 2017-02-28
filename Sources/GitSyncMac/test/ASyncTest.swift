@@ -9,17 +9,14 @@ class ASyncTest {
      *
      */
     init(){
-        let arr:[Int] = [0,1,2]
-        for _ in arr.indices {
+        for _ in 0..<3{//do 3 things async
             bgQueue.async {
                 mainQueue.async {
-                    let arr2:[Int] = [0,1,2]
-                    arr2.forEach{
-                        bgQueue.async{
+                    for _ in 0..<4{
+                        bgQueue.async{//do 4 things async
                             
                         }
                     }
-                    
                 }
             }
         }
