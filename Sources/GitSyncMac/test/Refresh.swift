@@ -24,6 +24,13 @@ class Refresh{//TODO:rename to refresh
         //startTime = NSDate()/*Measure the time of the refresh*/
         //freshness.initFreshnessSort()//begin process on a background thread
     }
+    var idx:Int = 0
+    /**
+     *
+     */
+    func onComplete(){
+        self.onRefreshReposComplete()/*All repo items are now refreshed, the entire refresh process is finished*/
+    }
     /**
      * Adds commits to CommitDB
      * NOTE: This method is called from the freshness onComplete
@@ -35,7 +42,7 @@ class Refresh{//TODO:rename to refresh
             bgQueue.async{/*run the task on a background thread*/
                 RefreshUtils.refreshRepo(self.commitDP!,repos[i])
                 mainQueue.async{/*jump back on the main thread*/
-                    self.onRefreshReposComplete()/*All repo items are now refreshed, the entire refresh process is finished*/
+                    
                 }
             }
         }
@@ -70,7 +77,9 @@ class RefreshUtils{
                 let commitData:CommitData = GitLogParser.commitData($0)/*Compartmentalizes the result into a Tuple*/
                 //let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
                 let commitDict:[String:String] = CommitViewUtils.processCommitData(repo.title, commitData, 0)//<---TODO:add repo idx here
-                dp.add(commitDict)/*add the commit log items to the CommitDB*/
+                mainQueue.async{/*jump back on the main thread*/
+                    dp.add(commitDict)/*add the commit log items to the CommitDB*/
+                }
             }else{
                 Swift.print("-----ERROR: repo: \(repo.title) at index: \(index) didn't work")
             }
