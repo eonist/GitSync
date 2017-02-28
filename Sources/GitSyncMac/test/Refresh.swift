@@ -24,12 +24,16 @@ class Refresh{//TODO:rename to refresh
         //startTime = NSDate()/*Measure the time of the refresh*/
         //freshness.initFreshnessSort()//begin process on a background thread
     }
+    var repoCount:Int?
     var idx:Int = 0
     /**
      *
      */
-    func onComplete(){
-        self.onRefreshReposComplete()/*All repo items are now refreshed, the entire refresh process is finished*/
+    func onRefreshRepoComplete(){
+        idx += 1
+        if(idx == repoCount){
+            self.onRefreshReposComplete()/*All repo items are now refreshed, the entire refresh process is finished*/
+        }
     }
     /**
      * Adds commits to CommitDB
@@ -38,11 +42,12 @@ class Refresh{//TODO:rename to refresh
     func refreshRepos(/*_ sortableRepoList:[FreshnessItem]*/){
         //Swift.print("💛 Freshness.onFreshnessSortComplete() Time:-> " + "\(abs(self.startTime!.timeIntervalSinceNow))")/*How long it took*/
         let repos = RepoUtils.repoList
+        repoCount = repos.count
         for i in repos.indices{/*the arr is already sorted from freshest to least fresh*/
             bgQueue.async{/*run the task on a background thread*/
                 RefreshUtils.refreshRepo(self.commitDP!,repos[i])
                 mainQueue.async{/*jump back on the main thread*/
-                    
+                    self.onRefreshRepoComplete()
                 }
             }
         }
