@@ -12,21 +12,19 @@ class MergeUtils{
      * TODO: we should use two branch params here since its entirly possible to merge from a different remote branch
      */
     class func manualMerge(_ repo:GitRepo){
-        Swift.print("MergeUtils.manualMerge()")
+        //Swift.print("MergeUtils.manualMerge()")
         if (GitAsserter.hasUnMergedPaths(repo.localPath)) { //Asserts if there are unmerged paths that needs resolvment
-            Swift.print("has unmerged paths to resolve")
-            mainQueue.async {
-                MergeUtils.resolveMergeConflicts(repo.localPath, repo.branch, GitParser.unMergedFiles(repo.localPath))//Asserts if there are unmerged paths that needs resolvment
-            } 
+            //Swift.print("has unmerged paths to resolve")
+            MergeUtils.resolveMergeConflicts(repo.localPath, repo.branch, GitParser.unMergedFiles(repo.localPath))//🌵 Asserts if there are unmerged paths that needs resolvment
         }
-        _ = GitSync.commit(repo.localPath)//it1s best practice to always commit any uncommited files before you attempt to pull.
+        _ = GitSync.commit(repo.localPath)//🌵 It's best practice to always commit any uncommited files before you attempt to pull.
 
-        let hasManualPullReturnedError:Bool = GitUtils.manualPull(repo)//manual clone down files
+        let hasManualPullReturnedError:Bool = GitUtils.manualPull(repo)//🌵 Manual clone down files
         if(hasManualPullReturnedError){
             //make a list of unmerged files
-            let unMergedFiles:[String] = GitParser.unMergedFiles(repo.localPath)//compile a list of conflicting files somehow
-            MergeUtils.resolveMergeConflicts(repo.localPath, repo.branch, unMergedFiles)//Asserts if there are unmerged paths that needs resolvment
-            _ = GitSync.commit(repo.localPath)//add,commit if any files has an altered status
+            let unMergedFiles:[String] = GitParser.unMergedFiles(repo.localPath)//🌵 Compile a list of conflicting files somehow
+            MergeUtils.resolveMergeConflicts(repo.localPath, repo.branch, unMergedFiles)//🌵 Asserts if there are unmerged paths that needs resolvment
+            _ = GitSync.commit(repo.localPath)//🌵 add,commit if any files has an altered status
         }else{
             Swift.print("Success no resolvment needed")
         }

@@ -37,7 +37,7 @@ class Refresh{//TODO:rename to refresh
         var idx:Int = 0
         func onComplete(){//you can probably use DispatchGroup here aswell. but in the spirit of moving on
             idx += 1
-            Swift.print("refreshRepo.onComplete() i: \(idx)")
+            //Swift.print("refreshRepo.onComplete() i: \(idx)")
             if(idx == repos.count){
                 onRefreshReposComplete()
             }
@@ -79,7 +79,7 @@ class RefreshUtils{
                     let commitDict:[String:String] = CommitViewUtils.processCommitData(repo.title, commitData, 0)//<---TODO:add repo idx here
                     dp.add(commitDict)/* 🏁 add the commit log items to the CommitDB*/
                 }else{
-                    Swift.print("-----ERROR: repo: \(repo.title) at index: \(i) didn't work")
+                    Swift.print("-----ERROR: repo: \(repo.title) at result index: \(i) didn't have any characters")
                 }
             }//if results.count == 0 then -> no commitItems to append (because they where to old or non existed)
             onComplete()/*🚪➡️️*/
@@ -111,7 +111,7 @@ class RefreshUtils{
             bg.async {//maybe do some work
                 group.enter()
                 let rangeCount:Int = GitUtils.commitCount(repo.localPath, after: gitTime).int//🚧1 Git call /*Finds the num of commits from now until */
-                Swift.print("rangeCount now..last: " + "\(rangeCount)")
+                //Swift.print("rangeCount now..last: " + "\(rangeCount)")
                 commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
                 group.leave()
             }
