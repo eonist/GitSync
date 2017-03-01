@@ -12,34 +12,18 @@ class ASyncTest {
     //Continue here: Try using blox or read more about DispatchGroups
     
     init(){
-        let outerGroup = DispatchGroup()
+        let group = DispatchGroup()
         
         bg.async{/*do 2 things at the same time*/
-            outerGroup.enter()
-            inner.enter()
-            Swift.print("iterate i: \(i) e: \(e)")
+            group.enter()
             sleep(IntParser.random(3, 6).uint32)/*simulates task that takes between 1 and 6 secs*/
-            inner.leave()
-            outerGroup.leave()
+            group.leave()
         }
         
-        outerGroup.wait()
-        outerGroup.notify(queue: bg, execute: {
-            Swift.print("🏁 outer completed: 🏁")
+        group.wait()
+        group.notify(queue: bg, execute: {
+            Swift.print("🏁 group completed: 🏁")
         })
     }
 }
-/*
-for i in 0..<3{
-    bg.async {/*do 3 things at the same time*/
-        for e in 0..<2{
-            bg.async{/*do 2 things at the same time*/
-                group.enter()
-                sleep(IntParser.random(1, 6).uint32)/*simulates task that takes between 1 and 6 secs*/
-                Swift.print("i: \(i) e:\(e)")
-                group.leave()
-            }
-        }
-    }
-}
-*/
+
