@@ -16,12 +16,14 @@ class CommitsList:RBSliderFastList{
         progressIndicator = piContainer.addSubView(ProgressIndicator(30,30,piContainer))
         progressIndicator!.frame.y = -45//hide at init
         progressIndicator!.animator!.event = onEvent
-        
+    }
+    /**
+     * starts the auto sync process
+     */
+    func startAutoSync(){
         let refresh = Refresh(dp as! CommitDP)//attach the dp that RBSliderFastList uses
         refresh.onComplete = loopAnimationCompleted //👈👈👈 Attach the refresh.completion handler here
-        
-        /*onAutoSyncComplete*/
-        AutoSync.onComplete = refresh.initRefresh//👈 start the refresh process when AutoSync.onComplete is fired off
+        AutoSync.sync(refresh.initRefresh)/* start the refresh process when AutoSync.onComplete is fired off*/
     }
     /**
      * Create ListItem
@@ -61,8 +63,9 @@ class CommitsList:RBSliderFastList{
             progressIndicator!.start()//1. start spinning the progressIndicator
             hasPulledAndReleasedBeyondRefreshSpace = true
             
-            /*start downloading commits here*/
-            AutoSync.sync()//👈👈👈 starts the auto sync process
+            
+            startAutoSync()/*start downloading commits here*/
+            
             
         }else if (value > 0){
             hasReleasedBeyondTop = true
