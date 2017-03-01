@@ -25,26 +25,15 @@ class Refresh{//TODO:rename to refresh
         //freshness.initFreshnessSort()//begin process on a background thread
         refreshRepos()
     }
-    var repoCount:Int?
-    var idx:Int = 0
-    /**
-     * All repo items are now refreshed, the entire refresh process is finished
-     */
-    func onRefreshRepoComplete(){
-        idx += 1
-        if(idx == repoCount){
-            self.onRefreshReposComplete()/**/
-        }
-    }
- 
+   
     /**
      * Adds commits to CommitDB
      * NOTE: This method is called from the freshness onComplete
      */
     func refreshRepos(/*_ sortableRepoList:[FreshnessItem]*/){
         //Swift.print("💛 Freshness.onFreshnessSortComplete() Time:-> " + "\(abs(self.startTime!.timeIntervalSinceNow))")/*How long it took*/
-        let repos = RepoUtils.repoList
-        repoCount = repos.count
+        let repos = RepoUtils.repoList//creates array from xml or cache
+        //repoCount = repos.count
         for i in repos.indices{
             RefreshUtils.refreshRepo(self.commitDP!,repos[i])//🚪⬅️️ 🚧 0~1000's of a-sync 💼->🐚->🌵 calls
         }
@@ -52,7 +41,7 @@ class Refresh{//TODO:rename to refresh
     /**
      * The final complete call
      */
-    func onRefreshReposComplete(){
+    func onRefreshReposComplete(){/*All repo items are now refreshed, the entire refresh process is finished*/
         Swift.print("commitDB.sortedArr.count: " + "\(commitDP!.items.count)")
         Swift.print("Printing sortedArr after refresh: ")
         commitDP!.items.forEach{
