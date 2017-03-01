@@ -4,7 +4,7 @@ import Foundation
 class AsyncTest2 {
     init(){
         var outerArr = [1,2,3]
-        var innerArr = ["a","b","c"]
+        var innerArr = ["a","b"]
         var outerIdx:Int = 0
         var innerIdx:Int = 0
         
