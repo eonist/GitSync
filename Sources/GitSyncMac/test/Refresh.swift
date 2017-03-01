@@ -75,6 +75,7 @@ class RefreshUtils{
      * Retrieve the commit log items for this repo with the range specified
      */
     static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem){
+        //once these completes the do result
         let commitCount:Int = self.commitCount(dp,repo)//👈2 git calls
         Swift.print("💙\(repo.title): rangeCount: " + "\(commitCount)")
         let results:[String] = Utils.commitItems(repo.localPath, commitCount,{})//👈0~100 Git calls/*creates an array raw commit item logs, from repo*/
