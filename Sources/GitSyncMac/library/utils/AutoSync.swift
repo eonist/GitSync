@@ -18,16 +18,15 @@ class AutoSync {
             Swift.print("🍏 AppDelegate.onPushComplete() hasPushed: " + "\(hasPushed)")
             idx += 1
             if(idx < repoList.count){
-                GitSync.initCommit(repoList[idx])//👈 iterate repo items
+                GitSync.initCommit(repoList[idx],onCommitComplete)//👈 iterate repo items
             }else{
                 Swift.print("🏁🏁🏁 All repos are complete")//now read commits to list
                 onComplete()
             }
         }
         GitSync.onPushComplete = onPushComplete/*Attach eventHandler*/
-        GitSync.onCommitComplete = onCommitComplete/*Attach eventHandler*/
         if(repoList.count > 0){
-            GitSync.initCommit(repoList[idx])//👈init the loop
+            GitSync.initCommit(repoList[idx],onCommitComplete)//🚪⬅️️ starts the AutoSync process
         }
     }
 }

@@ -6,7 +6,7 @@ class GitSync{
      * Completion handler for initCommit
      * NOTE: is finally called if something is commited or not
      */
-    static var onCommitComplete:(_ hasCommited:Bool)->Void = {_ in Swift.print("⚠️️⚠️️⚠️️ onCommitComplete() hasCommited: but no onComplete is currently attached")}
+    //static var onCommitComplete:(_ hasCommited:Bool)->Void = {_ in Swift.print("⚠️️⚠️️⚠️️ onCommitComplete() hasCommited: but no onComplete is currently attached")}
     /**
      * Completion handler for initPush
      * NOTE: is called if something is pushed or not.
@@ -15,25 +15,19 @@ class GitSync{
     /**
      * Handles the process of making a commit for a single repository
      */
-    static func initCommit(_ repoItem:RepoItem){
+    static func initCommit(_ repoItem:RepoItem, _ onComplete:(_ hasCommited:Bool)->Void){
         //Swift.print("initCommit: title: " + "\(repoItem.title)")
         //log "GitSync's handle_commit_interval() a repo with doCommit " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
-        bgQueue.async {
-            let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.localPath)//Asserts if there are unmerged paths that needs resolvment
-            Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
-            if(hasUnMergedpaths){
-                Swift.print("has unmerged paths to resolve")
-                let unMergedFiles = GitParser.unMergedFiles(repoItem.localPath) //Asserts if there are unmerged paths that needs resolvment
-                mainQueue.async {
-                    MergeUtils.resolveMergeConflicts(repoItem.localPath, repoItem.branch, unMergedFiles)
-                }
-            }
-            let hasCommited = commit(repoItem.localPath) //if there were no commits false will be returned
-            Swift.print("hasCommited: " + "\(hasCommited)")
-            mainQueue.async {
-                GitSync.onCommitComplete(hasCommited)
-            }
+        let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.localPath)//🌵Asserts if there are unmerged paths that needs resolvment
+        Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
+        if(hasUnMergedpaths){
+            Swift.print("has unmerged paths to resolve")
+            let unMergedFiles = GitParser.unMergedFiles(repoItem.localPath)// 🌵 Asserts if there are unmerged paths that needs resolvment
+            MergeUtils.resolveMergeConflicts(repoItem.localPath, repoItem.branch, unMergedFiles)
         }
+        let hasCommited = commit(repoItem.localPath) //🌵 if there were no commits false will be returned
+        //Swift.print("hasCommited: " + "\(hasCommited)")
+        onComplete(hasCommited)
     }
     /**
      * Handles the process of making a push for a single repository
