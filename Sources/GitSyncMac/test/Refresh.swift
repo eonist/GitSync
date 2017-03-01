@@ -28,14 +28,15 @@ class Refresh{//TODO:rename to refresh
     var repoCount:Int?
     var idx:Int = 0
     /**
-     *
+     * All repo items are now refreshed, the entire refresh process is finished
      */
     func onRefreshRepoComplete(){
         idx += 1
         if(idx == repoCount){
-            self.onRefreshReposComplete()/*All repo items are now refreshed, the entire refresh process is finished*/
+            self.onRefreshReposComplete()/**/
         }
     }
+ 
     /**
      * Adds commits to CommitDB
      * NOTE: This method is called from the freshness onComplete
