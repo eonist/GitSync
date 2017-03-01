@@ -13,7 +13,6 @@ class ASyncTest {
     
     init(){
         let outerGroup = DispatchGroup()
-        Swift.print("1")
         for i in 0..<3{
             Swift.print("iterate i: \(i)")
             let inner = DispatchGroup()
@@ -29,14 +28,13 @@ class ASyncTest {
             }
             inner.wait()
             inner.notify(queue: bg, execute: {
-                Swift.print("🍌")
+                Swift.print("🍌 inner completed")
             })
         }
         outerGroup.wait()
         outerGroup.notify(queue: bg, execute: {
-            Swift.print("🏁 allTasksCompleted: 🏁")
+            Swift.print("🏁 outer completed: 🏁")
         })
-        
     }
 }
 /*
