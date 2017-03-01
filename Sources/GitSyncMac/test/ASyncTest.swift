@@ -19,6 +19,15 @@ class ASyncTest {
             sleep(IntParser.random(3, 6).uint32)/*simulates task that takes between 1 and 6 secs*/
             group.leave()
         }
+        if("" == ""){
+            bg.async{/*do 2 things at the same time*/
+                group.enter()
+                sleep(IntParser.random(2, 7).uint32)/*simulates task that takes between 1 and 6 secs*/
+                group.leave()
+            }
+        }else{
+            Swift.print("do the other")
+        }
         
         group.wait()
         group.notify(queue: bg, execute: {
