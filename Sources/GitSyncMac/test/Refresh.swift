@@ -34,8 +34,15 @@ class Refresh{//TODO:rename to refresh
         //Swift.print("💛 Freshness.onFreshnessSortComplete() Time:-> " + "\(abs(self.startTime!.timeIntervalSinceNow))")/*How long it took*/
         let repos = RepoUtils.repoList//creates array from xml or cache
         //repoCount = repos.count
+        var idx:Int = 0
+        func onComplete(){
+            idx ++
+            if(idx == repos.count){
+                
+            }
+        }
         for i in repos.indices{
-            RefreshUtils.refreshRepo(self.commitDP!,repos[i])//🚪⬅️️ 🚧 0~1000's of a-sync 💼->🐚->🌵 calls
+            RefreshUtils.refreshRepo(self.commitDP!,repos[i],onComplete)//🚪⬅️️ 🚧 0~1000's of a-sync 💼->🐚->🌵 calls
         }
     }
     /**
@@ -59,7 +66,7 @@ class RefreshUtils{
      * Adds commit items to CommitDB if they are newer than the oldest commit in CommitDB
      * Retrieve the commit log items for this repo with the range specified
      */
-    static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem){
+    static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem,_ onComplete:()->Void){
         func onCommitItemsCompleted(_ results:[String]){
             results.forEach{
                 if($0.count > 0){/*resulting string must have characters*/
