@@ -35,7 +35,7 @@ class AsyncTest2 {
                         Swift.print("===🚗 inner async started e: \(e)===")
                         sleep(IntParser.random(1, 6).uint32)/*simulates task that takes between 1 and 6 secs*/
                         main.async{/*we must jump back on main thread, because we want to manipulate a variable that resids on the main thread*/
-                            onInnerComplete(i,e)
+                            onInnerComplete(i,e)/*we only itereate on the main thread via this method*/
                         }
                     }
                 }
