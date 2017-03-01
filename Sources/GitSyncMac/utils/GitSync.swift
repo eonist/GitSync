@@ -5,7 +5,7 @@ class GitSync{
     /**
      * Handles the process of making a commit for a single repository
      */
-    static func initCommit(_ repoList:[RepoItem],_ idx:Int, _ onComplete:(_ hasCommited:Bool)->Void){
+    static func initCommit(_ repoList:[RepoItem],_ idx:Int, _ onComplete:(_ idx:Int,_ hasCommited:Bool)->Void){
         let repoItem = repoList[idx]
         //Swift.print("initCommit: title: " + "\(repoItem.title)")
         //log "GitSync's handle_commit_interval() a repo with doCommit " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
@@ -18,7 +18,7 @@ class GitSync{
         }
         let hasCommited = commit(repoItem.localPath)//🌵 if there were no commits false will be returned
         //Swift.print("hasCommited: " + "\(hasCommited)")
-        onComplete(hasCommited)
+        onComplete(idx,hasCommited)
     }
     /**
      * Handles the process of making a push for a single repository
@@ -26,8 +26,9 @@ class GitSync{
      * NOTE: this method performs a "manual pull" on every interval
      * TODO: contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
      */
-    static func initPush(_ repoItem:RepoItem,_ onComplete:(_ hasPushed:Bool)->Void){
-        Swift.print("initPush")
+    static func initPush(_ repoList:[RepoItem],_ idx:Int,_ onComplete:(_ hasPushed:Bool)->Void){
+        //Swift.print("initPush")
+        let repoItem = repoList[idx]
         var remotePath:String = repoItem.remotePath
         if(remotePath.test("^https://.+$")){remotePath = remotePath.subString(8, remotePath.count)}/*support for partial and full url,strip away the https://, since this will be added later*/
         let repo:GitRepo = (repoItem.localPath, remotePath, repoItem.branch)
