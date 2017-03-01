@@ -92,7 +92,7 @@ class RefreshUtils{
                 }
             }//if results.count == 0 then -> no commitItems to append (because they where to old or non existed)
         }
-        commitCount(dp,repo,onCommitCountComplete)//👈2 git calls
+        commitCount(dp,repo,onCommitCountComplete)//🚪arrowleft     
         
     }
     /**
