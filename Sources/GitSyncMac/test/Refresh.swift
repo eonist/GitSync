@@ -134,7 +134,7 @@ private class Utils{
      * Returns an array of commitItems at PARAM: localPath and limited with PARAM: max
      * PARAM: limit = max Items Allowed per repo
      */
-    static func commitItems(_ localPath:String,_ limit:Int, _ onComplete:()->Void)->[String]{
+    static func commitItems(_ localPath:String,_ limit:Int, _ onComplete:@escaping (_ results:[String])->Void) {
         //Swift.print("limit: \(limit)")
         let group = DispatchGroup()
         var results:[String] = Array(repeating: "", count: limit)
@@ -152,8 +152,8 @@ private class Utils{
         }
         group.wait()
         group.notify(queue: bg, execute: {
-            
+            Swift.print("🍌 all results completed")
+            onComplete(results.reversed()) //reversed is a temp fix
         })
-        return results.reversed()//reversed is a temp fix
     }
 }
