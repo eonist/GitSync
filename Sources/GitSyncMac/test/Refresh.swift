@@ -96,14 +96,21 @@ class RefreshUtils{
      * Find the range of commits to add to CommitDB for this repo
      */
     private static func commitCount(_ dp:CommitDP,_ repo:RepoItem, _ onComplete:@escaping (_ commitCount:Int)->Void) {
+        
+        
+        
+        
+        bg.async {
+            var totCommitCount:Int = GitUtils.commitCount(repo.localPath).int - 1//👈1 Git call/*Get the total commitCount of this repo*/
+            totCommitCount = Swift.min(totCommitCount,count)
+            main.async{
+                //onComplete(totCommitCount)//🚪
+            }
+        }
         //var commitCount:Int
         func onRangeCommitCountComplete(_ count:Int){
-            bg.async {
-                var totCommitCount:Int = GitUtils.commitCount(repo.localPath).int - 1//👈1 Git call/*Get the total commitCount of this repo*/
-                totCommitCount = Swift.min(totCommitCount,count)
-                main.async{
-                    onComplete(totCommitCount)//🚪
-                }
+            
+            
             }
         }
         if(dp.items.count > 0){
