@@ -30,7 +30,7 @@ class ASyncTest {
             Swift.print("do the second")
         }
         
-        group.wait()
+        //group.wait()/*wait blocks main thread*/
         group.notify(queue: bg, execute: {
             Swift.print("🏁 group completed: 🏁")
         })

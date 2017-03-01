@@ -21,7 +21,7 @@ class CommitsList:RBSliderFastList{
         refresh.onComplete = loopAnimationCompleted //👈👈👈 Attach the refresh.completion handler here
         
         /*onAutoSyncComplete*/
-        AutoSync.onComplete = refresh.initRefresh//👈 start the refresh process
+        AutoSync.onComplete = refresh.initRefresh//👈 start the refresh process when AutoSync.onComplete is fired off
     }
     /**
      * Create ListItem

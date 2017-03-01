@@ -116,7 +116,7 @@ class RefreshUtils{
         }else {//< 100
              commitCount  = (100)//you need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
         }
-        group.wait()
+        //group.wait()
         group.notify(queue: bg, execute: {
             let clippedCommitCount = Swift.min(totCommitCount,commitCount)
             onComplete(clippedCommitCount)//🚪➡️️
@@ -145,7 +145,7 @@ private class Utils{
                 group.leave()
             }
         }
-        group.wait()
+        //group.wait()
         group.notify(queue: bg, execute: {
             Swift.print("🍌 all results completed")
             onComplete(results.reversed()) //reversed is a temp fix
