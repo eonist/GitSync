@@ -124,10 +124,12 @@ private class Utils{
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
         for i in 0..<limit{
             let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
-            bg.async{
+            bg.async{/*inner*/
                 let result:String = GitParser.show(localPath, cmd)//👈 git call//--no-patch suppresses the diff output of git show
+                main.async {
+                    results.append(result)
+                }
             }
-            results.append(result)
         }
         return results.reversed()//reversed is a temp fix
     }
