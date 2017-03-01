@@ -76,22 +76,24 @@ class RefreshUtils{
      */
     static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem){
         //once these completes then do result, you do not want to wait until calling refreshRepo
-        let commitCount:Int = 0
-        self.commitCount(dp,repo,onCommitCountComplete)//👈2 git calls
-        Swift.print("💙\(repo.title): rangeCount: " + "\(commitCount)")
-        let results:[String] = Utils.commitItems(repo.localPath, commitCount,{})//👈0~100 Git calls/*creates an array raw commit item logs, from repo*/
-        results.forEach{
-            if($0.count > 0){/*resulting string must have characters*/
-                let commitData:CommitData = GitLogParser.commitData($0)/*Compartmentalizes the result into a Tuple*/
-                //let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
-                let commitDict:[String:String] = CommitViewUtils.processCommitData(repo.title, commitData, 0)//<---TODO:add repo idx here
-                mainQueue.async{/*jump back on the main thread*/
-                    dp.add(commitDict)/*add the commit log items to the CommitDB*/
+        func onCommitCountComplete(_ commitCount:Int){
+            Swift.print("💙\(repo.title): rangeCount: " + "\(commitCount)")
+            let results:[String] = Utils.commitItems(repo.localPath, commitCount,{})//👈0~100 Git calls/*creates an array raw commit item logs, from repo*/
+            results.forEach{
+                if($0.count > 0){/*resulting string must have characters*/
+                    let commitData:CommitData = GitLogParser.commitData($0)/*Compartmentalizes the result into a Tuple*/
+                    //let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
+                    let commitDict:[String:String] = CommitViewUtils.processCommitData(repo.title, commitData, 0)//<---TODO:add repo idx here
+                    mainQueue.async{/*jump back on the main thread*/
+                        dp.add(commitDict)/*add the commit log items to the CommitDB*/
+                    }
+                }else{
+                    Swift.print("-----ERROR: repo: \(repo.title) at index: \(index) didn't work")
                 }
-            }else{
-                Swift.print("-----ERROR: repo: \(repo.title) at index: \(index) didn't work")
-            }
-        }//if results.count == 0 then -> no commitItems to append (because they where to old or non existed)
+            }//if results.count == 0 then -> no commitItems to append (because they where to old or non existed)
+        }
+        self.commitCount(dp,repo,onCommitCountComplete)//👈2 git calls
+        
     }
     /**
      * Find the range of commits to add to CommitDB for this repo
