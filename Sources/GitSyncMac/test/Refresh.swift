@@ -96,7 +96,7 @@ class RefreshUtils{
      * Find the range of commits to add to CommitDB for this repo
      */
     private static func commitCount(_ dp:CommitDP,_ repo:RepoItem, _ onComplete:@escaping (_ commitCount:Int)->Void) {
-        
+        var commitCount:Int = 0
         
         let group = DispatchGroup()
         
@@ -105,9 +105,7 @@ class RefreshUtils{
             var totCommitCount:Int = GitUtils.commitCount(repo.localPath).int - 1//👈1 Git call/*Get the total commitCount of this repo*/
             group.leave()
             //totCommitCount = Swift.min(totCommitCount,count)
-            main.async{
-                //onComplete(totCommitCount)//🚪
-            }
+          
         }
         
         if(dp.items.count > 0){
@@ -125,12 +123,12 @@ class RefreshUtils{
                 
             }
         }else {//< 100
-            onRangeCommitCountComplete(100)//you need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
+             let commitCount = (100)//you need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
         }
         
         group.wait()
         group.notify(queue: bg, execute: {
-            
+            //🚪
         })
         
         //var commitCount:Int
