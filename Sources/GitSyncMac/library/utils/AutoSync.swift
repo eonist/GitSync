@@ -11,7 +11,7 @@ class AutoSync {
         
         func onCommitComplete(_ hasCommited:Bool){
             Swift.print("🍊 AppDelegate.onCommitComplete() hasCommited: " + "\(hasCommited)")
-            GitSync.initPush(repoList[idx])
+            GitSync.initPush(repoList[idx],GitSync.onPushComplete)
         }
         func onPushComplete(_ hasPushed:Bool){
             Swift.print("🍏 AppDelegate.onPushComplete() hasPushed: " + "\(hasPushed)")
