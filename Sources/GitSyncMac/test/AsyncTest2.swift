@@ -5,19 +5,10 @@ class AsyncTest2 {
     init(){
         var outerArr = [1,2,3]
         var innerArr = ["a","b"]
+        /*Indecies*/
         var outerIdx:Int = 0
         var innerIdx:Int = 0
-        
-        func allOuterCompleted(){
-            Swift.print("🏁 allOuterTasksCompleted: 🏁")
-        }
-        func onOuterComplete(_ i_idx:Int, _ e_idx:Int){
-            Swift.print("🍏 onOuterComplete i: \(i_idx) e: \(e_idx) 🍏")
-            outerIdx += 1
-            if(outerIdx == outerArr.count){
-                allOuterCompleted()
-            }
-        }
+        /*Completion handlers resides on the main thread*/
         func onInnerComplete(_ i_idx:Int, _ e_idx:Int){
             Swift.print("🍌 onInnerComplete i: \(i_idx) e: \(e_idx) 🍌")
             innerIdx += 1/*increment counter*/
@@ -26,6 +17,17 @@ class AsyncTest2 {
                 onOuterComplete(i_idx,e_idx)
             }
         }
+        func onOuterComplete(_ i_idx:Int, _ e_idx:Int){
+            Swift.print("🍏 onOuterComplete i: \(i_idx) e: \(e_idx) 🍏")
+            outerIdx += 1
+            if(outerIdx == outerArr.count){
+                allOuterCompleted()
+            }
+        }
+        func allOuterCompleted(){
+            Swift.print("🏁 allOuterTasksCompleted: 🏁")
+        }
+        /*The goal here is to fire of all sleep tasks in one swoop on a bg thread*/
         for i in outerArr.indices{
             bg.async {/*do 3 things at the same time*/
                 Swift.print("🚄 ---outer async started i: \(i)---")
