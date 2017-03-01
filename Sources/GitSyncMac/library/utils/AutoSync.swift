@@ -13,7 +13,7 @@ class AutoSync {
             Swift.print("🍏 AppDelegate.onPushComplete() hasPushed: " + "\(hasPushed)")
             idx += 1
             if(idx == repoList.count){
-                Swift.print("🏁🏁🏁 All repos are complete")//now read commits to list
+                Swift.print("🏁🏁🏁 All repos are complete")//now go and read commits to list
                 onComplete()
             }
         }
