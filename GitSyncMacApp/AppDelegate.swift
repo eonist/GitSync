@@ -21,6 +21,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //rateOfCommitsTest()
         
         initApp()
+        
+        //next up is
+        
         //_ = ASyncTest()
         //_ = AsyncTest2()
         
