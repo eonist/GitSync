@@ -16,8 +16,10 @@ class ASyncTest {
                 outerGroup.enter()
                 Swift.print("iterate i: \(i)")
                 for e in 0..<2{
-                    Swift.print("iterate i: \(i) e: \(e)")
-                    sleep(IntParser.random(2, 3).uint32)/*simulates task that takes between 1 and 6 secs*/
+                    bg.async{/*do 2 things at the same time*/
+                        Swift.print("iterate i: \(i) e: \(e)")
+                        sleep(IntParser.random(2, 3).uint32)/*simulates task that takes between 1 and 6 secs*/
+                    }
                 }
                 outerGroup.leave()
             }
