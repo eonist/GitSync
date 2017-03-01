@@ -20,10 +20,8 @@ class CommitsList:RBSliderFastList{
         let refresh = Refresh(dp as! CommitDP)//attach the dp that RBSliderFastList uses
         refresh.onComplete = loopAnimationCompleted //👈👈👈 Attach the refresh.completion handler here
         
-        func onAutoSyncComplete(){
-            refresh.initRefresh()//👈 start the refresh process
-        }
-        AutoSync.onComplete = onAutoSyncComplete
+        /*onAutoSyncComplete*/
+        AutoSync.onComplete = refresh.initRefresh//👈 start the refresh process
     }
     /**
      * Create ListItem
