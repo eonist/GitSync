@@ -24,11 +24,12 @@ class AutoSync {
             }
         }
         GitSync.onPushComplete = onPushComplete/*Attach eventHandler*/
-        if(repoList.count > 0){
+        
+        
+        for i in repoList.indices{
+            let repoItem = repoList[i]
             GitSync.initCommit(repoList[idx],onCommitComplete)//🚪⬅️️ starts the AutoSync process
         }
-        
-        for i in repoList.indices
         
     }
 }
