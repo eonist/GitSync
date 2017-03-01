@@ -27,7 +27,7 @@ class AsyncTest2 {
         func allOuterCompleted(){
             Swift.print("🏁 allOuterTasksCompleted: 🏁")
         }
-        /*The goal here is to fire of all sleep tasks in one swoop on a bg thread*/
+        /*The goal here is to fire of all sleep tasks in one swoop on a bg thread, 6 sleep tasks at once. not one after the other*/
         for i in outerArr.indices{
             bg.async {/*do 3 things at the same time*/
                 Swift.print("🚄 ---outer async started i: \(i)---")
