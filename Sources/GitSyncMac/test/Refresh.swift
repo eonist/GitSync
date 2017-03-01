@@ -46,7 +46,7 @@ class Refresh{//TODO:rename to refresh
         repoCount = repos.count
         for i in repos.indices{
             bgQueue.async{/*run the task on a background thread*/
-                RefreshUtils.refreshRepo(self.commitDP!,repos[i])//🚪⬅️️ 💼 0~1000's of a-sync git calls
+                RefreshUtils.refreshRepo(self.commitDP!,repos[i])//🚪⬅️️ 🚧 0~1000's of a-sync git calls
                 mainQueue.async{/*jump back on the main thread*/
                     self.onRefreshRepoComplete()
                 }
@@ -90,7 +90,7 @@ class RefreshUtils{
         //once these completes then do result, you do not want to wait until calling refreshRepo
         func onCommitCountComplete(_ commitCount:Int){
             Swift.print("💙\(repo.title): rangeCount: " + "\(commitCount)")
-            Utils.commitItems(repo.localPath, commitCount,onCommitItemsCompleted)//👈0~100 Git calls/*creates an array raw commit item logs, from repo*/
+            Utils.commitItems(repo.localPath, commitCount,onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
         }
         commitCount(dp,repo,onCommitCountComplete)//🚪⬅️️
         
@@ -104,7 +104,7 @@ class RefreshUtils{
         let group = DispatchGroup()
         bg.async {//do some work
             group.enter()
-            totCommitCount = GitUtils.commitCount(repo.localPath).int - 1//👈1 Git call/*Get the total commitCount of this repo*/
+            totCommitCount = GitUtils.commitCount(repo.localPath).int - 1//🚧1 Git call/*Get the total commitCount of this repo*/
             group.leave()
         }
         if(dp.items.count > 0){
@@ -113,7 +113,7 @@ class RefreshUtils{
             let gitTime = GitDateUtils.gitTime(lastDate.string)/*converts descending date to git time*/
             bg.async {//maybe do some work
                 group.enter()
-                let rangeCount:Int = GitUtils.commitCount(repo.localPath, after: gitTime).int//👈1 Git call /*Finds the num of commits from now until */
+                let rangeCount:Int = GitUtils.commitCount(repo.localPath, after: gitTime).int//🚧1 Git call /*Finds the num of commits from now until */
                 Swift.print("rangeCount now..last: " + "\(rangeCount)")
                 commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
                 group.leave()
@@ -143,7 +143,7 @@ private class Utils{
             let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
             bg.async{/*inner*/
                 group.enter()
-                let result:String = GitParser.show(localPath, cmd)//👈 git call//--no-patch suppresses the diff output of git show
+                let result:String = GitParser.show(localPath, cmd)//🚧 git call//--no-patch suppresses the diff output of git show
                 main.async {
                     results[i] = result//results.append(result)
                 }
