@@ -57,7 +57,7 @@ class Refresh{//TODO:rename to refresh
         //Swift.print("💚 onRefreshReposComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
         CommitDPCache.write(commitDP!)//write data to disk, we could also do this on app exit
         //isRefreshing = false
-        onComplete()/*🚪rarrow  *///calls a dynamic onComplete method, other classes can override this variable to get callback
+        onComplete()/*🚪➡️️  calls a dynamic onComplete method, other classes can override this variable to get callback*/
         Swift.print("Written to disk")
     }
 }
@@ -79,7 +79,7 @@ class RefreshUtils{
                     Swift.print("-----ERROR: repo: \(repo.title) at index: \(index) didn't work")
                 }
             }//if results.count == 0 then -> no commitItems to append (because they where to old or non existed)
-            onComplete()
+            onComplete()/*🚪➡️️*/
         }
         //once these completes then do result, you do not want to wait until calling refreshRepo
         func onCommitCountComplete(_ commitCount:Int){

@@ -20,9 +20,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //rateOfCommitsTest()
         
-        //initApp()
+        initApp()
         
-        _ = ASyncTest()
+        //_ = ASyncTest()
         //_ = AsyncTest2()
         
         //Continue: Figure out concurrent threads, check your research
