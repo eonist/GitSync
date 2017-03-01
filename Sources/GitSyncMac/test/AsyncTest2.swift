@@ -17,20 +17,19 @@ class AsyncTest2 {
                 allOuterTasksCompleted()
             }
         }
+        func onInnerComplete(_ i_idx:Int, _ e_idx:Int){
+            Swift.print("🍌 onInnerComplete i: \(i_idx) e: \(e_idx) 🍌")
+            main.async{/*we must jump back on main thread, because we want to manipulate a variable that resids on the main thread*/
+                innerIdx += 1/*increment counter*/
+                if(innerIdx == 2){
+                    innerIdx = 0//reset
+                    onOuterComplete(i_idx,e_idx)
+                }
+            }
+        }
         for i in 0..<3{
             bg.async {/*do 3 things at the same time*/
                 Swift.print("---outer async started i: \(i)---")
-                
-                func onInnerComplete(_ i_idx:Int, _ e_idx:Int){
-                    Swift.print("🍌 onInnerComplete i: \(i_idx) e: \(e_idx) 🍌")
-                    main.async{/*we must jump back on main thread, because we want to manipulate a variable that resids on the main thread*/
-                        innerIdx += 1/*increment counter*/
-                        if(innerIdx == 2){
-                            innerIdx = 0//reset
-                            onOuterComplete(i_idx,e_idx)
-                        }
-                    }
-                }
                 for e in 0..<2{
                     Swift.print("===inner async started e: \(e)===")
                     bg.async{/*do 2 things at the same time*/
