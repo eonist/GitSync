@@ -37,7 +37,7 @@ class CommitsList:RBSliderFastList{
      * Apply data to ListItem
      */
     override func reUse(_ listItem:FastListItem) {
-        Swift.print("CommitsList.reUse: idx: " + "\(listItem.idx)")
+        //Swift.print("CommitsList.reUse: idx: " + "\(listItem.idx)")
         let item:CommitsListItem = listItem.item as! CommitsListItem
         let idx:Int = listItem.idx/*the index of the data in dataProvider*/
         let selected:Bool = idx == selectedIdx//dpItem["selected"]!.bool
@@ -46,14 +46,14 @@ class CommitsList:RBSliderFastList{
         item.y = idx * itemHeight/*position the item*/
     }
     override func scrollWheelEnter() {
-        Swift.print("scrollWheelEnter")
+        //Swift.print("scrollWheelEnter")
         reUseAll()/*Refresh*/
         isTwoFingersTouching = true
         super.scrollWheelEnter()
     }
     override func scrollWheelExit(){
         isTwoFingersTouching = false
-        Swift.print("💜 CommitList.scrollWheelExit()")
+        //Swift.print("💜 CommitList.scrollWheelExit()")
         let value = mover!.result
         if(value > 60){
             //Swift.print("start animation the ProgressIndicator")
@@ -72,7 +72,7 @@ class CommitsList:RBSliderFastList{
         }
     }
     override func scrollAnimStopped(){
-        Swift.print("💛 CommitsList.scrollAnimStopped()")
+        //Swift.print("💛 CommitsList.scrollAnimStopped()")
         super.scrollAnimStopped()
         if(isInDeactivateRefreshModeState){
             //Swift.print("reset refreshState")

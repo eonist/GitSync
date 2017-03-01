@@ -58,7 +58,7 @@ class Refresh{//TODO:rename to refresh
         CommitDPCache.write(commitDP!)//write data to disk, we could also do this on app exit
         Swift.print("Written to disk")
         //isRefreshing = false
-        Swift.print("alarm  onRefreshReposComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+        Swift.print("⏰⏰⏰⏰⏰⏰ onRefreshReposComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))⏰⏰⏰⏰⏰⏰")/*How long did the gathering of git commit logs take?*/
         onComplete()/*🚪➡️️  calls a dynamic onComplete method, other classes can override this variable to get callback*/
     }
 }
