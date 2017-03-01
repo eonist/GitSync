@@ -115,17 +115,23 @@ class RefreshUtils{
             //Swift.print("lastDate: " + "\(lastDate)")
             let gitTime = GitDateUtils.gitTime(lastDate.string)/*converts descending date to git time*/
             bg.async {
+                group.enter()
                 let rangeCount:Int = GitUtils.commitCount(repo.localPath, after: gitTime).int//👈1 Git call /*Finds the num of commits from now until */
                 Swift.print("rangeCount now..last: " + "\(rangeCount)")
-                main.async{
-                    let commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
-                    onRangeCommitCountComplete(commitCount)
-                }
+                group.leave()
+                
+                let commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
+                
+                
             }
         }else {//< 100
             onRangeCommitCountComplete(100)//you need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
         }
         
+        group.wait()
+        group.notify(queue: bg, execute: {
+            
+        })
         
         //var commitCount:Int
         func onRangeCommitCountComplete(_ count:Int){
