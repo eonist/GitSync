@@ -25,7 +25,11 @@ class ASyncTest {
                     }
                 }
                 innerGroup.wait()
-                outerGroup.leave()
+                innerGroup.notify(queue: bg, execute: {
+                    Swift.print("🍌 inner task completed: 🍌")
+                    outerGroup.leave()
+                })
+                
             }
         }
         outerGroup.wait()
