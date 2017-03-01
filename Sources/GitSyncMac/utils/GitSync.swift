@@ -5,7 +5,8 @@ class GitSync{
     /**
      * Handles the process of making a commit for a single repository
      */
-    static func initCommit(_ repoItem:RepoItem, _ onComplete:(_ hasCommited:Bool)->Void){
+    static func initCommit(_ repoList:[RepoItem],_ idx:Int, _ onComplete:(_ hasCommited:Bool)->Void){
+        let repoItem = repoList[idx]
         //Swift.print("initCommit: title: " + "\(repoItem.title)")
         //log "GitSync's handle_commit_interval() a repo with doCommit " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
         let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.localPath)//🌵Asserts if there are unmerged paths that needs resolvment
