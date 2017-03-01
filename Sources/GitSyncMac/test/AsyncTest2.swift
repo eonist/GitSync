@@ -6,13 +6,13 @@ class AsyncTest2 {
         var outerArr = [1,2,3]
         var innerArr = ["a","b"]
         /*Indecies*/
-        var index = [[0,0],[0,0]]
+        var outerIdx = 0
+        var innerIdx = [0,0,0]
         /*Completion handlers resides on the main thread*/
         func onInnerComplete(_ i_idx:Int, _ e_idx:Int){
             Swift.print("🍌 onInnerComplete i: \(i_idx) e: \(e_idx) 🍌")
-            index[i_idx] += 1/*increment counter*/
-            if(innerIdx == innerArr.count){
-                innerIdx = 0//reset
+            innerIdx[i_idx] += 1/*increment counter*/
+            if(innerIdx[i_idx] == innerArr.count){
                 onOuterComplete(i_idx,e_idx)
             }
         }
