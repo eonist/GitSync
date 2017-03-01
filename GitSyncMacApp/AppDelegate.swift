@@ -22,7 +22,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         initApp()
         
-        //next up is
+        //continue here:
+            //timing the refresh code
+            //making the commit code threaded
+            //add thread groups to graph aswell, 
+            //and maybe even test deep groups aswell?
         
         //_ = ASyncTest()
         //_ = AsyncTest2()
