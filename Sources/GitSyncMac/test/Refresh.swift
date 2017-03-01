@@ -38,7 +38,7 @@ class Refresh{//TODO:rename to refresh
         func onComplete(){//you can probably use DispatchGroup here aswell. but in the spirit of moving on
             idx += 1
             if(idx == repos.count){
-                
+                onRefreshReposComplete()
             }
         }
         for i in repos.indices{
@@ -57,7 +57,7 @@ class Refresh{//TODO:rename to refresh
         //Swift.print("💚 onRefreshReposComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
         CommitDPCache.write(commitDP!)//write data to disk, we could also do this on app exit
         //isRefreshing = false
-        onComplete()//calls a dynamic onComplete method, other classes can override this variable to get callback
+        onComplete()/*🚪rarrow  *///calls a dynamic onComplete method, other classes can override this variable to get callback
         Swift.print("Written to disk")
     }
 }
