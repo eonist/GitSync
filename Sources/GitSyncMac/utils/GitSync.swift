@@ -15,7 +15,7 @@ class GitSync{
             let unMergedFiles = GitParser.unMergedFiles(repoItem.localPath)// 🌵 Asserts if there are unmerged paths that needs resolvment
             MergeUtils.resolveMergeConflicts(repoItem.localPath, repoItem.branch, unMergedFiles)
         }
-        let hasCommited = commit(repoItem.localPath) //🌵 if there were no commits false will be returned
+        let hasCommited = commit(repoItem.localPath)//🌵 if there were no commits false will be returned
         //Swift.print("hasCommited: " + "\(hasCommited)")
         onComplete(hasCommited)
     }
