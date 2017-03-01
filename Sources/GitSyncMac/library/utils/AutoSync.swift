@@ -9,7 +9,6 @@ class AutoSync {
         let repoList:[RepoItem] = RepoUtils.repoList
         var idx:Int = 0
         
-        
         func onPushComplete(_ hasPushed:Bool){
             Swift.print("🍏 AppDelegate.onPushComplete() hasPushed: " + "\(hasPushed)")
             idx += 1
@@ -24,13 +23,9 @@ class AutoSync {
             Swift.print("🍊 AppDelegate.onCommitComplete() hasCommited: " + "\(hasCommited)")
             GitSync.initPush(repoList[idx],onPushComplete)
         }
-        
-        
-        
         for i in repoList.indices{
             let repoItem = repoList[i]
             GitSync.initCommit(repoItem,onCommitComplete)//🚪⬅️️ starts the AutoSync process
         }
-        
     }
 }
