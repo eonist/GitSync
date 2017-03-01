@@ -45,12 +45,7 @@ class Refresh{//TODO:rename to refresh
         let repos = RepoUtils.repoList
         repoCount = repos.count
         for i in repos.indices{
-            bgQueue.async{/*run the task on a background thread*/
-                RefreshUtils.refreshRepo(self.commitDP!,repos[i])//🚪⬅️️ 🚧 0~1000's of a-sync git calls
-                mainQueue.async{/*jump back on the main thread*/
-                    self.onRefreshRepoComplete()
-                }
-            }
+            RefreshUtils.refreshRepo(self.commitDP!,repos[i])//🚪⬅️️ 🚧 0~1000's of a-sync Process->Shell->git calls
         }
     }
     /**
