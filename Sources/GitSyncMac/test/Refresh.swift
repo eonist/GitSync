@@ -85,14 +85,14 @@ class RefreshUtils{
                     //let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
                     let commitDict:[String:String] = CommitViewUtils.processCommitData(repo.title, commitData, 0)//<---TODO:add repo idx here
                     mainQueue.async{/*jump back on the main thread*/
-                        dp.add(commitDict)/*add the commit log items to the CommitDB*/
+                        dp.add(commitDict)/* 🏁 add the commit log items to the CommitDB*/
                     }
                 }else{
                     Swift.print("-----ERROR: repo: \(repo.title) at index: \(index) didn't work")
                 }
             }//if results.count == 0 then -> no commitItems to append (because they where to old or non existed)
         }
-        commitCount(dp,repo,onCommitCountComplete)//🚪arrowleft     
+        commitCount(dp,repo,onCommitCountComplete)//🚪⬅️️
         
     }
     /**
@@ -124,7 +124,7 @@ class RefreshUtils{
         group.wait()
         group.notify(queue: bg, execute: {
             let clippedCommitCount = Swift.min(totCommitCount,commitCount)
-            onComplete(clippedCommitCount)//🚪-> exit here
+            onComplete(clippedCommitCount)//🚪➡️️
         })
     }
 }
