@@ -15,12 +15,16 @@ class ASyncTest {
             bg.async{/*do 2 things at the same time*/
                 outerGroup.enter()
                 Swift.print("iterate i: \(i)")
+                let innerGroup = DispatchGroup()
                 for e in 0..<2{
                     bg.async{/*do 2 things at the same time*/
+                        innerGroup.enter()
                         Swift.print("iterate i: \(i) e: \(e)")
                         sleep(IntParser.random(2, 3).uint32)/*simulates task that takes between 1 and 6 secs*/
+                        innerGroup.leave()
                     }
                 }
+                innerGroup.wait()
                 outerGroup.leave()
             }
         }
