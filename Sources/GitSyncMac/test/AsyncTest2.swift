@@ -3,6 +3,8 @@ import Foundation
 
 class AsyncTest2 {
     init(){
+        var outerArr = ["a","b","c"]
+        var innerAtt = [0,1]
         var outerIdx:Int = 0
         var innerIdx:Int = 0
         
