@@ -77,7 +77,7 @@ class RefreshUtils{
     static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem){
         let commitCount:Int = self.commitCount(dp,repo)
         Swift.print("💙\(repo.title): rangeCount: " + "\(commitCount)")
-        let results:[String] = Utils.commitItems(repo.localPath, commitCount)//👈many Git calls/*creates an array raw commit item logs, from repo*/
+        let results:[String] = Utils.commitItems(repo.localPath, commitCount,{})//👈many Git calls/*creates an array raw commit item logs, from repo*/
         results.forEach{
             if($0.count > 0){/*resulting string must have characters*/
                 let commitData:CommitData = GitLogParser.commitData($0)/*Compartmentalizes the result into a Tuple*/
