@@ -23,10 +23,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         initApp()
         
         //continue here:
-            //timing the refresh code ✅
-            //making the commit code threaded ✅
-            //add thread groups to graph aswell 👈
             //and maybe even test deep groups aswell? 🤔
+            //there is a bug in the commitdb.add method. the latest commits doesnt get added correctly. 👈
+            //add thread groups to graph aswell 👈
         
         //_ = ASyncTest()
         //_ = AsyncTest2()
