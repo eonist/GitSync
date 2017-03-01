@@ -27,5 +27,8 @@ class AutoSync {
         if(repoList.count > 0){
             GitSync.initCommit(repoList[idx],onCommitComplete)//🚪⬅️️ starts the AutoSync process
         }
+        
+        for i in repoList.indices
+        
     }
 }

@@ -14,14 +14,14 @@ class CommitsList:RBSliderFastList{
         super.resolveSkin()
         let piContainer = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
         progressIndicator = piContainer.addSubView(ProgressIndicator(30,30,piContainer))
-        progressIndicator!.frame.y = -45//hide at init
+        progressIndicator!.frame.y = -45/*hide at init*/
         progressIndicator!.animator!.event = onEvent
     }
     /**
-     * starts the auto sync process
+     * Starts the auto sync process
      */
     func startAutoSync(){
-        let refresh = Refresh(dp as! CommitDP)//attach the dp that RBSliderFastList uses
+        let refresh = Refresh(dp as! CommitDP)/*attach the dp that RBSliderFastList uses*/
         refresh.onComplete = loopAnimationCompleted //👈👈👈 Attach the refresh.completion handler here
         AutoSync.sync(refresh.initRefresh)/* start the refresh process when AutoSync.onComplete is fired off*/
     }
