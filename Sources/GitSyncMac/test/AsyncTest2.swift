@@ -31,9 +31,9 @@ class AsyncTest2 {
         }
         for i in outerArr.indices{
             bg.async {/*do 3 things at the same time*/
-                Swift.print("---outer async started i: \(i)---")
+                Swift.print("🚄 ---outer async started i: \(i)---")
                 for e in innerArr.indices{
-                    Swift.print("===inner async started e: \(e)===")
+                    Swift.print("===🚗 inner async started e: \(e)===")
                     bg.async{/*do 2 things at the same time*/
                         sleep(IntParser.random(1, 6).uint32)/*simulates task that takes between 1 and 6 secs*/
                         onInnerComplete(i,e)
