@@ -22,8 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //initApp()
         
-        //_ = ASyncTest()
-        _ = AsyncTest2()
+        _ = ASyncTest()
+        //_ = AsyncTest2()
         
         //Continue: Figure out concurrent threads, check your research
         

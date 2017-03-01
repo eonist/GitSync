@@ -7,10 +7,9 @@ import Foundation
 class ASyncTest {
     /**
      * Next implement the bellow in your example:
+     * TODO: Also research blocks
      */
-    
-    //Continue here: Try using blox or read more about DispatchGroups
-    
+   
     init(){
         let group = DispatchGroup()
         
