@@ -9,6 +9,7 @@ class CommitsList:RBSliderFastList{
     var isInDeactivateRefreshModeState:Bool = false
     var isTwoFingersTouching = false/*is Two Fingers Touching the Touch-Pad*/
     var hasReleasedBeyondTop:Bool = false
+    var startTime:NSDate?
 
     override func resolveSkin() {
         super.resolveSkin()
@@ -23,6 +24,13 @@ class CommitsList:RBSliderFastList{
     func startAutoSync(){
         let refresh = Refresh(dp as! CommitDP)/*attach the dp that RBSliderFastList uses*/
         refresh.onComplete = loopAnimationCompleted //👈 Attach the refresh.completion handler here
+        startTime = NSDate()
+        /**
+         *
+         */
+        func onComplete(){
+            Swift.print("⏳⏳⏳⏳⏳⏳ AutoSyncOnComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))⏳⏳⏳⏳⏳⏳")/*How long did the gathering of git commit logs take?*/
+        }
         AutoSync.sync(refresh.initRefresh)/* start the refresh process when AutoSync.onComplete is fired off*/
     }
     /**

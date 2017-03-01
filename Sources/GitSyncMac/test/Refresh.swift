@@ -8,7 +8,7 @@ typealias CommitDPRefresher = Refresh//temp
 class Refresh{//TODO:rename to refresh
     //var commitDB:CommitDB/* = CommitDB()*/
     var commitDP:CommitDP?
-    var startTime:NSDate?//debugging
+    var startTime:NSDate?/*debugging*/
     //var isRefreshing:Bool = false/*avoids refreshing when the refresh has already started*/
     var onComplete:()->Void = {print("⚠️️⚠️️⚠️️ Refresh.onComplete() completed but no onComplete is currently attached")}
     init(_ commitDP:CommitDP){
