@@ -75,7 +75,7 @@ class RefreshUtils{
      * Retrieve the commit log items for this repo with the range specified
      */
     static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem){
-        //once these completes the do result
+        //once these completes then do result, you do not want to wait until calling refreshRepo
         let commitCount:Int = self.commitCount(dp,repo)//👈2 git calls
         Swift.print("💙\(repo.title): rangeCount: " + "\(commitCount)")
         let results:[String] = Utils.commitItems(repo.localPath, commitCount,{})//👈0~100 Git calls/*creates an array raw commit item logs, from repo*/
@@ -101,6 +101,7 @@ class RefreshUtils{
             let lastDate:Int = dp.items.last!["sortableDate"]!.int/*the last date is always the furthest distant date 19:59,19:15,19:00 etc*/
             //Swift.print("lastDate: " + "\(lastDate)")
             let gitTime = GitDateUtils.gitTime(lastDate.string)/*converts descending date to git time*/
+            
             let rangeCount:Int = GitUtils.commitCount(repo.localPath, after: gitTime).int//👈1 Git call /*Finds the num of commits from now until */
             Swift.print("rangeCount now..last: " + "\(rangeCount)")
             commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
