@@ -2,11 +2,10 @@ import Foundation
 @testable import Utils
 
 class AutoSync {
-    static var onComplete:()->Void = {print("⚠️️⚠️️⚠️️ AutoSync.sync() completed but no onComplete is currently attached")}
     /**
      * The GitSync automation algo (Basically Commits and pushes)
      */
-    static func sync(){
+    static func sync(_ onComplete:@escaping ()->Void){
         let repoList:[RepoItem] = RepoUtils.repoList
         var idx:Int = 0
         
