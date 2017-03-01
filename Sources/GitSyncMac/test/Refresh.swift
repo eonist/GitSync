@@ -98,15 +98,12 @@ class RefreshUtils{
     private static func commitCount(_ dp:CommitDP,_ repo:RepoItem, _ onComplete:@escaping (_ commitCount:Int)->Void) {
         var commitCount:Int = 0
         var totCommitCount:Int = 0
-        
         let group = DispatchGroup()
-        
         bg.async {
             group.enter()
             totCommitCount = GitUtils.commitCount(repo.localPath).int - 1//👈1 Git call/*Get the total commitCount of this repo*/
             group.leave()
         }
-        
         if(dp.items.count > 0){
             let lastDate:Int = dp.items.last!["sortableDate"]!.int/*the last date is always the furthest distant date 19:59,19:15,19:00 etc*/
             //Swift.print("lastDate: " + "\(lastDate)")
@@ -123,8 +120,8 @@ class RefreshUtils{
         }
         group.wait()
         group.notify(queue: bg, execute: {
-            let count = Swift.min(totCommitCount,commitCount)
-            onComplete(count)//🚪
+            let clippedCommitCount = Swift.min(totCommitCount,commitCount)
+            onComplete(clippedCommitCount)//🚪-> exit here
         })
     }
 }
