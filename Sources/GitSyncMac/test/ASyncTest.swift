@@ -6,8 +6,11 @@ import Foundation
 
 class ASyncTest {
     /**
-     * Next implement the bellow in your example: 
+     * Next implement the bellow in your example:
      */
+    
+    //Continue here: Try using blox or read more about DispatchGroups
+    
     init(){
         let outerGroup = DispatchGroup()
         Swift.print("1")
