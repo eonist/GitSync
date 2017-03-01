@@ -35,8 +35,8 @@ class Refresh{//TODO:rename to refresh
         let repos = RepoUtils.repoList//creates array from xml or cache
         //repoCount = repos.count
         var idx:Int = 0
-        func onComplete(){
-            idx ++
+        func onComplete(){//you can probably use DispatchGroup here aswell. but in the spirit of moving on
+            idx += 1
             if(idx == repos.count){
                 
             }
