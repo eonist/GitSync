@@ -75,16 +75,7 @@ class RefreshUtils{
      * Retrieve the commit log items for this repo with the range specified
      */
     static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem){
-        /**
-         *
-         */
         func onCommitItemsCompleted(_ results:[String]){
-            
-        }
-        //once these completes then do result, you do not want to wait until calling refreshRepo
-        func onCommitCountComplete(_ commitCount:Int){
-            Swift.print("💙\(repo.title): rangeCount: " + "\(commitCount)")
-            let results:[String] = Utils.commitItems(repo.localPath, commitCount,onCommitItemsCompleted)//👈0~100 Git calls/*creates an array raw commit item logs, from repo*/
             results.forEach{
                 if($0.count > 0){/*resulting string must have characters*/
                     let commitData:CommitData = GitLogParser.commitData($0)/*Compartmentalizes the result into a Tuple*/
@@ -97,6 +88,11 @@ class RefreshUtils{
                     Swift.print("-----ERROR: repo: \(repo.title) at index: \(index) didn't work")
                 }
             }//if results.count == 0 then -> no commitItems to append (because they where to old or non existed)
+        }
+        //once these completes then do result, you do not want to wait until calling refreshRepo
+        func onCommitCountComplete(_ commitCount:Int){
+            Swift.print("💙\(repo.title): rangeCount: " + "\(commitCount)")
+            Utils.commitItems(repo.localPath, commitCount,onCommitItemsCompleted)//👈0~100 Git calls/*creates an array raw commit item logs, from repo*/
         }
         commitCount(dp,repo,onCommitCountComplete)//🚪⬅️️
         
