@@ -7,7 +7,7 @@ class AsyncTest2 {
         var innerArr = ["a","b"]
         /*Indecies*/
         var outerIdx = 0
-        var innerIdx = [0,0,0]
+        var innerIdx = outerArr.map{_ in 0}//basically just creats this [0,0,0]
         /*Completion handlers resides on the main thread*/
         func onInnerComplete(_ i_idx:Int, _ e_idx:Int){
             Swift.print("🍌 onInnerComplete i: \(i_idx) e: \(e_idx) 🍌")
