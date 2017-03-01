@@ -14,7 +14,7 @@ class AutoSync {
             idx += 1
             if(idx == repoList.count){
                 Swift.print("🏁🏁🏁 All repos are complete")//now go and read commits to list
-                onComplete()
+                onComplete()//🚪➡️️ Exits here
             }
         }
         func onCommitComplete(_ idx:Int, _ hasCommited:Bool){
@@ -22,7 +22,7 @@ class AutoSync {
             GitSync.initPush(repoList,idx,onPushComplete)
         }
         for i in repoList.indices{
-            GitSync.initCommit(repoList,i,onCommitComplete)//🚪⬅️️ starts the AutoSync process
+            GitSync.initCommit(repoList,i,onCommitComplete)//🚪⬅️️ Enter the AutoSync process here
         }
     }
 }
