@@ -42,16 +42,17 @@ class GitSync{
             if(remotePath.test("^https://.+$")){remotePath = remotePath.subString(8, remotePath.count)}/*support for partial and full url,strip away the https://, since this will be added later*/
             let repo:GitRepo = (repoItem.localPath, remotePath, repoItem.branch)
             MergeUtils.manualMerge(repo)//commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
-            let hasLocalCommits = GitAsserter.hasLocalCommits(repo.localPath, repoItem.branch) //TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line
-            Swift.print("hasLocalCommits: " + "\(hasLocalCommits)")
+            let hasLocalCommits = GitAsserter.hasLocalCommits(repo.localPath, repoItem.branch)/*🌵🌵 TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line*/
+            //Swift.print("hasLocalCommits: " + "\(hasLocalCommits)")
             var hasPushed:Bool = false
             if (hasLocalCommits) { //only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
                 let keychainPassword = KeyChainParser.password(repoItem.keyChainItemName)
-                Swift.print("keychainPassword: 🔑" + "\(keychainPassword)")
-                Swift.print("repo.keyChainItemName: " + "\(repoItem.keyChainItemName)")
+                //Swift.print("keychainPassword: 🔑" + "\(keychainPassword)")
+                //Swift.print("repo.keyChainItemName: " + "\(repoItem.keyChainItemName)")
                 let key:GitKey = (repoItem.keyChainItemName, keychainPassword)
-                let pushCallBack = GitModifier.push(repo,key)
-                Swift.print("pushCallBack: " + "\(pushCallBack)")
+                let pushCallBack = GitModifier.push(repo,key)/*🌵*/
+                _ = pushCallBack
+                //Swift.print("pushCallBack: " + "\(pushCallBack)")
                 hasPushed = true
             }
             mainQueue.async {
