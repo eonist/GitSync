@@ -18,17 +18,16 @@ class AsyncTest2 {
         func allOuterCompleted(){
             Swift.print("🏁 allOuterTasksCompleted: 🏁")
         }
-        func doInner(){
+        func doInner(_ i:Int){
             var innerIdx = 0//Array(repeating: 0, count: outerArr.count)//basically just creates this [0,0,0]
             /*Completion handlers resides on the main thread*/
             func onInnerComplete(_ i_idx:Int, _ e_idx:Int){
                 Swift.print("🍌 onInnerComplete i: \(i_idx) e: \(e_idx) 🍌")
-                innerIdx[i_idx] += 1/*increment counter*/
-                if(innerIdx[i_idx] == innerArr.count){
+                innerIdx += 1/*increment counter*/
+                if(innerIdx == innerArr.count){
                     onOuterComplete(i_idx,e_idx)
                 }
             }
-            
             for e in innerArr.indices{
                 bg.async{/*do 2 things at the same time*/
                     Swift.print("===🚗 inner async started e: \(e)===")
@@ -43,7 +42,7 @@ class AsyncTest2 {
         for i in outerArr.indices{
             bg.async {/*do 3 things at the same time*/
                 Swift.print("🚄 ---outer async started i: \(i)---")
-                doInner()
+                doInner(i)
             }
         }
         
