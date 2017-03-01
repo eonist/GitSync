@@ -20,7 +20,7 @@ class GitSync{
             let hasCommited = commit(repoItem.localPath)//🌵 if there were no commits false will be returned
             //Swift.print("hasCommited: " + "\(hasCommited)")
             main.async {/*jump back on the main thread again*/
-                onComplete(idx,hasCommited)//🚪➡️️ -> exit here
+                onComplete(idx,hasCommited)//🚪➡️️ -> Exit here
             }
         }
     }
@@ -30,7 +30,7 @@ class GitSync{
      * NOTE: this method performs a "manual pull" on every interval
      * TODO: contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
      */
-    static func initPush(_ repoList:[RepoItem],_ idx:Int,_ onComplete:(_ hasPushed:Bool)->Void){
+    static func initPush(_ repoList:[RepoItem],_ idx:Int,_ onComplete:@escaping (_ hasPushed:Bool)->Void){
         //Swift.print("initPush")
         bg.async {/*The git calls needs to happen one after the other on bg thread*/
             let repoItem = repoList[idx]
