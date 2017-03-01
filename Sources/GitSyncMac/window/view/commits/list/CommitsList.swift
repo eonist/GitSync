@@ -22,7 +22,7 @@ class CommitsList:RBSliderFastList{
      */
     func startAutoSync(){
         let refresh = Refresh(dp as! CommitDP)/*attach the dp that RBSliderFastList uses*/
-        refresh.onComplete = loopAnimationCompleted //👈👈👈 Attach the refresh.completion handler here
+        refresh.onComplete = loopAnimationCompleted //👈 Attach the refresh.completion handler here
         AutoSync.sync(refresh.initRefresh)/* start the refresh process when AutoSync.onComplete is fired off*/
     }
     /**
