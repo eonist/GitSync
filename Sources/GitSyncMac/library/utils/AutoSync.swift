@@ -28,7 +28,7 @@ class AutoSync {
         
         for i in repoList.indices{
             let repoItem = repoList[i]
-            GitSync.initCommit(repoList[idx],onCommitComplete)//🚪⬅️️ starts the AutoSync process
+            GitSync.initCommit(repoList,idx,onCommitComplete)//🚪⬅️️ starts the AutoSync process
         }
         
     }
