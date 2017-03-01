@@ -20,7 +20,7 @@ extension CommitDB{
     func add(_ item:Commit){
         let closestIdx:Int = CommitDB.closestIndex(sortedArr, item, 0, sortedArr.endIndex)
         if(!sortedArr.existAtOrBefore(closestIdx,item)){//TODO:ideally this should be handled in the binarySearch algo, but this is a quick fix, that doesnt hurt performance
-            Swift.print("💚 insert at: \(closestIdx)")
+            //Swift.print("💚 insert at: \(closestIdx)")
             _ = sortedArr.insertAt(item, closestIdx)/*insertAt always adds infront of the index*/
         }
         if(sortedArr.count > max){_ = sortedArr.shift()}/*keeps the array at max items*/

@@ -49,11 +49,11 @@ class Refresh{//TODO:rename to refresh
      * The final complete call
      */
     func onRefreshReposComplete(){/*All repo items are now refreshed, the entire refresh process is finished*/
-        Swift.print("commitDB.sortedArr.count: " + "\(commitDP!.items.count)")
-        Swift.print("Printing sortedArr after refresh: ")
-        commitDP!.items.forEach{
-            Swift.print("hash: \($0["hash"]!) date: \(GitDateUtils.gitTime($0["sortableDate"]!)) repo: \($0["repo-name"]!) ")
-        }
+        //Swift.print("commitDB.sortedArr.count: " + "\(commitDP!.items.count)")
+        //Swift.print("Printing sortedArr after refresh: ")
+        //commitDP!.items.forEach{
+            //Swift.print("hash: \($0["hash"]!) date: \(GitDateUtils.gitTime($0["sortableDate"]!)) repo: \($0["repo-name"]!) ")
+        //}
         //
         CommitDPCache.write(commitDP!)//write data to disk, we could also do this on app exit
         Swift.print("Written to disk")
@@ -84,7 +84,7 @@ class RefreshUtils{
         }
         //once these completes then do result, you do not want to wait until calling refreshRepo
         func onCommitCountComplete(_ commitCount:Int){
-            Swift.print("💙\(repo.title): rangeCount: " + "\(commitCount)")
+            //Swift.print("💙\(repo.title): rangeCount: " + "\(commitCount)")
             Utils.commitItems(repo.localPath, commitCount,onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
         }
         commitCount(dp,repo,onCommitCountComplete)//🚪⬅️️
@@ -147,7 +147,7 @@ private class Utils{
         }
         //group.wait()
         group.notify(queue: bg, execute: {
-            Swift.print("🍌 all results completed")
+            //Swift.print("🍌 all results completed")
             onComplete(results.reversed()) //reversed is a temp fix
         })
     }
