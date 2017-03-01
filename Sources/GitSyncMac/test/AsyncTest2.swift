@@ -9,7 +9,7 @@ class AsyncTest2 {
             Swift.print("🏁 allOuterTasksCompleted: 🏁")
         }
         func onOuterComplete(_ index:Int){
-            Swift.print("all inner async tasks completed on outer async id: \(index)")
+            Swift.print(" 🍏 onOuterComplete id: \(index) 🍏")
             outerIdx += 1
             Swift.print("outerIdx: " + "\(outerIdx)")
             if(outerIdx == 3){
@@ -21,7 +21,7 @@ class AsyncTest2 {
                 Swift.print("---outer async started i: \(i)---")
                 var innerIdx:Int = 0
                 func onInnerComplete(_ index:Int){
-                    Swift.print("🍌 inner async task completed e: \(index) 🍌")
+                    Swift.print("🍌 onInnerComplete e: \(index) 🍌")
                     innerIdx += 1/*increment counter*/
                     if(innerIdx == 2){
                         main.async{/*we must jump back on main thread, because we want to manipulate a variable that resids on the main thread*/
