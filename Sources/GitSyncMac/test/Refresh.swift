@@ -76,7 +76,7 @@ class RefreshUtils{
      */
     static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem){
         //once these completes then do result, you do not want to wait until calling refreshRepo
-        let commitCount:Int = self.commitCount(dp,repo)//👈2 git calls
+        let commitCount:Int = 0//self.commitCount(dp,repo)//👈2 git calls
         Swift.print("💙\(repo.title): rangeCount: " + "\(commitCount)")
         let results:[String] = Utils.commitItems(repo.localPath, commitCount,{})//👈0~100 Git calls/*creates an array raw commit item logs, from repo*/
         results.forEach{
@@ -101,7 +101,7 @@ class RefreshUtils{
             commitCount = count
             let totCommitCount:Int = GitUtils.commitCount(repo.localPath).int - 1//👈1 Git call/*Get the total commitCount of this repo*/
             //Swift.print("commitCount: " + ">\(commitCount)<")
-            commitCount = Swift.min(totCommitCount,commitCount)
+            let commitCount = Swift.min(totCommitCount,commitCount)
             onCommitCountComplete()//🚪
         }
         if(dp.items.count > 0){
