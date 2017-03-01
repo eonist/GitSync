@@ -45,7 +45,7 @@ class Refresh{//TODO:rename to refresh
         let repos = RepoUtils.repoList
         repoCount = repos.count
         for i in repos.indices{
-            RefreshUtils.refreshRepo(self.commitDP!,repos[i])//🚪⬅️️ 🚧 0~1000's of a-sync Process->Shell->git calls
+            RefreshUtils.refreshRepo(self.commitDP!,repos[i])//🚪⬅️️ 🚧 0~1000's of a-sync 💼->🐚->🌵 calls
         }
     }
     /**
