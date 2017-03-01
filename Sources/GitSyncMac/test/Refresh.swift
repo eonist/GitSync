@@ -8,7 +8,7 @@ typealias CommitDPRefresher = Refresh//temp
 class Refresh{//TODO:rename to refresh
     //var commitDB:CommitDB/* = CommitDB()*/
     var commitDP:CommitDP?
-    //var startTime:NSDate?//debugging
+    var startTime:NSDate?//debugging
     //var isRefreshing:Bool = false/*avoids refreshing when the refresh has already started*/
     var onComplete:()->Void = {print("⚠️️⚠️️⚠️️ Refresh.onComplete() completed but no onComplete is currently attached")}
     init(_ commitDP:CommitDP){
@@ -21,7 +21,7 @@ class Refresh{//TODO:rename to refresh
         //isRefreshing = true/*avoid calling refresh when this is true, it is set to false on completion*/
         //let freshness = Freshness()
         //freshness.onFreshnessSortComplete = refreshRepos//👈
-        //startTime = NSDate()/*Measure the time of the refresh*/
+        startTime = NSDate()/*Measure the time of the refresh*/
         //freshness.initFreshnessSort()//begin process on a background thread
         refreshRepos()
     }
@@ -54,11 +54,12 @@ class Refresh{//TODO:rename to refresh
         commitDP!.items.forEach{
             Swift.print("hash: \($0["hash"]!) date: \(GitDateUtils.gitTime($0["sortableDate"]!)) repo: \($0["repo-name"]!) ")
         }
-        //Swift.print("💚 onRefreshReposComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+        //
         CommitDPCache.write(commitDP!)//write data to disk, we could also do this on app exit
-        //isRefreshing = false
-        onComplete()/*🚪➡️️  calls a dynamic onComplete method, other classes can override this variable to get callback*/
         Swift.print("Written to disk")
+        //isRefreshing = false
+        Swift.print("💚 onRefreshReposComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+        onComplete()/*🚪➡️️  calls a dynamic onComplete method, other classes can override this variable to get callback*/
     }
 }
 class RefreshUtils{
