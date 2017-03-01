@@ -95,15 +95,22 @@ class RefreshUtils{
     /**
      * Find the range of commits to add to CommitDB for this repo
      */
-    private static func commitCount(_ dp:CommitDP,_ repo:RepoItem, _ onCommitCountComplete:@escaping ()->Void) {
+    private static func commitCount(_ dp:CommitDP,_ repo:RepoItem, _ onComplete:@escaping ()->Void) {
         //var commitCount:Int
+        func onCommitCountComplete(){
+            
+        }
+        
         func onRangeCommitCountComplete(_ count:Int){
             var commitCount = count
-            let totCommitCount:Int = GitUtils.commitCount(repo.localPath).int - 1//👈1 Git call/*Get the total commitCount of this repo*/
-            //Swift.print("commitCount: " + ">\(commitCount)<")
+            bg.async {
+                let totCommitCount:Int = GitUtils.commitCount(repo.localPath).int - 1//👈1 Git call/*Get the total commitCount of this repo*/
+                onCommitCountComplete()
+            }
+                //Swift.print("commitCount: " + ">\(commitCount)<")
             commitCount = Swift.min(totCommitCount,commitCount)
             _ = commitCount
-            onCommitCountComplete()//🚪
+            onComplete()//🚪
         }
         if(dp.items.count > 0){
             let lastDate:Int = dp.items.last!["sortableDate"]!.int/*the last date is always the furthest distant date 19:59,19:15,19:00 etc*/
