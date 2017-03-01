@@ -37,6 +37,7 @@ class Refresh{//TODO:rename to refresh
         var idx:Int = 0
         func onComplete(){//you can probably use DispatchGroup here aswell. but in the spirit of moving on
             idx += 1
+            Swift.print("refreshRepo.onComplete() i: \(idx)")
             if(idx == repos.count){
                 onRefreshReposComplete()
             }
@@ -49,6 +50,7 @@ class Refresh{//TODO:rename to refresh
      * The final complete call
      */
     func onRefreshReposComplete(){/*All repo items are now refreshed, the entire refresh process is finished*/
+        Swift.print("onRefreshReposComplete()")
         //Swift.print("commitDB.sortedArr.count: " + "\(commitDP!.items.count)")
         //Swift.print("Printing sortedArr after refresh: ")
         //commitDP!.items.forEach{
@@ -69,15 +71,15 @@ class RefreshUtils{
      */
     static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem,_ onComplete:@escaping ()->Void){
         func onCommitItemsCompleted(_ results:[String]){
-            results.forEach{
-                if($0.count > 0){/*resulting string must have characters*/
-                    let commitData:CommitData = GitLogParser.commitData($0)/*Compartmentalizes the result into a Tuple*/
+            for i in results.indices{
+                let result = results[i]
+                if(result.count > 0){/*resulting string must have characters*/
+                    let commitData:CommitData = GitLogParser.commitData(result)/*Compartmentalizes the result into a Tuple*/
                     //let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
                     let commitDict:[String:String] = CommitViewUtils.processCommitData(repo.title, commitData, 0)//<---TODO:add repo idx here
                     dp.add(commitDict)/* 🏁 add the commit log items to the CommitDB*/
-                    
                 }else{
-                    Swift.print("-----ERROR: repo: \(repo.title) at index: \(index) didn't work")
+                    Swift.print("-----ERROR: repo: \(repo.title) at index: \(i) didn't work")
                 }
             }//if results.count == 0 then -> no commitItems to append (because they where to old or non existed)
             onComplete()/*🚪➡️️*/
