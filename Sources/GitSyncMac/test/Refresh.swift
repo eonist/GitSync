@@ -97,15 +97,14 @@ class RefreshUtils{
      */
     private static func commitCount(_ dp:CommitDP,_ repo:RepoItem, _ onComplete:@escaping (_ commitCount:Int)->Void) {
         var commitCount:Int = 0
+        var totCommitCount:Int = 0
         
         let group = DispatchGroup()
         
         bg.async {
             group.enter()
-            var totCommitCount:Int = GitUtils.commitCount(repo.localPath).int - 1//👈1 Git call/*Get the total commitCount of this repo*/
+            totCommitCount = GitUtils.commitCount(repo.localPath).int - 1//👈1 Git call/*Get the total commitCount of this repo*/
             group.leave()
-            //totCommitCount = Swift.min(totCommitCount,count)
-          
         }
         
         if(dp.items.count > 0){
@@ -116,28 +115,17 @@ class RefreshUtils{
                 group.enter()
                 let rangeCount:Int = GitUtils.commitCount(repo.localPath, after: gitTime).int//👈1 Git call /*Finds the num of commits from now until */
                 Swift.print("rangeCount now..last: " + "\(rangeCount)")
+                commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
                 group.leave()
-                
-                let commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
-                
-                
             }
         }else {//< 100
-             let commitCount = (100)//you need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
+             commitCount  = (100)//you need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
         }
-        
         group.wait()
         group.notify(queue: bg, execute: {
-            //🚪
+            let count = Swift.min(totCommitCount,commitCount)
+            onComplete(count)//🚪
         })
-        
-        //var commitCount:Int
-        func onRangeCommitCountComplete(_ count:Int){
-            
-            
-            }
-        }
-    
     }
 }
 private class Utils{
