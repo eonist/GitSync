@@ -136,12 +136,15 @@ private class Utils{
      */
     static func commitItems(_ localPath:String,_ limit:Int, _ onComplete:()->Void)->[String]{
         //Swift.print("limit: \(limit)")
+        let group = DispatchGroup()
         var results:[String] = []
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
         for i in 0..<limit{
             let cmd:String = "head~" + "\(i) " + formating + " --no-patch"
             bg.async{/*inner*/
+                group
                 let result:String = GitParser.show(localPath, cmd)//👈 git call//--no-patch suppresses the diff output of git show
+                
                 main.async {
                     results.append(result)
                 }
