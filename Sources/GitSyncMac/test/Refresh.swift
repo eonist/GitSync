@@ -118,7 +118,7 @@ private class Utils{
      * Returns an array of commitItems at PARAM: localPath and limited with PARAM: max
      * PARAM: limit = max Items Allowed per repo
      */
-    static func commitItems(_ localPath:String,_ limit:Int, _ onComplete:)->[String]{
+    static func commitItems(_ localPath:String,_ limit:Int, _ onComplete:()->Void)->[String]{
         //Swift.print("limit: \(limit)")
         var results:[String] = []
         let formating:String = "--pretty=format:Hash:%h%nAuthor:%an%nDate:%ci%nSubject:%s%nBody:%b".encode()!//"-3 --oneline"//
