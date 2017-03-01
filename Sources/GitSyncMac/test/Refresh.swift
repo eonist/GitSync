@@ -95,13 +95,16 @@ class RefreshUtils{
     /**
      * Find the range of commits to add to CommitDB for this repo
      */
-    private static func commitCount(_ dp:CommitDP,_ repo:RepoItem)->Int{
+    private static func commitCount(_ dp:CommitDP,_ repo:RepoItem, _ onComitCountComplete:()->Void) {
         var commitCount:Int
         /**
          *
          */
         func onRangeCommitCountComplete(_ count:Int){
             commitCount = count
+            let totCommitCount:Int = GitUtils.commitCount(repo.localPath).int - 1//👈1 Git call/*Get the total commitCount of this repo*/
+            //Swift.print("commitCount: " + ">\(commitCount)<")
+            commitCount = Swift.min(totCommitCount,commitCount)
         }
         if(dp.items.count > 0){
             let lastDate:Int = dp.items.last!["sortableDate"]!.int/*the last date is always the furthest distant date 19:59,19:15,19:00 etc*/
@@ -110,20 +113,14 @@ class RefreshUtils{
             bg.async {
                 let rangeCount:Int = GitUtils.commitCount(repo.localPath, after: gitTime).int//👈1 Git call /*Finds the num of commits from now until */
                 Swift.print("rangeCount now..last: " + "\(rangeCount)")
-                commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
                 main.async{
-                    onRangeCommitCountComplete()
+                    let commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
+                    onRangeCommitCountComplete(commitCount)
                 }
             }
-            
-            
         }else {//< 100
-            commitCount = 100//you need to fill top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
+            onRangeCommitCountComplete(100)//you need to fill top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
         }
-        let totCommitCount:Int = GitUtils.commitCount(repo.localPath).int - 1//👈1 Git call/*Get the total commitCount of this repo*/
-        //Swift.print("commitCount: " + ">\(commitCount)<")
-        commitCount = Swift.min(totCommitCount,commitCount)
-        return commitCount
     }
 }
 private class Utils{
