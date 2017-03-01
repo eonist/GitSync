@@ -30,8 +30,9 @@ class CommitsList:RBSliderFastList{
          */
         func onComplete(){
             Swift.print("⏳⏳⏳⏳⏳⏳ AutoSyncOnComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))⏳⏳⏳⏳⏳⏳")/*How long did the gathering of git commit logs take?*/
+            refresh.initRefresh()
         }
-        AutoSync.sync(refresh.initRefresh)/* start the refresh process when AutoSync.onComplete is fired off*/
+        AutoSync.sync(onComplete)/* start the refresh process when AutoSync.onComplete is fired off*/
     }
     /**
      * Create ListItem
