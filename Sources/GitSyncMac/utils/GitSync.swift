@@ -69,7 +69,7 @@ class GitSync{
             Swift.print("commitMsgTitle: " + "\(title)")
             let desc = DescUtils.sequenceDescription(statusList)//sequence commit msg description for the commit
             Swift.print("commitMsgDesc: >" + "\(desc)" + "<")
-            let commitResult = GitModifier.commit(localRepoPath, (title,desc)) //commit
+            let commitResult = GitModifier.commit(localRepoPath, (title,desc))//🌵 commit
             Swift.print("commitResult: " + "\(commitResult)")
             return true//return true to indicate that the commit completed
         }else{
