@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 
 class AsyncTest2 {
-    let outerArr = [1,2,3]
+    let outerArr = [0,1,2]
     let innerArr = ["a","b"]
     /*Indecies*/
     var outerIdx = 0
@@ -16,7 +16,7 @@ class AsyncTest2 {
         }
     }
     func onOuterComplete(_ i_idx:Int, _ e_idx:Int){
-        Swift.print("🍏 onOuterComplete i: \(i_idx) e: \(e_idx) 🍏")
+        Swift.print("🍏 onOuterComplete i: \(i_idx) e: \(innerArr[e_idx]) 🍏")
         outerIdx += 1
         if(outerIdx == outerArr.count){
             allOuterCompleted()
@@ -29,7 +29,7 @@ class AsyncTest2 {
         var innerIdx = 0//Array(repeating: 0, count: outerArr.count)//basically just creates this [0,0,0]
         /*Completion handlers resides on the main thread*/
         func onInnerComplete(_ i_idx:Int, _ e_idx:Int){
-            Swift.print("🍊 onInnerComplete i: \(i_idx) e: \(e_idx) 🍊")
+            Swift.print("🍌 onInnerComplete i: \(i_idx) e: \(innerArr[e_idx]) 🍌")
             innerIdx += 1/*increment counter*/
             if(innerIdx == innerArr.count){
                 onOuterComplete(i_idx,e_idx)
