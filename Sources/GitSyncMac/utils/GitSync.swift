@@ -5,26 +5,24 @@ class GitSync{
     /**
      * Handles the process of making a commit for a single repository
      */
-    static func initCommit(_ repoList:[RepoItem],_ idx:Int, _ onComplete:(_ idx:Int,_ hasCommited:Bool)->Void){
+    static func initCommit(_ repoList:[RepoItem],_ idx:Int, _ onComplete:@escaping (_ idx:Int,_ hasCommited:Bool)->Void){
         let repoItem = repoList[idx]
-        let group = DispatchGroup()
         //Swift.print("initCommit: title: " + "\(repoItem.title)")
         //log "GitSync's handle_commit_interval() a repo with doCommit " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
         bg.async {
-            group.enter()
             let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.localPath)//🌵Asserts if there are unmerged paths that needs resolvment
-            
+            //Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
+            if(hasUnMergedpaths){
+                //Swift.print("has unmerged paths to resolve")
+                let unMergedFiles = GitParser.unMergedFiles(repoItem.localPath)// 🌵 Asserts if there are unmerged paths that needs resolvment
+                MergeUtils.resolveMergeConflicts(repoItem.localPath, repoItem.branch, unMergedFiles)
+            }
+            let hasCommited = commit(repoItem.localPath)//🌵 if there were no commits false will be returned
+            //Swift.print("hasCommited: " + "\(hasCommited)")
+            main.async {/*jump back on the main thread again*/
+                onComplete(idx,hasCommited)//🚪➡️️ -> exit here
+            }
         }
-        
-        //Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
-        if(hasUnMergedpaths){
-            //Swift.print("has unmerged paths to resolve")
-            let unMergedFiles = GitParser.unMergedFiles(repoItem.localPath)// 🌵 Asserts if there are unmerged paths that needs resolvment
-            MergeUtils.resolveMergeConflicts(repoItem.localPath, repoItem.branch, unMergedFiles)
-        }
-        let hasCommited = commit(repoItem.localPath)//🌵 if there were no commits false will be returned
-        //Swift.print("hasCommited: " + "\(hasCommited)")
-        onComplete(idx,hasCommited)
     }
     /**
      * Handles the process of making a push for a single repository
