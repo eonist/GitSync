@@ -7,12 +7,13 @@ class GitSync{
      */
     static func initCommit(_ repoList:[RepoItem],_ idx:Int, _ onComplete:(_ idx:Int,_ hasCommited:Bool)->Void){
         let repoItem = repoList[idx]
+        let group = DispatchGroup()
         //Swift.print("initCommit: title: " + "\(repoItem.title)")
         //log "GitSync's handle_commit_interval() a repo with doCommit " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
         let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.localPath)//🌵Asserts if there are unmerged paths that needs resolvment
-        Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
+        //Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
         if(hasUnMergedpaths){
-            Swift.print("has unmerged paths to resolve")
+            //Swift.print("has unmerged paths to resolve")
             let unMergedFiles = GitParser.unMergedFiles(repoItem.localPath)// 🌵 Asserts if there are unmerged paths that needs resolvment
             MergeUtils.resolveMergeConflicts(repoItem.localPath, repoItem.branch, unMergedFiles)
         }
@@ -57,23 +58,24 @@ class GitSync{
      * NOTE: this a purly local method, does not need to communicate with remote servers etc..
      */
     static func commit(_ localRepoPath:String)->Bool{
-        Swift.print("commit()")
+        //Swift.print("commit()")
         
         let statusList = StatusUtils.generateStatusList(localRepoPath)//get current status
-        Swift.print("statusList.count: " + "\(statusList.count)")
+        //Swift.print("statusList.count: " + "\(statusList.count)")
         
         if (statusList.count > 0) {
-            Swift.print("doCommit().there is something to add or commit")
+            //Swift.print("doCommit().there is something to add or commit")
             StatusUtils.processStatusList(localRepoPath, statusList) //process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del
             let title = CommitUtils.sequenceCommitMsgTitle(statusList) //sequence commit msg title for the commit
-            Swift.print("commitMsgTitle: " + "\(title)")
+            //Swift.print("commitMsgTitle: " + "\(title)")
             let desc = DescUtils.sequenceDescription(statusList)//sequence commit msg description for the commit
-            Swift.print("commitMsgDesc: >" + "\(desc)" + "<")
+            //Swift.print("commitMsgDesc: >" + "\(desc)" + "<")
             let commitResult = GitModifier.commit(localRepoPath, (title,desc))//🌵 commit
-            Swift.print("commitResult: " + "\(commitResult)")
+            _ = commitResult
+            //Swift.print("commitResult: " + "\(commitResult)")
             return true//return true to indicate that the commit completed
         }else{
-            Swift.print("nothing to add or commit")
+            //Swift.print("nothing to add or commit")
             return false //break the flow since there is nothing to commit or process
         }
     }

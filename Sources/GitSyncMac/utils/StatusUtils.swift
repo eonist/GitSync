@@ -10,16 +10,16 @@ class StatusUtils{
 	 */
 	class func generateStatusList(_ localRepoPath:String)->[Dictionary<String,String>]{
 		let theStatus:String = GitParser.status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
-		Swift.print("theStatus: " + "\(theStatus)")
+		//Swift.print("theStatus: " + "\(theStatus)")
 		let theStatusList:Array = StringParser.paragraphs(theStatus) //--store each line as items in a list
 		var transformedList:[Dictionary<String,String>] = []
 		if (theStatusList.count > 0) {
 			transformedList = transformStatusList(theStatusList)
 		}else{
-			Swift.print("nothing to commit, working directory clean")// --this is the status msg if there has happened nothing new since last, but also if you have commits that are ready for push to origin
+			//Swift.print("nothing to commit, working directory clean")// --this is the status msg if there has happened nothing new since last, but also if you have commits that are ready for push to origin
 		}
-        Swift.print("transformedList.count: " + "\(transformedList.count)")
-		Swift.print("transformedList: " + "\(transformedList)")
+        //Swift.print("transformedList.count: " + "\(transformedList.count)")
+		//Swift.print("transformedList: " + "\(transformedList)")
         
 		return transformedList
 	}
