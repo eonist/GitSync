@@ -119,7 +119,7 @@ class RefreshUtils{
                 }
             }
         }else {//< 100
-            onRangeCommitCountComplete(100)//you need to fill top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
+            onRangeCommitCountComplete(100)//you need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
         }
     }
 }
