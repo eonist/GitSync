@@ -9,18 +9,18 @@ class ASyncTest {
      * Next implement the bellow in your example: 
      */
     init(){
-        let group = DispatchGroup()
+        let outerGroup = DispatchGroup()
         Swift.print("1")
         for i in 0..<4{
             bg.async{/*do 2 things at the same time*/
-                group.enter()
+                outerGroup.enter()
                 Swift.print("iterate \(i)")
                 sleep(IntParser.random(2, 3).uint32)/*simulates task that takes between 1 and 6 secs*/
-                group.leave()
+                outerGroup.leave()
             }
         }
-        group.wait()
-        group.notify(queue: bg, execute: {
+        outerGroup.wait()
+        outerGroup.notify(queue: bg, execute: {
             Swift.print("🏁 allTasksCompleted: 🏁")
         })
         
