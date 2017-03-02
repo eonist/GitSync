@@ -49,7 +49,7 @@ class Refresh{//TODO:rename to refresh
      * The final complete call
      */
     func onRefreshReposComplete(){/*All repo items are now refreshed, the entire refresh process is finished*/
-        Swift.print("onRefreshReposComplete()")
+        //Swift.print("onRefreshReposComplete()")
         //Swift.print("commitDB.sortedArr.count: " + "\(commitDP!.items.count)")
         //Swift.print("Printing sortedArr after refresh: ")
         //commitDP!.items.forEach{
@@ -57,9 +57,9 @@ class Refresh{//TODO:rename to refresh
         //}
         //
         CommitDPCache.write(commitDP!)//write data to disk, we could also do this on app exit
-        Swift.print("💾 Written to disk")
+        //Swift.print("💾 Refresh.onRefreshReposComplete() Written to disk")
         //isRefreshing = false
-        Swift.print("⏰⏰⏰⏰⏰⏰ onRefreshReposComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))⏰⏰⏰⏰⏰⏰")/*How long did the gathering of git commit logs take?*/
+        Swift.print("⏰ Refresh.onRefreshReposComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
         onComplete()/*🚪➡️️  calls a dynamic onComplete method, other classes can override this variable to get callback*/
     }
 }
