@@ -26,7 +26,7 @@ class CommitsList:RBSliderFastList{
         refresh.onComplete = loopAnimationCompleted // Attach the refresh.completion handler here
         startTime = NSDate()
         func onComplete(){
-            Swift.print("⏳ AutoSync™ OnComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+            Swift.print("⏳ All 🔨 & 🚀 " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
             refresh.initRefresh()
         }
         AutoSync.initSync(onComplete)/* start the refresh process when AutoSync.onComplete is fired off*/
