@@ -104,7 +104,7 @@ extension CommitsList{
      * Basically not in refreshState
      */
     func loopAnimationCompleted(){
-        Swift.print(" CommitList.loopAnimationCompleted()")
+        //Swift.print("CommitList.loopAnimationCompleted()")
         reUseAll()/*Refresh*/
         progressIndicator!.progress(0)
         progressIndicator!.stop()
