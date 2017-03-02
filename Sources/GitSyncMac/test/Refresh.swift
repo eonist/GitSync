@@ -18,7 +18,7 @@ class Refresh{//TODO:rename to refresh
      * Inits the refresh process
      */
     func initRefresh(){
-        Swift.print("🔄 initRefresh 🔄")
+        Swift.print("🔄 Refresh.initRefresh() 🔄")
         //isRefreshing = true/*avoid calling refresh when this is true, it is set to false on completion*/
         //let freshness = Freshness()
         //freshness.onFreshnessSortComplete = refreshRepos//

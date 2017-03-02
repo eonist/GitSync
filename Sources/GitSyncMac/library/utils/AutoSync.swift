@@ -11,10 +11,10 @@ class AutoSync {
         var idx:Int = 0
         
         func onPushComplete(_ hasPushed:Bool){
-            Swift.print("🚀 🏁 AutoSync.onPushComplete() hasPushed: " + "\(hasPushed ? "✅":"🚫")")
+            Swift.print("🚀🏁 AutoSync.onPushComplete() hasPushed: " + "\(hasPushed ? "✅":"🚫")")
             idx += 1
             if(idx == repoList.count){
-                Swift.print("🏁🏁🏁 All repos are complete")//now go and read commits to list
+                Swift.print("🏁🏁🏁 All repos are now AutoSync'ed")//now go and read commits to list
                 onComplete()//🚪➡️️ Exits here
             }
         }
