@@ -24,7 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //continue here:
             //and maybe even test deep groups aswell? 🤔
-            //there is a bug in the commitdb.add method. the latest commits doesnt get added correctly. 👈
+            //there is a bug in the commitdb.add method. the latest commits doesn't get added correctly. 👈
             //add thread groups to graph aswell 👈
         
         //_ = ASyncTest()
