@@ -49,11 +49,11 @@ class CommitGraph:Graph{
             iterate(1)
             //Do something else here
         }else{
-            Swift.print("swipe none")
+            //Swift.print("swipe none")
         }
     }
     override func touchesEnded(with event: NSEvent) {/*Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")*/}//for debugging
-    override func touchesCancelled(with event: NSEvent) {/* //Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")*/}//for debugging
+    override func touchesCancelled(with event: NSEvent) {/* Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")*/}//for debugging
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 extension CommitGraph{
@@ -116,7 +116,7 @@ extension CommitGraph{
      * NOTE: ReCalc the hValue indicators (each week has a different max hValue etc)
      */
     func interpolateValue(_ val:CGFloat){
-        Swift.print("interpolateValue() val: " + "\(val)")
+        //Swift.print("interpolateValue() val: " + "\(val)")
         var positions:[CGPoint] = []
         /*GraphPoints*/
         for i in 0..<graphPts.count{
