@@ -11,7 +11,7 @@ class AutoSync {
         var idx:Int = 0
         
         func onPushComplete(_ hasPushed:Bool){
-            Swift.print("🍏 AutoSync.onPushComplete() hasPushed: " + "\(hasPushed)")
+            Swift.print(" AutoSync.onPushComplete() hasPushed: " + "\(hasPushed)")
             idx += 1
             if(idx == repoList.count){
                 Swift.print("🏁🏁🏁 All repos are complete")//now go and read commits to list
@@ -19,7 +19,7 @@ class AutoSync {
             }
         }
         func onCommitComplete(_ idx:Int, _ hasCommited:Bool){
-            Swift.print("🍊 AutoSync.onCommitComplete() hasCommited: " + "\(hasCommited ? "✅" : "🚫")")
+            Swift.print("⬅️️ AutoSync.onCommitComplete() hasCommited: " + "\(hasCommited ? "✅" : "🚫")")
             GitSync.initPush(repoList,idx,onPushComplete)
         }
         for i in repoList.indices{/*all the initCommit calls are non-waiting. */
