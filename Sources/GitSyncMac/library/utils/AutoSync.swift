@@ -5,7 +5,7 @@ class AutoSync {
     /**
      * The GitSync automation algo (Basically Commits and pushes)
      */
-    static func sync(_ onComplete:@escaping ()->Void){
+    static func initSync(_ onComplete:@escaping ()->Void){
         let repoList:[RepoItem] = RepoUtils.repoList
         var idx:Int = 0
         
