@@ -20,18 +20,17 @@ class Refresh{//TODO:rename to refresh
     func initRefresh(){
         //isRefreshing = true/*avoid calling refresh when this is true, it is set to false on completion*/
         //let freshness = Freshness()
-        //freshness.onFreshnessSortComplete = refreshRepos//👈
-        startTime = NSDate()/*Measure the time of the refresh*/
+        //freshness.onFreshnessSortComplete = refreshRepos//
         //freshness.initFreshnessSort()//begin process on a background thread
-        refreshRepos()
+        startTime = NSDate()/*Measure the time of the refresh*/
+        refreshRepos()//🚪⬅️️Enter refresh process here
     }
-   
     /**
      * Adds commits to CommitDB
      * NOTE: This method is called from the freshness onComplete
      */
     func refreshRepos(/*_ sortableRepoList:[FreshnessItem]*/){
-        //Swift.print("💛 Freshness.onFreshnessSortComplete() Time:-> " + "\(abs(self.startTime!.timeIntervalSinceNow))")/*How long it took*/
+        //Swift.print(" Freshness.onFreshnessSortComplete() Time:-> " + "\(abs(self.startTime!.timeIntervalSinceNow))")/*How long it took*/
         let repos = RepoUtils.repoList//creates array from xml or cache
         //repoCount = repos.count
         var idx:Int = 0
