@@ -148,8 +148,10 @@ private class Utils{
         }
         //group.wait()
         group.notify(queue: bg, execute: {
-            //Swift.print("🍌 all results completed")
-            onComplete(results.reversed()) //reversed is a temp fix
+            Swift.print("🍌 all results completed")
+            main.async {
+                onComplete(results.reversed()) //reversed is a temp fix
+            }
         })
     }
 }
