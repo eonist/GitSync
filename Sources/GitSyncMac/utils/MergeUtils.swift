@@ -33,7 +33,7 @@ class MergeUtils{
  	 * Promts the user with a list of options to aid in resolving merge conflicts
  	 * @param branch: the branch you tried to merge into
  	 */
-	class func resolveMergeConflicts(_ localRepoPath:String, _ branch:String, _ unMergedFiles:Array<String>){
+	class func resolveMergeConflicts(_ localRepoPath:String, _ branch:String, _ unMergedFiles:[String]){
 		//log "resolve_merge_conflicts()"
 		//log ("MergeUtil's resolve_merge_conflicts()")
         for unMergedFile:String in unMergedFiles {
@@ -63,7 +63,6 @@ class MergeUtils{
 		//log "handle_merge_conflict_dialog()"
 		//print("MergeUtil's handle_merge_conflict_dialog(): " & (item 1 of the_action))
 		//last_selected_action = selected
-		
         switch selected{
             case options[0]://keep local version
 				_ = GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)
