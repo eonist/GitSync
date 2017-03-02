@@ -85,7 +85,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         win = MainWin(MainView.w,MainView.h)
         //win = ConflictDialogWin(380,400)
         //win = CommitDialogWin(400,356)
-        
     }
     func applicationWillTerminate(_ aNotification: Notification) {
         //store the app prefs
