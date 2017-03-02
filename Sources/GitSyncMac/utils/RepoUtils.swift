@@ -30,7 +30,7 @@ class RepoUtils{
         }
         //Swift.print("repoList.count: " + "\(repoList.count)")
         //Swift.print("repoList[0]: " + "\(repoList[0])")
-        return repoList.filter{$0.title == "Research"}/*👈 filter enables you to test one item at the time, for debugging*/
+        return repoList.filter{$0.title == "Research" || $0.title == "Research wiki"}/*👈 filter enables you to test one item at the time, for debugging*/
     }
     /**
      * Conforms repoItem data and returns a RepoItem that can be used with git
