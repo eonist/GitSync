@@ -85,7 +85,7 @@ class RefreshUtils{
         }
         //once these completes then do result, you do not want to wait until calling refreshRepo
         func onCommitCountComplete(_ commitCount:Int){
-            //Swift.print("💙\(repo.title): rangeCount: " + "\(commitCount)")
+            Swift.print("💙\(repo.title): commitCount: " + "\(commitCount)")
             Utils.commitItems(repo.localPath, commitCount,onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
         }
         commitCount(dp,repo,onCommitCountComplete)//🚪⬅️️
@@ -148,8 +148,8 @@ private class Utils{
         }
         //group.wait()
         group.notify(queue: bg, execute: {
-            Swift.print("🍌 all results completed")
             main.async {
+                Swift.print("🍌 all results completed results.count: \(results.count)")
                 onComplete(results.reversed()) //reversed is a temp fix
             }
         })
