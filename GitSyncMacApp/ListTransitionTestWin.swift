@@ -9,11 +9,10 @@ class ListTransitionTestWin:Window {
         WinModifier.align(self, Alignment.centerCenter, Alignment.centerCenter,CGPoint(6,0))/*aligns the window to the screen*/
     }
     override func resolveSkin() {
-        Swift.print("frame.width: " + "\(frame.size.width)")
-        Swift.print("frame.height: " + "\(frame.size.height)")
+        //Swift.print("frame.width: " + "\(frame.size.width)")
+        //Swift.print("frame.height: " + "\(frame.size.height)")
         //self.contentView = ListTransitionTestView(frame.size.width,frame.size.height)
         self.contentView = RepoListTestView(frame.size.width,frame.size.height)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-
