@@ -29,8 +29,7 @@ class MergeUtils{
             //Swift.print("MergeUtils.manualMerge() Success no resolvment needed")
         }
     }
-    //property options : {}
-	/*
+	/**
  	 * Promts the user with a list of options to aid in resolving merge conflicts
  	 * @param branch: the branch you tried to merge into
  	 */
