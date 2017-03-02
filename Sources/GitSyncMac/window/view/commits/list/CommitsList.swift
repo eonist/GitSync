@@ -23,11 +23,8 @@ class CommitsList:RBSliderFastList{
      */
     func startAutoSync(){
         let refresh = Refresh(dp as! CommitDP)/*attach the dp that RBSliderFastList uses*/
-        refresh.onComplete = loopAnimationCompleted //👈 Attach the refresh.completion handler here
+        refresh.onComplete = loopAnimationCompleted // Attach the refresh.completion handler here
         startTime = NSDate()
-        /**
-         *
-         */
         func onComplete(){
             Swift.print("⏳⏳⏳⏳⏳⏳ AutoSyncOnComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))⏳⏳⏳⏳⏳⏳")/*How long did the gathering of git commit logs take?*/
             refresh.initRefresh()
@@ -64,18 +61,14 @@ class CommitsList:RBSliderFastList{
     }
     override func scrollWheelExit(){
         isTwoFingersTouching = false
-        //Swift.print("💜 CommitList.scrollWheelExit()")
+        //Swift.print("CommitList.scrollWheelExit()")
         let value = mover!.result
         if(value > 60){
             //Swift.print("start animation the ProgressIndicator")
             mover!.frame.y = 60
             progressIndicator!.start()//1. start spinning the progressIndicator
             hasPulledAndReleasedBeyondRefreshSpace = true
-            
-            
-            startAutoSync()/*start downloading commits here*/
-            
-            
+            startAutoSync()/*🚪⬅️️ <- starts the process of downloading commits here*/
         }else if (value > 0){
             hasReleasedBeyondTop = true
             //scrollController!.mover.topMargin = 0
@@ -84,7 +77,7 @@ class CommitsList:RBSliderFastList{
         }
     }
     override func scrollAnimStopped(){
-        //Swift.print("💛 CommitsList.scrollAnimStopped()")
+        //Swift.print(" CommitsList.scrollAnimStopped()")
         super.scrollAnimStopped()
         if(isInDeactivateRefreshModeState){
             //Swift.print("reset refreshState")
@@ -111,7 +104,7 @@ extension CommitsList{
      * Basically not in refreshState
      */
     func loopAnimationCompleted(){
-        Swift.print("❤️️ CommitList.loopAnimationCompleted()")
+        Swift.print(" CommitList.loopAnimationCompleted()")
         reUseAll()/*Refresh*/
         progressIndicator!.progress(0)
         progressIndicator!.stop()
