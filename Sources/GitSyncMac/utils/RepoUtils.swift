@@ -30,7 +30,7 @@ class RepoUtils{
         }
         //Swift.print("repoList.count: " + "\(repoList.count)")
         //Swift.print("repoList[0]: " + "\(repoList[0])")
-        return repoList
+        return repoList.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
     }
     /**
      * Conforms repoItem data and returns a RepoItem that can be used with git
