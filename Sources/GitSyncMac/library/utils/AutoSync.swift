@@ -6,6 +6,7 @@ class AutoSync {
      * The GitSync automation algo (Basically Commits and pushes)
      */
     static func initSync(_ onComplete:@escaping ()->Void){
+        Swift.print("🔁 AutoSync.initSync() 🔁")
         let repoList:[RepoItem] = RepoUtils.repoList
         var idx:Int = 0
         
