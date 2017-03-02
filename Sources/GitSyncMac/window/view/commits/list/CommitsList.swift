@@ -115,7 +115,7 @@ extension CommitsList{
         mover!.value = mover!.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
         mover!.start()
         //progressIndicator!.reveal(0)//reset all line alphas to 0
-        Swift.print("🏁 AutoSync™ enjoy your life 🏖")
+        Swift.print("🏁 AutoSync™ completed")
     }
     /**
      * Happens when you use the scrollwheel or use the slider (also works while there still is momentum) (This content of this method could be inside setProgress, but its easier to reason with if it is its own method)
