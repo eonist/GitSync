@@ -35,7 +35,7 @@ class DescUtils{
 	/*
 	 * Returns a paragraph with a detailed description for Deleted, added and modified files
 	 */
-	class func descriptionParagraph(_ theList:[Dictionary<String,String>], _ prefixText:String)->String{
+    class func descriptionParagraph(_ theList:[[String:String]], _ prefixText:String)->String{
 		var descText:String = ""
 		if (theList.count > 0) {
 			var theSuffix:String = " file"

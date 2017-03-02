@@ -8,11 +8,11 @@ class StatusUtils{
 	 * Returns a descriptive status list of the current git changes
 	 * NOTE: you may use short status, but you must interpret the message if the state has an empty space infront of it
 	 */
-	class func generateStatusList(_ localRepoPath:String)->[Dictionary<String,String>]{
+    class func generateStatusList(_ localRepoPath:String)->[[String:String]]{
 		let theStatus:String = GitParser.status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
 		//Swift.print("theStatus: " + "\(theStatus)")
-		let theStatusList:Array = StringParser.paragraphs(theStatus) //--store each line as items in a list
-		var transformedList:[Dictionary<String,String>] = []
+		let theStatusList:[String] = StringParser.paragraphs(theStatus) //--store each line as items in a list
+        var transformedList:[[String:String]] = []
 		if (theStatusList.count > 0) {
 			transformedList = transformStatusList(theStatusList)
 		}else{
@@ -20,7 +20,6 @@ class StatusUtils{
 		}
         //Swift.print("transformedList.count: " + "\(transformedList.count)")
 		//Swift.print("transformedList: " + "\(transformedList)")
-        
 		return transformedList
 	}
 	/*
@@ -80,7 +79,7 @@ class StatusUtils{
 	 * NOTE: even if a file is removed, its status needs to be added to the next commit
 	 * TODO: Squash some of the states together with if or or or etc..
 	 */
-	class func processStatusList(_ localRepoPath:String, _ statusList:[Dictionary<String,String>]){
+    class func processStatusList(_ localRepoPath:String, _ statusList:[[String:String]]){
 		//Swift.print("processStatusList()")
         for statusItem:[String:String] in statusList{
 			//--log "len of status_item: " & (length of statusItem)
