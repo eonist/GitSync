@@ -9,7 +9,6 @@ class ASyncTest {
      * Next implement the bellow in your example:
      * TODO: Also research blocks
      */
-   
     init(){
         let group = DispatchGroup()
         
@@ -32,7 +31,9 @@ class ASyncTest {
         
         //group.wait()/*wait blocks main thread*/
         group.notify(queue: bg, execute: {
-            Swift.print("🏁 group completed: 🏁")
+            main.async {/*you have to jump back on main thread to call things on main thread as this scope is still on bg thread*/
+                Swift.print("🏁 group completed: 🏁")
+            }
         })
     }
 }
