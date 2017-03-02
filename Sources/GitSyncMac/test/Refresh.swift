@@ -87,7 +87,7 @@ class RefreshUtils{
         //once these completes then do result, you do not want to wait until calling refreshRepo
         func onCommitCountComplete(_ commitCount:Int){
             //Swift.print("💙 RefreshUtils.refreshRepo() \(repo.title): commitCount: " + "\(commitCount)")
-            Utils.commitItems(repo.localPath, commitCount, onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
+            RefreshUtils.commitItems(repo.localPath, commitCount, onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
         }
         commitCount(dp,repo,onCommitCountComplete)//🚪⬅️️
         
@@ -124,8 +124,6 @@ class RefreshUtils{
             onComplete(clippedCommitCount)//🚪➡️️
         })
     }
-}
-private class Utils{
     /**
      * Basically creates an array of commit data from the latest commit until limit (limit:3 returns the 3 last commits)
      * Returns an array of commitItems at PARAM: localPath and limited with PARAM: max
@@ -149,8 +147,8 @@ private class Utils{
         }
         //group.wait()
         group.notify(queue: bg, execute: {
-            main.async {
-                Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
+            main.async {/*Jump back on the main thread bc: onComplete resides there*/
+                //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
                 onComplete(results.reversed()) //reversed is a temp fix
             }
         })
