@@ -18,7 +18,7 @@ class Refresh{//TODO:rename to refresh
      * Inits the refresh process
      */
     func initRefresh(){
-        Swift.print("🔄 Refresh.initRefresh() 🔄")
+        Swift.print("🔄 Refresh.initRefresh() ")
         //isRefreshing = true/*avoid calling refresh when this is true, it is set to false on completion*/
         //let freshness = Freshness()
         //freshness.onFreshnessSortComplete = refreshRepos//
@@ -33,7 +33,6 @@ class Refresh{//TODO:rename to refresh
     func refreshRepos(/*_ sortableRepoList:[FreshnessItem]*/){
         //Swift.print(" Freshness.onFreshnessSortComplete() Time:-> " + "\(abs(self.startTime!.timeIntervalSinceNow))")/*How long it took*/
         let repos = RepoUtils.repoList//creates array from xml or cache
-        //repoCount = repos.count
         var idx:Int = 0
         func onComplete(){//you can probably use DispatchGroup here aswell. but in the spirit of moving on
             idx += 1
