@@ -9,7 +9,8 @@ class CommitsList:RBSliderFastList{
     var isInDeactivateRefreshModeState:Bool = false
     var isTwoFingersTouching = false/*is Two Fingers Touching the Touch-Pad*/
     var hasReleasedBeyondTop:Bool = false
-    var startTime:NSDate?
+    var autoSyncStartTime:NSDate?
+    var autoSyncAndRefreshStartTime:NSDate?
 
     override func resolveSkin() {
         super.resolveSkin()
@@ -24,9 +25,9 @@ class CommitsList:RBSliderFastList{
     func startAutoSync(){
         let refresh = Refresh(dp as! CommitDP)/*attach the dp that RBSliderFastList uses*/
         refresh.onComplete = loopAnimationCompleted // Attach the refresh.completion handler here
-        startTime = NSDate()
+        autoSyncStartTime = NSDate()
         func onComplete(){
-            Swift.print("⏳ All 🔨 & 🚀 " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+            Swift.print("⏳ All 🔨 & 🚀 " + "\(abs(autoSyncStartTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
             refresh.initRefresh()
         }
         AutoSync.initSync(onComplete)/* start the refresh process when AutoSync.onComplete is fired off*/
@@ -68,6 +69,7 @@ class CommitsList:RBSliderFastList{
             mover!.frame.y = 60
             progressIndicator!.start()//1. start spinning the progressIndicator
             hasPulledAndReleasedBeyondRefreshSpace = true
+            autoSyncAndRefreshStartTime = NSDate()//init debug timer
             startAutoSync()/*🚪⬅️️ <- starts the process of downloading commits here*/
         }else if (value > 0){
             hasReleasedBeyondTop = true
@@ -115,7 +117,7 @@ extension CommitsList{
         mover!.value = mover!.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
         mover!.start()
         //progressIndicator!.reveal(0)//reset all line alphas to 0
-        Swift.print("🏁 AutoSync™ completed")
+        Swift.print("🏁 AutoSync™ completed \(abs(autoSyncAndRefreshStartTime!.timeIntervalSinceNow))")
     }
     /**
      * Happens when you use the scrollwheel or use the slider (also works while there still is momentum) (This content of this method could be inside setProgress, but its easier to reason with if it is its own method)
