@@ -45,11 +45,11 @@ class PrefsView:Element {
         autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Sync-Interval: ", 30, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))//autoSyncIntervall needs to be a time setter: Day,Hour,Min,Seconds,0 means do not sync on an interval, the min setting is 30 sec, anything bellow this will be clamped to 30 sec
     }
     override func onEvent(_ event: Event) {
-        Swift.print("PrefsView.onEvent")
+        //Swift.print("PrefsView.onEvent")
         //Continue here: use immediate to assert not origin on the bellow
         if(event.type == Event.update && event.immediate === keychainUserNameTextInput){
             PrefsView.keychainUserName = (event as! TextFieldEvent).stringValue
-            Swift.print("stores to keychainUserName")
+            //Swift.print("stores to keychainUserName")
         }else if(event.type == Event.update && event.immediate === gitConfigUserNameTextInput){
             PrefsView.gitConfigUserName = (event as! TextFieldEvent).stringValue
         }else if(event.type == Event.update && event.immediate === gitEmailNameTextInput){
