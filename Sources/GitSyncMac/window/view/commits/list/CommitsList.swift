@@ -26,7 +26,7 @@ class CommitsList:RBSliderFastList{
         refresh.onComplete = loopAnimationCompleted // Attach the refresh.completion handler here
         startTime = NSDate()
         func onComplete(){
-            Swift.print("⏳⏳⏳⏳⏳⏳ AutoSyncOnComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))⏳⏳⏳⏳⏳⏳")/*How long did the gathering of git commit logs take?*/
+            Swift.print("⏳ AutoSyncOnComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
             refresh.initRefresh()
         }
         AutoSync.initSync(onComplete)/* start the refresh process when AutoSync.onComplete is fired off*/
@@ -115,7 +115,7 @@ extension CommitsList{
         mover!.value = mover!.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
         mover!.start()
         //progressIndicator!.reveal(0)//reset all line alphas to 0
-        Swift.print("🏆🏆🏆 Everything finished 👌")
+        Swift.print("🏁 AutoSync™ enjoy your life 🏖")
     }
     /**
      * Happens when you use the scrollwheel or use the slider (also works while there still is momentum) (This content of this method could be inside setProgress, but its easier to reason with if it is its own method)
