@@ -150,7 +150,7 @@ private class Utils{
         //group.wait()
         group.notify(queue: bg, execute: {
             main.async {
-                Swift.print("🏁 all results completed results.count: \(results.count)")
+                Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
                 onComplete(results.reversed()) //reversed is a temp fix
             }
         })
