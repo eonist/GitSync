@@ -70,6 +70,7 @@ class RefreshUtils{
      */
     static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem,_ onComplete:@escaping ()->Void){
         func onCommitItemsCompleted(_ results:[String]){
+            Swift.print("onCommitItemsCompleted: results.count: \(results.count)" )
             for i in results.indices{
                 let result = results[i]
                 if(result.count > 0){/*resulting string must have characters*/
@@ -86,7 +87,7 @@ class RefreshUtils{
         //once these completes then do result, you do not want to wait until calling refreshRepo
         func onCommitCountComplete(_ commitCount:Int){
             Swift.print("💙\(repo.title): commitCount: " + "\(commitCount)")
-            Utils.commitItems(repo.localPath, commitCount,onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
+            Utils.commitItems(repo.localPath, commitCount, onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
         }
         commitCount(dp,repo,onCommitCountComplete)//🚪⬅️️
         
