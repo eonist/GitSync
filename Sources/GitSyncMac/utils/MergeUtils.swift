@@ -60,8 +60,7 @@ class MergeUtils{
  	 * TODO: test the open file clauses
  	 */
 	class func handleMergeConflictDialog(_ selected:String, _ unmergedFile:String, _ localRepoPath:String, _ branch:String, _ unmergedFiles:Array<String>){
-		//log "handle_merge_conflict_dialog()"
-		//print("MergeUtil's handle_merge_conflict_dialog(): " & (item 1 of the_action))
+		//Swift.print("MergeUtil's handle_merge_conflict_dialog(): " & (item 1 of the_action))
 		//last_selected_action = selected
         switch selected{
             case options[0]://keep local version
