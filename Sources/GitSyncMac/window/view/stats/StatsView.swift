@@ -8,8 +8,8 @@ class StatsView:Element {
     var graph:CommitGraph?
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
-        Swift.print("StatsView.width: " + "\(width)")
-        Swift.print("StatsView.height: " + "\(height)")
+        //Swift.print("StatsView.width: " + "\(width)")
+        //Swift.print("StatsView.height: " + "\(height)")
         createGraph()
     }
     func createGraph(){
