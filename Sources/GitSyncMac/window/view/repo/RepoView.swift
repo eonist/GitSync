@@ -13,7 +13,7 @@ class RepoView:Element {
     var contextMenu:RepoContextMenu?
     
     override func resolveSkin() {
-        Swift.print("RepoView.resolveSkin()")
+        //Swift.print("RepoView.resolveSkin()")
         self.skin = SkinResolver.skin(self)//super.resolveSkin()//
         
         if(RepoView.node == nil){/*loads 1 time*/
