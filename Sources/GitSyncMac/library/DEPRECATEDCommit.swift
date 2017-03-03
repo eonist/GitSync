@@ -3,7 +3,7 @@ import Foundation
 
 /**
  * DISCUSSION: Using struct is justified because the data is never modified. Just stored and reproduced
- * NOTE: nice struct, but extending Dictionary proved to difficult
+ * NOTE: nice struct, but extending Dictionary proved too difficult
  */
 struct Commit{
     var repoName:String
