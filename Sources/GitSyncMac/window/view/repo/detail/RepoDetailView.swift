@@ -67,7 +67,7 @@ class RepoDetailView:Element {
             case event.assert(Event.update,immediate:nameTextInput):
                 attrib[RepoItemType.title] = (event as! TextFieldEvent).stringValue
             case event.assert(Event.update,immediate:localPathTextInput):
-                attrib["local-path"] = (event as! TextFieldEvent).stringValue
+                attrib[RepoItemType.] = (event as! TextFieldEvent).stringValue
             case event.assert(Event.update,immediate:remotePathTextInput):
                 attrib["remote-path"] = (event as! TextFieldEvent).stringValue
             case event.assert(Event.update,immediate:remotePathTextInput):
