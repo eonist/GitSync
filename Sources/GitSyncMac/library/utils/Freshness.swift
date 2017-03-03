@@ -1,7 +1,7 @@
 import Foundation
 @testable import Utils
 /*Storage tuple for the GitSyncAPp*/
-typealias RepoItem = (localPath:String,interval:Int,branch:String,keyChainItemName:String,broadcast:Bool,title:String,subscribe:Bool,autoSync:Bool,remotePath:String,autoSyncInterval:String,message:Bool,fileChange:Bool,pullToRequest:Bool)
+typealias RepoItem = (localPath:String,autoSyncInterval:Int,branch:String,keyChainItemName:String,upload:Bool,title:String,download:Bool,active:Bool,remotePath:String,autoSyncInterval:Bool,autoCommitMessage:Bool,fileChange:Bool,pullToAutoSync:Bool)
 typealias FreshnessItem = (repo:RepoItem,freshness:CGFloat)
 /**
  * Freshness level of every repo is calculated
