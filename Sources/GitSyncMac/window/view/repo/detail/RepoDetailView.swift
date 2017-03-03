@@ -24,14 +24,16 @@ class RepoDetailView:Element {
         localPathTextInput = addSubView(TextInput(width, 32, "Local-path: ", "", self))
         remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", "", self))
         branchTextInput = addSubView(TextInput(width, 32, "Branch: ", "", self))//branch-text-input: master is default, set to dev for instance
+        /*CheckButtons*/
         downloadCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Upload:", false, self))
         uploadCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Download:", false, self))//to disable an item uncheck broadcast and subscribe
         activeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Active:", false, self))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
         messageCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Message:", false, self))
-        intervalCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Interval:", false, self))
-        changeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Change:", false, self))
         pullCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Pull:", false, self))
-        autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Auto-Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
+        changeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Change:", false, self))
+        intervalCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Interval:", false, self))
+        /*LeverSpinner*/
+        autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
     }
     /**
      * Populates the UI elements with data from the dp item
