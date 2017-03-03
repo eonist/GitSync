@@ -108,7 +108,7 @@ class RefreshUtils{
             let lastDate:Int = dp.items.last!["sortableDate"]!.int/*the last date is always the furthest distant date 19:59,19:15,19:00 etc*/
             //Swift.print("lastDate: " + "\(lastDate)")
             let gitTime = GitDateUtils.gitTime(lastDate.string)/*converts descending date to git time*/
-            bg.async {//maybe do some work
+            bg.async {/*maybe do some work*/
                 group.enter()
                 let rangeCount:Int = GitUtils.commitCount(repo.localPath, after: gitTime).int//🚧1 Git call /*Finds the num of commits from now until */
                 //Swift.print("rangeCount now..last: " + "\(rangeCount)")
@@ -121,7 +121,7 @@ class RefreshUtils{
         //group.wait()
         group.notify(queue: bg, execute: {
             let clippedCommitCount = Swift.min(totCommitCount,commitCount)
-            onComplete(clippedCommitCount)//🚪➡️️
+            onComplete(clippedCommitCount)/*🚪➡️️*/
         })
     }
     /**
