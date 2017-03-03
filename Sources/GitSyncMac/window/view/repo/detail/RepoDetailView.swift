@@ -70,12 +70,14 @@ class RepoDetailView:Element {
                 attrib[RepoItemType.remotePath] = (event as! TextFieldEvent).stringValue
             case event.assert(Event.update,immediate:remotePathTextInput):
                 attrib[RepoItemType.branch] = (event as! TextFieldEvent).stringValue
+            /*CheckButtons*/
             case event.assert(CheckEvent.check,immediate:uploadCheckBoxButton):
                 attrib[RepoItemType.upload] = String((event as! CheckEvent).isChecked)
             case event.assert(CheckEvent.check,immediate:downloadCheckBoxButton):
                 attrib[RepoItemType.download] = String((event as! CheckEvent).isChecked)
             case event.assert(CheckEvent.check,immediate:messageCheckBoxButton):
                 attrib[RepoItemType.active] = String((event as! CheckEvent).isChecked)
+            /*LeverSpinner*/
             case event.assert(SpinnerEvent.change, autoSyncIntervalLeverSpinner):
                 attrib[RepoItemType.interval] = (event as! SpinnerEvent).value.string
             default:
