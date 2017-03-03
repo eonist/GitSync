@@ -14,9 +14,9 @@ class RepoView:Element {
     
     override func resolveSkin() {
         //Swift.print("RepoView.resolveSkin()")
-        self.skin = SkinResolver.skin(self)//super.resolveSkin()//
+        self.skin = SkinResolver.skin(self)//super.resolveSkin()
         if(RepoView.node == nil){/*loads 1 time*/
-            let xml = FileParser.xml(RepoView.repoList.tildePath)//
+            let xml = FileParser.xml(RepoView.repoList.tildePath)
             RepoView.node = Node(xml)
         }
         treeList = addSubView(SliderTreeList(width, height-24, 24, RepoView.node!,self))
