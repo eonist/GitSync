@@ -79,7 +79,7 @@ class RepoDetailView:Element {
             case event.assert(CheckEvent.check,immediate:messageCheckBoxButton):
                 attrib[RepoItemType.active] = String((event as! CheckEvent).isChecked)
             case event.assert(SpinnerEvent.change, autoSyncIntervalLeverSpinner):
-                attrib["interval"] = (event as! SpinnerEvent).value.string
+                attrib[RepoItemType.interval] = (event as! SpinnerEvent).value.string
             default:
                 break;
         }
