@@ -40,7 +40,24 @@ class RepoUtils{
         //print(remotePath)
         let keychainItemName:String = dict["keychain-item-name"]!
         let interval:String = dict["interval"]!//default is 1min
-        let repoItem:RepoItem = 
+        let repoItem:RepoItem = repoItem
+        
+        static var emptyRepoItem:RepoItem = (
+            localPath:localPath,
+            interval:interval.int,
+            branch:dict["branch"]!,
+            keyChainItemName:keychainItemName,
+            upload:dict["broadcast"]!.bool,
+            title:["title"]!,
+            download:["subscribe"]!.bool,
+            active:["auto-sync"]!.bool,
+            remotePath:remotePath,
+            autoSyncInterval:false,
+            autoCommitMessage:false,
+            fileChange:false,
+            pullToAutoSync:false
+        )
+            (localPath:localPath,interval:interval.int,branch:dict["branch"]!,keyChainItemName:keychainItemName,broadcast:dict["broadcast"]!.bool,title:dict["title"]!,subscribe:dict["subscribe"]!.bool,autoSync:dict["auto-sync"]!.bool,remotePath:remotePath)
         return repoItem
     }
     static func repoItem(_ xml:XML,_ idx:[Int]) -> RepoItem{
