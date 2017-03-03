@@ -8,7 +8,7 @@ class StatusUtils{
 	 * Returns a descriptive status list of the current git changes
 	 * NOTE: you may use short status, but you must interpret the message if the state has an empty space infront of it
 	 */
-    class func generateStatusList(_ localRepoPath:String)->[[String:String]]{
+    static func generateStatusList(_ localRepoPath:String)->[[String:String]]{
 		let theStatus:String = GitParser.status(localRepoPath, "-s") //-- the -s stands for short message, and returns a short version of the status message, the short stauslist is used because it is easier to parse than the long status list
 		//Swift.print("theStatus: " + "\(theStatus)")
 		let theStatusList:[String] = StringParser.paragraphs(theStatus) //--store each line as items in a list
@@ -32,7 +32,7 @@ class StatusUtils{
 	 * @Param: theStatusList is a list with status messages like: {"?? test.txt"," M index.html","A home.html"}
 	 * NOTE: can also be "UU" unmerged paths
  	 */
-    class func transformStatusList(_ theStatusList:[String])->[[String:String]]{
+    static func transformStatusList(_ theStatusList:[String])->[[String:String]]{
         //Swift.print("transformStatusList()")
         var transformedList:[[String:String]] = []
         for theStatusItem:String in theStatusList {
@@ -80,10 +80,10 @@ class StatusUtils{
 	 * TODO: Squash some of the states together with if or or or etc..
 	 */
     class func processStatusList(_ localRepoPath:String, _ statusList:[[String:String]]){
-		//Swift.print("processStatusList()")
+		//Swift.print("StatusUtils.processStatusList()")
         for statusItem:[String:String] in statusList{
-			//--log "len of status_item: " & (length of statusItem)
-			//--set cmd to cmd of status_item
+			//log "len of status_item: " & (length of statusItem)
+			//set cmd to cmd of status_item
             let state:String = statusItem["state"]!
             //Swift.print("state: " + "\(state)")
             let fileName:String = statusItem["fileName"]!
