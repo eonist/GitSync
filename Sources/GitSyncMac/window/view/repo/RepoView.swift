@@ -8,17 +8,17 @@ import Cocoa
 class RepoView:Element {
     static var repoList:String = "~/Desktop/repo2.xml"//"~/Desktop/assets/xml/list.xml"
     static var selectedListItemIndex:[Int] = []
-    static var node:Node?
+    static var _node:Node
+    static var node:Node {/*loads 1 time*/
+        let xml = FileParser.xml(RepoView.repoList.tildePath)
+        return Node(xml)
+    }
     var treeList:TreeList?// {return RepoView.list}
     var contextMenu:RepoContextMenu?
     
     override func resolveSkin() {
         //Swift.print("RepoView.resolveSkin()")
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
-        if(RepoView.node == nil){/*loads 1 time*/
-            let xml = FileParser.xml(RepoView.repoList.tildePath)
-            RepoView.node = Node(xml)
-        }
         treeList = addSubView(SliderTreeList(width, height-24, 24, RepoView.node!,self))
         contextMenu = RepoContextMenu(treeList!)
         if(RepoView.selectedListItemIndex.count > 0){TreeListModifier.selectAt(treeList!, RepoView.selectedListItemIndex)}
