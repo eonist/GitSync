@@ -4,7 +4,6 @@ import Foundation
  * Utility methods for parsing the repository.xml file
  */
 class RepoUtils{
-    static var emptyRepoItem:RepoItem = (localPath:"",interval:0,branch:"",keyChainItemName:"",broadcast:false,title:"",subscribe:false,autoSync:false,remotePath:"")
     /**
      * Returns a flat Array of RepoItems derived from a nested xml Structure (also skips folders)
      */
