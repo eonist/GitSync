@@ -9,12 +9,7 @@ class RepoItemUtils{
      * Returns a flat Array of RepoItems derived from a nested xml Structure (also skips folders)
      */
     static var repoList:[RepoItem]{//rename to repoListFlattened
-        let repoXML:XML
-        if(RepoView.node != nil){
-            repoXML = RepoView.node!.xml//re-use if it already exists
-        }else{
-            repoXML = FileParser.xml(RepoView.repoList.tildePath)//or load a fresh copy
-        }
+        let repoXML:XML = RepoView.node.xml
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
         let flatArr:[[String:String]] = arr.recursiveFlatmap()
         //Swift.print("flatArr.count: " + "\(flatArr.count)")
