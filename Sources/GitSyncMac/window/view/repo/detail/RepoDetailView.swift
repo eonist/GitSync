@@ -7,8 +7,8 @@ class RepoDetailView:Element {
     var localPathTextInput:TextInput?
     var remotePathTextInput:TextInput?
     var branchTextInput:TextInput?
-    var broadCastCheckBoxButton:CheckBoxButton?
-    var subscribeCheckBoxButton:CheckBoxButton?
+    var uploadCheckBoxButton:CheckBoxButton?
+    var downloadCheckBoxButton:CheckBoxButton?
     /*CheckButtons*/
     var activeCheckBoxButton:CheckBoxButton?
     var messageCheckBoxButton:CheckBoxButton?
@@ -24,8 +24,8 @@ class RepoDetailView:Element {
         localPathTextInput = addSubView(TextInput(width, 32, "Local-path: ", "", self))
         remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", "", self))
         branchTextInput = addSubView(TextInput(width, 32, "Branch: ", "", self))//branch-text-input: master is default, set to dev for instance
-        subscribeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Upload:", false, self))
-        broadCastCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Download:", false, self))//to disable an item uncheck broadcast and subscribe
+        downloadCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Upload:", false, self))
+        uploadCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Download:", false, self))//to disable an item uncheck broadcast and subscribe
         
         //active
         activeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Active:", false, self))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
@@ -49,10 +49,11 @@ class RepoDetailView:Element {
         remotePathTextInput!.inputTextArea!.setTextValue(repoItem.remotePath)
         branchTextInput!.inputTextArea!.setTextValue(repoItem.branch)
         /*CheckButtons*/
-        broadCastCheckBoxButton!.setChecked(repoItem.upload)
-        subscribeCheckBoxButton!.setChecked(repoItem.download)
-        messageCheckBoxButton!.setChecked(repoItem.autoCommitMessage)
+        uploadCheckBoxButton!.setChecked(repoItem.upload)
+        downloadCheckBoxButton!.setChecked(repoItem.download)
         activeCheckBoxButton!.setChecked(repoItem.active)
+        messageCheckBoxButton!.setChecked(repoItem.autoCommitMessage)
+        
         /*LeverSpinner*/
         autoSyncIntervalLeverSpinner!.setValue(repoItem.autoSyncInterval.cgFloat)
     }
@@ -72,9 +73,9 @@ class RepoDetailView:Element {
                 attrib["remote-path"] = (event as! TextFieldEvent).stringValue
             case event.assert(Event.update,immediate:remotePathTextInput):
                 attrib["branch"] = (event as! TextFieldEvent).stringValue
-            case event.assert(CheckEvent.check,immediate:broadCastCheckBoxButton):
+            case event.assert(CheckEvent.check,immediate:uploadCheckBoxButton):
                 attrib["broadcast"] = String((event as! CheckEvent).isChecked)
-            case event.assert(CheckEvent.check,immediate:subscribeCheckBoxButton):
+            case event.assert(CheckEvent.check,immediate:downloadCheckBoxButton):
                 attrib["subscribe"] = String((event as! CheckEvent).isChecked)
             case event.assert(CheckEvent.check,immediate:messageCheckBoxButton):
                 attrib["auto-sync"] = String((event as! CheckEvent).isChecked)
