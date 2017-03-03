@@ -4,7 +4,6 @@ import Cocoa
 @testable import GitSyncMac
 /**
  * This is the main class for the application
- * TODO: An idea is to hide parts of the interface when the mouse is not over the app (anim in and out) (maybe)
  */
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -21,7 +20,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //rateOfCommitsTest()
         
         initApp()
-                
+        //keep the current design
+        //rather write code that detects frequency of use. That way interval, file change etc doesnt matter and can be removed.
+        //
+        
         //_ = ASyncTest()
         //_ = AsyncTest2()
         
