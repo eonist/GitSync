@@ -8,10 +8,13 @@ import Cocoa
 class RepoView:Element {
     static var repoList:String = "~/Desktop/repo2.xml"//"~/Desktop/assets/xml/list.xml"
     static var selectedListItemIndex:[Int] = []
-    static var _node:Node
+    private static var _node:Node?
     static var node:Node {/*loads 1 time*/
-        let xml = FileParser.xml(RepoView.repoList.tildePath)
-        return Node(xml)
+        if(_node != nil){
+            let xml = FileParser.xml(RepoView.repoList.tildePath)
+            return Node(xml)
+        }
+        
     }
     var treeList:TreeList?// {return RepoView.list}
     var contextMenu:RepoContextMenu?
