@@ -4,7 +4,7 @@ import Foundation
  * Utility methods for parsing the the "git status message" 
  */
 class CommitUtils{
-	/*
+	/**
 	 * Returns a a text "commit message title" derived from @param status_list
 	 * PARAM: status_list: a list with records that contain staus type, file name and state
 	 * NOTE: C,I,R seems to never be triggered, COPIED,IGNORED,REMOVED,

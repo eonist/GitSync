@@ -31,7 +31,7 @@ class MergeUtils{
     }
 	/**
  	 * Promts the user with a list of options to aid in resolving merge conflicts
- 	 * @param branch: the branch you tried to merge into
+ 	 * PARAM branch: the branch you tried to merge into
  	 */
 	class func resolveMergeConflicts(_ localRepoPath:String, _ branch:String, _ unMergedFiles:[String]){
 		//log "resolve_merge_conflicts()"
@@ -55,7 +55,7 @@ class MergeUtils{
 	   }
 	}
     */
-	/*
+	/**
  	 * Handles the choice made in the merge conflict dialog
  	 * TODO: test the open file clauses
  	 */
@@ -63,9 +63,9 @@ class MergeUtils{
 		//Swift.print("MergeUtil's handle_merge_conflict_dialog(): " & (item 1 of the_action))
 		//last_selected_action = selected
         switch selected{
-            case options[0]://keep local version
+            case options[0]:/*keep local version*/
 				_ = GitModifier.checkOut(localRepoPath, "--ours", unmergedFile)
-			case options[1]://keep remote version
+			case options[1]:/*keep remote version*/
 				_ = GitModifier.checkOut(localRepoPath, "--theirs", unmergedFile)
 			case options[2]://keep mix of both versions
 				_ = GitModifier.checkOut(localRepoPath, branch, unmergedFile)

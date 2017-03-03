@@ -66,10 +66,8 @@ class GitSync{
      */
     static func commit(_ localRepoPath:String)->Bool{
         //Swift.print("commit()")
-        
         let statusList = StatusUtils.generateStatusList(localRepoPath)//get current status
         //Swift.print("statusList.count: " + "\(statusList.count)")
-        
         if (statusList.count > 0) {
             //Swift.print("doCommit().there is something to add or commit")
             StatusUtils.processStatusList(localRepoPath, statusList) //process current status by adding files, now the status has changed, some files may have disapared, some files now have status as renamed that prev was set for adding and del
@@ -80,10 +78,10 @@ class GitSync{
             let commitResult = GitModifier.commit(localRepoPath, (title,desc))//🌵 commit
             _ = commitResult
             //Swift.print("commitResult: " + "\(commitResult)")
-            return true//return true to indicate that the commit completed
+            return true/*return true to indicate that the commit completed*/
         }else{
             //Swift.print("nothing to add or commit")
-            return false //break the flow since there is nothing to commit or process
+            return false/*break the flow since there is nothing to commit or process*/
         }
     }
 }
