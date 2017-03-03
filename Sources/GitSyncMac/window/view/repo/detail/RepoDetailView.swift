@@ -13,7 +13,7 @@ class RepoDetailView:Element {
     var activeCheckBoxButton:CheckBoxButton?
     var messageCheckBoxButton:CheckBoxButton?
     var intervalCheckBoxButton:CheckBoxButton?
-    var changeCheckBoxButton:CheckBoxButton?
+    var fileChangeCheckBoxButton:CheckBoxButton?
     var pullCheckBoxButton:CheckBoxButton?
     /*LeverSpinner*/
     var autoSyncIntervalLeverSpinner:LeverSpinner?
@@ -30,7 +30,7 @@ class RepoDetailView:Element {
         activeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Active:", false, self))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
         messageCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Message:", false, self))
         pullCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Pull:", false, self))
-        changeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Change:", false, self))
+        fileChangeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Change:", false, self))
         intervalCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Interval:", false, self))
         /*LeverSpinner*/
         autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
@@ -48,6 +48,9 @@ class RepoDetailView:Element {
         downloadCheckBoxButton!.setChecked(repoItem.download)
         activeCheckBoxButton!.setChecked(repoItem.active)
         messageCheckBoxButton!.setChecked(repoItem.autoCommitMessage)
+        pullCheckBoxButton!.setChecked(repoItem.pullToAutoSync)
+        fileChangeCheckBoxButton!.setChecked(repoItem.fileChange)
+        intervalCheckBoxButton!.setChecked(repoItem.autoSyncInterval)
         /*LeverSpinner*/
         autoSyncIntervalLeverSpinner!.setValue(repoItem.interval.cgFloat)
     }
