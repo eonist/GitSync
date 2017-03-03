@@ -31,26 +31,15 @@ class CommitGraph:Graph{
      * Detects when touches are made
      */
     override func touchesBegan(with event:NSEvent) {
-        //Swift.print("touchesBeganWithEvent: " + "\(touchesBeganWithEvent)")
         twoFingersTouches = GestureUtils.twoFingersTouches(self, event)
     }
     /**
      * Detects if a two finger left or right swipe has occured
      */
     override func touchesMoved(with event:NSEvent) {
-        //Swift.print("touchesMovedWithEvent: " + "\(touchesMovedWithEvent)")
         let swipeType:SwipeType = GestureUtils.swipe(self, event, twoFingersTouches)
-        if (swipeType == .right){
-            Swift.print("swipe right")
-            //Do something here
-            iterate(-1)
-        }else if(swipeType == .left){
-            Swift.print("swipe left")
-            iterate(1)
-            //Do something else here
-        }else{
-            //Swift.print("swipe none")
-        }
+        if (swipeType == .right){iterate(-1)}
+        else if(swipeType == .left){iterate(1)}
     }
     override func touchesEnded(with event: NSEvent) {/*Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")*/}//for debugging
     override func touchesCancelled(with event: NSEvent) {/* Swift.print("touchesCancelledWithEvent: " + "\(touchesCancelledWithEvent)")*/}//for debugging
