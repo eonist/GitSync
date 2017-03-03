@@ -6,7 +6,7 @@ import Foundation
 class CommitUtils{
 	/*
 	 * Returns a a text "commit message title" derived from @param status_list
-	 * @param status_list: a list with records that contain staus type, file name and state
+	 * PARAM: status_list: a list with records that contain staus type, file name and state
 	 * NOTE: C,I,R seems to never be triggered, COPIED,IGNORED,REMOVED,
 	 * NOTE: In place of Renamed, Git first deletes the file then says its untracked
      */
@@ -16,7 +16,7 @@ class CommitUtils{
 		var numOfDeletedFiles:Int = 0
 		var numOfRenamedFiles:Int = 0
 		for statusItem in statusList{
-			let cmd = statusItem["cmd"]! //--TODO: rename to type or status_type
+			let cmd = statusItem["cmd"]!/*TODO: rename to type or status_type*/
 			switch cmd{
 				case "M":
 					numOfModifiedFiles +=  1
@@ -24,11 +24,11 @@ class CommitUtils{
 					numOfDeletedFiles +=  1
 				case "A":
 					numOfNewFiles +=  1
-				case "R": // --This command seems to never be triggered in git
+				case "R": /*This command seems to never be triggered in git*/
 					numOfRenamedFiles +=  1
-				case "??": // --untracked files,
+				case "??": /*untracked files*/
 					numOfNewFiles += 1
-				case "UU": // --unmerged files,
+				case "UU": /*unmerged files*/
 					numOfModifiedFiles += 1
 				default:
 					fatalError("cmd: " + "\(cmd)" + " Not supported")
@@ -51,9 +51,7 @@ class CommitUtils{
 			if (commitMessage.characters.count > 0) {  commitMessage +=  ", "}// --append comma
 			commitMessage +=  "Files renamed: " + "\(numOfRenamedFiles)"
 		}
-        
         //commitMessage = StringParser.decode(commitMessage)!
-        
 		return commitMessage
 	}
 }
