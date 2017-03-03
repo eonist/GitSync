@@ -15,22 +15,18 @@ struct RepoItem {
     var fileChange:Bool = false
     var pullToAutoSync:Bool = false
 }
-class RepoItem {
-    /*
-     */
-    static var names = (
-        localPath:"localPath",
-        interval:"interval",
-        branch:"branch",
-        keyChainItemName:"keyChainItemName",
-        upload:"upload",
-        title:"title",
-        download:"download",
-        active:"active",
-        remotePath:"remotePath",
-        autoSyncInterval:"autoSyncInterval",
-        autoCommitMessage:"autoCommitMessage",
-        fileChange:"fileChange",
-        pullToAutoSync:"pullToAutoSync"
-    )
+class RepoItemType {
+    static var localPath:String = "localPath"
+    static var interval:String = "interval"
+    static var branch:String = "branch"
+    static var keyChainItemName:String = "keyChainItemName"
+    static var upload:String = "upload"
+    static var title:String = "title"
+    static var download:String = "download"
+    static var active:String = "active"
+    static var remotePath:String = "remotePath"
+    static var autoSyncInterval:String = "autoSyncInterval"
+    static var autoCommitMessage:String = "autoCommitMessage"
+    static var fileChange:String = "fileChange"
+    static var pullToAutoSync:String = "pullToAutoSync"
 }
