@@ -53,7 +53,6 @@ class RepoDetailView:Element {
         downloadCheckBoxButton!.setChecked(repoItem.download)
         activeCheckBoxButton!.setChecked(repoItem.active)
         messageCheckBoxButton!.setChecked(repoItem.autoCommitMessage)
-        
         /*LeverSpinner*/
         autoSyncIntervalLeverSpinner!.setValue(repoItem.interval.cgFloat)
     }
@@ -66,7 +65,7 @@ class RepoDetailView:Element {
         var attrib:[String:String] = XMLParser.attributesAt(node.xml, i)!
         switch true{
             case event.assert(Event.update,immediate:nameTextInput):
-                attrib["title"] = (event as! TextFieldEvent).stringValue
+                attrib[RepoItemType.title] = (event as! TextFieldEvent).stringValue
             case event.assert(Event.update,immediate:localPathTextInput):
                 attrib["local-path"] = (event as! TextFieldEvent).stringValue
             case event.assert(Event.update,immediate:remotePathTextInput):
