@@ -5,7 +5,7 @@ import Foundation
  * MERGE Conflict dialog view
  * TODO: Make the review buttons as a clickable text in the keep radiobuttons. 
  * TODO: Inline the radiobuttons: Keep: (x) local, () remote, () both
- * TODO: remove the cancel button and enable the close button again
+ * TODO: Remove the cancel button and enable the close button again
  */
 class ConflictDialogView:TitleView{
     private var okButton:TextButton?
