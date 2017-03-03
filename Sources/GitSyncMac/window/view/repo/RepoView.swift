@@ -52,7 +52,7 @@ extension RepoView{
         var repoItem:RepoItem
         if(repoItemDict["hasChildren"] != nil || repoItemDict["isOpen"] != nil){/*Support for folders*/
             repoItem = RepoItem()
-            repoItem.title = repoItemDict["title"]!
+            repoItem.title = repoItemDict[RepoItem.names.title]!
         }else{
             repoItem = RepoUtils.repoItem(repoItemDict)
         }

@@ -15,9 +15,8 @@ struct RepoItem {
     var fileChange:Bool = false
     var pullToAutoSync:Bool = false
 }
-extension RepoItem {
-    /**
-     * Constants for RepoItem
+class RepoItem {
+    /*
      */
     static var names = (
         localPath:"localPath",
