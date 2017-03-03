@@ -75,8 +75,10 @@ class RepoDetailView:Element {
                 attrib[RepoItemType.upload] = String((event as! CheckEvent).isChecked)
             case event.assert(CheckEvent.check,immediate:downloadCheckBoxButton):
                 attrib[RepoItemType.download] = String((event as! CheckEvent).isChecked)
-            case event.assert(CheckEvent.check,immediate:messageCheckBoxButton):
+            case event.assert(CheckEvent.check,immediate:activeCheckBoxButton):
                 attrib[RepoItemType.active] = String((event as! CheckEvent).isChecked)
+            case event.assert(CheckEvent.check,immediate:messageCheckBoxButton):
+                attrib[RepoItemType.autoCommitMessage] = String((event as! CheckEvent).isChecked)
             /*LeverSpinner*/
             case event.assert(SpinnerEvent.change, autoSyncIntervalLeverSpinner):
                 attrib[RepoItemType.interval] = (event as! SpinnerEvent).value.string
