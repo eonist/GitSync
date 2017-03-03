@@ -9,8 +9,14 @@ class RepoDetailView:Element {
     var branchTextInput:TextInput?
     var broadCastCheckBoxButton:CheckBoxButton?
     var subscribeCheckBoxButton:CheckBoxButton?
-    var autoMessageCheckBoxButton:CheckBoxButton?
-    var autoSyncCheckBoxButton:CheckBoxButton?
+    /*CheckButtons*/
+    var activeCheckBoxButton:CheckBoxButton?
+    var messageCheckBoxButton:CheckBoxButton?
+    var intervalCheckBoxButton:CheckBoxButton?
+    var changeCheckBoxButton:CheckBoxButton?
+    var pullCheckBoxButton:CheckBoxButton?
+    /*LeverSpinner*/
+    var autoSyncIntervalLeverSpinner:LeverSpinner?
     
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
@@ -20,8 +26,19 @@ class RepoDetailView:Element {
         branchTextInput = addSubView(TextInput(width, 32, "Branch: ", "", self))//branch-text-input: master is default, set to dev for instance
         subscribeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Upload:", false, self))
         broadCastCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Download:", false, self))//to disable an item uncheck broadcast and subscribe
-        autoMessageCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-message:", false, self))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
-        autoSyncCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto-sync:", true, self))
+        
+        //active
+        activeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Active:", false, self))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
+        //Message
+        messageCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Message:", false, self))
+        //interval
+        intervalCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Interval:", false, self))
+        //change
+        changeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Change:", false, self))
+        //pull
+        pullCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Pull:", false, self))
+        //Interval - spinner
+        autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Auto-Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
     }
     /**
      * Populates the UI elements with data from the dp item
@@ -33,9 +50,9 @@ class RepoDetailView:Element {
         branchTextInput!.inputTextArea!.setTextValue(repoItem.branch)
         broadCastCheckBoxButton!.setChecked(repoItem.broadcast)
         subscribeCheckBoxButton!.setChecked(repoItem.subscribe)
-        autoMessageCheckBoxButton!.setChecked(repoItem.autoSync)
+        messageCheckBoxButton!.setChecked(repoItem.autoSync)
         autoSyncCheckBoxButton!.setChecked(repoItem.autoSync)
-        //autoSyncIntervalLeverSpinner!.setValue(repoData["interval"]!.cgFloat)
+        autoSyncIntervalLeverSpinner!.setValue(repoItem.interval.cgFloat)
     }
     /**
      * Modifies the dataProvider item on UI change
@@ -57,10 +74,10 @@ class RepoDetailView:Element {
                 attrib["broadcast"] = String((event as! CheckEvent).isChecked)
             case event.assert(CheckEvent.check,immediate:subscribeCheckBoxButton):
                 attrib["subscribe"] = String((event as! CheckEvent).isChecked)
-            case event.assert(CheckEvent.check,immediate:autoMessageCheckBoxButton):
+            case event.assert(CheckEvent.check,immediate:messageCheckBoxButton):
                 attrib["auto-sync"] = String((event as! CheckEvent).isChecked)
-            //case event.assert(SpinnerEvent.change, autoSyncIntervalLeverSpinner):
-                //dp.setValue(i, "interval", (event as! SpinnerEvent).value.string)
+            case event.assert(SpinnerEvent.change, autoSyncIntervalLeverSpinner):
+                attrib["interval"] = (event as! SpinnerEvent).value.string
             default:
                 break;
         }

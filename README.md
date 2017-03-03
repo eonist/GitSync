@@ -16,6 +16,15 @@
 - Commit counter is now a concurrent processes
 - Graph is now a concurrent processes
 
+**2017-03-03**  
+- AutoSync™ is now fully concurrent
+
+**2017-03-02**  
+- Refresh commit list is now fully concurrent 
+
+**2017-03-01**  
+- Graph is now fully concurrent
+
 **2017-02-26**  
 - Folders can now me renamed
 - Commit count for DateRange now works
