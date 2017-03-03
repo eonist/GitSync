@@ -55,7 +55,7 @@ class RepoDetailView:Element {
         messageCheckBoxButton!.setChecked(repoItem.autoCommitMessage)
         
         /*LeverSpinner*/
-        autoSyncIntervalLeverSpinner!.setValue(repoItem.autoSyncInterval.cgFloat)
+        autoSyncIntervalLeverSpinner!.setValue(repoItem.interval.cgFloat)
     }
     /**
      * Modifies the dataProvider item on UI change

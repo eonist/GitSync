@@ -51,7 +51,7 @@ extension RepoView{
         let repoItemDict:[String:String] = NodeParser.dataAt(treeList!.node, selectedIndex)
         var repoItem:RepoItem
         if(repoItemDict["hasChildren"] != nil || repoItemDict["isOpen"] != nil){/*Support for folders*/
-            repoItem = RepoUtils.emptyRepoItem
+            repoItem = RepoItem()
             repoItem.title = repoItemDict["title"]!
         }else{
             repoItem = RepoUtils.repoItem(repoItemDict)
