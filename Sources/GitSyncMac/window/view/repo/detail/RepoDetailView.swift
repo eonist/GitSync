@@ -26,18 +26,11 @@ class RepoDetailView:Element {
         branchTextInput = addSubView(TextInput(width, 32, "Branch: ", "", self))//branch-text-input: master is default, set to dev for instance
         downloadCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Upload:", false, self))
         uploadCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Download:", false, self))//to disable an item uncheck broadcast and subscribe
-        
-        //active
         activeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Active:", false, self))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
-        //Message
         messageCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Message:", false, self))
-        //interval
         intervalCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Interval:", false, self))
-        //change
         changeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Change:", false, self))
-        //pull
         pullCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Pull:", false, self))
-        //Interval - spinner
         autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Auto-Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
     }
     /**
