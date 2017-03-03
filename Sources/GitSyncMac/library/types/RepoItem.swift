@@ -1,52 +1,34 @@
 import Foundation
 
 struct RepoItem {
-    localPath:String,
-    interval:Int,
-    branch:String,
-    keyChainItemName:String,
-    upload:Bool,
-    title:String,
-    download:Bool,
-    active:Bool,
-    remotePath:String,
-    autoSyncInterval:Bool,
-    autoCommitMessage:Bool,
-    fileChange:Bool,
-    pullToAutoSync:Bool
+    var localPath:String = ""
+    var interval:Int = 0
+    var branch:String = ""
+    var keyChainItemName:String = ""
+    var upload:Bool = false
+    var title:String = ""
+    var download:Bool = false
+    var active:Bool = false
+    var remotePath:String = ""
+    var autoSyncInterval:Bool = false
+    var autoCommitMessage:Bool = false
+    var fileChange:Bool = false
+    var pullToAutoSync:Bool = false
 }
-
-class RepoItemTypes{
-    
-    static var names = (
-        localPath:"localPath",
-        interval:"interval",
-        branch:"branch",
-        keyChainItemName:"keyChainItemName",
-        upload:"upload",
-        title:"title",
-        download:"download",
-        active:"active",
-        remotePath:"remotePath",
-        autoSyncInterval:"autoSyncInterval",
-        autoCommitMessage:"autoCommitMessage",
-        fileChange:"fileChange",
-        pullToAutoSync:"pullToAutoSync"
-    )
+extension RepoItem {
+  static var names = (
+      localPath:"localPath",
+      interval:"interval",
+      branch:"branch",
+      keyChainItemName:"keyChainItemName",
+      upload:"upload",
+      title:"title",
+      download:"download",
+      active:"active",
+      remotePath:"remotePath",
+      autoSyncInterval:"autoSyncInterval",
+      autoCommitMessage:"autoCommitMessage",
+      fileChange:"fileChange",
+      pullToAutoSync:"pullToAutoSync"
+  )
 }
-
-/*static var emptyRepoItem:RepoItem = (
- localPath:"",
- interval:0,
- branch:"",
- keyChainItemName:"",
- upload:false,
- title:"",
- download:false,
- active:false,
- remotePath:"",
- autoSyncInterval:false,
- autoCommitMessage:false,
- fileChange:false,
- pullToAutoSync:false
- )*/
