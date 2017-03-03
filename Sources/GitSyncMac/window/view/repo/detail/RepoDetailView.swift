@@ -59,7 +59,7 @@ class RepoDetailView:Element {
      */
     override func onEvent(_ event:Event) {
         let i:[Int] = RepoView.selectedListItemIndex
-        let node:Node = RepoView.node!
+        let node:Node = RepoView.node
         var attrib:[String:String] = XMLParser.attributesAt(node.xml, i)!
         switch true{
             case event.assert(Event.update,immediate:nameTextInput):
