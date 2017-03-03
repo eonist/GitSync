@@ -40,7 +40,7 @@ class RepoUtils{
         //print(remotePath)
         let keychainItemName:String = dict["keychain-item-name"]!
         let interval:String = dict["interval"]!//default is 1min
-        let repoItem:RepoItem = (localPath:localPath,interval:interval.int,branch:dict["branch"]!,keyChainItemName:keychainItemName,broadcast:dict["broadcast"]!.bool,title:dict["title"]!,subscribe:dict["subscribe"]!.bool,autoSync:dict["auto-sync"]!.bool,remotePath:remotePath)
+        let repoItem:RepoItem = 
         return repoItem
     }
     static func repoItem(_ xml:XML,_ idx:[Int]) -> RepoItem{
