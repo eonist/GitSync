@@ -61,7 +61,7 @@ extension CommitGraph{
      * Offsets the currentDate by +-7 days
      */
     func iterate(_ iteration:Int){
-        Swift.print("iterate" + "\(iteration)")
+        //Swift.print("iterate" + "\(iteration)")
         dayOffset += (7*iteration)
         //graphData = Utils.graphData(dayOffset, currentDate)
         let rateOfCommits = RateOfCommits()
