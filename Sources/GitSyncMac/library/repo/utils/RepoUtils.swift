@@ -33,25 +33,29 @@ class RepoUtils{
      * TODO: test if the full/partly file path still works?
      */
     static func repoItem(_ dict:[String:String]) -> RepoItem{
-        let localPath:String = dict["local-path"]! //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
-        //localPath = ShellUtils.run("echo " + StringModifier.wrapWith(localPath,"'") + " | sed 's/ /\\\\ /g'")//--Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths.
-        let remotePath:String = dict["remote-path"]!
-        //remotePath = RegExp.replace(remotePath,"^https://.+$","")//support for partial and full url, strip away the https://, since this will be added later
-        //print(remotePath)
-        let keychainItemName:String = dict["keychain-item-name"]!
-        let interval:String = dict["interval"]!//default is 1min
+        let keychainItemName:String = dict[RepoItemType.keyChainItemName]!
+        let interval:String = dict[RepoItemType.interval]!//default is 1min
         var repoItem:RepoItem = RepoItem()
+        let localPath:String = dict[RepoItemType.localPath]! //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
+        //localPath = ShellUtils.run("echo " + StringModifier.wrapWith(localPath,"'") + " | sed 's/ /\\\\ /g'")//--Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths.
         repoItem.localPath = localPath
         repoItem.interval = interval.int
-        repoItem.branch = dict["branch"]!
+        repoItem.branch = dict[RepoItemType.branch]!
         repoItem.keyChainItemName = keychainItemName
-        repoItem.upload = dict["broadcast"]!.bool
-        repoItem.title = dict["title"]!
-        repoItem.download = dict["subscribe"]!.bool
-        repoItem.active = dict["auto-sync"]!.bool
+        repoItem.upload = dict[RepoItemType.upload]!.bool
+        repoItem.title = dict[RepoItemType.title]!
+        repoItem.download = dict[RepoItemType.download]!.bool
+        repoItem.active = dict[RepoItemType.active]!.bool
+        let remotePath:String = dict[RepoItemType.remotePath]!
+        //remotePath = RegExp.replace(remotePath,"^https://.+$","")//support for partial and full url, strip away the https://, since this will be added later
+        //print(remotePath)
         repoItem.remotePath = remotePath
         return repoItem
     }
+    /**
+     * Returns an RepoItem for PARAM: xml at PARAM: idx
+     * PARAM: idx: matrixIndex
+     */
     static func repoItem(_ xml:XML,_ idx:[Int]) -> RepoItem{
         let child:XML = XMLParser.childAt(xml, idx)!
         let dict:[String:String] = child.attribs
