@@ -8,7 +8,7 @@ class RepoItemUtils{
     /**
      * Returns a flat Array of RepoItems derived from a nested xml Structure (also skips folders)
      */
-    static var repoList:[RepoItem]{
+    static var repoList:[RepoItem]{//rename to repoListFlattened
         let repoXML:XML
         if(RepoView.node != nil){
             repoXML = RepoView.node!.xml//re-use if it already exists
