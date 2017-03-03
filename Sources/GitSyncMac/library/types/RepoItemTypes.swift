@@ -16,7 +16,7 @@ typealias RepoItem = (
     pullToAutoSync:Bool
 )
 class RepoItemTypes{
-    static var emptyRepoItem:RepoItem = (
+    static var emptyRepoItem:' = (
         localPath:"",
         interval:0,
         branch:"",
