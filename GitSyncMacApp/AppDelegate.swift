@@ -20,9 +20,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //rateOfCommitsTest()
         
         initApp()
-        //keep the current design
-        //rather write code that detects frequency of use. That way interval, file change etc doesnt matter and can be removed.
-        //
+        //Continue here
+            //keep the current design
+            //rather write code that detects frequency of use. That way interval, file change etc doesnt matter and can be removed.
+            //
         
         //_ = ASyncTest()
         //_ = AsyncTest2()
