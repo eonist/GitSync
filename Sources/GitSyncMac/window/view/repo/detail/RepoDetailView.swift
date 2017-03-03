@@ -48,10 +48,12 @@ class RepoDetailView:Element {
         localPathTextInput!.inputTextArea!.setTextValue(repoItem.localPath)
         remotePathTextInput!.inputTextArea!.setTextValue(repoItem.remotePath)
         branchTextInput!.inputTextArea!.setTextValue(repoItem.branch)
+        /*CheckButtons*/
         broadCastCheckBoxButton!.setChecked(repoItem.broadcast)
         subscribeCheckBoxButton!.setChecked(repoItem.subscribe)
         messageCheckBoxButton!.setChecked(repoItem.autoSync)
-        autoSyncCheckBoxButton!.setChecked(repoItem.autoSync)
+        activeCheckBoxButton!.setChecked(repoItem.autoSync)
+        /*LeverSpinner*/
         autoSyncIntervalLeverSpinner!.setValue(repoItem.interval.cgFloat)
     }
     /**
