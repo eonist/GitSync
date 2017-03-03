@@ -21,12 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //rateOfCommitsTest()
         
         initApp()
-        
-        //continue here:
-            //and maybe even test deep groups aswell? 🤔
-            //there is a bug in the commitdb.add method. the latest commits doesn't get added correctly. 👈
-            //add thread groups to graph aswell 👈
-        
+                
         //_ = ASyncTest()
         //_ = AsyncTest2()
         
