@@ -49,12 +49,12 @@ class RepoDetailView:Element {
         remotePathTextInput!.inputTextArea!.setTextValue(repoItem.remotePath)
         branchTextInput!.inputTextArea!.setTextValue(repoItem.branch)
         /*CheckButtons*/
-        broadCastCheckBoxButton!.setChecked(repoItem.broadcast)
-        subscribeCheckBoxButton!.setChecked(repoItem.subscribe)
-        messageCheckBoxButton!.setChecked(repoItem.autoSync)
-        activeCheckBoxButton!.setChecked(repoItem.autoSync)
+        broadCastCheckBoxButton!.setChecked(repoItem.upload)
+        subscribeCheckBoxButton!.setChecked(repoItem.download)
+        messageCheckBoxButton!.setChecked(repoItem.autoCommitMessage)
+        activeCheckBoxButton!.setChecked(repoItem.active)
         /*LeverSpinner*/
-        autoSyncIntervalLeverSpinner!.setValue(repoItem.interval.cgFloat)
+        autoSyncIntervalLeverSpinner!.setValue(repoItem.autoSyncInterval.cgFloat)
     }
     /**
      * Modifies the dataProvider item on UI change
