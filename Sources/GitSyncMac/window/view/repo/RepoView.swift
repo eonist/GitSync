@@ -10,11 +10,7 @@ class RepoView:Element {
     static var selectedListItemIndex:[Int] = []
     private static var _node:Node?
     static var node:Node {/*loads 1 time*/
-        if(_node != nil){
-            let xml = FileParser.xml(RepoView.repoList.tildePath)
-            return Node(xml)
-        }
-        
+        return _node ?? Node(FileParser.xml(RepoView.repoList.tildePath))
     }
     var treeList:TreeList?// {return RepoView.list}
     var contextMenu:RepoContextMenu?
@@ -22,7 +18,7 @@ class RepoView:Element {
     override func resolveSkin() {
         //Swift.print("RepoView.resolveSkin()")
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
-        treeList = addSubView(SliderTreeList(width, height-24, 24, RepoView.node!,self))
+        treeList = addSubView(SliderTreeList(width, height-24, 24, RepoView.node,self))
         contextMenu = RepoContextMenu(treeList!)
         if(RepoView.selectedListItemIndex.count > 0){TreeListModifier.selectAt(treeList!, RepoView.selectedListItemIndex)}
     }
