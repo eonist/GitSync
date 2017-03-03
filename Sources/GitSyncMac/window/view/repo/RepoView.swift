@@ -15,7 +15,6 @@ class RepoView:Element {
     override func resolveSkin() {
         //Swift.print("RepoView.resolveSkin()")
         self.skin = SkinResolver.skin(self)//super.resolveSkin()//
-        
         if(RepoView.node == nil){/*loads 1 time*/
             let xml = FileParser.xml(RepoView.repoList.tildePath)//
             RepoView.node = Node(xml)
@@ -26,12 +25,9 @@ class RepoView:Element {
     }
     override func onEvent(_ event:Event) {
         if(event.type == SelectEvent.select && event.immediate === treeList){
-            //Swift.print("event.origin: " + "\(event.origin)")
             let selectedIndex:Array = TreeListParser.selectedIndex(treeList!)
             Swift.print("RepoView.onTreeListEvent() selectedIndex: " + "\(selectedIndex)")
             //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
-            //Swift.print("selectedXML.toXMLString():")
-            //Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
             onTreeListSelect()
         }else if(event.type == ButtonEvent.rightMouseDown){
             contextMenu!.rightClickItemIdx = TreeListParser.index(treeList!, event.origin as! NSView)
