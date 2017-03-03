@@ -15,7 +15,7 @@ class MainView:TitleView{
         super.init(width, height, parent, "")
     }
     override func resolveSkin() {
-        Swift.print("MainView.resolveSkin()")
+        //Swift.print("MainView.resolveSkin()")
         super.resolveSkin()
         super.textArea!.setTextValue(title)
         Sounds.startup?.play()

@@ -1,6 +1,6 @@
 import Foundation
 @testable import Utils
-typealias RepoUtils = RepoItemUtils
+typealias RepoUtils = RepoItemUtils/*Legacy support*/
 /**
  * Utility methods for parsing the repository.xml file
  */
