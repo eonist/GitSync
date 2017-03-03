@@ -17,6 +17,7 @@ class RateOfCommits{
         startTime = Date()
         var repoList:[RepoItem] = RepoUtils.repoList//.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
         Swift.print("repoList.count: " + "\(repoList.count)")
+        //the dupe free code bellow should/could be moved to RepoUtils
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
         repoCommits = rateOfCommits(repoList,dayOffset)
@@ -28,7 +29,7 @@ class RateOfCommits{
                     let work:CommitCountWork = self.repoCommits![i][e]
                     //Swift.print("launched a work item: " + "\(work.localPath)")
                     let commitCount:String = GitUtils.commitCount(work.localPath, since:work.since , until:work.until)//👈👈👈 do some work
-                    mainQueue.async {
+                    mainQueue.async {/*Jump back on main thread, because the onComplete resides there*/
                         self.repoCommits![i][e].commitCount = commitCount.int
                         self.onRateOfCommitComplete()
                     }
