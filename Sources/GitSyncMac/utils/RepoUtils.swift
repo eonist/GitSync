@@ -40,10 +40,11 @@ class RepoUtils{
         //print(remotePath)
         let keychainItemName:String = dict["keychain-item-name"]!
         let interval:String = dict["interval"]!//default is 1min
-        let repoItem:RepoItem = repoItem
+        let repoItem:RepoItem = RepoItem()
+        repoItem.localPath = localPath
         
         static var emptyRepoItem:RepoItem = (
-            localPath:localPath,
+            :localPath,
             interval:interval.int,
             branch:dict["branch"]!,
             keyChainItemName:keychainItemName,
