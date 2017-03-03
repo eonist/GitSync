@@ -67,17 +67,17 @@ class RepoDetailView:Element {
             case event.assert(Event.update,immediate:nameTextInput):
                 attrib[RepoItemType.title] = (event as! TextFieldEvent).stringValue
             case event.assert(Event.update,immediate:localPathTextInput):
-                attrib[RepoItemType.] = (event as! TextFieldEvent).stringValue
+                attrib[RepoItemType.localPath] = (event as! TextFieldEvent).stringValue
             case event.assert(Event.update,immediate:remotePathTextInput):
-                attrib["remote-path"] = (event as! TextFieldEvent).stringValue
+                attrib[RepoItemType.remotePath] = (event as! TextFieldEvent).stringValue
             case event.assert(Event.update,immediate:remotePathTextInput):
-                attrib["branch"] = (event as! TextFieldEvent).stringValue
+                attrib[RepoItemType.branch] = (event as! TextFieldEvent).stringValue
             case event.assert(CheckEvent.check,immediate:uploadCheckBoxButton):
-                attrib["broadcast"] = String((event as! CheckEvent).isChecked)
+                attrib[RepoItemType.upload] = String((event as! CheckEvent).isChecked)
             case event.assert(CheckEvent.check,immediate:downloadCheckBoxButton):
-                attrib["subscribe"] = String((event as! CheckEvent).isChecked)
+                attrib[RepoItemType.download] = String((event as! CheckEvent).isChecked)
             case event.assert(CheckEvent.check,immediate:messageCheckBoxButton):
-                attrib["auto-sync"] = String((event as! CheckEvent).isChecked)
+                attrib[RepoItemType.active] = String((event as! CheckEvent).isChecked)
             case event.assert(SpinnerEvent.change, autoSyncIntervalLeverSpinner):
                 attrib["interval"] = (event as! SpinnerEvent).value.string
             default:
