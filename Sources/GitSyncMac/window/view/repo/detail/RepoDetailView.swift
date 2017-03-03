@@ -83,8 +83,8 @@ class RepoDetailView:Element {
                 attrib[RepoItemType.pullToAutoSync] = String((event as! CheckEvent).isChecked)
             case event.assert(CheckEvent.check,immediate:fileChangeCheckBoxButton):
                 attrib[RepoItemType.fileChange] = String((event as! CheckEvent).isChecked)
-            case event.assert(CheckEvent.check,immediate:fileChangeCheckBoxButton):
-                attrib[RepoItemType.fileChange] = String((event as! CheckEvent).isChecked)
+            case event.assert(CheckEvent.check,immediate:intervalCheckBoxButton):
+                attrib[RepoItemType.autoSyncInterval] = String((event as! CheckEvent).isChecked)
             /*LeverSpinner*/
             case event.assert(SpinnerEvent.change, autoSyncIntervalLeverSpinner):
                 attrib[RepoItemType.interval] = (event as! SpinnerEvent).value.string
