@@ -61,16 +61,17 @@ class RepoDetailView:Element {
         var attrib:[String:String] = XMLParser.attributesAt(node.xml, i)!
         if(event == (Event.update,nameTextInput)){
             attrib[RepoItemType.title] = (event as! TextFieldEvent).stringValue
-        }else if(){
+        }else if(event == (Event.update,localPathTextInput)){
+            attrib[RepoItemType.localPath] = (event as! TextFieldEvent).stringValue
+        }else if(event == (Event.update,remotePathTextInput)){
+            attrib[RepoItemType.remotePath] = (event as! TextFieldEvent).stringValue
+        }else if(event == ){
             
         }
         switch true{
             
+            case event.assert():
             
-            case event.assert(Event.update,immediate:localPathTextInput):
-                attrib[RepoItemType.localPath] = (event as! TextFieldEvent).stringValue
-            case event.assert(Event.update,immediate:remotePathTextInput):
-                attrib[RepoItemType.remotePath] = (event as! TextFieldEvent).stringValue
             case event.assert(Event.update,immediate:remotePathTextInput):
                 attrib[RepoItemType.branch] = (event as! TextFieldEvent).stringValue
             /*CheckButtons*/
