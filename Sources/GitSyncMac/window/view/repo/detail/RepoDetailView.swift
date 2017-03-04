@@ -59,12 +59,14 @@ class RepoDetailView:Element {
         let i:[Int] = RepoView.selectedListItemIndex
         let node:Node = RepoView.node
         var attrib:[String:String] = XMLParser.attributesAt(node.xml, i)!
-        /*if(event == ){
-         
-         }*/
+        if(event == (Event.update,nameTextInput)){
+            attrib[RepoItemType.title] = (event as! TextFieldEvent).stringValue
+        }else if(){
+            
+        }
         switch true{
-            case event.assert(Event.update,immediate:nameTextInput):
-                attrib[RepoItemType.title] = (event as! TextFieldEvent).stringValue
+            
+            
             case event.assert(Event.update,immediate:localPathTextInput):
                 attrib[RepoItemType.localPath] = (event as! TextFieldEvent).stringValue
             case event.assert(Event.update,immediate:remotePathTextInput):
