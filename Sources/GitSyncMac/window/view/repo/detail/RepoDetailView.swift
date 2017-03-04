@@ -65,19 +65,18 @@ class RepoDetailView:Element {
             attrib[RepoItemType.localPath] = (event as! TextFieldEvent).stringValue
         }else if(event == (Event.update,remotePathTextInput)){
             attrib[RepoItemType.remotePath] = (event as! TextFieldEvent).stringValue
-        }else if(event == ()){
+        }else if(event == (Event.update,remotePathTextInput)){
+            attrib[RepoItemType.branch] = (event as! TextFieldEvent).stringValue
+        }else if(event == (CheckEvent.check,uploadCheckBoxButton)){
+            attrib[RepoItemType.upload] = String((event as! CheckEvent).isChecked)
+        }else if(event == CheckEvent.check,immediate:downloadCheckBoxButton){
             
         }
         switch true{
+            /*CheckButtons*/
+            case event.assert(,immediate:):
             
             case event.assert():
-            
-            case event.assert(Event.update,immediate:remotePathTextInput):
-                attrib[RepoItemType.branch] = (event as! TextFieldEvent).stringValue
-            /*CheckButtons*/
-            case event.assert(CheckEvent.check,immediate:uploadCheckBoxButton):
-                attrib[RepoItemType.upload] = String((event as! CheckEvent).isChecked)
-            case event.assert(CheckEvent.check,immediate:downloadCheckBoxButton):
                 attrib[RepoItemType.download] = String((event as! CheckEvent).isChecked)
             case event.assert(CheckEvent.check,immediate:activeCheckBoxButton):
                 attrib[RepoItemType.active] = String((event as! CheckEvent).isChecked)
