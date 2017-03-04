@@ -17,24 +17,24 @@ class RepoDetailView:Element {
     var pullCheckBoxButton:CheckBoxButton?
     /*LeverSpinner*/
     var autoSyncIntervalLeverSpinner:LeverSpinner?
-    var itemsContainer:Container?
+    var container:Container?
     
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         //Swift.print("RepoDetailView.width: " + "\(width)")
-        itemsContainer = addSubView(Container(width,height,self,"items"))
-        nameTextInput = itemsContainer!.addSubView(TextInput(width, 32, "Name: ", "", itemsContainer))
-        localPathTextInput = itemsContainer!.addSubView(TextInput(width, 32, "Local-path: ", "", itemsContainer))
-        remotePathTextInput = itemsContainer!.addSubView(TextInput(width, 32, "Remote-path: ", "", itemsContainer))
-        branchTextInput = itemsContainer!.addSubView(TextInput(width, 32, "Branch: ", "", itemsContainer))//branch-text-input: master is default, set to dev for instance
-        autoSyncIntervalLeverSpinner = itemsContainer!.addSubView(LeverSpinner(width, 32, "Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
-        downloadCheckBoxButton = itemsContainer!.addSubView(CheckBoxButton(width, 32, "Upload:", false, itemsContainer))
-        uploadCheckBoxButton = itemsContainer!.addSubView(CheckBoxButton(width, 32, "Download:", false, itemsContainer))//to disable an item uncheck broadcast and subscribe
-        pullCheckBoxButton = itemsContainer!.addSubView(CheckBoxButton(width, 32, "Pull to refresh:", false, itemsContainer))
-        fileChangeCheckBoxButton = itemsContainer!.addSubView(CheckBoxButton(width, 32, "File change:", false, itemsContainer))
-        messageCheckBoxButton = itemsContainer!.addSubView(CheckBoxButton(width, 32, "Auto message:", false, itemsContainer))
-        activeCheckBoxButton = itemsContainer!.addSubView(CheckBoxButton(width, 32, "Active:", false, itemsContainer))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
-        intervalCheckBoxButton = itemsContainer!.addSubView(CheckBoxButton(width, 32, "Interval:", false, itemsContainer))
+        container = addSubView(Container(width,height,self,"items"))
+        nameTextInput = container!.addSubView(TextInput(width, 32, "Name: ", "", container))
+        localPathTextInput = container!.addSubView(TextInput(width, 32, "Local-path: ", "", container))
+        remotePathTextInput = container!.addSubView(TextInput(width, 32, "Remote-path: ", "", container))
+        branchTextInput = container!.addSubView(TextInput(width, 32, "Branch: ", "", container))//branch-text-input: master is default, set to dev for instance
+        autoSyncIntervalLeverSpinner = container!.addSubView(LeverSpinner(width, 32, "Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
+        downloadCheckBoxButton = container!.addSubView(CheckBoxButton(width, 32, "Upload:", false, container))
+        uploadCheckBoxButton = container!.addSubView(CheckBoxButton(width, 32, "Download:", false, container))//to disable an item uncheck broadcast and subscribe
+        pullCheckBoxButton = container!.addSubView(CheckBoxButton(width, 32, "Pull to refresh:", false, container))
+        fileChangeCheckBoxButton = container!.addSubView(CheckBoxButton(width, 32, "File change:", false, container))
+        messageCheckBoxButton = container!.addSubView(CheckBoxButton(width, 32, "Auto message:", false, container))
+        activeCheckBoxButton = container!.addSubView(CheckBoxButton(width, 32, "Active:", false, container))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
+        intervalCheckBoxButton = container!.addSubView(CheckBoxButton(width, 32, "Interval:", false, container))
     }
     /**
      * Populates the UI elements with data from the dp item
