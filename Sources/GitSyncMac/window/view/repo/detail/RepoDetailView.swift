@@ -20,7 +20,7 @@ class RepoDetailView:Element {
     
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
-        Swift.print("💋💋💋width: " + "\(width)")
+        Swift.print("💋💋💋 RepoDetailView.width: " + "\(width)")
         nameTextInput = addSubView(TextInput(width, 32, "Name: ", "", self))
         localPathTextInput = addSubView(TextInput(width, 32, "Local-path: ", "", self))
         remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", "", self))
