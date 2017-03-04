@@ -59,23 +59,23 @@ class RepoDetailView:Element {
         let i:[Int] = RepoView.selectedListItemIndex
         let node:Node = RepoView.node
         var attrib:[String:String] = XMLParser.attributesAt(node.xml, i)!
-        if(event == (Event.update,nameTextInput)){
-            attrib[RepoItemType.title] = (event as! TextFieldEvent).stringValue
-        }else if(event == (Event.update,localPathTextInput)){
-            attrib[RepoItemType.localPath] = (event as! TextFieldEvent).stringValue
-        }else if(event == (Event.update,remotePathTextInput)){
-            attrib[RepoItemType.remotePath] = (event as! TextFieldEvent).stringValue
-        }else if(event == (Event.update,remotePathTextInput)){
-            attrib[RepoItemType.branch] = (event as! TextFieldEvent).stringValue
-        }else if(event == (CheckEvent.check,uploadCheckBoxButton)){
-            attrib[RepoItemType.upload] = String((event as! CheckEvent).isChecked)
-        }else if(event == CheckEvent.check,immediate:downloadCheckBoxButton){
+        
             
-        }
+        
         switch true{
             /*CheckButtons*/
-            case event.assert(,immediate:):
-            
+            case (Event.update,nameTextInput):
+                attrib[RepoItemType.title] = (event as! TextFieldEvent).stringValue
+            case (Event.update,localPathTextInput):
+                attrib[RepoItemType.localPath] = (event as! TextFieldEvent).stringValue
+            case (Event.update,remotePathTextInput):
+                attrib[RepoItemType.remotePath] = (event as! TextFieldEvent).stringValue
+            case (Event.update,remotePathTextInput):
+                attrib[RepoItemType.branch] = (event as! TextFieldEvent).stringValue
+            case (event == (CheckEvent.check,uploadCheckBoxButton)
+                attrib[RepoItemType.upload] = String((event as! CheckEvent).isChecked)
+            case CheckEvent.check,downloadCheckBoxButton):
+    
             case event.assert():
                 attrib[RepoItemType.download] = String((event as! CheckEvent).isChecked)
             case event.assert(CheckEvent.check,immediate:activeCheckBoxButton):
