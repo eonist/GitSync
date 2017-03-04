@@ -62,7 +62,7 @@ class RepoDetailView:Element {
         
             
         
-        switch true{
+        switch event{
             /*CheckButtons*/
             case (Event.update,nameTextInput):
                 attrib[RepoItemType.title] = (event as! TextFieldEvent).stringValue
@@ -72,24 +72,22 @@ class RepoDetailView:Element {
                 attrib[RepoItemType.remotePath] = (event as! TextFieldEvent).stringValue
             case (Event.update,remotePathTextInput):
                 attrib[RepoItemType.branch] = (event as! TextFieldEvent).stringValue
-            case (event == (CheckEvent.check,uploadCheckBoxButton)
+            case (CheckEvent.check,uploadCheckBoxButton):
                 attrib[RepoItemType.upload] = String((event as! CheckEvent).isChecked)
-            case CheckEvent.check,downloadCheckBoxButton):
-    
-            case event.assert():
+            case (CheckEvent.check,downloadCheckBoxButton):
                 attrib[RepoItemType.download] = String((event as! CheckEvent).isChecked)
-            case event.assert(CheckEvent.check,immediate:activeCheckBoxButton):
+            case (CheckEvent.check,activeCheckBoxButton):
                 attrib[RepoItemType.active] = String((event as! CheckEvent).isChecked)
-            case event.assert(CheckEvent.check,immediate:messageCheckBoxButton):
+            case (CheckEvent.check,messageCheckBoxButton):
                 attrib[RepoItemType.autoCommitMessage] = String((event as! CheckEvent).isChecked)
-            case event.assert(CheckEvent.check,immediate:pullCheckBoxButton):
+            case (CheckEvent.check,pullCheckBoxButton):
                 attrib[RepoItemType.pullToAutoSync] = String((event as! CheckEvent).isChecked)
-            case event.assert(CheckEvent.check,immediate:fileChangeCheckBoxButton):
+            case (CheckEvent.check,fileChangeCheckBoxButton):
                 attrib[RepoItemType.fileChange] = String((event as! CheckEvent).isChecked)
-            case event.assert(CheckEvent.check,immediate:intervalCheckBoxButton):
+            case (CheckEvent.check,intervalCheckBoxButton):
                 attrib[RepoItemType.autoSyncInterval] = String((event as! CheckEvent).isChecked)
             /*LeverSpinner*/
-            case event.assert(SpinnerEvent.change, autoSyncIntervalLeverSpinner):
+            case (SpinnerEvent.change, autoSyncIntervalLeverSpinner):
                 attrib[RepoItemType.interval] = (event as! SpinnerEvent).value.string
             default:
                 break;
