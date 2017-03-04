@@ -23,7 +23,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Continue here
             //keep the current design
             //rather write code that detects frequency of change. That way interval, file change etc doesnt matter and can be removed. project get updated alot
-            //
+            //Yeh but then, if remote updates really fast like when working p2p on a project really intensly. Then it wont work
+            //Ok
         
         //_ = ASyncTest()
         //_ = AsyncTest2()
