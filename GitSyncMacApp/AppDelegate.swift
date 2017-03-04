@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         initApp()
         //Continue here
             //keep the current design
-            //rather write code that detects frequency of use. That way interval, file change etc doesnt matter and can be removed.
+            //rather write code that detects frequency of change. That way interval, file change etc doesnt matter and can be removed. project get updated alot
             //
         
         //_ = ASyncTest()
