@@ -26,6 +26,7 @@ class RepoDetailView:Element {
     /*Slider*/
     var slider:VSlider?
     var sliderInterval:CGFloat?
+    let itemsHeight:CGFloat = 600
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         //Swift.print("RepoDetailView.width: " + "\(width)")
@@ -45,15 +46,17 @@ class RepoDetailView:Element {
         
         /*RubberBand*/
         let frame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
-        let itemsRect = CGRect(0,0,width,ListParser.itemsHeight(self))/*represents the total size of the content *///TODO: could be ranmed to contentRect
+        let itemsRect = CGRect(0,0,width,itemsHeight)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         mover = RubberBand(Animation.sharedInstance,setProgress,frame,itemsRect)
         mover!.event = onEvent/*Add an eventHandler for the mover object, avoids logging missing eventHandler, this has no functionality in this class, but may have in classes that extends this class*/
         /*slider*/
-        sliderInterval = floor(ListParser.itemsHeight(self) - height)/itemHeight// :TODO: use ScrollBarUtils.interval instead?// :TODO: explain what this is in a comment
+        let itemHeight:CGFloat = 24
+        sliderInterval = floor(itemsHeight - height)/itemHeight// :TODO: use ScrollBarUtils.interval instead?// :TODO: explain what this is in a comment
         slider = addSubView(VSlider(itemHeight,height,0,0,self))
-        let thumbHeight:CGFloat = SliderParser.thumbSize(height/ListParser.itemsHeight(self), slider!.height)
+        let thumbHeight:CGFloat = SliderParser.thumbSize(height/itemsHeight, slider!.height)
         slider!.setThumbHeightValue(thumbHeight)
     }
+    
     /**
      * Populates the UI elements with data from the dp item
      */
@@ -122,5 +125,17 @@ class RepoDetailView:Element {
         
         
         node.setAttributeAt(i, attrib)
+    }
+}
+extension RepoDetailView{
+    /**
+     * PARAM value: is the final y value for the lableContainer
+     * TODO: Try to use a preCalculated itemsHeight, as this can be heavy to calculate for lengthy lists
+     */
+    func setProgress(_ value:CGFloat){
+        //Swift.print("RBSliderList.setProgress() value: " + "\(value)")
+        container!.frame.y = value/*<--this is where we actully move the labelContainer*/
+        progressValue = value / -(itemsHeight - height)/*get the the scalar values from value.*/
+        slider!.setProgressValue(progressValue!)
     }
 }
