@@ -21,12 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         initApp()
         //Continue here:
-            //keep the current design
-            //rather write code that detects frequency of change. That way interval, file change etc doesnt matter and can be removed. project get updated alot
-            //Yeh but then, if remote updates really fast like when working p2p on a project really intensly. Then it wont work
-            //Ok do: up,down,msg,AutoSync (file change to sync via right click) and intervall is a global variable in prefs. KISS
-            //arrgghhh. you dont need to sync repos that you update once a month. so you need interval stepper
-            //better try to draw Atom like prefs, as you need customization to avoid overloading github and getting de-railed by getting banned for too man pings
+            //Keep the current RepoDetail design, just make it scrollable.
         
         //_ = ASyncTest()
         //_ = AsyncTest2()

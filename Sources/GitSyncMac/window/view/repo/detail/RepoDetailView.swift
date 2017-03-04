@@ -24,16 +24,17 @@ class RepoDetailView:Element {
         localPathTextInput = addSubView(TextInput(width, 32, "Local-path: ", "", self))
         remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", "", self))
         branchTextInput = addSubView(TextInput(width, 32, "Branch: ", "", self))//branch-text-input: master is default, set to dev for instance
+        autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
         /*CheckButtons*/
+        
         downloadCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Upload:", false, self))
         uploadCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Download:", false, self))//to disable an item uncheck broadcast and subscribe
-        activeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Active:", false, self))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
-        messageCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Message:", false, self))
+        /*LeverSpinner*/
         pullCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Pull:", false, self))
         fileChangeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Change:", false, self))
+        messageCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Message:", false, self))
+        activeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Active:", false, self))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
         intervalCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Interval:", false, self))
-        /*LeverSpinner*/
-        autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
     }
     /**
      * Populates the UI elements with data from the dp item
@@ -46,13 +47,12 @@ class RepoDetailView:Element {
         /*CheckButtons*/
         uploadCheckBoxButton!.setChecked(repoItem.upload)
         downloadCheckBoxButton!.setChecked(repoItem.download)
-        activeCheckBoxButton!.setChecked(repoItem.active)
         messageCheckBoxButton!.setChecked(repoItem.autoCommitMessage)
+        intervalCheckBoxButton!.setChecked(repoItem.autoSyncInterval)
+        autoSyncIntervalLeverSpinner!.setValue(repoItem.interval.cgFloat)
+        activeCheckBoxButton!.setChecked(repoItem.active)
         pullCheckBoxButton!.setChecked(repoItem.pullToAutoSync)
         fileChangeCheckBoxButton!.setChecked(repoItem.fileChange)
-        intervalCheckBoxButton!.setChecked(repoItem.autoSyncInterval)
-        /*LeverSpinner*/
-        autoSyncIntervalLeverSpinner!.setValue(repoItem.interval.cgFloat)
     }
     /**
      * Modifies the dataProvider item on UI change

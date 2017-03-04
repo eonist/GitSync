@@ -1,10 +1,9 @@
 import Foundation
 @testable import Utils
-typealias RepoUtils = RepoItemUtils/*Legacy support*/
 /**
  * Utility methods for parsing the repository.xml file
  */
-class RepoItemUtils{
+class RepoUtils {
     /**
      * Returns a flat Array of RepoItems derived from a nested xml Structure (also skips folders)
      */

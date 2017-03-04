@@ -4,6 +4,7 @@ import Foundation
 typealias FreshnessItem = (repo:RepoItem,freshness:CGFloat)
 /**
  * Freshness level of every repo is calculated
+ * DEPRECATION NOTE: Doesnt work in a multithreaded scenario
  */
 class Freshness { 
     var onFreshnessSortComplete:(_ sortableRepoList:[FreshnessItem])->Void = {_ in print("⚠️️⚠️️⚠️️ Freshness.onFreshnessSortComplete completed but no onComplete is currently attached")}
