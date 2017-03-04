@@ -20,20 +20,17 @@ class RepoDetailView:Element {
     
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
-        Swift.print("💋💋💋 RepoDetailView.width: " + "\(width)")
+        //Swift.print("RepoDetailView.width: " + "\(width)")
         nameTextInput = addSubView(TextInput(width, 32, "Name: ", "", self))
         localPathTextInput = addSubView(TextInput(width, 32, "Local-path: ", "", self))
         remotePathTextInput = addSubView(TextInput(width, 32, "Remote-path: ", "", self))
         branchTextInput = addSubView(TextInput(width, 32, "Branch: ", "", self))//branch-text-input: master is default, set to dev for instance
         autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
-        /*CheckButtons*/
-        
         downloadCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Upload:", false, self))
         uploadCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Download:", false, self))//to disable an item uncheck broadcast and subscribe
-        /*LeverSpinner*/
-        pullCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Pull:", false, self))
-        fileChangeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Change:", false, self))
-        messageCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Message:", false, self))
+        pullCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Pull to refresh:", false, self))
+        fileChangeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "File change:", false, self))
+        messageCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Auto message:", false, self))
         activeCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Active:", false, self))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
         intervalCheckBoxButton = addSubView(CheckBoxButton(width, 32, "Interval:", false, self))
     }
