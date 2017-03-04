@@ -65,7 +65,7 @@ class RepoDetailView:Element {
             attrib[RepoItemType.localPath] = (event as! TextFieldEvent).stringValue
         }else if(event == (Event.update,remotePathTextInput)){
             attrib[RepoItemType.remotePath] = (event as! TextFieldEvent).stringValue
-        }else if(event == ){
+        }else if(event == ()){
             
         }
         switch true{
