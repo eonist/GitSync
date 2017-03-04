@@ -59,11 +59,8 @@ class RepoDetailView:Element {
         let i:[Int] = RepoView.selectedListItemIndex
         let node:Node = RepoView.node
         var attrib:[String:String] = XMLParser.attributesAt(node.xml, i)!
-        
-            
-        
         switch event{
-            /*CheckButtons*/
+            /*TextInput*/
             case (Event.update,nameTextInput):
                 attrib[RepoItemType.title] = (event as! TextFieldEvent).stringValue
             case (Event.update,localPathTextInput):
@@ -72,6 +69,7 @@ class RepoDetailView:Element {
                 attrib[RepoItemType.remotePath] = (event as! TextFieldEvent).stringValue
             case (Event.update,remotePathTextInput):
                 attrib[RepoItemType.branch] = (event as! TextFieldEvent).stringValue
+            /*CheckButtons*/
             case (CheckEvent.check,uploadCheckBoxButton):
                 attrib[RepoItemType.upload] = String((event as! CheckEvent).isChecked)
             case (CheckEvent.check,downloadCheckBoxButton):
