@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Utils
 @testable import Element
 
@@ -56,25 +56,15 @@ class RepoDetailView:Element {
         let thumbHeight:CGFloat = SliderParser.thumbSize(height/itemsHeight, slider!.height)
         slider!.setThumbHeightValue(thumbHeight)
     }
-    
     /**
-     * Populates the UI elements with data from the dp item
+     * NOTE: this method overides the Native NSView scrollWheel method
      */
-    func setRepoData(_ repoItem:RepoItem){
-        nameTextInput!.inputTextArea!.setTextValue(repoItem.title)
-        localPathTextInput!.inputTextArea!.setTextValue(repoItem.localPath)
-        remotePathTextInput!.inputTextArea!.setTextValue(repoItem.remotePath)
-        branchTextInput!.inputTextArea!.setTextValue(repoItem.branch)
-        /*CheckButtons*/
-        uploadCheckBoxButton!.setChecked(repoItem.upload)
-        downloadCheckBoxButton!.setChecked(repoItem.download)
-        messageCheckBoxButton!.setChecked(repoItem.autoCommitMessage)
-        intervalCheckBoxButton!.setChecked(repoItem.autoSyncInterval)
-        autoSyncIntervalLeverSpinner!.setValue(repoItem.interval.cgFloat)
-        activeCheckBoxButton!.setChecked(repoItem.active)
-        pullCheckBoxButton!.setChecked(repoItem.pullToAutoSync)
-        fileChangeCheckBoxButton!.setChecked(repoItem.fileChange)
+    override func scrollWheel(with event: NSEvent) {
+        scroll(event)//forward the event to the scrollExtension
+        if(event.phase == NSEventPhase.changed){setProgress(mover!.result)}/*direct manipulation*/
+        super.scrollWheel(with: event)/*keep forwarding the scrollWheel event for NSViews higher up the hierarcy to listen to*/
     }
+    
     /**
      * Modifies the dataProvider item on UI change
      */
@@ -137,5 +127,23 @@ extension RepoDetailView{
         container!.frame.y = value/*<--this is where we actully move the labelContainer*/
         progressValue = value / -(itemsHeight - height)/*get the the scalar values from value.*/
         slider!.setProgressValue(progressValue!)
+    }
+    /**
+     * Populates the UI elements with data from the dp item
+     */
+    func setRepoData(_ repoItem:RepoItem){
+        nameTextInput!.inputTextArea!.setTextValue(repoItem.title)
+        localPathTextInput!.inputTextArea!.setTextValue(repoItem.localPath)
+        remotePathTextInput!.inputTextArea!.setTextValue(repoItem.remotePath)
+        branchTextInput!.inputTextArea!.setTextValue(repoItem.branch)
+        /*CheckButtons*/
+        uploadCheckBoxButton!.setChecked(repoItem.upload)
+        downloadCheckBoxButton!.setChecked(repoItem.download)
+        messageCheckBoxButton!.setChecked(repoItem.autoCommitMessage)
+        intervalCheckBoxButton!.setChecked(repoItem.autoSyncInterval)
+        autoSyncIntervalLeverSpinner!.setValue(repoItem.interval.cgFloat)
+        activeCheckBoxButton!.setChecked(repoItem.active)
+        pullCheckBoxButton!.setChecked(repoItem.pullToAutoSync)
+        fileChangeCheckBoxButton!.setChecked(repoItem.fileChange)
     }
 }
