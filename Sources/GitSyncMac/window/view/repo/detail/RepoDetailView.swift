@@ -36,7 +36,8 @@ class RepoDetailView:SliderView{
     }
     /**
      * Modifies the dataProvider item on UI change
-     * TODO: Might need to change to origin testing 
+     * TODO: Collectivly test for event type, then anrrow down on origin
+     * TODO: Might need to change to origin testing since these items now are in the container. So event.orgin === downloadButoon.checkBox
      */
     override func onEvent(_ event:Event) {
         let i:[Int] = RepoView.selectedListItemIndex
@@ -72,9 +73,10 @@ class RepoDetailView:SliderView{
             attrib[RepoItemType.fileChange] = String((event as! CheckEvent).isChecked)
         }else if(event == (CheckEvent.check,intervalCheckBoxButton!)){
             attrib[RepoItemType.autoSyncInterval] = String((event as! CheckEvent).isChecked)
+        }else{//forward other events
+            super.onEvent(event)
         }
         node.setAttributeAt(i, attrib)
-        super.onEvent(event)//forward other events
     }
 }
 extension RepoDetailView{
