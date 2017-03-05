@@ -26,7 +26,8 @@ class RepoDetailView:Element,IRBScrollable,ISlidable {
     /*Slider*/
     var slider:VSlider?
     var sliderInterval:CGFloat?
-    var itemsHeight:CGFloat = {return 600}
+    var itemsHeight:CGFloat = 600
+    var itemHeight:CGFloat = 24
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         //Swift.print("RepoDetailView.width: " + "\(width)")
