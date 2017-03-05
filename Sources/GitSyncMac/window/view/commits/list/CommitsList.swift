@@ -58,7 +58,7 @@ class CommitsList:RBSliderFastList{
         //Swift.print("scrollWheelEnter")
         reUseAll()/*Refresh*/
         isTwoFingersTouching = true
-        super.scrollWheelEnter()
+        defaultScrollWheelEnter()
     }
     func scrollWheelExit(){
         isTwoFingersTouching = false
@@ -80,7 +80,7 @@ class CommitsList:RBSliderFastList{
     }
     func scrollAnimStopped(){
         //Swift.print(" CommitsList.scrollAnimStopped()")
-        super.scrollAnimStopped()
+        defaultScrollAnimStopped()
         if(isInDeactivateRefreshModeState){
             //Swift.print("reset refreshState")
             hasPulledAndReleasedBeyondRefreshSpace = false//reset
