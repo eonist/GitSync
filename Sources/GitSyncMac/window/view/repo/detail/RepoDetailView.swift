@@ -73,6 +73,7 @@ class RepoDetailView:SliderView{
             attrib[RepoItemType.autoSyncInterval] = String((event as! CheckEvent).isChecked)
         }
         node.setAttributeAt(i, attrib)
+        super.onEvent(event)//forward other events
     }
 }
 extension RepoDetailView{
