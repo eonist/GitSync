@@ -54,13 +54,13 @@ class CommitsList:RBSliderFastList{
         if(item.selected != selected){item.setSelected(selected)}//only set this if the selected state is different from the current selected state in the ISelectable
         item.y = idx * itemHeight/*position the item*/
     }
-    override func scrollWheelEnter() {
+    /*override*/ func scrollWheelEnter() {
         //Swift.print("scrollWheelEnter")
         reUseAll()/*Refresh*/
         isTwoFingersTouching = true
         super.scrollWheelEnter()
     }
-    override func scrollWheelExit(){
+    /*override*/ func scrollWheelExit(){
         isTwoFingersTouching = false
         //Swift.print("CommitList.scrollWheelExit()")
         let value = mover!.result
@@ -78,7 +78,7 @@ class CommitsList:RBSliderFastList{
             hasReleasedBeyondTop = false
         }
     }
-    override func scrollAnimStopped(){
+    /*override*/ func scrollAnimStopped(){
         //Swift.print(" CommitsList.scrollAnimStopped()")
         super.scrollAnimStopped()
         if(isInDeactivateRefreshModeState){
