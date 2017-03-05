@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-class RepoDetailView:Element,i {
+class RepoDetailView:Element,IRBScrollable,ISlidable {
     var nameTextInput:TextInput?
     var localPathTextInput:TextInput?
     var remotePathTextInput:TextInput?
@@ -17,7 +17,7 @@ class RepoDetailView:Element,i {
     var pullCheckBoxButton:CheckBoxButton?
     /*LeverSpinner*/
     var autoSyncIntervalLeverSpinner:LeverSpinner?
-    var container:Container?
+    var lableContainer:Container?
     /*RubberBand*/
     var mover:RubberBand?
     var prevScrollingDeltaY:CGFloat = 0/*this is needed in order to figure out which direction the scrollWheel is going in*/
@@ -26,23 +26,23 @@ class RepoDetailView:Element,i {
     /*Slider*/
     var slider:VSlider?
     var sliderInterval:CGFloat?
-    let itemsHeight:CGFloat = 600
+    var itemsHeight:CGFloat = {return 600}
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         //Swift.print("RepoDetailView.width: " + "\(width)")
-        container = addSubView(Container(width,height,self,"items"))
-        nameTextInput = container!.addSubView(TextInput(width, 32, "Name: ", "", container))
-        localPathTextInput = container!.addSubView(TextInput(width, 32, "Local-path: ", "", container))
-        remotePathTextInput = container!.addSubView(TextInput(width, 32, "Remote-path: ", "", container))
-        branchTextInput = container!.addSubView(TextInput(width, 32, "Branch: ", "", container))//branch-text-input: master is default, set to dev for instance
-        autoSyncIntervalLeverSpinner = container!.addSubView(LeverSpinner(width, 32, "Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
-        downloadCheckBoxButton = container!.addSubView(CheckBoxButton(width, 32, "Upload:", false, container))
-        uploadCheckBoxButton = container!.addSubView(CheckBoxButton(width, 32, "Download:", false, container))//to disable an item uncheck broadcast and subscribe
-        pullCheckBoxButton = container!.addSubView(CheckBoxButton(width, 32, "Pull to refresh:", false, container))
-        fileChangeCheckBoxButton = container!.addSubView(CheckBoxButton(width, 32, "File change:", false, container))
-        messageCheckBoxButton = container!.addSubView(CheckBoxButton(width, 32, "Auto message:", false, container))
-        activeCheckBoxButton = container!.addSubView(CheckBoxButton(width, 32, "Active:", false, container))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
-        intervalCheckBoxButton = container!.addSubView(CheckBoxButton(width, 32, "Interval:", false, container))
+        lableContainer = addSubView(Container(width,height,self,"items"))
+        nameTextInput = lableContainer!.addSubView(TextInput(width, 32, "Name: ", "", lableContainer))
+        localPathTextInput = lableContainer!.addSubView(TextInput(width, 32, "Local-path: ", "", lableContainer))
+        remotePathTextInput = lableContainer!.addSubView(TextInput(width, 32, "Remote-path: ", "", lableContainer))
+        branchTextInput = lableContainer!.addSubView(TextInput(width, 32, "Branch: ", "", lableContainer))//branch-text-input: master is default, set to dev for instance
+        autoSyncIntervalLeverSpinner = lableContainer!.addSubView(LeverSpinner(width, 32, "Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))
+        downloadCheckBoxButton = lableContainer!.addSubView(CheckBoxButton(width, 32, "Upload:", false, lableContainer))
+        uploadCheckBoxButton = lableContainer!.addSubView(CheckBoxButton(width, 32, "Download:", false, lableContainer))//to disable an item uncheck broadcast and subscribe
+        pullCheckBoxButton = lableContainer!.addSubView(CheckBoxButton(width, 32, "Pull to refresh:", false, lableContainer))
+        fileChangeCheckBoxButton = lableContainer!.addSubView(CheckBoxButton(width, 32, "File change:", false, lableContainer))
+        messageCheckBoxButton = lableContainer!.addSubView(CheckBoxButton(width, 32, "Auto message:", false, lableContainer))
+        activeCheckBoxButton = lableContainer!.addSubView(CheckBoxButton(width, 32, "Active:", false, lableContainer))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
+        intervalCheckBoxButton = lableContainer!.addSubView(CheckBoxButton(width, 32, "Interval:", false, lableContainer))
         
         /*RubberBand*/
         let frame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
@@ -59,12 +59,11 @@ class RepoDetailView:Element,i {
     /**
      * NOTE: this method overides the Native NSView scrollWheel method
      */
-    /*override func scrollWheel(with event: NSEvent) {
+    override func scrollWheel(with event: NSEvent) {
         scroll(event)//forward the event to the scrollExtension
         if(event.phase == NSEventPhase.changed){setProgress(mover!.result)}/*direct manipulation*/
         super.scrollWheel(with: event)/*keep forwarding the scrollWheel event for NSViews higher up the hierarcy to listen to*/
-    }*/
-    
+    }
     /**
      * Modifies the dataProvider item on UI change
      */
@@ -124,7 +123,7 @@ extension RepoDetailView{
      */
     func setProgress(_ value:CGFloat){
         //Swift.print("RBSliderList.setProgress() value: " + "\(value)")
-        container!.frame.y = value/*<--this is where we actully move the labelContainer*/
+        lableContainer!.frame.y = value/*<--this is where we actully move the labelContainer*/
         progressValue = value / -(itemsHeight - height)/*get the the scalar values from value.*/
         slider!.setProgressValue(progressValue!)
     }
