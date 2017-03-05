@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-class RepoDetailView:Element/*,IRBScrollable,ISlidable*/ {
+class RepoDetailView:RBSliderView/*,IRBScrollable,ISlidable*/ {
     var nameTextInput:TextInput?
     var localPathTextInput:TextInput?
     var remotePathTextInput:TextInput?
@@ -17,10 +17,9 @@ class RepoDetailView:Element/*,IRBScrollable,ISlidable*/ {
     var pullCheckBoxButton:CheckBoxButton?
     /*LeverSpinner*/
     var autoSyncIntervalLeverSpinner:LeverSpinner?
-    var lableContainer:Container?
     
     override func resolveSkin() {
-        self.skin = SkinResolver.skin(self)//super.resolveSkin()
+        super.resolveSkin()/*self.skin = SkinResolver.skin(self)*/
         //Swift.print("RepoDetailView.width: " + "\(width)")
         lableContainer = addSubView(Container(width,height,self,"items"))
         nameTextInput = lableContainer!.addSubView(TextInput(width, 32, "Name: ", "", lableContainer))
