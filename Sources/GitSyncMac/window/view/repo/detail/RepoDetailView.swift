@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-class RepoDetailView:RBSliderView/*,IRBScrollable,ISlidable*/ {
+class RepoDetailView:RBSliderView{
     var nameTextInput:TextInput?
     var localPathTextInput:TextInput?
     var remotePathTextInput:TextInput?
@@ -73,8 +73,6 @@ class RepoDetailView:RBSliderView/*,IRBScrollable,ISlidable*/ {
         }else if(event == (CheckEvent.check,intervalCheckBoxButton!)){
             attrib[RepoItemType.autoSyncInterval] = String((event as! CheckEvent).isChecked)
         }
-        
-        
         node.setAttributeAt(i, attrib)
     }
 }
