@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-class RepoDetailView:Element,IRBScrollable,ISlidable {
+class RepoDetailView:Element/*,IRBScrollable,ISlidable*/ {
     var nameTextInput:TextInput?
     var localPathTextInput:TextInput?
     var remotePathTextInput:TextInput?
