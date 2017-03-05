@@ -35,7 +35,6 @@ class RepoDetailView:RBSliderView/*,IRBScrollable,ISlidable*/ {
         activeCheckBoxButton = lableContainer!.addSubView(CheckBoxButton(width, 32, "Active:", false, lableContainer))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
         intervalCheckBoxButton = lableContainer!.addSubView(CheckBoxButton(width, 32, "Interval:", false, lableContainer))
     }
-    
     /**
      * Modifies the dataProvider item on UI change
      */
@@ -51,36 +50,27 @@ class RepoDetailView:RBSliderView/*,IRBScrollable,ISlidable*/ {
         /*TextInput*/
         else if(event == (Event.update,nameTextInput!)){
             attrib[RepoItemType.title] = (event as! TextFieldEvent).stringValue
-        }
-        else if(event == (Event.update,localPathTextInput!)){
+        }else if(event == (Event.update,localPathTextInput!)){
             attrib[RepoItemType.localPath] = (event as! TextFieldEvent).stringValue
-        }
-        else if(event == (Event.update,remotePathTextInput!)){
+        }else if(event == (Event.update,remotePathTextInput!)){
             attrib[RepoItemType.remotePath] = (event as! TextFieldEvent).stringValue
-        }
-        else if(event == (Event.update,remotePathTextInput!)){
+        }else if(event == (Event.update,remotePathTextInput!)){
             attrib[RepoItemType.branch] = (event as! TextFieldEvent).stringValue
         }
         /*CheckButtons*/
         else if(event == (CheckEvent.check,uploadCheckBoxButton!)){
             attrib[RepoItemType.upload] = String((event as! CheckEvent).isChecked)
-        }
-        else if(event == (CheckEvent.check,downloadCheckBoxButton!)){
+        }else if(event == (CheckEvent.check,downloadCheckBoxButton!)){
             attrib[RepoItemType.download] = String((event as! CheckEvent).isChecked)
-        }
-        else if(event == (CheckEvent.check,activeCheckBoxButton!)){
+        }else if(event == (CheckEvent.check,activeCheckBoxButton!)){
             attrib[RepoItemType.active] = String((event as! CheckEvent).isChecked)
-        }
-        else if(event == (CheckEvent.check,messageCheckBoxButton!)){
+        }else if(event == (CheckEvent.check,messageCheckBoxButton!)){
             attrib[RepoItemType.autoCommitMessage] = String((event as! CheckEvent).isChecked)
-        }
-        else if(event == (CheckEvent.check,pullCheckBoxButton!)){
+        }else if(event == (CheckEvent.check,pullCheckBoxButton!)){
             attrib[RepoItemType.pullToAutoSync] = String((event as! CheckEvent).isChecked)
-        }
-        else if(event == (CheckEvent.check,fileChangeCheckBoxButton!)){
+        }else if(event == (CheckEvent.check,fileChangeCheckBoxButton!)){
             attrib[RepoItemType.fileChange] = String((event as! CheckEvent).isChecked)
-        }
-        else if(event == (CheckEvent.check,intervalCheckBoxButton!)){
+        }else if(event == (CheckEvent.check,intervalCheckBoxButton!)){
             attrib[RepoItemType.autoSyncInterval] = String((event as! CheckEvent).isChecked)
         }
         
