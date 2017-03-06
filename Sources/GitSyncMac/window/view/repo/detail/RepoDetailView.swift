@@ -5,6 +5,7 @@ import Cocoa
 class RepoDetailView:ScrollView{
     override var height:CGFloat {get{return super.height-48}set{super.height = newValue}}//lazy fix, you can use negative height padding to acchive the same thing
     override var itemsHeight:CGFloat {get{return (12 * 24)+64}set{super.height = itemsHeight}}
+    override var itemHeight:CGFloat {return 24}
     /*TextInput*/
     var nameTextInput:TextInput?
     var localPathTextInput:TextInput?
