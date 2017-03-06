@@ -85,7 +85,6 @@ class RepoDetailView:ScrollView{
     }
 }
 extension RepoDetailView{
-    
     /**
      * Populates the UI elements with data from the dp item
      */
