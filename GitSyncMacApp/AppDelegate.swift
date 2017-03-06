@@ -77,10 +77,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         fileWatcher!.start()
     }
     func initApp(){
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
         win = MainWin(MainView.w,MainView.h)
         //win = ConflictDialogWin(380,400)
         //win = CommitDialogWin(400,356)
+        let url:String = "~/Desktop/ElCapitan/"
+        fileWatcher = FileWatcher([url.tildePath])
+        fileWatcher!.event = { event in
+            //Swift.print(self)
+            if(event.fileChange && FilePathParser.fileExtension(event.path) == "css") {//assert for .css file changes, so that .ds etc doesnt trigger events etc
+                Swift.print(event.description)
+                Swift.print("update to the file happened: " + "\(event.path)")
+                StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
+                let view:NSView = self.win!.contentView!//MainWin.mainView!
+                ElementModifier.refreshSkin(view as! IElement)
+                ElementModifier.floatChildren(view)
+            }
+        }
+        fileWatcher!.start()
     }
     func applicationWillTerminate(_ aNotification: Notification) {
         //store the app prefs
