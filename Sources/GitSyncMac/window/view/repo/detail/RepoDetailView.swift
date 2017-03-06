@@ -3,13 +3,15 @@ import Cocoa
 @testable import Element
 
 class RepoDetailView:SliderView{
+    override var height:CGFloat {get{}set{}}
+    /*TextInput*/
     var nameTextInput:TextInput?
     var localPathTextInput:TextInput?
     var remotePathTextInput:TextInput?
     var branchTextInput:TextInput?
+    /*CheckButtons*/
     var uploadCheckBoxButton:CheckBoxButton?
     var downloadCheckBoxButton:CheckBoxButton?
-    /*CheckButtons*/
     var activeCheckBoxButton:CheckBoxButton?
     var messageCheckBoxButton:CheckBoxButton?
     var intervalCheckBoxButton:CheckBoxButton?
@@ -17,6 +19,7 @@ class RepoDetailView:SliderView{
     var pullCheckBoxButton:CheckBoxButton?
     /*LeverSpinner*/
     var autoSyncIntervalLeverSpinner:LeverSpinner?
+    
     
     override func resolveSkin() {
         super.resolveSkin()/*self.skin = SkinResolver.skin(self)*/
