@@ -4,7 +4,7 @@ import Cocoa
 
 class RepoDetailView:SliderView{
     override var height:CGFloat {get{return super.height-48}set{super.height = newValue}}
-    override var itemsHeight:CGFloat {get{return super.itemsHeight}set{super.height = itemsHeight}}
+    override var itemsHeight:CGFloat {get{return (lableContainer!.numSubViews * 12)+64}set{super.height = itemsHeight}}
     /*TextInput*/
     var nameTextInput:TextInput?
     var localPathTextInput:TextInput?
