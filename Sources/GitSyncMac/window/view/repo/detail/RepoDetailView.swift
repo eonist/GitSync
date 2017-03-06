@@ -3,7 +3,7 @@ import Cocoa
 @testable import Element
 
 class RepoDetailView:SliderView{
-    override var height:CGFloat {get{}set{}}
+    override var height:CGFloat {get{return super.height-48}set{super.height = newValue}}
     /*TextInput*/
     var nameTextInput:TextInput?
     var localPathTextInput:TextInput?
@@ -19,7 +19,6 @@ class RepoDetailView:SliderView{
     var pullCheckBoxButton:CheckBoxButton?
     /*LeverSpinner*/
     var autoSyncIntervalLeverSpinner:LeverSpinner?
-    
     
     override func resolveSkin() {
         super.resolveSkin()/*self.skin = SkinResolver.skin(self)*/
