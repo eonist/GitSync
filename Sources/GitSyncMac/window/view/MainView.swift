@@ -20,7 +20,7 @@ class MainView:TitleView{
         super.textArea!.setTextValue(title)
         Sounds.startup?.play()
         MainWin.mainView = self
-        menuView = addSubView(MenuView(frame.size.width,(100),self))
+        menuView = addSubView(MenuView(frame.size.width,48,self))
         //Navigation.setView(MenuView.commits)/*adds the correct view to MainView*/
         //Navigation.setView(MenuView.repos)
         Navigation.setView("\(RepoDetailView.self)")
