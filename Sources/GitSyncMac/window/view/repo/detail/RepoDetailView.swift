@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-class RepoDetailView:SliderView{
+class RepoDetailView:ScrollView{
     override var height:CGFloat {get{return super.height-48}set{super.height = newValue}}
     override var itemsHeight:CGFloat {get{return (12 * 24)+64}set{super.height = itemsHeight}}
     /*TextInput*/
