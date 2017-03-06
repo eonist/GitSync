@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-class RepoDetailView:ScrollView{
+class RepoDetailView:RBScrollView{
     override var height:CGFloat {get{return super.height-48}set{super.height = newValue}}//lazy fix, you can use negative height padding to acchive the same thing
     override var itemsHeight:CGFloat {return (12 * 24)+64}
     override var itemHeight:CGFloat {return 24}
