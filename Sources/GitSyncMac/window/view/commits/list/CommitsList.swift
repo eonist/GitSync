@@ -54,6 +54,31 @@ class CommitsList:RBSliderFastList{
         if(item.selected != selected){item.setSelected(selected)}//only set this if the selected state is different from the current selected state in the ISelectable
         item.y = idx * itemHeight/*position the item*/
     }
+    
+    func scrollAnimStopped(){
+        Swift.print(" CommitsList.scrollAnimStopped()")
+        defaultScrollAnimStopped()
+        if(isInDeactivateRefreshModeState){
+            //Swift.print("reset refreshState")
+            hasPulledAndReleasedBeyondRefreshSpace = false//reset
+            isInDeactivateRefreshModeState = false//reset
+        }
+    }
+    override func onEvent(_ event:Event) {
+        //Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
+        if(event.assert(AnimEvent.completed, progressIndicator!.animator)){
+            //loopAnimationCompleted()
+        }else if(event.assert(AnimEvent.stopped, mover!)){
+            scrollAnimStopped()
+        }
+        super.onEvent(event)
+    }
+    override func setProgress(_ value:CGFloat) {
+        super.setProgress(value)
+        onProgress()
+    }
+}
+extension CommitsList{
     /**
      * NOTE: this method overides the Native NSView scrollWheel method
      */
@@ -86,30 +111,7 @@ class CommitsList:RBSliderFastList{
             hasReleasedBeyondTop = false
         }
     }
-    func scrollAnimStopped(){
-        Swift.print(" CommitsList.scrollAnimStopped()")
-        defaultScrollAnimStopped()
-        if(isInDeactivateRefreshModeState){
-            //Swift.print("reset refreshState")
-            hasPulledAndReleasedBeyondRefreshSpace = false//reset
-            isInDeactivateRefreshModeState = false//reset
-        }
-    }
-    override func onEvent(_ event:Event) {
-        //Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
-        if(event.assert(AnimEvent.completed, progressIndicator!.animator)){
-            //loopAnimationCompleted()
-        }else if(event.assert(AnimEvent.stopped, mover!)){
-            scrollAnimStopped()
-        }
-        super.onEvent(event)
-    }
-    override func setProgress(_ value:CGFloat) {
-        super.setProgress(value)
-        onProgress()
-    }
-}
-extension CommitsList{
+    
     /**
      * Basically not in refreshState
      */
