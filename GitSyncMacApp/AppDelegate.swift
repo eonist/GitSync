@@ -19,7 +19,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //rateOfCommitsTest()
         
-        initApp()
+        //initApp()
+        
+        let a:[Int] = ["2",CGFloat(3),Int(4)].reduce{0,$0.int}
+        Swift.print("a: " + "\(a)")
         //Continue here:
             //Keep the current RepoDetail design, just make it scrollable.
         
