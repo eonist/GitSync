@@ -78,40 +78,8 @@ class CommitsList:RBSliderFastList{
         onProgress()
     }
 }
+
 extension CommitsList{
-    /**
-     * NOTE: this method overides the Native NSView scrollWheel method
-     */
-    override func scrollWheel(with event:NSEvent) {
-        (self as IRBScrollable).scroll(event)/*forward the event to the scrollExtension*/
-        if(event.phase == NSEventPhase.changed){setProgress(mover!.result)}/*direct manipulation*/
-        super.scrollWheel(with:event)/*keep forwarding the scrollWheel event for NSViews higher up the hierarcy to listen to*/
-    }
-    func scrollWheelEnter() {
-        Swift.print("CommitsList.scrollWheelEnter")
-        reUseAll()/*Refresh*/
-        isTwoFingersTouching = true
-        defaultScrollWheelEnter()
-    }
-    func scrollWheelExit(){
-        Swift.print("CommitList.scrollWheelExit()")
-        isTwoFingersTouching = false
-        let value = mover!.result
-        if(value > 60){
-            //Swift.print("start animation the ProgressIndicator")
-            mover!.frame.y = 60
-            progressIndicator!.start()//1. start spinning the progressIndicator
-            hasPulledAndReleasedBeyondRefreshSpace = true
-            autoSyncAndRefreshStartTime = NSDate()//init debug timer
-            startAutoSync()/*🚪⬅️️ <- starts the process of downloading commits here*/
-        }else if (value > 0){
-            hasReleasedBeyondTop = true
-            //scrollController!.mover.topMargin = 0
-        }else{
-            hasReleasedBeyondTop = false
-        }
-    }
-    
     /**
      * Basically not in refreshState
      */
