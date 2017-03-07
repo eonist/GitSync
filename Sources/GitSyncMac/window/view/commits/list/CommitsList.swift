@@ -124,8 +124,9 @@ extension CommitsList{
      * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
      */
     func onProgress(){
-        Swift.print("CommitsList.onProgress() progressValue: " + "\(progressValue!)" + " hasPulledAndReleasedBeyondRefreshSpace: \(hasPulledAndReleasedBeyondRefreshSpace)")
         let value = mover!.result
+        Swift.print("CommitsList.onProgress() mover!.result: \(mover!.result) progressValue: \(progressValue!)  hasPulledAndReleasedBeyondRefreshSpace: \(hasPulledAndReleasedBeyondRefreshSpace)")
+        Swift.print("value: " + "\(value)")
         if(value >  0 && value < 60){//between 0 and 60
             //Swift.print("start progressing the ProgressIndicator")
             let scalarVal:CGFloat = value / 60//0 to 1 (value settle on near 0)
