@@ -21,16 +21,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //initApp()
         let list:[Any] = ["2",CGFloat(3),Int(4)]
-        let a:Int = list.reduce(0){
-            if(($0 as Int) != nil){
-                return $0 + ($1 as! Int)
+        var sum:Int = 0
+        list.forEach{
+            if($0 is Int){
+                sum += $0 as! Int
             }else if($0 is CGFloat){
-                return $0 + ($1 as! CGFloat)
+                sum += ($0 as! CGFloat).int
             }else{
-                return $0 + ($1 as! String)
+                sum += ($0 as! String).int
             }
         }
-        Swift.print("a: " + "\(a)")
+        Swift.print("sum: " + "\(sum)")
         //Continue here:
             //Keep the current RepoDetail design, just make it scrollable.
         
