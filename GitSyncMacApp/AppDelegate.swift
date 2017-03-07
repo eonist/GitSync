@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //initApp()
         
         let a:Int = ["2",CGFloat(3),Int(4)].reduce(0){
-            if($0 as Int != nil){
+            if($0 as Int){
                 return $0 + ($1 as! Int)
             }else if($0 is CGFloat){
                 return $0 + ($1 as! CGFloat)
