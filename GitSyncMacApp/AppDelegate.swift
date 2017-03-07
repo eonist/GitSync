@@ -20,18 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //rateOfCommitsTest()
         
         //initApp()
-        let list:[Any] = ["2",CGFloat(3),Int(4)]
-        var sum:Int = 0
-        list.forEach{
-            if($0 is Int){
-                sum += $0 as! Int
-            }else if($0 is CGFloat){
-                sum += ($0 as! CGFloat).int
-            }else{
-                sum += ($0 as! String).int
-            }
-        }
-        Swift.print("sum: " + "\(sum)")//9
+        
         //Continue here:
             //Keep the current RepoDetail design, just make it scrollable.
         
