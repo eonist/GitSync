@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-class CommitsList:RBSliderFastList{
+class CommitsList:RBSliderFastList,ICommitList{
     /*The following variables exists to facilitate the pull to refresh functionality*/
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
@@ -18,19 +18,6 @@ class CommitsList:RBSliderFastList{
         progressIndicator = piContainer.addSubView(ProgressIndicator(30,30,piContainer))
         progressIndicator!.frame.y = -45/*hide at init*/
         progressIndicator!.animator!.event = onEvent
-    }
-    /**
-     * Starts the auto sync process
-     */
-    func startAutoSync(){
-        let refresh = Refresh(dp as! CommitDP)/*attach the dp that RBSliderFastList uses*/
-        refresh.onComplete = loopAnimationCompleted // Attach the refresh.completion handler here
-        autoSyncStartTime = NSDate()
-        func onComplete(){
-            Swift.print("⏳ All 🔨 & 🚀 " + "\(abs(autoSyncStartTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
-            refresh.initRefresh()
-        }
-        AutoSync.initSync(onComplete)/* start the refresh process when AutoSync.onComplete is fired off*/
     }
     /**
      * Create ListItem
@@ -54,6 +41,8 @@ class CommitsList:RBSliderFastList{
         if(item.selected != selected){item.setSelected(selected)}//only set this if the selected state is different from the current selected state in the ISelectable
         item.y = idx * itemHeight/*position the item*/
     }
+    
+    //TODO:move into extension
     
     func scrollAnimStopped(){
         Swift.print(" CommitsList.scrollAnimStopped()")
@@ -90,7 +79,6 @@ protocol ICommitList:IRBSlidable{
     func reUse(_ listItem:FastListItem)
 }
 extension ICommitList{
-
     func scrollWheelEnter() {
         Swift.print("CommitsList.scrollWheelEnter")
         reUseAll()/*Refresh*/
@@ -115,9 +103,21 @@ extension ICommitList{
             hasReleasedBeyondTop = false
         }
     }
-
 }
 extension CommitsList{
+    /**
+     * Starts the auto sync process
+     */
+    func startAutoSync(){
+        let refresh = Refresh(dp as! CommitDP)/*attach the dp that RBSliderFastList uses*/
+        refresh.onComplete = loopAnimationCompleted // Attach the refresh.completion handler here
+        autoSyncStartTime = NSDate()
+        func onComplete(){
+            Swift.print("⏳ All 🔨 & 🚀 " + "\(abs(autoSyncStartTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
+            refresh.initRefresh()
+        }
+        AutoSync.initSync(onComplete)/* start the refresh process when AutoSync.onComplete is fired off*/
+    }
     /**
      * Basically not in refreshState
      */
