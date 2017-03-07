@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //rateOfCommitsTest()
         
-        //initApp()
+        initApp()
         
         //Continue here:
             //Keep the current RepoDetail design, just make it scrollable.
