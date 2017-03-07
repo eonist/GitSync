@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 sum += ($0 as! String).int
             }
         }
-        Swift.print("sum: " + "\(sum)")
+        Swift.print("sum: " + "\(sum)")//9
         //Continue here:
             //Keep the current RepoDetail design, just make it scrollable.
         
