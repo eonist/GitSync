@@ -20,9 +20,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //rateOfCommitsTest()
         
         //initApp()
-        
-        let a:Int = ["2",CGFloat(3),Int(4)].reduce(0){
-            if($0 is Int){
+        let list:[Any] = ["2",CGFloat(3),Int(4)]
+        let a:Int = list.reduce(0){
+            if(($0 as Int) != nil){
                 return $0 + ($1 as! Int)
             }else if($0 is CGFloat){
                 return $0 + ($1 as! CGFloat)
