@@ -54,6 +54,14 @@ class CommitsList:RBSliderFastList{
         if(item.selected != selected){item.setSelected(selected)}//only set this if the selected state is different from the current selected state in the ISelectable
         item.y = idx * itemHeight/*position the item*/
     }
+    /**
+     * NOTE: this method overides the Native NSView scrollWheel method
+     */
+    override func scrollWheel(with event:NSEvent) {
+        (self as IRBScrollable).scroll(event)/*forward the event to the scrollExtension*/
+        if(event.phase == NSEventPhase.changed){setProgress(mover!.result)}/*direct manipulation*/
+        super.scrollWheel(with:event)/*keep forwarding the scrollWheel event for NSViews higher up the hierarcy to listen to*/
+    }
     func scrollWheelEnter() {
         Swift.print("CommitsList.scrollWheelEnter")
         reUseAll()/*Refresh*/
