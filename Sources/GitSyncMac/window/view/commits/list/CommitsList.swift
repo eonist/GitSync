@@ -125,7 +125,7 @@ extension CommitsList{
      */
     func onProgress(){
         let value = mover!.result
-        Swift.print("CommitsList.onProgress() mover!.result: \(mover!.result) progressValue: \(progressValue!)  hasPulledAndReleasedBeyondRefreshSpace: \(hasPulledAndReleasedBeyondRefreshSpace)")
+        Swift.print("CommitsList.onProgress() mover!.result: \(mover!.result) progressValue: \(progressValue!)  hasPulledAndReleasedBeyondRefreshSpace: \(hasPulledAndReleasedBeyondRefreshSpace) isTwoFingersTouching \(isTwoFingersTouching)")
         Swift.print("value: " + "\(value)")
         if(value >  0 && value < 60){//between 0 and 60
             //Swift.print("start progressing the ProgressIndicator")
