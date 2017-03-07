@@ -52,6 +52,7 @@ class CommitsList:RBSliderFastList,ICommitList{
             hasPulledAndReleasedBeyondRefreshSpace = false//reset
             isInDeactivateRefreshModeState = false//reset
         }
+        fatalError("debug")
     }
     override func onEvent(_ event:Event) {
         //Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
