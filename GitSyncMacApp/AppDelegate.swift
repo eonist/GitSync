@@ -21,15 +21,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //initApp()
         
-        let a:[Int] = ["2",CGFloat(3),Int(4)].reduce{0,
+        let a:[Int] = ["2",CGFloat(3),Int(4)].reduce{(0,
             if($0 is Int){
-                return $0 as! Int)
+                return $0 + ($1 as! Int)
             }else if($0 is CGFloat){
-                return $0 as! CGFloat
+                return $0 + ($1 as! CGFloat)
             }else{
-                return $0 as! String
+                return $0 + ($1 as! String)
             }
-        }
+        })
         Swift.print("a: " + "\(a)")
         //Continue here:
             //Keep the current RepoDetail design, just make it scrollable.
