@@ -55,14 +55,14 @@ class CommitsList:RBSliderFastList{
         item.y = idx * itemHeight/*position the item*/
     }
     func scrollWheelEnter() {
-        //Swift.print("scrollWheelEnter")
+        Swift.print("CommitsList.scrollWheelEnter")
         reUseAll()/*Refresh*/
         isTwoFingersTouching = true
         defaultScrollWheelEnter()
     }
     func scrollWheelExit(){
+        Swift.print("CommitList.scrollWheelExit()")
         isTwoFingersTouching = false
-        //Swift.print("CommitList.scrollWheelExit()")
         let value = mover!.result
         if(value > 60){
             //Swift.print("start animation the ProgressIndicator")
@@ -124,7 +124,7 @@ extension CommitsList{
      * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
      */
     func onProgress(){
-        //Swift.print("CommitsList.onScroll() progressValue: " + "\(progressValue!)" + " hasPulledAndReleasedBeyondRefreshSpace: \(hasPulledAndReleasedBeyondRefreshSpace)")
+        Swift.print("CommitsList.onProgress() progressValue: " + "\(progressValue!)" + " hasPulledAndReleasedBeyondRefreshSpace: \(hasPulledAndReleasedBeyondRefreshSpace)")
         let value = mover!.result
         if(value >  0 && value < 60){//between 0 and 60
             //Swift.print("start progressing the ProgressIndicator")
