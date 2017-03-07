@@ -79,7 +79,7 @@ class CommitsList:RBSliderFastList{
         }
     }
     func scrollAnimStopped(){
-        //Swift.print(" CommitsList.scrollAnimStopped()")
+        Swift.print(" CommitsList.scrollAnimStopped()")
         defaultScrollAnimStopped()
         if(isInDeactivateRefreshModeState){
             //Swift.print("reset refreshState")
