@@ -4,6 +4,7 @@ import Cocoa
 @testable import GitSyncMac
 /**
  * This is the main class for the application
+ * Not one error in a million keystrokes
  */
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
