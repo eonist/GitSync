@@ -79,6 +79,8 @@ protocol ICommitList:IRBSlidable{
     func reUse(_ listItem:FastListItem)
 }
 extension ICommitList{
+    
+    //this are just add hock methods, you can just
     func scrollWheelEnter() {
         Swift.print("CommitsList.scrollWheelEnter")
         reUseAll()/*Refresh*/
