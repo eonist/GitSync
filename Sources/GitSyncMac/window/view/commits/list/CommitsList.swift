@@ -79,7 +79,7 @@ protocol ICommitList:IRBSlidable{
     func reUse(_ listItem:FastListItem)
 }
 extension CommitsList{
-    func scrollWheelEnter() {
+    override func scrollWheelEnter() {
         Swift.print("CommitsList.scrollWheelEnter")
         reUseAll()/*Refresh*/
         isTwoFingersTouching = true
