@@ -80,7 +80,8 @@ protocol ICommitList:IRBSlidable{
 }
 extension ICommitList{
     
-    //this are just add hock methods, you can just
+    //these are just add hock methods, you can just adhock them with the scrollWheel method, only 2 lines of code 
+    
     func scrollWheelEnter() {
         Swift.print("CommitsList.scrollWheelEnter")
         reUseAll()/*Refresh*/
