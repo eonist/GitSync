@@ -24,7 +24,7 @@ class ListTransitionTestView:TitleView{
         //fastList3()
         //dpTests()
         //sliderFastList()
-        //fastList()
+        fastList()
         //sliderList()
         //list()
         
