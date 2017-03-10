@@ -13,6 +13,8 @@ class ListTransitionTestWin:Window {
         //Swift.print("frame.height: " + "\(frame.size.height)")
         self.contentView = ListTransitionTestView(frame.size.width,frame.size.height)
         //self.contentView = RepoListTestView(frame.size.width,frame.size.height)
+        
+        
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }

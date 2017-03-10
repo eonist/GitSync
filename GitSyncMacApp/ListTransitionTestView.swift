@@ -24,12 +24,21 @@ class ListTransitionTestView:TitleView{
         //fastList3()
         //dpTests()
         //sliderFastList()
-        fastList()
+        //fastList()
         //sliderList()
         //list()
-        
+        createRBSliderFastList()//new👈
     }
-    
+    /**
+     *
+     */
+    func createRBSliderFastList(){
+        let xml = FileParser.xml("~/Desktop/assets/xml/longlist.xml".tildePath)//TODO:  create a method tht takes url and makes dp
+        let dp:DataProvider = DataProvider(xml)
+        //let sliderList:ISliderList = self.addSubView(SliderList(140, 73, 24, dp, self))
+        let list = self.addSubView(RBSliderFastList(140, 145, 24, dp, self))
+        _ = list
+    }
     
     var animator:Animator?
     var ellipse:EllipseGraphic?
