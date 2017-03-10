@@ -23,8 +23,8 @@ class MainView:TitleView{
         menuView = addSubView(MenuView(frame.size.width,48,self))
         Navigation.setView(MenuView.commits)/*adds the correct view to MainView*/
         //Navigation.setView(MenuView.repos)
-        //Navigation.setView("\(RepoDetailView.self)")
-        menuView!.selectGroup!.selectedAt(0)/*Selects the correct menu icon*/
+        Navigation.setView("\(RepoDetailView.self)")
+        //menuView!.selectGroup!.selectedAt(0)/*Selects the correct menu icon*/
     }
     required init(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
