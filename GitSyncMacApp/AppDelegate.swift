@@ -20,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //rateOfCommitsTest()
         
-        initApp()
+        //initApp()
         
         //Continue here:
             //Keep the current RepoDetail design, just make it scrollable.
@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //Continue: Figure out concurrent threads, check your research
         
-        //initTestWin()
+        initTestWin()
         //AutoSync.sync()
         //refreshReposTest()
     }
