@@ -20,7 +20,7 @@ class Navigation {
         let width:CGFloat = MainView.w
         let height:CGFloat = MainView.h
         /**
-         * TODO: Use class name instead of static let strings
+         * TODO: Use class name instead of static let strings, actually use enums enum can support conditions so you can get to repoDetailView with specific data etc
          */
         switch viewName{
             case MenuView.commits:
