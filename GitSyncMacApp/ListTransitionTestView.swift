@@ -263,6 +263,10 @@ class ListTransitionTestView:TitleView{
         _ = list
     }
     func createList(){/*list.xml*/
+        
+        //Continue here: 🏀
+            //use DisplacableView, because SliderList will use List. SliderList needs to get trais from Slideable etc
+        
         let dp = DataProvider(FileParser.xml("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath))/*Loads xml from a xml file on the desktop*/
         let list = self.addSubView(List(140, 144, NaN, dp,self))
         _ = list
