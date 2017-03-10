@@ -26,8 +26,8 @@ class ListTransitionTestView:TitleView{
         //sliderFastList()
         //fastList()
         //sliderList()
-        //list()
-        createRBSliderFastList()//new👈
+        createList()
+        //createRBSliderFastList()//new👈
     }
     /**
      *
@@ -262,8 +262,8 @@ class ListTransitionTestView:TitleView{
         let list = addSubView(SliderList(140,145,24,dp,self))
         _ = list
     }
-    func createList(){
-        let dp = DataProvider(FileParser.xml("~/Desktop/ElCapitan/assets/xml/list.xml".tildePath))/*Loads xml from a xml file on the desktop*/
+    func createList(){/*list.xml*/
+        let dp = DataProvider(FileParser.xml("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath))/*Loads xml from a xml file on the desktop*/
         let list = self.addSubView(List(140, 144, NaN, dp,self))
         _ = list
     }
