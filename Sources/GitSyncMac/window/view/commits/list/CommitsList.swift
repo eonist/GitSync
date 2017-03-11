@@ -67,7 +67,7 @@ class CommitsList:RBSliderFastList,ICommitList{
         onProgress()
     }
 }
-protocol ICommitList:IRBSlidable{
+protocol ICommitList: DEPRECATEDIRBSlidable {
     var isTwoFingersTouching:Bool {get set}
     var progressIndicator:ProgressIndicator? {get set}
     var hasPulledAndReleasedBeyondRefreshSpace:Bool{get set}
