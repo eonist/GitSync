@@ -3,9 +3,13 @@
 ## Milestones:
 - Concurrent AutoSync 👈
 - Responsive UI
-- Graph support for: Day,Month,Year (via pinch)
+- Graph support for: Day,Month,Year (via pinch) (maybe dynamic range zoomable graph 💡)
 
 ## Progress:
+
+**2017-03-11**
+- CommitList is now ElasticSlidableScrollableFast
+- RepoDetailView is now ElasticSlidableScrollable
 
 **2017-03-03**  
 - Auto-sync is now a concurrent process
@@ -22,7 +26,7 @@
 - Commit counter is now a concurrent processes
 - Graph is now a concurrent processes
 
-**2017-02-26**  
+**2017-Feb**  
 - Folders can now me renamed
 - Commit count for DateRange now works
 
