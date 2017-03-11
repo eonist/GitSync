@@ -23,8 +23,8 @@ class ListTransitionTestView:TitleView{
         //sliderFastList3()
         //fastList3()
         //dpTests()
-        sliderFastList()
-        //fastList()
+        //sliderFastList()
+        fastList()
         //sliderList()
         //createList()
         //createRBSliderFastList()//new👈
