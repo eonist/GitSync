@@ -22,15 +22,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         initApp()
         
-        //Continue here:
-            //Keep the current RepoDetail design, just make it scrollable.
-        
         //_ = ASyncTest()
         //_ = AsyncTest2()
         
         //Continue: Figure out concurrent threads, check your research
         
-        //initTestWin()
+        //initTestWin()🔨
         //AutoSync.sync()
         //refreshReposTest()
     }
