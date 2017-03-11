@@ -1,17 +1,17 @@
 ![mit](https://img.shields.io/badge/License-MIT-brightgreen.svg) ![platform](https://img.shields.io/badge/Platform-macOS-blue.svg) ![Lang](https://img.shields.io/badge/Language-Swift-orange.svg) [![codebeat badge](https://codebeat.co/badges/5c7a5051-2fa6-45c1-9c2c-0db5fe70837b)](https://codebeat.co/projects/github-com-eonist-gitsyncosx)
 
 ## Milestones:
-- Concurrent AutoSync 👈
-- Responsive UI
+- Concurrent AutoSync ✅
+- Responsive UI 👈
 - Graph support for: Day,Month,Year (via pinch) (maybe dynamic range zoomable graph 💡)
 
 ## Progress:
 
-**2017-03-11**
+**2017-03-11**  
 - CommitList is now ElasticSlidableScrollableFast
 - RepoDetailView is now ElasticSlidableScrollable
 
-**2017-03-03**  
+**2017-03-03**    
 - Auto-sync is now a concurrent process
 
 **2017-03-02**  
