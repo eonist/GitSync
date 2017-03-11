@@ -2,6 +2,10 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
+//Continue here: 
+    //Convert the this class to support ElasticSlideScrollList
+    //
+
 class CommitsList: DEPRECATED_RBSliderFastList,ICommitList{
     /*The following variables exists to facilitate the pull to refresh functionality*/
     var progressIndicator:ProgressIndicator?
