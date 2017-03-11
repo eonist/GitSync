@@ -4,6 +4,8 @@ import Cocoa
 
 //Continue here: 
     //Convert the this class to support ElasticSlideScrollList
+    //Rename the Components that needs renaming
+    //remove the fatalError blocks. 
     //
 
 class CommitsList: DEPRECATED_RBSliderFastList,ICommitList{
