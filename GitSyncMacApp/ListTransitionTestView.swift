@@ -23,8 +23,8 @@ class ListTransitionTestView:TitleView{
         //sliderFastList3()
         //fastList3()
         //dpTests()
-        sliderFastList()
-        //fastList()
+        //sliderFastList()
+        fastList()
         //sliderList()
         //createList()
         //createRBSliderFastList()//new👈
@@ -250,7 +250,7 @@ class ListTransitionTestView:TitleView{
     }
     func fastList(){
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
-        let list = addSubView(FastList(140,73,24,dp,self))
+        let list = addSubView(FastList2(140,73,24,dp,self))
         _ = list
     }
     func sliderList(){
