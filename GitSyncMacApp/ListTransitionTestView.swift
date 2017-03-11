@@ -116,7 +116,7 @@ class ListTransitionTestView:TitleView{
          */
         
         
-        list = addSubView(RBSliderFastList(140, 145, 24, dp, self))/*RBSliderFastList3*/
+        list = addSubView(DEPRECATED_RBSliderFastList(140, 145, 24, dp, self))/*RBSliderFastList3*/
         
         var css = "Container#btn{float:left;clear:none;}"
         css += "Container#btn TextButton{margin:6px;width:120px;}"
