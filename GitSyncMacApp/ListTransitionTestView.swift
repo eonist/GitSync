@@ -236,8 +236,6 @@ class ListTransitionTestView:TitleView{
         _ = dp.removeItemAt(0)
         _ = dp.removeItemAt(0)
     }
-    
-    
     func sliderFastList(){
         var dp:DataProvider
         dp = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
