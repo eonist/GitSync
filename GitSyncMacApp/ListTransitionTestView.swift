@@ -23,11 +23,11 @@ class ListTransitionTestView:TitleView{
         //sliderFastList3()
         //fastList3()
         //dpTests()
-        sliderFastList()
+        //sliderFastList()
         //fastList()
         //sliderList()
         //createList()
-        //createRBSliderFastList()//new👈
+        createRBSliderFastList()//new👈
     }
     /**
      *
@@ -88,6 +88,7 @@ class ListTransitionTestView:TitleView{
         let graph = graphContainer.addSubView(BarGraph(200,200/*,4*/,graphContainer))
         _ = graph
     }
+
     var list:RBSliderFastList?
     /*Add*/
     var btnTop:TextButton?
