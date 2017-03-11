@@ -25,8 +25,8 @@ class ListTransitionTestView:TitleView{
         //dpTests()
         //sliderFastList()
         //fastList()
-        //sliderList()
-        createList()
+        sliderList()
+        //createList()
         //createRBSliderFastList()//new👈
     }
     /**
@@ -254,12 +254,13 @@ class ListTransitionTestView:TitleView{
         _ = list
     }
     func sliderList(){
-        let dp:DataProvider = DataProvider()
-        dp.addItem(["title":"pink"])
-        dp.addItem(["title":"orange"])
-        dp.addItem(["title":"purple"])
+        let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
+        /*let dp:DataProvider = DataProvider()
+         dp.addItem(["title":"pink"])
+         dp.addItem(["title":"orange"])
+         dp.addItem(["title":"purple"])*/
         
-        let list = addSubView(SliderList(140,145,24,dp,self))
+        let list = addSubView(SlideScrollList2(140,145,24,dp,self))
         _ = list
     }
     func createList(){/*list.xml*/
