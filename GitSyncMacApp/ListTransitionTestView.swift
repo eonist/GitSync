@@ -89,7 +89,7 @@ class ListTransitionTestView:TitleView{
         _ = graph
     }
 
-    var list:RBSliderFastList?
+    var list: DEPRECATED_RBSliderFastList?
     /*Add*/
     var btnTop:TextButton?
     var btnBottom:TextButton?

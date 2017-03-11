@@ -4,8 +4,8 @@ import Foundation
 //teting fastlist
 class TestView:Element {
     var volumeSlider:VolumeSlider?
-    var list:FastList?
-    var sliderList:SliderList?
+    var list: DEPRECATED_FastList?
+    var sliderList: DEPRECATED_SliderList?
     override func resolveSkin() {
         Swift.print("TestView.resolveSkin()")
         skin = SkinResolver.skin(self)
@@ -20,12 +20,12 @@ class TestView:Element {
     }
     func createFastList(){
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
-        list = addSubView(FastList(140,73,24,dp,self))
+        list = addSubView(DEPRECATED_FastList(140,73,24,dp,self))
     }
     func createSliderFastList(){
         let dp = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         //let sliderList:ISliderList = self.addSubView(SliderList(140, 73, 24, dp, self))
-        let sliderList:ISliderList = self.addSubView(SliderFastList(140, 73, 24, dp, self))
+        let sliderList: DEPRECATED_ISliderList = self.addSubView(SliderFastList(140, 73, 24, dp, self))
         _ = sliderList
         /**/
         //ListModifier.select(sliderList, "white")
