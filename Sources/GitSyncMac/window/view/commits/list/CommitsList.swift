@@ -51,9 +51,9 @@ class CommitsList:ElasticSlideScrollFastList,ICommitList{
         }
         super.onEvent(event)
     }
-    func setProgress(_ value:CGFloat) {
-        Swift.print("🌵 setProgress")
-        super.setProgress(value)
-        onProgress()
-    }
-}
+    /*func setProgress(_ value:CGFloat) {
+     Swift.print("🌵 setProgress")
+     super.setProgress(value)
+     onProgress()
+     }
+     */}
