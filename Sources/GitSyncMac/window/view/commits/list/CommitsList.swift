@@ -2,6 +2,10 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
+/**
+ *
+ */
+
 class CommitsList:ElasticSlideScrollFastList,ICommitList{
     /*The following variables exists to facilitate the pull to refresh functionality*/
     var progressIndicator:ProgressIndicator?
@@ -61,9 +65,6 @@ class CommitsList:ElasticSlideScrollFastList,ICommitList{
         (self as ICommitList).scroll(event)
         //super.scrollWheel(with: event)/*⚠️️, 👈 not good, forward the event other delegates higher up in the stack*/
     }
-    
-    
-    
     /**
      *
      */
@@ -71,7 +72,7 @@ class CommitsList:ElasticSlideScrollFastList,ICommitList{
      Swift.print("scroll")
      }*/
      override func frameTick(_ value: CGFloat) {
-        Swift.print("hmm🤔")
+        //Swift.print("hmm🤔")
         setProgress(value)
         //super.frameTick(value)
      }
