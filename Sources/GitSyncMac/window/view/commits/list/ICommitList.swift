@@ -42,9 +42,6 @@ extension ICommitList{
             hasReleasedBeyondTop = false
         }
     }
-}
-
-extension ICommitList{
     /**
      * Starts the auto sync process
      */
