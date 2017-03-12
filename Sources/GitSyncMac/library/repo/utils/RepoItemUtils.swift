@@ -58,3 +58,19 @@ class RepoUtils {
         return repoItem
     }
 }
+private class Utils{
+    /**
+     *
+     */
+    static func recursiveFlatmap<T>() -> [T] {
+        var results = [T]()
+        for element in self {
+            if let sublist = element as? [Self.Generator.Element] {/*Array*/
+                results += sublist.recursiveFlatmap()
+            } else if let element = element as? T {/*Item*/
+                results.append(element)
+            }
+        }
+        return results
+    }
+}
