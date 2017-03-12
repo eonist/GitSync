@@ -2,7 +2,9 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-//
+//Think about adding tick to all elastic classes
+//Think about adding scroll as a non protocol method, as you need scrolWheel to propegate up NSView for macOS to work
+//Create a RubberBand class that helps avoid too much rb code. 
 
 class CommitsList:ElasticSlideScrollFastList,ICommitList{
     /*The following variables exists to facilitate the pull to refresh functionality*/
