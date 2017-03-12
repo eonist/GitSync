@@ -20,7 +20,7 @@ extension ICommitList{
         (self as ElasticSlidableScrollableFast).setProgress(value)
         onProgress()
     }
-    func scroll(_ event: NSEvent) {
+    func scroll(_ event:NSEvent) {
         Swift.print("🌵 ICommitList.scroll()")
         (self as ElasticSlidableScrollableFast).scroll(event)//👈 calls from shallow can overide downstream
         if(event.phase == NSEventPhase.ended || event.phase == NSEventPhase.cancelled){
@@ -59,6 +59,7 @@ extension ICommitList{
      * Starts the auto sync process
      */
     func startAutoSync(){
+        Swift.print("🌵 ICommitList.startAutoSync")
         let refresh = Refresh(dp as! CommitDP)/*attach the dp that RBSliderFastList uses*/
         refresh.onComplete = loopAnimationCompleted // Attach the refresh.completion handler here
         autoSyncStartTime = NSDate()
@@ -72,7 +73,7 @@ extension ICommitList{
      * Basically not in refreshState
      */
     func loopAnimationCompleted(){
-        //Swift.print("CommitList.loopAnimationCompleted()")
+        Swift.print("🌵 ICommitList.loopAnimationCompleted()")
         reUseAll()/*Refresh*/
         progressIndicator!.progress(0)
         progressIndicator!.stop()
@@ -111,7 +112,7 @@ extension ICommitList{
     //TODO:move into extension
     
     func scrollAnimStopped(){
-        Swift.print(" CommitsList.scrollAnimStopped()")
+        Swift.print("🌵 ICommitsList.scrollAnimStopped()")
         //⚠️️ defaultScrollAnimStopped()
         hideSlider()
         if(isInDeactivateRefreshModeState){
