@@ -2,9 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-/**
- *
- */
+//
 
 class CommitsList:ElasticSlideScrollFastList,ICommitList{
     /*The following variables exists to facilitate the pull to refresh functionality*/
