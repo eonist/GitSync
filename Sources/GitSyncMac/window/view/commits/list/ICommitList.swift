@@ -16,10 +16,14 @@ protocol ICommitList:ElasticSlidableScrollableFast {
 }
 extension ICommitList{
     /*func setProgress(_ value:CGFloat) {
-     Swift.print("🌵 ICommitList.setProgress")
-     //(self as ElasticSlidableScrollableFast).setProgress(value)
+        Swift.print("🌵 ICommitList.setProgress")
+        //(self as ElasticSlidableScrollableFast).setProgress(value)
      
      }*/
+    
+    //Continue here: 
+        //
+    
     func scroll(_ event:NSEvent) {
         Swift.print("🌵 ICommitList.scroll()")
         (self as ElasticSlidableScrollableFast).scroll(event)//👈 calls from shallow can overide downstream
