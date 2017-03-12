@@ -66,4 +66,7 @@ class CommitsList:ElasticSlideScrollFastList,ICommitList{
     func scroll(){
         Swift.print("scroll")
     }
+    func setProgress(_ value: CGFloat) {
+        Swift.print("hmm🤔")
+    }
 }
