@@ -22,7 +22,7 @@ extension ICommitList{
      }*/
     
     //Continue here: 
-        //
+        //you need setProgress calls from mover.setProgress, so you probably need to install mover in CommitList
     
     func scroll(_ event:NSEvent) {
         Swift.print("🌵 ICommitList.scroll()")
