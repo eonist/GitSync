@@ -30,7 +30,7 @@ extension ICommitList{
         Swift.print("🌵 ICommitList.scroll()")
         (self as ElasticSlidableScrollableFast).scroll(event)//👈 calls from shallow can overide downstream
         if(event.phase == NSEventPhase.changed){//this is only direct manipulation, not momentum
-            iterateProgressBar(value)
+            iterateProgressBar(mover!.result)
         }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
             (self as ICommitList).scrollWheelEnter()
         }else if(event.phase == NSEventPhase.ended || event.phase == NSEventPhase.cancelled){
