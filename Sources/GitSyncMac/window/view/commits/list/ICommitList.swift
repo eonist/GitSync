@@ -81,6 +81,7 @@ extension ICommitList{
         progressIndicator!.progress(0)
         progressIndicator!.stop()
         isInDeactivateRefreshModeState = true
+        hasReleasedBeyondTop = true/*⚠️️Quick temp fix*/
         mover!.frame.y = 0
         mover!.hasStopped = false/*reset this value to false, so that the FrameAnimatior can start again*/
         mover!.isDirectlyManipulating = false
