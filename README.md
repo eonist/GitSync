@@ -2,8 +2,8 @@
 
 ## Milestones:
 - Concurrent AutoSync ✅
-- Responsive UI 👈
-- New Graph component (dynamic/zoomable/slidable/snappable) (year/month/day/hour)
+- New Graph component (dynamic/zoomable/slidable/snappable) (year/month/day/hour) 👈
+- Responsive UI 
 
 ## Progress:
 
