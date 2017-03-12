@@ -15,7 +15,7 @@ class RateOfCommits{
      */
     func initRateOfCommitsProcess(_ dayOffset:Int){
         startTime = Date()
-        var repoList:[RepoItem] = RepoUtils.repoList//.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
+        var repoList:[RepoItem] = RepoUtils.repoListFlattened//.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
         Swift.print("repoList.count: " + "\(repoList.count)")
         //the dupe free code bellow should/could be moved to RepoUtils
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */

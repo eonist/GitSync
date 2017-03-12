@@ -7,7 +7,7 @@ class RepoUtils {
     /**
      * Returns a flat Array of RepoItems derived from a nested xml Structure (also skips folders)
      */
-    static var repoList:[RepoItem]{//rename to repoListFlattened
+    static var repoListFlattened:[RepoItem]{//rename to repoListFlattened
         let repoXML:XML = RepoView.node.xml/*📝 - FilePath*/
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
         let flatArr:[[String:String]] = arr.recursiveFlatmap()

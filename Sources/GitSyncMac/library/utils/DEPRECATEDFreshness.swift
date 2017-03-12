@@ -15,7 +15,7 @@ class Freshness {
     func initFreshnessSort(){
         Swift.print("💜 Freshness.freshnessSort()")
         var sortableRepoList:[FreshnessItem] = []//we may need more precision than CGFloat, consider using Double or better
-        let repos = RepoUtils.repoList
+        let repos = RepoUtils.repoListFlattened
         var idx:Int = 0//reset this value onComplete if you plan to reuse the freshness instance
         func onComplete(){
             idx += 1
