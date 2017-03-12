@@ -18,7 +18,7 @@ extension ICommitList{
     func setProgress(_ value:CGFloat) {
         Swift.print("🌵 ICommitList.setProgress : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
         if(hasReleasedBeyondTop){
-            iterateProgressBar()
+            iterateProgressBar(value)
         }
         (self as ElasticSlidableScrollableFast).setProgress(value)
      }
@@ -30,7 +30,7 @@ extension ICommitList{
         Swift.print("🌵 ICommitList.scroll()")
         (self as ElasticSlidableScrollableFast).scroll(event)//👈 calls from shallow can overide downstream
         if(event.phase == NSEventPhase.changed){
-            onProgress()
+            iterateProgressBar(value)
         }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
             (self as ICommitList).scrollWheelEnter()
         }else if(event.phase == NSEventPhase.ended || event.phase == NSEventPhase.cancelled){
