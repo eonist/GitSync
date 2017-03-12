@@ -62,12 +62,12 @@ private class Utils{
     /**
      *
      */
-    static func recursiveFlatmap<T>() -> [T] {
+    static func recursiveFlatmap<T>(_ arr:[T]) -> [T] {
         var results = [T]()
-        for element in self {
-            if let sublist = element as? [Self.Generator.Element] {/*Array*/
+        for element in arr {
+            if let sublist = element as? [T] {/*Array*/
                 results += sublist.recursiveFlatmap()
-            } else if let element = element as? T {/*Item*/
+            } else {/*Item*/
                 results.append(element)
             }
         }
