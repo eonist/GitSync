@@ -16,13 +16,15 @@ protocol ICommitList:ElasticSlidableScrollableFast {
 }
 extension ICommitList{
     func setProgress(_ value:CGFloat) {
-        Swift.print("🌵 setProgress")
+        Swift.print("🌵 ICommitList.setProgress")
         (self as ElasticSlidableScrollableFast).setProgress(value)
         onProgress()
     }
- 
-    
-    
+    func scroll(_ event: NSEvent) {
+        Swift.print("🌵 ICommitList.scroll()")
+        (self as ElasticSlidableScrollableFast).scroll(event)//👈 calls from shallow can overide downstream
+        
+    }
     //these are just add hock methods, you can just adhock them with the scrollWheel method, only 2 lines of code
     
     func scrollWheelEnter() {
