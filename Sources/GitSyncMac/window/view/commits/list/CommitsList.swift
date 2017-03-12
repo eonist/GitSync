@@ -72,6 +72,7 @@ class CommitsList:ElasticSlideScrollFastList,ICommitList{
      }*/
      override func frameTick(_ value: CGFloat) {
         Swift.print("hmm🤔")
-        super.frameTick(value)
+        setProgress(value)
+        //super.frameTick(value)
      }
 }

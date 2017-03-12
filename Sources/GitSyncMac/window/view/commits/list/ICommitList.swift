@@ -16,7 +16,7 @@ protocol ICommitList:ElasticSlidableScrollableFast {
 }
 extension ICommitList{
     func setProgress(_ value:CGFloat) {
-        Swift.print("🌵 ICommitList.setProgress")
+        Swift.print("🌵 ICommitList.setProgress : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
         if(hasReleasedBeyondTop){
             onProgress()
         }
