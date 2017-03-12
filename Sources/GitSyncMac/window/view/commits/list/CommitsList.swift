@@ -51,4 +51,10 @@ class CommitsList:ElasticSlideScrollFastList,ICommitList{
         }
         super.onEvent(event)
     }
+    /**
+     *
+     */
+    func scroll(){
+        Swift.print("scroll")
+    }
 }
