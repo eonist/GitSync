@@ -42,17 +42,6 @@ class CommitsList: ElasticSlideScrollFastList,ICommitList{
         item.y = idx * itemHeight/*position the item*/
     }
     
-    //TODO:move into extension
-    
-    func scrollAnimStopped(){
-        Swift.print(" CommitsList.scrollAnimStopped()")
-        defaultScrollAnimStopped()
-        if(isInDeactivateRefreshModeState){
-            //Swift.print("reset refreshState")
-            hasPulledAndReleasedBeyondRefreshSpace = false//reset
-            isInDeactivateRefreshModeState = false//reset
-        }
-    }
     override func onEvent(_ event:Event) {
         //Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
         if(event.assert(AnimEvent.completed, progressIndicator!.animator)){
@@ -62,7 +51,8 @@ class CommitsList: ElasticSlideScrollFastList,ICommitList{
         }
         super.onEvent(event)
     }
-    override func setProgress(_ value:CGFloat) {
+    func setProgress(_ value:CGFloat) {
+        Swift.print("🌵 setProgress")
         super.setProgress(value)
         onProgress()
     }
@@ -118,6 +108,19 @@ extension CommitsList{
             }
         }else if(value > 60){
             progressIndicator!.frame.y = 15
+        }
+    }
+    
+    //TODO:move into extension
+    
+    func scrollAnimStopped(){
+        Swift.print(" CommitsList.scrollAnimStopped()")
+        //⚠️️ defaultScrollAnimStopped()
+        hideSlider()
+        if(isInDeactivateRefreshModeState){
+            //Swift.print("reset refreshState")
+            hasPulledAndReleasedBeyondRefreshSpace = false//reset
+            isInDeactivateRefreshModeState = false//reset
         }
     }
 }
