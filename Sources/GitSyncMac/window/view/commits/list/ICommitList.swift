@@ -2,14 +2,15 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-protocol ICommitList:IFastList2 {
+protocol ICommitList:ElasticSlidableScrollableFast {
     /*Related to ICommitList*/
     var isTwoFingersTouching:Bool {get set}
     var progressIndicator:ProgressIndicator? {get set}
     var hasPulledAndReleasedBeyondRefreshSpace:Bool{get set}
     var hasReleasedBeyondTop:Bool {get set}
-    var autoSyncAndRefreshStartTime:NSDate? {get set}
     func startAutoSync()
+    /*Debug*/
+    var autoSyncAndRefreshStartTime:NSDate? {get set}
 }
 extension ICommitList{
     
@@ -19,7 +20,7 @@ extension ICommitList{
         Swift.print("CommitsList.scrollWheelEnter")
         reUseAll()/*Refresh*/
         isTwoFingersTouching = true
-        defaultScrollWheelEnter()
+        //⚠️️ defaultScrollWheelEnter()
     }
     func scrollWheelExit(){
         Swift.print("CommitList.scrollWheelExit()")
