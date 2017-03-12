@@ -249,7 +249,7 @@ class ListTransitionTestView:TitleView{
     }
     func fastList(){
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
-        let list = addSubView(FastList2(140,73,24,dp,self))
+        let list = addSubView(FastList(140,73,24,dp,self))
         _ = list
     }
     func sliderList(){
@@ -268,7 +268,7 @@ class ListTransitionTestView:TitleView{
             //use DisplacableView, because SliderList will use List. SliderList needs to get trais from Slideable etc
         
         let dp = DataProvider(FileParser.xml("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath))/*Loads xml from a xml file on the desktop*/
-        let list = self.addSubView(List2(140, 144, NaN, dp,self))
+        let list = self.addSubView(List(140, 144, NaN, dp,self))
         _ = list
     }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
