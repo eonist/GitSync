@@ -30,9 +30,9 @@ extension ICommitList{
         if(event.phase == NSEventPhase.changed){
             onProgress()
         }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
-            scrollWheelEnter()
+            (self as ICommitList).scrollWheelEnter()
         }else if(event.phase == NSEventPhase.ended || event.phase == NSEventPhase.cancelled){
-            scrollWheelExit()
+            (self as ICommitList).scrollWheelExit()
         }
     }
     //these are just add hock methods, you can just adhock them with the scrollWheel method, only 2 lines of code
