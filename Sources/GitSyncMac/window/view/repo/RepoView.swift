@@ -6,10 +6,10 @@ import Cocoa
  * TODO: should remember previous selected item between transitions
  */
 class RepoView:Element {
-    static var repoList:String = "~/Desktop/repo2.xml"/*📝*///"~/Desktop/assets/xml/list.xml"
+    static var repoListFilePath:String = "~/Desktop/repo2.xml"/*📝*///"~/Desktop/assets/xml/list.xml"
     static var selectedListItemIndex:[Int] = []
     static var node:Node {/*loads 1 time*/
-        let xml:XML = FileParser.xml(RepoView.repoList.tildePath)
+        let xml:XML = FileParser.xml(RepoView.repoListFilePath.tildePath)
         return Node(xml)
     }
     var treeList:TreeList?// {return RepoView.list}
