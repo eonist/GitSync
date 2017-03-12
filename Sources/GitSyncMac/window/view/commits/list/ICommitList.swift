@@ -18,7 +18,7 @@ extension ICommitList{
     func setProgress(_ value:CGFloat) {
         Swift.print("🌵 ICommitList.setProgress : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
         if(hasReleasedBeyondTop){
-            onProgress()
+            iterateProgressBar()
         }
         (self as ElasticSlidableScrollableFast).setProgress(value)
      }
@@ -30,7 +30,7 @@ extension ICommitList{
         Swift.print("🌵 ICommitList.scroll()")
         (self as ElasticSlidableScrollableFast).scroll(event)//👈 calls from shallow can overide downstream
         if(event.phase == NSEventPhase.changed){
-            //onProgress()
+            onProgress()
         }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
             (self as ICommitList).scrollWheelEnter()
         }else if(event.phase == NSEventPhase.ended || event.phase == NSEventPhase.cancelled){
@@ -98,9 +98,9 @@ extension ICommitList{
      * Happens when you use the scrollwheel or use the slider (also works while there still is momentum) (This content of this method could be inside setProgress, but its easier to reason with if it is its own method)
      * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
      */
-    func onProgress(){
+    func iterateProgressBar(_ value:CGFloat){//TODO: rename to iterateProgressBar
         Swift.print("🌵 ICommitsList.onProgress()")
-        let value = mover!.result
+        //let value = mover!.result
         Swift.print("CommitsList.onProgress() mover!.result: \(mover!.result) progressValue: \(progressValue!)  hasPulledAndReleasedBeyondRefreshSpace: \(hasPulledAndReleasedBeyondRefreshSpace) isTwoFingersTouching \(isTwoFingersTouching)")
         Swift.print("value: " + "\(value)")
         if(value >  0 && value < 60){//between 0 and 60
