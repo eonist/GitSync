@@ -99,7 +99,7 @@ extension ICommitList{
      * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
      */
     func iterateProgressBar(_ value:CGFloat){//TODO: rename to iterateProgressBar
-        Swift.print("🌵 ICommitsList.onProgress()")
+        Swift.print("🌵 ICommitsList.iterateProgressBar(\(value))")
         //let value = mover!.result
         Swift.print("CommitsList.onProgress() mover!.result: \(mover!.result) progressValue: \(progressValue!)  hasPulledAndReleasedBeyondRefreshSpace: \(hasPulledAndReleasedBeyondRefreshSpace) isTwoFingersTouching \(isTwoFingersTouching)")
         Swift.print("value: " + "\(value)")
