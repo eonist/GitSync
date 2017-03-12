@@ -11,6 +11,7 @@ protocol ICommitList:ElasticSlidableScrollableFast {
     func startAutoSync()
     /*Debug*/
     var autoSyncAndRefreshStartTime:NSDate? {get set}
+    var autoSyncStartTime:NSDate? {get set}
 }
 extension ICommitList{
     
