@@ -6,6 +6,7 @@ protocol ICommitList:ElasticSlidableScrollableFast {
     /*Related to ICommitList*/
     var isTwoFingersTouching:Bool {get set}
     var progressIndicator:ProgressIndicator? {get set}
+    var isInDeactivateRefreshModeState:Bool {get set}
     var hasPulledAndReleasedBeyondRefreshSpace:Bool{get set}
     var hasReleasedBeyondTop:Bool {get set}
     func startAutoSync()
