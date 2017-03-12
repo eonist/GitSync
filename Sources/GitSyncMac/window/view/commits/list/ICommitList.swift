@@ -23,9 +23,9 @@ extension ICommitList{
     func scroll(_ event:NSEvent) {
         Swift.print("🌵 ICommitList.scroll()")
         (self as ElasticSlidableScrollableFast).scroll(event)//👈 calls from shallow can overide downstream
-        if(event.phase == NSEventPhase.ended || event.phase == NSEventPhase.cancelled){
+        if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
             scrollWheelEnter()
-        }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
+        }else if(event.phase == NSEventPhase.ended || event.phase == NSEventPhase.cancelled){
             scrollWheelExit()
         }
     }
