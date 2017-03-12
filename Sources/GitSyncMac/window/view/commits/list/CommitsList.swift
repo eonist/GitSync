@@ -9,6 +9,7 @@ class CommitsList:ElasticSlideScrollFastList,ICommitList{
     var isInDeactivateRefreshModeState:Bool = false
     var isTwoFingersTouching = false/*is Two Fingers Touching the Touch-Pad*/
     var hasReleasedBeyondTop:Bool = false
+    /*Debug*/
     var autoSyncStartTime:NSDate?
     var autoSyncAndRefreshStartTime:NSDate?
 
