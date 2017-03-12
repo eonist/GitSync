@@ -70,8 +70,8 @@ class CommitsList:ElasticSlideScrollFastList,ICommitList{
     /*func scroll(){
      Swift.print("scroll")
      }*/
-    /* override func frameTick(_ value: CGFloat) {
-     Swift.print("hmm🤔")
-     super.frameTick(value)
-     }*/
+     override func frameTick(_ value: CGFloat) {
+        Swift.print("hmm🤔")
+        super.frameTick(value)
+     }
 }

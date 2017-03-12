@@ -15,11 +15,13 @@ protocol ICommitList:ElasticSlidableScrollableFast {
     var autoSyncStartTime:NSDate? {get set}
 }
 extension ICommitList{
-    /*func setProgress(_ value:CGFloat) {
+    func setProgress(_ value:CGFloat) {
         Swift.print("🌵 ICommitList.setProgress")
-        //(self as ElasticSlidableScrollableFast).setProgress(value)
-     
-     }*/
+        if(hasReleasedBeyondTop){
+            onProgress()
+        }
+        (self as ElasticSlidableScrollableFast).setProgress(value)
+     }
     
     //Continue here: 
         //you need setProgress calls from mover.setProgress, so you probably need to install mover in CommitList
