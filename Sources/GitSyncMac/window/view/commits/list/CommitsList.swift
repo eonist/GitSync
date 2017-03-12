@@ -2,9 +2,12 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
+//Continue here:
 //Think about adding tick to all elastic classes
 //Think about adding scroll as a non protocol method, as you need scrolWheel to propegate up NSView for macOS to work
 //Create a RubberBand class that helps avoid too much rb code. 
+//Think about the new graph component
+//do the recursiveMap method for repoList
 
 class CommitsList:ElasticSlideScrollFastList,ICommitList{
     /*The following variables exists to facilitate the pull to refresh functionality*/
