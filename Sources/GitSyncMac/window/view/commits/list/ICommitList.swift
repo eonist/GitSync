@@ -23,9 +23,6 @@ extension ICommitList{
         (self as ElasticSlidableScrollableFast).setProgress(value)
      }
     
-    //Continue here: 
-        //you need setProgress calls from mover.setProgress, so you probably need to install mover in CommitList
-    
     func scroll(_ event:NSEvent) {
         Swift.print("🌵 ICommitList.scroll()")
         (self as ElasticSlidableScrollableFast).scroll(event)//👈 calls from shallow can overide downstream
@@ -37,8 +34,6 @@ extension ICommitList{
             (self as ICommitList).scrollWheelExit()
         }
     }
-    //these are just add hock methods, you can just adhock them with the scrollWheel method, only 2 lines of code
-    
     func scrollWheelEnter() {
         Swift.print("🌵 ICommitsList.scrollWheelEnter")
         reUseAll()/*Refresh*/
