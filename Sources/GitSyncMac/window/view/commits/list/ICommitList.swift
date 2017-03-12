@@ -1,5 +1,6 @@
 import Cocoa
 @testable import Utils
+@testable import Element
 
 protocol ICommitList:IFastList2 {
     /*Related to ICommitList*/
