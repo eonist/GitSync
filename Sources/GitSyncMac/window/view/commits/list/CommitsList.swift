@@ -2,13 +2,6 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-//Continue here: 
-    //Convert the this class to support ElasticSlideScrollList 👻🏂📜
-    //Rename the Components that needs renaming pen 📝
-    //remove the fatalError blocks. 🚫
-    //try to make the recursiveFlatMap method for RepoList 🤖
-    //Draw out the new Graoh idea. 🏄
-
 class CommitsList: DEPRECATED_RBSliderFastList,ICommitList{
     /*The following variables exists to facilitate the pull to refresh functionality*/
     var progressIndicator:ProgressIndicator?
