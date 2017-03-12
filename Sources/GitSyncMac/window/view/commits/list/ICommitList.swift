@@ -15,6 +15,13 @@ protocol ICommitList:ElasticSlidableScrollableFast {
     var autoSyncStartTime:NSDate? {get set}
 }
 extension ICommitList{
+    func setProgress(_ value:CGFloat) {
+        Swift.print("🌵 setProgress")
+        (self as ElasticSlidableScrollableFast).setProgress(value)
+        onProgress()
+    }
+ 
+    
     
     //these are just add hock methods, you can just adhock them with the scrollWheel method, only 2 lines of code
     
