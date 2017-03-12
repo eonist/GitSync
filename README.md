@@ -3,7 +3,7 @@
 ## Milestones:
 - Concurrent AutoSync ✅
 - Responsive UI 👈
-- Graph support for: Day,Month,Year (via pinch) (maybe dynamic range zoomable graph 💡)
+- New Graph component (dynamic/zoomable/slidable/snappable) (year/month/day/hour)
 
 ## Progress:
 
