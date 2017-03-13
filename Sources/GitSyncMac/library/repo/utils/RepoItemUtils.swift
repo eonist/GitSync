@@ -78,12 +78,11 @@ private class Utils{
         var result:[T] = []
         var parent:[String:String]? = parent
         arr.forEach{
-            let itm = $0
             if(itm is AnyArray){/*array*/
                 let a:[Any] = itm as! [Any]
                 result += recursiveFlattened(a,overrideables,parent)
             }else{/*item*/
-                var dict:[String:String] = itm as! [String:String]
+                var dict:[String:String] = $0 as! [String:String]
                 if(parent != nil){
                     overrideables.forEach{
                         if(parent![$0] != nil){
