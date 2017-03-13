@@ -78,8 +78,8 @@ private class Utils{
         var result:[T] = []
         var parent:[String:String]? = parent
         arr.forEach{
-            if(itm is AnyArray){/*array*/
-                let a:[Any] = itm as! [Any]
+            if($0 is AnyArray){/*array*/
+                let a:[Any] = $0 as! [Any]
                 result += recursiveFlattened(a,overrideables,parent)
             }else{/*item*/
                 var dict:[String:String] = $0 as! [String:String]
@@ -91,7 +91,7 @@ private class Utils{
                     }
                 }
                 result.append(dict as! T)
-                parent = dict
+                if(dict[]){parent = dict}
             }
         }
         return result
