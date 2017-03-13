@@ -74,17 +74,17 @@ private class Utils{
      * INPUT: [[["color": "blue", "value": "003300", "title": "John"], [[["color": "orange", "value": "001122", "title": "Ben"]]]]]
      * OUTPUT: [["color": "blue", "value": "003300", "title": "John"], ["color": "blue", "value": "001122", "title": "Ben"]]
      */
-    static func recursiveFlattened<T>(_ arr:[Any], _ overrideables:[String], _ parent:[String:String]? = nil) -> [T]{
+    static func recursiveFlattened<T>(_ arr:[Any], _ overrideKeys:[String], _ parent:[String:String]? = nil) -> [T]{
         var result:[T] = []
         var parent:[String:String]? = parent
         arr.forEach{
             if($0 is AnyArray){/*array*/
                 let a:[Any] = $0 as! [Any]
-                result += recursiveFlattened(a,overrideables,parent)
+                result += recursiveFlattened(a,overrideKeys,parent)
             }else{/*item*/
                 var dict:[String:String] = $0 as! [String:String]
                 if(parent != nil){
-                    overrideables.forEach{
+                    overrideKeys.forEach{
                         if(parent![$0] != nil){
                             dict.updateValue(parent![$0]!,forKey:$0)//creates new key,value pair if non exists
                         }
@@ -93,7 +93,6 @@ private class Utils{
                 result.append(dict as! T)
                 if(dict.hasKey("isOpen") || dict.hasKey("hasChildren")){/*folders are the only things that can override*/
                     parent = dict
-                    Swift.print("override active: \(parent!["active"])" )
                 }
             }
         }
