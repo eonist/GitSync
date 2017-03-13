@@ -27,7 +27,8 @@ class RepoUtils {
         let repoXML:XML = RepoView.node.xml/*📝 - FilePath*/
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
         let overrideKeys:[String] = [RepoItemType.active,RepoItemType.autoSyncInterval,RepoItemType.download,RepoItemType.fileChange,RepoItemType.pullToAutoSync,RepoItemType.upload]/*These are the keys to the values that should be overridden*/
-        let flatArr:[[String:String]] = Utils.recursiveFlattened(arr,overrideKeys)
+        let overriders:[String] = [RepoFolderType.isOpen,RepoFolderType.hasChildren]
+        let flatArr:[[String:String]] = Utils.recursiveFlattened(arr,overrideKeys,overriders)
         let repoList:[RepoItem] = Utils.filterFolders(flatArr)//remove folders
         return repoList
     }
