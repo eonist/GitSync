@@ -30,8 +30,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //refreshReposTest()
         
         let x1:String = "<items>"
-        let x2:String = "<item title=\"John\" color=\"blue\" value=\"003300\"></item>"
-        let x3:String = "<item title=\"Ben\" color=\"orange\" value=\"001122\"></item>"
+        let x2:String = "<item title=\"John\" color=\"blue\" value=\"003300\">"
+        let x3:String = "<item title=\"Ben\" color=\"orange\" value=\"001122\"></item></item>"
         let x4:String = "</items>"
         let xml:XML = (x1 + x2 + x3 + x4).xml
         let a = XMLParser.arr(xml)
