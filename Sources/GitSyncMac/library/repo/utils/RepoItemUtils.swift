@@ -87,7 +87,7 @@ private class Utils{
                 if(parent != nil){
                     overrideables.forEach{
                         if(parent![$0] != nil){
-                            dict.updateValue(parent![$0]!,forKey:$0)
+                            dict.updateValue(parent![$0]!,forKey:$0)//creates new key,value pair if non exists
                         }
                     }
                 }
