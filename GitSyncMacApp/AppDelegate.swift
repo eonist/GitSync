@@ -42,7 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let a = XMLParser.arr(xml)
         Swift.print("a: " + "\(a)")*/
         
-        let repoList = RepoUtils.repoListFlattened
+        let repoList = RepoUtils.repoListFlattenedOverridden
         Swift.print(repoList)
     }
     /**
