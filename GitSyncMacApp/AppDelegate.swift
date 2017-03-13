@@ -31,8 +31,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //AutoSync.sync()
         //refreshReposTest()
         
-        let x:XML = "<items><item title=\"john\" color=\"blue\" value=\"003300\"></item></items>".xml
-        let a = XMLParser.arr(x)
+        let x1:String = "<items>"
+        let x2:String = "<item title=\"John\" color=\"blue\" value=\"003300\"></item>"
+        let x3:String = "<item title=\"Ben\" color=\"orange\" value=\"001122\"></item>"
+        let x4:String = "</items>"
+        let xml:XML = (x1 + x2 + x3 + x4).xml
+        let a = XMLParser.arr(xml)
         Swift.print("a: " + "\(a)")
     }
     /**
