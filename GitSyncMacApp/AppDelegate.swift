@@ -20,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //rateOfCommitsTest()
         
-        //initApp()
+        initApp()
         
         //_ = ASyncTest()
         //_ = AsyncTest2()
@@ -42,8 +42,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let a = XMLParser.arr(xml)
         Swift.print("a: " + "\(a)")*/
         
-        let repoList = RepoUtils.repoListFlattenedOverridden
-        Swift.print(repoList)
+        //let repoList = RepoUtils.repoListFlattenedOverridden
+        //Swift.print(repoList)
         
         // it works, now activate this in a filter, if active is false then dont return repo, easy! test it first, then test gitpull 
     }
@@ -122,6 +122,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Swift.print("💾 Write PrefsView to: prefs.xml")
         }
         Swift.print("💾 Write RepoList to: repo.xml")
+        Swift.print("RepoView.node.xml.xmlString: " + "\(RepoView.node.xml.xmlString)")
         _ = FileModifier.write(RepoView.repoListFilePath.tildePath, RepoView.node.xml.xmlString)/*store the repo xml*/
         print("Good-bye")
     }

@@ -21,7 +21,6 @@ class RepoUtils {
      * Returns a flat Array of RepoItems derived from a nested xml Structure
      * NOTE: parent override child for every key in overrideKeys
      * We want parent folders to override all its children.
-     * 🏀 TODO: You have to assert the overriding dict that is a folder. try with real data. Then adjust if it doesn't work
      */
     static var repoListFlattenedOverridden:[RepoItem]{
         let repoXML:XML = RepoView.node.xml/*📝 - FilePath*/

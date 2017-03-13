@@ -8,9 +8,15 @@ import Cocoa
 class RepoView:Element {
     static var repoListFilePath:String = "~/Desktop/repo2.xml"/*📝*///"~/Desktop/assets/xml/list.xml"
     static var selectedListItemIndex:[Int] = []
+    static var _node:Node? = nil
     static var node:Node {/*loads 1 time*/
-        let xml:XML = FileParser.xml(RepoView.repoListFilePath.tildePath)
-        return Node(xml)
+        if(_node != nil){
+            return _node!
+        }else{
+            let xml:XML = FileParser.xml(RepoView.repoListFilePath.tildePath)
+            _node = Node(xml)
+            return _node!
+        }
     }
     var treeList:TreeList?// {return RepoView.list}
     var contextMenu:RepoContextMenu?
@@ -47,7 +53,8 @@ extension RepoView{
         var repoItem:RepoItem
         if(repoItemDict["hasChildren"] != nil || repoItemDict["isOpen"] != nil){/*Support for folders*/
             repoItem = RepoItem()
-            repoItem.title = repoItemDict[RepoItemType.title]!
+            if(repoItemDict.hasKey(RepoItemType.title)){repoItem.title = repoItemDict[RepoItemType.title]!}
+            if(repoItemDict.hasKey(RepoItemType.active)){repoItem.active = repoItemDict[RepoItemType.active]!.bool}
         }else{
             repoItem = RepoUtils.repoItem(repoItemDict)
         }

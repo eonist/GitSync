@@ -45,9 +45,10 @@ class RepoDetailView: ElasticSlideScrollView {
      * TODO: Might need to change to origin testing since these items now are in the container. So event.orgin === downloadButoon.checkBox
      */
     override func onEvent(_ event:Event) {
+        Swift.print("onEvent: " + "\(event.type)")
         let i:[Int] = RepoView.selectedListItemIndex
-        let node:Node = RepoView.node
-        var attrib:[String:String] = XMLParser.attributesAt(node.xml, i)!
+        
+        var attrib:[String:String] = XMLParser.attributesAt(RepoView.node.xml, i)!
         
         /*LeverSpinner*/
         if(event == (SpinnerEvent.change, autoSyncIntervalLeverSpinner!)){
@@ -68,7 +69,7 @@ class RepoDetailView: ElasticSlideScrollView {
             attrib[RepoItemType.upload] = String((event as! CheckEvent).isChecked)
         }else if(event == (CheckEvent.check,downloadCheckBoxButton!)){
             attrib[RepoItemType.download] = String((event as! CheckEvent).isChecked)
-        }else if(event == (CheckEvent.check,activeCheckBoxButton!)){
+        }else if(event === (CheckEvent.check,activeCheckBoxButton!.checkBox!)){
             attrib[RepoItemType.active] = String((event as! CheckEvent).isChecked)
         }else if(event == (CheckEvent.check,messageCheckBoxButton!)){
             attrib[RepoItemType.autoCommitMessage] = String((event as! CheckEvent).isChecked)
@@ -81,7 +82,12 @@ class RepoDetailView: ElasticSlideScrollView {
         }else{//forward other events
             super.onEvent(event)
         }
-        node.setAttributeAt(i, attrib)
+        if(event.type == CheckEvent.check || event.type == Event.update || event.type == SpinnerEvent.change){
+            Swift.print("attrib: " + "\(attrib)")
+            RepoView.node.setAttributeAt(i, attrib)
+            Swift.print("node.xml.xmlString: " + "\(RepoView.node.xml.xmlString)")
+        }
+        
     }
 }
 extension RepoDetailView{
