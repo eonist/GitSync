@@ -60,17 +60,35 @@ class RepoUtils {
 }
 private class Utils{
     /**
-     *
+     * Recursive flatMap with parent overriding abilities
+     * NOTE: this also lets parents override the values in some keyes in children
+     * INPUT: [[["color": "blue", "value": "003300", "title": "John"], [[["color": "orange", "value": "001122", "title": "Ben"]]]]]
+     * OUTPUT: [["color": "blue", "value": "003300", "title": "John"], ["color": "blue", "value": "001122", "title": "Ben"]]
      */
-    static func recursiveFlatmap<T>(_ arr:[T]) -> [T] {
-        var results = [T]()
-        for element in arr {
-            if let sublist = element as? [T] {/*Array*/
-                results += sublist.recursiveFlatmap()
-            } else {/*Item*/
-                results.append(element)
+    static func recursiveFlattened<T>(_ arr:[Any], _ overrideables:[String], _ parent:[String:String]? = nil) -> [T]{
+        var result:[T] = []
+        var parent:[String:String]? = parent
+        arr.forEach{
+            let itm = $0
+            if(itm is AnyArray){/*array*/
+                let a:[Any] = itm as! [Any]
+                result += recursiveFlattened(a,overrideables,parent)
+            }else{/*item*/
+                var dict:[String:String] = itm as! [String:String]
+                if(parent != nil){
+                    overrideables.forEach{
+                        if(parent![$0] != nil){
+                            dict.updateValue(parent![$0]!,forKey:$0)
+                        }
+                    }
+                }
+                result.append(dict as! T)
+                parent = dict
             }
         }
-        return results
+        return result
+    }
+    static func filterFolders(){
+    
     }
 }
