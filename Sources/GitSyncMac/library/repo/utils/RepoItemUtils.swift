@@ -26,7 +26,7 @@ class RepoUtils {
     static var repoListFlattenedOverridden:[RepoItem]{
         let repoXML:XML = RepoView.node.xml/*📝 - FilePath*/
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
-        let overrideKeys:[String] = [RepoItemType.active,RepoItemType.autoSyncInterval,RepoItemType.download,RepoItemType.fileChange,RepoItemType.pullToAutoSync,RepoItemType.upload]/*These are the keys to the values that should be overridden*/
+        let overrideKeys:[String] = [RepoItemType.active]//[RepoItemType.active,RepoItemType.autoSyncInterval,RepoItemType.download,RepoItemType.fileChange,RepoItemType.pullToAutoSync,RepoItemType.upload]/*These are the keys to the values that should be overridden*/
         let flatArr:[[String:String]] = Utils.recursiveFlattened(arr,overrideKeys)
         let repoList:[RepoItem] = Utils.filterFolders(flatArr)//remove folders
         return repoList
@@ -92,8 +92,9 @@ private class Utils{
                 }
                 result.append(dict as! T)
                 if(dict.hasKey("isOpen") || dict.hasKey("hasChildren")){/*folders are the only things that can override*/
-                    Swift.print("override active: \(parent["active"])" )
+                    
                     parent = dict
+                    Swift.print("override active: \(parent!["active"])" )
                 }
             }
         }
