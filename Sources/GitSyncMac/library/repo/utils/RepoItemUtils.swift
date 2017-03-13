@@ -37,7 +37,6 @@ class RepoUtils {
      * TODO: test if the full/partly file path still works?
      */
     static func repoItem(_ dict:[String:String]) -> RepoItem{
-        
         let keychainItemName:String = dict[RepoItemType.keyChainItemName]!
         let interval:String = dict[RepoItemType.interval]!//default is 1min
         var repoItem:RepoItem = RepoItem()
@@ -55,8 +54,6 @@ class RepoUtils {
         //remotePath = RegExp.replace(remotePath,"^https://.+$","")//support for partial and full url, strip away the https://, since this will be added later
         //print(remotePath)
         repoItem.remotePath = remotePath
- 
-        
         return repoItem
     }
     /**
@@ -88,14 +85,11 @@ private class Utils{
             }else{/*item*/
                 var dict:[String:String] = itm as! [String:String]
                 if(parent != nil){
-                    
                     overrideables.forEach{
                         if(parent![$0] != nil){
                             dict.updateValue(parent![$0]!,forKey:$0)//creates new key,value pair if non exists
                         }
                     }
-                }else{
-                    Swift.print("should happen once")
                 }
                 result.append(dict as! T)
                 parent = dict
