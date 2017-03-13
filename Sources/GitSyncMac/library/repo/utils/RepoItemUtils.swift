@@ -92,7 +92,7 @@ private class Utils{
                     }
                 }
                 result.append(dict as! T)
-                if(dict.hasKey("isOpen") || dict.hasKey("hasChildren")){/*folders are the only things that can override*/
+                if(dict.contains(overriders)){/*folders are the only things that can override*/
                     parent = dict
                 }
             }
