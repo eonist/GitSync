@@ -85,11 +85,14 @@ private class Utils{
             }else{/*item*/
                 var dict:[String:String] = itm as! [String:String]
                 if(parent != nil){
+                    
                     overrideables.forEach{
                         if(parent![$0] != nil){
                             dict.updateValue(parent![$0]!,forKey:$0)//creates new key,value pair if non exists
                         }
                     }
+                }else{
+                    Swift.print("should happen once")
                 }
                 result.append(dict as! T)
                 parent = dict
