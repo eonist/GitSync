@@ -18,14 +18,17 @@ class RepoUtils {
         return repoList//.filter{$0.title == "Research" || $0.title == "Research wiki"}/*👈 filter enables you to test one item at the time, for debugging*/
     }
     /**
-     *
+     * Returns a flat Array of RepoItems derived from a nested xml Structure
+     * NOTE: parent override child for every key in overrideKeys
+     * We want parent folders to override all its children.
+     * 🏀 TODO: You have to assert the overriding dict that is a folder. try with real data. Then adjust if it doesn't work
      */
     static var repoListFlattenedOverridden:[RepoItem]{
         let repoXML:XML = RepoView.node.xml/*📝 - FilePath*/
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
-        let overrideKeys:[String] = [RepoItemType.active,RepoItemType.download,RepoItemType.fileChange,RepoItemType.]
-        let flatArr:[[String:String]] = Utils.recursiveFlattened(arr)
-        let repoList:[RepoItem] = Utils.filterFolders(flatArr)
+        let overrideKeys:[String] = [RepoItemType.active,RepoItemType.autoSyncInterval,RepoItemType.download,RepoItemType.fileChange,RepoItemType.pullToAutoSync,RepoItemType.upload]/*These are the keys to the values that should be overridden*/
+        let flatArr:[[String:String]] = Utils.recursiveFlattened(arr,overrideKeys)
+        let repoList:[RepoItem] = Utils.filterFolders(flatArr)//remove folders
         return repoList
     }
     /**
