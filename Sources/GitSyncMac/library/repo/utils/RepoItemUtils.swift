@@ -13,11 +13,7 @@ class RepoUtils {
         let flatArr:[[String:String]] = arr.recursiveFlatmap()
         //Swift.print("flatArr.count: " + "\(flatArr.count)")
         //flatArr.forEach{Swift.print("$0: " + "\($0)")}
-        let repoList:[RepoItem] = flatArr.filter{
-            ($0["hasChildren"] == nil) && ($0["isOpen"] == nil)/*skips folders*/
-            }.map{/*create array of tuples*/
-                RepoUtils.repoItem($0)
-        }
+        
         //Swift.print("repoList.count: " + "\(repoList.count)")
         //Swift.print("repoList[0]: " + "\(repoList[0])")
         return repoList//.filter{$0.title == "Research" || $0.title == "Research wiki"}/*👈 filter enables you to test one item at the time, for debugging*/
@@ -88,7 +84,12 @@ private class Utils{
         }
         return result
     }
-    static func filterFolders(){
-    
+    static func filterFolders(_ list:[[String:String]])->[RepoItem]{
+        let repoList:[RepoItem] = list.filter{
+            ($0["hasChildren"] == nil) && ($0["isOpen"] == nil)/*skips folders*/
+            }.map{/*create array of tuples*/
+                RepoUtils.repoItem($0)
+        }
+        return repoList
     }
 }
