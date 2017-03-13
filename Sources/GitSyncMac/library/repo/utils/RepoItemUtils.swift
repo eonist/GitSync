@@ -91,7 +91,7 @@ private class Utils{
                     }
                 }
                 result.append(dict as! T)
-                if(dict[]){parent = dict}
+                if(dict["isOpen"] != nil || ){parent = dict}
             }
         }
         return result
