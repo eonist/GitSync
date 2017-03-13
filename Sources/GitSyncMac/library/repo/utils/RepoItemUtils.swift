@@ -18,12 +18,13 @@ class RepoUtils {
         return repoList//.filter{$0.title == "Research" || $0.title == "Research wiki"}/*👈 filter enables you to test one item at the time, for debugging*/
     }
     /**
-     * 
+     *
      */
     static var repoListFlattenedOverridden:[RepoItem]{
         let repoXML:XML = RepoView.node.xml/*📝 - FilePath*/
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
-        let flatArr:[[String:String]] = arr.recursiveFlatmap()
+        let overrideKeys:[String] = [RepoItemType.active,RepoItemType.]
+        let flatArr:[[String:String]] = Utils.recursiveFlattened(arr)
         let repoList:[RepoItem] = Utils.filterFolders(flatArr)
         return repoList
     }
