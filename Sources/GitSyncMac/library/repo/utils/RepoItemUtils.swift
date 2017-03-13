@@ -92,7 +92,6 @@ private class Utils{
                 }
                 result.append(dict as! T)
                 if(dict.hasKey("isOpen") || dict.hasKey("hasChildren")){/*folders are the only things that can override*/
-                    
                     parent = dict
                     Swift.print("override active: \(parent!["active"])" )
                 }
