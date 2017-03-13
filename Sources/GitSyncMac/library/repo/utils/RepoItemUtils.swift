@@ -23,7 +23,7 @@ class RepoUtils {
     static var repoListFlattenedOverridden:[RepoItem]{
         let repoXML:XML = RepoView.node.xml/*📝 - FilePath*/
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
-        let overrideKeys:[String] = [RepoItemType.active,RepoItemType.]
+        let overrideKeys:[String] = [RepoItemType.active,RepoItemType.autoCommitMessage,RepoItemType.autoSyncInterval,RepoItemType.branch]
         let flatArr:[[String:String]] = Utils.recursiveFlattened(arr)
         let repoList:[RepoItem] = Utils.filterFolders(flatArr)
         return repoList
