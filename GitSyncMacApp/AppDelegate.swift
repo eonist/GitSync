@@ -20,16 +20,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //rateOfCommitsTest()
         
-        initApp()
+        //initApp()
         
         //_ = ASyncTest()
         //_ = AsyncTest2()
         
-        //Continue: Figure out concurrent threads, check your research
+        
         
         //initTestWin()🔨
         //AutoSync.sync()
         //refreshReposTest()
+        
+        
     }
     /**
      * CommitCount per day for all projects in the last 7 days where the user is "eonist"
@@ -43,7 +45,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         rateOfCommits.onComplete = onComplete
         rateOfCommits.initRateOfCommitsProcess(0)
     }
-    
     /**
      *
      */
