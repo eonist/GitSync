@@ -44,6 +44,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let repoList = RepoUtils.repoListFlattenedOverridden
         Swift.print(repoList)
+        
+        // it works, now activate this in a filter, if active is false then dont return repo, easy! test it first, then test gitpull 
     }
     /**
      * CommitCount per day for all projects in the last 7 days where the user is "eonist"
