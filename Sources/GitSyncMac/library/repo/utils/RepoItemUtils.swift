@@ -13,7 +13,7 @@ class RepoUtils {
         let flatArr:[[String:String]] = arr.recursiveFlatmap()
         //Swift.print("flatArr.count: " + "\(flatArr.count)")
         //flatArr.forEach{Swift.print("$0: " + "\($0)")}
-        let repoList:[RepoItem] = Utils.filterFolders(flatArr)        //Swift.print("repoList.count: " + "\(repoList.count)")
+        let repoList:[RepoItem] = Utils.filterFolders(flatArr,[RepoFolderType.isOpen,RepoFolderType.hasChildren])        //Swift.print("repoList.count: " + "\(repoList.count)")
         //Swift.print("repoList[0]: " + "\(repoList[0])")
         return repoList//.filter{$0.title == "Research" || $0.title == "Research wiki"}/*👈 filter enables you to test one item at the time, for debugging*/
     }
@@ -29,7 +29,7 @@ class RepoUtils {
         let overrideKeys:[String] = [RepoItemType.active,RepoItemType.autoSyncInterval,RepoItemType.download,RepoItemType.fileChange,RepoItemType.pullToAutoSync,RepoItemType.upload]/*These are the keys to the values that should be overridden*/
         let overriders:[String] = [RepoFolderType.isOpen,RepoFolderType.hasChildren]
         let flatArr:[[String:String]] = Utils.recursiveFlattened(arr,overrideKeys,overriders)
-        let repoList:[RepoItem] = Utils.filterFolders(flatArr)//remove folders
+        let repoList:[RepoItem] = Utils.filterFolders(flatArr,overriders)//remove folders
         return repoList
     }
     /**
@@ -102,9 +102,9 @@ private class Utils{
     /**
      * Compiles array with tuples and filter out folder related stuff
      */
-    static func filterFolders(_ list:[[String:String]], _ mustNotContain:[String], _ mustContainAndBeTrue:[String])->[RepoItem]{
+    static func filterFolders(_ list:[[String:String]], _ mustNotContain:[String])->[RepoItem]{
         let repoList:[RepoItem] = list.filter{
-            (!$0.contains(mustNotContain) && $0.contains())/*skips folders*/
+            (!$0.contains(mustNotContain) && $0.hasKey(RepoItemType.active) && $0[RepoItemType.active]!.bool)/*skips folders, and active must be true*/
             }.map{/*create array of tuples*/
                 RepoUtils.repoItem($0)
         }
