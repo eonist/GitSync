@@ -30,3 +30,7 @@ class RepoItemType {
     static var fileChange:String = "fileChange"
     static var pullToAutoSync:String = "pullToAutoSync"
 }
+class RepoFolderType{
+    static var isOpen:String = "isOpen"
+    static var hasChildren:String = "hasChildren"
+}
