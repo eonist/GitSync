@@ -26,7 +26,7 @@ class RepoUtils {
     static var repoListFlattenedOverridden:[RepoItem]{
         let repoXML:XML = RepoView.node.xml/*📝 - FilePath*/
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
-        let overrideKeys:[String] = [RepoItemType.active]//[RepoItemType.active,RepoItemType.autoSyncInterval,RepoItemType.download,RepoItemType.fileChange,RepoItemType.pullToAutoSync,RepoItemType.upload]/*These are the keys to the values that should be overridden*/
+        let overrideKeys:[String] = [RepoItemType.active,RepoItemType.autoSyncInterval,RepoItemType.download,RepoItemType.fileChange,RepoItemType.pullToAutoSync,RepoItemType.upload]/*These are the keys to the values that should be overridden*/
         let flatArr:[[String:String]] = Utils.recursiveFlattened(arr,overrideKeys)
         let repoList:[RepoItem] = Utils.filterFolders(flatArr)//remove folders
         return repoList
@@ -74,13 +74,13 @@ private class Utils{
      * INPUT: [[["color": "blue", "value": "003300", "title": "John"], [[["color": "orange", "value": "001122", "title": "Ben"]]]]]
      * OUTPUT: [["color": "blue", "value": "003300", "title": "John"], ["color": "blue", "value": "001122", "title": "Ben"]]
      */
-    static func recursiveFlattened<T>(_ arr:[Any], _ overrideKeys:[String], _ parent:[String:String]? = nil) -> [T]{
+    static func recursiveFlattened<T>(_ arr:[Any], _ overrideKeys:[String], _ overriders:[String],_ parent:[String:String]? = nil) -> [T]{
         var result:[T] = []
         var parent:[String:String]? = parent
         arr.forEach{
             if($0 is AnyArray){/*array*/
                 let a:[Any] = $0 as! [Any]
-                result += recursiveFlattened(a,overrideKeys,parent)
+                result += recursiveFlattened(a,overrideKeys,overriders,parent)
             }else{/*item*/
                 var dict:[String:String] = $0 as! [String:String]
                 if(parent != nil){
