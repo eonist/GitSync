@@ -22,6 +22,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         initApp()
         
+        //Continue here:🏀
+            //think about it differently: disabled:true-> means children dont AutoSync, disabled:false or no disable attriv -> Children decide their own disabledness
+        
+        
         //_ = ASyncTest()
         //_ = AsyncTest2()
         
@@ -122,7 +126,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Swift.print("💾 Write PrefsView to: prefs.xml")
         }
         Swift.print("💾 Write RepoList to: repo.xml")
-        Swift.print("RepoView.node.xml.xmlString: " + "\(RepoView.node.xml.xmlString)")
+        //Swift.print("RepoView.node.xml.xmlString: " + "\(RepoView.node.xml.xmlString)")
         _ = FileModifier.write(RepoView.repoListFilePath.tildePath, RepoView.node.xml.xmlString)/*store the repo xml*/
         print("Good-bye")
     }
