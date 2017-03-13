@@ -31,7 +31,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //AutoSync.sync()
         //refreshReposTest()
         
-        
+        let x:XML = "<items><item title=\"john\" color=\"blue\" value=\"003300\"></item></items>".xml
+        let a = XMLParser.arr(x)
+        Swift.print("a: " + "\(a)")
     }
     /**
      * CommitCount per day for all projects in the last 7 days where the user is "eonist"
