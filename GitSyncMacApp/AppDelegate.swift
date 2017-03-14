@@ -22,10 +22,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         initApp()
         
-        //Continue here:🏀
-            //think about it differently: disabled:true-> means children dont AutoSync, disabled:false or no disable attriv -> Children decide their own disabledness
-        
-        
         //_ = ASyncTest()
         //_ = AsyncTest2()
         
