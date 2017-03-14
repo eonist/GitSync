@@ -25,7 +25,6 @@ class RepoDetailView: ElasticSlideScrollView {
     override func resolveSkin() {
         super.resolveSkin()/*self.skin = SkinResolver.skin(self)*/
         //Swift.print("RepoDetailView.width: " + "\(width)")
-        
         nameTextInput = lableContainer!.addSubView(TextInput(width, 32, "Name: ", "", lableContainer))
         localPathTextInput = lableContainer!.addSubView(TextInput(width, 32, "Local-path: ", "", lableContainer))
         remotePathTextInput = lableContainer!.addSubView(TextInput(width, 32, "Remote-path: ", "", lableContainer))
