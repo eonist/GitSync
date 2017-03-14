@@ -88,8 +88,10 @@ private class Utils{
                 if(parent != nil){
                     overrideKeys.forEach{
                         if(parent![$0] != nil){
-                            let val:Bool = parent![$0]!
-                            dict.updateValue(parent![$0]!,forKey:$0)//creates new key,value pair if non exists
+                            let val:Bool = String(parent![$0]!).bool
+                            if(!val){
+                                dict.updateValue(parent![$0]!,forKey:$0)//creates new key,value pair if non exists
+                            }
                         }
                     }
                 }
