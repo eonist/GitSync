@@ -42,9 +42,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let a = XMLParser.arr(xml)
         Swift.print("a: " + "\(a)")*/
         
-        //let repoList = RepoUtils.repoListFlattenedOverridden
-        //Swift.print(repoList)
-        
+        /*let repoList = RepoUtils.repoListFlattenedOverridden
+        Swift.print(repoList.count)
+        repoList.forEach{
+            Swift.print("$0.title: " + "\($0.title)")
+        }*/
         // it works, now activate this in a filter, if active is false then dont return repo, easy! test it first, then test gitpull 
     }
     /**

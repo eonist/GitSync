@@ -9,7 +9,7 @@ protocol ICommitList:ElasticSlidableScrollableFast {
     var isInDeactivateRefreshModeState:Bool {get set}/*is Two Fingers Touching the Touch-Pad*/
     var hasPulledAndReleasedBeyondRefreshSpace:Bool{get set}
     var hasReleasedBeyondTop:Bool {get set}
-    func startAutoSync()
+    //func startAutoSync()
     /*Debug*/
     var autoSyncAndRefreshStartTime:NSDate? {get set}
     var autoSyncStartTime:NSDate? {get set}
