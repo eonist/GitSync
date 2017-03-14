@@ -29,18 +29,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //AutoSync.sync()
         //refreshReposTest()
         
-        /*let xStr1:String = "<items>"
-        let xStr2:String = 	"<item title=\"John\" color=\"blue\" value=\"003300\">"
-        let xStr3:String = 		"<item title=\"Ben\" color=\"orange\" value=\"001122\">"
-        let xStr4:String = 			"<item title=\"John\" color=\"blue\" value=\"003300\"></item>"
-        let xStr5:String = 			"<item title=\"John\" color=\"blue\" value=\"003300\"></item>"
-        let xStr6:String = 		"</item>"
-        let xStr7:String = 	"</item>"
-        let xStr8:String = "</items>"
-        
-        let xml:XML = (xStr1 + xStr2 + xStr3 + xStr4 + xStr5 + xStr6 + xStr7 + xStr8).xml
-        let a = XMLParser.arr(xml)
-        Swift.print("a: " + "\(a)")*/
         
         /*let repoList = RepoUtils.repoListFlattenedOverridden
         Swift.print(repoList.count)
