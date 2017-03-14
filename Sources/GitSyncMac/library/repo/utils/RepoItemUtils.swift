@@ -89,7 +89,7 @@ private class Utils{
                     overrideKeys.forEach{
                         if(parent![$0] != nil){
                             let val:Bool = String(parent![$0]!).bool
-                            if(!val){
+                            if(!val){//only disable overrides
                                 dict.updateValue(parent![$0]!,forKey:$0)//creates new key,value pair if non exists
                             }
                         }
