@@ -73,6 +73,8 @@ private class Utils{
      * NOTE: this also lets parents override the values in some keyes in children
      * INPUT: [[["color": "blue", "value": "003300", "title": "John"], [[["color": "orange", "value": "001122", "title": "Ben"]]]]]
      * OUTPUT: [["color": "blue", "value": "003300", "title": "John"], ["color": "blue", "value": "001122", "title": "Ben"]]
+     * PARAM: overriders: only let items with either of these be able to override (aka folders)
+     * PARAM: overrideKeys: override these key value pairs. If non exist then make new
      */
     static func recursiveFlattened<T>(_ arr:[Any], _ overrideKeys:[String], _ overriders:[String],_ parent:[String:String]? = nil) -> [T]{
         var result:[T] = []
