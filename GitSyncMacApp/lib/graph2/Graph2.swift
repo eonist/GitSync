@@ -8,6 +8,8 @@ import Foundation
 class Graph2:ElasticView{
     //override var itemsHeight: CGFloat {return height}
     //override var itemHeight: CGFloat {return 24}
+    var gestureHUD:GestureHUD?
+    
     override func resolveSkin() {
         StyleManager.addStyle("Graph2 {fill:green;fill-alpha:0;}")
         super.resolveSkin()
@@ -29,6 +31,9 @@ class Graph2:ElasticView{
         
         contentContainer!.addSubview(ellipse.graphic)
         ellipse.draw()
+        
+        /*Debug*/
+        gestureHUD = GestureHUD(self)
     }
     //bottomBar
     //rightBar
