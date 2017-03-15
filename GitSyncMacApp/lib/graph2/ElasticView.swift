@@ -17,7 +17,7 @@ class ElasticView:Element{
     var iterimScrollY:InterimScroll = InterimScroll()
     var iterimScrollX:InterimScroll = InterimScroll()
     /**/
-    var prevMagnificationValue:CGFloat = 0
+    var curMagnificationValue:CGFloat = 0
     
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
@@ -63,8 +63,9 @@ class ElasticView:Element{
             Swift.print("the zoom ended")
             //tempPagePos = CGPoint(page.x,page.y)
             //prevZoom = zoom
+            curMagnificationValue += gestureRecognizer.magnification
         }
-        prevMagnificationValue = gestureRecognizer.magnification
+        
     }
 }
 
