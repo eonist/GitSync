@@ -58,54 +58,9 @@ class ElasticView:Element{
         }
         super.scrollWheel(with: event)
     }
-    func onMagnifyGesture(gestureRecognizer: NSMagnificationGestureRecognizer) {
-        Swift.print("⚠️️ DocView.onMagnifyGesture() magnification: " + "\(gestureRecognizer.magnification)")
-        if(gestureRecognizer.state == .changed){
-            Swift.print("the zoom changed")
-            //appendZoom(1+(gestureRecognizer.magnification-prevMagnificationValue))
-            let curZoom:CGFloat = prevMagnificationValue + gestureRecognizer.magnification
-            zoom(curZoom)
-        }else if(gestureRecognizer.state == .began){//include maybegin here
-            Swift.print("the zoom began")
-            //tempPagePos = CGPoint(zoomContainer!.point.x,zoomContainer!.point.y)
-            Swift.print("tempPagePos: " + "\(tempPagePos)")
-            //self.tempZoom = 1;
-        }else if(gestureRecognizer.state == .ended){
-            Swift.print("the zoom ended")
-            //tempPagePos = CGPoint(zoomContainer!.x,zoomContainer!.y)
-            Swift.print("tempPagePos: " + "\(tempPagePos)")
-            //prevZoom = zoom
-            prevMagnificationValue += gestureRecognizer.magnification
-        }
-    }
-    /**
-     * PARAM: zoom: accumulated zoom. starts at 1
-     */
-    func zoom(_ zoom:CGFloat){
-        Swift.print("zoom: \(zoom)")
-        //Swift.print("self.localPos(): " + "\(self.localPos())")
-        //Swift.print("tempPagePos: " + "\(tempPagePos)")
-        let relativeZoom:CGFloat = 1.0 + (zoom-prevMagnificationValue)
-        Swift.print("relativeZoom: " + "\(relativeZoom)")
-        //let center:CGPoint = CGRect(0,0,self.width,self.height).center
-        Swift.print("zoomContainer!.point: " + "\(zoomContainer!.point)")
-        //let newPos:CGPoint = PointModifier.scale(CGPoint(0,0), center/*self.localPos()*/, CGPoint(relativeZoom,relativeZoom))/*<--the 1 is needed because the zoom value is additative*/
-        let objSize:CGSize = CGSize(zoomContainer!.frame.size.width*zoom,zoomContainer!.frame.size.height*zoom)
-        Swift.print("objSize: " + "\(objSize)")
-        let canvasSize:CGSize = CGSize(width,height)
-        Swift.print("canvasSize: " + "\(canvasSize)")
-        let newPos:CGPoint = Align.alignmentPoint(objSize, canvasSize, Alignment.centerCenter, Alignment.centerCenter, CGPoint())
-        Swift.print("newPos: " + "\(newPos)")
-        zoomContainer!.point = newPos
-        
-        Utils.applyContentsScale(zoomContainer!, zoom)//<---TODO: add this method in page?
-        zoomContainer!.bounds.width = initBoundWidth!/* * scale*/
-        zoomContainer!.bounds.height = initBoundHeight!/* * scale*/
-        //Swift.print("bounds: " + "\(bounds)")
-        zoomContainer!.scaleUnitSquare(to: NSSize(zoom,zoom))
-    }
+    
 }
-
+/*Pan related*/
 extension ElasticView{
     func setY(_ value:CGFloat){
         contentContainer!.frame.y = value
@@ -182,6 +137,59 @@ extension ElasticView{
             moverX!.start()/*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
         }
     }
+}
+/*Zoom related*/
+extension ElasticView{
+    /**
+     *
+     */
+    func onMagnifyGesture(gestureRecognizer: NSMagnificationGestureRecognizer) {
+        Swift.print("⚠️️ DocView.onMagnifyGesture() magnification: " + "\(gestureRecognizer.magnification)")
+        if(gestureRecognizer.state == .changed){
+            Swift.print("the zoom changed")
+            //appendZoom(1+(gestureRecognizer.magnification-prevMagnificationValue))
+            let curZoom:CGFloat = prevMagnificationValue + gestureRecognizer.magnification
+            zoom(curZoom)
+        }else if(gestureRecognizer.state == .began){//include maybegin here
+            Swift.print("the zoom began")
+            //tempPagePos = CGPoint(zoomContainer!.point.x,zoomContainer!.point.y)
+            Swift.print("tempPagePos: " + "\(tempPagePos)")
+            //self.tempZoom = 1;
+        }else if(gestureRecognizer.state == .ended){
+            Swift.print("the zoom ended")
+            //tempPagePos = CGPoint(zoomContainer!.x,zoomContainer!.y)
+            Swift.print("tempPagePos: " + "\(tempPagePos)")
+            //prevZoom = zoom
+            prevMagnificationValue += gestureRecognizer.magnification
+        }
+    }
+    /**
+     * PARAM: zoom: accumulated zoom. starts at 1
+     */
+    func zoom(_ zoom:CGFloat){
+        Swift.print("zoom: \(zoom)")
+        //Swift.print("self.localPos(): " + "\(self.localPos())")
+        //Swift.print("tempPagePos: " + "\(tempPagePos)")
+        let relativeZoom:CGFloat = 1.0 + (zoom-prevMagnificationValue)
+        Swift.print("relativeZoom: " + "\(relativeZoom)")
+        //let center:CGPoint = CGRect(0,0,self.width,self.height).center
+        Swift.print("zoomContainer!.point: " + "\(zoomContainer!.point)")
+        //let newPos:CGPoint = PointModifier.scale(CGPoint(0,0), center/*self.localPos()*/, CGPoint(relativeZoom,relativeZoom))/*<--the 1 is needed because the zoom value is additative*/
+        let objSize:CGSize = CGSize(zoomContainer!.frame.size.width*zoom,zoomContainer!.frame.size.height*zoom)
+        Swift.print("objSize: " + "\(objSize)")
+        let canvasSize:CGSize = CGSize(width,height)
+        Swift.print("canvasSize: " + "\(canvasSize)")
+        let newPos:CGPoint = Align.alignmentPoint(objSize, canvasSize, Alignment.centerCenter, Alignment.centerCenter, CGPoint())
+        Swift.print("newPos: " + "\(newPos)")
+        zoomContainer!.point = newPos
+        
+        Utils.applyContentsScale(zoomContainer!, zoom)//<---TODO: add this method in page?
+        zoomContainer!.bounds.width = initBoundWidth!/* * scale*/
+        zoomContainer!.bounds.height = initBoundHeight!/* * scale*/
+        //Swift.print("bounds: " + "\(bounds)")
+        zoomContainer!.scaleUnitSquare(to: NSSize(zoom,zoom))
+    }
+
 }
 private class Utils{
     
