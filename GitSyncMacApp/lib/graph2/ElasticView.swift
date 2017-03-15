@@ -160,9 +160,18 @@ extension ElasticView{
         
         if(gestureRecognizer.state == .changed){
             Swift.print("the zoom changed")
-            //appendZoom(1+(gestureRecognizer.magnification-prevMagnificationValue))
-            //let curZoom:CGFloat = prevMagnificationValue + gestureRecognizer.magnification
-            //zoom(curZoom)
+            let zDelta:CGFloat = gestureRecognizer.magnification
+            iterimScrollY.prevScrollingDelta = event.scrollingDeltaZ/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
+            
+            
+            _ = iterimScrollY.velocities.pushPop(event.scrollingDeltaZ)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
+            
+            moverZ!.value += event.scrollingDeltaZ/*directly manipulate the value 1 to 1 control*/
+            
+            moverZ!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
+            
+            setZ(moverZ!.result)//new ⚠️️
+            
         }else if(gestureRecognizer.state == .began){//include maybegin here
             Swift.print("the zoom began")
             moverZ!.stop()
@@ -173,21 +182,19 @@ extension ElasticView{
         }else if(gestureRecognizer.state == .ended){
             Swift.print("the zoom ended")
             
-            moverX!.hasStopped = false
-            
-            moverX!.isDirectlyManipulating = false
-            
-            moverX!.value = moverX!.result
+            moverZ!.hasStopped = false
+            moverZ!.isDirectlyManipulating = false
+            moverZ!.value = moverZ!.result
             
             /*Y*/
-            if(iterimScrollZ.prevScrollingDelta != 1.0 && iterimScrollZ.prevScrollingDelta != -1.0){/*Not 1 and not -1 indicates that the wheel is not stationary*/
+            if(iterimScrollZ.prevScrollingDelta != 0){/*Not 1 and not -1 indicates that the wheel is not stationary*/
                 var velocity:CGFloat = 0
-                if(iterimScrollY.prevScrollingDelta > 0){velocity = NumberParser.max(iterimScrollZ.velocities)}/*Find the most positive velocity value*/
+                if(iterimScrollZ.prevScrollingDelta > 0){velocity = NumberParser.max(iterimScrollZ.velocities)}/*Find the most positive velocity value*/
                 else{velocity = NumberParser.min(iterimScrollZ.velocities)}/*Find the most negative velocity value*/
-                moverY!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
-                moverY!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*/
+                moverZ!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
+                moverZ!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*/
             }else{/*stationary*/
-                moverY!.start()/*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
+                moverZ!.start()/*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
             }
             
         }
