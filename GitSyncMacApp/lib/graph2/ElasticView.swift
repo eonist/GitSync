@@ -67,12 +67,12 @@ class ElasticView:Element{
             zoom(curZoom)
         }else if(gestureRecognizer.state == .began){//include maybegin here
             Swift.print("the zoom began")
-            tempPagePos = CGPoint(contentContainer!.point.x,contentContainer!.point.y)
+            tempPagePos = CGPoint(zoomContainer!.point.x,zoomContainer!.point.y)
             Swift.print("tempPagePos: " + "\(tempPagePos)")
             //self.tempZoom = 1;
         }else if(gestureRecognizer.state == .ended){
             Swift.print("the zoom ended")
-            tempPagePos = CGPoint(contentContainer!.point.x,contentContainer!.point.y)
+            tempPagePos = CGPoint(zoomContainer!.x,zoomContainer!.y)
             //prevZoom = zoom
             prevMagnificationValue += gestureRecognizer.magnification
         }
@@ -83,6 +83,7 @@ class ElasticView:Element{
     func zoom(_ zoom:CGFloat){
         Swift.print("zoom: \(zoom)")
         Swift.print("self.localPos(): " + "\(self.localPos())")
+        Swift.print("tempPagePos: " + "\(tempPagePos)")
         let newPos:CGPoint = PointModifier.scale(tempPagePos!, self.localPos(), CGPoint(zoom,zoom))/*<--the 1 is needed because the zoom value is additative*/
         Swift.print("newPos: " + "\(newPos)")
         zoomContainer!.point = newPos
