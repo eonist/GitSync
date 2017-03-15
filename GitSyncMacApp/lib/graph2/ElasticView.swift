@@ -18,9 +18,12 @@ class ElasticView:Element{
     var iterimScrollX:InterimScroll = InterimScroll()
     /**/
     var curMagnificationValue:CGFloat = 0
+    var initBoundWidth:CGFloat?
+    var initBoundHeight:CGFloat?
     
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
+        
         /*init*/
         contentContainer = addSubView(Container(width,height,self,"content"))
         layer!.masksToBounds = true/*masks the children to the frame, I don't think this works, seem to work now*/
@@ -36,6 +39,8 @@ class ElasticView:Element{
         
         let magGesture = NSMagnificationGestureRecognizer(target: self, action: #selector(onMagnifyGesture))
         self.addGestureRecognizer(magGesture)
+        initBoundWidth = self.bounds.size.width
+        initBoundHeight = self.bounds.size.height
     }
     override func scrollWheel(with event: NSEvent) {
         Swift.print("scrollWheel")
@@ -56,8 +61,8 @@ class ElasticView:Element{
             Swift.print("the zoom changed")
             //appendZoom(1+(gestureRecognizer.magnification-prevMagnificationValue))
             let curZoom:CGFloat = curMagnificationValue + gestureRecognizer.magnification
-            Swift.print("cur: \(curZoom)")
-            Utils.applyContentsScale(contentContainer!, curZoom)//<---TODO: add this method in page?
+            
+            zoom(curZoom)
             
         }else if(gestureRecognizer.state == .began){//include maybegin here
             Swift.print("the zoom began")
@@ -69,6 +74,17 @@ class ElasticView:Element{
             //prevZoom = zoom
             curMagnificationValue += gestureRecognizer.magnification
         }
+    }
+    /**
+     *
+     */
+    func zoom(_ zoom:CGFloat){
+        Swift.print("zoom: \(zoom)")
+        Utils.applyContentsScale(contentContainer!, zoom)//<---TODO: add this method in page?
+        self.bounds.width = initBoundWidth!/* * scale*/
+        self.bounds.height = initBoundHeight!/* * scale*/
+        //Swift.print("bounds: " + "\(bounds)")
+        self.scaleUnitSquare(to: NSSize(zoom,zoom))
     }
 }
 
