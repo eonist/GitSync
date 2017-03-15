@@ -25,8 +25,8 @@ class ElasticView:Element{
         maskFrame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
         contentFrame = CGRect(0,0,width,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         /*anim*/
-        moverY = RubberBand(Animation.sharedInstance,setY/*👈important*/,maskFrame,contentFrame)
-        
+        moverY = RubberBand(Animation.sharedInstance,setY/*👈important*/,(maskFrame.y,maskFrame.size.height),(contentFrame.y,contentFrame.size.height))
+        moverX = RubberBand(Animation.sharedInstance,setX/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
     }
     override func scrollWheel(with event: NSEvent) {
         Swift.print("scrollWheel")
@@ -44,9 +44,11 @@ class ElasticView:Element{
 }
 
 extension ElasticView{
-    func setY(_ value:CGFloat){//DIRECT TRANSMISSION 💥
-        Swift.print("Elastic2.setProgress() value: " + "\(value)")
-        contentContainer!.frame.y = value/*<--this is where we actully move the labelContainer*/
+    func setY(_ value:CGFloat){
+        contentContainer!.frame.y = value
+    }
+    func setX(_ value:CGFloat){
+        contentContainer!.frame.x = value
     }
     /**
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
