@@ -34,8 +34,8 @@ class Graph2:ElasticView{
         
         /*Debug*/
         gestureHUD = GestureHUD(self)
-        self.acceptsTouchEvents = true/*Enables gestures*/
-        self.wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
+        //self.acceptsTouchEvents = true/*Enables gestures*/
+        //self.wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
     }
     /**
      * Detects when touches are made
