@@ -44,7 +44,7 @@ extension ElasticView{
     /**
      *
      */
-    func setProgress(_ value:CGFloat){//DIRECT TRANSMISSION 💥
+    func setProgress(_ value:CGFloat, _ axisType:String){//DIRECT TRANSMISSION 💥
         Swift.print("Elastic2.setProgress() value: " + "\(value)")
         contentContainer!.frame.y = value/*<--this is where we actully move the labelContainer*/
         //the bellow var may not be need to be set
