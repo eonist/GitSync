@@ -33,7 +33,7 @@ class ListTransitionTestView:TitleView{
      *
      */
     func createGraph2(){
-        let graph = self.addSubView(Graph2(400,400,nil))
+        let graph = self.addSubView(Graph2(height,width,nil))
         _ = graph
     }
     /**

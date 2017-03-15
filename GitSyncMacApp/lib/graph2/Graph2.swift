@@ -9,6 +9,7 @@ class Graph2:ElasticScrollView{
     override var itemsHeight: CGFloat {return 600}
     override var itemHeight: CGFloat {return 24}
     override func resolveSkin() {
+        StyleManager.addStyle("Graph2 {fill:green;fill-alpha:0;}")
         super.resolveSkin()
         
         let gradient = LinearGradient(Gradients.red(),[],π/2)
