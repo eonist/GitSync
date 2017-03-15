@@ -85,7 +85,8 @@ class ElasticView:Element{
         Swift.print("zoom: \(zoom)")
         Swift.print("self.localPos(): " + "\(self.localPos())")
         Swift.print("tempPagePos: " + "\(tempPagePos)")
-        let newPos:CGPoint = PointModifier.scale(tempPagePos!, self.localPos(), CGPoint(zoom,zoom))/*<--the 1 is needed because the zoom value is additative*/
+        let relativeZoom:CGFloat = (zoom-prevMagnificationValue)
+        let newPos:CGPoint = PointModifier.scale(tempPagePos!, self.localPos(), CGPoint(relativeZoom,relativeZoom))/*<--the 1 is needed because the zoom value is additative*/
         Swift.print("newPos: " + "\(newPos)")
         zoomContainer!.point = newPos
         
