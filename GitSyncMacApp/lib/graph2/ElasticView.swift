@@ -14,7 +14,8 @@ class ElasticView:Element{
     /**/
     var moverY:RubberBand?
     var moverX:RubberBand?
-    var iterimScroll:InterimScroll = InterimScroll()
+    var iterimScrollY:InterimScroll = InterimScroll()
+    var iterimScrollX:InterimScroll = InterimScroll()
     
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
@@ -55,9 +56,11 @@ extension ElasticView{
      */
     func onScrollWheelChange(_ event:NSEvent){
         Swift.print("👻📜 (ElasticScrollable).onScrollWheelChange : \(event.type)")
-        iterimScroll.prevScrollingDelta = event.scrollingDeltaY/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
+        iterimScrollY.prevScrollingDelta = event.scrollingDeltaY/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
+        iterimScrollX.prevScrollingDelta = event.scrollingDeltaX
         Swift.print("mover!.isDirectlyManipulating: " + "\(moverY!.isDirectlyManipulating)")
-        _ = iterimScroll.velocities.pushPop(event.scrollingDeltaY)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
+        _ = iterimScrollY.velocities.pushPop(event.scrollingDeltaY)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
+        _ = iterimScrollX.velocities.pushPop(event.scrollingDeltaX)
         moverY!.value += event.scrollingDeltaY/*directly manipulate the value 1 to 1 control*/
         moverX!.value += event.scrollingDeltaX
         moverY!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
@@ -72,10 +75,15 @@ extension ElasticView{
         Swift.print("👻📜 (ElasticScrollable).onScrollWheelEnter")
         //Swift.print("IRBScrollable.onScrollWheelDown")
         moverY!.stop()
+        moverX!.stop()
         moverY!.hasStopped = true/*set the stop flag to true*/
-        iterimScroll.prevScrollingDelta = 0/*set last wheel speed delta to stationary, aka not spinning*/
+        moverX!.hasStopped = true
+        iterimScrollY.prevScrollingDelta = 0/*set last wheel speed delta to stationary, aka not spinning*/
+        iterimScrollX.prevScrollingDelta = 0
         moverY!.isDirectlyManipulating = true/*Toggle to directManipulationMode*/
-        iterimScroll.velocities = Array(repeating: 0, count: 10)/*Reset the velocities*/
+        moverX!.isDirectlyManipulating = true
+        iterimScrollY.velocities = Array(repeating: 0, count: 10)/*Reset the velocities*/
+        iterimScrollX.velocities = Array(repeating: 0, count: 10)
         //⚠️️scrollWheelEnter()
     }
     /**
@@ -85,19 +93,32 @@ extension ElasticView{
         Swift.print("👻📜 (ElasticScrollable).onScrollWheelExit")
         //Swift.print("IRBScrollable.onScrollWheelUp")
         moverY!.hasStopped = false/*Reset this value to false, so that the FrameAnimatior can start again*/
+        moverX!.hasStopped = false
         moverY!.isDirectlyManipulating = false
+        moverX!.isDirectlyManipulating = false
         moverY!.value = moverY!.result/*Copy this back in again, as we used relative friction when above or bellow constraints*/
-        Swift.print("prevScrollingDeltaY: " + "\(iterimScroll.prevScrollingDelta)")
-        if(iterimScroll.prevScrollingDelta != 1.0 && iterimScroll.prevScrollingDelta != -1.0){/*Not 1 and not -1 indicates that the wheel is not stationary*/
+        moverX!.value = moverX!.result
+        Swift.print("prevScrollingDeltaY: " + "\(iterimScrollY.prevScrollingDelta)")
+        /*Y*/
+        if(iterimScrollY.prevScrollingDelta != 1.0 && iterimScrollY.prevScrollingDelta != -1.0){/*Not 1 and not -1 indicates that the wheel is not stationary*/
             var velocity:CGFloat = 0
-            if(iterimScroll.prevScrollingDelta > 0){velocity = NumberParser.max(iterimScroll.velocities)}/*Find the most positive velocity value*/
-            else{velocity = NumberParser.min(iterimScroll.velocities)}/*Find the most negative velocity value*/
+            if(iterimScrollY.prevScrollingDelta > 0){velocity = NumberParser.max(iterimScrollY.velocities)}/*Find the most positive velocity value*/
+            else{velocity = NumberParser.min(iterimScrollY.velocities)}/*Find the most negative velocity value*/
             moverY!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
             moverY!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*/
         }else{/*stationary*/
             moverY!.start()/*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
-            //scrollWheelExitedAndIsStationary()/*This is only called if you exit scrollWheel when in overshot areas in the slider, think above 0 and bellow 1 in progress*/
         }
-        //⚠️️scrollWheelExit()
+        /*X*/
+        if(iterimScrollX.prevScrollingDelta != 1.0 && iterimScrollX.prevScrollingDelta != -1.0){/*Not 1 and not -1 indicates that the wheel is not stationary*/
+            var velocity:CGFloat = 0
+            if(iterimScrollX.prevScrollingDelta > 0){velocity = NumberParser.max(iterimScrollX.velocities)}/*Find the most positive velocity value*/
+            else{velocity = NumberParser.min(iterimScrollX.velocities)}/*Find the most negative velocity value*/
+            moverX!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
+            moverX!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*/
+        }else{/*stationary*/
+            moverX!.start()/*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
+        }
+        
     }
 }
