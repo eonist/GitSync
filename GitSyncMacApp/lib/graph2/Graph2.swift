@@ -32,7 +32,7 @@ class Graph2:ElasticView{
          zoomContainer!.addSubview(rect.graphic)
          rect.draw()*/
         
-        let ellipse = EllipseGraphic(p.x,p.y,200,200,fill.mix(Gradients.redOrange()),line.mix(Gradients.red(0.5)))
+        let ellipse = EllipseGraphic(p.x,p.y,200,200,fill.mix(Gradients.green()),line.mix(Gradients.lightGreen(0.5)))
         zoomContainer!.addSubview(ellipse.graphic)
         ellipse.draw()
         
