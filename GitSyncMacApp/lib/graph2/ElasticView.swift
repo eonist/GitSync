@@ -90,7 +90,7 @@ class ElasticView:Element{
         //let center:CGPoint = CGRect(0,0,self.width,self.height).center
         Swift.print("zoomContainer!.point: " + "\(zoomContainer!.point)")
         //let newPos:CGPoint = PointModifier.scale(CGPoint(0,0), center/*self.localPos()*/, CGPoint(relativeZoom,relativeZoom))/*<--the 1 is needed because the zoom value is additative*/
-        let objSize:CGSize = CGSize(zoomContainer!.frame.size.width,zoomContainer!.frame.size.height)
+        let objSize:CGSize = CGSize(zoomContainer!.frame.size.width*relativeZoom,zoomContainer!.frame.size.height*relativeZoom)
         Swift.print("objSize: " + "\(objSize)")
         let canvasSize:CGSize = CGSize(width,height)
         Swift.print("canvasSize: " + "\(canvasSize)")
