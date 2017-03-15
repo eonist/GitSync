@@ -156,7 +156,9 @@ extension ElasticView{
      */
     func onMagnifyGesture(gestureRecognizer: NSMagnificationGestureRecognizer) {
         Swift.print("⚠️️ DocView.onMagnifyGesture() magnification: " + "\(gestureRecognizer.magnification)")
-        if(gestureRecognizer.state == .changed){
+        Swift.print("gestureRecognizer.magnification: " + "\(gestureRecognizer.magnification)")
+        
+        /*if(gestureRecognizer.state == .changed){
             Swift.print("the zoom changed")
             //appendZoom(1+(gestureRecognizer.magnification-prevMagnificationValue))
             //let curZoom:CGFloat = prevMagnificationValue + gestureRecognizer.magnification
@@ -171,7 +173,7 @@ extension ElasticView{
         }else if(gestureRecognizer.state == .ended){
             Swift.print("the zoom ended")
             
-        }
+        }*/
     }
     /**
      * PARAM: zoom: accumulated zoom. starts at 1
