@@ -18,6 +18,7 @@ class ElasticView:Element{
     var moverZ:RubberBand?
     var iterimScrollY:InterimScroll = InterimScroll()
     var iterimScrollX:InterimScroll = InterimScroll()
+    var iterimScrollZ:InterimScroll = InterimScroll()
     /**/
     var prevMagnificationValue:CGFloat = 1
     var initBoundWidth:CGFloat?
@@ -146,8 +147,9 @@ extension ElasticView{
 /*Zoom related*/
 extension ElasticView{
     func setZ(_ value:CGFloat){
-        let scalarZoom:CGFloat = 
-        directZoom()
+        Swift.print("setZ: " + "\(value)")
+        let scalarZoom:CGFloat = value/height//0-1
+        directZoom(scalarZoom)
     }
     /**
      *
@@ -157,19 +159,21 @@ extension ElasticView{
         if(gestureRecognizer.state == .changed){
             Swift.print("the zoom changed")
             //appendZoom(1+(gestureRecognizer.magnification-prevMagnificationValue))
-            let curZoom:CGFloat = prevMagnificationValue + gestureRecognizer.magnification
-            zoom(curZoom)
+            //let curZoom:CGFloat = prevMagnificationValue + gestureRecognizer.magnification
+            //zoom(curZoom)
         }else if(gestureRecognizer.state == .began){//include maybegin here
             Swift.print("the zoom began")
-            //tempPagePos = CGPoint(zoomContainer!.point.x,zoomContainer!.point.y)
-            Swift.print("tempPagePos: " + "\(tempPagePos)")
-            //self.tempZoom = 1;
+            moverZ!.stop()
+            moverZ!.hasStopped = true
+            iterimScrollZ.prevScrollingDelta = 0
+            moverZ!.isDirectlyManipulating = true
+            iterimScrollZ.velocities = Array(repeating: 0, count: 10)
         }else if(gestureRecognizer.state == .ended){
             Swift.print("the zoom ended")
             //tempPagePos = CGPoint(zoomContainer!.x,zoomContainer!.y)
             Swift.print("tempPagePos: " + "\(tempPagePos)")
             //prevZoom = zoom
-            prevMagnificationValue += gestureRecognizer.magnification
+            //prevMagnificationValue += gestureRecognizer.magnification
         }
     }
     func directZoom(_ zoom:CGFloat){
