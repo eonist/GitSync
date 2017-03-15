@@ -66,7 +66,6 @@ class ElasticView:Element{
             //prevZoom = zoom
             curMagnificationValue += gestureRecognizer.magnification
         }
-        
     }
 }
 
@@ -144,6 +143,26 @@ extension ElasticView{
             moverX!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*/
         }else{/*stationary*/
             moverX!.start()/*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
+        }
+    }
+}
+private class Utils{
+    
+    /**
+     * Applies contentsScale to descendants of a view that has been zoomed (so that we avoid pixelation while zooming)
+     * NOTE: maybe you can use a method in ElementModifier as it has similar code
+     * TODO: a setNeedsDisplay() on fillShape and lineShape could fix a potential problem were contesScale is applied if there isnt a redraw. But this is not confirmed
+     */
+    class func applyContentsScale(view:NSView,_ multiplier:CGFloat){
+        //Swift.print("applyContentsScale()")
+        for child in view.subviews{
+            if(child is IGraphic){
+                let graphic:IGraphic = child as! IGraphic
+                graphic.fillShape.contentsScale = 2.0 * multiplier/*<--2.0 represents retina screen*/
+                graphic.lineShape.contentsScale = 2.0 * multiplier
+                
+            }
+            if(child.subviews.count > 0) {applyContentsScale(child,multiplier)}/*<--this line makes it recursive*/
         }
     }
 }
