@@ -28,6 +28,9 @@ class ElasticView:Element{
         /*anim*/
         moverY = RubberBand(Animation.sharedInstance,setY/*👈important*/,(maskFrame.y,maskFrame.size.height),(contentFrame.y,contentFrame.size.height))
         moverX = RubberBand(Animation.sharedInstance,setX/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
+        /*pinch to zoom*/
+        let magGesture = NSMagnificationGestureRecognizer(target: self, action: ObjectiveC.Selector(("onMagnifyGesture:")))
+        self.addGestureRecognizer(magGesture)
     }
     override func scrollWheel(with event: NSEvent) {
         Swift.print("scrollWheel")
