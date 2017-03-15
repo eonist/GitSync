@@ -10,8 +10,17 @@ class Graph2:ElasticScrollView{
     override var itemHeight: CGFloat {return 24}
     override func resolveSkin() {
         super.resolveSkin()
+        
+        let gradient = LinearGradient(Gradients.red(),[],π/2)
+        let lineGradient = LinearGradient(Gradients.teal(0.5),[],π/2)
+        /*Styles*/
+        let fill:GradientFillStyle = GradientFillStyle(gradient);
+        let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.round)
+        let line = GradientLineStyle(lineGradient,lineStyle)
+        
         let ellipse = EllipseGraphic(300,40,200,200,fill.mix(Gradients.teal()),line.mix(Gradients.blue(0.5)))
-        addSubview(ellipse.graphic)
+        
+        lableContainer.addSubview(ellipse.graphic)
         ellipse.draw()
     }
     //bottomBar
