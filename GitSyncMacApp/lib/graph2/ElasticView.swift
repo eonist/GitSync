@@ -20,6 +20,7 @@ class ElasticView:Element{
     var curMagnificationValue:CGFloat = 1
     var initBoundWidth:CGFloat?
     var initBoundHeight:CGFloat?
+    var tempPagePos:CGPoint?
     
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
@@ -66,11 +67,11 @@ class ElasticView:Element{
             
         }else if(gestureRecognizer.state == .began){//include maybegin here
             Swift.print("the zoom began")
-            //tempPagePos = CGPoint(page.point.x,page.point.y)
+            tempPagePos = CGPoint(page.point.x,page.point.y)
             //self.tempZoom = 1;
         }else if(gestureRecognizer.state == .ended){
             Swift.print("the zoom ended")
-            //tempPagePos = CGPoint(page.x,page.y)
+            tempPagePos = CGPoint(page.x,page.y)
             //prevZoom = zoom
             curMagnificationValue += gestureRecognizer.magnification
         }
@@ -80,6 +81,10 @@ class ElasticView:Element{
      */
     func zoom(_ zoom:CGFloat){
         Swift.print("zoom: \(zoom)")
+        let newPos:CGPoint = PointModifier.scale(tempPagePos!, self.localPos(), CGPoint(tempZoom!,tempZoom!))/*<--the 1 is needed because the zoom value is additative*/
+        Swift.print("newPos: " + "\(newPos)")
+        page.point = newPos
+        
         Utils.applyContentsScale(contentContainer!, zoom)//<---TODO: add this method in page?
         self.bounds.width = initBoundWidth!/* * scale*/
         self.bounds.height = initBoundHeight!/* * scale*/
