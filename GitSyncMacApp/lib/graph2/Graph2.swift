@@ -19,6 +19,8 @@ class Graph2:ElasticScrollView{
         let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.round)
         let line = GradientLineStyle(lineGradient,lineStyle)
         
+        let objSize:CGSize = CGSize(200,200)
+        let p = Align.alignmentPoint(<#T##objectSize: CGSize##CGSize#>, <#T##canvasSize: CGSize##CGSize#>, <#T##canvasAlignment: String##String#>, <#T##objectAlignment: String##String#>, <#T##offset: CGPoint##CGPoint#>)
         let ellipse = EllipseGraphic(40,40,200,200,fill.mix(Gradients.teal()),line.mix(Gradients.blue(0.5)))
         
         lableContainer!.addSubview(ellipse.graphic)
