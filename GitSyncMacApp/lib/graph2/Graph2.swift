@@ -32,6 +32,11 @@ class Graph2:ElasticView{
         zoomContainer!.addSubview(ellipse.graphic)
         ellipse.draw()
         
+        
+        let rect = RectGraphic(0,0,width,height,fill,line)
+        zoomContainer!.addSubview(rect.graphic)
+        rect.draw()
+        
         /*Debug*/
         
     }
