@@ -37,9 +37,6 @@ class ElasticView:Element{
         moverY = RubberBand(Animation.sharedInstance,setY/*👈important*/,(maskFrame.y,maskFrame.size.height),(contentFrame.y,contentFrame.size.height))
         moverX = RubberBand(Animation.sharedInstance,setX/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
         /*pinch to zoom*/
-        self.acceptsTouchEvents = true/*Enables gestures*/
-        self.wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
-        
         let magGesture = NSMagnificationGestureRecognizer(target: self, action: #selector(onMagnifyGesture))
         self.addGestureRecognizer(magGesture)
         initBoundWidth = contentContainer!.bounds.size.width
