@@ -18,9 +18,9 @@ class Graph2:ElasticScrollView{
         let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.round)
         let line = GradientLineStyle(lineGradient,lineStyle)
         
-        let ellipse = EllipseGraphic(300,40,200,200,fill.mix(Gradients.teal()),line.mix(Gradients.blue(0.5)))
+        let ellipse = EllipseGraphic(40,40,200,200,fill.mix(Gradients.teal()),line.mix(Gradients.blue(0.5)))
         
-        lableContainer.addSubview(ellipse.graphic)
+        lableContainer!.addSubview(ellipse.graphic)
         ellipse.draw()
     }
     //bottomBar
