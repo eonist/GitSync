@@ -59,8 +59,11 @@ extension ElasticView{
         Swift.print("mover!.isDirectlyManipulating: " + "\(moverY!.isDirectlyManipulating)")
         _ = iterimScroll.velocities.pushPop(event.scrollingDeltaY)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
         moverY!.value += event.scrollingDeltaY/*directly manipulate the value 1 to 1 control*/
+        moverX!.value += event.scrollingDeltaX
         moverY!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
+        moverX!.updatePosition()
         setY(moverY!.result)//new ⚠️️
+        setX(moverX!.result)//new ⚠️️
     }
     /**
      * NOTE: Basically when you enter your scrollWheel gesture
