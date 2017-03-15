@@ -15,6 +15,7 @@ class ElasticView:Element{
     /**/
     var moverY:RubberBand?
     var moverX:RubberBand?
+    var moverZ:RubberBand?
     var iterimScrollY:InterimScroll = InterimScroll()
     var iterimScrollX:InterimScroll = InterimScroll()
     /**/
@@ -36,6 +37,8 @@ class ElasticView:Element{
         /*anim*/
         moverY = RubberBand(Animation.sharedInstance,setY/*👈important*/,(maskFrame.y,maskFrame.size.height),(contentFrame.y,contentFrame.size.height))
         moverX = RubberBand(Animation.sharedInstance,setX/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
+        moverZ = RubberBand(Animation.sharedInstance,setX/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
+        
         /*pinch to zoom*/
         let magGesture = NSMagnificationGestureRecognizer(target: self, action: #selector(onMagnifyGesture))
         self.addGestureRecognizer(magGesture)
