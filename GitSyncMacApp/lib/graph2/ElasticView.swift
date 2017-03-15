@@ -43,7 +43,7 @@ class ElasticView:Element{
         valueZ = height
         let initMin:CGFloat = 0
         
-        moverZ = RubberBand(Animation.sharedInstance,setX/*👈important*/,(maskFrame.y,maskFrame.size.height),(initMin,valueZ!))
+        moverZ = RubberBand(Animation.sharedInstance,setZ/*👈important*/,(maskFrame.y,maskFrame.size.height),(initMin,valueZ!))
         
         /*pinch to zoom*/
         let magGesture = NSMagnificationGestureRecognizer(target: self, action: #selector(onMagnifyGesture))
@@ -155,7 +155,7 @@ extension ElasticView{
             Swift.print("the zoom changed")
             let fractionalDelta:CGFloat = gestureRecognizer.magnification - prevMagnificationValue
             Swift.print("fractionalDelta: " + "\(fractionalDelta)")
-            let zDelta:CGFloat = 400 * fractionalDelta
+            let zDelta:CGFloat = 1000 * fractionalDelta
             Swift.print("zDelta: " + "\(zDelta)")
             iterimScrollY.prevScrollingDelta = zDelta/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
             _ = iterimScrollY.velocities.pushPop(zDelta)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
@@ -170,6 +170,7 @@ extension ElasticView{
             iterimScrollZ.prevScrollingDelta = 0
             moverZ!.isDirectlyManipulating = true
             iterimScrollZ.velocities = Array(repeating: 0, count: 10)
+            prevMagnificationValue = 0
         }else if(gestureRecognizer.state == .ended){
             Swift.print("the zoom ended")
             moverZ!.hasStopped = false
@@ -185,7 +186,7 @@ extension ElasticView{
             }else{/*stationary*/
                 moverZ!.start()/*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
             }
-            
+            prevMagnificationValue = 0
         }
     }
     /**
