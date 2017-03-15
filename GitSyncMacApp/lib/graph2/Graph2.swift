@@ -20,8 +20,11 @@ class Graph2:ElasticScrollView{
         let line = GradientLineStyle(lineGradient,lineStyle)
         
         let objSize:CGSize = CGSize(200,200)
+        Swift.print("objSize: " + "\(objSize)")
         let viewSize:CGSize = CGSize(width,height)
-        let p = Align.alignmentPoint(objSize, viewSize, Alignment.centerCenter, Alignment.centerCenter)
+        Swift.print("viewSize: " + "\(viewSize)")
+        let p = Align.alignmentPoint(objSize, viewSize, Alignment.centerCenter, Alignment.centerCenter,CGPoint())
+        Swift.print("p: " + "\(p)")
         let ellipse = EllipseGraphic(p.x,p.y,200,200,fill.mix(Gradients.teal()),line.mix(Gradients.blue(0.5)))
         
         lableContainer!.addSubview(ellipse.graphic)
