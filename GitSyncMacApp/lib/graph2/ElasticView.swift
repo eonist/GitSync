@@ -20,7 +20,7 @@ class ElasticView:Element{
     var iterimScrollX:InterimScroll = InterimScroll()
     var iterimScrollZ:InterimScroll = InterimScroll()
     /**/
-    //var prevMagnificationValue:CGFloat = 1
+    var prevMagnificationValue:CGFloat = 0
     var initBoundWidth:CGFloat?
     var initBoundHeight:CGFloat?
     //var tempPagePos:CGPoint?
@@ -160,18 +160,19 @@ extension ElasticView{
         
         if(gestureRecognizer.state == .changed){
             Swift.print("the zoom changed")
-            let zDelta:CGFloat = gestureRecognizer.magnification
-            iterimScrollY.prevScrollingDelta = event.scrollingDeltaZ/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
+            let fractionalDelta:CGFloat = gestureRecognizer.magnification - prevMagnificationValue
+            let zDelta:CGFloat = 100 * fractionalDelta
+            iterimScrollY.prevScrollingDelta = zDelta/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
             
             
-            _ = iterimScrollY.velocities.pushPop(event.scrollingDeltaZ)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
+            _ = iterimScrollY.velocities.pushPop(zDelta)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
             
-            moverZ!.value += event.scrollingDeltaZ/*directly manipulate the value 1 to 1 control*/
+            moverZ!.value += zDelta/*directly manipulate the value 1 to 1 control*/
             
             moverZ!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
             
             setZ(moverZ!.result)//new ⚠️️
-            
+            prevMagnificationValue = gestureRecognizer.magnification
         }else if(gestureRecognizer.state == .began){//include maybegin here
             Swift.print("the zoom began")
             moverZ!.stop()
