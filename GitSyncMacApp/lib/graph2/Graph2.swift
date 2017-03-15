@@ -55,7 +55,7 @@ class Graph2:ElasticView{
         gestureHUD!.touchesMoved(event)
     }
     /**
-     * NOTE: playground doesnt fire a touch up when there is only one touch detected. to work aroudn this limitation you have to detect any touch and then when there are only 2, delete all debugCircs
+     * NOTE: playground doesn't fire a touch up when there is only one touch detected. to work aroudn this limitation you have to detect any touch and then when there are only 2, delete all debugCircs
      */
     override func touchesEnded(with event:NSEvent) {//for debugging
         Swift.print("touchesEndedWithEvent: " + "\(event)")
