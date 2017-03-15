@@ -20,8 +20,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //rateOfCommitsTest()
         
-        initApp()
-        //initTestWin()//🔨
+        //initApp()
+        initTestWin()//🔨
         //_ = ASyncTest()
         //_ = AsyncTest2()
         //AutoSync.sync()
