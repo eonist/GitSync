@@ -23,6 +23,8 @@ class ElasticView:Element{
     var initBoundWidth:CGFloat?
     var initBoundHeight:CGFloat?
     var tempPagePos:CGPoint?
+    /**/
+    var 
     
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
@@ -37,7 +39,10 @@ class ElasticView:Element{
         /*anim*/
         moverY = RubberBand(Animation.sharedInstance,setY/*👈important*/,(maskFrame.y,maskFrame.size.height),(contentFrame.y,contentFrame.size.height))
         moverX = RubberBand(Animation.sharedInstance,setX/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
-        moverZ = RubberBand(Animation.sharedInstance,setX/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
+        let initLen:CGFloat = 400
+        let initMin:CGFloat = 0
+        
+        moverZ = RubberBand(Animation.sharedInstance,setX/*👈important*/,(maskFrame.y,maskFrame.size.height),(initMin,initLen))
         
         /*pinch to zoom*/
         let magGesture = NSMagnificationGestureRecognizer(target: self, action: #selector(onMagnifyGesture))
