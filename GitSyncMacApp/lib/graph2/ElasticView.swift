@@ -146,32 +146,22 @@ extension ElasticView{
 }
 /*Zoom related*/
 extension ElasticView{
-    func setZ(_ value:CGFloat){
-        Swift.print("setZ: " + "\(value)")
-        let scalarZoom:CGFloat = value/height//0-1
-        directZoom(scalarZoom)
-    }
-    /**
+        /**
      *
      */
     func onMagnifyGesture(gestureRecognizer: NSMagnificationGestureRecognizer) {
         Swift.print("⚠️️ DocView.onMagnifyGesture() magnification: " + "\(gestureRecognizer.magnification)")
-       
-        
         if(gestureRecognizer.state == .changed){
             Swift.print("the zoom changed")
             let fractionalDelta:CGFloat = gestureRecognizer.magnification - prevMagnificationValue
+            Swift.print("fractionalDelta: " + "\(fractionalDelta)")
             let zDelta:CGFloat = 100 * fractionalDelta
+            Swift.print("zDelta: " + "\(zDelta)")
             iterimScrollY.prevScrollingDelta = zDelta/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
-            
-            
             _ = iterimScrollY.velocities.pushPop(zDelta)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
-            
             moverZ!.value += zDelta/*directly manipulate the value 1 to 1 control*/
-            
             moverZ!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
-            
-            setZ(moverZ!.result)//new ⚠️️
+            setZ(moverZ!.result)
             prevMagnificationValue = gestureRecognizer.magnification
         }else if(gestureRecognizer.state == .began){//include maybegin here
             Swift.print("the zoom began")
@@ -182,11 +172,9 @@ extension ElasticView{
             iterimScrollZ.velocities = Array(repeating: 0, count: 10)
         }else if(gestureRecognizer.state == .ended){
             Swift.print("the zoom ended")
-            
             moverZ!.hasStopped = false
             moverZ!.isDirectlyManipulating = false
             moverZ!.value = moverZ!.result
-            
             /*Y*/
             if(iterimScrollZ.prevScrollingDelta != 0){/*Not 1 and not -1 indicates that the wheel is not stationary*/
                 var velocity:CGFloat = 0
@@ -199,6 +187,14 @@ extension ElasticView{
             }
             
         }
+    }
+    /**
+     *
+     */
+    func setZ(_ value:CGFloat){
+        Swift.print("setZ: " + "\(value)")
+        let scalarZoom:CGFloat = value/height//0-1
+        directZoom(scalarZoom)
     }
     /**
      * PARAM: zoom: accumulated zoom. starts at 1
