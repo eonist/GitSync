@@ -40,8 +40,8 @@ class ElasticView:Element{
         
         let magGesture = NSMagnificationGestureRecognizer(target: self, action: #selector(onMagnifyGesture))
         self.addGestureRecognizer(magGesture)
-        initBoundWidth = self.bounds.size.width
-        initBoundHeight = self.bounds.size.height
+        initBoundWidth = contentContainer!.bounds.size.width
+        initBoundHeight = contentContainer!.bounds.size.height
     }
     override func scrollWheel(with event: NSEvent) {
         Swift.print("scrollWheel")
@@ -88,10 +88,10 @@ class ElasticView:Element{
         contentContainer!.point = newPos
         
         Utils.applyContentsScale(contentContainer!, zoom)//<---TODO: add this method in page?
-        self.bounds.width = initBoundWidth!/* * scale*/
-        self.bounds.height = initBoundHeight!/* * scale*/
+        contentContainer!.bounds.width = initBoundWidth!/* * scale*/
+        contentContainer!.bounds.height = initBoundHeight!/* * scale*/
         //Swift.print("bounds: " + "\(bounds)")
-        self.scaleUnitSquare(to: NSSize(zoom,zoom))
+        contentContainer!.scaleUnitSquare(to: NSSize(zoom,zoom))
     }
 }
 
