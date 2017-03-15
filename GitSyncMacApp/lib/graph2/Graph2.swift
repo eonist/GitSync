@@ -10,6 +10,9 @@ class Graph2:ElasticScrollView{
     override var itemHeight: CGFloat {return 24}
     override func resolveSkin() {
         super.resolveSkin()
+        let ellipse = EllipseGraphic(300,40,200,200,fill.mix(Gradients.teal()),line.mix(Gradients.blue(0.5)))
+        addSubview(ellipse.graphic)
+        ellipse.draw()
     }
     //bottomBar
     //rightBar
