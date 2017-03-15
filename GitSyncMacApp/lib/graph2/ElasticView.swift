@@ -24,18 +24,7 @@ class ElasticView:Element{
         contentFrame = CGRect(0,0,width,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         mover = RubberBand(Animation.sharedInstance,setProgress/*👈important*/,maskFrame,contentFrame)
         mover!.event = onEvent/*Add an eventHandler for the mover object, , this has no functionality in this class, but may have in classes that extends this class, like hide progress-indicator when all animation has stopped*/
-    
     }
-    /**
-     *
-     */
-    func setProgress(_ value:CGFloat){//DIRECT TRANSMISSION 💥
-        Swift.print("Elastic2.setProgress() value: " + "\(value)")
-        contentContainer!.frame.y = value/*<--this is where we actully move the labelContainer*/
-        //the bellow var may not be need to be set
-        iterimScroll.progressValue = value / -(contentFrame.size.height - maskFrame.size.height)/*get the the scalar values from value.*/
-    }
-    
     override func scrollWheel(with event: NSEvent) {
         Swift.print("scrollWheel")
         switch event.phase{
@@ -51,8 +40,16 @@ class ElasticView:Element{
     }
     
 }
-
 extension ElasticView{
+    /**
+     *
+     */
+    func setProgress(_ value:CGFloat){//DIRECT TRANSMISSION 💥
+        Swift.print("Elastic2.setProgress() value: " + "\(value)")
+        contentContainer!.frame.y = value/*<--this is where we actully move the labelContainer*/
+        //the bellow var may not be need to be set
+        iterimScroll.progressValue = value / -(contentFrame.size.height - maskFrame.size.height)/*get the the scalar values from value.*/
+    }
     /**
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
      */
