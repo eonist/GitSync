@@ -16,6 +16,8 @@ class ElasticView:Element{
     var moverX:RubberBand?
     var iterimScrollY:InterimScroll = InterimScroll()
     var iterimScrollX:InterimScroll = InterimScroll()
+    /**/
+    var prevMagnificationValue:CGFloat = 0
     
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
@@ -62,7 +64,7 @@ class ElasticView:Element{
             //tempPagePos = CGPoint(page.x,page.y)
             //prevZoom = zoom
         }
-        //prevMagnificationValue = gestureRecognizer.magnification
+        prevMagnificationValue = gestureRecognizer.magnification
     }
 }
 
