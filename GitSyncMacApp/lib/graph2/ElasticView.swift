@@ -29,7 +29,10 @@ class ElasticView:Element{
         moverY = RubberBand(Animation.sharedInstance,setY/*👈important*/,(maskFrame.y,maskFrame.size.height),(contentFrame.y,contentFrame.size.height))
         moverX = RubberBand(Animation.sharedInstance,setX/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
         /*pinch to zoom*/
-        let magGesture = NSMagnificationGestureRecognizer(target: self, action: ObjectiveC.Selector(("onMagnifyGesture:")))
+        self.acceptsTouchEvents = true/*Enables gestures*/
+        self.wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
+        
+        let magGesture = NSMagnificationGestureRecognizer(target: self, action: ObjectiveC.Selector("onMagnifyGesture:"))
         self.addGestureRecognizer(magGesture)
     }
     override func scrollWheel(with event: NSEvent) {
@@ -46,7 +49,7 @@ class ElasticView:Element{
         super.scrollWheel(with: event)
     }
     func onMagnifyGesture(gestureRecognizer: NSMagnificationGestureRecognizer) {
-        Swift.print("DocView.onMagnifyGesture() magnification: " + "\(gestureRecognizer.magnification)")
+        Swift.print("⚠️️ DocView.onMagnifyGesture() magnification: " + "\(gestureRecognizer.magnification)")
         if(gestureRecognizer.state == .changed){
             Swift.print("the zoom changed")
             //appendZoom(1+(gestureRecognizer.magnification-prevMagnificationValue))
