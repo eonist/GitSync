@@ -32,7 +32,7 @@ class ElasticView:Element{
         self.acceptsTouchEvents = true/*Enables gestures*/
         self.wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
         
-        let magGesture = NSMagnificationGestureRecognizer(target: self, action: ObjectiveC.Selector("onMagnifyGesture:"))
+        let magGesture = NSMagnificationGestureRecognizer(target: self, action: #selector(onMagnifyGesture))
         self.addGestureRecognizer(magGesture)
     }
     override func scrollWheel(with event: NSEvent) {
