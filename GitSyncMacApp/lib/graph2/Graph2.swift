@@ -5,9 +5,9 @@ import Foundation
  * New Graph component (dynamic/zoomable/slidable/snappable) (year/month/day/hour)
  * Inspiration from DrawLab
  */
-class Graph2:ElasticScrollView{
-    override var itemsHeight: CGFloat {return height}
-    override var itemHeight: CGFloat {return 24}
+class Graph2:ElasticView{
+    //override var itemsHeight: CGFloat {return height}
+    //override var itemHeight: CGFloat {return 24}
     override func resolveSkin() {
         StyleManager.addStyle("Graph2 {fill:green;fill-alpha:0;}")
         super.resolveSkin()
@@ -27,7 +27,7 @@ class Graph2:ElasticScrollView{
         Swift.print("p: " + "\(p)")
         let ellipse = EllipseGraphic(p.x,p.y,200,200,fill.mix(Gradients.teal()),line.mix(Gradients.blue(0.5)))
         
-        lableContainer!.addSubview(ellipse.graphic)
+        contentContainer!.addSubview(ellipse.graphic)
         ellipse.draw()
     }
     //bottomBar
