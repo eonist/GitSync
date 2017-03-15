@@ -25,7 +25,7 @@ class Graph2:ElasticView{
         Swift.print("viewSize: " + "\(viewSize)")
         let p = Align.alignmentPoint(objSize, viewSize, Alignment.centerCenter, Alignment.centerCenter,CGPoint())
         Swift.print("p: " + "\(p)")
-        let ellipse = EllipseGraphic(p.x,p.y,200,200,fill.mix(Gradients.teal()),line.mix(Gradients.blue(0.5)))
+        let ellipse = EllipseGraphic(p.x,p.y,200,200,fill.mix(Gradients.redOrange()),line.mix(Gradients.red(0.5)))
         
         contentContainer!.addSubview(ellipse.graphic)
         ellipse.draw()
