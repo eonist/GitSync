@@ -146,7 +146,8 @@ extension ElasticView{
 /*Zoom related*/
 extension ElasticView{
     func setZ(_ value:CGFloat){
-        
+        let scalarZoom:CGFloat = 
+        directZoom()
     }
     /**
      *
@@ -170,6 +171,16 @@ extension ElasticView{
             //prevZoom = zoom
             prevMagnificationValue += gestureRecognizer.magnification
         }
+    }
+    func directZoom(_ zoom:CGFloat){
+        let objSize:CGSize = CGSize(zoomContainer!.frame.size.width*zoom,zoomContainer!.frame.size.height*zoom)
+        let canvasSize:CGSize = CGSize(width,height)
+        let newPos:CGPoint = Align.alignmentPoint(objSize, canvasSize, Alignment.centerCenter, Alignment.centerCenter, CGPoint())
+        zoomContainer!.point = newPos
+        Utils.applyContentsScale(zoomContainer!, zoom)//<---TODO: add this method in page?
+        zoomContainer!.bounds.width = initBoundWidth!/* * scale*/
+        zoomContainer!.bounds.height = initBoundHeight!/* * scale*/
+        zoomContainer!.scaleUnitSquare(to: NSSize(zoom,zoom))
     }
     /**
      * PARAM: zoom: accumulated zoom. starts at 1
