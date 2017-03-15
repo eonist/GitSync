@@ -119,6 +119,5 @@ extension ElasticView{
         }else{/*stationary*/
             moverX!.start()/*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
         }
-        
     }
 }
