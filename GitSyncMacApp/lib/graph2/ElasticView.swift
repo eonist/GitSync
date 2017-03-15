@@ -73,6 +73,7 @@ class ElasticView:Element{
         }else if(gestureRecognizer.state == .ended){
             Swift.print("the zoom ended")
             tempPagePos = CGPoint(zoomContainer!.x,zoomContainer!.y)
+            Swift.print("tempPagePos: " + "\(tempPagePos)")
             //prevZoom = zoom
             prevMagnificationValue += gestureRecognizer.magnification
         }
