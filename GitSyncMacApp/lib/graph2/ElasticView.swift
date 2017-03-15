@@ -13,7 +13,7 @@ class ElasticView:Element{
     var contentContainer:Element?
     /**/
     var moverX:RubberBand?
-    var moverY:RubberBand?
+    //var moverY:RubberBand?
     var iterimScroll:InterimScroll = InterimScroll()
     
     override func resolveSkin() {
@@ -23,7 +23,7 @@ class ElasticView:Element{
         
         maskFrame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
         contentFrame = CGRect(0,0,width,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
-        moverX = RubberBand(Animation.sharedInstance,setProgress/*👈important*/,maskFrame,contentFrame)
+        moverX = RubberBand(Animation.sharedInstance,setY/*👈important*/,maskFrame,contentFrame)
         moverX!.event = onEvent/*Add an eventHandler for the mover object, , this has no functionality in this class, but may have in classes that extends this class, like hide progress-indicator when all animation has stopped*/
     }
     override func scrollWheel(with event: NSEvent) {
@@ -42,15 +42,9 @@ class ElasticView:Element{
 }
 
 extension ElasticView{
-    
-    /**
-     *
-     */
-    func setProgress(_ value:CGFloat){//DIRECT TRANSMISSION 💥
+    func setY(_ value:CGFloat){//DIRECT TRANSMISSION 💥
         Swift.print("Elastic2.setProgress() value: " + "\(value)")
         contentContainer!.frame.y = value/*<--this is where we actully move the labelContainer*/
-        //the bellow var may not be need to be set
-        //iterimScroll.progressValue = value / -(contentFrame.size.height - maskFrame.size.height)/*get the the scalar values from value.*/
     }
     /**
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
@@ -62,7 +56,7 @@ extension ElasticView{
         _ = iterimScroll.velocities.pushPop(event.scrollingDeltaY)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
         moverX!.value += event.scrollingDeltaY/*directly manipulate the value 1 to 1 control*/
         moverX!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
-        setProgress(moverX!.result)//new ⚠️️
+        setY(moverX!.result)//new ⚠️️
     }
     /**
      * NOTE: Basically when you enter your scrollWheel gesture
