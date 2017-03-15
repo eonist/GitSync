@@ -17,7 +17,7 @@ class ElasticView:Element{
     var iterimScrollY:InterimScroll = InterimScroll()
     var iterimScrollX:InterimScroll = InterimScroll()
     /**/
-    var curMagnificationValue:CGFloat = 0
+    var curMagnificationValue:CGFloat = 1
     var initBoundWidth:CGFloat?
     var initBoundHeight:CGFloat?
     
