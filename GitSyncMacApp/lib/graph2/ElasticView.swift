@@ -20,10 +20,10 @@ class ElasticView:Element{
     var iterimScrollX:InterimScroll = InterimScroll()
     var iterimScrollZ:InterimScroll = InterimScroll()
     /**/
-    var prevMagnificationValue:CGFloat = 1
+    //var prevMagnificationValue:CGFloat = 1
     var initBoundWidth:CGFloat?
     var initBoundHeight:CGFloat?
-    var tempPagePos:CGPoint?
+    //var tempPagePos:CGPoint?
     /**/
     var valueZ:CGFloat?
     
@@ -170,12 +170,12 @@ extension ElasticView{
             iterimScrollZ.velocities = Array(repeating: 0, count: 10)
         }else if(gestureRecognizer.state == .ended){
             Swift.print("the zoom ended")
-            //tempPagePos = CGPoint(zoomContainer!.x,zoomContainer!.y)
-            Swift.print("tempPagePos: " + "\(tempPagePos)")
-            //prevZoom = zoom
-            //prevMagnificationValue += gestureRecognizer.magnification
+            
         }
     }
+    /**
+     * PARAM: zoom: accumulated zoom. starts at 1
+     */
     func directZoom(_ zoom:CGFloat){
         let objSize:CGSize = CGSize(zoomContainer!.frame.size.width*zoom,zoomContainer!.frame.size.height*zoom)
         let canvasSize:CGSize = CGSize(width,height)
@@ -184,32 +184,6 @@ extension ElasticView{
         Utils.applyContentsScale(zoomContainer!, zoom)//<---TODO: add this method in page?
         zoomContainer!.bounds.width = initBoundWidth!/* * scale*/
         zoomContainer!.bounds.height = initBoundHeight!/* * scale*/
-        zoomContainer!.scaleUnitSquare(to: NSSize(zoom,zoom))
-    }
-    /**
-     * PARAM: zoom: accumulated zoom. starts at 1
-     */
-    func zoom(_ zoom:CGFloat){
-        Swift.print("zoom: \(zoom)")
-        //Swift.print("self.localPos(): " + "\(self.localPos())")
-        //Swift.print("tempPagePos: " + "\(tempPagePos)")
-        let relativeZoom:CGFloat = 1.0 + (zoom-prevMagnificationValue)
-        Swift.print("relativeZoom: " + "\(relativeZoom)")
-        //let center:CGPoint = CGRect(0,0,self.width,self.height).center
-        Swift.print("zoomContainer!.point: " + "\(zoomContainer!.point)")
-        //let newPos:CGPoint = PointModifier.scale(CGPoint(0,0), center/*self.localPos()*/, CGPoint(relativeZoom,relativeZoom))/*<--the 1 is needed because the zoom value is additative*/
-        let objSize:CGSize = CGSize(zoomContainer!.frame.size.width*zoom,zoomContainer!.frame.size.height*zoom)
-        Swift.print("objSize: " + "\(objSize)")
-        let canvasSize:CGSize = CGSize(width,height)
-        Swift.print("canvasSize: " + "\(canvasSize)")
-        let newPos:CGPoint = Align.alignmentPoint(objSize, canvasSize, Alignment.centerCenter, Alignment.centerCenter, CGPoint())
-        Swift.print("newPos: " + "\(newPos)")
-        zoomContainer!.point = newPos
-        
-        Utils.applyContentsScale(zoomContainer!, zoom)//<---TODO: add this method in page?
-        zoomContainer!.bounds.width = initBoundWidth!/* * scale*/
-        zoomContainer!.bounds.height = initBoundHeight!/* * scale*/
-        //Swift.print("bounds: " + "\(bounds)")
         zoomContainer!.scaleUnitSquare(to: NSSize(zoom,zoom))
     }
 
