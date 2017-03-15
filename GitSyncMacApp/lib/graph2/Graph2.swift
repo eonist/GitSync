@@ -65,8 +65,6 @@ class Graph2:ElasticView{
     }
     override func touchesCancelled(with event:NSEvent) {//for debugging
         Swift.print("touchesCancelledWithEvent: " + "\(event)")
-        super.touchesCancelled
-        
     }
     
     //bottomBar
