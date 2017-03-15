@@ -56,6 +56,9 @@ class ElasticView:Element{
             Swift.print("the zoom changed")
             //appendZoom(1+(gestureRecognizer.magnification-prevMagnificationValue))
             Swift.print("cur: \(curMagnificationValue + gestureRecognizer.magnification)")
+            let curZoom:CGFloat =
+            Utils.applyContentsScale(self, curZoom)//<---TODO: add this method in page?
+            
         }else if(gestureRecognizer.state == .began){//include maybegin here
             Swift.print("the zoom began")
             //tempPagePos = CGPoint(page.point.x,page.point.y)
