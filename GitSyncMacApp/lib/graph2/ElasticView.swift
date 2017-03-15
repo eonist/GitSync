@@ -12,19 +12,21 @@ class ElasticView:Element{
     var contentFrame:CGRect = CGRect()
     var contentContainer:Element?
     /**/
+    var moverY:RubberBand?
     var moverX:RubberBand?
-    //var moverY:RubberBand?
     var iterimScroll:InterimScroll = InterimScroll()
     
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
+        /*init*/
         contentContainer = addSubView(Container(width,height,self,"content"))
         layer!.masksToBounds = true/*masks the children to the frame, I don't think this works, seem to work now*/
-        
+        /*config*/
         maskFrame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
         contentFrame = CGRect(0,0,width,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
-        moverX = RubberBand(Animation.sharedInstance,setY/*👈important*/,maskFrame,contentFrame)
-        moverX!.event = onEvent/*Add an eventHandler for the mover object, , this has no functionality in this class, but may have in classes that extends this class, like hide progress-indicator when all animation has stopped*/
+        /*anim*/
+        moverY = RubberBand(Animation.sharedInstance,setY/*👈important*/,maskFrame,contentFrame)
+        
     }
     override func scrollWheel(with event: NSEvent) {
         Swift.print("scrollWheel")
@@ -52,11 +54,11 @@ extension ElasticView{
     func onScrollWheelChange(_ event:NSEvent){
         Swift.print("👻📜 (ElasticScrollable).onScrollWheelChange : \(event.type)")
         iterimScroll.prevScrollingDelta = event.scrollingDeltaY/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
-        Swift.print("mover!.isDirectlyManipulating: " + "\(moverX!.isDirectlyManipulating)")
+        Swift.print("mover!.isDirectlyManipulating: " + "\(moverY!.isDirectlyManipulating)")
         _ = iterimScroll.velocities.pushPop(event.scrollingDeltaY)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
-        moverX!.value += event.scrollingDeltaY/*directly manipulate the value 1 to 1 control*/
-        moverX!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
-        setY(moverX!.result)//new ⚠️️
+        moverY!.value += event.scrollingDeltaY/*directly manipulate the value 1 to 1 control*/
+        moverY!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
+        setY(moverY!.result)//new ⚠️️
     }
     /**
      * NOTE: Basically when you enter your scrollWheel gesture
@@ -64,10 +66,10 @@ extension ElasticView{
     func onScrollWheelEnter(){
         Swift.print("👻📜 (ElasticScrollable).onScrollWheelEnter")
         //Swift.print("IRBScrollable.onScrollWheelDown")
-        moverX!.stop()
-        moverX!.hasStopped = true/*set the stop flag to true*/
+        moverY!.stop()
+        moverY!.hasStopped = true/*set the stop flag to true*/
         iterimScroll.prevScrollingDelta = 0/*set last wheel speed delta to stationary, aka not spinning*/
-        moverX!.isDirectlyManipulating = true/*Toggle to directManipulationMode*/
+        moverY!.isDirectlyManipulating = true/*Toggle to directManipulationMode*/
         iterimScroll.velocities = Array(repeating: 0, count: 10)/*Reset the velocities*/
         //⚠️️scrollWheelEnter()
     }
@@ -77,18 +79,18 @@ extension ElasticView{
     func onScrollWheelExit(){
         Swift.print("👻📜 (ElasticScrollable).onScrollWheelExit")
         //Swift.print("IRBScrollable.onScrollWheelUp")
-        moverX!.hasStopped = false/*Reset this value to false, so that the FrameAnimatior can start again*/
-        moverX!.isDirectlyManipulating = false
-        moverX!.value = moverX!.result/*Copy this back in again, as we used relative friction when above or bellow constraints*/
+        moverY!.hasStopped = false/*Reset this value to false, so that the FrameAnimatior can start again*/
+        moverY!.isDirectlyManipulating = false
+        moverY!.value = moverY!.result/*Copy this back in again, as we used relative friction when above or bellow constraints*/
         Swift.print("prevScrollingDeltaY: " + "\(iterimScroll.prevScrollingDelta)")
         if(iterimScroll.prevScrollingDelta != 1.0 && iterimScroll.prevScrollingDelta != -1.0){/*Not 1 and not -1 indicates that the wheel is not stationary*/
             var velocity:CGFloat = 0
             if(iterimScroll.prevScrollingDelta > 0){velocity = NumberParser.max(iterimScroll.velocities)}/*Find the most positive velocity value*/
             else{velocity = NumberParser.min(iterimScroll.velocities)}/*Find the most negative velocity value*/
-            moverX!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
-            moverX!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*/
+            moverY!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
+            moverY!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*/
         }else{/*stationary*/
-            moverX!.start()/*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
+            moverY!.start()/*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
             //scrollWheelExitedAndIsStationary()/*This is only called if you exit scrollWheel when in overshot areas in the slider, think above 0 and bellow 1 in progress*/
         }
         //⚠️️scrollWheelExit()
