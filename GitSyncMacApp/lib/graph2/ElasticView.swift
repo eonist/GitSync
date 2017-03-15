@@ -155,7 +155,7 @@ extension ElasticView{
             Swift.print("the zoom changed")
             let fractionalDelta:CGFloat = gestureRecognizer.magnification - prevMagnificationValue
             Swift.print("fractionalDelta: " + "\(fractionalDelta)")
-            let zDelta:CGFloat = 100 * fractionalDelta
+            let zDelta:CGFloat = 400 * fractionalDelta
             Swift.print("zDelta: " + "\(zDelta)")
             iterimScrollY.prevScrollingDelta = zDelta/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
             _ = iterimScrollY.velocities.pushPop(zDelta)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
@@ -193,7 +193,8 @@ extension ElasticView{
      */
     func setZ(_ value:CGFloat){
         Swift.print("setZ: " + "\(value)")
-        let scalarZoom:CGFloat = value/height//0-1
+        let scalarZoom:CGFloat = height/(height-value)//0-1
+        Swift.print("scalarZoom: " + "\(scalarZoom)")
         directZoom(scalarZoom)
     }
     /**
