@@ -182,8 +182,8 @@ extension ElasticView{
             /*Y*/
             if(iterimScrollZ.prevScrollingDelta != 1.0 && iterimScrollZ.prevScrollingDelta != -1.0){/*Not 1 and not -1 indicates that the wheel is not stationary*/
                 var velocity:CGFloat = 0
-                if(iterimScrollY.prevScrollingDelta > 0){velocity = NumberParser.max(iterimScrollY.velocities)}/*Find the most positive velocity value*/
-                else{velocity = NumberParser.min(iterimScrollY.velocities)}/*Find the most negative velocity value*/
+                if(iterimScrollY.prevScrollingDelta > 0){velocity = NumberParser.max(iterimScrollZ.velocities)}/*Find the most positive velocity value*/
+                else{velocity = NumberParser.min(iterimScrollZ.velocities)}/*Find the most negative velocity value*/
                 moverY!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
                 moverY!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*/
             }else{/*stationary*/
