@@ -42,6 +42,22 @@ class ElasticView:Element{
         }
         super.scrollWheel(with: event)
     }
+    func onMagnifyGesture(gestureRecognizer: NSMagnificationGestureRecognizer) {
+        //Swift.print("DocView.onMagnifyGesture() magnification: " + "\(gestureRecognizer.magnification)")
+        if(gestureRecognizer.state == .Changed){
+            Swift.print("the zoom changed")
+            appendZoom(1+(gestureRecognizer.magnification-prevMagnificationValue))
+        }else if(gestureRecognizer.state == .Began){//include maybegin here
+            Swift.print("the zoom began")
+            tempPagePos = CGPoint(page.point.x,page.point.y)
+            self.tempZoom = 1;
+        }else if(gestureRecognizer.state == .Ended){
+            Swift.print("the zoom ended")
+            tempPagePos = CGPoint(page.x,page.y)
+            prevZoom = zoom
+        }
+        prevMagnificationValue = gestureRecognizer.magnification
+    }
 }
 
 extension ElasticView{
