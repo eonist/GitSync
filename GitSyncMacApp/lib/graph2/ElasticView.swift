@@ -55,9 +55,9 @@ class ElasticView:Element{
         if(gestureRecognizer.state == .changed){
             Swift.print("the zoom changed")
             //appendZoom(1+(gestureRecognizer.magnification-prevMagnificationValue))
-            Swift.print("cur: \(curMagnificationValue + gestureRecognizer.magnification)")
-            let curZoom:CGFloat =
-            Utils.applyContentsScale(self, curZoom)//<---TODO: add this method in page?
+            let curZoom:CGFloat = curMagnificationValue + gestureRecognizer.magnification
+            Swift.print("cur: \(curZoom)")
+            Utils.applyContentsScale(contentContainer!, curZoom)//<---TODO: add this method in page?
             
         }else if(gestureRecognizer.state == .began){//include maybegin here
             Swift.print("the zoom began")
@@ -156,7 +156,7 @@ private class Utils{
      * NOTE: maybe you can use a method in ElementModifier as it has similar code
      * TODO: a setNeedsDisplay() on fillShape and lineShape could fix a potential problem were contesScale is applied if there isnt a redraw. But this is not confirmed
      */
-    class func applyContentsScale(view:NSView,_ multiplier:CGFloat){
+    class func applyContentsScale(_ view:NSView,_ multiplier:CGFloat){
         //Swift.print("applyContentsScale()")
         for child in view.subviews{
             if(child is IGraphic){
