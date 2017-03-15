@@ -17,7 +17,7 @@ class ElasticView:Element{
     var iterimScrollY:InterimScroll = InterimScroll()
     var iterimScrollX:InterimScroll = InterimScroll()
     /**/
-    var curMagnificationValue:CGFloat = 1
+    var prevMagnificationValue:CGFloat = 1
     var initBoundWidth:CGFloat?
     var initBoundHeight:CGFloat?
     var tempPagePos:CGPoint?
@@ -61,19 +61,20 @@ class ElasticView:Element{
         if(gestureRecognizer.state == .changed){
             Swift.print("the zoom changed")
             //appendZoom(1+(gestureRecognizer.magnification-prevMagnificationValue))
-            let curZoom:CGFloat = curMagnificationValue + gestureRecognizer.magnification
+            let curZoom:CGFloat = prevMagnificationValue + gestureRecognizer.magnification
             
             zoom(curZoom)
             
         }else if(gestureRecognizer.state == .began){//include maybegin here
             Swift.print("the zoom began")
             tempPagePos = CGPoint(contentContainer!.point.x,contentContainer!.point.y)
+            Swift.print("tempPagePos: " + "\(tempPagePos)")
             //self.tempZoom = 1;
         }else if(gestureRecognizer.state == .ended){
             Swift.print("the zoom ended")
             tempPagePos = CGPoint(contentContainer!.x,contentContainer!.y)
             //prevZoom = zoom
-            curMagnificationValue += gestureRecognizer.magnification
+            prevMagnificationValue += gestureRecognizer.magnification
         }
     }
     /**
@@ -81,9 +82,10 @@ class ElasticView:Element{
      */
     func zoom(_ zoom:CGFloat){
         Swift.print("zoom: \(zoom)")
-        let newPos:CGPoint = PointModifier.scale(tempPagePos!, self.localPos(), CGPoint(tempZoom!,tempZoom!))/*<--the 1 is needed because the zoom value is additative*/
+        Swift.print("self.localPos(): " + "\(self.localPos())")
+        let newPos:CGPoint = PointModifier.scale(tempPagePos!, self.localPos(), CGPoint(prevMagnificationValue,prevMagnificationValue))/*<--the 1 is needed because the zoom value is additative*/
         Swift.print("newPos: " + "\(newPos)")
-        page.point = newPos
+        contentContainer!.point = newPos
         
         Utils.applyContentsScale(contentContainer!, zoom)//<---TODO: add this method in page?
         self.bounds.width = initBoundWidth!/* * scale*/
