@@ -29,7 +29,7 @@ class Graph2:ElasticView{
         Swift.print("p: " + "\(p)")
         let ellipse = EllipseGraphic(p.x,p.y,200,200,fill.mix(Gradients.redOrange()),line.mix(Gradients.red(0.5)))
         
-        contentContainer!.addSubview(ellipse.graphic)
+        zoomContainer!.addSubview(ellipse.graphic)
         ellipse.draw()
         
         /*Debug*/

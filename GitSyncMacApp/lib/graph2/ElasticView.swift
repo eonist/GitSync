@@ -11,6 +11,7 @@ class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
     var contentFrame:CGRect = CGRect()
     var contentContainer:Element?
+    var zoomContainer:Element?
     /**/
     var moverY:RubberBand?
     var moverX:RubberBand?
@@ -27,6 +28,7 @@ class ElasticView:Element{
         
         /*init*/
         contentContainer = addSubView(Container(width,height,self,"content"))
+        zoomContainer = contentContainer!.addSubView(Container(width,height,contentContainer,"zoom"))
         layer!.masksToBounds = true/*masks the children to the frame, I don't think this works, seem to work now*/
         /*config*/
         maskFrame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
@@ -62,9 +64,7 @@ class ElasticView:Element{
             Swift.print("the zoom changed")
             //appendZoom(1+(gestureRecognizer.magnification-prevMagnificationValue))
             let curZoom:CGFloat = prevMagnificationValue + gestureRecognizer.magnification
-            
             zoom(curZoom)
-            
         }else if(gestureRecognizer.state == .began){//include maybegin here
             Swift.print("the zoom began")
             tempPagePos = CGPoint(contentContainer!.point.x,contentContainer!.point.y)
@@ -78,20 +78,20 @@ class ElasticView:Element{
         }
     }
     /**
-     *
+     * PARAM: zoom: accumulated zoom. starts at 1
      */
     func zoom(_ zoom:CGFloat){
         Swift.print("zoom: \(zoom)")
         Swift.print("self.localPos(): " + "\(self.localPos())")
         let newPos:CGPoint = PointModifier.scale(tempPagePos!, self.localPos(), CGPoint(zoom,zoom))/*<--the 1 is needed because the zoom value is additative*/
         Swift.print("newPos: " + "\(newPos)")
-        contentContainer!.point = newPos
+        zoomContainer!.point = newPos
         
-        Utils.applyContentsScale(contentContainer!, zoom)//<---TODO: add this method in page?
-        contentContainer!.bounds.width = initBoundWidth!/* * scale*/
-        contentContainer!.bounds.height = initBoundHeight!/* * scale*/
+        Utils.applyContentsScale(zoomContainer!, zoom)//<---TODO: add this method in page?
+        zoomContainer!.bounds.width = initBoundWidth!/* * scale*/
+        zoomContainer!.bounds.height = initBoundHeight!/* * scale*/
         //Swift.print("bounds: " + "\(bounds)")
-        contentContainer!.scaleUnitSquare(to: NSSize(zoom,zoom))
+        zoomContainer!.scaleUnitSquare(to: NSSize(zoom,zoom))
     }
 }
 
