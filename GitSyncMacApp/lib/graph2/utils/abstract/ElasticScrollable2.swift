@@ -10,7 +10,7 @@ extension ElasticScrollable2{
      contentContainer!.frame.x = value
      }*/
     func onScrollWheelChange(_ event:NSEvent){
-        Swift.print("👻📜 (ElasticScrollable).onScrollWheelChange : \(event.type)")
+        Swift.print("👻📜 (ElasticScrollable2).onScrollWheelChange : \(event.type)")
         iterimScroll.prevScrollingDelta = event.scrollingDeltaX
         _ = iterimScroll.velocities.pushPop(event.scrollingDeltaX)
         mover!.value += event.scrollingDeltaX
@@ -21,7 +21,7 @@ extension ElasticScrollable2{
      * NOTE: Basically when you enter your scrollWheel gesture
      */
     func onScrollWheelEnter(){
-        Swift.print("👻📜 (ElasticScrollable).onScrollWheelEnter")
+        Swift.print("👻📜 (ElasticScrollable2).onScrollWheelEnter")
         //Swift.print("IRBScrollable.onScrollWheelDown")
         mover!.stop()
         mover!.hasStopped = true
@@ -34,7 +34,7 @@ extension ElasticScrollable2{
      * NOTE: Basically when you release your scrollWheel gesture
      */
     func onScrollWheelExit(){
-        Swift.print("👻📜 (ElasticScrollable).onScrollWheelExit")
+        Swift.print("👻📜 (ElasticScrollable2).onScrollWheelExit")
         //Swift.print("IRBScrollable.onScrollWheelUp")
         mover!.hasStopped = false
         mover!.isDirectlyManipulating = false
