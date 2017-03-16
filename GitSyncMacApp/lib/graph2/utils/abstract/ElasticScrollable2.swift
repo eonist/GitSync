@@ -3,12 +3,12 @@ import Cocoa
 @testable import Utils
 
 protocol ElasticScrollable2:Elastic2, Scrollable2 {
-    
+    func setProgress(_ value:CGFloat)
 }
 extension ElasticScrollable2{
-    func setProgress(_ value:CGFloat){
-        contentContainer!.frame.x = value
-    }
+    /*func setProgress(_ value:CGFloat){
+     contentContainer!.frame.x = value
+     }*/
     func onScrollWheelChange(_ event:NSEvent){
         Swift.print("👻📜 (ElasticScrollable).onScrollWheelChange : \(event.type)")
         iterimScroll.prevScrollingDelta = event.scrollingDeltaX

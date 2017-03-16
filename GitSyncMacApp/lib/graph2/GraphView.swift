@@ -21,6 +21,8 @@ class GraphView:Element,ElasticScrollable2{
         /*config*/
         maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
         contentSize = CGSize(1600,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
+        /*Anim*/
+        mover = RubberBand(Animation.sharedInstance,setProgress/*👈important*/,(0,maskSize.width),(0,contentSize.width))
         
         contentContainer = addSubView(Container(width,height,self,"content"))
         //addEllipse()
