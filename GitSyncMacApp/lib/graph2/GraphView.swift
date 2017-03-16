@@ -10,7 +10,7 @@ class GraphView:Element{
     var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskFrame.w, contentFrame.w)}
     
     override func resolveSkin() {
-        StyleManager.addStyle("GraphView{float:left;clear:left;fill:green;fill-alpha:0;}")
+        StyleManager.addStyle("GraphView{float:left;clear:left;fill:green;fill-alpha:0.2;}")
         super.resolveSkin()
         /*config*/
         maskFrame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
