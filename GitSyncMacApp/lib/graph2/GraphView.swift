@@ -90,9 +90,12 @@ extension GraphView{
         css +=    "line-thickness:0.5px;"
         css += "}"
         
-        let path:IPath = Path()
+        let points:[CGPoint] = [CGPoint()]
+        let path:IPath = PolyLineGraphicUtils.path(points)
         let graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
         _ = graphLine
+        
+        
     }
 }
 //TimeBar
