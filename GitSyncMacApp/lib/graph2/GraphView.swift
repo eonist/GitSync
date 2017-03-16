@@ -4,6 +4,11 @@ import Cocoa
 class GraphView:Element{
     var contentContainer:Element?
     
+    var itemsHeight:CGFloat {fatalError("Must override in subClass")}//override this for custom value
+    var itemHeight:CGFloat {fatalError("Must override in subClass")}//override this for custom value
+    var interval:CGFloat{return floor(itemsHeight - height)/itemHeight}
+    var progress:CGFloat{return SliderParser.progress(contentContainer!.y, height, itemsHeight)}
+    
     override func resolveSkin() {
         //StyleManager.addStyle("GraphView{fill:green;}")
         super.resolveSkin()
@@ -26,6 +31,17 @@ class GraphView:Element{
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaY, interval, progress)
         setProgress(progressVal)
     }
+    func setProgress(_ progress:CGFloat){
+        print("🖼️ moving lableContainer up and down progress: \(progress)")
+        //Swift.print("IScrollable.setProgress() progress: \(progress)")
+        let progressValue = self.itemsHeight < height ? 0 : progress/*pins the lableContainer to the top if itemsHeight is less than height*/
+        //Swift.print("progressValue: " + "\(progressValue)")
+        scrollTo(self,progressValue)/*Sets the target item to correct y, according to the current scrollBar progress*/
+   
+        let y:CGFloat = ScrollableUtils.scrollTo(progress, scrollable.height, scrollable.itemsHeight)
+        scrollable.lableContainer!.y = y/*we offset the y position of the lableContainer*/
+    }
+    
 }
 //TimeBar
 //ValueBar
