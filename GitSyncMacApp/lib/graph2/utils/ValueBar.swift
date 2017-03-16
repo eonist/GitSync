@@ -7,10 +7,12 @@ class ValueBar:Element{
         super.resolveSkin()
         //400
         //8
-        for i in 0..<8{
+        let ySpace:CGFloat = height/8
+        for i in (0...8).reversed(){
             //let x:CGFloat = 0
-            let y:CGFloat = i * 50
-            let textArea:TextArea = TextArea(NaN,NaN,y.string,self)
+            let textValue:CGFloat = i * 50
+            let y:CGFloat = ySpace * i
+            let textArea:TextArea = TextArea(NaN,NaN,textValue.int.string,self)
             _ = self.addSubView(textArea)
             textArea.setPosition(CGPoint(0,y))
         }
