@@ -8,11 +8,11 @@ class ValueBar:Element{
         //400
         //8
         let ySpace:CGFloat = height/8
-        (1...40).map { String($0) }
-        for i in (0...8).reversed(){
+        let textValues:[String] = (0...8).reversed().map { ($0 * 50).string }//"400","350","300"..."0"
+        for i in (0...8){
             //let x:CGFloat = 0
             Swift.print("i: " + "\(i)")
-            let textValue:CGFloat = i * 50
+            let textValue:CGFloat = textValues[i]
             let y:CGFloat = ySpace * i
             let textArea:TextArea = TextArea(NaN,NaN,textValue.int.string,self)
             _ = self.addSubView(textArea)
