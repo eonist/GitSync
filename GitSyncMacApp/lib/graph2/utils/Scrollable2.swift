@@ -1,10 +1,12 @@
 import Cocoa
-
+@testable import Element
+@testable import Utils
 protocol Scrollable2 {
     
 }
-extension Scrollable2 where Self:NSResponder{
-    override func scrollWheel(with event: NSEvent) {
+
+extension ContainerView:Scrollable2{
+    override open func scrollWheel(with event: NSEvent) {
         Swift.print("scrollWheel")
         /*switch event.phase{
          case NSEventPhase.changed:onScrollWheelChange(event)/*Fires everytime there is direct scrollWheel gesture movment and momentum, the momentum fades.*/
