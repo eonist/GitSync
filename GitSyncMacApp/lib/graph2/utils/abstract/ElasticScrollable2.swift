@@ -1,8 +1,8 @@
 import Foundation
 
-protocol ElasticScroll2 {
+protocol ElasticScrollable2 {
     
 }
-extension ElasticScroll2{
+extension ElasticScrollable2{
     
 }
