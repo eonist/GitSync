@@ -2,13 +2,13 @@ import Cocoa
 @testable import Element
 @testable import Utils
 
-class GraphView:Element{
-    var maskFrame:CGSize = CGSize()
-    var contentFrame:CGSize = CGSize()
-    var contentContainer:Element?
+class GraphView:Containable2{
+    var maskSize:CGSize = CGSize()
+    var contentSize:CGSize = CGSize()
+    //var contentContainer:Element?
     var itemSize:CGFloat {return 48}//override this for custom value
-    var interval:CGFloat{return floor(contentFrame.w - maskFrame.w)/itemSize}
-    var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskFrame.w, contentFrame.w)}
+    var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize}
+    var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
     var timeBar:TimeBar?
     var valueBar:ValueBar?
     /*Anim*/
@@ -19,8 +19,8 @@ class GraphView:Element{
         StyleManager.addStyle("GraphView{float:left;clear:left;fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
         /*config*/
-        maskFrame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
-        contentFrame = CGRect(0,0,1600,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
+        maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
+        contentSize = CGSize(1600,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         
         contentContainer = addSubView(Container(width,height,self,"content"))
         //addEllipse()
@@ -28,7 +28,7 @@ class GraphView:Element{
         createTimeBar()
         createValueBar()
     }
-    override func scrollWheel(with event: NSEvent) {//TODO: move to displaceview
+    /*override func scrollWheel(with event: NSEvent) {//TODO: move to displaceview
         Swift.print("scrollWheel: ")
         //scroll(event)/*forward the event to the extension which adjust Slider and calls setProgress in this method*/
         super.scrollWheel(with: event)/*forward the event other delegates higher up in the stack*/
@@ -37,7 +37,7 @@ class GraphView:Element{
             case NSEventPhase(rawValue:0):onScrollWheelChange(event);/*Swift.print("none");*/break;//swift 3 update, was -> NSEventPhase.none
             default:break;
         }
-    }
+    }*/
     /**
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
      */
@@ -49,10 +49,10 @@ class GraphView:Element{
     func setProgress(_ progress:CGFloat){
         Swift.print("🖼️ moving lableContainer up and down progress: \(progress)")
         //Swift.print("IScrollable.setProgress() progress: \(progress)")
-        let progressValue = contentFrame.w < maskFrame.w ? 0 : progress/*pins the lableContainer to the top if itemsHeight is less than height*/
+        let progressValue = contentSize.w < maskSize.w ? 0 : progress/*pins the lableContainer to the top if itemsHeight is less than height*/
         //Swift.print("progressValue: " + "\(progressValue)")
         
-        let x:CGFloat = ScrollableUtils.scrollTo(progressValue, maskFrame.w, contentFrame.w)
+        let x:CGFloat = ScrollableUtils.scrollTo(progressValue, maskSize.w, contentSize.w)
         contentContainer!.x = x/*we offset the y position of the lableContainer*/
         timeBar!.x = x
     }
@@ -123,7 +123,7 @@ extension GraphView{
      */
     func createTimeBar(){
         
-        timeBar = addSubView(TimeBar(contentFrame.width,32,self))
+        timeBar = addSubView(TimeBar(contentSize.width,32,self))
         let objSize = CGSize(timeBar!.w,32)
         Swift.print("objSize: " + "\(objSize)")
         let canvasSize = CGSize(w,h)
