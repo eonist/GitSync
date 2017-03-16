@@ -5,13 +5,17 @@ class ValueBar:Element{
     override func resolveSkin() {
         addStyles()
         super.resolveSkin()
-        
-        /*strings.forEach{
-            let textArea:TextArea = TextArea(NaN,NaN,$0,leftBar!)
-            leftBarItems.append(textArea)
-            _ = leftBar!.addSubView(textArea)
+        //400
+        //8
+        for i in 0..<8{
+            //let x:CGFloat = 0
+            let y:CGFloat = i * 50
+            let textArea:TextArea = TextArea(NaN,NaN,y.string,self)
+            _ = self.addSubView(textArea)
             textArea.setPosition(CGPoint(0,y))
-            y += itemYSpace!
+        }
+        /*strings.forEach{
+         
         }*/
 
     }
