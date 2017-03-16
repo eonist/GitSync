@@ -3,7 +3,6 @@ import Cocoa
 @testable import Utils
 class GraphView:Element{
     var contentContainer:Element?
-    
     var itemsHeight:CGFloat {fatalError("Must override in subClass")}//override this for custom value
     var itemHeight:CGFloat {fatalError("Must override in subClass")}//override this for custom value
     var interval:CGFloat{return floor(itemsHeight - height)/itemHeight}
@@ -18,9 +17,9 @@ class GraphView:Element{
         //scroll(event)/*forward the event to the extension which adjust Slider and calls setProgress in this method*/
         super.scrollWheel(with: event)/*forward the event other delegates higher up in the stack*/
         switch event.phase{
-        case NSEventPhase.changed:onScrollWheelChange(event)/*Fires everytime there is direct scrollWheel gesture movment and momentum, the momentum fades.*/
-        case NSEventPhase(rawValue:0):onScrollWheelChange(event);/*Swift.print("none");*/break;//swift 3 update, was -> NSEventPhase.none
-        default:break;
+            case NSEventPhase.changed:onScrollWheelChange(event)/*Fires everytime there is direct scrollWheel gesture movment and momentum, the momentum fades.*/
+            case NSEventPhase(rawValue:0):onScrollWheelChange(event);/*Swift.print("none");*/break;//swift 3 update, was -> NSEventPhase.none
+            default:break;
         }
     }
     /**
@@ -32,14 +31,13 @@ class GraphView:Element{
         setProgress(progressVal)
     }
     func setProgress(_ progress:CGFloat){
-        print("🖼️ moving lableContainer up and down progress: \(progress)")
+        Swift.print("🖼️ moving lableContainer up and down progress: \(progress)")
         //Swift.print("IScrollable.setProgress() progress: \(progress)")
         let progressValue = self.itemsHeight < height ? 0 : progress/*pins the lableContainer to the top if itemsHeight is less than height*/
         //Swift.print("progressValue: " + "\(progressValue)")
-        scrollTo(self,progressValue)/*Sets the target item to correct y, according to the current scrollBar progress*/
-   
-        let y:CGFloat = ScrollableUtils.scrollTo(progress, scrollable.height, scrollable.itemsHeight)
-        scrollable.lableContainer!.y = y/*we offset the y position of the lableContainer*/
+        
+        let y:CGFloat = ScrollableUtils.scrollTo(progressValue, height, itemsHeight)
+        contentContainer!.y = y/*we offset the y position of the lableContainer*/
     }
     
 }
