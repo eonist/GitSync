@@ -12,6 +12,8 @@ class GraphView:Element{
         //StyleManager.addStyle("GraphView{fill:green;}")
         super.resolveSkin()
         contentContainer = addSubView(Container(width,height,self,"content"))
+        
+        addEllipse()
     }
     override func scrollWheel(with event: NSEvent) {//TODO: move to displaceview
         //scroll(event)/*forward the event to the extension which adjust Slider and calls setProgress in this method*/
@@ -39,6 +41,10 @@ class GraphView:Element{
         let y:CGFloat = ScrollableUtils.scrollTo(progressValue, height, itemsHeight)
         contentContainer!.y = y/*we offset the y position of the lableContainer*/
     }
+    
+}
+
+extension GraphView{
     
 }
 //TimeBar
