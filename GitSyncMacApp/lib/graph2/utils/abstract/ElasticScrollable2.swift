@@ -6,7 +6,7 @@ protocol ElasticScrollable2:Elastic2, Scrollable2 {
     
 }
 extension ElasticScrollable2{
-    func setX(_ value:CGFloat){
+    func setProgress(_ value:CGFloat){
         contentContainer!.frame.x = value
     }
     func onScrollWheelChange(_ event:NSEvent){
@@ -15,7 +15,7 @@ extension ElasticScrollable2{
         _ = iterimScroll.velocities.pushPop(event.scrollingDeltaX)
         mover!.value += event.scrollingDeltaX
         mover!.updatePosition()
-        setX(mover!.result)
+        setProgress(mover!.result)
     }
     /**
      * NOTE: Basically when you enter your scrollWheel gesture

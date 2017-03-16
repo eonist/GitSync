@@ -3,6 +3,8 @@ import Cocoa
 @testable import Utils
 protocol Scrollable2:Containable2 {
     func onScrollWheelChange(_ event:NSEvent)
+    func onScrollWheelEnter()
+    func onScrollWheelExit()
 }
 
 extension GraphView:Scrollable2{
@@ -14,7 +16,6 @@ extension GraphView:Scrollable2{
             case NSEventPhase.began:onScrollWheelEnter()
             case NSEventPhase.ended:onScrollWheelExit();
             case NSEventPhase.cancelled:onScrollWheelExit();
-            case NSEventPhase(rawValue:0):onInDirectScrollWheelChange(event);
             default:break;
         }
         super.scrollWheel(with: event)
