@@ -2,6 +2,9 @@ import Cocoa
 @testable import Element
 @testable import Utils
 
+//1. Setup stats with real values, 30 days with ebs and lows. 
+//2. When you scroll the ValueBar must adjust its range
+
 //Zooming tests:
     //
 
