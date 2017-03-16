@@ -9,6 +9,7 @@ class GraphView:Element{
     var interval:CGFloat{return floor(contentFrame.w - maskFrame.w)/itemSize}
     var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskFrame.w, contentFrame.w)}
     var timeBar:TimeBar?
+    var valueBar:ValueBar?
     
     override func resolveSkin() {
         StyleManager.addStyle("GraphView{float:left;clear:left;fill:green;fill-alpha:0.0;}")
@@ -126,6 +127,14 @@ extension GraphView{
         Swift.print("p: " + "\(p)")
         //align timeBar to bottom with Align
         timeBar!.point = p
+    }
+    
+    /**
+     *
+     */
+    func createValueBar(){
+        valueBar = addSubView(ValueBar(32,height-32,self))
+        
     }
 }
 //TimeBar
