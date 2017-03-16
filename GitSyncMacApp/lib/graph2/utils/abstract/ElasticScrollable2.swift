@@ -15,7 +15,7 @@ extension ElasticScrollable2{
         _ = iterimScroll.velocities.pushPop(event.scrollingDeltaX)
         mover!.value += event.scrollingDeltaX
         mover!.updatePosition()
-        setX(mover!.result)//new ⚠️️
+        setX(mover!.result)
     }
     /**
      * NOTE: Basically when you enter your scrollWheel gesture
@@ -39,7 +39,6 @@ extension ElasticScrollable2{
         mover!.hasStopped = false
         mover!.isDirectlyManipulating = false
         mover!.value = mover!.result
-        Swift.print("prevScrollingDeltaY: " + "\(iterimScrollY.prevScrollingDelta)")
         
         /*X*/
         if(iterimScroll.prevScrollingDelta != 1.0 && iterimScroll.prevScrollingDelta != -1.0){/*Not 1 and not -1 indicates that the wheel is not stationary*/

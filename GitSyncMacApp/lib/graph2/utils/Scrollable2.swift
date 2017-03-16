@@ -9,7 +9,12 @@ extension GraphView:Scrollable2{
     override open func scrollWheel(with event: NSEvent) {
         Swift.print("scrollWheel")
         switch event.phase{
-            case NSEventPhase.changed:onScrollWheelChange(event)/*Fires everytime there is direct scrollWheel gesture movment and momentum, the momentum fades.*/
+            case NSEventPhase.changed:onScrollWheelChange(event)
+            case NSEventPhase.mayBegin:onScrollWheelEnter()
+            case NSEventPhase.began:onScrollWheelEnter()
+            case NSEventPhase.ended:onScrollWheelExit();
+            case NSEventPhase.cancelled:onScrollWheelExit();
+            case NSEventPhase(rawValue:0):onInDirectScrollWheelChange(event);
             default:break;
         }
         super.scrollWheel(with: event)
