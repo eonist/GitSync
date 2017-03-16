@@ -5,10 +5,11 @@ class GraphView:Element{
     var maskFrame:CGRect = CGRect()
     var contentFrame:CGRect = CGRect()
     var contentContainer:Element?
-    var itemsHeight:CGFloat {return contentFrame.h}//override this for custom value
-    var itemHeight:CGFloat {return 24}//override this for custom value
-    var interval:CGFloat{return floor(itemsHeight - height)/itemHeight}
-    var progress:CGFloat{return SliderParser.progress(contentContainer!.y, height, itemsHeight)}
+    var contentsLen:CGFloat {return contentFrame.h}//override this for custom value
+    var itemLen:CGFloat {return 24}//override this for custom value
+    var maskFrameLen:CGFloat {return maskFrame.w}
+    var interval:CGFloat{return floor(contentsLen - maskFrameLen)/itemLen}
+    var progress:CGFloat{return SliderParser.progress(contentContainer!.y, height, contentsLen)}
     
     override func resolveSkin() {
         StyleManager.addStyle("GraphView{fill:green;fill-alpha:0;}")
@@ -41,10 +42,10 @@ class GraphView:Element{
     func setProgress(_ progress:CGFloat){
         Swift.print("🖼️ moving lableContainer up and down progress: \(progress)")
         //Swift.print("IScrollable.setProgress() progress: \(progress)")
-        let progressValue = self.itemsHeight < height ? 0 : progress/*pins the lableContainer to the top if itemsHeight is less than height*/
+        let progressValue = self.contentsLen < height ? 0 : progress/*pins the lableContainer to the top if itemsHeight is less than height*/
         //Swift.print("progressValue: " + "\(progressValue)")
         
-        let y:CGFloat = ScrollableUtils.scrollTo(progressValue, height, itemsHeight)
+        let y:CGFloat = ScrollableUtils.scrollTo(progressValue, height, contentsLen)
         contentContainer!.y = y/*we offset the y position of the lableContainer*/
     }
     
