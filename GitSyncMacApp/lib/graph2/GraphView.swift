@@ -2,7 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 
-class GraphView:Element,Containable2{
+class GraphView:Element,ElasticScrollable2{
     var maskSize:CGSize = CGSize()
     var contentSize:CGSize = CGSize()
     var contentContainer:Element?
@@ -13,7 +13,7 @@ class GraphView:Element,Containable2{
     var valueBar:ValueBar?
     /*Anim*/
     var iterimScroll:InterimScroll = InterimScroll()
-    
+    var mover:RubberBand?
     
     override func resolveSkin() {
         StyleManager.addStyle("GraphView{float:left;clear:left;fill:green;fill-alpha:0.0;}")
@@ -41,11 +41,11 @@ class GraphView:Element,Containable2{
     /**
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
      */
-    func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
-        Swift.print("📜 Scrollable.onScrollWheelChange: \(event.type)")
-        let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
-        setProgress(progressVal)
-    }
+    /*func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
+     Swift.print("📜 Scrollable.onScrollWheelChange: \(event.type)")
+     let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
+     setProgress(progressVal)
+     }*/
     func setProgress(_ progress:CGFloat){
         Swift.print("🖼️ moving lableContainer up and down progress: \(progress)")
         //Swift.print("IScrollable.setProgress() progress: \(progress)")
