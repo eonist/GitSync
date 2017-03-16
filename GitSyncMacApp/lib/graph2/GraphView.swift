@@ -14,7 +14,7 @@ class GraphView:Element{
         super.resolveSkin()
         /*config*/
         maskFrame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
-        contentFrame = CGRect(0,0,width,600)/*represents the total size of the content *///TODO: could be ranmed to contentRect
+        contentFrame = CGRect(0,0,900,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         
         contentContainer = addSubView(Container(width,height,self,"content"))
         addEllipse()
@@ -34,7 +34,7 @@ class GraphView:Element{
      */
     func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
         Swift.print("📜 Scrollable.onScrollWheelChange: \(event.type)")
-        let progressVal:CGFloat = SliderListUtils.progress(event.deltaY, interval, progress)
+        let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)
     }
     func setProgress(_ progress:CGFloat){
@@ -43,7 +43,7 @@ class GraphView:Element{
         let progressValue = contentFrame.w < maskFrame.w ? 0 : progress/*pins the lableContainer to the top if itemsHeight is less than height*/
         //Swift.print("progressValue: " + "\(progressValue)")
         
-        let y:CGFloat = ScrollableUtils.scrollTo(progressValue, maskFrame.w, contentFrame.w)
+        let x:CGFloat = ScrollableUtils.scrollTo(progressValue, maskFrame.w, contentFrame.w)
         contentContainer!.x = x/*we offset the y position of the lableContainer*/
     }
     
