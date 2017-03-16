@@ -97,8 +97,7 @@ extension GraphView{
             //y = ran(400,0)
         for i in 0..<20{
             let x:CGFloat = 100*i
-            let range:Range<Int> = 0..<400
-            let y:CGFloat = range.ran
+            let y:Int = (0..<400).random
             let p = P()
         }
         let points:[P] = [P(0,0),P(50,300),P(100,50),P(150,350),P(200,250),P()]
