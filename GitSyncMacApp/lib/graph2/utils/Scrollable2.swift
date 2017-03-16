@@ -1,5 +1,5 @@
 import Foundation
 
-class Scrollable2 {
+protocol Scrollable2 {
 
 }
