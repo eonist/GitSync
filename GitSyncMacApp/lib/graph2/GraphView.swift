@@ -82,7 +82,7 @@ extension GraphView{
      */
     func addGraphLine(){
         //
-        var css:String = "Graph Section#graphArea GraphLine{"
+        var css:String = "GraphLine{"
         css +=    "float:none;"
         css +=    "clear:none;"
         css +=    "line:#2AA3EF;"
@@ -91,7 +91,8 @@ extension GraphView{
         css += "}"
         
         let path:IPath = Path()
-        let graphLine = GraphLine(width,height,path)
+        let graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
+        _ = graphLine
     }
 }
 //TimeBar
