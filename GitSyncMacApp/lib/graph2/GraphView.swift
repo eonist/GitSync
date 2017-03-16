@@ -1,5 +1,9 @@
 import Foundation
-
-class GraphView {
-
+@testable import Element
+@testable import Utils
+class GraphView:Element{
+    //TimeBar
+    //ValueBar
+    //GraphLine2
+    //
 }
