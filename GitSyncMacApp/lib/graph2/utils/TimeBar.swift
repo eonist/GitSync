@@ -26,7 +26,7 @@ extension TimeBar{
         css += 	"float:none;"
         css += 	"clear:none;"
         css += 	"fill:orange;"
-        css += 	"fill-alpha:0.5;"
+        css += 	"fill-alpha:0.0;"
         css += 	"height:32px;"
         css += "}"
         css += "TimeBar TextArea{"

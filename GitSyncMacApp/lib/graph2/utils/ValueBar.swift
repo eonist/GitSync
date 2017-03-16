@@ -8,13 +8,13 @@ class ValueBar:Element{
         //400
         //8
         let ySpace:CGFloat = height/8
-        let textValues:[String] = (0...8).reversed().map { ($0 * 50).string }//"400","350","300"..."0"
+        let textValues:[String] = (0...8).reversed().map { ($0 * 50).int.string }//"400","350","300"..."0"
         for i in (0...8){
             //let x:CGFloat = 0
             Swift.print("i: " + "\(i)")
-            let textValue:CGFloat = textValues[i]
+            let textValue:String = textValues[i]
             let y:CGFloat = ySpace * i
-            let textArea:TextArea = TextArea(NaN,NaN,textValue.int.string,self)
+            let textArea:TextArea = TextArea(NaN,NaN,textValue,self)
             _ = self.addSubView(textArea)
             textArea.setPosition(CGPoint(0,y))
         }
@@ -34,7 +34,7 @@ extension ValueBar{
         css +=		"float:none;"
         css +=		"clear:none;"
         css +=		"fill:yellow;"
-        css +=		"fill-alpha:0.2;"
+        css +=		"fill-alpha:0.0;"
         css +=		"width:32px;"
         css +=	"}"
         css +=	"ValueBar TextArea{"
