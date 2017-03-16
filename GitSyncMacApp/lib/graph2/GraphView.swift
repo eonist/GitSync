@@ -115,7 +115,7 @@ extension GraphView{
      */
     func createTimeBar(){
         
-        let timeBar = TimeBar(width,40,self)
+        let timeBar = TimeBar(width,NaN,self)
         _ = addSubView(timeBar)
         //align timeBar to bottom with Align
         
