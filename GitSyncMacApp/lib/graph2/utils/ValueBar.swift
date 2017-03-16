@@ -8,9 +8,7 @@ class ValueBar:Element{
         //400
         //8
         let ySpace:CGFloat = height/8
-        for i in (0...8).reversed(){
-            
-        }
+        (1...40).map { String($0) }
         for i in (0...8).reversed(){
             //let x:CGFloat = 0
             Swift.print("i: " + "\(i)")
