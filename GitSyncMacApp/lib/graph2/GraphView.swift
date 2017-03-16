@@ -7,7 +7,7 @@ class GraphView:Element{
     //GraphLine2
     //HorizontalView
     override func resolveSkin() {
-        StyleManager.addStyle("GraphView{fill:green;}")
+        //StyleManager.addStyle("GraphView{fill:green;}")
         super.resolveSkin()
     }
 }
