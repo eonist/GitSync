@@ -3,6 +3,7 @@ import Foundation
 @testable import Utils
 class ValueBar:Element{
     override func resolveSkin() {
+        addStyles()
         super.resolveSkin()
         
         
