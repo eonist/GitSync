@@ -5,8 +5,8 @@ class GraphView:Element{
     var maskFrame:CGRect = CGRect()
     var contentFrame:CGRect = CGRect()
     var contentContainer:Element?
-    var itemsHeight:CGFloat {fatalError("Must override in subClass")}//override this for custom value
-    var itemHeight:CGFloat {fatalError("Must override in subClass")}//override this for custom value
+    var itemsHeight:CGFloat {return contentFrame.height}//override this for custom value
+    var itemHeight:CGFloat {return 24}//override this for custom value
     var interval:CGFloat{return floor(itemsHeight - height)/itemHeight}
     var progress:CGFloat{return SliderParser.progress(contentContainer!.y, height, itemsHeight)}
     
