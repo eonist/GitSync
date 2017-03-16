@@ -6,8 +6,8 @@ import Cocoa
 //2. When you scroll the ValueBar must adjust its range, you can caluclate this by using y for x code from Trig. The slope is found from the 2 points. 
 //3. It's really important that this looks ok, animation wise
 //4. you then adjust the graph height to fit the view
-//5 you also scale the ValueBar to the latest max
-//6. do research into previous graph animation
+//5. you also scale the ValueBar to the latest max
+
 
 //Zooming tests:
     //
