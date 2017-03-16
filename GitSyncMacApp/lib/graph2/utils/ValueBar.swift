@@ -10,6 +10,7 @@ class ValueBar:Element{
         let ySpace:CGFloat = height/8
         for i in (0...8).reversed(){
             //let x:CGFloat = 0
+            Swift.print("i: " + "\(i)")
             let textValue:CGFloat = i * 50
             let y:CGFloat = ySpace * i
             let textArea:TextArea = TextArea(NaN,NaN,textValue.int.string,self)
