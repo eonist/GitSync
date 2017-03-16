@@ -115,9 +115,11 @@ extension GraphView{
      */
     func createTimeBar(){
         
-        let timeBar:TimeBar = addSubView(TimeBar(width,NaN,self))
-        let objSize = CGSize(timeBar.w,timeBar.h)
+        let timeBar:TimeBar = addSubView(TimeBar(width,32,self))
+        let objSize = CGSize(timeBar.w,32)
+        Swift.print("objSize: " + "\(objSize)")
         let canvasSize = CGSize(w,h)
+        Swift.print("canvasSize: " + "\(canvasSize)")
         let p = Align.alignmentPoint(objSize, canvasSize, Alignment.bottomLeft, Alignment.bottomLeft, CGPoint())
         Swift.print("p: " + "\(p)")
         //align timeBar to bottom with Align
