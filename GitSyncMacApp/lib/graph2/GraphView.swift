@@ -11,6 +11,9 @@ class GraphView:Element{
     var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskFrame.w, contentFrame.w)}
     var timeBar:TimeBar?
     var valueBar:ValueBar?
+    /*Anim*/
+    var iterimScroll:InterimScroll = InterimScroll()
+    
     
     override func resolveSkin() {
         StyleManager.addStyle("GraphView{float:left;clear:left;fill:green;fill-alpha:0.0;}")
