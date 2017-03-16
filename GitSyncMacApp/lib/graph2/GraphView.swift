@@ -48,15 +48,15 @@ class GraphView:Element,ElasticScrollable2{
      let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
      setProgress(progressVal)
      }*/
-    func setProgress(_ progress:CGFloat){
-        Swift.print("🖼️ moving lableContainer up and down progress: \(progress)")
+    func setProgress(_ value:CGFloat){
+        Swift.print("🖼️ moving lableContainer up and down progress: \(value)")
         //Swift.print("IScrollable.setProgress() progress: \(progress)")
-        let progressValue = contentSize.w < maskSize.w ? 0 : progress/*pins the lableContainer to the top if itemsHeight is less than height*/
+        //let progressValue = contentSize.w < maskSize.w ? 0 : progress/*pins the lableContainer to the top if itemsHeight is less than height*/
         //Swift.print("progressValue: " + "\(progressValue)")
         
-        let x:CGFloat = ScrollableUtils.scrollTo(progressValue, maskSize.w, contentSize.w)
-        contentContainer!.x = x/*we offset the y position of the lableContainer*/
-        timeBar!.x = x
+        //let x:CGFloat = ScrollableUtils.scrollTo(progressValue, maskSize.w, contentSize.w)
+        contentContainer!.x = value/*we offset the y position of the lableContainer*/
+        timeBar!.x = value
     }
     
 }
