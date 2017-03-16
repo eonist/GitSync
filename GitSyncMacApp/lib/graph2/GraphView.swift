@@ -3,8 +3,8 @@ import Cocoa
 @testable import Utils
 
 class GraphView:Element{
-    var maskFrame:CGRect = CGRect()
-    var contentFrame:CGRect = CGRect()
+    var maskFrame:CGSize = CGSize()
+    var contentFrame:CGSize = CGSize()
     var contentContainer:Element?
     var itemSize:CGFloat {return 48}//override this for custom value
     var interval:CGFloat{return floor(contentFrame.w - maskFrame.w)/itemSize}
