@@ -147,7 +147,7 @@ extension ElasticView{
 /*Zoom related*/
 extension ElasticView{
     /**
-     * TODO: The current solution doesnt let you zoom and pan at the same time. So you need to make your own
+     * TODO: The current solution doesn't let you zoom and pan at the same time. So you need to make your own
      */
     func onMagnifyGesture(gestureRecognizer: NSMagnificationGestureRecognizer) {
         Swift.print("⚠️️ DocView.onMagnifyGesture() magnification: " + "\(gestureRecognizer.magnification)")
