@@ -19,6 +19,7 @@ class GraphView:Element{
         contentContainer = addSubView(Container(width,height,self,"content"))
         //addEllipse()
         addGraphLine()
+        createTimeBar()
     }
     override func scrollWheel(with event: NSEvent) {//TODO: move to displaceview
         Swift.print("scrollWheel: ")
@@ -113,9 +114,9 @@ extension GraphView{
      *
      */
     func createTimeBar(){
-        StyleManager.addStyle("TimeBar{fill:green;fill-alpha:0.5;float:none;clear:none;}")
-        let timeBar = addSubView(TimeBar(width,40,self))
-        _ = timeBar
+        
+        let timeBar = TimeBar(width,40,self)
+        addSubView(timeBar)
         //align timeBar to bottom with Align
         
     }
