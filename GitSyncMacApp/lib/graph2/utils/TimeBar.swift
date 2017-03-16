@@ -1,5 +1,10 @@
 import Foundation
+@testable import Element
+@testable import Utils
 
-class Timebar {
-    
+class TimeBar:Element {
+    override func resolveSkin() {
+        super.resolveSkin()
+        
+    }
 }
