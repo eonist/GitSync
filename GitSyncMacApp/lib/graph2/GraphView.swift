@@ -81,7 +81,8 @@ extension GraphView{
      *
      */
     func addGraphLine(){
-        //GraphLine
+        //
+        let graphLine = GraphLine(width,height,path)
     }
 }
 //TimeBar
