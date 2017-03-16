@@ -2,11 +2,11 @@ import Cocoa
 @testable import Element
 @testable import Utils
 
-class GraphView:Containable2{
+class GraphView:Element,Containable2{
     var maskSize:CGSize = CGSize()
     var contentSize:CGSize = CGSize()
-    //var contentContainer:Element?
-    var itemSize:CGFloat {return 48}//override this for custom value
+    var contentContainer:Element?
+    var itemSize:CGSize {return CGSize(48,48)}//override this for custom value
     var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize}
     var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
     var timeBar:TimeBar?

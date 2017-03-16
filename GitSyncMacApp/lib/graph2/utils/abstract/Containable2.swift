@@ -7,4 +7,6 @@ protocol Containable2:class {
     var contentSize:CGSize{get}
     var itemSize:CGSize{get}
     var contentContainer:Element? {get}
+    var progress:CGFloat {get}
+    var interval:CGFloat {get}
 }
