@@ -89,6 +89,7 @@ extension GraphView{
         css +=    "line-alpha:1;"
         css +=    "line-thickness:0.5px;"
         css += "}"
+        StyleManager.addStyle(css)
         typealias P = CGPoint
         let points:[P] = [P(0,0),P(50,300),P(100,50),P(150,350),P(200,250)]
         let path:IPath = PolyLineGraphicUtils.path(points)
