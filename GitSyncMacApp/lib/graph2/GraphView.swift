@@ -92,15 +92,16 @@ extension GraphView{
         StyleManager.addStyle(css)
         typealias P = CGPoint
         
-        //loop 20
-            //x += 100
-            //y = ran(400,0)
+        //let points:[P] = [P(0,0),P(50,300),P(100,50),P(150,350),P(200,250),P()]
+        
+        var points:[P] = []
         for i in 0..<20{
             let x:CGFloat = 100*i
-            let y:Int = (0..<400).random
-            let p = P()
+            let y:CGFloat = (0..<400).random.cgFloat
+            let p = P(x,y)
+            points.append(p)
         }
-        let points:[P] = [P(0,0),P(50,300),P(100,50),P(150,350),P(200,250),P()]
+        
         let path:IPath = PolyLineGraphicUtils.path(points)
         let graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
         _ = graphLine
