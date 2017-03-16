@@ -211,7 +211,6 @@ extension ElasticView{
         zoomContainer!.bounds.h = initBoundHeight!/* * scale*/
         zoomContainer!.scaleUnitSquare(to: NSSize(zoom,zoom))
     }
-
 }
 private class Utils{
     
