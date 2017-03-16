@@ -2,6 +2,9 @@ import Cocoa
 @testable import Element
 @testable import Utils
 
+//Zooming tests:
+    //
+
 class GraphView:Element,ElasticScrollable2{
     var maskSize:CGSize = CGSize()
     var contentSize:CGSize = CGSize()
