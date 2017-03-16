@@ -207,8 +207,8 @@ extension ElasticView{
         let newPos:CGPoint = Align.alignmentPoint(objSize, canvasSize, Alignment.centerCenter, Alignment.centerCenter, CGPoint())
         zoomContainer!.point = newPos
         Utils.applyContentsScale(zoomContainer!, zoom)//<---TODO: add this method in page?
-        zoomContainer!.bounds.width = initBoundWidth!/* * scale*/
-        zoomContainer!.bounds.height = initBoundHeight!/* * scale*/
+        zoomContainer!.bounds.w = initBoundWidth!/* * scale*/
+        zoomContainer!.bounds.h = initBoundHeight!/* * scale*/
         zoomContainer!.scaleUnitSquare(to: NSSize(zoom,zoom))
     }
 
