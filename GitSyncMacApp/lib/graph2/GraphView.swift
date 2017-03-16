@@ -7,7 +7,7 @@ class GraphView:Element,Containable2{
     var contentSize:CGSize = CGSize()
     var contentContainer:Element?
     var itemSize:CGSize {return CGSize(48,48)}//override this for custom value
-    var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize}
+    var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
     var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
     var timeBar:TimeBar?
     var valueBar:ValueBar?
