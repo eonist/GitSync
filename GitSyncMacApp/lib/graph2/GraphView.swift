@@ -5,5 +5,9 @@ class GraphView:Element{
     //TimeBar
     //ValueBar
     //GraphLine2
-    //ElasticHorizontalView ()
+    //HorizontalView
+    override func resolveSkin() {
+        StyleManager.addStyle("GraphView{fill:green;}")
+        super.resolveSkin()
+    }
 }
