@@ -5,5 +5,5 @@ class GraphView:Element{
     //TimeBar
     //ValueBar
     //GraphLine2
-    //
+    //ElasticHorizontalView ()
 }
