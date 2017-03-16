@@ -17,7 +17,8 @@ class GraphView:Element{
         contentFrame = CGRect(0,0,900,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         
         contentContainer = addSubView(Container(width,height,self,"content"))
-        addEllipse()
+        //addEllipse()
+        addGraphLine()
     }
     override func scrollWheel(with event: NSEvent) {//TODO: move to displaceview
         Swift.print("scrollWheel: ")
@@ -75,6 +76,12 @@ extension GraphView{
         let ellipse = EllipseGraphic(p.x,p.y,200,200,fill.mix(Gradients.green()),line.mix(Gradients.lightGreen(0.5)))
         contentContainer!.addSubview(ellipse.graphic)
         ellipse.draw()
+    }
+    /**
+     *
+     */
+    func addGraphLine(){
+        //GraphLine
     }
 }
 //TimeBar
