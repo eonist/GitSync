@@ -8,6 +8,7 @@ class GraphView:Element{
     var itemSize:CGFloat {return 48}//override this for custom value
     var interval:CGFloat{return floor(contentFrame.w - maskFrame.w)/itemSize}
     var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskFrame.w, contentFrame.w)}
+    let timeBar:TimeBar?
     
     override func resolveSkin() {
         StyleManager.addStyle("GraphView{float:left;clear:left;fill:green;fill-alpha:0.0;}")
@@ -98,7 +99,7 @@ extension GraphView{
         var points:[P] = []
         for i in 0..<20{
             let x:CGFloat = 100*i
-            let y:CGFloat = (0..<height.int).random.cgFloat
+            let y:CGFloat = (0..<(height.int-32)).random.cgFloat
             let p = P(x,y)
             points.append(p)
         }
@@ -115,15 +116,15 @@ extension GraphView{
      */
     func createTimeBar(){
         
-        let timeBar:TimeBar = addSubView(TimeBar(width,32,self))
-        let objSize = CGSize(timeBar.w,32)
+        timeBar = addSubView(TimeBar(width,32,self))
+        let objSize = CGSize(timeBar!.w,32)
         Swift.print("objSize: " + "\(objSize)")
         let canvasSize = CGSize(w,h)
         Swift.print("canvasSize: " + "\(canvasSize)")
         let p = Align.alignmentPoint(objSize, canvasSize, Alignment.bottomLeft, Alignment.bottomLeft, CGPoint())
         Swift.print("p: " + "\(p)")
         //align timeBar to bottom with Align
-        timeBar.point = p
+        timeBar!.point = p
     }
 }
 //TimeBar
