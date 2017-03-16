@@ -48,6 +48,7 @@ class GraphView:Element{
         
         let x:CGFloat = ScrollableUtils.scrollTo(progressValue, maskFrame.w, contentFrame.w)
         contentContainer!.x = x/*we offset the y position of the lableContainer*/
+        timeBar!.x = x
     }
     
 }
