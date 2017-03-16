@@ -8,7 +8,7 @@ class GraphView:Element{
     var itemSize:CGFloat {return 48}//override this for custom value
     var interval:CGFloat{return floor(contentFrame.w - maskFrame.w)/itemSize}
     var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskFrame.w, contentFrame.w)}
-    let timeBar:TimeBar?
+    var timeBar:TimeBar?
     
     override func resolveSkin() {
         StyleManager.addStyle("GraphView{float:left;clear:left;fill:green;fill-alpha:0.0;}")
@@ -116,7 +116,7 @@ extension GraphView{
      */
     func createTimeBar(){
         
-        timeBar = addSubView(TimeBar(width,32,self))
+        timeBar = addSubView(TimeBar(contentFrame.width,32,self))
         let objSize = CGSize(timeBar!.w,32)
         Swift.print("objSize: " + "\(objSize)")
         let canvasSize = CGSize(w,h)
