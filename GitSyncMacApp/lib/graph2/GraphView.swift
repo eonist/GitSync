@@ -5,16 +5,16 @@ class GraphView:Element{
     var maskFrame:CGRect = CGRect()
     var contentFrame:CGRect = CGRect()
     var contentContainer:Element?
-    var itemSize:CGFloat {return 24}//override this for custom value
+    var itemSize:CGFloat {return 48}//override this for custom value
     var interval:CGFloat{return floor(contentFrame.w - maskFrame.w)/itemSize}
     var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskFrame.w, contentFrame.w)}
     
     override func resolveSkin() {
-        StyleManager.addStyle("GraphView{fill:green;fill-alpha:0;}")
+        StyleManager.addStyle("GraphView{float:left;clear:left;fill:green;fill-alpha:0;}")
         super.resolveSkin()
         /*config*/
         maskFrame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
-        contentFrame = CGRect(0,0,900,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
+        contentFrame = CGRect(0,0,1600,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         
         contentContainer = addSubView(Container(width,height,self,"content"))
         //addEllipse()
