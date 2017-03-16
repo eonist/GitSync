@@ -108,6 +108,16 @@ extension GraphView{
         
         
     }
+
+    /**
+     *
+     */
+    func createTimeBar(){
+        let timeBar = TimeBar()
+        
+        //align timeBar to bottom with Align
+        
+    }
 }
 //TimeBar
 //ValueBar
