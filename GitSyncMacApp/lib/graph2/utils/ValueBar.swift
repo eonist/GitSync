@@ -6,7 +6,6 @@ class ValueBar:Element{
         addStyles()
         super.resolveSkin()
         
-        
         /*strings.forEach{
             let textArea:TextArea = TextArea(NaN,NaN,$0,leftBar!)
             leftBarItems.append(textArea)
