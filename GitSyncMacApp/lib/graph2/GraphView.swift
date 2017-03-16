@@ -3,7 +3,9 @@ import Cocoa
 @testable import Utils
 
 //1. Setup stats with real values, 30 days with ebs and lows. 
-//2. When you scroll the ValueBar must adjust its range
+//2. When you scroll the ValueBar must adjust its range, you can caluclate this by using y for x code from Trig. The slope is found from the 2 points. 
+//3. It's really important that this looks ok, animation wise
+//4. you then adjust
 
 //Zooming tests:
     //
