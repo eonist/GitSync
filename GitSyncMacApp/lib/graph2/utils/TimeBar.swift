@@ -17,9 +17,6 @@ class TimeBar:Element {
             textArea.setPosition(CGPoint(x,0))
         }
     }
-}
-
-extension TimeBar{
     func addStyles(){
         var css:String = ""
         css += "TimeBar{"
