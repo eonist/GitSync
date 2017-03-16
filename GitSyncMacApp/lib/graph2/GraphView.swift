@@ -82,6 +82,15 @@ extension GraphView{
      */
     func addGraphLine(){
         //
+        var css:String = "Graph Section#graphArea GraphLine{"
+        css +=    "float:none;"
+        css +=    "clear:none;"
+        css +=    "line:#2AA3EF;"
+        css +=    "line-alpha:1;"
+        css +=    "line-thickness:0.5px;"
+        css += "}"
+        
+        let path:IPath = Path()
         let graphLine = GraphLine(width,height,path)
     }
 }
