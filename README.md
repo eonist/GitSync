@@ -39,13 +39,13 @@
 - Commit title and desc are now escaped  
 
 ## GitSync:  
-<img width="314" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_logo_2016_blue.png">
+<img width="314" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/gitsync_logo_2016_blue.png">
 
 ## Demo:
-<img width="558" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_take_3.mov.gif">
+<img width="558" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/gitsync_take_3.mov.gif">
 
 ## GUI mock-ups:   
 
-<img width="1083" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/gitsync_gui_design_low.png">
+<img width="1083" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/gitsync_gui_design_low.png">
 
 [MIT License](http://opensource.org/licenses/MIT)
