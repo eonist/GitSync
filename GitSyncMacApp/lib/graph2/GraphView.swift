@@ -2,6 +2,8 @@ import Cocoa
 @testable import Element
 @testable import Utils
 class GraphView:Element{
+    var maskFrame:CGRect = CGRect()
+    var contentFrame:CGRect = CGRect()
     var contentContainer:Element?
     var itemsHeight:CGFloat {fatalError("Must override in subClass")}//override this for custom value
     var itemHeight:CGFloat {fatalError("Must override in subClass")}//override this for custom value
@@ -11,6 +13,10 @@ class GraphView:Element{
     override func resolveSkin() {
         StyleManager.addStyle("GraphView{fill:green;fill-alpha:0;}")
         super.resolveSkin()
+        /*config*/
+        maskFrame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
+        contentFrame = CGRect(0,0,width,600)/*represents the total size of the content *///TODO: could be ranmed to contentRect
+        
         contentContainer = addSubView(Container(width,height,self,"content"))
         addEllipse()
     }
