@@ -78,7 +78,8 @@ extension GraphView2{
         Swift.print("x: " + "\(x)")
         contentContainer!.x = x
         /*gp1*/
-        let y1:CGFloat = findY(-1*x,points!)
+        let x1:CGFloat = -1 * x
+        let y1:CGFloat = findY(x1,points!)
         graphPoint1!.point = P(0,y1)
         /*gp2*/
         let x2:CGFloat = (-1 * x) + width
@@ -86,8 +87,8 @@ extension GraphView2{
         graphPoint2!.point = P(width,y2)
         edgeValues = (y1,y2)
         /**/
-        let minX:CGFloat = -1 * x
-        let maxX:CGFloat = (-1 * x) + width
+        let minX:CGFloat = x1
+        let maxX:CGFloat = x2
         let minY:CGFloat = self.minY(minX,maxX)
         Swift.print("⚠️️ minY: " + "\(minY))")
     }
