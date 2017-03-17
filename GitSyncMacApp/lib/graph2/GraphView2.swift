@@ -98,7 +98,8 @@ extension GraphView2{
         
         let ratio:CGFloat = height / diff
         
-        let newPoints:[P] = points.map{$0}
+        let newPoints:[P] = points!.map{CGPointModifier.scale($0, P($0.x,400), P(1,ratio))}
+        
     }
 }
 
@@ -122,7 +123,6 @@ extension GraphView2{
         
         edgeValues = (p.y,p2.y)
     }
-    
     /**
      *
      */
