@@ -67,13 +67,19 @@ extension GraphView2{
         let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize.w, contentSize.w)
         Swift.print("x: " + "\(x)")
         contentContainer!.x = x
+        /*gp1*/
         let y:CGFloat = findY(-1*x,points)
         graphPoint1!.point = P(0,y)
+        /*gp2*/
+        let x2:CGFloat = x+width
+        let y2:CGFloat = findY(-1*x2,points)
+        graphPoint2!.point = P(width,y2)
     }
 }
 
 extension GraphView2{
     func addGraphPoint(){
+        /*gp1*/
         let x:CGFloat = 0
         let p = findGraphP(x,points)
         Swift.print("-p-: " + "\(p)")
@@ -81,7 +87,7 @@ extension GraphView2{
         addGraphPointStyle()
         graphPoint1 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
         graphPoint1!.setPosition(p)
-        /*g2*/
+        /*gp2*/
         let x2:CGFloat = width
         let p2 = findGraphP(x2,points)
         Swift.print("-p2-: " + "\(p2)")
