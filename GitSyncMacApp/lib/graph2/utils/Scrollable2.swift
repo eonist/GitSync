@@ -7,7 +7,7 @@ protocol Scrollable2:Containable2 {
     func onScrollWheelExit()
 }
 
-extension GraphView:Scrollable2{
+extension ContaierView2:Scrollable2{
     override open func scrollWheel(with event: NSEvent) {
         Swift.print("scrollWheel")
         switch event.phase{
@@ -20,4 +20,10 @@ extension GraphView:Scrollable2{
         }
         super.scrollWheel(with: event)
     }
+}
+
+extension Scrollable2{
+    func onScrollWheelEnter(){fatalError("must be overriden")}
+    func onScrollWheelExit(){fatalError("must be overriden")}
+    func onScrollWheelChange(_ event:NSEvent){fatalError("must be overriden")}
 }
