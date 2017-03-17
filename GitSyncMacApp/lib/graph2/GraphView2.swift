@@ -82,8 +82,12 @@ extension GraphView2{
         graphPoint1 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
         graphPoint1!.setPosition(p)
         /*g2*/
+        let x2:CGFloat = width
+        let p2 = findGraphP(x2,points)
+        Swift.print("-p2-: " + "\(p2)")
+
         graphPoint2 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
-        graphPoint2!.setPosition(p)
+        graphPoint2!.setPosition(p2)
     }
     /**
      *
