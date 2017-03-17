@@ -10,7 +10,7 @@ class GraphView2:ContainerView2{
     var edgeValues:(start:CGFloat,end:CGFloat)?
     var graphLine:GraphLine?
     
-    override var itemSize:CGSize {return CGSize(48,48)}//override this for custom value
+    override var itemSize:CGSize {return CGSize(100,100)}//override this for custom value
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
     override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
     
@@ -19,7 +19,7 @@ class GraphView2:ContainerView2{
         super.resolveSkin()
         /*config*/
         maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
-        contentSize = CGSize(1600,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
+        contentSize = CGSize(3000,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         
         contentContainer = addSubView(Container(width,height,self,"content"))
         addGraphLine()
@@ -88,7 +88,7 @@ extension GraphView2{
     func addGraphLine(){
         addGraphLineStyle()
         let h:Int = height.int
-        points = (0..<18).map{
+        points = (0..<30).map{
             let x:CGFloat = 100*$0
             let y:CGFloat = (0..<(h*2)).random.cgFloat - h.cgFloat
             return P(x,y)
