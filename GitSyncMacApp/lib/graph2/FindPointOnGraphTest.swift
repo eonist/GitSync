@@ -36,15 +36,17 @@ extension FindPointOnGraphTest{
         
         let x:CGFloat = 100
         
-        let segment:(P,P)
+        var segment:(P,P)?
         for i in 0..<points.count-1{
             let cur = points[i]
             let next = points[i+1]
             if(x >= cur.x && x <= next.x){//within
-                
+                segment = (cur,next)
                 break
             }
         }
+        
+        
         
         addGraphPointStyle()
         let graphPoint:Element = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
