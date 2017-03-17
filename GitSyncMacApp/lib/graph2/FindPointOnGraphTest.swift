@@ -45,8 +45,8 @@ extension FindPointOnGraphTest{
                 break
             }
         }
-        let slope:CGFloat = CGPointParser.slope(seg.p1, seg.p2)
-        _ = slope
+        let slope:CGFloat = CGPointParser.slope(seg!.p1, seg!.p2)
+        let y:CGFloat = CGPointParser.y(<#T##p1: CGPoint##CGPoint#>, <#T##x2: CGFloat##CGFloat#>, <#T##slope: CGFloat##CGFloat#>)
         let p:P = P()
         
         addGraphPointStyle()
