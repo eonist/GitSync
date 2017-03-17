@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Element
 @testable import Utils
 
@@ -18,5 +18,20 @@ class GraphView2:Element,Scrollable2{
         contentSize = CGSize(1600,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         
         contentContainer = addSubView(Container(width,height,self,"content"))
+    }
+    func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
+        Swift.print("📜 Scrollable.onScrollWheelChange: \(event.type)")
+        let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
+        setProgress(progressVal)
+    }
+    func setProgress(_ value:CGFloat){
+        Swift.print("🖼️ moving lableContainer up and down progress: \(value)")
+        //Swift.print("IScrollable.setProgress() progress: \(progress)")
+        let progressValue = contentSize.w < maskSize.w ? 0 : progress/*pins the lableContainer to the top if itemsHeight is less than height*/
+        //Swift.print("progressValue: " + "\(progressValue)")
+        
+        let x:CGFloat = ScrollableUtils.scrollTo(progressValue, maskSize.w, contentSize.w)
+        contentContainer!.x = x
+        
     }
 }
