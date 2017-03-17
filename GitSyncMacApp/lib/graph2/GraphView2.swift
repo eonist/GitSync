@@ -3,6 +3,9 @@ import Cocoa
 @testable import Utils
 
 class GraphView2:ContainerView2{
+    typealias P = CGPoint
+    var points:[CGPoint] = []
+    
     override var itemSize:CGSize {return CGSize(48,48)}//override this for custom value
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
     override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
