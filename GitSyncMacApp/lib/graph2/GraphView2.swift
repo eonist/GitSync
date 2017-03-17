@@ -144,7 +144,7 @@ extension GraphView2{
      *
      */
     func findY(_ x:CGFloat, _ points:[P])->CGFloat{
-        //Swift.print("x: " + "\(x)")
+        Swift.print("x: " + "\(x)")
         var seg:(p1:P,p2:P)?
         for i in 0..<points.count-1{
             let cur = points[i]
