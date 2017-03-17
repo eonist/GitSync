@@ -95,6 +95,10 @@ extension GraphView2{
         //let dist:CGFloat = 400.cgFloat.distance(to: minY)
         let diff:CGFloat = height + (-1 * minY)
         Swift.print("🍏 diff: " + "\(diff)")
+        
+        let ratio:CGFloat = height / diff
+        
+        let newPoints:[P] = points.map{$0}
     }
 }
 
