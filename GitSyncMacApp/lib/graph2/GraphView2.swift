@@ -92,8 +92,9 @@ extension GraphView2{
         let minY:CGFloat = self.minY(minX,maxX)
         Swift.print("⚠️️ minY: " + "\(minY))")
         
-        let dist:CGFloat = 400.cgFloat.distance(to: minY)
-        Swift.print("🍏 dist: " + "\(dist)")
+        //let dist:CGFloat = 400.cgFloat.distance(to: minY)
+        let diff:CGFloat = height + (-1 * minY)
+        Swift.print("🍏 diff: " + "\(diff)")
     }
 }
 
