@@ -8,6 +8,7 @@ class GraphView2:ContainerView2{
     var graphPoint1:Element?
     var graphPoint2:Element?
     var edgeValues:(start:CGFloat,end:CGFloat)?
+    var graphLine:GraphLine?
     
     override var itemSize:CGSize {return CGSize(48,48)}//override this for custom value
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
@@ -28,43 +29,6 @@ class GraphView2:ContainerView2{
         
         let minY:CGFloat = self.minY(minX,maxX)
         Swift.print("⚠️️ minY: " + "\(minY))")
-    }
-}
-extension GraphView2{
-    /**
-     *
-     */
-    func minY(_ minX:CGFloat,_ maxX:CGFloat) -> CGFloat {
-        return ([edgeValues!.start, edgeValues!.end] + points!.filter{$0.x >= minX && $0.x <= maxX}.map{$0.y}).min()!
-    }
-    /**
-     *
-     */
-    func addGraphLine(){
-        addGraphLineStyle()
-        let h:Int = height.int
-        points = (0..<18).map{
-            let x:CGFloat = 100*$0
-            let y:CGFloat = (0..<(h*2)).random.cgFloat - h.cgFloat
-            return P(x,y)
-        }
-        
-        let path:IPath = PolyLineGraphicUtils.path(points!)
-        let graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
-        _ = graphLine
-    }
-    /**
-     *
-     */
-    func addGraphLineStyle(){
-        var css:String = "GraphLine{"
-        css +=    "float:none;"
-        css +=    "clear:none;"
-        css +=    "line:#2AA3EF;"
-        css +=    "line-alpha:1;"
-        css +=    "line-thickness:0.5px;"
-        css += "}"
-        StyleManager.addStyle(css)
     }
 }
 /*Animation*/
@@ -105,6 +69,45 @@ extension GraphView2{
             graphPoint2!.point = $0
         }
         
+        let path:IPath = PolyLineGraphicUtils.path(newPoints)
+        graphLine!.path =
+    }
+}
+
+extension GraphView2{
+    /**
+     *
+     */
+    func minY(_ minX:CGFloat,_ maxX:CGFloat) -> CGFloat {
+        return ([edgeValues!.start, edgeValues!.end] + points!.filter{$0.x >= minX && $0.x <= maxX}.map{$0.y}).min()!
+    }
+    /**
+     *
+     */
+    func addGraphLine(){
+        addGraphLineStyle()
+        let h:Int = height.int
+        points = (0..<18).map{
+            let x:CGFloat = 100*$0
+            let y:CGFloat = (0..<(h*2)).random.cgFloat - h.cgFloat
+            return P(x,y)
+        }
+        
+        let path:IPath = PolyLineGraphicUtils.path(points!)
+        graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
+    }
+    /**
+     *
+     */
+    func addGraphLineStyle(){
+        var css:String = "GraphLine{"
+        css +=    "float:none;"
+        css +=    "clear:none;"
+        css +=    "line:#2AA3EF;"
+        css +=    "line-alpha:1;"
+        css +=    "line-thickness:0.5px;"
+        css += "}"
+        StyleManager.addStyle(css)
     }
 }
 
