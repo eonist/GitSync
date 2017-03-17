@@ -70,7 +70,7 @@ extension GraphView2{
         }
         
         let path:IPath = PolyLineGraphicUtils.path(newPoints)
-        graphLine!.path =
+        graphLine!.line!.path = path
     }
 }
 
