@@ -15,7 +15,7 @@ class GraphView2:ContainerView2{
     override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
     
     override func resolveSkin() {
-        StyleManager.addStyle("GraphView2{float:left;clear:left;fill:green;fill-alpha:0.0;}")
+        StyleManager.addStyle("GraphView2{float:none;clear:none;fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
         /*config*/
         maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
@@ -62,7 +62,7 @@ extension GraphView2{
         
         let ratio:CGFloat = height / diff
         
-        let newPoints:[P] = points!.map{CGPointModifier.scale($0, P($0.x,400), P(1,ratio))}
+        let newPoints:[P] = points!.map{CGPointModifier.scale($0, P($0.x,height), P(1,ratio))}
         
         newPoints.forEach{
             //Swift.print("$0: " + "\($0)")
