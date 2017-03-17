@@ -71,6 +71,18 @@ extension GraphView2{
 extension GraphView2{
     func addGraphPoint(){
         let x:CGFloat = 150
+        let y:CGFloat = findYForX(x,points)
+        let p:P = P(x,y)
+        Swift.print("-p-: " + "\(p)")
+        
+        addGraphPointStyle()
+        let graphPoint:Element = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
+        graphPoint.setPosition(p)
+    }
+    /**
+     *
+     */
+    func findYForX(_ x:CGFloat, _ points:[P])->CGFloat{
         var seg:(p1:P,p2:P)?
         for i in 0..<points.count-1{
             let cur = points[i]
@@ -84,18 +96,7 @@ extension GraphView2{
         let slope:CGFloat = CGPointParser.slope(seg!.p1, seg!.p2)
         Swift.print("slope: " + "\(slope)")
         let y:CGFloat = CGPointParser.y(seg!.p1, x, slope)/*seg!.p2.x*/
-        let p:P = P(x,y)
-        Swift.print("-p-: " + "\(p)")
-        
-        addGraphPointStyle()
-        let graphPoint:Element = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
-        graphPoint.setPosition(p)
-    }
-    /**
-     *
-     */
-    func findYForX(_ x:P, _ points:[P]){
-        
+        return y
     }
     func addGraphPointStyle(){
         /*GraphPoint*/
