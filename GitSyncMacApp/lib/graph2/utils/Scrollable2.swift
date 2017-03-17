@@ -7,7 +7,7 @@ protocol Scrollable2:Containable2 {
     func onScrollWheelExit()
 }
 
-extension ContaierView2:Scrollable2{
+extension ContainerView2:Scrollable2{
     override open func scrollWheel(with event: NSEvent) {
         Swift.print("scrollWheel")
         switch event.phase{
