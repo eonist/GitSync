@@ -36,21 +36,22 @@ extension FindPointOnGraphTest{
         
         let x:CGFloat = 100
         
-        var segment:(P,P)?
+        var seg:(p1:P,p2:P)?
         for i in 0..<points.count-1{
             let cur = points[i]
             let next = points[i+1]
             if(x >= cur.x && x <= next.x){//within
-                segment = (cur,next)
+                seg = (cur,next)
                 break
             }
         }
-        
-        
+        let slope:CGFloat = CGPointParser.slope(seg.p1, seg.p2)
+        _ = slope
+        let p:P = P()
         
         addGraphPointStyle()
         let graphPoint:Element = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
-        graphPoint.setPosition(CGPoint(100,100))
+        graphPoint.setPosition(p)
     }
     /**
      *
