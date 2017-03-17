@@ -70,9 +70,7 @@ extension GraphView2{
 
 extension GraphView2{
     func addGraphPoint(){
-        
         let x:CGFloat = 150
-        
         var seg:(p1:P,p2:P)?
         for i in 0..<points.count-1{
             let cur = points[i]
