@@ -41,4 +41,23 @@ extension FindPointOnGraphTest{
         
         graphPoint.setPosition($0)
     }
+    /**
+     *
+     */
+    func addGraphPoint(){
+        /*GraphPoint*/
+        Graph Section#graphArea #graphPoint{
+            float:none;
+            clear:none;
+            fill:#128BF2,#192633;/*128BF2,white*/
+            width:12px,11px;
+            height:12px,11px;
+            margin-left:-6px,-5.5px;
+            margin-right:6px,5.5px;
+            margin-top:-6px,-5.5px;
+            margin-bottom:6px,5.5px;
+            drop-shadow:<SubtleShadow>;
+            corner-radius:6px,5.5px;
+        }
+    }
 }
