@@ -37,16 +37,16 @@ extension FindPointOnGraphTest{
      *
      */
     func addGraphPoint(){
+        addStyle()
         let graphPoint:Element = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
-        
-        graphPoint.setPosition($0)
+        graphPoint.setPosition(CGPoint())
     }
     /**
      *
      */
-    func addGraphPoint(){
+    func addStyle(){
         /*GraphPoint*/
-        let css:String = ""
+        var css:String = ""
         css += "Graph Section#graphArea #graphPoint{"
         css +=     "float:none;"
         css +=     "clear:none;"
@@ -60,6 +60,6 @@ extension FindPointOnGraphTest{
         css +=     "drop-shadow:drop-shadow(1px 90 #000000 0.3 0.5 0.5 0 0 false);"
         css +=     "corner-radius:6px,5.5px;"
         css += "}"
-        StyleManager.addStyles(css)
+        StyleManager.addStyle(css)
     }
 }
