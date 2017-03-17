@@ -4,7 +4,7 @@ import Cocoa
 
 class GraphView2:ContainerView2{
     typealias P = CGPoint
-    var points:[CGPoint] = []
+    var points:[CGPoint]?
     var graphPoint1:Element?
     var graphPoint2:Element?
     var edgeMax:(start:CGFloat,end:CGFloat)?
@@ -24,7 +24,8 @@ class GraphView2:ContainerView2{
         addGraphLine()
         addGraphPoint()
         
-        let maxY:CGFloat = edgeMax.start + edgeMax.end + graph
+        let maxY:[CGFloat] = [edgeMax!.start, edgeMax!.end] + points!.map{$0.y}
+        
     }
 }
 extension GraphView2{
