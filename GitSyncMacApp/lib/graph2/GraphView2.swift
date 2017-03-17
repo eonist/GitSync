@@ -21,17 +21,7 @@ class GraphView2:ContainerView2{
         addGraphLine()
     }
     
-    func setProgress(_ value:CGFloat){
-        Swift.print("🖼️ moving lableContainer up and down progress: \(value)")
-        //Swift.print("IScrollable.setProgress() progress: \(progress)")
-        let progressValue = contentSize.w < maskSize.w ? 0 : progress/*pins the lableContainer to the top if itemsHeight is less than height*/
-        //Swift.print("progressValue: " + "\(progressValue)")
-        
-        let x:CGFloat = ScrollableUtils.scrollTo(progressValue, maskSize.w, contentSize.w)
-        Swift.print("x: " + "\(x)")
-        contentContainer!.x = x
-        
-    }
+    
 }
 extension GraphView2{
     /**
@@ -62,5 +52,25 @@ extension GraphView2{
         css +=    "line-thickness:0.5px;"
         css += "}"
         StyleManager.addStyle(css)
+    }
+}
+/*Animation*/
+extension GraphView2{
+    override func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
+        Swift.print("📜 Scrollable.onScrollWheelChange: \(event.type)")
+        let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
+        Swift.print("progressVal: " + "\(progressVal)")
+        setProgress(progressVal)
+    }
+    func setProgress(_ value:CGFloat){
+        Swift.print("🖼️ moving lableContainer progress: \(value)")
+        //Swift.print("IScrollable.setProgress() progress: \(progress)")
+        let progressValue = contentSize.w < maskSize.w ? 0 : progress/*pins the lableContainer to the top if itemsHeight is less than height*/
+        Swift.print("progressValue: " + "\(progressValue)")
+        
+        let x:CGFloat = ScrollableUtils.scrollTo(progressValue, maskSize.w, contentSize.w)
+        Swift.print("x: " + "\(x)")
+        contentContainer!.x = x
+        
     }
 }
