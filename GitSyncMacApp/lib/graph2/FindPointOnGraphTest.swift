@@ -14,14 +14,7 @@ class FindPointOnGraphTest:Element{
 }
 extension FindPointOnGraphTest{
     func addGraphLine(){
-        var css:String = "GraphLine{"
-        css +=    "float:none;"
-        css +=    "clear:none;"
-        css +=    "line:#2AA3EF;"
-        css +=    "line-alpha:1;"
-        css +=    "line-thickness:0.5px;"
-        css += "}"
-        StyleManager.addStyle(css)
+        addGraphLineStyle()
         typealias P = CGPoint
         let points:[P] = (0..<6).map{
             let x:CGFloat = 100*$0
@@ -37,14 +30,27 @@ extension FindPointOnGraphTest{
      *
      */
     func addGraphPoint(){
-        addStyle()
+        addGraphPointStyle()
         let graphPoint:Element = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
         graphPoint.setPosition(CGPoint())
     }
     /**
      *
      */
-    func addStyle(){
+    func addGraphLineStyle(){
+        var css:String = "GraphLine{"
+        css +=    "float:none;"
+        css +=    "clear:none;"
+        css +=    "line:#2AA3EF;"
+        css +=    "line-alpha:1;"
+        css +=    "line-thickness:0.5px;"
+        css += "}"
+        StyleManager.addStyle(css)
+    }
+    /**
+     *
+     */
+    func addGraphPointStyle(){
         /*GraphPoint*/
         var css:String = ""
         css += "Graph Section#graphArea #graphPoint{"
