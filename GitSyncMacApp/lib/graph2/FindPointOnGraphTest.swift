@@ -46,18 +46,20 @@ extension FindPointOnGraphTest{
      */
     func addGraphPoint(){
         /*GraphPoint*/
-        Graph Section#graphArea #graphPoint{
-            float:none;
-            clear:none;
-            fill:#128BF2,#192633;/*128BF2,white*/
-            width:12px,11px;
-            height:12px,11px;
-            margin-left:-6px,-5.5px;
-            margin-right:6px,5.5px;
-            margin-top:-6px,-5.5px;
-            margin-bottom:6px,5.5px;
-            drop-shadow:<SubtleShadow>;
-            corner-radius:6px,5.5px;
-        }
+        let css:String = ""
+        css += "Graph Section#graphArea #graphPoint{"
+        css +=     "float:none;"
+        css +=     "clear:none;"
+        css +=     "fill:#128BF2,#192633;"
+        css +=     "width:12px,11px;"
+        css +=     "height:12px,11px;"
+        css +=     "margin-left:-6px,-5.5px;"
+        css +=     "margin-right:6px,5.5px;"
+        css +=     "margin-top:-6px,-5.5px;"
+        css +=     "margin-bottom:6px,5.5px;"
+        css +=     "drop-shadow:drop-shadow(1px 90 #000000 0.3 0.5 0.5 0 0 false);"
+        css +=     "corner-radius:6px,5.5px;"
+        css += "}"
+        StyleManager.addStyles(css)
     }
 }
