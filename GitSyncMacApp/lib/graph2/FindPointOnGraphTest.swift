@@ -6,6 +6,7 @@ class FindPointOnGraphTest:Element{
     override func resolveSkin() {
         super.resolveSkin()
         addGraphLine()
+        addGraphPoint()
     }
     //make points
     //draw graph
