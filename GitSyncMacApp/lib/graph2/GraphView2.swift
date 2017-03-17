@@ -65,12 +65,13 @@ extension GraphView2{
         let newPoints:[P] = points!.map{CGPointModifier.scale($0, P($0.x,400), P(1,ratio))}
         
         newPoints.forEach{
-            Swift.print("$0: " + "\($0)")
+            //Swift.print("$0: " + "\($0)")
             graphPoint2!.point = $0
         }
         
         let path:IPath = PolyLineGraphicUtils.path(newPoints)
-        graphLine!.line!.path = path
+        graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)
+        graphLine!.line!.draw()
     }
 }
 
