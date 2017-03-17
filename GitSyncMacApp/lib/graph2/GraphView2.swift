@@ -100,6 +100,10 @@ extension GraphView2{
         
         let newPoints:[P] = points!.map{CGPointModifier.scale($0, P($0.x,400), P(1,ratio))}
         
+        newPoints.forEach{
+            graphPoint2!.point = $0
+        }
+        
     }
 }
 
@@ -119,7 +123,7 @@ extension GraphView2{
         Swift.print("-p2-: " + "\(p2)")
 
         graphPoint2 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
-        graphPoint2!.setPosition(p2)
+        graphPoint2!.point = p2
         
         edgeValues = (p.y,p2.y)
     }
