@@ -27,9 +27,10 @@ extension GraphView2{
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)
     }
+    
 }
 
-extension Scrollable2{
+extension ContainerView2{
     func onScrollWheelEnter(){/*fatalError("must be overriden")*/}
     func onScrollWheelExit(){/*fatalError("must be overriden")*/}
     func onScrollWheelChange(_ event:NSEvent){fatalError("must be overriden")}
