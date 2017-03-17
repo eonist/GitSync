@@ -3,6 +3,7 @@ import Foundation
 @testable import Utils
 
 class FindPointOnGraphTest:Element{
+    var points:[CGPoint] = []
     override func resolveSkin() {
         super.resolveSkin()
         addGraphLine()
@@ -17,7 +18,7 @@ extension FindPointOnGraphTest{
     func addGraphLine(){
         addGraphLineStyle()
         typealias P = CGPoint
-        let points:[P] = (0..<6).map{
+        points = (0..<6).map{
             let x:CGFloat = 100*$0
             let y:CGFloat = (0..<(height.int-32)).random.cgFloat
             return P(x,y)
@@ -31,6 +32,10 @@ extension FindPointOnGraphTest{
      *
      */
     func addGraphPoint(){
+        
+        let x:CGFloat = 100
+        
+        
         addGraphPointStyle()
         let graphPoint:Element = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
         graphPoint.setPosition(CGPoint(100,100))
@@ -52,6 +57,7 @@ extension FindPointOnGraphTest{
      *
      */
     func addGraphPointStyle(){
+        
         /*GraphPoint*/
         var css:String = ""
         css += "Element#graphPoint{"
