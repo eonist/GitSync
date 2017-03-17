@@ -85,6 +85,11 @@ extension GraphView2{
         let y2:CGFloat = findY(x2,points!)
         graphPoint2!.point = P(width,y2)
         edgeValues = (y1,y2)
+        /**/
+        let minX:CGFloat = -1 * x
+        let maxX:CGFloat = (-1 * x) + width
+        let minY:CGFloat = self.minY(minX,maxX)
+        Swift.print("⚠️️ minY: " + "\(minY))")
     }
 }
 
