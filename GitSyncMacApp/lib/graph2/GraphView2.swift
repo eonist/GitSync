@@ -18,6 +18,7 @@ class GraphView2:ContainerView2{
         contentSize = CGSize(1600,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         
         contentContainer = addSubView(Container(width,height,self,"content"))
+        addGraphLine()
     }
     func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
         Swift.print("📜 Scrollable.onScrollWheelChange: \(event.type)")
@@ -49,7 +50,7 @@ extension GraphView2{
         }
         
         let path:IPath = PolyLineGraphicUtils.path(points)
-        let graphLine = self.addSubView(GraphLine(width,height,path))
+        let graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
         _ = graphLine
     }
     /**
