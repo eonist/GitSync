@@ -60,6 +60,7 @@ extension GraphView2{
         Swift.print("📜 Scrollable.onScrollWheelChange: \(event.type)")
         Swift.print("interval: " + "\(interval)")
         Swift.print("progress: " + "\(progress)")
+        Swift.print("event.deltaX: " + "\(event.deltaX)")
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         Swift.print("progressVal: " + "\(progressVal)")
         setProgress(progressVal)
