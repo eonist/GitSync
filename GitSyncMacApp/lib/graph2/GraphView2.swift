@@ -35,7 +35,7 @@ extension GraphView2{
         let h:Int = height.int
         points = (0..<18).map{
             let x:CGFloat = 100*$0
-            let y:CGFloat = (-h..<h).random.cgFloat
+            let y:CGFloat = (0..<(h*2)).random.cgFloat - h.cgFloat
             return P(x,y)
         }
         
