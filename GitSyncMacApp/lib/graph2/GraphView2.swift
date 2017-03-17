@@ -5,7 +5,8 @@ import Cocoa
 class GraphView2:ContainerView2{
     typealias P = CGPoint
     var points:[CGPoint] = []
-    var graphPoint:Element?
+    var graphPoint1:Element?
+    var graphPoint2:Element?
     
     override var itemSize:CGSize {return CGSize(48,48)}//override this for custom value
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
@@ -67,7 +68,7 @@ extension GraphView2{
         Swift.print("x: " + "\(x)")
         contentContainer!.x = x
         let y:CGFloat = findY(-1*x,points)
-        graphPoint!.point = P(0,y)
+        graphPoint1!.point = P(0,y)
     }
 }
 
@@ -78,8 +79,11 @@ extension GraphView2{
         Swift.print("-p-: " + "\(p)")
         
         addGraphPointStyle()
-        graphPoint = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
-        graphPoint!.setPosition(p)
+        graphPoint1 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
+        graphPoint1!.setPosition(p)
+        /*g2*/
+        graphPoint2 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
+        graphPoint2!.setPosition(p)
     }
     /**
      *
