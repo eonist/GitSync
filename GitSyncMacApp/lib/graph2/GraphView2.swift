@@ -91,6 +91,12 @@ extension GraphView2{
         let graphPoint:Element = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
         graphPoint.setPosition(p)
     }
+    /**
+     *
+     */
+    func findYForX(_ x:P, _ points:[P]){
+        
+    }
     func addGraphPointStyle(){
         /*GraphPoint*/
         var css:String = ""
