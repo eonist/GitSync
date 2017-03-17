@@ -19,6 +19,7 @@ class GraphView2:ContainerView2{
         
         contentContainer = addSubView(Container(width,height,self,"content"))
         addGraphLine()
+        addGraphPoint()
     }
     
     
@@ -64,5 +65,50 @@ extension GraphView2{
         let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize.w, contentSize.w)
         Swift.print("x: " + "\(x)")
         contentContainer!.x = x
+    }
+}
+
+extension GraphView2{
+    func addGraphPoint(){
+        
+        let x:CGFloat = 150
+        
+        var seg:(p1:P,p2:P)?
+        for i in 0..<points.count-1{
+            let cur = points[i]
+            let next = points[i+1]
+            if(x >= cur.x && x <= next.x){//within
+                seg = (cur,next)
+                break
+            }
+        }
+        Swift.print("seg: " + "\(seg)")
+        let slope:CGFloat = CGPointParser.slope(seg!.p1, seg!.p2)
+        Swift.print("slope: " + "\(slope)")
+        let y:CGFloat = CGPointParser.y(seg!.p1, x, slope)/*seg!.p2.x*/
+        let p:P = P(x,y)
+        Swift.print("-p-: " + "\(p)")
+        
+        addGraphPointStyle()
+        let graphPoint:Element = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
+        graphPoint.setPosition(p)
+    }
+    func addGraphPointStyle(){
+        /*GraphPoint*/
+        var css:String = ""
+        css += "Element#graphPoint{"
+        css +=     "float:none;"
+        css +=     "clear:none;"
+        css +=     "fill:#128BF2,#192633;"
+        css +=     "width:12px,11px;"
+        css +=     "height:12px,11px;"
+        css +=     "margin-left:-6px,-5.5px;"
+        css +=     "margin-right:6px,5.5px;"
+        css +=     "margin-top:-6px,-5.5px;"
+        css +=     "margin-bottom:6px,5.5px;"
+        css +=     "drop-shadow:drop-shadow(1px 90 #000000 0.3 0.5 0.5 0 0 false);"
+        css +=     "corner-radius:6px,5.5px;"
+        css += "}"
+        StyleManager.addStyle(css)
     }
 }
