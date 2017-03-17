@@ -48,9 +48,9 @@ extension FindPointOnGraphTest{
         Swift.print("seg: " + "\(seg)")
         let slope:CGFloat = CGPointParser.slope(seg!.p1, seg!.p2)
         Swift.print("slope: " + "\(slope)")
-        let y:CGFloat = CGPointParser.y(P(x,400), x, slope)
+        let y:CGFloat = CGPointParser.y(seg!.p1, x, slope)/*seg!.p2.x*/
         let p:P = P(x,y)
-        Swift.print("p: " + "\(p)")
+        Swift.print("-p-: " + "\(p)")
         
         addGraphPointStyle()
         let graphPoint:Element = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
