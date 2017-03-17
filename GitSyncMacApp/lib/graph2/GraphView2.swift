@@ -88,7 +88,7 @@ extension GraphView2{
     func addGraphLine(){
         addGraphLineStyle()
         let h:Int = height.int
-        points = (0..<30).map{
+        points = (0...30).map{
             let x:CGFloat = 100*$0
             let y:CGFloat = (0..<(h*2)).random.cgFloat - h.cgFloat
             return P(x,y)
@@ -154,6 +154,7 @@ extension GraphView2{
                 break
             }
         }
+        //seg = seg ?? (points[points.count-2],points.last!)
         Swift.print("seg: " + "\(seg)")
         let slope:CGFloat = CGPointParser.slope(seg!.p1, seg!.p2)
         Swift.print("slope: " + "\(slope)")
