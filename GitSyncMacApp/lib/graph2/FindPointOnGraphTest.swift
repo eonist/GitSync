@@ -14,7 +14,8 @@ class FindPointOnGraphTest:Element{
     //you just offset the x when the graph moves
     //you add asserts if the x is beyond start or end, then default to first and last seg
     //add dots for start and end
-    //remember the x will give you virtual y values you get from the data set. then you ue these to add to your max value calculation 👉 that you use to 
+    //remember the x will give you virtual y values you get from the data set. then you ue these to add to your max value calculation 👉 that you use to
+    //scale back to scrool only for test
 }
 extension FindPointOnGraphTest{
     func addGraphLine(){
