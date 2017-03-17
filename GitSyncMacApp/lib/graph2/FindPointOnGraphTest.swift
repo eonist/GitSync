@@ -3,6 +3,7 @@ import Foundation
 @testable import Utils
 
 class FindPointOnGraphTest:Element{
+    typealias P = CGPoint
     var points:[CGPoint] = []
     override func resolveSkin() {
         super.resolveSkin()
@@ -17,7 +18,7 @@ class FindPointOnGraphTest:Element{
 extension FindPointOnGraphTest{
     func addGraphLine(){
         addGraphLineStyle()
-        typealias P = CGPoint
+        
         points = (0..<6).map{
             let x:CGFloat = 100*$0
             let y:CGFloat = (0..<(height.int-32)).random.cgFloat
@@ -34,8 +35,15 @@ extension FindPointOnGraphTest{
     func addGraphPoint(){
         
         let x:CGFloat = 100
-        points.map{ p in
-            p.x == x || p.x 
+        
+        let segment:(P,P)
+        for i in 0..<points.count-1{
+            let cur = points[i]
+            let next = points[i+1]
+            if(x >= cur.x && x <= next.x){//within
+                
+                break
+            }
         }
         
         addGraphPointStyle()
