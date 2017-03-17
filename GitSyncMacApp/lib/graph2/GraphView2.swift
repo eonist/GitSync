@@ -90,7 +90,7 @@ extension GraphView2{
         let h:Int = height.int
         points = (0...30).map{
             let x:CGFloat = 100*$0
-            let y:CGFloat = (0..<(h*2)).random.cgFloat - h.cgFloat
+            let y:CGFloat = (0..<(h*4)).random.cgFloat - (h.cgFloat * 2)
             return P(x,y)
         }
         
