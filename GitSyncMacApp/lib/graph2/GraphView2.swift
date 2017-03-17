@@ -32,7 +32,7 @@ class GraphView2:ContainerView2{
 }
 extension GraphView2{
     /**
-     * 
+     *
      */
     func minY(_ minX:CGFloat,_ maxX:CGFloat) -> CGFloat {
         return ([edgeValues!.start, edgeValues!.end] + points!.filter{$0.x >= minX && $0.x <= maxX}.map{$0.y}).min()!
@@ -91,6 +91,9 @@ extension GraphView2{
         let maxX:CGFloat = x2
         let minY:CGFloat = self.minY(minX,maxX)
         Swift.print("⚠️️ minY: " + "\(minY))")
+        
+        let dist:CGFloat = 400.cgFloat.distance(to: minY)
+        Swift.print("🍏 dist: " + "\(dist)")
     }
 }
 
