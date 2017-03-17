@@ -34,7 +34,9 @@ extension FindPointOnGraphTest{
     func addGraphPoint(){
         
         let x:CGFloat = 100
-        
+        points.map{ p in
+            p.x == x || p.x 
+        }
         
         addGraphPointStyle()
         let graphPoint:Element = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
