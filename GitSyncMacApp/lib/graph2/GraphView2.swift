@@ -24,8 +24,6 @@ class GraphView2:ContainerView2{
         addGraphLine()
         addGraphPoint()
     }
-    
-    
 }
 extension GraphView2{
     /**
