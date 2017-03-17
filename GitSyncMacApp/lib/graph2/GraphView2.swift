@@ -71,8 +71,8 @@ extension GraphView2{
         let y:CGFloat = findY(-1*x,points)
         graphPoint1!.point = P(0,y)
         /*gp2*/
-        let x2:CGFloat = x+width
-        let y2:CGFloat = findY(-1*x2,points)
+        let x2:CGFloat = (-1 * x) + width
+        let y2:CGFloat = findY(x2,points)
         graphPoint2!.point = P(width,y2)
     }
 }
@@ -107,6 +107,7 @@ extension GraphView2{
      *
      */
     func findY(_ x:CGFloat, _ points:[P])->CGFloat{
+        Swift.print("x: " + "\(x)")
         var seg:(p1:P,p2:P)?
         for i in 0..<points.count-1{
             let cur = points[i]
