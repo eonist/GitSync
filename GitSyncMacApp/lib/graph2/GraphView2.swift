@@ -58,6 +58,8 @@ extension GraphView2{
 extension GraphView2{
     override func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
         Swift.print("📜 Scrollable.onScrollWheelChange: \(event.type)")
+        Swift.print("interval: " + "\(interval)")
+        Swift.print("progress: " + "\(progress)")
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         Swift.print("progressVal: " + "\(progressVal)")
         setProgress(progressVal)
