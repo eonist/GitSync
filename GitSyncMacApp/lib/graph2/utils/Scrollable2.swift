@@ -21,6 +21,11 @@ extension ContainerView2:Scrollable2{
         super.scrollWheel(with: event)
     }
 }
+extension GraphView2{
+    func onScrollWheelChange(_ event:NSEvent){
+        Swift.print("ch")
+    }
+}
 
 extension Scrollable2{
     func onScrollWheelEnter(){/*fatalError("must be overriden")*/}
