@@ -33,4 +33,10 @@ extension FindPointOnGraphTest{
         let graphLine = self.addSubView(GraphLine(width,height,path))
         _ = graphLine
     }
+    /**
+     *
+     */
+    func addGraphPoint(){
+        
+    }
 }
