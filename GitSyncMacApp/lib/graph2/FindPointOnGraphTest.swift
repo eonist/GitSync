@@ -37,6 +37,8 @@ extension FindPointOnGraphTest{
      *
      */
     func addGraphPoint(){
+        let graphPoint:Element = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
         
+        graphPoint.setPosition($0)
     }
 }
