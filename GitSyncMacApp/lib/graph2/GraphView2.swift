@@ -31,10 +31,10 @@ extension GraphView2{
      */
     func addGraphLine(){
         addGraphLineStyle()
-        
+        let h:CGFloat = height.int*2
         points = (0..<18).map{
             let x:CGFloat = 100*$0
-            let y:CGFloat = (0..<(height.int-32)).random.cgFloat
+            let y:CGFloat = (0..<(h-32)).random.cgFloat
             return P(x,y)
         }
         
