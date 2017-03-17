@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 @testable import Element
 
-class ContaierView2:Element,Containable2 {
+class ContainerView2:Element,Containable2 {
     var maskSize:CGSize = CGSize()
     var contentSize:CGSize = CGSize()
     var contentContainer:Element?
