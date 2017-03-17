@@ -23,7 +23,7 @@ extension ContainerView2:Scrollable2{
 }
 
 extension Scrollable2{
-    func onScrollWheelEnter(){fatalError("must be overriden")}
-    func onScrollWheelExit(){fatalError("must be overriden")}
+    func onScrollWheelEnter(){/*fatalError("must be overriden")*/}
+    func onScrollWheelExit(){/*fatalError("must be overriden")*/}
     func onScrollWheelChange(_ event:NSEvent){fatalError("must be overriden")}
 }
