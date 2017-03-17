@@ -32,10 +32,10 @@ extension GraphView2{
      */
     func addGraphLine(){
         addGraphLineStyle()
-        let h:Int = height.int*2
+        let h:Int = height.int
         points = (0..<18).map{
             let x:CGFloat = 100*$0
-            let y:CGFloat = (0..<(h-32)).random.cgFloat
+            let y:CGFloat = (-h..<h).random.cgFloat
             return P(x,y)
         }
         
@@ -107,7 +107,7 @@ extension GraphView2{
      *
      */
     func findY(_ x:CGFloat, _ points:[P])->CGFloat{
-        Swift.print("x: " + "\(x)")
+        //Swift.print("x: " + "\(x)")
         var seg:(p1:P,p2:P)?
         for i in 0..<points.count-1{
             let cur = points[i]
