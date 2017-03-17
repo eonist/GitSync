@@ -22,8 +22,10 @@ extension ContainerView2:Scrollable2{
     }
 }
 extension GraphView2{
-    func onScrollWheelChange(_ event:NSEvent){
-        Swift.print("ch")
+    override func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
+        Swift.print("📜 Scrollable.onScrollWheelChange: \(event.type)")
+        let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
+        setProgress(progressVal)
     }
 }
 

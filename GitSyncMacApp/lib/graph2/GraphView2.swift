@@ -20,11 +20,7 @@ class GraphView2:ContainerView2{
         contentContainer = addSubView(Container(width,height,self,"content"))
         addGraphLine()
     }
-    func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
-        Swift.print("📜 Scrollable.onScrollWheelChange: \(event.type)")
-        let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
-        setProgress(progressVal)
-    }
+    
     func setProgress(_ value:CGFloat){
         Swift.print("🖼️ moving lableContainer up and down progress: \(value)")
         //Swift.print("IScrollable.setProgress() progress: \(progress)")
