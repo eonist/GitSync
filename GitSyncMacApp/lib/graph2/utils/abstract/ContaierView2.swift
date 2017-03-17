@@ -1,5 +1,5 @@
 import Foundation
 
-class ContaierView2 {
+class ContaierView2:Containable2 {
 
 }
