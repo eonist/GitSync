@@ -16,19 +16,13 @@ extension ContainerView2:Scrollable2{
             case NSEventPhase.began:onScrollWheelEnter()
             case NSEventPhase.ended:onScrollWheelExit();
             case NSEventPhase.cancelled:onScrollWheelExit();
+            case NSEventPhase(rawValue:0):onScrollWheelChange(event);
             default:break;
         }
         super.scrollWheel(with: event)
     }
 }
-extension GraphView2{
-    override func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
-        Swift.print("📜 Scrollable.onScrollWheelChange: \(event.type)")
-        let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
-        setProgress(progressVal)
-    }
-    
-}
+
 
 extension ContainerView2{
     func onScrollWheelEnter(){/*fatalError("must be overriden")*/}

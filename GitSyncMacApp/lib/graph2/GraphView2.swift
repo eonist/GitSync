@@ -28,6 +28,7 @@ class GraphView2:ContainerView2{
         //Swift.print("progressValue: " + "\(progressValue)")
         
         let x:CGFloat = ScrollableUtils.scrollTo(progressValue, maskSize.w, contentSize.w)
+        Swift.print("x: " + "\(x)")
         contentContainer!.x = x
         
     }
