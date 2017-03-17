@@ -10,10 +10,11 @@ class FindPointOnGraphTest:Element{
         addGraphLine()
         addGraphPoint()
     }
-    //make points
-    //draw graph
-    //find point
-    //draw dot
+    //add point to interactive graph
+    //you just offset the x when the graph moves
+    //you add asserts if the x is beyond start or end, then default to first and last seg
+    //add dots for start and end
+    //
 }
 extension FindPointOnGraphTest{
     func addGraphLine(){
