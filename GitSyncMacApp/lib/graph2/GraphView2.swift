@@ -23,8 +23,10 @@ class GraphView2:ContainerView2{
         contentContainer = addSubView(Container(width,height,self,"content"))
         addGraphLine()
         addGraphPoint()
+        let minX:CGFloat = 0
+        let maxX:CGFloat = width
         
-        let minY:CGFloat = ([edgeMax!.start, edgeMax!.end] + points!.map{$0.y}).min()!
+        let minY:CGFloat = ([edgeMax!.start, edgeMax!.end] + points!.filter{$0.x >= minX && $0.x <= maxX}.map{$0.y}).min()!
         Swift.print("⚠️️ minY: " + "\(minY)")
     }
 }
