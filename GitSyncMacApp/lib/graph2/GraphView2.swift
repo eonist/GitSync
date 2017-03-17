@@ -7,6 +7,7 @@ class GraphView2:ContainerView2{
     var points:[CGPoint] = []
     var graphPoint1:Element?
     var graphPoint2:Element?
+    var edgeMax:(start:CGFloat,end:CGFloat)?
     
     override var itemSize:CGSize {return CGSize(48,48)}//override this for custom value
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
@@ -68,12 +69,13 @@ extension GraphView2{
         Swift.print("x: " + "\(x)")
         contentContainer!.x = x
         /*gp1*/
-        let y:CGFloat = findY(-1*x,points)
-        graphPoint1!.point = P(0,y)
+        let y1:CGFloat = findY(-1*x,points)
+        graphPoint1!.point = P(0,y1)
         /*gp2*/
         let x2:CGFloat = (-1 * x) + width
         let y2:CGFloat = findY(x2,points)
         graphPoint2!.point = P(width,y2)
+        edgeMax = (y1,y2)
     }
 }
 
@@ -94,6 +96,8 @@ extension GraphView2{
 
         graphPoint2 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
         graphPoint2!.setPosition(p2)
+        
+        edgeMax = (p.y,p2.y)
     }
     /**
      *
