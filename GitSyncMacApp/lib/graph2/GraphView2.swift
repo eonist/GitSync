@@ -23,6 +23,8 @@ class GraphView2:ContainerView2{
         contentContainer = addSubView(Container(width,height,self,"content"))
         addGraphLine()
         addGraphPoint()
+        
+        let maxY:CGFloat = edgeMax.start + edgeMax.end + graph
     }
 }
 extension GraphView2{
@@ -97,6 +99,7 @@ extension GraphView2{
         
         edgeMax = (p.y,p2.y)
     }
+    
     /**
      *
      */
