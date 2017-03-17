@@ -24,8 +24,8 @@ class GraphView2:ContainerView2{
         addGraphLine()
         addGraphPoint()
         
-        let maxY:[CGFloat] = [edgeMax!.start, edgeMax!.end] + points!.map{$0.y}
-        
+        let minY:CGFloat = ([edgeMax!.start, edgeMax!.end] + points!.map{$0.y}).min()!
+        Swift.print("⚠️️ minY: " + "\(minY)")
     }
 }
 extension GraphView2{
@@ -41,7 +41,7 @@ extension GraphView2{
             return P(x,y)
         }
         
-        let path:IPath = PolyLineGraphicUtils.path(points)
+        let path:IPath = PolyLineGraphicUtils.path(points!)
         let graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
         _ = graphLine
     }
@@ -70,11 +70,11 @@ extension GraphView2{
         Swift.print("x: " + "\(x)")
         contentContainer!.x = x
         /*gp1*/
-        let y1:CGFloat = findY(-1*x,points)
+        let y1:CGFloat = findY(-1*x,points!)
         graphPoint1!.point = P(0,y1)
         /*gp2*/
         let x2:CGFloat = (-1 * x) + width
-        let y2:CGFloat = findY(x2,points)
+        let y2:CGFloat = findY(x2,points!)
         graphPoint2!.point = P(width,y2)
         edgeMax = (y1,y2)
     }
@@ -84,7 +84,7 @@ extension GraphView2{
     func addGraphPoint(){
         /*gp1*/
         let x:CGFloat = 0
-        let p = findGraphP(x,points)
+        let p = findGraphP(x,points!)
         Swift.print("-p-: " + "\(p)")
         
         addGraphPointStyle()
@@ -92,7 +92,7 @@ extension GraphView2{
         graphPoint1!.setPosition(p)
         /*gp2*/
         let x2:CGFloat = width
-        let p2 = findGraphP(x2,points)
+        let p2 = findGraphP(x2,points!)
         Swift.print("-p2-: " + "\(p2)")
 
         graphPoint2 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
