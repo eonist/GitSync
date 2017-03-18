@@ -32,8 +32,13 @@ class CurveGraph:Element{
 extension CurveGraph{
     func addGraphLine(){
         addGraphLineStyle()
+        
+        
         let h:Int = height.int
         let w:CGFloat = 100
+        var commands:[Int] = [PathCommand.moveTo]
+        var pathData:[CGFloat] = [points[0].x,points[0].y]
+        
         points = (0...5).map{
             let x:CGFloat = w*$0
             let y:CGFloat = (0..<h).random.cgFloat
@@ -48,10 +53,9 @@ extension CurveGraph{
         graphLine = self.addSubView(GraphLine(width,height,path))
     }
     static func path(_ points:[CGPoint]) -> IPath {
-        var commands:[Int] = [PathCommand.moveTo]
-        var pathData:[CGFloat] = [points[0].x,points[0].y]
+        
         for i in 1..<points.count{//swift 3 update
-            commands.append(PathCommand.lineTo)
+            commands.append(PathCommand.cubicCurveTo)
             let p:CGPoint = points[i]
             pathData += [p.x,p.y]
         }
