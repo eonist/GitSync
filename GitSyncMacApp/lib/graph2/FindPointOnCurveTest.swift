@@ -21,7 +21,7 @@ class FindPointOnCurveTest:Element{
         //Swift.print("event.loc: " + "\(event.loc)")
         let progress:CGFloat = (event.loc.x/200).clip(0, 1)
         Swift.print("progress: " + "\(progress)")
-        let p = getCurvePoint(p0,p1,c0,c1,progress)
+        let p = CubicCurveUtils.point(p0,p1,c0,c1,progress)
         Swift.print("p: " + "\(p)")
         graphPoint!.point = p
     }
@@ -40,17 +40,13 @@ extension FindPointOnCurveTest{
     func addGraphPoint(){
         addGraphPointStyle()
         //let p = curveP(p0,c0,c1,p1,0.2)//P(100,100)
-        let p = getCurvePoint(p0,p1,c0,c1,0.5)
+        let p = CubicCurveUtils.point(p0,p1,c0,c1,0.5)
         Swift.print("p: " + "\(p)")
         
         graphPoint = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
         graphPoint!.setPosition(p)
     }
-    func getCurvePoint(_ anchor1:CGPoint,_ anchor2:CGPoint,_ control1:CGPoint,_ control2:CGPoint, _ u:CGFloat) -> CGPoint{
-        let posX:CGFloat = pow(u,3)*(anchor2.x+3*(control1.x-control2.x)-anchor1.x)+3*pow(u,2)*(anchor1.x-2*control1.x+control2.x)+3*u*(control1.x-anchor1.x)+anchor1.x;
-        let posY:CGFloat = pow(u,3)*(anchor2.y+3*(control1.y-control2.y)-anchor1.y)+3*pow(u,2)*(anchor1.y-2*control1.y+control2.y)+3*u*(control1.y-anchor1.y)+anchor1.y;
-        return CGPoint(posX, posY);
-    }
+    
     /**
      * Finds points on a curve.
      * x0 = prevEndP, x1 = cp1, x2 = cp2, x3 = endP
