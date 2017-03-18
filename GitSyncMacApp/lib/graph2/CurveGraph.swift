@@ -40,6 +40,7 @@ extension CurveGraph{
             return P(x,y)
         }
         
+        
         let path:IPath = PolyLineGraphicUtils.path(points!)
         graphLine = self.addSubView(GraphLine(width,height,path))
     }
