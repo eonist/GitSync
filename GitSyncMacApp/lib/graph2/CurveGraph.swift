@@ -37,6 +37,9 @@ extension CurveGraph{
         points = (0...5).map{
             let x:CGFloat = w*$0
             let y:CGFloat = (0..<h).random.cgFloat
+            let cp1:P = P()
+            let cp2:P = P()
+            let a:P = P(x,y)
             return P(x,y)
         }
         
