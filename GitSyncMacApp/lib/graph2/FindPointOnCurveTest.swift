@@ -24,7 +24,7 @@ class FindPointOnCurveTest:Element{
         Swift.print("clippedX: " + "\(clippedX)")
         Swift.print("progress: " + "\(progress)")
         //let p = CubicCurveUtils.point(p0,p1,c0,c1,progress)
-        let p:CGPoint = CubicCurveUtils.YBX(p0, c0, c1, p1, clippedX)
+        let p:CGPoint = CubicCurveUtils.point(p0, c0, c1, p1, clippedX)
         Swift.print("p: " + "\(p)")
         graphPoint!.point = p
     }
