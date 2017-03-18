@@ -10,9 +10,14 @@ class FindPointOnCurveTest:Element{
     let p1 = P(200,50)  // The last point on curve
     
     override func resolveSkin() {
+        StyleManager.addStyle("FindPointOnCurveTest{fill:green;fill-alpha:0.5;}")
         super.resolveSkin()
         addGraphLine()
         addGraphPoint()
+    }
+    override func mouseMoved(_ event: MouseEvent) {
+        super.mouseMoved(event)
+        Swift.print("event.loc: " + "\(event.loc)")
     }
 }
 extension FindPointOnCurveTest{
@@ -25,9 +30,7 @@ extension FindPointOnCurveTest{
         let graphLine = self.addSubView(GraphLine(width,height,path))
         _ = graphLine
     }
-    /**
-     *
-     */
+    
     func addGraphPoint(){
         addGraphPointStyle()
         //let p = curveP(p0,c0,c1,p1,0.2)//P(100,100)
@@ -57,7 +60,6 @@ extension FindPointOnCurveTest{
         point.y = invcube*prevEndP.y + 2*t*invsquare*cp1.y  + cube*endP.y
         return point
     }
-    
     func addGraphLineStyle(){
         var css:String = "GraphLine{"
         css +=    "float:none;"
