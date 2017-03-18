@@ -37,10 +37,11 @@ extension CurveGraph{
         let w:CGFloat = 100
         let rad:CGFloat = w/2
         var commands:[Int] = [PathCommand.moveTo]
-        var pathData:[CGFloat] = [points[0].x,points[0].y]
+        let y0:CGFloat = (0..<h).random.cgFloat
+        var pathData:[CGFloat] = [0,y0]
         
-        (0...5).forEach{
-            let x:CGFloat = w*$0
+        (1...5).forEach{ i in
+            let x:CGFloat = w * i
             let y:CGFloat = (0..<h).random.cgFloat
             let a:P = P(x,y)
             let cp1:P = P(a.x-rad,a.y)
