@@ -8,6 +8,7 @@ class FindPointOnCurveTest:Element{
     let c0 = P(100,0)   // Controller for p0
     let c1 = P(100,150) // Controller for p1
     let p1 = P(200,50)  // The last point on curve
+    var graphPoint:Element?
     
     override func resolveSkin() {
         StyleManager.addStyle("FindPointOnCurveTest{fill:green;fill-alpha:0.0;}")
@@ -17,7 +18,12 @@ class FindPointOnCurveTest:Element{
     }
     override func mouseMoved(_ event: MouseEvent) {
         super.mouseMoved(event)
-        Swift.print("event.loc: " + "\(event.loc)")
+        //Swift.print("event.loc: " + "\(event.loc)")
+        let progress:CGFloat = (event.loc.x/200).clip(0, 1)
+        Swift.print("progress: " + "\(progress)")
+        let p = getCurvePoint(p0,p1,c0,c1,progress)
+        Swift.print("p: " + "\(p)")
+        graphPoint!.point = p
     }
 }
 extension FindPointOnCurveTest{
@@ -37,8 +43,8 @@ extension FindPointOnCurveTest{
         let p = getCurvePoint(p0,p1,c0,c1,0.5)
         Swift.print("p: " + "\(p)")
         
-        let graphPoint:Element = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
-        graphPoint.setPosition(p)
+        graphPoint = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
+        graphPoint!.setPosition(p)
     }
     func getCurvePoint(_ anchor1:CGPoint,_ anchor2:CGPoint,_ control1:CGPoint,_ control2:CGPoint, _ u:CGFloat) -> CGPoint{
         let posX:CGFloat = pow(u,3)*(anchor2.x+3*(control1.x-control2.x)-anchor1.x)+3*pow(u,2)*(anchor1.x-2*control1.x+control2.x)+3*u*(control1.x-anchor1.x)+anchor1.x;
