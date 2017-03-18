@@ -21,6 +21,7 @@ class FindPointOnCurveTest:Element{
         //Swift.print("event.loc: " + "\(event.loc)")
         let progress:CGFloat = (event.loc.x/200).clip(0, 1)
         let clippedX:CGFloat = event.loc.x.clip(0, 200)
+        Swift.print("clippedX: " + "\(clippedX)")
         Swift.print("progress: " + "\(progress)")
         //let p = CubicCurveUtils.point(p0,p1,c0,c1,progress)
         let p:CGPoint = CubicCurveUtils.YBX(p0, c0, c1, p1, clippedX)
