@@ -35,7 +35,7 @@ extension CurveGraph{
         
         let h:Int = height.int
         let w:CGFloat = 100
-        let rad:CGFloat = w/4
+        let rad:CGFloat = w/2
         var commands:[Int] = [PathCommand.moveTo]
         let y0:CGFloat = (0..<h).random.cgFloat
         var pathData:[CGFloat] = [0,y0]
@@ -44,7 +44,7 @@ extension CurveGraph{
             let x:CGFloat = w * i
             let y:CGFloat = (0..<h).random.cgFloat
             let a:P = P(x,y)
-            let cp1:P = P(a.x+rad,prevEnd.y)
+            let cp1:P = P(prevEnd.x+rad,prevEnd.y)
             let cp2:P = P(a.x-rad,a.y)
             pathData += [a.x,a.y,cp1.x,cp1.y,cp2.x,cp2.y]
             let cmd:Int = PathCommand.cubicCurveTo
