@@ -39,13 +39,14 @@ extension CurveGraph{
         var commands:[Int] = [PathCommand.moveTo]
         var pathData:[CGFloat] = [points[0].x,points[0].y]
         
-        points = (0...5).map{
+        let path:[(cmd:Int,pathData:CGFloat)] = (0...5).map{
             let x:CGFloat = w*$0
             let y:CGFloat = (0..<h).random.cgFloat
             let cp1:P = P()
             let cp2:P = P()
             let a:P = P(x,y)
-            return P(x,y)
+            let cmd:Int = PathCommand.cubicCurveTo
+            return (cmd)
         }
         
         
@@ -55,7 +56,7 @@ extension CurveGraph{
     static func path(_ points:[CGPoint]) -> IPath {
         
         for i in 1..<points.count{//swift 3 update
-            commands.append(PathCommand.cubicCurveTo)
+            commands.append()
             let p:CGPoint = points[i]
             pathData += [p.x,p.y]
         }
