@@ -37,8 +37,21 @@ extension FindPointOnCurveTest{
         graphPoint.setPosition(p)
     }
     /**
-     *
+     * Finds points on a curve.
+     * x0 = prevEndP, x1 = cp1, x2 = cp2, x3 = endP
      */
+    func curveP(_ prevEndP:CGPoint,_ cp1:CGPoint,_ cp2:CGPoint,_ endP:CGPoint, _ t:CGFloat) -> CGPoint{//0-1
+        //var square:Number = t*t;
+        let cube:CGFloat = t*t*t
+        let inv:CGFloat = 1 - t
+        let invsquare:CGFloat = inv*inv
+        let invcube:CGFloat = inv*inv*inv
+        var point:CGPoint = CGPoint()
+        point.x = invcube*prevEndP.x + 2*t*invsquare*cp1.x  + cube*endP.x
+        point.y = invcube*prevEndP.y + 2*t*invsquare*cp1.y  + cube*endP.y
+        return point;
+    }
+    
     func addGraphLineStyle(){
         var css:String = "GraphLine{"
         css +=    "float:none;"
