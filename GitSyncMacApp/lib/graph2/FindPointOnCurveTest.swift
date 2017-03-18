@@ -10,7 +10,7 @@ class FindPointOnCurveTest:Element{
     let p1 = P(200,50)  // The last point on curve
     
     override func resolveSkin() {
-        StyleManager.addStyle("FindPointOnCurveTest{fill:green;fill-alpha:0.5;}")
+        StyleManager.addStyle("FindPointOnCurveTest{fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
         addGraphLine()
         addGraphPoint()
