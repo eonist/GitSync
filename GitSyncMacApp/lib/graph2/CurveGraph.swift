@@ -40,7 +40,7 @@ extension CurveGraph{
         let y0:CGFloat = (0..<h).random.cgFloat
         var pathData:[CGFloat] = [0,y0]
         var prevEnd:P = P(0,y0)
-        (1...5).forEach{ i in
+        (1...6).forEach{ i in
             let x:CGFloat = w * i
             let y:CGFloat = (0..<h).random.cgFloat
             let a:P = P(x,y)
