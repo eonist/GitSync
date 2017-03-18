@@ -54,7 +54,6 @@ extension CurveGraph{
         
         let path:IPath = Path(commands, pathData)
         graphLine = self.addSubView(GraphLine(width,height,path))
-        graphLine?.line?.cgPath.addRelativeArc(center: <#T##CGPoint#>, radius: <#T##CGFloat#>, startAngle: <#T##CGFloat#>, delta: <#T##CGFloat#>)
     }
     /**
      *

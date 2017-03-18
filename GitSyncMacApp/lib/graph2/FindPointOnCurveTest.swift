@@ -10,18 +10,18 @@ class FindPointOnCurveTest:Element{
         addGraphPoint()
     }
 }
-extension FindPointOnGraphTest{
+extension FindPointOnCurveTest{
     func addGraphLine(){
         addGraphLineStyle()
         
-        var p0 = P(0,100)  // The first point on curve
+        let p0 = P(0,100)  // The first point on curve
         let c0 = P(100,0)   // Controller for p0
         let c1 = P(100,150) // Controller for p1
         let p1 = P(200,50)  // The last point on curve
         
         let pathData:[CGFloat] = [p0.x,p0.y,p1.x,p1.y,c0.x,c0.y,c1.x,c1.y]
         let commands:[Int] = [PathCommand.moveTo,PathCommand.cubicCurveTo]
-        let path:IPath = Path(pathData,commands)
+        let path:IPath = Path(commands,pathData)
         let graphLine = self.addSubView(GraphLine(width,height,path))
         _ = graphLine
     }
