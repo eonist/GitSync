@@ -15,7 +15,8 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        createCurveGraph()
+        createFindPointOnCurveTest()
+        //createCurveGraph()
         //createGraphView2()
         //findGraphPointTest()
         //createGraphView()
@@ -33,45 +34,30 @@ class ListTransitionTestView:TitleView{
         //createList()
         //createRBSliderFastList()//new👈
     }
-    /**
-     *
-     */
+    func createFindPointOnCurveTest(){
+        let test = self.addSubView(FindPointOnCurveTest(width,height-48,self))
+        _ = test
+    }
     func createCurveGraph(){
         let test = self.addSubView(CurveGraph(width,height-48,self))
         _ = test
     }
-    /**
-     *
-     */
     func createGraphView2(){
         let test = self.addSubView(GraphView2(width,height-48,self))
         _ = test
     }
-    /**
-     *
-     */
     func findGraphPointTest(){
         let test = self.addSubView(FindPointOnGraphTest(width,height-48,self))
         _ = test
     }
-    /**
-     *
-     */
     func createGraphView(){
         let graph = self.addSubView(GraphView(width,height-48,self))
         _ = graph
     }
-    
-    /**
-     *
-     */
     func createGraph2(){
         let graph = self.addSubView(Graph2(width,height,nil))
         _ = graph
     }
-    /**
-     *
-     */
     func createRBSliderFastList(){/*~/Desktop/assets/xml/longlist.xml*/
         let xml = FileParser.xml("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath)//TODO:  create a method tht takes url and makes dp
         let dp:DataProvider = DataProvider(xml)
@@ -79,7 +65,6 @@ class ListTransitionTestView:TitleView{
         let list = self.addSubView(ElasticSlideScrollFastList(140, 145, 24, dp, self))/*RBSliderFastList*/
         _ = list
     }
-    
     var animator:Animator?
     var ellipse:EllipseGraphic?
     /**
