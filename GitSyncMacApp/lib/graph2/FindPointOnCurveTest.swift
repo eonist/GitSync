@@ -30,7 +30,7 @@ extension FindPointOnCurveTest{
      */
     func addGraphPoint(){
         addGraphPointStyle()
-        let p = curveP(p0,c0,c1,p1,1)//P(100,100)
+        let p = curveP(p0,c0,c1,p1,0.2)//P(100,100)
         Swift.print("p: " + "\(p)")
         
         let graphPoint:Element = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
