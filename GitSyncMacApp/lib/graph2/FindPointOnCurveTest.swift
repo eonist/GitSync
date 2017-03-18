@@ -4,6 +4,11 @@ import Foundation
 
 class FindPointOnCurveTest:Element{
     typealias P = CGPoint
+    let p0 = P(0,100)  // The first point on curve
+    let c0 = P(100,0)   // Controller for p0
+    let c1 = P(100,150) // Controller for p1
+    let p1 = P(200,50)  // The last point on curve
+    
     override func resolveSkin() {
         super.resolveSkin()
         addGraphLine()
@@ -14,10 +19,7 @@ extension FindPointOnCurveTest{
     func addGraphLine(){
         addGraphLineStyle()
         
-        let p0 = P(0,100)  // The first point on curve
-        let c0 = P(100,0)   // Controller for p0
-        let c1 = P(100,150) // Controller for p1
-        let p1 = P(200,50)  // The last point on curve
+        
         
         let pathData:[CGFloat] = [p0.x,p0.y,p1.x,p1.y,c0.x,c0.y,c1.x,c1.y]
         let commands:[Int] = [PathCommand.moveTo,PathCommand.cubicCurveTo]
@@ -30,7 +32,7 @@ extension FindPointOnCurveTest{
      */
     func addGraphPoint(){
         addGraphPointStyle()
-        let p = P(100,100)
+        let p = curveP()//P(100,100)
         
         
         let graphPoint:Element = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
@@ -49,7 +51,7 @@ extension FindPointOnCurveTest{
         var point:CGPoint = CGPoint()
         point.x = invcube*prevEndP.x + 2*t*invsquare*cp1.x  + cube*endP.x
         point.y = invcube*prevEndP.y + 2*t*invsquare*cp1.y  + cube*endP.y
-        return point;
+        return point
     }
     
     func addGraphLineStyle(){
