@@ -19,8 +19,6 @@ extension FindPointOnCurveTest{
     func addGraphLine(){
         addGraphLineStyle()
         
-        
-        
         let pathData:[CGFloat] = [p0.x,p0.y,p1.x,p1.y,c0.x,c0.y,c1.x,c1.y]
         let commands:[Int] = [PathCommand.moveTo,PathCommand.cubicCurveTo]
         let path:IPath = Path(commands,pathData)
@@ -33,7 +31,6 @@ extension FindPointOnCurveTest{
     func addGraphPoint(){
         addGraphPointStyle()
         let p = curveP()//P(100,100)
-        
         
         let graphPoint:Element = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
         graphPoint.setPosition(p)
