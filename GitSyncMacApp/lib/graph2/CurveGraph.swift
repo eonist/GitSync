@@ -33,36 +33,26 @@ extension CurveGraph{
     func addGraphLine(){
         addGraphLineStyle()
         
-        
         let h:Int = height.int
         let w:CGFloat = 100
+        let rad:CGFloat = w/2
         var commands:[Int] = [PathCommand.moveTo]
         var pathData:[CGFloat] = [points[0].x,points[0].y]
         
-        let path:[(cmd:Int,pathData:CGFloat)] = (0...5).map{
+        (0...5).forEach{
             let x:CGFloat = w*$0
             let y:CGFloat = (0..<h).random.cgFloat
-            let cp1:P = P()
-            let cp2:P = P()
             let a:P = P(x,y)
+            let cp1:P = P(a.x-rad,a.y)
+            let cp2:P = P(a.x+rad,a.y)
+            pathData += [a.x,a.y,cp1.x,cp1.y,cp2.x,cp2.y]
             let cmd:Int = PathCommand.cubicCurveTo
-            return (cmd)
+            commands.append(cmd)
         }
         
-        
-        let path:IPath = PolyLineGraphicUtils.path(points!)
+        let path:IPath = Path(commands, pathData)
         graphLine = self.addSubView(GraphLine(width,height,path))
     }
-    static func path(_ points:[CGPoint]) -> IPath {
-        
-        for i in 1..<points.count{//swift 3 update
-            commands.append()
-            let p:CGPoint = points[i]
-            pathData += [p.x,p.y]
-        }
-        return Path(commands, pathData)
-    }
-
     /**
      *
      */
