@@ -17,6 +17,10 @@ import Foundation
 
 
 class CurveGraph:Element{
+    typealias P = CGPoint
+    var points:[CGPoint]?
+    var graphLine:GraphLine?
+    
     override func resolveSkin() {
         super.resolveSkin()
         
@@ -37,7 +41,7 @@ extension CurveGraph{
         }
         
         let path:IPath = PolyLineGraphicUtils.path(points!)
-        graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
+        graphLine = self.addSubView(GraphLine(width,height,path))
     }
     /**
      *
