@@ -15,7 +15,8 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        createGraphView2()
+        createCurveGraph()
+        //createGraphView2()
         //findGraphPointTest()
         //createGraphView()
         //createGraph2()
@@ -31,6 +32,13 @@ class ListTransitionTestView:TitleView{
         //sliderList()
         //createList()
         //createRBSliderFastList()//new👈
+    }
+    /**
+     *
+     */
+    func createCurveGraph(){
+        let test = self.addSubView(CurveGraph(width,height-48,self))
+        _ = test
     }
     /**
      *
