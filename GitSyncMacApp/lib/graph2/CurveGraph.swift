@@ -47,6 +47,17 @@ extension CurveGraph{
         let path:IPath = PolyLineGraphicUtils.path(points!)
         graphLine = self.addSubView(GraphLine(width,height,path))
     }
+    static func path(_ points:[CGPoint]) -> IPath {
+        var commands:[Int] = [PathCommand.moveTo]
+        var pathData:[CGFloat] = [points[0].x,points[0].y]
+        for i in 1..<points.count{//swift 3 update
+            commands.append(PathCommand.lineTo)
+            let p:CGPoint = points[i]
+            pathData += [p.x,p.y]
+        }
+        return Path(commands, pathData)
+    }
+
     /**
      *
      */
