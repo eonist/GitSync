@@ -15,8 +15,8 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        createFindPointOnCurveTest()
-        //createCurveGraph()
+        //createFindPointOnCurveTest()
+        createCurveGraph()
         //createGraphView2()
         //findGraphPointTest()
         //createGraphView()
