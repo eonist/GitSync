@@ -65,6 +65,23 @@ extension CurveGraphScrollTest{
         let maxX:CGFloat = x2
         let minY:CGFloat = Utils.minY(minX,maxX,edgeValues!,points)
         Swift.print("⚠️️ minY: " + "\(minY))")
+        
+        let diff:CGFloat = height + (-1 * minY)
+        Swift.print("🍏 diff: " + "\(diff)")
+        
+        let ratio:CGFloat = height / diff
+        
+        let newPoints:[P] = points.map{CGPointModifier.scale($0, P($0.x,height), P(1,ratio))}
+        
+        //newPoints.forEach{
+            //Swift.print("$0: " + "\($0)")
+            //graphPoint2!.point = $0
+        //}
+        
+        let path:IPath = PolyLineGraphicUtils.path(newPoints)
+        graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)
+        graphLine!.line!.draw()
+
     }
 }
 extension CurveGraphScrollTest{
