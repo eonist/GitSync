@@ -102,7 +102,7 @@ extension CurveGraphScrollTest{
         var pathData:[CGFloat] = [0,y0]
         var prevEnd:P = P(0,y0)
         points.append(prevEnd)
-        (1...yVals.count).forEach{ i in
+        (1..<yVals.count).forEach{ i in
             let x:CGFloat = w * i
             //let y:CGFloat = (0..<h).random.cgFloat
             let y:CGFloat = yVals[i]
