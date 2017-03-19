@@ -89,11 +89,14 @@ extension CurveGraphScrollTest{
     func addGraphPoint(){
         /*gp1*/
         addGraphPointStyle()
+        
+        //let p = CubicCurveUtils.point(p0,p1,c0,c1,0.5)
+        
         graphPoint1 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
         graphPoint1!.setPosition(P(100,100))
         /*gp2*/
-        graphPoint2 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
-        graphPoint2!.point = P(200,100)
+        //graphPoint2 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
+        //graphPoint2!.point = P(200,100)
     }
     func addGraphPointStyle(){
         /*GraphPoint*/
