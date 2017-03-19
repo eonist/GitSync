@@ -93,7 +93,7 @@ extension CurveGraphScrollTest{
         let path:IPath = self.path(space,9)
         graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
     }
-    func path(_ space:CGFloat, _ num:Int)->IPath{
+    func path(_ space:CGFloat, _ num:Int, _ yVals:[CGFloat])->IPath{
         let h:Int = height.int
         let w:CGFloat = space
         let rad:CGFloat = w/2
