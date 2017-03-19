@@ -16,7 +16,7 @@ import Cocoa
 
 class CurveGraphScrollTest:ContainerView2{
     typealias P = CGPoint
-    var points:[CGPoint]?
+    var points:[CGPoint] = []
     var graphPoint1:Element?
     var graphPoint2:Element?
     var graphLine:GraphLine?
@@ -66,6 +66,7 @@ extension CurveGraphScrollTest{
             let x:CGFloat = w * i
             let y:CGFloat = (0..<h).random.cgFloat
             let a:P = P(x,y)
+            points.append(a)
             let cp1:P = P(prevEnd.x+rad,prevEnd.y)
             let cp2:P = P(a.x-rad,a.y)
             pathData += [a.x,a.y,cp1.x,cp1.y,cp2.x,cp2.y]
@@ -91,7 +92,7 @@ extension CurveGraphScrollTest{
         /*gp1*/
         addGraphPointStyle()
         
-        let p = findGraphP(0,points!)
+        let p = findGraphP(0,points)
         Swift.print("-p-: " + "\(p)")
         
         graphPoint1 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
