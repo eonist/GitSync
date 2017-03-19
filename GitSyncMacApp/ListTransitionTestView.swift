@@ -15,8 +15,9 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
+        createCurveGraphScrollTest()
         //createFindPointOnCurveTest()
-        createCurveGraph()
+        //createCurveGraph()
         //createGraphView2()
         //findGraphPointTest()
         //createGraphView()
@@ -33,6 +34,13 @@ class ListTransitionTestView:TitleView{
         //sliderList()
         //createList()
         //createRBSliderFastList()//new👈
+    }
+    /**
+     *
+     */
+    func createCurveGraphScrollTest(){
+        let test = self.addSubView(CurveGraphScrollTest(width,height-48,self))
+        _ = test
     }
     func createFindPointOnCurveTest(){
         let test = self.addSubView(FindPointOnCurveTest(width,height-48,self))

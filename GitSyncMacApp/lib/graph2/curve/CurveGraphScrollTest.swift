@@ -50,7 +50,7 @@ extension CurveGraphScrollTest{
 extension CurveGraphScrollTest{
     func addGraphLine(){
         addGraphLineStyle()
-        let path:IPath = self.path(100,18)
+        let path:IPath = self.path(200,9)
         graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
     }
     func path(_ space:CGFloat, _ num:Int)->IPath{
