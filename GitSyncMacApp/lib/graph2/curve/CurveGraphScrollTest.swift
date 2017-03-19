@@ -62,6 +62,7 @@ extension CurveGraphScrollTest{
         let y0:CGFloat = (0..<h).random.cgFloat
         var pathData:[CGFloat] = [0,y0]
         var prevEnd:P = P(0,y0)
+        points.append(prevEnd)
         (1...num).forEach{ i in
             let x:CGFloat = w * i
             let y:CGFloat = (0..<h).random.cgFloat
@@ -126,6 +127,7 @@ extension CurveGraphScrollTest{
      */
     func findGraphP(_ x:CGFloat, _ points:[P])->P{
         Swift.print("x: " + "\(x)")
+        Swift.print("points.count: " + "\(points.count)")
         var seg:(p1:P,p2:P)?
         for i in 0..<points.count-1{
             let cur = points[i]
