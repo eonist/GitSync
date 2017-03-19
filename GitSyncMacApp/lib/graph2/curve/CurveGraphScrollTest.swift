@@ -25,7 +25,9 @@ class CurveGraphScrollTest:ContainerView2{
     override var itemSize:CGSize {return CGSize(100,100)}//override this for custom value
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
     override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
-    
+    /**
+     * 🔨 Setup
+     */
     override func resolveSkin() {
         StyleManager.addStyle("CurveGraphScrollTest{float:none;clear:none;fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
@@ -43,7 +45,7 @@ extension CurveGraphScrollTest{
         setProgress(progressVal)
     }
     /**
-     * 🚗
+     * 🚗 SetProgress
      */
     func setProgress(_ progress:CGFloat){
         let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize.w, contentSize.w)
