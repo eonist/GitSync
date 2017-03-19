@@ -70,7 +70,6 @@ extension CurveGraphScrollTest{
         Swift.print("🍏 diff: " + "\(diff)")
         
         let ratio:CGFloat = height / diff
-        
         let newPoints:[P] = points.map{CGPointModifier.scale($0, P($0.x,height), P(1,ratio))}
         
         //newPoints.forEach{
@@ -81,7 +80,6 @@ extension CurveGraphScrollTest{
         let path:IPath = PolyLineGraphicUtils.path(newPoints)
         graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)
         graphLine!.line!.draw()
-
     }
 }
 extension CurveGraphScrollTest{
@@ -90,22 +88,23 @@ extension CurveGraphScrollTest{
      */
     func addGraphLine(){
         addGraphLineStyle()
-        let path:IPath = self.path(space,9)
+        let h:Int = height.int
+        let yVals:[CGFloat] = (0...9).map{ _ in return (0..<(h*2)).random.cgFloat - (h.cgFloat * 1)}
+        let path:IPath = self.path(space,yVals)
         graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
     }
-    func path(_ space:CGFloat, _ num:Int, _ yVals:[CGFloat])->IPath{
-        let h:Int = height.int
+    func path(_ space:CGFloat, _ yVals:[CGFloat])->IPath{
         let w:CGFloat = space
         let rad:CGFloat = w/2
         var commands:[Int] = [PathCommand.moveTo]
-        let y0:CGFloat = (0..<(h*2)).random.cgFloat - (h.cgFloat * 1)//(0..<h).random.cgFloat
+        let y0:CGFloat = yVals.first!
         var pathData:[CGFloat] = [0,y0]
         var prevEnd:P = P(0,y0)
         points.append(prevEnd)
-        (1...num).forEach{ i in
+        (1...yVals.count).forEach{ i in
             let x:CGFloat = w * i
             //let y:CGFloat = (0..<h).random.cgFloat
-            let y:CGFloat = (0..<(h*2)).random.cgFloat - (h.cgFloat * 1)
+            let y:CGFloat = yVals[i]
             let a:P = P(x,y)
             points.append(a)
             let cp1:P = P(prevEnd.x+rad,prevEnd.y)
