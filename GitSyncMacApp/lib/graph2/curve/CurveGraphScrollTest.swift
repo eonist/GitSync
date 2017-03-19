@@ -78,7 +78,8 @@ extension CurveGraphScrollTest{
         //}
         
         let yVals:[CGFloat] = newPoints.map{$0.y}
-        let path:IPath = self.path(space,yVals)//PolyLineGraphicUtils.path(newPoints)
+        let pathAndPoints = Utils.path(space,yVals)//PolyLineGraphicUtils.path(newPoints)
+        let path:IPath = pathAndPoints.path
         graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)
         graphLine!.line!.draw()
     }
@@ -90,8 +91,9 @@ extension CurveGraphScrollTest{
     func addGraphLine(){
         addGraphLineStyle()
         let h:Int = height.int
-        let yVals:[CGFloat] = (0..<9).map{ _ in return (0..<(h*2)).random.cgFloat - (h.cgFloat * 1)}
+        let yVals:[CGFloat] = (0...9).map{ _ in return (0..<(h*2)).random.cgFloat - (h.cgFloat * 1)}
         let pathAndPoints = Utils.path(space,yVals)
+        points = pathAndPoints.points
         let path:IPath = pathAndPoints.path
         graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
     }
