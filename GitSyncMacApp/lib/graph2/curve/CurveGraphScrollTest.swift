@@ -117,3 +117,26 @@ extension CurveGraphScrollTest{
         StyleManager.addStyle(css)
     }
 }
+extension CurveGraphScrollTest{
+    /**
+     *
+     */
+    func findY(_ x:CGFloat, _ points:[P])->CGFloat{
+        Swift.print("x: " + "\(x)")
+        var seg:(p1:P,p2:P)?
+        for i in 0..<points.count-1{
+            let cur = points[i]
+            let next = points[i+1]
+            if(x >= cur.x && x <= next.x){//within
+                seg = (cur,next)
+                break
+            }
+        }
+        //seg = seg ?? (points[points.count-2],points.last!)
+        Swift.print("seg: " + "\(seg)")
+        let slope:CGFloat = CGPointParser.slope(seg!.p1, seg!.p2)
+        Swift.print("slope: " + "\(slope)")
+        let y:CGFloat = CGPointParser.y(seg!.p1, x, slope)/*seg!.p2.x*/
+        return y
+    }
+}
