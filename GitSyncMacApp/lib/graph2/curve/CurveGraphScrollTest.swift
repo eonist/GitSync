@@ -122,7 +122,7 @@ extension CurveGraphScrollTest{
     /**
      *
      */
-    func findY(_ x:CGFloat, _ points:[P])->CGFloat{
+    func findgraphP(_ x:CGFloat, _ points:[P])->P{
         Swift.print("x: " + "\(x)")
         var seg:(p1:P,p2:P)?
         for i in 0..<points.count-1{
@@ -135,14 +135,11 @@ extension CurveGraphScrollTest{
         }
         //seg = seg ?? (points[points.count-2],points.last!)
         Swift.print("seg: " + "\(seg)")
-        let slope:CGFloat = CGPointParser.slope(seg!.p1, seg!.p2)
-        Swift.print("slope: " + "\(slope)")
-        let y:CGFloat = CGPointParser.y(seg!.p1, x, slope)/*seg!.p2.x*/
         
         let cb:CubicBezier = self.cubicBezier(seg!.p1,seg!.p2,space)
-        let p = CubicCurveUtils.point(cb.p0,cb.p1,cb.c0,cb.c1,0.5)
+        let p = CubicCurveUtils.point(cb.p0,cb.p1,cb.c0,cb.c1,x)
         
-        return y
+        return p
     }
     /**
      *
