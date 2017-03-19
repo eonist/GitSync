@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Utils
 @testable import Element
 
@@ -29,8 +29,6 @@ extension ContainerView2:Scrollable2{
         super.scrollWheel(with: event)
     }
 }
-
-
 extension ContainerView2{
     func onScrollWheelEnter(){/*fatalError("must be overriden")*/}
     func onScrollWheelExit(){/*fatalError("must be overriden")*/}
