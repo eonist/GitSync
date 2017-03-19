@@ -60,6 +60,11 @@ extension CurveGraphScrollTest{
         graphPoint2!.point = P(width,y2)
         
         edgeValues = (y1,y2)
+        
+        let minX:CGFloat = x1
+        let maxX:CGFloat = x2
+        let minY:CGFloat = self.minY(minX,maxX)
+        Swift.print("⚠️️ minY: " + "\(minY))")
     }
 }
 extension CurveGraphScrollTest{
@@ -183,5 +188,13 @@ extension CurveGraphScrollTest{
         css +=     "corner-radius:6px,5.5px;"
         css += "}"
         StyleManager.addStyle(css)
+    }
+}
+private class Utils{
+    /**
+     *
+     */
+    static func minY(_ minX:CGFloat,_ maxX:CGFloat,_ edgeValues:(start:CGFloat,end:CGFloat), _ points:[CGPoint]) -> CGFloat {
+        return ([edgeValues.start, edgeValues.end] + points.filter{$0.x >= minX && $0.x <= maxX}.map{$0.y}).min()!
     }
 }
