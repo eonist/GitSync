@@ -33,14 +33,21 @@ extension CurveGraph{
     func addGraphLine(){
         addGraphLineStyle()
         
+        let path:IPath = self.path(100,6)
+        graphLine = self.addSubView(GraphLine(width,height,path))
+    }
+    /**
+     *
+     */
+    func path(_ space:CGFloat, _ num:Int)->IPath{
         let h:Int = height.int
-        let w:CGFloat = 100
+        let w:CGFloat = space
         let rad:CGFloat = w/2
         var commands:[Int] = [PathCommand.moveTo]
         let y0:CGFloat = (0..<h).random.cgFloat
         var pathData:[CGFloat] = [0,y0]
         var prevEnd:P = P(0,y0)
-        (1...6).forEach{ i in
+        (1...num).forEach{ i in
             let x:CGFloat = w * i
             let y:CGFloat = (0..<h).random.cgFloat
             let a:P = P(x,y)
@@ -53,7 +60,7 @@ extension CurveGraph{
         }
         
         let path:IPath = Path(commands, pathData)
-        graphLine = self.addSubView(GraphLine(width,height,path))
+        return path
     }
     /**
      *
