@@ -146,8 +146,9 @@ extension CurveGraphScrollTest{
     /**
      *
      */
-    func cubixBezier(_ start:P, _ end:P, _ space:CGFloat)->(p0:P,p1:P,c0:P,c1:P){
-        
-        return (start,end,)
+    func cubixBezier(_ start:P, _ end:P, _ space:CGFloat) -> (p0:P,p1:P,c0:P,c1:P){
+        let c0:P = P(start.x + (space/2))
+        let c1:P = P()
+        return (start,end,c0,c1)
     }
 }
