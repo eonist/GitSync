@@ -91,10 +91,11 @@ extension CurveGraphScrollTest{
         /*gp1*/
         addGraphPointStyle()
         
-        //let p = CubicCurveUtils.point(p0,p1,c0,c1,0.5)
+        let p = findGraphP(0,points!)
+        Swift.print("-p-: " + "\(p)")
         
         graphPoint1 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
-        graphPoint1!.setPosition(P(100,100))
+        graphPoint1!.setPosition(p)
         /*gp2*/
         //graphPoint2 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
         //graphPoint2!.point = P(200,100)
@@ -122,7 +123,7 @@ extension CurveGraphScrollTest{
     /**
      *
      */
-    func findgraphP(_ x:CGFloat, _ points:[P])->P{
+    func findGraphP(_ x:CGFloat, _ points:[P])->P{
         Swift.print("x: " + "\(x)")
         var seg:(p1:P,p2:P)?
         for i in 0..<points.count-1{
