@@ -99,8 +99,10 @@ extension CurveGraphScrollTest{
         graphPoint1 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
         graphPoint1!.setPosition(p)
         /*gp2*/
-        //graphPoint2 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
-        //graphPoint2!.point = P(200,100)
+        let p2 = findGraphP(width,points)
+        Swift.print("-p2-: " + "\(p2)")
+        graphPoint2 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
+        graphPoint2!.point = p2
     }
     func addGraphPointStyle(){
         /*GraphPoint*/
