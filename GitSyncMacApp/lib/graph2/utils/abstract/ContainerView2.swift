@@ -9,4 +9,8 @@ class ContainerView2:Element,Containable2 {
     var itemSize:CGSize {fatalError("must be overriden in subClass")}//override this for custom value
     var interval:CGFloat{fatalError("must be overriden in subClass")}
     var progress:CGFloat{fatalError("must be overriden in subClass")}
+    override func resolveSkin() {
+        super.resolveSkin()
+        contentContainer = addSubView(Container(width,height,self,"content"))
+    }
 }
