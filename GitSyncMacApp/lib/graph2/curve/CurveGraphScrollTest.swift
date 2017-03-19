@@ -2,9 +2,6 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-//1800 in width, that scrolls
-//add curveGraph
-//add 2 dots that marks the spot
 //scale the cruvegraph
 //find the dot points
 //add dot points to array of points within visual field
@@ -83,7 +80,8 @@ extension CurveGraphScrollTest{
         points.append(prevEnd)
         (1...num).forEach{ i in
             let x:CGFloat = w * i
-            let y:CGFloat = (0..<h).random.cgFloat
+            //let y:CGFloat = (0..<h).random.cgFloat
+            let y:CGFloat = (0..<(h*4)).random.cgFloat - (h.cgFloat * 3)
             let a:P = P(x,y)
             points.append(a)
             let cp1:P = P(prevEnd.x+rad,prevEnd.y)
