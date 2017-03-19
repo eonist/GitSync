@@ -143,7 +143,7 @@ extension CurveGraphScrollTest{
         Swift.print("seg: " + "\(seg)")
         
         let cb:CubicBezier = self.cubicBezier(seg!.p1,seg!.p2,space)
-        let p = CubicCurveUtils.point(cb.p0,cb.p1,cb.c0,cb.c1,x)
+        let p = CubicCurveUtils.point(cb.p0,cb.c0,cb.c1,cb.p1,x)
         
         return p
     }
