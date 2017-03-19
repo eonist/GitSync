@@ -193,22 +193,23 @@ private class Utils{
     /**
      *
      */
-    static func path(_ space:CGFloat, _ yVals:[CGFloat])->IPath{
+    static func path(_ space:CGFloat, _ yVals:[CGFloat])->(points:[CGPoint],path:IPath){
         let w:CGFloat = space
         let rad:CGFloat = w/2
         var commands:[Int] = [PathCommand.moveTo]
         let y0:CGFloat = yVals.first!
         var pathData:[CGFloat] = [0,y0]
-        var prevEnd:P = P(0,y0)
+        var prevEnd:CGPoint = CGPoint(0,y0)
+        var points:[CGPoint] = []
         points.append(prevEnd)
         (1..<yVals.count).forEach{ i in
             let x:CGFloat = w * i
             //let y:CGFloat = (0..<h).random.cgFloat
             let y:CGFloat = yVals[i]
-            let a:P = P(x,y)
+            let a:CGPoint = CGPoint(x,y)
             points.append(a)
-            let cp1:P = P(prevEnd.x+rad,prevEnd.y)
-            let cp2:P = P(a.x-rad,a.y)
+            let cp1:CGPoint = CGPoint(prevEnd.x+rad,prevEnd.y)
+            let cp2:CGPoint = CGPoint(a.x-rad,a.y)
             pathData += [a.x,a.y,cp1.x,cp1.y,cp2.x,cp2.y]
             let cmd:Int = PathCommand.cubicCurveTo
             commands.append(cmd)
@@ -216,6 +217,6 @@ private class Utils{
         }
         
         let path:IPath = Path(commands, pathData)
-        return path
+        return (points,path)
     }
 }
