@@ -94,31 +94,7 @@ extension CurveGraphScrollTest{
         let path:IPath = self.path(space,yVals)
         graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
     }
-    func path(_ space:CGFloat, _ yVals:[CGFloat])->IPath{
-        let w:CGFloat = space
-        let rad:CGFloat = w/2
-        var commands:[Int] = [PathCommand.moveTo]
-        let y0:CGFloat = yVals.first!
-        var pathData:[CGFloat] = [0,y0]
-        var prevEnd:P = P(0,y0)
-        points.append(prevEnd)
-        (1..<yVals.count).forEach{ i in
-            let x:CGFloat = w * i
-            //let y:CGFloat = (0..<h).random.cgFloat
-            let y:CGFloat = yVals[i]
-            let a:P = P(x,y)
-            points.append(a)
-            let cp1:P = P(prevEnd.x+rad,prevEnd.y)
-            let cp2:P = P(a.x-rad,a.y)
-            pathData += [a.x,a.y,cp1.x,cp1.y,cp2.x,cp2.y]
-            let cmd:Int = PathCommand.cubicCurveTo
-            commands.append(cmd)
-            prevEnd = a
-        }
-        
-        let path:IPath = Path(commands, pathData)
-        return path
-    }
+    
     
     /**
      * 🎯 GraphPoint
@@ -213,5 +189,33 @@ private class Utils{
      */
     static func minY(_ minX:CGFloat,_ maxX:CGFloat,_ edgeValues:(start:CGFloat,end:CGFloat), _ points:[CGPoint]) -> CGFloat {
         return ([edgeValues.start, edgeValues.end] + points.filter{$0.x >= minX && $0.x <= maxX}.map{$0.y}).min()!
+    }
+    /**
+     *
+     */
+    static func path(_ space:CGFloat, _ yVals:[CGFloat])->IPath{
+        let w:CGFloat = space
+        let rad:CGFloat = w/2
+        var commands:[Int] = [PathCommand.moveTo]
+        let y0:CGFloat = yVals.first!
+        var pathData:[CGFloat] = [0,y0]
+        var prevEnd:P = P(0,y0)
+        points.append(prevEnd)
+        (1..<yVals.count).forEach{ i in
+            let x:CGFloat = w * i
+            //let y:CGFloat = (0..<h).random.cgFloat
+            let y:CGFloat = yVals[i]
+            let a:P = P(x,y)
+            points.append(a)
+            let cp1:P = P(prevEnd.x+rad,prevEnd.y)
+            let cp2:P = P(a.x-rad,a.y)
+            pathData += [a.x,a.y,cp1.x,cp1.y,cp2.x,cp2.y]
+            let cmd:Int = PathCommand.cubicCurveTo
+            commands.append(cmd)
+            prevEnd = a
+        }
+        
+        let path:IPath = Path(commands, pathData)
+        return path
     }
 }
