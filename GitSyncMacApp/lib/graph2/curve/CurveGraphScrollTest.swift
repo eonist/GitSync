@@ -20,6 +20,7 @@ class CurveGraphScrollTest:ContainerView2{
     var graphPoint1:Element?
     var graphPoint2:Element?
     var graphLine:GraphLine?
+    var space:CGFloat = 200/*x space between points*/
     
     override var itemSize:CGSize {return CGSize(100,100)}//override this for custom value
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
@@ -50,7 +51,7 @@ extension CurveGraphScrollTest{
 extension CurveGraphScrollTest{
     func addGraphLine(){
         addGraphLineStyle()
-        let path:IPath = self.path(200,9)
+        let path:IPath = self.path(space,9)
         graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
     }
     func path(_ space:CGFloat, _ num:Int)->IPath{
@@ -137,6 +138,9 @@ extension CurveGraphScrollTest{
         let slope:CGFloat = CGPointParser.slope(seg!.p1, seg!.p2)
         Swift.print("slope: " + "\(slope)")
         let y:CGFloat = CGPointParser.y(seg!.p1, x, slope)/*seg!.p2.x*/
+        
+        //let p = CubicCurveUtils.point(p0,p1,c0,c1,0.5)
+        
         return y
     }
 }
