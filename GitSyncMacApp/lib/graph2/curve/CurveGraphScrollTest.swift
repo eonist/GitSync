@@ -77,7 +77,8 @@ extension CurveGraphScrollTest{
             //graphPoint2!.point = $0
         //}
         
-        let path:IPath = PolyLineGraphicUtils.path(newPoints)
+        let yVals:[CGFloat] = newPoints.map{$0.y}
+        let path:IPath = self.path(100,yVals)//PolyLineGraphicUtils.path(newPoints)
         graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)
         graphLine!.line!.draw()
     }
