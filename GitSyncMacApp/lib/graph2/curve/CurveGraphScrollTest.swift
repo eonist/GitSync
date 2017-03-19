@@ -15,6 +15,12 @@ import Cocoa
 //take it for a spin
 
 class CurveGraphScrollTest:ContainerView2{
+    typealias P = CGPoint
+    var points:[CGPoint]?
+    var graphPoint1:Element?
+    var graphPoint2:Element?
+    var graphLine:GraphLine?
+    
     override var itemSize:CGSize {return CGSize(100,100)}//override this for custom value
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
     override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
@@ -24,7 +30,7 @@ class CurveGraphScrollTest:ContainerView2{
         super.resolveSkin()
         /*config*/
         maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
-        contentSize = CGSize(3000,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
+        contentSize = CGSize(1800,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         
         addGraphLine()
         addGraphPoint()
@@ -39,22 +45,14 @@ extension CurveGraphScrollTest{
         let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize.w, contentSize.w)
         Swift.print("x: " + "\(x)")
         contentContainer!.x = x
-        
     }
 }
 extension CurveGraphScrollTest{
-    /**
-     *
-     */
     func addGraphLine(){
         addGraphLineStyle()
-        
         let path:IPath = PolyLineGraphicUtils.path([])
         graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
     }
-    /**
-     *
-     */
     func addGraphLineStyle(){
         var css:String = "GraphLine{"
         css +=    "float:none;"
@@ -67,14 +65,12 @@ extension CurveGraphScrollTest{
     }
     func addGraphPoint(){
         /*gp1*/
-        
         addGraphPointStyle()
         graphPoint1 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
-        graphPoint1!.setPosition(p)
+        graphPoint1!.setPosition(P())
         /*gp2*/
         graphPoint2 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
-        graphPoint2!.point = p2
-        
+        graphPoint2!.point = P()
     }
     func addGraphPointStyle(){
         /*GraphPoint*/
