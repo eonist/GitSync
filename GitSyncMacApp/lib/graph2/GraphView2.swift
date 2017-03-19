@@ -21,7 +21,6 @@ class GraphView2:ContainerView2{
         maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
         contentSize = CGSize(3000,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         
-        
         addGraphLine()
         addGraphPoint()
         let minX:CGFloat = 0
