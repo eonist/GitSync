@@ -143,4 +143,11 @@ extension CurveGraphScrollTest{
         
         return y
     }
+    /**
+     *
+     */
+    func cubixBezier(_ start:P, _ end:P, _ space:CGFloat)->(p0:P,p1:P,c0:P,c1:P){
+        
+        return (start,end,)
+    }
 }
