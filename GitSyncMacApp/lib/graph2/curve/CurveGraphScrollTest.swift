@@ -52,16 +52,19 @@ extension CurveGraphScrollTest{
         
         /*gp1*/
         let x1:CGFloat = -1 * x
-        let y1:CGFloat = findY(x1,points!)
+        let y1:CGFloat = findGraphP(x1,points).y
         graphPoint1!.point = P(0,y1)
         /*gp2*/
         let x2:CGFloat = (-1 * x) + width
-        let y2:CGFloat = findY(x2,points!)
+        let y2:CGFloat = findGraphP(x2,points).y
         graphPoint2!.point = P(width,y2)
-        edgeValues = (y1,y2)
+        
     }
 }
 extension CurveGraphScrollTest{
+    /**
+     * 🐍 GraphLine
+     */
     func addGraphLine(){
         addGraphLineStyle()
         let path:IPath = self.path(space,9)
@@ -92,16 +95,10 @@ extension CurveGraphScrollTest{
         let path:IPath = Path(commands, pathData)
         return path
     }
-    func addGraphLineStyle(){
-        var css:String = "GraphLine{"
-        css +=    "float:none;"
-        css +=    "clear:none;"
-        css +=    "line:#2AA3EF;"
-        css +=    "line-alpha:1;"
-        css +=    "line-thickness:0.5px;"
-        css += "}"
-        StyleManager.addStyle(css)
-    }
+    
+    /**
+     * 🎯 GraphPoint
+     */
     func addGraphPoint(){
         /*gp1*/
         addGraphPointStyle()
@@ -117,24 +114,7 @@ extension CurveGraphScrollTest{
         graphPoint2 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
         graphPoint2!.point = p2
     }
-    func addGraphPointStyle(){
-        /*GraphPoint*/
-        var css:String = ""
-        css += "Element#graphPoint{"
-        css +=     "float:none;"
-        css +=     "clear:none;"
-        css +=     "fill:#128BF2,#192633;"
-        css +=     "width:12px,11px;"
-        css +=     "height:12px,11px;"
-        css +=     "margin-left:-6px,-5.5px;"
-        css +=     "margin-right:6px,5.5px;"
-        css +=     "margin-top:-6px,-5.5px;"
-        css +=     "margin-bottom:6px,5.5px;"
-        css +=     "drop-shadow:drop-shadow(1px 90 #000000 0.3 0.5 0.5 0 0 false);"
-        css +=     "corner-radius:6px,5.5px;"
-        css += "}"
-        StyleManager.addStyle(css)
-    }
+    
 }
 extension CurveGraphScrollTest{
     /**
@@ -168,5 +148,38 @@ extension CurveGraphScrollTest{
         let c0:P = P(start.x + (space/2),start.y)
         let c1:P = P(end.x - (space/2), end.y)
         return (start,end,c0,c1)
+    }
+}
+/**
+ * 🎨 Styles
+ */
+extension CurveGraphScrollTest{
+    func addGraphLineStyle(){
+        var css:String = "GraphLine{"
+        css +=    "float:none;"
+        css +=    "clear:none;"
+        css +=    "line:#2AA3EF;"
+        css +=    "line-alpha:1;"
+        css +=    "line-thickness:0.5px;"
+        css += "}"
+        StyleManager.addStyle(css)
+    }
+    func addGraphPointStyle(){
+        /*GraphPoint*/
+        var css:String = ""
+        css += "Element#graphPoint{"
+        css +=     "float:none;"
+        css +=     "clear:none;"
+        css +=     "fill:#128BF2,#192633;"
+        css +=     "width:12px,11px;"
+        css +=     "height:12px,11px;"
+        css +=     "margin-left:-6px,-5.5px;"
+        css +=     "margin-right:6px,5.5px;"
+        css +=     "margin-top:-6px,-5.5px;"
+        css +=     "margin-bottom:6px,5.5px;"
+        css +=     "drop-shadow:drop-shadow(1px 90 #000000 0.3 0.5 0.5 0 0 false);"
+        css +=     "corner-radius:6px,5.5px;"
+        css += "}"
+        StyleManager.addStyle(css)
     }
 }
