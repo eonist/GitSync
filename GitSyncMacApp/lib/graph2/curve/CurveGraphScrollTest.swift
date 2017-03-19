@@ -42,10 +42,23 @@ extension CurveGraphScrollTest{
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)
     }
+    /**
+     * 🚗
+     */
     func setProgress(_ progress:CGFloat){
         let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize.w, contentSize.w)
         Swift.print("x: " + "\(x)")
         contentContainer!.x = x
+        
+        /*gp1*/
+        let x1:CGFloat = -1 * x
+        let y1:CGFloat = findY(x1,points!)
+        graphPoint1!.point = P(0,y1)
+        /*gp2*/
+        let x2:CGFloat = (-1 * x) + width
+        let y2:CGFloat = findY(x2,points!)
+        graphPoint2!.point = P(width,y2)
+        edgeValues = (y1,y2)
     }
 }
 extension CurveGraphScrollTest{
