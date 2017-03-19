@@ -36,9 +36,6 @@ extension CurveGraph{
         let path:IPath = self.path(100,6)
         graphLine = self.addSubView(GraphLine(width,height,path))
     }
-    /**
-     *
-     */
     func path(_ space:CGFloat, _ num:Int)->IPath{
         let h:Int = height.int
         let w:CGFloat = space

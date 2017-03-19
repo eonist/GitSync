@@ -50,8 +50,31 @@ extension CurveGraphScrollTest{
 extension CurveGraphScrollTest{
     func addGraphLine(){
         addGraphLineStyle()
-        let path:IPath = PolyLineGraphicUtils.path([])
+        let path:IPath = self.path(100,18)
         graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
+    }
+    func path(_ space:CGFloat, _ num:Int)->IPath{
+        let h:Int = height.int
+        let w:CGFloat = space
+        let rad:CGFloat = w/2
+        var commands:[Int] = [PathCommand.moveTo]
+        let y0:CGFloat = (0..<h).random.cgFloat
+        var pathData:[CGFloat] = [0,y0]
+        var prevEnd:P = P(0,y0)
+        (1...num).forEach{ i in
+            let x:CGFloat = w * i
+            let y:CGFloat = (0..<h).random.cgFloat
+            let a:P = P(x,y)
+            let cp1:P = P(prevEnd.x+rad,prevEnd.y)
+            let cp2:P = P(a.x-rad,a.y)
+            pathData += [a.x,a.y,cp1.x,cp1.y,cp2.x,cp2.y]
+            let cmd:Int = PathCommand.cubicCurveTo
+            commands.append(cmd)
+            prevEnd = a
+        }
+        
+        let path:IPath = Path(commands, pathData)
+        return path
     }
     func addGraphLineStyle(){
         var css:String = "GraphLine{"
@@ -67,10 +90,10 @@ extension CurveGraphScrollTest{
         /*gp1*/
         addGraphPointStyle()
         graphPoint1 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
-        graphPoint1!.setPosition(P())
+        graphPoint1!.setPosition(P(100,100))
         /*gp2*/
         graphPoint2 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
-        graphPoint2!.point = P()
+        graphPoint2!.point = P(200,100)
     }
     func addGraphPointStyle(){
         /*GraphPoint*/
