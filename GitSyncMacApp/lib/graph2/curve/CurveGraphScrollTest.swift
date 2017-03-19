@@ -2,8 +2,8 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-//scale the cruvegraph
-//find the dot points
+
+
 //add dot points to array of points within visual field
 //find min y from these points
 //find the dif between bottom.y and min y
@@ -18,6 +18,7 @@ class CurveGraphScrollTest:ContainerView2{
     var graphPoint2:Element?
     var graphLine:GraphLine?
     var space:CGFloat = 200/*x space between points*/
+    var edgeValues:(start:CGFloat,end:CGFloat)?
     
     override var itemSize:CGSize {return CGSize(100,100)}//override this for custom value
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
@@ -58,6 +59,7 @@ extension CurveGraphScrollTest{
         let y2:CGFloat = findGraphP(x2,points).y
         graphPoint2!.point = P(width,y2)
         
+        edgeValues = (y1,y2)
     }
 }
 extension CurveGraphScrollTest{
