@@ -91,7 +91,8 @@ extension CurveGraphScrollTest{
         addGraphLineStyle()
         let h:Int = height.int
         let yVals:[CGFloat] = (0..<9).map{ _ in return (0..<(h*2)).random.cgFloat - (h.cgFloat * 1)}
-        let path:IPath = self.path(space,yVals)
+        let pathAndPoints = Utils.path(space,yVals)
+        let path:IPath = pathAndPoints.path
         graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
     }
     
