@@ -74,14 +74,14 @@ extension CurveGraphScrollTest{
         let w:CGFloat = space
         let rad:CGFloat = w/2
         var commands:[Int] = [PathCommand.moveTo]
-        let y0:CGFloat = (0..<h).random.cgFloat
+        let y0:CGFloat = (0..<(h*2)).random.cgFloat - (h.cgFloat * 1)//(0..<h).random.cgFloat
         var pathData:[CGFloat] = [0,y0]
         var prevEnd:P = P(0,y0)
         points.append(prevEnd)
         (1...num).forEach{ i in
             let x:CGFloat = w * i
             //let y:CGFloat = (0..<h).random.cgFloat
-            let y:CGFloat = (0..<(h*4)).random.cgFloat - (h.cgFloat * 3)
+            let y:CGFloat = (0..<(h*2)).random.cgFloat - (h.cgFloat * 1)
             let a:P = P(x,y)
             points.append(a)
             let cp1:P = P(prevEnd.x+rad,prevEnd.y)
