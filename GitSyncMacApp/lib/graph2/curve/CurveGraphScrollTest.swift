@@ -63,7 +63,7 @@ extension CurveGraphScrollTest{
         
         let minX:CGFloat = x1
         let maxX:CGFloat = x2
-        let minY:CGFloat = self.minY(minX,maxX)
+        let minY:CGFloat = Utils.minY(minX,maxX,edgeValues!,points)
         Swift.print("⚠️️ minY: " + "\(minY))")
     }
 }
