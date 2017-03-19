@@ -139,16 +139,18 @@ extension CurveGraphScrollTest{
         Swift.print("slope: " + "\(slope)")
         let y:CGFloat = CGPointParser.y(seg!.p1, x, slope)/*seg!.p2.x*/
         
-        //let p = CubicCurveUtils.point(p0,p1,c0,c1,0.5)
+        let cb:CubicBezier = self.cubicBezier(seg!.p1,seg!.p2,space)
+        let p = CubicCurveUtils.point(cb.p0,cb.p1,cb.c0,cb.c1,0.5)
         
         return y
     }
     /**
      *
      */
-    func cubixBezier(_ start:P, _ end:P, _ space:CGFloat) -> (p0:P,p1:P,c0:P,c1:P){
-        let c0:P = P(start.x + (space/2))
-        let c1:P = P()
+    typealias CubicBezier = (p0:P,p1:P,c0:P,c1:P)
+    func cubicBezier(_ start:P, _ end:P, _ space:CGFloat) -> CubicBezier{
+        let c0:P = P(start.x + (space/2),start.y)
+        let c1:P = P(end.x - (space/2), end.y)
         return (start,end,c0,c1)
     }
 }
