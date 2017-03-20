@@ -22,6 +22,7 @@ class Graph3:ContainerView2{
     var graphPoint1:Element?
     var graphLine:GraphLine?
     var space:CGFloat = 100/*x space between points*/
+    var animator:Animator = Animator(<#T##animatable: IAnimatable##IAnimatable#>, <#T##duration: CGFloat##CGFloat#>, <#T##from: CGFloat##CGFloat#>, <#T##to: CGFloat##CGFloat#>, <#T##callBack: (CGFloat) -> Void##(CGFloat) -> Void#>, <#T##easing: (CGFloat, CGFloat, CGFloat, CGFloat) -> CGFloat##(CGFloat, CGFloat, CGFloat, CGFloat) -> CGFloat#>)
     override var itemSize:CGSize {return CGSize(100,100)}//override this for custom value
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
     override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
