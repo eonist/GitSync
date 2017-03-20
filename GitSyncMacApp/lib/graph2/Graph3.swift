@@ -57,6 +57,9 @@ extension Graph3{
         let y2:CGFloat = findY(x2,points)
         graphPoint1!.point = P(width/2,y2)
         
+        func moveX(_ progress:CGFloat){
+            
+        }
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/
         animator = Animator(Animation.sharedInstance,0.2,alpha,1,interpolateAlpha,Sine.easeOut)
         animator!.event = {(event:Event) -> Void in }
