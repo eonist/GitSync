@@ -39,6 +39,8 @@ class Graph3:ContainerView2{
         addGraphLine()
         addGraphPoint()
     }
+    var startY:CGFloat?
+    var endY:CGFloat?
 }
 extension Graph3{
     override func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
@@ -60,17 +62,20 @@ extension Graph3{
     func moveY(_ y:CGFloat){
         graphPoint1!.point = P(width/2,y)
     }
-    var startY:CGFloat?
+    
     override func onScrollWheelEnter() {
+        Swift.print("onScrollWheelEnter")
+        startY = graphPoint1!.point.y
+    }
+    override func onScrollWheelExit() {
+        Swift.print("onScrollWheelExit")
         let x:CGFloat = contentContainer!.x
         let x2:CGFloat = (-1 * x) + (width/2)
         let y2:CGFloat = findY(x2,points)
-        startY = y2
-    }
-    override func onScrollWheelExit() {
-        
+        endY = y2
+    
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/
-        animator = Animator(Animation.sharedInstance,0.2,alpha,1,moveY,Sine.easeOut)
+        animator = Animator(Animation.sharedInstance,0.2,startY!,endY!,moveY,Sine.easeOut)
         animator!.event = {(event:Event) -> Void in }
         animator!.start()
     }
