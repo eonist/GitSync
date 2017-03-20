@@ -44,6 +44,9 @@ class Graph3:ContainerView2{
 }
 extension Graph3{
     override func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
+        Swift.print("event.deltaX: " + "\(event.deltaX)")
+        Swift.print("event.scrollingDeltaX: " + "\(event.scrollingDeltaX)")
+        
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)
     }
