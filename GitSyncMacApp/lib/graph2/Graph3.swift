@@ -44,8 +44,9 @@ class Graph3:ContainerView2{
 }
 extension Graph3{
     override func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
-        Swift.print("event.deltaX: " + "\(event.deltaX)")
-        Swift.print("event.scrollingDeltaX: " + "\(event.scrollingDeltaX)")
+        if(event.scrollingDeltaX == 0){
+            scrollingEnded()
+        }
         
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)
@@ -58,9 +59,6 @@ extension Graph3{
         Swift.print("x: " + "\(x)")
         contentContainer!.x = x
         
-        
-        
-        
     }
     func moveY(_ y:CGFloat){
         graphPoint1!.point = P(width/2,y)
@@ -70,17 +68,20 @@ extension Graph3{
         Swift.print("onScrollWheelEnter")
         startY = graphPoint1!.point.y
     }
-    override func onScrollWheelExit() {
+    func scrollingEnded(){
         Swift.print("onScrollWheelExit")
         let x:CGFloat = contentContainer!.x
         let x2:CGFloat = (-1 * x) + (width/2)
         let y2:CGFloat = findY(x2,points)
         endY = y2
-    
+        
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/
         animator = Animator(Animation.sharedInstance,0.2,startY!,endY!,moveY,Sine.easeOut)
         animator!.event = {(event:Event) -> Void in }
         animator!.start()
+    }
+    override func onScrollWheelExit() {
+        
     }
 }
 extension Graph3{
