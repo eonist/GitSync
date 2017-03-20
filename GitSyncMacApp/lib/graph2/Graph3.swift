@@ -59,11 +59,18 @@ extension Graph3{
         
         
     }
+    func moveX(_ progress:CGFloat){
+        
+    }
     override func onScrollWheelEnter() {
         
     }
     override func onScrollWheelExit() {
         
+        if(animator != nil){animator!.stop()}/*stop any previous running animation*/
+        animator = Animator(Animation.sharedInstance,0.2,alpha,1,interpolateAlpha,Sine.easeOut)
+        animator!.event = {(event:Event) -> Void in }
+        animator!.start()
     }
 }
 extension Graph3{
