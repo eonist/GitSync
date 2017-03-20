@@ -22,7 +22,8 @@ import Foundation
     //Zoom in of the timeRange that is hovered above
 
 //5. Data handeling:
-    //calculate Git values for Graph onSnapToPositionComplete and 
+    //calculate Git values for Graph onSnapToPositionComplete, onViewLoad, timer
+    //When a new TimeUnit occures. from 16 to 17 for instance, or Mon to Tue. Then Animate to 
 class Graph4 {
 
 }
