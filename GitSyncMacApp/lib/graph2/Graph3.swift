@@ -22,7 +22,7 @@ class Graph3:ContainerView2{
     var graphPoint1:Element?
     var graphLine:GraphLine?
     var space:CGFloat = 100/*x space between points*/
-    var animator:Animator = Animator(<#T##animatable: IAnimatable##IAnimatable#>, <#T##duration: CGFloat##CGFloat#>, <#T##from: CGFloat##CGFloat#>, <#T##to: CGFloat##CGFloat#>, <#T##callBack: (CGFloat) -> Void##(CGFloat) -> Void#>, <#T##easing: (CGFloat, CGFloat, CGFloat, CGFloat) -> CGFloat##(CGFloat, CGFloat, CGFloat, CGFloat) -> CGFloat#>)
+    var animator:Animator?
     override var itemSize:CGSize {return CGSize(100,100)}//override this for custom value
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
     override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
@@ -56,6 +56,11 @@ extension Graph3{
         let x2:CGFloat = (-1 * x) + (width/2)
         let y2:CGFloat = findY(x2,points)
         graphPoint1!.point = P(width/2,y2)
+        
+        if(animator != nil){animator!.stop()}/*stop any previous running animation*/
+        animator = Animator(Animation.sharedInstance,0.2,alpha,1,interpolateAlpha,Sine.easeOut)
+        animator!.event = {(event:Event) -> Void in }
+        animator!.start()
     }
 }
 extension Graph3{
