@@ -14,6 +14,10 @@ import Foundation
 //3. The ValueBar (left)
     //Changes onGraph anim complete
     //5 values
+
+//4.  
+
+
 class Graph4 {
 
 }
