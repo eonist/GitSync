@@ -22,7 +22,7 @@ import Foundation
     //Zoom in of the timeRange that is hovered above
 
 //5. Data handeling:
-    //calculate Graph onSnapToPositionComplete and 
+    //calculate Git values for Graph onSnapToPositionComplete and 
 class Graph4 {
 
 }
