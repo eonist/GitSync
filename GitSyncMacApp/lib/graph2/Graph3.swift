@@ -58,13 +58,14 @@ extension Graph3{
         
     }
     func moveY(_ y:CGFloat){
-        graphPoint1!.point = P(width/2,y2)
+        graphPoint1!.point = P(width/2,y)
     }
+    var startY:CGFloat?
     override func onScrollWheelEnter() {
         let x:CGFloat = contentContainer!.x
         let x2:CGFloat = (-1 * x) + (width/2)
         let y2:CGFloat = findY(x2,points)
-        
+        startY = y2
     }
     override func onScrollWheelExit() {
         
