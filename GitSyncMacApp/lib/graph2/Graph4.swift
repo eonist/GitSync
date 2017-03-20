@@ -8,7 +8,7 @@ import Foundation
 
 //2. The TimeBar (bottom)
     //ElasticSlidable
-    //Elegantly Snaps to whole values
+    //Elegantly Snaps to whole values (avoids masked out text, and enables elegant graph.y anims)
     //7 values
 
 //3. The ValueBar (left)
@@ -19,8 +19,10 @@ import Foundation
     //Animates onScrollMomentumComplete /onSnapToPositionComplete
     //7 GraphPoints for (hours,days,weeks,months,years)
     //Zoom in and out of timeUnitStates via pinch zoom gesture.
-    //Zoom in/out of the timeRange that is hovered above
-    
+    //Zoom in of the timeRange that is hovered above
+
+//5. Data handeling:
+    //calculate Graph onSnapToPositionComplete and 
 class Graph4 {
 
 }
