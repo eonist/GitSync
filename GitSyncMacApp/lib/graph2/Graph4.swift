@@ -27,7 +27,7 @@ import Foundation
     //
 
 //6. Future improvments: 
-    //Buffer Git values for an even more responsive feel. also saves cpu/network
+    //Cache the Git values for an even more responsive feel. also saves cpu/network
     //
 
 class Graph4 {
