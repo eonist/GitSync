@@ -29,7 +29,7 @@ class Graph3:ContainerView2{
      * 🔨 Setup
      */
     override func resolveSkin() {
-        StyleManager.addStyle("CurveGraphScrollTest{float:none;clear:none;fill:green;fill-alpha:0.0;}")
+        StyleManager.addStyle("Graph3{float:none;clear:none;fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
         /*config*/
         maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
@@ -55,7 +55,6 @@ extension Graph3{
         let x2:CGFloat = (-1 * x) + (width/2)
         let y2:CGFloat = findY(x2,points)
         graphPoint1!.point = P(width/2,y2)
-        
     }
 }
 extension Graph3{
@@ -67,7 +66,7 @@ extension Graph3{
         let h:Int = height.int
         points = (0...30).map{
             let x:CGFloat = 100*$0
-            let y:CGFloat = (0..<(h*4)).random.cgFloat - (h.cgFloat * 3)
+            let y:CGFloat = (0..<(h)).random.cgFloat
             return P(x,y)
         }
         let path:IPath = PolyLineGraphicUtils.path(points)
