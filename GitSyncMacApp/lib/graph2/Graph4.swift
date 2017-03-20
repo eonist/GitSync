@@ -12,12 +12,15 @@ import Foundation
     //7 values
 
 //3. The ValueBar (left)
-    //Changes onGraph anim complete
+    //Changes onGraphAnimComplete
     //5 values
 
-//4.  
-
-
+//4. The graph (center)
+    //Animates onScrollMomentumComplete /onSnapToPositionComplete
+    //7 GraphPoints for (hours,days,weeks,months,years)
+    //Zoom in and out of timeUnitStates via pinch zoom gesture.
+    //Zoom in/out of the timeRange that is hovered above
+    
 class Graph4 {
 
 }
