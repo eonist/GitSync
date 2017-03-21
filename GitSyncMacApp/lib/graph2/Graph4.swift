@@ -16,6 +16,7 @@ class Graph4:Element {
     override func resolveSkin() {
         super.resolveSkin()
         
+        let btn:Button = addSubView(Button(64,24,self,"launch"))
         
     }
 }
