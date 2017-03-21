@@ -1,7 +1,7 @@
 import Foundation
 
-//slide with momentum
-
+//slide with momentum (Try to use the momentum delta for velocity!?!?)
+//
 class Graph4 {
 
 }
