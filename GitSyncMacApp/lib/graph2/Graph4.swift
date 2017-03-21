@@ -38,7 +38,7 @@ class Graph4:Element {
         func onFrameTick(_ value:CGFloat){
             ball.graphic.point.x = value
         }
-        mover = Friction(Animation.sharedInstance,onFrameTick, 0,10)
+        mover = Friction(Animation.sharedInstance,onFrameTick, 0,10,0.96)
         
         (0..<10).forEach{
             let i = $0
