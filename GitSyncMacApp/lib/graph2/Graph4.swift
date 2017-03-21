@@ -29,7 +29,7 @@ class Graph4:Element {
             
             if(event == ButtonEvent.upInside){
                 Swift.print("onBtnClick")
-                toggle ? mover?.start() : mover?.stop()
+                toggle ? mover!.start() : mover!.stop()
                 toggle = !toggle
             }
             
