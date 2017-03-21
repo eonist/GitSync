@@ -21,7 +21,7 @@ class Graph4:Element {
         StyleManager.addStyle("Button#launch{float:left;clear:left;}")
         let btn:Button = addSubView(Button(64,24,self,"launch"))
         
-        mover = Mover(Animation.sharedInstance,onFrameTick, 0,10)
+        
   
         
         var toggle:Bool = true
@@ -40,10 +40,10 @@ class Graph4:Element {
         _ = addSubView(ball.graphic)
         ball.draw()
         /*Anim*/
-        func onFrameTick(value:CGFloat){
+        func onFrameTick(_ value:CGFloat){
             ball.graphic.point.x = value
         }
-        
+        mover = Mover(Animation.sharedInstance,onFrameTick, 0,10)
         
         (0..<10).forEach{
             let i = $0
