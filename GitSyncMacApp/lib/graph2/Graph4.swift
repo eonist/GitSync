@@ -26,9 +26,13 @@ class Graph4:Element {
         
         var toggle:Bool = true
         func onBtnClick(event:Event){
-            Swift.print("onBtnClick")
-            toggle ? mover?.start() : mover?.stop()
-            toggle = !toggle
+            
+            if(event == ButtonEvent.upInside){
+                Swift.print("onBtnClick")
+                toggle ? mover?.start() : mover?.stop()
+                toggle = !toggle
+            }
+            
         }
         btn.event = onBtnClick
         
