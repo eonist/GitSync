@@ -13,7 +13,7 @@ import Cocoa
     //2. lines that indicates marks to snap to. 
     //3. a button to launch the ball
 class Graph4:Element {
-    var mover:Mover?
+    var mover:Friction?
     override func resolveSkin() {
         StyleManager.addStyle("Graph4{float:left;clear:left;}")
         super.resolveSkin()
@@ -38,7 +38,7 @@ class Graph4:Element {
         func onFrameTick(_ value:CGFloat){
             ball.graphic.point.x = value
         }
-        mover = Mover(Animation.sharedInstance,onFrameTick, 0,10)
+        mover = Friction(Animation.sharedInstance,onFrameTick, 0,10)
         
         (0..<10).forEach{
             let i = $0
