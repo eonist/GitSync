@@ -13,6 +13,7 @@ import Cocoa
     //2. lines that indicates marks to snap to. 
     //3. a button to launch the ball
 class Graph4:Element {
+    var mover:Mover?
     override func resolveSkin() {
         StyleManager.addStyle("Graph4{float:left;clear:left;}")
         super.resolveSkin()
@@ -20,12 +21,14 @@ class Graph4:Element {
         StyleManager.addStyle("Button#launch{float:left;clear:left;}")
         let btn:Button = addSubView(Button(64,24,self,"launch"))
         
+        mover = Mover()
+        
         func onBtnClick(event:Event){
             Swift.print("onBtnClick")
         }
         btn.event = onBtnClick
         
-        let ball = EllipseGraphic(0,50,50,50,FillStyle(NSColor.blue))
+        let ball = EllipseGraphic(0,75,25,25,FillStyle(NSColor.blue))
         _ = addSubView(ball.graphic)
         ball.draw()
         
