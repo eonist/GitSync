@@ -29,7 +29,6 @@ class Graph4:Element {
         _ = addSubView(ball.graphic)
         ball.draw()
         
-        
         (0..<10).forEach{
             let i = $0
             let x:CGFloat = 50 * i
@@ -39,6 +38,7 @@ class Graph4:Element {
             let p2:CGPoint = CGPoint(x,y2)
             let line:LineGraphic = LineGraphic(p1,p2,LineStyle(1,NSColor.orange))
             _ = addSubView(line.graphic)
+            line.draw()
         }
     }
 }
