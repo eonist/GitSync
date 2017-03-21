@@ -16,7 +16,12 @@ class Graph4:Element {
     override func resolveSkin() {
         super.resolveSkin()
         
+        //StyleManager.addStyle("Button#launch{fill:green;}")
         let btn:Button = addSubView(Button(64,24,self,"launch"))
         
+        func onBtnClick(event:Event){
+            Swift.print("onBtnClick")
+        }
+        btn.event = onBtnClick
     }
 }
