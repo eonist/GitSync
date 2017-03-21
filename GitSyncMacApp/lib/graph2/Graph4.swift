@@ -25,6 +25,14 @@ class Graph4:Element {
         btn.event = onBtnClick
         
         let ball = EllipseGraphic(0,0,64,64,FillStyle(NSColor.blue))
-        addSubView(ball.graphic)
+        _ = addSubView(ball.graphic)
+        
+        (0..<10).map{
+            let i = $0
+            let x:CGFloat = 50 * i
+            let y:CGFloat = 100
+            let y2:CGFloat = 120
+            let line = LineGraphic(CGPoint())
+        }
     }
 }
