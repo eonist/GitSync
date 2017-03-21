@@ -23,9 +23,11 @@ class Graph4:Element {
         
         mover = Mover(Animation.sharedInstance,0,10)
         
+        var toggle:Bool = true
         func onBtnClick(event:Event){
             Swift.print("onBtnClick")
-            mover?.start()
+            toggle ? mover?.start() : mover?.stop()
+            toggle = !toggle
         }
         btn.event = onBtnClick
         
