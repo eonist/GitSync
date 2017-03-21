@@ -6,6 +6,11 @@ import Foundation
 
 //Make a test where you press a button that launch a ball at 60px per sec with Friction applied. 
     //then you add the snafriction
+
+//You need: 
+    //1. ball, 
+    //2. lines that indicates marks to snap to. 
+    //3. a button to launch the ball
 class Graph4 {
 
 }
