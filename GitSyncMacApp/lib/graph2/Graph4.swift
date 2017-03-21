@@ -20,19 +20,14 @@ class Graph4:Element {
         
         StyleManager.addStyle("Button#launch{float:left;clear:left;}")
         let btn:Button = addSubView(Button(64,24,self,"launch"))
-        
-        
-  
-        
+   
         var toggle:Bool = true
         func onBtnClick(event:Event){
-            
             if(event == ButtonEvent.upInside){
                 Swift.print("onBtnClick")
                 toggle ? mover!.start() : mover!.stop()
                 toggle = !toggle
             }
-            
         }
         btn.event = onBtnClick
         
