@@ -21,7 +21,7 @@ class Graph4:Element {
         StyleManager.addStyle("Button#launch{float:left;clear:left;}")
         let btn:Button = addSubView(Button(64,24,self,"launch"))
         
-        mover = Mover()
+        mover = Mover(Animation.sharedInstance,)
         
         func onBtnClick(event:Event){
             Swift.print("onBtnClick")
