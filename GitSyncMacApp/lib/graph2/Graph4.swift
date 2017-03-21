@@ -2,8 +2,10 @@ import Foundation
 
 //slide with momentum (Try to use the momentum delta for velocity!?!?)
 //magnetic points. Or friction slows down but stops applying friction unitl the value is (value % space) == 0 at which point it stops
+    //SnapFriction is friction with a assert modulo compoent
 
-
+//Make a test where you press a button that launch a ball at 60px per sec with Friction applied. 
+    //then you add the snafriction
 class Graph4 {
 
 }
