@@ -27,12 +27,15 @@ class Graph4:Element {
         let ball = EllipseGraphic(0,0,64,64,FillStyle(NSColor.blue))
         _ = addSubView(ball.graphic)
         
-        (0..<10).map{
+        (0..<10).forEach{
             let i = $0
             let x:CGFloat = 50 * i
             let y:CGFloat = 100
             let y2:CGFloat = 120
-            let line = LineGraphic(CGPoint())
+            let p1:CGPoint = CGPoint(x,y)
+            let p2:CGPoint = CGPoint(x,y2)
+            let line = LineGraphic(p1,p2,nil,LineStyle(1,NSColor.orange))
+            
         }
     }
 }
