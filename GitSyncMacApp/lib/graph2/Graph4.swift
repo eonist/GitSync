@@ -34,8 +34,8 @@ class Graph4:Element {
             let y2:CGFloat = 120
             let p1:CGPoint = CGPoint(x,y)
             let p2:CGPoint = CGPoint(x,y2)
-            let line = LineGraphic(p1,p2,nil,LineStyle(1,NSColor.orange))
-            
+            let line:LineGraphic = LineGraphic(p1,p2,LineStyle(1,NSColor.orange))
+            _ = addSubView(line.graphic)
         }
     }
 }
