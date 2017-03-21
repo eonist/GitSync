@@ -22,6 +22,7 @@ class Graph4:Element {
         let btn:Button = addSubView(Button(64,24,self,"launch"))
         
         mover = Mover(Animation.sharedInstance,0,10)
+  
         
         var toggle:Bool = true
         func onBtnClick(event:Event){
@@ -34,6 +35,12 @@ class Graph4:Element {
         let ball = EllipseGraphic(0,75,25,25,FillStyle(NSColor.blue))
         _ = addSubView(ball.graphic)
         ball.draw()
+        /*Anim*/
+        func onMoverEvent(event:Event){
+            ball.graphic.point.x = mover!.value
+        }
+        mover?.event = onMoverEvent
+        
         
         (0..<10).forEach{
             let i = $0
