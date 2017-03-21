@@ -14,9 +14,10 @@ import Cocoa
     //3. a button to launch the ball
 class Graph4:Element {
     override func resolveSkin() {
+        StyleManager.addStyle("Graph4{float:left;clear:left;}")
         super.resolveSkin()
         
-        //StyleManager.addStyle("Button#launch{fill:green;}")
+        StyleManager.addStyle("Button#launch{float:left;clear:left;}")
         let btn:Button = addSubView(Button(64,24,self,"launch"))
         
         func onBtnClick(event:Event){
