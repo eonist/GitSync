@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Utils
 @testable import Element
 //slide with momentum (Try to use the momentum delta for velocity!?!?)
@@ -23,5 +23,7 @@ class Graph4:Element {
             Swift.print("onBtnClick")
         }
         btn.event = onBtnClick
+        
+        let ball = EllipseGraphic(64,64,FillStyle(NSColor.blue))
     }
 }
