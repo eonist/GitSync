@@ -1,5 +1,6 @@
 import Foundation
-
+@testable import Utils
+@testable import Element
 //slide with momentum (Try to use the momentum delta for velocity!?!?)
 //magnetic points. Or friction slows down but stops applying friction unitl the value is (value % space) == 0 at which point it stops
     //SnapFriction is friction with a assert modulo compoent
@@ -11,6 +12,10 @@ import Foundation
     //1. ball, 
     //2. lines that indicates marks to snap to. 
     //3. a button to launch the ball
-class Graph4 {
-
+class Graph4:Element {
+    override func resolveSkin() {
+        super.resolveSkin()
+        
+        
+    }
 }
