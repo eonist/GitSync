@@ -25,8 +25,10 @@ class Graph4:Element {
         }
         btn.event = onBtnClick
         
-        let ball = EllipseGraphic(50,0,50,50,FillStyle(NSColor.blue))
+        let ball = EllipseGraphic(0,50,50,50,FillStyle(NSColor.blue))
         _ = addSubView(ball.graphic)
+        ball.draw()
+        
         
         (0..<10).forEach{
             let i = $0
