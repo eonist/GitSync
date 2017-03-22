@@ -10,6 +10,7 @@ protocol Scrollable2:Containable2 {
 
 extension Scrollable2{
     func scroll(_ event:NSEvent){
+        Swift.print("Scrollable2.scroll()")
         switch event.phase{
             case NSEventPhase.changed:onScrollWheelChange(event)
             case NSEventPhase.mayBegin:onScrollWheelEnter()
@@ -19,5 +20,8 @@ extension Scrollable2{
             case NSEventPhase(rawValue:0):onScrollWheelChange(event);
             default:break;
         }
+    }
+    func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
+        Swift.print("📜 Scrollable2.onScrollWheelChange: \(event.type)")
     }
 }
