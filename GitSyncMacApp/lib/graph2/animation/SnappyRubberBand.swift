@@ -33,7 +33,7 @@ class SnappyRubberBand:RubberBand{
                 //you need to add some dist to target code
                 //try to drag and drop it into position
                 //you need to calculate the direction on release.👈 why?
-                //you need to set the final value so that it snaps to the perfect value
+                //you need to set the final value so that it snaps to the perfect value✅
                 //find the round to method and round value to snap✅
                 value = CGFloatModifier.roundTo(value, snap)
             }else{
