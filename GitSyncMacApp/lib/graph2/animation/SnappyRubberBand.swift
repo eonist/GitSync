@@ -21,6 +21,7 @@ class SnappyRubberBand:RubberBand{
                 checkForStop()
             }
             velocity = minVelocity
+            value += velocity
         }else{
             super.applyFriction()//regular friction
         }
