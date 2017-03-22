@@ -42,7 +42,7 @@ class GraphView:ContainerView2,ElasticScrollable2{
     }
     override open func scrollWheel(with event: NSEvent) {
         Swift.print("GraphView.scrollWheel")
-        scroll(event)
+        (self as ElasticScrollable2).scroll(event)
         //super.scrollWheel(with: event)
     }
     func setProgress(_ value:CGFloat){
