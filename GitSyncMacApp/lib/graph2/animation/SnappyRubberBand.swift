@@ -4,7 +4,7 @@ import Foundation
 
 class SnappyRubberBand:RubberBand{
     var minVelocity:CGFloat = 0.8
-    var snap:CGFloat = 40
+    var snap:CGFloat = 100
     /*init(_ animatable: IAnimatable, _ callBack: @escaping (CGFloat) -> Void, _ maskFrame: RubberBand.Frame, _ contentFrame: RubberBand.Frame, _ value: CGFloat, _ velocity: CGFloat, _ friction: CGFloat, _ springEasing: CGFloat, _ spring: CGFloat, _ limit: CGFloat, ) {
      self.snap = snap
      self.minVelocity = minVelocity
