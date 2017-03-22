@@ -4,7 +4,7 @@ import Foundation
 
     //try to add the long TimeBar to a ScrollView that uses snap friction, then throw it around and make it work
         //make an indicator mark that the TimeBar must align to.
-        //add line sperators in the TimeBar aswell.
+        //add line sperators in the TimeBar as well.
         //basically you need to not use the native momentum but your own. 
             //this presents a good opertunity to also try to implement transferal of velocity from native momentum
     //when valuebar settles redraw the graph
