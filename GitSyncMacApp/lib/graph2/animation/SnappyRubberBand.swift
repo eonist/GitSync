@@ -5,6 +5,15 @@ import Foundation
 class SnappyRubberBand:RubberBand{
     var minVelocity:CGFloat = 0.8
     var snap:CGFloat = 100
+    /*var dir:Int = 0
+     override func start() {
+     dir = velocity.isNegative ? -1 : 1
+     super.start()
+     }
+     override func stop() {
+     dir = velocity.isNegative ? -1 : 1
+     super.stop()
+     }*/
     /*init(_ animatable: IAnimatable, _ callBack: @escaping (CGFloat) -> Void, _ maskFrame: RubberBand.Frame, _ contentFrame: RubberBand.Frame, _ value: CGFloat, _ velocity: CGFloat, _ friction: CGFloat, _ springEasing: CGFloat, _ spring: CGFloat, _ limit: CGFloat, ) {
      self.snap = snap
      self.minVelocity = minVelocity
@@ -21,11 +30,11 @@ class SnappyRubberBand:RubberBand{
                 hasStopped = true
                 stop()
                 
-                //you need to add some dist to target code 🏀
+                //you need to add some dist to target code
                 //try to drag and drop it into position
-                //you need to calculate the direction on release.👈
+                //you need to calculate the direction on release.👈 why?
                 //you need to set the final value so that it snaps to the perfect value
-                //find the round to method and round value to snap
+                //find the round to method and round value to snap✅
                 value = CGFloatModifier.roundTo(value, snap)
             }else{
                 velocity = velocity.isNegative ? -minVelocity : minVelocity

@@ -28,7 +28,7 @@ extension ElasticScrollable2{
         mover!.hasStopped = true
         iterimScroll.prevScrollingDelta = 0
         mover!.isDirectlyManipulating = true
-        iterimScroll.velocities = Array(repeating: 0, count: 10)
+        iterimScroll.velocities = Array(repeating: 0, count: 10)/*reset*/
         //⚠️️scrollWheelEnter()
     }
     /**
