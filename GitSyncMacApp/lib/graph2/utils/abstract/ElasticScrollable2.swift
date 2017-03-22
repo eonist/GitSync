@@ -5,6 +5,7 @@ import Cocoa
 protocol ElasticScrollable2:Elastic2, Scrollable2 {
     func setProgress(_ value:CGFloat)
 }
+extension ElasticScrollable2
 extension ElasticScrollable2{
     /*func setProgress(_ value:CGFloat){
      contentContainer!.frame.x = value
