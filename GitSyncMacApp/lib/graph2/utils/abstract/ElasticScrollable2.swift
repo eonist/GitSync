@@ -3,7 +3,7 @@ import Cocoa
 @testable import Utils
 
 protocol ElasticScrollable2:Elastic2,Scrollable2 {
-    //func setProgress(_ value:CGFloat)
+    func setProgress(_ value:CGFloat)
 }
 extension ElasticScrollable2{
     
