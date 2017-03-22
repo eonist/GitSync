@@ -118,7 +118,7 @@ extension GraphView{
      */
     func createTimeBar(){
         
-        timeBar = addSubView(TimeBar(contentSize.width,32,self))
+        timeBar = addSubView(TimeBar(contentSize.width,32,20,self))
         let objSize = CGSize(timeBar!.w,32)
         Swift.print("objSize: " + "\(objSize)")
         let canvasSize = CGSize(w,h)

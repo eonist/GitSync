@@ -4,7 +4,7 @@ import Foundation
 
 class TimeBar:Element {
     var count:Int
-    init(_ width: CGFloat, _ height: CGFloat, _ count:Int, _ parent: IElement?, _ id: String?) {
+    init(_ width: CGFloat, _ height: CGFloat, _ count:Int = 20, _ parent: IElement? = nil, _ id: String? = nil) {
         self.count = count
         super.init(width, height, parent, id)
     }
@@ -12,7 +12,7 @@ class TimeBar:Element {
         addStyles()
         super.resolveSkin()
         let spaceX:CGFloat = 100
-        for i in 0..<20{
+        for i in 0..<count{
             let x:CGFloat = (i*spaceX)
             let str:String = x.string
             //Swift.print("str: " + "\(str)")
