@@ -12,7 +12,7 @@ import Cocoa
 //Zooming tests:
     //
 
-class GraphView:ContainerView2,ElasticScrollable2{
+class GraphView:ContainerView2{
     //var maskSize:CGSize = CGSize()
     //var contentSize:CGSize = CGSize()
     //var contentContainer:Element?

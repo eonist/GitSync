@@ -5,14 +5,12 @@ import Cocoa
 protocol ElasticScrollable2:Elastic2, Scrollable2 {
     func setProgress(_ value:CGFloat)
 }
-extension ContainerView2:ElasticScrollable2{
+extension GraphView:ElasticScrollable2{
     
-}
-extension ElasticScrollable2{
     /*func setProgress(_ value:CGFloat){
      contentContainer!.frame.x = value
      }*/
-    func onScrollWheelChange(_ event:NSEvent){
+    override func onScrollWheelChange(_ event:NSEvent){
         Swift.print("👻📜 (ElasticScrollable2).onScrollWheelChange : \(event.type)")
         iterimScroll.prevScrollingDelta = event.scrollingDeltaX
         _ = iterimScroll.velocities.pushPop(event.scrollingDeltaX)
@@ -23,7 +21,7 @@ extension ElasticScrollable2{
     /**
      * NOTE: Basically when you enter your scrollWheel gesture
      */
-    func onScrollWheelEnter(){
+    override func onScrollWheelEnter(){
         Swift.print("👻📜 (ElasticScrollable2).onScrollWheelEnter")
         //Swift.print("IRBScrollable.onScrollWheelDown")
         mover!.stop()
@@ -36,7 +34,7 @@ extension ElasticScrollable2{
     /**
      * NOTE: Basically when you release your scrollWheel gesture
      */
-    func onScrollWheelExit(){
+    override func onScrollWheelExit(){
         Swift.print("👻📜 (ElasticScrollable2).onScrollWheelExit")
         //Swift.print("IRBScrollable.onScrollWheelUp")
         mover!.hasStopped = false
