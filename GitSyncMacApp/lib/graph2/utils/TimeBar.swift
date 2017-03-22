@@ -20,6 +20,17 @@ class TimeBar:Element {
             _ = addSubView(textArea)
             //Swift.print("CGPoint(x,0): " + "\(CGPoint(x,0))")
             textArea.setPosition(CGPoint(x,0))
+            
+            /*LineSeperator*/
+            
+            let y:CGFloat = 0
+            let y2:CGFloat = 24
+            let p1:CGPoint = CGPoint(x,y)
+            let p2:CGPoint = CGPoint(x,y2)
+            let line:LineGraphic = LineGraphic(p1,p2,LineStyle(1,.orange))
+            _ = addSubView(line.graphic)
+            line.draw()
+
         }
     }
     func addStyles(){
