@@ -21,8 +21,10 @@ class SnappyRubberBand:RubberBand{
                 hasStopped = true
                 stop()
                 
-                //you need to add some dist to target code
+                //you need to add some dist to target code 🏀
                 //try to drag and drop it into position
+                //you need to calculate the direction on release.
+                //you need to set the final value so that it snaps to the perfect value
             }
             velocity = velocity.isNegative ? -minVelocity : minVelocity
             value += velocity
