@@ -19,7 +19,7 @@ class SnappyRubberBand:RubberBand{
             Swift.print("modulo: " + "\(modulo)")
             if(abs(modulo).isNear(0, minVelocity)){//modulo is closer than 1 px to 0,
                 hasStopped = true
-                
+                stop()
             }
             velocity = velocity.isNegative ? -minVelocity : minVelocity
             value += velocity
