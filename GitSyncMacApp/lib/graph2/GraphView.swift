@@ -112,7 +112,6 @@ extension GraphView{
         
         
     }
-
     /**
      *
      */
@@ -128,7 +127,6 @@ extension GraphView{
         //align timeBar to bottom with Align
         timeBar!.point = p
     }
-    
     /**
      *
      */
