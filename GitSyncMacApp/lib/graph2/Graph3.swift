@@ -43,7 +43,7 @@ class Graph3:ContainerView2{
     var endY:CGFloat?
 }
 extension Graph3{
-    override func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
+    func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
         if(event.scrollingDeltaX == 0){
             scrollingEnded()
         }
@@ -64,7 +64,7 @@ extension Graph3{
         graphPoint1!.point = P(width/2,y)
     }
     
-    override func onScrollWheelEnter() {
+    func onScrollWheelEnter() {
         Swift.print("onScrollWheelEnter")
         startY = graphPoint1!.point.y
     }
@@ -80,7 +80,7 @@ extension Graph3{
         animator!.event = {(event:Event) -> Void in }
         animator!.start()
     }
-    override func onScrollWheelExit() {
+    func onScrollWheelExit() {
         
     }
 }

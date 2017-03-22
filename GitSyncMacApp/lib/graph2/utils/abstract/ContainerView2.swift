@@ -22,8 +22,7 @@ class ContainerView2:Element,Containable2 {
     }
 }
 extension ContainerView2{
-    func onScrollWheelEnter(){/*fatalError("must be overriden")*/}
-    func onScrollWheelExit(){/*fatalError("must be overriden")*/}
-    func onScrollWheelChange(_ event:NSEvent){/*fatalError("must be overriden")*/}
-}
-*/
+    func onScrollWheelEnter(){Swift.print("ContainerView2.must be overriden")/*fatalError("must be overriden")*/}
+    func onScrollWheelExit(){Swift.print("ContainerView2.must be overriden")/*fatalError("must be overriden")*/}
+    func onScrollWheelChange(_ event:NSEvent){Swift.print("ContainerView2.must be overriden")/*fatalError("must be overriden")*/}
+}*/
