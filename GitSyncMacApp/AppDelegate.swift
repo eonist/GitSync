@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         repoList.forEach{
             Swift.print("$0.title: " + "\($0.title)")
         }*/
-        // it works, now activate this in a filter, if active is false then dont return repo, easy! test it first, then test gitpull 
+        //it works, now activate this in a filter, if active is false then dont return repo, easy! test it first, then test gitpull 
     }
     /**
      * CommitCount per day for all projects in the last 7 days where the user is "eonist"
