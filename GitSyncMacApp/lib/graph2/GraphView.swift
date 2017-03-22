@@ -23,7 +23,7 @@ class GraphView:ContainerView2,ElasticScrollable2{
     var valueBar:ValueBar?
     /*Anim*/
     var iterimScroll:InterimScroll = InterimScroll()
-    var mover:SnappyRubberBand?
+    var mover:RubberBand?
     
     override func resolveSkin() {
         StyleManager.addStyle("GraphView{float:left;clear:left;fill:green;fill-alpha:0.0;}")
