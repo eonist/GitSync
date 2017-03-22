@@ -26,7 +26,7 @@ class GraphView:ContainerView2{
     var mover:RubberBand?
     
     override func resolveSkin() {
-        StyleManager.addStyle("GraphView{float:left;clear:left;fill:green;fill-alpha:0.5;}")
+        StyleManager.addStyle("GraphView{float:left;clear:left;fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
         /*config*/
         maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
@@ -59,7 +59,7 @@ class GraphView:ContainerView2{
      setProgress(progressVal)
      }*/
     func setProgress(_ value:CGFloat){
-        Swift.print("🖼️ moving lableContainer up and down progress: \(value)")
+        //Swift.print("🖼️ moving lableContainer up and down progress: \(value)")
         //Swift.print("IScrollable.setProgress() progress: \(progress)")
         //let progressValue = contentSize.w < maskSize.w ? 0 : progress/*pins the lableContainer to the top if itemsHeight is less than height*/
         //Swift.print("progressValue: " + "\(progressValue)")
