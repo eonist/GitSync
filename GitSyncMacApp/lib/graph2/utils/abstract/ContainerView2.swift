@@ -14,7 +14,7 @@ class ContainerView2:Element,Containable2 {
         contentContainer = addSubView(Container(width,height,self,"content"))
     }
 }
-extension ContainerView2:Scrollable2{
+/*extension ContainerView2:Scrollable2{
     override open func scrollWheel(with event: NSEvent) {
         Swift.print("ContainerView2.scrollWheel")
         scroll(event)
@@ -26,3 +26,4 @@ extension ContainerView2{
     func onScrollWheelExit(){/*fatalError("must be overriden")*/}
     func onScrollWheelChange(_ event:NSEvent){/*fatalError("must be overriden")*/}
 }
+*/
