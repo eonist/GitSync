@@ -109,11 +109,9 @@ extension GraphView{
         let path:IPath = PolyLineGraphicUtils.path(points)
         let graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
         _ = graphLine
-        
-        
     }
     /**
-     *
+     * Creates the TimeBar
      */
     func createTimeBar(){
         //TODO: make line marks
@@ -128,7 +126,7 @@ extension GraphView{
         timeBar!.point = p
     }
     /**
-     *
+     * Creates the ValueBar
      */
     func createValueBar(){
         valueBar = addSubView(ValueBar(32,height-32,self))
