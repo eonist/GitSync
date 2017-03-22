@@ -20,6 +20,9 @@ class SnappyRubberBand:RubberBand{
             if(abs(modulo).isNear(0, minVelocity)){//modulo is closer than 1 px to 0,
                 hasStopped = true
                 stop()
+                
+                //you need to add some dist to target code
+                //try to drag and drop it into position
             }
             velocity = velocity.isNegative ? -minVelocity : minVelocity
             value += velocity
