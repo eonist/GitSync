@@ -22,13 +22,13 @@ extension Scrollable2{
             default:break;
         }
     }
-    func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
-        Swift.print("📜 Scrollable2.onScrollWheelChange: \(event.type)")
-    }
-    func onScrollWheelEnter() {
-        Swift.print("📜 Scrollable2.onScrollWheelEnter()")
-    }
-    func onScrollWheelExit() {
-        Swift.print("📜 Scrollable2.onScrollWheelExit()")
-    }
+    /*func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
+     Swift.print("📜 Scrollable2.onScrollWheelChange: \(event.type)")
+     }
+     func onScrollWheelEnter() {
+     Swift.print("📜 Scrollable2.onScrollWheelEnter()")
+     }
+     func onScrollWheelExit() {
+     Swift.print("📜 Scrollable2.onScrollWheelExit()")
+     }*/
 }
