@@ -3,6 +3,11 @@ import Foundation
 @testable import Utils
 
 class TimeBar:Element {
+    var count:Int
+    init(_ width: CGFloat, _ height: CGFloat, _ count:Int, _ parent: IElement?, _ id: String?) {
+        self.count = count
+        super.init(width, height, parent, id)
+    }
     override func resolveSkin() {
         addStyles()
         super.resolveSkin()
@@ -57,4 +62,5 @@ class TimeBar:Element {
         css += "}"
         StyleManager.addStyle(css)
     }
+    required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
