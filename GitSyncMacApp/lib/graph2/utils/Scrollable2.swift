@@ -9,9 +9,6 @@ protocol Scrollable2:Containable2 {
 }
 
 extension Scrollable2{
-    /**
-     *
-     */
     func scroll(_ event:NSEvent){
         switch event.phase{
             case NSEventPhase.changed:onScrollWheelChange(event)
