@@ -25,9 +25,14 @@ class SnappyRubberBand:RubberBand{
                 //try to drag and drop it into position
                 //you need to calculate the direction on release.
                 //you need to set the final value so that it snaps to the perfect value
+                value += velocity
+                
+                //find the round to method and round value to snap
+            }else{
+                velocity = velocity.isNegative ? -minVelocity : minVelocity
+                value += velocity
             }
-            velocity = velocity.isNegative ? -minVelocity : minVelocity
-            value += velocity
+            
         }else{
             super.applyFriction()//regular friction
         }
