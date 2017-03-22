@@ -32,7 +32,7 @@ class GraphView2:ContainerView2{
 }
 /*Animation*/
 extension GraphView2{
-    override func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
+    func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)
     }

@@ -38,7 +38,7 @@ class CurveGraphScrollTest:ContainerView2{
     }
 }
 extension CurveGraphScrollTest{
-    override func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
+    func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)
     }
