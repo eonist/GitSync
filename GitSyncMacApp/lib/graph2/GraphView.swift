@@ -23,7 +23,7 @@ class GraphView:ContainerView2,ElasticScrollable2{
     var valueBar:ValueBar?
     /*Anim*/
     var iterimScroll:InterimScroll = InterimScroll()
-    var mover:RubberBand?
+    var mover:SnappyRubberBand?
     
     override func resolveSkin() {
         StyleManager.addStyle("GraphView{float:left;clear:left;fill:green;fill-alpha:0.0;}")
@@ -32,7 +32,7 @@ class GraphView:ContainerView2,ElasticScrollable2{
         maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
         contentSize = CGSize(1600,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         /*Anim*/
-        mover = RubberBand(Animation.sharedInstance,setProgress/*👈important*/,(0,maskSize.width),(0,contentSize.width))
+        mover = SnappyRubberBand(Animation.sharedInstance,setProgress/*👈important*/,(0,maskSize.width),(0,contentSize.width))
         
         contentContainer = addSubView(Container(width,height,self,"content"))
         //addEllipse()
