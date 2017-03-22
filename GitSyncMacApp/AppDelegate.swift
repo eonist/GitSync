@@ -19,14 +19,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //_ = Test2()
         
         //rateOfCommitsTest()
-        
         //initApp()
         initTestWin()//🔨
         //_ = ASyncTest()
         //_ = AsyncTest2()
         //AutoSync.sync()
         //refreshReposTest()
-        
         
         /*let repoList = RepoUtils.repoListFlattenedOverridden
         Swift.print(repoList.count)
