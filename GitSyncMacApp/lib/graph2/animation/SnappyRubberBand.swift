@@ -16,7 +16,7 @@ class SnappyRubberBand:RubberBand{
         //when at snap stop
         if(velocity <= minVelocity){
             let modulo:CGFloat = (value %% snap)
-            //Swift.print("modulo: " + "\(modulo)")
+            Swift.print("modulo: " + "\(modulo)")
             if(modulo.isNear(0, minVelocity)){//modulo is closer than 1 px to 0,
                 checkForStop()
             }
