@@ -24,8 +24,8 @@ class SnappyRubberBand:RubberBand{
         //keep some velocity alive
         //when at snap stop
         if(velocity == 0){
-            fatalError("0 vel, calc dist, go to target")
-            let mod:CGFloat = (value %% snap)
+            
+            let mod:CGFloat = value %% snap
             if(mod <= snap/2){
                 velocity = -minVelocity
             }else{
