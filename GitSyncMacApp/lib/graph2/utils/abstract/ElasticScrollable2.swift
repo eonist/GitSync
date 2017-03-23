@@ -49,6 +49,8 @@ extension ElasticScrollable2{
         let prevDelta:CGFloat = iterimScroll.prevScrollingDelta
         if(abs(prevDelta) > 3){//must have more momentum than 3
             Swift.print("MOMENTUM")
+            
+            
             var velocity:CGFloat
             if(iterimScroll.prevScrollingDelta > 1.0){
                 Swift.print("> momentum")
@@ -62,6 +64,7 @@ extension ElasticScrollable2{
                 velocity = 0
                 Swift.print("0 momentum")
             }//The prevScrollingDelta is: either '-1' or '+1' which means that the scrollwheel is stationary
+            Swift.print("iterimScroll.velocities: " + "\(iterimScroll.velocities)")
             Swift.print("exit: velocity: \(velocity)")
             mover!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
             mover!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*/
