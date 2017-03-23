@@ -45,8 +45,10 @@ class SnappyRubberBand:RubberBand{
             Swift.print("is close to target")
             value = CGFloatModifier.roundTo(value, snap)/*set final destination*/
             Swift.print("final value: " + "\(value)")
+            callBack(value)//final tick
             hasStopped = true
-            //stop()
+            stop()
+            
         }
         
         if(abs(velocity) <= minVelocity){/*Velocity is bellow min allowed, add velocity keep anim alive*/
