@@ -45,9 +45,11 @@ extension ElasticScrollable2{
         if(iterimScroll.prevScrollingDelta != 1.0 && iterimScroll.prevScrollingDelta != -1.0){/*Not 1 and not -1 indicates that the wheel is not stationary, or in other words: -1 or 1 means that the scrollwheel is stationary*/
             var velocity:CGFloat
             if(iterimScroll.prevScrollingDelta > 0){
+                Swift.print("forward momentum")
                 velocity = NumberParser.max(iterimScroll.velocities)
             }/*Find the most positive velocity value*/
             else if(iterimScroll.prevScrollingDelta < 0){
+                Swift.print("backward momentum")
                 velocity = NumberParser.min(iterimScroll.velocities)
             }/*Find the most negative velocity value*/
             else {
