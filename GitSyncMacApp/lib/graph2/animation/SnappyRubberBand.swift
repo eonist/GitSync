@@ -32,6 +32,7 @@ class SnappyRubberBand:RubberBand{
         if(velocity == 0){//stationarry
             //let mod:CGFloat = value %% snap
             //Swift.print("mod: " + "\(mod)")
+            Swift.print("prevDir: " + "\(prevDir)")
             if(prevDir.isPositive){/*abs(mod) <= snap/2*/
                 velocity = minVelocity
                 //Swift.print("go backward velocity : \(velocity)")
