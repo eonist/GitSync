@@ -30,17 +30,15 @@ class SnappyRubberBand:RubberBand{
         //keep some velocity alive
         //when at snap stop
         if(velocity == 0){//stationarry
-            let mod:CGFloat = value %% snap
+            //let mod:CGFloat = value %% snap
             //Swift.print("mod: " + "\(mod)")
-            if(prevDir != 0){
-                if(abs(mod) <= snap/2){
-                    velocity = minVelocity
-                    //Swift.print("go backward velocity : \(velocity)")
-                }else{
-                    //Swift.print("go forward velocity : \(velocity)")
-                    velocity = -minVelocity
-                }
-            }else{
+            if(prevDir.isPositive){/*abs(mod) <= snap/2*/
+                velocity = minVelocity
+                //Swift.print("go backward velocity : \(velocity)")
+            }else if(prevDir.isNegative) {
+                //Swift.print("go forward velocity : \(velocity)")
+                velocity = -minVelocity
+            }else{/*prevDir == 0*/
                 fatalError("💥")
             }
         }
