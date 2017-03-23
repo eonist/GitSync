@@ -41,7 +41,7 @@ class GraphView:ContainerView2,ElasticScrollable2{
         createValueBar()
     }
     override open func scrollWheel(with event: NSEvent) {
-        Swift.print("GraphView.scrollWheel")
+        //Swift.print("GraphView.scrollWheel")
         scroll(event)
         //super.scrollWheel(with: event)
     }
