@@ -42,7 +42,7 @@ extension ElasticScrollable2{
         mover!.value = mover!.result
         
         //you need to record the last directional scroll, as the last changeEvent can actually be 0
-        if(iterimScroll.prevScrollingDelta == 0 || iterimScroll.prevScrollingDelta == 1.0 || iterimScroll.prevScrollingDelta == -1.0){
+        if(iterimScroll.prevScrollingDelta == 0 || iterimScroll.prevScrollingDelta == 1.0 || iterimScroll.prevScrollingDelta == -1.0){
             
         }
         /*X*/
