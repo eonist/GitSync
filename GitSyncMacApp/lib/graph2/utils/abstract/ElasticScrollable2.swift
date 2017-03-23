@@ -47,13 +47,7 @@ extension ElasticScrollable2{
             //and what was deltaX on the last change before exit. is it always 0?
         
         let prevDelta:CGFloat = iterimScroll.prevScrollingDelta
-        if(prevDelta == 0 || prevDelta == 1.0 || prevDelta == -1.0){
-            Swift.print("STATIONARY")
-            //the prev change event had zero momentum aka stationary
-            mover!.velocity = 0
-            mover!.start()/*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
-            
-        }else if(abs(prevDelta) > 3){//must have more momentum than 3
+        if(abs(prevDelta) > 3){//must have more momentum than 3
             Swift.print("MOMENTUM")
             var velocity:CGFloat
             if(iterimScroll.prevScrollingDelta > 1.0){
@@ -71,6 +65,13 @@ extension ElasticScrollable2{
             Swift.print("exit: velocity: \(velocity)")
             mover!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
             mover!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*/
+        }else if(prevDelta == 0 || prevDelta == 1.0 || prevDelta == -1.0){
+            Swift.print("STATIONARY")
+            //the prev change event had zero momentum aka stationary
+            mover!.velocity = 0
+            mover!.start()/*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
+        }else{
+            fatalError("should not be possible")
         }
         /*X*/
         //if(iterimScroll.prevScrollingDelta != 1.0 && iterimScroll.prevScrollingDelta != -1.0){/*Not 1 and not -1 indicates that the wheel is not stationary, or in other words: -1 or 1 means that the scrollwheel is stationary*/
