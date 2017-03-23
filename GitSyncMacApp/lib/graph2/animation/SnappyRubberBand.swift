@@ -11,20 +11,7 @@ class SnappyRubberBand:RubberBand{
     var minVelocity:CGFloat = 2.6
     var snap:CGFloat = 100
     var prevDir:CGFloat = 0//-1,1 
-    /*var dir:Int = 0
-     override func start() {
-     dir = velocity.isNegative ? -1 : 1
-     super.start()
-     }
-     override func stop() {
-     dir = velocity.isNegative ? -1 : 1
-     super.stop()
-     }*/
-    /*init(_ animatable: IAnimatable, _ callBack: @escaping (CGFloat) -> Void, _ maskFrame: RubberBand.Frame, _ contentFrame: RubberBand.Frame, _ value: CGFloat, _ velocity: CGFloat, _ friction: CGFloat, _ springEasing: CGFloat, _ spring: CGFloat, _ limit: CGFloat, ) {
-     self.snap = snap
-     self.minVelocity = minVelocity
-     super.init(animatable, callBack, maskFrame, contentFrame, value, velocity, friction, springEasing, spring, limit)
-     }*/
+    
     override func applyFriction() {
         //Swift.print("SnappyRubberBand.applyFriction() velocity: \(velocity) value: \(value)")
         if(velocity == 0){/*when scrollWheel exit and its abs(prevScrollDelta) < 3 then we set the velocity to 0*/
@@ -48,17 +35,17 @@ class SnappyRubberBand:RubberBand{
             callBack(value)//final tick
             hasStopped = true
             stop()
-            
+        }else{
+            if(abs(velocity) <= minVelocity){/*Velocity is bellow min allowed, add velocity keep anim alive*/
+                Swift.print("use minVelocity")
+                velocity = prevDir.isNegative ? -minVelocity : minVelocity
+                value += velocity
+            }else{//else default to regular friction velocity
+                Swift.print("default friction: \(abs(velocity))")
+                super.applyFriction()//regular friction
+            }
         }
         
-        if(abs(velocity) <= minVelocity){/*Velocity is bellow min allowed, add velocity keep anim alive*/
-            Swift.print("use minVelocity")
-            velocity = prevDir.isNegative ? -minVelocity : minVelocity
-            value += velocity
-        }else{//else default to regular friction velocity
-            Swift.print("default friction: \(abs(velocity))")
-            super.applyFriction()//regular friction
-        }
     }
 }
 
