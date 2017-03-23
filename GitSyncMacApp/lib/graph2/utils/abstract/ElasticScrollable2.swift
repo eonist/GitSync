@@ -57,8 +57,6 @@ extension ElasticScrollable2{
         let prevDelta:CGFloat = iterimScroll.prevScrollingDelta
         if(abs(prevDelta) > 3){//must have more momentum than 3
             Swift.print("MOMENTUM")
-            
-            
             var velocity:CGFloat
             if(iterimScroll.prevScrollingDelta > 1.0){
                 Swift.print("> momentum")
