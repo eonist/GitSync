@@ -10,7 +10,7 @@ extension ElasticScrollable2{
         contentContainer!.frame.x = value
      }*/
      func onScrollWheelChange(_ event:NSEvent){
-       // Swift.print("👻📜 (ElasticScrollable2).onScrollWheelChange event.scrollingDeltaX: \(event.scrollingDeltaX)")
+        Swift.print("👻📜 (ElasticScrollable2).onScrollWheelChange event.scrollingDeltaX: \(event.scrollingDeltaX)")
         iterimScroll.prevScrollingDelta = event.scrollingDeltaX
         _ = iterimScroll.velocities.pushPop(event.scrollingDeltaX)
         mover!.value += event.scrollingDeltaX
