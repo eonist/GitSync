@@ -20,7 +20,7 @@ class SnappyRubberBand:RubberBand{
      super.init(animatable, callBack, maskFrame, contentFrame, value, velocity, friction, springEasing, spring, limit)
      }*/
     override func applyFriction() {
-        Swift.print("SnappyRubberBand.applyFriction() velocity: \(velocity) value: \(value)")
+        //Swift.print("SnappyRubberBand.applyFriction() velocity: \(velocity) value: \(value)")
         //keep some velocity alive
         //when at snap stop
         if(velocity == 0){
@@ -28,10 +28,15 @@ class SnappyRubberBand:RubberBand{
             let mod:CGFloat = value %% snap
             if(mod <= snap/2){
                 velocity = -minVelocity
+                Swift.print("go backward")
             }else{
+                Swift.print("go forward")
                 velocity = minVelocity
             }
         }
+        
+        value += velocity
+        /*
         if(abs(velocity) <= minVelocity){
             let modulo:CGFloat = (value %% snap)
             Swift.print("modulo: " + "\(modulo)")
@@ -54,6 +59,7 @@ class SnappyRubberBand:RubberBand{
         }else{
             super.applyFriction()//regular friction
         }
-        super.applyFriction()
+        */
+        //super.applyFriction()
     }
 }
