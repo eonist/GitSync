@@ -19,8 +19,9 @@ extension ElasticScrollable2{
         setProgress(mover!.result)
         var prevDir = (mover! as! SnappyRubberBand).prevDir
         let curDir = event.scrollingDeltaX
-        if(prevDir == 0){prevDir = curDir}
-        else if(prevDir.isNegative){}
+        if(curDir == 0){prevDir = curDir}
+        else if(curDir.isNegative){prevDir = -1}
+        else if(curDir.isPositive){prevDir = -1}
     }
     /**
      * NOTE: Basically when you enter your scrollWheel gesture
