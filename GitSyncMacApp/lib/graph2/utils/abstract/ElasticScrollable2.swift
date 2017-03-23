@@ -46,6 +46,7 @@ extension ElasticScrollable2{
             var velocity:CGFloat = 0
             if(iterimScroll.prevScrollingDelta > 0){velocity = NumberParser.max(iterimScroll.velocities)}/*Find the most positive velocity value*/
             else{velocity = NumberParser.min(iterimScroll.velocities)}/*Find the most negative velocity value*/
+            Swift.print("stationaryness: velocity: \(velocity)")
             mover!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
             mover!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*/
         }else{/*stationary*/
