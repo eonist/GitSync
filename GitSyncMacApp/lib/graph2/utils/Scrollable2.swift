@@ -11,7 +11,7 @@ protocol Scrollable2:Containable2 {
 
 extension Scrollable2{
     func scroll(_ event:NSEvent){
-        Swift.print("Scrollable2.scroll() \(event.phase.type)")
+        Swift.print("Scrollable2.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
         switch event.phase{
             case NSEventPhase.changed:onScrollWheelChange(event)
             case NSEventPhase.mayBegin:onScrollWheelEnter()
