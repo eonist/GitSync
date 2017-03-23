@@ -27,49 +27,31 @@ class SnappyRubberBand:RubberBand{
      }*/
     override func applyFriction() {
         //Swift.print("SnappyRubberBand.applyFriction() velocity: \(velocity) value: \(value)")
-        //keep some velocity alive
-        //when at snap stop
-        if(velocity == 0){//stationarry
-            //let mod:CGFloat = value %% snap
-            //Swift.print("mod: " + "\(mod)")
+        if(velocity == 0){//when scrollWheel exit and its abs(prevScrollDelta) < 3 then we set the velocity to 0
             Swift.print("prevDir: " + "\(prevDir)")
             if(prevDir.isPositive){/*abs(mod) <= snap/2*/
                 velocity = minVelocity
-                //Swift.print("go backward velocity : \(velocity)")
+                Swift.print("go backward velocity : \(velocity)")
             }else if(prevDir.isNegative) {
-                //Swift.print("go forward velocity : \(velocity)")
+                Swift.print("go forward velocity : \(velocity)")
                 velocity = -minVelocity
             }else{/*prevDir == 0*/
                 velocity = 0
             }
         }
-        
         value += velocity
         
         let modulo:CGFloat = (value %% snap)
-        //Swift.print("modulo: " + "\(modulo)")
-        if(abs(modulo).isNear(0, minVelocity)){
+        if(abs(modulo).isNear(0, minVelocity)){/*stop the value is close enough to target*/
             hasStopped = true
             stop()
-            //Swift.print("stop the value is close enough to target  velocity : \(velocity)")
             value = CGFloatModifier.roundTo(value, snap)
         }
         if(abs(velocity) <= minVelocity){
-            //let modulo:CGFloat = (value %% snap)
-            //Swift.print("modulo: " + "\(modulo)")
             velocity = prevDir.isNegative ? -minVelocity : minVelocity
-            /*if(abs(modulo).isNear(0, minVelocity)){//modulo is closer than 1 px to 0,
-                hasStopped = true
-                stop()
-                value = CGFloatModifier.roundTo(value, snap)
-            }else{
-                value += velocity
-            }*/
         }else{
             super.applyFriction()//regular friction
         }
-        /**/
-        //super.applyFriction()
     }
 }
 
