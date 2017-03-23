@@ -6,6 +6,7 @@ protocol ElasticScrollable2:Elastic2,Scrollable2 {
     func setProgress(_ value:CGFloat)
 }
 extension ElasticScrollable2{
+    
     /*func setProgress(_ value:CGFloat){
         contentContainer!.frame.x = value
      }*/
@@ -16,6 +17,7 @@ extension ElasticScrollable2{
         mover!.value += event.scrollingDeltaX
         mover!.updatePosition()
         setProgress(mover!.result)
+        (mover! as SnappyRubberBand).
     }
     /**
      * NOTE: Basically when you enter your scrollWheel gesture
