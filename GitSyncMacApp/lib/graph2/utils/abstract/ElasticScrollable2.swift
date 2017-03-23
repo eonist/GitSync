@@ -17,11 +17,13 @@ extension ElasticScrollable2{
         mover!.value += event.scrollingDeltaX
         mover!.updatePosition()
         setProgress(mover!.result)
-        var prevDir = (mover! as! SnappyRubberBand).prevDir
+        let prevDir = (mover! as! SnappyRubberBand).prevDir
+        var tempDir:CGFloat = 0
         let curDir = event.scrollingDeltaX
-        if(curDir == 0){prevDir = curDir}
-        else if(curDir.isNegative){prevDir = -1}
-        else if(curDir.isPositive){prevDir = -1}
+        if(curDir == 0){tempDir = curDir}
+        else if(curDir.isNegative){tempDir = -1}
+        else if(curDir.isPositive){tempDir = -1}
+        (mover! as! SnappyRubberBand).prevDir = 
     }
     /**
      * NOTE: Basically when you enter your scrollWheel gesture
