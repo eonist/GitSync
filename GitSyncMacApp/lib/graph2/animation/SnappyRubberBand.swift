@@ -27,9 +27,9 @@ class SnappyRubberBand:RubberBand{
             let mod:CGFloat = value %% snap
             if(mod <= snap/2){
                 velocity = -minVelocity
-                Swift.print("go backward")
+                Swift.print("go backward velocity : \(velocity)")
             }else{
-                Swift.print("go forward")
+                Swift.print("go forward velocity : \(velocity)")
                 velocity = minVelocity
             }
         }
@@ -37,9 +37,12 @@ class SnappyRubberBand:RubberBand{
         value += velocity
         
         let modulo:CGFloat = (value %% snap)
-        Swift.print("modulo: " + "\(modulo)")
+        //Swift.print("modulo: " + "\(modulo)")
         if(abs(modulo).isNear(0, minVelocity)){
-            
+            hasStopped = true
+            stop()
+            Swift.print("stop the value is close enough to target  velocity : \(velocity)")
+            value = CGFloatModifier.roundTo(value, snap)
         }
         /*
         if(abs(velocity) <= minVelocity){
