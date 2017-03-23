@@ -11,7 +11,7 @@ extension ElasticScrollable2{
         contentContainer!.frame.x = value
      }*/
      func onScrollWheelChange(_ event:NSEvent){
-        Swift.print("👻📜 (ElasticScrollable2).onScrollWheelChange event.scrollingDeltaX: \(event.scrollingDeltaX) event.deltaX: \(event.deltaX)")
+        //Swift.print("👻📜 (ElasticScrollable2).onScrollWheelChange event.scrollingDeltaX: \(event.scrollingDeltaX) event.deltaX: \(event.deltaX)")
         iterimScroll.prevScrollingDelta = event.scrollingDeltaX
         _ = iterimScroll.velocities.shiftAppend(event.scrollingDeltaX)
         mover!.value += event.scrollingDeltaX
@@ -43,7 +43,7 @@ extension ElasticScrollable2{
      */
      func onScrollWheelExit(){
         Swift.print("👻📜 (ElasticScrollable2).onScrollWheelExit")
-        Swift.print("iterimScroll.prevScrollingDelta: " + "\(iterimScroll.prevScrollingDelta)")
+        //Swift.print("iterimScroll.prevScrollingDelta: " + "\(iterimScroll.prevScrollingDelta)")
         //Swift.print("IRBScrollable.onScrollWheelUp")
         mover!.hasStopped = false
         mover!.isDirectlyManipulating = false
@@ -70,7 +70,7 @@ extension ElasticScrollable2{
                 velocity = 0
                 Swift.print("0 momentum")
             }//The prevScrollingDelta is: either '-1' or '+1' which means that the scrollwheel is stationary
-            Swift.print("iterimScroll.velocities: " + "\(iterimScroll.velocities)")
+            //Swift.print("iterimScroll.velocities: " + "\(iterimScroll.velocities)")
             Swift.print("exit: velocity: \(velocity)")
             mover!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
             mover!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*/
