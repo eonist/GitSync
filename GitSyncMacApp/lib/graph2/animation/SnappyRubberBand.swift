@@ -4,7 +4,7 @@ import Foundation
 
 
 //you need to research prevDelta more. you need to be accurate when determining direction. 
-    //you dont want to go backwards when you just scrolled forward and stopped etc. 
+    //you dont want to go backwards when you just scrolled forward and stopped etc.
 
 
 class SnappyRubberBand:RubberBand{
@@ -30,12 +30,12 @@ class SnappyRubberBand:RubberBand{
         //when at snap stop
         if(velocity == 0){//stationarry
             let mod:CGFloat = value %% snap
-            Swift.print("mod: " + "\(mod)")
+            //Swift.print("mod: " + "\(mod)")
             if(abs(mod) <= snap/2){
                 velocity = minVelocity
-                Swift.print("go backward velocity : \(velocity)")
+                //Swift.print("go backward velocity : \(velocity)")
             }else{
-                Swift.print("go forward velocity : \(velocity)")
+                //Swift.print("go forward velocity : \(velocity)")
                 velocity = -minVelocity
             }
         }
@@ -47,7 +47,7 @@ class SnappyRubberBand:RubberBand{
         if(abs(modulo).isNear(0, minVelocity)){
             hasStopped = true
             stop()
-            Swift.print("stop the value is close enough to target  velocity : \(velocity)")
+            //Swift.print("stop the value is close enough to target  velocity : \(velocity)")
             value = CGFloatModifier.roundTo(value, snap)
         }
         
