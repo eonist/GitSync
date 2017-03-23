@@ -14,6 +14,9 @@ extension Scrollable2{
     func scroll(_ event:NSEvent){
         Swift.print("Scrollable2.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
         switch event.phase{
+            
+            //if the prev Change event only had -1 or 1
+            
             case NSEventPhase.changed:onScrollWheelChange(event)/*Direct scroll*/
             case NSEventPhase.mayBegin:onScrollWheelEnter()
             case NSEventPhase.began:onScrollWheelEnter()
