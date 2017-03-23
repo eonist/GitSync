@@ -42,6 +42,7 @@ class SnappyRubberBand:RubberBand{
         }
         
         if(abs(value %% snap).isNear(0, minVelocity)){/*stop the value is close enough to target*/
+            Swift.print("is close to target")
             hasStopped = true
             stop()
             value = CGFloatModifier.roundTo(value, snap)/*set final destination*/
