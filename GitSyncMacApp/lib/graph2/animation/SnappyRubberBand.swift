@@ -51,7 +51,6 @@ class SnappyRubberBand:RubberBand{
             //Swift.print("stop the value is close enough to target  velocity : \(velocity)")
             value = CGFloatModifier.roundTo(value, snap)
         }
-        
         if(abs(velocity) <= minVelocity){
             //let modulo:CGFloat = (value %% snap)
             //Swift.print("modulo: " + "\(modulo)")
@@ -61,10 +60,8 @@ class SnappyRubberBand:RubberBand{
                 stop()
                 value = CGFloatModifier.roundTo(value, snap)
             }else{
-                
                 value += velocity
             }*/
-            
         }else{
             super.applyFriction()//regular friction
         }
