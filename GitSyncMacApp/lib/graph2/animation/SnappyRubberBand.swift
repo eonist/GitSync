@@ -2,6 +2,11 @@ import Foundation
 @testable import Element
 @testable import Utils
 
+
+//you need to research prevDelta more. you need to be accurate when determining direction. 
+    //you dont want to go backwards when you just scrolled forward and stopped etc. 
+
+
 class SnappyRubberBand:RubberBand{
     var minVelocity:CGFloat = 0.8
     var snap:CGFloat = 100
