@@ -47,16 +47,17 @@ class SnappyRubberBand:RubberBand{
         }
         
         if(abs(velocity) <= minVelocity){
-            let modulo:CGFloat = (value %% snap)
-            Swift.print("modulo: " + "\(modulo)")
-            if(abs(modulo).isNear(0, minVelocity)){//modulo is closer than 1 px to 0,
+            //let modulo:CGFloat = (value %% snap)
+            //Swift.print("modulo: " + "\(modulo)")
+            velocity = velocity.isNegative ? -minVelocity : minVelocity
+            /*if(abs(modulo).isNear(0, minVelocity)){//modulo is closer than 1 px to 0,
                 hasStopped = true
                 stop()
                 value = CGFloatModifier.roundTo(value, snap)
             }else{
-                velocity = velocity.isNegative ? -minVelocity : minVelocity
+                
                 value += velocity
-            }
+            }*/
             
         }else{
             super.applyFriction()//regular friction
