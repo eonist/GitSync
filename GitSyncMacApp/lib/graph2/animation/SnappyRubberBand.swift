@@ -23,7 +23,7 @@ class SnappyRubberBand:RubberBand{
         //Swift.print("SnappyRubberBand.applyFriction() velocity: \(velocity) value: \(value)")
         //keep some velocity alive
         //when at snap stop
-        if(velocity == 0){
+        if(velocity == 0){//stationarry
             let mod:CGFloat = value %% snap
             Swift.print("mod: " + "\(mod)")
             if(abs(mod) <= snap/2){
@@ -45,20 +45,13 @@ class SnappyRubberBand:RubberBand{
             Swift.print("stop the value is close enough to target  velocity : \(velocity)")
             value = CGFloatModifier.roundTo(value, snap)
         }
-        /*
+        
         if(abs(velocity) <= minVelocity){
             let modulo:CGFloat = (value %% snap)
             Swift.print("modulo: " + "\(modulo)")
             if(abs(modulo).isNear(0, minVelocity)){//modulo is closer than 1 px to 0,
                 hasStopped = true
                 stop()
-                //You need to detect dist to target on stationary scrollwheel exit. 
-                    //as it doesnt have direction
-                //you need to add some dist to target code 👈 🏀
-                //try to drag and drop it into position
-                //you need to calculate the direction on release. why?
-                //you need to set the final value so that it snaps to the perfect value✅
-                //find the round to method and round value to snap✅
                 value = CGFloatModifier.roundTo(value, snap)
             }else{
                 velocity = velocity.isNegative ? -minVelocity : minVelocity
@@ -68,7 +61,16 @@ class SnappyRubberBand:RubberBand{
         }else{
             super.applyFriction()//regular friction
         }
-        */
+        /**/
         //super.applyFriction()
     }
 }
+
+//You need to detect dist to target on stationary scrollwheel exit.
+//as it doesnt have direction
+//you need to add some dist to target code 👈 🏀
+//try to drag and drop it into position
+//you need to calculate the direction on release. why?
+//you need to set the final value so that it snaps to the perfect value✅
+//find the round to method and round value to snap✅
+
