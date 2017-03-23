@@ -10,6 +10,7 @@ import Foundation
 class SnappyRubberBand:RubberBand{
     var minVelocity:CGFloat = 0.8
     var snap:CGFloat = 100
+    var prevDir:CGFloat = 0//-1,1 
     /*var dir:Int = 0
      override func start() {
      dir = velocity.isNegative ? -1 : 1
