@@ -42,6 +42,10 @@ extension ElasticScrollable2{
         mover!.value = mover!.result
         
         //you need to record the last directional scroll, as the last changeEvent can actually be 0
+        //continue here:
+            //you need to record direction
+            //and what was deltaX on the last change before exit. is it always 0?
+        
         
         if(iterimScroll.prevScrollingDelta == 0 || iterimScroll.prevScrollingDelta == 1.0 || iterimScroll.prevScrollingDelta == -1.0){
             Swift.print("STATIONARY")
