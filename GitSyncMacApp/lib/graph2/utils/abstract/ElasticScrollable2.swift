@@ -44,11 +44,13 @@ extension ElasticScrollable2{
         //you need to record the last directional scroll, as the last changeEvent can actually be 0
         
         if(iterimScroll.prevScrollingDelta == 0 || iterimScroll.prevScrollingDelta == 1.0 || iterimScroll.prevScrollingDelta == -1.0){
+            Swift.print("STATIONARY")
             //the prev change event had zero momentum aka stationary
             mover!.velocity = 0
             mover!.start()/*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
             
         }else{
+            Swift.print("MOMENTUM")
             var velocity:CGFloat
             if(iterimScroll.prevScrollingDelta > 1.0){
                 Swift.print("> momentum")
