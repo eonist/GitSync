@@ -23,13 +23,17 @@ class SnappyRubberBand:RubberBand{
         Swift.print("SnappyRubberBand.applyFriction() velocity: \(velocity) value: \(value)")
         //keep some velocity alive
         //when at snap stop
+        if(velocity == 0){
+            fatalError("0 vel, calc dist, go to target")
+        }
         if(abs(velocity) <= minVelocity){
             let modulo:CGFloat = (value %% snap)
             Swift.print("modulo: " + "\(modulo)")
             if(abs(modulo).isNear(0, minVelocity)){//modulo is closer than 1 px to 0,
                 hasStopped = true
                 stop()
-                
+                //You need to detect dist to target on stationary scrollwheel exit. 
+                    //as it doesnt have direction
                 //you need to add some dist to target code 👈 🏀
                 //try to drag and drop it into position
                 //you need to calculate the direction on release. why?
