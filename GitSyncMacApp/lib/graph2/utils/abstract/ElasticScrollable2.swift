@@ -35,6 +35,7 @@ extension ElasticScrollable2{
      */
      func onScrollWheelExit(){
         Swift.print("👻📜 (ElasticScrollable2).onScrollWheelExit")
+        Swift.print("iterimScroll.prevScrollingDelta: " + "\(iterimScroll.prevScrollingDelta)")
         //Swift.print("IRBScrollable.onScrollWheelUp")
         mover!.hasStopped = false
         mover!.isDirectlyManipulating = false
