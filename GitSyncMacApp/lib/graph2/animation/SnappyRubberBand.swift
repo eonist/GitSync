@@ -27,7 +27,7 @@ class SnappyRubberBand:RubberBand{
      }*/
     override func applyFriction() {
         //Swift.print("SnappyRubberBand.applyFriction() velocity: \(velocity) value: \(value)")
-        if(velocity == 0){//when scrollWheel exit and its abs(prevScrollDelta) < 3 then we set the velocity to 0
+        if(velocity == 0){/*when scrollWheel exit and its abs(prevScrollDelta) < 3 then we set the velocity to 0*/
             Swift.print("prevDir: " + "\(prevDir)")
             if(prevDir.isPositive){/*abs(mod) <= snap/2*/
                 velocity = minVelocity
