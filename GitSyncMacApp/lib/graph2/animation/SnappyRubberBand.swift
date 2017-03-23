@@ -39,7 +39,7 @@ class SnappyRubberBand:RubberBand{
                 //Swift.print("go forward velocity : \(velocity)")
                 velocity = -minVelocity
             }else{/*prevDir == 0*/
-                fatalError("💥")
+                velocity = 0
             }
         }
         
