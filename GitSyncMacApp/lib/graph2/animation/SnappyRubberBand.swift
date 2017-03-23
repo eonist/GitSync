@@ -47,7 +47,7 @@ class SnappyRubberBand:RubberBand{
             stop()
             value = CGFloatModifier.roundTo(value, snap)
         }
-        if(abs(velocity) <= minVelocity){
+        if(abs(velocity) <= minVelocity){/*Velocity is bellow min allowed, add velocity keep anim alive*/
             velocity = prevDir.isNegative ? -minVelocity : minVelocity
         }else{
             super.applyFriction()//regular friction
