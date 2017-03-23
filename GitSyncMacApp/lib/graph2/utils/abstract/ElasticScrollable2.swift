@@ -42,11 +42,19 @@ extension ElasticScrollable2{
         mover!.value = mover!.result
         
         /*X*/
-        if(iterimScroll.prevScrollingDelta != 1.0 && iterimScroll.prevScrollingDelta != -1.0){/*Not 1 and not -1 indicates that the wheel is not stationary*/
-            var velocity:CGFloat = 0
-            if(iterimScroll.prevScrollingDelta > 0){velocity = NumberParser.max(iterimScroll.velocities)}/*Find the most positive velocity value*/
-            else{velocity = NumberParser.min(iterimScroll.velocities)}/*Find the most negative velocity value*/
-            Swift.print("stationaryness: velocity: \(velocity)")
+        if(iterimScroll.prevScrollingDelta != 1.0 && iterimScroll.prevScrollingDelta != -1.0){/*Not 1 and not -1 indicates that the wheel is not stationary, or in other words: -1 or 1 means that the scrollwheel is stationary*/
+            var velocity:CGFloat
+            if(iterimScroll.prevScrollingDelta > 0){
+                velocity = NumberParser.max(iterimScroll.velocities)
+            }/*Find the most positive velocity value*/
+            else if(iterimScroll.prevScrollingDelta < 0){
+                velocity = NumberParser.min(iterimScroll.velocities)
+            }/*Find the most negative velocity value*/
+            else {
+                velocity = 0
+                Swift.print("scrollWhell is stationary aka has no momentum")
+            }//The prevScrollingDelta is: either '-1' or '+1' which means that the scrollwheel is stationary
+            Swift.print("exit: velocity: \(velocity)")
             mover!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
             mover!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*/
         }else{/*stationary*/
