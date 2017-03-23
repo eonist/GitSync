@@ -12,7 +12,7 @@ extension ElasticScrollable2{
      func onScrollWheelChange(_ event:NSEvent){
         Swift.print("👻📜 (ElasticScrollable2).onScrollWheelChange event.scrollingDeltaX: \(event.scrollingDeltaX) event.deltaX: \(event.deltaX)")
         iterimScroll.prevScrollingDelta = event.scrollingDeltaX
-        _ = iterimScroll.velocities.pushPop(event.scrollingDeltaX)
+        _ = iterimScroll.velocities.shiftAppend(event.scrollingDeltaX)
         mover!.value += event.scrollingDeltaX
         mover!.updatePosition()
         setProgress(mover!.result)
