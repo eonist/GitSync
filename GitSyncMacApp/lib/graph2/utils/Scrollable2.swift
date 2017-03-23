@@ -15,7 +15,7 @@ extension Scrollable2{
         Swift.print("Scrollable2.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
         switch event.phase{
             
-            //if the prev Change event only had -1 or 1
+            //if the prev Change event only had -1 or 1 or 0. Then you released with no momentum and so no anim should be initiated
             
             case NSEventPhase.changed:onScrollWheelChange(event)/*Direct scroll*/
             case NSEventPhase.mayBegin:onScrollWheelEnter()
