@@ -52,7 +52,7 @@ extension ElasticScrollable2{
             var velocity:CGFloat
             if(iterimScroll.prevScrollingDelta > 1.0){
                 Swift.print("> momentum")
-                velocity = NumberParser.max(iterimScroll.velocities)
+                //velocity = CGFloatParser.average(iterimScroll.velocities)//NumberParser.max()
             }/*Find the most positive velocity value*/
             else if(iterimScroll.prevScrollingDelta < -1.0){
                 Swift.print("< momentum")
