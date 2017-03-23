@@ -8,7 +8,7 @@ import Foundation
 
 
 class SnappyRubberBand:RubberBand{
-    var minVelocity:CGFloat = 0.8
+    var minVelocity:CGFloat = 2.6
     var snap:CGFloat = 100
     var prevDir:CGFloat = 0//-1,1 
     /*var dir:Int = 0
@@ -48,10 +48,13 @@ class SnappyRubberBand:RubberBand{
             hasStopped = true
             stop()
         }
+        
         if(abs(velocity) <= minVelocity){/*Velocity is bellow min allowed, add velocity keep anim alive*/
+            Swift.print("use minVelocity")
             velocity = prevDir.isNegative ? -minVelocity : minVelocity
             value += velocity
         }else{//else default to regular friction velocity
+            Swift.print("default friction: \(abs(velocity))")
             super.applyFriction()//regular friction
         }
     }
