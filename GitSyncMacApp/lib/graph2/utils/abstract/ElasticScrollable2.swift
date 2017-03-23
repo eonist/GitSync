@@ -41,6 +41,8 @@ extension ElasticScrollable2{
         mover!.isDirectlyManipulating = false
         mover!.value = mover!.result
         
+        //you need to record the last directional scroll
+        
         /*X*/
         //if(iterimScroll.prevScrollingDelta != 1.0 && iterimScroll.prevScrollingDelta != -1.0){/*Not 1 and not -1 indicates that the wheel is not stationary, or in other words: -1 or 1 means that the scrollwheel is stationary*/
             var velocity:CGFloat
