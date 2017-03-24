@@ -3,13 +3,15 @@ import Foundation
 @testable import Utils
 
 class TimeBar2:TimeBar{
+    var items:[String]
     init(_ width: CGFloat, _ height: CGFloat, _ items:[String], _ parent: IElement?, _ id: String?) {
+        self.items = items
         super.init(width, height, items.count, parent, id)
     }
     override func createItem(_ idx:Int){
         let spaceX:CGFloat = 100
         let x:CGFloat = (idx * spaceX)
-        let str:String = x.string
+        let str:String = items[idx]
         //Swift.print("str: " + "\(str)")
         let textArea:TextArea = TextArea(NaN,NaN,str,self)
         _ = addSubView(textArea)
