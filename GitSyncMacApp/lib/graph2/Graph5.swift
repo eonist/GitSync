@@ -1,5 +1,6 @@
 import Foundation
-
+@testable import Utils
+@testable import Element
 
 class Graph5:ContainerView2{
     let dayNames:[String] = ["M","T","W","T","F","S","S"]
@@ -9,6 +10,7 @@ class Graph5:ContainerView2{
     //gesture recognizer
     //change timeBar textFields on gesture event
     override func resolveSkin() {
-        <#code#>
+        StyleManager.addStyle("Graph5{fill:green;fill-alpha:0.5;}")
+        super.resolveSkin()
     }
 }
