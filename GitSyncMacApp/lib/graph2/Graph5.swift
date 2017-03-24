@@ -21,7 +21,7 @@ import Foundation
     //on gesture pinch zoom in out
         //change the text in the timebar on pinch change
 
-//2. task:
+//2. Task:
     //
 class Graph5 {
     
