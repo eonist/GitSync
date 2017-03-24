@@ -11,6 +11,9 @@ class TimeBar:Element {
     override func resolveSkin() {
         addStyles()
         super.resolveSkin()
+        createItems()
+    }
+    func createItems(){
         let spaceX:CGFloat = 100
         for i in 0...count{
             let x:CGFloat = (i*spaceX)
