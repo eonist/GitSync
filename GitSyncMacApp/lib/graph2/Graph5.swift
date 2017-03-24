@@ -7,7 +7,8 @@ import Foundation
         //When you go into the new timeUnit, you do it with a progress value attached.
             //Then you render the range for that progress val
             //you need the entire timespan for the value bar
-                //calculate this by 
+                //calculate this by asking all repos for the date of their first commit. now..<firstCommitDates.min()
+                //
 class Graph5 {
     
 }
