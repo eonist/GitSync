@@ -3,6 +3,11 @@ import Cocoa
 @testable import Element
 
 class Graph5:ContainerView2{
+    
+    var gestureHUD:GestureHUD?
+    
+    
+    
     var dayNames:[String] {return ["M","T","W","T","F","S","S"]}
     var monthNames:[String] { return ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]}
     var yearNames:[String] { return ["11","12","13","14","15","16","17"] }
@@ -31,9 +36,23 @@ class Graph5:ContainerView2{
         /*add UI*/
         createTimeBar()
         
-        //Continue here:
-            //add the gesture stuff from pinch test
+        /*debug*/
+        gestureHUD = GestureHUD(self)
+        self.acceptsTouchEvents = true/*Enables gestures*/
+        self.wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
     }
+    
+    
+    override func touchesBegan(with event:NSEvent) {
+        gestureHUD!.touchesBegan(event)
+    }
+    override func touchesMoved(with event:NSEvent) {
+        gestureHUD!.touchesMoved(event)
+    }
+    override func touchesEnded(with event:NSEvent) {
+        gestureHUD!.touchesEnded(event)
+    }
+    
     var zoom:CGFloat = 0
     /**
      * Detects if a zoom gesture has occured +-100 deltaZ
