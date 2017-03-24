@@ -13,5 +13,7 @@ class Graph5:ContainerView2{
         StyleManager.addStyle("Graph5{fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         super.resolveSkin()
         
+        
+        
     }
 }
