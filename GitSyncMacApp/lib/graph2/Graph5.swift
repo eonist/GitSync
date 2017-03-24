@@ -30,13 +30,9 @@ class Graph5:ContainerView2{
             //add the gesture stuff from pinch test
     }
     
-    override func smartMagnify(with event: NSEvent) {
-        super.smartMagnify(with: event)
-        Swift.print("smartMagnify")
-    }
     override func magnify(with event: NSEvent) {
         super.magnify(with: event)
-        Swift.print("magnify")
+        Swift.print("magnify event: \(event)")
     }
 }
 extension Graph5{
