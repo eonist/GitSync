@@ -8,7 +8,11 @@ import Foundation
             //Then you render the range for that progress val
             //you need the entire timespan for the value bar
                 //calculate this by asking all repos for the date of their first commit. now..<firstCommitDates.min()
-                //
+                //Use fastList tech to render the timebar.
+                    //use a sudo range to test this first. 
+                    //dont use fastList at first. just use small data sets. 
+                    //you need to add faux dates when the ranges are too small. 
+                        //if you only commited in 17 you still need 6 other years prior to fill the gap 
 class Graph5 {
     
 }
