@@ -66,7 +66,7 @@ class Graph5:ContainerView2{
     }
     func onZoomLevelChange() {
         var timeLevel:[String] = timeLevels[curZoom]
-        timeLevel = timeLevel.
+        timeLevel = timeLevel[0..<6]
         timeBar!.textAreas
     }
 }
