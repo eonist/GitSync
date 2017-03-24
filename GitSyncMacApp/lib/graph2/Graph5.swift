@@ -18,7 +18,7 @@ import Foundation
 
 
 //1. Task:
-    //draw the different transitions and logics on paper first, find the weak spots
+    //draw the different transitions and logics on paper first, find the weak spots ✅
     //3 time-levels with default 7 items.
     //on gesture pinch zoom in out
         //change the text in the timebar on pinch change
@@ -26,6 +26,8 @@ import Foundation
 //2. Task:
     //create a sudo time data structure
     //figure out how to fill in the blanks when that occurs
+    //the mouse cursor closness to a GraphPoint decides where the zoom will occure.
+        //you zoom in at the beginning of the month. begining of year, begining of day etc.
 class Graph5 {
     
 }
