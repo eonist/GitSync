@@ -16,6 +16,9 @@ class Graph5:ContainerView2{
     //TimeBar with 7 items
     //gesture recognizer
     //change timeBar textFields on gesture event
+    var curZoom:Int = 0
+    let numOfZoomLevels:Int = 3
+    
     override func resolveSkin() {
         StyleManager.addStyle("Graph5{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         super.resolveSkin()
@@ -37,11 +40,13 @@ class Graph5:ContainerView2{
         }else if(event.phase == .began){
             zoom = 0//reset
         }else if(event.phase == .ended){
-            Swift.print("zoom: " + "\(zoom)")
+            //Swift.print("zoom: " + "\(zoom)")
             if(zoom < -100){
                 Swift.print("zoom out")
             }else if(zoom > 100){
                 Swift.print("zoom in")
+            }else{
+                Swift.print("no zoom")
             }
         }
         //Swift.print("magnify event: \(event)")
