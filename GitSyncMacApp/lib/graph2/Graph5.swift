@@ -17,7 +17,7 @@ import Foundation
                             //also fill the bar if there are no commits: 6_months_prior..<now, same with days and year
 
 //1. Task:
-    //3 time-levels with default 7 items. 
+    //3 time-levels with default 7 items.
     //on gesture pinch zoom in out
         //change the text in the timebar on pinch change
 
