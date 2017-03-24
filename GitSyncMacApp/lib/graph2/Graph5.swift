@@ -29,10 +29,17 @@ class Graph5:ContainerView2{
         //Continue here:
             //add the gesture stuff from pinch test
     }
-    
+    var zoom:CGFloat = 0
     override func magnify(with event: NSEvent) {
         super.magnify(with: event)
-        Swift.print("magnify event: \(event)")
+        if(event.phase == .changed){
+            zoom += event.deltaZ
+        }else if(event.phase == .began){
+            zoom = 0//reset
+        }else if(event.phase == .ended){
+            Swift.print("zoom: " + "\(zoom)")
+        }
+        //Swift.print("magnify event: \(event)")
     }
 }
 extension Graph5{
