@@ -3,6 +3,7 @@ import Foundation
 @testable import Utils
 
 class TimeBar2:TimeBar{
+    var textAreas:[TextArea] = []
     var items:[String]
     init(_ width: CGFloat, _ height: CGFloat, _ items:[String], _ parent: IElement? = nil, _ id: String? = nil) {
         self.items = items
@@ -14,6 +15,7 @@ class TimeBar2:TimeBar{
         let str:String = items[idx]
         //Swift.print("str: " + "\(str)")
         let textArea:TextArea = TextArea(NaN,NaN,str,self)
+        textAreas.append(textArea)
         _ = addSubView(textArea)
         //Swift.print("CGPoint(x,0): " + "\(CGPoint(x,0))")
         textArea.setPosition(CGPoint(x,0))

@@ -59,9 +59,15 @@ class Graph5:ContainerView2{
             }
             let newZoom = curZoom + dir
             if(newZoom >= 0 && newZoom < maxZoom){curZoom = newZoom}
+            onZoomLevelChange()
             Swift.print("curZoom: " + "\(curZoom)")
         }
         //Swift.print("magnify event: \(event)")
+    }
+    func onZoomLevelChange() {
+        var timeLevel:[String] = timeLevels[curZoom]
+        timeLevel = timeLevel.
+        timeBar!.textAreas
     }
 }
 extension Graph5{
