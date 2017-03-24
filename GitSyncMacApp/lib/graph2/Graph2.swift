@@ -8,8 +8,7 @@ import Cocoa
 class Graph2:ElasticView{
     //override var itemsHeight: CGFloat {return height}
     //override var itemHeight: CGFloat {return 24}
-   
-    
+
     override func resolveSkin() {
         StyleManager.addStyle("Graph2 {fill:green;fill-alpha:0;}")
         super.resolveSkin()

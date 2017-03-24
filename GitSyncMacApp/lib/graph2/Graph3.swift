@@ -3,7 +3,7 @@ import Cocoa
 @testable import Element
 //When you scroll fast
     //lots of new points pass through
-    //To avoid a jittery feel
+    //To avoid a jittery feel 👈
     //we must......????
     //the end destination of the graphPoints
         //must always be the end destination of the animation
