@@ -6,6 +6,7 @@ class Graph5:ContainerView2{
     let dayNames:[String] = ["M","T","W","T","F","S","S"]
     let monthNames:[String] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     let yearNames:[String] = ["11","12","13","14","15","16","17"]
+    var timeLevels:[[String]]? = [dayNames,monthNames,yearNames]
     
     override var itemSize:CGSize {return CGSize(48,48)}//override this for custom value
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
@@ -26,6 +27,7 @@ class Graph5:ContainerView2{
         /*config*/
         maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
         contentSize = CGSize(1600,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
+        timeLevels = [dayNames,monthNames,yearNames]
         /*add UI*/
         createTimeBar()
         
