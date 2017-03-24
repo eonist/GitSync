@@ -17,7 +17,9 @@ import Foundation
                             //also fill the bar if there are no commits: 6_months_prior..<now, same with days and year
 
 //Tasks:
-    //
+    //3 timelevels with default 7 items. 
+    //on gesture pinch zoom in out
+        //
 class Graph5 {
     
 }
