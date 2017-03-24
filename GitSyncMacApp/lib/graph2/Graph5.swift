@@ -27,7 +27,7 @@ class Graph5:ContainerView2{
         createTimeBar()
         
         //Continue here:
-            //create 
+            //add the gesture stuff from pinch test
     }
 }
 extension Graph5{
