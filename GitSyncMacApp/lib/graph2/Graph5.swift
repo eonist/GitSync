@@ -38,6 +38,11 @@ class Graph5:ContainerView2{
             zoom = 0//reset
         }else if(event.phase == .ended){
             Swift.print("zoom: " + "\(zoom)")
+            if(zoom < -100){
+                Swift.print("zoom out")
+            }else if(zoom > 100){
+                Swift.print("zoom in")
+            }
         }
         //Swift.print("magnify event: \(event)")
     }
