@@ -4,7 +4,7 @@ import Foundation
 
 class TimeBar2:TimeBar{
     var items:[String]
-    init(_ width: CGFloat, _ height: CGFloat, _ items:[String], _ parent: IElement?, _ id: String?) {
+    init(_ width: CGFloat, _ height: CGFloat, _ items:[String], _ parent: IElement? = nil, _ id: String? = nil) {
         self.items = items
         super.init(width, height, items.count, parent, id)
     }

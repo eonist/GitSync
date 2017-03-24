@@ -10,8 +10,7 @@ class Graph5:ContainerView2{
     override var itemSize:CGSize {return CGSize(48,48)}//override this for custom value
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
     override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
-    var timeBar:TimeBar?
-    var valueBar:ValueBar?
+    var timeBar:TimeBar2?
     /*Anim*/
     
     //TimeBar with 7 items
@@ -34,7 +33,7 @@ extension Graph5{
      */
     func createTimeBar(){
         //TODO: make line marks
-        timeBar = addSubView(TimeBar(contentSize.width,32,20,self))
+        timeBar = addSubView(TimeBar2(contentSize.width,32,dayNames,self))
         let objSize = CGSize(timeBar!.w,32)
         Swift.print("objSize: " + "\(objSize)")
         let canvasSize = CGSize(w,h)
