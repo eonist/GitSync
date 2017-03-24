@@ -54,6 +54,7 @@ class Graph5:ContainerView2{
             }
             let newZoom = curZoom + dir
             if(newZoom >= 0 && newZoom < maxZoom){curZoom = newZoom}
+            Swift.print("curZoom: " + "\(curZoom)")
         }
         //Swift.print("magnify event: \(event)")
     }
