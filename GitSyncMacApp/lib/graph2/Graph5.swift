@@ -16,10 +16,13 @@ import Foundation
                             //the same goes for other timeunits you may have only commited in june, but need 6 months prior to fill the bar
                             //also fill the bar if there are no commits: 6_months_prior..<now, same with days and year
 
-//Tasks:
+//1. Task:
     //3 timelevels with default 7 items. 
     //on gesture pinch zoom in out
-        //
+        //change the text in the timebar on pinch change
+
+//2. task:
+    //
 class Graph5 {
     
 }
