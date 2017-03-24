@@ -35,6 +35,12 @@ class TimeBar:Element {
             line.draw()
         }
     }
+    /**
+     *
+     */
+    func createItem(_ x:CGFloat, _ str:String, ){
+        
+    }
     func addStyles(){
         var css:String = ""
         css += "TimeBar{"
