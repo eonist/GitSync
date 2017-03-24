@@ -14,7 +14,7 @@ class TimeBar:Element {
         createItems()
     }
     func createItems(){
-        for i in 0...count{
+        for i in 0..<count{
             createItem(i)
         }
     }

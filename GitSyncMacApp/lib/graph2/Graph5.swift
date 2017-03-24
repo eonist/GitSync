@@ -25,6 +25,9 @@ class Graph5:ContainerView2{
         contentSize = CGSize(1600,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         /*add UI*/
         createTimeBar()
+        
+        //Continue here:
+            //create 
     }
 }
 extension Graph5{
