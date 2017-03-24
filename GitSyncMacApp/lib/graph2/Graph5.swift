@@ -10,7 +10,8 @@ class Graph5:ContainerView2{
     //gesture recognizer
     //change timeBar textFields on gesture event
     override func resolveSkin() {
-        StyleManager.addStyle("Graph5{fill:green;fill-alpha:0.5;}")
+        StyleManager.addStyle("Graph5{fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         super.resolveSkin()
+        
     }
 }
