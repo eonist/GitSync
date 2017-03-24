@@ -9,5 +9,8 @@ class TimeBar2:TimeBar{
     override func createItems() {
         //
     }
+    override func getClassType() -> String {
+        return "\(TimeBar.self)"
+    }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented") }
 }
