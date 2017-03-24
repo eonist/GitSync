@@ -26,7 +26,6 @@ import Foundation
 //2. Task:
     //create a sudo time data structure
     //figure out how to fill in the blanks when that occurs
-    //
 class Graph5 {
     
 }
