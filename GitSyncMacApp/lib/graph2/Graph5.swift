@@ -12,7 +12,12 @@ import Foundation
                     //use a sudo range to test this first. 
                     //dont use fastList at first. just use small data sets. 
                     //you need to add faux dates when the ranges are too small. 
-                        //if you only commited in 17 you still need 6 other years prior to fill the gap 
+                        //if you only commited in 17 you still need 6 other years prior to fill the gap
+                            //the same goes for other timeunits you may have only commited in june, but need 6 months prior to fill the bar
+                            //also fill the bar if there are no commits: 6_months_prior..<now, same with days and year
+
+//Tasks:
+    //
 class Graph5 {
     
 }
