@@ -36,7 +36,7 @@ class Graph5:ContainerView2{
     }
     var zoom:CGFloat = 0
     /**
-     * detects if a zoom gesture has occured +-100 deltaZ
+     * Detects if a zoom gesture has occured +-100 deltaZ
      */
     override func magnify(with event: NSEvent) {
         super.magnify(with: event)
