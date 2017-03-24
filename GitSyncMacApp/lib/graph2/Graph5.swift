@@ -16,12 +16,16 @@ import Foundation
                             //the same goes for other timeunits you may have only commited in june, but need 6 months prior to fill the bar
                             //also fill the bar if there are no commits: 6_months_prior..<now, same with days and year
 
+
 //1. Task:
+    //draw the different transitions and logics on paper first, find the weak spots
     //3 time-levels with default 7 items.
     //on gesture pinch zoom in out
         //change the text in the timebar on pinch change
 
 //2. Task:
+    //create a sudo time data structure
+    //figure out how to fill in the blanks when that occurs
     //
 class Graph5 {
     
