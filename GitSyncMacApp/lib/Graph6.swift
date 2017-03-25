@@ -32,10 +32,10 @@ extension Graph6{
     func createList(){
         //change the css to align sideways
         var css:String = "List#vertical Container#lable SelectTextButton{"
-        css = "float:left;"
-        css = "clear:none;"
-        css = "fill-alpha:1;"
-        css = "}"
+        css += "float:left;"
+        css += "clear:none;"
+        css += "fill-alpha:1;"
+        css += "}"
         StyleManager.addStyle(css)
         
         let dp = DataProvider()
