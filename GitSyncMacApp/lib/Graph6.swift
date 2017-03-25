@@ -7,7 +7,7 @@ import Cocoa
 
 //1. Create a vertical list first, then FastList
 
-class Graph6:ContainerView2{
+class Graph6:Element{
     var monthNames:[String] { return ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]}
     override var itemSize:CGSize {return CGSize(48,48)}//override this for custom value
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
