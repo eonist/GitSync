@@ -39,7 +39,7 @@ extension Graph6{
         dp.addItem(["title":"pink"])/*adds a new item to the end of the list*/
         dp.addItems([["title":"purple"], ["title":"turquoise"]])/*adds 2 items to the end of the list*/
         
-        let list = addSubView(VList(500,24,CGSize(100,24),dp,nil,"vertical"))
+        let list = addSubView(VList(500,124,CGSize(100,24),dp,nil))
         _ = list
         
         //continue here:
@@ -72,7 +72,7 @@ extension Graph6{
         css +=     "fill:white;"
         css +=     "fill-alpha:1;"
         css +=     "line:#B8B8B8;"
-        css +=     "line-alpha:1;"
+        css +=     "line-alpha:0.2;"
         css +=     "line-offset-type:outside;"
         css +=     "line-thickness:1px;"
         css += "}"
