@@ -3,6 +3,7 @@ import Cocoa
 @testable import Element
 /**
  * This tests animate graphpoint to graphline on scrollend
+ * This experiment is a bit broken. I still works but with artifacts. 
  */
 class Graph3:ContainerView2,Scrollable2{
     typealias P = CGPoint
@@ -43,7 +44,7 @@ extension Graph3{
      *
      */
     func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
-        Swift.print("onScrollWheelChange() event.scrollingDeltaX: \(event.scrollingDeltaX)")
+        //Swift.print("onScrollWheelChange() event.scrollingDeltaX: \(event.scrollingDeltaX)")
         if(event.scrollingDeltaX == 0){
             scrollingEnded()
         }
