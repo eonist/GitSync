@@ -2,12 +2,12 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-class ScrollVList:VList{
+class ScrollVList:VList,Scrollable2{
     /**
      *
      */
     override open func scrollWheel(with event: NSEvent) {
-        //Swift.print("GraphView.scrollWheel")
+        Swift.print("ScrollVList.scrollWheel")
         scroll(event)
         //super.scrollWheel(with: event)
     }
