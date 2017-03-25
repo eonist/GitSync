@@ -84,7 +84,7 @@ extension Graph6{
         /*Button*/
         css += "VList Container#lable SelectTextButton{"
         css +=     "float:left;"
-        css +=     "clear:left;"
+        css +=     "clear:none;"
         //css +=     "width:100%;"
         //css +=     "height:24px;"
         css +=     "fill:red;"
