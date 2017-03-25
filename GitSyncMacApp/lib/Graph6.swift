@@ -63,8 +63,7 @@ extension Graph6{
 }
 extension Graph6{
     func addVListStyles(){
-        var css:String = ""
-        css += "VList{"
+        var css:String = "VList{"
         css +=     "float:left;"
         css +=     "clear:left;"
         //css +=     "width:138px;/*<-this is a fix until padding works corectly*/"
