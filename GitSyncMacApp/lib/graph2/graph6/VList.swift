@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Element
 @testable import Utils
 
@@ -10,7 +10,7 @@ class VList:ContainerView2 {
         self.itemSize = itemSize
         self.dp = dataProvider ?? DataProvider()/*<--if it's nil then a DB is created*/
         super.init(width,height,parent,id)
-        self.dataProvider.event = onEvent/*Add event handler for the dataProvider*/
+        self.dp.event = onEvent/*Add event handler for the dataProvider*/
         //layer!.masksToBounds = true/*masks the children to the frame, I don't think this works, seem to work now*/
     }
     /**
@@ -32,7 +32,7 @@ class VList:ContainerView2 {
         }
     }
     func mergeAt(_ dict:[String:String], _ i:Int) -> NSView{
-        let item:SelectTextButton = SelectTextButton(getWidth(), itemHeight ,object["title"]!, false, lableContainer)
+        let item:SelectTextButton = SelectTextButton(getWidth(), itemSize.height ,dict["title"]!, false, lableContainer)
         lableContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
         return item
     }
