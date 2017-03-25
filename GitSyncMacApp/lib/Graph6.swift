@@ -23,7 +23,9 @@ class Graph6:ContainerView2{
         contentSize = CGSize(1600,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         
         /*add UI*/
-        createTimeBar()
+        //createTimeBar()
+        
+        let list = VList()
     }
 }
 extension Graph6{

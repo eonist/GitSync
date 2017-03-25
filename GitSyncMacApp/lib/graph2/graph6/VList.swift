@@ -37,5 +37,8 @@ class VList:ContainerView2 {
         contentContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
         return item
     }
+    override func getClassType() -> String {
+        return "\(List.self)"
+    }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
