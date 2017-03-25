@@ -7,7 +7,18 @@ protocol Scrollable2:Containable2 {
      func onScrollWheelEnter()
      func onScrollWheelExit()
 }
-
+extension ContainerView2{
+    /**
+     *
+     */
+    override open func scrollWheel(with event: NSEvent) {
+        //Swift.print("ScrollVList.scrollWheel")
+        if(self is Scrollable2){
+            (self as! Scrollable2).scroll(event)
+        }
+        //super.scrollWheel(with: event)
+    }
+}
 
 extension Scrollable2{
     func scroll(_ event:NSEvent){

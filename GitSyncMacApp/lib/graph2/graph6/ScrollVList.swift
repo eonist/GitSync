@@ -3,14 +3,7 @@ import Cocoa
 @testable import Element
 
 class ScrollVList:VList,Scrollable2{
-    /**
-     *
-     */
-    override open func scrollWheel(with event: NSEvent) {
-        //Swift.print("ScrollVList.scrollWheel")
-        scroll(event)
-        //super.scrollWheel(with: event)
-    }
+    
     /**
      *
      */
