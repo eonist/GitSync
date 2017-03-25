@@ -7,11 +7,9 @@ import Cocoa
 //3. It's really important that this looks ok, animation wise
 //4. you then adjust the graph height to fit the view
 //5. you also scale the ValueBar to the latest max
-
-
-//Zooming tests:
-    //
-
+/**
+ * This tests An elastic Ellipse that you can throw around with pan and pinch gestures
+ */
 class GraphView:ContainerView2,ElasticScrollable2{
     //var maskSize:CGSize = CGSize()
     //var contentSize:CGSize = CGSize()
