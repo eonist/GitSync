@@ -4,10 +4,11 @@ import Cocoa
 
 class VList:ContainerView2 {
     var dp:DataProvider
-    override var itemSize:CGSize /*{return CGSize(48,48)}*///override this for custom value
+    var _itemSize:CGSize
+    override var itemSize:CGSize {return _itemSize}/**///override this for custom value
     
     init(_ width: CGFloat, _ height: CGFloat, _ itemSize:CGSize = CGSize(NaN,NaN), _ dataProvider:DataProvider? = nil, _ parent: IElement?, _ id: String? = "") {
-        self.itemSize = itemSize
+        self._itemSize = itemSize
         self.dp = dataProvider ?? DataProvider()/*<--if it's nil then a DB is created*/
         super.init(width,height,parent,id)
         self.dp.event = onEvent/*Add event handler for the dataProvider*/
@@ -18,7 +19,7 @@ class VList:ContainerView2 {
      */
     override func resolveSkin() {
         super.resolveSkin()
-        mergeAt(dataProvider.items, 0)
+        mergeAt(dp.items, 0)
     }
     /**
      * Creates and adds items to the _lableContainer
@@ -36,4 +37,5 @@ class VList:ContainerView2 {
         lableContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
         return item
     }
+    required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
