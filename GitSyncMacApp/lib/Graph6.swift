@@ -24,6 +24,17 @@ class Graph6:ContainerView2{
         
         /*add UI*/
         //createTimeBar()
+        createList()
+       
+    }
+}
+extension Graph6{
+    func createList(){
+        var css:String = "List#vertical Container#lable SelectTextButton{"
+        css = "float:left;"
+        css = "clear:none;"
+        css = "}"
+        StyleManager.addStyle(css)
         
         let dp = DataProvider()
         
@@ -31,15 +42,13 @@ class Graph6:ContainerView2{
         dp.addItem(["title":"pink"])/*adds a new item to the end of the list*/
         dp.addItems([["title":"purple"], ["title":"turquoise"]])/*adds 2 items to the end of the list*/
         
-        let list = addSubView(VList(100,300,CGSize(100,24),dp))
+        let list = addSubView(VList(100,300,CGSize(100,24),dp,nil,"vertical"))
         _ = list
         
         //continue here:
-            //change the css to align sideways
-       
+        //change the css to align sideways
+        
     }
-}
-extension Graph6{
     /**
      * Creates the TimeBar
      */
