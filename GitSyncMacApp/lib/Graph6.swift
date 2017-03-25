@@ -25,8 +25,11 @@ class Graph6:ContainerView2{
         /*add UI*/
         //createTimeBar()
         
-        let list = VList(100,300,CGSize(100,24))
-        list.dp.addItem(["title"])
+        let list = addSubView(VList(100,300,CGSize(100,24)))
+        
+        list.dp.addItemAt(["title":"brown"], 0)/*adds a new item at index 0*/
+        list.dp.addItem(["title":"pink"])/*adds a new item to the end of the list*/
+        list.dp.addItems([["title":"purple"], ["title":"turquoise"]])/*adds 2 items to the end of the list*/
     }
 }
 extension Graph6{
