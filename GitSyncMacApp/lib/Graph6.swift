@@ -34,6 +34,7 @@ extension Graph6{
         var css:String = "List#vertical Container#lable SelectTextButton{"
         css = "float:left;"
         css = "clear:none;"
+        css = "fill-alpha:0;"
         css = "}"
         StyleManager.addStyle(css)
         
