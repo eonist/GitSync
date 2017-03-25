@@ -33,13 +33,10 @@ extension Graph6{
         //change the css to align sideways
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/basic/list/vlist.css")
         
-        let dp = DataProvider()
+        let dict:[[String:String]] = monthNames.map{["title":$0]}
+        let dp = DataProvider(dict)
         
-        dp.addItemAt(["title":"brown"], 0)/*adds a new item at index 0*/
-        dp.addItem(["title":"pink"])/*adds a new item to the end of the list*/
-        dp.addItems([["title":"purple"], ["title":"turquoise"]])/*adds 2 items to the end of the list*/
-        
-        let list = addSubView(VList(300,24,CGSize(100,24),dp,nil))
+        let list = addSubView(VList(400,24,CGSize(100,24),dp,nil))
         _ = list
         
         //continue here:
