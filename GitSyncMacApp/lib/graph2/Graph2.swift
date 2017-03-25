@@ -2,8 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 /**
- * New Graph component (dynamic/zoomable/slidable/snappable) (year/month/day/hour)
- * Inspiration from DrawLab
+ * This tests An elastic Ellipse that you can throw around with pan and pinch gestures
  */
 class Graph2:ElasticView{
     //override var itemsHeight: CGFloat {return height}
