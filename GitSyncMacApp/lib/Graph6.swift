@@ -31,7 +31,7 @@ class Graph6:ContainerView2{
 extension Graph6{
     func createList(){
         //change the css to align sideways
-        var css:String = "List#vertical{width:500px;}"
+        var css:String = "List#vertical{width:200px;}"
         css += "List#vertical Container#lable SelectTextButton{"
         css += "float:left;"
         css += "clear:none;"
