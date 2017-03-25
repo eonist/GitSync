@@ -15,10 +15,10 @@ class ListTransitionTestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        createGraph6Test()
+        //createGraph6Test()
         //createGraph5Test()
         //createGraph4Test()
-        //createGraph3Test()
+        createGraph3Test()
         //createCurveGraphScrollTest()
         //createFindPointOnCurveTest()
         //createCurveGraph()

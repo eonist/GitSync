@@ -9,9 +9,9 @@ import Cocoa
 
 class Graph6:Element{
     var monthNames:[String] { return ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]}
-    override var itemSize:CGSize {return CGSize(48,48)}//override this for custom value
-    override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
-    override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
+    //override var itemSize:CGSize {return CGSize(48,48)}//override this for custom value
+    //override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
+    //override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
     var timeBar:TimeBar2?
     
     override func resolveSkin() {
@@ -19,13 +19,12 @@ class Graph6:Element{
         super.resolveSkin()
         
         /*config*/
-        maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
-        contentSize = CGSize(1600,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
+        //maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
+        //contentSize = CGSize(1600,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         
         /*add UI*/
         //createTimeBar()
         createList()
-       
     }
 }
 extension Graph6{
@@ -40,12 +39,11 @@ extension Graph6{
         _ = list
         
         //continue here:
-        
     }
     /**
      * Creates the TimeBar
      */
-    func createTimeBar(){
+    /*func createTimeBar(){
         //TODO: make line marks
         timeBar = addSubView(TimeBar2(contentSize.width,32,monthNames,self))
         let objSize = CGSize(timeBar!.w,32)
@@ -56,6 +54,6 @@ extension Graph6{
         Swift.print("p: " + "\(p)")
         //align timeBar to bottom with Align
         timeBar!.point = p
-    }
+    }*/
 }
 
