@@ -5,15 +5,12 @@ import Cocoa
  * THis tests pinching in and out and transitioning between timeLevels
  */
 class Graph5:ContainerView2{
-    
     var gestureHUD:GestureHUD?
     var dayNames:[String] {return ["M","T","W","T","F","S","S"]}
     var monthNames:[String] { return ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]}
     var yearNames:[String] { return ["11","12","13","14","15","16","17"] }
     var timeLevels:[[String]]  {return [dayNames,monthNames,yearNames]}
-    
     override var itemSize:CGSize {return CGSize(48,48)}//override this for custom value
-   
     var timeBar:TimeBar2?
     /*Anim*/
     
