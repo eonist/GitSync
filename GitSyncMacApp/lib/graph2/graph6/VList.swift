@@ -31,7 +31,7 @@ class VList:ContainerView2 {
             i += 1
         }
     }
-    func mergeAt(_ dict:[String:String], _ index:Int) -> NSView{
+    func mergeAt(_ dict:[String:String], _ i:Int) -> NSView{
         let item:SelectTextButton = SelectTextButton(getWidth(), itemHeight ,object["title"]!, false, lableContainer)
         lableContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
         return item
