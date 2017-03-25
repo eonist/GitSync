@@ -32,7 +32,7 @@ class Graph3:ContainerView2{
 }
 extension Graph3{
     /**
-     * 
+     *
      */
     func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
         if(event.scrollingDeltaX == 0){
