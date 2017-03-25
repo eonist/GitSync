@@ -1,17 +1,9 @@
 import Cocoa
 @testable import Utils
 @testable import Element
-//slide with momentum (Try to use the momentum delta for velocity!?!?)
-//magnetic points. Or friction slows down but stops applying friction unitl the value is (value % space) == 0 at which point it stops
-    //SnapFriction is friction with a assert modulo compoent
-
-//Make a test where you press a button that launch a ball at 60px per sec with Friction applied. 
-    //then you add the snafriction
-
-//You need: 
-    //1. ball, 
-    //2. lines that indicates marks to snap to. 
-    //3. a button to launch the ball
+/**
+ * SnapFriction test with a circle
+ */
 class Graph4:Element {
     var mover:SnapFriction?
     override func resolveSkin() {
@@ -53,3 +45,14 @@ class Graph4:Element {
         }
     }
 }
+//slide with momentum (Try to use the momentum delta for velocity!?!?)
+//magnetic points. Or friction slows down but stops applying friction unitl the value is (value % space) == 0 at which point it stops
+    //SnapFriction is friction with a assert modulo compoent
+
+//Make a test where you press a button that launch a ball at 60px per sec with Friction applied. 
+    //then you add the snafriction
+
+//You need: 
+    //1. ball, 
+    //2. lines that indicates marks to snap to. 
+    //3. a button to launch the ball
