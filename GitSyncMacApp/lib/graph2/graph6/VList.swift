@@ -33,8 +33,8 @@ class VList:ContainerView2 {
         }
     }
     func mergeAt(_ dict:[String:String], _ i:Int) -> NSView{
-        let item:SelectTextButton = SelectTextButton(getWidth(), itemSize.height ,dict["title"]!, false, lableContainer)
-        lableContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
+        let item:SelectTextButton = SelectTextButton(getWidth(), itemSize.height ,dict["title"]!, false, contentContainer)
+        contentContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
         return item
     }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
