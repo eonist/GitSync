@@ -11,7 +11,7 @@ class ContainerView2:Element,Containable2 {
     var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
     override func resolveSkin() {
         super.resolveSkin()
-        contentContainer = addSubView(Container(width,height,self,"content"))
+        contentContainer = addSubView(Container(width,height,self,"label"))//was content, but we want to use old css
     }
 }
 /*extension ContainerView2:Scrollable2{
