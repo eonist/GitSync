@@ -32,11 +32,7 @@ class GraphView:ContainerView2,ElasticScrollable2{
         createTimeBar()
         createValueBar()
     }
-    override open func scrollWheel(with event: NSEvent) {
-        //Swift.print("GraphView.scrollWheel")
-        scroll(event)
-        //super.scrollWheel(with: event)
-    }
+    
     func setProgress(_ value:CGFloat){
         //Swift.print("🖼️ moving lableContainer up and down progress: \(value)")
         //Swift.print("IScrollable.setProgress() progress: \(progress)")

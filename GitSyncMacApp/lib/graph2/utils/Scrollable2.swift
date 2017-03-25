@@ -11,7 +11,7 @@ protocol Scrollable2:Containable2 {
 
 extension Scrollable2{
     func scroll(_ event:NSEvent){
-        //Swift.print("Scrollable2.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
+        Swift.print("Scrollable2.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
         switch event.phase{
             
             //if the prev Change event only had -1 or 1 or 0. Then you released with no momentum and so no anim should be initiated
