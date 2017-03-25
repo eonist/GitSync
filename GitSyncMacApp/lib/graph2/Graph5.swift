@@ -7,9 +7,6 @@ import Cocoa
 class Graph5:ContainerView2{
     
     var gestureHUD:GestureHUD?
-    
-    
-    
     var dayNames:[String] {return ["M","T","W","T","F","S","S"]}
     var monthNames:[String] { return ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]}
     var yearNames:[String] { return ["11","12","13","14","15","16","17"] }
