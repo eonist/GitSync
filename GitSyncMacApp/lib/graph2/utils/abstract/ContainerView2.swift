@@ -7,8 +7,8 @@ class ContainerView2:Element,Containable2 {
     var contentSize:CGSize = CGSize()
     var contentContainer:Element?
     var itemSize:CGSize {fatalError("must be overriden in subClass")}//override this for custom value
-    var interval:CGFloat{fatalError("must be overriden in subClass")}
-    var progress:CGFloat{fatalError("must be overriden in subClass")}
+    var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
+    var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
     override func resolveSkin() {
         super.resolveSkin()
         contentContainer = addSubView(Container(width,height,self,"content"))

@@ -13,8 +13,7 @@ class Graph5:ContainerView2{
     var timeLevels:[[String]]  {return [dayNames,monthNames,yearNames]}
     
     override var itemSize:CGSize {return CGSize(48,48)}//override this for custom value
-    override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
-    override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
+   
     var timeBar:TimeBar2?
     /*Anim*/
     
