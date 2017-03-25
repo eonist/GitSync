@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Element
 @testable import Utils
 
@@ -9,4 +9,5 @@ protocol Containable2:class {
     var contentContainer:Element? {get}
     var progress:CGFloat {get}
     var interval:CGFloat {get}
+    func scrollWheel(with event: NSEvent)
 }

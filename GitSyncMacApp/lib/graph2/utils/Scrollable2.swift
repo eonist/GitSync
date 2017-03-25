@@ -8,8 +8,8 @@ protocol Scrollable2:Containable2 {
      func onScrollWheelExit()
      func scroll(_ event:NSEvent)
 }
-extension ContainerView2:Scrollable2{
-    override func scrollWheel(with event: NSEvent) {
+extension Containable2 where Self:Scrollable2 {
+    override open func scrollWheel(with event: NSEvent) {
         //Swift.print("GraphView.scrollWheel")
         scroll(event)
         //super.scrollWheel(with: event)
