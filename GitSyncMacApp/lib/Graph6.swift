@@ -31,13 +31,7 @@ class Graph6:ContainerView2{
 extension Graph6{
     func createList(){
         //change the css to align sideways
-        var css:String = "List#vertical{width:200px;}"
-        css += "List#vertical Container#lable SelectTextButton{"
-        css += "float:left;"
-        css += "clear:none;"
-        css += "fill-alpha:0;"
-        css += "}"
-        StyleManager.addStyle(css)
+        addVListStyles()
         
         let dp = DataProvider()
         
@@ -69,7 +63,7 @@ extension Graph6{
     }
 }
 extension Graph6{
-    func addListStyles(){
+    func addVListStyles(){
         var css:String = ""
         css += "VList{"
         css +=     "float:left;"
@@ -120,5 +114,7 @@ extension Graph6{
         css += "VList Container#lable SelectTextButton:selected Text{"
         css += 	"font:Helvetica Neue Bold;"
         css += "}"
+        
+         StyleManager.addStyle(css)
     }
 }
