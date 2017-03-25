@@ -1,14 +1,8 @@
 import Cocoa
 @testable import Element
 @testable import Utils
-
-//1. Setup stats with real values, 30 days with ebs and lows. 
-//2. When you scroll the ValueBar must adjust its range, you can caluclate this by using y for x code from Trig. The slope is found from the 2 points. 
-//3. It's really important that this looks ok, animation wise
-//4. you then adjust the graph height to fit the view
-//5. you also scale the ValueBar to the latest max
 /**
- * This tests An elastic Ellipse that you can throw around with pan and pinch gestures
+ * This tests A TimeBar that is snappy and elastic
  */
 class GraphView:ContainerView2,ElasticScrollable2{
     //var maskSize:CGSize = CGSize()
@@ -166,3 +160,11 @@ extension GraphView{
  let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
  setProgress(progressVal)
  }*/
+
+
+
+//1. Setup stats with real values, 30 days with ebs and lows.
+//2. When you scroll the ValueBar must adjust its range, you can caluclate this by using y for x code from Trig. The slope is found from the 2 points.
+//3. It's really important that this looks ok, animation wise
+//4. you then adjust the graph height to fit the view
+//5. you also scale the ValueBar to the latest max
