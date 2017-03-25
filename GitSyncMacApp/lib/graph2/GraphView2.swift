@@ -2,7 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 /**
- * 
+ * This tests scaling the graph as you scroll
  */
 class GraphView2:ContainerView2{
     typealias P = CGPoint
