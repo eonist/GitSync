@@ -4,7 +4,7 @@ import Cocoa
 /**
  * This tests animate graphpoint to graphline on scrollend
  */
-class Graph3:ContainerView2{
+class Graph3:ContainerView2,Scrollable2{
     typealias P = CGPoint
     var points:[CGPoint] = []
     var graphPoint1:Element?
@@ -31,7 +31,14 @@ class Graph3:ContainerView2{
     var endY:CGFloat?
 }
 extension Graph3{
-    
+    /**
+     *
+     */
+    override open func scrollWheel(with event: NSEvent) {
+        Swift.print("Graph3.scrollWheel")
+        (self as! Scrollable2).scroll(event)
+        //super.scrollWheel(with: event)
+    }
     /**
      *
      */

@@ -2,13 +2,13 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-class ScrollVList:VList,Scrollable2{
+class ScrollVList:VList{
     /**
      *
      */
     override open func scrollWheel(with event: NSEvent) {
         Swift.print("ScrollVList.scrollWheel")
-        scroll(event)
+        (self as! Scrollable2).scroll(event)
         //super.scrollWheel(with: event)
     }
     /**
