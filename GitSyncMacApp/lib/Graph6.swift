@@ -1,7 +1,9 @@
 import Cocoa
 @testable import Utils
 @testable import Element
-
+/**
+ * Testing SideScrolling FastList
+ */
 class Graph6:ContainerView2{
     var monthNames:[String] { return ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]}
     override var itemSize:CGSize {return CGSize(48,48)}//override this for custom value
@@ -10,7 +12,7 @@ class Graph6:ContainerView2{
     var timeBar:TimeBar2?
     
     override func resolveSkin() {
-        StyleManager.addStyle("Graph5{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
+        StyleManager.addStyle("Graph6{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         super.resolveSkin()
         
         /*config*/
