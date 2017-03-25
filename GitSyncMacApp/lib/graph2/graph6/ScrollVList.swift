@@ -6,6 +6,14 @@ class ScrollVList:VList{
     /**
      *
      */
+    override open func scrollWheel(with event: NSEvent) {
+        //Swift.print("GraphView.scrollWheel")
+        scroll(event)
+        //super.scrollWheel(with: event)
+    }
+    /**
+     *
+     */
     func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
         Swift.print("onScrollWheelChange")
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
