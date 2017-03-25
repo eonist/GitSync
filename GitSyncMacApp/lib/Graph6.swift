@@ -34,7 +34,7 @@ extension Graph6{
         var css:String = "List#vertical Container#lable SelectTextButton{"
         css += "float:left;"
         css += "clear:none;"
-        css += "fill-alpha:1;"
+        css += "fill-alpha:0;"
         css += "}"
         StyleManager.addStyle(css)
         
@@ -44,7 +44,7 @@ extension Graph6{
         dp.addItem(["title":"pink"])/*adds a new item to the end of the list*/
         dp.addItems([["title":"purple"], ["title":"turquoise"]])/*adds 2 items to the end of the list*/
         
-        let list = addSubView(VList(100,300,CGSize(100,24),dp,nil,"vertical"))
+        let list = addSubView(VList(500,24,CGSize(100,24),dp,nil,"vertical"))
         _ = list
         
         //continue here:
