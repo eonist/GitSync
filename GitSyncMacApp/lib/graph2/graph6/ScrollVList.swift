@@ -1,5 +1,5 @@
 import Foundation
 
-class ScrollVList {
-
+class ScrollVList:VList{
+   
 }
