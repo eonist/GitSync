@@ -5,7 +5,8 @@ import Cocoa
  * Testing SideScrolling FastList
  */
 
-//1. Create a vertical list first, then FastList
+//1. Create a vertical list first, then FastList  ✅
+//2. 
 
 class Graph6:Element{
     var monthNames:[String] { return ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]}
