@@ -36,13 +36,14 @@ extension Graph3{
      */
     override open func scrollWheel(with event: NSEvent) {
         Swift.print("Graph3.scrollWheel")
-        (self as! Scrollable2).scroll(event)
+        scroll(event)
         //super.scrollWheel(with: event)
     }
     /**
      *
      */
     func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
+        Swift.print("onScrollWheelChange() event.scrollingDeltaX: \(event.scrollingDeltaX)")
         if(event.scrollingDeltaX == 0){
             scrollingEnded()
         }
