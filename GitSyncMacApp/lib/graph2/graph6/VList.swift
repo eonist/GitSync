@@ -24,14 +24,14 @@ class VList:ContainerView2 {
      * Creates and adds items to the _lableContainer
      * TODO: possibly move into ListModifier, TreeList has its mergeAt in an Utils class see how it does it
      */
-    func mergeAt(_ objects:[[String:String]], _ index:Int){//TODO: possible rename to something better, placeAt? insertAt?
+    func mergeAt(_ dictionaries:[[String:String]], _ index:Int){//TODO: possible rename to something better, placeAt? insertAt?
         var i:Int = index
-        for obj:[String:String] in objects {//TODO: use for i
-            mergeAt(obj,i)
+        for dict:[String:String] in dictionaries {//TODO: use for i
+            _ = mergeAt(dict,i)
             i += 1
         }
     }
-    func mergeAt(_ objects:[String:String], _ index:Int) -> Element{
+    func mergeAt(_ dict:[String:String], _ index:Int) -> NSView{
         let item:SelectTextButton = SelectTextButton(getWidth(), itemHeight ,object["title"]!, false, lableContainer)
         lableContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
         item
