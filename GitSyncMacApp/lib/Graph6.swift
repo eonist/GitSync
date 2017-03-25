@@ -33,6 +33,9 @@ class Graph6:ContainerView2{
         
         let list = addSubView(VList(100,300,CGSize(100,24),dp))
         _ = list
+        
+        //continue here:
+            //change the css to align sideways
        
     }
 }
