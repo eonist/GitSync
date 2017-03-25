@@ -25,7 +25,8 @@ class Graph6:ContainerView2{
         /*add UI*/
         //createTimeBar()
         
-        let list = VList(100,300,CGSize(100,24),)
+        let list = VList(100,300,CGSize(100,24))
+        list
     }
 }
 extension Graph6{
