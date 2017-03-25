@@ -1,21 +1,9 @@
 import Cocoa
 @testable import Utils
 @testable import Element
-//When you scroll fast
-    //lots of new points pass through
-    //To avoid a jittery feel 👈
-    //we must......????
-    //the end destination of the graphPoints
-        //must always be the end destination of the animation
-
-    //maybe you can make gravity, like easing the closer that it gets to the target but based on actual dist not percentage
-    //So you create a mover that moves with 10px per sec speed, and slows down the last 40pix before it reaches its destination
-
-    //To prototype this you need to create a random graph on 1800px canvas from 0 to height
-        //then you animate a dot in the center to always try and reach the graph intersection on this gravity springsolver
-        //it also needs to easeOut based on dist from origin
-    //at first you just do animator easinOut animation to test the look
-        //then you do more complex easing by checking distance, when an animation started etc. 
+/**
+ * This tests animate graphpoint to graphline on scrollend
+ */
 class Graph3:ContainerView2{
     typealias P = CGPoint
     var points:[CGPoint] = []
@@ -178,3 +166,18 @@ extension Graph3{
         return y
     }
 }
+//When you scroll fast
+    //lots of new points pass through
+    //To avoid a jittery feel 👈
+    //we must......????
+    //the end destination of the graphPoints
+        //must always be the end destination of the animation
+
+    //maybe you can make gravity, like easing the closer that it gets to the target but based on actual dist not percentage
+    //So you create a mover that moves with 10px per sec speed, and slows down the last 40pix before it reaches its destination
+
+    //To prototype this you need to create a random graph on 1800px canvas from 0 to height
+        //then you animate a dot in the center to always try and reach the graph intersection on this gravity springsolver
+        //it also needs to easeOut based on dist from origin
+    //at first you just do animator easinOut animation to test the look
+        //then you do more complex easing by checking distance, when an animation started etc. 
