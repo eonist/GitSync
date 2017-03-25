@@ -26,7 +26,7 @@ class Graph6:ContainerView2{
         //createTimeBar()
         
         let list = VList(100,300,CGSize(100,24))
-        list
+        list.dp.addItem(["title"])
     }
 }
 extension Graph6{
