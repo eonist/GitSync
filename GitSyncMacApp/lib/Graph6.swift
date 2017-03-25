@@ -21,13 +21,13 @@ class Graph6:ContainerView2{
         createTimeBar()
     }
 }
-extension Graph5{
+extension Graph6{
     /**
      * Creates the TimeBar
      */
     func createTimeBar(){
         //TODO: make line marks
-        timeBar = addSubView(TimeBar2(contentSize.width,32,dayNames,self))
+        timeBar = addSubView(TimeBar2(contentSize.width,32,monthNames,self))
         let objSize = CGSize(timeBar!.w,32)
         Swift.print("objSize: " + "\(objSize)")
         let canvasSize = CGSize(w,h)
