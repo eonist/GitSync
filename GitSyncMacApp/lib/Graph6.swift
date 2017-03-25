@@ -44,7 +44,6 @@ extension Graph6{
         
         //continue here:
         
-        
     }
     /**
      * Creates the TimeBar
