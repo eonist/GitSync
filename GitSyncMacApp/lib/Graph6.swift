@@ -30,6 +30,7 @@ class Graph6:ContainerView2{
 }
 extension Graph6{
     func createList(){
+        //change the css to align sideways
         var css:String = "List#vertical Container#lable SelectTextButton{"
         css = "float:left;"
         css = "clear:none;"
@@ -46,7 +47,7 @@ extension Graph6{
         _ = list
         
         //continue here:
-        //change the css to align sideways
+        
         
     }
     /**
