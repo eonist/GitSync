@@ -7,7 +7,7 @@ class VList:ContainerView2 {
     var _itemSize:CGSize
     override var itemSize:CGSize {return _itemSize}/**///override this for custom value
     override var maskSize:CGSize { get{return CGSize(width,height)}set{_ = newValue} }
-    override var contentSize:CGSize { get{return CGSize(dataProvider.count * itemSize.width ,height) } set{_ = newValue}}
+    override var contentSize:CGSize { get{return CGSize(dp.count * itemSize.width ,height) } set{_ = newValue}}
     
     init(_ width: CGFloat, _ height: CGFloat, _ itemSize:CGSize = CGSize(NaN,NaN), _ dataProvider:DataProvider? = nil, _ parent: IElement? = nil, _ id: String? = "") {
         self._itemSize = itemSize

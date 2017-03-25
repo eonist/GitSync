@@ -19,7 +19,6 @@ class ScrollVList:VList,Scrollable2{
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)
     }
-    
     /**
      * 🚗 SetProgress
      */
@@ -28,6 +27,5 @@ class ScrollVList:VList,Scrollable2{
         let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize.w, contentSize.w)
         Swift.print("x: " + "\(x)")
         contentContainer!.x = x
-        
     }
 }
