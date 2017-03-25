@@ -12,5 +12,29 @@ class Graph6:ContainerView2{
     override func resolveSkin() {
         StyleManager.addStyle("Graph5{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         super.resolveSkin()
+        
+        /*config*/
+        maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
+        contentSize = CGSize(1600,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
+        
+        /*add UI*/
+        createTimeBar()
+    }
+}
+extension Graph5{
+    /**
+     * Creates the TimeBar
+     */
+    func createTimeBar(){
+        //TODO: make line marks
+        timeBar = addSubView(TimeBar2(contentSize.width,32,dayNames,self))
+        let objSize = CGSize(timeBar!.w,32)
+        Swift.print("objSize: " + "\(objSize)")
+        let canvasSize = CGSize(w,h)
+        Swift.print("canvasSize: " + "\(canvasSize)")
+        let p = Align.alignmentPoint(objSize, canvasSize, Alignment.bottomLeft, Alignment.bottomLeft, CGPoint())
+        Swift.print("p: " + "\(p)")
+        //align timeBar to bottom with Align
+        timeBar!.point = p
     }
 }
