@@ -26,7 +26,7 @@ class VList:ContainerView2 {
      */
     func mergeAt(_ dictionaries:[[String:String]], _ index:Int){//TODO: possible rename to something better, placeAt? insertAt?
         var i:Int = index
-        for dict:[String:String] in dictionaries {//TODO: use for i
+        for dict:[String:String] in dictionaries {
             _ = mergeAt(dict,i)
             i += 1
         }
@@ -34,6 +34,6 @@ class VList:ContainerView2 {
     func mergeAt(_ dict:[String:String], _ index:Int) -> NSView{
         let item:SelectTextButton = SelectTextButton(getWidth(), itemHeight ,object["title"]!, false, lableContainer)
         lableContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
-        item
+        return item
     }
 }
