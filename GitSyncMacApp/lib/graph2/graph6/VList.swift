@@ -33,7 +33,7 @@ class VList:ContainerView2 {
         }
     }
     func createItem(_ dict:[String:String], _ i:Int) -> Element{
-        let item:SelectTextButton = SelectTextButton(getWidth(), itemSize.height ,dict["title"]!, false, contentContainer)
+        let item:SelectTextButton = SelectTextButton(itemSize.width, itemSize.height ,dict["title"]!, false, contentContainer)
         contentContainer!.addSubviewAt(item, i)/*the first index is reserved for the List skin, what?*/
         return item
     }
