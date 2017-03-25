@@ -11,7 +11,7 @@ protocol Scrollable2:Containable2 {
 
 extension Scrollable2{
     func scroll(_ event:NSEvent){
-        Swift.print("Scrollable2.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
+        //Swift.print("Scrollable2.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
         switch event.phase{
             
             //if the prev Change event only had -1 or 1 or 0. Then you released with no momentum and so no anim should be initiated
@@ -25,13 +25,13 @@ extension Scrollable2{
             default:break;
         }
     }
-    /*func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
-     Swift.print("📜 Scrollable2.onScrollWheelChange: \(event.type)")
+     func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
+        //Swift.print("📜 Scrollable2.onScrollWheelChange: \(event.type)")
      }
      func onScrollWheelEnter() {
-     Swift.print("📜 Scrollable2.onScrollWheelEnter()")
+        //Swift.print("📜 Scrollable2.onScrollWheelEnter()")
      }
      func onScrollWheelExit() {
-     Swift.print("📜 Scrollable2.onScrollWheelExit()")
-     }*/
+        //Swift.print("📜 Scrollable2.onScrollWheelExit()")
+     }/**/
 }

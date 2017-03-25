@@ -7,7 +7,7 @@ class ScrollVList:VList,Scrollable2{
      *
      */
     override open func scrollWheel(with event: NSEvent) {
-        Swift.print("ScrollVList.scrollWheel")
+        //Swift.print("ScrollVList.scrollWheel")
         scroll(event)
         //super.scrollWheel(with: event)
     }
@@ -15,7 +15,7 @@ class ScrollVList:VList,Scrollable2{
      *
      */
     func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
-        Swift.print("onScrollWheelChange")
+        Swift.print("ScrollVList.onScrollWheelChange")
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)
     }
@@ -24,7 +24,7 @@ class ScrollVList:VList,Scrollable2{
      * 🚗 SetProgress
      */
     func setProgress(_ progress:CGFloat){
-        Swift.print("setProgress")
+        Swift.print("ScrollVList.setProgress progress: \(progress)")
         let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize.w, contentSize.w)
         Swift.print("x: " + "\(x)")
         contentContainer!.x = x
