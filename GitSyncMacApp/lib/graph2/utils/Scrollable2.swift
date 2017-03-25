@@ -21,7 +21,7 @@ extension Scrollable2{
             case NSEventPhase.began:onScrollWheelEnter()
             case NSEventPhase.ended:onScrollWheelExit()//always exits with event with no delta
             case NSEventPhase.cancelled:onScrollWheelExit()//always exits with event with no delta
-            //case NSEventPhase(rawValue:0):onScrollWheelChange(event)/*this is the same as momentum aka inDirect scroll*/
+            case NSEventPhase(rawValue:0):onScrollWheelChange(event)/*this is the same as momentum aka inDirect scroll*/
             default:break;
         }
     }
