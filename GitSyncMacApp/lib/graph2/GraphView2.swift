@@ -1,7 +1,9 @@
 import Cocoa
 @testable import Element
 @testable import Utils
-
+/**
+ * 
+ */
 class GraphView2:ContainerView2{
     typealias P = CGPoint
     var points:[CGPoint]?
