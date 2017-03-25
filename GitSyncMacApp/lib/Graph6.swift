@@ -31,7 +31,7 @@ class Graph6:ContainerView2{
 extension Graph6{
     func createList(){
         //change the css to align sideways
-        addVListStyles()
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/basic/list/vlist.css")
         
         let dp = DataProvider()
         
@@ -61,58 +61,4 @@ extension Graph6{
         timeBar!.point = p
     }
 }
-extension Graph6{
-    func addVListStyles(){
-        var css:String = "VList{"
-        css +=     "float:left;"
-        css +=     "clear:left;"
-        //css +=     "width:138px;/*<-this is a fix until padding works corectly*/"
-        //css +=     "/*height:71px;*/"
-        css +=     "fill:white;"
-        css +=     "fill-alpha:1;"
-        css +=     "line:#B8B8B8;"
-        css +=     "line-alpha:0.2;"
-        css +=     "line-offset-type:outside;"
-        css +=     "line-thickness:1px;"
-        css += "}"
-        css += "VList Container#lable{"
-        //css +=     "width:100%;"
-        css +=     "float:left;"
-        css +=     "clear:left;"
-        css += "}"
-        /*Button*/
-        css += "VList Container#lable SelectTextButton{"
-        css +=     "float:left;"
-        css +=     "clear:none;"
-        //css +=     "width:100%;"
-        //css +=     "height:24px;"
-        css +=     "fill:red;"
-        css +=     "fill-alpha:0;"
-        css +=     "padding-right:0px;"
-        css += "}"
-        css += "VList Container#lable SelectTextButton:selected{"
-        css += 	"fill:#D4D4D4;"
-        css +=     "fill-alpha:1;"
-        css += "}"
-        /*Text*/
-        css += "VList Container#lable SelectTextButton Text{"
-        css +=     "float:none;"
-        css +=     "clear:none;"
-        css +=     "width:100%;"
-        css +=     "height:24px;"
-        css +=     "margin-left:10px;"
-        css +=     "margin-top:3px;"
-        css +=     "autoSize:left;"
-        css +=     "font:Helvetica Neue;"
-        css +=     "size:12;"
-        css +=     "align:left;"
-        css +=     "color:black;"
-        css +=     "selectable:false;"
-        css += "}"
-        css += "VList Container#lable SelectTextButton:selected Text{"
-        css += 	"font:Helvetica Neue Bold;"
-        css += "}"
-        
-         StyleManager.addStyle(css)
-    }
-}
+
