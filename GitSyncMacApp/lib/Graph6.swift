@@ -32,7 +32,7 @@ class Graph6:ContainerView2{
         dp.addItems([["title":"purple"], ["title":"turquoise"]])/*adds 2 items to the end of the list*/
         
         let list = addSubView(VList(100,300,CGSize(100,24),dp))
-        
+        _ = list
        
     }
 }
