@@ -182,8 +182,8 @@ extension ElasticView{
         //moverX!.hasStopped = true
         iterimScrollY.prevScrollingDelta = 0/*set last wheel speed delta to stationary, aka not spinning*/
         iterimScrollX.prevScrollingDelta = 0
-        moverY!.isDirectlyManipulating = true/*Toggle to directManipulationMode*/
-        moverX!.isDirectlyManipulating = true
+        moverGroup!.isDirectlyManipulating = true/*Toggle to directManipulationMode*/
+        //moverX!.isDirectlyManipulating = true
         iterimScrollY.velocities = Array(repeating: 0, count: 10)/*Reset the velocities*/
         iterimScrollX.velocities = Array(repeating: 0, count: 10)
         //⚠️️scrollWheelEnter()
