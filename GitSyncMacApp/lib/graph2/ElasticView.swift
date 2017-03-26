@@ -101,7 +101,9 @@ class ElasticView:Element{
     override func scrollWheel(with event: NSEvent) {
         Swift.print("scrollWheel event.scrollingDeltaX: \(event.scrollingDeltaX) event.scrollingDeltaY: \(event.scrollingDeltaY)")
         switch event.phase{
-            case NSEventPhase.changed:onScrollWheelChange(event,event.scrollingDeltaX != 0 ? .hor : .ver)/*Fires everytime there is direct scrollWheel gesture movment and momentum, the momentum fades.*/
+            case NSEventPhase.changed:
+                onScrollWheelChange(event,.hor)/*Fires everytime there is direct scrollWheel gesture movment and momentum, the momentum fades.*/
+                onScrollWheelChange(event,.ver)
             case NSEventPhase.mayBegin:onScrollWheelEnter()/*Can be used to detect if two fingers are touching the trackpad*/
             case NSEventPhase.began:onScrollWheelEnter()/*The mayBegin phase doesnt fire if you begin the scrollWheel gesture very quickly*/
             case NSEventPhase.ended:onScrollWheelExit()//Swift.print("ended")/*if you release your touch-gesture and the momentum of the gesture has stopped.*/
