@@ -51,15 +51,20 @@ extension CGPoint{
     }
 }
 class MoverGroup{
-    var movers:[Mover]
-    init(_ movers:[Mover]){
-        self.movers = movers
+    var xMover:Mover
+    var yMover:Mover
+    init(_ xMover:Mover, _ yMover:Mover){
+        self.xMover = xMover
+        self.yMover = yMover
     }
-    /**
-     *
-     */
-    func setPos(){
-        
+    var pos:CGPoint{
+        get{
+            return CGPoint(xMover.value,yMover.value)
+        }
+        set{
+            xMover.value = newValue.x
+            yMover.value = newValue.y
+        }
     }
 }
 class ElasticView:Element{
