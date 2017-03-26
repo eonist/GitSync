@@ -11,7 +11,7 @@ class ContainerView2:Element,Containable2 {
     var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
     var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement? = nil, _ id: String? = nil) {
-        maskSize = CGSize(width,height)
+        //maskSize = CGSize(width,height)
         //contentSize = CGSize(width,height)
         super.init(width, height)
     }

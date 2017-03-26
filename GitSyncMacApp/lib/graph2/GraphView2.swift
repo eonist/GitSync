@@ -20,8 +20,9 @@ class GraphView2:ContainerView2{
         StyleManager.addStyle("GraphView2{float:none;clear:none;fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
         /*config*/
-        maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
-        contentSize = CGSize(3000,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
+        Swift.print("⚠️️IMPLEMENT THE BELLOW AS COMPUTED PROPS⚠️️")
+        //maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
+        //contentSize = CGSize(3000,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         
         addGraphLine()
         addGraphPoint()

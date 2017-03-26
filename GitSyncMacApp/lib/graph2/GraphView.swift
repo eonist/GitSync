@@ -21,8 +21,9 @@ class GraphView:ContainerView2,ElasticScrollable2{
         StyleManager.addStyle("GraphView{float:left;clear:left;fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
         /*config*/
-        maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
-        contentSize = CGSize(1600,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
+        Swift.print("⚠️️IMPLEMENT THE BELLOW AS COMPUTED PROPS⚠️️")
+        //maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
+        //contentSize = CGSize(1600,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         /*Anim*/
         mover = SnappyRubberBand(Animation.sharedInstance,setProgress/*👈important*/,(0,maskSize.width),(0,contentSize.width))
         
