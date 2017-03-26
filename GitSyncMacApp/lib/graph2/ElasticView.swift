@@ -8,7 +8,7 @@ import Cocoa
  * TODO: bounce back on zoom min and max
  */
 enum Dir {
-    case hor, ver, z
+    case hor, ver
 }
 extension NSEvent{
     var scrollingDelta:CGPoint {return CGPoint(self.scrollingDeltaX,self.scrollingDeltaY)}/*Convenience*/
@@ -135,14 +135,14 @@ class ElasticView:Element{
     var moverZ:RubberBand?
     var moverGroup:MoverGroup?
     func mover(_ dir:Dir)->RubberBand{/*Convenience*/
-        return dir == .hor ? moverX! : (dir == .ver ? moverY! : moverZ!)
+        return dir == .hor ? moverX! : moverY!
     }
     var iterimScrollX:InterimScroll = InterimScroll()
     var iterimScrollY:InterimScroll = InterimScroll()
     var iterimScrollZ:InterimScroll = InterimScroll()
     var iterimScrollGroup:IterimScrollGroup?
     func iterimScroll(_ dir:Dir)->InterimScroll{/*Convenience*/
-        return dir == .hor ? iterimScrollX : (dir == .ver ? iterimScrollY : iterimScrollZ)
+        return dir == .hor ? iterimScrollX : iterimScrollY
     }
     var prevMagnificationValue:CGFloat = 0
     var initBoundWidth:CGFloat?
