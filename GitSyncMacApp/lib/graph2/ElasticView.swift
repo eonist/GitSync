@@ -213,7 +213,6 @@ extension ElasticView{
     }
 }
 private class Utils{
-    
     /**
      * Applies contentsScale to descendants of a view that has been zoomed (so that we avoid pixelation while zooming)
      * NOTE: maybe you can use a method in ElementModifier as it has similar code
