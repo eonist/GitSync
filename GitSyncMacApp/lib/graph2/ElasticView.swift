@@ -189,7 +189,7 @@ extension ElasticView{
         //Swift.print("👻📜 (ElasticScrollable).onScrollWheelChange : \(event.type)")
         iterimScroll(dir).prevScrollingDelta = event.scrollingDelta[dir]/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
         //Swift.print("mover!.isDirectlyManipulating: " + "\(moverY!.isDirectlyManipulating)")
-        _ = iterimScroll(dir).velocities.pushPop(event.scrollingDelta[dir])/*insert new velocity at the begining and remove the last velocity to make room for the new*/
+        _ = iterimScroll(dir).velocities.shiftAppend(event.scrollingDelta[dir])/*insert new velocity at the begining and remove the last velocity to make room for the new*/
         moverGroup!.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
         moverGroup!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
         let p = CGPoint(mover(.hor).result,mover(.ver).result)
@@ -221,7 +221,7 @@ extension ElasticView{
         /*Y*/
         if(iterimScrollY.prevScrollingDelta != 1.0 && iterimScrollY.prevScrollingDelta != -1.0){/*Not 1 and not -1 indicates that the wheel is not stationary*/
             var velocity:CGFloat = 0
-            if(iterimScrollY.prevScrollingDelta > 0){velocity = NumberParser.max(iterimScrollY.velocities)}/*Find the most positive velocity value*/
+            if(iterimScrollY.prevScrollingDelta > 0){velocity = iterimScrollY.velocities.average}/*Find the most positive velocity value*/
             else{velocity = NumberParser.min(iterimScrollY.velocities)}/*Find the most negative velocity value*/
             moverY!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
             moverY!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*/
@@ -231,7 +231,7 @@ extension ElasticView{
         /*X*/
         if(iterimScrollX.prevScrollingDelta != 1.0 && iterimScrollX.prevScrollingDelta != -1.0){/*Not 1 and not -1 indicates that the wheel is not stationary*/
             var velocity:CGFloat = 0
-            if(iterimScrollX.prevScrollingDelta > 0){/*velocity = iterimScrollX.velocities.average*/}/*Find the most positive velocity value*/
+            if(iterimScrollX.prevScrollingDelta > 0){velocity = iterimScrollX.velocities.average}/*Find the most positive velocity value*/
             else{velocity = NumberParser.min(iterimScrollX.velocities)}/*Find the most negative velocity value*/
             moverX!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
             moverX!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*/
