@@ -9,7 +9,7 @@ protocol Scrollable2:Containable2 {
 }
 extension ContainerView2{
     /**
-     *
+     * TODO: Try to override with generics ContainerView<VerticalScrollable>  etc
      */
     override open func scrollWheel(with event: NSEvent) {
         //Swift.print("ScrollVList.scrollWheel")
@@ -32,7 +32,8 @@ extension Scrollable2{
             case NSEventPhase.began:onScrollWheelEnter()
             case NSEventPhase.ended:onScrollWheelExit()//always exits with event with no delta
             case NSEventPhase.cancelled:onScrollWheelExit()//always exits with event with no delta
-            /*Toggeling this on and off can break things*/case NSEventPhase(rawValue:0):onScrollWheelChange(event)/*this is the same as momentum aka inDirect scroll*/
+            /*Toggeling the bellow on and off can break things*/
+            case NSEventPhase(rawValue:0):onScrollWheelChange(event)/*this is the same as momentum aka inDirect scroll*/
             default:break;
         }
     }

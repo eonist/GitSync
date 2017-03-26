@@ -13,7 +13,7 @@ class Graph6:Element{
     //override var itemSize:CGSize {return CGSize(48,48)}//override this for custom value
     //override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
     //override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
-    var timeBar:TimeBar2?
+    //var timeBar:TimeBar2?
     
     override func resolveSkin() {
         StyleManager.addStyle("Graph6{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
