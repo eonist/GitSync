@@ -7,12 +7,16 @@ import Cocoa
  * TODO: bounce back x-axis
  * TODO: bounce back on zoom min and max
  */
+enum Direction {
+    case Horizontal, South, West, East
+}
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
     var contentFrame:CGRect = CGRect()
     var contentContainer:Element?
     var zoomContainer:Element?
     /**/
+    
     var moverY:RubberBand?
     var moverX:RubberBand?
     var moverZ:RubberBand?
