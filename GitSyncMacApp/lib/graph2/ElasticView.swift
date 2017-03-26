@@ -51,9 +51,9 @@ extension CGPoint{
     }
 }
 class MoverGroup{
-    var xMover:Mover
-    var yMover:Mover
-    init(_ xMover:Mover, _ yMover:Mover){
+    var xMover:RubberBand
+    var yMover:RubberBand
+    init(_ xMover:RubberBand, _ yMover:RubberBand){
         self.xMover = xMover
         self.yMover = yMover
     }
