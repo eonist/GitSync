@@ -6,7 +6,7 @@ class Graph7:ContainerView2,Scrollable2{
     override var itemSize:CGSize {return CGSize(100,100)}//override this for custom value
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
     override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
-    override var contentSize:CGSize {get{return CGSize(1800,super.contentSize.height)}set{fatalError("set not implemented")}}/*represents the total size of the content *///TODO: could be ranmed to contentRect
+    override var contentSize:CGSize {get{return CGSize(1800,1000/*super.contentSize.height*/)}set{fatalError("set not implemented")}}/*represents the total size of the content *///TODO: could be ranmed to contentRect
     
     override func resolveSkin() {
         StyleManager.addStyle("Graph7{float:left;clear:left;fill:green;fill-alpha:0.0;}")
@@ -34,10 +34,9 @@ extension Graph7{
      * 🚗 SetProgress
      */
     func setProgress(_ progress:CGFloat,_ dir:Dir){
-        Swift.print("ScrollVList.setProgress progress: \(progress)")
-        let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize.w, contentSize.w)
-        Swift.print("x: " + "\(x)")
-        contentContainer!.x = x
+        //Swift.print("ScrollVList.setProgress progress: \(progress)")
+        let value:CGFloat = ScrollableUtils.scrollTo(progress, maskSize[dir], contentSize[dir])
+        contentContainer!.point[dir] = value
     }
 }
 extension Graph7{
