@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-//Continue here:
+//Continue here: 🏀
     //Try to generalize the layout code in Fast list, so that it supports vertical and horizontal.
 
 class Graph7:ContainerView2,Scrollable2{
