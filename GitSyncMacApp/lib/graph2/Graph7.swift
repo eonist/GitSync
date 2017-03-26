@@ -4,10 +4,15 @@ import Cocoa
 
 class Graph7:ContainerView2,Scrollable2{
     override var itemSize:CGSize {return CGSize(100,100)}//override this for custom value
-    override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
-    override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
+    //override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
+    //override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
     override var contentSize:CGSize {get{return CGSize(1800,1000/*super.contentSize.height*/)}set{fatalError("set not implemented")}}/*represents the total size of the content *///TODO: could be ranmed to contentRect
-    
+    func interval(_ dir:Dir)->CGFloat{
+        return floor(contentSize[dir] - maskSize[dir])/itemSize[dir]
+    }
+    func progress(_ dir:Dir)->CGFloat{
+        return SliderParser.progress(contentContainer!.point[dir], maskSize[dir], contentSize[dir])
+    }
     override func resolveSkin() {
         StyleManager.addStyle("Graph7{float:left;clear:left;fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
@@ -21,11 +26,11 @@ extension Graph7{
     func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
         Swift.print("ScrollVList.onScrollWheelChange")
         if(event.deltaX != 0){
-            let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
+            let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval(.hor), progress(.hor))
             setProgress(progressVal,.hor)
         }
         if(event.deltaY != 0){
-            let progressVal:CGFloat = SliderListUtils.progress(event.deltaY, interval, progress)
+            let progressVal:CGFloat = SliderListUtils.progress(event.deltaY, interval(.ver), progress(.ver))
             setProgress(progressVal,.ver)
         }
     }
