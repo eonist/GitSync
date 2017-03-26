@@ -23,10 +23,13 @@ extension Graph7{
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)
     }
+    func setProgress(_ value:CGFloat,_ dir:Dir){
+        contentContainer!.point[dir] = value
+    }
     /**
      * 🚗 SetProgress
      */
-    func setProgress(_ progress:CGFloat){
+    func setProgress(_ progress:CGFloat,_ dir:Dir){
         Swift.print("ScrollVList.setProgress progress: \(progress)")
         let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize.w, contentSize.w)
         Swift.print("x: " + "\(x)")
