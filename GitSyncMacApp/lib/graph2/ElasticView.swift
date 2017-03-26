@@ -98,6 +98,10 @@ class IterimScrollGroup{
         get{fatalError("get not supported")}
         set{iterimScrollX.prevScrollingDelta = newValue;iterimScrollY.prevScrollingDelta = newValue}
     }
+    var velocities:[CGFloat]{
+        get{fatalError("get not supported")}
+        set{iterimScrollX.velocities = newValue;iterimScrollY.velocities = newValue}
+    }
 }
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
@@ -114,6 +118,7 @@ class ElasticView:Element{
     var iterimScrollX:InterimScroll = InterimScroll()
     var iterimScrollY:InterimScroll = InterimScroll()
     var iterimScrollZ:InterimScroll = InterimScroll()
+    var interimScrollGroup:InterimScrollGroup = InterimScrollGroup(iterimScrollX)
     func iterimScroll(_ dir:Dir)->InterimScroll{/*Convenience*/
         return dir == .hor ? iterimScrollX : (dir == .ver ? iterimScrollY : iterimScrollZ)
     }
