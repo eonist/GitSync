@@ -79,6 +79,10 @@ class ElasticView:Element{
 }
 /*Pan related*/
 extension ElasticView{
+    func setPos(_ value:CGFloat,_ dir:Dir){
+        
+    }
+
     func setY(_ value:CGFloat){
         contentContainer!.frame.y = value
     }
