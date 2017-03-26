@@ -7,18 +7,9 @@ import Cocoa
  * TODO: bounce back x-axis
  * TODO: bounce back on zoom min and max
  */
-enum Direction {
+enum Dir {
     case hor, ver, z
 }
-protocol CanScroll {
-    func scrollWheel(with event: NSEvent)
-}
-extension CanScroll{
-    func scrollWheel(with event: NSEvent){
-        Swift.print("CanScroll.scrollWheel()")
-    }
-}
-extension NSView:CanScroll{}
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
     var contentFrame:CGRect = CGRect()
@@ -27,13 +18,15 @@ class ElasticView:Element{
     var moverY:RubberBand?
     var moverX:RubberBand?
     var moverZ:RubberBand?
-    func mover(_ dir:Direction)->RubberBand{
+    func mover(_ dir:Dir)->RubberBand{
         return dir == .hor ? moverX! : (dir == .ver ? moverY! : moverZ!)
     }
     var iterimScrollY:InterimScroll = InterimScroll()
     var iterimScrollX:InterimScroll = InterimScroll()
     var iterimScrollZ:InterimScroll = InterimScroll()
-    /**/
+    func iterimScroll(_ dir:Dir)->InterimScroll{
+        return dir == .hor ? iterimScrollX : (dir == .ver ? iterimScrollY : iterimScrollZ)
+    }
     var prevMagnificationValue:CGFloat = 0
     var initBoundWidth:CGFloat?
     var initBoundHeight:CGFloat?
