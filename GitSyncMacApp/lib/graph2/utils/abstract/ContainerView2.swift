@@ -3,7 +3,7 @@ import Cocoa
 @testable import Element
 
 class ContainerView2:Element,Containable2 {
-    var maskSize:CGSize = CGSize()
+    var maskSize:CGSize = CGSize(width,height)
     var contentSize:CGSize = CGSize()
     var contentContainer:Element?
     var itemSize:CGSize {fatalError("must be overriden in subClass")}//override this for custom value

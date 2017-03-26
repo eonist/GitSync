@@ -3,6 +3,10 @@ import Cocoa
 @testable import Element
 
 class Graph7:ContainerView2,Scrollable2{
+    override var itemSize:CGSize {return CGSize(100,100)}//override this for custom value
+    override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
+    override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
+    
     override func resolveSkin() {
         StyleManager.addStyle("Graph7{float:left;clear:left;fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
