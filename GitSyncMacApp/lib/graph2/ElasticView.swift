@@ -18,13 +18,13 @@ class ElasticView:Element{
     var moverY:RubberBand?
     var moverX:RubberBand?
     var moverZ:RubberBand?
-    func mover(_ dir:Dir)->RubberBand{
+    func mover(_ dir:Dir)->RubberBand{/*Convenience*/
         return dir == .hor ? moverX! : (dir == .ver ? moverY! : moverZ!)
     }
     var iterimScrollY:InterimScroll = InterimScroll()
     var iterimScrollX:InterimScroll = InterimScroll()
     var iterimScrollZ:InterimScroll = InterimScroll()
-    func iterimScroll(_ dir:Dir)->InterimScroll{
+    func iterimScroll(_ dir:Dir)->InterimScroll{/*Convenience*/
         return dir == .hor ? iterimScrollX : (dir == .ver ? iterimScrollY : iterimScrollZ)
     }
     var prevMagnificationValue:CGFloat = 0
