@@ -3,7 +3,6 @@ import Cocoa
 @testable import Element
 
 class ScrollVList:VList,Scrollable2{
-    
     /**
      *
      */
