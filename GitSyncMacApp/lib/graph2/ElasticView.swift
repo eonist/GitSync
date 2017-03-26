@@ -86,14 +86,11 @@ class ElasticView:Element{
         contentFrame = CGRect(0,0,width,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         /*anim*/
         moverY = RubberBand(Animation.sharedInstance,setY/*👈important*/,(maskFrame.y,maskFrame.size.height),(contentFrame.y,contentFrame.size.height))
-        /**
-         *
-         */
-        
-        var setX
-        func setX(_ val:CGFloat){
-            
+
+        var setX = { (_ val:CGFloat) -> Void in
+            self.setProgress(val, .hor)
         }
+        
         moverX = RubberBand(Animation.sharedInstance,setX/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
         valueZ = height
         let initMin:CGFloat = 0
