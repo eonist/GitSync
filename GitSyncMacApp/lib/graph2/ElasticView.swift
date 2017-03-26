@@ -7,9 +7,7 @@ import Cocoa
  * TODO: bounce back x-axis
  * TODO: bounce back on zoom min and max
  */
-enum Dir {
-    case hor, ver
-}
+
 extension NSEvent{
     var scrollingDelta:CGPoint {return CGPoint(self.scrollingDeltaX,self.scrollingDeltaY)}/*Convenience*/
     /*func scrollingDelta(_ dir:Dir)->CGFloat{/*Convenience*/
