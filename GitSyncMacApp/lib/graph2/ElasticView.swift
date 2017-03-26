@@ -129,9 +129,11 @@ extension ElasticView{
         iterimScroll(dir).prevScrollingDelta = event.scrollingDelta[dir]/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
         //Swift.print("mover!.isDirectlyManipulating: " + "\(moverY!.isDirectlyManipulating)")
         _ = iterimScroll(dir).velocities.pushPop(event.scrollingDelta[dir])/*insert new velocity at the begining and remove the last velocity to make room for the new*/
-        mover(dir).value += event.scrollingDelta[dir]/*directly manipulate the value 1 to 1 control*/
-        mover(.hor).updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
-        mover(.ver).updatePosition()
+        mover(.hor).value += event.scrollingDelta[.hor]/*directly manipulate the value 1 to 1 control*/
+        mover(.ver).value += event.scrollingDelta[.ver]
+        mover(dir).updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
+        
+        
         setProgress(mover(dir).result,dir)
     }
     /**
