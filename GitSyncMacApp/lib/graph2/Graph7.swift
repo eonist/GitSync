@@ -20,8 +20,14 @@ extension Graph7{
      */
     func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
         Swift.print("ScrollVList.onScrollWheelChange")
-        let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
-        setProgress(progressVal)
+        if(event.deltaX != 0){
+            let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
+            setProgress(progressVal,.hor)
+        }
+        if(event.deltaY != 0){
+            let progressVal:CGFloat = SliderListUtils.progress(event.deltaY, interval, progress)
+            setProgress(progressVal,.ver)
+        }
     }
    
     /**
