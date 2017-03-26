@@ -50,6 +50,18 @@ extension CGPoint{
         }
     }
 }
+class MoverGroup{
+    var movers:[Mover]
+    init(_ movers:[Mover]){
+        self.movers = movers
+    }
+    /**
+     *
+     */
+    func setPos(){
+        
+    }
+}
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
     var contentFrame:CGRect = CGRect()
