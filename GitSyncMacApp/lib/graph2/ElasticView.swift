@@ -8,7 +8,7 @@ import Cocoa
  * TODO: bounce back on zoom min and max
  */
 enum Direction {
-    case Horizontal, South, West, East
+    case Hor, Ver, Z
 }
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
