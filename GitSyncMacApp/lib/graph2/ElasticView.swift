@@ -11,8 +11,8 @@ enum Dir {
     case hor, ver, z
 }
 extension NSEvent{
-    func scrollingDelta(dir:Dir)->RubberBand{/*Convenience*/
-        return dir == .hor ? self.scrollingDeltaX : (dir == .ver ? self.scrollingDeltaY! : moverZ!)
+    func scrollingDelta(dir:Dir)->CGFloat{/*Convenience*/
+        return dir == .hor ? self.scrollingDeltaX : (dir == .ver ? self.scrollingDeltaY : NaN)
     }
 }
 class ElasticView:Element{
