@@ -57,10 +57,9 @@ class MoverGroup{
         self.xMover = xMover
         self.yMover = yMover
     }
+    var 
     var pos:CGPoint{
-        get{
-            return CGPoint(xMover.value,yMover.value)
-        }
+        get{return CGPoint(xMover.value,yMover.value)}
         set{
             xMover.value = newValue.x
             yMover.value = newValue.y
@@ -164,8 +163,8 @@ extension ElasticView{
     func onScrollWheelEnter(){
         Swift.print("👻📜 (ElasticScrollable).onScrollWheelEnter")
         //Swift.print("IRBScrollable.onScrollWheelDown")
-        moverY!.stop()
-        moverX!.stop()
+        moverGroup!.stop()
+        
         moverY!.hasStopped = true/*set the stop flag to true*/
         moverX!.hasStopped = true
         iterimScrollY.prevScrollingDelta = 0/*set last wheel speed delta to stationary, aka not spinning*/
