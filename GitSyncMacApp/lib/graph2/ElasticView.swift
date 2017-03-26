@@ -112,7 +112,7 @@ class ElasticView:Element{
         /*anim*/
         moverX = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.hor)}/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
         moverY = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.ver)}/*👈important*/,(maskFrame.y,maskFrame.size.height),(contentFrame.y,contentFrame.size.height))
-        moverGroup = MoverGroup(moverX,moverY)
+        moverGroup = MoverGroup(moverX!,moverY!)
         valueZ = height
         let initMin:CGFloat = 0
         moverZ = RubberBand(Animation.sharedInstance,setZ/*👈important*/,(maskFrame.y,maskFrame.size.height),(initMin,valueZ!))
@@ -153,10 +153,8 @@ extension ElasticView{
         iterimScroll(dir).prevScrollingDelta = event.scrollingDelta[dir]/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
         //Swift.print("mover!.isDirectlyManipulating: " + "\(moverY!.isDirectlyManipulating)")
         _ = iterimScroll(dir).velocities.pushPop(event.scrollingDelta[dir])/*insert new velocity at the begining and remove the last velocity to make room for the new*/
-        mover(.hor).value += event.scrollingDelta[.hor]/*directly manipulate the value 1 to 1 control*/
-        mover(.ver).value += event.scrollingDelta[.ver]
-        mover(.hor).updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
-        mover(.ver).updatePosition()
+        moverGroup!.pos += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
+        moverGroup!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
         let p = CGPoint(mover(.hor).result,mover(.ver).result)
         setProgress(p)
     }
