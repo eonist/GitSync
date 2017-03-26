@@ -117,7 +117,7 @@ class IterimScrollGroup{
         set{iterimScrollX.prevScrollingDelta = newValue;iterimScrollY.prevScrollingDelta = newValue}
     }
     var velocities:[CGPoint]{
-        get{fatalError("get not supported")}
+        get{return zip(iterimScrollX.velocities,iterimScrollY.velocities).map{CGPoint($0.0,$0.1)}}
         set{iterimScrollX.velocities = newValue.map{$0.x};iterimScrollY.velocities = newValue.map{$0.y}}
     }
 }
