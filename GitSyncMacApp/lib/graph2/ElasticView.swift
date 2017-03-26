@@ -90,8 +90,8 @@ extension ElasticView{
      */
     func onScrollWheelChange(_ event:NSEvent, _ dir:Dir = .ver){
         Swift.print("👻📜 (ElasticScrollable).onScrollWheelChange : \(event.type)")
-        iterimScrollY.prevScrollingDelta = event.scrollingDelta(dir)/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
-        iterimScrollX.prevScrollingDelta = event.scrollingDelta(dir)
+        iterimScroll(dir).prevScrollingDelta = event.scrollingDelta(dir)/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
+        //iterimScrollX.prevScrollingDelta = event.scrollingDeltaX
         Swift.print("mover!.isDirectlyManipulating: " + "\(moverY!.isDirectlyManipulating)")
         _ = iterimScrollY.velocities.pushPop(event.scrollingDeltaY)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
         _ = iterimScrollX.velocities.pushPop(event.scrollingDeltaX)
