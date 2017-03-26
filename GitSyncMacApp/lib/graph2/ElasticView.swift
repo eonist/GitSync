@@ -115,12 +115,6 @@ extension ElasticView{
     func setProgress(_ value:CGFloat,_ dir:Dir){
         contentContainer!.point[dir] = value
     }
-    /*func setX(_ value:CGFloat){
-     contentContainer!.frame.x = value
-     }*/
-    func setY(_ value:CGFloat){
-        contentContainer!.frame.y = value
-    }
     /**
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
      */
