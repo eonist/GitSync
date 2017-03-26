@@ -115,10 +115,10 @@ class ElasticView:Element{
     func mover(_ dir:Dir)->RubberBand{/*Convenience*/
         return dir == .hor ? moverX! : (dir == .ver ? moverY! : moverZ!)
     }
-    var iterimScrollX:InterimScroll = {return InterimScroll()}()
-    var iterimScrollY:InterimScroll = {return InterimScroll()}()
+    var iterimScrollX:InterimScroll = InterimScroll()
+    var iterimScrollY:InterimScroll = InterimScroll()
     var iterimScrollZ:InterimScroll = InterimScroll()
-    var iterimScrollGroup:IterimScrollGroup = {return IterimScrollGroup(iterimScrollX,iterimScrollY)}()
+    var iterimScrollGroup:IterimScrollGroup?
     func iterimScroll(_ dir:Dir)->InterimScroll{/*Convenience*/
         return dir == .hor ? iterimScrollX : (dir == .ver ? iterimScrollY : iterimScrollZ)
     }
@@ -131,7 +131,7 @@ class ElasticView:Element{
     
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
-        
+        iterimScrollGroup = IterimScrollGroup(iterimScrollX,iterimScrollY)
         /*init*/
         contentContainer = addSubView(Container(width,height,self,"content"))
         zoomContainer = contentContainer!.addSubView(Container(width,height,contentContainer,"zoom"))
@@ -154,17 +154,17 @@ class ElasticView:Element{
         initBoundHeight = contentContainer!.bounds.size.height
     }
     override func scrollWheel(with event: NSEvent) {
-        Swift.print("scrollWheel event.scrollingDeltaX: \(event.scrollingDeltaX) event.scrollingDeltaY: \(event.scrollingDeltaY)")
+        //Swift.print("scrollWheel event.scrollingDeltaX: \(event.scrollingDeltaX) event.scrollingDeltaY: \(event.scrollingDeltaY)")
         switch event.phase{
             case NSEventPhase.changed:onScrollWheelChange(event,event.scrollingDeltaX != 0 ? .hor : .ver)/*Fires everytime there is direct scrollWheel gesture movment and momentum, the momentum fades.*/
             case NSEventPhase.mayBegin:onScrollWheelEnter()/*Can be used to detect if two fingers are touching the trackpad*/
-            case NSEventPhase.began:onScrollWheelEnter()/*The mayBegin phase doesnt fire if you begin the scrollWheel gesture very quickly*/
+            case NSEventPhase.began:onScrollWheelEnter()/*The mayBegin phase doesn't fire if you begin the scrollWheel gesture very quickly*/
             case NSEventPhase.ended:onScrollWheelExit()//Swift.print("ended")/*if you release your touch-gesture and the momentum of the gesture has stopped.*/
             case NSEventPhase.cancelled:onScrollWheelExit()//Swift.print("cancelled")/*this trigers if the scrollWhell gestures goes off the trackpad etc*/
             //case NSEventPhase(rawValue:0):onInDirectScrollWheelChange(event);/*Swift.print("none");*/break;//swift 3 update, was -> NSEventPhase.none
             default:break;
         }
-        super.scrollWheel(with: event)
+        super.scrollWheel(with:event)
     }
 }
 /*Pan related*/
@@ -198,12 +198,12 @@ extension ElasticView{
         
         moverGroup!.hasStopped = true/*set the stop flag to true*/
         //moverX!.hasStopped = true
-        iterimScrollY.prevScrollingDelta = 0/*set last wheel speed delta to stationary, aka not spinning*/
-        iterimScrollX.prevScrollingDelta = 0
+        iterimScrollGroup!.prevScrollingDelta = 0/*set last wheel speed delta to stationary, aka not spinning*/
+        //iterimScrollX.prevScrollingDelta = 0
         moverGroup!.isDirectlyManipulating = true/*Toggle to directManipulationMode*/
         //moverX!.isDirectlyManipulating = true
-        iterimScrollY.velocities = Array(repeating: 0, count: 10)/*Reset the velocities*/
-        iterimScrollX.velocities = Array(repeating: 0, count: 10)
+        iterimScrollGroup!.velocities = Array(repeating: 0, count: 10)/*Reset the velocities*/
+        //iterimScrollX.velocities = Array(repeating: 0, count: 10)
         //⚠️️scrollWheelEnter()
     }
     /**
