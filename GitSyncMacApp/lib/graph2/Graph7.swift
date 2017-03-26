@@ -23,9 +23,7 @@ extension Graph7{
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)
     }
-    func setProgress(_ value:CGFloat,_ dir:Dir){
-        contentContainer!.point[dir] = value
-    }
+   
     /**
      * 🚗 SetProgress
      */
