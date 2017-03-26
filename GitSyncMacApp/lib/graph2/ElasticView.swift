@@ -23,12 +23,12 @@ extension CGSize{
             }else if(dir == .ver){
                 return self.height
             }else{fatalError("not supported")}
-            
-        }
-        set {
-            
-            key
-            newValue
+        }set {
+            if(dir == .hor){
+                self.width = newValue
+            }else if(dir == .ver){
+                self.height = newValue
+            }else{fatalError("not supported")}
         }
     }
 }
