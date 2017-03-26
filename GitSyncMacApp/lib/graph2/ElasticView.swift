@@ -238,8 +238,12 @@ extension ElasticView{
             let velocity:CGPoint = {
                 Swift.print("iterimScrollX.velocities: " + "\(iterimScrollX.velocities)")
                 Swift.print("iterimScrollY.velocities: " + "\(iterimScrollY.velocities)")
-                let x:CGFloat = iterimScrollX.velocities.filter(0){$0 != 0}.average
-                let y:CGFloat = iterimScrollY.velocities.filter(0){$0 != 0}.average
+                
+                //Continue here:
+                    //test if reduce return 0 if the array is empty. else figure out a work around. 
+                
+                let x:CGFloat = iterimScrollX.velocities.filter{$0 != 0}.average
+                let y:CGFloat = iterimScrollY.velocities.filter{$0 != 0}.average
                 return CGPoint(x,y)
             }()
             Swift.print("velocity: " + "\(velocity)")
