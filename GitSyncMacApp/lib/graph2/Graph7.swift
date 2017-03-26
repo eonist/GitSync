@@ -4,6 +4,7 @@ import Cocoa
 
 class Graph7:ContainerView2,Scrollable2{
     override func resolveSkin() {
+        StyleManager.addStyle("Graph7{float:left;clear:left;fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
         createEllipse()
     }
