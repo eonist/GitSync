@@ -138,7 +138,7 @@ extension ElasticView{
         Swift.print("mover!.isDirectlyManipulating: " + "\(moverY!.isDirectlyManipulating)")
         _ = iterimScroll(dir).velocities.pushPop(event.scrollingDelta(dir))/*insert new velocity at the begining and remove the last velocity to make room for the new*/
         //_ = iterimScrollX.velocities.pushPop(event.scrollingDeltaX)
-        mover(dir).value += event.scrollingDeltaY/*directly manipulate the value 1 to 1 control*/
+        mover(dir).value += event.scrollingDelta(dir)/*directly manipulate the value 1 to 1 control*/
         //moverX!.value += event.scrollingDeltaX
         mover(dir).updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
         //moverX!.updatePosition()
