@@ -76,7 +76,6 @@ class ElasticView:Element{
     
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
-        
         /*init*/
         contentContainer = addSubView(Container(width,height,self,"content"))
         zoomContainer = contentContainer!.addSubView(Container(width,height,contentContainer,"zoom"))
