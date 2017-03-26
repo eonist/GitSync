@@ -15,12 +15,12 @@ class ElasticView:Element{
     var contentFrame:CGRect = CGRect()
     var contentContainer:Element?
     var zoomContainer:Element?
-    func mover(_ dir:Direction)->RubberBand{
-        return dir == .hor ? moverX! : (dir == .ver ? moverY! : moverZ!)
-    }
     var moverY:RubberBand?
     var moverX:RubberBand?
     var moverZ:RubberBand?
+    func mover(_ dir:Direction)->RubberBand{
+        return dir == .hor ? moverX! : (dir == .ver ? moverY! : moverZ!)
+    }
     var iterimScrollY:InterimScroll = InterimScroll()
     var iterimScrollX:InterimScroll = InterimScroll()
     var iterimScrollZ:InterimScroll = InterimScroll()
