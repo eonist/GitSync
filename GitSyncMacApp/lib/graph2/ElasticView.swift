@@ -13,7 +13,12 @@ enum Direction {
 protocol CanScroll {
     func scrollWheel(with event: NSEvent)
 }
-extension NSView:CanScroll{
+extension CanScroll{
+    func scrollWheel(with event: NSEvent){
+        Swift.print("CanScroll.scrollWheel()")
+    }
+}
+extension ElasticView:CanScroll{
     
 }
 class ElasticView:Element{
