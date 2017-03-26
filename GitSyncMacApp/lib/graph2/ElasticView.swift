@@ -87,6 +87,9 @@ class MoverGroup{
         yMover.updatePosition()
     }
 }
+class IterimScrollGroup{
+    
+}
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
     var contentFrame:CGRect = CGRect()
