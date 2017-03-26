@@ -87,11 +87,9 @@ class ElasticView:Element{
         /*anim*/
         moverY = RubberBand(Animation.sharedInstance,setY/*👈important*/,(maskFrame.y,maskFrame.size.height),(contentFrame.y,contentFrame.size.height))
 
-        var setX = { val in
-            self.setProgress(val, .hor)
-        }
         
-        moverX = RubberBand(Animation.sharedInstance,setX/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
+        
+        moverX = RubberBand(Animation.sharedInstance,{val in self.setProgress(val, .hor)}/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
         valueZ = height
         let initMin:CGFloat = 0
         moverZ = RubberBand(Animation.sharedInstance,setZ/*👈important*/,(maskFrame.y,maskFrame.size.height),(initMin,valueZ!))
