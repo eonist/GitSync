@@ -236,8 +236,10 @@ extension ElasticView{
         Swift.print("caseB: " + "\(caseB)")
         if(caseA || caseB){
             let velocity:CGPoint = {
-                let x:CGFloat = iterimScrollX.velocities.filter{$0 != 0}.average
-                let y:CGFloat = iterimScrollY.velocities.filter{$0 != 0}.average
+                Swift.print("iterimScrollX.velocities: " + "\(iterimScrollX.velocities)")
+                Swift.print("iterimScrollY.velocities: " + "\(iterimScrollY.velocities)")
+                let x:CGFloat = iterimScrollX.velocities.filter(0){$0 != 0}.average
+                let y:CGFloat = iterimScrollY.velocities.filter(0){$0 != 0}.average
                 return CGPoint(x,y)
             }()
             Swift.print("velocity: " + "\(velocity)")
