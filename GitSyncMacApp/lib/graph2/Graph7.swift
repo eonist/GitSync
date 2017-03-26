@@ -6,6 +6,7 @@ class Graph7:ContainerView2,Scrollable2{
     override var itemSize:CGSize {return CGSize(100,100)}//override this for custom value
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
     override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
+    override var contentSize:CGSize {return CGSize(1800,super.contentSize.height)}/*represents the total size of the content *///TODO: could be ranmed to contentRect
     
     override func resolveSkin() {
         StyleManager.addStyle("Graph7{float:left;clear:left;fill:green;fill-alpha:0.0;}")
@@ -13,7 +14,7 @@ class Graph7:ContainerView2,Scrollable2{
         createEllipse()
         
         
-        contentSize = CGSize(1800,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
+       
     }
 }
 extension Graph7{

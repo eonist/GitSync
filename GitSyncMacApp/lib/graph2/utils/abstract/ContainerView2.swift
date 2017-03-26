@@ -4,7 +4,7 @@ import Cocoa
 
 class ContainerView2:Element,Containable2 {
     var maskSize:CGSize/*represents the visible part of the content *///TODO: could be ranmed to maskRect
-    var contentSize:CGSize = CGSize()
+    var contentSize:CGSize
     var contentContainer:Element?
     /**/
     var itemSize:CGSize {fatalError("must be overriden in subClass")}//override this for custom value
@@ -12,6 +12,7 @@ class ContainerView2:Element,Containable2 {
     var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement? = nil, _ id: String? = nil) {
         maskSize = CGSize(width,height)
+        contentSize = CGSize(width,height)
         super.init(width, height)
     }
     override func resolveSkin() {
