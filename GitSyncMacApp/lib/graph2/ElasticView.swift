@@ -11,9 +11,10 @@ enum Dir {
     case hor, ver, z
 }
 extension NSEvent{
-    func scrollingDelta(_ dir:Dir)->CGFloat{/*Convenience*/
-        return dir == .hor ? self.scrollingDeltaX : (dir == .ver ? self.scrollingDeltaY : NaN)
-    }
+    var scrollingDelta:CGPoint {return CGPoint(self.scrollingDeltaX,self.scrollingDeltaY)}/*Convenience*/
+    /*func scrollingDelta(_ dir:Dir)->CGFloat{/*Convenience*/
+     return dir == .hor ? self.scrollingDeltaX : (dir == .ver ? self.scrollingDeltaY : NaN)
+     }*/
 }
 extension CGSize{
     subscript(dir:Dir) -> CGFloat {/*Convenience*/
@@ -110,7 +111,6 @@ class ElasticView:Element{
         }
         super.scrollWheel(with: event)
     }
-    
 }
 /*Pan related*/
 extension ElasticView{
@@ -123,22 +123,18 @@ extension ElasticView{
     func setY(_ value:CGFloat){
         contentContainer!.frame.y = value
     }
-    
     /**
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
      */
     func onScrollWheelChange(_ event:NSEvent, _ dir:Dir/* = .ver*/){
         Swift.print("👻📜 (ElasticScrollable).onScrollWheelChange : \(event.type)")
-        iterimScroll(dir).prevScrollingDelta = event.scrollingDelta(dir)/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
+        iterimScroll(dir).prevScrollingDelta = event.scrollingDelta[dir]/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
         //iterimScrollX.prevScrollingDelta = event.scrollingDeltaX
         
-        //Continue here: 
-            //convert the other variables aswell 🏀
-        
         Swift.print("mover!.isDirectlyManipulating: " + "\(moverY!.isDirectlyManipulating)")
-        _ = iterimScroll(dir).velocities.pushPop(event.scrollingDelta(dir))/*insert new velocity at the begining and remove the last velocity to make room for the new*/
+        _ = iterimScroll(dir).velocities.pushPop(event.scrollingDelta[dir])/*insert new velocity at the begining and remove the last velocity to make room for the new*/
         //_ = iterimScrollX.velocities.pushPop(event.scrollingDeltaX)
-        mover(dir).value += event.scrollingDelta(dir)/*directly manipulate the value 1 to 1 control*/
+        mover(dir).value += event.scrollingDelta[dir]/*directly manipulate the value 1 to 1 control*/
         //moverX!.value += event.scrollingDeltaX
         mover(dir).updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
         //moverX!.updatePosition()
