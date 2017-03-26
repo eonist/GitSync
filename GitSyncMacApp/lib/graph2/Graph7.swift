@@ -2,6 +2,9 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
+//Continue here:
+    //
+
 class Graph7:ContainerView2,Scrollable2{
     override var itemSize:CGSize {return CGSize(100,100)}//override this for custom value
     //override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
