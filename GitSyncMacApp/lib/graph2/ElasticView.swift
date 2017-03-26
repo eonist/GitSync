@@ -142,7 +142,7 @@ extension ElasticView{
         //moverX!.value += event.scrollingDeltaX
         mover(dir).updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
         //moverX!.updatePosition()
-        setPosVal(mover(dir).result)
+        setPosVal(mover(dir).result,dir)
         //setX(moverX!.result)//new ⚠️️
         setY(moverY!.result)//new ⚠️️
     }
