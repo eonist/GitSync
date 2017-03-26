@@ -71,11 +71,18 @@ class MoverGroup{
             yMover.isDirectlyManipulating = newValue
         }
     }
-    var pos:CGPoint{
-        get{return CGPoint(xMover.value,yMover.value)}//<- maybe add error here
+    var value:CGPoint{
+        get{return CGPoint(xMover.value,yMover.value)}
         set{
             xMover.value = newValue.x
             yMover.value = newValue.y
+        }
+    }
+    var result:CGPoint{
+        get{return CGPoint(xMover.result,yMover.result)}
+        set{
+            xMover.result = newValue.x
+            yMover.result = newValue.y
         }
     }
     func stop(){
@@ -183,7 +190,7 @@ extension ElasticView{
         iterimScroll(dir).prevScrollingDelta = event.scrollingDelta[dir]/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
         //Swift.print("mover!.isDirectlyManipulating: " + "\(moverY!.isDirectlyManipulating)")
         _ = iterimScroll(dir).velocities.pushPop(event.scrollingDelta[dir])/*insert new velocity at the begining and remove the last velocity to make room for the new*/
-        moverGroup!.pos += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
+        moverGroup!.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
         moverGroup!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
         let p = CGPoint(mover(.hor).result,mover(.ver).result)
         setProgress(p)
@@ -193,17 +200,11 @@ extension ElasticView{
      */
     func onScrollWheelEnter(){
         Swift.print("👻📜 (ElasticScrollable).onScrollWheelEnter")
-        //Swift.print("IRBScrollable.onScrollWheelDown")
         moverGroup!.stop()
-        
         moverGroup!.hasStopped = true/*set the stop flag to true*/
-        //moverX!.hasStopped = true
         iterimScrollGroup!.prevScrollingDelta = 0/*set last wheel speed delta to stationary, aka not spinning*/
-        //iterimScrollX.prevScrollingDelta = 0
         moverGroup!.isDirectlyManipulating = true/*Toggle to directManipulationMode*/
-        //moverX!.isDirectlyManipulating = true
         iterimScrollGroup!.velocities = Array(repeating: 0, count: 10)/*Reset the velocities*/
-        //iterimScrollX.velocities = Array(repeating: 0, count: 10)
         //⚠️️scrollWheelEnter()
     }
     /**
@@ -212,10 +213,8 @@ extension ElasticView{
     func onScrollWheelExit(){
         Swift.print("👻📜 (ElasticScrollable).onScrollWheelExit")
         //Swift.print("IRBScrollable.onScrollWheelUp")
-        moverY!.hasStopped = false/*Reset this value to false, so that the FrameAnimatior can start again*/
-        moverX!.hasStopped = false
-        moverY!.isDirectlyManipulating = false
-        moverX!.isDirectlyManipulating = false
+        moverGroup!.hasStopped = false/*Reset this value to false, so that the FrameAnimatior can start again*/
+        moverGroup!.isDirectlyManipulating = false
         moverY!.value = moverY!.result/*Copy this back in again, as we used relative friction when above or bellow constraints*/
         moverX!.value = moverX!.result
         Swift.print("prevScrollingDeltaY: " + "\(iterimScrollY.prevScrollingDelta)")
