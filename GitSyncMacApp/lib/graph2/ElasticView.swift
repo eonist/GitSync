@@ -72,7 +72,7 @@ class MoverGroup{
         }
     }
     var pos:CGPoint{
-        get{return CGPoint(xMover.value,yMover.value)}
+        get{return CGPoint(xMover.value,yMover.value)}//<- maybe add error here
         set{
             xMover.value = newValue.x
             yMover.value = newValue.y
@@ -88,7 +88,16 @@ class MoverGroup{
     }
 }
 class IterimScrollGroup{
-    
+    var iterimScrollX:InterimScroll
+    var iterimScrollY:InterimScroll
+    init(_ iterimScrollX:InterimScroll, _ iterimScrollY:InterimScroll){
+        self.iterimScrollX = iterimScrollX
+        self.iterimScrollY = iterimScrollY
+    }
+    var prevScrollingDelta:CGFloat {
+        get{fatalError("get not supported")}
+        set{iterimScrollX.prevScrollingDelta = newValue;iterimScrollY.prevScrollingDelta = newValue}
+    }
 }
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
@@ -102,8 +111,8 @@ class ElasticView:Element{
     func mover(_ dir:Dir)->RubberBand{/*Convenience*/
         return dir == .hor ? moverX! : (dir == .ver ? moverY! : moverZ!)
     }
-    var iterimScrollY:InterimScroll = InterimScroll()
     var iterimScrollX:InterimScroll = InterimScroll()
+    var iterimScrollY:InterimScroll = InterimScroll()
     var iterimScrollZ:InterimScroll = InterimScroll()
     func iterimScroll(_ dir:Dir)->InterimScroll{/*Convenience*/
         return dir == .hor ? iterimScrollX : (dir == .ver ? iterimScrollY : iterimScrollZ)
