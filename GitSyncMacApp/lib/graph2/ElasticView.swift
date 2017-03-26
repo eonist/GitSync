@@ -64,6 +64,13 @@ class MoverGroup{
             yMover.hasStopped = newValue
         }
     }
+    var isDirectlyManipulating:Bool{
+        get{fatalError("get is not supported")}
+        set{
+            xMover.isDirectlyManipulating = newValue
+            yMover.isDirectlyManipulating = newValue
+        }
+    }
     var pos:CGPoint{
         get{return CGPoint(xMover.value,yMover.value)}
         set{
@@ -171,8 +178,8 @@ extension ElasticView{
         //Swift.print("IRBScrollable.onScrollWheelDown")
         moverGroup!.stop()
         
-        moverY!.hasStopped = true/*set the stop flag to true*/
-        moverX!.hasStopped = true
+        moverGroup!.hasStopped = true/*set the stop flag to true*/
+        //moverX!.hasStopped = true
         iterimScrollY.prevScrollingDelta = 0/*set last wheel speed delta to stationary, aka not spinning*/
         iterimScrollX.prevScrollingDelta = 0
         moverY!.isDirectlyManipulating = true/*Toggle to directManipulationMode*/
