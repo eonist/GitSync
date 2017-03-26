@@ -57,7 +57,13 @@ class MoverGroup{
         self.xMover = xMover
         self.yMover = yMover
     }
-    var 
+    var hasStopped:Bool{
+        get{fatalError("get is not supported")}
+        set{
+            xMover.hasStopped = newValue
+            yMover.hasStopped = newValue
+        }
+    }
     var pos:CGPoint{
         get{return CGPoint(xMover.value,yMover.value)}
         set{
