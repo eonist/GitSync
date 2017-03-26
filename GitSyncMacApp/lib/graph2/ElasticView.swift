@@ -120,6 +120,7 @@ class IterimScrollGroup{
         get{return zip(iterimScrollX.velocities,iterimScrollY.velocities).map{CGPoint($0.0,$0.1)}}
         set{iterimScrollX.velocities = newValue.map{$0.x};iterimScrollY.velocities = newValue.map{$0.y}}
     }
+    
 }
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
