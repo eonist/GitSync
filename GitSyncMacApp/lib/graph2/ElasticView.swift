@@ -10,6 +10,11 @@ import Cocoa
 enum Dir {
     case hor, ver, z
 }
+extension NSEvent{
+    func scrollingDelta(dir:Dir)->RubberBand{/*Convenience*/
+        return dir == .hor ? self.scrollingDeltaX : (dir == .ver ? self.scrollingDeltaY! : moverZ!)
+    }
+}
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
     var contentFrame:CGRect = CGRect()
