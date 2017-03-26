@@ -12,17 +12,8 @@ class Graph2:ElasticView{
         StyleManager.addStyle("Graph2 {fill:green;fill-alpha:0;}")
         super.resolveSkin()
         
-        
-        
-        
-        
-        /*let rect = RectGraphic(0,0,width,height,fill,line)
-         zoomContainer!.addSubview(rect.graphic)
-         rect.draw()*/
-       
-    
+        createEllipse()
     }
-    
 }
 extension Graph2{
     func createEllipse(){
@@ -44,6 +35,12 @@ extension Graph2{
         zoomContainer!.addSubview(ellipse.graphic)
         ellipse.draw()
         
+        
+        /*let rect = RectGraphic(0,0,width,height,fill,line)
+         zoomContainer!.addSubview(rect.graphic)
+         rect.draw()*/
+        
+
     }
 }
 
