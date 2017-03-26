@@ -10,6 +10,12 @@ import Cocoa
 enum Direction {
     case hor, ver, z
 }
+protocol CanScroll {
+    func scrollWheel(with event: NSEvent)
+}
+extension NSView:CanScroll{
+    
+}
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
     var contentFrame:CGRect = CGRect()
