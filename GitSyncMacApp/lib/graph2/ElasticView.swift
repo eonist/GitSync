@@ -19,11 +19,11 @@ class ElasticView:Element{
     func mover(_ dir:Direction)->RubberBand{
         switch dir{
         case .hor:
-            Swift.print()
+            return moverY
         case .ver:
-            Swift.print()
+            return moverZ
         case .z:
-            Swift.print()
+            return moverY
         }
     }
     var moverY:RubberBand?
