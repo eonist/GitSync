@@ -83,7 +83,7 @@ extension ElasticView{
     /**
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
      */
-    func onScrollWheelChange(_ event:NSEvent, _ dir:Dir){
+    func onScrollWheelChange(_ event:NSEvent, _ dir:Dir = .ver){
         Swift.print("👻📜 (ElasticScrollable).onScrollWheelChange : \(event.type)")
         iterimScrollY.prevScrollingDelta = event.scrollingDeltaY/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
         iterimScrollX.prevScrollingDelta = event.scrollingDeltaX
