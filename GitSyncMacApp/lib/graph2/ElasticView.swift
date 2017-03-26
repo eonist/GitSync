@@ -87,7 +87,7 @@ class ElasticView:Element{
         /*anim*/
         moverY = RubberBand(Animation.sharedInstance,setY/*👈important*/,(maskFrame.y,maskFrame.size.height),(contentFrame.y,contentFrame.size.height))
 
-        var setX = { (_ val:CGFloat) -> Void in
+        var setX = { val in
             self.setProgress(val, .hor)
         }
         
