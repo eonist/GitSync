@@ -115,10 +115,10 @@ class ElasticView:Element{
     func mover(_ dir:Dir)->RubberBand{/*Convenience*/
         return dir == .hor ? moverX! : (dir == .ver ? moverY! : moverZ!)
     }
-    var iterimScrollX:InterimScroll = InterimScroll()
-    var iterimScrollY:InterimScroll = InterimScroll()
+    var iterimScrollX:InterimScroll = {return InterimScroll()}()
+    var iterimScrollY:InterimScroll = {return InterimScroll()}()
     var iterimScrollZ:InterimScroll = InterimScroll()
-    var interimScrollGroup:InterimScrollGroup = InterimScrollGroup(iterimScrollX)
+    var iterimScrollGroup:IterimScrollGroup = {return IterimScrollGroup(iterimScrollX,iterimScrollY)}()
     func iterimScroll(_ dir:Dir)->InterimScroll{/*Convenience*/
         return dir == .hor ? iterimScrollX : (dir == .ver ? iterimScrollY : iterimScrollZ)
     }
@@ -131,6 +131,7 @@ class ElasticView:Element{
     
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
+        
         /*init*/
         contentContainer = addSubView(Container(width,height,self,"content"))
         zoomContainer = contentContainer!.addSubView(Container(width,height,contentContainer,"zoom"))
