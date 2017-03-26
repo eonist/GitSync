@@ -8,7 +8,7 @@ import Cocoa
  * TODO: bounce back on zoom min and max
  */
 enum Direction {
-    case Hor, Ver, Z
+    case hor, ver, z
 }
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
@@ -16,8 +16,15 @@ class ElasticView:Element{
     var contentContainer:Element?
     var zoomContainer:Element?
     /**/
-    subscript(index: Int) -> Int {
-        return multiplier * index
+    func mover(_ dir:Direction)->RubberBand{
+        switch dir{
+        case .hor:
+            Swift.print()
+        case .ver:
+            Swift.print()
+        case .z:
+            Swift.print()
+        }
     }
     var moverY:RubberBand?
     var moverX:RubberBand?
