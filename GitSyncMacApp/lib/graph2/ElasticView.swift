@@ -103,7 +103,7 @@ class ElasticView:Element{
     override func scrollWheel(with event: NSEvent) {
         Swift.print("scrollWheel")
         switch event.phase{
-        case NSEventPhase.changed:onScrollWheelChange(event,event.scrollingDeltaX != 0 ? .hor : .ver)/*Fires everytime there is direct scrollWheel gesture movment and momentum, the momentum fades.*/
+            case NSEventPhase.changed:onScrollWheelChange(event,event.scrollingDeltaX != 0 ? .hor : .ver)/*Fires everytime there is direct scrollWheel gesture movment and momentum, the momentum fades.*/
             case NSEventPhase.mayBegin:onScrollWheelEnter()/*Can be used to detect if two fingers are touching the trackpad*/
             case NSEventPhase.began:onScrollWheelEnter()/*The mayBegin phase doesnt fire if you begin the scrollWheel gesture very quickly*/
             case NSEventPhase.ended:onScrollWheelExit()//Swift.print("ended")/*if you release your touch-gesture and the momentum of the gesture has stopped.*/
@@ -130,7 +130,7 @@ extension ElasticView{
     /**
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
      */
-    func onScrollWheelChange(_ event:NSEvent, _ dir:Dir = .ver){
+    func onScrollWheelChange(_ event:NSEvent, _ dir:Dir/* = .ver*/){
         Swift.print("👻📜 (ElasticScrollable).onScrollWheelChange : \(event.type)")
         iterimScroll(dir).prevScrollingDelta = event.scrollingDelta(dir)/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
         //iterimScrollX.prevScrollingDelta = event.scrollingDeltaX
