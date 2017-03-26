@@ -32,6 +32,9 @@ extension CGSize{
         }
     }
 }
+extension CGPoint{
+    
+}
 
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
