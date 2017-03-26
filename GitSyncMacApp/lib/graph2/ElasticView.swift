@@ -121,7 +121,7 @@ class IterimScrollGroup{
         set{iterimScrollX.velocities = newValue.map{$0.x};iterimScrollY.velocities = newValue.map{$0.y}}
     }
     func velocities(_ dir:Dir){
-        
+        return dir == .hor ? iterimScrollX : iterimScrollY
     }
     
 }
