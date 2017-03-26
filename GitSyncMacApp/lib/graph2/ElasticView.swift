@@ -16,8 +16,23 @@ extension NSEvent{
     }
 }
 extension CGSize{
-    
+    subscript(dir:Dir) -> CGFloat {/*Easy Access to corners*/
+        get {
+            if(dir == .hor){
+                return self.width
+            }else if(dir == .ver){
+                return self.height
+            }else{fatalError("not supported")}
+            
+        }
+        set {
+            
+            key
+            newValue
+        }
+    }
 }
+
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
     var contentFrame:CGRect = CGRect()
