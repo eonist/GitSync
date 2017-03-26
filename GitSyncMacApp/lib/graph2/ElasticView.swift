@@ -18,9 +18,7 @@ extension CanScroll{
         Swift.print("CanScroll.scrollWheel()")
     }
 }
-extension ElasticView:CanScroll{
-    
-}
+extension NSView:CanScroll{}
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
     var contentFrame:CGRect = CGRect()
