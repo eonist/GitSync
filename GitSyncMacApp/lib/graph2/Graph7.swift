@@ -3,7 +3,7 @@ import Cocoa
 @testable import Element
 
 //Continue here:
-    //
+    //Try to generalize the layout code in Fast list, so that it supports vertical and horizontal.
 
 class Graph7:ContainerView2,Scrollable2{
     override var itemSize:CGSize {return CGSize(100,100)}//override this for custom value
