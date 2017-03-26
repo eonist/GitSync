@@ -7,46 +7,6 @@ import Cocoa
  * TODO: bounce back x-axis
  * TODO: bounce back on zoom min and max
  */
-extension NSEvent{
-    var scrollingDelta:CGPoint {return CGPoint(self.scrollingDeltaX,self.scrollingDeltaY)}/*Convenience*/
-    /*func scrollingDelta(_ dir:Dir)->CGFloat{/*Convenience*/
-     return dir == .hor ? self.scrollingDeltaX : (dir == .ver ? self.scrollingDeltaY : NaN)
-     }*/
-}
-extension CGSize{
-    subscript(dir:Dir) -> CGFloat {/*Convenience*/
-        get {
-            if(dir == .hor){
-                return self.width
-            }else if(dir == .ver){
-                return self.height
-            }else{fatalError("not supported")}
-        }set {
-            if(dir == .hor){
-                self.width = newValue
-            }else if(dir == .ver){
-                self.height = newValue
-            }else{fatalError("not supported")}
-        }
-    }
-}
-extension CGPoint{
-    subscript(dir:Dir) -> CGFloat {/*Convenience*/
-        get {
-            if(dir == .hor){
-                return self.x
-            }else if(dir == .ver){
-                return self.y
-            }else{fatalError("not supported")}
-        }set {
-            if(dir == .hor){
-                self.x = newValue
-            }else if(dir == .ver){
-                self.y = newValue
-            }else{fatalError("not supported")}
-        }
-    }
-}
 
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
