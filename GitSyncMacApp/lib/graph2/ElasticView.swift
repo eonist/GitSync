@@ -228,21 +228,13 @@ extension ElasticView{
         moverGroup!.isDirectlyManipulating = false
         moverGroup!.value = moverGroup!.result/*Copy this back in again, as we used relative friction when above or bellow constraints*/
         
-        Swift.print("prevScrollingDeltaY: " + "\(iterimScrollY.prevScrollingDelta)")
-        /*Y*/
-        if(iterimScrollY.prevScrollingDelta != 1.0 && iterimScrollY.prevScrollingDelta != -1.0){/*Not 1 and not -1 indicates that the wheel is not stationary*/
-            moverY!.velocity = iterimScrollX.velocities.filter{$0 != 0}.average/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
-            moverY!.start()
-        }else{/*stationary*/
-            
-        }
-        /*X*/
-        if(iterimScrollX.prevScrollingDelta != 1.0 && iterimScrollX.prevScrollingDelta != -1.0){/*Not 1 and not -1 indicates that the wheel is not stationary*/
-            moverX!.velocity = iterimScrollX.velocities.filter{$0 != 0}.average/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
-            moverX!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*/
-        }else{/*stationary*/
-            moverX!.start()/*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
-        }
+        //Swift.print("prevScrollingDeltaY: " + "\(iterimScrollY.prevScrollingDelta)")
+        
+        let caseA = iterimScrollX.prevScrollingDelta != 1.0 && iterimScrollX.prevScrollingDelta != -1.0
+        let caseB = iterimScrollY.prevScrollingDelta != 1.0 && iterimScrollY.prevScrollingDelta != -1.0/*Not 1 and not -1 indicates that the wheel is not stationary*/
+        
+        
+        moverX!.velocity = iterimScrollX.velocities.filter{$0 != 0}.average/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
         moverGroup!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*//*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
     }
 }
