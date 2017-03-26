@@ -129,20 +129,13 @@ extension ElasticView{
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
      */
     func onScrollWheelChange(_ event:NSEvent, _ dir:Dir/* = .ver*/){
-        Swift.print("👻📜 (ElasticScrollable).onScrollWheelChange : \(event.type)")
+        //Swift.print("👻📜 (ElasticScrollable).onScrollWheelChange : \(event.type)")
         iterimScroll(dir).prevScrollingDelta = event.scrollingDelta[dir]/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
-        //iterimScrollX.prevScrollingDelta = event.scrollingDeltaX
-        
-        Swift.print("mover!.isDirectlyManipulating: " + "\(moverY!.isDirectlyManipulating)")
+        //Swift.print("mover!.isDirectlyManipulating: " + "\(moverY!.isDirectlyManipulating)")
         _ = iterimScroll(dir).velocities.pushPop(event.scrollingDelta[dir])/*insert new velocity at the begining and remove the last velocity to make room for the new*/
-        //_ = iterimScrollX.velocities.pushPop(event.scrollingDeltaX)
         mover(dir).value += event.scrollingDelta[dir]/*directly manipulate the value 1 to 1 control*/
-        //moverX!.value += event.scrollingDeltaX
         mover(dir).updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
-        //moverX!.updatePosition()
         setProgress(mover(dir).result,dir)
-        //setX(moverX!.result)//new ⚠️️
-        //setY(moverY!.result)//new ⚠️️
     }
     /**
      * NOTE: Basically when you enter your scrollWheel gesture
