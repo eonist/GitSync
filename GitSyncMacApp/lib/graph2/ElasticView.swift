@@ -66,6 +66,14 @@ class MoverGroup{
             yMover.value = newValue.y
         }
     }
+    func stop(){
+        xMover.stop()
+        yMover.stop()
+    }
+    func updatePosition(){
+        xMover.updatePosition()
+        yMover.updatePosition()
+    }
 }
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
