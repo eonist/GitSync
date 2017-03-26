@@ -15,6 +15,9 @@ extension NSEvent{
         return dir == .hor ? self.scrollingDeltaX : (dir == .ver ? self.scrollingDeltaY : NaN)
     }
 }
+extension CGSize{
+    
+}
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
     var contentFrame:CGRect = CGRect()
