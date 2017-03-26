@@ -116,9 +116,9 @@ class IterimScrollGroup{
         get{fatalError("get not supported")}
         set{iterimScrollX.prevScrollingDelta = newValue;iterimScrollY.prevScrollingDelta = newValue}
     }
-    var velocities:[CGFloat]{
+    var velocities:[CGPoint]{
         get{fatalError("get not supported")}
-        set{iterimScrollX.velocities = newValue;iterimScrollY.velocities = newValue}
+        set{iterimScrollX.velocities = newValue.map{$0.x};iterimScrollY.velocities = newValue.map{$0.y}}
     }
 }
 class ElasticView:Element{
@@ -215,7 +215,7 @@ extension ElasticView{
         moverGroup!.hasStopped = true/*set the stop flag to true*/
         iterimScrollGroup!.prevScrollingDelta = 0/*set last wheel speed delta to stationary, aka not spinning*/
         moverGroup!.isDirectlyManipulating = true/*Toggle to directManipulationMode*/
-        iterimScrollGroup!.velocities = Array(repeating: 0, count: 10)/*Reset the velocities*/
+        iterimScrollGroup!.velocities = Array(repeating: CGPoint(), count: 10)/*Reset the velocities*/
         //⚠️️scrollWheelEnter()
     }
     /**
