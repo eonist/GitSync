@@ -15,16 +15,8 @@ class ElasticView:Element{
     var contentFrame:CGRect = CGRect()
     var contentContainer:Element?
     var zoomContainer:Element?
-    /**/
     func mover(_ dir:Direction)->RubberBand{
-        switch dir{
-        case .hor:
-            return moverY
-        case .ver:
-            return moverZ
-        case .z:
-            return moverY
-        }
+        return dir == .hor ? moverX! : (dir == .ver ? moverY! : moverZ!)
     }
     var moverY:RubberBand?
     var moverX:RubberBand?
