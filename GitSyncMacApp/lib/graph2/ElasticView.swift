@@ -85,11 +85,9 @@ class ElasticView:Element{
         maskFrame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
         contentFrame = CGRect(0,0,width,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         /*anim*/
-        moverY = RubberBand(Animation.sharedInstance,setY/*👈important*/,(maskFrame.y,maskFrame.size.height),(contentFrame.y,contentFrame.size.height))
 
-        
-        
-        moverX = RubberBand(Animation.sharedInstance,{val in self.setProgress(val, .hor)}/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
+        moverX = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.hor)}/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
+        moverY = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.ver)}/*👈important*/,(maskFrame.y,maskFrame.size.height),(contentFrame.y,contentFrame.size.height))
         valueZ = height
         let initMin:CGFloat = 0
         moverZ = RubberBand(Animation.sharedInstance,setZ/*👈important*/,(maskFrame.y,maskFrame.size.height),(initMin,valueZ!))
@@ -147,7 +145,7 @@ extension ElasticView{
         //moverX!.updatePosition()
         setProgress(mover(dir).result,dir)
         //setX(moverX!.result)//new ⚠️️
-        setY(moverY!.result)//new ⚠️️
+        //setY(moverY!.result)//new ⚠️️
     }
     /**
      * NOTE: Basically when you enter your scrollWheel gesture
