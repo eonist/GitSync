@@ -215,8 +215,8 @@ extension ElasticView{
         //Swift.print("IRBScrollable.onScrollWheelUp")
         moverGroup!.hasStopped = false/*Reset this value to false, so that the FrameAnimatior can start again*/
         moverGroup!.isDirectlyManipulating = false
-        moverY!.value = moverY!.result/*Copy this back in again, as we used relative friction when above or bellow constraints*/
-        moverX!.value = moverX!.result
+        moverGroup!.value = moverGroup!.result/*Copy this back in again, as we used relative friction when above or bellow constraints*/
+        
         Swift.print("prevScrollingDeltaY: " + "\(iterimScrollY.prevScrollingDelta)")
         /*Y*/
         if(iterimScrollY.prevScrollingDelta != 1.0 && iterimScrollY.prevScrollingDelta != -1.0){/*Not 1 and not -1 indicates that the wheel is not stationary*/
