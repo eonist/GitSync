@@ -16,7 +16,7 @@ class Graph7:ContainerView2,Scrollable2{
 }
 extension Graph7{
     /**
-     *
+     * 
      */
     func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
         Swift.print("ScrollVList.onScrollWheelChange")

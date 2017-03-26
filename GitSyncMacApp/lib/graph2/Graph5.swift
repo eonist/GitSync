@@ -25,8 +25,9 @@ class Graph5:ContainerView2{
         super.resolveSkin()
         
         /*config*/
-        maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
-        contentSize = CGSize(1600,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
+        Swift.print("⚠️️IMPLEMENT THE BELLOW AS COMPUTED PROPS⚠️️")
+        //maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
+        //contentSize = CGSize(1600,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         
         /*add UI*/
         createTimeBar()
