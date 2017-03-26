@@ -16,7 +16,7 @@ extension NSEvent{
     }
 }
 extension CGSize{
-    subscript(dir:Dir) -> CGFloat {/*Easy Access to corners*/
+    subscript(dir:Dir) -> CGFloat {/*Convenience*/
         get {
             if(dir == .hor){
                 return self.width
@@ -33,7 +33,21 @@ extension CGSize{
     }
 }
 extension CGPoint{
-    
+    subscript(dir:Dir) -> CGFloat {/*Convenience*/
+        get {
+            if(dir == .hor){
+                return self.x
+            }else if(dir == .ver){
+                return self.y
+            }else{fatalError("not supported")}
+        }set {
+            if(dir == .hor){
+                self.x = newValue
+            }else if(dir == .ver){
+                self.y = newValue
+            }else{fatalError("not supported")}
+        }
+    }
 }
 
 class ElasticView:Element{
