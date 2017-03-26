@@ -85,7 +85,6 @@ class ElasticView:Element{
         maskFrame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
         contentFrame = CGRect(0,0,width,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         /*anim*/
-
         moverX = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.hor)}/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
         moverY = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.ver)}/*👈important*/,(maskFrame.y,maskFrame.size.height),(contentFrame.y,contentFrame.size.height))
         valueZ = height
@@ -99,7 +98,7 @@ class ElasticView:Element{
         initBoundHeight = contentContainer!.bounds.size.height
     }
     override func scrollWheel(with event: NSEvent) {
-        Swift.print("scrollWheel")
+        Swift.print("scrollWheel event.scrollingDeltaX: \(event.scrollingDeltaX) event.scrollingDeltaY: \(event.scrollingDeltaY)")
         switch event.phase{
             case NSEventPhase.changed:onScrollWheelChange(event,event.scrollingDeltaX != 0 ? .hor : .ver)/*Fires everytime there is direct scrollWheel gesture movment and momentum, the momentum fades.*/
             case NSEventPhase.mayBegin:onScrollWheelEnter()/*Can be used to detect if two fingers are touching the trackpad*/
