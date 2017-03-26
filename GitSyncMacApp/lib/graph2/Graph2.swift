@@ -11,7 +11,6 @@ class Graph2:ElasticView{
     override func resolveSkin() {
         StyleManager.addStyle("Graph2 {fill:green;fill-alpha:0;}")
         super.resolveSkin()
-        
         createEllipse()
     }
 }
