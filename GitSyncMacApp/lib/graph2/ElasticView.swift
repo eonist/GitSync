@@ -240,7 +240,7 @@ extension ElasticView{
                 Swift.print("iterimScrollY.velocities: " + "\(iterimScrollY.velocities)")
                 
                 //Continue here:
-                    //test if reduce return 0 if the array is empty. else figure out a work around. 
+                    //test if reduce return 0 if the array is empty. else figure out a work around. 🏀
                 
                 let x:CGFloat = iterimScrollX.velocities.filter{$0 != 0}.average
                 let y:CGFloat = iterimScrollY.velocities.filter{$0 != 0}.average
