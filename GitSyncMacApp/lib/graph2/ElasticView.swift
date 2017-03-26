@@ -114,16 +114,16 @@ class ElasticView:Element{
 }
 /*Pan related*/
 extension ElasticView{
-    func setPos(_ value:CGFloat,_ dir:Dir){
-        
+    func setPosVal(_ value:CGFloat,_ dir:Dir){
+        contentContainer!.point[dir] = value
     }
-
+    /*func setX(_ value:CGFloat){
+     contentContainer!.frame.x = value
+     }*/
     func setY(_ value:CGFloat){
         contentContainer!.frame.y = value
     }
-    func setX(_ value:CGFloat){
-        contentContainer!.frame.x = value
-    }
+    
     /**
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
      */
@@ -142,8 +142,9 @@ extension ElasticView{
         //moverX!.value += event.scrollingDeltaX
         mover(dir).updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
         //moverX!.updatePosition()
+        setPosVal(mover(dir).result)
+        //setX(moverX!.result)//new ⚠️️
         setY(moverY!.result)//new ⚠️️
-        setX(moverX!.result)//new ⚠️️
     }
     /**
      * NOTE: Basically when you enter your scrollWheel gesture
