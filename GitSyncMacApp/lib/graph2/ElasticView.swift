@@ -120,7 +120,7 @@ class IterimScrollGroup{
         get{return zip(iterimScrollX.velocities,iterimScrollY.velocities).map{CGPoint($0.0,$0.1)}}
         set{iterimScrollX.velocities = newValue.map{$0.x};iterimScrollY.velocities = newValue.map{$0.y}}
     }
-    func velocities(_ dir:Dir){
+    func velocities(_ dir:Dir)->InterimScroll{
         return dir == .hor ? iterimScrollX : iterimScrollY
     }
     
@@ -204,7 +204,8 @@ extension ElasticView{
         //Swift.print("👻📜 (ElasticScrollable).onScrollWheelChange : \(event.type)")
         iterimScroll(.hor).prevScrollingDelta = event.scrollingDelta[.hor]/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
         //Swift.print("mover!.isDirectlyManipulating: " + "\(moverY!.isDirectlyManipulating)")
-        _ = iterimScroll(.hor).velocities.shiftAppend(event.scrollingDelta[.hor])/*insert new velocity at the begining and remove the last velocity to make room for the new*/
+        _ = iterimScrollGroup!.velocities(.hor).shiftAppend(event.scrollingDelta[.hor])/*insert new velocity at the begining and remove the last velocity to make room for the new*/
+        //_ = iterimScroll(.hor).velocities
         moverGroup!.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
         moverGroup!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
         let p = CGPoint(mover(.hor).result,mover(.ver).result)
