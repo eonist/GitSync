@@ -12,7 +12,7 @@ class Graph7:ContainerView2,Scrollable2{
         super.resolveSkin()
         createEllipse()
         
-        maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
+        
         contentSize = CGSize(1800,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
     }
 }

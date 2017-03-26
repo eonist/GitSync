@@ -3,7 +3,7 @@ import Cocoa
 @testable import Element
 
 class ContainerView2:Element,Containable2 {
-    var maskSize:CGSize
+    var maskSize:CGSize/*represents the visible part of the content *///TODO: could be ranmed to maskRect
     var contentSize:CGSize = CGSize()
     var contentContainer:Element?
     /**/
