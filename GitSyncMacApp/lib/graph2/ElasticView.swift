@@ -86,6 +86,14 @@ class ElasticView:Element{
         contentFrame = CGRect(0,0,width,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         /*anim*/
         moverY = RubberBand(Animation.sharedInstance,setY/*👈important*/,(maskFrame.y,maskFrame.size.height),(contentFrame.y,contentFrame.size.height))
+        /**
+         *
+         */
+        
+        var setX
+        func setX(_ val:CGFloat){
+            
+        }
         moverX = RubberBand(Animation.sharedInstance,setX/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
         valueZ = height
         let initMin:CGFloat = 0
@@ -114,7 +122,7 @@ class ElasticView:Element{
 }
 /*Pan related*/
 extension ElasticView{
-    func setPosVal(_ value:CGFloat,_ dir:Dir){
+    func setProgress(_ value:CGFloat,_ dir:Dir){
         contentContainer!.point[dir] = value
     }
     /*func setX(_ value:CGFloat){
@@ -142,7 +150,7 @@ extension ElasticView{
         //moverX!.value += event.scrollingDeltaX
         mover(dir).updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
         //moverX!.updatePosition()
-        setPosVal(mover(dir).result,dir)
+        setProgress(mover(dir).result,dir)
         //setX(moverX!.result)//new ⚠️️
         setY(moverY!.result)//new ⚠️️
     }
