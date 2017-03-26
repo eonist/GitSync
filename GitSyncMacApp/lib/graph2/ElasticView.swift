@@ -16,7 +16,9 @@ class ElasticView:Element{
     var contentContainer:Element?
     var zoomContainer:Element?
     /**/
-    
+    subscript(index: Int) -> Int {
+        return multiplier * index
+    }
     var moverY:RubberBand?
     var moverX:RubberBand?
     var moverZ:RubberBand?
