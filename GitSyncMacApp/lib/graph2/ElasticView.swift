@@ -176,7 +176,7 @@ class ElasticView:Element{
         initBoundHeight = contentContainer!.bounds.size.height
     }
     override func scrollWheel(with event: NSEvent) {
-        Swift.print("scrollWheel event.scrollingDeltaX: \(event.scrollingDeltaX) event.scrollingDeltaY: \(event.scrollingDeltaY)")
+        //Swift.print("scrollWheel event.scrollingDeltaX: \(event.scrollingDeltaX) event.scrollingDeltaY: \(event.scrollingDeltaY)")
         switch event.phase{
             case NSEventPhase.changed:onScrollWheelChange(event)/*Fires everytime there is direct scrollWheel gesture movment and momentum, the momentum fades.*/
             case NSEventPhase.mayBegin:onScrollWheelEnter()/*Can be used to detect if two fingers are touching the trackpad*/
@@ -203,9 +203,8 @@ extension ElasticView{
     func onScrollWheelChange(_ event:NSEvent){
         //Swift.print("👻📜 (ElasticScrollable).onScrollWheelChange : \(event.type)")
         iterimScroll(.hor).prevScrollingDelta = event.scrollingDelta[.hor]/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
-        //Swift.print("mover!.isDirectlyManipulating: " + "\(moverY!.isDirectlyManipulating)")
         _ = iterimScrollGroup!.iterimScroll(.hor).velocities.shiftAppend(event.scrollingDelta[.hor])/*insert new velocity at the begining and remove the last velocity to make room for the new*/
-        //_ = iterimScroll(.hor).velocities
+        _ = iterimScrollGroup!.iterimScroll(.ver).velocities.shiftAppend(event.scrollingDelta[.ver])
         moverGroup!.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
         moverGroup!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
         let p = CGPoint(mover(.hor).result,mover(.ver).result)
@@ -243,10 +242,7 @@ extension ElasticView{
             let velocity:CGPoint = {
                 Swift.print("iterimScrollX.velocities: " + "\(iterimScrollX.velocities)")
                 Swift.print("iterimScrollY.velocities: " + "\(iterimScrollY.velocities)")
-                
-                //Continue here:
-                    //test if reduce return 0 if the array is empty. else figure out a work around. 🏀
-                
+               
                 let x:CGFloat = iterimScrollX.velocities.filter{$0 != 0}.average
                 let y:CGFloat = iterimScrollY.velocities.filter{$0 != 0}.average
                 return CGPoint(x,y)
