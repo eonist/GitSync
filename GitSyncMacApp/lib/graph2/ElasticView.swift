@@ -85,6 +85,13 @@ class MoverGroup{
             yMover.result = newValue.y
         }
     }
+    var velocity:CGPoint{
+        get{fatalError("get is not supported")}
+        set{
+            xMover.velocity = newValue.x
+            yMover.velocity = newValue.y
+        }
+    }
     func stop(){
         xMover.stop()
         yMover.stop()
