@@ -83,6 +83,7 @@ class ElasticView:Element{
     var moverY:RubberBand?
     var moverX:RubberBand?
     var moverZ:RubberBand?
+    var moverGroup:MoverGroup?
     func mover(_ dir:Dir)->RubberBand{/*Convenience*/
         return dir == .hor ? moverX! : (dir == .ver ? moverY! : moverZ!)
     }
@@ -111,6 +112,7 @@ class ElasticView:Element{
         /*anim*/
         moverX = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.hor)}/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
         moverY = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.ver)}/*👈important*/,(maskFrame.y,maskFrame.size.height),(contentFrame.y,contentFrame.size.height))
+        moverGroup = MoverGroup(moverX,moverY)
         valueZ = height
         let initMin:CGFloat = 0
         moverZ = RubberBand(Animation.sharedInstance,setZ/*👈important*/,(maskFrame.y,maskFrame.size.height),(initMin,valueZ!))
@@ -155,8 +157,8 @@ extension ElasticView{
         mover(.ver).value += event.scrollingDelta[.ver]
         mover(.hor).updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
         mover(.ver).updatePosition()
-        setProgress(mover(.hor).result,.hor)
-        setProgress(mover(.ver).result,.ver)
+        let p = CGPoint(mover(.hor).result,mover(.ver).result)
+        setProgress(p)
     }
     /**
      * NOTE: Basically when you enter your scrollWheel gesture
