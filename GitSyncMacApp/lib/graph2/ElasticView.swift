@@ -50,7 +50,6 @@ extension CGPoint{
         }
     }
 }
-
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
     var contentFrame:CGRect = CGRect()
