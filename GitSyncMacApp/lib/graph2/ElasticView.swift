@@ -94,10 +94,10 @@ extension ElasticView{
         //iterimScrollX.prevScrollingDelta = event.scrollingDeltaX
         
         //Continue here: 
-            //convert the other variables aswell 🏀   
+            //convert the other variables aswell 🏀
         
         Swift.print("mover!.isDirectlyManipulating: " + "\(moverY!.isDirectlyManipulating)")
-        _ = iterimScrollY.velocities.pushPop(event.scrollingDeltaY)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
+        _ = iterimScroll(dir).velocities.pushPop(event.scrollingDelta(dir))/*insert new velocity at the begining and remove the last velocity to make room for the new*/
         _ = iterimScrollX.velocities.pushPop(event.scrollingDeltaX)
         moverY!.value += event.scrollingDeltaY/*directly manipulate the value 1 to 1 control*/
         moverX!.value += event.scrollingDeltaX
