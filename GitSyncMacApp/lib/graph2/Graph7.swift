@@ -7,6 +7,9 @@ class Graph7:ContainerView2,Scrollable2{
         StyleManager.addStyle("Graph7{float:left;clear:left;fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
         createEllipse()
+        
+        maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
+        contentSize = CGSize(1800,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
     }
 }
 extension Graph7{
