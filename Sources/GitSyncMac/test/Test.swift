@@ -5,7 +5,7 @@ class Test {
     init(){
         //binarySearchTest()
         //multiCMDTest()
-        //shellTesting()
+        //shellTesting()A
         //moreShellTesting()
         //trimTest()
         //commitLog()
