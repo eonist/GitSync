@@ -3,7 +3,7 @@ import Cocoa
 @testable import Element
 @testable import GitSyncMac
 
-class ListTransitionTestView:TitleView{
+class TestView:TitleView{
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {
         //self.title = "Resolve merge conflict:"//Title: Resolve sync conflict:
         super.init(width, height, parent, "listTransitionTestView")

@@ -3,7 +3,7 @@ import Cocoa
 @testable import Element
 @testable import GitSyncMac
 
-class ListTransitionTestWin:Window {
+class TestWin:Window {
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
         super.init(docWidth, docHeight)
         WinModifier.align(self, Alignment.centerCenter, Alignment.centerCenter,CGPoint(6,0))/*aligns the window to the screen*/
@@ -11,7 +11,7 @@ class ListTransitionTestWin:Window {
     override func resolveSkin() {
         //Swift.print("frame.width: " + "\(frame.size.width)")
         //Swift.print("frame.height: " + "\(frame.size.height)")
-        self.contentView = ListTransitionTestView(frame.size.width,frame.size.height)
+        self.contentView = TestView(frame.size.width,frame.size.height)
         //self.contentView = RepoListTestView(frame.size.width,frame.size.height) 
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
