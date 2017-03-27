@@ -15,7 +15,7 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        createGraph7Test()
+        //createGraph7Test()
         //createGraph6Test()
         //createGraph5Test()
         //createGraph4Test()
@@ -35,7 +35,7 @@ class TestView:TitleView{
         //fastList3()
         //dpTests()
         //sliderFastList()
-        //fastList()
+        fastList()
         //sliderList()
         //createList()
         //createRBSliderFastList()//new👈
