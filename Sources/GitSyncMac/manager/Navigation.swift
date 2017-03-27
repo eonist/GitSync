@@ -38,9 +38,9 @@ class Navigation {
             case "\(ConflictDialogView.self)":
                 mainView.currentView = mainView.addSubView(ConflictDialogView(width,height,mainView))
             case "\(TestView3.self)":
-                mainView.currentView = mainView.addSubView(DebugView(width,height,mainView))
-            case "\(TestView.self)":
-                mainView.currentView = mainView.addSubView(TestView(width,height,mainView))
+                mainView.currentView = mainView.addSubView(TestView3(width,height,mainView))
+            case "\(TestView2.self)":
+                mainView.currentView = mainView.addSubView(TestView2(width,height,mainView))
             case "\(CommitDetailView.self)":
                 Swift.print("set CommitDetailView win")
                 mainView.currentView = mainView.addSubView(CommitDetailView(width,height,mainView))
