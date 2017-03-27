@@ -33,7 +33,8 @@ class TestView:TitleView{
         //rbSliderFastList3()
         //fastList3()
         //dpTests()
-        sliderFastList()
+        scrollFastList()
+        //sliderFastList()
         //fastList()
         //sliderList()
         //createList()
@@ -291,12 +292,18 @@ class TestView:TitleView{
         _ = dp.removeItemAt(0)
         _ = dp.removeItemAt(0)
     }
+    func scrollFastList(){
+        var dp:DataProvider
+        dp = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
+        let list = self.addSubView(ScrollFastList(140, 73, 24, dp, self))
+        FastListModifier.select(list as IFastList, 5)
+    }
     func sliderFastList(){
         var dp:DataProvider
         dp = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         //dp = DataProvider()
         //dp.addItem(["title":"pink"])
-        let list = self.addSubView(ScrollFastList(140, 73, 24, dp, self))
+        let list = self.addSubView(SlideScrollFastList(140, 73, 24, dp, self))
         //ListModifier.select(list, "white")
         FastListModifier.select(list as IFastList, 5)
     }
