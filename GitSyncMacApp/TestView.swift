@@ -31,7 +31,6 @@ class TestView:TitleView{
         //uiSwitchTest()
         //barGraphTest()
         //rbSliderFastList3()
-        //sliderFastList3()
         //fastList3()
         //dpTests()
         sliderFastList()
