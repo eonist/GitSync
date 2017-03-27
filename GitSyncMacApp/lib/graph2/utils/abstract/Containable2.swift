@@ -9,5 +9,5 @@ protocol Containable2:class {
     var contentContainer:Element? {get}
     var progress:CGFloat {get}
     var interval:CGFloat {get}
-    func scrollWheel(with event: NSEvent)
+    //func scrollWheel(with event: NSEvent)
 }
