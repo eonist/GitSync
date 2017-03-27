@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 @testable import Element
 //teting fastlist
-class TestView:Element {
+class TestView2:Element {
     var volumeSlider:VolumeSlider?
     var list: DEPRECATED_FastList?
     var sliderList: DEPRECATED_SliderList?

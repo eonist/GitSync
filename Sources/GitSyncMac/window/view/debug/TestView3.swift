@@ -4,7 +4,7 @@ import Foundation
 /**
  * TestView when making the progressIndicator
  */
-class DebugView:Element{
+class TestView3:Element{
     var volumeSlider:VolumeSlider?
     var startButton:TextButton?
     var stopButton:TextButton?

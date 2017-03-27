@@ -37,7 +37,7 @@ class Navigation {
                 mainView.currentView = mainView.addSubView(RepoDetailView(width,height,mainView))
             case "\(ConflictDialogView.self)":
                 mainView.currentView = mainView.addSubView(ConflictDialogView(width,height,mainView))
-            case "\(DebugView.self)":
+            case "\(TestView3.self)":
                 mainView.currentView = mainView.addSubView(DebugView(width,height,mainView))
             case "\(TestView.self)":
                 mainView.currentView = mainView.addSubView(TestView(width,height,mainView))
