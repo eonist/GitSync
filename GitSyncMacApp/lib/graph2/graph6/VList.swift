@@ -2,7 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 
-class VList:ContainerView2 {
+class VList:ContainerView2,IList {
     var dp:DataProvider
     var _itemSize:CGSize
     override var itemSize:CGSize {return _itemSize}/**///override this for custom value
