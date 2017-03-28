@@ -15,7 +15,14 @@ class List2:ContainerView2,IList {
     var _itemSize:CGSize
     override var itemSize:CGSize {return _itemSize}/**///override this for custom value
     override var maskSize:CGSize { get{return CGSize(width,height)}set{_ = newValue} }
-    override var contentSize:CGSize { get{return CGSize(dp.count * itemSize.width ,height) } set{_ = newValue}}
+    
+    override var contentSize:CGSize {
+        get{
+            return CGSize(dp.count * itemSize.width ,height)
+        } set{
+            _ = newValue
+        }
+    }
     
     //Continue here:  🏀
         //add dir
