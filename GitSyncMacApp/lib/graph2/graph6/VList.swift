@@ -3,6 +3,9 @@ import Cocoa
 @testable import Utils
 
 class VList:ContainerView2,IList {
+    var itemHeight:CGFloat{return itemSize.width}
+    var itemsHeight:CGFloat{return contentSize.width}
+    
     var dp:DataProvider
     var _itemSize:CGSize
     override var itemSize:CGSize {return _itemSize}/**///override this for custom value
