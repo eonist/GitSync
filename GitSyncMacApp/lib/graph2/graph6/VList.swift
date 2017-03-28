@@ -8,6 +8,8 @@ class VList:ContainerView2,IList {
     var itemsHeight:CGFloat{return contentSize.width}
     var lableContainer:Element? {return contentContainer}
     var dataProvider:DataProvider {return dp}
+    /*New*/
+    var dir:Dir
     /*temp*/
     var dp:DataProvider
     var _itemSize:CGSize
@@ -20,9 +22,10 @@ class VList:ContainerView2,IList {
         //add id so you can toggle css style
         //make it work with vertical list aswell
     
-    init(_ width: CGFloat, _ height: CGFloat, _ itemSize:CGSize = CGSize(NaN,NaN), _ dataProvider:DataProvider? = nil, _ parent: IElement? = nil, _ id: String? = "") {
+    init(_ width: CGFloat, _ height: CGFloat, _ itemSize:CGSize = CGSize(NaN,NaN), _ dataProvider:DataProvider? = nil, _ parent: IElement? = nil, _ id: String? = "", _ dir:Dir = .ver) {
         self._itemSize = itemSize
         self.dp = dataProvider ?? DataProvider()/*<--if it's nil then a DB is created*/
+        self.dir = dir
         super.init(width,height,parent,id)
         self.dp.event = onEvent/*Add event handler for the dataProvider*/
         layer!.masksToBounds = true/*masks the children to the frame, I don't think this works, seem to work now*/
