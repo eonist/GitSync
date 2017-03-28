@@ -15,6 +15,11 @@ class VList:ContainerView2,IList {
     override var maskSize:CGSize { get{return CGSize(width,height)}set{_ = newValue} }
     override var contentSize:CGSize { get{return CGSize(dp.count * itemSize.width ,height) } set{_ = newValue}}
     
+    //Continue here:  🏀
+        //add dir
+        //add id so you can toggle css style
+        //make it work with vertical list aswell
+    
     init(_ width: CGFloat, _ height: CGFloat, _ itemSize:CGSize = CGSize(NaN,NaN), _ dataProvider:DataProvider? = nil, _ parent: IElement? = nil, _ id: String? = "") {
         self._itemSize = itemSize
         self.dp = dataProvider ?? DataProvider()/*<--if it's nil then a DB is created*/
