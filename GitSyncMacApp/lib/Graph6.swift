@@ -40,6 +40,7 @@ extension Graph6{
         _ = list
         
         //continue here:
+            //use List instead, with Dir. inject support for itemSize by just overriding and usingitemHeight for both h and w
     }
     /**
      * Creates the TimeBar

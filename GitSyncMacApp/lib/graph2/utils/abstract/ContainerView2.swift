@@ -6,8 +6,7 @@ class ContainerView2:Element,Containable2 {
     var maskSize:CGSize {return CGSize(super.width,super.height)}/*represents the visible part of the content *///TODO: could be ranmed to maskRect
     var contentSize:CGSize {return CGSize(super.width,super.height)}
     var contentContainer:Element?
-    /**/
-    var itemSize:CGSize {fatalError("must be overriden in subClass")}//override this for custom value
+    /*item size is not relevant other than in*/var itemSize:CGSize {fatalError("must be overriden in subClass")}//override this for custom value
     var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
     var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement? = nil, _ id: String? = nil) {
