@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-class ScrollVList:VList,Scrollable2{
+class ScrollList2: List2,Scrollable2{
     /**
      *
      */

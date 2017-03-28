@@ -2,7 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 
-class VList:ContainerView2,IList {
+class List2:ContainerView2,IList {
     /*temp*/
     var itemHeight:CGFloat{return itemSize.width}
     var itemsHeight:CGFloat{return contentSize.width}
