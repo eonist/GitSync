@@ -15,14 +15,7 @@ class List2:ContainerView2,IList {
     var _itemSize:CGSize
     override var itemSize:CGSize {return _itemSize}/**///override this for custom value
     override var maskSize:CGSize { get{return CGSize(width,height)}set{_ = newValue} }
-    
-    override var contentSize:CGSize {
-        get{
-            return CGSize(dp.count * itemSize.width ,height)
-        } set{
-            _ = newValue
-        }
-    }
+    override var contentSize:CGSize { get{return dir == .hor ? CGSize(dp.count * itemSize.width ,height) : CGSize(width ,dp.count * itemSize.height) } set{_ = newValue}}
     
     //Continue here:  🏀
         //add dir
@@ -61,7 +54,7 @@ class List2:ContainerView2,IList {
         return item
     }
     override func getClassType() -> String {
-        return "VList"//"\(VList.self)"
+        return "List"//"\(VList.self)"
     }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
