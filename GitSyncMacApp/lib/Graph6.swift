@@ -39,7 +39,7 @@ extension Graph6{
         let list = addSubView(ScrollVList(400,24,CGSize(100,24),dp,nil))
         _ = list
         
-        //continue here:
+        //continue here: 🏀
             //use List instead, with Dir. inject support for itemSize by just overriding and usingitemHeight for both h and w
     }
     /**
