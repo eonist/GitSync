@@ -17,10 +17,9 @@ class List2:ContainerView2,IList {
     override var maskSize:CGSize { get{return CGSize(width,height)}set{_ = newValue} }
     override var contentSize:CGSize { get{return dir == .hor ? CGSize(dp.count * itemSize.width ,height) : CGSize(width ,dp.count * itemSize.height) } set{_ = newValue}}
     /**/
-    var interval:CGFloat{return floor(contentSize[dir] - maskSize[dir])/itemSize[dir]}
-    var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
+    override var interval:CGFloat{return floor(contentSize[dir] - maskSize[dir])/itemSize[dir]}
+    override var progress:CGFloat{return SliderParser.progress(contentContainer!.point[dir], maskSize[dir], contentSize[dir])}
 
-    
     init(_ width: CGFloat, _ height: CGFloat, _ itemSize:CGSize = CGSize(NaN,NaN), _ dataProvider:DataProvider? = nil, _ parent: IElement? = nil, _ id: String? = "", _ dir:Dir = .ver) {
         self._itemSize = itemSize
         self.dp = dataProvider ?? DataProvider()/*<--if it's nil then a DB is created*/
