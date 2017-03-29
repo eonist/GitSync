@@ -37,5 +37,7 @@ class Graph8 {
     init(){
         let numOfDaysInYear:Int = 365
         let numOfDaysInYearRange:Int = range.count * numOfDaysInYear
+        Swift.print("range.count: " + "\(range.count)")
+        Swift.print("numOfDaysInYearRange: " + "\(numOfDaysInYearRange)")
     }
 }
