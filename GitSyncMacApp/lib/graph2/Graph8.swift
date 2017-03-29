@@ -24,4 +24,9 @@ class Graph8 {
     //year 2010 - 2017 -> create rand values
     //month (Gen from year range) -> create rand values
     //day (gen from year range) -> create rand values
+        //you actually generate these on the fly. 
+            //instead of pulling items from an array you pull from a method that calculates via progress and Date()
+                //this is cool! you do this for month and year to, takes care of padding time values as well.
+                    //try some tests around this concept first
+                    //look at the FastList and see if it can support it! 👀
 }
