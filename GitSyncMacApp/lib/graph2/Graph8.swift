@@ -43,12 +43,11 @@ class Graph8 {
     }
 }
 
-
 class DayDP:DataProvider{
     static var numOfDaysInYear:Int = 365
     var yearRange:Range<Int>
     override var count:Int {return yearRange.count * DayDP.numOfDaysInYear }/*numOfDaysInYearRange*/
-    override var items:[[String:String]] {get{fatalError("Should not happen")}set{fatalError("Should not happen")}}
+    override var items:[[String:String]] {get{fatalError("Not available")}set{fatalError("Not available")}}
     init(_ yearRange:Range<Int>) {
         self.yearRange = yearRange
     }
