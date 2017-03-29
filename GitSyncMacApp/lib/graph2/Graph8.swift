@@ -49,6 +49,9 @@ class Graph8 {
 
 class DayDP:DataProvider{
     var yearRange:Range<Int>
+    override var items: [[String : String]] {
+        return 
+    }
     init(_ yearRange:Range<Int>) {
         self.yearRange = yearRange
     }
