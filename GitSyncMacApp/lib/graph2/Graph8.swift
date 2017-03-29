@@ -52,6 +52,10 @@ class DayDP:DataProvider{
         self.yearRange = yearRange
     }
     override func item(_ at: Int) -> [String : String]? {
+        //find date
+            //n days from startDate => date
+        //short day for date
+            //return dict with this
         return ["title":""]
     }
 }
