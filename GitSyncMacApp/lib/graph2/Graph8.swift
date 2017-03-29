@@ -37,19 +37,17 @@ class Graph8 {
     let toYear:Int = 2017
     var range:Range<Int> {return fromYear..<toYear}
     init(){
-        let numOfDaysInYear:Int = 365
-        let numOfDaysInYearRange:Int = range.count * numOfDaysInYear
-        Swift.print("range.count: " + "\(range.count)")
-        Swift.print("numOfDaysInYearRange: " + "\(numOfDaysInYearRange)")
         
-        
+        let dp = DayDP(range)
+        Swift.print("dp.count: " + "\(dp.count)")
     }
 }
 
 
 class DayDP:DataProvider{
+    static var numOfDaysInYear:Int = 365
     var yearRange:Range<Int>
-    override var count:Int {return 0 }
+    override var count:Int {return yearRange.count * DayDP.numOfDaysInYear }/*numOfDaysInYearRange*/
     override var items:[[String:String]] {get{fatalError("Should not happen")}set{fatalError("Should not happen")}}
     init(_ yearRange:Range<Int>) {
         self.yearRange = yearRange

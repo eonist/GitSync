@@ -13,7 +13,7 @@ extension CommitDP{
      * Adds an item to the sortedArr (at the correct index according to descending chronology, by using a custom binarySearch method)
      * NOTE: items must be added one after the other. A Bulk add method wouldn't work, unless you iterate one by one i guess???
      */
-    func add(_ item:[String:String]){
+    func addCommitItem(_ item:[String:String]){
         let closestIdx:Int = CommitDP.closestIndex(items, item, 0, items.endIndex)
         if(!Utils.existAtOrBefore(items,closestIdx,item)){//TODO:ideally this should be handled in the binarySearch algo, but this is a quick fix, that doesnt hurt performance
             //Swift.print("📝 insert at: \(closestIdx) item.date: \(GitDateUtils.gitTime(item["sortableDate"]!))" )
