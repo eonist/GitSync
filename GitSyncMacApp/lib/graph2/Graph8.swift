@@ -19,5 +19,9 @@ import Foundation
 
 
 class Graph8 {
-
+    //Build the modell first rather than add it later?
+    
+    //year
+    //month
+    //day
 }
