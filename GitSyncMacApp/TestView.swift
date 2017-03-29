@@ -297,7 +297,7 @@ class TestView:TitleView{
         
         var dp:DataProvider
         dp = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
-        let dir:Dir = .ver
+        let dir:Dir = .hor
         let listSize:CGSize = dir == .ver ? CGSize(140,73) : CGSize(200,24)
         let list = self.addSubView(ScrollFastList(listSize.width, listSize.height, 24, dp, self,nil,dir))
         FastListModifier.select(list as IFastList, 5)
