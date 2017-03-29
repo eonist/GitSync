@@ -21,7 +21,7 @@ import Foundation
 class Graph8 {
     //Build the modell first rather than add it later?
     
-    //year
-    //month
-    //day
+    //year 2010 -2017
+    //month (Gen from year range)
+    //day (gen from year range)
 }
