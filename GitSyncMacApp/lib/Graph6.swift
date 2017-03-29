@@ -4,10 +4,6 @@ import Cocoa
 /**
  * Testing SideScrolling FastList
  */
-
-//1. Create a vertical list first  ✅
-//2. Create the FastVList
-
 class Graph6:Element{
     var monthNames:[String] { return ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]}
     //override var itemSize:CGSize {return CGSize(48,48)}//override this for custom value
@@ -43,8 +39,6 @@ extension Graph6{
         let list = addSubView(ScrollList2(listSize.w,listSize.h,CGSize(100,24),dp,nil,nil,dir))
         _ = list
         
-        //continue here: 🏀
-            //use List instead, with Dir. inject support for itemSize by just overriding and using itemHeight for both h and w
     }
     /**
      * Creates the TimeBar
