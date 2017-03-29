@@ -16,8 +16,8 @@ class ScrollList2:List2,Scrollable2{
      */
     func setProgress(_ progress:CGFloat){
         Swift.print("ScrollVList.setProgress progress: \(progress)")
-        let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize[dir], contentSize[dir])
-        Swift.print("x: " + "\(x)")
-        contentContainer!.x = x
+        let val:CGFloat = ScrollableUtils.scrollTo(progress, maskSize[dir], contentSize[dir])
+        Swift.print("val: " + "\(val)")
+        contentContainer!.point[dir] = val
     }
 }
