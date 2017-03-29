@@ -40,6 +40,7 @@ class Graph8 {
         
         let dp = DayDP(range)
         Swift.print("dp.count: " + "\(dp.count)")
+        dp
     }
 }
 
@@ -52,6 +53,7 @@ class DayDP:DataProvider{
         self.yearRange = yearRange
     }
     override func item(_ at: Int) -> [String : String]? {
+        if(at >= count){return nil}//out of bound return nil
         //find start date
         let startDate:Date = DateParser.createDate(yearRange.start,0,0,0,0,0)!
         //n days from startDate => date
