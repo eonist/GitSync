@@ -40,9 +40,12 @@ class Graph8 {
         
         let dp = DayDP(range)
         Swift.print("dp.count: " + "\(dp.count)")
-        dp
+        let dict = dp.item(400)!
+        Swift.print("dict: " + "\(dict)")
     }
 }
+
+//Continue here: make a MonthDP and YearDP
 
 class DayDP:DataProvider{
     static var numOfDaysInYear:Int = 365
