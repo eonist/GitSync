@@ -16,11 +16,10 @@ class List2:ContainerView2,IList {
     override var itemSize:CGSize {return _itemSize}/**///override this for custom value
     override var maskSize:CGSize { get{return CGSize(width,height)}set{_ = newValue} }
     override var contentSize:CGSize { get{return dir == .hor ? CGSize(dp.count * itemSize.width ,height) : CGSize(width ,dp.count * itemSize.height) } set{_ = newValue}}
-    
-    //Continue here:  🏀
-        //add dir
-        //add id so you can toggle css style
-        //make it work with vertical list aswell
+    /**/
+    var interval:CGFloat{return floor(contentSize[dir] - maskSize[dir])/itemSize[dir]}
+    var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
+
     
     init(_ width: CGFloat, _ height: CGFloat, _ itemSize:CGSize = CGSize(NaN,NaN), _ dataProvider:DataProvider? = nil, _ parent: IElement? = nil, _ id: String? = "", _ dir:Dir = .ver) {
         self._itemSize = itemSize
