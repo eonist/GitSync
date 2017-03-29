@@ -49,6 +49,7 @@ class Graph8 {
 
 class DayDP:DataProvider{
     var yearRange:Range<Int>
+    override var count:Int {return 0 }
     override var items:[[String:String]] {get{fatalError("Should not happen")}set{fatalError("Should not happen")}}
     init(_ yearRange:Range<Int>) {
         self.yearRange = yearRange
