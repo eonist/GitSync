@@ -45,7 +45,7 @@ extension Graph3{
      *
      */
     func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
-        //Swift.print("onScrollWheelChange() event.scrollingDeltaX: \(event.scrollingDeltaX)")
+        Swift.print("Graph3.onScrollWheelChange() event.scrollingDeltaX: \(event.scrollingDeltaX)")
         if(event.scrollingDeltaX == 0){
             scrollingEnded()
         }
