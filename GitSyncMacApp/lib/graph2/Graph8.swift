@@ -11,6 +11,11 @@ import Foundation
 
 //hock up the timeRangeDescTextComponent
 
+//after all these works, you then figure out how to jump in and out of time levels at the point you are at.
+//create padding for values tht dont exist, like 
+//try to add valuebar
+//try to add the git stuff
+
 class Graph8 {
 
 }
