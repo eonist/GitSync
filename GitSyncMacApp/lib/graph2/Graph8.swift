@@ -1,4 +1,6 @@
 import Foundation
+@testable import Element
+@testable import Utils
 
 //test snappy friction ✅
 //test zoom to time-levels ✅
@@ -39,5 +41,14 @@ class Graph8 {
         let numOfDaysInYearRange:Int = range.count * numOfDaysInYear
         Swift.print("range.count: " + "\(range.count)")
         Swift.print("numOfDaysInYearRange: " + "\(numOfDaysInYearRange)")
+        
+        
+    }
+}
+
+
+class DayDP:DataProvider{
+    init(<#parameters#>) {
+        <#statements#>
     }
 }
