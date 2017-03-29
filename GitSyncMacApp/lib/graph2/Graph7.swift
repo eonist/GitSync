@@ -1,7 +1,6 @@
 import Cocoa
 @testable import Utils
 @testable import Element
-
 /**
  * Testing scrolling a view in the x and y axis.
  */

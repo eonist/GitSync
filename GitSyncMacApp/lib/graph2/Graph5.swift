@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 /**
- * THis tests pinching in and out and transitioning between timeLevels
+ * This tests pinching in and out and transitioning between timeLevels
  */
 class Graph5:ContainerView2{
     var gestureHUD:GestureHUD?
