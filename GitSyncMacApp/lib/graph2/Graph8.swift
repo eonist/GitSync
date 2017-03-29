@@ -33,6 +33,6 @@ class Graph8 {
                         //you can even have 3 dp's that you switch between zoom levels
     let fromYear:Int = 2011
     let toYear:Int = 2017
-    let range:Range<Int> = Range<Int>(fromYear..<toYear)
+    var range:Range<Int> {return fromYear..<toYear}
     
 }
