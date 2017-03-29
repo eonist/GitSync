@@ -48,7 +48,8 @@ class Graph8 {
 
 
 class DayDP:DataProvider{
-    init(<#parameters#>) {
-        <#statements#>
+    var yearRange:Range<Int>
+    init(_ yearRange:Range<Int>) {
+        self.yearRange = yearRange
     }
 }
