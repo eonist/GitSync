@@ -16,10 +16,10 @@ class TestView:TitleView{
     }
     func createGUI(){
         //createGraph7Test()
-        //createGraph6Test()//👈
+        createGraph6Test()//👈
         //createGraph5Test()
         //createGraph4Test()
-        createGraph3Test()
+        //createGraph3Test()
         //createCurveGraphScrollTest()
         //createFindPointOnCurveTest()
         //createCurveGraph()

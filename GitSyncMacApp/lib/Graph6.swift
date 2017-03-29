@@ -34,10 +34,10 @@ extension Graph6{
         
         let dir:Dir = .hor
         let listSize:CGSize = dir == .ver ? CGSize(100,200) : CGSize(200,24)
-        //let itemSize:CGFloat = dir == .ver ? 24 : 100
+        let itemSize:CGSize = CGSize(100,24)
         
         //TODO: 👉Use List1 instead just add the dir stuff as you ddid with fastlist👈
-        let list = addSubView(ScrollList2(listSize.w,listSize.h,CGSize(100,24),dp,nil,nil,dir))
+        let list = addSubView(ScrollFastList(listSize.w,listSize.h,itemSize.height,dp,nil,nil,dir,itemSize.width))
         _ = list
         
     }
