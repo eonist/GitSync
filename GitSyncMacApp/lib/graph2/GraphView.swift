@@ -24,7 +24,6 @@ class GraphView:ContainerView2,ElasticScrollable2{
         StyleManager.addStyle("GraphView{float:left;clear:left;fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
         /*config*/
-        Swift.print("⚠️️IMPLEMENT THE BELLOW AS COMPUTED PROPS⚠️️")
         
         /*Anim*/
         mover = SnappyRubberBand(Animation.sharedInstance,setProgress/*👈important*/,(0,maskSize.width),(0,contentSize.width))
