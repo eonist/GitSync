@@ -40,7 +40,7 @@ extension Graph6{
         let listSize:CGSize = dir == .ver ? CGSize(100,200) : CGSize(200,24)
         //let itemSize:CGFloat = dir == .ver ? 24 : 100
         
-        let list = addSubView(ScrollList2(listSize.w,listSize.h,CGSize(100,24),dp,nil,nil,.hor))
+        let list = addSubView(ScrollList2(listSize.w,listSize.h,CGSize(100,24),dp,nil,nil,dir))
         _ = list
         
         //continue here: 🏀
