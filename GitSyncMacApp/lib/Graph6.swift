@@ -36,7 +36,11 @@ extension Graph6{
         let dict:[[String:String]] = monthNames.map{["title":$0]}
         let dp = DataProvider(dict)
         
-        let list = addSubView(ScrollList2(200,24,CGSize(100,24),dp,nil,nil,.hor))
+        let dir:Dir = .hor
+        let listSize:CGSize = dir == .ver ? CGSize(100,200) : CGSize(200,24)
+        //let itemSize:CGFloat = dir == .ver ? 24 : 100
+        
+        let list = addSubView(ScrollList2(listSize.w,listSize.h,CGSize(100,24),dp,nil,nil,.hor))
         _ = list
         
         //continue here: 🏀
