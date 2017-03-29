@@ -52,7 +52,7 @@ class DayDP:DataProvider{
         self.yearRange = yearRange
     }
     override func item(_ at: Int) -> [String : String]? {
-        let startDate:Date = 
+        let startDate:Date = DateParser.createDate(yearRange.first,0,0,0,0,0)
         //find date
             //n days from startDate => date
         //short day for date
