@@ -77,7 +77,7 @@ class RefreshUtils{
                     let commitData:CommitData = GitLogParser.commitData(result)/*Compartmentalizes the result into a Tuple*/
                     //let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
                     let commitDict:[String:String] = CommitViewUtils.processCommitData(repo.title, commitData, 0)//<---TODO:add repo idx here
-                    dp.add(commitDict)/* 🏁 add the commit log items to the CommitDB*/
+                    dp.addCommitItem(commitDict)/* 🏁 add the commit log items to the CommitDB*/
                 }else{
                     //Swift.print("RefreshUtils.refreshRepo() ERROR: repo: \(repo.title) at result index: \(i) didn't have any characters")
                 }
