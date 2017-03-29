@@ -56,10 +56,9 @@ class DayDP:DataProvider{
         let startDate:Date = DateParser.createDate(yearRange.start,0,0,0,0,0)!
         //n days from startDate => date
         let dateAt:Date = startDate.offsetByDays(at)
-        let shortDayName:String = dateAt.shortDayName
-        
         //short day for date
-            //return dict with this
+        let shortDayName:String = dateAt.shortDayName
+        //return dict with this
         return ["title":shortDayName]
     }
 }
