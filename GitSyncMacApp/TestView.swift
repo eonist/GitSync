@@ -17,7 +17,7 @@ class TestView:TitleView{
     func createGUI(){
         //createGraph7Test()
         //createGraph6Test()//👈
-        createGraph5Test()
+        //createGraph5Test()
         //createGraph4Test()
         //createGraph3Test()
         //createCurveGraphScrollTest()
@@ -25,7 +25,7 @@ class TestView:TitleView{
         //createCurveGraph()
         //createGraphView2()
         //findGraphPointTest()
-        //createGraphView()
+        createGraphView1()
         //createGraph2()
         //animTest()
         //uiSwitchTest()
@@ -80,7 +80,7 @@ class TestView:TitleView{
         let test = self.addSubView(FindPointOnGraphTest(width,height-48,self))
         _ = test
     }
-    func createGraphView(){
+    func createGraphView1(){
         let graph = self.addSubView(GraphView(width,height-48,self))
         _ = graph
     }
