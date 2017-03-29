@@ -293,6 +293,8 @@ class TestView:TitleView{
         _ = dp.removeItemAt(0)
     }
     func scrollFastList(){
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/basic/list/vlist.css")
+        
         var dp:DataProvider
         dp = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         let dir:Dir = .ver
