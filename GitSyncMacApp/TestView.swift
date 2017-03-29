@@ -16,7 +16,7 @@ class TestView:TitleView{
     }
     func createGUI(){
         //createGraph7Test()
-        createGraph6Test()
+        //createGraph6Test()
         //createGraph5Test()
         //createGraph4Test()
         //createGraph3Test()
@@ -33,12 +33,12 @@ class TestView:TitleView{
         //rbSliderFastList3()
         //fastList3()
         //dpTests()
-        //scrollFastList()
+        scrollFastList()//👈
         //sliderFastList()
         //fastList()
         //sliderList()
         //createList()
-        //createRBSliderFastList()//new👈
+        //createRBSliderFastList()//new
     }
     func createGraph7Test(){
         let test = self.addSubView(Graph7(width,height-48,self))
