@@ -15,6 +15,8 @@ class Graph3:ContainerView2,Scrollable2{
     override var itemSize:CGSize {return CGSize(100,100)}//override this for custom value
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
     override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
+    override var maskSize:CGSize {return CGSize(width,height)}/*represents the visible part of the content *///TODO: could be ranmed to maskRect
+    override var contentSize:CGSize {return CGSize(1800,height)}/*represents the total size of the content *///TODO: could be ranmed to contentRect
     /**
      * 🔨 Setup
      */
@@ -23,8 +25,7 @@ class Graph3:ContainerView2,Scrollable2{
         super.resolveSkin()
         /*config*/
         Swift.print("⚠️️IMPLEMENT THE BELLOW AS COMPUTED PROPS⚠️️")
-        //maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
-        //contentSize = CGSize(1800,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
+       
         
         addGraphLine()
         addGraphPoint()
