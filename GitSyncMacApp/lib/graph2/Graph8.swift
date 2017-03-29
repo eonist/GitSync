@@ -34,5 +34,7 @@ class Graph8 {
     let fromYear:Int = 2011
     let toYear:Int = 2017
     var range:Range<Int> {return fromYear..<toYear}
-    
+    init(){
+        let numOfDaysInYear:Int = 
+    }
 }
