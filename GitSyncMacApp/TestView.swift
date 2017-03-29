@@ -295,8 +295,12 @@ class TestView:TitleView{
     func scrollFastList(){
         var dp:DataProvider
         dp = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
-        let list = self.addSubView(ScrollFastList(140, 73, 24, dp, self,nil,.ver))
+        let dir:Dir = .ver
+        let listSize:CGSize = dir == .ver ? CGSize(140,73) : CGSize(200,24)
+        let list = self.addSubView(ScrollFastList(listSize.width, listSize.height, 24, dp, self,nil,dir))
         FastListModifier.select(list as IFastList, 5)
+        
+        
     }
     func sliderFastList(){
         var dp:DataProvider
