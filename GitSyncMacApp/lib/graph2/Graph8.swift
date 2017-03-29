@@ -51,4 +51,7 @@ class DayDP:DataProvider{
     init(_ yearRange:Range<Int>) {
         self.yearRange = yearRange
     }
+    override func item(_ at: Int) -> [String : String]? {
+        return ["title":""]
+    }
 }
