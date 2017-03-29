@@ -35,6 +35,7 @@ class Graph8 {
     let toYear:Int = 2017
     var range:Range<Int> {return fromYear..<toYear}
     init(){
-        let numOfDaysInYear:Int = 
+        let numOfDaysInYear:Int = 365
+        let numOfDaysInYearRange:Int = range.count * numOfDaysInYear
     }
 }
