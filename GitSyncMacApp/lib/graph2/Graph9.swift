@@ -100,6 +100,7 @@ extension Graph9{
             case .day:
                 dp = DayDP(range)
         }
+        timeBar!.dataProvider.removeAll()
         timeBar!.dataProvider = dp
         timeBar!.setProgress(0)
     }
