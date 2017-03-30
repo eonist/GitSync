@@ -42,7 +42,7 @@ class TimeDP:DataProvider{
 class DayDP:TimeDP{
     static var numOfDaysInYear:Int = 365
     override var count:Int {return yearRange.numOfIndecies * DayDP.numOfDaysInYear}/*numOfDaysInYearRange*/
-    override var items:[[String:String]] {get{fatalError("Not available")}set{fatalError("Not available")}}
+    override var items:[[String:String]] {get{fatalError("Not available")}set{_ = newValue}}
     override func item(_ at:Int) -> [String:String]? {
         if(at >= count){return nil}//out of bound return nil
         let startDate:Date = DateParser.createDate(yearRange.start,0,0,0,0,0)!//find start date
