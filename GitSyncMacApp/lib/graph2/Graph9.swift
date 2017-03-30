@@ -1,4 +1,6 @@
 import Foundation
+@testable import Element
+@testable import Utils
 //Graph9
     //add fastList .hor 👈
     //try it with year,month,day
@@ -10,6 +12,6 @@ import Foundation
     //try to update the valuebar
     //try to update the timeIndicator
     //add git to the fold
-class Graph9 {
+class Graph9:Element{
     
 }
