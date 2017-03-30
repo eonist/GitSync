@@ -12,8 +12,9 @@ import Cocoa
     //try to update the valuebar
     //try to update the timeIndicator 
     //add git to the fold
+enum {case: Year,Month,day}
 class Graph9:Element{
-    var timeBar:Element?
+    var timeBar:ScrollFastList?
     /*Zooming vars*/
     var curZoom:Int = 0
     let maxZoom:Int = 3
