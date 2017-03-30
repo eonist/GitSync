@@ -42,6 +42,12 @@ class Graph8 {
         testYearDp()
         
         //try to go in and out of time levels, via at 🤔
+        
+        //mouse hovers above 2015
+            //you zoom in
+                //find first month in 2015
+                    //find progress to set to MonthDP
+                        //set TimeBar
     }
     func testDayDp(){
         let dp = DayDP(range)
