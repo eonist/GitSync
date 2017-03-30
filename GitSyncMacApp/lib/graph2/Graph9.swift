@@ -19,17 +19,17 @@ enum TimeType {
 }
 extension Graph9{
     override func touchesBegan(with event:NSEvent) {
-        gestureHUD!.touchesBegan(event)
+        gestureHUD.touchesBegan(event)
     }
     override func touchesMoved(with event:NSEvent) {
-        gestureHUD!.touchesMoved(event)
+        gestureHUD.touchesMoved(event)
     }
     override func touchesEnded(with event:NSEvent) {
-        gestureHUD!.touchesEnded(event)
+        gestureHUD.touchesEnded(event)
     }
 }
 class Graph9:Element{
-    var gestureHUD:GestureHUD?
+    lazy var gestureHUD:GestureHUD  =  GestureHUD(self)
     var timeBar:ScrollFastList?
     /*Date vars*/
     let fromYear:Int = 2011
@@ -44,6 +44,8 @@ class Graph9:Element{
         super.resolveSkin()
         createList()
         alignTimeBar()
+        self.acceptsTouchEvents = true/*Enables gestures*/
+        self.wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
     }
 }
 extension Graph9{
