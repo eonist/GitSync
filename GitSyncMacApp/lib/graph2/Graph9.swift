@@ -61,6 +61,7 @@ extension Graph9{
      * Detects if a zoom gesture has occured +-100 deltaZ
      */
     override func magnify(with event: NSEvent) {
+        Swift.print("Graph9.magnify()")
         super.magnify(with: event)
         if(event.phase == .changed){
             zoom += event.deltaZ
@@ -87,16 +88,18 @@ extension Graph9{
         //Swift.print("magnify event: \(event)")
     }
     func onZoomLevelChange() {
+        Swift.print("Graph9.onZoomLevelChange()")
         let timeType:TimeType = TimeType.types[curZoom]
         let dp:DataProvider
         switch timeType{
             case .year:
-                dp = YearDP()
+                dp = YearDP(range)
             case .month:
-                dp = YearDP()
+                dp = MonthDP(range)
             case .day:
-                dp = YearDP()
+                dp = DayDP(range)
         }
         timeBar!.dataProvider = dp
+        timeBar!.setProgress(0)
     }
 }
