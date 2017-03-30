@@ -8,6 +8,7 @@ import Foundation
 
 
 //Graph9
+    //add fastList .hor
     //
 class Graph8 {
 
@@ -18,7 +19,6 @@ class Graph8 {
         //testDayDp()
         //testMonthDp()
         //testYearDp()
-    
     }
     func testDayDp(){
         let dp = DayDP(range)
