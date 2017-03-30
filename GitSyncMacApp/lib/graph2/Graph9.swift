@@ -88,7 +88,9 @@ extension Graph9{
     }
     func onZoomLevelChange() {
         Swift.print("Graph9.onZoomLevelChange()")
+        Swift.print("curZoom: " + "\(curZoom)")
         let timeType:TimeType = TimeType.types[curZoom]
+        Swift.print("timeType: " + "\(timeType)")
         let dp:DataProvider
         switch timeType{
             case .year:
