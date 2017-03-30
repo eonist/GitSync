@@ -46,7 +46,12 @@ class Graph8 {
 }
 
 //Continue here: make a MonthDP and YearDP
-
+class TimeDP:DataProvider{
+    var yearRange:Range<Int>
+    init(_ yearRange:Range<Int>) {
+        self.yearRange = yearRange
+    }
+}
 class DayDP:DataProvider{
     static var numOfDaysInYear:Int = 365
     var yearRange:Range<Int>
@@ -55,7 +60,7 @@ class DayDP:DataProvider{
     init(_ yearRange:Range<Int>) {
         self.yearRange = yearRange
     }
-    override func item(_ at: Int) -> [String : String]? {
+    override func item(_ at:Int) -> [String:String]? {
         if(at >= count){return nil}//out of bound return nil
         let startDate:Date = DateParser.createDate(yearRange.start,0,0,0,0,0)!//find start date
         let dateAt:Date = startDate.offsetByDays(at)//n days from startDate => date
