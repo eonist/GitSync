@@ -15,7 +15,8 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        _ = Graph8()
+        createGraph9Test()
+        //_ = Graph8()
         //createGraph7Test()
         //createGraph6Test()//👈
         //createGraph5Test()
@@ -40,6 +41,10 @@ class TestView:TitleView{
         //sliderList()
         //createList()
         //createRBSliderFastList()//new
+    }
+    func createGraph9Test(){
+        let test = self.addSubView(Graph9(width,height-48,self))
+        _ = test
     }
     func createGraph7Test(){
         let test = self.addSubView(Graph7(width,height-48,self))
