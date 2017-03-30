@@ -10,7 +10,8 @@ import Foundation
     //try generate fake graphdata on anim stop
     //draw the fake graph data as a graphline with points
     //try to update the valuebar
-    //try to update the timeIndicator
+    //try to update the timeIndicator 👈
+        //make flying through time video to show the world progress
     //add git to the fold
 class Graph9:Element{
     var timeBar:Element?
