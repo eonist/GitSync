@@ -7,6 +7,7 @@ import Cocoa
     //try to add pinch gestures to the fold ✅
     //try to calc the pos of mouse in relation to the timeBar 👈.1
     //try to zoom in and out with correct indecies 👈.2
+    //add snapTo animation 
     //try generate fake graphdata on snapTo anim stop
     //draw the fake graph data as a graphline with points
     //try to update the valuebar
