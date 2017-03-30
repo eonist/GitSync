@@ -273,7 +273,7 @@ class TestView:TitleView{
          */
     }
     override func onEvent(_ event: Event) {
-        if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
+        //if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
         super.onEvent(event)
     }
     /**

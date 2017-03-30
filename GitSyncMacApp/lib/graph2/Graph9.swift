@@ -15,7 +15,7 @@ import Cocoa
 
 enum TimeType {
     case year,month,day
-    static var types:[TimeType] {return [TimeType.year,TimeType.month,TimeType.day]}
+    static var types:[TimeType] {return [TimeType.day,TimeType.month,TimeType.year]}
 }
 class Graph9:Element{
     var timeBar:ScrollFastList?
