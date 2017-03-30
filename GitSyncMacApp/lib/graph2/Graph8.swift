@@ -63,4 +63,6 @@ class DayDP:DataProvider{
         return ["title":shortDayName]//return dict with this
     }
 }
-class
+class MonthDP:DataProvider{
+    static var numOfMonthsInYear:Int = 12
+}
