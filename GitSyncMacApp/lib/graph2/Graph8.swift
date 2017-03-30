@@ -98,8 +98,9 @@ class DayDP:TimeDP{
      */
     func month(_ dayIdx:Int){
         let from:Date = DateParser.createDate(yearRange.start)!
-        
-        let until:Date = DateParser.createDate(year,monthInYear/*,  1*/)!//first month and first day
+        let year:Int = yearRange.start + yearIdx
+        let dayOffset:Int = 0
+        let until:Date = DateParser.createDate(year,nil,dayOffset)!//first month and first day
     }
 }
 class MonthDP:TimeDP{
