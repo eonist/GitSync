@@ -96,7 +96,7 @@ class MonthDP:TimeDP{
     }
 }
 class YearDP:TimeDP{
-    override var count:Int {return yearRange.count}
+    override var count:Int {return yearRange.count + 1}
     override func item(_ at:Int) -> [String:String]? {
         let year:Int = (yearRange.start + at)
         Swift.print("year: " + "\(year)")
