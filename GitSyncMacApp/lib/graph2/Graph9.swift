@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Element
 @testable import Utils
 //Graph9
@@ -14,6 +14,10 @@ import Foundation
     //add git to the fold
 class Graph9:Element{
     var timeBar:Element?
+    /*Zooming vars*/
+    var curZoom:Int = 0
+    let maxZoom:Int = 3
+    var zoom:CGFloat = 0
     override func resolveSkin() {
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         super.resolveSkin()
@@ -32,9 +36,6 @@ extension Graph9{
         
         timeBar = addSubView(ScrollFastList(w,24,24,dp,self,nil,.hor,100))
     }
-    /**
-     *
-     */
     func alignTimeBar(){
         let objSize = CGSize(w,24)
         Swift.print("objSize: " + "\(objSize)")
@@ -44,5 +45,45 @@ extension Graph9{
         Swift.print("p: " + "\(p)")
         //align timeBar to bottom with Align
         timeBar!.point = p
+    }
+}
+
+extension Graph9{
+    
+    /**
+     * Detects if a zoom gesture has occured +-100 deltaZ
+     */
+    override func magnify(with event: NSEvent) {
+        super.magnify(with: event)
+        if(event.phase == .changed){
+            zoom += event.deltaZ
+        }else if(event.phase == .began){
+            zoom = 0//reset
+        }else if(event.phase == .ended){
+            //Swift.print("zoom: " + "\(zoom)")
+            var dir:Int
+            if(zoom < -100){
+                Swift.print("zoom out")
+                dir = 1
+            }else if(zoom > 100){
+                Swift.print("zoom in")
+                dir = -1
+            }else{
+                Swift.print("no zoom")
+                dir = 0
+            }
+            let newZoom = curZoom + dir
+            if(newZoom >= 0 && newZoom < maxZoom){curZoom = newZoom}
+            onZoomLevelChange()
+            Swift.print("curZoom: " + "\(curZoom)")
+        }
+        //Swift.print("magnify event: \(event)")
+    }
+    func onZoomLevelChange() {
+        var timeLevel:[String] = timeLevels[curZoom]
+        timeLevel = timeLevel.slice2(0, 7)
+        (0..<7).forEach{ i in
+            timeBar!.textAreas[i].setTextValue(timeLevel[i])
+        }
     }
 }
