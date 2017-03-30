@@ -109,11 +109,11 @@ class MonthDP:TimeDP{
         let yearIdx:Int = floor((monthIdx / MonthDP.numOfMonthsInYear).cgFloat).int
         let year:Int = yearRange.start + yearIdx
         //which month are we in?
-        let from:Date = DateParser.createDate(year)
-        let monthInYear:Int = (monthIdx %% MonthDP.numOfMonthsInYear) + 1 /*between 1 and 12*/
+        let from:Date = DateParser.createDate(year)!
+        let monthInYear:Int = ((monthIdx.cgFloat %% MonthDP.numOfMonthsInYear.cgFloat) + 1.0).int /*between 1 and 12*/
         let until:Date = DateParser.createDate(year,monthInYear/*,  1*/)!//first month and first day
         //num of days since yearRange.start until date
-        
+        let numOfDaysInRange:Int = 0
         return monthIdx
     }
 }
