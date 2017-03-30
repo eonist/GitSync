@@ -8,7 +8,7 @@ import Foundation
  */
 class Graph8 {
 
-    let fromYear:Int = 2010
+    let fromYear:Int = 2011
     let toYear:Int = 2017
     var range:Range<Int> {return fromYear..<toYear}
     init(){
@@ -41,7 +41,7 @@ class TimeDP:DataProvider{
 }
 class DayDP:TimeDP{
     static var numOfDaysInYear:Int = 365
-    override var count:Int {return yearRange.count * DayDP.numOfDaysInYear}/*numOfDaysInYearRange*/
+    override var count:Int {return yearRange.numOfIndecies * DayDP.numOfDaysInYear}/*numOfDaysInYearRange*/
     override var items:[[String:String]] {get{fatalError("Not available")}set{fatalError("Not available")}}
     override func item(_ at:Int) -> [String:String]? {
         if(at >= count){return nil}//out of bound return nil
@@ -62,7 +62,7 @@ class DayDP:TimeDP{
 }
 class MonthDP:TimeDP{
     static var numOfMonthsInYear:Int = 12
-    override var count:Int {return yearRange.count * MonthDP.numOfMonthsInYear}/*numOfDaysInYearRange*/
+    override var count:Int {return yearRange.numOfIndecies * MonthDP.numOfMonthsInYear}/*numOfDaysInYearRange*/
     override func item(_ at:Int) -> [String:String]? {
         if(at >= count){return nil}//out of bound return nil
         let startDate:Date = DateParser.createDate(yearRange.start,0,0,0,0,0)!//find start date
@@ -96,7 +96,7 @@ class MonthDP:TimeDP{
     }
 }
 class YearDP:TimeDP{
-    override var count:Int {return yearRange.count + 1}
+    override var count:Int {return yearRange.numOfIndecies}
     override func item(_ at:Int) -> [String:String]? {
         let year:Int = (yearRange.start + at)
         Swift.print("year: " + "\(year)")
