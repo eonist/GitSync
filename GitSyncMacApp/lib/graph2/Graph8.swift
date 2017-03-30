@@ -67,7 +67,11 @@ class DayDP:TimeDP{
 class MonthDP:TimeDP{
     static var numOfMonthsInYear:Int = 12
     override var count:Int {return yearRange.count * MonthDP.numOfMonthsInYear}/*numOfDaysInYearRange*/
-    //count
-    //item at
-    //
+    override func item(_ at:Int) -> [String:String]? {
+        if(at >= count){return nil}//out of bound return nil
+        let startDate:Date = DateParser.createDate(yearRange.start,0,0,0,0,0)!//find start date
+        let dateAt:Date = startDate.offsetByDays(at)//n days from startDate => date
+        let shortDayName:String = dateAt.shortDayName//short day for date
+        return ["title":shortDayName]//return dict with this
+    }
 }
