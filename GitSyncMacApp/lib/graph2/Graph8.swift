@@ -52,14 +52,10 @@ class TimeDP:DataProvider{
         self.yearRange = yearRange
     }
 }
-class DayDP:DataProvider{
+class DayDP:TimeDP{
     static var numOfDaysInYear:Int = 365
-    var yearRange:Range<Int>
-    override var count:Int {return yearRange.count * DayDP.numOfDaysInYear }/*numOfDaysInYearRange*/
+    override var count:Int {return yearRange.count * DayDP.numOfDaysInYear}/*numOfDaysInYearRange*/
     override var items:[[String:String]] {get{fatalError("Not available")}set{fatalError("Not available")}}
-    init(_ yearRange:Range<Int>) {
-        self.yearRange = yearRange
-    }
     override func item(_ at:Int) -> [String:String]? {
         if(at >= count){return nil}//out of bound return nil
         let startDate:Date = DateParser.createDate(yearRange.start,0,0,0,0,0)!//find start date
@@ -68,8 +64,9 @@ class DayDP:DataProvider{
         return ["title":shortDayName]//return dict with this
     }
 }
-class MonthDP:DataProvider{
+class MonthDP:TimeDP{
     static var numOfMonthsInYear:Int = 12
+    override var count:Int {return yearRange.count * MonthDP.numOfMonthsInYear}/*numOfDaysInYearRange*/
     //count
     //item at
     //
