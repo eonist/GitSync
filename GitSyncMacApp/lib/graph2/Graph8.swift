@@ -105,7 +105,7 @@ class MonthDP:TimeDP{
         return ["title":shortMonthName]//return dict with this
     }
     func firstDayInMonth(_ monthIdx:Int)->Int{
-        return monthIdx * 
+        return monthIdx * DayDP.
     }
 }
 class YearDP:TimeDP{
