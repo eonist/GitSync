@@ -96,10 +96,11 @@ class DayDP:TimeDP{
     /**
      * Returns month offset idx
      */
-    func month(_ dayIdx:Int){
+    func month(_ dayIdx:Int) -> Int{
         let from:Date = DateParser.createDate(yearRange.start)!
-        let unitil:Date = from.offsetByDays(dayIdx)
-        let numOfMonthsFromUntil:Int = 0
+        let until:Date = from.offsetByDays(dayIdx)
+        let numOfMonthsFromUntil:Int = from.numOfMonths(until)
+        return numOfMonthsFromUntil
     }
 }
 class MonthDP:TimeDP{
