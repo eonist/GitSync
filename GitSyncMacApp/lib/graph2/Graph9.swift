@@ -25,7 +25,7 @@ extension Graph9{
     func createList(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/basic/list/vlist.css")//changes the css to align sideways
         StyleManager.addStyle("Graph9 VList{float:none;clear:none;}")
-        let fromYear:Int = 2010
+        let fromYear:Int = 2011
         let toYear:Int = 2017
         var range:Range<Int> {return fromYear..<toYear}
         let dp = YearDP(range)
