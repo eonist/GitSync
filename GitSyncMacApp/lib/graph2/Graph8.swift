@@ -94,7 +94,7 @@ class DayDP:TimeDP{
         return ["title":shortDayName]//return dict with this
     }
     /**
-     * 
+     * Returns month offset idx
      */
     func month(_ dayIdx:Int){
         
