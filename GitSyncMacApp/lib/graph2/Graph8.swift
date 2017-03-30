@@ -9,7 +9,11 @@ import Foundation
 
 //Graph9
     //add fastList .hor
-    //
+    //try it with year,month,day
+    //try to add pinch gestures to the fold
+    //try to calc the pos of mouse in relation to the timeBar
+    //try to zoom in and out with correct indecies
+    //try generate fake 
 class Graph8 {
 
     let fromYear:Int = 2010
