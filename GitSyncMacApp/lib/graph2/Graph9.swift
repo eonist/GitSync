@@ -105,6 +105,8 @@ extension Graph9{
         timeBar!.inActive = []
         timeBar!.dataProvider.removeAll()
         timeBar!.dataProvider = dp
+        
+        timeBar!.renderItems(timeBar!.visibleItemRange)
         timeBar!.setProgress(0)
     }
 }
