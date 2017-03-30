@@ -15,7 +15,7 @@ import Cocoa
 
 enum TimeType {
     case year,month,day
-    var types:[TimeType] {return [TimeType.year,TimeType.month,TimeType.day]}
+    static var types:[TimeType] {return [TimeType.year,TimeType.month,TimeType.day]}
 }
 class Graph9:Element{
     var timeBar:ScrollFastList?
@@ -85,7 +85,15 @@ extension Graph9{
         //Swift.print("magnify event: \(event)")
     }
     func onZoomLevelChange() {
-        var timeLevel:[String] = timeLevels[curZoom]
+        var timeType:TimeType = TimeType.types[curZoom]
+        switch timeType{
+            case .year:
+                
+            case .month:
+            
+            case .day:
+            
+        }
         timeLevel = timeLevel.slice2(0, 7)
         (0..<7).forEach{ i in
             timeBar!.textAreas[i].setTextValue(timeLevel[i])
