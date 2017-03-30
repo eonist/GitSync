@@ -18,12 +18,13 @@ class Graph9:Element{
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         super.resolveSkin()
         createList()
+        alignTimeBar()
     }
 }
 extension Graph9{
     func createList(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/basic/list/vlist.css")//changes the css to align sideways
-        
+        StyleManager.addStyle("Graph9 VList{float:none;clear:none;}")
         let fromYear:Int = 2010
         let toYear:Int = 2017
         var range:Range<Int> {return fromYear..<toYear}
@@ -33,7 +34,7 @@ extension Graph9{
         let listSize:CGSize = dir == .ver ? CGSize(100,200) : CGSize(200,24)
         let itemSize:CGSize = CGSize(100,24)
         
-        timeBar = addSubView(ScrollFastList(listSize.w,listSize.h,itemSize.height,dp,nil,nil,dir,itemSize.width))
+        timeBar = addSubView(ScrollFastList(listSize.w,listSize.h,itemSize.height,dp,self,nil,dir,itemSize.width))
     }
     /**
      *
