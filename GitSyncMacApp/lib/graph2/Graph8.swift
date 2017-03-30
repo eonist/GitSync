@@ -71,7 +71,7 @@ class MonthDP:TimeDP{
         if(at >= count){return nil}//out of bound return nil
         let startDate:Date = DateParser.createDate(yearRange.start,0,0,0,0,0)!//find start date
         let dateAt:Date = startDate.offsetByMonths(at)//n months from startDate => date
-        let shortDayName:String = dateAt.shortDayName//short day for date
-        return ["title":shortDayName]//return dict with this
+        let shortMonthName:String = dateAt.shortMonthName//short month name for date
+        return ["title":shortMonthName]//return dict with this
     }
 }
