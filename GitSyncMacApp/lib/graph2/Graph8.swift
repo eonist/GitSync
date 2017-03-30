@@ -83,3 +83,6 @@ class MonthDP:TimeDP{
         return ["title":shortMonthName]//return dict with this
     }
 }
+class YearDP:TimeDP{
+    
+}
