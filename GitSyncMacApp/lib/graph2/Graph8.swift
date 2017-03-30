@@ -97,7 +97,9 @@ class DayDP:TimeDP{
      * Returns month offset idx
      */
     func month(_ dayIdx:Int){
-        
+        let from:Date = DateParser.createDate(yearRange.start)!
+        let monthInYear:Int = ((monthIdx.cgFloat %% MonthDP.numOfMonthsInYear.cgFloat) + 1.0).int /*between 1 and 12*/
+        let until:Date = DateParser.createDate(year,monthInYear/*,  1*/)!//first month and first day
     }
 }
 class MonthDP:TimeDP{
