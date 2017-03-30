@@ -16,6 +16,7 @@ class Graph9:Element{
     override func resolveSkin() {
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         super.resolveSkin()
+        createList()
     }
 }
 extension Graph9{
