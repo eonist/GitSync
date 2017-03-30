@@ -17,17 +17,7 @@ enum TimeType {
     case year,month,day
     static var types:[TimeType] {return [TimeType.day,TimeType.month,TimeType.year]}
 }
-extension Graph9{
-    override func touchesBegan(with event:NSEvent) {
-        gestureHUD.touchesBegan(event)
-    }
-    override func touchesMoved(with event:NSEvent) {
-        gestureHUD.touchesMoved(event)
-    }
-    override func touchesEnded(with event:NSEvent) {
-        gestureHUD.touchesEnded(event)
-    }
-}
+
 class Graph9:Element{
     lazy var gestureHUD:GestureHUD  =  GestureHUD(self)
     var timeBar:ScrollFastList?
