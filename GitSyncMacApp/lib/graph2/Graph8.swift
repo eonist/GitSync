@@ -40,6 +40,8 @@ class Graph8 {
         //testDayDp()
         //testMonthDp()
         testYearDp()
+        
+        //try to go in and out of time levels, via at 🤔
     }
     func testDayDp(){
         let dp = DayDP(range)
@@ -58,8 +60,6 @@ class Graph8 {
         Swift.print("dict: " + "\(dict)")
     }
 }
-
-
 class TimeDP:DataProvider{
     var yearRange:Range<Int>
     init(_ yearRange:Range<Int>) {
