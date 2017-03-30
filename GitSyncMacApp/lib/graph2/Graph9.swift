@@ -19,6 +19,10 @@ enum TimeType {
 }
 class Graph9:Element{
     var timeBar:ScrollFastList?
+    /*Date stuff*/
+    let fromYear:Int = 2011
+    let toYear:Int = 2017
+    var range:Range<Int> {return fromYear..<toYear}
     /*Zooming vars*/
     var curZoom:Int = 0
     let maxZoom:Int = 3
@@ -34,9 +38,7 @@ extension Graph9{
     func createList(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/basic/list/vlist.css")//changes the css to align sideways
         StyleManager.addStyle("Graph9 VList{float:none;clear:none;}")
-        let fromYear:Int = 2011
-        let toYear:Int = 2017
-        var range:Range<Int> {return fromYear..<toYear}
+        
         let dp = DayDP(range)//YearDP(range)
         
         timeBar = addSubView(ScrollFastList(w,24,24,dp,self,nil,.hor,100))
@@ -85,18 +87,16 @@ extension Graph9{
         //Swift.print("magnify event: \(event)")
     }
     func onZoomLevelChange() {
-        var timeType:TimeType = TimeType.types[curZoom]
+        let timeType:TimeType = TimeType.types[curZoom]
+        let dp:DataProvider
         switch timeType{
             case .year:
-                
+                dp = YearDP()
             case .month:
-            
+                dp = YearDP()
             case .day:
-            
+                dp = YearDP()
         }
-        timeLevel = timeLevel.slice2(0, 7)
-        (0..<7).forEach{ i in
-            timeBar!.textAreas[i].setTextValue(timeLevel[i])
-        }
+        timeBar!.dataProvider = dp
     }
 }
