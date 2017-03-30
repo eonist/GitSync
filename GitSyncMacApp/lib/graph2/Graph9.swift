@@ -3,7 +3,7 @@ import Foundation
 @testable import Utils
 //Graph9
     //add fastList .hor ✅
-    //try it with year,month,day
+    //try it with year,month,day ✅
     //try to add pinch gestures to the fold
     //try to calc the pos of mouse in relation to the timeBar
     //try to zoom in and out with correct indecies
@@ -29,7 +29,7 @@ extension Graph9{
         let fromYear:Int = 2011
         let toYear:Int = 2017
         var range:Range<Int> {return fromYear..<toYear}
-        let dp = MonthDP(range)//YearDP(range)
+        let dp = DayDP(range)//YearDP(range)
         
         timeBar = addSubView(ScrollFastList(w,24,24,dp,self,nil,.hor,100))
     }
