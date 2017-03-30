@@ -13,6 +13,7 @@ import Foundation
     //try to update the timeIndicator
     //add git to the fold
 class Graph9:Element{
+    var timeBar:Element?
     override func resolveSkin() {
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         super.resolveSkin()
@@ -32,7 +33,19 @@ extension Graph9{
         let listSize:CGSize = dir == .ver ? CGSize(100,200) : CGSize(200,24)
         let itemSize:CGSize = CGSize(100,24)
         
-        let list = addSubView(ScrollFastList(listSize.w,listSize.h,itemSize.height,dp,nil,nil,dir,itemSize.width))
-        _ = list
+        timeBar = addSubView(ScrollFastList(listSize.w,listSize.h,itemSize.height,dp,nil,nil,dir,itemSize.width))
+    }
+    /**
+     *
+     */
+    func alignTimeBar(){
+        let objSize = CGSize(w,24)
+        Swift.print("objSize: " + "\(objSize)")
+        let canvasSize = CGSize(w,h)
+        Swift.print("canvasSize: " + "\(canvasSize)")
+        let p = Align.alignmentPoint(objSize, canvasSize, Alignment.bottomLeft, Alignment.bottomLeft, CGPoint())
+        Swift.print("p: " + "\(p)")
+        //align timeBar to bottom with Align
+        timeBar!.point = p
     }
 }
