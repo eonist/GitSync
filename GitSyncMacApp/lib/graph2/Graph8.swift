@@ -128,6 +128,15 @@ class MonthDP:TimeDP{
         let numOfDaysInRange:Int = from.numOfDays(until)
         return numOfDaysInRange
     }
+    /**
+     * Return year offset idx
+     */
+    func year(_ monthIdx:Int) -> Int{
+        let from:Date = DateParser.createDate(yearRange.start)!
+        let until:Date = from.offsetByMonths(monthIdx)
+        let numOfMonthsFromUntil:Int = from.numOfMonths(until)
+        return numOfMonthsFromUntil
+    }
 }
 class YearDP:TimeDP{
     override var count:Int {return yearRange.count}
