@@ -100,7 +100,9 @@ extension Graph9{
             case .day:
                 dp = DayDP(range)
         }
+        ViewModifier.removeAll(timeBar!.lableContainer!)
         timeBar!.pool = []
+        timeBar!.inActive = []
         timeBar!.dataProvider.removeAll()
         timeBar!.dataProvider = dp
         timeBar!.setProgress(0)
