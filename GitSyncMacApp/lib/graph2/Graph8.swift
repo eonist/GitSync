@@ -93,6 +93,12 @@ class DayDP:TimeDP{
         let shortDayName:String = dateAt.shortDayName//short day for date
         return ["title":shortDayName]//return dict with this
     }
+    /**
+     *
+     */
+    func month(_ dayIdx:Int){
+        
+    }
 }
 class MonthDP:TimeDP{
     static var numOfMonthsInYear:Int = 12
