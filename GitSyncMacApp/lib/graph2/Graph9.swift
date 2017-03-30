@@ -30,11 +30,7 @@ extension Graph9{
         var range:Range<Int> {return fromYear..<toYear}
         let dp = YearDP(range)
         
-        let dir:Dir = .hor
-        let listSize:CGSize = dir == .ver ? CGSize(100,200) : CGSize(200,24)
-        let itemSize:CGSize = CGSize(100,24)
-        
-        timeBar = addSubView(ScrollFastList(listSize.w,listSize.h,itemSize.height,dp,self,nil,dir,itemSize.width))
+        timeBar = addSubView(ScrollFastList(w,24,24,dp,self,nil,.hor,100))
     }
     /**
      *
