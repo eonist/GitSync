@@ -103,10 +103,8 @@ extension Graph9{
         ViewModifier.removeAll(timeBar!.lableContainer!)
         timeBar!.pool = []
         timeBar!.inActive = []
-        timeBar!.dataProvider.removeAll()
         timeBar!.dataProvider = dp
-        
-        timeBar!.renderItems(timeBar!.visibleItemRange)
         timeBar!.setProgress(0)
+        timeBar!.renderItems(timeBar!.visibleItemRange)
     }
 }
