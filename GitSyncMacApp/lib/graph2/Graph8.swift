@@ -3,12 +3,9 @@ import Foundation
 @testable import Utils
 
 /**
- * You can literally fly through time
+ * This tests The DataProvider that will work with FastList and dates
+ * You can literally fly through time 👌
  */
-
-
-
-
 class Graph8 {
 
     let fromYear:Int = 2010
