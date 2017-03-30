@@ -47,8 +47,17 @@ class Graph8 {
             //you zoom in
                 //find first month in 2015
                     //find progress to set to MonthDP
+                        //numOfMonths(from:date,to:date)
+                        //numOfDays(from:date,to:date)
+        
                         //set TimeBar dp to MonthDP
                         //set timeBar to progress
+        
+        //when you zoom out you ask:
+            //when in DayLevel
+                //what month is first date in curVisibleRange
+                    //monthOffset = numOfMonths(from,to)
+                        //set TimeBar.dp monthDP(monthOffset)
     }
     func testDayDp(){
         let dp = DayDP(range)
