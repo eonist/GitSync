@@ -106,9 +106,10 @@ class MonthDP:TimeDP{
     }
     func firstDayInMonth(_ monthIdx:Int)->Int{
         //which year are we in?
-        let year:Int = 
+        let yearIdx:Int = floor(monthIdx / MonthDP.numOfMonthsInYear)
+        let year:Int = yearRange.start + yearIdx
         //which month are we in?
-        //let date:Date = DateParser.createDate(0, 0, 0, 0, 0, 0)
+        let date:Date = DateParser.createDate(year, 1, 1)!//first month and first day
         return monthIdx
     }
 }
