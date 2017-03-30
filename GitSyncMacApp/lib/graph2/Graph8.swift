@@ -104,6 +104,9 @@ class MonthDP:TimeDP{
         let shortMonthName:String = dateAt.shortMonthName//short month name for date
         return ["title":shortMonthName]//return dict with this
     }
+    func firstDayInMonth(){
+        
+    }
 }
 class YearDP:TimeDP{
     override var count:Int {return yearRange.count}
@@ -111,7 +114,10 @@ class YearDP:TimeDP{
         let year:Int = yearRange.start + at
         return ["title":year.string]
     }
-    func firstMonthInYear(yearIdx:Int) -> Int{
+    /**
+     * Returns the monthOffset
+     */
+    func firstMonthInYear(_ yearIdx:Int) -> Int{
         let numOfYearsUntilIdx:Int = yearIdx - yearRange.start
         return numOfYearsUntilIdx * MonthDP.numOfMonthsInYear
     }
