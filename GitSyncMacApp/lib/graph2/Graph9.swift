@@ -19,7 +19,7 @@ enum TimeType {
 }
 class Graph9:Element{
     var timeBar:ScrollFastList?
-    /*Date stuff*/
+    /*Date vars*/
     let fromYear:Int = 2011
     let toYear:Int = 2017
     var range:Range<Int> {return fromYear..<toYear}
@@ -38,9 +38,8 @@ extension Graph9{
     func createList(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/basic/list/vlist.css")//changes the css to align sideways
         StyleManager.addStyle("Graph9 VList{float:none;clear:none;}")
-        
+        /**/
         let dp = DayDP(range)//YearDP(range)
-        
         timeBar = addSubView(ScrollFastList(w,24,24,dp,self,nil,.hor,100))
     }
     func alignTimeBar(){
