@@ -17,7 +17,19 @@ enum TimeType {
     case year,month,day
     static var types:[TimeType] {return [TimeType.day,TimeType.month,TimeType.year]}
 }
+extension Graph9{
+    override func touchesBegan(with event:NSEvent) {
+        gestureHUD!.touchesBegan(event)
+    }
+    override func touchesMoved(with event:NSEvent) {
+        gestureHUD!.touchesMoved(event)
+    }
+    override func touchesEnded(with event:NSEvent) {
+        gestureHUD!.touchesEnded(event)
+    }
+}
 class Graph9:Element{
+    var gestureHUD:GestureHUD?
     var timeBar:ScrollFastList?
     /*Date vars*/
     let fromYear:Int = 2011
