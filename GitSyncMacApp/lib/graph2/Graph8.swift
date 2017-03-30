@@ -104,8 +104,9 @@ class MonthDP:TimeDP{
         let shortMonthName:String = dateAt.shortMonthName//short month name for date
         return ["title":shortMonthName]//return dict with this
     }
-    func firstDayInMonth(){
-        
+    func firstDayInMonth(_ monthIdx:Int)->Int{
+        let numOfMonthsUntilIdx:Int = 
+        return 0
     }
 }
 class YearDP:TimeDP{
