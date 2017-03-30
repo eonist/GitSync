@@ -37,8 +37,6 @@ class Graph5:ContainerView2{
         self.acceptsTouchEvents = true/*Enables gestures*/
         self.wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
     }
-    
-    
     override func touchesBegan(with event:NSEvent) {
         gestureHUD!.touchesBegan(event)
     }
