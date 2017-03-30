@@ -53,7 +53,7 @@ class Graph8 {
     }
 }
 
-//Continue here: make a MonthDP and YearDP
+
 class TimeDP:DataProvider{
     var yearRange:Range<Int>
     init(_ yearRange:Range<Int>) {
@@ -84,5 +84,9 @@ class MonthDP:TimeDP{
     }
 }
 class YearDP:TimeDP{
-    
+    override var count:Int {return yearRange.count}
+    override func item(_ at:Int) -> [String:String]? {
+        let year:Int = yearRange.start + at
+        return ["title":year.string]
+    }
 }
