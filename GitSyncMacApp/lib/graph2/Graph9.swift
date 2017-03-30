@@ -13,8 +13,9 @@ import Cocoa
     //try to update the timeIndicator 
     //add git to the fold
 
-enum TimeLevels {
-    case Year,Month,day
+enum TimeType {
+    case year,month,day
+    var types:[TimeType] {return [TimeType.year,TimeType.month,TimeType.day]}
 }
 class Graph9:Element{
     var timeBar:ScrollFastList?
