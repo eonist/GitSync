@@ -39,7 +39,7 @@ class Graph8 {
     init(){
         //testDayDp()
         //testMonthDp()
-        testYearDp()
+        //testYearDp()
         
         //try to go in and out of time levels, via at 🤔
         
@@ -104,6 +104,9 @@ class MonthDP:TimeDP{
         let shortMonthName:String = dateAt.shortMonthName//short month name for date
         return ["title":shortMonthName]//return dict with this
     }
+    /**
+     * Returns an offset in days from yearRange.start until monthIdx
+     */
     func firstDayInMonth(_ monthIdx:Int)->Int{
         //which year are we in?
         let yearIdx:Int = floor((monthIdx / MonthDP.numOfMonthsInYear).cgFloat).int
@@ -113,8 +116,8 @@ class MonthDP:TimeDP{
         let monthInYear:Int = ((monthIdx.cgFloat %% MonthDP.numOfMonthsInYear.cgFloat) + 1.0).int /*between 1 and 12*/
         let until:Date = DateParser.createDate(year,monthInYear/*,  1*/)!//first month and first day
         //num of days since yearRange.start until date
-        let numOfDaysInRange:Int = 0
-        return monthIdx
+        let numOfDaysInRange:Int = from.numOfDays(until)
+        return numOfDaysInRange
     }
 }
 class YearDP:TimeDP{
@@ -124,7 +127,7 @@ class YearDP:TimeDP{
         return ["title":year.string]
     }
     /**
-     * Returns the monthOffset
+     * Returns an offset in months from yearRange.start until yearIdx
      */
     func firstMonthInYear(_ yearIdx:Int) -> Int{
         return yearIdx * MonthDP.numOfMonthsInYear
