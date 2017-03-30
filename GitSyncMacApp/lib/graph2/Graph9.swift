@@ -4,10 +4,10 @@ import Cocoa
 //Graph9
     //add fastList .hor ✅
     //try it with year,month,day ✅
-    //try to add pinch gestures to the fold
-    //try to calc the pos of mouse in relation to the timeBar
-    //try to zoom in and out with correct indecies
-    //try generate fake graphdata on anim stop
+    //try to add pinch gestures to the fold ✅
+    //try to calc the pos of mouse in relation to the timeBar 👈.1
+    //try to zoom in and out with correct indecies 👈.2
+    //try generate fake graphdata on snapTo anim stop
     //draw the fake graph data as a graphline with points
     //try to update the valuebar
     //try to update the timeIndicator 
@@ -19,11 +19,10 @@ enum TimeType {
 }
 
 class Graph9:Element{
-    lazy var gestureHUD:GestureHUD  =  GestureHUD(self)
     var timeBar:ScrollFastList?
     /*Date vars*/
     let fromYear:Int = 2011
-    let toYear:Int = 2017
+    let toYear:Int = 2017//TODO: swap this out with Date().year
     var range:Range<Int> {return fromYear..<toYear}
     /*Zooming vars*/
     var curZoom:Int = 0
@@ -34,8 +33,6 @@ class Graph9:Element{
         super.resolveSkin()
         createList()
         alignTimeBar()
-        self.acceptsTouchEvents = true/*Enables gestures*/
-        self.wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
     }
 }
 extension Graph9{
