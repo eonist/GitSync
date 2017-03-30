@@ -37,7 +37,8 @@ class Graph8 {
     let toYear:Int = 2017
     var range:Range<Int> {return fromYear..<toYear}
     init(){
-            //testDayDp()
+        //testDayDp()
+        testMonthDp()
     }
     func testDayDp(){
         let dp = DayDP(range)
@@ -47,7 +48,7 @@ class Graph8 {
     }
     func testMonthDp(){
         let dp = MonthDP(range)
-        let dict = dp.item(400)!
+        let dict = dp.item(20)!
         Swift.print("dict: " + "\(dict)")
     }
 }
