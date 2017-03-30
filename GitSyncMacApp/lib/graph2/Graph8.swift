@@ -113,6 +113,6 @@ class YearDP:TimeDP{
     }
     func firstMonthInYear(yearIdx:Int) -> Int{
         let numOfYearsUntilIdx:Int = yearIdx - yearRange.start
-        return 0
+        return numOfYearsUntilIdx * MonthDP.numOfMonthsInYear
     }
 }
