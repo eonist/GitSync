@@ -111,5 +111,8 @@ class YearDP:TimeDP{
         let year:Int = yearRange.start + at
         return ["title":year.string]
     }
-    
+    func firstMonthInYear(yearIdx:Int) -> Int{
+        let numOfYearsUntilIdx:Int = yearIdx - yearRange.start
+        return 0
+    }
 }
