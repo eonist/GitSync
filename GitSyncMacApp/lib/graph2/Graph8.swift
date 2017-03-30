@@ -47,7 +47,8 @@ class Graph8 {
             //you zoom in
                 //find first month in 2015
                     //find progress to set to MonthDP
-                        //set TimeBar
+                        //set TimeBar dp to MonthDP
+                        //set timeBar to progress
     }
     func testDayDp(){
         let dp = DayDP(range)
