@@ -35,8 +35,8 @@ class Graph9:Element{
         super.resolveSkin()
         dateText = addSubView(TextArea(NaN,NaN,"00/00/00 - 00/00/00",self,"date"))/*A TextField that displays the time range of the graph*/
         
-        //createList()
-        //alignTimeBar()
+        createList()
+        alignTimeBar()
     }
 }
 extension Graph9{
