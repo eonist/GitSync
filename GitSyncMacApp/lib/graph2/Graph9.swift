@@ -151,7 +151,7 @@ extension Graph9{
                 let endMonth:Date = MonthDP.month(endMonthIdx, yearRange)
                 /*year*/
                 let startYearIdx:Int = MonthDP.year(startMonthIdx, yearRange)//sort of the offset
-                let startYearStr:String = yearRange.start + startYearIdx
+                let startYearStr:String = (yearRange.start + startYearIdx).string
                 let endYear:Int = MonthDP.year(startMonthIdx, yearRange)
                 /*day*/
                 let startDayDate:Date = DayDP.day(range.start, yearRange)
