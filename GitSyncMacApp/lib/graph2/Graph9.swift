@@ -32,9 +32,11 @@ class Graph9:Element{
     override func resolveSkin() {
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         super.resolveSkin()
-        dateText = addSubView(TextArea(180,24,"-",self,"date"))/*A TextField that displays the time range of the graph*/
-        createList()
-        alignTimeBar()
+        StyleManager.addStyle("~/Desktop/datetext.css")
+        dateText = addSubView(TextArea(180,24,"00/00/00 - 00/00/00",self,"date"))/*A TextField that displays the time range of the graph*/
+        
+        //createList()
+        //alignTimeBar()
     }
 }
 extension Graph9{
@@ -116,10 +118,10 @@ extension Graph9{
      * Updates the DateText UI Element
      */
     func updateDateText(){
-        let curDate = self.currentDate.offsetByDays(self.dayOffset)
-        Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
-        let lastWeekDate = self.currentDate.offsetByDays(self.dayOffset-7)
-        //curDate
-        dateText!.setTextValue(lastWeekDate.shortDate + " - " + curDate.shortDate)
+        /* let curDate = self.currentDate.offsetByDays(self.dayOffset)
+         Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
+         let lastWeekDate = self.currentDate.offsetByDays(self.dayOffset-7)
+         //curDate
+         dateText!.setTextValue(lastWeekDate.shortDate + " - " + curDate.shortDate)*/
     }
 }
