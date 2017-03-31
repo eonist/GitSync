@@ -141,21 +141,21 @@ extension Graph9{
             case .month:
                 dateStr = "2011.Feb - 2011.Sep"
             case .day:
-                /*year*/
-                let startYearIdx:Int = MonthDP.year(startMonthIdx, yearRange)//sort of the offset
-                let startYearStr:String = (yearRange.start + startYearIdx).string
-                let endYear:Int = MonthDP.year(startMonthIdx, yearRange)
-                let endYearStr:String = (yearRange.start + endYear).string
-                /*Month*/
-                let startMonthIdx:Int = DayDP.month(range.start,yearRange)
-                let startMonth:Date = MonthDP.month(startMonthIdx, yearRange)
-                let endMonthIdx:Int = DayDP.month(range.end,yearRange)
-                let endMonth:Date = MonthDP.month(endMonthIdx, yearRange)
                 /*day*/
                 let startDayDate:Date = DayDP.day(range.start, yearRange)
                 let startDayDateStr:String = startDayDate.day.string
                 let endDayDate:Date = DayDP.day(range.end, yearRange)
                 let endDayDateStr:String = endDayDate.day.string
+                /*Month*/
+                let startMonthIdx:Int = DayDP.month(range.start,yearRange)
+                let startMonth:Date = MonthDP.month(startMonthIdx, yearRange)
+                let endMonthIdx:Int = DayDP.month(range.end,yearRange)
+                let endMonth:Date = MonthDP.month(endMonthIdx, yearRange)
+                /*year*/
+                let startYearIdx:Int = MonthDP.year(startMonthIdx, yearRange)//sort of the offset
+                let startYearStr:String = (yearRange.start + startYearIdx).string
+                let endYear:Int = MonthDP.year(startMonthIdx, yearRange)
+                let endYearStr:String = (yearRange.start + endYear).string
                 dateStr = "\(startYearStr).\(startMonth.shortMonthName).\(startDayDateStr) - \(endYearStr).\(endMonth.shortMonthName).\(endDayDateStr)"
         }
         dateText!.setTextValue(dateStr)
