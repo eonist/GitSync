@@ -31,10 +31,9 @@ class Graph9:Element{
     var zoom:CGFloat = 0
     override func resolveSkin() {
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
-        //StyleManager.addStylesByURL("~/Desktop/datetext.css")
+        StyleManager.addStylesByURL("~/Desktop/datetext.css")
         super.resolveSkin()
-        
-        dateText = addSubView(TextArea(w,24,"00/00/00 - 00/00/00",self,"date"))/*A TextField that displays the time range of the graph*/
+        dateText = addSubView(TextArea(NaN,NaN,"00/00/00 - 00/00/00",self,"date"))/*A TextField that displays the time range of the graph*/
         
         //createList()
         //alignTimeBar()
