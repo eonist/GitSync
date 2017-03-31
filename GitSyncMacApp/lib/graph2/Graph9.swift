@@ -34,7 +34,7 @@ class Graph9:Element{
         
         super.resolveSkin()
         StyleManager.addStylesByURL("~/Desktop/datetext.css")
-        dateText = addSubView(TextArea(w,24,"00/00/00 - 00/00/00",self,"dates"))/*A TextField that displays the time range of the graph*/
+        dateText = addSubView(TextArea(NaN,24,"00/00/00 - 00/00/00",self,"date"))/*A TextField that displays the time range of the graph*/
         
         //createList()
         //alignTimeBar()
