@@ -155,7 +155,7 @@ extension Graph9{
                 let endYear:Int = MonthDP.year(startMonthIdx, yearRange)
                 /*day*/
                 let startDayDate:Date = DayDP.day(range.start, yearRange)
-                let startDayDateStr:String = startDayDate.day.string
+                //let startDayDateStr:String = startDayDate.day.string
                 dateStr = "\(startYearStr).\(startMonth.shortMonthName).20 - 2011.\(endMonth.shortMonthName).27"
         }
         dateText!.setTextValue(dateStr)
