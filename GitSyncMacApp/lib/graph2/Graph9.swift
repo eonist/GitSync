@@ -30,7 +30,7 @@ class Graph9:Element{
     let maxZoom:Int = 3
     var zoom:CGFloat = 0
     /**/
-    let timeType:TimeType = .day
+    let curTimeType:TimeType = .day
     override func resolveSkin() {
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         StyleManager.addStylesByURL("~/Desktop/datetext.css")
@@ -96,10 +96,10 @@ extension Graph9{
     func onZoomLevelChange() {
         Swift.print("Graph9.onZoomLevelChange()")
         Swift.print("curZoom: " + "\(curZoom)")
-        let timeType:TimeType = TimeType.types[curZoom]
-        Swift.print("timeType: " + "\(timeType)")
+        curTimeType = TimeType.types[curZoom]
+        Swift.print("curTimeType: " + "\(curTimeType)")
         let dp:DataProvider
-        switch timeType{
+        switch curTimeType{
             case .year:
                 dp = YearDP(range)
             case .month:
@@ -124,9 +124,17 @@ extension Graph9{
      * Updates the DateText UI Element
      */
     func updateDateText(){
-        let curDate = self.currentDate.offsetByDays(self.dayOffset)
-        Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
-        let lastWeekDate = self.currentDate.offsetByDays(self.dayOffset-7)
+        /*let curDate = self.currentDate.offsetByDays(self.dayOffset)
+         Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
+         let lastWeekDate = self.currentDate.offsetByDays(self.dayOffset-7)*/
+        switch curTimeType{
+            case .year:
+                dp = YearDP(range)
+            case .month:
+                dp = MonthDP(range)
+            case .day:
+                dp = DayDP(range)
+        }
         //curDate
         dateText!.setTextValue(lastWeekDate.shortDate + " - " + curDate.shortDate)
     }
