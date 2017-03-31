@@ -52,6 +52,7 @@ class DayDP:TimeDP{
     }
     /**
      * Returns month offset idx
+     * TODO: you also need year!?
      */
     func month(_ dayIdx:Int) -> Int{
         let from:Date = DateParser.createDate(yearRange.start)!
