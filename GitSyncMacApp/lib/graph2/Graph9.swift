@@ -19,7 +19,7 @@ enum TimeType {
     static var types:[TimeType] {return [TimeType.day,TimeType.month,TimeType.year]}
 }
 /*Debug*/
-extension Graph5{
+extension Graph9{
     override func touchesBegan(with event:NSEvent) {
         gestureHUD.touchesBegan(event)
     }
