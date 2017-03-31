@@ -126,7 +126,7 @@ extension Graph9{
      */
     func updateDateText(){
         
-        //continue here:
+        //continue here: 🏀
             //only update text on interval change. figure out the interval with modulo.
         
         /*let curDate = self.currentDate.offsetByDays(self.dayOffset)
