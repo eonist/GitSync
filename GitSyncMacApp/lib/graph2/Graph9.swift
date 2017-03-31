@@ -153,7 +153,8 @@ extension Graph9{
                 let startYearIdx:Int = MonthDP.year(startMonthIdx, yearRange)//sort of the offset
                 let startYearStr:String = yearRange.start + startYearIdx
                 let endYear:Int = MonthDP.year(startMonthIdx, yearRange)
-                
+                /*day*/
+                let startDayDate:Date = 
                 dateStr = "\(startYearStr).\(startMonth.shortMonthName).20 - 2011.\(endMonth.shortMonthName).27"
         }
         dateText!.setTextValue(dateStr)
