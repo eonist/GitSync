@@ -129,7 +129,9 @@ extension Graph9{
          Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
          let lastWeekDate = self.currentDate.offsetByDays(self.dayOffset-7)*/
         let range = timeBar!.currentVisibleItemRange
+        Swift.print("range: " + "\(range)")
         let yearRange = (timeBar!.dp as! TimeDP).yearRange
+        Swift.print("yearRange: " + "\(yearRange)")
         /*let firstIdx = timeBar!.dp.item(range.start)!
          let lastIdx = timeBar!.dp.item(range.end)!
          let firstTitle = firstItem["title"]
