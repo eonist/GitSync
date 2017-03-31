@@ -50,6 +50,7 @@ class DayDP:TimeDP{
         let shortDayName:String = dateAt.shortDayName//short day for date
         return ["title":shortDayName]//return dict with this
     }
+    
     /**
      * Returns month offset idx
      * TODO: you also need year!?
