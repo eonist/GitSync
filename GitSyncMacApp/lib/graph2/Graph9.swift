@@ -114,14 +114,18 @@ extension Graph9{
     }
 }
 extension Graph9{
+    override func scrollWheel(with event: NSEvent) {
+        super.scrollWheel(with:event)
+        updateDateText()
+    }
     /**
      * Updates the DateText UI Element
      */
     func updateDateText(){
-        /* let curDate = self.currentDate.offsetByDays(self.dayOffset)
+        let curDate = self.currentDate.offsetByDays(self.dayOffset)
          Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
          let lastWeekDate = self.currentDate.offsetByDays(self.dayOffset-7)
          //curDate
-         dateText!.setTextValue(lastWeekDate.shortDate + " - " + curDate.shortDate)*/
+         dateText!.setTextValue(lastWeekDate.shortDate + " - " + curDate.shortDate)
     }
 }
