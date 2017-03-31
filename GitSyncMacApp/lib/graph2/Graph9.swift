@@ -132,6 +132,10 @@ extension Graph9{
         let lastItem = timeBar!.dp.item(range.end)
         let firstTitle = firstItem["title"]
         let lastTitle = lastItem["title"]
+        
+        //continue here:
+            //you also have to use the progress to find date info. Use the offset methods you wrote yesterday
+        
         var dateStr:String = ""
         switch curTimeType{
             case .year:
