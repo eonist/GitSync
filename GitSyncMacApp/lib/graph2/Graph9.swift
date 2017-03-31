@@ -144,9 +144,9 @@ extension Graph9{
                 let endMonth:Date = MonthDP.month(range.end, yearRange)
                 /*Year*/
                 let startYearIdx:Int = MonthDP.year(range.start, yearRange)//sort of the offset
-                let startYearStr:String = (yearRange.start + startYearIdx).string
-                let endYear:Int = MonthDP.year(range.end, yearRange)
-                let endYearStr:String = (yearRange.start + endYear).string
+                let startYearStr:String = YearDP.year(startYearIdx).string
+                let endYearIdx:Int = MonthDP.year(range.end, yearRange)
+                let endYearStr:String = YearDP.year(endYearIdx).string
                 dateStr = "2011.\(startMonth.shortMonthName) - 2011.\(endMonth.shortMonthName)"
             case .day:
                 /*day*/
