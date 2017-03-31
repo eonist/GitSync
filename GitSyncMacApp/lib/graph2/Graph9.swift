@@ -123,9 +123,9 @@ extension Graph9{
      */
     func updateDateText(){
         let curDate = self.currentDate.offsetByDays(self.dayOffset)
-         Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
-         let lastWeekDate = self.currentDate.offsetByDays(self.dayOffset-7)
-         //curDate
-         dateText!.setTextValue(lastWeekDate.shortDate + " - " + curDate.shortDate)
+        Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
+        let lastWeekDate = self.currentDate.offsetByDays(self.dayOffset-7)
+        //curDate
+        dateText!.setTextValue(lastWeekDate.shortDate + " - " + curDate.shortDate)
     }
 }
