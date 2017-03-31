@@ -125,6 +125,10 @@ extension Graph9{
      * Updates the DateText UI Element
      */
     func updateDateText(){
+        
+        //continue here:
+            //only update text on interval change. figure out the interval with modulo.
+        
         /*let curDate = self.currentDate.offsetByDays(self.dayOffset)
          Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
          let lastWeekDate = self.currentDate.offsetByDays(self.dayOffset-7)*/
