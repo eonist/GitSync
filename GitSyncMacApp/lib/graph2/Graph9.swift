@@ -134,55 +134,56 @@ extension Graph9{
          Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
          let lastWeekDate = self.currentDate.offsetByDays(self.dayOffset-7)*/
         
-        if(curRange == nil || curRange != timeBar!.currentVisibleItemRange){
+        if(curRange == nil || curRange != timeBar!.currentVisibleItemRange){/*If the range has changed, then update text*/
             curRange = timeBar!.currentVisibleItemRange
             //Swift.print("curRange: " + "\(curRange)")
-        }else{Swift.print("Dont update text");return}/*IF the range hasnt changed, then dont update text*/
-        
-        let yearRange = (timeBar!.dp as! TimeDP).yearRange
-        Swift.print("yearRange: " + "\(yearRange)")
-        /*let firstIdx = timeBar!.dp.item(range.start)!
-         let lastIdx = timeBar!.dp.item(range.end)!
-         let firstTitle = firstItem["title"]
-         let lastTitle = lastItem["title"]*/
-        
-        var dateStr:String = ""
-        switch curTimeType{
-            case .year:
-                /*Year*/
-                let startYearIdx:Int = MonthDP.year(curRange!.start, yearRange)//sort of the offset
-                let startYearStr:String = YearDP.year(startYearIdx,yearRange).string
-                let endYearIdx:Int = MonthDP.year(curRange!.end, yearRange)
-                let endYearStr:String = YearDP.year(endYearIdx,yearRange).string
-                dateStr = "\(startYearStr) - \(endYearStr)"
-            case .month:
-                /*Month*/
-                let startMonth:Date = MonthDP.month(curRange!.start, yearRange)
-                let endMonth:Date = MonthDP.month(curRange!.end, yearRange)
-                /*Year*/
-                let startYearIdx:Int = MonthDP.year(curRange!.start, yearRange)//sort of the offset
-                let startYearStr:String = YearDP.year(startYearIdx,yearRange).string
-                let endYearIdx:Int = MonthDP.year(curRange!.end, yearRange)
-                let endYearStr:String = YearDP.year(endYearIdx,yearRange).string
-                dateStr = "\(startYearStr).\(startMonth.shortMonthName) - \(endYearStr).\(endMonth.shortMonthName)"
-            case .day:
-                /*day*/
-                let startDayDate:Date = DayDP.day(curRange!.start, yearRange)
-                let startDayDateStr:String = startDayDate.day.string
-                let endDayDate:Date = DayDP.day(curRange!.end, yearRange)
-                let endDayDateStr:String = endDayDate.day.string
-                /*Month*/
-                let startMonthIdx:Int = DayDP.month(curRange!.start,yearRange)
-                let startMonth:Date = MonthDP.month(startMonthIdx, yearRange)
-                let endMonthIdx:Int = DayDP.month(curRange!.end,yearRange)
-                let endMonth:Date = MonthDP.month(endMonthIdx, yearRange)
-                /*year*/
-                let startYearIdx:Int = MonthDP.year(startMonthIdx, yearRange)//sort of the offset
-                let startYearStr:String = YearDP.year(startYearIdx,yearRange).string
-                let endYearIdx:Int = MonthDP.year(startMonthIdx, yearRange)
-                let endYearStr:String = YearDP.year(endYearIdx,yearRange).string
-                dateStr = "\(startYearStr).\(startMonth.shortMonthName).\(startDayDateStr) - \(endYearStr).\(endMonth.shortMonthName).\(endDayDateStr)"
+            
+            let yearRange = (timeBar!.dp as! TimeDP).yearRange
+            Swift.print("yearRange: " + "\(yearRange)")
+            /*let firstIdx = timeBar!.dp.item(range.start)!
+             let lastIdx = timeBar!.dp.item(range.end)!
+             let firstTitle = firstItem["title"]
+             let lastTitle = lastItem["title"]*/
+            
+            var dateStr:String = ""
+            switch curTimeType{
+                case .year:
+                    /*Year*/
+                    let startYearIdx:Int = MonthDP.year(curRange!.start, yearRange)//sort of the offset
+                    let startYearStr:String = YearDP.year(startYearIdx,yearRange).string
+                    let endYearIdx:Int = MonthDP.year(curRange!.end, yearRange)
+                    let endYearStr:String = YearDP.year(endYearIdx,yearRange).string
+                    dateStr = "\(startYearStr) - \(endYearStr)"
+                case .month:
+                    /*Month*/
+                    let startMonth:Date = MonthDP.month(curRange!.start, yearRange)
+                    let endMonth:Date = MonthDP.month(curRange!.end, yearRange)
+                    /*Year*/
+                    let startYearIdx:Int = MonthDP.year(curRange!.start, yearRange)//sort of the offset
+                    let startYearStr:String = YearDP.year(startYearIdx,yearRange).string
+                    let endYearIdx:Int = MonthDP.year(curRange!.end, yearRange)
+                    let endYearStr:String = YearDP.year(endYearIdx,yearRange).string
+                    dateStr = "\(startYearStr).\(startMonth.shortMonthName) - \(endYearStr).\(endMonth.shortMonthName)"
+                case .day:
+                    /*day*/
+                    let startDayDate:Date = DayDP.day(curRange!.start, yearRange)
+                    let startDayDateStr:String = startDayDate.day.string
+                    let endDayDate:Date = DayDP.day(curRange!.end, yearRange)
+                    let endDayDateStr:String = endDayDate.day.string
+                    /*Month*/
+                    let startMonthIdx:Int = DayDP.month(curRange!.start,yearRange)
+                    let startMonth:Date = MonthDP.month(startMonthIdx, yearRange)
+                    let endMonthIdx:Int = DayDP.month(curRange!.end,yearRange)
+                    let endMonth:Date = MonthDP.month(endMonthIdx, yearRange)
+                    /*year*/
+                    let startYearIdx:Int = MonthDP.year(startMonthIdx, yearRange)//sort of the offset
+                    let startYearStr:String = YearDP.year(startYearIdx,yearRange).string
+                    let endYearIdx:Int = MonthDP.year(startMonthIdx, yearRange)
+                    let endYearStr:String = YearDP.year(endYearIdx,yearRange).string
+                    dateStr = "\(startYearStr).\(startMonth.shortMonthName).\(startDayDateStr) - \(endYearStr).\(endMonth.shortMonthName).\(endDayDateStr)"
+            }
+            dateText!.setTextValue(dateStr)
+
         }
-        dateText!.setTextValue(dateStr)
     }
 }
