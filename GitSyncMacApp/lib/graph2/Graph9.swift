@@ -115,6 +115,7 @@ extension Graph9{
         timeBar!.setProgress(0)
         timeBar!.renderItems(timeBar!.visibleItemRange)
         /**/
+        curRange = nil/*rest so we force update dateText*/
         updateDateText()
     }
 }
