@@ -109,7 +109,7 @@ class MonthDP:TimeDP{
 class YearDP:TimeDP{
     override var count:Int {return yearRange.numOfIndecies}
     override func item(_ at:Int) -> [String:String]? {
-        let year:Int = YearDP.year(at)
+        let year:Int = YearDP.year(at,yearRange)
         let shortName:String = year.string.subString(2, 4)
         //Swift.print("shortName: " + "\(shortName)")
         return ["title":shortName]

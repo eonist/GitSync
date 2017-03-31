@@ -144,10 +144,10 @@ extension Graph9{
                 let endMonth:Date = MonthDP.month(range.end, yearRange)
                 /*Year*/
                 let startYearIdx:Int = MonthDP.year(range.start, yearRange)//sort of the offset
-                let startYearStr:String = YearDP.year(startYearIdx).string
+                let startYearStr:String = YearDP.year(startYearIdx,yearRange).string
                 let endYearIdx:Int = MonthDP.year(range.end, yearRange)
-                let endYearStr:String = YearDP.year(endYearIdx).string
-                dateStr = "2011.\(startMonth.shortMonthName) - 2011.\(endMonth.shortMonthName)"
+                let endYearStr:String = YearDP.year(endYearIdx,yearRange).string
+                dateStr = "\(startYearStr).\(startMonth.shortMonthName) - \(endYearStr).\(endMonth.shortMonthName)"
             case .day:
                 /*day*/
                 let startDayDate:Date = DayDP.day(range.start, yearRange)
@@ -161,9 +161,9 @@ extension Graph9{
                 let endMonth:Date = MonthDP.month(endMonthIdx, yearRange)
                 /*year*/
                 let startYearIdx:Int = MonthDP.year(startMonthIdx, yearRange)//sort of the offset
-                let startYearStr:String = YearDP.year(startYearIdx).string
+                let startYearStr:String = YearDP.year(startYearIdx,yearRange).string
                 let endYearIdx:Int = MonthDP.year(startMonthIdx, yearRange)
-                let endYearStr:String = YearDP.year(endYearIdx).string
+                let endYearStr:String = YearDP.year(endYearIdx,yearRange).string
                 dateStr = "\(startYearStr).\(startMonth.shortMonthName).\(startDayDateStr) - \(endYearStr).\(endMonth.shortMonthName).\(endDayDateStr)"
         }
         dateText!.setTextValue(dateStr)
