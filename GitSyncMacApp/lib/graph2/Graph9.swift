@@ -128,8 +128,8 @@ extension Graph9{
          Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
          let lastWeekDate = self.currentDate.offsetByDays(self.dayOffset-7)*/
         let range = timeBar!.currentVisibleItemRange
-        let firstItem = timeBar!.dp.item(range.start)
-        let lastItem = timeBar!.dp.item(range.end)
+        let firstItem = timeBar!.dp.item(range.start)!
+        let lastItem = timeBar!.dp.item(range.end)!
         let firstTitle = firstItem["title"]
         let lastTitle = lastItem["title"]
         
@@ -143,6 +143,7 @@ extension Graph9{
             case .month:
                 dateStr = "2011.Feb - 2011.Sep"
             case .day:
+                let startMonthIdx:Int = DayDP.month(<#T##DayDP#>)
                 dateStr = "2011.Feb.20 - 2011.Sep.27"
         }
         dateText!.setTextValue(dateStr)
