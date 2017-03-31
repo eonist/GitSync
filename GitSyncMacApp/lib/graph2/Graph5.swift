@@ -33,7 +33,6 @@ class Graph5:ContainerView2{
         createTimeBar()
         
         /*debug*/
-        gestureHUD = GestureHUD(self)
         self.acceptsTouchEvents = true/*Enables gestures*/
         self.wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
     }
@@ -94,6 +93,7 @@ extension Graph5{
         timeBar!.point = p
     }
 }
+/*Debug*/
 extension Graph5{
     override func touchesBegan(with event:NSEvent) {
         gestureHUD.touchesBegan(event)
