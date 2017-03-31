@@ -19,6 +19,7 @@ enum TimeType {
     static var types:[TimeType] {return [TimeType.day,TimeType.month,TimeType.year]}
 }
 class Graph9:Element{
+    var dateText:TextArea?
     var timeBar:ScrollFastList?
     /*Date vars*/
     let fromYear:Int = 2011
@@ -107,5 +108,17 @@ extension Graph9{
         timeBar!.dataProvider = dp
         timeBar!.setProgress(0)
         timeBar!.renderItems(timeBar!.visibleItemRange)
+    }
+}
+extension Graph9{
+    /**
+     * Updates the DateText UI Element
+     */
+    func updateDateText(){
+        let curDate = self.currentDate.offsetByDays(self.dayOffset)
+        Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
+        let lastWeekDate = self.currentDate.offsetByDays(self.dayOffset-7)
+        //curDate
+        dateText!.setTextValue(lastWeekDate.shortDate + " - " + curDate.shortDate)
     }
 }
