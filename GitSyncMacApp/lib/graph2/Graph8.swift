@@ -66,11 +66,11 @@ class MonthDP:TimeDP{
     override var count:Int {return yearRange.numOfIndecies * MonthDP.numOfMonthsInYear}/*numOfDaysInYearRange*/
     override func item(_ at:Int) -> [String:String]? {
         if(at >= count){return nil}//out of bound return nil
-        let dateAt:Date = month(at)
+        let dateAt:Date = MonthDP.month(at)
         let shortMonthName:String = dateAt.shortMonthName//short month name for date
         return ["title":shortMonthName]//return dict with this
     }
-    func month(_ at:Int)->Date{
+    static func month(_ at:Int, _ yearRange:Range<Int>)->Date{
         let startDate:Date = DateParser.createDate(yearRange.start,0,0,0,0,0)!//find start date
         let dateAt:Date = startDate.offsetByMonths(at)//n months from startDate => date
         return dateAt
