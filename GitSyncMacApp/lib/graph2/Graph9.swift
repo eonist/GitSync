@@ -30,7 +30,7 @@ class Graph9:Element{
     let maxZoom:Int = 3
     var zoom:CGFloat = 0
     /**/
-    let curTimeType:TimeType = .day
+    var curTimeType:TimeType = .day
     override func resolveSkin() {
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         StyleManager.addStylesByURL("~/Desktop/datetext.css")
@@ -130,7 +130,10 @@ extension Graph9{
         var dateStr:String = ""
         switch curTimeType{
             case .year:
-                ScrollFastList.currentVisibleItemRange
+                let range = timeBar!.currentVisibleItemRange
+                let firstItem = timeBar!.dp.item(range.start)
+                let lastItem = timeBar!.dp.item(range.end)
+                
                 dateStr = "2011 - 2017"
             case .month:
                 dateStr = "2011.Feb - 2011.Sep"
