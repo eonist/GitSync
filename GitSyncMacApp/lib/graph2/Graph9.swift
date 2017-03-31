@@ -114,6 +114,8 @@ extension Graph9{
         timeBar!.dataProvider = dp
         timeBar!.setProgress(0)
         timeBar!.renderItems(timeBar!.visibleItemRange)
+        /**/
+        updateDateText()
     }
 }
 extension Graph9{
@@ -126,9 +128,6 @@ extension Graph9{
      * Updates the DateText UI Element
      */
     func updateDateText(){
-        
-        //continue here: 🏀
-            //only update text on interval change. figure out the interval with modulo.
         
         /*let curDate = self.currentDate.offsetByDays(self.dayOffset)
          Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
