@@ -127,15 +127,15 @@ extension Graph9{
         /*let curDate = self.currentDate.offsetByDays(self.dayOffset)
          Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
          let lastWeekDate = self.currentDate.offsetByDays(self.dayOffset-7)*/
+        var dateStr:String = ""
         switch curTimeType{
             case .year:
-                dp = YearDP(range)
+                dateStr = "2011 - 2017"
             case .month:
-                dp = MonthDP(range)
+                dateStr = "2011.Feb - 2011.Sep"
             case .day:
-                dp = DayDP(range)
+                dateStr = "2011.Feb.20 - 2011.Sep.27"
         }
-        //curDate
-        dateText!.setTextValue(lastWeekDate.shortDate + " - " + curDate.shortDate)
+        dateText!.setTextValue(dateStr)
     }
 }
