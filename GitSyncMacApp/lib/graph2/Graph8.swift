@@ -97,7 +97,7 @@ class MonthDP:TimeDP{
     /**
      * Return year offset idx
      */
-    func year(_ monthIdx:Int,_ yearRange:Range<Int>) -> Int{
+    static func year(_ monthIdx:Int,_ yearRange:Range<Int>) -> Int{
         let from:Date = DateParser.createDate(yearRange.start)!
         let until:Date = from.offsetByMonths(monthIdx)
         let numOfYearsFromUntil:Int = from.numOfYears(until)
