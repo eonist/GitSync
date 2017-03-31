@@ -29,6 +29,8 @@ class Graph9:Element{
     var curZoom:Int = 0
     let maxZoom:Int = 3
     var zoom:CGFloat = 0
+    /**/
+    let timeType:TimeType = .day
     override func resolveSkin() {
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         StyleManager.addStylesByURL("~/Desktop/datetext.css")
