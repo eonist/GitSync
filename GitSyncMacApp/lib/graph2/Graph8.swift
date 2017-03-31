@@ -109,10 +109,16 @@ class MonthDP:TimeDP{
 class YearDP:TimeDP{
     override var count:Int {return yearRange.numOfIndecies}
     override func item(_ at:Int) -> [String:String]? {
-        let year:Int = (yearRange.start + at)
+        let year:Int = YearDP.year(at)
         let shortName:String = year.string.subString(2, 4)
         //Swift.print("shortName: " + "\(shortName)")
         return ["title":shortName]
+    }
+    /**
+     * Returns year for offset idx
+     */
+    static func year(_ at:Int, _ yearRange:Range<Int>) -> Int{
+        return (yearRange.start + at)
     }
     /**
      * Returns an offset in months from yearRange.start until yearIdx
