@@ -32,6 +32,7 @@ class Graph9:Element{
     override func resolveSkin() {
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         super.resolveSkin()
+        dateText = addSubView(TextArea(180,24,"-",self,"date"))/*A TextField that displays the time range of the graph*/
         createList()
         alignTimeBar()
     }
