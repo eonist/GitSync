@@ -45,16 +45,13 @@ class DayDP:TimeDP{
     override var items:[[String:String]] {get{fatalError("Not available")}set{_ = newValue}}
     override func item(_ at:Int) -> [String:String]? {
         if(at >= count){return nil}//out of bound return nil
-        let startDate:Date = DateParser.createDate(yearRange.start,0,0,0,0,0)!//find start date
-        let dateAt:Date = startDate.offsetByDays(at)//n days from startDate => date
+        let date = DayDP.day(at,yearRange)
         let shortDayName:String = dateAt.shortDayName//short day for date
         return ["title":shortDayName]//return dict with this
     }
-    /**
-     * 
-     */
     static func day(_ dayIdx:Int, _ yearRange:Range<Int>){
-        
+        let startDate:Date = DateParser.createDate(yearRange.start,0,0,0,0,0)!//find start date
+        let dateAt:Date = startDate.offsetByDays(at)//n days from startDate => date
     }
     /**
      * Returns month offset idx

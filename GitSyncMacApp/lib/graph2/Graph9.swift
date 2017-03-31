@@ -143,7 +143,7 @@ extension Graph9{
             case .month:
                 dateStr = "2011.Feb - 2011.Sep"
             case .day:
-                let startMonthIdx:Int = DayDP.month(range.start)
+                let startMonthIdx:Int = DayDP.month(range.start,range)
                 dateStr = "2011.Feb.20 - 2011.Sep.27"
         }
         dateText!.setTextValue(dateStr)
