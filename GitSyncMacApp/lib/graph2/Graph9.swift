@@ -31,7 +31,7 @@ class Graph9:Element{
     var zoom:CGFloat = 0
     /**/
     var curTimeType:TimeType = .day
-    var curVisibleRange:Range<Int>
+    var range:Range<Int>?
     override func resolveSkin() {
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         StyleManager.addStylesByURL("~/Desktop/datetext.css")
@@ -133,8 +133,11 @@ extension Graph9{
         /*let curDate = self.currentDate.offsetByDays(self.dayOffset)
          Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
          let lastWeekDate = self.currentDate.offsetByDays(self.dayOffset-7)*/
-        let range = timeBar!.currentVisibleItemRange
-        Swift.print("range: " + "\(range)")
+        if(range == nil || range != timeBar!.currentVisibleItemRange){
+            range = timeBar!.currentVisibleItemRange
+            Swift.print("range: " + "\(range)")
+        }
+        
         let yearRange = (timeBar!.dp as! TimeDP).yearRange
         Swift.print("yearRange: " + "\(yearRange)")
         /*let firstIdx = timeBar!.dp.item(range.start)!
