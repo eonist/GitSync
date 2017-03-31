@@ -46,12 +46,13 @@ class DayDP:TimeDP{
     override func item(_ at:Int) -> [String:String]? {
         if(at >= count){return nil}//out of bound return nil
         let date = DayDP.day(at,yearRange)
-        let shortDayName:String = dateAt.shortDayName//short day for date
+        let shortDayName:String = date.shortDayName//short day for date
         return ["title":shortDayName]//return dict with this
     }
-    static func day(_ dayIdx:Int, _ yearRange:Range<Int>){
+    static func day(_ dayIdx:Int, _ yearRange:Range<Int>)->Date{
         let startDate:Date = DateParser.createDate(yearRange.start,0,0,0,0,0)!//find start date
-        let dateAt:Date = startDate.offsetByDays(at)//n days from startDate => date
+        let dateAt:Date = startDate.offsetByDays(dayIdx)//n days from startDate => date
+        return dateAt
     }
     /**
      * Returns month offset idx
@@ -96,7 +97,7 @@ class MonthDP:TimeDP{
     /**
      * Return year offset idx
      */
-    func year(_ monthIdx:Int) -> Int{
+    func year(_ monthIdx:Int,_ yearRange:Range<Int>) -> Int{
         let from:Date = DateParser.createDate(yearRange.start)!
         let until:Date = from.offsetByMonths(monthIdx)
         let numOfYearsFromUntil:Int = from.numOfYears(until)

@@ -128,10 +128,10 @@ extension Graph9{
          Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
          let lastWeekDate = self.currentDate.offsetByDays(self.dayOffset-7)*/
         let range = timeBar!.currentVisibleItemRange
-        let firstItem = timeBar!.dp.item(range.start)!
-        let lastItem = timeBar!.dp.item(range.end)!
-        let firstTitle = firstItem["title"]
-        let lastTitle = lastItem["title"]
+        /*let firstIdx = timeBar!.dp.item(range.start)!
+         let lastIdx = timeBar!.dp.item(range.end)!
+         let firstTitle = firstItem["title"]
+         let lastTitle = lastItem["title"]*/
         
         //continue here:
             //you also have to use the progress to find date info. Use the offset methods you wrote yesterday
@@ -147,7 +147,7 @@ extension Graph9{
                 let startMonth:Date = MonthDP.month(startMonthIdx, range)
                 let endMonthIdx:Int = DayDP.month(range.end,range)
                 let endMonth:Date = MonthDP.month(endMonthIdx, range)
-                dateStr = "2011.Feb.20 - 2011.Sep.27"
+                dateStr = "2011.\(startMonth.shortMonthName).20 - 2011.\(endMonth.shortMonthName).27"
         }
         dateText!.setTextValue(dateStr)
     }
