@@ -130,7 +130,7 @@ extension Graph9{
         var dateStr:String = ""
         switch curTimeType{
             case .year:
-                ScrollFastList.visi
+                ScrollFastList.currentVisibleItemRange
                 dateStr = "2011 - 2017"
             case .month:
                 dateStr = "2011.Feb - 2011.Sep"
