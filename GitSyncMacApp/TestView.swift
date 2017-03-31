@@ -16,12 +16,7 @@ class TestView:TitleView{
     }
     func createGUI(){
         //createGraph9Test()
-        let from:Date = DateParser.createDate(2011)!
-        Swift.print("from.year: " + "\(from.year)")
-        let until:Date = from.offsetByMonths(25)
-        Swift.print("until.year: " + "\(until.year)")
-        let numOfYearsFromUntil:Int = from.numOfYears(until)
-        Swift.print("numOfYearsFromUntil: " + "\(numOfYearsFromUntil)")
+        
         //_ = Graph8()
         //createGraph7Test()
         //createGraph6Test()//👈
