@@ -144,6 +144,7 @@ extension Graph9{
             case .month:
                 dateStr = "2011.Feb - 2011.Sep"
             case .day:
+                /*Month*/
                 let startMonthIdx:Int = DayDP.month(range.start,yearRange)
                 let startMonth:Date = MonthDP.month(startMonthIdx, yearRange)
                 let endMonthIdx:Int = DayDP.month(range.end,yearRange)
