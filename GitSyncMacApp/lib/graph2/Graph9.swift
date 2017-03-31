@@ -117,6 +117,7 @@ extension Graph9{
 }
 extension Graph9{
     override func scrollWheel(with event:NSEvent) {
+        Swift.print("Graph9.scrollWheel()")
         super.scrollWheel(with:event)
         updateDateText()
     }
@@ -137,7 +138,12 @@ extension Graph9{
         var dateStr:String = ""
         switch curTimeType{
             case .year:
-                dateStr = "2011 - 2017"
+                /*Year*/
+                let startYearIdx:Int = MonthDP.year(range.start, yearRange)//sort of the offset
+                let startYearStr:String = YearDP.year(startYearIdx,yearRange).string
+                let endYearIdx:Int = MonthDP.year(range.end, yearRange)
+                let endYearStr:String = YearDP.year(endYearIdx,yearRange).string
+                dateStr = "\(startYearStr) - \(endYearStr)"
             case .month:
                 /*Month*/
                 let startMonth:Date = MonthDP.month(range.start, yearRange)
