@@ -148,8 +148,8 @@ extension Graph9{
             switch curTimeType{
                 case .year:
                     /*Year*/
-                    let startYearIdx:Int = MonthDP.year(curRange!.start, yearRange)//sort of the offset
-                    let startYearStr:String = YearDP.year(startYearIdx,yearRange).string
+                    
+                    let startYearStr:String = YearDP.year(curRange!.start,yearRange).string
                     let endYearIdx:Int = MonthDP.year(curRange!.end, yearRange)
                     let endYearStr:String = YearDP.year(endYearIdx,yearRange).string
                     dateStr = "\(startYearStr) - \(endYearStr)"
