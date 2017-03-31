@@ -146,6 +146,7 @@ extension Graph9{
                 let startMonthIdx:Int = DayDP.month(range.start,range)
                 let startMonth:Date = MonthDP.month(startMonthIdx, range)
                 let endMonthIdx:Int = DayDP.month(range.end,range)
+                let endMonth:Date = MonthDP.
                 dateStr = "2011.Feb.20 - 2011.Sep.27"
         }
         dateText!.setTextValue(dateStr)
