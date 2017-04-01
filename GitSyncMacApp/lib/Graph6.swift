@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 /**
- * Testing SideScrolling FastList
+ * Testing SideScrolling 🐎 FastList
  */
 class Graph6:Element{
     var monthNames:[String] { return ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]}
