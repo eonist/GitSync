@@ -117,6 +117,12 @@ extension Graph9{
         updateDateText()
         //get mouse loc
         //let roundTo(m.x,100) - m.x
+        
+        //which idx is the mouse closes to, 100px iterations
+        
+        let rndTo:CGFloat = CGFloat(454).roundTo(100)
+        let idx:Int = 
+        Swift.print("rndTo: " + "\(rndTo)")
     }
 }
 extension Graph9{
