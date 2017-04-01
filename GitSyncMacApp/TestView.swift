@@ -16,12 +16,9 @@ class TestView:TitleView{
     }
     func createGUI(){
         
-        //which idx is the mouse closes to, 100px iterations
         
-        let rndTo = CGFloat(444).roundTo(100)
-        Swift.print("rndTo: " + "\(rndTo)")
         
-        //createGraph9Test()
+        createGraph9Test()
         
         //_ = Graph8()
         //createGraph7Test()
