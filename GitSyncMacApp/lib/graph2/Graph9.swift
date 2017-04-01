@@ -134,7 +134,7 @@ extension Graph9{
                 dpProgress = monthIdx.cgFloat/dp.count.cgFloat
             case .month:
                 Swift.print("mnth")
-                let dayIdx
+                //let dayIdx:Int = MonthDP.firstDayInMonth(<#T##MonthDP#>)
             default:
                 fatalError("This can't happen")
         }

@@ -84,7 +84,7 @@ class MonthDP:TimeDP{
     /**
      * Returns an offset in days from yearRange.start until monthIdx
      */
-    func firstDayInMonth(_ monthOffset:Int)->Int{
+    static func firstDayInMonth(_ monthOffset:Int, _ yearRange:Range<Int>)->Int{
         //which year are we in?
         let yearIdx:Int = floor((monthOffset / MonthDP.numOfMonthsInYear).cgFloat).int
         //which month are we in?
