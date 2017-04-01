@@ -121,8 +121,11 @@ extension Graph9{
         //which idx is the mouse closes to, 100px iterations
         
         let rndTo:CGFloat = CGFloat(454).roundTo(100)
-        let idx:Int = 
         Swift.print("rndTo: " + "\(rndTo)")
+        let idx:Int = (rndTo/100).int
+        let startIdx:Int = timeBar!.currentVisibleItemRange.start
+        
+        //how do you set
     }
 }
 extension Graph9{
