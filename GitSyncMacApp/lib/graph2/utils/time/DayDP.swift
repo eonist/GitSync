@@ -1,4 +1,6 @@
 import Foundation
+@testable import Utils
+@testable import Element
 
 class DayDP:TimeDP{
     static var numOfDaysInYear:Int = 365

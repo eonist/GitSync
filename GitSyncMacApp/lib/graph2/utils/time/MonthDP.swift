@@ -1,4 +1,6 @@
 import Foundation
+@testable import Utils
+@testable import Element
 
 class MonthDP:TimeDP{
     static var numOfMonthsInYear:Int = 12
