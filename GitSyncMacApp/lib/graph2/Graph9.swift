@@ -126,15 +126,16 @@ extension Graph9{
         let startIdx:Int = timeBar!.currentVisibleItemRange.start
         let index:Int = startIdx + idx
         //how do you set, just convert idx to progress
+        var dpProgress:CGFloat
         switch curTimeType{
             case .year:
                 Swift.print("yr")
                 let monthIdx:Int = YearDP.firstMonthInYear(index)
-                dp.count
+                dpProgress = monthIdx.cgFloat/dp.count.cgFloat
             case .month:
                 Swift.print("mnth")
-            case .day:
-                _ = ()//do nothing
+            default:
+                fatalError("This can't happen")
         }
     }
 }
