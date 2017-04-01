@@ -24,6 +24,10 @@ class Graph6:Element{
         createList()
     }
 }
+
+//continue here: 🏀
+    //add Elasticity to the fold in this test class
+
 extension Graph6{
     func createList(){
         //change the css to align sideways
