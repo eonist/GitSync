@@ -129,11 +129,12 @@ extension Graph9{
         var dpProgress:CGFloat
         switch curTimeType{
             case .year:
-                Swift.print("yr")
+                //Swift.print("yr")
                 let monthIdx:Int = YearDP.firstMonthInYear(index)
                 dpProgress = monthIdx.cgFloat/dp.count.cgFloat
             case .month:
                 Swift.print("mnth")
+                let dayIdx
             default:
                 fatalError("This can't happen")
         }
