@@ -18,7 +18,7 @@ class TestView:TitleView{
         
         //which idx is the mouse closes to, 100px iterations
         
-        let rndTo = CGFloatParser.r
+        let rndTo = CGFloat(444)
         
         //createGraph9Test()
         
