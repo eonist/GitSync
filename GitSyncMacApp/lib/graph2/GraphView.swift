@@ -2,7 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 /**
- * This tests A TimeBar that is snappy and elastic
+ * This tests A TimeBar that is 👻 snappy and elastic 
  */
 class GraphView:ContainerView2,ElasticScrollable2{
     //var maskSize:CGSize = CGSize()
