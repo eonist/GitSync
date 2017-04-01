@@ -15,7 +15,12 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        createGraph9Test()
+        
+        //which idx is the mouse closes to, 100px iterations
+        
+        let rndTo = CGFloatParser.r
+        
+        //createGraph9Test()
         
         //_ = Graph8()
         //createGraph7Test()
