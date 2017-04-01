@@ -308,7 +308,7 @@ class TestView:TitleView{
         let dir:Dir = .hor
         let listSize:CGSize = dir == .ver ? CGSize(140,73) : CGSize(200,24)
         let itemSize:CGSize = CGSize(100,24)
-        let list = self.addSubView(ScrollFastList(listSize.width, listSize.height, itemSize.h, dp, self,nil,dir,itemSize.w))
+        let list = self.addSubView(ElasticScrollFastList(listSize.width, listSize.height, itemSize.h, dp, self,nil,dir,itemSize.w))
         FastListModifier.select(list as IFastList, 5)
     }
     func sliderFastList(){
