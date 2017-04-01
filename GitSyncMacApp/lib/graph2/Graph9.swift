@@ -18,9 +18,7 @@ enum TimeType {
     case year,month,day
     static var types:[TimeType] {return [TimeType.day,TimeType.month,TimeType.year]}
 }
-
 class Graph9:Element{
-    
     var dateText:TextArea?
     var timeBar:ScrollFastList?
     /*Date vars*/
@@ -65,9 +63,7 @@ extension Graph9{
         timeBar!.point = p
     }
 }
-
 extension Graph9{
-    
     /**
      * Detects if a zoom gesture has occured +-100 deltaZ
      */
