@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 /**
- * SnapFriction test with a circle
+ * SnapFriction test with a circle 🔵
  */
 class Graph4:Element {
     var mover:SnapFriction?

@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 /**
- * This tests animate graphpoint to graphline on scrollend event
+ * This tests animate graphpoint to graphline on scrollend event 📈
  * This experiment is a bit broken. I still works but with artifacts. 
  */
 class Graph3:ContainerView2,Scrollable2{

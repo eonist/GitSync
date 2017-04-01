@@ -2,7 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 /**
- * This tests An elastic Ellipse that you can throw around with pan and pinch gestures
+ * This tests An elastic 🔵 Ellipse that you can throw around with pan and pinch 👌 gestures
  */
 class Graph2:ElasticView{
     //override var itemsHeight: CGFloat {return height}
