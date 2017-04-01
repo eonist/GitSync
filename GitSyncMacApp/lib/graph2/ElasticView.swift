@@ -2,10 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 /**
- * TODO: Pinch to zoom
- * TODO: slidable in x-axis
- * TODO: bounce back x-axis
- * TODO: bounce back on zoom min and max
+ *
  */
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()

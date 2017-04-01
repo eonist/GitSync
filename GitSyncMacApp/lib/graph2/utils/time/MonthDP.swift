@@ -22,14 +22,20 @@ class MonthDP:TimeDP{
     static func firstDayInMonth(_ monthOffset:Int, _ yearRange:Range<Int>)->Int{
         //which year are we in?
         let yearIdx:Int = floor((monthOffset / MonthDP.numOfMonthsInYear).cgFloat).int
+        Swift.print("yearIdx: " + "\(yearIdx)")
         //which month are we in?
         let from:Date = DateParser.createDate(yearRange.start)!
+        Swift.print("from.year: " + "\(from.year)")
         let monthInYear:Int = ((monthOffset.cgFloat %% MonthDP.numOfMonthsInYear.cgFloat) + 1.0).int /*between 1 and 12*/
+        Swift.print("monthInYear: " + "\(monthInYear)")
         let year:Int = yearRange.start + yearIdx
+        Swift.print("year: " + "\(year)")
         let until:Date = DateParser.createDate(year,monthInYear/*,  1*/)!//first month and first day
+        Swift.print("until.year: " + "\(until.year)" + "month: " + "\(until.month)")
         //num of days since yearRange.start until date
-        let numOfDaysInRange:Int = from.numOfDays(until)
-        return numOfDaysInRange
+        let dayOffset:Int = from.numOfDays(until)
+        Swift.print("dayOffset: " + "\(dayOffset)")
+        return dayOffset
     }
     /**
      * Return year offset idx

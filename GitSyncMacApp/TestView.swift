@@ -18,11 +18,11 @@ class TestView:TitleView{
         
         
         
-        createGraph9Test()
+        //createGraph9Test()//👈
         
         //_ = Graph8()
         //createGraph7Test()
-        //createGraph6Test()//👈
+        //createGraph6Test()//
         //createGraph5Test()
         //createGraph4Test()
         //createGraph3Test()
@@ -44,7 +44,7 @@ class TestView:TitleView{
         //fastList()
         //sliderList()
         //createList()
-        //createRBSliderFastList()//new
+        createElasticScrollable()//new
     }
     func createGraph9Test(){
         let test = self.addSubView(Graph9(width,height-48,self))
@@ -98,7 +98,7 @@ class TestView:TitleView{
         let graph = self.addSubView(Graph2(width,height,nil))
         _ = graph
     }
-    func createRBSliderFastList(){/*~/Desktop/assets/xml/longlist.xml*/
+    func createElasticScrollable(){/*~/Desktop/assets/xml/longlist.xml*/
         let xml = FileParser.xml("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath)//TODO:  create a method tht takes url and makes dp
         let dp:DataProvider = DataProvider(xml)
         //let sliderList:ISliderList = self.addSubView(SliderList(140, 73, 24, dp, self))

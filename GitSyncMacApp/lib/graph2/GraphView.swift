@@ -44,9 +44,7 @@ class GraphView:ContainerView2,ElasticScrollable2{
         contentContainer!.x = value/*we offset the y position of the lableContainer*/
         timeBar!.x = value
     }
-    
 }
-
 extension GraphView{
     /**
      *

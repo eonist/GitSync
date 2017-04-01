@@ -2,17 +2,13 @@ import Cocoa
 @testable import Element
 @testable import Utils
 //Graph9
-    //add fastList .hor ✅
-    //try it with year,month,day ✅
-    //try to add pinch gestures to the fold ✅
-    //try to calc the pos of mouse in relation to the timeBar 👈.1
-    //try to zoom in and out with correct indecies 👈.2
     //add snapTo animation
     //try generate fake graphdata on snapTo anim stop
     //draw the fake graph data as a graphline with points
     //try to update the valuebar
     //try to update the timeIndicator 
     //add git to the fold
+    //make it scalable via setSize
 
 enum TimeType {
     case year,month,day
@@ -29,9 +25,9 @@ class Graph9:Element{
     var curZoom:Int = 0
     let maxZoom:Int = 3
     var zoom:CGFloat = 0
-    /**/
-    var curTimeType:TimeType = .day
-    var curRange:Range<Int>?
+    /*interim*/
+    var curTimeType:TimeType = .year
+    var visibleRange:Range<Int>?
     override func resolveSkin() {
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         StyleManager.addStylesByURL("~/Desktop/datetext.css")
@@ -40,6 +36,7 @@ class Graph9:Element{
         
         createList()
         alignTimeBar()
+        updateDateText()
     }
 }
 extension Graph9{
@@ -47,7 +44,16 @@ extension Graph9{
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/basic/list/vlist.css")//changes the css to align sideways
         StyleManager.addStyle("Graph9 VList{float:none;clear:none;}")
         /**/
-        let dp = DayDP(range)//YearDP(range)
+        let dp:TimeDP = {
+            switch curTimeType{
+                case .day:
+                    return DayDP(range)
+                case .month:
+                    return MonthDP(range)
+                case .year:
+                    return YearDP(range)
+            }
+        }()
         timeBar = addSubView(ScrollFastList(w,24,24,dp,self,nil,.hor,100))
     }
     func alignTimeBar(){
@@ -66,8 +72,9 @@ extension Graph9{
      * Detects if a zoom gesture has occured +-100 deltaZ
      */
     override func magnify(with event: NSEvent) {
-        Swift.print("Graph9.magnify()")
+        //Swift.print("Graph9.magnify()")
         super.magnify(with: event)
+        let prevZoom:Int = curZoom
         if(event.phase == .changed){
             zoom += event.deltaZ
         }else if(event.phase == .began){
@@ -76,28 +83,30 @@ extension Graph9{
             //Swift.print("zoom: " + "\(zoom)")
             var dir:Int
             if(zoom < -100){
-                Swift.print("zoom out")
                 dir = 1
             }else if(zoom > 100){
-                Swift.print("zoom in")
                 dir = -1
             }else{
-                Swift.print("no zoom")
                 dir = 0
             }
             let newZoom = curZoom + dir
-            if(newZoom >= 0 && newZoom < maxZoom){curZoom = newZoom}
-            onZoomLevelChange()
-            Swift.print("curZoom: " + "\(curZoom)")
+            if(newZoom >= 0 && newZoom < maxZoom){
+                curZoom = newZoom
+            }
+            if(curZoom != prevZoom){
+                onZoomLevelChange()//only toggle if zoom is not prevZoom
+            }
+            //Swift.print("curZoom: " + "\(curZoom)")
         }
         //Swift.print("magnify event: \(event)")
     }
     func onZoomLevelChange() {
-        Swift.print("Graph9.onZoomLevelChange()")
-        Swift.print("curZoom: " + "\(curZoom)")
+        //Swift.print("Graph9.onZoomLevelChange()")
+        //Swift.print("curZoom: " + "\(curZoom)")
+        let prevTimeType:TimeType = curTimeType
         curTimeType = TimeType.types[curZoom]
-        Swift.print("curTimeType: " + "\(curTimeType)")
-        let dp:DataProvider
+        //Swift.print("curTimeType: " + "\(curTimeType)")
+        let dp:TimeDP
         switch curTimeType{
             case .year:
                 dp = YearDP(range)
@@ -110,40 +119,28 @@ extension Graph9{
         timeBar!.pool = []
         timeBar!.inActive = []
         timeBar!.dataProvider = dp
-        timeBar!.setProgress(0)
-        timeBar!.renderItems(timeBar!.visibleItemRange)
+        let mouseLocIdx:Int = StatUtils.mouseLocIdx(mouseX, w, 100)
+        Swift.print("mouseLocIdx: " + "\(mouseLocIdx)")
+        var progress:CGFloat = StatUtils.progress(timeBar!, (prevTimeType,curTimeType), mouseLocIdx)/*0-1*/
+        progress = progress.clip(0, 1)
+        Swift.print("progress: " + "\(progress)")
+        timeBar!.setProgress(progress)
+        let visRange:Range<Int> = timeBar!.visibleItemRange.start..<(timeBar!.visibleItemRange.end > timeBar!.dp.count ? timeBar!.visibleItemRange.end - 1 : timeBar!.visibleItemRange.end)
+        timeBar!.renderItems(visRange)
         /**/
-        curRange = nil/*rest so we force update dateText*/
+        visibleRange = nil/*rest so we force update dateText*/
         updateDateText()
         //get mouse loc
         //let roundTo(m.x,100) - m.x
         
         //which idx is the mouse closes to, 100px iterations
         
-        let rndTo:CGFloat = CGFloat(454).roundTo(100)
-        Swift.print("rndTo: " + "\(rndTo)")
-        let idx:Int = (rndTo/100).int
-        let startIdx:Int = timeBar!.currentVisibleItemRange.start
-        let index:Int = startIdx + idx
-        //how do you set, just convert idx to progress
-        var dpProgress:CGFloat
-        switch curTimeType{
-            case .year:
-                //Swift.print("yr")
-                let monthIdx:Int = YearDP.firstMonthInYear(index)
-                dpProgress = monthIdx.cgFloat/dp.count.cgFloat
-            case .month:
-                Swift.print("mnth")
-                let yearRange:Range<Int> = (dp as! TimeDP).yearRange
-                let dayIdx:Int = MonthDP.firstDayInMonth(index,yearRange)
-            default:
-                fatalError("This can't happen")
-        }
+        
     }
 }
 extension Graph9{
     override func scrollWheel(with event:NSEvent) {
-        Swift.print("Graph9.scrollWheel()")
+        //Swift.print("Graph9.scrollWheel()")
         super.scrollWheel(with:event)
         updateDateText()
     }
@@ -151,49 +148,37 @@ extension Graph9{
      * Updates the DateText UI Element
      */
     func updateDateText(){
-        
-        /*let curDate = self.currentDate.offsetByDays(self.dayOffset)
-         Swift.print("curDate.shortDate: " + "\(curDate.shortDate)")
-         let lastWeekDate = self.currentDate.offsetByDays(self.dayOffset-7)*/
-        
-        if(curRange == nil || curRange != timeBar!.currentVisibleItemRange){/*If the range has changed, then update text*/
-            curRange = timeBar!.currentVisibleItemRange
-            //Swift.print("curRange: " + "\(curRange)")
-            
+        if(visibleRange == nil || visibleRange != timeBar!.visibleItemRange){/*If the range has changed, then update text*/
+            visibleRange = timeBar!.visibleItemRange
             let yearRange = (timeBar!.dp as! TimeDP).yearRange
             Swift.print("yearRange: " + "\(yearRange)")
-            /*let firstIdx = timeBar!.dp.item(range.start)!
-             let lastIdx = timeBar!.dp.item(range.end)!
-             let firstTitle = firstItem["title"]
-             let lastTitle = lastItem["title"]*/
-            
             var dateStr:String = ""
             switch curTimeType{
                 case .year:
                     /*Year*/
-                    let startYearStr:String = YearDP.year(curRange!.start,yearRange).string
-                    let endYearStr:String = YearDP.year(curRange!.end,yearRange).string
+                    let startYearStr:String = YearDP.year(visibleRange!.start,yearRange).string
+                    let endYearStr:String = YearDP.year(visibleRange!.end,yearRange).string
                     dateStr = "\(startYearStr) - \(endYearStr)"
                 case .month:
                     /*Month*/
-                    let startMonth:Date = MonthDP.month(curRange!.start, yearRange)
-                    let endMonth:Date = MonthDP.month(curRange!.end, yearRange)
+                    let startMonth:Date = MonthDP.month(visibleRange!.start, yearRange)
+                    let endMonth:Date = MonthDP.month(visibleRange!.end, yearRange)
                     /*Year*/
-                    let startYearIdx:Int = MonthDP.year(curRange!.start, yearRange)//sort of the offset
+                    let startYearIdx:Int = MonthDP.year(visibleRange!.start, yearRange)//sort of the offset
                     let startYearStr:String = YearDP.year(startYearIdx,yearRange).string
-                    let endYearIdx:Int = MonthDP.year(curRange!.end, yearRange)
+                    let endYearIdx:Int = MonthDP.year(visibleRange!.end, yearRange)
                     let endYearStr:String = YearDP.year(endYearIdx,yearRange).string
                     dateStr = "\(startYearStr).\(startMonth.shortMonthName) - \(endYearStr).\(endMonth.shortMonthName)"
                 case .day:
                     /*day*/
-                    let startDayDate:Date = DayDP.day(curRange!.start, yearRange)
+                    let startDayDate:Date = DayDP.day(visibleRange!.start, yearRange)
                     let startDayDateStr:String = startDayDate.day.string
-                    let endDayDate:Date = DayDP.day(curRange!.end, yearRange)
+                    let endDayDate:Date = DayDP.day(visibleRange!.end, yearRange)
                     let endDayDateStr:String = endDayDate.day.string
                     /*Month*/
-                    let startMonthIdx:Int = DayDP.month(curRange!.start,yearRange)
+                    let startMonthIdx:Int = DayDP.month(visibleRange!.start,yearRange)
                     let startMonth:Date = MonthDP.month(startMonthIdx, yearRange)
-                    let endMonthIdx:Int = DayDP.month(curRange!.end,yearRange)
+                    let endMonthIdx:Int = DayDP.month(visibleRange!.end,yearRange)
                     let endMonth:Date = MonthDP.month(endMonthIdx, yearRange)
                     /*year*/
                     let startYearIdx:Int = MonthDP.year(startMonthIdx, yearRange)//sort of the offset
