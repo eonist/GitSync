@@ -20,7 +20,7 @@ class TestView:TitleView{
         
         //_ = Graph8()
         //createGraph7Test()
-        //createGraph6Test()//
+        createGraph6Test()//👈
         //createGraph5Test()
         //createGraph4Test()
         //createGraph3Test()
@@ -42,7 +42,7 @@ class TestView:TitleView{
         //fastList()
         //sliderList()
         //createList()
-        createElasticScrollable()//new
+        //createElasticScrollable()//new
     }
     func createGraph9Test(){
         let test = self.addSubView(Graph9(width,height-48,self))
