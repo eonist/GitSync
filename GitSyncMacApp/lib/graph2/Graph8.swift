@@ -123,7 +123,7 @@ class YearDP:TimeDP{
     /**
      * Returns an offset in months from yearRange.start until yearIdx
      */
-    func firstMonthInYear(_ yearOffset:Int) -> Int{
+    static func firstMonthInYear(_ yearOffset:Int) -> Int{
         return yearOffset * MonthDP.numOfMonthsInYear
     }
 }

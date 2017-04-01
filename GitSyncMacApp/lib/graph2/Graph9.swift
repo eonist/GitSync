@@ -129,7 +129,7 @@ extension Graph9{
         switch curTimeType{
             case .year:
                 Swift.print("yr")
-                MonthDP.month(<#T##at: Int##Int#>, <#T##yearRange: Range<Int>##Range<Int>#>)
+                _ = YearDP.firstMonthInYear(index)
             case .month:
                 Swift.print("mnth")
             case .day:
