@@ -124,8 +124,17 @@ extension Graph9{
         Swift.print("rndTo: " + "\(rndTo)")
         let idx:Int = (rndTo/100).int
         let startIdx:Int = timeBar!.currentVisibleItemRange.start
-        
-        //how do you set
+        let index:Int = startIdx + idx
+        //how do you set, just convert idx to progress
+        switch curTimeType{
+            case .year:
+                Swift.print("yr")
+                MonthDP.month(<#T##at: Int##Int#>, <#T##yearRange: Range<Int>##Range<Int>#>)
+            case .month:
+                Swift.print("mnth")
+            case .day:
+                _ = ()//do nothing
+        }
     }
 }
 extension Graph9{
