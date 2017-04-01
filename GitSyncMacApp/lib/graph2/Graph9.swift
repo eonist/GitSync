@@ -40,8 +40,6 @@ class Graph9:Element{
         
         createList()
         alignTimeBar()
-        
-        
     }
 }
 extension Graph9{
@@ -117,6 +115,8 @@ extension Graph9{
         /**/
         curRange = nil/*rest so we force update dateText*/
         updateDateText()
+        //get mouse loc
+        //let roundTo(m.x,100) - m.x
     }
 }
 extension Graph9{
