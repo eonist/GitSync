@@ -18,9 +18,9 @@ class SnappyRubberBand:RubberBand{
             Swift.print("prevDir: " + "\(prevDir)")
             if(prevDir.isPositive){/*abs(mod) <= snap/2*/
                 velocity = minVelocity
-                Swift.print("go backward velocity : \(velocity)")
+                Swift.print("⬅️️ go backward velocity : \(velocity)")
             }else if(prevDir.isNegative) {
-                Swift.print("go forward velocity : \(velocity)")
+                Swift.print("➡️️ go forward velocity : \(velocity)")
                 velocity = -minVelocity
             }else{/*prevDir == 0*/
                 velocity = 0
