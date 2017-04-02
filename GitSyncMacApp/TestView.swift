@@ -306,7 +306,7 @@ class TestView:TitleView{
         var dp:DataProvider
         dp = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         let dir:Dir = .hor
-        let listSize:CGSize = dir == .ver ? CGSize(140,73) : CGSize(200,24)
+        let listSize:CGSize = dir == .ver ? CGSize(140,73) : CGSize(300,24)
         let itemSize:CGSize = CGSize(100,24)
         
         //Continue here: 🏀
