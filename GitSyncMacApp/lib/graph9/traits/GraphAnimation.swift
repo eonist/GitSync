@@ -1,5 +1,7 @@
-import Foundation
+import Cocoa
+@testable import Element
+@testable import Utils
 
-class GraphAnimation {
+extension Graph9 {
 
 }
