@@ -21,6 +21,21 @@ extension Graph9{
         //align timeBar to bottom with Align
         timeBar!.point = p
     }
+    
+    /**
+     * Creates the ValueBar
+     */
+    func createValueBar(){
+        valueBar = addSubView(ValueBar(32,height-32,self))
+        let objSize = CGSize(32,valueBar!.h)
+        Swift.print("objSize: " + "\(objSize)")
+        let canvasSize = CGSize(w,h)
+        Swift.print("canvasSize: " + "\(canvasSize)")
+        let p = Align.alignmentPoint(objSize, canvasSize, Alignment.topLeft, Alignment.topLeft, CGPoint())
+        Swift.print("p: " + "\(p)")
+        //align timeBar to bottom with Align
+        valueBar!.point = p
+    }
     func addGraphLine(){
         addGraphLineStyle()
         typealias P = CGPoint
@@ -36,32 +51,19 @@ extension Graph9{
         }
         
         let path:IPath = PolyLineGraphicUtils.path(graphPts!)
-        let graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
+        let graphLine = contentContainer!.addSubView(GraphLine(width,height,path,contentContainer!))
         _ = graphLine
-    }
-    /**
-     * Creates the ValueBar
-     */
-    func createValueBar(){
-        valueBar = addSubView(ValueBar(32,height-32,self))
-        let objSize = CGSize(32,valueBar!.h)
-        Swift.print("objSize: " + "\(objSize)")
-        let canvasSize = CGSize(w,h)
-        Swift.print("canvasSize: " + "\(canvasSize)")
-        let p = Align.alignmentPoint(objSize, canvasSize, Alignment.topLeft, Alignment.topLeft, CGPoint())
-        Swift.print("p: " + "\(p)")
-        //align timeBar to bottom with Align
-        valueBar!.point = p
     }
     /**
      * Creates The visual Graph points that hover above the Graph line
      * NOTE: We could create something called GraphPoint, but it would be another thing to manager so instead we just use an Element with id: graphPoint
      */
     func createGraphPoints(){
+        addGraphPointStyle()
         //Swift.print("createGraphPoints:")
         graphPts!.forEach{
-            let graphPoint:Element = graphArea!.addSubView(Element(NaN,NaN,graphArea,"graphPoint"))
-            graphPoints.append(graphPoint)
+            let graphPoint:Element = contentContainer!.addSubView(Element(NaN,NaN,contentContainer!,"graphPoint"))
+            graphPoints!.append(graphPoint)
             graphPoint.setPosition($0)
         }
     }
