@@ -68,14 +68,7 @@ extension Graph9{
     }
     func addGraphLine(){
         //
-        var css:String = "GraphLine{"
-        css +=    "float:none;"
-        css +=    "clear:none;"
-        css +=    "line:#2AA3EF;"
-        css +=    "line-alpha:1;"
-        css +=    "line-thickness:0.5px;"
-        css += "}"
-        StyleManager.addStyle(css)
+        addGraphLineStyle()
         typealias P = CGPoint
         
         //let points:[P] = [P(0,0),P(50,300),P(100,50),P(150,350),P(200,250),P()]
