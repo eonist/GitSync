@@ -43,8 +43,7 @@ extension Graph9{
         /**/
         graphPts = randomGraphPoints
         let path:IPath = PolyLineGraphicUtils.path(graphPts!)
-        let graphLine = contentContainer!.addSubView(GraphLine(width,height,path,contentContainer!))
-        _ = graphLine
+        graphLine = contentContainer!.addSubView(GraphLine(width,height,path,contentContainer!))
     }
     /**
      * Creates The visual Graph points that hover above the Graph line

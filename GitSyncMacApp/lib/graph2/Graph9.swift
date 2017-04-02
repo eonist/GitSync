@@ -13,9 +13,10 @@ class Graph9:Element{
     var timeBar:FastList?
     var valueBar:ValueBar?
     var contentContainer:Element?
+    var graphPoints:[Element]?
+    var graphLine:GraphLine?
     var graphPts:[CGPoint]?
     var prevGraphPts:[CGPoint]?
-    var graphPoints:[Element]?
     var animator:Animator?
     /*Date vars*/
     let fromYear:Int = 2011
@@ -52,7 +53,6 @@ class Graph9:Element{
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
      */
     func updateGraph(){
-        
         prevGraphPts = graphPts.map{$0}//grabs the location of where the pts are now
         graphPts = randomGraphPoints
         
