@@ -14,6 +14,7 @@ class Graph9:Element{
     var valueBar:ValueBar?
     var contentContainer:Element?
     var graphPts:[CGPoint]?
+    var prevGraphPts:[CGPoint]?
     var graphPoints:[Element]?
     /*Date vars*/
     let fromYear:Int = 2011
@@ -51,15 +52,16 @@ class Graph9:Element{
      */
     func updateGraph(){
         
-        graphPts = GraphUtils.points(newSize!, newPosition!, spacing!, vValues, maxValue)
-        initGraphPts = graphPoints.map{$0.frame.origin}//grabs the location of where the pts are now
+        prevGraphPts = graphPoints.map{$0.frame.origin}//grabs the location of where the pts are now
+        graphPts = randomGraphPoints
+        
         /*GraphPoints*/
         
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/
         animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Quad.easeIn)
         animator!.start()
         
-        updateVTags(maxValue)
+        
     }
 }
 
