@@ -87,7 +87,7 @@ extension Graph9{
         }
         
         let path:IPath = PolyLineGraphicUtils.path(points)
-        let graphLine = addSubView(GraphLine(width,height,path))
+        let graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
         _ = graphLine
     }
 }
