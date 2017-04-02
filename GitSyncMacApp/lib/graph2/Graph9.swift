@@ -42,7 +42,7 @@ extension Graph9{
         StyleManager.addStyle("Graph9 VList{float:none;clear:none;}")
         /**/
         let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
-        timeBar = addSubView(ElasticScrollFastList(w,24,24,dp,self,nil,.hor,100))
+        timeBar = addSubView(TimeBar3(w,24,24,dp,self,nil,.hor,100))
         alignTimeBar()
     }
     func alignTimeBar(){
