@@ -89,17 +89,18 @@ extension Graph9{
         //Swift.print("Graph9.onZoomLevelChange()")
         let prevTimeType:TimeType = curTimeType
         curTimeType = TimeType.types[curZoom]
-        /**/
+        let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
+        /*
         timeBar!.removeFromSuperview()
         timeBar = nil
-        let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
         timeBar = addSubView(ElasticScrollFastList(w,24,24,dp,self,nil,.hor,100))
         alignTimeBar()
-        /*let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
+         */
+        
          ViewModifier.removeAll(timeBar!.lableContainer!)
          timeBar!.pool = []
          timeBar!.inActive = []
-         timeBar!.dataProvider = dp*/
+         timeBar!.dataProvider = dp/**/
         Swift.print("🍐 timeBar!.contentSize[timeBar!.dir]: " + "\(timeBar!.contentSize[timeBar!.dir])")
         let mouseLocIdx:Int = StatUtils.mouseLocIdx(mouseX, w, 100)
         Swift.print("mouseLocIdx: " + "\(mouseLocIdx)")
@@ -107,7 +108,9 @@ extension Graph9{
         progress = progress.clip(0, 1)
         Swift.print("progress: " + "\(progress)")
         let progressVal:CGFloat = SliderParser.y(progress, timeBar!.maskSize[timeBar!.dir], timeBar!.contentSize[timeBar!.dir])
+        (timeBar! as! ElasticScrollFastList).mover!.value = progressVal
         (timeBar! as! ElasticScrollFastList).setProgress(progressVal)
+        
         
         //Continue here: 🏀
             //how come setProgress doesn't work? try TestView
