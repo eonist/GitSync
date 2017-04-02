@@ -16,7 +16,7 @@ enum TimeType {
 }
 class Graph9:Element{
     var dateText:TextArea?
-    var timeBar:ElasticScrollFastList?
+    var timeBar:IFastList?
     /*Date vars*/
     let fromYear:Int = 2011
     let toYear:Int = 2017//TODO: swap this out with Date().year
