@@ -106,7 +106,7 @@ extension Graph9{
         var progress:CGFloat = StatUtils.progress(timeBar!, (prevTimeType,curTimeType), mouseLocIdx)/*0-1*/
         progress = progress.clip(0, 1)
         Swift.print("progress: " + "\(progress)")
-        timeBar!.setProgress(progress)
+        (timeBar! as! ElasticScrollFastList).setProgress(progress)
         
         //Continue here: 🏀
             //how come setProgress doesn't work? try TestView
