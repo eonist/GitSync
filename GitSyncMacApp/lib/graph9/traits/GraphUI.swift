@@ -1,4 +1,6 @@
-import Foundation
+import Cocoa
+@testable import Element
+@testable import Utils
 /*CreateContent*/
 extension Graph9{
     func createList(){
@@ -20,7 +22,6 @@ extension Graph9{
         timeBar!.point = p
     }
     func addGraphLine(){
-        //
         addGraphLineStyle()
         typealias P = CGPoint
         
