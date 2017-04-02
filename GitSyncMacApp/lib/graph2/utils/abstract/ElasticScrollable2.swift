@@ -17,7 +17,7 @@ extension ElasticScrollable2{
         mover!.value += event.scrollingDeltaX
         mover!.updatePosition()
         setProgress(mover!.result)
-        /*⚠️️ temp fix for SnappyRubberBand support*/
+        /*⚠️️ temp fix for SnappyRubberBand support, move this into a new protocol extension*/
         let prevDir = (mover! as! SnappyRubberBand).prevDir
         var tempDir:CGFloat = 0
         let curDir = event.scrollingDeltaX
