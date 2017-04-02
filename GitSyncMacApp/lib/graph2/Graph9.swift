@@ -34,6 +34,10 @@ class Graph9:Element{
         createList()
         updateDateText()
     }
+    
+    //Continue here: 
+        //
+    
     override func onEvent(_ event:Event) {
         if(event === (AnimEvent.stopped, (timeBar! as! TimeBar3).mover!)){
             Swift.print("Graph9.timeBar stopped")
