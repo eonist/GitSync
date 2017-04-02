@@ -93,6 +93,7 @@ extension Graph9{
         timeBar!.pool = []
         timeBar!.inActive = []
         timeBar!.dataProvider = dp
+        Swift.print("🍐 timeBar!.contentSize[timeBar!.dir]: " + "\(timeBar!.contentSize[timeBar!.dir])")
         let mouseLocIdx:Int = StatUtils.mouseLocIdx(mouseX, w, 100)
         Swift.print("mouseLocIdx: " + "\(mouseLocIdx)")
         var progress:CGFloat = StatUtils.progress(timeBar!, (prevTimeType,curTimeType), mouseLocIdx)/*0-1*/
