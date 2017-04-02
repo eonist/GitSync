@@ -64,6 +64,7 @@ extension Graph9{
     func createGraphPoints(){
         addGraphPointStyle()
         //Swift.print("createGraphPoints:")
+        graphPoints = []
         graphPts!.forEach{
             let graphPoint:Element = contentContainer!.addSubView(Element(NaN,NaN,contentContainer!,"graphPoint"))
             graphPoints!.append(graphPoint)
