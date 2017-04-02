@@ -16,7 +16,7 @@ class TestView:TitleView{
     }
     func createGUI(){
         
-        createGraph9Test()//👈
+        //createGraph9Test()//👈
         
         //_ = Graph8()
         //createGraph7Test()
@@ -29,7 +29,7 @@ class TestView:TitleView{
         //createCurveGraph()
         //createGraphView2()
         //findGraphPointTest()
-        //createGraphView1()
+        createGraphView1()
         //createGraph2()
         //animTest()
         //uiSwitchTest()

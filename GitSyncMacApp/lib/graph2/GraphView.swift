@@ -18,7 +18,7 @@ class GraphView:ContainerView2,ElasticScrollable2{
     var mover:RubberBand?
     /**/
     override var maskSize:CGSize {return CGSize(width,height)}/*represents the visible part of the content *///TODO: could be ranmed to maskRect
-    override var contentSize:CGSize {return CGSize(1600,height)}/*represents the total size of the content *///TODO: could be ranmed to contentRect
+    override var contentSize:CGSize {return CGSize(3200,height)}/*represents the total size of the content *///TODO: could be ranmed to contentRect
     
     override func resolveSkin() {
         StyleManager.addStyle("GraphView{float:left;clear:left;fill:green;fill-alpha:0.0;}")
