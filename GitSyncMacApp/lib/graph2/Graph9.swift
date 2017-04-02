@@ -11,6 +11,7 @@ import Cocoa
 class Graph9:Element{
     var dateText:TextArea?
     var timeBar:FastList?
+    var contentContainer:Element?
     /*Date vars*/
     let fromYear:Int = 2011
     let toYear:Int = 2017//TODO: swap this out with Date().year
@@ -28,6 +29,8 @@ class Graph9:Element{
         super.resolveSkin()
         dateText = addSubView(TextArea(NaN,NaN,"00/00/00 - 00/00/00",self,"date"))/*A TextField that displays the time range of the graph*/
         /**/
+        contentContainer = addSubView(Container(width,height,self,"content"))
+        
         createList()
         updateDateText()
         addGraphLine()
