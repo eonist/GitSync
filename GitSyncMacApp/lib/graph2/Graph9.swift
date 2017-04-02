@@ -88,11 +88,17 @@ extension Graph9{
         //Swift.print("Graph9.onZoomLevelChange()")
         let prevTimeType:TimeType = curTimeType
         curTimeType = TimeType.types[curZoom]
+        /**/
+        timeBar!.removeFromSuperview()
+        timeBar = nil
         let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
-        ViewModifier.removeAll(timeBar!.lableContainer!)
-        timeBar!.pool = []
-        timeBar!.inActive = []
-        timeBar!.dataProvider = dp
+        timeBar = addSubView(ElasticScrollFastList(w,24,24,dp,self,nil,.hor,100))
+        
+        /*let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
+         ViewModifier.removeAll(timeBar!.lableContainer!)
+         timeBar!.pool = []
+         timeBar!.inActive = []
+         timeBar!.dataProvider = dp*/
         Swift.print("🍐 timeBar!.contentSize[timeBar!.dir]: " + "\(timeBar!.contentSize[timeBar!.dir])")
         let mouseLocIdx:Int = StatUtils.mouseLocIdx(mouseX, w, 100)
         Swift.print("mouseLocIdx: " + "\(mouseLocIdx)")
