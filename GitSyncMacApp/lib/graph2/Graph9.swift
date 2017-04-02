@@ -10,13 +10,13 @@ import Cocoa
     //add git to the fold
     //make it scalable via setSize
 
-enum TimeType {
-    case year,month,day
+enum TimeType:Int {
+    case day = 0,month,year
     static var types:[TimeType] {return [TimeType.day,TimeType.month,TimeType.year]}
 }
 class Graph9:Element{
     var dateText:TextArea?
-    var timeBar:IFastList?
+    var timeBar:FastList?
     /*Date vars*/
     let fromYear:Int = 2011
     let toYear:Int = 2017//TODO: swap this out with Date().year
@@ -24,7 +24,7 @@ class Graph9:Element{
     /*Zooming vars*/
     var curZoom:Int = 0
     let maxZoom:Int = 3
-    var zoom:CGFloat = 0
+    var zoom:CGFloat = TimeType.year.rawValue
     /*interim*/
     var curTimeType:TimeType = .year
     var visibleRange:Range<Int>?
