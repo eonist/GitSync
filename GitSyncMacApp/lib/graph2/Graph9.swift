@@ -107,6 +107,10 @@ extension Graph9{
         progress = progress.clip(0, 1)
         Swift.print("progress: " + "\(progress)")
         timeBar!.setProgress(progress)
+        
+        //Continue here: 🏀
+            //how come setProgress doesnt work? try TestView
+        
         //let visRange:Range<Int> = timeBar!.visibleItemRange.start..<(timeBar!.visibleItemRange.end > timeBar!.dp.count ? timeBar!.visibleItemRange.end - 1 : timeBar!.visibleItemRange.end)
         //timeBar!.renderItems(visRange)
         /**/
