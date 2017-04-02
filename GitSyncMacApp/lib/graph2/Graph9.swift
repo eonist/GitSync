@@ -2,6 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 //Graph9
+    //add Elasticity yo Graph9 
     //add snapTo animation
     //try generate fake graphdata on snapTo anim stop
     //draw the fake graph data as a graphline with points
@@ -10,10 +11,7 @@ import Cocoa
     //add git to the fold
     //make it scalable via setSize
 
-enum TimeType:Int {
-    case day = 0,month,year
-    static var types:[TimeType] {return [.day,.month,.year]}
-}
+
 class Graph9:Element{
     var dateText:TextArea?
     var timeBar:FastList?
