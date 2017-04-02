@@ -33,6 +33,7 @@ class SnappyRubberBand:RubberBand{
             callBack(value)//final tick
             hasStopped = true
             stop()
+            super.onEvent(AnimEvent(AnimEvent.completed,self))
         }else{
             if(abs(velocity) <= minVelocity){/*Velocity is bellow min allowed, add velocity keep anim alive*/
                 //Swift.print("use minVelocity")

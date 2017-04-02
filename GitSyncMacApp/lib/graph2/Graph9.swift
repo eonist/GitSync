@@ -44,7 +44,7 @@ class Graph9:Element{
         createValueBar()
     }
     override func onEvent(_ event:Event) {
-        if(event === (AnimEvent.stopped, (timeBar! as! TimeBar3).mover!)){
+        if(event === (AnimEvent.completed, (timeBar! as! TimeBar3).mover!)){
             Swift.print("Graph9.timeBar stopped")
             Swift.print("event.origin: " + "\(event.origin)")
             updateGraph()
