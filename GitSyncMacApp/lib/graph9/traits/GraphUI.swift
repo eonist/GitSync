@@ -41,18 +41,8 @@ extension Graph9{
      */
     func createGraphLine(){
         addGraphLineStyle()
-        typealias P = CGPoint
-        
-        //let points:[P] = [P(0,0),P(50,300),P(100,50),P(150,350),P(200,250),P()]
-        
-        graphPts = []
-        for i in 0..<7{
-            let x:CGFloat = 100*i
-            let y:CGFloat = (0..<(height.int-32)).random.cgFloat
-            let p = P(x,y)
-            graphPts!.append(p)
-        }
-        
+        /**/
+        graphPts = randomGraphPoints
         let path:IPath = PolyLineGraphicUtils.path(graphPts!)
         let graphLine = contentContainer!.addSubView(GraphLine(width,height,path,contentContainer!))
         _ = graphLine
@@ -63,7 +53,7 @@ extension Graph9{
      */
     func createGraphPoints(){
         addGraphPointStyle()
-        //Swift.print("createGraphPoints:")
+        /**/
         graphPoints = []
         graphPts!.forEach{
             let graphPoint:Element = contentContainer!.addSubView(Element(NaN,NaN,contentContainer!,"graphPoint"))
