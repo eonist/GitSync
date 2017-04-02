@@ -315,6 +315,9 @@ class TestView:TitleView{
         let list = self.addSubView(ElasticScrollFastList(listSize.width, listSize.height, itemSize.h, dp, self,nil,dir,itemSize.w))
         FastListModifier.select(list as IFastList, 5)
         Swift.print("👉 \(list.contentSize[dir])")
+        Swift.print("dp.count: " + "\(dp.count)")
+        Swift.print("list.itemSize[dir]: " + "\(list.itemSize[dir])")
+        Swift.print("list.maskSize[dir]: " + "\(list.maskSize[dir])")
     }
     func sliderFastList(){
         var dp:DataProvider
