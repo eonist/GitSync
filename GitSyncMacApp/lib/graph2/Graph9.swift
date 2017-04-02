@@ -46,5 +46,20 @@ class Graph9:Element{
         }
         super.onEvent(event)
     }
+    /**
+     * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
+     */
+    func updateGraph(){
+        
+        graphPts = GraphUtils.points(newSize!, newPosition!, spacing!, vValues, maxValue)
+        initGraphPts = graphPoints.map{$0.frame.origin}//grabs the location of where the pts are now
+        /*GraphPoints*/
+        
+        if(animator != nil){animator!.stop()}/*stop any previous running animation*/
+        animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Quad.easeIn)
+        animator!.start()
+        
+        updateVTags(maxValue)
+    }
 }
 
