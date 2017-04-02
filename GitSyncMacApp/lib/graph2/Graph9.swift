@@ -16,7 +16,7 @@ enum TimeType {
 }
 class Graph9:Element{
     var dateText:TextArea?
-    var timeBar:ScrollFastList?
+    var timeBar:ElasticScrollFastList?
     /*Date vars*/
     let fromYear:Int = 2011
     let toYear:Int = 2017//TODO: swap this out with Date().year
@@ -54,7 +54,7 @@ extension Graph9{
                     return YearDP(range)
             }
         }()
-        timeBar = addSubView(ScrollFastList(w,24,24,dp,self,nil,.hor,100))
+        timeBar = addSubView(ElasticScrollFastList(w,24,24,dp,self,nil,.hor,100))
     }
     func alignTimeBar(){
         let objSize = CGSize(w,24)
