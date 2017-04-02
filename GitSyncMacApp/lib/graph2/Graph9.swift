@@ -2,7 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 //Graph9
-    //add Elasticity yo Graph9 
+    //add Elasticity to Graph9
     //add snapTo animation
     //try generate fake graphdata on snapTo anim stop
     //draw the fake graph data as a graphline with points
