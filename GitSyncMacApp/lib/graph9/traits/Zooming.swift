@@ -1,4 +1,6 @@
-import Foundation
+import Cocoa
+@testable import Element
+@testable import Utils
 
 /*Zoom Controller*/
 extension Graph9{
