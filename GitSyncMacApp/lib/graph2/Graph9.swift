@@ -109,7 +109,7 @@ extension Graph9{
         timeBar!.setProgress(progress)
         
         //Continue here: 🏀
-            //how come setProgress doesnt work? try TestView
+            //how come setProgress doesn't work? try TestView
         
         //let visRange:Range<Int> = timeBar!.visibleItemRange.start..<(timeBar!.visibleItemRange.end > timeBar!.dp.count ? timeBar!.visibleItemRange.end - 1 : timeBar!.visibleItemRange.end)
         //timeBar!.renderItems(visRange)
