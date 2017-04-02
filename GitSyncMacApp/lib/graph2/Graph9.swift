@@ -16,6 +16,7 @@ class Graph9:Element{
     var graphPts:[CGPoint]?
     var prevGraphPts:[CGPoint]?
     var graphPoints:[Element]?
+    var animator:Animator?
     /*Date vars*/
     let fromYear:Int = 2011
     let toYear:Int = 2017//TODO: swap this out with Date().year
@@ -52,7 +53,7 @@ class Graph9:Element{
      */
     func updateGraph(){
         
-        prevGraphPts = graphPoints.map{$0.frame.origin}//grabs the location of where the pts are now
+        prevGraphPts = graphPoints.map{($0 as! NSView).point}//grabs the location of where the pts are now
         graphPts = randomGraphPoints
         
         /*GraphPoints*/
