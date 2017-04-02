@@ -35,7 +35,7 @@ class Graph9:Element{
         dateText = addSubView(TextArea(NaN,NaN,"00/00/00 - 00/00/00",self,"date"))/*A TextField that displays the time range of the graph*/
         
         createList()
-        alignTimeBar()
+        
         updateDateText()
     }
 }
@@ -46,6 +46,7 @@ extension Graph9{
         /**/
         let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
         timeBar = addSubView(ElasticScrollFastList(w,24,24,dp,self,nil,.hor,100))
+        alignTimeBar()
     }
     func alignTimeBar(){
         let objSize = CGSize(w,24)
@@ -93,7 +94,7 @@ extension Graph9{
         timeBar = nil
         let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
         timeBar = addSubView(ElasticScrollFastList(w,24,24,dp,self,nil,.hor,100))
-        
+        alignTimeBar()
         /*let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
          ViewModifier.removeAll(timeBar!.lableContainer!)
          timeBar!.pool = []
@@ -106,8 +107,8 @@ extension Graph9{
         progress = progress.clip(0, 1)
         Swift.print("progress: " + "\(progress)")
         timeBar!.setProgress(progress)
-        let visRange:Range<Int> = timeBar!.visibleItemRange.start..<(timeBar!.visibleItemRange.end > timeBar!.dp.count ? timeBar!.visibleItemRange.end - 1 : timeBar!.visibleItemRange.end)
-        timeBar!.renderItems(visRange)
+        //let visRange:Range<Int> = timeBar!.visibleItemRange.start..<(timeBar!.visibleItemRange.end > timeBar!.dp.count ? timeBar!.visibleItemRange.end - 1 : timeBar!.visibleItemRange.end)
+        //timeBar!.renderItems(visRange)
         /**/
         visibleRange = nil/*rest so we force update dateText*/
         updateDateText()
