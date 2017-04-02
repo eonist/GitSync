@@ -308,10 +308,7 @@ class TestView:TitleView{
         let dir:Dir = .ver
         let listSize:CGSize = dir == .ver ? CGSize(140,73) : CGSize(300,24)
         let itemSize:CGSize = CGSize(100,24)
-        
-        //Continue here: 🏀
-            //there is a bug with scrollwheel.y try to fix it
-        
+        /**/
         let list = self.addSubView(ElasticScrollFastList(listSize.width, listSize.height, itemSize.h, dp, self,nil,dir,itemSize.w))
         FastListModifier.select(list as IFastList, 5)
         Swift.print("👉 \(list.contentSize[dir])")
