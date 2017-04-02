@@ -35,3 +35,24 @@ class Graph9:Element{
         updateDateText()
     }
 }
+/*CreateContent*/
+extension Graph9{
+    func createList(){
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/basic/list/vlist.css")//changes the css to align sideways
+        StyleManager.addStyle("Graph9 VList{float:none;clear:none;}")
+        /**/
+        let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
+        timeBar = addSubView(ElasticScrollFastList(w,24,24,dp,self,nil,.hor,100))
+        alignTimeBar()
+    }
+    func alignTimeBar(){
+        let objSize = CGSize(w,24)
+        Swift.print("objSize: " + "\(objSize)")
+        let canvasSize = CGSize(w,h)
+        Swift.print("canvasSize: " + "\(canvasSize)")
+        let p = Align.alignmentPoint(objSize, canvasSize, Alignment.bottomLeft, Alignment.bottomLeft, CGPoint())
+        Swift.print("p: " + "\(p)")
+        //align timeBar to bottom with Align
+        timeBar!.point = p
+    }
+}
