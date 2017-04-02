@@ -12,7 +12,7 @@ import Cocoa
 
 enum TimeType:Int {
     case day = 0,month,year
-    static var types:[TimeType] {return [TimeType.day,TimeType.month,TimeType.year]}
+    static var types:[TimeType] {return [.day,.month,.year]}
 }
 class Graph9:Element{
     var dateText:TextArea?
@@ -22,9 +22,9 @@ class Graph9:Element{
     let toYear:Int = 2017//TODO: swap this out with Date().year
     var range:Range<Int> {return fromYear..<toYear}
     /*Zooming vars*/
-    var curZoom:Int = 0
+    var curZoom:Int = TimeType.year.rawValue
     let maxZoom:Int = 3
-    var zoom:CGFloat = TimeType.year.rawValue
+    var zoom:CGFloat = 0
     /*interim*/
     var curTimeType:TimeType = .year
     var visibleRange:Range<Int>?
@@ -80,7 +80,6 @@ extension Graph9{
         }else if(event.phase == .began){
             zoom = 0//reset
         }else if(event.phase == .ended){
-            //Swift.print("zoom: " + "\(zoom)")
             var dir:Int
             if(zoom < -100){
                 dir = 1
@@ -96,16 +95,12 @@ extension Graph9{
             if(curZoom != prevZoom){
                 onZoomLevelChange()//only toggle if zoom is not prevZoom
             }
-            //Swift.print("curZoom: " + "\(curZoom)")
         }
-        //Swift.print("magnify event: \(event)")
     }
     func onZoomLevelChange() {
         //Swift.print("Graph9.onZoomLevelChange()")
-        //Swift.print("curZoom: " + "\(curZoom)")
         let prevTimeType:TimeType = curTimeType
         curTimeType = TimeType.types[curZoom]
-        //Swift.print("curTimeType: " + "\(curTimeType)")
         let dp:TimeDP
         switch curTimeType{
             case .year:
