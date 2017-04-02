@@ -11,6 +11,7 @@ import Cocoa
 class Graph9:Element{
     var dateText:TextArea?
     var timeBar:FastList?
+    var valueBar:ValueBar?
     var contentContainer:Element?
     /*Date vars*/
     let fromYear:Int = 2011
