@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 /**
- * Testing scrolling a view in the x and y axis.
+ * Testing panning a view in the x and y axis.
  */
 class Graph7:ContainerView2,Scrollable2{
     override var itemSize:CGSize {return CGSize(100,100)}//override this for custom value
