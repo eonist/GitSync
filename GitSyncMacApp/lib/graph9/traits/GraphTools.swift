@@ -1,5 +1,5 @@
 import Foundation
 
-class GraphTools {
-
+extension Graph9 {
+    
 }
