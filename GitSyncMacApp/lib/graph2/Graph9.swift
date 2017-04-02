@@ -19,7 +19,7 @@ class Graph9:Element{
     var prevGraphPts:[CGPoint]?
     var animator:Animator?
     /*Date vars*/
-    let fromYear:Int = 2011
+    let fromYear:Int = 2012
     let toYear:Int = 2017//TODO: swap this out with Date().year
     var range:Range<Int> {return fromYear..<toYear}
     /*Zooming vars*/
