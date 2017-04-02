@@ -8,7 +8,11 @@ import Cocoa
     //add git to the fold (you need to make gitStat parsers for months and years)
     //make it scalable via setSize
 
+
+
+
 class Graph9:Element{
+    lazy var gestureHUD:GestureHUD  =  GestureHUD(self)
     var dateText:TextArea?
     var timeBar:FastList?
     var valueBar:ValueBar?
@@ -36,12 +40,14 @@ class Graph9:Element{
         dateText = addSubView(TextArea(NaN,NaN,"00/00/00 - 00/00/00",self,"date"))/*A TextField that displays the time range of the graph*/
         /**/
         contentContainer = addSubView(Container(width,height,self,"content"))
-        
         createList()
         updateDateText()
         createGraphLine()
         createGraphPoints()
         createValueBar()
+        /*Debug*/
+        self.acceptsTouchEvents = true/*Enables gestures*/
+        self.wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
     }
     override func onEvent(_ event:Event) {
         if(event === (AnimEvent.completed, (timeBar! as! TimeBar3).mover!)){
