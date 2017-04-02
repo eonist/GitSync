@@ -43,7 +43,6 @@ class SnappyRubberBand:RubberBand{
                 super.applyFriction()//regular friction
             }
         }
-        
     }
 }
 

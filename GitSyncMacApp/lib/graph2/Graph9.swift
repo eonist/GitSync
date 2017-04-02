@@ -3,7 +3,7 @@ import Cocoa
 @testable import Utils
 //Graph9
     //try generate fake graphdata on snapTo anim stop
-    //draw the fake graph data as a graphline with points
+    //draw the fake graph data as a graphline with points ✅
     //try to update the valuebar
     //add git to the fold (you need to make gitStat parsers for months and years)
     //make it scalable via setSize
