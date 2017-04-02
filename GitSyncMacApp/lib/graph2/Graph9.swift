@@ -30,13 +30,10 @@ class Graph9:Element{
         /**/
         createList()
         updateDateText()
+        addGraphLine()
     }
     
-    //Continue here: 🏀
-        //add graph that is drawn from random data
-        //try to anim on anim stop
-            //basically just copy the graph from StatsView into Graph9 and see how it goes.
-    
+
     override func onEvent(_ event:Event) {
         if(event === (AnimEvent.stopped, (timeBar! as! TimeBar3).mover!)){
             Swift.print("Graph9.timeBar stopped")
@@ -63,5 +60,31 @@ extension Graph9{
         Swift.print("p: " + "\(p)")
         //align timeBar to bottom with Align
         timeBar!.point = p
+    }
+    func addGraphLine(){
+        //
+        var css:String = "GraphLine{"
+        css +=    "float:none;"
+        css +=    "clear:none;"
+        css +=    "line:#2AA3EF;"
+        css +=    "line-alpha:1;"
+        css +=    "line-thickness:0.5px;"
+        css += "}"
+        StyleManager.addStyle(css)
+        typealias P = CGPoint
+        
+        //let points:[P] = [P(0,0),P(50,300),P(100,50),P(150,350),P(200,250),P()]
+        
+        var points:[P] = []
+        for i in 0..<7{
+            let x:CGFloat = 100*i
+            let y:CGFloat = (0..<(height.int-32)).random.cgFloat
+            let p = P(x,y)
+            points.append(p)
+        }
+        
+        let path:IPath = PolyLineGraphicUtils.path(points)
+        let graphLine = addSubView(GraphLine(width,height,path))
+        _ = graphLine
     }
 }
