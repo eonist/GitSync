@@ -13,6 +13,7 @@ class Graph9:Element{
     var timeBar:FastList?
     var valueBar:ValueBar?
     var contentContainer:Element?
+    var graphPts:[CGPoint]?
     /*Date vars*/
     let fromYear:Int = 2011
     let toYear:Int = 2017//TODO: swap this out with Date().year

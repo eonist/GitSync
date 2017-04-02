@@ -27,15 +27,15 @@ extension Graph9{
         
         //let points:[P] = [P(0,0),P(50,300),P(100,50),P(150,350),P(200,250),P()]
         
-        var points:[P] = []
+        graphPts = []
         for i in 0..<7{
             let x:CGFloat = 100*i
             let y:CGFloat = (0..<(height.int-32)).random.cgFloat
             let p = P(x,y)
-            points.append(p)
+            graphPts!.append(p)
         }
         
-        let path:IPath = PolyLineGraphicUtils.path(points)
+        let path:IPath = PolyLineGraphicUtils.path(graphPts!)
         let graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
         _ = graphLine
     }
@@ -52,5 +52,17 @@ extension Graph9{
         Swift.print("p: " + "\(p)")
         //align timeBar to bottom with Align
         valueBar!.point = p
+    }
+    /**
+     * Creates The visual Graph points that hover above the Graph line
+     * NOTE: We could create something called GraphPoint, but it would be another thing to manager so instead we just use an Element with id: graphPoint
+     */
+    func createGraphPoints(){
+        //Swift.print("createGraphPoints:")
+        graphPts!.forEach{
+            let graphPoint:Element = graphArea!.addSubView(Element(NaN,NaN,graphArea,"graphPoint"))
+            graphPoints.append(graphPoint)
+            graphPoint.setPosition($0)
+        }
     }
 }
