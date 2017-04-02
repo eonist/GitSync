@@ -36,7 +36,8 @@ class Graph9:Element{
         
         createList()
         updateDateText()
-        addGraphLine()
+        createGraphLine()
+        createGraphPoints()
         createValueBar()
     }
     override func onEvent(_ event:Event) {

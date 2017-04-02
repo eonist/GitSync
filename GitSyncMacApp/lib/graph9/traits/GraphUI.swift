@@ -36,7 +36,10 @@ extension Graph9{
         //align timeBar to bottom with Align
         valueBar!.point = p
     }
-    func addGraphLine(){
+    /**
+     *
+     */
+    func createGraphLine(){
         addGraphLineStyle()
         typealias P = CGPoint
         
