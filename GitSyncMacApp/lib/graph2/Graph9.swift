@@ -8,7 +8,7 @@ import Cocoa
     //draw the fake graph data as a graphline with points
     //try to update the valuebar
     //try to update the timeIndicator 
-    //add git to the fold
+    //add git to the fold (you need to make gitStat parsers for months and years)
     //make it scalable via setSize
 
 class Graph9:Element{
@@ -36,7 +36,9 @@ class Graph9:Element{
     }
     
     //Continue here: 
-        //
+        //add graph that is drawn from random data
+        //try to anim on anim stop
+            //basically just copy the graph from StatsView into Graph9 and see how it goes.
     
     override func onEvent(_ event:Event) {
         if(event === (AnimEvent.stopped, (timeBar! as! TimeBar3).mover!)){
