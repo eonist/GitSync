@@ -32,7 +32,7 @@ class Graph9:Element{
         updateDateText()
     }
     
-    //Continue here: 
+    //Continue here: 🏀
         //add graph that is drawn from random data
         //try to anim on anim stop
             //basically just copy the graph from StatsView into Graph9 and see how it goes.
