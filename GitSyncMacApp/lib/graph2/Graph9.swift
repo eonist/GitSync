@@ -11,7 +11,6 @@ import Cocoa
     //add git to the fold
     //make it scalable via setSize
 
-
 class Graph9:Element{
     var dateText:TextArea?
     var timeBar:FastList?
@@ -23,7 +22,7 @@ class Graph9:Element{
     var curZoom:Int = TimeType.year.rawValue
     let maxZoom:Int = 3
     var zoom:CGFloat = 0
-    /*interim*/
+    /*Interim*/
     var curTimeType:TimeType = .year
     var visibleRange:Range<Int>?
     override func resolveSkin() {
@@ -31,7 +30,7 @@ class Graph9:Element{
         StyleManager.addStylesByURL("~/Desktop/datetext.css")
         super.resolveSkin()
         dateText = addSubView(TextArea(NaN,NaN,"00/00/00 - 00/00/00",self,"date"))/*A TextField that displays the time range of the graph*/
-        
+        /**/
         createList()
         updateDateText()
     }
