@@ -6,7 +6,6 @@ import Foundation
 //you need to research prevDelta more. you need to be accurate when determining direction. 
     //you dont want to go backwards when you just scrolled forward and stopped etc.
 
-
 class SnappyRubberBand:RubberBand{
     var minVelocity:CGFloat = 2.6
     var snap:CGFloat = 100
@@ -27,7 +26,6 @@ class SnappyRubberBand:RubberBand{
             }
             //value += velocity
         }
-        
         if(abs(velocity) <= minVelocity && abs(value %% snap).isNear(0, minVelocity)){/*stop the value is close enough to target*/
             Swift.print("is close to target")
             value = CGFloatModifier.roundTo(value, snap)/*set final destination*/
