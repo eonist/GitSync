@@ -37,11 +37,11 @@ class SnappyRubberBand:RubberBand{
             stop()
         }else{
             if(abs(velocity) <= minVelocity){/*Velocity is bellow min allowed, add velocity keep anim alive*/
-                Swift.print("use minVelocity")
+                //Swift.print("use minVelocity")
                 velocity = prevDir.isNegative ? -minVelocity : minVelocity
                 value += velocity
             }else{//else default to regular friction velocity
-                Swift.print("default friction: \(abs(velocity))")
+                //Swift.print("default friction: \(abs(velocity))")
                 super.applyFriction()//regular friction
             }
         }

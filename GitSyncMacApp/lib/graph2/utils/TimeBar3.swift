@@ -16,11 +16,11 @@ class TimeBar3:ElasticScrollFastList{
         if(event.phase == .changed || event.phase == NSEventPhase(rawValue:0)){
             let prevDir = (mover! as! SnappyRubberBand).prevDir
             var tempDir:CGFloat = 0
-            let curDir = event.scrollingDeltaX
+            let curDir:CGFloat = event.scrollingDelta[dir]
             if(curDir == 0){tempDir = prevDir}//use old value
             else if(curDir.isNegative){tempDir = -1}
             else if(curDir.isPositive){tempDir = 1}
-            Swift.print("tempDir: " + "\(tempDir)")
+            //Swift.print("tempDir: " + "\(tempDir)")
             (mover! as! SnappyRubberBand).prevDir = tempDir
         }
     }
