@@ -40,12 +40,11 @@ class Graph9:Element{
     }
 }
 extension Graph9{
-    
     func createList(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/basic/list/vlist.css")//changes the css to align sideways
         StyleManager.addStyle("Graph9 VList{float:none;clear:none;}")
         /**/
-        let dp:TimeDP = timeDP(curTimeType,range)
+        let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
         timeBar = addSubView(ElasticScrollFastList(w,24,24,dp,self,nil,.hor,100))
     }
     func alignTimeBar(){
@@ -73,13 +72,9 @@ extension Graph9{
             zoom = 0//reset
         }else if(event.phase == .ended){
             var dir:Int
-            if(zoom < -100){
-                dir = 1
-            }else if(zoom > 100){
-                dir = -1
-            }else{
-                dir = 0
-            }
+            if(zoom < -100){dir = 1}
+            else if(zoom > 100){dir = -1}
+            else{dir = 0}
             let newZoom = curZoom + dir
             if(newZoom >= 0 && newZoom < maxZoom){
                 curZoom = newZoom
@@ -93,7 +88,7 @@ extension Graph9{
         //Swift.print("Graph9.onZoomLevelChange()")
         let prevTimeType:TimeType = curTimeType
         curTimeType = TimeType.types[curZoom]
-        let dp:TimeDP = timeDP(curTimeType,range)
+        let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
         ViewModifier.removeAll(timeBar!.lableContainer!)
         timeBar!.pool = []
         timeBar!.inActive = []
@@ -109,12 +104,6 @@ extension Graph9{
         /**/
         visibleRange = nil/*rest so we force update dateText*/
         updateDateText()
-        //get mouse loc
-        //let roundTo(m.x,100) - m.x
-        
-        //which idx is the mouse closes to, 100px iterations
-        
-        
     }
 }
 extension Graph9{
