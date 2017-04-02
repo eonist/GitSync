@@ -40,20 +40,12 @@ class Graph9:Element{
     }
 }
 extension Graph9{
+    
     func createList(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/basic/list/vlist.css")//changes the css to align sideways
         StyleManager.addStyle("Graph9 VList{float:none;clear:none;}")
         /**/
-        let dp:TimeDP = {
-            switch curTimeType{
-                case .day:
-                    return DayDP(range)
-                case .month:
-                    return MonthDP(range)
-                case .year:
-                    return YearDP(range)
-            }
-        }()
+        let dp:TimeDP = timeDP(curTimeType,range)
         timeBar = addSubView(ElasticScrollFastList(w,24,24,dp,self,nil,.hor,100))
     }
     func alignTimeBar(){
@@ -101,15 +93,7 @@ extension Graph9{
         //Swift.print("Graph9.onZoomLevelChange()")
         let prevTimeType:TimeType = curTimeType
         curTimeType = TimeType.types[curZoom]
-        let dp:TimeDP
-        switch curTimeType{
-            case .year:
-                dp = YearDP(range)
-            case .month:
-                dp = MonthDP(range)
-            case .day:
-                dp = DayDP(range)
-        }
+        let dp:TimeDP = timeDP(curTimeType,range)
         ViewModifier.removeAll(timeBar!.lableContainer!)
         timeBar!.pool = []
         timeBar!.inActive = []
