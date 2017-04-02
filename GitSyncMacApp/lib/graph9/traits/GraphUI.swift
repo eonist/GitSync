@@ -21,7 +21,6 @@ extension Graph9{
         //align timeBar to bottom with Align
         timeBar!.point = p
     }
-    
     /**
      * Creates the ValueBar
      */
