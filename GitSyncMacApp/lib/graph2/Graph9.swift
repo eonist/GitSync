@@ -46,6 +46,7 @@ class Graph9:Element{
     override func onEvent(_ event:Event) {
         if(event === (AnimEvent.stopped, (timeBar! as! TimeBar3).mover!)){
             Swift.print("Graph9.timeBar stopped")
+            updateGraph()
         }
         super.onEvent(event)
     }
@@ -70,9 +71,9 @@ class Graph9:Element{
         var positions:[CGPoint] = []
         /*GraphPoints*/
         for i in 0..<graphPts!.count{
-            let pos:CGPoint = prevGraphPts[i].interpolate(graphPts[i], val)/*interpolates from one point to another*/
+            let pos:CGPoint = prevGraphPts![i].interpolate(graphPts![i], val)/*interpolates from one point to another*/
             positions.append(pos)
-            graphPoints[i].setPosition(pos)//moves the points
+            graphPoints![i].setPosition(pos)//moves the points
         }
         /*GraphLine*/
         let path:IPath = PolyLineGraphicUtils.path(positions)/*convert points to a Path*/
