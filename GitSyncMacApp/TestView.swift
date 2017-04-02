@@ -305,7 +305,7 @@ class TestView:TitleView{
         
         var dp:DataProvider
         dp = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
-        let dir:Dir = .ver
+        let dir:Dir = .hor
         let listSize:CGSize = dir == .ver ? CGSize(140,73) : CGSize(300,24)
         let itemSize:CGSize = CGSize(100,24)
         
@@ -314,6 +314,7 @@ class TestView:TitleView{
         
         let list = self.addSubView(ElasticScrollFastList(listSize.width, listSize.height, itemSize.h, dp, self,nil,dir,itemSize.w))
         FastListModifier.select(list as IFastList, 5)
+        Swift.print("👉 \(list.contentSize[dir])")
     }
     func sliderFastList(){
         var dp:DataProvider
