@@ -34,6 +34,7 @@ class Graph9:Element{
         createList()
         updateDateText()
         addGraphLine()
+        createValueBar()
     }
     
 
@@ -89,5 +90,19 @@ extension Graph9{
         let path:IPath = PolyLineGraphicUtils.path(points)
         let graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
         _ = graphLine
+    }
+    /**
+     * Creates the ValueBar
+     */
+    func createValueBar(){
+        valueBar = addSubView(ValueBar(32,height-32,self))
+        let objSize = CGSize(32,valueBar!.h)
+        Swift.print("objSize: " + "\(objSize)")
+        let canvasSize = CGSize(w,h)
+        Swift.print("canvasSize: " + "\(canvasSize)")
+        let p = Align.alignmentPoint(objSize, canvasSize, Alignment.topLeft, Alignment.topLeft, CGPoint())
+        Swift.print("p: " + "\(p)")
+        //align timeBar to bottom with Align
+        valueBar!.point = p
     }
 }
