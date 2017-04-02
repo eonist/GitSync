@@ -2,12 +2,9 @@ import Cocoa
 @testable import Element
 @testable import Utils
 //Graph9
-    //add Elasticity to Graph9 ✅
-    //add snapTo animation ✅
     //try generate fake graphdata on snapTo anim stop
     //draw the fake graph data as a graphline with points
     //try to update the valuebar
-    //try to update the timeIndicator 
     //add git to the fold (you need to make gitStat parsers for months and years)
     //make it scalable via setSize
 
