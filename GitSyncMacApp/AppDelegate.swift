@@ -50,6 +50,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("until: " + "\(until.year)")
         commitCounter.countCommits(from,until,.year)
     }
+    
+    
+    //Continue here:
+        //figure out what is next
+    
+    
     /**
      *
      */
