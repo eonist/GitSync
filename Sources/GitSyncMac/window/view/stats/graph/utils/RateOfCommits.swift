@@ -42,7 +42,7 @@ class RateOfCommits{
                 }
             }
         }
-        group.notify(queue: main, execute: {//TODO: replace bg with main, then remove main.async. just call onComplete?
+        group.notify(queue: main, execute: {
             self.onRateOfCommitComplete()
         })
     }
