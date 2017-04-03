@@ -36,7 +36,7 @@ class RateOfCommits{
                     let commitCount:String = GitUtils.commitCount(work.localPath, since:work.since , until:work.until)//👈👈👈 do some work
                     mainQueue.async {/*Jump back on main thread, because the onComplete resides there*/
                         self.repoCommits![i][e].commitCount = commitCount.int
-                        self.onRateOfCommitComplete()//⬅️️
+                        //self.onRateOfCommitComplete()//⬅️️
                     }
                     group.leave()
                 }
