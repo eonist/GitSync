@@ -6,25 +6,23 @@ import Foundation
 //design a sudo parser in playground that supports month,year,day
 class RateOfCommits{
     var repoCommits:[[CommitCountWork]]?
-    var totCount:Int?
+    //var totCount:Int?
     var result:[Int] = [0,0,0,0,0,0,0]
-    var idx:Int = 0
-    var startTime:Date? = nil
+    //var idx:Int = 0
+    var startTime:Date? = nil/*Performace tests the commitCount task*/
     var onComplete:(_ result:[Int])->Void = {_ in print("⚠️️⚠️️⚠️️ no onComplete is currently attached")}
     /**
      * Initiates the process
      */
     func initRateOfCommitsProcess(_ dayOffset:Int){
-        Swift.print("🍐 initRateOfCommitsProcess")
+        //Swift.print("🍐 initRateOfCommitsProcess")
         startTime = Date()
         var repoList:[RepoItem] = RepoUtils.repoListFlattened//.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
-        Swift.print("repoList.count: " + "\(repoList.count)")
+        //Swift.print("repoList.count: " + "\(repoList.count)")
         //the dupe free code bellow should/could be moved to RepoUtils
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
-        Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
-        repoCommits = CommitCountWorkUtils.commitCountWork(repoList,dayOffset)
-        //totCount = repoCommits!.flatMap{$0}.count
-        //idx = 0//reset
+        //Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
+        repoCommits = CommitCountWorkUtils.commitCountWork(repoList,dayOffset)/*populate a 3d array with items*/
         /*Loop 3d-structure*/
         let group = DispatchGroup()
         for i in repoCommits!.indices{//⚠️️ TODO: flatMap this and use Modern means of grouping Tasks (maybe not, as you want 7 items to be returned not 7*repos.count)
@@ -53,7 +51,7 @@ class RateOfCommits{
          //Swift.print("onComplete: " + "\(i)")
          if(idx == totCount){*/
             /*At this point all tasks hvae complted*/
-            Swift.print("all concurrent tasks completed: totCount \(totCount)")
+            //Swift.print("all concurrent tasks completed: totCount \(totCount)")
             /*loop 3d-structure*/
             for i in repoCommits!.indices{//⚠️️ TODO: use flatMap here to make the 3d array into 2d array,maybe not, as you want 7 items to be returned not 7*repos.count
                 for e in repoCommits![i].indices{
