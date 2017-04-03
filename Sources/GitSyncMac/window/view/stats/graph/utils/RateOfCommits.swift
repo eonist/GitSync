@@ -26,12 +26,15 @@ class RateOfCommits{
         repoCommits = rateOfCommits(repoList,dayOffset)
         totCount = repoCommits!.flatMap{$0}.count
         /*Loop 3d-structure*/
+        let group = DispatchGroup()
         for i in repoCommits!.indices{//⚠️️ TODO: flatMap this and use Modern means of grouping Tasks (maybe not, as you want 7 items to be returned not 7*repos.count)
             for e in repoCommits![i].indices{
                 bgQueue.async {
+                    group.enter()
                     let work:CommitCountWork = self.repoCommits![i][e]
                     //Swift.print("launched a work item: " + "\(work.localPath)")
                     let commitCount:String = GitUtils.commitCount(work.localPath, since:work.since , until:work.until)//👈👈👈 do some work
+                    
                     mainQueue.async {/*Jump back on main thread, because the onComplete resides there*/
                         self.repoCommits![i][e].commitCount = commitCount.int
                         self.onRateOfCommitComplete()//⬅️️
