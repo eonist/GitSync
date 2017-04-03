@@ -47,7 +47,7 @@ class RateOfCommits{
             /*At this point all tasks hvae complted*/
             Swift.print("all concurrent tasks completed: totCount \(totCount)")
             /*loop 3d-structure*/
-            for i in repoCommits!.indices{
+            for i in repoCommits!.indices{//⚠️️ TODO: use flatMap here to make the 3d array into 2d array
                 for e in repoCommits![i].indices{
                     result[e] = result[e] + repoCommits![i][e].commitCount//👈👈👈 place count in array
                 }
