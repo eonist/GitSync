@@ -26,7 +26,7 @@ extension Graph9{
                 Swift.print("visibleRange!: " + "\(visibleRange!)")
                 let startYearStr:String = YearDP.year(visibleRange!.start,yearRange).string
                 Swift.print("startYearStr: " + "\(startYearStr)")
-                let endYearStr:String = YearDP.year(visibleRange!.end - 1,yearRange).string
+                let endYearStr:String = YearDP.year(visibleRange!.end - 2,yearRange).string
                 Swift.print("endYearStr: " + "\(endYearStr)")
                 dateStr = "\(startYearStr) - \(endYearStr)"
             case .month:
