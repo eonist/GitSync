@@ -64,28 +64,12 @@ class RateOfCommits{
         }
     }
 }
-extension RateOfCommits{
-    /**
-     * Returns 7 CommitCountWork instances for every repo in PARAM: repoList
-     */
-    func rateOfCommits(_ repoList:[RepoItem],_ dayOffset:Int)->[[CommitCountWork]]{
-        var repoCommits:[[CommitCountWork]] = []
-        let fromDate:Date = Date().offsetByDays(dayOffset-7)
-        Swift.print("fromDate: " + "\(fromDate)")
-        let untilDate:Date = Date().offsetByDays(dayOffset)
-        Swift.print("untilDate: " + "\(untilDate)")
-        repoList.forEach{ repoItem in
-            let commits:[CommitCountWork] = CommitCountWorkUtils.commitCountWork(repoItem, fromDate, untilDate, .day)//rateOfCommits($0,dayOffset)
-            Swift.print("commits.count: " + "\(commits.count)")
-            _ = repoCommits += commits
-        }
-        Swift.print("repoCommits.count: " + "\(repoCommits.count)")
-        return repoCommits
-    }
+/*extension RateOfCommits{
+    
     /**
      * Returns an array of CommitCountWork instances for 7 days in an Array of 7 Int from PARAM: repoItem
      */
-    /*func rateOfCommits(_ repoItem:RepoItem, _ dayOffset:Int) -> [CommitCountWork]{
+    func rateOfCommits(_ repoItem:RepoItem, _ dayOffset:Int) -> [CommitCountWork]{
         //Swift.print("repoItem.title: \(repoItem.title) localPath: \(repoItem.localPath)")
         //var commits:[Int] = []
         var commitCountWorks:[CommitCountWork] = []
@@ -103,8 +87,8 @@ extension RateOfCommits{
         }
         //Swift.print("commits: " + "\(commits)")
         return commitCountWorks
-    }*/
+    }
 }
 
-
+*/
 

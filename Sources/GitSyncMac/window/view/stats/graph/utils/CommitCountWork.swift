@@ -6,6 +6,23 @@ typealias CommitCountWork = (localPath:String,since:String,until:String,commitCo
 
 class CommitCountWorkUtils {
     /**
+     * Returns 7 CommitCountWork instances for every repo in PARAM: repoList
+     */
+    static func commitCountWork(_ repoList:[RepoItem],_ dayOffset:Int)->[[CommitCountWork]]{
+        var repoCommits:[[CommitCountWork]] = []
+        let fromDate:Date = Date().offsetByDays(dayOffset-7)
+        //Swift.print("fromDate: " + "\(fromDate)")
+        let untilDate:Date = Date().offsetByDays(dayOffset)
+        //Swift.print("untilDate: " + "\(untilDate)")
+        repoList.forEach{ repoItem in
+            let commits:[CommitCountWork] = CommitCountWorkUtils.commitCountWork(repoItem, fromDate, untilDate, .day)//rateOfCommits($0,dayOffset)
+            //Swift.print("commits.count: " + "\(commits.count)")
+            _ = repoCommits += commits
+        }
+        //Swift.print("repoCommits.count: " + "\(repoCommits.count)")
+        return repoCommits
+    }
+    /**
      * Returns CommitCountWork instantce array for a time range
      */
     static func commitCountWork(_ repoItem:RepoItem,_ from:Date, _ until:Date, _ timeType:TimeType)->[CommitCountWork]{
