@@ -44,8 +44,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Swift.print("results: " + "\(results)")
         }
         commitCounter.onComplete = onComplete
-        let from = Date().offsetByMonths(-1)
+        let from = Date().offsetByMonths(-6)
+        Swift.print("from.month: " + "\(from.month)")
         let until = Date()
+        Swift.print("until.month: " + "\(until.month)")
         commitCounter.initCommitCount(from,until,.month)
     }
     /**
