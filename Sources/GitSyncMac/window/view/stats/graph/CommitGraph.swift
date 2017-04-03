@@ -3,10 +3,11 @@ import Cocoa
 @testable import Element
 
 class CommitGraph:Graph{
+    typealias GraphData = (vValues:[CGFloat],hValNames:[String])
     var dateText:TextArea?
     var currentDate:Date = Date()
     var dayOffset:Int = 0/*Current dayOffset*/
-    var graphData:(vValues:[CGFloat],hValNames:[String])
+    var graphData:GraphData
     /*we override this var so that the super class can derive data from graphData*/
     override var vValues:[CGFloat] {return graphData.vValues}//,20,33,19//[14,8,13,17,25,9,14]
     override var hValNames:[String] {return graphData.hValNames}//["T","W","T","F","S","S","M"]//"10/12","13","14",
