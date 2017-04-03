@@ -17,7 +17,7 @@ class CommitGraph:Graph{
     //var graphPts:[CGPoint] = []/*Animates to these points*/
     var initGraphPts:[CGPoint] = []/*Animates from these points*/
     
-    override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement?, _ id: String? = nil) {
+    override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement?, _ id:String? = nil) {
         graphData =  Utils.defaultGraphData(dayOffset, currentDate)//set init data, at dayoffset: 0
         super.init(width, height, parent, id)
         self.acceptsTouchEvents = true/*Enables gestures*/
