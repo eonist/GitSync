@@ -3,7 +3,7 @@ import Foundation
 
 //use TimePeriod instead of dayOffset
 //design a sudo parser in playground that supports month,year,day
-class RateOfCommits{
+class CommitCounter{
     var repoCommits:[[CommitCountWork]]?
     var result:[Int] = Array(repeating: 0, count: 7)/*prepop result arr*/
     var startTime:Date? = nil/*Performace tests the commitCount task*/
