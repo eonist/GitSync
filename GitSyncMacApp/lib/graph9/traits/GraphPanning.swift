@@ -28,6 +28,7 @@ extension Graph9{
                 Swift.print("startYearStr: " + "\(startYearStr)")
                 let len:Int = visibleRange!.end - visibleRange!.start
                 Swift.print("len: " + "\(len)")
+                Swift.print("visibleRange!.end: " + "\(visibleRange!.end)")
                 let endYearStr:String = YearDP.year(len,yearRange).string
                 Swift.print("endYearStr: " + "\(endYearStr)")
                 dateStr = "\(startYearStr) - \(endYearStr)"
