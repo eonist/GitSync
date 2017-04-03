@@ -9,7 +9,9 @@ extension Graph9{
         Swift.print("Graph9.scrollWheel()")
         //super.scrollWheel(with:event)
         (timeBar! as! TimeBar3).adHockScrollWheel(event)
-        updateDateText()
+        if(event.phase == .changed || event.phase == NSEventPhase(rawValue:0)){
+            updateDateText()
+        }
     }
     /**
      * Updates the DateText UI Element
