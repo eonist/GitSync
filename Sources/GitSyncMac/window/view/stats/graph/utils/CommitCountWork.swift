@@ -5,9 +5,9 @@ class CommitCountWorkUtils {
     /**
      *
      */
-    func commitCountWork(_ from:Date, _ until:Date)->CommitCountWork{
+    static func commitCountWork(_ from:Date, _ until:Date)->CommitCountWork{
         
-        return
+        return ("","","",0)
     }
 
 }
