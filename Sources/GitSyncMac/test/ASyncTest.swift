@@ -30,9 +30,9 @@ class ASyncTest {
         }
         
         //group.wait()/*wait blocks main thread*/
-        group.notify(queue: bg, execute: {
+        group.notify(queue: bg, execute: {//TODO: reaplce bg with main, then remove main.async. just call onComplete?
             main.async {/*you have to jump back on main thread to call things on main thread as this scope is still on bg thread*/
-                Swift.print("🏁 group completed: 🏁")
+                Swift.print("🏁 group completed: 🏁")//make a method on mainThread and call that instead.
             }
         })
     }
