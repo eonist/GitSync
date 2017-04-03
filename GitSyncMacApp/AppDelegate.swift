@@ -53,11 +53,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     
     //Continue here:
-        //figure out what is next
+    
         //try the above call in your cur panable/zoomabale graph
         //try to conform the pan/zoom graph to the correct fit etc. 
         //make it pan-able via entire view
-        //
+        //update graph on bounce-back complete aswell.
+        //make sure the time-level offset is correct
+        //make the ranges adher to real time ranges, not 2019 etc. 👈
     
     
     /**
