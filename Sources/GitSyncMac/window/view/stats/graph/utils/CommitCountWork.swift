@@ -11,7 +11,7 @@ class CommitCountWorkUtils {
     static func commitCountWork(_ repoList:[RepoItem],_ from:Date, _ until:Date,_ timeType:TimeType)->[[CommitCountWork]]{
         var repoCommits:[[CommitCountWork]] = []
         repoList.forEach{ repoItem in
-            let commits:[CommitCountWork] = CommitCountWorkUtils.commitCountWork(repoItem, from, until, .day)//rateOfCommits($0,dayOffset)
+            let commits:[CommitCountWork] = CommitCountWorkUtils.commitCountWork(repoItem, from, until, timeType)//rateOfCommits($0,dayOffset)
             //Swift.print("commits.count: " + "\(commits.count)")
             _ = repoCommits += commits
         }
@@ -47,7 +47,7 @@ private class Utils{
     static func commitCountWork(_ repoItem:RepoItem, _ from:Date, _ numOfTimeUnits:Int, _ offsetBy:OffsetDateMethod)->[CommitCountWork]{
         var commitCountWorks:[CommitCountWork] = []
         for i in (0..<numOfTimeUnits){//7 days
-            let sinceDate:Date = from.offsetByDays(i)
+            let sinceDate:Date = offsetBy(from,i)
             let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
             let untilDate:Date = from.offsetByDays(i+1)
             let untilGitDate:String = GitDateUtils.gitTime(untilDate)
