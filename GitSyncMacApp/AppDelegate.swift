@@ -37,13 +37,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      * CommitCount per day for all projects in the last 7 days where the user is "eonist"
      */
     func rateOfCommitsTest(){
-        let rateOfCommits = RateOfCommits()
+        let commitCounter = CommitCounter()
         func onComplete(_ results:[Int]){
             Swift.print("Appdelegate.onComplete()")
             Swift.print("results.count: " + "\(results.count)")
         }
-        rateOfCommits.onComplete = onComplete
-        rateOfCommits.initRateOfCommitsProcess(0)
+        commitCounter.onComplete = onComplete
+        commitCounter.initRateOfCommitsProcess(0)
     }
     /**
      *

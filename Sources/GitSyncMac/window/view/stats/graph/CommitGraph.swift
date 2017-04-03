@@ -54,7 +54,7 @@ extension CommitGraph{
         //Swift.print("iterate" + "\(iteration)")
         dayOffset += (7*iteration)
         //graphData = Utils.graphData(dayOffset, currentDate)
-        let rateOfCommits = RateOfCommits()
+        let commitCounter = CommitCounter()
         func onComplete(_ results:[Int]){
             Swift.print("CommitGraph.onComplete()")
             Swift.print("results.count: " + "\(results.count)")
@@ -63,8 +63,8 @@ extension CommitGraph{
             updateGraph()
             updateDateText()
         }
-        rateOfCommits.onComplete = onComplete
-        rateOfCommits.initRateOfCommitsProcess(dayOffset)/*🚪⬅️️ process starts here*/
+        commitCounter.onComplete = onComplete
+        commitCounter.initRateOfCommitsProcess(dayOffset)/*🚪⬅️️ process starts here*/
     }
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
