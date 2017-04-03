@@ -9,8 +9,6 @@ import Cocoa
     //make it scalable via setSize
 
 
-
-
 class Graph9:Element{
     lazy var gestureHUD:GestureHUD  =  GestureHUD(self)
     var dateText:TextArea?
