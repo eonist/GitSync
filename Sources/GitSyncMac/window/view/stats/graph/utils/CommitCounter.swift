@@ -18,10 +18,7 @@ class CommitCounter{
     }
     func countCommits(_ from:Date, _ until:Date,_ timeType:TimeType){
         startTime = Date()
-        var repoList:[RepoItem] = RepoUtils.repoListFlattened//.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
-        //TODO: ⚠️️ The dupe free code bellow should/could be moved to RepoUtils
-        repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
-        //Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
+        let repoList:[RepoItem] = RepoUtils.repoListFlattenedDupeFree
         repoCommits = CommitCountWorkUtils.commitCountWork(repoList,from,until,timeType)/*populate a 3d array with items*/
         let group = DispatchGroup()
         for i in repoCommits!.indices{/*Loop 3d-structure*/
