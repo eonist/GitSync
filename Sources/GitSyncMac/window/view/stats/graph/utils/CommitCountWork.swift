@@ -10,12 +10,12 @@ class CommitCountWorkUtils {
     static func commitCountWork(_ from:Date, _ until:Date, _ timeType:TimeType)->CommitCountWork{
         switch timeType{
             case .year:
-                let num = from.numOfYears(until)
+                let numOfYears = from.numOfYears(until)
             case .month:
                 print("range from 3 to 8")
-                let num = from.numOfMonths(until)
+                let numOfMonths = from.numOfMonths(until)
             case .day:
-                let num = from.numOfDays(until)
+                let numOfDays = from.numOfDays(until)
             
         }
         return ("","","",0)
