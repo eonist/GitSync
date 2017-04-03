@@ -26,11 +26,7 @@ extension Graph9{
                 Swift.print("visibleRange!: " + "\(visibleRange!)")
                 let startYearStr:String = YearDP.year(visibleRange!.start,yearRange).string
                 Swift.print("startYearStr: " + "\(startYearStr)")
-                let len:Int = visibleRange!.end - visibleRange!.start
-                Swift.print("len: " + "\(len)")
-                let numOfItemsThatCanFit:Int = timeBar!.numOfItemsThatCanFit
-                Swift.print("numOfItemsThatCanFit: " + "\(numOfItemsThatCanFit)")
-                let endYearStr:String = YearDP.year(len,yearRange).string
+                let endYearStr:String = YearDP.year(visibleRange!.end - 1,yearRange).string
                 Swift.print("endYearStr: " + "\(endYearStr)")
                 dateStr = "\(startYearStr) - \(endYearStr)"
             case .month:
