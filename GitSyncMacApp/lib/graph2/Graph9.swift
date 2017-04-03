@@ -46,6 +46,7 @@ class Graph9:Element{
             Swift.print("Graph9.timeBar completed")
             //Swift.print("event.origin: " + "\(event.origin)")
             updateGraph()
+            updateDateText()
         }
         super.onEvent(event)
     }

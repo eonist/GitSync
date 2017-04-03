@@ -6,7 +6,7 @@ import Cocoa
 /*Panning controller*/
 extension Graph9{
     override func scrollWheel(with event:NSEvent) {
-        //Swift.print("Graph9.scrollWheel()")
+        Swift.print("Graph9.scrollWheel()")
         super.scrollWheel(with:event)
         updateDateText()
     }
