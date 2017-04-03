@@ -14,6 +14,7 @@ extension Graph9{
      * Updates the DateText UI Element
      */
     func updateDateText(){
+        Swift.print("🍐🍌🍊 updateDateText")
         if(visibleRange == nil || visibleRange != timeBar!.visibleItemRange){/*If the range has changed, then update text*/
             visibleRange = timeBar!.visibleItemRange
             let yearRange = (timeBar!.dp as! TimeDP).yearRange
@@ -22,8 +23,11 @@ extension Graph9{
             switch curTimeType{
             case .year:
                 /*Year*/
+                Swift.print("visibleRange!: " + "\(visibleRange!)")
                 let startYearStr:String = YearDP.year(visibleRange!.start,yearRange).string
+                Swift.print("startYearStr: " + "\(startYearStr)")
                 let endYearStr:String = YearDP.year(visibleRange!.end,yearRange).string
+                Swift.print("endYearStr: " + "\(endYearStr)")
                 dateStr = "\(startYearStr) - \(endYearStr)"
             case .month:
                 /*Month*/
