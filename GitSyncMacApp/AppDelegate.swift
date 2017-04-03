@@ -55,7 +55,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     //Continue here:
         //figure out what is next
         //try the above call in your cur panable/zoomabale graph
-        
+        //try to conform the pan/zoom graph to the correct fit etc. 
+        //make it pan-able via entire view
+        //
     
     
     /**
