@@ -11,16 +11,6 @@ extension Graph9{
         timeBar = addSubView(TimeBar3(w,24,24,dp,self,nil,.hor,100))
         alignTimeBar()
     }
-    func alignTimeBar(){
-        let objSize = CGSize(w,24)
-        Swift.print("objSize: " + "\(objSize)")
-        let canvasSize = CGSize(w,h)
-        Swift.print("canvasSize: " + "\(canvasSize)")
-        let p = Align.alignmentPoint(objSize, canvasSize, Alignment.bottomLeft, Alignment.bottomLeft, CGPoint())
-        Swift.print("p: " + "\(p)")
-        //align timeBar to bottom with Align
-        timeBar!.point = p
-    }
     /**
      * Creates the ValueBar
      */
@@ -58,5 +48,15 @@ extension Graph9{
             graphPoints!.append(graphPoint)
             graphPoint.setPosition($0)
         }
+    }
+    func alignTimeBar(){
+        let objSize = CGSize(w,24)
+        Swift.print("objSize: " + "\(objSize)")
+        let canvasSize = CGSize(w,h)
+        Swift.print("canvasSize: " + "\(canvasSize)")
+        let p = Align.alignmentPoint(objSize, canvasSize, Alignment.bottomLeft, Alignment.bottomLeft, CGPoint())
+        Swift.print("p: " + "\(p)")
+        //align timeBar to bottom with Align
+        timeBar!.point = p
     }
 }
