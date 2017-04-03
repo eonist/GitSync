@@ -5,9 +5,7 @@ import Foundation
 //design a sudo parser in playground that supports month,year,day
 class RateOfCommits{
     var repoCommits:[[CommitCountWork]]?
-    //var totCount:Int?
     var result:[Int] = Array(repeating: 0, count: 7)/*prepop result arr*/
-    //var idx:Int = 0
     var startTime:Date? = nil/*Performace tests the commitCount task*/
     var onComplete:(_ result:[Int])->Void = {_ in print("⚠️️⚠️️⚠️️ no onComplete is currently attached")}
     /**
@@ -41,6 +39,9 @@ class RateOfCommits{
         group.notify(queue: main, execute: {
             self.onRateOfCommitComplete()
         })
+    }
+    func initCommitCountProcess(){
+    
     }
     /**
      * Everytime a work task completes
