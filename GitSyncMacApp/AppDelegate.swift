@@ -18,8 +18,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         //_ = Test2()
         
-        //rateOfCommitsTest()
-        initApp()
+        commitCounterTest()
+        //initApp()
         //initTestWin()//🔨
         //_ = ASyncTest()
         //_ = AsyncTest2()
@@ -36,11 +36,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /**
      * CommitCount per day for all projects in the last 7 days where the user is "eonist"
      */
-    func rateOfCommitsTest(){
+    func commitCounterTest(){
         let commitCounter = CommitCounter()
         func onComplete(_ results:[Int]){
             Swift.print("Appdelegate.onComplete()")
             Swift.print("results.count: " + "\(results.count)")
+            Swift.print("results: " + "\(results)")
         }
         commitCounter.onComplete = onComplete
         commitCounter.initRateOfCommitsProcess(0)
