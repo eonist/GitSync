@@ -1,4 +1,5 @@
 import Foundation
+import GitSyncMac
 
 class TimeDPUtils {
     static func timeDP(_ timeType:TimeType, _ range:Range<Int>)->TimeDP{

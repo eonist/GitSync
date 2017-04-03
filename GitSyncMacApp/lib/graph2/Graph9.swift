@@ -1,6 +1,7 @@
 import Cocoa
 @testable import Element
 @testable import Utils
+import GitSyncMac
 //Graph9
     //try generate fake graphdata on snapTo anim stop
     //draw the fake graph data as a graphline with points ✅
