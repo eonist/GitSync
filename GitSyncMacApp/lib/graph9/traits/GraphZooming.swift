@@ -35,17 +35,19 @@ extension Graph9{
         let prevTimeType:TimeType = curTimeType
         curTimeType = TimeType.types[curZoom]
         /**/
-        let mouseLocIdx:Int = StatUtils.mouseLocIdx(mouseX, w, 100)
-        Swift.print("mouseLocIdx: " + "\(mouseLocIdx)")
-        var progress:CGFloat = StatUtils.progress(timeBar!, (prevTimeType,curTimeType), mouseLocIdx)/*0-1*/
-        progress = progress.clip(0, 1)
-        Swift.print("progress: " + "\(progress)")
+        
         /**/
         timeBar!.removeFromSuperview()
         timeBar = nil
         let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
         timeBar = addSubView(TimeBar3(w,24,24,dp,self,nil,.hor,100))
         alignTimeBar()
+        
+        let mouseLocIdx:Int = StatUtils.mouseLocIdx(mouseX, w, 100)
+        Swift.print("mouseLocIdx: " + "\(mouseLocIdx)")
+        var progress:CGFloat = StatUtils.progress(timeBar!, (prevTimeType,curTimeType), mouseLocIdx)/*0-1*/
+        progress = progress.clip(0, 1)
+        Swift.print("progress: " + "\(progress)")
         /*let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
          ViewModifier.removeAll(timeBar!.lableContainer!)
          timeBar!.pool = []
