@@ -18,9 +18,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         //_ = Test2()
         
-        commitCounterTest()
+        //commitCounterTest()
         //initApp()
-        //initTestWin()//🔨
+        initTestWin()//🔨
         //_ = ASyncTest()
         //_ = AsyncTest2()
         //AutoSync.sync()
@@ -35,6 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     /**
      * CommitCount per day for all projects in the last 7 days where the user is "eonist"
+     * NOTE: now support month,year, day
      */
     func commitCounterTest(){
         let commitCounter = CommitCounter()
@@ -50,18 +51,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("until: " + "\(until.year)")
         commitCounter.countCommits(from,until,.year)
     }
-    
-    
-    //Continue here:
-    
-        //try the above call in your cur panable/zoomabale graph
-        //try to conform the pan/zoom graph to the correct fit etc. 
-        //make it pan-able via entire view
-        //update graph on bounce-back complete aswell.
-        //make sure the time-level offset is correct
-        //make the ranges adher to real time ranges, not 2019 etc. 👈
-    
-    
     /**
      *
      */
