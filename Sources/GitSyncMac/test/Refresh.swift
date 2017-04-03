@@ -119,7 +119,7 @@ class RefreshUtils{
              commitCount  = (100)//you need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
         }
         //group.wait()
-        group.notify(queue: bg, execute: {
+        group.notify(queue: bg, execute: {//TODO: reaplce bg with main, then remove main.async. just call onComplete?
             let clippedCommitCount = Swift.min(totCommitCount,commitCount)
             onComplete(clippedCommitCount)/*🚪➡️️*/
         })
@@ -146,7 +146,7 @@ class RefreshUtils{
             }
         }
         //group.wait()
-        group.notify(queue: bg, execute: {
+        group.notify(queue: bg, execute: {//TODO: reaplce bg with main, then remove main.async. just call onComplete?
             main.async {/*Jump back on the main thread bc: onComplete resides there*/
                 //Swift.print("🏁 Utils.commitItems() all results completed results.count: \(results.count)")
                 onComplete(results.reversed()) //reversed is a temp fix
