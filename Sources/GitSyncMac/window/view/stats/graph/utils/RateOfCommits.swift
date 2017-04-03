@@ -82,7 +82,7 @@ extension RateOfCommits{
     /**
      * Returns an array of CommitCountWork instances for 7 days in an Array of 7 Int from PARAM: repoItem
      */
-    func rateOfCommits(_ repoItem:RepoItem, _ dayOffset:Int) -> [CommitCountWork]{
+    /*func rateOfCommits(_ repoItem:RepoItem, _ dayOffset:Int) -> [CommitCountWork]{
         //Swift.print("repoItem.title: \(repoItem.title) localPath: \(repoItem.localPath)")
         //var commits:[Int] = []
         var commitCountWorks:[CommitCountWork] = []
@@ -100,7 +100,7 @@ extension RateOfCommits{
         }
         //Swift.print("commits: " + "\(commits)")
         return commitCountWorks
-    }
+    }*/
 }
 
 
