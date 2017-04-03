@@ -28,7 +28,9 @@ class StatUtils{
         case (.year,.month):/*from year to month*/
             Swift.print("⏳ from year to month")
             let monthIdx:Int = YearDP.firstMonthInYear(idx)
+            Swift.print("monthIdx: " + "\(monthIdx)")
             dpProgress = monthIdx.cgFloat/dp.count.cgFloat
+            Swift.print("dpProgress: " + "\(dpProgress)")
         case (.month,.day):/*from month to day*/
             Swift.print("⏳ from month to day")
             Swift.print("Month offset idx: \(idx)")
