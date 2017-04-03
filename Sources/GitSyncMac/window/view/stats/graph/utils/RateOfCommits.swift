@@ -23,7 +23,7 @@ class RateOfCommits{
         repoCommits = rateOfCommits(repoList,dayOffset)
         totCount = repoCommits!.flatMap{$0}.count
         /*Loop 3d-structure*/
-        for i in repoCommits!.indices{
+        for i in repoCommits!.indices{//⚠️️ flatMap this 
             for e in repoCommits![i].indices{
                 bgQueue.async {
                     let work:CommitCountWork = self.repoCommits![i][e]
