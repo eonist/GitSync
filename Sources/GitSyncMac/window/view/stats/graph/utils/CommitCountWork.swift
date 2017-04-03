@@ -17,15 +17,11 @@ class CommitCountWorkUtils {
                 let numOfMonths = from.numOfMonths(until)
             case .day:
                 let numOfDays = from.numOfDays(until)
-                for i in (0...numOfDays){//7 days
-                    let sinceDate:Date = from.offsetByDays(i)
-                    let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
-                    let untilDate:Date = from.offsetByDays(i+1)
-                    let untilGitDate:String = GitDateUtils.gitTime(untilDate)
-                    let comitCountWork:CommitCountWork = (repoItem.localPath,sinceGitDate,untilGitDate,0)
-                    commitCountWorks.append(comitCountWork)
-                }
+            
         }
         return ("","","",0)
     }
+}
+private class Utils{
+    
 }
