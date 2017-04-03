@@ -7,40 +7,33 @@ class CommitCountWorkUtils {
     /**
      *
      */
-    static func commitCountWork(_ from:Date, _ until:Date, _ timeType:TimeType)->CommitCountWork{
-        let numOfTimeUnits:Int
+    static func commitCountWork(_ repoItem:RepoItem,_ from:Date, _ until:Date, _ timeType:TimeType)->CommitCountWork{
+        var commitCountWorks:[CommitCountWork] = []
         switch timeType{
             case .year:
-                numOfUnits = from.numOfYears(until)
+                let numOfYears = from.numOfYears(until)
             case .month:
                 print("range from 3 to 8")
-                numOfUnits = from.numOfMonths(until)
+                let numOfMonths = from.numOfMonths(until)
             case .day:
-                numOfUnits = from.numOfDays(until)
+                let numOfDays = from.numOfDays(until)
+                for i in (0...numOfDays){//7 days
+                    let dayOffset:Int = dayOffset-i//days ago
+                    let sinceDate:Date = Date().offsetByDays(dayOffset)
+                    let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
+                    let untilDate:Date = Date().offsetByDays(dayOffset+1)
+                    let untilGitDate:String = GitDateUtils.gitTime(untilDate)
+                    let comitCountWork:CommitCountWork = (repoItem.localPath,sinceGitDate,untilGitDate,0)
+                    commitCountWorks.append(comitCountWork)
+                    //let commitCount:String = GitUtils.commitCount(repoItem.localPath, since: , until:)
+                    //Swift.print("commitCount: " + "\(commitCount)")
+                    //commits.append(commitCount.int)
+                }
+            
             
         }
         
-        var commitCountWorks:[CommitCountWork] = []
-        for i in (0...numOfTimeUnits){//7 days
-            let dayOffset:Int = dayOffset-i//days ago
-            let sinceDate:Date = Date().offsetByDays(dayOffset)
-            let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
-            let untilDate:Date = Date().offsetByDays(dayOffset+1)
-            let untilGitDate:String = GitDateUtils.gitTime(untilDate)
-            let comitCountWork:CommitCountWork = (repoItem.localPath,sinceGitDate,untilGitDate,0)
-            commitCountWorks.append(comitCountWork)
-            //let commitCount:String = GitUtils.commitCount(repoItem.localPath, since: , until:)
-            //Swift.print("commitCount: " + "\(commitCount)")
-            //commits.append(commitCount.int)
-        }
         
-        
-        
-        let sinceDate:Date = Date().offsetByDays(dayOffset)
-        let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
-        let untilDate:Date = Date().offsetByDays(dayOffset+1)
-        let untilGitDate:String = GitDateUtils.gitTime(untilDate)
-        let comitCountWork:CommitCountWork = (repoItem.localPath,sinceGitDate,untilGitDate,0)
         
         
         return ("","","",0)
