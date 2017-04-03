@@ -34,11 +34,11 @@ class RateOfCommits{
                     let work:CommitCountWork = self.repoCommits![i][e]
                     //Swift.print("launched a work item: " + "\(work.localPath)")
                     let commitCount:String = GitUtils.commitCount(work.localPath, since:work.since , until:work.until)//👈👈👈 do some work
-                    
                     mainQueue.async {/*Jump back on main thread, because the onComplete resides there*/
                         self.repoCommits![i][e].commitCount = commitCount.int
                         self.onRateOfCommitComplete()//⬅️️
                     }
+                    group.leave()
                 }
             }
         }
