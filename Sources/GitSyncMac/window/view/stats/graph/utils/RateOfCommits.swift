@@ -68,9 +68,9 @@ extension RateOfCommits{
     func rateOfCommits(_ repoList:[RepoItem],_ dayOffset:Int)->[[CommitCountWork]]{
         var repoCommits:[[CommitCountWork]] = []
         repoList.forEach{ repoItem in
-            let fromDate:Date = Date()
-            let untilDate:Date = Date()
-            let commits:[CommitCountWork] = CommitCountWorkUtils.commitCountWork(repoItem, <#T##from: Date##Date#>, <#T##until: Date##Date#>, <#T##timeType: TimeType##TimeType#>)//rateOfCommits($0,dayOffset)
+            let fromDate:Date = Date().offsetByDays(dayOffset-7)
+            let untilDate:Date = Date().offsetByDays(dayOffset)
+            let commits:[CommitCountWork] = CommitCountWorkUtils.commitCountWork(repoItem, fromDate, untilDate, .day)//rateOfCommits($0,dayOffset)
             _ = repoCommits += commits
         }
         return repoCommits
