@@ -3,22 +3,26 @@ import Foundation
 @testable import Element
 
 typealias CommitCountWork = (localPath:String,since:String,until:String,commitCount:Int)
+extension TimeType{
+    
+}
 class CommitCountWorkUtils {
     /**
      *
      */
     static func commitCountWork(_ repoItem:RepoItem,_ from:Date, _ until:Date, _ timeType:TimeType)->CommitCountWork{
-        
+        var numOfTimeUnits:Int
         switch timeType{
             case .year:
-                let numOfYears = from.numOfYears(until)
+                numOfTimeUnits = from.numOfYears(until)
             case .month:
                 print("range from 3 to 8")
-                let numOfMonths = from.numOfMonths(until)
+                numOfTimeUnits = from.numOfMonths(until)
             case .day:
-                let numOfDays = from.numOfDays(until)
+                numOfTimeUnits = from.numOfDays(until)
             
         }
+        Utils.commitCountWork(reporepoItemItem, from, numOfTimeUnits, <#T##offsetBy: (Date, Int) -> Date##(Date, Int) -> Date#>)
         return ("","","",0)
     }
 }
