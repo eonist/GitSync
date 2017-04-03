@@ -81,7 +81,7 @@ extension RateOfCommits{
         //var commits:[Int] = []
         var commitCountWorks:[CommitCountWork] = []
         for i in (1...7).reversed(){//7 days
-            let dayOffset:Int = dayOffset-i
+            let dayOffset:Int = dayOffset-i//days ago
             let sinceDate:Date = Date().offsetByDays(dayOffset)
             let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
             let untilDate:Date = Date().offsetByDays(dayOffset+1)
