@@ -23,7 +23,7 @@ class RateOfCommits{
         //the dupe free code bellow should/could be moved to RepoUtils
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
-        repoCommits = rateOfCommits(repoList,dayOffset)
+        repoCommits = CommitCountWorkUtils.commitCountWork(repoList,dayOffset)
         totCount = repoCommits!.flatMap{$0}.count
         /*Loop 3d-structure*/
         let group = DispatchGroup()
