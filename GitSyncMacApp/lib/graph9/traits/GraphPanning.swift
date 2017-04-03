@@ -7,7 +7,8 @@ import Cocoa
 extension Graph9{
     override func scrollWheel(with event:NSEvent) {
         Swift.print("Graph9.scrollWheel()")
-        super.scrollWheel(with:event)
+        //super.scrollWheel(with:event)
+        (timeBar! as! TimeBar3).adHockScrollWheel(event)
         updateDateText()
     }
     /**

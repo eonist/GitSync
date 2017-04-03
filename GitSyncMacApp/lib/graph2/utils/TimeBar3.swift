@@ -11,7 +11,14 @@ class TimeBar3:ElasticScrollFastList{
         mover!.event = onEvent/*Add an eventHandler for the mover object, , this has no functionality in this class, but may have in classes that extends this class, like hide progress-indicator when all animation has stopped*/
     }
     override func scrollWheel(with event: NSEvent) {
-        super.scrollWheel(with: event)
+        //super.scrollWheel(with: event)
+    }
+    /**
+     *
+     */
+    func adHockScrollWheel(_ event:NSEvent){
+        //Swift.print("ElasticSlideScrollFastList.scrollWheel()")
+        (self as ElasticScrollableFast).scroll(event)
         /*⚠️️ temp fix for SnappyRubberBand support, move this into a new protocol extension*/
         if(event.phase == .changed || event.phase == NSEventPhase(rawValue:0)){
             let prevDir = (mover! as! SnappyRubberBand).prevDir
