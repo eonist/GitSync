@@ -34,7 +34,7 @@ private class Utils{
      */
     static func commitCountWork(_ repoItem:RepoItem, _ from:Date, _ numOfTimeUnits:Int, _ offsetBy:OffsetDateMethod)->[CommitCountWork]{
         var commitCountWorks:[CommitCountWork] = []
-        for i in (0...numOfTimeUnits){//7 days
+        for i in (0..<numOfTimeUnits){//7 days
             let sinceDate:Date = from.offsetByDays(i)
             let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
             let untilDate:Date = from.offsetByDays(i+1)
