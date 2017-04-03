@@ -8,14 +8,6 @@ class CommitCountWorkUtils {
     /**
      * Returns 7 CommitCountWork instances for every repo in PARAM: repoList
      */
-    /*static func commitCountWork(_ repoList:[RepoItem],_ dayOffset:Int)->[[CommitCountWork]]{
-     let from:Date = Date().offsetByDays(dayOffset-7)
-     let until:Date = Date().offsetByDays(dayOffset)
-     return commitCountWork(repoList,from,until,.day)
-     }*/
-    /**
-     *
-     */
     static func commitCountWork(_ repoList:[RepoItem],_ from:Date, _ until:Date,_ timeType:TimeType)->[[CommitCountWork]]{
         var repoCommits:[[CommitCountWork]] = []
         repoList.forEach{ repoItem in

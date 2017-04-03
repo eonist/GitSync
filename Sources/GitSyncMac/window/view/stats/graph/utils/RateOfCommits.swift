@@ -45,11 +45,9 @@ class RateOfCommits{
     /**
      * Everytime a work task completes
      */
-    func onRateOfCommitComplete(){
-        /*At this point all tasks hvae complted*/
+    func onRateOfCommitComplete(){/*At this point all tasks have complted*/
         //Swift.print("all concurrent tasks completed: totCount \(totCount)")
-        /*loop 3d-structure*/
-        for i in repoCommits!.indices{//⚠️️ TODO: use flatMap here to make the 3d array into 2d array,maybe not, as you want 7 items to be returned not 7*repos.count
+        for i in repoCommits!.indices{/*loop 3d-structure*/
             for e in repoCommits![i].indices{
                 result[e] = result[e] + repoCommits![i][e].commitCount//👈👈👈 place count in array
             }
