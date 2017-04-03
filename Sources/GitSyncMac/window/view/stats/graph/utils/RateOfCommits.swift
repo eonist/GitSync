@@ -60,7 +60,7 @@ class RateOfCommits{
 }
 extension RateOfCommits{
     /**
-     * Returns an array with with week summaries of commit counts from PARAM: repoList
+     * Returns 7 CommitCountWork instances for every repo in PARAM: repoList
      */
     func rateOfCommits(_ repoList:[RepoItem],_ dayOffset:Int)->[[CommitCountWork]]{
         var repoCommits:[[CommitCountWork]] = []
