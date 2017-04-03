@@ -25,6 +25,7 @@ class RateOfCommits{
         Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
         repoCommits = CommitCountWorkUtils.commitCountWork(repoList,dayOffset)
         totCount = repoCommits!.flatMap{$0}.count
+        idx = 0//reset
         /*Loop 3d-structure*/
         //let group = DispatchGroup()
         for i in repoCommits!.indices{//⚠️️ TODO: flatMap this and use Modern means of grouping Tasks (maybe not, as you want 7 items to be returned not 7*repos.count)
