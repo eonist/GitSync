@@ -17,6 +17,13 @@ class RepoUtils {
         return repoList//.filter{$0.title == "Research" || $0.title == "Research wiki"}/*👈 filter enables you to test one item at the time, for debugging*/
     }
     /**
+     * Returns dupe free flattened repo list
+     */
+    static var repoListFlattenedDupeFree:[RepoItem]{
+        let repoList:[RepoItem] = RepoUtils.repoListFlattened//.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
+        return repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
+    }
+    /**
      * Returns a flat Array of RepoItems derived from a nested xml Structure
      * NOTE: parent override child for every key in overrideKeys
      * We want parent folders to override all its children.
