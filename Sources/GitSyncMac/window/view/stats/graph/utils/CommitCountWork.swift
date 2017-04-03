@@ -49,7 +49,7 @@ private class Utils{
         for i in (0..<numOfTimeUnits){//7 days
             let sinceDate:Date = offsetBy(from,i)
             let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
-            let untilDate:Date = from.offsetByDays(i+1)
+            let untilDate:Date = offsetBy(from,i+1)
             let untilGitDate:String = GitDateUtils.gitTime(untilDate)
             let comitCountWork:CommitCountWork = (repoItem.localPath,sinceGitDate,untilGitDate,0)
             commitCountWorks.append(comitCountWork)
