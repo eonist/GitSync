@@ -3,8 +3,8 @@ import Foundation
 @testable import Element
 
 class MainView:TitleView{
-    static let w:CGFloat = 1200//540
-    static let h:CGFloat = 800//350
+    static let w:CGFloat = 540
+    static let h:CGFloat = 350
     var title:String/*the title must be set after the init of the Window instance*/
     var menuView:MenuView?
     var currentView:Element?
@@ -21,9 +21,9 @@ class MainView:TitleView{
         Sounds.startup?.play()
         MainWin.mainView = self
         menuView = addSubView(MenuView(frame.size.width,48,self))
-        Navigation.setView(MenuView.commits)/*adds the correct view to MainView*/
+        Navigation.setView(MenuView.stats)/*adds the correct view to MainView*/
         //Navigation.setView(MenuView.repos)
-        Navigation.setView("\(MenuView.commits)")
+        Navigation.setView("\(MenuView.stats)")
         //menuView!.selectGroup!.selectedAt(0)/*Selects the correct menu icon*/
     }
     required init(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
