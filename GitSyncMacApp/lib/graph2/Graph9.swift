@@ -40,10 +40,6 @@ class Graph9:Element{
         /*Debug*/
         self.acceptsTouchEvents = true/*Enables gestures*/
         self.wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
-        
-        Swift.print("w: " + "\(w)")
-        Swift.print("h: " + "\(h)")
-        Swift.print("w/7: " + "\(w/7)")
     }
     override func onEvent(_ event:Event) {
         if(event === (AnimEvent.completed, (timeBar! as! TimeBar3).mover!)){
