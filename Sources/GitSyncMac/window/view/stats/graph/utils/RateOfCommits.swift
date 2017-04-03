@@ -1,6 +1,9 @@
 import Foundation
 @testable import Utils
 
+//use TaskGroups
+//use TimePeriod instead of dayOffset
+//design a sudo parser in playground that supports month,year,day
 class RateOfCommits{
     typealias CommitCountWork = (localPath:String,since:String,until:String,commitCount:Int)
     var repoCommits:[[CommitCountWork]]?
