@@ -18,24 +18,14 @@ class CommitCountWorkUtils {
             case .day:
                 let numOfDays = from.numOfDays(until)
                 for i in (0...numOfDays){//7 days
-                    let dayOffset:Int = dayOffset-i//days ago
-                    let sinceDate:Date = Date().offsetByDays(dayOffset)
+                    let sinceDate:Date = from.offsetByDays(i)
                     let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
-                    let untilDate:Date = Date().offsetByDays(dayOffset+1)
+                    let untilDate:Date = from.offsetByDays(i+1)
                     let untilGitDate:String = GitDateUtils.gitTime(untilDate)
                     let comitCountWork:CommitCountWork = (repoItem.localPath,sinceGitDate,untilGitDate,0)
                     commitCountWorks.append(comitCountWork)
-                    //let commitCount:String = GitUtils.commitCount(repoItem.localPath, since: , until:)
-                    //Swift.print("commitCount: " + "\(commitCount)")
-                    //commits.append(commitCount.int)
                 }
-            
-            
         }
-        
-        
-        
-        
         return ("","","",0)
     }
 }
