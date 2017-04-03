@@ -23,6 +23,12 @@ class CommitCountWorkUtils {
         return repoCommits
     }
     /**
+     *
+     */
+    static func commitCountWork(){
+        
+    }
+    /**
      * Returns CommitCountWork instantce array for a time range
      */
     static func commitCountWork(_ repoItem:RepoItem,_ from:Date, _ until:Date, _ timeType:TimeType)->[CommitCountWork]{

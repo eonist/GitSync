@@ -40,8 +40,8 @@ class RateOfCommits{
             self.onRateOfCommitComplete()
         })
     }
-    func initCommitCountProcess(){
-    
+    func initCommitCountProcess(_ from:Date, _ unitl:Date){
+        
     }
     /**
      * Everytime a work task completes
