@@ -42,30 +42,29 @@ class RateOfCommits{
                 }
             }
         }
+        group.notify(queue: main, execute: {//TODO: replace bg with main, then remove main.async. just call onComplete?
+            self.onRateOfCommitComplete()
+        })
     }
     /**
      * Everytime a work task completes
      */
     func onRateOfCommitComplete(){
-        idx += 1
-        //Swift.print("onComplete: " + "\(i)")
-        if(idx == totCount){
-            /*At this point all tasks hvae complted*/
-            Swift.print("all concurrent tasks completed: totCount \(totCount)")
-            /*loop 3d-structure*/
-            for i in repoCommits!.indices{//⚠️️ TODO: use flatMap here to make the 3d array into 2d array,maybe not, as you want 7 items to be returned not 7*repos.count
-                for e in repoCommits![i].indices{
-                    result[e] = result[e] + repoCommits![i][e].commitCount//👈👈👈 place count in array
-                }
+        /*At this point all tasks hvae complted*/
+        Swift.print("all concurrent tasks completed: totCount \(totCount)")
+        /*loop 3d-structure*/
+        for i in repoCommits!.indices{//⚠️️ TODO: use flatMap here to make the 3d array into 2d array,maybe not, as you want 7 items to be returned not 7*repos.count
+            for e in repoCommits![i].indices{
+                result[e] = result[e] + repoCommits![i][e].commitCount//👈👈👈 place count in array
             }
-            Swift.print("result: " + "\(result)")
-            Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")
-            onComplete(result)//🚪➡️️
         }
+        Swift.print("result: " + "\(result)")
+        Swift.print("Time: " + "\(abs(startTime!.timeIntervalSinceNow))")
+        onComplete(result)//🚪➡️️
     }
 }
 /*extension RateOfCommits{
-    
+ 
     /**
      * Returns an array of CommitCountWork instances for 7 days in an Array of 7 Int from PARAM: repoItem
      */
