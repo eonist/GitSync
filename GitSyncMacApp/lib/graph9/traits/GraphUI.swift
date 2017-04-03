@@ -3,7 +3,10 @@ import Cocoa
 @testable import Utils
 /*CreateContent*/
 extension Graph9{
-    func createList(){
+    /**
+     * Creates the TimeBar
+     */
+    func createTimeBar(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/basic/list/vlist.css")//changes the css to align sideways
         StyleManager.addStyle("Graph9 VList{float:none;clear:none;}")
         /**/
