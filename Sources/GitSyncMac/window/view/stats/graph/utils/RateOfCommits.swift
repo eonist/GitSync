@@ -12,19 +12,19 @@ class RateOfCommits{
      * Initiates the process
      */
     func initRateOfCommitsProcess(_ dayOffset:Int){
+        let from:Date = Date().offsetByDays(dayOffset-7)
+        let until:Date = Date().offsetByDays(dayOffset)
+        initCommitCountProcess(from,until)
     }
-    func initCommitCountProcess(_ from:Date, _ unitil:Date){
-        //Swift.print("🍐 initRateOfCommitsProcess")
+    func initCommitCountProcess(_ from:Date, _ until:Date){
         startTime = Date()
         var repoList:[RepoItem] = RepoUtils.repoListFlattened//.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
-        //Swift.print("repoList.count: " + "\(repoList.count)")
-        //the dupe free code bellow should/could be moved to RepoUtils
+        //TODO: the dupe free code bellow should/could be moved to RepoUtils
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         //Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
         repoCommits = CommitCountWorkUtils.commitCountWork(repoList,from,until,.day)/*populate a 3d array with items*/
-        /*Loop 3d-structure*/
         let group = DispatchGroup()
-        for i in repoCommits!.indices{//⚠️️ TODO: flatMap this and use Modern means of grouping Tasks (maybe not, as you want 7 items to be returned not 7*repos.count)
+        for i in repoCommits!.indices{/*Loop 3d-structure*/
             for e in repoCommits![i].indices{
                 bgQueue.async {
                     group.enter()
@@ -41,7 +41,6 @@ class RateOfCommits{
         group.notify(queue: main, execute: {
             self.onRateOfCommitComplete()
         })
-
     }
     /**
      * Everytime a work task completes
