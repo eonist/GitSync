@@ -8,7 +8,7 @@ class CommitCountWorkUtils {
     /**
      *
      */
-    static func commitCountWork(_ repoItem:RepoItem,_ from:Date, _ until:Date, _ timeType:TimeType)->CommitCountWork{
+    static func commitCountWork(_ repoItem:RepoItem,_ from:Date, _ until:Date, _ timeType:TimeType)->[CommitCountWork]{
         var numOfTimeUnits:Int
         var offsetDateMethod:Utils.OffsetDateMethod
         switch timeType{
@@ -23,8 +23,9 @@ class CommitCountWorkUtils {
                 numOfTimeUnits = from.numOfDays(until)
                 offsetDateMethod = DateModifier.offsetByDays
         }
-        Utils.commitCountWork(reporepoItemItem, from, numOfTimeUnits, offsetDateMethod)
-        return ("","","",0)
+        let commitCountWorks = Utils.commitCountWork(repoItem, from, numOfTimeUnits, offsetDateMethod)
+        return commitCountWorks
+        
     }
 }
 private class Utils{
