@@ -3,8 +3,8 @@ import Foundation
 @testable import Element
 
 class MainView:TitleView{
-    static let w:CGFloat = 540
-    static let h:CGFloat = 350
+    static let w:CGFloat = 1200//540
+    static let h:CGFloat = 800//350
     var title:String/*the title must be set after the init of the Window instance*/
     var menuView:MenuView?
     var currentView:Element?
