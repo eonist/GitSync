@@ -6,7 +6,7 @@ typealias CommitCountWork = (localPath:String,since:String,until:String,commitCo
 
 class CommitCountWorkUtils {
     /**
-     * Returns CommitCountWork for a time range
+     * Returns CommitCountWork instantce array for a time range
      */
     static func commitCountWork(_ repoItem:RepoItem,_ from:Date, _ until:Date, _ timeType:TimeType)->[CommitCountWork]{
         var numOfTimeUnits:Int
@@ -29,6 +29,9 @@ class CommitCountWorkUtils {
 }
 private class Utils{
     typealias OffsetDateMethod = (_ date:Date,_ offset:Int)->Date/*Method signature*/
+    /**
+     * Returns CommitCountWork instantce array from a date , timeUnit, numOfTimeUnits
+     */
     static func commitCountWork(_ repoItem:RepoItem, _ from:Date, _ numOfTimeUnits:Int, _ offsetBy:OffsetDateMethod)->[CommitCountWork]{
         var commitCountWorks:[CommitCountWork] = []
         for i in (0...numOfTimeUnits){//7 days
