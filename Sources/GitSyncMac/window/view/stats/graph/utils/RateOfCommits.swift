@@ -9,7 +9,7 @@ class RateOfCommits{
     var repoCommits:[[CommitCountWork]]?
     var totCount:Int?
     var result:[Int] = [0,0,0,0,0,0,0]
-    var idx:Int = 0
+    //var idx:Int = 0
     var startTime:Date? = nil
     
     var onComplete:(_ result:[Int])->Void = {_ in print("⚠️️⚠️️⚠️️ no onComplete is currently attached")}
@@ -24,7 +24,7 @@ class RateOfCommits{
         repoList = repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
         repoCommits = CommitCountWorkUtils.commitCountWork(repoList,dayOffset)
-        totCount = repoCommits!.flatMap{$0}.count
+        //totCount = repoCommits!.flatMap{$0}.count
         /*Loop 3d-structure*/
         let group = DispatchGroup()
         for i in repoCommits!.indices{//⚠️️ TODO: flatMap this and use Modern means of grouping Tasks (maybe not, as you want 7 items to be returned not 7*repos.count)
