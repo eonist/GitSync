@@ -2,13 +2,6 @@ import Cocoa
 @testable import Element
 @testable import Utils
 import GitSyncMac
-//Graph9
-    //try generate fake graphdata on snapTo anim stop ✅
-    //draw the fake graph data as a graphline with points ✅
-    
-    //add git to the fold (you need to make gitStat parsers for months and years)
-
-
 
 class Graph9:Element{
     lazy var gestureHUD:GestureHUD  =  GestureHUD(self)
@@ -56,6 +49,4 @@ class Graph9:Element{
         }
         super.onEvent(event)
     }
-    
 }
-
