@@ -14,9 +14,9 @@ class CommitCounter{
     func initRateOfCommitsProcess(_ dayOffset:Int){
         let from:Date = Date().offsetByDays(dayOffset-7)
         let until:Date = Date().offsetByDays(dayOffset)
-        initCommitCountProcess(from,until)
+        initCommitCount(from,until)
     }
-    func initCommitCountProcess(_ from:Date, _ until:Date){
+    func initCommitCount(_ from:Date, _ until:Date){
         startTime = Date()
         var repoList:[RepoItem] = RepoUtils.repoListFlattened//.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
         //TODO: the dupe free code bellow should/could be moved to RepoUtils

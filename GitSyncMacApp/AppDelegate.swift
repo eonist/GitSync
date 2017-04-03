@@ -44,7 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Swift.print("results: " + "\(results)")
         }
         commitCounter.onComplete = onComplete
-        commitCounter.initRateOfCommitsProcess(0)
+        commitCounter.initCommitCount(0)
     }
     /**
      *
