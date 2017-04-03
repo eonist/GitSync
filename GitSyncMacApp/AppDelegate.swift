@@ -54,6 +54,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     //Continue here:
         //figure out what is next
+        //try the above call in your cur panable/zoomabale graph
+        
     
     
     /**
