@@ -6,7 +6,7 @@ typealias CommitCountWork = (localPath:String,since:String,until:String,commitCo
 
 class CommitCountWorkUtils {
     /**
-     *
+     * Returns CommitCountWork for a time range
      */
     static func commitCountWork(_ repoItem:RepoItem,_ from:Date, _ until:Date, _ timeType:TimeType)->[CommitCountWork]{
         var numOfTimeUnits:Int
@@ -16,7 +16,6 @@ class CommitCountWorkUtils {
                 numOfTimeUnits = from.numOfYears(until)
                 offsetDateMethod = DateModifier.offsetByYears
             case .month:
-                print("range from 3 to 8")
                 numOfTimeUnits = from.numOfMonths(until)
                 offsetDateMethod = DateModifier.offsetByMonths
             case .day:

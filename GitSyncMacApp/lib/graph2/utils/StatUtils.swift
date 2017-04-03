@@ -1,6 +1,7 @@
 import Foundation
 @testable import Element
 @testable import Utils
+import GitSyncMac
 
 class StatUtils{
     /**
