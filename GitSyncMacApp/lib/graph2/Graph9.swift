@@ -42,6 +42,10 @@ class Graph9:Element{
         self.wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
     }
     override func onEvent(_ event:Event) {
+        if(event is AnimEvent){
+            Swift.print("event.type: " + "\(event.type)")
+            Swift.print("event.origin: " + "\(event.origin)")
+        }
         if(event === (AnimEvent.completed, (timeBar! as! TimeBar3).mover!)){
             Swift.print("Graph9.timeBar completed")
             //Swift.print("event.origin: " + "\(event.origin)")
