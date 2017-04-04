@@ -1,5 +1,5 @@
 import Foundation
 
-class TimeTypeExtensions {
+extension TimeType {
 
 }
