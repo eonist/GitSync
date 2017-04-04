@@ -55,8 +55,9 @@ extension Graph9{
              timeBar!.inActive = []
              timeBar!.dataProvider = dp*/
             let progressVal:CGFloat = SliderParser.y(progress, timeBar!.maskSize[timeBar!.dir], timeBar!.contentSize[timeBar!.dir])
-            (timeBar! as! ElasticScrollFastList).mover!.value = progressVal//temp fix
-            (timeBar! as! ElasticScrollFastList).setProgress(progressVal)
+            Swift.print("progressVal: " + "\(progressVal)")
+            (timeBar! as! TimeBar3).mover!.value = progressVal//temp fix
+            (timeBar! as! TimeBar3).setProgress(progressVal)
             
             //let visRange:Range<Int> = timeBar!.visibleItemRange.start..<(timeBar!.visibleItemRange.end > timeBar!.dp.count ? timeBar!.visibleItemRange.end - 1 : timeBar!.visibleItemRange.end)
             //timeBar!.renderItems(visRange)
