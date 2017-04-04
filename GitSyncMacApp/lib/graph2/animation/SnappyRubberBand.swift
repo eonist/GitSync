@@ -37,6 +37,7 @@ class SnappyRubberBand:RubberBand{
             Swift.print("final value: " + "\(value)")
             callBack(value)//final tick
             hasStopped = true
+            velocity = 0
             stop()
             /*super.onEvent(AnimEvent(AnimEvent.completed,self))*//*<-tempfix*/
         }else{
