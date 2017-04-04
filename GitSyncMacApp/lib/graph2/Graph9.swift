@@ -53,10 +53,11 @@ class Graph9:Element{
             if(prevVisibleRange != visibleRange){
                 Swift.print("✅ a change has happened")
                 prevVisibleRange = visibleRange
-            }else{
-                Swift.print("🚫 a change has not happened")
                 updateGraph()
                 updateDateText()
+            }else{
+                Swift.print("🚫 a change has not happened")
+                
             }
         }
         super.onEvent(event)
