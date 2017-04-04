@@ -55,9 +55,9 @@ class Graph9:Element{
             //Swift.print("prevVisibleRange: " + "\(prevVisibleRange)")
             //Swift.print("visibleRange: " + "\(visibleRange)")
             Swift.print("timeBar!.visibleItemRange: " + "\(timeBar!.visibleItemRange)")
-            let isDirectlyManipulating:Bool = (timeBar as! TimeBar3).mover!.hasStopped
-            Swift.print("isDirectlyManipulating: " + "\(isDirectlyManipulating)")
-            if(!isDirectlyManipulating && hasPanningChanged(&prevRange)){
+            let hasStopped:Bool = (timeBar as! TimeBar3).mover!.velocity == 0
+            Swift.print("hasStopped: " + "\(hasStopped)")
+            if(hasStopped && hasPanningChanged(&prevRange)){
                 Swift.print("✅ a change has happened")
                 //prevVisibleRange = visibleRange
                 update()
