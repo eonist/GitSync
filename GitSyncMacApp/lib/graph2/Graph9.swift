@@ -55,6 +55,10 @@ class Graph9:Element{
             //Swift.print("prevVisibleRange: " + "\(prevVisibleRange)")
             Swift.print("visibleRange: " + "\(visibleRange)")
             Swift.print("timeBar!.visibleItemRange: " + "\(timeBar!.visibleItemRange)")
+            
+            //Continue here:
+                //use prevRange and escape this problem, also add a flag that can be use between zooming, that you reset etc.
+            
             if(visibleRange != nil && visibleRange != timeBar!.visibleItemRange){
                 Swift.print("✅ a change has happened")
                 //prevVisibleRange = visibleRange
