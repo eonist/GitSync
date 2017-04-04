@@ -41,6 +41,8 @@ class Graph9:Element{
         /*Debug*/
         self.acceptsTouchEvents = true/*Enables gestures*/
         self.wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
+        
+        Swift.print("visibleRange: " + "\(visibleRange)")
     }
     override func onEvent(_ event:Event) {
         /*if(event is AnimEvent){
@@ -50,6 +52,8 @@ class Graph9:Element{
             //Swift.print("event.origin: " + "\(event.origin)")
             Swift.print("event.type: " + "\(event.type)")
             Swift.print("event.origin: " + "\(event.origin)")
+            Swift.print("prevVisibleRange: " + "\(prevVisibleRange)")
+            Swift.print("visibleRange: " + "\(visibleRange)")
             if(prevVisibleRange != visibleRange){
                 Swift.print("✅ a change has happened")
                 prevVisibleRange = visibleRange

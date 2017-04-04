@@ -60,7 +60,8 @@ extension Graph9{
         //let visRange:Range<Int> = timeBar!.visibleItemRange.start..<(timeBar!.visibleItemRange.end > timeBar!.dp.count ? timeBar!.visibleItemRange.end - 1 : timeBar!.visibleItemRange.end)
         //timeBar!.renderItems(visRange)
         /**/
-        //visibleRange = nil/*rest so we force update dateText*/
+        prevVisibleRange = nil
+        visibleRange = nil/*rest so we force update dateText*/
         updateDateText()
         updateGraph()
     }
