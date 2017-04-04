@@ -63,6 +63,6 @@ private extension TimeType{
                 return from.numOfMonths(until)
             case .day:
                 return from.numOfDays(until)
-            }
+        }
     }
 }
