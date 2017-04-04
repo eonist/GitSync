@@ -6,7 +6,7 @@ import GitSyncMac
 class Graph9:Element{
     lazy var gestureHUD:GestureHUD = GestureHUD(self)
     var dateText:TextArea?
-    var timeBar:FastList?
+    var timeBar:TimeBar3?
     var valueBar:ValueBar?
     var contentContainer:Element?
     var graphPoints:[Element]?
@@ -47,7 +47,7 @@ class Graph9:Element{
     override func onEvent(_ event:Event) {
         /*if(event is AnimEvent){
          }*/
-        if(event === (AnimEvent.stopped, (timeBar! as! TimeBar3).mover!)){
+        if(event === (AnimEvent.stopped, timeBar!.mover!)){
             //Swift.print("Graph9.timeBar completed")
             //Swift.print("event.origin: " + "\(event.origin)")
             //Swift.print("event.type: " + "\(event.type)")
@@ -55,10 +55,8 @@ class Graph9:Element{
             //Swift.print("prevVisibleRange: " + "\(prevVisibleRange)")
             //Swift.print("visibleRange: " + "\(visibleRange)")
             Swift.print("timeBar!.visibleItemRange: " + "\(timeBar!.visibleItemRange)")
-            Swift.print("(timeBar as! TimeBar3).mover!.velocity: " + "\((timeBar as! TimeBar3).mover!.velocity)")
-            let hasStopped:Bool = (timeBar as! TimeBar3).mover!.velocity == 0
-            Swift.print("hasStopped: " + "\(hasStopped)")
-            if(hasStopped && hasPanningChanged(&prevRange)){
+            let isVelocityZero:Bool = timeBar!.mover!.velocity == 0//quick fix
+            if(isVelocityZero && hasPanningChanged(&prevRange)){
                 Swift.print("✅ a change has happened")
                 //prevVisibleRange = visibleRange
                 update()
