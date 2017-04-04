@@ -24,6 +24,9 @@ extension Graph9{
         Swift.print("dateRange.start: " + "\(dateRange.start)")
         Swift.print("dateRange.end: " + "\(dateRange.end)")
         //commitCounter.countCommits(dateRange.start,dateRange.end,curTimeType)
+        
+        //Continue here: 
+            //write some date tests
     }
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
