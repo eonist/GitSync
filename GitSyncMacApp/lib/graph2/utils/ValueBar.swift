@@ -5,9 +5,7 @@ class ValueBar:Element{
     override func resolveSkin() {
         addStyles()
         super.resolveSkin()
-        //400
-        //8
-        
+        createLeftBar()
     }
     /**
      * Creates the Text items that represents data in the y-axis
