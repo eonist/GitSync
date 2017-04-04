@@ -65,8 +65,11 @@ extension Graph9{
                 startStr = "\(dateRange.start.year.string)"
                 endStr =  "\(dateRange.end.year.string)"
             case .month:
-                dateStr = "\(startYearStr).\(startMonth.shortMonthName) - \(endYearStr).\(endMonth.shortMonthName)"
+                startStr = "\(dateRange.start.year.string).\(dateRange.start.shortMonthName)"
+                endStr =  "\(dateRange.end.year.string).\(dateRange.end.shortMonthName)"
             case .day:
+                startStr = "\(dateRange.start.year.string).\(dateRange.start.shortMonthName).\(dateRange.start.shortDayName)"
+                endStr =  "\(dateRange.end.year.string).\(dateRange.end.shortMonthName)"
                 dateStr = "\(startYearStr).\(startMonth.shortMonthName).\(startDayDateStr) - \(endYearStr).\(endMonth.shortMonthName).\(endDayDateStr)"
         }
         var dateStr:String = startStr + " - " + endStr
