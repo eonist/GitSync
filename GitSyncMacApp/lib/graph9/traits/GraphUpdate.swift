@@ -116,6 +116,12 @@ extension Graph9{
                 /*Month*/
                 let startMonth:Date = MonthDP.month(visibleRange.start, yearRange)
                 let endMonth:Date = MonthDP.month(visibleRange.end, yearRange)
+                
+                
+                //Continue here: 🏀
+                    //add year to month, and year and month to day
+                
+                
                 return (startMonth,endMonth)
             case .day:
                 /*day*/
