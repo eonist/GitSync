@@ -17,7 +17,7 @@ class CommitCounter{
         countCommits(from,until,.day)
     }
     func countCommits(_ from:Date, _ until:Date,_ timeType:TimeType){
-        startTime = Date()
+        //startTime = Date()
         let repoList:[RepoItem] = RepoUtils.repoListFlattenedDupeFree
         repoCommits = CommitCountWorkUtils.commitCountWork(repoList,from,until,timeType)/*populate a 3d array with items*/
         let group = DispatchGroup()
