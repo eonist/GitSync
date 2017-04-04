@@ -31,6 +31,7 @@ extension Graph9{
     }
     func onZoomLevelChange() {
         Swift.print("onZoomLevelChange: " + "\(self.prevTimeType)")
+        prevRange = nil
         let prevTimeType = self.prevTimeType//temp store this
         if(hasZoomChanged){//only toggle if zoom is not prevZoom
             //Swift.print("Graph9.onZoomLevelChange()")
