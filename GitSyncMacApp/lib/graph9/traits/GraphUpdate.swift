@@ -56,43 +56,16 @@ extension Graph9{
     func updateDateText(){
         let visibleRange = curRange
         let yearRange = range//temp solution
-        //Swift.print("yearRange: " + "\(yearRange)")
+        let dateRange:DateRange = self.dateRange()
         var dateStr:String = ""
+        var startStr:String = ""
+        var endStr:String = ""
         switch curTimeType{
             case .year:
-                /*Year*/
-                Swift.print("visibleRange: " + "\(visibleRange)")
-                let startYearStr:String = YearDP.year(visibleRange.start,yearRange).string
-                Swift.print("startYearStr: " + "\(startYearStr)")
-                let endYearStr:String = YearDP.year(visibleRange.end - 2,yearRange).string
-                Swift.print("endYearStr: " + "\(endYearStr)")
-                dateStr = "\(startYearStr) - \(endYearStr)"
+                dateStr = "\(dateRange.start.year.string) - \(dateRange.end.year.string)"
             case .month:
-                /*Month*/
-                let startMonth:Date = MonthDP.month(visibleRange.start, yearRange)
-                let endMonth:Date = MonthDP.month(visibleRange.end, yearRange)
-                /*Year*/
-                let startYearIdx:Int = MonthDP.year(visibleRange.start, yearRange)//sort of the offset
-                let startYearStr:String = YearDP.year(startYearIdx,yearRange).string
-                let endYearIdx:Int = MonthDP.year(visibleRange.end, yearRange)
-                let endYearStr:String = YearDP.year(endYearIdx,yearRange).string
                 dateStr = "\(startYearStr).\(startMonth.shortMonthName) - \(endYearStr).\(endMonth.shortMonthName)"
             case .day:
-                /*day*/
-                let startDayDate:Date = DayDP.day(visibleRange.start, yearRange)
-                let startDayDateStr:String = startDayDate.day.string
-                let endDayDate:Date = DayDP.day(visibleRange.end, yearRange)
-                let endDayDateStr:String = endDayDate.day.string
-                /*Month*/
-                let startMonthIdx:Int = DayDP.month(visibleRange.start,yearRange)
-                let startMonth:Date = MonthDP.month(startMonthIdx, yearRange)
-                let endMonthIdx:Int = DayDP.month(visibleRange.end,yearRange)
-                let endMonth:Date = MonthDP.month(endMonthIdx, yearRange)
-                /*year*/
-                let startYearIdx:Int = MonthDP.year(startMonthIdx, yearRange)//sort of the offset
-                let startYearStr:String = YearDP.year(startYearIdx,yearRange).string
-                let endYearIdx:Int = MonthDP.year(startMonthIdx, yearRange)
-                let endYearStr:String = YearDP.year(endYearIdx,yearRange).string
                 dateStr = "\(startYearStr).\(startMonth.shortMonthName).\(startDayDateStr) - \(endYearStr).\(endMonth.shortMonthName).\(endDayDateStr)"
         }
         dateText!.setTextValue(dateStr)
@@ -101,10 +74,11 @@ extension Graph9{
 }
 
 extension Graph9{
+    typealias DateRange = (start:Date,end:Date)
     /**
      *
      */
-    func dateRange()->(from:Date,until:Date){
+    func dateRange()->DateRange{
         let visibleRange = curRange
         let yearRange = range
         switch curTimeType{
