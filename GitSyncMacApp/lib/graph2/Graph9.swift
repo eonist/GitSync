@@ -62,7 +62,6 @@ class Graph9:Element{
                 update()
             }else{
                 Swift.print("🚫 a change has not happened")
-                
             }
         }
         super.onEvent(event)
