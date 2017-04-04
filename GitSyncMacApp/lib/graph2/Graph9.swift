@@ -25,15 +25,17 @@ class Graph9:Element{
     /*Interim*/
     var curTimeType:TimeType = .year
     //var visibleRange:Range<Int>?
-    func hasZoomChanged(_ curZoom:Int) -> Bool{
+    var hasZoomChanged:Bool{
         let hasZoomChanged:Bool = prevZoom != nil && prevZoom != curZoom
-        prevZoom
+        prevZoom = curZoom
+        return hasZoomChanged
     }
-    func hasPanningChanged(_ curRange:Range<Int>) -> Bool {
-        let hasPanningChanged:Bool = prevRange != nil && prevRange != timeBar!.visibleItemRange
+    var hasPanningChanged:Bool {
+        let hasPanningChanged:Bool = prevRange != nil && prevRange != curRange
         prevRange = curRange
         return hasPanningChanged
     }
+    var curRange:Range<Int> {return timeBar!.visibleItemRange}
     var prevRange:Range<Int>?
     var prevZoom:Int?
     override func resolveSkin(){
