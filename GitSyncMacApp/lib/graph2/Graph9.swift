@@ -25,7 +25,7 @@ class Graph9:Element{
     /*Interim*/
     var curTimeType:TimeType = .year
     var visibleRange:Range<Int>?
-    var prevVisibleRange:Range<Int>?
+    //var prevVisibleRange:Range<Int>?
     override func resolveSkin() {
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         StyleManager.addStylesByURL("~/Desktop/datetext.css")
@@ -52,11 +52,11 @@ class Graph9:Element{
             //Swift.print("event.origin: " + "\(event.origin)")
             Swift.print("event.type: " + "\(event.type)")
             Swift.print("event.origin: " + "\(event.origin)")
-            Swift.print("prevVisibleRange: " + "\(prevVisibleRange)")
+            //Swift.print("prevVisibleRange: " + "\(prevVisibleRange)")
             Swift.print("visibleRange: " + "\(visibleRange)")
-            if(prevVisibleRange != visibleRange){
+            if(visibleRange != timeBar!.visibleItemRange){
                 Swift.print("✅ a change has happened")
-                prevVisibleRange = visibleRange
+                //prevVisibleRange = visibleRange
                 updateGraph()
                 updateDateText()
             }else{
