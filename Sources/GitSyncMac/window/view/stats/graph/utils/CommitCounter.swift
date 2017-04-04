@@ -11,7 +11,7 @@ class CommitCounter{
     /**
      * Initiates the process
      */
-    func countCommits(_ dayOffset:Int){
+    func countCommits(_ dayOffset:Int){//temp, remove shortly
         let from:Date = Date().offsetByDays(dayOffset-7)
         let until:Date = Date().offsetByDays(dayOffset)
         countCommits(from,until,.day)
