@@ -57,17 +57,19 @@ extension Graph9{
         let visibleRange = curRange
         let yearRange = range//temp solution
         let dateRange:DateRange = self.dateRange()
-        var dateStr:String = ""
+        
         var startStr:String = ""
         var endStr:String = ""
         switch curTimeType{
             case .year:
-                dateStr = "\(dateRange.start.year.string) - \(dateRange.end.year.string)"
+                startStr = "\(dateRange.start.year.string)"
+                endStr =  "\(dateRange.end.year.string)"
             case .month:
                 dateStr = "\(startYearStr).\(startMonth.shortMonthName) - \(endYearStr).\(endMonth.shortMonthName)"
             case .day:
                 dateStr = "\(startYearStr).\(startMonth.shortMonthName).\(startDayDateStr) - \(endYearStr).\(endMonth.shortMonthName).\(endDayDateStr)"
         }
+        var dateStr:String = startStr + " - " + endStr
         dateText!.setTextValue(dateStr)
         
     }
