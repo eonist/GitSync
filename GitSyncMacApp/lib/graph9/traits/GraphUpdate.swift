@@ -23,7 +23,7 @@ extension Graph9{
         let dateRange:DateRange = self.dateRange()
         Swift.print("dateRange.start: " + "\(dateRange.start)")
         Swift.print("dateRange.end: " + "\(dateRange.end)")
-        commitCounter.countCommits(dateRange.start,dateRange.end,curTimeType)
+        //commitCounter.countCommits(dateRange.start,dateRange.end,curTimeType)
     }
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
@@ -86,12 +86,16 @@ extension Graph9{
             case .month:
                 /*Month*/
                 let startMonth:Date = MonthDP.month(visibleRange.start, yearRange)
+                Swift.print("startMonth.month: " + "\(startMonth.month)")
                 let endMonth:Date = MonthDP.month(visibleRange.end-1, yearRange)
+                Swift.print("endMonth.month: " + "\(endMonth.month)")
                 /*Year*/
                 let startYearIdx:Int = MonthDP.year(visibleRange.start, yearRange)//sort of the offset
                 let startYear:Int = YearDP.year(startYearIdx,yearRange)
+                Swift.print("startYear: " + "\(startYear)")
                 let endYearIdx:Int = MonthDP.year(visibleRange.end-1, yearRange)
                 let endYear:Int = YearDP.year(endYearIdx,yearRange)
+                Swift.print("endYear: " + "\(endYear)")
                 /*Date*/
                 let startDate:Date = Date.createDate(startYear, startMonth.month)!
                 let endDate:Date = Date.createDate(endYear, endMonth.month)!
