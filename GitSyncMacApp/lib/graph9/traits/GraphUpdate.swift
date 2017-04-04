@@ -4,7 +4,7 @@ import Foundation
 
 extension Graph9{
     /**
-     *
+     * Updates DateText and GraphLine
      */
     func update(){
         updateDateText()
