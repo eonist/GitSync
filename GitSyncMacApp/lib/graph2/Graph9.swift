@@ -26,7 +26,11 @@ class Graph9:Element{
     var curTimeType:TimeType = .year
     //var visibleRange:Range<Int>?
     var hasZoomChanged:Bool = false
-    var hasPanningChanged:Bool {return prevRange != nil && prevRange != timeBar!.visibleItemRange}
+    func hasPanningChanged(_ curRange:Range<Int>) -> Bool {
+        let hasPanningChanged:Bool = prevRange != nil && prevRange != timeBar!.visibleItemRange
+        prevRange = curRange
+        return hasPanningChanged
+    }
     var prevRange:Range<Int>?
     override func resolveSkin(){
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
