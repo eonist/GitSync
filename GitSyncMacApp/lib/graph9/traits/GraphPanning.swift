@@ -13,6 +13,7 @@ extension Graph9{
             /*if(hasPanningChanged){
              updateDateText()
              }*/
+            (timeBar! as! TimeBar3).progressValue
         }
     }
 }
