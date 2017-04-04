@@ -25,6 +25,7 @@ class Graph9:Element{
     /*Interim*/
     var curTimeType:TimeType = .year
     var visibleRange:Range<Int>?
+    var prevVisibleRange:Range<Int>?
     override func resolveSkin() {
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         StyleManager.addStylesByURL("~/Desktop/datetext.css")
