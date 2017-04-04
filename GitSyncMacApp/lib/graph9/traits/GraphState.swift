@@ -9,9 +9,8 @@ extension Graph9 {
         prevZoom = curZoom
         return hasZoomChanged
     }
-    func hasPanningChanged(_ curRange:Range<Int>)->Bool {
+    func hasPanningChanged(_ prevRange:Range<Int>?)->Bool {
         let hasPanningChanged:Bool = prevRange != nil && prevRange != curRange
-        prevRange = curRange
         return hasPanningChanged
     }
     var curTimeType:TimeType {return TimeType(rawValue: curZoom)! }
