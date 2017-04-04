@@ -2,6 +2,7 @@ import Foundation
 @testable import Element
 @testable import Utils
 class ValueBar:Element{
+    var items:[TextArea] = []
     override func resolveSkin() {
         addStyles()
         super.resolveSkin()
@@ -18,8 +19,7 @@ class ValueBar:Element{
         var y:CGFloat = itemYSpace
         strings.forEach{ str in
             let textArea:TextArea = TextArea(NaN,NaN,str,self/*leftBar!*/)
-            /*leftBarItems*///self.append(textArea)
-            _ = /*leftBar!*/self.addSubView(textArea)
+            items.append(self.addSubView(textArea))
             textArea.setPosition(CGPoint(0,y))
             y += itemYSpace
         }

@@ -11,6 +11,27 @@ extension Graph9{
         updateGraph()
     }
     /**
+     * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
+     */
+    func updateGraph(){
+        prevGraphPts = graphPts.map{$0}//grabs the location of where the pts are now
+        graphPts = randomGraphPoints
+        
+        /*GraphPoints*/
+        if(animator != nil){animator!.stop()}/*stop any previous running animation*/
+        animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Quad.easeIn)
+        animator!.start()
+    }
+    /**
+     * VerticalBar (y-axis tags)
+     */
+    func updateValueBar(_ maxValue:CGFloat){
+        let strings:[String] = GraphUtils.verticalIndicators(6/*vCount*/, maxValue)
+        for i in 0..<strings.count{
+            valueBar!.items[i].setTextValue(strings[i])
+        }
+    }
+    /**
      * Updates the DateText UI Element
      */
     func updateDateText(){
@@ -57,26 +78,5 @@ extension Graph9{
         }
         dateText!.setTextValue(dateStr)
         
-    }
-    /**
-     * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
-     */
-    func updateGraph(){
-        prevGraphPts = graphPts.map{$0}//grabs the location of where the pts are now
-        graphPts = randomGraphPoints
-        
-        /*GraphPoints*/
-        if(animator != nil){animator!.stop()}/*stop any previous running animation*/
-        animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Quad.easeIn)
-        animator!.start()
-    }
-    /**
-     * VerticalBar (y-axis tags)
-     */
-    func updateValueBar(_ maxValue:CGFloat){
-        let strings:[String] = GraphUtils.verticalIndicators(6/*vCount*/, maxValue)
-        for i in 0..<strings.count{
-            leftBarItems[i].setTextValue(strings[i])
-        }
     }
 }
