@@ -54,10 +54,9 @@ extension Graph9{
      * Updates the DateText UI Element
      */
     func updateDateText(){
-        let visibleRange = curRange
-        let yearRange = range//temp solution
+        /*let visibleRange = curRange
+         let yearRange = range//temp solution*/
         let dateRange:DateRange = self.dateRange()
-        
         var startStr:String = ""
         var endStr:String = ""
         switch curTimeType{
@@ -69,15 +68,12 @@ extension Graph9{
                 endStr =  "\(dateRange.end.year.string).\(dateRange.end.shortMonthName)"
             case .day:
                 startStr = "\(dateRange.start.year.string).\(dateRange.start.shortMonthName).\(dateRange.start.shortDayName)"
-                endStr =  "\(dateRange.end.year.string).\(dateRange.end.shortMonthName)"
-                dateStr = "\(startYearStr).\(startMonth.shortMonthName).\(startDayDateStr) - \(endYearStr).\(endMonth.shortMonthName).\(endDayDateStr)"
+                endStr =  "\(dateRange.end.year.string).\(dateRange.end.shortMonthName).\(dateRange.end.shortDayName)"
         }
-        var dateStr:String = startStr + " - " + endStr
+        let dateStr:String = startStr + " - " + endStr
         dateText!.setTextValue(dateStr)
-        
     }
 }
-
 extension Graph9{
     typealias DateRange = (start:Date,end:Date)
     /**
