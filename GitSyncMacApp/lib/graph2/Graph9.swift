@@ -22,10 +22,7 @@ class Graph9:Element{
     var curZoom:Int = TimeType.year.rawValue
     let maxZoom:Int = 3
     var zoom:CGFloat = 0
-    /*Interim*/
-    var curTimeType:TimeType {return TimeType(rawValue: curZoom)! }
     /*State related*/
-    var curRange:Range<Int> {return timeBar!.visibleItemRange}
     var prevRange:Range<Int>?
     var prevZoom:Int?
     override func resolveSkin(){
