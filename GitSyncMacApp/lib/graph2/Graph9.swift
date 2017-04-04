@@ -4,7 +4,7 @@ import Cocoa
 import GitSyncMac
 
 class Graph9:Element{
-    lazy var gestureHUD:GestureHUD  =  GestureHUD(self)
+    lazy var gestureHUD:GestureHUD = GestureHUD(self)
     var dateText:TextArea?
     var timeBar:FastList?
     var valueBar:ValueBar?
