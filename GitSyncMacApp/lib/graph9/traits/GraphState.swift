@@ -9,7 +9,7 @@ extension Graph9 {
         prevZoom = curZoom
         return hasZoomChanged
     }
-    var hasPanningChanged:Bool {
+    func hasPanningChanged(_ curRange:Range<Int>)->Bool {
         let hasPanningChanged:Bool = prevRange != nil && prevRange != curRange
         prevRange = curRange
         return hasPanningChanged
