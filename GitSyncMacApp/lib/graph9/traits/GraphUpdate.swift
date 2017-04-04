@@ -70,4 +70,13 @@ extension Graph9{
         animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Quad.easeIn)
         animator!.start()
     }
+    /**
+     * VerticalBar (y-axis tags)
+     */
+    func updateValueBar(_ maxValue:CGFloat){
+        let strings:[String] = GraphUtils.verticalIndicators(6/*vCount*/, maxValue)
+        for i in 0..<strings.count{
+            leftBarItems[i].setTextValue(strings[i])
+        }
+    }
 }
