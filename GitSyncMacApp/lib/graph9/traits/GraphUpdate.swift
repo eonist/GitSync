@@ -21,6 +21,8 @@ extension Graph9{
         }
         commitCounter.onComplete = onComplete
         let dateRange:DateRange = self.dateRange()
+        Swift.print("dateRange.start: " + "\(dateRange.start)")
+        Swift.print("dateRange.end: " + "\(dateRange.end)")
         commitCounter.countCommits(dateRange.start,dateRange.end,curTimeType)
     }
     /**
