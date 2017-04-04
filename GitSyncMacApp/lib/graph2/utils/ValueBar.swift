@@ -23,16 +23,16 @@ class ValueBar:Element{
      * Creates the Text items that represents data in the y-axis
      */
     func createLeftBar(){
-        leftBar = addSubView(Section(NaN,newSize!.height,self,"leftBar"))//create left bar
-        leftBar!.setPosition(CGPoint(0,newPosition!.y))
+        /*    leftBar = addSubView(Section(NaN,newSize!.height,self,"leftBar"))//create left bar
+         leftBar!.setPosition(CGPoint(0,newPosition!.y))*/
         
-        let strings:[String] = GraphUtils.verticalIndicators(vCount, maxValue!)
+        let strings:[String] = GraphUtils.verticalIndicators(6/*vCount*/, 60/*maxValue!*/)
         
-        var y:CGFloat = itemYSpace!
+        var y:CGFloat = height/8/*itemYSpace!*/
         strings.forEach{
-            let textArea:TextArea = TextArea(NaN,NaN,$0,leftBar!)
-            leftBarItems.append(textArea)
-            _ = leftBar!.addSubView(textArea)
+            let textArea:TextArea = TextArea(NaN,NaN,$0,self/*leftBar!*/)
+            /*leftBarItems*///self.append(textArea)
+            _ = /*leftBar!*/self.addSubView(textArea)
             textArea.setPosition(CGPoint(0,y))
             y += itemYSpace!
         }
