@@ -1,5 +1,5 @@
 import Foundation
 
-class GraphUpdate {
-
+extension Graph9{
+    
 }

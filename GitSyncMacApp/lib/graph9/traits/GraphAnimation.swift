@@ -4,18 +4,6 @@ import Cocoa
 
 extension Graph9 {
     /**
-     * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
-     */
-    func updateGraph(){
-        prevGraphPts = graphPts.map{$0}//grabs the location of where the pts are now
-        graphPts = randomGraphPoints
-        
-        /*GraphPoints*/
-        if(animator != nil){animator!.stop()}/*stop any previous running animation*/
-        animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Quad.easeIn)
-        animator!.start()
-    }
-    /**
      * Interpolates between 0 and 1 while the duration of the animation
      * NOTE: ReCalc the hValue indicators (each week has a different max hValue etc)
      */
