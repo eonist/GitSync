@@ -24,17 +24,7 @@ class Graph9:Element{
     var zoom:CGFloat = 0
     /*Interim*/
     var curTimeType:TimeType = .year
-    //var visibleRange:Range<Int>?
-    var hasZoomChanged:Bool{
-        let hasZoomChanged:Bool = prevZoom != nil && prevZoom != curZoom
-        prevZoom = curZoom
-        return hasZoomChanged
-    }
-    var hasPanningChanged:Bool {
-        let hasPanningChanged:Bool = prevRange != nil && prevRange != curRange
-        prevRange = curRange
-        return hasPanningChanged
-    }
+    /*State related*/
     var curRange:Range<Int> {return timeBar!.visibleItemRange}
     var prevRange:Range<Int>?
     var prevZoom:Int?

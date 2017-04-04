@@ -36,7 +36,6 @@ extension Graph9{
         curTimeType = TimeType.types[curZoom]
         /**/
         
-        /**/
         timeBar!.removeFromSuperview()
         timeBar = nil
         let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
@@ -61,7 +60,7 @@ extension Graph9{
         //timeBar!.renderItems(visRange)
         /**/
         //prevVisibleRange = nil
-        visibleRange = nil/*rest so we force update dateText*/
+        //visibleRange = nil/*rest so we force update dateText*/
         updateDateText()
         updateGraph()
     }
