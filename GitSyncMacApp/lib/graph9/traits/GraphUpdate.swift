@@ -1,6 +1,7 @@
 import Foundation
 @testable import Utils
 @testable import Element
+import GitSyncMac
 
 extension Graph9{
     /**
@@ -13,7 +14,7 @@ extension Graph9{
         //Continue here:
             //implement the bellow:
         
-        let commitCounter = CommitCounter()
+        let commitCounter:CommitCounter = CommitCounter()
         func onComplete(_ results:[Int]){
             Swift.print("Appdelegate.onComplete()")
             Swift.print("results.count: " + "\(results.count)")
