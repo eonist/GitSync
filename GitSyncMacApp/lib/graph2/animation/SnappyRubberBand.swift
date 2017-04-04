@@ -26,27 +26,25 @@ class SnappyRubberBand:RubberBand{
             }
             //value += velocity
         }
-        if(!hasStopped){
-            if(abs(velocity) <= minVelocity && abs(value %% snap).isNear(0, minVelocity)){/*stop the value is close enough to target*/
-                Swift.print("is close to target")
-                Swift.print("hasStopped: " + "\(hasStopped)")
-                Swift.print("value: " + "\(value)")
-                Swift.print("snap: " + "\(snap)")
-                value = CGFloatModifier.roundTo(value, snap)/*set final destination*/
-                Swift.print("final value: " + "\(value)")
-                callBack(value)//final tick
-                hasStopped = true
-                stop()
-                /*super.onEvent(AnimEvent(AnimEvent.completed,self))*//*<-tempfix*/
-            }else{
-                if(abs(velocity) <= minVelocity){/*Velocity is bellow min allowed, add velocity keep anim alive*/
-                    //Swift.print("use minVelocity")
-                    velocity = prevDir.isNegative ? -minVelocity : minVelocity
-                    value += velocity
-                }else{//else default to regular friction velocity
-                    //Swift.print("default friction: \(abs(velocity))")
-                    super.applyFriction()//regular friction
-                }
+        if(abs(velocity) <= minVelocity && abs(value %% snap).isNear(0, minVelocity)){/*stop the value is close enough to target*/
+            Swift.print("is close to target")
+            Swift.print("hasStopped: " + "\(hasStopped)")
+            Swift.print("value: " + "\(value)")
+            Swift.print("snap: " + "\(snap)")
+            value = CGFloatModifier.roundTo(value, snap)/*set final destination*/
+            Swift.print("final value: " + "\(value)")
+            callBack(value)//final tick
+            hasStopped = true
+            stop()
+            /*super.onEvent(AnimEvent(AnimEvent.completed,self))*//*<-tempfix*/
+        }else{
+            if(abs(velocity) <= minVelocity){/*Velocity is bellow min allowed, add velocity keep anim alive*/
+                //Swift.print("use minVelocity")
+                velocity = prevDir.isNegative ? -minVelocity : minVelocity
+                value += velocity
+            }else{//else default to regular friction velocity
+                //Swift.print("default friction: \(abs(velocity))")
+                super.applyFriction()//regular friction
             }
         }
     }
