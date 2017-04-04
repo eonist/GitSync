@@ -9,6 +9,9 @@ extension Graph9{
     func update(){
         updateDateText()
         updateGraph()
+        
+        let maxValue:CGFloat = NumberParser.max(vValues)//Finds the largest number in among vValues
+        updateValueBar(maxValue)
     }
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
@@ -36,7 +39,7 @@ extension Graph9{
      */
     func updateDateText(){
         let visibleRange = curRange
-        let yearRange = (timeBar!.dp as! TimeDP).yearRange
+        let yearRange = range//temp solution
         //Swift.print("yearRange: " + "\(yearRange)")
         var dateStr:String = ""
         switch curTimeType{
