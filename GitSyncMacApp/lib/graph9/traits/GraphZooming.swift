@@ -11,7 +11,7 @@ extension Graph9{
     override func magnify(with event: NSEvent) {
         //Swift.print("Graph9.magnify()")
         super.magnify(with: event)
-        let prevZoom:Int = curZoom
+        //let prevZoom:Int = curZoom
         if(event.phase == .changed){
             zoom += event.deltaZ
         }else if(event.phase == .began){
@@ -25,15 +25,15 @@ extension Graph9{
             if(newZoom >= 0 && newZoom < maxZoom){
                 curZoom = newZoom
             }
-            if(curZoom != prevZoom){
+            if(hasZoomChanged){
                 onZoomLevelChange()//only toggle if zoom is not prevZoom
             }
         }
     }
     func onZoomLevelChange() {
         //Swift.print("Graph9.onZoomLevelChange()")
-        let prevTimeType:TimeType = curTimeType
-        curTimeType = TimeType.types[curZoom]
+        //let prevTimeType:TimeType = curTimeType
+        //curTimeType = TimeType.types[curZoom]
         /**/
         
         timeBar!.removeFromSuperview()

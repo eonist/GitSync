@@ -23,7 +23,7 @@ class Graph9:Element{
     let maxZoom:Int = 3
     var zoom:CGFloat = 0
     /*Interim*/
-    var curTimeType:TimeType = .year
+    var curTimeType:TimeType {return TimeType(rawValue: curZoom)! }
     /*State related*/
     var curRange:Range<Int> {return timeBar!.visibleItemRange}
     var prevRange:Range<Int>?
