@@ -24,7 +24,7 @@ class ValueBar:Element{
             y += itemYSpace
         }
     }
-    func createOldLeftBar(){
+    /*func createOldLeftBar(){
         let ySpace:CGFloat = height/8
         let textValues:[String] = (0...8).reversed().map { ($0 * 50).int.string }//"400","350","300"..."0"
         for i in (0...8){
@@ -36,5 +36,5 @@ class ValueBar:Element{
             _ = self.addSubView(textArea)
             textArea.setPosition(CGPoint(0,y))
         }
-    }
+    }*/
 }
