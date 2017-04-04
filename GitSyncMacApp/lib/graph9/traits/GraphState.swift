@@ -11,7 +11,7 @@ extension Graph9 {
     }
     func hasPanningChanged( _ prevRange:inout Range<Int>?)->Bool {
         let hasPanningChanged:Bool = prevRange != nil && prevRange != curRange
-        if(prevRange == nil){prevRange = curRange}
+        prevRange = curRange
         return hasPanningChanged
     }
     var curTimeType:TimeType {return TimeType(rawValue: curZoom)! }

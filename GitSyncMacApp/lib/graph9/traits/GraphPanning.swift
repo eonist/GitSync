@@ -11,7 +11,6 @@ extension Graph9{
         (timeBar! as! TimeBar3).adHockScrollWheel(event)
         if(event.phase == .changed || event.phase == NSEventPhase(rawValue:0)){
             if(hasPanningChanged(&prevRangeScrollChange)){
-                prevRangeScrollChange = curRange
                 updateDateText()
             }
         }

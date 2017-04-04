@@ -59,8 +59,7 @@ class Graph9:Element{
             //Continue here:
                 //use prevRange and escape this problem, also add a flag that can be use between zooming, that you reset etc.
             
-            if(hasPanningChanged(prevRange)){
-                prevRange = curRange
+            if(hasPanningChanged(&prevRange)){
                 Swift.print("✅ a change has happened")
                 //prevVisibleRange = visibleRange
                 update()
