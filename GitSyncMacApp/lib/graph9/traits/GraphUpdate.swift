@@ -10,6 +10,23 @@ extension Graph9{
         updateDateText()
         updateGraph()
         
+        //Continue here:
+            //implement the bellow:
+        
+        let commitCounter = CommitCounter()
+        func onComplete(_ results:[Int]){
+            Swift.print("Appdelegate.onComplete()")
+            Swift.print("results.count: " + "\(results.count)")
+            Swift.print("results: " + "\(results)")
+        }
+        commitCounter.onComplete = onComplete
+        let from = Date().offsetByYears(-7)
+        Swift.print("from: " + "\(from.year)")
+        let until = Date()
+        Swift.print("until: " + "\(until.year)")
+        commitCounter.countCommits(from,until,.year)
+        
+        
         let maxValue:CGFloat = NumberParser.max(vValues)//Finds the largest number in among vValues
         updateValueBar(maxValue)
     }
