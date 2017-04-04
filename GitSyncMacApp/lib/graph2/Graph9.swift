@@ -28,7 +28,7 @@ class Graph9:Element{
     var hasZoomChanged:Bool = false
     var hasPanningChanged:Bool {return prevRange != timeBar!.visibleItemRange}
     var prevRange:Range<Int>?
-    override func resolveSkin() {
+    override func resolveSkin(){
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         StyleManager.addStylesByURL("~/Desktop/datetext.css")
         super.resolveSkin()
