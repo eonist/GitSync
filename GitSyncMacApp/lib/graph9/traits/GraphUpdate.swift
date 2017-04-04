@@ -90,7 +90,7 @@ extension Graph9{
                 /*Year*/
                 let startYearIdx:Int = MonthDP.year(visibleRange.start, yearRange)//sort of the offset
                 let startYear:Int = YearDP.year(startYearIdx,yearRange)
-                let endYearIdx:Int = MonthDP.year(visibleRange.end, yearRange)
+                let endYearIdx:Int = MonthDP.year(visibleRange.end-1, yearRange)
                 let endYear:Int = YearDP.year(endYearIdx,yearRange)
                 /*Date*/
                 let startDate:Date = Date.createDate(startYear, startMonth.month)!
