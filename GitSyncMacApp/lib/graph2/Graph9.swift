@@ -27,7 +27,7 @@ class Graph9:Element{
     //var visibleRange:Range<Int>?
     var hasZoomChanged:Bool = false
     var hasPanningChanged:Bool = false
-    var prevVisibleRange:Range<Int>?
+    var prevRange:Range<Int>?
     override func resolveSkin() {
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         StyleManager.addStylesByURL("~/Desktop/datetext.css")
@@ -64,8 +64,7 @@ class Graph9:Element{
             if(hasPanningChanged || hasZoomChanged){
                 Swift.print("✅ a change has happened")
                 //prevVisibleRange = visibleRange
-                updateGraph()
-                updateDateText()
+                update()
             }else{
                 Swift.print("🚫 a change has not happened")
                 

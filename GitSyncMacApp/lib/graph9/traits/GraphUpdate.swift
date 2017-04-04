@@ -7,7 +7,8 @@ extension Graph9{
      *
      */
     func update(){
-        
+        updateDateText()
+        updateGraph()
     }
     /**
      * Updates the DateText UI Element
