@@ -31,6 +31,8 @@ class SnappyRubberBand:RubberBand{
             Swift.print("hasStopped: " + "\(hasStopped)")
             Swift.print("value: " + "\(value)")
             Swift.print("snap: " + "\(snap)")
+            Swift.print("prevDir: " + "\(prevDir)")
+            Swift.print("result: " + "\(result)")
             value = CGFloatModifier.roundTo(value, snap)/*set final destination*/
             Swift.print("final value: " + "\(value)")
             callBack(value)//final tick
