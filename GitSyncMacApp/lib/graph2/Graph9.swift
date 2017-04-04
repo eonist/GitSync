@@ -24,8 +24,10 @@ class Graph9:Element{
     var zoom:CGFloat = 0
     /*Interim*/
     var curTimeType:TimeType = .year
-    var visibleRange:Range<Int>?
-    //var prevVisibleRange:Range<Int>?
+    //var visibleRange:Range<Int>?
+    var hasZoomChanged:Bool = false
+    var hasPanningChanged:Bool = false
+    var prevVisibleRange:Range<Int>?
     override func resolveSkin() {
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         StyleManager.addStylesByURL("~/Desktop/datetext.css")
@@ -42,7 +44,7 @@ class Graph9:Element{
         self.acceptsTouchEvents = true/*Enables gestures*/
         self.wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
         
-        Swift.print("visibleRange: " + "\(visibleRange)")
+        //Swift.print("visibleRange: " + "\(visibleRange)")
     }
     override func onEvent(_ event:Event) {
         /*if(event is AnimEvent){
@@ -53,13 +55,13 @@ class Graph9:Element{
             Swift.print("event.type: " + "\(event.type)")
             Swift.print("event.origin: " + "\(event.origin)")
             //Swift.print("prevVisibleRange: " + "\(prevVisibleRange)")
-            Swift.print("visibleRange: " + "\(visibleRange)")
+            //Swift.print("visibleRange: " + "\(visibleRange)")
             Swift.print("timeBar!.visibleItemRange: " + "\(timeBar!.visibleItemRange)")
             
             //Continue here:
                 //use prevRange and escape this problem, also add a flag that can be use between zooming, that you reset etc.
             
-            if(visibleRange != nil && visibleRange != timeBar!.visibleItemRange){
+            if(hasPanningChanged || hasZoomChanged){
                 Swift.print("✅ a change has happened")
                 //prevVisibleRange = visibleRange
                 updateGraph()
