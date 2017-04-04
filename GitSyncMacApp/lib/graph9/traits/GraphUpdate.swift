@@ -13,7 +13,7 @@ extension Graph9{
         
         //Continue here:
             //implement the bellow:
-        
+        /*
         let commitCounter:CommitCounter = CommitCounter()
         func onComplete(_ results:[Int]){
             Swift.print("Appdelegate.onComplete()")
@@ -27,6 +27,7 @@ extension Graph9{
         
         let maxValue:CGFloat = NumberParser.max(vValues)//Finds the largest number in among vValues
         updateValueBar(maxValue)
+        */
     }
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
@@ -96,5 +97,15 @@ extension Graph9{
         }
         dateText!.setTextValue(dateStr)
         
+    }
+}
+
+extension Graph9{
+    /**
+     *
+     */
+    func dateRange()->(from:Date,until:Date){
+        
+        return (Date(),Date())
     }
 }
