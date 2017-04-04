@@ -46,6 +46,11 @@ class Graph9:Element{
         if(event is AnimEvent){
             Swift.print("event.type: " + "\(event.type)")
             Swift.print("event.origin: " + "\(event.origin)")
+            if(prevVisibleRange != visibleRange){
+                Swift.print("✅ a change has happened")
+            }else{
+                Swift.print("🚫 a change has not happened")
+            }
         }
         if(event === (AnimEvent.completed, (timeBar! as! TimeBar3).mover!)){
             Swift.print("Graph9.timeBar completed")
