@@ -18,10 +18,6 @@ class ValueBar:Element{
             _ = self.addSubView(textArea)
             textArea.setPosition(CGPoint(0,y))
         }
-        /*strings.forEach{
-         
-        }*/
-
     }
 }
 extension ValueBar{
