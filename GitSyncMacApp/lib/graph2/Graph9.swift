@@ -24,6 +24,7 @@ class Graph9:Element{
     var zoom:CGFloat = 0
     /*State related*/
     var prevRange:Range<Int>?
+    var prevRangeScrollChange:Range<Int>?
     var prevZoom:Int?
     override func resolveSkin(){
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
