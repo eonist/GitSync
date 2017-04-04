@@ -27,6 +27,7 @@ extension Graph9{
         
         //Continue here: 
             //write some date tests
+            //maybe try visibleRange.start + 7 for end. instead of end
     }
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
