@@ -16,6 +16,11 @@ class YearDP:TimeDP{
     static func year(_ yearOffset:Int, _ yearRange:Range<Int>) -> Int{
         return (yearRange.start + yearOffset)
     }
+    static func year(_ yearOffset:Int, _ yearRange:Range<Int>) -> Date{/*Convenience*/
+        let yearInt:Int = YearDP.year(yearOffset, yearRange)
+        let year:Date = Date.createDate(yearInt)!
+        return year
+    }
     /**
      * Returns an offset in months from yearRange.start until yearIdx
      */
