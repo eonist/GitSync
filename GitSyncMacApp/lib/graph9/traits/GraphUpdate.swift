@@ -109,17 +109,18 @@ extension Graph9{
         let yearRange = range
         switch curTimeType{
             case .year:
-                let startYear:Date = YearDP.year(visibleRange.start,yearRange)
-                let endYear:Date = YearDP.year(visibleRange.end - 2,yearRange)
-                return (startYear,endYear)
+                let startDate:Date = YearDP.year(visibleRange.start,yearRange)
+                let endDate:Date = YearDP.year(visibleRange.end - 2,yearRange)
+                return (startDate,endDate)
             case .month:
-                /*Month*/
+                
                 let startMonth:Date = MonthDP.month(visibleRange.start, yearRange)
                 let endMonth:Date = MonthDP.month(visibleRange.end, yearRange)
                 
-                
-                //Continue here: 🏀
-                    //add year to month, and year and month to day
+                let startYearIdx:Int = MonthDP.year(visibleRange.start, yearRange)//sort of the offset
+                let startYear:Date = YearDP.year(startYearIdx,yearRange)
+                let endYearIdx:Int = MonthDP.year(visibleRange.end, yearRange)
+                let endYear:Date = YearDP.year(endYearIdx,yearRange)
                 
                 
                 return (startMonth,endMonth)
