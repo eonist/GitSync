@@ -12,5 +12,14 @@ extension TimeType{
                 return DateModifier.offsetByDays(date,offset)
         }
     }
-    var numOfTimeUnits:Int
+    func numOfTimeUnits(_ from:Date,_ until:Date)->Int {
+        switch self {
+            case .year:
+                return from.numOfYears(until)
+            case .month:
+                return from.numOfMonths(until)
+            case .day:
+                return from.numOfDays(until)
+        }
+    }
 }
