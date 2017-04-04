@@ -1,7 +1,7 @@
 import Foundation
 @testable import Utils
 @testable import Element
-import GitSyncMac
+@testable import GitSyncMac
 
 extension Graph9{
     /**
@@ -11,7 +11,7 @@ extension Graph9{
         updateDateText()
         updateGraph()
         
-        let commitCounter:CommitCounter = CommitCounter()
+        var commitCounter:CommitCounter = CommitCounter()
         func onComplete(_ results:[Int]){
             Swift.print("Graph9 commitCounter onComplete()")
             Swift.print("results.count: " + "\(results.count)")
