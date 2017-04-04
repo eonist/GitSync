@@ -47,10 +47,10 @@ class Graph9:Element{
         /*if(event is AnimEvent){
          }*/
         if(event === (AnimEvent.stopped, (timeBar! as! TimeBar3).mover!)){
-            Swift.print("Graph9.timeBar completed")
+            //Swift.print("Graph9.timeBar completed")
             //Swift.print("event.origin: " + "\(event.origin)")
-            Swift.print("event.type: " + "\(event.type)")
-            Swift.print("event.origin: " + "\(event.origin)")
+            //Swift.print("event.type: " + "\(event.type)")
+            //Swift.print("event.origin: " + "\(event.origin)")
             //Swift.print("prevVisibleRange: " + "\(prevVisibleRange)")
             //Swift.print("visibleRange: " + "\(visibleRange)")
             Swift.print("timeBar!.visibleItemRange: " + "\(timeBar!.visibleItemRange)")

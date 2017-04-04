@@ -14,10 +14,10 @@ extension Graph9{
      * Updates the DateText UI Element
      */
     func updateDateText(){
-        Swift.print("🍐🍌🍊 updateDateText")
+        //Swift.print("🍐🍌🍊 updateDateText")
         let visibleRange = curRange
         let yearRange = (timeBar!.dp as! TimeDP).yearRange
-        Swift.print("yearRange: " + "\(yearRange)")
+        //Swift.print("yearRange: " + "\(yearRange)")
         var dateStr:String = ""
         switch curTimeType{
         case .year:
