@@ -54,7 +54,7 @@ class Graph9:Element{
             Swift.print("event.origin: " + "\(event.origin)")
             //Swift.print("prevVisibleRange: " + "\(prevVisibleRange)")
             Swift.print("visibleRange: " + "\(visibleRange)")
-            if(visibleRange != timeBar!.visibleItemRange){
+            if(visibleRange != nil && visibleRange != timeBar!.visibleItemRange){
                 Swift.print("✅ a change has happened")
                 //prevVisibleRange = visibleRange
                 updateGraph()

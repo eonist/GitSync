@@ -19,7 +19,7 @@ extension Graph9{
     func updateDateText(){
         Swift.print("🍐🍌🍊 updateDateText")
         if(visibleRange == nil || visibleRange != timeBar!.visibleItemRange){/*If the range has changed, then update text*/
-            visibleRange = 
+            visibleRange = timeBar!.visibleItemRange
             let yearRange = (timeBar!.dp as! TimeDP).yearRange
             Swift.print("yearRange: " + "\(yearRange)")
             var dateStr:String = ""
