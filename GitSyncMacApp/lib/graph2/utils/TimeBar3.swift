@@ -14,7 +14,7 @@ class TimeBar3:ElasticScrollFastList{
         super.scrollWheel(with: event)
     }
     /**
-     * 
+     *
      */
     func adHockScrollWheel(_ event:NSEvent){
         //Swift.print("ElasticSlideScrollFastList.scrollWheel()")
