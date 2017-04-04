@@ -135,14 +135,12 @@ extension Graph9{
                 let endMonthIdx:Int = DayDP.month(visibleRange.end,yearRange)
                 let endMonth:Date = MonthDP.month(endMonthIdx, yearRange)
                 /*year*/
-                let startYearIdx:Int = MonthDP.year(startMonthIdx, yearRange)//sort of the offset
-                let startYearStr:String = YearDP.year(startYearIdx,yearRange).string
-                let endYearIdx:Int = MonthDP.year(startMonthIdx, yearRange)
-                let endYearStr:String = YearDP.year(endYearIdx,yearRange).string
+                let startYear:Int = MonthDP.year(startMonthIdx, yearRange)//sort of the offset
+                let endYear:Int = MonthDP.year(startMonthIdx, yearRange)
                 /*Date*/
-                let startDate:Date = Date.createDate(startYear, startMonth.month)!
-                let endDate:Date = Date.createDate(endYear, endMonth.month)!
-                return (startDayDate,endDayDate)
+                let startDate:Date = Date.createDate(startYear, startMonth.month,startDayDate.day)!
+                let endDate:Date = Date.createDate(endYear, endMonth.month,endDayDate.day)!
+                return (startDate,endDate)
         }
     }
 }
