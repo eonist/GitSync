@@ -23,14 +23,15 @@ extension Graph9{
             else{dir = 0}
             let newZoom = curZoom + dir
             if(newZoom >= 0 && newZoom < maxZoom){
+                prevZoom = curZoom
                 curZoom = newZoom
             }
             onZoomLevelChange()
         }
     }
     func onZoomLevelChange() {
-        Swift.print("onZoomLevelChange: " )
-        let prevTimeType = curTimeType
+        Swift.print("onZoomLevelChange: " + "\(self.prevTimeType)")
+        let prevTimeType = self.prevTimeType//temp store this
         if(hasZoomChanged){//only toggle if zoom is not prevZoom
             //Swift.print("Graph9.onZoomLevelChange()")
             //let prevTimeType:TimeType = curTimeType
