@@ -86,7 +86,7 @@ extension Graph9{
             case .month:
                 /*Month*/
                 let startMonth:Date = MonthDP.month(visibleRange.start, yearRange)
-                let endMonth:Date = MonthDP.month(visibleRange.end, yearRange)
+                let endMonth:Date = MonthDP.month(visibleRange.end-1, yearRange)
                 /*Year*/
                 let startYearIdx:Int = MonthDP.year(visibleRange.start, yearRange)//sort of the offset
                 let startYear:Int = YearDP.year(startYearIdx,yearRange)
