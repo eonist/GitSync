@@ -32,6 +32,7 @@ private class Utils{
     static func commitCountWork(_ repoItem:RepoItem, _ from:Date, _ until:Date, _ timeType:TimeType)->[CommitCountWork]{
         var commitCountWorks:[CommitCountWork] = []
         let numOfTimeUnits:Int = timeType.numOfTimeUnits(from, until)
+        Swift.print("⏳⏳⏳ numOfTimeUnits: " + "\(numOfTimeUnits) ⏳⏳⏳")
         for i in (0..<numOfTimeUnits){
             let sinceDate:Date = timeType.offsetBy(from,i)
             let sinceGitDate:String = GitDateUtils.gitTime(sinceDate)
