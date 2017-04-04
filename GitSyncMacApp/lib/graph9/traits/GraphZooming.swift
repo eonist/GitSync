@@ -25,42 +25,43 @@ extension Graph9{
             if(newZoom >= 0 && newZoom < maxZoom){
                 curZoom = newZoom
             }
-            if(hasZoomChanged){
-                onZoomLevelChange()//only toggle if zoom is not prevZoom
-            }
+            onZoomLevelChange()
         }
     }
     func onZoomLevelChange() {
-        //Swift.print("Graph9.onZoomLevelChange()")
-        //let prevTimeType:TimeType = curTimeType
-        //curTimeType = TimeType.types[curZoom]
-
-        timeBar!.removeFromSuperview()
-        timeBar = nil
-        let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
-        timeBar = addSubView(TimeBar3(w,24,24,dp,self,nil,.hor,100))
-        alignTimeBar()
-        
-        let mouseLocIdx:Int = StatUtils.mouseLocIdx(mouseX, w, 100)
-        Swift.print("mouseLocIdx: " + "\(mouseLocIdx)")
-        var progress:CGFloat = StatUtils.progress(timeBar!, (prevTimeType,curTimeType), mouseLocIdx)/*0-1*/
-        progress = progress.clip(0, 1)
-        Swift.print("progress: " + "\(progress)")
-        /*let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
-         ViewModifier.removeAll(timeBar!.lableContainer!)
-         timeBar!.pool = []
-         timeBar!.inActive = []
-         timeBar!.dataProvider = dp*/
-        let progressVal:CGFloat = SliderParser.y(progress, timeBar!.maskSize[timeBar!.dir], timeBar!.contentSize[timeBar!.dir])
-        (timeBar! as! ElasticScrollFastList).mover!.value = progressVal//temp fix
-        (timeBar! as! ElasticScrollFastList).setProgress(progressVal)
-        
-        //let visRange:Range<Int> = timeBar!.visibleItemRange.start..<(timeBar!.visibleItemRange.end > timeBar!.dp.count ? timeBar!.visibleItemRange.end - 1 : timeBar!.visibleItemRange.end)
-        //timeBar!.renderItems(visRange)
-        /**/
-        //prevVisibleRange = nil
-        //visibleRange = nil/*rest so we force update dateText*/
-        updateDateText()
-        updateGraph()
+        let prevTimeType = curTimeType
+        if(hasZoomChanged){//only toggle if zoom is not prevZoom
+            //Swift.print("Graph9.onZoomLevelChange()")
+            //let prevTimeType:TimeType = curTimeType
+            //curTimeType = TimeType.types[curZoom]
+            
+            timeBar!.removeFromSuperview()
+            timeBar = nil
+            let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
+            timeBar = addSubView(TimeBar3(w,24,24,dp,self,nil,.hor,100))
+            alignTimeBar()
+            
+            let mouseLocIdx:Int = StatUtils.mouseLocIdx(mouseX, w, 100)
+            Swift.print("mouseLocIdx: " + "\(mouseLocIdx)")
+            var progress:CGFloat = StatUtils.progress(timeBar!, (prevTimeType,curTimeType), mouseLocIdx)/*0-1*/
+            progress = progress.clip(0, 1)
+            Swift.print("progress: " + "\(progress)")
+            /*let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
+             ViewModifier.removeAll(timeBar!.lableContainer!)
+             timeBar!.pool = []
+             timeBar!.inActive = []
+             timeBar!.dataProvider = dp*/
+            let progressVal:CGFloat = SliderParser.y(progress, timeBar!.maskSize[timeBar!.dir], timeBar!.contentSize[timeBar!.dir])
+            (timeBar! as! ElasticScrollFastList).mover!.value = progressVal//temp fix
+            (timeBar! as! ElasticScrollFastList).setProgress(progressVal)
+            
+            //let visRange:Range<Int> = timeBar!.visibleItemRange.start..<(timeBar!.visibleItemRange.end > timeBar!.dp.count ? timeBar!.visibleItemRange.end - 1 : timeBar!.visibleItemRange.end)
+            //timeBar!.renderItems(visRange)
+            /**/
+            //prevVisibleRange = nil
+            //visibleRange = nil/*rest so we force update dateText*/
+            updateDateText()
+            updateGraph()
+        }
     }
 }

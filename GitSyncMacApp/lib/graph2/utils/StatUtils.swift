@@ -25,28 +25,28 @@ class StatUtils{
         //how do you set, just convert idx to progress
         var dpProgress:CGFloat
         switch time{
-        case (.year,.month):/*from year to month*/
-            Swift.print("⏳ from year to month")
-            let monthIdx:Int = YearDP.firstMonthInYear(idx)
-            Swift.print("monthIdx: " + "\(monthIdx)")
-            dpProgress = monthIdx.cgFloat/dp.count.cgFloat
-            Swift.print("dpProgress: " + "\(dpProgress)")
-        case (.month,.day):/*from month to day*/
-            Swift.print("⏳ from month to day")
-            Swift.print("Month offset idx: \(idx)")
-            Swift.print("timeBar.currentVisibleItemRange.start: " + "\(timeBar.currentVisibleItemRange.start)")
-            let dayIdx:Int = MonthDP.firstDayInMonth(idx,dp.yearRange)
-            dpProgress = dayIdx.cgFloat/dp.count.cgFloat
-        case (.month,.year):/*from month to year*/
-            Swift.print("⏳ from month to year")
-            let startYearIdx:Int = MonthDP.year(visibleRange.start, dp.yearRange)//sort of the offset
-            dpProgress = startYearIdx.cgFloat / dp.count.cgFloat
-        case (.day,.month):/*from day to month*/
-            Swift.print("⏳ from day to month")
-            let startMontIdx = DayDP.month(visibleRange.start, dp.yearRange)
-            dpProgress = startMontIdx.cgFloat / dp.count.cgFloat
-        default:
-            fatalError("This can't happen: \(time)" )
+            case (.year,.month):/*from year to month*/
+                Swift.print("⏳ from year to month")
+                let monthIdx:Int = YearDP.firstMonthInYear(idx)
+                Swift.print("monthIdx: " + "\(monthIdx)")
+                dpProgress = monthIdx.cgFloat/dp.count.cgFloat
+                Swift.print("dpProgress: " + "\(dpProgress)")
+            case (.month,.day):/*from month to day*/
+                Swift.print("⏳ from month to day")
+                Swift.print("Month offset idx: \(idx)")
+                Swift.print("timeBar.currentVisibleItemRange.start: " + "\(timeBar.currentVisibleItemRange.start)")
+                let dayIdx:Int = MonthDP.firstDayInMonth(idx,dp.yearRange)
+                dpProgress = dayIdx.cgFloat/dp.count.cgFloat
+            case (.month,.year):/*from month to year*/
+                Swift.print("⏳ from month to year")
+                let startYearIdx:Int = MonthDP.year(visibleRange.start, dp.yearRange)//sort of the offset
+                dpProgress = startYearIdx.cgFloat / dp.count.cgFloat
+            case (.day,.month):/*from day to month*/
+                Swift.print("⏳ from day to month")
+                let startMontIdx = DayDP.month(visibleRange.start, dp.yearRange)
+                dpProgress = startMontIdx.cgFloat / dp.count.cgFloat
+            default:
+                fatalError("This can't happen: \(time)" )
         }
         return dpProgress
     }
