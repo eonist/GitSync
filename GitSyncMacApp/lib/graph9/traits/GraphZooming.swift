@@ -34,8 +34,7 @@ extension Graph9{
         //Swift.print("Graph9.onZoomLevelChange()")
         //let prevTimeType:TimeType = curTimeType
         //curTimeType = TimeType.types[curZoom]
-        /**/
-        
+
         timeBar!.removeFromSuperview()
         timeBar = nil
         let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
