@@ -5,7 +5,7 @@ import GitSyncMac
 
 extension Graph9 {
     var hasZoomChanged:Bool{
-        let hasZoomChanged:Bool = prevZoom != nil && prevZoom != curZoom
+        let hasZoomChanged:Bool = prevZoom == nil || prevZoom != curZoom
         prevZoom = curZoom
         return hasZoomChanged
     }
