@@ -26,7 +26,8 @@ class Graph9:Element{
     var curTimeType:TimeType = .year
     //var visibleRange:Range<Int>?
     func hasZoomChanged(_ curZoom:Int) -> Bool{
-        hasZoomChanged
+        let hasZoomChanged:Bool = prevZoom != nil && prevZoom != curZoom
+        prevZoom
     }
     func hasPanningChanged(_ curRange:Range<Int>) -> Bool {
         let hasPanningChanged:Bool = prevRange != nil && prevRange != timeBar!.visibleItemRange
@@ -48,8 +49,8 @@ class Graph9:Element{
         createGraphPoints()
         createValueBar()
         /*Debug*/
-        self.acceptsTouchEvents = true/*Enables gestures*/
-        self.wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
+        acceptsTouchEvents = true/*Enables gestures*/
+        wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
         
         //Swift.print("visibleRange: " + "\(visibleRange)")
     }
