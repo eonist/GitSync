@@ -15,6 +15,6 @@ extension Graph9 {
         return hasPanningChanged
     }
     var curTimeType:TimeType {return TimeType(rawValue: curZoom)! }
-    var prevTimeType:TimeType {return TimeType(rawValue: curZoom)! }
+    var prevTimeType:TimeType {return TimeType(rawValue: prevZoom!)! }
     var curRange:Range<Int> {return timeBar!.visibleItemRange}
 }

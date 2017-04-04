@@ -23,7 +23,7 @@ extension Graph9{
             else{dir = 0}
             let newZoom = curZoom + dir
             if(newZoom >= 0 && newZoom < maxZoom){
-                prevZoom = curZoom
+                prevZoom = curZoom//tempish bug fix
                 curZoom = newZoom
             }
             onZoomLevelChange()
