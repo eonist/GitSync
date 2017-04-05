@@ -37,7 +37,7 @@ class StatUtils{
                 Swift.print("timeBar.currentVisibleItemRange.start: " + "\(timeBar.currentVisibleItemRange.start)")
                 
                 //Continue here:
-                    //you need to find month offset and for that you need the old timeBar
+                    //you need to find month offset and for that you need the old timeBar, maybe you need the new tiebar when you move up?
                 
                 let dayIdx:Int = MonthDP.firstDayInMonth(idx,dp.yearRange)
                 dpProgress = dayIdx.cgFloat/dp.count.cgFloat
