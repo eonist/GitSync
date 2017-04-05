@@ -52,14 +52,16 @@ extension Graph9{
             graphPoint.setPosition($0)
         }
     }
-    func alignTimeBar(){
-        let objSize = CGSize(w,24)
-        //Swift.print("objSize: " + "\(objSize)")
-        let canvasSize = CGSize(w,h)
-        //Swift.print("canvasSize: " + "\(canvasSize)")
-        let p = Align.alignmentPoint(objSize, canvasSize, Alignment.bottomLeft, Alignment.bottomLeft, CGPoint())
-        //Swift.print("p: " + "\(p)")
-        //align timeBar to bottom with Align
-        timeBar!.point = p
+    /**
+     * Vertical lines (static)
+     */
+    func createVLines(_ size:CGSize,_ position:CGPoint,_ spacing:CGSize){
+        let count:Int = hValNames.count
+        var x:CGFloat = spacing.width
+        for _ in 0..<count{
+            let vLine = graphArea!.addSubView(Element(NaN,size.height-(spacing.height*2),graphArea,"vLine"))
+            vLine.setPosition(CGPoint(x,spacing.height))
+            x += spacing.width
+        }
     }
 }
