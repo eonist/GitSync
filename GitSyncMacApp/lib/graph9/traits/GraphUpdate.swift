@@ -20,12 +20,10 @@ extension Graph9{
             updateValueBar(maxValue)
         }
         commitCounter.onComplete = onComplete
-        let dateRange:DateRange = self.dateRange()
+        let dateRange:DateRange = GraphUpdateUtils.dateRange(curRange,range,curTimeType)
         Swift.print("dateRange.start: " + "\(dateRange.start)")
         Swift.print("dateRange.end: " + "\(dateRange.end)")
         //commitCounter.countCommits(dateRange.start,dateRange.end,curTimeType)
-        
-        
     }
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
@@ -63,8 +61,8 @@ extension Graph9{
                 startStr = "\(dateRange.start.year.string).\(dateRange.start.shortMonthName)"
                 endStr =  "\(dateRange.end.year.string).\(dateRange.end.shortMonthName)"
             case .day:
-                startStr = "\(dateRange.start.year.string).\(dateRange.start.shortMonthName).\(dateRange.start.shortDayName)"
-                endStr =  "\(dateRange.end.year.string).\(dateRange.end.shortMonthName).\(dateRange.end.shortDayName)"
+                startStr = "\(dateRange.start.year.string).\(dateRange.start.shortMonthName).\(dateRange.start.day.string)"
+                endStr =  "\(dateRange.end.year.string).\(dateRange.end.shortMonthName).\(dateRange.end.day.string)"
         }
         let dateStr:String = startStr + " - " + endStr
         dateText!.setTextValue(dateStr)
