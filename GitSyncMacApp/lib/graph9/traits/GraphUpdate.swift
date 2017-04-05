@@ -10,7 +10,7 @@ extension Graph9{
     func update(){
         updateDateText()
         updateGraph()
-        /*
+        
         var commitCounter:CommitCounter = CommitCounter()
         func onComplete(_ results:[Int]){
             Swift.print("Graph9 commitCounter onComplete()")
@@ -21,10 +21,11 @@ extension Graph9{
         }
         commitCounter.onComplete = onComplete
         let dateRange:DateRange = GraphUpdateUtils.dateRange(curRange,range,curTimeType)
+        
         Swift.print("dateRange.start: " + "\(dateRange.start)")
         Swift.print("dateRange.end: " + "\(dateRange.end)")
-         */
-        //commitCounter.countCommits(dateRange.start,dateRange.end,curTimeType)
+         /**/
+        commitCounter.countCommits(dateRange.start,dateRange.end,curTimeType)
     }
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
