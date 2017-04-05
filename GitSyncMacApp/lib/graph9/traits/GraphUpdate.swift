@@ -8,9 +8,6 @@ extension Graph9{
      * Updates DateText and GraphLine
      */
     func update(){
-        updateDateText()
-        
-        
         var commitCounter:CommitCounter = CommitCounter()
         func onComplete(_ results:[Int]){
             Swift.print("🏁 Graph9 commitCounter onComplete()")
@@ -18,6 +15,7 @@ extension Graph9{
             Swift.print("results: " + "\(results)")
             let vValues:[CGFloat] = results.map{$0.cgFloat}
             let maxValue:CGFloat = vValues.max()!//Finds the largest number in among vValues
+            updateDateText()
             updateValueBar(maxValue)
             updateGraph(vValues)
         }
