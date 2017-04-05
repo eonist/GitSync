@@ -11,13 +11,8 @@ class CommitCounter{
     /**
      * Initiates the process
      */
-    /*func countCommits(_ dayOffset:Int){//temp, remove shortly
-     let from:Date = Date().offsetByDays(dayOffset-7)
-     let until:Date = Date().offsetByDays(dayOffset)
-     countCommits(from,until,.day)
-     }*/
     func countCommits(_ from:Date, _ until:Date,_ timeType:TimeType){
-        startTime = Date()/*debugging*/
+        startTime = Date()/*performance test related*/
         let repoList:[RepoItem] = RepoUtils.repoListFlattenedDupeFree
         repoCommits = CommitCountWorkUtils.commitCountWork(repoList,from,until,timeType)/*populate a 3d array with items*/
         let group = DispatchGroup()
@@ -54,3 +49,8 @@ class CommitCounter{
         onComplete(result)//🚪➡️️
     }
 }
+/*func countCommits(_ dayOffset:Int){//temp, remove shortly
+ let from:Date = Date().offsetByDays(dayOffset-7)
+ let until:Date = Date().offsetByDays(dayOffset)
+ countCommits(from,until,.day)
+ }*/

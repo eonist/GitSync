@@ -64,7 +64,10 @@ extension CommitGraph{
             updateDateText()
         }
         commitCounter.onComplete = onComplete
-        commitCounter.countCommits(dayOffset)/*🚪⬅️️ process starts here*/
+        let from:Date = Date().offsetByDays(dayOffset-7)
+        let until:Date = Date().offsetByDays(dayOffset)
+        commitCounter.countCommits(from,until,.day)/*🚪⬅️️ process starts here*/
+        //commitCounter.countCommits(dayOffset)
     }
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
