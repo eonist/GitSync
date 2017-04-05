@@ -42,7 +42,7 @@ extension Graph9{
         let maxValue:CGFloat = vValues.max()!//Finds the largest number in among vValues
         Swift.print("maxValue: " + "\(maxValue)")
         Swift.print("vValues: " + "\(vValues)")
-        graphPts = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue)
+        graphPts = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue,50,50)
         Swift.print("graphPts.count: " + "\(graphPts!.count)")
         Swift.print("graphPts: " + "\(graphPts)")
         /*GraphPoints*/
