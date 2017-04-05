@@ -10,7 +10,6 @@ extension Graph9{
         crateDateText()
         contentContainer = addSubView(Container(width,height,self,"content"))
         createTimeBar()
-        //updateDateText()
         createGraphLine()
         createGraphPoints()
         createValueBar()
