@@ -30,20 +30,10 @@ class Graph9:Element{
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         StyleManager.addStylesByURL("~/Desktop/datetext.css")
         super.resolveSkin()
-        dateText = addSubView(TextArea(NaN,NaN,"00/00/00 - 00/00/00",self,"date"))/*A TextField that displays the time range of the graph*/
-        /**/
-        contentContainer = addSubView(Container(width,height,self,"content"))
-        createTimeBar()
-        updateDateText()
-        createGraphLine()
-        createGraphPoints()
-        createValueBar()
-        createVLines()
+        createUI()
         /*Debug*/
         acceptsTouchEvents = true/*Enables gestures*/
         wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
-        
-        //Swift.print("visibleRange: " + "\(visibleRange)")
     }
     override func onEvent(_ event:Event) {
         /*if(event is AnimEvent){

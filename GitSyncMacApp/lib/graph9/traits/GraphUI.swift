@@ -4,6 +4,20 @@ import Cocoa
 /*CreateContent*/
 extension Graph9{
     /**
+     *
+     */
+    func createUI(){
+        dateText = addSubView(TextArea(NaN,NaN,"00/00/00 - 00/00/00",self,"date"))/*A TextField that displays the time range of the graph*/
+        /**/
+        contentContainer = addSubView(Container(width,height,self,"content"))
+        createTimeBar()
+        updateDateText()
+        createGraphLine()
+        createGraphPoints()
+        createValueBar()
+        createVLines()
+    }
+    /**
      * Creates the TimeBar
      */
     func createTimeBar(){
