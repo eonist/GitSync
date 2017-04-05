@@ -14,7 +14,7 @@ class GraphUpdateUtils {
         switch curTimeType{
             case .year:
                 let startDate:Date = YearDP.year(visibleRange.start,yearRange)
-                let endDate:Date = YearDP.year(visibleRange.end - 2,yearRange)
+                let endDate:Date = YearDP.year(visibleRange.end - 1,yearRange)
                 return (startDate,endDate)
             case .month:
                 /*Month*/

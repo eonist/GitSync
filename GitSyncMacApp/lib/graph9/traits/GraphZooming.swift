@@ -69,7 +69,7 @@ extension Graph9{
             //visibleRange = nil/*rest so we force update dateText*/
             /*updateDateText()
              updateGraph()*/
-            update()
+            //update()
         }
     }
 }
