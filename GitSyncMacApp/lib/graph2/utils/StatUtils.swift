@@ -16,7 +16,7 @@ class StatUtils{
     /**
      * Returns a progress value that can be used to stay in the same time period when toggeling between time-levels
      */
-    static func progress(_ timeBar:FastList, _ time:(prevTimeType:TimeType,curTimeType:TimeType), _ mouseLocIdx:Int)->CGFloat{/*0-1*/
+    static func progress(_ timeBar:FastList, _ time:(prevTimeType:TimeType,curTimeType:TimeType), _ mouseLocIdx:Int, _ )->CGFloat{/*0-1*/
         let dp:TimeDP = timeBar.dataProvider as! TimeDP
         let visibleRange:Range<Int> = timeBar.visibleItemRange
         let startIdx:Int = visibleRange.start
