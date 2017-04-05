@@ -58,13 +58,18 @@ extension Graph9{
     func createVLines(/*_ size:CGSize,_ position:CGPoint,_ spacing:CGSize*/){
         addGraphVLineStyle()
         /**/
+        let size:CGSize = CGSize(w,h)
         let count:Int = 7/*hValNames.count*/
         let spacing:CGSize = CGSize(100,100)
         let leftMargin:CGFloat = 50
+        let topMargin:CGFloat = 50
+        let bottomMargin:CGFloat = 50
+        let vLineHeight:CGFloat = size.height - topMargin - bottomMargin
         var x:CGFloat = leftMargin
-        let size:CGSize = CGSize(w,h)
+        var y:CGFloat = topMargin
+        
         for _ in 0..<count{
-            let vLine = /*graphArea!*/self.addSubView(Element(NaN,size.height-(spacing.height*2),self/*graphArea*/,"vLine"))
+            let vLine = /*graphArea!*/self.addSubView(Element(NaN,vLineHeight,self/*graphArea*/,"vLine"))
             vLine.setPosition(CGPoint(x,spacing.height))
             x += spacing.width
         }
