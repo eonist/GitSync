@@ -10,7 +10,7 @@ extension Graph9{
     func update(){
         updateDateText()
         updateGraph()
-        
+        /*
         var commitCounter:CommitCounter = CommitCounter()
         func onComplete(_ results:[Int]){
             Swift.print("Graph9 commitCounter onComplete()")
@@ -20,6 +20,7 @@ extension Graph9{
             updateValueBar(maxValue)
         }
         commitCounter.onComplete = onComplete
+        */
         let dateRange:DateRange = GraphUpdateUtils.dateRange(curRange,range,curTimeType)
         
         Swift.print("dateRange.start: " + "\(dateRange.start.shortDate)")

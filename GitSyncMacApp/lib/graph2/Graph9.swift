@@ -54,7 +54,7 @@ class Graph9:Element{
             //Swift.print("event.origin: " + "\(event.origin)")
             //Swift.print("prevVisibleRange: " + "\(prevVisibleRange)")
             //Swift.print("visibleRange: " + "\(visibleRange)")
-            Swift.print("timeBar!.visibleItemRange: " + "\(timeBar!.visibleItemRange)")
+            Swift.print("🍊 timeBar!.visibleItemRange: " + "\(timeBar!.visibleItemRange)")
             let isVelocityZero:Bool = timeBar!.mover!.velocity == 0//quick fix
             //Swift.print("isVelocityZero: " + "\(isVelocityZero)")
             if(isVelocityZero && hasPanningChanged(&prevRange)){
