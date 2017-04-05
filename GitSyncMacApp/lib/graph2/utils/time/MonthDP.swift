@@ -30,19 +30,19 @@ extension MonthDP{
     static func firstDayInMonth(_ monthOffset:Int, _ yearRange:Range<Int>)->Int{
         //which year are we in?
         let yearIdx:Int = floor((monthOffset / MonthDP.numOfMonthsInYear).cgFloat).int
-        Swift.print("yearIdx: " + "\(yearIdx)")
+        //Swift.print("yearIdx: " + "\(yearIdx)")
         //which month are we in?
         let from:Date = DateParser.createDate(yearRange.start)!
-        Swift.print("from.year: " + "\(from.year)")
+        //Swift.print("from.year: " + "\(from.year)")
         let monthInYear:Int = ((monthOffset.cgFloat %% MonthDP.numOfMonthsInYear.cgFloat) + 1.0).int /*between 1 and 12*/
-        Swift.print("monthInYear: " + "\(monthInYear)")
+        //Swift.print("monthInYear: " + "\(monthInYear)")
         let year:Int = yearRange.start + yearIdx
-        Swift.print("year: " + "\(year)")
+        //Swift.print("year: " + "\(year)")
         let until:Date = DateParser.createDate(year,monthInYear/*,  1*/)!//first month and first day
-        Swift.print("until.year: " + "\(until.year)" + "month: " + "\(until.month)")
+        //Swift.print("until.year: " + "\(until.year)" + "month: " + "\(until.month)")
         //num of days since yearRange.start until date
         let dayOffset:Int = from.numOfDays(until)
-        Swift.print("dayOffset: " + "\(dayOffset)")
+        //Swift.print("dayOffset: " + "\(dayOffset)")
         return dayOffset
     }
     /**
@@ -50,13 +50,13 @@ extension MonthDP{
      */
     static func year(_ monthOffset:Int,_ yearRange:Range<Int>) -> Int{
         let from:Date = DateParser.createDate(yearRange.start)!
-        Swift.print("from.simpleDate: " + "\(from.simpleDate)")
+        //Swift.print("from.simpleDate: " + "\(from.simpleDate)")
         let until:Date = from.offsetByMonths(monthOffset)
-        Swift.print("until.simpleDate: " + "\(until.simpleDate)")
+        //Swift.print("until.simpleDate: " + "\(until.simpleDate)")
         let numOfMonths = from.numOfMonths(until)
-        Swift.print("numOfMonths: " + "\(numOfMonths)")
+        //Swift.print("numOfMonths: " + "\(numOfMonths)")
         let numOfYearsFromUntil:Int = from.numOfYears(until)
-        Swift.print("numOfYearsFromUntil: " + "\(numOfYearsFromUntil)")
+        //Swift.print("numOfYearsFromUntil: " + "\(numOfYearsFromUntil)")
         return numOfYearsFromUntil
     }
 }

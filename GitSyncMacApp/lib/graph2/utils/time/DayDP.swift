@@ -16,7 +16,7 @@ class DayDP:TimeDP{
      * Returns a Date from given dayOffsetIdx on yearRange (what is date 1200 days from year 2011 for instance)
      */
     static func day(_ dayIdx:Int, _ yearRange:Range<Int>)->Date{
-        let startDate:Date = DateParser.createDate(yearRange.start,0,0,0,0,0)!//find start date
+        let startDate:Date = Date.createDate(yearRange.start)!//find start date
         let dateAt:Date = startDate.offsetByDays(dayIdx)//n days from startDate => date
         return dateAt
     }
