@@ -30,8 +30,8 @@ extension Graph9{
         }
     }
     func onZoomLevelChange() {
-        Swift.print("🍐 onZoomLevelChange: prev: " + "\(self.prevTimeType) cur: \(self.curTimeType)")
-        Swift.print("curRange: " + "\(curRange)")
+        //Swift.print("🍐 onZoomLevelChange: prev: " + "\(self.prevTimeType) cur: \(self.curTimeType)")
+        //Swift.print("curRange: " + "\(curRange)")
         prevRange = nil//why is this here?
         
         let prevTimeType = self.prevTimeType//temp store this,why?
@@ -47,17 +47,17 @@ extension Graph9{
             alignTimeBar()
             
             let mouseLocIdx:Int = StatUtils.mouseLocIdx(mouseX, w, 100)
-            Swift.print("mouseLocIdx: " + "\(mouseLocIdx)")
+            //Swift.print("mouseLocIdx: " + "\(mouseLocIdx)")
             var progress:CGFloat = StatUtils.progress(timeBar!, (prevTimeType,curTimeType), mouseLocIdx, tempCurRange)/*0-1*/
             progress = progress.clip(0, 1)
-            Swift.print("progress: " + "\(progress)")
+            //Swift.print("progress: " + "\(progress)")
             /*let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
              ViewModifier.removeAll(timeBar!.lableContainer!)
              timeBar!.pool = []
              timeBar!.inActive = []
              timeBar!.dataProvider = dp*/
             let progressVal:CGFloat = SliderParser.y(progress, timeBar!.maskSize[timeBar!.dir], timeBar!.contentSize[timeBar!.dir])
-            Swift.print("progressVal: " + "\(progressVal)")
+            //Swift.print("progressVal: " + "\(progressVal)")
             timeBar!.mover!.value = progressVal//temp fix
             timeBar!.mover!.result = progressVal
             timeBar!.setProgress(progressVal)

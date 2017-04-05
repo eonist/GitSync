@@ -53,7 +53,7 @@ extension MonthDP{
         //Swift.print("from.simpleDate: " + "\(from.simpleDate)")
         let until:Date = from.offsetByMonths(monthOffset)
         //Swift.print("until.simpleDate: " + "\(until.simpleDate)")
-        let numOfMonths = from.numOfMonths(until)
+        //let numOfMonths = from.numOfMonths(until)
         //Swift.print("numOfMonths: " + "\(numOfMonths)")
         let numOfYearsFromUntil:Int = from.numOfYears(until)
         //Swift.print("numOfYearsFromUntil: " + "\(numOfYearsFromUntil)")
