@@ -28,8 +28,11 @@ extension Graph9{
          /**/
         let numOfTimeUnits:Int = curTimeType.numOfTimeUnits(dateRange.start, dateRange.end)
         Swift.print("numOfTimeUnits: " + "\(numOfTimeUnits)")
- 
-        commitCounter.countCommits(dateRange.start,dateRange.end,curTimeType)
+        
+        if(numOfTimeUnits == 7){//⚠️️ quick fix
+            commitCounter.countCommits(dateRange.start,dateRange.end,curTimeType)
+        }
+        
     }
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
