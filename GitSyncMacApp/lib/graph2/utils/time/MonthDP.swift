@@ -5,6 +5,9 @@ import Foundation
 class MonthDP:TimeDP{
     static var numOfMonthsInYear:Int = 12
     override var count:Int {return yearRange.numOfIndecies * MonthDP.numOfMonthsInYear}/*numOfDaysInYearRange*/
+    /**
+     * PARAM at: The index of the item in dp
+     */
     override func item(_ at:Int) -> [String:String]? {
         if(at >= count){return nil}//out of bound return nil
         let dateAt:Date = MonthDP.month(at,yearRange)
