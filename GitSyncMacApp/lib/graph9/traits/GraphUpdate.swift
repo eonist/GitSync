@@ -39,8 +39,10 @@ extension Graph9{
         prevGraphPts = graphPts.map{$0}//grabs the location of where the pts are now
         //graphPts = GraphTools.randomGraphPoints(50,100,h)
         let maxValue:CGFloat = vValues.max()!//Finds the largest number in among vValues
-        
+        Swift.print("maxValue: " + "\(maxValue)")
+        Swift.print("vValues: " + "\(vValues)")
         graphPts = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue)
+        Swift.print("graphPts.count: " + "\(graphPts!.count)")
         Swift.print("graphPts: " + "\(graphPts)")
         /*GraphPoints*/
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/
