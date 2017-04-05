@@ -18,7 +18,7 @@ class ValueBar:Element{
         let itemYSpace:CGFloat = (height-100)/5
         var y:CGFloat = 50
         strings.forEach{ str in
-            let textArea:TextArea = TextArea(w,NaN,str,self/*leftBar!*/)
+            let textArea:TextArea = TextArea(NaN,NaN,str,self/*leftBar!*/)
             items.append(self.addSubView(textArea))
             textArea.setPosition(CGPoint(0,y))
             y += itemYSpace
