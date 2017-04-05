@@ -66,11 +66,10 @@ extension Graph9{
         let bottomMargin:CGFloat = 50
         let vLineHeight:CGFloat = size.height - topMargin - bottomMargin
         var x:CGFloat = leftMargin
-        var y:CGFloat = topMargin
-        
+        let y:CGFloat = topMargin
         for _ in 0..<count{
             let vLine = /*graphArea!*/self.addSubView(Element(NaN,vLineHeight,self/*graphArea*/,"vLine"))
-            vLine.setPosition(CGPoint(x,spacing.height))
+            vLine.setPosition(CGPoint(x,y))
             x += spacing.width
         }
     }
