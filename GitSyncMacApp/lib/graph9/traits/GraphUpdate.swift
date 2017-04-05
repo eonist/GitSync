@@ -10,26 +10,26 @@ extension Graph9{
     func update(){
         updateDateText()
         updateGraph()
-        /*
+        
         var commitCounter:CommitCounter = CommitCounter()
         func onComplete(_ results:[Int]){
-            Swift.print("Graph9 commitCounter onComplete()")
+            Swift.print("🏁 Graph9 commitCounter onComplete()")
             Swift.print("results.count: " + "\(results.count)")
             Swift.print("results: " + "\(results)")
             let maxValue:CGFloat = results.max()!.cgFloat//Finds the largest number in among vValues
             updateValueBar(maxValue)
         }
         commitCounter.onComplete = onComplete
-         */
+ 
         let dateRange:DateRange = GraphUpdateUtils.dateRange(curRange,range,curTimeType)
         
-        Swift.print("dateRange.start: " + "\(dateRange.start.shortDate)")
-        Swift.print("dateRange.end: " + "\(dateRange.end.shortDate)")
+        //Swift.print("dateRange.start: " + "\(dateRange.start.shortDate)")
+        //Swift.print("dateRange.end: " + "\(dateRange.end.shortDate)")
          /**/
         let numOfTimeUnits:Int = curTimeType.numOfTimeUnits(dateRange.start, dateRange.end)
         Swift.print("numOfTimeUnits: " + "\(numOfTimeUnits)")
  
-        //commitCounter.countCommits(dateRange.start,dateRange.end,curTimeType)
+        commitCounter.countCommits(dateRange.start,dateRange.end,curTimeType)
     }
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
