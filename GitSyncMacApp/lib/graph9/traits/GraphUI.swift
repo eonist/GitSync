@@ -29,12 +29,12 @@ extension Graph9{
         valueBar!.point = p
     }
     /**
-     *
+     * 
      */
-    func createGraphLine(){
+    func createGraphLine(_ vValues:[CGFloat], _ maxValue:CGFloat){
         addGraphLineStyle()
-        /**/
-        graphPts = GraphTools.randomGraphPoints(50,100,h-100)
+        //graphPts = GraphTools.randomGraphPoints(50,100,h-100)
+        graphPts = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue, 50, 50)
         let path:IPath = PolyLineGraphicUtils.path(graphPts!)
         graphLine = contentContainer!.addSubView(GraphLine(width,height,path,contentContainer!))
     }
