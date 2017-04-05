@@ -14,12 +14,12 @@ class SnappyRubberBand:RubberBand{
     override func applyFriction() {
         //Swift.print("SnappyRubberBand.applyFriction() velocity: \(velocity) value: \(value)")
         if(velocity == 0){/*when scrollWheel exit and its abs(prevScrollDelta) < 3 then we set the velocity to 0*/
-            Swift.print("prevDir: " + "\(prevDir)")
+            //Swift.print("prevDir: " + "\(prevDir)")
             if(prevDir.isPositive){/*abs(mod) <= snap/2*/
                 velocity = minVelocity
-                Swift.print("⬅️️ go backward velocity : \(velocity)")
+                //Swift.print("⬅️️ go backward velocity : \(velocity)")
             }else if(prevDir.isNegative) {
-                Swift.print("➡️️ go forward velocity : \(velocity)")
+                //Swift.print("➡️️ go forward velocity : \(velocity)")
                 velocity = -minVelocity
             }else{/*prevDir == 0*/
                 velocity = 0
@@ -27,14 +27,16 @@ class SnappyRubberBand:RubberBand{
             //value += velocity
         }
         if(abs(velocity) <= minVelocity && abs(value %% snap).isNear(0, minVelocity)){/*stop the value is close enough to target*/
-            Swift.print("is close to target")
-            Swift.print("hasStopped: " + "\(hasStopped)")
-            Swift.print("value: " + "\(value)")
-            Swift.print("snap: " + "\(snap)")
-            Swift.print("prevDir: " + "\(prevDir)")
-            Swift.print("result: " + "\(result)")
+            /*
+             Swift.print("is close to target")
+             Swift.print("hasStopped: " + "\(hasStopped)")
+             Swift.print("value: " + "\(value)")
+             Swift.print("snap: " + "\(snap)")
+             Swift.print("prevDir: " + "\(prevDir)")
+             Swift.print("result: " + "\(result)")
+             */
             value = CGFloatModifier.roundTo(value, snap)/*set final destination*/
-            Swift.print("final value: " + "\(value)")
+            //Swift.print("final value: " + "\(value)")
             callBack(value)//final tick
             hasStopped = true
             velocity = 0/*bug fix ⚠️️ could break things*/
