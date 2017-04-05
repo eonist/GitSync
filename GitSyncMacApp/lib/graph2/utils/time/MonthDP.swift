@@ -17,11 +17,11 @@ class MonthDP:TimeDP{
 }
 extension MonthDP{
     static func month(_ monthOffset:Int, _ yearRange:Range<Int>)->Date{
-        Swift.print("🍅 MonthDP.month: \(monthOffset)")
-        let startDate:Date = DateParser.createDate(yearRange.start)!//find start date
-        Swift.print("startDate: " + "\(startDate)")
+        //Swift.print("🍅 MonthDP.month: \(monthOffset)")
+        let startDate:Date = Date.createDate(yearRange.start)!//find start date
+        //Swift.print("startDate: " + "\(startDate)")
         let dateAt:Date = startDate.offsetByMonths(monthOffset)//n months from startDate => date
-        Swift.print("dateAt: " + "\(dateAt)")
+        //Swift.print("dateAt: " + "\(dateAt)")
         return dateAt
     }
     /**
