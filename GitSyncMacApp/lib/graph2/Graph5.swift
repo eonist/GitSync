@@ -84,9 +84,9 @@ extension Graph5{
         //TODO: make line marks
         timeBar = addSubView(TimeBar2(contentSize.width,32,dayNames,self))
         let objSize = CGSize(timeBar!.w,32)
-        Swift.print("objSize: " + "\(objSize)")
+        Swift.print("TimeBar2.objSize: " + "\(objSize)")
         let canvasSize = CGSize(w,h)
-        Swift.print("canvasSize: " + "\(canvasSize)")
+        Swift.print("TimeBar2.canvasSize: " + "\(canvasSize)")
         let p = Align.alignmentPoint(objSize, canvasSize, Alignment.bottomLeft, Alignment.bottomLeft, CGPoint())
         Swift.print("p: " + "\(p)")
         //align timeBar to bottom with Align
