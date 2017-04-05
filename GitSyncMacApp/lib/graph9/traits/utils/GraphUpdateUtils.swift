@@ -6,7 +6,7 @@ import Foundation
 typealias DateRange = (start:Date,end:Date)
 class GraphUpdateUtils {
     /**
-     * 
+     * TODO: ⚠️️ the -2 and -1 stuff is a quick fix, should be mitigated by creating a new range: visibleRange.start + 7 for end. instead of end
      */
     static func dateRange(_ curRange:Range<Int>, _ yearRange:Range<Int>, _ curTimeType:TimeType)->DateRange{
         let visibleRange = curRange
