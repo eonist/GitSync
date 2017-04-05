@@ -15,12 +15,11 @@ extension Graph9{
             Swift.print("results: " + "\(results)")
             let vValues:[CGFloat] = results.map{$0.cgFloat}
             let maxValue:CGFloat = vValues.max()!//Finds the largest number in among vValues
-            updateDateText()
-            updateValueBar(maxValue)
-            updateGraph(vValues)
+            //updateDateText()
+            //updateValueBar(maxValue)
+            //updateGraph(vValues)
         }
         commitCounter.onComplete = onComplete
- 
         let dateRange:DateRange = GraphUpdateUtils.dateRange(curRange,range,curTimeType)
         
         //Swift.print("dateRange.start: " + "\(dateRange.start.shortDate)")
