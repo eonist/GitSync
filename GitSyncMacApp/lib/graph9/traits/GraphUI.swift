@@ -7,7 +7,7 @@ extension Graph9{
      *
      */
     func createUI(){
-        dateText = addSubView(TextArea(NaN,NaN,"00/00/00 - 00/00/00",self,"date"))/*A TextField that displays the time range of the graph*/
+        crateDateText()
         /**/
         contentContainer = addSubView(Container(width,height,self,"content"))
         createTimeBar()
@@ -16,6 +16,9 @@ extension Graph9{
         createGraphPoints()
         createValueBar()
         createVLines()
+    }
+    func crateDateText(){
+        dateText = addSubView(TextArea(NaN,NaN,"00/00/00 - 00/00/00",self,"date"))/*A TextField that displays the time range of the graph*/
     }
     /**
      * Creates the TimeBar
