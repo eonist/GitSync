@@ -55,12 +55,12 @@ extension Graph9{
     /**
      * Vertical lines (static)
      */
-    func createVLines(_ size:CGSize,_ position:CGPoint,_ spacing:CGSize){
+    func createVLines(/*_ size:CGSize,_ position:CGPoint,_ spacing:CGSize*/){
         addGraphVLineStyle()
         /**/
         let count:Int = 7/*hValNames.count*/
-        var x:CGFloat = spacing.width
         let spacing:CGSize = CGSize(100,100)
+        var x:CGFloat = spacing.width
         let size:CGSize = CGSize(w,h)
         for _ in 0..<count{
             let vLine = /*graphArea!*/self.addSubView(Element(NaN,size.height-(spacing.height*2),self/*graphArea*/,"vLine"))

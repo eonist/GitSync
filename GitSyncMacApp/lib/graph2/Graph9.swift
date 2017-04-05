@@ -38,6 +38,7 @@ class Graph9:Element{
         createGraphLine()
         createGraphPoints()
         createValueBar()
+        createVLines()
         /*Debug*/
         acceptsTouchEvents = true/*Enables gestures*/
         wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
