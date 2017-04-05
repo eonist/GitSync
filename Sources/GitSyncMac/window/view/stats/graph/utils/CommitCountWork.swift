@@ -44,7 +44,7 @@ private class Utils{
         return commitCountWorks
     }
 }
-private extension TimeType{
+public extension TimeType{/*was priv, but was needed for debugging outside scope*/
     func offsetBy(_ date:Date,_ offset:Int)->Date {
         switch self {
             case .year:

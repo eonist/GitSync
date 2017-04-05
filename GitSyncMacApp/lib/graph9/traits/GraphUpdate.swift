@@ -22,10 +22,13 @@ extension Graph9{
         commitCounter.onComplete = onComplete
         let dateRange:DateRange = GraphUpdateUtils.dateRange(curRange,range,curTimeType)
         
-        Swift.print("dateRange.start: " + "\(dateRange.start)")
-        Swift.print("dateRange.end: " + "\(dateRange.end)")
+        Swift.print("dateRange.start: " + "\(dateRange.start.shortDate)")
+        Swift.print("dateRange.end: " + "\(dateRange.end.shortDate)")
          /**/
-        commitCounter.countCommits(dateRange.start,dateRange.end,curTimeType)
+        let numOfTimeUnits:Int = curTimeType.numOfTimeUnits(dateRange.start, dateRange.end)
+        Swift.print("numOfTimeUnits: " + "\(numOfTimeUnits)")
+        
+        //commitCounter.countCommits(dateRange.start,dateRange.end,curTimeType)
     }
     /**
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
