@@ -32,7 +32,7 @@ extension Graph9{
      * Creates the ValueBar
      */
     func createValueBar(){
-        valueBar = addSubView(ValueBar(32,height-32,self))
+        valueBar = addSubView(ValueBar(32,height,self))
         let objSize = CGSize(32,valueBar!.h)
         Swift.print("ValueBar.objSize: " + "\(objSize)")
         let canvasSize = CGSize(w,h)

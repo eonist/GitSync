@@ -15,7 +15,7 @@ class ValueBar:Element{
         /*leftBar = addSubView(Section(NaN,newSize!.height,self,"leftBar"))//create left bar
          leftBar!.setPosition(CGPoint(0,newPosition!.y))*/
         let strings:[String] = GraphUtils.verticalIndicators(6/*vCount*/, 60/*maxValue!*/)
-        let itemYSpace:CGFloat = (height-100)/4
+        let itemYSpace:CGFloat = (height-100)/5
         var y:CGFloat = 50
         strings.forEach{ str in
             let textArea:TextArea = TextArea(NaN,NaN,str,self/*leftBar!*/)
