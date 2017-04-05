@@ -34,7 +34,7 @@ extension Graph9{
     func createGraphLine(){
         addGraphLineStyle()
         /**/
-        graphPts = randomGraphPoints()
+        graphPts = GraphTools.randomGraphPoints(50,100,h)
         let path:IPath = PolyLineGraphicUtils.path(graphPts!)
         graphLine = contentContainer!.addSubView(GraphLine(width,height,path,contentContainer!))
     }

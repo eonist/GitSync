@@ -40,7 +40,7 @@ extension Graph9{
      */
     func updateGraph(_ vValues:[CGFloat]){
         prevGraphPts = graphPts.map{$0}//grabs the location of where the pts are now
-        graphPts = randomGraphPoints
+        graphPts = GraphTools.randomGraphPoints(50,100,h)
         let maxValue:CGFloat = vValues.max()!//Finds the largest number in among vValues
         
         graphPts = GraphUtils.points(newSize!, newPosition!, spacing!, vValues, maxValue)
