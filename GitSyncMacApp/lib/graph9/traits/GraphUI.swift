@@ -4,7 +4,7 @@ import Cocoa
 /*CreateContent*/
 extension Graph9{
     /**
-     *
+     * Creates all the UI elements
      */
     func createUI(){
         crateDateText()
@@ -36,8 +36,8 @@ extension Graph9{
      * Creates the ValueBar
      */
     func createValueBar(){
-        valueBar = addSubView(ValueBar(32,height,self))
-        let objSize = CGSize(32,valueBar!.h)
+        valueBar = addSubView(ValueBar(42,height,self))
+        let objSize = CGSize(42,valueBar!.h)
         Swift.print("ValueBar.objSize: " + "\(objSize)")
         let canvasSize = CGSize(w,h)
         Swift.print("ValueBar.canvasSize: " + "\(canvasSize)")
