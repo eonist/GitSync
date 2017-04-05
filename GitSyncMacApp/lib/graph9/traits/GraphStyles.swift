@@ -33,5 +33,19 @@ extension Graph9{
         css += "}"
         StyleManager.addStyle(css)
     }
+    /**
+     *
+     */
+    func addGraphVLineStyle(){
+        var css:String = ""
+        css += "#vLine{"
+        css +=     "float:none;"
+        css +=     "clear:none;"
+        css +=     "fill:#8899A6;"
+        css +=     "fill-alpha:1;"
+        css +=     "width:0.5px;"
+        css += "}"
+        StyleManager.addStyle(css)
+    }
 }
 

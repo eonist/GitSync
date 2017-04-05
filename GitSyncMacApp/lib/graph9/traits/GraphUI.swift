@@ -56,6 +56,8 @@ extension Graph9{
      * Vertical lines (static)
      */
     func createVLines(_ size:CGSize,_ position:CGPoint,_ spacing:CGSize){
+        addGraphVLineStyle()
+        /**/
         let count:Int = 7/*hValNames.count*/
         var x:CGFloat = spacing.width
         let spacing:CGSize = CGSize(100,100)
