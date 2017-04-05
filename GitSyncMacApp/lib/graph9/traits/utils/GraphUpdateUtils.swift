@@ -19,18 +19,18 @@ class GraphUpdateUtils {
             case .month:
                 /*Month*/
                 let startMonth:Date = MonthDP.month(visibleRange.start, yearRange)
-                Swift.print("startMonth.month: " + "\(startMonth.month)")
+                //Swift.print("startMonth.month: " + "\(startMonth.month)")
                 let endMonth:Date = MonthDP.month(visibleRange.end-1, yearRange)
-                Swift.print("endMonth.month: " + "\(endMonth.month)")
+                //Swift.print("endMonth.month: " + "\(endMonth.month)")
                 /*Year*/
                 let startYearIdx:Int = MonthDP.year(visibleRange.start, yearRange)//sort of the offset
-                Swift.print("🔴 startYearIdx: " + "\(startYearIdx)")
+                //Swift.print("🔴 startYearIdx: " + "\(startYearIdx)")
                 let startYear:Int = YearDP.year(startYearIdx,yearRange)
-                Swift.print("startYear: " + "\(startYear)")
+                //Swift.print("startYear: " + "\(startYear)")
                 let endYearIdx:Int = MonthDP.year(visibleRange.end-1, yearRange)
-                Swift.print("🔵 endYearIdx: " + "\(endYearIdx)")
+                //Swift.print("🔵 endYearIdx: " + "\(endYearIdx)")
                 let endYear:Int = YearDP.year(endYearIdx,yearRange)
-                Swift.print("endYear: " + "\(endYear)")
+                //Swift.print("endYear: " + "\(endYear)")
                 /*Date*/
                 let startDate:Date = Date.createDate(startYear, startMonth.month)!
                 let endDate:Date = Date.createDate(endYear, endMonth.month)!
@@ -41,10 +41,10 @@ class GraphUpdateUtils {
                 let endDayDate:Date = DayDP.day(visibleRange.end, yearRange)
                 /*Month*/
                 let startMonthIdx:Int = DayDP.month(visibleRange.start,yearRange)
-                Swift.print("startMonthIdx: " + "\(startMonthIdx)")
+                //Swift.print("startMonthIdx: " + "\(startMonthIdx)")
                 let startMonth:Date = MonthDP.month(startMonthIdx, yearRange)
                 let endMonthIdx:Int = DayDP.month(visibleRange.end,yearRange)
-                Swift.print("endMonthIdx: " + "\(endMonthIdx)")
+                //Swift.print("endMonthIdx: " + "\(endMonthIdx)")
                 let endMonth:Date = MonthDP.month(endMonthIdx, yearRange)
                 /*year*/
                 let startYearIdx:Int = MonthDP.year(startMonthIdx, yearRange)//sort of the offset
