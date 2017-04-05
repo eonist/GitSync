@@ -25,6 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //_ = AsyncTest2()
         //AutoSync.sync()
         //refreshReposTest()
+        timeTesting()
         
         /*let repoList = RepoUtils.repoListFlattenedOverridden
         Swift.print(repoList.count)
@@ -33,7 +34,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }*/
         //it works, now activate this in a filter, if active is false then don't return repo, easy! test it first, then test gitpull
     }
-    
+    /**
+     *
+     */
+    func timeTesting(){
+        let a = Date.createDate(2017)!
+        Swift.print("a.shortDate: " + "\(a.shortDate)")
+    }
     /**
      * CommitCount per day for all projects in the last 7 days where the user is "eonist"
      * NOTE: now support month,year, day
