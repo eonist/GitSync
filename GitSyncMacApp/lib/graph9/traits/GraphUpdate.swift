@@ -15,9 +15,9 @@ extension Graph9{
             Swift.print("results: " + "\(results)")
             let vValues:[CGFloat] = results.map{$0.cgFloat}
             let maxValue:CGFloat = vValues.max()!//Finds the largest number in among vValues
-            //updateDateText()
-            //updateValueBar(maxValue)
-            //updateGraph(vValues)
+            updateDateText()
+            updateValueBar(maxValue)
+            updateGraph(vValues)
         }
         commitCounter.onComplete = onComplete
         let dateRange:DateRange = GraphUpdateUtils.dateRange(curRange,range,curTimeType)
@@ -41,7 +41,7 @@ extension Graph9{
         let maxValue:CGFloat = vValues.max()!//Finds the largest number in among vValues
         
         graphPts = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue)
-        
+        Swift.print("graphPts: " + "\(graphPts)")
         /*GraphPoints*/
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/
         animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Quad.easeIn)
