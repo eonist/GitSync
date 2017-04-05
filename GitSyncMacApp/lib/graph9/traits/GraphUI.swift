@@ -31,9 +31,11 @@ extension Graph9{
     /**
      * 
      */
-    func createGraphLine(_ vValues:[CGFloat], _ maxValue:CGFloat){
+    func createGraphLine(/*_ vValues:[CGFloat], _ maxValue:CGFloat*/){
         addGraphLineStyle()
         //graphPts = GraphTools.randomGraphPoints(50,100,h-100)
+        let vValues:[CGFloat] = Array(repeating: 0, count: 7)
+        let maxValue:CGFloat = 0
         graphPts = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue, 50, 50)
         let path:IPath = PolyLineGraphicUtils.path(graphPts!)
         graphLine = contentContainer!.addSubView(GraphLine(width,height,path,contentContainer!))
@@ -45,7 +47,7 @@ extension Graph9{
     func createGraphPoints(){
         addGraphPointStyle()
         /**/
-        graphPoints = []
+        graphPoints = []//what is this?
         graphPts!.forEach{
             let graphPoint:Element = contentContainer!.addSubView(Element(NaN,NaN,contentContainer!,"graphPoint"))
             graphPoints!.append(graphPoint)
