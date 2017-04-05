@@ -20,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //commitCounterTest()
         //initApp()
-        initTestWin()//🔨
+        //initTestWin()//🔨
         //_ = ASyncTest()
         //_ = AsyncTest2()
         //AutoSync.sync()
@@ -33,6 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }*/
         //it works, now activate this in a filter, if active is false then don't return repo, easy! test it first, then test gitpull
     }
+    
     /**
      * CommitCount per day for all projects in the last 7 days where the user is "eonist"
      * NOTE: now support month,year, day
