@@ -35,6 +35,10 @@ class StatUtils{
                 Swift.print("⏳ from month to day")
                 Swift.print("Month offset idx: \(idx)")
                 Swift.print("timeBar.currentVisibleItemRange.start: " + "\(timeBar.currentVisibleItemRange.start)")
+                
+                //Continue here:
+                    //you need to find month offset and for that you need the old timeBar
+                
                 let dayIdx:Int = MonthDP.firstDayInMonth(idx,dp.yearRange)
                 dpProgress = dayIdx.cgFloat/dp.count.cgFloat
             case (.month,.year):/*from month to year*/
