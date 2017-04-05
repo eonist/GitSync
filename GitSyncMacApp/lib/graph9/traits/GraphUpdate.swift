@@ -51,6 +51,7 @@ extension Graph9{
      * Updates the DateText UI Element
      */
     func updateDateText(){
+        Swift.print("🍌 Graph9.updateDateText()")
         let dateRange:DateRange = GraphUpdateUtils.dateRange(curRange,range,curTimeType)
         var startStr:String = ""
         var endStr:String = ""
