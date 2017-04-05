@@ -58,6 +58,8 @@ extension Graph9{
     func updateDateText(){
         Swift.print("🍌 Graph9.updateDateText()")
         let dateRange:DateRange = GraphUpdateUtils.dateRange(curRange,range,curTimeType)
+        Swift.print("dateRange.start.shortDate: " + "\(dateRange.start.shortDate)")
+        Swift.print("dateRange.end.shortDate: " + "\(dateRange.end.shortDate)")
         var startStr:String = ""
         var endStr:String = ""
         switch curTimeType{
