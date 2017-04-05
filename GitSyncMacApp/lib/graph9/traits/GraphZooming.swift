@@ -70,7 +70,7 @@ extension Graph9{
             /**/
             //updateDateText()
             //updateGraph()
-            //update()
+            update()
         }
     }
 }
