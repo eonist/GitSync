@@ -68,3 +68,5 @@ class Graph9:Element{
         super.onEvent(event)
     }
 }
+//continue here:
+    //go to 2015 october, then iterate 1 time. check what date components show up in log
