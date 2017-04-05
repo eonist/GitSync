@@ -20,7 +20,7 @@ extension Graph9{
             updateValueBar(maxValue)
         }
         commitCounter.onComplete = onComplete
-        */
+ 
         let dateRange:DateRange = GraphUpdateUtils.dateRange(curRange,range,curTimeType)
         
         Swift.print("dateRange.start: " + "\(dateRange.start.shortDate)")
@@ -28,7 +28,7 @@ extension Graph9{
          /**/
         let numOfTimeUnits:Int = curTimeType.numOfTimeUnits(dateRange.start, dateRange.end)
         Swift.print("numOfTimeUnits: " + "\(numOfTimeUnits)")
-        
+        */
         //commitCounter.countCommits(dateRange.start,dateRange.end,curTimeType)
     }
     /**

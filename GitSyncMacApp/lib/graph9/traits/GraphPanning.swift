@@ -11,7 +11,7 @@ extension Graph9{
         timeBar!.adHockScrollWheel(event)
         if(event.phase == .changed || event.phase == NSEventPhase(rawValue:0)){
             if(hasPanningChanged(&prevRangeScrollChange)){
-                updateDateText()
+                //updateDateText()
             }
         }
     }
