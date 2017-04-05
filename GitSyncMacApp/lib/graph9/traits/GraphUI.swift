@@ -60,7 +60,8 @@ extension Graph9{
         /**/
         let count:Int = 7/*hValNames.count*/
         let spacing:CGSize = CGSize(100,100)
-        var x:CGFloat = spacing.width
+        let leftMargin:CGFloat = 50
+        var x:CGFloat = leftMargin
         let size:CGSize = CGSize(w,h)
         for _ in 0..<count{
             let vLine = /*graphArea!*/self.addSubView(Element(NaN,size.height-(spacing.height*2),self/*graphArea*/,"vLine"))
