@@ -11,6 +11,8 @@ class MonthDP:TimeDP{
         let shortMonthName:String = dateAt.shortMonthName//short month name for date
         return ["title":shortMonthName]//return dict with this
     }
+}
+extension MonthDP{
     static func month(_ monthOffset:Int, _ yearRange:Range<Int>)->Date{
         let startDate:Date = DateParser.createDate(yearRange.start,0,0,0,0,0)!//find start date
         let dateAt:Date = startDate.offsetByMonths(monthOffset)//n months from startDate => date
@@ -51,8 +53,4 @@ class MonthDP:TimeDP{
         Swift.print("numOfYearsFromUntil: " + "\(numOfYearsFromUntil)")
         return numOfYearsFromUntil
     }
-    
-    //Continue here: 🏀
-        //the bug is that dp, has the wrong month data. should start on jan, not nov, then everything is offset -2 and should be correct
-        //you still might need to clip visibleRange to max 7 itmes from .start
 }
