@@ -34,7 +34,7 @@ class StatUtils{
             case (.month,.day):/*from month to day*/
                 Swift.print("⏳ from month to day")
                 Swift.print("Month offset idx: \(idx)")
-                Swift.print("timeBar.currentVisibleItemRange.start: " + "\(timeBar.currentVisibleItemRange.start)")
+                Swift.print("visibleItemRange.start: " + "\(visibleRange.start)")
                 
                 //Continue here:
                     //you need to find month offset and for that you need the old timeBar, maybe you need the new tiebar when you move up?
