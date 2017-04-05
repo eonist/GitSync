@@ -38,8 +38,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      *
      */
     func timeTesting(){
-        let a = Date.createDate(2017)!
+        let a = Date.createDate(2017,1,1)!
         Swift.print("a.shortDate: " + "\(a.shortDate)")
+        Swift.print("a.month: " + "\(a.month)")
+        Swift.print("a.year: " + "\(a.year)")
+        Swift.print("a.day: " + "\(a.day)")
+        Swift.print("a: " + "\(a)")
     }
     /**
      * CommitCount per day for all projects in the last 7 days where the user is "eonist"
