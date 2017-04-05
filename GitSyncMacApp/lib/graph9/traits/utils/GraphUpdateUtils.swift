@@ -38,7 +38,7 @@ class GraphUpdateUtils {
             case .day:
                 /*day*/
                 let startDayDate:Date = DayDP.day(visibleRange.start, yearRange)
-                let endDayDate:Date = DayDP.day(visibleRange.end, yearRange)
+                let endDayDate:Date = DayDP.day(visibleRange.end-1, yearRange)
                 /*Month*/
                 let startMonthIdx:Int = DayDP.month(visibleRange.start,yearRange)
                 //Swift.print("startMonthIdx: " + "\(startMonthIdx)")
