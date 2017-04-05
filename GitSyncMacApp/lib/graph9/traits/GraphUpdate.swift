@@ -63,16 +63,16 @@ extension Graph9{
      * Updates the DateText UI Element
      */
     func updateDateText(){
-        //Swift.print("🍌 Graph9.updateDateText()")
+        Swift.print("🍌 Graph9.updateDateText() \(curRange)" )
         let dateRange:DateRange = GraphUpdateUtils.dateRange(curRange,range,curTimeType)
-        //Swift.print("dateRange.start.simpleDate: " + "\(dateRange.start.simpleDate)")
-        //Swift.print("dateRange.end.simpleDate: " + "\(dateRange.end.simpleDate)")
+        Swift.print("dateRange.start.simpleDate: " + "\(dateRange.start.simpleDate)")
+        Swift.print("dateRange.end.simpleDate: " + "\(dateRange.end.simpleDate)")
         var startStr:String = ""
         var endStr:String = ""
         switch curTimeType{
             case .year:
                 startStr = "\(dateRange.start.year.string)"
-                endStr =  "\(dateRange.end.year.string)"
+                endStr =  "\((dateRange.end.year-1).string)"//-1 is a quick fix
             case .month:
                 startStr = "\(dateRange.start.year.string).\(dateRange.start.shortMonthName)"
                 endStr =  "\(dateRange.end.year.string).\(dateRange.end.shortMonthName)"
