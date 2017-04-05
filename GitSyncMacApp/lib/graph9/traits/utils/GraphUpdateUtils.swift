@@ -45,10 +45,10 @@ class GraphUpdateUtils {
                 Swift.print("endMonthIdx: " + "\(endMonthIdx)")
                 let endMonth:Date = MonthDP.month(endMonthIdx, yearRange)
                 /*year*/
-                let startYear:Int = MonthDP.year(startMonthIdx, yearRange)//sort of the offset
-                Swift.print("startYear: " + "\(startYear)")
-                let endYear:Int = MonthDP.year(endMonthIdx, yearRange)
-                Swift.print("endYear: " + "\(endYear)")
+                let startYearIdx:Int = MonthDP.year(startMonthIdx, yearRange)//sort of the offset
+                let startYear:Int = YearDP.year(startYearIdx, yearRange)
+                let endYearIdx:Int = MonthDP.year(endMonthIdx, yearRange)
+                let endYear:Int = YearDP.year(endYearIdx, yearRange)
                 /*Date*/
                 let startDate:Date = Date.createDate(startYear, startMonth.month,startDayDate.day)!
                 let endDate:Date = Date.createDate(endYear, endMonth.month,endDayDate.day)!
