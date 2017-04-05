@@ -13,7 +13,7 @@ extension ValueBar{
         css +=		"clear:none;"
         css +=		"fill:yellow;"
         css +=		"fill-alpha:0.0;"
-        css +=		"width:32px;"
+        css +=		"width:42px;"
         css +=	"}"
         css +=	"ValueBar TextArea{"
         css +=		"float:none;"

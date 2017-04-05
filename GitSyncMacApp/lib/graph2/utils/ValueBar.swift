@@ -6,12 +6,12 @@ class ValueBar:Element{
     override func resolveSkin() {
         addStyles()
         super.resolveSkin()
-        createLeftBar()
+        createItems()
     }
     /**
      * Creates the Text items that represents data in the y-axis
      */
-    func createLeftBar(){
+    func createItems(){
         /*leftBar = addSubView(Section(NaN,newSize!.height,self,"leftBar"))//create left bar
          leftBar!.setPosition(CGPoint(0,newPosition!.y))*/
         let strings:[String] = GraphUtils.verticalIndicators(6/*vCount*/, 0/*maxValue!*/)
