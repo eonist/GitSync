@@ -17,9 +17,9 @@ extension Graph9{
             Swift.print("results.count: " + "\(results.count)")
             Swift.print("results: " + "\(results)")
             let vValues:[CGFloat] = results.map{$0.cgFloat}
-            let maxValue:CGFloat = results.max()!.cgFloat//Finds the largest number in among vValues
+            let maxValue:CGFloat = vValues.max()!//Finds the largest number in among vValues
             updateValueBar(maxValue)
-            updateGraph()
+            updateGraph(vValues)
         }
         commitCounter.onComplete = onComplete
  
@@ -41,9 +41,9 @@ extension Graph9{
     func updateGraph(_ vValues:[CGFloat]){
         prevGraphPts = graphPts.map{$0}//grabs the location of where the pts are now
         graphPts = randomGraphPoints
-        let maxValue:CGFloat = NumberParser.max(vValues)//Finds the largest number in among vValues
+        let maxValue:CGFloat = vValues.max()!//Finds the largest number in among vValues
         
-        //graphPts = GraphUtils.points(newSize!, newPosition!, spacing!, vValues, maxValue)
+        graphPts = GraphUtils.points(newSize!, newPosition!, spacing!, vValues, maxValue)
         
         /*GraphPoints*/
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/

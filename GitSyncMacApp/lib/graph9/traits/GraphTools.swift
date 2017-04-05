@@ -3,7 +3,7 @@ import Cocoa
 @testable import Element
 
 extension Graph9 {
-    var randomGraphPoints:[CGPoint]{
+    func randomGraphPoints() -> [CGPoint]{
         typealias P = CGPoint
         var points:[P] = []
         let padding:CGFloat = 50
