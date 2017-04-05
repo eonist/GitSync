@@ -54,11 +54,11 @@ extension Graph9{
     }
     func alignTimeBar(){
         let objSize = CGSize(w,24)
-        Swift.print("objSize: " + "\(objSize)")
+        //Swift.print("objSize: " + "\(objSize)")
         let canvasSize = CGSize(w,h)
-        Swift.print("canvasSize: " + "\(canvasSize)")
+        //Swift.print("canvasSize: " + "\(canvasSize)")
         let p = Align.alignmentPoint(objSize, canvasSize, Alignment.bottomLeft, Alignment.bottomLeft, CGPoint())
-        Swift.print("p: " + "\(p)")
+        //Swift.print("p: " + "\(p)")
         //align timeBar to bottom with Align
         timeBar!.point = p
     }
