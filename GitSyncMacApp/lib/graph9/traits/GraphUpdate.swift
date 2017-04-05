@@ -52,8 +52,6 @@ extension Graph9{
      * Updates the DateText UI Element
      */
     func updateDateText(){
-        /*let visibleRange = curRange
-         let yearRange = range//temp solution*/
         let dateRange:DateRange = GraphUpdateUtils.dateRange(curRange,range,curTimeType)
         var startStr:String = ""
         var endStr:String = ""
