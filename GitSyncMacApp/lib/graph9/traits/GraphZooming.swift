@@ -32,14 +32,14 @@ extension Graph9{
     func onZoomLevelChange() {
         Swift.print("🍐 onZoomLevelChange: prev: " + "\(self.prevTimeType) cur: \(self.curTimeType)")
         Swift.print("curRange: " + "\(curRange)")
-        prevRange = nil
-        let theCurRange = curRange
+        prevRange = nil//why is this here?
+        
         let prevTimeType = self.prevTimeType//temp store this,why?
         if(hasZoomChanged){//only toggle if zoom is not prevZoom
             //Swift.print("Graph9.onZoomLevelChange()")
             //let prevTimeType:TimeType = curTimeType
             //curTimeType = TimeType.types[curZoom]
-            
+            let tempCurRange = curRange//⚠️️ quickfix
             timeBar!.removeFromSuperview()
             timeBar = nil
             let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
@@ -48,7 +48,7 @@ extension Graph9{
             
             let mouseLocIdx:Int = StatUtils.mouseLocIdx(mouseX, w, 100)
             Swift.print("mouseLocIdx: " + "\(mouseLocIdx)")
-            var progress:CGFloat = StatUtils.progress(timeBar!, (prevTimeType,curTimeType), mouseLocIdx,theCurRange)/*0-1*/
+            var progress:CGFloat = StatUtils.progress(timeBar!, (prevTimeType,curTimeType), mouseLocIdx, tempCurRange)/*0-1*/
             progress = progress.clip(0, 1)
             Swift.print("progress: " + "\(progress)")
             /*let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
