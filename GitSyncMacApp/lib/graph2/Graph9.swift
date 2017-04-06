@@ -15,9 +15,7 @@ class Graph9:Element{
     var prevGraphPts:[CGPoint]?
     var animator:Animator?
     /*Date vars*/
-    let fromYear:Int = {return Date().year - 6}()
-    let toYear:Int = {return Date().year}()
-    var range:Range<Int> {return fromYear..<toYear}
+    let range:Range<Int> = {return Date().year - 6..<Date().year}()//rename to yearRange
     /*Zooming vars*/
     var curZoom:Int = TimeType.year.rawValue
     let maxZoom:Int = 3
