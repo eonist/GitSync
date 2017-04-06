@@ -3,7 +3,7 @@ import Cocoa
 @testable import Element
 @testable import GitSyncMac
 /**
- * Testing TreeList
+ * Testing TreeList i suppose
  */
 class RepoListTestView:TitleView{
     var treeList:TreeList?
