@@ -8,7 +8,6 @@ extension Graph9{
      */
     func createUI(){
         crateDateText()
-        
         createTimeBar()
         let w:CGFloat = self.w - (leftMargin*2)
         let h:CGFloat = self.h - (topMargin*2)

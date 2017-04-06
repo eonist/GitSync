@@ -11,6 +11,7 @@ class GraphComponent:Element {//alternate name? GraphArea?
     var prevGraphPts:[CGPoint]?/*interim var*/
     var animator:Animator?
     override func resolveSkin() {
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync/stats/graphcomponent.css")
         super.resolveSkin()
         contentContainer = addSubView(Container(width,height,self,"content"))
         createGraphLine()
