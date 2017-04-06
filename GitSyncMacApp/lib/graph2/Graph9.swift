@@ -4,7 +4,6 @@ import Cocoa
 import GitSyncMac
 
 class Graph9:Element{
-    
     /*Debug*/
     lazy var gestureHUD:GestureHUD = GestureHUD(self)
     /*UI*/
@@ -22,7 +21,6 @@ class Graph9:Element{
     let range:Range<Int> = {return Date().year - 6..<Date().year}()//rename to yearRange
     /*Zooming vars*/
     var curZoom:Int = TimeType.year.rawValue
-    let maxZoom:Int = 3
     var zoom:CGFloat = 0
     var prevZoom:Int?
     /*State related*/
