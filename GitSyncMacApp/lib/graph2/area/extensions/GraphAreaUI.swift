@@ -7,9 +7,10 @@ extension GraphComponent{
      * Creates the UI Components
      */
     func createUI(){
+        createVLines()
+        contentContainer = addSubView(Container(width,height,self,"content"))
         createGraphLine()
         createGraphPoints()
-        createVLines()
     }
     /**
      * Creates the Graph line
@@ -26,6 +27,7 @@ extension GraphComponent{
      * NOTE: We could create something called GraphPoint, but it would be another thing to manager so instead we just use an Element with id: graphPoint
      */
     func createGraphPoints(){
+        
         points!.forEach{
             let graphPoint:Element = contentContainer!.addSubView(Element(NaN,NaN,contentContainer!,"graphPoint"))
             dots.append(graphPoint)
