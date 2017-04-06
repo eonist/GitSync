@@ -10,10 +10,13 @@ extension Graph9{
         crateDateText()
         contentContainer = addSubView(Container(width,height,self,"content"))
         createTimeBar()
-        createGraphLine()
-        createGraphPoints()
+        let w:CGFloat = self.w - (leftMargin*2)
+        let h:CGFloat = self.h - (topMargin*2)
+        graphComponent = GraphComponent(w,h,self)
+        /*createGraphLine()
+         createGraphPoints()*/
         createValueBar()
-        createVLines()
+        //createVLines()
         update()
     }
     func crateDateText(){
