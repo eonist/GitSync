@@ -9,6 +9,7 @@ extension Graph9{
     func createUI(){
         dateIndicator = addSubView(DateIndicator(NaN,NaN,self))
         createTimeBar()
+        createGraphArea()
         createValueBar()
         update()
     }
