@@ -14,8 +14,6 @@ class GraphComponent:Element {//alternate name? GraphArea?
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync/stats/graphcomponent.css")
         super.resolveSkin()
         contentContainer = addSubView(Container(width,height,self,"content"))
-        createGraphLine()
-        createGraphPoints()
-        createVLines()
+        createUI()
     }
 }
