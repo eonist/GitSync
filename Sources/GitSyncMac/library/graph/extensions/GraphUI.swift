@@ -9,10 +9,6 @@ extension Graph9{
     func createUI(){
         dateIndicator = addSubView(DateIndicator(NaN,NaN,self))
         createTimeBar()
-        let w:CGFloat = self.w - (leftMargin*2)
-        let h:CGFloat = self.h - (topMargin*2)
-        graphComponent = addSubView(GraphComponent(w,h,self))
-        graphComponent!.point = CGPoint(leftMargin,topMargin)
         createValueBar()
         update()
     }
@@ -22,8 +18,17 @@ extension Graph9{
     func createTimeBar(){
         //TODO: move TimeDP into TimeBar?
         let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
-        timeBar = addSubView(TimeBar3(w,24,24,dp,self,nil,.hor,100))
+        timeBar = addSubView(TimeBar(w,24,24,dp,self,nil,.hor,100))//<-TODO: use const instead of 100?
         alignTimeBar()
+    }
+    /**
+     * Creates the GraphArea
+     */
+    func createGraphArea(){
+        let w:CGFloat = self.w - (leftMargin*2)
+        let h:CGFloat = self.h - (topMargin*2)
+        graphComponent = addSubView(GraphComponent(w,h,self))
+        graphComponent!.point = CGPoint(leftMargin,topMargin)
     }
     /**
      * Creates the ValueBar
@@ -35,5 +40,4 @@ extension Graph9{
         let p = Align.alignmentPoint(objSize, canvasSize, Alignment.topLeft, Alignment.topLeft, CGPoint())
         valueBar!.point = p/*aligns timeBar to bottom*/
     }
-    
 }

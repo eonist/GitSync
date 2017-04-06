@@ -4,7 +4,7 @@ import Foundation
 class ValueBar:Element{
     var items:[TextArea] = []
     override func resolveSkin() {
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync/stats/valuebar.css")
+        //StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync/stats/valuebar.css")
         super.resolveSkin()
         createItems()
     }
