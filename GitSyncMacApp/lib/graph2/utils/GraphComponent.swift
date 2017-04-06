@@ -12,7 +12,6 @@ class GraphComponent:Element {//alternate name? GraphArea?
     override func resolveSkin() {
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync/stats/graphcomponent.css")
         super.resolveSkin()
-        
         createUI()
     }
 }
