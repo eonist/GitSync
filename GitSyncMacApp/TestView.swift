@@ -8,7 +8,7 @@ class TestView:TitleView{
         //self.title = "Resolve merge conflict:"//Title: Resolve sync conflict:
         super.init(width, height, parent, "listTransitionTestView")
     }
-    override func resolveSkin() {
+    override func resolveSkin(){
         Swift.print("ListTransitionTestView.resolveSkin()")
         super.resolveSkin()
         Swift.print(ElementParser.stackString(self))
