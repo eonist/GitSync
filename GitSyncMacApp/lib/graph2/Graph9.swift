@@ -4,8 +4,8 @@ import Cocoa
 import GitSyncMac
 
 class Graph9:Element{
-    typealias GraphConfig = (valueBarCount:Int,timeBarCount:Int,size:CGSize,margin:CGSize)
-    var config:GraphConfig?
+    typealias GraphConfig = (valueBarCount:Int,timeBarCount:Int,margin:CGSize)
+    static var config:GraphConfig = (5,7,CGSize(50,50))
     /*Debug*/
     lazy var gestureHUD:GestureHUD = GestureHUD(self)
     /*UI*/
@@ -34,7 +34,6 @@ class Graph9:Element{
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         StyleManager.addStylesByURL("~/Desktop/datetext.css")
         super.resolveSkin()
-        config = (5,7,CGSize(w,h),CGSize(50,50))
         createUI()
         /*Debug*/
         acceptsTouchEvents = true/*Enables gestures*/
