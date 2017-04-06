@@ -21,7 +21,7 @@ class Graph9:Element{
     var prevRangeScrollChange:Range<Int>?//Panning state change
     
     override func resolveSkin(){
-        StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
+        //StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//
         super.resolveSkin()
         createUI()
         /*Debug*/
