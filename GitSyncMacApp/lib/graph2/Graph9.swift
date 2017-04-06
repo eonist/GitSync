@@ -7,10 +7,11 @@ class Graph9:Element{
     /*Debug*/
     lazy var gestureHUD:GestureHUD = GestureHUD(self)
     /*UI*/
-    var dateText:TextArea?
+    
     var timeBar:TimeBar3?
     var valueBar:ValueBar?
-    var graphComponent:GraphComponent? 
+    var graphComponent:GraphComponent?
+    var dateIndicator:DateIndicator?
     /*Date vars*/
     let range:Range<Int> = {return Date().year - 6..<Date().year}()//rename to yearRange
     /*Zooming vars*/
