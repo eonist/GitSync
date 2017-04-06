@@ -67,10 +67,10 @@ extension CommitViewUtils{
      * -> Commit
      * DEPRECATED
      */
-    static func processCommitData(_ repoTitle:String,_ commitData:CommitData, _ repoIndex:Int)->Commit{
+    /*static func processCommitData(_ repoTitle:String,_ commitData:CommitData, _ repoIndex:Int)->Commit{
         let data:ProcessedCommitData = processCommitData(repoTitle,commitData,repoIndex)
         let commit:Commit = Commit(repoTitle,data.author, data.subject, data.body, data.relativeDate, data.descendingDate.int, data.hash,0)
         //return
         return commit
-    }
+    }*/
 }
