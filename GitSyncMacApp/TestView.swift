@@ -18,8 +18,8 @@ class TestView:TitleView{
         createGraph9Test()
     }
     func createGraph9Test(){
-        let test = self.addSubView(Graph9(width,height-48,self))
-        _ = test
+        let graph = self.addSubView(Graph9(width,height-48,self))
+        _ = graph
     }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }

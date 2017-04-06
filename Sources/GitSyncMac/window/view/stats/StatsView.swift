@@ -15,5 +15,6 @@ class StatsView:Element {
     func createGraph(){
         let graphContainer = addSubView(Container(width,height,self,"graph"))
         graph = graphContainer.addSubView(CommitGraph(width,height-48/*,4*/,graphContainer))
+        //graph = self.addSubView(Graph9(width,height-48,self))
     }
 }
