@@ -5,17 +5,17 @@ import Foundation
 class GraphComponent:Element {
     override func resolveSkin() {
         super.resolveSkin()
+        createGraphLine()
+        createGraphPoints()
+        createVLines()
     }
-    //add vLines
-    //add graphLine
-    //add graphPoints
 }
 extension GraphComponent{
     /**
      * Creates the Graph line
      */
     func createGraphLine(/*_ vValues:[CGFloat], _ maxValue:CGFloat*/){
-        addGraphLineStyle()
+        //addGraphLineStyle()
         //graphPts = GraphTools.randomGraphPoints(50,100,h-100)
         let vValues:[CGFloat] = Array(repeating: 0, count: 7)
         let maxValue:CGFloat = 0
@@ -28,7 +28,7 @@ extension GraphComponent{
      * NOTE: We could create something called GraphPoint, but it would be another thing to manager so instead we just use an Element with id: graphPoint
      */
     func createGraphPoints(){
-        addGraphPointStyle()
+        //addGraphPointStyle()
         /**/
         graphPoints = []//what is this?
         graphPts!.forEach{
@@ -41,7 +41,7 @@ extension GraphComponent{
      * Vertical lines (static)
      */
     func createVLines(/*_ size:CGSize,_ position:CGPoint,_ spacing:CGSize*/){
-        addGraphVLineStyle()
+        //addGraphVLineStyle()
         /**/
         let size:CGSize = CGSize(w,h)
         let count:Int = 7/*hValNames.count*/
