@@ -4,6 +4,7 @@ import Cocoa
 import GitSyncMac
 
 class Graph9:Element{
+    /*Debug*/
     lazy var gestureHUD:GestureHUD = GestureHUD(self)
     /*UI*/
     var dateText:TextArea?
@@ -24,8 +25,8 @@ class Graph9:Element{
     var zoom:CGFloat = 0
     var prevZoom:Int?
     /*State related*/
-    var prevRange:Range<Int>?
-    //var prevRangeScrollChange:Range<Int>?
+    var prevRange:Range<Int>?//animation state stop
+    var prevRangeScrollChange:Range<Int>?//Panning state change
     
     override func resolveSkin(){
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
