@@ -65,9 +65,10 @@ extension GraphComponent{
         let size:CGSize = CGSize(w,h)
         let count:Int = Graph9.config.tCount
         let spacing:CGSize = CGSize(100,100)
-        let leftMargin:CGFloat = 50
-        let topMargin:CGFloat = 50
-        let bottomMargin:CGFloat = 50
+        let leftMargin:CGFloat = 0
+        let rightMargin:CGFloat = 0
+        let topMargin:CGFloat = 0
+        let bottomMargin:CGFloat = 0
         let vLineHeight:CGFloat = size.height - topMargin - bottomMargin
         var x:CGFloat = leftMargin
         let y:CGFloat = topMargin

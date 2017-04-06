@@ -10,7 +10,7 @@ extension Graph9{
         crateDateText()
         createTimeBar()
         let w:CGFloat = self.w - (leftMargin*2)
-        let h:CGFloat = self.h - (topMargin*1)
+        let h:CGFloat = self.h - (topMargin*2)
         graphComponent = addSubView(GraphComponent(w,h,self))
         /*createGraphLine()
          createGraphPoints()*/
