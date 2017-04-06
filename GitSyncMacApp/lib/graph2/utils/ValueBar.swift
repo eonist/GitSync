@@ -13,7 +13,7 @@ class ValueBar:Element{
      */
     func createItems(){
         let strings:[String] = GraphUtils.verticalIndicators(Graph9.config.vCount, 1.0)
-        let itemYSpace:CGFloat = (height-(topMargin+bottomMargin))/(vCount-1)
+        let itemYSpace:CGFloat = (height-(Graph9.config.margin.h*2))/(Graph9.config.vCount-1)
         var y:CGFloat = 50
         strings.forEach{ str in
             let textArea:TextArea = TextArea(NaN,NaN,str,self/*leftBar!*/)
