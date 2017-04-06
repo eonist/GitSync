@@ -5,17 +5,18 @@ import Foundation
 class GraphComponent:Element {//alternate name? GraphArea?
     var graphPoints:[Element]?//rename to graphDots for clearity?
     var graphLine:GraphLine?
+    var contentContainer:Element?//remove?
     /*Anim*/
     var graphPts:[CGPoint]?
     var prevGraphPts:[CGPoint]?/*interim var*/
     var animator:Animator?
     override func resolveSkin() {
         super.resolveSkin()
+        contentContainer = addSubView(Container(width,height,self,"content"))
         createGraphLine()
         createGraphPoints()
         createVLines()
     }
-    
 }
 /*Update*/
 extension GraphComponent{
@@ -25,7 +26,7 @@ extension GraphComponent{
     func updateGraph(_ vValues:[CGFloat]){
         prevGraphPts = graphPts.map{$0}//grabs the location of where the pts are now
         let maxValue:CGFloat = vValues.max()!//Finds the largest number in among vValues
-        graphPts = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue,leftMargin,topMargin)
+        graphPts = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue,Graph9.config.margin.width,Graph9.config.margin.height)
         /*GraphPoints*/
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/
         animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Quad.easeIn)

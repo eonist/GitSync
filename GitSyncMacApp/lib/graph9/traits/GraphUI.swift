@@ -8,7 +8,7 @@ extension Graph9{
      */
     func createUI(){
         crateDateText()
-        contentContainer = addSubView(Container(width,height,self,"content"))
+        
         createTimeBar()
         let w:CGFloat = self.w - (leftMargin*2)
         let h:CGFloat = self.h - (topMargin*2)

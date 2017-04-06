@@ -10,7 +10,7 @@ class Graph9:Element{
     var dateText:TextArea?
     var timeBar:TimeBar3?
     var valueBar:ValueBar?
-    var contentContainer:Element?//remove?
+    
     var graphComponent:GraphComponent? 
     /*Date vars*/
     let range:Range<Int> = {return Date().year - 6..<Date().year}()//rename to yearRange
