@@ -14,7 +14,6 @@ extension Graph9{
         createGraphPoints()
         createValueBar()
         createVLines()
-        /**/
         update()
     }
     func crateDateText(){
