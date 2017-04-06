@@ -10,13 +10,8 @@ class Graph9:Element{
     var dateText:TextArea?
     var timeBar:TimeBar3?
     var valueBar:ValueBar?
-    
-    var contentContainer:Element?
-    
-    /*Anim*/
-    var graphPts:[CGPoint]?
-    var prevGraphPts:[CGPoint]?/*interim var*/
-    var animator:Animator?
+    var contentContainer:Element?//remove?
+    var graphComponent:GraphComponent? 
     /*Date vars*/
     let range:Range<Int> = {return Date().year - 6..<Date().year}()//rename to yearRange
     /*Zooming vars*/

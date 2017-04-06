@@ -2,7 +2,13 @@ import Foundation
 @testable import Utils
 @testable import Element
 
-class GraphComponent:Element {
+class GraphComponent:Element {//alternate name? GraphArea?
+    var graphPoints:[Element]?//rename to graphDots for clearity?
+    var graphLine:GraphLine?
+    /*Anim*/
+    var graphPts:[CGPoint]?
+    var prevGraphPts:[CGPoint]?/*interim var*/
+    var animator:Animator?
     override func resolveSkin() {
         super.resolveSkin()
         createGraphLine()
