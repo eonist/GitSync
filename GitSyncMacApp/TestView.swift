@@ -15,15 +15,8 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        
         createGraph9Test()//👈
-        
-        //_ = Graph8()
-
-        
         //animTest()
-        //uiSwitchTest()
-        //barGraphTest()
         //rbSliderFastList3()
         //fastList3()
         //dpTests()
@@ -45,38 +38,8 @@ class TestView:TitleView{
         let list = self.addSubView(ElasticScrollFastList(140, 145, 24, dp, self))/*RBSliderFastList*/
         _ = list
     }
-    var animator:Animator?
-    var ellipse:EllipseGraphic?
-    /**
-     * Tests the animation suite
-     */
-    func animTest(){
-        StyleManager.addStyle("Button#test{fill:green;float:left;clear:left;}")
-        let btn = addSubView(Button(96,24,self,"test"))
-        /*Ellipse*/
-        ellipse = EllipseGraphic(0,100,50,50,FillStyle(NSColor.blue),nil)
-        _ = addSubView(ellipse!.graphic)
-        ellipse!.draw()
-        
-        func onButtonDown(event:Event){
-            if(event.type == ButtonEvent.upInside){
-                Swift.print("click")
-                animator = Animator(Animation.sharedInstance,0.5,0,300,progress,Back.easeOut)
-                animator!.start()
-            }
-        }
-        btn.event = onButtonDown
-    }
-    func progress(value:CGFloat){
-        Swift.print("value: " + "\(value)")
-        ellipse!.graphic.X = value
-    }
-    /**
-     *
-     */
-    func barGraphTest(){
-        
-    }
+    
+
 
     var list: DEPRECATED_RBSliderFastList?
     /*Add*/
