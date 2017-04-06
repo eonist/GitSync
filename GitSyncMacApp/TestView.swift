@@ -19,18 +19,8 @@ class TestView:TitleView{
         createGraph9Test()//👈
         
         //_ = Graph8()
-        //createGraph7Test()
-        //createGraph6Test()//👈
-        //createGraph5Test()
-        //createGraph4Test()
-        //createGraph3Test()
-        //createCurveGraphScrollTest()
-        //createFindPointOnCurveTest()
-        //createCurveGraph()
-        //createGraphView2()
-        //findGraphPointTest()
-        //createGraphView1()
-        //createGraph2()
+
+        
         //animTest()
         //uiSwitchTest()
         //barGraphTest()
@@ -47,54 +37,6 @@ class TestView:TitleView{
     func createGraph9Test(){
         let test = self.addSubView(Graph9(width,height-48,self))
         _ = test
-    }
-    func createGraph7Test(){
-        //let test = self.addSubView(Graph7(width,height-48,self))
-        //_ = test
-    }
-    func createGraph6Test(){
-        //let test = self.addSubView(Graph6(width,height-48,self))
-        //_ = test
-    }
-    func createGraph5Test(){
-        //let test = self.addSubView(Graph5(width,height-48,self))
-        //_ = test
-    }
-    func createGraph4Test(){
-        //let test = self.addSubView(Graph4(width,height-48,self))
-        //_ = test
-    }
-    func createGraph3Test(){
-        //let test = self.addSubView(Graph3(width,height-48,self))
-        //_ = test
-    }
-    func createCurveGraphScrollTest(){
-        //let test = self.addSubView(CurveGraphScrollTest(width,height-48,self))
-        //_ = test
-    }
-    func createFindPointOnCurveTest(){
-        //let test = self.addSubView(FindPointOnCurveTest(width,height-48,self))
-        //_ = test
-    }
-    func createCurveGraph(){
-        //let test = self.addSubView(CurveGraph(width,height-48,self))
-        //_ = test
-    }
-    func createGraphView2(){
-        //let test = self.addSubView(GraphView2(width,height-48,self))
-        //_ = test
-    }
-    func findGraphPointTest(){
-        //let test = self.addSubView(FindPointOnGraphTest(width,height-48,self))
-        //_ = test
-    }
-    func createGraphView1(){
-        //let graph = self.addSubView(GraphView(width,height-48,self))
-        //_ = graph
-    }
-    func createGraph2(){
-        //let graph = self.addSubView(Graph2(width,height,nil))
-        //_ = graph
     }
     func createElasticScrollable(){/*~/Desktop/assets/xml/longlist.xml*/
         let xml = FileParser.xml("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath)//TODO:  create a method tht takes url and makes dp
