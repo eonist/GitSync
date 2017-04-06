@@ -4,7 +4,7 @@ import Foundation
 class ValueBar:Element{
     var items:[TextArea] = []
     override func resolveSkin() {
-        addStyles()
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync/stats/valuebar.css")
         super.resolveSkin()
         createItems()
     }
@@ -13,7 +13,7 @@ class ValueBar:Element{
      */
     func createItems(){
         let strings:[String] = GraphUtils.verticalIndicators(Graph9.config.vCount, 1.0)
-        let itemYSpace:CGFloat = (height-100)/4
+        let itemYSpace:CGFloat = (height-(topMargin+bottomMargin))/(vCount-1)
         var y:CGFloat = 50
         strings.forEach{ str in
             let textArea:TextArea = TextArea(NaN,NaN,str,self/*leftBar!*/)
