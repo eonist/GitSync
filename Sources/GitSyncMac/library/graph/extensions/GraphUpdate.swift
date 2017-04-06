@@ -15,7 +15,7 @@ extension Graph9{
             let maxValue:CGFloat = vValues.max()!//Finds the largest number in among vValues
             updateDateText()
             updateValueBar(maxValue)
-            graphComponent!.updateGraph(vValues)
+            //graphComponent!.updateGraph(vValues)
         }
         commitCounter.onComplete = onComplete
         let dateRange:DateRange = GraphUpdateUtils.dateRange(curRange,range,curTimeType)
