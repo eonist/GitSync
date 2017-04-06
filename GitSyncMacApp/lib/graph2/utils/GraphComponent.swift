@@ -5,7 +5,7 @@ import Foundation
 class GraphComponent:Element {//alternate name? GraphArea?
     var graphPoints:[Element]?//rename to graphDots for clearity?
     var graphLine:GraphLine?
-    var contentContainer:Element?//remove?
+    var contentContainer:Element?//remove?, or rename to dotContainer?
     /*Anim*/
     var graphPts:[CGPoint]?
     var prevGraphPts:[CGPoint]?/*interim var*/
