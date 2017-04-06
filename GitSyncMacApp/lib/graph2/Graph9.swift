@@ -13,8 +13,8 @@ class Graph9:Element{
     var contentContainer:Element?
     var graphPoints:[Element]?//what is this?
     var graphLine:GraphLine?
-    var graphPts:[CGPoint]?
     /*Anim*/
+    var graphPts:[CGPoint]?
     var prevGraphPts:[CGPoint]?/*interim var*/
     var animator:Animator?
     /*Date vars*/
