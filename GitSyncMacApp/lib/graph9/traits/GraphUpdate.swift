@@ -43,8 +43,8 @@ extension Graph9{
         Swift.print("maxValue: " + "\(maxValue)")
         Swift.print("vValues: " + "\(vValues)")
         graphPts = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue,leftMargin,topMargin)
-        Swift.print("graphPts.count: " + "\(graphPts!.count)")
-        Swift.print("graphPts: " + "\(graphPts)")
+        //Swift.print("graphPts.count: " + "\(graphPts!.count)")
+        //Swift.print("graphPts: " + "\(graphPts)")
         /*GraphPoints*/
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/
         animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Quad.easeIn)

@@ -21,7 +21,7 @@ class Graph9:Element{
     let range:Range<Int> = {return Date().year - 6..<Date().year}()//rename to yearRange
     /*Zooming vars*/
     var curZoom:Int = TimeType.year.rawValue
-    var zoom:CGFloat = 0
+    var zoom:CGFloat = 0/*interim var*/
     var prevZoom:Int?
     /*State related*/
     var prevRange:Range<Int>?//animation state stop
