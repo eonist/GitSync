@@ -69,7 +69,7 @@ extension GraphComponent{
         //addGraphVLineStyle()
         /**/
         let size:CGSize = CGSize(w,h)
-        let count:Int = 7/*hValNames.count*/
+        let count:Int = Graph9.config.tCount
         let spacing:CGSize = CGSize(100,100)
         let leftMargin:CGFloat = 50
         let topMargin:CGFloat = 50
