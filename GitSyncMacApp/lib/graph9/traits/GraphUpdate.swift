@@ -71,16 +71,15 @@ extension Graph9{
                 startStr = "\(dateRange.start.year.string).\(dateRange.start.shortMonthName)"
                 endStr =  "\(dateRange.end.year.string).\(dateRange.end.shortMonthName)"
             case .day:
-                startStr = "\(dateRange.start.year.string).\(dateRange.start.shortMonthName).\(dateRange.start.day.string)"
-                endStr =  "\(dateRange.end.year.string).\(dateRange.end.shortMonthName).\(dateRange.end.day.string)"
+                startStr = "\(dateRange.start.year.string).\(dateRange.start.shortMonthName).\(dateRange.start.day.string.pad)"
+                endStr =  "\(dateRange.end.year.string).\(dateRange.end.shortMonthName).\(dateRange.end.day.string.pad)"
         }
         let dateStr:String = startStr + " - " + endStr
         dateText!.setTextValue(dateStr)
     }
 }
-
-private extension Int{
-    func pad(_ padding:Int) -> String{
-        return self
+private extension String{//private so that it only works in this class
+    var pad:String{//Converts: "6" -> "06"
+        return self.count < 2 ? "0" + self : self
     }
 }
