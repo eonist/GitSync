@@ -40,8 +40,6 @@ extension GraphComponent{
      * Creates the Graph line
      */
     func createGraphLine(/*_ vValues:[CGFloat], _ maxValue:CGFloat*/){
-        //addGraphLineStyle()
-        //graphPts = GraphTools.randomGraphPoints(50,100,h-100)
         let vValues:[CGFloat] = Array(repeating: 0, count: 7)
         let maxValue:CGFloat = 0
         graphPts = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue, 50, 50)
@@ -53,8 +51,6 @@ extension GraphComponent{
      * NOTE: We could create something called GraphPoint, but it would be another thing to manager so instead we just use an Element with id: graphPoint
      */
     func createGraphPoints(){
-        //addGraphPointStyle()
-        /**/
         graphPoints = []//what is this?
         graphPts!.forEach{
             let graphPoint:Element = contentContainer!.addSubView(Element(NaN,NaN,contentContainer!,"graphPoint"))
@@ -66,8 +62,6 @@ extension GraphComponent{
      * Vertical lines (static)
      */
     func createVLines(/*_ size:CGSize,_ position:CGPoint,_ spacing:CGSize*/){
-        //addGraphVLineStyle()
-        /**/
         let size:CGSize = CGSize(w,h)
         let count:Int = Graph9.config.tCount
         let spacing:CGSize = CGSize(100,100)
