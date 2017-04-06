@@ -7,7 +7,7 @@ extension Graph9{
      * Creates all the UI elements
      */
     func createUI(){
-        crateDateText()
+        dateIndicator = addSubView(DateIndicator(NaN,NaN,self))
         createTimeBar()
         let w:CGFloat = self.w - (leftMargin*2)
         let h:CGFloat = self.h - (topMargin*2)
@@ -15,13 +15,11 @@ extension Graph9{
         createValueBar()
         update()
     }
-    func crateDateText(){
-        
-    }
     /**
      * Creates the TimeBar
      */
     func createTimeBar(){
+        //TODO: move TimeDP into TimeBar?
         let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
         timeBar = addSubView(TimeBar3(w,24,24,dp,self,nil,.hor,100))
         alignTimeBar()
