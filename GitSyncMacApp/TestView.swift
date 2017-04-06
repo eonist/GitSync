@@ -45,8 +45,8 @@ class TestView:TitleView{
         //createElasticScrollable()//new
     }
     func createGraph9Test(){
-        //let test = self.addSubView(Graph9(width,height-48,self))
-        //_ = test
+        let test = self.addSubView(Graph9(width,height-48,self))
+        _ = test
     }
     func createGraph7Test(){
         //let test = self.addSubView(Graph7(width,height-48,self))
