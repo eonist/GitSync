@@ -7,7 +7,6 @@ class Graph9:Element{
     /*Debug*/
     lazy var gestureHUD:GestureHUD = GestureHUD(self)
     /*UI*/
-    
     var timeBar:TimeBar3?
     var valueBar:ValueBar?
     var graphComponent:GraphComponent?

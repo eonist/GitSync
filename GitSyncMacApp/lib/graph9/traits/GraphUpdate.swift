@@ -63,7 +63,7 @@ extension Graph9{
                 endStr =  "\(dateRange.end.year.string).\(dateRange.end.shortMonthName).\(dateRange.end.day.string.pad)"
         }
         let dateStr:String = startStr + " - " + endStr
-        dateText!.setTextValue(dateStr)
+        dateIndicator!.dateText!.setTextValue(dateStr)
     }
 }
 private extension String{//private so that it only works in this class
