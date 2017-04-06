@@ -4,8 +4,7 @@ import Cocoa
 
 class TimeBar3:ElasticScrollFastList{
     override func resolveSkin() {
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/basic/list/vlist.css")//changes the css to align sideways
-        StyleManager.addStyle("Graph9 VList{float:none;clear:none;}")
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync/stats/timebar.css")//changes the css to align sideways
         super.resolveSkin()
     }
     override func createMover(){
@@ -35,5 +34,8 @@ class TimeBar3:ElasticScrollFastList{
             //Swift.print("tempDir: " + "\(tempDir)")
             (mover! as! SnappyRubberBand).prevDir = tempDir
         }
+    }
+    override func getClassType() -> String {
+        return "TimeBar"
     }
 }
