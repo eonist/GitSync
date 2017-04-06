@@ -4,7 +4,7 @@ import Cocoa
 import GitSyncMac
 
 class Graph9:Element{
-    typealias GraphConfig = ()
+    typealias GraphConfig = (valueBarCount:Int,margin:CGSize,)
     //let config:
     /*Debug*/
     lazy var gestureHUD:GestureHUD = GestureHUD(self)
