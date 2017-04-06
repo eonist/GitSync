@@ -38,7 +38,7 @@ class TestView:TitleView{
         let test = self.addSubView(Graph9(width,height-48,self))
         _ = test
     }
-    func createElasticScrollable(){/*~/Desktop/assets/xml/longlist.xml*/
+    func createElasticScrollFastList(){/*~/Desktop/assets/xml/longlist.xml*/
         let xml = FileParser.xml("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath)//TODO:  create a method tht takes url and makes dp
         let dp:DataProvider = DataProvider(xml)
         //let sliderList:ISliderList = self.addSubView(SliderList(140, 73, 24, dp, self))
@@ -74,24 +74,8 @@ class TestView:TitleView{
     /**
      *
      */
-    func uiSwitchTest(){
-        Swift.print("uiSwitchTest")
-        let container:Container = addSubView(Container(NaN, NaN, self, "switchContainer"))
-        let toggleSwitch = container.addSubView(Switch(140,80,false,container))
-        func onEvent(event:Event){/*this is the event handler*/
-            if(event.assert(CheckEvent.check, toggleSwitch)){
-                Swift.print("onEvent() isChecked" + "\((event as! CheckEvent).isChecked)")
-            }
-        }
-        toggleSwitch.event = onEvent/*adds the event handler to the event exit point in the toggleSwitch*/
-    }
-    /**
-     *
-     */
     func barGraphTest(){
-        let graphContainer = addSubView(Container(width,height,self,"graph"))
-        let graph = graphContainer.addSubView(BarGraph(200,200/*,4*/,graphContainer))
-        _ = graph
+        
     }
 
     var list: DEPRECATED_RBSliderFastList?
