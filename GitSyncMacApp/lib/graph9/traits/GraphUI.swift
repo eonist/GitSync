@@ -35,12 +35,10 @@ extension Graph9{
         let objSize = CGSize(42,valueBar!.h)
         let canvasSize = CGSize(w,h)
         let p = Align.alignmentPoint(objSize, canvasSize, Alignment.topLeft, Alignment.topLeft, CGPoint())
-        //Swift.print("p: " + "\(p)")
-        //align timeBar to bottom with Align
-        valueBar!.point = p
+        valueBar!.point = p/*aligns timeBar to bottom*/
     }
     /**
-     * 
+     * Creates the Graph line
      */
     func createGraphLine(/*_ vValues:[CGFloat], _ maxValue:CGFloat*/){
         addGraphLineStyle()
