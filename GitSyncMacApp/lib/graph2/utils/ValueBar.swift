@@ -14,7 +14,7 @@ class ValueBar:Element{
     func createItems(){
         /*leftBar = addSubView(Section(NaN,newSize!.height,self,"leftBar"))//create left bar
          leftBar!.setPosition(CGPoint(0,newPosition!.y))*/
-        let strings:[String] = GraphUtils.verticalIndicators(5/*vCount*/, 0/*maxValue!*/)
+        let strings:[String] = GraphUtils.verticalIndicators(Graph9.config.valueBarCount, 1.0)
         let itemYSpace:CGFloat = (height-100)/4
         var y:CGFloat = 50
         strings.forEach{ str in
