@@ -10,6 +10,7 @@ class Navigation {
     static var currentView:NSView? {return MainWin.mainView?.currentView}
     /**
      * Navigate between views
+     * TODO: Use enums 
      */
     static func setView(_ viewName:String){
         Navigation.activeView = viewName
@@ -37,10 +38,10 @@ class Navigation {
                 mainView.currentView = mainView.addSubView(RepoDetailView(width,height,mainView))
             case "\(ConflictDialogView.self)":
                 mainView.currentView = mainView.addSubView(ConflictDialogView(width,height,mainView))
-            case "\(TestView3.self)":
-                mainView.currentView = mainView.addSubView(TestView3(width,height,mainView))
-            case "\(TestView2.self)":
-                mainView.currentView = mainView.addSubView(TestView2(width,height,mainView))
+            /* case "\(TestView3.self)":
+             mainView.currentView = mainView.addSubView(TestView3(width,height,mainView))
+             case "\(TestView2.self)":
+             mainView.currentView = mainView.addSubView(TestView2(width,height,mainView))*/
             case "\(CommitDetailView.self)":
                 Swift.print("set CommitDetailView win")
                 mainView.currentView = mainView.addSubView(CommitDetailView(width,height,mainView))
