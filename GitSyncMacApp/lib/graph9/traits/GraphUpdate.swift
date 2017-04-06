@@ -78,3 +78,9 @@ extension Graph9{
         dateText!.setTextValue(dateStr)
     }
 }
+
+private extension Int{
+    func pad(_ padding:Int) -> String{
+        return self
+    }
+}
