@@ -10,7 +10,7 @@ class GraphComponent:Element {//alternate name? GraphArea?
     var prevPoints:[CGPoint]?/*interim var*/
     var animator:Animator?/*Anim*/
     override func resolveSkin() {
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync/stats/graphcomponent.css")
+        //StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync/stats/graphcomponent.css")
         super.resolveSkin()
         createUI()
     }

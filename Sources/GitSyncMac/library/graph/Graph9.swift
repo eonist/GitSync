@@ -4,9 +4,9 @@ import Cocoa
 
 class Graph9:Element{
     /*Debug*/
-    lazy var gestureHUD:GestureHUD = GestureHUD(self)
+    //lazy var gestureHUD:GestureHUD = GestureHUD(self)
     /*UI*/
-    var timeBar:TimeBar3?
+    var timeBar:TimeBar?
     var valueBar:ValueBar?
     var graphComponent:GraphComponent?
     var dateIndicator:DateIndicator?
@@ -21,12 +21,11 @@ class Graph9:Element{
     var prevRangeScrollChange:Range<Int>?//Panning state change
     
     override func resolveSkin(){
-        //StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//
         super.resolveSkin()
         createUI()
         /*Debug*/
-        acceptsTouchEvents = true/*Enables gestures*/
-        wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
+        //acceptsTouchEvents = true/*Enables gestures*/
+        //wantsRestingTouches = true/*Makes sure all touches are registered. Doesn't register when used in playground*/
     }
     override func onEvent(_ event:Event) {
         if(event === (AnimEvent.stopped, timeBar!.mover!)){

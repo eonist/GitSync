@@ -2,9 +2,9 @@ import Cocoa
 @testable import Element
 @testable import Utils
 
-class TimeBar3:ElasticScrollFastList{
+class TimeBar:ElasticScrollFastList{
     override func resolveSkin() {
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync/stats/timebar.css")//changes the css to align sideways
+        //StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync/stats/timebar.css")//changes the css to align sideways
         super.resolveSkin()
     }
     override func createMover(){
