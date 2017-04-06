@@ -1,7 +1,6 @@
 import Foundation
 @testable import Utils
 @testable import Element
-@testable import GitSyncMac
 
 extension Graph9{
     /**

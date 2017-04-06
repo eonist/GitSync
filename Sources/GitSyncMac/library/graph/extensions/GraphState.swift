@@ -1,5 +1,4 @@
 import Foundation
-import GitSyncMac
 @testable import Utils
 @testable import Element
 

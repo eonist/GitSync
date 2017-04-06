@@ -1,7 +1,6 @@
 import Foundation
 @testable import Element
 @testable import Utils
-@testable import GitSyncMac
 
 typealias DateRange = (start:Date,end:Date)
 class GraphUpdateUtils {

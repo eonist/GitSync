@@ -1,7 +1,6 @@
 import Cocoa
 @testable import Element
 @testable import Utils
-import GitSyncMac
 
 /*Zoom Controller*/
 extension Graph9{
