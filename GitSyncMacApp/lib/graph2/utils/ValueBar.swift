@@ -12,8 +12,6 @@ class ValueBar:Element{
      * Creates the Text items that represents data in the y-axis
      */
     func createItems(){
-        /*leftBar = addSubView(Section(NaN,newSize!.height,self,"leftBar"))//create left bar
-         leftBar!.setPosition(CGPoint(0,newPosition!.y))*/
         let strings:[String] = GraphUtils.verticalIndicators(Graph9.config.vCount, 1.0)
         let itemYSpace:CGFloat = (height-100)/4
         var y:CGFloat = 50

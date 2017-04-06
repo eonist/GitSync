@@ -4,7 +4,7 @@ import Foundation
 
 extension ValueBar{
     /**
-     *
+     * Adds style to ValueBar
      */
     func addStyles(){
         var css:String = ""
@@ -12,8 +12,8 @@ extension ValueBar{
         css +=		"float:none;"
         css +=		"clear:none;"
         css +=		"fill:yellow;"
-        css +=		"fill-alpha:0.0;"
-        css +=		"width:42px;"
+        css +=		"fill-alpha:0.2;"
+        css +=		"width:50px;"
         css +=	"}"
         css +=	"ValueBar TextArea{"
         css +=		"float:none;"

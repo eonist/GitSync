@@ -36,9 +36,7 @@ extension Graph9{
     func createValueBar(){
         valueBar = addSubView(ValueBar(32,height,self))
         let objSize = CGSize(42,valueBar!.h)
-        //Swift.print("ValueBar.objSize: " + "\(objSize)")
         let canvasSize = CGSize(w,h)
-        //Swift.print("ValueBar.canvasSize: " + "\(canvasSize)")
         let p = Align.alignmentPoint(objSize, canvasSize, Alignment.topLeft, Alignment.topLeft, CGPoint())
         //Swift.print("p: " + "\(p)")
         //align timeBar to bottom with Align
