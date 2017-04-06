@@ -67,6 +67,7 @@ extension GraphComponent{
         let spacing:CGSize = CGSize(100,100)
         let leftMargin:CGFloat = 0
         let rightMargin:CGFloat = 0
+        _ = rightMargin
         let topMargin:CGFloat = 0
         let bottomMargin:CGFloat = 0
         let vLineHeight:CGFloat = size.height - topMargin - bottomMargin
