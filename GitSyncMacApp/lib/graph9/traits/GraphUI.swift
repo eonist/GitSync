@@ -12,10 +12,7 @@ extension Graph9{
         let w:CGFloat = self.w - (leftMargin*2)
         let h:CGFloat = self.h - (topMargin*2)
         graphComponent = addSubView(GraphComponent(w,h,self))
-        /*createGraphLine()
-         createGraphPoints()*/
         createValueBar()
-        //createVLines()
         update()
     }
     func crateDateText(){
