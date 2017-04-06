@@ -23,9 +23,6 @@ extension Graph9{
      * Creates the TimeBar
      */
     func createTimeBar(){
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/basic/list/vlist.css")//changes the css to align sideways
-        StyleManager.addStyle("Graph9 VList{float:none;clear:none;}")
-        /**/
         let dp:TimeDP = TimeDPUtils.timeDP(curTimeType,range)
         timeBar = addSubView(TimeBar3(w,24,24,dp,self,nil,.hor,100))
         alignTimeBar()
