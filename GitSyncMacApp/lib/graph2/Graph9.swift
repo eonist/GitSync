@@ -5,14 +5,16 @@ import GitSyncMac
 
 class Graph9:Element{
     lazy var gestureHUD:GestureHUD = GestureHUD(self)
+    /*UI*/
     var dateText:TextArea?
     var timeBar:TimeBar3?
     var valueBar:ValueBar?
     var contentContainer:Element?
-    var graphPoints:[Element]?
+    var graphPoints:[Element]?//what is this?
     var graphLine:GraphLine?
     var graphPts:[CGPoint]?
-    var prevGraphPts:[CGPoint]?
+    /*Anim*/
+    var prevGraphPts:[CGPoint]?/*interim var*/
     var animator:Animator?
     /*Date vars*/
     let range:Range<Int> = {return Date().year - 6..<Date().year}()//rename to yearRange
@@ -20,10 +22,11 @@ class Graph9:Element{
     var curZoom:Int = TimeType.year.rawValue
     let maxZoom:Int = 3
     var zoom:CGFloat = 0
+    var prevZoom:Int?
     /*State related*/
     var prevRange:Range<Int>?
-    var prevRangeScrollChange:Range<Int>?
-    var prevZoom:Int?
+    //var prevRangeScrollChange:Range<Int>?
+    
     override func resolveSkin(){
         StyleManager.addStyle("Graph9{float:left;clear:left;fill:green;fill-alpha:0.0;}")//Needed so that scrollWheel works
         StyleManager.addStylesByURL("~/Desktop/datetext.css")
