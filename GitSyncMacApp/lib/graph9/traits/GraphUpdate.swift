@@ -54,7 +54,7 @@ extension Graph9{
      * VerticalBar (y-axis tags)
      */
     func updateValueBar(_ maxValue:CGFloat){
-        var strings:[String] = GraphUtils.verticalIndicators(Graph9.config.valueBarCount, maxValue)
+        var strings:[String] = GraphUtils.verticalIndicators(vCount, maxValue)
         strings = strings.map{ $0.cgFloat > 1000 ? ($0.cgFloat/1000).toFixed(1).string + "K" : $0}//1500 -> 1.5K etc
         for i in 0..<strings.count{
             valueBar!.items[i].setTextValue(strings[i])
