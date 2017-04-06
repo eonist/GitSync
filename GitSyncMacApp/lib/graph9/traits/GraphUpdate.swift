@@ -28,7 +28,7 @@ extension Graph9{
         let numOfTimeUnits:Int = curTimeType.numOfTimeUnits(dateRange.start, dateRange.end)
         Swift.print("numOfTimeUnits: " + "\(numOfTimeUnits)")
         
-        if(numOfTimeUnits == 7){//⚠️️ quick fix
+        if(numOfTimeUnits == tCount){//⚠️️ quick fix
             commitCounter.countCommits(dateRange.start,dateRange.end,curTimeType)
         }
     }

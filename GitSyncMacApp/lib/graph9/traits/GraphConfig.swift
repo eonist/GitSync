@@ -7,7 +7,7 @@ extension Graph9 {/*Convenience*/
     static var config:GraphConfig = (5,7,CGSize(50,50),3)
     var leftMargin:CGFloat {return Graph9.config.margin.width}
     var topMargin:CGFloat {return Graph9.config.margin.height}
-    var valueBarCount:Int {return Graph9.config.valueBarCount}
-    var timeBarCount:Int {return Graph9.config.timeBarCount}
+    var vCount:Int {return Graph9.config.valueBarCount}
+    var tCount:Int {return Graph9.config.timeBarCount}
     var maxZoom:Int {return Graph9.config.maxZoom}
 }
