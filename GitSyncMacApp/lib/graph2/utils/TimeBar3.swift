@@ -3,6 +3,11 @@ import Cocoa
 @testable import Utils
 
 class TimeBar3:ElasticScrollFastList{
+    override func resolveSkin() {
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/basic/list/vlist.css")//changes the css to align sideways
+        StyleManager.addStyle("Graph9 VList{float:none;clear:none;}")
+        super.resolveSkin()
+    }
     override func createMover(){
         /*RubberBand*/
         let frame:RubberBand.Frame = (min:0,len:maskSize[dir])//CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
