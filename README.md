@@ -3,7 +3,7 @@
 ### What is this?
 GitSync allows you to syncronize all your git projects automatically. 
 
-<img width="734" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2017-04-06 at 21.52.59.png">
+<img width="746" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/more_or_less.mov.gif">
 
 ### How does it work?
 GitSync works similar to ICloud. If sync conflicts occure you are asked to use local or remote file. 
