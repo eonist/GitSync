@@ -37,6 +37,8 @@ class Navigation {
         switch view{
             case .commits:
                 mainView.currentView = mainView.addSubView(CommitsView(width,height,mainView))
+            case .commitDetail(let item):
+                mainView.currentView = mainView.addSubView(CommitDetailView(width,height,mainView))
             case .repos:
                 mainView.currentView = mainView.addSubView(RepoView(width,height,mainView))
             case .repoDetail(let repoItem):
@@ -53,7 +55,7 @@ class Navigation {
                     case .commit:
                         print("")
                     case .conflict:
-                        print("")
+                        mainView.currentView = mainView.addSubView(ConflictDialogView(width,height,mainView))
                 }
             
         }
@@ -76,14 +78,14 @@ class Navigation {
             case "\(RepoDetailView.self)":
             
             case "\(ConflictDialogView.self)":
-                mainView.currentView = mainView.addSubView(ConflictDialogView(width,height,mainView))
+            
             /* case "\(TestView3.self)":
              mainView.currentView = mainView.addSubView(TestView3(width,height,mainView))
              case "\(TestView2.self)":
              mainView.currentView = mainView.addSubView(TestView2(width,height,mainView))*/
             case "\(CommitDetailView.self)":
                 Swift.print("set CommitDetailView win")
-                mainView.currentView = mainView.addSubView(CommitDetailView(width,height,mainView))
+            
             default:
                 break;
         }

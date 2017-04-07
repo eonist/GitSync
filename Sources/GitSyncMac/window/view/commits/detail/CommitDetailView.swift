@@ -21,7 +21,7 @@ class CommitDetailView:Element {
     /**
      * Populates the UI elements with data
      */
-    func setCommitData(_ commitData:Dictionary<String,String>){
+    func setCommitData(_ commitData:[String:String]){
         repoNameText!.setText(commitData["repo-name"]!)
         titleText!.setText(commitData["title"]!)
         descText!.setText(commitData["description"]!)
