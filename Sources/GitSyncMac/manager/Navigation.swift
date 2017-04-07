@@ -36,16 +36,17 @@ class Navigation {
         
         switch view{
             case .commits:
-                print("")
+                mainView.currentView = mainView.addSubView(CommitsView(width,height,mainView))
             case .repos:
-                print("")
+                mainView.currentView = mainView.addSubView(RepoView(width,height,mainView))
             case .repoDetail(let repoItem):
                 Swift.print("repoItem: " + "\(repoItem)")
-                print("")
+                mainView.currentView = mainView.addSubView(RepoDetailView(width,height,mainView))
+                
             case .stats:
-                print("")
+                mainView.currentView = mainView.addSubView(StatsView(width,height,mainView))
             case .prefs:
-                print("")
+                mainView.currentView = mainView.addSubView(PrefsView(width,height,mainView))
             case .dialog(let dialog):
                 print("")
                 switch dialog{
@@ -64,16 +65,16 @@ class Navigation {
         switch viewName{
             case MenuView.commits:
                 Swift.print("set commits win")
-                mainView.currentView = mainView.addSubView(CommitsView(width,height,mainView))
+            
             case MenuView.repos:
-                mainView.currentView = mainView.addSubView(RepoView(width,height,mainView))
+            
             case MenuView.stats:
-                mainView.currentView = mainView.addSubView(StatsView(width,height,mainView))
+            
             case MenuView.prefs:
                 Swift.print("set prefs win")
-                mainView.currentView = mainView.addSubView(PrefsView(width,height,mainView))
+            
             case "\(RepoDetailView.self)":
-                mainView.currentView = mainView.addSubView(RepoDetailView(width,height,mainView))
+            
             case "\(ConflictDialogView.self)":
                 mainView.currentView = mainView.addSubView(ConflictDialogView(width,height,mainView))
             /* case "\(TestView3.self)":
