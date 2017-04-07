@@ -2,10 +2,13 @@
 
 ## Milestones:
 - Concurrent AutoSync ✅
-- New Graph component (dynamic/zoomable/slidable/snappable) (year/month/day/hour) 👈
-- Responsive UI 
+- New Graph component (dynamic/zoomable/slidable/snappable) (year/month/day/hour) ✅
+- Responsive UI 👈
 
 ## Progress:
+
+**2017-04-07**
+- CommitGraph v2 is now complete (zoom,slide,snap)
 
 **2017-03-11**  
 - CommitList is now ElasticSlidableScrollableFast
