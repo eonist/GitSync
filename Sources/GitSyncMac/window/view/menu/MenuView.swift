@@ -31,27 +31,8 @@ class MenuView:Element{
             Swift.print("MainMenu.onSelect() buttonId: " + "\(buttonId)")
             //Sounds.enable?.stop()//<--this sound may be played in fast succesion, so stop it and replay it
             //Sounds.enable?.play()
-            let type:Views.Main = Views.Main(rawValue:buttonId)!
-            Navigation.setView(Views.main(type))
-        }
-    }
-    /**
-     *
-     */
-    func btn(_ type:String){
-        
-    }
-    /**
-     *
-     */
-    func view()->Views{
-        switch someVal{
-        case 1:
-            printin("one")
-        case 3...8:
-            printin("range from 3 to 8")
-        default:
-            break;
+            let type:Views.Main = Views.Main(rawValue:buttonId)!//<--nice!
+            Navigation.setView(Views.main(type))//👌
         }
     }
 }

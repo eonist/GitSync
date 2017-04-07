@@ -25,14 +25,15 @@ class CommitsView:Element {
      */
     func onListSelect(_ event:ListEvent){
         Swift.print("CommitsView.onListSelect()")
-        Sounds.play?.play()
-        Navigation.setView("\(CommitDetailView.self)")
+        //Sounds.play?.play()
+        
         //RepoView.selectedListItemIndex = list!.selectedIndex
         CommitsView.selectedIdx = list!.selectedIdx!
         
         Swift.print("event.index: " + "\(event.index)")
         let commitData:[String:String] = list!.dataProvider.getItemAt(event.index)!
-        (Navigation.currentView as! CommitDetailView).setCommitData(commitData)//updates the UI elements with the selected commit item
+        //(Navigation.currentView as! CommitDetailView).setCommitData(commitData)//updates the UI elements with the selected commit item
+        Navigation.setView(Views.commitDetail(commitData))
     }
     override func onEvent(_ event:Event) {
         if(event.type == ListEvent.select){onListSelect(event as! ListEvent)}

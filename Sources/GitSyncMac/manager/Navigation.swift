@@ -35,10 +35,11 @@ class Navigation {
         let mainView:MainView = MainWin.mainView!
         if(mainView.currentView != nil) {mainView.currentView!.removeFromSuperview()}
         
-        let w:CGFloat = MainView.w
+        let w:CGFloat = MainView.w/*Convenience*/
         let h:CGFloat = MainView.h
         
         switch view{
+            /**/
             case .main(let viewType):
                 switch viewType {
                     case .commits:
