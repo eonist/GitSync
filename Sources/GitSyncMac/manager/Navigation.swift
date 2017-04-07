@@ -31,32 +31,33 @@ class Navigation {
         let mainView:MainView = MainWin.mainView!
         if(mainView.currentView != nil) {mainView.currentView!.removeFromSuperview()}
         
-        let width:CGFloat = MainView.w
+        let w:CGFloat = MainView.w
         let height:CGFloat = MainView.h
         let view:Views = "" == "" ? .commits : .repos
         
         switch view{
             case .commits:
-                mainView.currentView = mainView.addSubView(CommitsView(width,height,mainView))
-            case .commitDetail(let item):
-                mainView.currentView = mainView.addSubView(CommitDetailView(width,height,mainView))
+                mainView.currentView = mainView.addSubView(CommitsView(w,height,mainView))
+            case .commitDetail(let commitData):
+                mainView.currentView = mainView.addSubView(CommitDetailView(w,height,mainView))
+                (mainView.currentView as! CommitDetailView).setCommitData(commitData)
             case .repos:
-                mainView.currentView = mainView.addSubView(RepoView(width,height,mainView))
+                mainView.currentView = mainView.addSubView(RepoView(w,height,mainView))
             case .repoDetail(let repoItem):
                 Swift.print("repoItem: " + "\(repoItem)")
-                mainView.currentView = mainView.addSubView(RepoDetailView(width,height,mainView))
+                mainView.currentView = mainView.addSubView(RepoDetailView(w,height,mainView))
                 (mainView.currentView as! RepoDetailView).setRepoData(repoItem)
             case .stats:
-                mainView.currentView = mainView.addSubView(StatsView(width,height,mainView))
+                mainView.currentView = mainView.addSubView(StatsView(w,height,mainView))
             case .prefs:
-                mainView.currentView = mainView.addSubView(PrefsView(width,height,mainView))
+                mainView.currentView = mainView.addSubView(PrefsView(w,height,mainView))
             case .dialog(let dialog):
                 print("")
                 switch dialog{
                     case .commit:
                         print("")
                     case .conflict:
-                        mainView.currentView = mainView.addSubView(ConflictDialogView(width,height,mainView))
+                        mainView.currentView = mainView.addSubView(ConflictDialogView(w,height,mainView))
                 }
             
         }
