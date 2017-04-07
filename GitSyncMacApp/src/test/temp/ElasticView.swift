@@ -11,24 +11,24 @@ class ElasticView:Element{
     var zoomContainer:Element?
     var moverY:RubberBand?
     var moverX:RubberBand?
-    var moverZ:RubberBand?
+    //var moverZ:RubberBand?
     var moverGroup:MoverGroup?
     func mover(_ dir:Dir)->RubberBand{/*Convenience*/
         return dir == .hor ? moverX! : moverY!
     }
     var iterimScrollX:InterimScroll = InterimScroll()
     var iterimScrollY:InterimScroll = InterimScroll()
-    var iterimScrollZ:InterimScroll = InterimScroll()
+    //var iterimScrollZ:InterimScroll = InterimScroll()
     var iterimScrollGroup:IterimScrollGroup?
     func iterimScroll(_ dir:Dir)->InterimScroll{/*Convenience*/
         return dir == .hor ? iterimScrollX : iterimScrollY
     }
     var prevMagnificationValue:CGFloat = 0
-    var initBoundWidth:CGFloat?
-    var initBoundHeight:CGFloat?
+    //var initBoundWidth:CGFloat?
+    //var initBoundHeight:CGFloat?
     //var tempPagePos:CGPoint?
     /**/
-    var valueZ:CGFloat?
+    //var valueZ:CGFloat?
     
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
@@ -44,15 +44,15 @@ class ElasticView:Element{
         moverX = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.hor)}/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
         moverY = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.ver)}/*👈important*/,(maskFrame.y,maskFrame.size.height),(contentFrame.y,contentFrame.size.height))
         moverGroup = MoverGroup(moverX!,moverY!)
-        valueZ = height
-        let initMin:CGFloat = 0
-        moverZ = RubberBand(Animation.sharedInstance,setZ/*👈important*/,(maskFrame.y,maskFrame.size.height),(initMin,valueZ!))
+        //valueZ = height
+        //let initMin:CGFloat = 0
+        //moverZ = RubberBand(Animation.sharedInstance,setZ/*👈important*/,(maskFrame.y,maskFrame.size.height),(initMin,valueZ!))
         
         /*pinch to zoom*/
-        let magGesture = NSMagnificationGestureRecognizer(target: self, action: #selector(onMagnifyGesture))
-        self.addGestureRecognizer(magGesture)
-        initBoundWidth = contentContainer!.bounds.size.width
-        initBoundHeight = contentContainer!.bounds.size.height
+        //let magGesture = NSMagnificationGestureRecognizer(target: self, action: #selector(onMagnifyGesture))
+        //self.addGestureRecognizer(magGesture)
+        /*initBoundWidth = contentContainer!.bounds.size.width
+         initBoundHeight = contentContainer!.bounds.size.height*/
     }
     override func scrollWheel(with event: NSEvent) {
         //Swift.print("scrollWheel event.scrollingDeltaX: \(event.scrollingDeltaX) event.scrollingDeltaY: \(event.scrollingDeltaY)")
@@ -114,7 +114,6 @@ extension ElasticView{
         moverGroup!.value = moverGroup!.result/*Copy this back in again, as we used relative friction when above or bellow constraints*/
         
         //Swift.print("prevScrollingDeltaY: " + "\(iterimScrollY.prevScrollingDelta)")
-        
         let caseA = iterimScrollX.prevScrollingDelta != 1.0 && iterimScrollX.prevScrollingDelta != -1.0
         Swift.print("caseA: " + "\(caseA)")
         let caseB = iterimScrollY.prevScrollingDelta != 1.0 && iterimScrollY.prevScrollingDelta != -1.0/*Not 1 and not -1 indicates that the wheel is not stationary*/
@@ -132,92 +131,5 @@ extension ElasticView{
             moverGroup!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
         }
         moverGroup!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*//*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
-    }
-}
-/*Zoom related*/
-extension ElasticView{
-    /**
-     * TODO: The current solution doesn't let you zoom and pan at the same time. So you possibly need to make your own
-     */
-    func onMagnifyGesture(gestureRecognizer: NSMagnificationGestureRecognizer) {
-        Swift.print("⚠️️ DocView.onMagnifyGesture() magnification: " + "\(gestureRecognizer.magnification)")
-        if(gestureRecognizer.state == .changed){
-            Swift.print("the zoom changed")
-            let fractionalDelta:CGFloat = gestureRecognizer.magnification - prevMagnificationValue
-            Swift.print("fractionalDelta: " + "\(fractionalDelta)")
-            let zDelta:CGFloat = 1000 * fractionalDelta
-            Swift.print("zDelta: " + "\(zDelta)")
-            iterimScrollY.prevScrollingDelta = zDelta/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
-            _ = iterimScrollY.velocities.pushPop(zDelta)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
-            moverZ!.value += zDelta/*directly manipulate the value 1 to 1 control*/
-            moverZ!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
-            setZ(moverZ!.result)
-            prevMagnificationValue = gestureRecognizer.magnification
-        }else if(gestureRecognizer.state == .began){//include maybegin here
-            Swift.print("the zoom began")
-            moverZ!.stop()
-            moverZ!.hasStopped = true
-            iterimScrollZ.prevScrollingDelta = 0
-            moverZ!.isDirectlyManipulating = true
-            iterimScrollZ.velocities = Array(repeating: 0, count: 10)
-            prevMagnificationValue = 0
-        }else if(gestureRecognizer.state == .ended){
-            Swift.print("the zoom ended")
-            moverZ!.hasStopped = false
-            moverZ!.isDirectlyManipulating = false
-            moverZ!.value = moverZ!.result
-            /*Y*/
-            if(iterimScrollZ.prevScrollingDelta != 0){/*Not 1 and not -1 indicates that the wheel is not stationary*/
-                var velocity:CGFloat = 0
-                if(iterimScrollZ.prevScrollingDelta > 0){velocity = NumberParser.max(iterimScrollZ.velocities)}/*Find the most positive velocity value*/
-                else{velocity = NumberParser.min(iterimScrollZ.velocities)}/*Find the most negative velocity value*/
-                moverZ!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
-                moverZ!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*/
-            }else{/*stationary*/
-                moverZ!.start()/*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
-            }
-            prevMagnificationValue = 0
-        }
-    }
-    /**
-     *
-     */
-    func setZ(_ value:CGFloat){
-        Swift.print("setZ: " + "\(value)")
-        let scalarZoom:CGFloat = height/(height-value)//0-1
-        Swift.print("scalarZoom: " + "\(scalarZoom)")
-        directZoom(scalarZoom)
-    }
-    /**
-     * PARAM: zoom: accumulated zoom. starts at 1
-     */
-    func directZoom(_ zoom:CGFloat){
-        let objSize:CGSize = CGSize(zoomContainer!.frame.size.width*zoom,zoomContainer!.frame.size.height*zoom)
-        let canvasSize:CGSize = CGSize(width,height)
-        let newPos:CGPoint = Align.alignmentPoint(objSize, canvasSize, Alignment.centerCenter, Alignment.centerCenter, CGPoint())
-        zoomContainer!.point = newPos
-        Utils.applyContentsScale(zoomContainer!, zoom)//<---TODO: add this method in page?
-        zoomContainer!.bounds.w = initBoundWidth!/* * scale*/
-        zoomContainer!.bounds.h = initBoundHeight!/* * scale*/
-        zoomContainer!.scaleUnitSquare(to: NSSize(zoom,zoom))
-    }
-}
-private class Utils{
-    /**
-     * Applies contentsScale to descendants of a view that has been zoomed (so that we avoid pixelation while zooming)
-     * NOTE: maybe you can use a method in ElementModifier as it has similar code
-     * TODO: a setNeedsDisplay() on fillShape and lineShape could fix a potential problem were contesScale is applied if there isnt a redraw. But this is not confirmed
-     */
-    class func applyContentsScale(_ view:NSView,_ multiplier:CGFloat){
-        //Swift.print("applyContentsScale()")
-        for child in view.subviews{
-            if(child is IGraphic){
-                let graphic:IGraphic = child as! IGraphic
-                graphic.fillShape.contentsScale = 2.0 * multiplier/*<--2.0 represents retina screen*/
-                graphic.lineShape.contentsScale = 2.0 * multiplier
-                
-            }
-            if(child.subviews.count > 0) {applyContentsScale(child,multiplier)}/*<--this line makes it recursive*/
-        }
     }
 }

@@ -27,11 +27,11 @@ extension Graph2{
         let line = GradientLineStyle(lineGradient,lineStyle)
          /*size*/
         let objSize:CGSize = CGSize(200,200)
-        Swift.print("objSize: " + "\(objSize)")
+        //Swift.print("objSize: " + "\(objSize)")
         let viewSize:CGSize = CGSize(width,height)
-        Swift.print("viewSize: " + "\(viewSize)")
+        //Swift.print("viewSize: " + "\(viewSize)")
         let p = Align.alignmentPoint(objSize, viewSize, Alignment.centerCenter, Alignment.centerCenter,CGPoint())
-        Swift.print("p: " + "\(p)")
+        //Swift.print("p: " + "\(p)")
          /*Graphics*/
         let ellipse = EllipseGraphic(p.x,p.y,200,200,fill.mix(Gradients.green()),line.mix(Gradients.lightGreen(0.5)))
         zoomContainer!.addSubview(ellipse.graphic)
