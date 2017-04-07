@@ -27,11 +27,15 @@ class Navigation {
     /**
      * Navigate between views
      */
-    static func setView(_ view:Views){        
+    static func setView(_ view:Views){
+        
+        
         Navigation.activeView = view
         //Swift.print("Navigation.setView() viewName: " + "\(viewName)")
         let mainView:MainView = MainWin.mainView!
         if(mainView.currentView != nil) {mainView.currentView!.removeFromSuperview()}
+        /**/
+
         
         let w:CGFloat = MainView.w/*Convenience*/
         let h:CGFloat = MainView.h

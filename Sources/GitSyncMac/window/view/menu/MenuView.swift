@@ -22,7 +22,7 @@ class MenuView:Element{
         }
         selectGroup = SelectGroup(buttons,buttons[0])
         //buttons[0].setSelected(true)
-        //selectGroup!.selectables.forEach{if(($0 as! Element).id == Navigation.activeView){$0.setSelected(true)}}
+        
         selectGroup!.event = onSelectGroupChange
     }
     func onSelectGroupChange(event:Event){
@@ -34,5 +34,14 @@ class MenuView:Element{
             let type:Views.Main = Views.Main(rawValue:buttonId)!//<--nice!
             Navigation.setView(Views.main(type))//👌
         }
+    }
+}
+extension MenuView{
+    /**
+     *
+     */
+    func selectButton(_ view:Views.Main){
+        //mainView.menuView!.selectGroup!.selectedAt(0)/*Selects the correct menu icon*/
+        selectGroup!.selectables.forEach{if(($0 as! Element).id == Navigation.activeView){$0.setSelected(true)}}
     }
 }
