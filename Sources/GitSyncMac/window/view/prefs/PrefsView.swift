@@ -59,3 +59,13 @@ class PrefsView:Element {
         }
     }
 }
+extension PrefsView{
+    static var xml:XML{
+        let xml:XML = "<prefs></prefs>".xml
+        xml.appendChild("<keychainUserName>\(PrefsView.keychainUserName!)</keychainUserName>".xml)
+        xml.appendChild("<gitConfigUserName>\(PrefsView.gitConfigUserName!)</gitConfigUserName>".xml)
+        xml.appendChild("<gitEmailName>\(PrefsView.gitEmailNameText!)</gitEmailName>".xml)
+        xml.appendChild("<uiSounds>\(String(PrefsView.uiSounds!))</uiSounds>".xml)
+        return xml
+    }
+}

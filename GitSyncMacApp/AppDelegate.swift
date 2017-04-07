@@ -64,16 +64,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         //store the app prefs
         if(PrefsView.keychainUserName != nil){//make sure the data has been read and written to first
-            let xml:XML = "<prefs></prefs>".xml
-            xml.appendChild("<keychainUserName>\(PrefsView.keychainUserName!)</keychainUserName>".xml)
-            xml.appendChild("<gitConfigUserName>\(PrefsView.gitConfigUserName!)</gitConfigUserName>".xml)
-            xml.appendChild("<gitEmailName>\(PrefsView.gitEmailNameText!)</gitEmailName>".xml)
-            xml.appendChild("<uiSounds>\(String(PrefsView.uiSounds!))</uiSounds>".xml)
-            _ = FileModifier.write("~/Desktop/gitsyncprefs.xml".tildePath, xml.xmlString)
+            _ = FileModifier.write("~/Desktop/gitsyncprefs.xml".tildePath, PrefsView.xml.xmlString)
             Swift.print("💾 Write PrefsView to: prefs.xml")
         }
         Swift.print("💾 Write RepoList to: repo.xml")
-        //Swift.print("RepoView.node.xml.xmlString: " + "\(RepoView.node.xml.xmlString)")
         _ = FileModifier.write(RepoView.repoListFilePath.tildePath, RepoView.node.xml.xmlString)/*store the repo xml*/
         print("Good-bye")
     }
