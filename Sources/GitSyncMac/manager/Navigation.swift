@@ -22,7 +22,7 @@ enum Views{
     }
 }
 class Navigation {
-    static var activeView:Views = Views.main(Main.commits)
+    static var activeView:Views = Views.main(Views.Main.commits)
     static var currentView:NSView? {return MainWin.mainView?.currentView}
     /**
      * Navigate between views
@@ -39,21 +39,28 @@ class Navigation {
         let h:CGFloat = MainView.h
         
         switch view{
-            case Main.commits:
-                mainView.currentView = mainView.addSubView(CommitsView(w,h,mainView))
+            case .main(let viewType):
+                switch viewType {
+                    case .commits:
+                        mainView.currentView = mainView.addSubView(CommitsView(w,h,mainView))
+                    case .repos:
+                        mainView.currentView = mainView.addSubView(RepoView(w,h,mainView))
+                    case .stats:
+                        mainView.currentView = mainView.addSubView(StatsView(w,h,mainView))
+                    case .prefs:
+                        mainView.currentView = mainView.addSubView(PrefsView(w,h,mainView))
+            }
+            
             case .commitDetail(let commitData):
                 mainView.currentView = mainView.addSubView(CommitDetailView(w,h,mainView))
                 (mainView.currentView as! CommitDetailView).setCommitData(commitData)
-            case .repos:
-                mainView.currentView = mainView.addSubView(RepoView(w,h,mainView))
+            
+            
             case .repoDetail(let repoItem):
                 Swift.print("repoItem: " + "\(repoItem)")
                 mainView.currentView = mainView.addSubView(RepoDetailView(w,h,mainView))
                 (mainView.currentView as! RepoDetailView).setRepoData(repoItem)
-            case .stats:
-                mainView.currentView = mainView.addSubView(StatsView(w,h,mainView))
-            case .prefs:
-                mainView.currentView = mainView.addSubView(PrefsView(w,h,mainView))
+            
             case .dialog(let dialog):
                 print("")
                 switch dialog{
