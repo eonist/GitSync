@@ -50,17 +50,16 @@ class Navigation {
                     case .prefs:
                         mainView.currentView = mainView.addSubView(PrefsView(w,h,mainView))
             }
-            
+            /**/
             case .commitDetail(let commitData):
                 mainView.currentView = mainView.addSubView(CommitDetailView(w,h,mainView))
                 (mainView.currentView as! CommitDetailView).setCommitData(commitData)
-            
-            
+            /**/
             case .repoDetail(let repoItem):
                 Swift.print("repoItem: " + "\(repoItem)")
                 mainView.currentView = mainView.addSubView(RepoDetailView(w,h,mainView))
                 (mainView.currentView as! RepoDetailView).setRepoData(repoItem)
-            
+            /**/
             case .dialog(let dialog):
                 print("")
                 switch dialog{
