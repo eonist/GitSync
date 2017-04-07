@@ -12,6 +12,11 @@ enum Views {
     case stats
     case prefs
 }
+enum dialog{
+    case conflict
+    case commit
+}
+
 class Navigation {
     static var activeView:String = MenuView.commits//<--default
     static var currentView:NSView? {return MainWin.mainView?.currentView}
@@ -40,6 +45,10 @@ class Navigation {
             case .stats:
                 print("")
             case .prefs:
+                print("")
+            case .conflict:
+                print("")
+            case .commit:
                 print("")
         }
         
