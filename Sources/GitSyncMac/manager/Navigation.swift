@@ -6,11 +6,11 @@ import Cocoa
  * TODO: Migrate to its own .swift file when appropriate
  */
 enum Views{
-    enum Main{
-        case commits
-        case repos
-        case stats
-        case prefs
+    enum Main:String{
+        case commits = "commits"
+        case repos = "repos"
+        case stats = "stats"
+        case prefs = "prefs"
     }
     case main(Main)
     case commitDetail([String:String])
