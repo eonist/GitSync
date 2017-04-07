@@ -70,5 +70,13 @@ class TestView:TitleView{
         //CommitDPRefresher.onComplete = onComplete
         //CommitDPRefresher.refresh()
     }
+    func flattenRepoTest(){
+        /*let repoList = RepoUtils.repoListFlattenedOverridden
+         Swift.print(repoList.count)
+         repoList.forEach{
+         Swift.print("$0.title: " + "\($0.title)")
+         }*/
+        //it works, now activate this in a filter, if active is false then don't return repo, easy! test it first, then test gitpull
+    }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }

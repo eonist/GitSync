@@ -16,21 +16,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
-        //_ = Test2()
         
-        //commitCounterTest()
         //initApp()
         initTestWin()//🔨
-        //AutoSync.sync()
-        //refreshReposTest()
-        //timeTesting()
         
-        /*let repoList = RepoUtils.repoListFlattenedOverridden
-        Swift.print(repoList.count)
-        repoList.forEach{
-            Swift.print("$0.title: " + "\($0.title)")
-        }*/
-        //it works, now activate this in a filter, if active is false then don't return repo, easy! test it first, then test gitpull
     }
     func initTestWin(){
         //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
