@@ -1,23 +1,13 @@
-<h1 align="center"><img width="314" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/gitsync_logo_2016_blue.png"></h1>
+<h1 align="center"><img width="150" alt="img" src="https://rawgit.com/stylekit/img/master/gitsync_logo_2016_blue.svg"></h1>
 
 <br />
 
-
 <div align="center">
-  <!-- MIT -->
-  <a href="">
-    <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg"
-      alt="MIT" />
-  </a>
-  <!-- Platform -->
-  <a href="">
-    <img src="https://img.shields.io/badge/Platform-macOS-blue.svg"
-      alt="Platform" />
-  </a>
-
+  <a href=""><img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" alt="MIT" /></a>
+  <a href=""><img src="https://img.shields.io/badge/Platform-macOS-blue.svg" alt="Platform" /></a>
+  <a href=""><img src="https://img.shields.io/badge/Language-Swift-orange.svg" alt="Lang" /></a>
+  <a href="https://codebeat.co/projects/github-com-eonist-gitsyncosx"><img src="https://codebeat.co/badges/5c7a5051-2fa6-45c1-9c2c-0db5fe70837b" alt="codebeat" /></a>
 </div>
-
-
 
 
 ## Milestones:
