@@ -18,14 +18,14 @@ extension ElasticScrollable2{
         mover!.updatePosition()
         setProgress(mover!.result)
         /*⚠️️ temp fix for SnappyRubberBand support, move this into a new protocol extension*/
-        let prevDir = (mover! as! SnappyRubberBand).prevDir
+        /*let prevDir = (mover! as! SnappyRubberBand).prevDir
         var tempDir:CGFloat = 0
         let curDir = event.scrollingDeltaX
         if(curDir == 0){tempDir = prevDir}//use old value
         else if(curDir.isNegative){tempDir = -1}
         else if(curDir.isPositive){tempDir = 1}
         Swift.print("tempDir: " + "\(tempDir)")
-        (mover! as! SnappyRubberBand).prevDir = tempDir
+        (mover! as! SnappyRubberBand).prevDir = tempDir*/
     }
     /**
      * NOTE: Basically when you enter your scrollWheel gesture

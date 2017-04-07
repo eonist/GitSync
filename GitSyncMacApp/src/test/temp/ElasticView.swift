@@ -2,7 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 /**
- *
+ * Testing x & y elastic scrolling
  */
 class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
