@@ -5,9 +5,9 @@ import Foundation
 class MoverGroup{
     var xMover:RubberBand
     var yMover:RubberBand
-    init(_ xMover:RubberBand, _ yMover:RubberBand){
-        self.xMover = xMover
-        self.yMover = yMover
+    init(_ setProgress: _ maskSize:CGSize,_ contentSize:CGSize){
+        self.xMover = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.hor)}/*👈important*/,(0,maskSize.width),(0,contentSize.width))
+        self.yMover = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.ver)}/*👈important*/,(0,maskSize.height),(0,contentSize.height))
     }
     var hasStopped:Bool{
         get{fatalError("get is not supported")}

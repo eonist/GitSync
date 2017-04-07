@@ -21,15 +21,9 @@ class ElasticView:ContainerView2{//
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
         iterimScrollGroup = IterimScrollGroup(iterimScrollX,iterimScrollY)
-        /*init*/
-        //contentContainer = addSubView(Container(width,height,self,"content"))
-        layer!.masksToBounds = true/*masks the children to the frame, I don't think this works, seem to work now*/
-        
         /*anim*/
-        moverX = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.hor)}/*👈important*/,(0,maskSize.width),(0,contentSize.width))
-        moverY = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.ver)}/*👈important*/,(0,maskSize.height),(0,contentSize.height))
+        
         moverGroup = MoverGroup(moverX!,moverY!)
-       
     }
     override func scrollWheel(with event: NSEvent) {
         //Swift.print("scrollWheel event.scrollingDeltaX: \(event.scrollingDeltaX) event.scrollingDeltaY: \(event.scrollingDeltaY)")
