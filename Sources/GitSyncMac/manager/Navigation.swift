@@ -4,8 +4,11 @@ import Cocoa
 /**
  * TODO: Migrate to its own .swift file when appropriate
  */
-public enum Numbers: Int {
-    case commits = 0, repos, stats, prefs, Five
+public enum Views: Int {
+    case commits = 0
+    case repos
+    case stats
+    case prefs
 }
 class Navigation {
     static var activeView:String = MenuView.commits//<--default
