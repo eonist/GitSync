@@ -7,17 +7,11 @@ import Cocoa
 class ElasticView:ContainerView2{//
     override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
     var moverGroup:MoverGroup?
-    
-    //TODO: move the bellow vars into the group
-    var iterimScrollX:InterimScroll = InterimScroll()
-    var iterimScrollY:InterimScroll = InterimScroll()
     var iterimScrollGroup:IterimScrollGroup?
-    func iterimScroll(_ dir:Dir)->InterimScroll{/*Convenience*/
-        return dir == .hor ? iterimScrollX : iterimScrollY
-    }
+    
     override func resolveSkin() {
         super.resolveSkin()
-        iterimScrollGroup = IterimScrollGroup(iterimScrollX,iterimScrollY)
+        iterimScrollGroup = IterimScrollGroup()
         moverGroup = MoverGroup(setProgress,maskSize,contentSize)
     }
     override func scrollWheel(with event: NSEvent) {
