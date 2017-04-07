@@ -9,9 +9,11 @@ class ElasticView:ContainerView2{//
     var moverY:RubberBand?
     var moverX:RubberBand?
     var moverGroup:MoverGroup?
+    //TODO: move this into an extension
     func mover(_ dir:Dir)->RubberBand{/*Convenience*/
         return dir == .hor ? moverX! : moverY!
     }
+    //TODO: move the bellow vars into the group
     var iterimScrollX:InterimScroll = InterimScroll()
     var iterimScrollY:InterimScroll = InterimScroll()
     var iterimScrollGroup:IterimScrollGroup?
@@ -19,11 +21,9 @@ class ElasticView:ContainerView2{//
         return dir == .hor ? iterimScrollX : iterimScrollY
     }
     override func resolveSkin() {
-        super.resolveSkin()//self.skin = SkinResolver.skin(self)//
+        super.resolveSkin()
         iterimScrollGroup = IterimScrollGroup(iterimScrollX,iterimScrollY)
-        /*anim*/
-        
-        moverGroup = MoverGroup(moverX!,moverY!)
+        moverGroup = MoverGroup(setProgress,maskSize,contentSize)
     }
     override func scrollWheel(with event: NSEvent) {
         //Swift.print("scrollWheel event.scrollingDeltaX: \(event.scrollingDeltaX) event.scrollingDeltaY: \(event.scrollingDeltaY)")
