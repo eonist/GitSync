@@ -8,6 +8,7 @@ class ElasticView:ContainerView2{//
     /*var maskFrame:CGRect = CGRect()
      var contentFrame:CGRect = CGRect()
      var contentContainer:Element?*/
+    override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
     var moverY:RubberBand?
     var moverX:RubberBand?
     var moverGroup:MoverGroup?
