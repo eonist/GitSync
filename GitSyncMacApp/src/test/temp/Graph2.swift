@@ -4,6 +4,9 @@ import Cocoa
 /**
  * This tests An elastic 🔵 Ellipse that you can throw around with pan and pinch 👌 gestures
  */
+
+//Continue here: remove the zoom stuff. Add Sliders
+
 class Graph2:ElasticView{
     //override var itemsHeight: CGFloat {return height}
     //override var itemHeight: CGFloat {return 24}
