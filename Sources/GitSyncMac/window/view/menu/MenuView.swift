@@ -38,10 +38,9 @@ class MenuView:Element{
 }
 extension MenuView{
     /**
-     *
+     * Selects the button based on Main view enum case 👌
      */
     func selectButton(_ view:Views.Main){
-        //mainView.menuView!.selectGroup!.selectedAt(0)/*Selects the correct menu icon*/
-        selectGroup!.selectables.forEach{if(($0 as! Element).id == Navigation.activeView){$0.setSelected(true)}}
+        selectGroup!.selectables.forEach{if(($0 as! Element).id == view.rawValue){$0.setSelected(true)}}
     }
 }
