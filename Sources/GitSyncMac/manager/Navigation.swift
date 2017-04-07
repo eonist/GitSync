@@ -1,10 +1,12 @@
 import Cocoa
 @testable import Utils
 @testable import Element
-
 /**
  * TODO: Migrate to its own .swift file when appropriate
  */
+public enum Views{
+    
+}
 class Navigation {
     static var activeView:String = MenuView.commits//<--default
     static var currentView:NSView? {return MainWin.mainView?.currentView}
