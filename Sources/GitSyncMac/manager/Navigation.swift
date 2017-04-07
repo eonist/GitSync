@@ -42,7 +42,7 @@ class Navigation {
             case .repoDetail(let repoItem):
                 Swift.print("repoItem: " + "\(repoItem)")
                 mainView.currentView = mainView.addSubView(RepoDetailView(width,height,mainView))
-                
+                (mainView.currentView as! RepoDetailView).setRepoData(repoItem)
             case .stats:
                 mainView.currentView = mainView.addSubView(StatsView(width,height,mainView))
             case .prefs:
