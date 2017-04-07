@@ -6,12 +6,13 @@ import Cocoa
  * TODO: Migrate to its own .swift file when appropriate
  */
 enum Views{
-    enum main{
+    enum Main{
         case commits
         case repos
         case stats
         case prefs
     }
+    case main(Main)
     case commitDetail([String:String])
     case repoDetail(RepoItem)
     case dialog(Dialog)
@@ -21,7 +22,7 @@ enum Views{
     }
 }
 class Navigation {
-    static var activeView:Views = main.commits//<--default
+    static var activeView:Views = Views.main(Main.commits)
     static var currentView:NSView? {return MainWin.mainView?.currentView}
     /**
      * Navigate between views
@@ -38,7 +39,7 @@ class Navigation {
         let h:CGFloat = MainView.h
         
         switch view{
-            case .commits:
+            case Main.commits:
                 mainView.currentView = mainView.addSubView(CommitsView(w,h,mainView))
             case .commitDetail(let commitData):
                 mainView.currentView = mainView.addSubView(CommitDetailView(w,h,mainView))
