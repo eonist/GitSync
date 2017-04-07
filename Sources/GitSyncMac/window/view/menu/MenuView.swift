@@ -5,11 +5,7 @@ import Cocoa
  * NOTE: The reasoning behind having this menu is that when a skeptical user tries the app for the first time, the first thing they do is browse around. If the menu system is too clever they wont even do that. 
  */
 class MenuView:Element{
-    static let commits:String = "commits"
-    static let repos:String = "repos"
-    static let stats:String = "stats"
-    static let prefs:String = "prefs"
-    static let buttonTitles = [MenuView.commits,MenuView.repos,MenuView.stats,MenuView.prefs]
+    static let buttonTitles:[Views.Main] = [.commits,.repos,.stats,.prefs]
     var selectGroup:SelectGroup?
     override func resolveSkin() {
         Swift.print("MenuView.resolveSkin()")
@@ -21,7 +17,7 @@ class MenuView:Element{
         let buttonSection = self.addSubView(Container(200,48,self,"buttonSection"))
         var buttons:[ISelectable] = []
         for buttonTitle in MenuView.buttonTitles{
-            let btn:SelectButton = buttonSection.addSubView(SelectButton(20,20,false,buttonSection,buttonTitle))//buttonTitle.capitalizedString
+            let btn:SelectButton = buttonSection.addSubView(SelectButton(20,20,false,buttonSection,buttonTitle.rawValue))//buttonTitle.capitalizedString
             buttons.append(btn)
         }
         selectGroup = SelectGroup(buttons,buttons[0])
@@ -35,7 +31,8 @@ class MenuView:Element{
             Swift.print("MainMenu.onSelect() buttonId: " + "\(buttonId)")
             //Sounds.enable?.stop()//<--this sound may be played in fast succesion, so stop it and replay it
             //Sounds.enable?.play()
-            Navigation.setView(buttonId)
+            let type:Views.Main = Views.Main(rawValue:buttonId)!
+            Navigation.setView(Views.main(type))
         }
     }
     /**
