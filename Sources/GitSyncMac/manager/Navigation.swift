@@ -11,12 +11,12 @@ enum Views {
     case repoDetail(RepoItem)
     case stats
     case prefs
+    case dialog
+    enum dialog{
+        case conflict
+        case commit
+    }
 }
-enum dialog{
-    case conflict
-    case commit
-}
-
 class Navigation {
     static var activeView:String = MenuView.commits//<--default
     static var currentView:NSView? {return MainWin.mainView?.currentView}
@@ -46,9 +46,9 @@ class Navigation {
                 print("")
             case .prefs:
                 print("")
-            case .conflict:
+            case .dialog.conflict:
                 print("")
-            case .commit:
+            case .dialog.commit:
                 print("")
         }
         
