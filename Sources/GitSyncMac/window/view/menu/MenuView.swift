@@ -26,16 +26,17 @@ class MenuView:Element{
         }
         selectGroup = SelectGroup(buttons,buttons[0])
         //buttons[0].setSelected(true)
-        selectGroup!.selectables.forEach{if(($0 as! Element).id == Navigation.activeView){$0.setSelected(true)}}
+        //selectGroup!.selectables.forEach{if(($0 as! Element).id == Navigation.activeView){$0.setSelected(true)}}
         selectGroup!.event = onSelectGroupChange
     }
     func onSelectGroupChange(event:Event){
         if(event.assert(SelectGroupEvent.change, selectGroup)){
             let buttonId:String = (selectGroup!.selected as! Element).id!
             Swift.print("MainMenu.onSelect() buttonId: " + "\(buttonId)")
-            Sounds.enable?.stop()//<--this sound may be played in fast succesion, so stop it and replay it
-            Sounds.enable?.play()
+            //Sounds.enable?.stop()//<--this sound may be played in fast succesion, so stop it and replay it
+            //Sounds.enable?.play()
             Navigation.setView(buttonId)
         }
     }
+    
 }
