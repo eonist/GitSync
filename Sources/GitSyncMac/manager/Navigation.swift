@@ -35,7 +35,7 @@ class Navigation {
         let mainView:MainView = MainWin.mainView!
         if(mainView.currentView != nil) {mainView.currentView!.removeFromSuperview()}
         /**/
-
+        mainView.menuView!.selectButton(view)/*Selects the correct menu icon*/
         
         let w:CGFloat = MainView.w/*Convenience*/
         let h:CGFloat = MainView.h

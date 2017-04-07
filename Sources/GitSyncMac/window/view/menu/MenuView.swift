@@ -40,7 +40,12 @@ extension MenuView{
     /**
      * Selects the button based on Main view enum case 👌
      */
-    func selectButton(_ view:Views.Main){
-        selectGroup!.selectables.forEach{if(($0 as! Element).id == view.rawValue){$0.setSelected(true)}}
+    func selectButton(_ view:Views){
+        switch view {
+            case .main(let viewType):
+                selectGroup!.selectables.forEach{if(($0 as! Element).id == viewType.rawValue){$0.setSelected(true)}}
+            default:
+                _ = ""//do nothing
+        }
     }
 }
