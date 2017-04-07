@@ -11,11 +11,11 @@ enum Views {
     case repoDetail(RepoItem)
     case stats
     case prefs
-    case dialog
-    enum dialog{
-        case conflict
-        case commit
-    }
+    case dialog(Dialog)
+}
+enum Dialog{
+    case conflict
+    case commit
 }
 class Navigation {
     static var activeView:String = MenuView.commits//<--default
@@ -46,10 +46,15 @@ class Navigation {
                 print("")
             case .prefs:
                 print("")
-            case .dialog.conflict:
+            case .dialog(let dialog):
                 print("")
-            case .dialog.commit:
-                print("")
+                switch dialog{
+                    case .commit:
+                        print("")
+                    case .conflict:
+                        print("")
+                }
+            
         }
         
         
