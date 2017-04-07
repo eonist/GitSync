@@ -15,12 +15,16 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        createGraph7Test()
+        //createGraph7Test()
+        createGraph2()
     }
     func createGraph7Test(){
         let test = self.addSubView(Graph7(width,height-48,self))
         _ = test
     }
-    
+    func createGraph2(){
+        let graph = self.addSubView(Graph2(width,height,nil))
+        _ = graph
+    }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
