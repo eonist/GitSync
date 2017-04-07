@@ -45,7 +45,7 @@ extension RepoView{
     func onTreeListSelect(){
         Swift.print("RepoView.onTreeListSelect()")
         //Sounds.play?.play()
-        Navigation.setView("\(RepoDetailView.self)")
+       
         let selectedIndex:Array = TreeListParser.selectedIndex(treeList!)
         RepoView.selectedListItemIndex = selectedIndex
         //TODO: Use the RepoItem on the bellow line see AutoSync class for implementation
@@ -58,6 +58,7 @@ extension RepoView{
         }else{
             repoItem = RepoUtils.repoItem(repoItemDict)
         }
-        (Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
+        //(Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
+        Navigation.setView(.repoDetail(repoItem))
     }
 }
