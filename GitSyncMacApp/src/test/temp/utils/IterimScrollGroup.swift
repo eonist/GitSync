@@ -20,5 +20,4 @@ class IterimScrollGroup{
     func iterimScroll(_ dir:Dir) -> InterimScroll{
         return dir == .hor ? iterimScrollX : iterimScrollY
     }
-    
 }
