@@ -44,8 +44,8 @@ extension ElasticView{
         iterimScrollGroup!.iterimScroll(.hor).prevScrollingDelta = event.scrollingDelta[.hor]/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
         iterimScrollGroup!.iterimScroll(.ver).prevScrollingDelta = event.scrollingDelta[.ver]
         
-        _ = iterimScrollGroup.iterimScroll(.hor).velocities.shiftAppend(event.scrollingDelta[.hor])/*insert new velocity at the begining and remove the last velocity to make room for the new*/
-        _ = iterimScrollGroup.iterimScroll(.ver).velocities.shiftAppend(event.scrollingDelta[.ver])
+        _ = iterimScrollGroup!.iterimScroll(.hor).velocities.shiftAppend(event.scrollingDelta[.hor])/*insert new velocity at the begining and remove the last velocity to make room for the new*/
+        _ = iterimScrollGroup!.iterimScroll(.ver).velocities.shiftAppend(event.scrollingDelta[.ver])
         moverGroup!.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
         moverGroup!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
         let p = CGPoint(moverGroup!.mover(.hor).result,moverGroup!.mover(.ver).result)
@@ -74,17 +74,17 @@ extension ElasticView{
         moverGroup!.value = moverGroup!.result/*Copy this back in again, as we used relative friction when above or bellow constraints*/
         
         //Swift.print("prevScrollingDeltaY: " + "\(iterimScrollY.prevScrollingDelta)")
-        let caseA = iterimScrollX.prevScrollingDelta != 1.0 && iterimScrollX.prevScrollingDelta != -1.0
+        let caseA = iterimScrollGroup!.iterimScrollX.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollX.prevScrollingDelta != -1.0
         Swift.print("caseA: " + "\(caseA)")
-        let caseB = iterimScrollY.prevScrollingDelta != 1.0 && iterimScrollY.prevScrollingDelta != -1.0/*Not 1 and not -1 indicates that the wheel is not stationary*/
+        let caseB = iterimScrollGroup!.iterimScrollY.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollY.prevScrollingDelta != -1.0/*Not 1 and not -1 indicates that the wheel is not stationary*/
         Swift.print("caseB: " + "\(caseB)")
         if(caseA || caseB){
             let velocity:CGPoint = {
-                Swift.print("iterimScrollX.velocities: " + "\(iterimScrollX.velocities)")
-                Swift.print("iterimScrollY.velocities: " + "\(iterimScrollY.velocities)")
+                Swift.print("iterimScrollX.velocities: " + "\(iterimScrollGroup!.iterimScrollX.velocities)")
+                Swift.print("iterimScrollY.velocities: " + "\(iterimScrollGroup!.iterimScrollY.velocities)")
                
-                let x:CGFloat = iterimScrollX.velocities.filter{$0 != 0}.average
-                let y:CGFloat = iterimScrollY.velocities.filter{$0 != 0}.average
+                let x:CGFloat = iterimScrollGroup!.iterimScrollX.velocities.filter{$0 != 0}.average
+                let y:CGFloat = iterimScrollGroup!.iterimScrollY.velocities.filter{$0 != 0}.average
                 return CGPoint(x,y)
             }()
             Swift.print("velocity: " + "\(velocity)")
