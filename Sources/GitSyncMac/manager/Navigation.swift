@@ -7,6 +7,7 @@ import Cocoa
  */
 enum Views {
     case commits
+    case commitDetail([String:String])
     case repos
     case repoDetail(RepoItem)
     case stats
