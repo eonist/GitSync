@@ -34,14 +34,16 @@ class Navigation {
                 print("")
             case .repos:
                 print("")
-            case .repoDetail(repoItem:RepoItem):
-                //Swift.print("repoItem: " + "\(repoItem)")
+            case .repoDetail(let repoItem):
+                Swift.print("repoItem: " + "\(repoItem)")
                 print("")
             case .stats:
                 print("")
             case .prefs:
                 print("")
         }
+        
+        
         /**
          * TODO: Use class name instead of static let strings, actually use enums enum can support conditions so you can get to repoDetailView with specific data etc
          */
