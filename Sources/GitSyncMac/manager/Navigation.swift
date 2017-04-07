@@ -21,7 +21,7 @@ class Navigation {
      */
     static func setView(_ viewName:String){
         Navigation.activeView = viewName
-        Swift.print("Navigation.setView() viewName: " + "\(viewName)")
+        //Swift.print("Navigation.setView() viewName: " + "\(viewName)")
         let mainView:MainView = MainWin.mainView!
         if(mainView.currentView != nil) {mainView.currentView!.removeFromSuperview()}
         
