@@ -5,10 +5,13 @@ import Foundation
 class MoverGroup{
     var xMover:RubberBand
     var yMover:RubberBand
-    init(_ setProgress: _ maskSize:CGSize,_ contentSize:CGSize){
-        self.xMover = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.hor)}/*👈important*/,(0,maskSize.width),(0,contentSize.width))
-        self.yMover = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.ver)}/*👈important*/,(0,maskSize.height),(0,contentSize.height))
+    //TODO: ⚠️️ write a typeAlias for the callback method bellow
+    init(_ callBack:@escaping (CGFloat,Dir)->Void, _ maskSize:CGSize,_ contentSize:CGSize){
+        self.xMover = RubberBand(Animation.sharedInstance,{val in callBack(val,.hor)}/*👈important*/,(0,maskSize.width),(0,contentSize.width))
+        self.yMover = RubberBand(Animation.sharedInstance,{val in callBack(val,.ver)}/*👈important*/,(0,maskSize.height),(0,contentSize.height))
     }
+}
+extension MoverGroup{
     var hasStopped:Bool{
         get{fatalError("get is not supported")}
         set{
