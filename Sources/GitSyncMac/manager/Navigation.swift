@@ -1,12 +1,14 @@
 import Cocoa
 @testable import Utils
 @testable import Element
+
 /**
  * TODO: Migrate to its own .swift file when appropriate
  */
-public enum Views: Int {
-    case commits = 0
+enum Views {
+    case commits
     case repos
+    case repoDetail(RepoItem)
     case stats
     case prefs
 }
