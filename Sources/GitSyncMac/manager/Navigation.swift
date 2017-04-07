@@ -34,11 +34,12 @@ class Navigation {
                 print("")
             case .repos:
                 print("")
-            case .repoDetail():
+            case .repoDetail(repoItem):
+                _ = repoItem
                 print("")
-            case .repos:
+            case .stats:
                 print("")
-            case .repos:
+            case .prefs:
                 print("")
         }
         /**
