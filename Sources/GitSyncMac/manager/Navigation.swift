@@ -27,6 +27,20 @@ class Navigation {
         
         let width:CGFloat = MainView.w
         let height:CGFloat = MainView.h
+        let view:Views = .commits
+        
+        switch view{
+            case .commits:
+                print("")
+            case .repos:
+                print("")
+            case .repoDetail():
+                print("")
+            case .repos:
+                print("")
+            case .repos:
+                print("")
+        }
         /**
          * TODO: Use class name instead of static let strings, actually use enums enum can support conditions so you can get to repoDetailView with specific data etc
          */
