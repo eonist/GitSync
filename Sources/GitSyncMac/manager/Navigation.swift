@@ -6,12 +6,14 @@ import Cocoa
  * TODO: Migrate to its own .swift file when appropriate
  */
 enum Views{
-    case commits
+    enum main{
+        case commits
+        case repos
+        case stats
+        case prefs
+    }
     case commitDetail([String:String])
-    case repos
     case repoDetail(RepoItem)
-    case stats
-    case prefs
     case dialog(Dialog)
     enum Dialog{
         case conflict
@@ -19,7 +21,7 @@ enum Views{
     }
 }
 class Navigation {
-    static var activeView:Views = .commits//<--default
+    static var activeView:Views = main.commits//<--default
     static var currentView:NSView? {return MainWin.mainView?.currentView}
     /**
      * Navigate between views

@@ -38,5 +38,23 @@ class MenuView:Element{
             Navigation.setView(buttonId)
         }
     }
-    
+    /**
+     *
+     */
+    func btn(_ type:String){
+        
+    }
+    /**
+     *
+     */
+    func view()->Views{
+        switch someVal{
+        case 1:
+            printin("one")
+        case 3...8:
+            printin("range from 3 to 8")
+        default:
+            break;
+        }
+    }
 }
