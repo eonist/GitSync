@@ -4,10 +4,10 @@ import Cocoa
 /**
  * Testing x & y elastic scrolling
  */
-class ElasticView:Element{//ContainerView2
-    var maskFrame:CGRect = CGRect()
-    var contentFrame:CGRect = CGRect()
-    var contentContainer:Element?
+class ElasticView:ContainerView2{//
+    /*var maskFrame:CGRect = CGRect()
+     var contentFrame:CGRect = CGRect()
+     var contentContainer:Element?*/
     var moverY:RubberBand?
     var moverX:RubberBand?
     var moverGroup:MoverGroup?
@@ -24,14 +24,14 @@ class ElasticView:Element{//ContainerView2
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
         iterimScrollGroup = IterimScrollGroup(iterimScrollX,iterimScrollY)
         /*init*/
-        contentContainer = addSubView(Container(width,height,self,"content"))
+        //contentContainer = addSubView(Container(width,height,self,"content"))
         layer!.masksToBounds = true/*masks the children to the frame, I don't think this works, seem to work now*/
         /*config*/
-        maskFrame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
-        contentFrame = CGRect(0,0,width,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
+        //maskFrame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
+        //contentFrame = CGRect(0,0,width,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         /*anim*/
-        moverX = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.hor)}/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
-        moverY = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.ver)}/*👈important*/,(maskFrame.y,maskFrame.size.height),(contentFrame.y,contentFrame.size.height))
+        moverX = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.hor)}/*👈important*/,(0,maskSize.width),(0,contentSize.width))
+        moverY = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.ver)}/*👈important*/,(0,maskSize.height),(0,contentSize.height))
         moverGroup = MoverGroup(moverX!,moverY!)
        
     }
