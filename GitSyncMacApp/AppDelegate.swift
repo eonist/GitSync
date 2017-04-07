@@ -32,53 +32,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }*/
         //it works, now activate this in a filter, if active is false then don't return repo, easy! test it first, then test gitpull
     }
-    /**
-     *
-     */
-    func timeTesting(){
-        let a = Date.createDate(2017,12,31)!
-        
-        /**
-         *
-         */
-        func printDate(_ a:Date){
-            Swift.print("a.shortDate: " + "\(a.shortDate)")
-            Swift.print("a.month: " + "\(a.month)")
-            Swift.print("a.year: " + "\(a.year)")
-            Swift.print("a.day: " + "\(a.day)")
-            Swift.print("a: " + "\(a)")
-        }
-        printDate(a)
-    }
-    /**
-     * CommitCount per day for all projects in the last 7 days where the user is "eonist"
-     * NOTE: now support month,year, day
-     */
-    func commitCounterTest(){
-        let commitCounter = CommitCounter()
-        func onComplete(_ results:[Int]){
-            Swift.print("Appdelegate.onComplete()")
-            Swift.print("results.count: " + "\(results.count)")
-            Swift.print("results: " + "\(results)")
-        }
-        commitCounter.onComplete = onComplete
-        let from = Date().offsetByYears(-7)
-        Swift.print("from: " + "\(from.year)")
-        let until = Date()
-        Swift.print("until: " + "\(until.year)")
-        commitCounter.countCommits(from,until,.year)
-    }
-    /**
-     *
-     */
-    func refreshReposTest(){
-        func onComplete(){
-            Swift.print("🏆🏆🏆 CommitDB finished!!! ")
-        }
-        //CommitDPRefresher.commitDP = CommitDPCache.read()
-        //CommitDPRefresher.onComplete = onComplete
-        //CommitDPRefresher.refresh()
-    }
     func initTestWin(){
         //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)
