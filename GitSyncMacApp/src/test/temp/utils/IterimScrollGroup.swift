@@ -5,9 +5,9 @@ import Foundation
 class IterimScrollGroup{
     var iterimScrollX:InterimScroll
     var iterimScrollY:InterimScroll
-    init(_ iterimScrollX:InterimScroll, _ iterimScrollY:InterimScroll){
-        self.iterimScrollX = iterimScrollX
-        self.iterimScrollY = iterimScrollY
+    init(){
+        self.iterimScrollX = InterimScroll()
+        self.iterimScrollY = InterimScroll()
     }
     var prevScrollingDelta:CGFloat {
         get{fatalError("get not supported")}

@@ -6,9 +6,7 @@ import Cocoa
  */
 class ElasticView:ContainerView2{//
     override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
-    
     var moverGroup:MoverGroup?
-    //TODO: move this into an extension
     
     //TODO: move the bellow vars into the group
     var iterimScrollX:InterimScroll = InterimScroll()
@@ -56,7 +54,7 @@ extension ElasticView{
         _ = iterimScroll(.ver).velocities.shiftAppend(event.scrollingDelta[.ver])
         moverGroup!.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
         moverGroup!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
-        let p = CGPoint(mover(.hor).result,mover(.ver).result)
+        let p = CGPoint(moverGroup!.mover(.hor).result,moverGroup!.mover(.ver).result)
         setProgress(p)
     }
     /**

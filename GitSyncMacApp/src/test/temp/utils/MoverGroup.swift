@@ -13,7 +13,7 @@ class MoverGroup{
 }
 extension MoverGroup{
     func mover(_ dir:Dir)->RubberBand{/*Convenience*/
-        return dir == .hor ? xMover! : yMover!
+        return dir == .hor ? xMover : yMover
     }
     var hasStopped:Bool{
         get{fatalError("get is not supported")}
