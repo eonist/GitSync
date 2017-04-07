@@ -34,8 +34,8 @@ class Navigation {
                 print("")
             case .repos:
                 print("")
-            case .repoDetail(repoItem):
-                _ = repoItem
+            case .repoDetail(repoItem:RepoItem):
+                //Swift.print("repoItem: " + "\(repoItem)")
                 print("")
             case .stats:
                 print("")
