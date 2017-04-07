@@ -9,6 +9,7 @@
   <a href="https://codebeat.co/projects/github-com-eonist-gitsyncosx"><img src="https://codebeat.co/badges/5c7a5051-2fa6-45c1-9c2c-0db5fe70837b" alt="codebeat" /></a>
 </div>
 
+<img width="734" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2017-04-06 at 21.52.59.png">
 
 ## Milestones:
 - Concurrent AutoSync ✅
