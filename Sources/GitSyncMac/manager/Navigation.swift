@@ -27,7 +27,7 @@ class Navigation {
         
         let width:CGFloat = MainView.w
         let height:CGFloat = MainView.h
-        let view:Views = .commits
+        let view:Views = "" == "" ? .commits : .repos
         
         switch view{
             case .commits:
