@@ -5,7 +5,10 @@ import Cocoa
  * This tests An elastic 🔵 Ellipse that you can throw around with pan and pinch 👌 gestures
  */
 
-//Continue here: remove the zoom stuff. Add Sliders
+//Continue here: 
+    //remove the zoom stuff. ✅
+    //simplify the code
+    //Add Sliders
 
 class Graph2:ElasticView{
     //override var itemsHeight: CGFloat {return height}
@@ -34,7 +37,7 @@ extension Graph2{
         //Swift.print("p: " + "\(p)")
          /*Graphics*/
         let ellipse = EllipseGraphic(p.x,p.y,200,200,fill.mix(Gradients.green()),line.mix(Gradients.lightGreen(0.5)))
-        zoomContainer!.addSubview(ellipse.graphic)
+        contentContainer!.addSubview(ellipse.graphic)
         ellipse.draw()
         
         

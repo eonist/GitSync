@@ -8,7 +8,6 @@ class ElasticView:Element{
     var maskFrame:CGRect = CGRect()
     var contentFrame:CGRect = CGRect()
     var contentContainer:Element?
-    var zoomContainer:Element?
     var moverY:RubberBand?
     var moverX:RubberBand?
     //var moverZ:RubberBand?
@@ -18,24 +17,16 @@ class ElasticView:Element{
     }
     var iterimScrollX:InterimScroll = InterimScroll()
     var iterimScrollY:InterimScroll = InterimScroll()
-    //var iterimScrollZ:InterimScroll = InterimScroll()
+    
     var iterimScrollGroup:IterimScrollGroup?
     func iterimScroll(_ dir:Dir)->InterimScroll{/*Convenience*/
         return dir == .hor ? iterimScrollX : iterimScrollY
     }
-    var prevMagnificationValue:CGFloat = 0
-    //var initBoundWidth:CGFloat?
-    //var initBoundHeight:CGFloat?
-    //var tempPagePos:CGPoint?
-    /**/
-    //var valueZ:CGFloat?
-    
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
         iterimScrollGroup = IterimScrollGroup(iterimScrollX,iterimScrollY)
         /*init*/
         contentContainer = addSubView(Container(width,height,self,"content"))
-        zoomContainer = contentContainer!.addSubView(Container(width,height,contentContainer,"zoom"))
         layer!.masksToBounds = true/*masks the children to the frame, I don't think this works, seem to work now*/
         /*config*/
         maskFrame = CGRect(0,0,width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
@@ -44,15 +35,7 @@ class ElasticView:Element{
         moverX = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.hor)}/*👈important*/,(maskFrame.x,maskFrame.size.width),(contentFrame.x,contentFrame.size.width))
         moverY = RubberBand(Animation.sharedInstance,{val in self.setProgress(val,.ver)}/*👈important*/,(maskFrame.y,maskFrame.size.height),(contentFrame.y,contentFrame.size.height))
         moverGroup = MoverGroup(moverX!,moverY!)
-        //valueZ = height
-        //let initMin:CGFloat = 0
-        //moverZ = RubberBand(Animation.sharedInstance,setZ/*👈important*/,(maskFrame.y,maskFrame.size.height),(initMin,valueZ!))
-        
-        /*pinch to zoom*/
-        //let magGesture = NSMagnificationGestureRecognizer(target: self, action: #selector(onMagnifyGesture))
-        //self.addGestureRecognizer(magGesture)
-        /*initBoundWidth = contentContainer!.bounds.size.width
-         initBoundHeight = contentContainer!.bounds.size.height*/
+       
     }
     override func scrollWheel(with event: NSEvent) {
         //Swift.print("scrollWheel event.scrollingDeltaX: \(event.scrollingDeltaX) event.scrollingDeltaY: \(event.scrollingDeltaY)")
