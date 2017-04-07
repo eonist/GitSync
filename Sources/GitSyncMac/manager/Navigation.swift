@@ -27,9 +27,7 @@ class Navigation {
     /**
      * Navigate between views
      */
-    static func setView(_ view:Views){
-        //menuView!.selectGroup!.selectedAt(0)/*Selects the correct menu icon*/
-        
+    static func setView(_ view:Views){        
         Navigation.activeView = view
         //Swift.print("Navigation.setView() viewName: " + "\(viewName)")
         let mainView:MainView = MainWin.mainView!
