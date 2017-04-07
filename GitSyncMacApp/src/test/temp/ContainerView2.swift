@@ -1,9 +1,11 @@
 import Cocoa
 @testable import Utils
 @testable import Element
-
+/**
+ * NOTE: override maskSize and contentSize in subclasses if you need customization
+ */
 class ContainerView2:Element,Containable2 {
-    var maskSize:CGSize {return CGSize(super.width,super.height)}/*represents the visible part of the content *///TODO: could be ranmed to maskRect
+    var maskSize:CGSize {return CGSize(super.width,super.height)}/*represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
     var contentSize:CGSize {return CGSize(super.width,super.height)}
     var contentContainer:Element?
     /*item size is not relevant other than in*/var itemSize:CGSize {fatalError("must be overriden in subClass")}//override this for custom value
