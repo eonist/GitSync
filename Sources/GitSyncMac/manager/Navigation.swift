@@ -5,7 +5,7 @@ import Cocoa
 /**
  * TODO: Migrate to its own .swift file when appropriate
  */
-enum Views {
+enum Views{
     case commits
     case commitDetail([String:String])
     case repos
@@ -25,6 +25,8 @@ class Navigation {
      * Navigate between views
      */
     static func setView(_ view:Views){
+        //menuView!.selectGroup!.selectedAt(0)/*Selects the correct menu icon*/
+        
         Navigation.activeView = view
         //Swift.print("Navigation.setView() viewName: " + "\(viewName)")
         let mainView:MainView = MainWin.mainView!
