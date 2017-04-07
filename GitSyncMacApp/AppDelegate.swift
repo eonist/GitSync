@@ -19,10 +19,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //_ = Test2()
         
         //commitCounterTest()
-        initApp()
-        //initTestWin()//🔨
-        //_ = ASyncTest()
-        //_ = AsyncTest2()
+        //initApp()
+        initTestWin()//🔨
         //AutoSync.sync()
         //refreshReposTest()
         //timeTesting()

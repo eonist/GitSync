@@ -15,7 +15,7 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        createGraph9Test()
+        //createGraph9Test()
     }
     func createGraph9Test(){
         let graph = self.addSubView(Graph9(width,height-48,self))
