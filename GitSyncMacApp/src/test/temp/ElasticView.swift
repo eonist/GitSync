@@ -4,20 +4,18 @@ import Cocoa
 /**
  * Testing x & y elastic scrolling
  */
-class ElasticView:Element{
+class ElasticView:Element{//ContainerView2
     var maskFrame:CGRect = CGRect()
     var contentFrame:CGRect = CGRect()
     var contentContainer:Element?
     var moverY:RubberBand?
     var moverX:RubberBand?
-    //var moverZ:RubberBand?
     var moverGroup:MoverGroup?
     func mover(_ dir:Dir)->RubberBand{/*Convenience*/
         return dir == .hor ? moverX! : moverY!
     }
     var iterimScrollX:InterimScroll = InterimScroll()
     var iterimScrollY:InterimScroll = InterimScroll()
-    
     var iterimScrollGroup:IterimScrollGroup?
     func iterimScroll(_ dir:Dir)->InterimScroll{/*Convenience*/
         return dir == .hor ? iterimScrollX : iterimScrollY
