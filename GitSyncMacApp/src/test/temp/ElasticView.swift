@@ -6,13 +6,10 @@ import Cocoa
  */
 class ElasticView:ContainerView2{//
     override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
-    var moverY:RubberBand?
-    var moverX:RubberBand?
+    
     var moverGroup:MoverGroup?
     //TODO: move this into an extension
-    func mover(_ dir:Dir)->RubberBand{/*Convenience*/
-        return dir == .hor ? moverX! : moverY!
-    }
+    
     //TODO: move the bellow vars into the group
     var iterimScrollX:InterimScroll = InterimScroll()
     var iterimScrollY:InterimScroll = InterimScroll()
