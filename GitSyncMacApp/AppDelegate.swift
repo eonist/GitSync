@@ -17,13 +17,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
         initApp()
-        initTestWin()//🚧👷
+        //initTestWin()//🚧👷
     }
-    func initTestWin(){
-        //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)
-        win = TestWin(500,400)/*Debugging Different List components*/
-        
+    func initApp(){
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
+        win = MainWin(MainView.w,MainView.h)
+        //win = ConflictDialogWin(380,400)
+        //win = CommitDialogWin(400,356)
         let url:String = "~/Desktop/ElCapitan/"
         fileWatcher = FileWatcher([url.tildePath])
         fileWatcher!.event = { event in
@@ -39,11 +39,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         fileWatcher!.start()
     }
-    func initApp(){
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
-        win = MainWin(MainView.w,MainView.h)
-        //win = ConflictDialogWin(380,400)
-        //win = CommitDialogWin(400,356)
+    func initTestWin(){
+        //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)
+        win = TestWin(500,400)/*Debugging Different List components*/
+        
         let url:String = "~/Desktop/ElCapitan/"
         fileWatcher = FileWatcher([url.tildePath])
         fileWatcher!.event = { event in
