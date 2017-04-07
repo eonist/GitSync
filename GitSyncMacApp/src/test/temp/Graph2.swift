@@ -9,6 +9,7 @@ import Cocoa
     //remove the zoom stuff. ✅
     //simplify the code
     //Add Sliders
+    //Use ConternerView2
 
 class Graph2:ElasticView{
     //override var itemsHeight: CGFloat {return height}
