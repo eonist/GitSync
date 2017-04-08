@@ -9,14 +9,16 @@ protocol Progressable3:Containable3{
     func setProgress(_ progress:CGFloat,_ dir:Dir)
 }
 /*
- var interval:CGFloat{return floor(contentSize[dir] - maskSize[dir])/itemSize[dir]}// :TODO: use ScrollBarUtils.interval instead?// :TODO: explain what this is in a comment
- var progress:CGFloat{return SliderParser.progress(lableContainer!.point[dir], maskSize[dir], contentSize[dir])}
+ 
  */
 /*
- var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
- var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
+ 
  */
 extension Progressable3{
+    var itemSize:CGSize {return CGSize(24,24)}//temp, use a static interval like 4 or 8, then use itemsize only for listable etc
+    var interval:CGFloat{return floor(contentSize[dir] - maskSize[dir])/itemSize[dir]}// :TODO: use ScrollBarUtils.interval instead?// :TODO: explain what this is in a comment
+    var progress:CGFloat{return SliderParser.progress(contentContainer!.point[dir], maskSize[dir], contentSize[dir])}
+    
     /**
      * PARAM: progress: 0-1
      */
