@@ -10,9 +10,9 @@ extension ElasticScrollable3{
     func setProgress(_ value:CGFloat,_ dir:Dir){
         contentContainer!.point[dir] = value
     }
-    /*func setProgress(_ point:CGPoint){
-     contentContainer!.point = point
-     }*/
+    func setProgress(_ point:CGPoint){
+        contentContainer!.point = point
+    }
     /**
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
      */
