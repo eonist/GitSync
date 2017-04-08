@@ -17,7 +17,7 @@ class ElasticView:ContainerView3,ElasticScrollable3{//
     //move this into a clause extension
     }
 
-extension ContainerView3:Scrollable3{
+extension ElasticView{
     override func scrollWheel(with event: NSEvent) {
         Swift.print("scrolling")
         //Swift.print("scrollWheel event.scrollingDeltaX: \(event.scrollingDeltaX) event.scrollingDeltaY: \(event.scrollingDeltaY)")
