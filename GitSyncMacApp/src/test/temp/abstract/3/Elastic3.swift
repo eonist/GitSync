@@ -7,6 +7,9 @@ protocol Elastic3:Progressable3{
     var iterimScrollGroup:IterimScrollGroup? {get}
 }
 extension Elastic3{
+    /**
+     * PARAM: value: contentContainer x/y value
+     */
     func setProgress(_ value:CGFloat,_ dir:Dir){
         contentContainer!.point[dir] = value
     }
