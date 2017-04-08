@@ -4,7 +4,7 @@ import Cocoa
 /**
  * Testing x & y elastic scrolling
  */
-class ElasticView:ContainerView3,ElasticScrollable3{//
+class ElasticView3:ContainerView3,ElasticScrollable3{//
     override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
     var moverGroup:MoverGroup?
     var iterimScrollGroup:IterimScrollGroup?
