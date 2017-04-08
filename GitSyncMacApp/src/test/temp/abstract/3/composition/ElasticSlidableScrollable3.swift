@@ -1,5 +1,5 @@
 import Foundation
 
-class ElasticSlidableScrollable3 {
-
+protocol ElasticSlidableScrollable3:ElasticScrollable, Slidable {
+    
 }
