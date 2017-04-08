@@ -7,12 +7,12 @@ protocol ElasticScrollable3:Elastic3,Scrollable3 {
 }
 extension ElasticScrollable3{
     /*Pan related*/
-    func setProgress(_ value:CGFloat,_ dir:Dir){
-        contentContainer!.point[dir] = value
-    }
-    func setProgress(_ point:CGPoint){
-        contentContainer!.point = point
-    }
+    /*func setProgress(_ value:CGFloat,_ dir:Dir){
+     contentContainer!.point[dir] = value
+     }*/
+    /*func setProgress(_ point:CGPoint){
+     contentContainer!.point = point
+     }*/
     /**
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
      */
