@@ -67,7 +67,7 @@ class Navigation {
                 print("")
                 switch dialog{
                     case .commit:
-                        print("")
+                        fatalError("not implemented yet")
                     case .conflict:
                         mainView.currentView = mainView.addSubView(ConflictDialogView(w,h,mainView))
                 }
