@@ -19,8 +19,13 @@ class SlideView3:ContainerView3, Slidable3 {
     }
     override func onEvent(_ event:Event) {
         //Swift.print("event: " + "\(event)")
-        if(event === (SliderEvent.change,slider!)){
-            setProgress((event as! SliderEvent).progress)
+        if(event == SliderEvent.change){
+            if(event.origin === horSlider){
+                setProgress((event as! SliderEvent).progress,.hor)
+            }else{
+                setProgress((event as! SliderEvent).progress,.ver)
+            }
+            
         }/*events from the slider*/
         super.onEvent(event)
     }
