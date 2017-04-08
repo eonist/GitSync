@@ -6,8 +6,6 @@ import Cocoa
  */
 
 //Continue here: 
-    //remove the zoom stuff. ✅
-    //move the code to protocols ✅
     //add where clause extensions for scrollwheel
     //ScrollableSlidable etc
     //Add Sliders to FastView
