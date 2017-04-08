@@ -6,8 +6,8 @@ import Cocoa
  */
 
 //Continue here: 
-    //ScrollableSlidable etc 
-    //Add Sliders to FastView
+    //ScrollableSlidable etc  ✅
+    //Add Sliders to FastView 
     //Listable with sliders
     //Listable with fast
     //convert Element to use v3 of scroll protocols
