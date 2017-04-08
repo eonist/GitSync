@@ -30,21 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)
         win = TestWin(500,400)/*Debugging Different List components*/
-        
-        let url:String = "~/Desktop/ElCapitan/"
-        fileWatcher = FileWatcher([url.tildePath])
-        fileWatcher!.event = { event in
-            //Swift.print(self)
-            if(event.fileChange && FilePathParser.fileExtension(event.path) == "css") {//assert for .css file changes, so that .ds etc doesnt trigger events etc
-                Swift.print(event.description)
-                Swift.print("update to the file happened: " + "\(event.path)")
-                StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
-                let view:NSView = self.win!.contentView!//MainWin.mainView!
-                ElementModifier.refreshSkin(view as! IElement)
-                ElementModifier.floatChildren(view)
-            }
-        }
-        fileWatcher!.start()
+        //fileWatcher = StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
     }
     func applicationWillTerminate(_ aNotification: Notification) {
         //store the app prefs
