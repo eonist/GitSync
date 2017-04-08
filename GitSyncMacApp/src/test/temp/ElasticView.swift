@@ -15,10 +15,13 @@ class ElasticView:ContainerView3,ElasticScrollable3{//
         moverGroup = MoverGroup(setProgress,maskSize,contentSize)
     }
     //move this into a clause extension
+    }
+
+extension ContainerView3:Scrollable3{
     override func scrollWheel(with event: NSEvent) {
+        Swift.print("scrolling")
         //Swift.print("scrollWheel event.scrollingDeltaX: \(event.scrollingDeltaX) event.scrollingDeltaY: \(event.scrollingDeltaY)")
-        (self as Scrollable3).scroll(event)
+        scroll(event)
         super.scrollWheel(with:event)
     }
 }
-
