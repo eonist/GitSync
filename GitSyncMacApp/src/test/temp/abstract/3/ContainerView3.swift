@@ -1,11 +1,11 @@
 import Foundation
-
+@testable import Utils
+@testable import Element
 
 class ContainerView3:Element,Containable3 {
     var maskSize:CGSize {return CGSize(super.width,super.height)}/*represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
     var contentSize:CGSize {return CGSize(super.width,super.height)}
     var contentContainer:Element?
-    /*item size is not relevant other than in*/var itemSize:CGSize {fatalError("must be overriden in subClass")}//override this for custom value
     
     override init(_ width: CGFloat, _ height: CGFloat, _ parent: IElement? = nil, _ id: String? = nil) {
         //maskSize = CGSize(width,height)

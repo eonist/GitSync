@@ -4,4 +4,5 @@ import Foundation
 
 protocol Listable3 {
     var dir:Dir {get}
+    var itemSize:CGSize{get}
 }
