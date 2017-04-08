@@ -7,7 +7,6 @@ protocol Scrollable3:Progressable3 {
     func onScrollWheelEnter()
     func onScrollWheelExit()
 }
-
 extension Scrollable3{
     /**
      * NOTE: if the prev Change event only had -1 or 1 or 0. Then you released with no momentum and so no anim should be initiated
@@ -28,4 +27,17 @@ extension Scrollable3{
     func onScrollWheelChange(_ event:NSEvent){}/*Direct scroll, not momentum*/
     func onScrollWheelEnter(){}
     func onScrollWheelExit(){}
+}
+
+extension ContainerView3 {
+    /**
+     * TODO: Try to override with generics ContainerView<VerticalScrollable>  etc
+     */
+    override open func scrollWheel(with event: NSEvent) {
+        //Swift.print("scroll")
+        if(self is Scrollable3){
+            (self as! Scrollable3).scroll(event)
+        }
+        super.scrollWheel(with: event)
+    }
 }
