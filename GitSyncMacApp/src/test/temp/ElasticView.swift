@@ -14,5 +14,4 @@ class ElasticView:ContainerView3,ElasticScrollable3{//
         iterimScrollGroup = IterimScrollGroup()
         moverGroup = MoverGroup(setProgress,maskSize,contentSize)
     }
-    //move this into a clause extension
-    }
+}
