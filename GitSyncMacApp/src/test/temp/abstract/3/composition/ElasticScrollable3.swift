@@ -6,6 +6,7 @@ protocol ElasticScrollable3:Elastic3,Scrollable3 {
     func scrollWheelExitedAndIsStationary()
 }
 extension ElasticScrollable3{
+    let temp:CGFloat = {return 2.2}()
     /*Pan related*/
     func setProgress(_ value:CGFloat,_ dir:Dir){
         contentContainer!.point[dir] = value
