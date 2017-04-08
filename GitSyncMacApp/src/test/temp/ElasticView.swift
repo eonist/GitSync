@@ -44,8 +44,7 @@ extension ElasticView{
         iterimScrollGroup!.iterimScroll(.hor).prevScrollingDelta = event.scrollingDelta[.hor]/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
         iterimScrollGroup!.iterimScroll(.ver).prevScrollingDelta = event.scrollingDelta[.ver]
         
-        _ = iterimScrollGroup!.iterimScroll(.hor).velocities.shiftAppend(event.scrollingDelta[.hor])/*insert new velocity at the begining and remove the last velocity to make room for the new*/
-        _ = iterimScrollGroup!.iterimScroll(.ver).velocities.shiftAppend(event.scrollingDelta[.ver])
+        iterimScrollGroup?.shiftAppend(event)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
         moverGroup!.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
         moverGroup!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
         let p = CGPoint(moverGroup!.mover(.hor).result,moverGroup!.mover(.ver).result)

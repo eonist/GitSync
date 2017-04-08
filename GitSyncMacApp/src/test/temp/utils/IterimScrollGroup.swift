@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Utils
 @testable import Element
 
@@ -18,7 +18,8 @@ extension IterimScrollGroup{
         get{return zip(iterimScrollX.velocities,iterimScrollY.velocities).map{CGPoint($0.0,$0.1)}}
         set{iterimScrollX.velocities = newValue.map{$0.x};iterimScrollY.velocities = newValue.map{$0.y}}
     }
-    func shiftAppend(delta:[CGFloat]){
-        
+    func shiftAppend(_ event:NSEvent){
+        _ = iterimScroll(.hor).velocities.shiftAppend(event.scrollingDelta[.hor])/*insert new velocity at the begining and remove the last velocity to make room for the new*/
+        _ = iterimScroll(.ver).velocities.shiftAppend(event.scrollingDelta[.ver])
     }
 }
