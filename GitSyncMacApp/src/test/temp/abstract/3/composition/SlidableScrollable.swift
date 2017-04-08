@@ -5,7 +5,7 @@ import Cocoa
 protocol SlidableScrollable3:Slidable3, Scrollable3 {}
 extension SlidableScrollable3 {
     /**
-     * 
+     *
      */
     func progress(_ dir:Dir)->CGFloat{
         return SliderListUtils.progress(event.delta[dir], interval(dir), slider(dir).progress)
