@@ -1,5 +1,7 @@
 import Foundation
+@testable import Utils
+@testable import Element
 
-class Listable3 {
-
+protocol Listable3 {
+    var dir:Dir {get}
 }
