@@ -4,7 +4,7 @@ import Foundation
 
 class IterimScrollGroup{//rename to interim*
     var iterimScrollX:InterimScroll = InterimScroll()
-    var iterimScrollY:InterimScroll  = InterimScroll()
+    var iterimScrollY:InterimScroll = InterimScroll()
 }
 extension IterimScrollGroup{
     func iterimScroll(_ dir:Dir)-> InterimScroll{/*Convenience*/
