@@ -4,7 +4,7 @@ import Cocoa
 /**
  * Testing x & y elastic scrolling
  */
-class ElasticView:ContainerView2{//
+class ElasticView:ContainerView3,ElasticScrollable3{//
     override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
     var moverGroup:MoverGroup?
     var iterimScrollGroup:IterimScrollGroup?
@@ -16,17 +16,8 @@ class ElasticView:ContainerView2{//
     }
     override func scrollWheel(with event: NSEvent) {
         //Swift.print("scrollWheel event.scrollingDeltaX: \(event.scrollingDeltaX) event.scrollingDeltaY: \(event.scrollingDeltaY)")
-        (self as! Scrollable3).scroll(event)
+        (self as Scrollable3).scroll(event)
         super.scrollWheel(with:event)
     }
 }
-/*Pan related*/
-extension ElasticView{
-    func setProgress(_ value:CGFloat,_ dir:Dir){
-        contentContainer!.point[dir] = value
-    }
-    func setProgress(_ point:CGPoint){
-        contentContainer!.point = point
-    }
-    
-}
+
