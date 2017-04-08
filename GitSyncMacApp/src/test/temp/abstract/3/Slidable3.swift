@@ -4,15 +4,15 @@ import Cocoa
 /**
  * Slidable is for Elements that has a slider attached
  */
-protocol Slideable3:Progressable3 {
+protocol Slidable3:Progressable3 {
     func updateSlider()
-    var slider:VSlider?{get}
-    var sliderInterval:CGFloat?{get set}//i think this is the same as intervall, remove
+    func slider(_ dir:Dir) -> Slider/*?*/
+    //func sliderInterval(_ dir:Dir)->CGFloat/*?{get set}*///I think this is the same as intervall, remove
 }
 /**
  * ⚠️️ IMPORTANT: Slidable does not override scroll because a SlideView can't detect scroll. SlideScrollView however can access scroll and call hide and show slider. And then use protocol ambiguity to call scroll on the Scrollable after
  */
-extension Slidable {
+extension Slidable3 {
     /**
      * Updates the slider interval and the sliderThumbSize (after DP events: add/remove etc)
      */
