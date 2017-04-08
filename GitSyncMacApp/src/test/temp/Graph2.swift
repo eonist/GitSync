@@ -14,7 +14,7 @@ import Cocoa
     //move Gradient etc to dedicated repos
     //unify the x/y sliders into 1 slider
 
-class Graph2:ElasticView{
+class Graph2:ElasticView3{
     //override var itemsHeight: CGFloat {return height}
     //override var itemHeight: CGFloat {return 24}
 
