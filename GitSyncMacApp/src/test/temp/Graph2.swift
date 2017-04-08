@@ -8,9 +8,13 @@ import Cocoa
 //Continue here: 
     //remove the zoom stuff. ✅
     //move the code to protocols ✅
-    //Add Sliders
     //add where clause extensions for scrollwheel
-    //
+    //ScrollableSlidable etc
+    //Add Sliders to FastView
+    //Listable with sliders
+    //Listable with fast
+    //convert Element to use v3 of scroll protocols
+    //move Gradient etc to dedicated repos
 
 class Graph2:ElasticView{
     //override var itemsHeight: CGFloat {return height}
