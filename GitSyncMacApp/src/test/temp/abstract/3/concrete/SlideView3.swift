@@ -1,5 +1,6 @@
 import Cocoa
 @testable import Utils
+@testable import Element
 
 class SlideView3:ContainerView3, Slidable3 {
     var horSlider:Slider?
@@ -9,12 +10,12 @@ class SlideView3:ContainerView3, Slidable3 {
         /*slider*/
         //intervalX = floor(contentSize.height - maskSize.height)/itemHeight// :TODO: use ScrollBarUtils.interval instead?// :TODO: explain what this is in a comment
         
-        verSlider = addSubView(Slider(width,24,0,0,self))
-        horSlider = addSubView(Slider(24,height,0,0,self))
+        verSlider = addSubView(Slider(width,24,self))
+        horSlider = addSubView(Slider(24,height,self))
         
-        let thumbHeight:CGFloat = SliderParser.thumbSize(height/itemsHeight, slider!.height)
-        slider!.setThumbHeightValue(thumbHeight)
-        slider!.thumb!.fadeOut()//inits fade out anim on init
+        /*let thumbHeight:CGFloat = SliderParser.thumbSize(height/itemsHeight, slider!.height)
+         slider!.setThumbHeightValue(thumbHeight)
+         slider!.thumb!.fadeOut()//inits fade out anim on init*/
     }
     override func onEvent(_ event:Event) {
         //Swift.print("event: " + "\(event)")
