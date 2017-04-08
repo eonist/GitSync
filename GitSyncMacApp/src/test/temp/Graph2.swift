@@ -7,12 +7,14 @@ import Cocoa
 
 //Continue here: 
     //ScrollableSlidable etc  ✅
-    //Add Sliders to FastView
+
     //Listable with sliders 👈
     //Listable with fast
+    //unify the x/y sliders into 1 slider
+    //Add ElasticSlideView
     //convert Element to use v3 of scroll protocols
     //move Gradient etc to dedicated repos
-    //unify the x/y sliders into 1 slider
+
 
 class Graph2:ElasticView3{
     //override var itemsHeight: CGFloat {return height}
