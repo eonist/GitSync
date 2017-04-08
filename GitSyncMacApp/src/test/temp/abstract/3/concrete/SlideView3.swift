@@ -8,8 +8,10 @@ class SlideView3:ContainerView3, Slidable3 {
         super.resolveSkin()
         /*slider*/
         //intervalX = floor(contentSize.height - maskSize.height)/itemHeight// :TODO: use ScrollBarUtils.interval instead?// :TODO: explain what this is in a comment
-        horSlider = addSubView(Slider())
-        verSlider = addSubView(Slider())
+        
+        verSlider = addSubView(Slider(width,24,0,0,self))
+        horSlider = addSubView(Slider(24,height,0,0,self))
+        
         let thumbHeight:CGFloat = SliderParser.thumbSize(height/itemsHeight, slider!.height)
         slider!.setThumbHeightValue(thumbHeight)
         slider!.thumb!.fadeOut()//inits fade out anim on init
