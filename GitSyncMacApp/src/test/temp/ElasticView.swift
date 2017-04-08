@@ -45,7 +45,7 @@ extension ElasticView{
         iterimScrollGroup!.shiftAppend(event)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
         moverGroup!.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
         moverGroup!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
-        let p = CGPoint(moverGroup!.mover(.hor).result,moverGroup!.mover(.ver).result)
+        let p = moverGroup!.result
         setProgress(p)
     }
     /**
