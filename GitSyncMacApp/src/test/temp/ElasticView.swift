@@ -41,9 +41,8 @@ extension ElasticView{
      */
     func onScrollWheelChange(_ event:NSEvent){
         //Swift.print("👻📜 (ElasticScrollable).onScrollWheelChange : \(event.type)")
-        iterimScrollGroup!.iterimScroll(.hor).prevScrollingDelta = event.scrollingDelta[.hor]/*is needed when figuring out which dir the wheel is spinning and if its spinning at all*/
-        iterimScrollGroup!.iterimScroll(.ver).prevScrollingDelta = event.scrollingDelta[.ver]
         
+        iterimScrollGroup!.setPrevDelta(event)
         iterimScrollGroup!.shiftAppend(event)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
         moverGroup!.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
         moverGroup!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
