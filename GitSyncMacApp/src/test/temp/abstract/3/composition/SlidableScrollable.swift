@@ -3,7 +3,7 @@ import Cocoa
 @testable import Utils
 
 protocol SlidableScrollable3:Slidable3, Scrollable3 {
-
+    
 }
 extension SlidableScrollable3 {
     /**
@@ -12,7 +12,7 @@ extension SlidableScrollable3 {
     func onScrollWheelChange(_ event:NSEvent) {
         Swift.print("🏂📜 SlidableScrollable2.onScrollWheelChange: \(event)")
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaY, interval, slider!.progress)
-        slider!.setProgressValue(progressVal)
+        slider.setProgressValue(progressVal)
         setProgress(progressVal)
     }
     func onInDirectScrollWheelChange(_ event: NSEvent) {//enables momentum
