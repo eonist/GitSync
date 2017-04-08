@@ -11,7 +11,7 @@ extension SlidableScrollable3 {
      */
     func onScrollWheelChange(_ event:NSEvent) {
         Swift.print("🏂📜 SlidableScrollable2.onScrollWheelChange: \(event)")
-        /*let progressVal:CGFloat = SliderListUtils.progress(event.deltaY, interval, slider!.progress)
+        let progressX:CGFloat = SliderListUtils.progress(event.delta[.hor], interval(.hor), slider(.hor).progress)
          slider.setProgressValue(progressVal)
          setProgress(progressVal)*/
     }
