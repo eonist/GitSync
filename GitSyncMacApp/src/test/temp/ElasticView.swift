@@ -16,7 +16,7 @@ class ElasticView:ContainerView2{//
     }
     override func scrollWheel(with event: NSEvent) {
         //Swift.print("scrollWheel event.scrollingDeltaX: \(event.scrollingDeltaX) event.scrollingDeltaY: \(event.scrollingDeltaY)")
-        
+        (self as Scrollable3).scroll(event)
         super.scrollWheel(with:event)
     }
 }
