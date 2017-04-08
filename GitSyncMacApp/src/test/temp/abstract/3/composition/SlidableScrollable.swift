@@ -5,10 +5,10 @@ import Cocoa
 protocol SlidableScrollable3:Slidable3, Scrollable3 {}
 extension SlidableScrollable3 {
     /**
-     *
+     * 
      */
-    func progress(){
-        
+    func progress(_ dir:Dir)->CGFloat{
+        return SliderListUtils.progress(event.delta[dir], interval(dir), slider(dir).progress)
     }
     /**
      * TODO: you could also override scroll and hock after the forward scroll call and then retrive the progress from the var. less code, but the value must be written in Displaceview, it could mess up Elastic, because it needs different progress. etc, do later
