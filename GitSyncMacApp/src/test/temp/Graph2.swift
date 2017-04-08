@@ -6,7 +6,6 @@ import Cocoa
  */
 
 //Continue here: 
-    //add where clause extensions for scrollwheel ✅
     //ScrollableSlidable etc 
     //Add Sliders to FastView
     //Listable with sliders
