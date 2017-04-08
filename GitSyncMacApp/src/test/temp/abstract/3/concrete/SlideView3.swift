@@ -7,7 +7,7 @@ class SlideView3:ContainerView3, Slidable3 {
     override func resolveSkin() {
         super.resolveSkin()
         /*slider*/
-        sliderInterval = floor(contentSize - height)/itemHeight// :TODO: use ScrollBarUtils.interval instead?// :TODO: explain what this is in a comment
+        intervalX = floor(contentSize.height - maskSize.height)/itemHeight// :TODO: use ScrollBarUtils.interval instead?// :TODO: explain what this is in a comment
         slider = addSubView(VSlider(itemHeight,height,0,0,self))
         let thumbHeight:CGFloat = SliderParser.thumbSize(height/itemsHeight, slider!.height)
         slider!.setThumbHeightValue(thumbHeight)
