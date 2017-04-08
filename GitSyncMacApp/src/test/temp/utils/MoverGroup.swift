@@ -23,7 +23,7 @@ extension MoverGroup{
         }
     }
     var isDirectlyManipulating:Bool{
-        get{fatalError("get is not supported")}
+        get{return xMover.isDirectlyManipulating && yMover.isDirectlyManipulating}
         set{
             xMover.isDirectlyManipulating = newValue
             yMover.isDirectlyManipulating = newValue

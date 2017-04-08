@@ -5,9 +5,9 @@ import Cocoa
 protocol ElasticSlidableScrollable3:ElasticScrollable3,Slidable3{}
 extension ElasticSlidableScrollable3{
     func onScrollWheelChange(_ event: NSEvent) {
-        (self as Elastic3).onScrollWheelChange(event)
+        (self as ElasticScrollable3).onScrollWheelChange(event)
         if(event.phase == NSEventPhase.changed){
-            if(mover!.isDirectlyManipulating){
+            if(moverGroup!.isDirectlyManipulating){
                 //also manipulates slider, but only on directTransmission, as mover calls setProgress from shallow in indirectTransmission
                 setProgress(mover!.result)//👈NEW, this migth need to be inSide scrollWheel call, as it needs to be shallow to reach inside setProgress in ElasticFastList.setProgress, but maybe not, To be continued
             }
