@@ -8,10 +8,12 @@ import Cocoa
 //Continue here: 
     //ScrollableSlidable etc  ✅
 
-    //Listable with sliders 👈
-    //Listable with fast
+    //Add ElasticSlideView 👈
     //unify the x/y sliders into 1 slider
-    //Add ElasticSlideView
+    //Listable with sliders
+    //Listable with fast
+
+
     //convert Element to use v3 of scroll protocols
     //move Gradient etc to dedicated repos
 
