@@ -7,7 +7,7 @@ protocol Scrollable2:Containable2 {
      func onScrollWheelEnter()
      func onScrollWheelExit()
 }
-extension ContainerView2{
+extension ContainerView2{//use some where magic? see your notes on this
     /**
      * TODO: Try to override with generics ContainerView<VerticalScrollable>  etc
      */
