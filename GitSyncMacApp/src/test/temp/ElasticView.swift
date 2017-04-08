@@ -14,6 +14,7 @@ class ElasticView:ContainerView3,ElasticScrollable3{//
         iterimScrollGroup = IterimScrollGroup()
         moverGroup = MoverGroup(setProgress,maskSize,contentSize)
     }
+    //move this into a clause extension
     override func scrollWheel(with event: NSEvent) {
         //Swift.print("scrollWheel event.scrollingDeltaX: \(event.scrollingDeltaX) event.scrollingDeltaY: \(event.scrollingDeltaY)")
         (self as Scrollable3).scroll(event)

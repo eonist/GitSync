@@ -3,9 +3,8 @@ import Cocoa
 @testable import Element
 
 protocol Progressable3:Containable3{
-    var progress:CGFloat {get}
-    var interval:CGFloat {get}
-    //setProgress
+    func progress(_ dir:Dir) -> CGFloat
+    func interval(_ dir:Dir) -> CGFloat
     func setProgress(_ progress:CGFloat,_ dir:Dir)
 }
 extension Progressable3{
