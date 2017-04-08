@@ -7,9 +7,10 @@ import Cocoa
 
 //Continue here: 
     //remove the zoom stuff. ✅
-    //simplify the code
+    //move the code to protocols ✅
     //Add Sliders
-    //Use ConternerView2
+    //add where clause extensions for scrollwheel
+    //
 
 class Graph2:ElasticView{
     //override var itemsHeight: CGFloat {return height}
