@@ -9,22 +9,9 @@ protocol Progressable3:Containable3{
     func setProgress(_ progress:CGFloat,_ dir:Dir)
     var dir:Dir {get}
 }
-
+/*var interval:CGFloat{return floor(contentSize[dir] - maskSize[dir])/itemSize[dir]}// :TODO: use ScrollBarUtils.interval instead?// :TODO: explain what this is in a comment
+ var progress:CGFloat{return SliderParser.progress(lableContainer!.point[dir], maskSize[dir], contentSize[dir])}*/
 extension Progressable3{
-    /**
-     * ⚠️️ You might want to have one setProgress in scroll and one in slider and use protocol ambiguity to differentiate, but then you cant have this method in base like it is now
-     * PARAM value: is the final y value for the lableContainer
-     * PARAM: progress: 0-1
-     * Moves the itemContainer.y up and down
-     * TODO: Try to use a preCalculated itemsHeight, as this can be heavy to calculate for lengthy lists
-     */
-    func setProgress(_ progress:CGFloat){
-        print("🖼️ moving lableContainer up and down progress: \(progress)")
-        //Swift.print("IScrollable.setProgress() progress: \(progress)")
-        
-        //Swift.print("progressValue: " + "\(progressValue)")
-        /*Sets the target item to correct y, according to the current scrollBar progress*/
-    }
     /**
      * PARAM: progress: 0-1
      */
@@ -37,4 +24,10 @@ extension Progressable3{
         setProgress(point.x,.hor)
         setProgress(point.y,.ver)
     }*/
+}
+private extension ScrollableUtils{
+    static func scrollTo(_ scrollable:Containable3, _ progress:CGFloat, _ dir:Dir = .ver){
+        let val:CGFloat = ScrollableUtils.scrollTo(progress, scrollable.height, scrollable.itemsHeight)
+        scrollable.lableContainer!.point[dir] = val/*we offset the y position of the lableContainer*/
+    }
 }

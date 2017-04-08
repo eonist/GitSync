@@ -8,3 +8,6 @@ protocol Containable3{
     var itemSize:CGSize{get}
     var contentContainer:Element? {get}
 }
+extension Containable3{
+    
+}
