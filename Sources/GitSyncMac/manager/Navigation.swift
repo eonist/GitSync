@@ -28,8 +28,6 @@ class Navigation {
      * Navigate between views
      */
     static func setView(_ view:Views){
-        
-        
         Navigation.activeView = view
         //Swift.print("Navigation.setView() viewName: " + "\(viewName)")
         let mainView:MainView = MainWin.mainView!
@@ -41,7 +39,7 @@ class Navigation {
         let h:CGFloat = MainView.h
         
         switch view{
-            /**/
+            /*Main*/
             case .main(let viewType):
                 switch viewType {
                     case .commits:
@@ -53,18 +51,16 @@ class Navigation {
                     case .prefs:
                         mainView.currentView = mainView.addSubView(PrefsView(w,h,mainView))
             }
-            /**/
+            /*CommitDetail*/
             case .commitDetail(let commitData):
                 mainView.currentView = mainView.addSubView(CommitDetailView(w,h,mainView))
                 (mainView.currentView as! CommitDetailView).setCommitData(commitData)
-            /**/
+            /*RepoDetail*/
             case .repoDetail(let repoItem):
-                Swift.print("repoItem: " + "\(repoItem)")
                 mainView.currentView = mainView.addSubView(RepoDetailView(w,h,mainView))
                 (mainView.currentView as! RepoDetailView).setRepoData(repoItem)
-            /**/
+            /*Dialogs*/
             case .dialog(let dialog):
-                print("")
                 switch dialog{
                     case .commit:
                         fatalError("not implemented yet")
