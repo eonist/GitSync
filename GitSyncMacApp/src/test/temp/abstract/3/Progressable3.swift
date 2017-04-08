@@ -7,7 +7,6 @@ protocol Progressable3:Containable3{
     var interval:CGFloat {get}
     //setProgress
     func setProgress(_ progress:CGFloat,_ dir:Dir)
-    var dir:Dir {get}
 }
 /*var interval:CGFloat{return floor(contentSize[dir] - maskSize[dir])/itemSize[dir]}// :TODO: use ScrollBarUtils.interval instead?// :TODO: explain what this is in a comment
  var progress:CGFloat{return SliderParser.progress(lableContainer!.point[dir], maskSize[dir], contentSize[dir])}*/
