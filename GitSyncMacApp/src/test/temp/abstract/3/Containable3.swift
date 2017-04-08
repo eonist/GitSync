@@ -9,5 +9,6 @@ protocol Containable3{
     var contentContainer:Element? {get}
 }
 extension Containable3{
-    
+    var width:CGFloat {return maskSize.width}
+    var height:CGFloat {return maskSize.height}
 }
