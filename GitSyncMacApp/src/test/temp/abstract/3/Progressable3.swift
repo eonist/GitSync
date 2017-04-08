@@ -18,16 +18,15 @@ extension Progressable3{
     func setProgress(_ progress:CGFloat,_ dir:Dir){
         let progressValue = self.contentSize[dir] < maskSize[dir] ? 0 : progress/*pins the lableContainer to the top if itemsHeight is less than height*/
         ScrollableUtils.scrollTo(self,progressValue,dir)
-        //contentContainer!.point[dir] = value
     }
     /*func setProgress(_ point:CGPoint){
         setProgress(point.x,.hor)
         setProgress(point.y,.ver)
     }*/
 }
-private extension ScrollableUtils{
-    static func scrollTo(_ scrollable:Containable3, _ progress:CGFloat, _ dir:Dir = .ver){
-        let val:CGFloat = ScrollableUtils.scrollTo(progress, scrollable.height, scrollable.itemsHeight)
-        scrollable.lableContainer!.point[dir] = val/*we offset the y position of the lableContainer*/
+private extension ScrollableUtils{//temp migration fix
+    static func scrollTo(_ container:Containable3, _ progress:CGFloat, _ dir:Dir = .ver){
+        let val:CGFloat = ScrollableUtils.scrollTo(progress, container.height, container.contentSize.height)
+        container.contentContainer!.point[dir] = val/*we offset the y position of the lableContainer*/
     }
 }
