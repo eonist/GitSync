@@ -7,6 +7,7 @@ protocol Scrollable3:Progressable3 {
     func onScrollWheelEnter()
     func onScrollWheelExit()
 }
+
 extension Scrollable3{
     /**
      * NOTE: if the prev Change event only had -1 or 1 or 0. Then you released with no momentum and so no anim should be initiated

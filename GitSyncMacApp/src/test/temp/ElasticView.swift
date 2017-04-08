@@ -17,11 +17,24 @@ class ElasticView:ContainerView3,ElasticScrollable3{//
     //move this into a clause extension
     }
 
-extension ElasticView{
-    override func scrollWheel(with event: NSEvent) {
-        Swift.print("scrolling")
-        //Swift.print("scrollWheel event.scrollingDeltaX: \(event.scrollingDeltaX) event.scrollingDeltaY: \(event.scrollingDeltaY)")
-        scroll(event)
-        super.scrollWheel(with:event)
+/*extension ElasticView{
+ override func scrollWheel(with event: NSEvent) {
+ Swift.print("scrolling")
+ //Swift.print("scrollWheel event.scrollingDeltaX: \(event.scrollingDeltaX) event.scrollingDeltaY: \(event.scrollingDeltaY)")
+ scroll(event)
+ super.scrollWheel(with:event)
+ }
+ }*/
+
+extension ContainerView3{//use some where magic? see your notes on this
+    /**
+     * TODO: Try to override with generics ContainerView<VerticalScrollable>  etc
+     */
+    override open func scrollWheel(with event: NSEvent) {
+        Swift.print("scroll")
+        if(self is Scrollable3){
+            (self as! Scrollable3).scroll(event)
+        }
+        super.scrollWheel(with: event)
     }
 }
