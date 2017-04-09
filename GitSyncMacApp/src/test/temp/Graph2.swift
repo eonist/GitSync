@@ -4,11 +4,12 @@ import Cocoa
 //Continue here:
     //ElasticScrollList ✅
 
-    //ElasticScrollSlideList3 
-    //fastList (progressable)
-    //FastScrollList
-    //FastSlideList
-    //FastElasticList
+    //ElasticScrollSlideList3 👈
+    //FastList (progressable)
+    //ScrolFastlList
+    //SlideFastList
+    //ElasticFastList
+    //ElasticSlideFastList
 
     //Listable with fast ⏳⏳
     //Add css so that Sliders are aligned in SliderList3 and SliderView3 ⏳⏳
