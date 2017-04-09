@@ -3,6 +3,24 @@ import Cocoa
 @testable import Element
 @testable import GitSyncMac
 
+//Continue here:
+    //ElasticScrollList ✅
+
+    //ElasticScrollSlideList3 👈
+    //FastList (progressable)
+    //ScrolFastlList
+    //SlideFastList
+    //ElasticFastList
+    //ElasticSlideFastList
+
+    //Listable with fast ⏳⏳
+    //Add css so that Sliders are aligned in SliderList3 and SliderView3 ⏳⏳
+    //Make UniScrollable sort of scroll in the intentional direction while not directly Manipulated ⏳⏳
+
+    //convert Element to use v3 of scroll protocols ⏳⏳⏳
+    //move Gradient etc to dedicated repos, move graph to dedicated proj, colorPanel etc ⏳⏳
+
+
 class TestView:TitleView{
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {
         //self.title = "Resolve merge conflict:"//Title: Resolve sync conflict:
@@ -30,6 +48,12 @@ class TestView:TitleView{
          Swift.print("intervalA: " + "\(intervalA)")
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
+    }
+    /**
+     *
+     */
+    func createElasticScrollSlideList(){
+        
     }
     /**
      *
