@@ -1,5 +1,5 @@
 import Foundation
 
-class ElasticSlideScrollList {
+class ElasticSlideScrollList3: {
 
 }
