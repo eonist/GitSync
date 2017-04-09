@@ -17,13 +17,12 @@ class TestView:TitleView{
     func createGUI(){
         //createGraph7Test()
         //createGraph2()
-        createVSlider()
+        createSlider()
+        //createVSlider()
     }
-    /**
-     *
-     */
     func createSlider(){
-        let slider:Slider = addSubView(Slider(6,60,.ver,))
+        let slider:Slider = self.addSubView(Slider(6,60,.ver,CGSize(6,30),0,self))
+        _ = slider
     }
     /**
      * NOTE: see VolumSlider for eventListener
