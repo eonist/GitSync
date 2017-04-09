@@ -14,6 +14,7 @@ protocol Slidable3:Progressable3 {
  */
 extension Slidable3 {
     func setProgress(_ point:CGPoint){
+        Swift.print("setProgress: " + "\(point)")
         slider(.hor).setProgressValue(point.x)
         slider(.ver).setProgressValue(point.y)
     }
