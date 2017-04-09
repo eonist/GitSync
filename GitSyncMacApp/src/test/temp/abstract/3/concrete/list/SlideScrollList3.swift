@@ -11,7 +11,7 @@ class SlideScrollList3:List3,SlidableScrollable3{
         verSlider = self.addSubView(Slider(itemSize.width,height,.ver,itemSize,0,self))
         
         //Continue here:
-            //thumbHeight is wrong, see old code
+            //thumbHeight is wrong, see old code replace height/itemsize.height
         
         let thumbHeight:CGFloat = SliderParser.thumbSize(height/itemSize.height, verSlider!.height)
         Swift.print("thumbHeight: " + "\(thumbHeight)")
