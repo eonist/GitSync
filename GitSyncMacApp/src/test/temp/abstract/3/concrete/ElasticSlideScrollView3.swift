@@ -4,7 +4,6 @@ import Cocoa
 class ElasticSlideScrollView3:SlideView3,ElasticSlidableScrollable3 {
     var moverGroup:MoverGroup?
     var iterimScrollGroup:IterimScrollGroup?
-    
     override func resolveSkin() {
         super.resolveSkin()
         iterimScrollGroup = IterimScrollGroup()
