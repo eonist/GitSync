@@ -17,24 +17,18 @@ extension ElasticSlidableScrollable3{
         (self as Progressable3).setProgress(sliderProgress,dir)//temp fix
     }
     func onInDirectScrollWheelChange(_ event: NSEvent) {}
-        
-    
-     func onScrollWheelEnter() {
-        (self as! ElasticScrollable3).onScrollWheelEnter()
-        showSlider()
-     }
-     func scrollWheelExitedAndIsStationary() {
-     hideSlider()
-     }
+    func scrollWheelExitedAndIsStationary() {
+        hideSlider()
+    }
 }
-
 extension SlideView3{
     override func scrollWheel(with event: NSEvent) {
         super.scrollWheel(with: event)
-        /*if(event.phase == NSEventPhase.ended || event.phase == NSEventPhase.cancelled){
+        if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
+            showSlider()
+        }
+        /*else if(event.phase == NSEventPhase.ended || event.phase == NSEventPhase.cancelled){
          //hideSlider()
-         }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
-         showSlider()
          }*/
     }
 }

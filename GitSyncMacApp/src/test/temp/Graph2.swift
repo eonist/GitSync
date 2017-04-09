@@ -6,7 +6,7 @@ import Cocoa
     //Listable with fast
 
     //convert Element to use v3 of scroll protocols
-    //move Gradient etc to dedicated repos
+    //move Gradient etc to dedicated repos, move graph to dedicated proj, colorPanel etc
 
 
 class Graph2:/*SlideScrollView3*/ElasticSlideScrollView3 /*,ElasticView3*/{
