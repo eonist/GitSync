@@ -13,7 +13,7 @@ class SlideScrollList3:List3,SlidableScrollable3{
         //Continue here:
             //thumbHeight is wrong, see old code replace height/itemsize.height
         
-        let thumbHeight:CGFloat = SliderParser.thumbSize(height/itemSize.height, verSlider!.height)
+        let thumbHeight:CGFloat = SliderParser.thumbSize(height/contentSize.height, verSlider!.height)
         Swift.print("thumbHeight: " + "\(thumbHeight)")
         Swift.print("contentSize.height: " + "\(contentSize.height)")
         Swift.print("maskSize.height: " + "\(maskSize.height)")
