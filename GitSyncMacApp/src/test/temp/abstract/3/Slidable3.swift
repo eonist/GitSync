@@ -24,7 +24,7 @@ extension Slidable3 {
         slider(.ver).setProgressValue(point.y)
     }
     /* func setProgress(_ progress:CGFloat, _ dir:Dir) {
-     slider(dir).setProgressValue(progress)
+        slider(dir).setProgressValue(progress)
      }*/
     /**
      * Updates the slider interval and the sliderThumbSize (after DP events: add/remove etc)
