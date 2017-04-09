@@ -25,7 +25,7 @@ extension SlidableScrollable3 {
         showSlider()
     }
     func onScrollWheelExit() {//IMPORTANT: methods that are called from deep can only override upstream
-        hideSlider()
+        //hideSlider()
     }
 }
 

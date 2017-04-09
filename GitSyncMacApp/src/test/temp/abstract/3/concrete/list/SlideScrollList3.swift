@@ -12,9 +12,11 @@ class SlideScrollList3:List3,SlidableScrollable3{
         
         let thumbHeight:CGFloat = SliderParser.thumbSize(height/contentSize.height, verSlider!.height)
         verSlider!.setThumbSide(thumbHeight)
+        verSlider!.thumb!.fadeOut()//inits fade out anim on init
         
         let thumbWidth:CGFloat = SliderParser.thumbSize(width/itemSize.width, horSlider!.width)
         horSlider!.setThumbSide(thumbWidth)
+        horSlider!.thumb!.fadeOut()//inits fade out anim on init
     }
     override func onEvent(_ event:Event) {
         if(event == SliderEvent.change){
