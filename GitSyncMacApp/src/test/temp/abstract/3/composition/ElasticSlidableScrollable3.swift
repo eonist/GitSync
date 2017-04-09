@@ -28,11 +28,12 @@ extension ElasticSlidableScrollable3{
 }
 
 extension SlideView3{
-    /*override func scrollWheel(with event: NSEvent) {
-     if(event.phase == NSEventPhase.changed){
-     if((self as! Elastic3).moverGroup!.isDirectlyManipulating){
-     (self as! Elastic3).setProgress((self as! Elastic3).moverGroup!.result)
-     }
-     }
-     }*/
+    override func scrollWheel(with event: NSEvent) {
+        super.scrollWheel(with: event)
+        if(event.phase == NSEventPhase.ended || event.phase == NSEventPhase.cancelled){
+            //hideSlider()
+        }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
+            showSlider()
+        }
+    }
 }
