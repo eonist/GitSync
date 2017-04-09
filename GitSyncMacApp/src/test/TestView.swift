@@ -16,7 +16,7 @@ class TestView:TitleView{
     }
     func createGUI(){
         //createGraph7Test()
-        //createGraph2()
+        createGraph2()
         //createVerSlider()
         //createHorSlider()
         

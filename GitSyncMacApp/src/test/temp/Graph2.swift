@@ -5,7 +5,7 @@ import Cocoa
  * This tests An elastic 🔵 Ellipse that you can throw around with pan and pinch 👌 gestures
  */
 
-//Continue here: 
+//Continue here:
     //Test Slider (use Code from Element explorer) ✅
     //Test SlideView (find some old code, or use Graph2 to test)
     //Listable with sliders
