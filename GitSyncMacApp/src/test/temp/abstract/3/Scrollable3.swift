@@ -25,8 +25,13 @@ extension Scrollable3{
         }
         //super.scrollWheel(with:event)
     }
-    func onScrollWheelChange(_ event:NSEvent){}/*Direct scroll, not momentum*/
-    func onInDirectScrollWheelChange(_ event:NSEvent){}
+    func onScrollWheelChange(_ event:NSEvent){
+        setProgress(event.delta)
+        SliderParser.progress(<#T##y: CGFloat##CGFloat#>, <#T##height: CGFloat##CGFloat#>, <#T##totalHeight: CGFloat##CGFloat#>)
+    }/*Direct scroll, not momentum*/
+    func onInDirectScrollWheelChange(_ event:NSEvent){
+        
+    }
     func onScrollWheelEnter(){}
     func onScrollWheelExit(){}
 }
