@@ -15,6 +15,7 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
+        
         createScrollList()
         //createList()
         //createGraph7Test()
