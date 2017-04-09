@@ -2,14 +2,9 @@ import Cocoa
 @testable import Element
 @testable import Utils
 
-protocol ElasticSlidableScrollable3:ElasticScrollable3,Slidable3{}
+protocol ElasticSlidableScrollable3:Slidable3,ElasticScrollable3{}
 extension ElasticSlidableScrollable3{
-    /* func onScrollWheelChange(_ event: NSEvent) {
-     (self as ElasticScrollable3).onScrollWheelChange(event)//forward the call
-     if(event.phase == NSEventPhase.changed){
-     
-     }
-     }*/
+    
     override func onScrollWheelChange(_ event: NSEvent) {
         if(event.phase == NSEventPhase.changed){
             if(moverGroup!.isDirectlyManipulating){
