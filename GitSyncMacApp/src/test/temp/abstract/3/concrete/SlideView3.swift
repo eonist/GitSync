@@ -8,9 +8,10 @@ class SlideView3:ContainerView3, Slidable3 {
     func slider(_ dir:Dir) -> Slider { return dir == .ver ? verSlider! : horSlider!}
     override func resolveSkin() {
         super.resolveSkin()
+        
         /*slider*/
-        verSlider = addSubView(Slider(width,24))
-        horSlider = addSubView(Slider(24,height))
+        horSlider = self.addSubView(Slider(60,6,.hor,CGSize(30,6),0,self))
+        verSlider = self.addSubView(Slider(6,60,.ver,CGSize(6,30),0,self))
         
         //let intervalX:CGFloat = floor(contentSize.height - maskSize.height)/24// :TODO: use ScrollBarUtils.interval instead?// :TODO: explain what this is in a comment
         /*ver slider*/
