@@ -30,12 +30,12 @@ class TestView:TitleView{
     }
     func scrollList(){
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
-        let list = addSubView(ScrollList2(140,145,24,dp,self))
+        let list = addSubView(ScrollList3(140,145,CGSize(NaN,24),dp,.ver,self))
         _ = list
     }
     func createList(){/*list.xml*/
         let dp = DataProvider(FileParser.xml("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath))/*Loads xml from a xml file on the desktop*/
-        let list = self.addSubView(List2(140, 144, CGSize(NaN,NaN), dp,.ver,self))
+        let list = self.addSubView(List3(140, 144, CGSize(NaN,NaN), dp,.ver,self))
         _ = list
     }
     func createVerSlider(){
