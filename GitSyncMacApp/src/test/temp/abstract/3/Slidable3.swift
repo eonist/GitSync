@@ -13,7 +13,11 @@ protocol Slidable3:Progressable3 {
  * ⚠️️ IMPORTANT: Slidable does not override scroll because a SlideView can't detect scroll. SlideScrollView however can access scroll and call hide and show slider. And then use protocol ambiguity to call scroll on the Scrollable after
  */
 extension Slidable3 {
-    func setProgress(_ progress: CGFloat, _ dir: Dir) {
+    func setProgress(_ point:CGPoint){
+        slider(.hor).setProgressValue(point.x)
+        slider(.ver).setProgressValue(point.y)
+    }
+    func setProgress(_ progress:CGFloat, _ dir:Dir) {
         slider(dir).setProgressValue(progress)
     }
     /**
