@@ -29,11 +29,9 @@ extension Scrollable3{
         Swift.print("Scrollable3.onScrollWheelChange()")
         Swift.print("contentSize: " + "\(contentSize)")
         //let progress:CGFloat = SliderParser.progress(event.delta, maskSize, contentSize).y
-        let p:CGPoint = event.delta
-        //let progressVal:CGFloat = SliderListUtils.progress(p, interval, progress)
+        let progressVal:CGPoint = SliderListUtils.progress(event.delta, interval, progress)
         //setProgress(progressVal)
-        
-        setProgress(progressVal,.ver)
+        setProgress(progressVal)
     }/*Direct scroll, not momentum*/
     func onInDirectScrollWheelChange(_ event:NSEvent){
         
