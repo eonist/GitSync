@@ -28,6 +28,11 @@ class TestView:TitleView{
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
+    func scrollList(){
+        let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
+        let list = addSubView(ScrollList2(140,145,24,dp,self))
+        _ = list
+    }
     func createList(){/*list.xml*/
         let dp = DataProvider(FileParser.xml("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath))/*Loads xml from a xml file on the desktop*/
         let list = self.addSubView(List2(140, 144, CGSize(NaN,NaN), dp,.ver,self))
