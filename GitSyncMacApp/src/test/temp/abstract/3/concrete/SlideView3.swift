@@ -5,23 +5,23 @@ import Cocoa
 class SlideView3:ContainerView3, Slidable3 {
     var horSlider:Slider?
     var verSlider:Slider?
-    func slider(_ dir: Dir) -> Slider {
-        switch dir{
-            case .hor: return horSlider!
-            case .ver: return verSlider!
-        }
-    }
+    func slider(_ dir:Dir) -> Slider { return dir == .ver ? verSlider! : horSlider!}
     override func resolveSkin() {
         super.resolveSkin()
         /*slider*/
-        let intervalX = floor(contentSize.height - maskSize.height)/24// :TODO: use ScrollBarUtils.interval instead?// :TODO: explain what this is in a comment
-        
         verSlider = addSubView(Slider(width,24))
         horSlider = addSubView(Slider(24,height))
         
-        let thumbHeight:CGFloat = SliderParser.thumbSize(height/itemsHeight, slider!.height)
-         slider!.setThumbHeightValue(thumbHeight)
-         slider!.thumb!.fadeOut()//inits fade out anim on init
+        //let intervalX:CGFloat = floor(contentSize.height - maskSize.height)/24// :TODO: use ScrollBarUtils.interval instead?// :TODO: explain what this is in a comment
+        /*ver slider*/
+        let thumbHeight:CGFloat = SliderParser.thumbSize(height/contentSize.height, verSlider!.height)
+        verSlider!.setThumbSide(thumbHeight)
+        verSlider!.thumb!.fadeOut()//inits fade out anim on init
+        
+        /*horSlider*/
+        let thumbWidth:CGFloat = SliderParser.thumbSize(width/contentSize.width, verSlider!.width)
+        verSlider!.setThumbSide(thumbWidth)
+        verSlider!.thumb!.fadeOut()//inits fade out anim on init
     }
     override func onEvent(_ event:Event) {
         //Swift.print("event: " + "\(event)")
