@@ -2,7 +2,6 @@ import Cocoa
 @testable import Element
 @testable import Utils
 //Continue here:
-    //ElasticSlidableScrollableView ✅
     //Listable with sliders
     //Listable with fast
 
