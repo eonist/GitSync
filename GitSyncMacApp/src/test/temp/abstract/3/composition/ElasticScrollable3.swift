@@ -30,7 +30,7 @@ extension ElasticScrollable3{
      * NOTE: Basically when you enter your scrollWheel gesture
      */
     func onScrollWheelEnter(){
-        Swift.print("👻📜 (ElasticScrollable).onScrollWheelEnter")
+        Swift.print("👻📜 (ElasticScrollable3).onScrollWheelEnter")
         moverGroup!.stop()
         moverGroup!.hasStopped = true/*set the stop flag to true*/
         iterimScrollGroup!.prevScrollingDelta = 0/*set last wheel speed delta to stationary, aka not spinning*/
@@ -42,7 +42,7 @@ extension ElasticScrollable3{
      * NOTE: Basically when you release your scrollWheel gesture
      */
     func onScrollWheelExit(){
-        Swift.print("👻📜 (ElasticScrollable).onScrollWheelExit")
+        Swift.print("👻📜 (ElasticScrollable3).onScrollWheelExit")
         //Swift.print("IRBScrollable.onScrollWheelUp")
         moverGroup!.hasStopped = false/*Reset this value to false, so that the FrameAnimatior can start again*/
         moverGroup!.isDirectlyManipulating = false

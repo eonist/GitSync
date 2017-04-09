@@ -6,7 +6,7 @@ import Cocoa
 //Continue here:
     //ElasticScrollList ✅
 
-    //ElasticScrollSlideList3 👈
+    //ElasticSlideScrollList3 👈
     //FastList (progressable)
     //ScrolFastlList
     //SlideFastList
