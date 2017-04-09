@@ -4,6 +4,7 @@ import Cocoa
 //Continue here:
     //Listable with sliders
     //Listable with fast
+    //Make UniScrollable sort of scroll in the intentional direction while not directly Manipulated
 
     //convert Element to use v3 of scroll protocols
     //move Gradient etc to dedicated repos, move graph to dedicated proj, colorPanel etc
