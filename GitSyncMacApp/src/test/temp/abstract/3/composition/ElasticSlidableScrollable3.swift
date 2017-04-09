@@ -8,7 +8,7 @@ extension ElasticSlidableScrollable3{
         (self as ElasticScrollable3).onScrollWheelChange(event)//forward the call
         if(event.phase == NSEventPhase.changed){
             if(moverGroup!.isDirectlyManipulating){
-                setProgress(moverGroup!.result)
+                (self as Elastic3).setProgress(moverGroup!.result)
             }
         }
     }
