@@ -18,22 +18,23 @@ extension ElasticSlidableScrollable3{
     }
     func onInDirectScrollWheelChange(_ event: NSEvent) {}
         
-    /*
+    
      func onScrollWheelEnter() {
-     showSlider()
+        (self as! ElasticScrollable3).onScrollWheelEnter()
+        showSlider()
      }
      func scrollWheelExitedAndIsStationary() {
      hideSlider()
-     }*/
+     }
 }
 
 extension SlideView3{
     override func scrollWheel(with event: NSEvent) {
         super.scrollWheel(with: event)
-        if(event.phase == NSEventPhase.ended || event.phase == NSEventPhase.cancelled){
-            //hideSlider()
-        }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
-            showSlider()
-        }
+        /*if(event.phase == NSEventPhase.ended || event.phase == NSEventPhase.cancelled){
+         //hideSlider()
+         }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
+         showSlider()
+         }*/
     }
 }
