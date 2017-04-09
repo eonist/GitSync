@@ -4,11 +4,12 @@ import Cocoa
 //Continue here:
     //Listable with sliders ✅
 
-    //Listable with fast 
-    //Make UniScrollable sort of scroll in the intentional direction while not directly Manipulated
+    //Listable with fast ⏳⏳
+    //Add css so that Sliders are aligned in SliderList3 and SliderView3 ⏳⏳
+    //Make UniScrollable sort of scroll in the intentional direction while not directly Manipulated ⏳⏳
 
-    //convert Element to use v3 of scroll protocols
-    //move Gradient etc to dedicated repos, move graph to dedicated proj, colorPanel etc
+    //convert Element to use v3 of scroll protocols ⏳⏳⏳
+    //move Gradient etc to dedicated repos, move graph to dedicated proj, colorPanel etc ⏳⏳
 
 
 class Graph2:/*SlideScrollView3*/ ElasticSlideScrollView3 /*,ElasticView3*/{
