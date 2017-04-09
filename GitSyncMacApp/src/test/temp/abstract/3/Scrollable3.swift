@@ -34,7 +34,7 @@ extension Scrollable3{
         setProgress(progressVal)
     }/*Direct scroll, not momentum*/
     func onInDirectScrollWheelChange(_ event:NSEvent){
-        
+        onScrollWheelChange(event)
     }
     func onScrollWheelEnter(){}
     func onScrollWheelExit(){}
