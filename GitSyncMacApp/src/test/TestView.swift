@@ -30,6 +30,14 @@ class TestView:TitleView{
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
+    /**
+     *
+     */
+    func createElasticScrollList(){
+        let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
+        let list = addSubView(SlideScrollList3(140,145,CGSize(24,24),dp,.ver,self))
+        _ = list
+    }
     func createSlideScrollList(){
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         let list = addSubView(SlideScrollList3(140,145,CGSize(24,24),dp,.ver,self))
