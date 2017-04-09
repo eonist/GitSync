@@ -31,6 +31,12 @@ class Graph2:/*SlideScrollView3*/ ElasticSlideScrollView3 /*,ElasticView3*/{
     }
 }
 extension Graph2{
+    /**
+     *
+     */
+    func createElasticScrollSlideList(){
+        
+    }
     func createEllipse(){
          /*Styles*/
         let gradient = LinearGradient(Gradients.blue(),[],π/2)
