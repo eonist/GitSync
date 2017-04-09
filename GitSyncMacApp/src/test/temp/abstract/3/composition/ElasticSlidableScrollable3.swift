@@ -9,17 +9,17 @@ extension ElasticSlidableScrollable3{
      */
     func setProgress(_ value:CGFloat, _ dir:Dir) {
         Swift.print("ElasticSlidableScrollable3.setProgress()")
-        /*(self as Elastic3).setProgress(value,dir)
+        /**/(self as Elastic3).setProgress(value,dir)
          let sliderProgress = ElasticUtils.progress(value,contentSize[dir],maskSize[dir])
          Swift.print("sliderProgress: " + "\(sliderProgress)")
-         (self as Slidable3).setProgress(sliderProgress,dir)*/
+         (self as Slidable3).setProgress(sliderProgress,dir)
     }
-    func setProgress(_ point: CGPoint) {
-        Swift.print("ElasticSlidableScrollable3.setProgressPoint()")
-        (self as Elastic3).setProgress(point.x,.hor)
-        (self as Elastic3).setProgress(point.y,.ver)
-        (self as Slidable3).setProgress(point)
-    }
+    //func setProgress(_ point: CGPoint) {
+        //Swift.print("ElasticSlidableScrollable3.setProgressPoint()")
+        /*(self as Elastic3).setProgress(point.x,.hor)
+         (self as Elastic3).setProgress(point.y,.ver)*/
+        //(self as Slidable3).setProgress(point)
+    //}
     func onScrollWheelEnter() {
         showSlider()
     }
