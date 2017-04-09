@@ -6,8 +6,7 @@ import Cocoa
  */
 
 //Continue here:
-    //Test Slider (use Code from Element explorer) ✅
-    //Test SlideView (find some old code, or use Graph2 to test)
+    //Test SlideView (find some old code, or use Graph2 to test) and make it work
     //Listable with sliders
     //Listable with fast
 
@@ -23,7 +22,6 @@ class Graph2:SlideScrollView3/*ElasticView3*/{
         StyleManager.addStyle("Graph2 {fill:green;fill-alpha:0;}")
         super.resolveSkin()
         createEllipse()
-        
     }
 }
 extension Graph2{
