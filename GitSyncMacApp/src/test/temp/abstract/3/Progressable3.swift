@@ -20,6 +20,7 @@ extension Progressable3{
         ScrollableUtils.scrollTo(self,progressValue,dir)
     }
     func setProgress(_ point:CGPoint){
+        Swift.print("Progressable3.setProgress: " + "\(point)")
         setProgress(point.x,.hor)
         setProgress(point.y,.ver)
     }
