@@ -2,7 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 
-protocol SlidableScrollable3:Slidable3, Scrollable3 {}
+protocol SlidableScrollable3:Slidable3,Scrollable3 {}
 extension SlidableScrollable3 {
     /**
      *
