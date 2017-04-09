@@ -3,8 +3,9 @@ import Cocoa
 @testable import Utils
 /**
  * Testing x & y elastic scrolling
+ * TODO: you can prob make moverGroup and interim.. to lazy
  */
-class ElasticView3:ContainerView3,ElasticScrollable3{//
+class ElasticScrollView3:ContainerView3,ElasticScrollable3{
     var moverGroup:MoverGroup?
     var iterimScrollGroup:IterimScrollGroup?
     
