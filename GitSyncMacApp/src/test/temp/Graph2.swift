@@ -4,7 +4,7 @@ import Cocoa
 //Continue here:
     //Listable with sliders ✅
     //ElasticScrollList ✅
-    
+
     //Listable with fast ⏳⏳
     //Add css so that Sliders are aligned in SliderList3 and SliderView3 ⏳⏳
     //Make UniScrollable sort of scroll in the intentional direction while not directly Manipulated ⏳⏳
