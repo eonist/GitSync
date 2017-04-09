@@ -30,6 +30,7 @@ extension Slidable3 {
      * Updates the slider interval and the sliderThumbSize (after DP events: add/remove etc)
      */
     func updateSlider(){
+        fatalError("not implemented yet")
         /*
         sliderInterval = floor(self.itemsHeight - height)/itemHeight
         let thumbHeight:CGFloat = SliderParser.thumbSize(height/itemsHeight, slider!.height/*<--this should probably be .getHeight()*/);
@@ -38,15 +39,15 @@ extension Slidable3 {
         slider!.setProgressValue(progress)
         */
     }
-    func hideSlider(_ dir:Dir){
+    func hideSlider(_ dir:Dir = .ver){
         Swift.print("🏂 hide slider")
         //self.slider!.thumb!.setSkinState("inActive")
-        if(slider?.thumb?.getSkinState() == SkinStates.none){slider?.thumb?.fadeOut()}/*only fade out if the state is none, aka not over*/
+        if(slider(dir).thumb!.getSkinState() == SkinStates.none){slider(dir).thumb!.fadeOut()}/*only fade out if the state is none, aka not over*/
         //slider?.thumb?.fadeOut()
     }
-    func showSlider(){
+    func showSlider(_ dir:Dir = .ver){
         Swift.print("🏂 show slider")
-        self.slider!.thumb!.setSkinState(SkinStates.none)
+        slider(dir).thumb!.setSkinState(SkinStates.none)
         //slider!.thumb!.fadeIn()
     }
 }
