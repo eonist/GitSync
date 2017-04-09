@@ -16,13 +16,15 @@ extension ElasticSlidableScrollable3{
         slider(dir).setProgressValue(sliderProgress)//temp fix
         (self as Progressable3).setProgress(sliderProgress,dir)//temp fix
     }
-    func onInDirectScrollWheelChange(_ event: NSEvent) {}
+    func onInDirectScrollWheelChange(_ event: NSEvent) {}//override to cancel out the event
     func scrollWheelExitedAndIsStationary() {
+        Swift.print("ElasticSlidableScrollable3")
         hideSlider()
     }
 }
 extension SlideView3{
     override func scrollWheel(with event: NSEvent) {
+        Swift.print("SlideView3.scrollWheel() \(event.type)")
         super.scrollWheel(with: event)
         if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
             showSlider()
