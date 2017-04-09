@@ -7,6 +7,7 @@ class SlideScrollList3:List3,SlidableScrollable3{
     var verSlider:Slider?
     override func resolveSkin() {
         super.resolveSkin()
+        horSlider = self.addSubView(Slider(60,itemSize.height,.hor,CGSize(30,6),0,self))
         verSlider = self.addSubView(Slider(itemSize.width,height,.ver,itemSize,0,self))
         let thumbHeight:CGFloat = SliderParser.thumbSize(height/itemSize.height, verSlider!.height)
         verSlider!.setThumbSide(thumbHeight)
