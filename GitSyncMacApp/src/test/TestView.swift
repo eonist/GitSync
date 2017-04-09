@@ -15,8 +15,9 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
+        createList()
         //createGraph7Test()
-        createGraph2()
+        //createGraph2()
         //createVerSlider()
         //createHorSlider()
         
@@ -26,6 +27,11 @@ class TestView:TitleView{
          Swift.print("intervalA: " + "\(intervalA)")
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
+    }
+    func createList(){/*list.xml*/
+        let dp = DataProvider(FileParser.xml("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath))/*Loads xml from a xml file on the desktop*/
+        let list = self.addSubView(List2(140, 144, CGSize(NaN,NaN), dp,.ver,self))
+        _ = list
     }
     func createVerSlider(){
         let horSlider:Slider = self.addSubView(Slider(6,60,.ver,CGSize(6,30),0,self))
