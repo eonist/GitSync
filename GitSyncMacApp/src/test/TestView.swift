@@ -16,16 +16,16 @@ class TestView:TitleView{
     }
     func createGUI(){
         //createGraph7Test()
-        //createGraph2()
+        createGraph2()
         //createVerSlider()
         //createHorSlider()
         
         //createVSlider()
         
-        let intervalA:CGFloat = floor(200 - 100)/24
-        Swift.print("intervalA: " + "\(intervalA)")
-        let intervalB = SliderParser.interval(200, 100, 20)
-        Swift.print("intervalB: " + "\(intervalB)")
+        /*let intervalA:CGFloat = floor(200 - 100)/24
+         Swift.print("intervalA: " + "\(intervalA)")
+         let intervalB = SliderParser.interval(200, 100, 20)
+         Swift.print("intervalB: " + "\(intervalB)")*/
     }
     func createVerSlider(){
         let horSlider:Slider = self.addSubView(Slider(6,60,.ver,CGSize(6,30),0,self))

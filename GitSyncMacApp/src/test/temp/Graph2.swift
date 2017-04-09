@@ -6,7 +6,7 @@ import Cocoa
  */
 
 //Continue here:
-    //Test SlideView (find some old code, or use Graph2 to test) and make it work
+    //Test SlideView (find some old code, or use Graph2 to test) and make it work👈
     //Listable with sliders
     //Listable with fast
 
