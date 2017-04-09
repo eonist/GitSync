@@ -12,7 +12,7 @@ extension SlidableScrollable3 {
         Swift.print("interval(.hor): " + "\(interval(.hor))")
         /*Swift.print("slider(.hor).progress: " + "\(slider(.hor).progress)")*/
         let horProg:CGFloat = SliderListUtils.progress(event.delta[.hor], interval(.hor), slider(.hor).progress)//TODO: ⚠️️ merge these 2 lines into one and make a method in SliderListUtils that returns point
-        let verProg:CGFloat = SliderListUtils.progress(event.delta[.ver], 5/*interval(.ver)*/, slider(.ver).progress)
+        let verProg:CGFloat = SliderListUtils.progress(event.delta[.ver], /*5*/interval(.ver), slider(.ver).progress)
         let progress:CGPoint = CGPoint(horProg,verProg)
         Swift.print("progress: " + "\(progress)")
         (self as Slidable3).setProgress(progress)
@@ -25,7 +25,7 @@ extension SlidableScrollable3 {
         showSlider()
     }
     func onScrollWheelExit() {//IMPORTANT: methods that are called from deep can only override upstream
-        //hideSlider()
+        hideSlider()//this should only be called when scrollwheel becomes stationary. find the code that does this.
     }
 }
 
