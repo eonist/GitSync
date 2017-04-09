@@ -5,6 +5,8 @@ import Cocoa
  * Slidable is for Elements that has a slider attached
  */
 protocol Slidable3:Progressable3 {
+    var horSlider:Slider? {get}
+    var verSlider:Slider? {get}
     func updateSlider()
     func slider(_ dir:Dir) -> Slider/*?*/
     //func sliderInterval(_ dir:Dir)->CGFloat/*?{get set}*///I think this is the same as intervall, remove
@@ -13,6 +15,9 @@ protocol Slidable3:Progressable3 {
  * ⚠️️ IMPORTANT: Slidable does not override scroll because a SlideView can't detect scroll. SlideScrollView however can access scroll and call hide and show slider. And then use protocol ambiguity to call scroll on the Scrollable after
  */
 extension Slidable3 {
+    /*NOTE: If you need only one slider, then override both hor and ver with this slider*/
+    func slider(_ dir:Dir) -> Slider { return dir == .ver ? verSlider! : horSlider!}/*Convenience*/
+    /**/
     func setProgress(_ point:CGPoint){
         Swift.print("Slidable3.setProgress: " + "\(point)")
         slider(.hor).setProgressValue(point.x)

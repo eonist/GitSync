@@ -5,7 +5,6 @@ import Cocoa
 class SlideView3:ContainerView3, Slidable3 {
     var horSlider:Slider?
     var verSlider:Slider?
-    func slider(_ dir:Dir) -> Slider { return dir == .ver ? verSlider! : horSlider!}/*Convenience*/
     override func resolveSkin() {
         super.resolveSkin()
         /*slider*/
