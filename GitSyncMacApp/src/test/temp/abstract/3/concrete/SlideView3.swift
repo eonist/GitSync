@@ -18,9 +18,9 @@ class SlideView3:ContainerView3, Slidable3 {
          //verSlider!.thumb!.fadeOut()//inits fade out anim on init/**/
         
         /*horSlider*/
-        /*let thumbWidth:CGFloat = SliderParser.thumbSize(width/contentSize.width, verSlider!.width)
-         verSlider!.setThumbSide(thumbWidth)
-         verSlider!.thumb!.fadeOut()//inits fade out anim on init*/
+        /*let thumbWidth:CGFloat = SliderParser.thumbSize(width/itemSize.width, horSlider!.width)
+         horSlider!.setThumbSide(thumbWidth)
+         horSlider!.thumb!.fadeOut()//inits fade out anim on init*/
     }
     override func onEvent(_ event:Event) {
         if(event == SliderEvent.change){

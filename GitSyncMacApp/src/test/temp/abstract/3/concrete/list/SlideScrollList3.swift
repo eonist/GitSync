@@ -7,11 +7,13 @@ class SlideScrollList3:List3,SlidableScrollable3{
     var verSlider:Slider?
     override func resolveSkin() {
         super.resolveSkin()
-        horSlider = self.addSubView(Slider(60,itemSize.height,.hor,CGSize(30,6),0,self))
+        horSlider = self.addSubView(Slider(width,itemSize.height,.hor,itemSize,0,self))
         verSlider = self.addSubView(Slider(itemSize.width,height,.ver,itemSize,0,self))
         let thumbHeight:CGFloat = SliderParser.thumbSize(height/itemSize.height, verSlider!.height)
         verSlider!.setThumbSide(thumbHeight)
-        //verSlider!.thumb!.fadeOut()
+        
+        let thumbWidth:CGFloat = SliderParser.thumbSize(width/itemSize.width, horSlider!.width)
+        horSlider!.setThumbSide(thumbWidth)
     }
     override func onEvent(_ event:Event) {
         if(event == SliderEvent.change){
