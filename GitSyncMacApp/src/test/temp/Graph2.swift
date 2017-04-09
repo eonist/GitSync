@@ -27,6 +27,7 @@ class Graph2:ElasticView3{
         StyleManager.addStyle("Graph2 {fill:green;fill-alpha:0;}")
         super.resolveSkin()
         createEllipse()
+        
     }
 }
 extension Graph2{
