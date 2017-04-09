@@ -15,7 +15,8 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        createList()
+        createScrollList()
+        //createList()
         //createGraph7Test()
         //createGraph2()
         //createVerSlider()
@@ -28,7 +29,7 @@ class TestView:TitleView{
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
-    func scrollList(){
+    func createScrollList(){
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
         let list = addSubView(ScrollList3(140,145,CGSize(NaN,24),dp,.ver,self))
         _ = list
