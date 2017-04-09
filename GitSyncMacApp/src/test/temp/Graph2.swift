@@ -2,9 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 //Continue here:
-    //Test SlideView (find some old code, or use Graph2 to test) and make it work ✅
-
-    //ElasticSlidableScrollableView 👈
+    //ElasticSlidableScrollableView ✅
     //Listable with sliders
     //Listable with fast
 
