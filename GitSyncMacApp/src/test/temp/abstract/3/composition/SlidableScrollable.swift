@@ -14,11 +14,13 @@ extension SlidableScrollable3 {
      * TODO: you could also override scroll and hock after the forward scroll call and then retrive the progress from the var. less code, but the value must be written in Displaceview, it could mess up Elastic, because it needs different progress. etc, do later
      */
     func onScrollWheelChange(_ event:NSEvent) {
-        Swift.print("🏂📜 SlidableScrollable3.onScrollWheelChange: \(event)")
+        Swift.print("🏂📜 SlidableScrollable3.onScrollWheelChange: \(event.type)")
         let horProg:CGFloat = SliderListUtils.progress(event.delta[.hor], interval(.hor), slider(.hor).progress)//TODO: ⚠️️ merge these 2 lines into one and make a method in SliderListUtils that returns point
         let verProg:CGFloat = SliderListUtils.progress(event.delta[.ver], interval(.ver), slider(.ver).progress)
-        (self as Slidable3).setProgress(CGPoint(horProg,verProg))
-        (self as Scrollable3).setProgress(CGPoint(horProg,verProg))
+        let progress:CGPoint = CGPoint(horProg,verProg)
+        Swift.print("progress: " + "\(progress)")
+        (self as Slidable3).setProgress(progress)
+        (self as Scrollable3).setProgress(progress)
     }
     func onInDirectScrollWheelChange(_ event: NSEvent) {//enables momentum
         onScrollWheelChange(event)
