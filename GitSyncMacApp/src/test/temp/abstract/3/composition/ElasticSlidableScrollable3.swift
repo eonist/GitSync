@@ -4,8 +4,13 @@ import Cocoa
 
 protocol ElasticSlidableScrollable3:ElasticScrollable3,Slidable3{}
 extension ElasticSlidableScrollable3{
-    func onScrollWheelChange(_ event: NSEvent) {
-        (self as ElasticScrollable3).onScrollWheelChange(event)//forward the call
+    /* func onScrollWheelChange(_ event: NSEvent) {
+     (self as ElasticScrollable3).onScrollWheelChange(event)//forward the call
+     if(event.phase == NSEventPhase.changed){
+     
+     }
+     }*/
+    override func onScrollWheelChange(_ event: NSEvent) {
         if(event.phase == NSEventPhase.changed){
             if(moverGroup!.isDirectlyManipulating){
                 (self as Elastic3).setProgress(moverGroup!.result)
