@@ -3,8 +3,8 @@ import Cocoa
 @testable import Element
 
 protocol Progressable3:Containable3{
-    func progress(_ dir:Dir) -> CGFloat
-    func interval(_ dir:Dir) -> CGFloat
+    func progress(_ dir:Dir) -> CGFloat/*0-1 atBegining <-> atEnd*/
+    func interval(_ dir:Dir) -> CGFloat/*describes the speed when scrolling (distance per scroll tick)*/
     func setProgress(_ progress:CGFloat,_ dir:Dir)
 }
 extension Progressable3{
