@@ -8,7 +8,6 @@ class SlideView3:ContainerView3, Slidable3 {
     func slider(_ dir:Dir) -> Slider { return dir == .ver ? verSlider! : horSlider!}/*Convenience*/
     override func resolveSkin() {
         super.resolveSkin()
-        
         /*slider*/
         horSlider = self.addSubView(Slider(60,6,.hor,CGSize(30,6),0,self))
         verSlider = self.addSubView(Slider(6,60,.ver,CGSize(6,30),0,self))
