@@ -16,8 +16,8 @@ class SlideView3:ContainerView3, Slidable3 {
         /*slider*/
         //intervalX = floor(contentSize.height - maskSize.height)/itemHeight// :TODO: use ScrollBarUtils.interval instead?// :TODO: explain what this is in a comment
         
-        verSlider = addSubView(Slider(width,24,self))
-        horSlider = addSubView(Slider(24,height,self))
+        verSlider = addSubView(Slider(width,24))
+        horSlider = addSubView(Slider(24,height))
         
         /*let thumbHeight:CGFloat = SliderParser.thumbSize(height/itemsHeight, slider!.height)
          slider!.setThumbHeightValue(thumbHeight)
