@@ -13,6 +13,7 @@ extension ElasticScrollable3{
     /*func setProgress(_ point:CGPoint){
      contentContainer!.point = point
      }*/
+    func onInDirectScrollWheelChange(_ event: NSEvent) {}//we must override this or else we get a too loose elastic effect. 
     /**
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
      */
@@ -67,4 +68,5 @@ extension ElasticScrollable3{
         moverGroup!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*//*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
     }
     func scrollWheelExitedAndIsStationary(){}/*override when you need this call*/
+    
 }
