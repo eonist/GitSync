@@ -32,7 +32,7 @@ class TestView:TitleView{
     }
     func createSlideScrollList(){
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
-        let list = addSubView(SlideScrollList3(140,145,CGSize(NaN,24),dp,.ver,self))
+        let list = addSubView(SlideScrollList3(140,145,CGSize(24,24),dp,.ver,self))
         _ = list
     }
     func createScrollList(){
