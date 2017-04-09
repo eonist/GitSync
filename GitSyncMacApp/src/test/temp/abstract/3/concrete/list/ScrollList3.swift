@@ -1,5 +1,5 @@
 import Foundation
 
-class ScrollList2:List2,Scrollable3 {
+class ScrollList3:List3,Scrollable3 {
 
 }
