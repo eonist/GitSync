@@ -15,7 +15,7 @@ import Cocoa
     //move Gradient etc to dedicated repos
 
 
-class Graph2:ElasticView3{
+class Graph2:SlideView3/*ElasticView3*/{
     //override var itemsHeight: CGFloat {return height}
     //override var itemHeight: CGFloat {return 24}
 
