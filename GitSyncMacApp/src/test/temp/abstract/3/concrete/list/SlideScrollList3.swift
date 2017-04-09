@@ -10,13 +10,13 @@ class SlideScrollList3:List3,SlidableScrollable3{
         verSlider = self.addSubView(Slider(itemSize.width,height,.ver,itemSize,0,self))
         let thumbHeight:CGFloat = SliderParser.thumbSize(height/itemSize.height, verSlider!.height)
         verSlider!.setThumbSide(thumbHeight)
-        verSlider!.thumb!.fadeOut()
+        //verSlider!.thumb!.fadeOut()
     }
     override func onEvent(_ event:Event) {
         if(event == SliderEvent.change){
             let dir:Dir = event.origin === horSlider ? .hor : .ver
             setProgress((event as! SliderEvent).progress,dir)
-        }/*events from the slider*/
+        }
         super.onEvent(event)
     }
 }
