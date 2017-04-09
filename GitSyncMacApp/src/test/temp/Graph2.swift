@@ -7,9 +7,11 @@ import Cocoa
 
 //Continue here: 
     //ScrollableSlidable etc  ✅
+    //unify the x/y sliders into 1 slider✅
+    //Add ElasticSlideView ✅
 
-    //Add ElasticSlideView 👈
-    //unify the x/y sliders into 1 slider
+    //Test Slider (use Code from Element explorer)
+    //Test SlideView (find some old code, or use Graph2 to test)
     //Listable with sliders
     //Listable with fast
 
