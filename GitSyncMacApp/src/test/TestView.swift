@@ -17,7 +17,7 @@ class TestView:TitleView{
     func createGUI(){
         //createGraph7Test()
         //createGraph2()
-        createVerSlider()
+        //createVerSlider()
         //createHorSlider()
         
         //createVSlider()
@@ -26,8 +26,8 @@ class TestView:TitleView{
         let horSlider:Slider = self.addSubView(Slider(6,60,.ver,CGSize(6,30),0,self))
         _ = horSlider
     }
-    func createSlider(){
-        let horSlider:Slider = self.addSubView(Slider(6,60,.ver,CGSize(6,30),0,self))
+    func createHorSlider(){
+        let horSlider:Slider = self.addSubView(Slider(60,6,.hor,CGSize(30,6),0,self))
         _ = horSlider
     }
     /**
