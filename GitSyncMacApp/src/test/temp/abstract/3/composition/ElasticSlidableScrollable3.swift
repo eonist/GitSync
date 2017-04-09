@@ -16,12 +16,15 @@ extension ElasticSlidableScrollable3{
         slider(dir).setProgressValue(sliderProgress)//temp fix
         (self as Progressable3).setProgress(sliderProgress,dir)//temp fix
     }
-    func onScrollWheelEnter() {
-        showSlider()
-    }
-    func scrollWheelExitedAndIsStationary() {
-        hideSlider()
-    }
+    func onInDirectScrollWheelChange(_ event: NSEvent) {}
+        
+    /*
+     func onScrollWheelEnter() {
+     showSlider()
+     }
+     func scrollWheelExitedAndIsStationary() {
+     hideSlider()
+     }*/
 }
 
 extension SlideView3{
