@@ -15,9 +15,9 @@ class SlideView3:ContainerView3, Slidable3 {
         
         //let intervalX:CGFloat = floor(contentSize.height - maskSize.height)/24// :TODO: use ScrollBarUtils.interval instead?// :TODO: explain what this is in a comment
         /*ver slider*/
-        /*let thumbHeight:CGFloat = SliderParser.thumbSize(height/contentSize.height, verSlider!.height)
+        let thumbHeight:CGFloat = SliderParser.thumbSize(height/contentSize.height, verSlider!.height)
          verSlider!.setThumbSide(thumbHeight)
-         verSlider!.thumb!.fadeOut()//inits fade out anim on init*/
+         //verSlider!.thumb!.fadeOut()//inits fade out anim on init/**/
         
         /*horSlider*/
         /*let thumbWidth:CGFloat = SliderParser.thumbSize(width/contentSize.width, verSlider!.width)
