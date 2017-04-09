@@ -1,5 +1,3 @@
 import Foundation
 
-class SlideScrollView {
-
-}
+class SlideScrollView3:SlideView3,SlidableScrollable3{}
