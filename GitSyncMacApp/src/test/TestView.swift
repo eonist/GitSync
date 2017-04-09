@@ -20,6 +20,12 @@ class TestView:TitleView{
         createVSlider()
     }
     /**
+     *
+     */
+    func createSlider(){
+        let slider:Slider = addSubView(Slider())
+    }
+    /**
      * NOTE: see VolumSlider for eventListener
      */
     func createVSlider(){
