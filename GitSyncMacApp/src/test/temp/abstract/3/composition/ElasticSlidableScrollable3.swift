@@ -11,7 +11,8 @@ extension ElasticSlidableScrollable3{
         Swift.print("ElasticSlidableScrollable3.setProgress()")
         /**/(self as Elastic3).setProgress(value,dir)
          let sliderProgress = ElasticUtils.progress(value,contentSize[dir],maskSize[dir])
-         Swift.print("sliderProgress: " + "\(sliderProgress)")
+         //Swift.print("sliderProgress: " + "\(sliderProgress)")
+        let slidePoint:CGPoint = dir == .ver ? CGPoint() : CGPoint()
          (self as Slidable3).setProgress(sliderProgress,dir)
     }
     //func setProgress(_ point: CGPoint) {
