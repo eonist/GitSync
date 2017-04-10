@@ -4,7 +4,6 @@ import Cocoa
 @testable import GitSyncMac
 
 //Continue here:
-    //try to fix the problem where the x snap to the side on release. Try ElasticView again maybe? ✅
 
     //try previouse lists and views to see if they still work 
     //improve code quality
@@ -38,8 +37,8 @@ class TestView:TitleView{
     }
     func createGUI(){
         //createElasticScrollSlideList()
-        createElasticScrollList()
-        //createSlideScrollList()
+        //createElasticScrollList()
+        createSlideScrollList()
         //createScrollList()
         //createList()
         //createGraph7Test()
@@ -58,7 +57,7 @@ class TestView:TitleView{
      *
      */
     func createElasticScrollSlideList(){
-        let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
+        let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)//longlist.xml
         dp.addItem(["title":"pink"])
         dp.addItem(["title":"orange"])
         dp.addItem(["title":"purple"])
