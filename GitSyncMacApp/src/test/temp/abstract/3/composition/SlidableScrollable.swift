@@ -9,12 +9,13 @@ extension SlidableScrollable3 {
      */
     func onScrollWheelChange(_ event:NSEvent) {
         Swift.print("🏂📜 SlidableScrollable3.onScrollWheelChange: \(event.type)")
-        Swift.print("interval(.hor): " + "\(interval(.hor))")
+        Swift.print("event.scrollingDelta: " + "\(event.scrollingDelta)")
+        //Swift.print("interval(.hor): " + "\(interval(.hor))")
         /*Swift.print("slider(.hor).progress: " + "\(slider(.hor).progress)")*/
         let horProg:CGFloat = SliderListUtils.progress(event.delta[.hor], interval(.hor), slider(.hor).progress)//TODO: ⚠️️ merge these 2 lines into one and make a method in SliderListUtils that returns point
         let verProg:CGFloat = SliderListUtils.progress(event.delta[.ver], /*5*/interval(.ver), slider(.ver).progress)
         let progress:CGPoint = CGPoint(horProg,verProg)
-        Swift.print("progress: " + "\(progress)")
+        //Swift.print("progress: " + "\(progress)")
         (self as Slidable3).setProgress(progress)
         (self as Scrollable3).setProgress(progress)
     }
