@@ -6,7 +6,7 @@ import Cocoa
 //Continue here:
     //ElasticScrollList ✅
 
-    //ElasticSlideScrollList3 👈
+    //ElasticSlideScrollList3 try to get the sliders to work, see ElasticSlideView3 for example 👈
     //FastList (progressable)
     //ScrolFastlList
     //SlideFastList
