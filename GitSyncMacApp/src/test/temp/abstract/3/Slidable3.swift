@@ -41,6 +41,7 @@ extension Slidable3 {
         slider!.setProgressValue(progress)
         */
     }
+    
     func hideSlider(_ dir:Dir = .ver){
         Swift.print("🏂 hide slider dir: \(dir)")
         //self.slider!.thumb!.setSkinState("inActive")
