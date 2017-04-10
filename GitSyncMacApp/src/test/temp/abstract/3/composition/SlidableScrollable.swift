@@ -43,6 +43,11 @@ extension SlidableScrollable3 {
         hideSlider()
     }
 }
+/*let caseA = iterimScrollGroup!.iterimScrollX.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollX.prevScrollingDelta != -1.0
+ Swift.print("caseA: " + "\(caseA)")
+ /*ver*/
+ let caseB = iterimScrollGroup!.iterimScrollY.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollY.prevScrollingDelta != -1.0/*Not 1 and not -1 indicates that the wheel is not stationary*/
+ Swift.print("caseB: " + "\(caseB)")*/
 
 /*func progress(_ dir:Dir)->CGFloat{
  return SliderListUtils.progress(event.delta[dir], interval(dir), slider(dir).progress)
