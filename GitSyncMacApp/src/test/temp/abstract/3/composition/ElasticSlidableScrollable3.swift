@@ -23,6 +23,14 @@ extension ElasticSlidableScrollable3{
     func scroll(_ event: NSEvent) {
         Swift.print("ElasticSlidableScrollable3.scroll()")
         (self as Scrollable3).scroll(event)
+        if(event.phase == NSEventPhase.changed){
+            if(moverGroup!.isDirectlyManipulating){
+                //also manipulates slider, but only on directTransmission, as mover calls setProgress from shallow in indirectTransmission
+                setProgress(moverGroup!.result)//👈NEW, this migth need to be inSide scrollWheel call, as it needs to be shallow to reach inside setProgress in ElasticFastList.setProgress, but maybe not, To be continued
+            }
+        }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
+            showSlider()
+        }
     }
     func onInDirectScrollWheelChange(_ event: NSEvent) {}//override to cancel out the event
     func scrollWheelExitedAndIsStationary() {
