@@ -11,8 +11,8 @@ class ElasticSlideScrollList3:SlideList3,ElasticScrollable3 {
         moverGroup!.yMover.event = onEvent
     }
     override func onEvent(_ event:Event) {
-        Swift.print("onEvent: " + "\(event.type)")
-        if(event === (AnimEvent.stopped, moverGroup!)){
+        Swift.print("ElasticSlideScrollList3.onEvent: " + "\(event.type)")
+        if(event === (AnimEvent.stopped, moverGroup!.yMover)){
             Swift.print("anim stopped")
             hideSlider()/*hides the slider when bounce back anim stopps*/
         }
