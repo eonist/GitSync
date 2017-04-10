@@ -26,7 +26,7 @@ class SlideList3:List3,Slidable3 {
         super.onEvent(event)
     }
 }
-extension SlideList3{
+/*extension SlideList3{
     override open func scrollWheel(with event: NSEvent) {
         Swift.print("SlideView3.scrollWheel() \(event.type)")
         super.scrollWheel(with: event)
@@ -37,4 +37,4 @@ extension SlideList3{
          //hideSlider()
          }*/
     }
-}
+}*/
