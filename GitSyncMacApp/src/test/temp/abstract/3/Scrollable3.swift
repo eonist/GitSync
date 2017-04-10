@@ -6,6 +6,7 @@ protocol Scrollable3:Progressable3 {
     func onScrollWheelChange(_ event:NSEvent)
     func onScrollWheelEnter()
     func onScrollWheelExit()
+    func onScrollWheelCancelled()
     func onInDirectScrollWheelChange(_ event:NSEvent)
     func onScrollWheelMomentumEnded()
 }
@@ -24,7 +25,7 @@ extension Scrollable3{
             case NSEventPhase.mayBegin/*32*/:onScrollWheelEnter()/*Can be used to detect if two fingers are touching the trackpad*/
             case NSEventPhase.began/*1*/:onScrollWheelEnter()/*The mayBegin phase doesn't fire if you begin the scrollWheel gesture very quickly*/
             case NSEventPhase.ended/*8*/:onScrollWheelExit()//Swift.print("ended")/*if you release your touch-gesture and the momentum of the gesture has stopped.*/
-            case NSEventPhase.cancelled/*16*/:onScrollWheelExit()//Swift.print("cancelled")/*this trigers if the scrollWhell gestures goes off the trackpad etc*/
+            case NSEventPhase.cancelled/*16*/:onScrollWheelCancelled()//Swift.print("cancelled")/*this trigers if the scrollWhell gestures goes off the trackpad etc*/
             //case NSEventPhase(rawValue:0):onInDirectScrollWheelChange(event);/**//*onScrollWheelChange(event)*/_ = "";/*this is the same as momentum aka inDirect scroll, Toggeling this on and off can break things*/
             /*case NSEventPhase.stationary: 2*/
             default:break;
@@ -51,6 +52,7 @@ extension Scrollable3{
     func onScrollWheelEnter(){Swift.print("Scrollable3.onScrollWheelEnter()")}
     func onScrollWheelExit(){Swift.print("Scrollable3.onScrollWheelExit()")}
     func onScrollWheelMomentumEnded(){Swift.print("Scrollable3.onScrollWheelMomentumEnded")}
+    func onScrollWheelCancelled(){}
 }
 extension ContainerView3 {//private maybe?
     /**
