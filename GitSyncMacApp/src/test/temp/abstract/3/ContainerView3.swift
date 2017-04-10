@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Utils
 @testable import Element
 
@@ -19,3 +19,4 @@ class ContainerView3:Element,Containable3 {
     }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
+
