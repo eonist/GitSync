@@ -47,6 +47,10 @@ extension ContainerView3 {//private maybe?
        // Swift.print("ContainerView3.scrollWheel")
         if(self is ElasticSlidableScrollable3){
             (self as! ElasticSlidableScrollable3).scroll(event)
+        }else if(self is Slidable3){
+            if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
+                (self as! Slidable3).showSlider()
+            }
         }else if(self is Scrollable3){
             (self as! Scrollable3).scroll(event)
         }
