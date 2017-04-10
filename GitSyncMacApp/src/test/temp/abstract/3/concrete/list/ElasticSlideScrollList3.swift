@@ -12,11 +12,13 @@ class ElasticSlideScrollList3:SlideList3,ElasticSlidableScrollable3 {
     }
     override func onEvent(_ event:Event) {
         Swift.print("ElasticSlideScrollList3.onEvent: " + "\(event.type)")
-        if(event === (AnimEvent.stopped, moverGroup!.yMover)){
+        if(event.type == AnimEvent.stopped){
             Swift.print("moverGroup!.isDirectlyManipulating: " + "\(moverGroup!.isDirectlyManipulating)")
             if(!moverGroup!.isDirectlyManipulating){
-                //Swift.print("bounce back anim stopp")
-                hideSlider()/*hides the slider when bounce back anim stopps*/
+                
+                let dir:Dir = event.origin === moverGroup!.yMover ? .ver : .hor
+                Swift.print("bounce back anim stopp dir: \(dir)")
+                hideSlider(dir)/*hides the slider when bounce back anim stopps*/
             }
         }
         super.onEvent(event)
