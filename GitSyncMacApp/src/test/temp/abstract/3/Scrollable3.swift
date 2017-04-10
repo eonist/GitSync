@@ -28,7 +28,10 @@ extension Scrollable3{
             /*case NSEventPhase.stationary: 2*/
             default:break;
         }
-        
+        switch event.momentumPhase{
+            case NSEventPhase.changed:_ = "";
+            case NSEventPhase.changed:_ = "";
+        }
         
         //super.scrollWheel(with:event)
     }
