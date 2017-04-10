@@ -45,7 +45,9 @@ extension ContainerView3 {//private maybe?
      */
     override open func scrollWheel(with event: NSEvent) {
         Swift.print("ContainerView3.scrollWheel")
-        if(self is Scrollable3){
+        if(self is ElasticSlidableScrollable3){
+            (self as! ElasticSlidableScrollable3).scroll(event)
+        }else if(self is Scrollable3){
             (self as! Scrollable3).scroll(event)
         }
         super.scrollWheel(with: event)
