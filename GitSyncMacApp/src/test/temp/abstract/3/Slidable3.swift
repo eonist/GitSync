@@ -17,7 +17,9 @@ protocol Slidable3:Progressable3 {
 extension Slidable3 {
     /*NOTE: If you need only one slider, then override both hor and ver with this slider*/
     func slider(_ dir:Dir) -> Slider { return dir == .ver ? verSlider! : horSlider!}/*Convenience*/
-    /**/
+    /**
+     * (0-1)
+     */
     func setProgress(_ point:CGPoint){
         Swift.print("Slidable3.setProgress: " + "\(point)")
         slider(.hor).setProgressValue(point.x)
