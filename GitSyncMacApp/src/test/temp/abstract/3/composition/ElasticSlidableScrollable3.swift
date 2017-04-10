@@ -12,7 +12,7 @@ extension ElasticSlidableScrollable3{
      * PARAM: value represents real contentContainer x/y value, not 0-1 val
      */
     func setProgress(_ value:CGFloat, _ dir:Dir) {
-        Swift.print("👻🏂📜ElasticSlidableScrollable3.setProgress() dir: \(dir) value: \(value)")
+        //Swift.print("👻🏂📜ElasticSlidableScrollable3.setProgress() dir: \(dir) value: \(value)")
         //(self as Elastic3).setProgress(value,dir)
         let sliderProgress = ElasticUtils.progress(value,contentSize[dir],maskSize[dir])
         //Swift.print("sliderProgress: " + "\(sliderProgress)")
@@ -21,7 +21,7 @@ extension ElasticSlidableScrollable3{
         contentContainer!.point[dir] = value
     }
     func scroll(_ event: NSEvent) {
-        Swift.print("👻🏂📜 ElasticSlidableScrollable3.scroll()")
+        //Swift.print("👻🏂📜 ElasticSlidableScrollable3.scroll()")
         (self as Scrollable3).scroll(event)
         if(event.phase == NSEventPhase.changed){
             if(moverGroup!.isDirectlyManipulating){
@@ -34,14 +34,13 @@ extension ElasticSlidableScrollable3{
                 //slider(.ver).setProgressValue(sliderProgress)//temp fix
             }
         }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
-            
             showSlider(.ver)
             showSlider(.hor)
         }
     }
     func onInDirectScrollWheelChange(_ event: NSEvent) {}//override to cancel out the event
     func scrollWheelExitedAndIsStationary() {
-        Swift.print("⚠️️⚠️️⚠️️ ElasticSlidableScrollable3.scrollWheelExitedAndIsStationary()")
+        //Swift.print("⚠️️⚠️️⚠️️ ElasticSlidableScrollable3.scrollWheelExitedAndIsStationary()")
         hideSlider(.ver)
         hideSlider(.hor)
     }
