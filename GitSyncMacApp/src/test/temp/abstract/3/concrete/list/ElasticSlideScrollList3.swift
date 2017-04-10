@@ -13,9 +13,9 @@ class ElasticSlideScrollList3:SlideList3,ElasticSlidableScrollable3 {
     override func onEvent(_ event:Event) {
         Swift.print("ElasticSlideScrollList3.onEvent: " + "\(event.type)")
         if(event === (AnimEvent.stopped, moverGroup!.yMover)){
-            
+            Swift.print("moverGroup!.isDirectlyManipulating: " + "\(moverGroup!.isDirectlyManipulating)")
             if(!moverGroup!.isDirectlyManipulating){
-                Swift.print("bounce back anim stopp")
+                //Swift.print("bounce back anim stopp")
                 //hideSlider()/*hides the slider when bounce back anim stopps*/
             }
             
