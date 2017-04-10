@@ -14,6 +14,7 @@ extension Scrollable3{
      */
     func scroll(_ event:NSEvent){
         Swift.print("event.momentumPhase: " + "\(event.momentumPhase)")
+        Swift.print("event.phase: " + "\(event.phase)")
         //Swift.print("Scrollable3.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
         switch event.phase{
             case NSEventPhase.changed:onScrollWheelChange(event)/*Fires everytime there is direct scrollWheel gesture movment and momentum, the momentum fades.*/
@@ -21,10 +22,12 @@ extension Scrollable3{
             case NSEventPhase.began:onScrollWheelEnter()/*The mayBegin phase doesn't fire if you begin the scrollWheel gesture very quickly*/
             case NSEventPhase.ended:
                 onScrollWheelExit()//Swift.print("ended")/*if you release your touch-gesture and the momentum of the gesture has stopped.*/
+                Swift.print("event.momentumPhase: " + "\(event.momentumPhase)")
             /*Swift.print("1. event.scrollingDelta: " + "\(event.scrollingDelta)")
              Swift.print("event.delta: " + "\(event.delta)")*/
             case NSEventPhase.cancelled:
                 onScrollWheelExit()//Swift.print("cancelled")/*this trigers if the scrollWhell gestures goes off the trackpad etc*/
+            
             /*Swift.print("2. event.scrollingDelta: " + "\(event.scrollingDelta)")
              Swift.print("event.delta: " + "\(event.delta)")*/
             case NSEventPhase(rawValue:0):onInDirectScrollWheelChange(event);/**//*onScrollWheelChange(event)*/_ = "";/*this is the same as momentum aka inDirect scroll, Toggeling this on and off can break things*/
