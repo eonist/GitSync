@@ -10,7 +10,6 @@ import Cocoa
     //improve code quality
     //move interim and movergroup into Elastisity class? that has both?
 
-
     //FastList (progressable)
     //ScrolFastlList
     //SlideFastList
@@ -23,7 +22,7 @@ import Cocoa
 
     //convert Element to use v3 of scroll protocols ⏳⏳⏳
     //move Gradient etc to dedicated repos, move graph to dedicated proj, colorPanel etc ⏳⏳
-    //make awesome Element where you have gradient, colorpanel, graph etc
+    //make Awesome-Element where you have gradient, colorpanel, graph etc
 
 
 class TestView:TitleView{
