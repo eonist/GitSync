@@ -2,14 +2,16 @@ import Cocoa
 @testable import Element
 @testable import Utils
 
-protocol SlidableScrollable3:Slidable3,Scrollable3 {}
+protocol SlidableScrollable3:Slidable3,Scrollable3 {
+    func scrollWheelExitedAndIsStationary()
+}
 extension SlidableScrollable3 {
     /**
      * TODO: you could also override scroll and hock after the forward scroll call and then retrive the progress from the var. less code, but the value must be written in Displaceview, it could mess up Elastic, because it needs different progress. etc, do later
      */
     func onScrollWheelChange(_ event:NSEvent) {
         Swift.print("🏂📜 SlidableScrollable3.onScrollWheelChange: \(event.type)")
-        Swift.print("event.scrollingDelta: " + "\(event.scrollingDelta)")
+        //Swift.print("event.scrollingDelta: " + "\(event.scrollingDelta)")
         //Swift.print("interval(.hor): " + "\(interval(.hor))")
         /*Swift.print("slider(.hor).progress: " + "\(slider(.hor).progress)")*/
         let horProg:CGFloat = SliderListUtils.progress(event.delta[.hor], interval(.hor), slider(.hor).progress)//TODO: ⚠️️ merge these 2 lines into one and make a method in SliderListUtils that returns point

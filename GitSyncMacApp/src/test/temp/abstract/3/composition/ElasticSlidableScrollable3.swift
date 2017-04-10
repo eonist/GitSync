@@ -40,7 +40,7 @@ extension ElasticSlidableScrollable3{
     }
     func onInDirectScrollWheelChange(_ event: NSEvent) {}//override to cancel out the event
     func scrollWheelExitedAndIsStationary() {
-        //Swift.print("⚠️️⚠️️⚠️️ ElasticSlidableScrollable3.scrollWheelExitedAndIsStationary()")
+        Swift.print("⚠️️⚠️️⚠️️ ElasticSlidableScrollable3.scrollWheelExitedAndIsStationary()")
         hideSlider(.ver)
         hideSlider(.hor)
     }
