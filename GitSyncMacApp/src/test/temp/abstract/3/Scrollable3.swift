@@ -18,6 +18,9 @@ extension Scrollable3{
         //Swift.print("event.momentumPhase: " + "\(event.momentumPhase)")
         //Swift.print("event.phase: " + "\(event.phase)")
         
+        //continue here: 🏀
+            //problem is onExit when stationarry, 
+                //maybe the momentumPhase and phase can be used together to detect 👉 the difference in momentum-exit and non-momentum-exit 👈
         
         //Swift.print("Scrollable3.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
         switch event.phase{
