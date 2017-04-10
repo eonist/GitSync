@@ -7,6 +7,7 @@ protocol Scrollable3:Progressable3 {
     func onScrollWheelEnter()
     func onScrollWheelExit()
     func onInDirectScrollWheelChange(_ event:NSEvent)
+    func onScrollWheelMomentumEnded()
 }
 extension Scrollable3{
     /**
@@ -29,8 +30,9 @@ extension Scrollable3{
             default:break;
         }
         switch event.momentumPhase{
-            case NSEventPhase.changed:_ = "";
-            case NSEventPhase.ended:_ = "";
+            case NSEventPhase.changed:onInDirectScrollWheelChange(event);
+            case NSEventPhase.ended:onScrollWheelMomentumEnded();
+            default:break;
         }
         
         //super.scrollWheel(with:event)
@@ -45,10 +47,10 @@ extension Scrollable3{
     }/*Direct scroll, not momentum*/
     func onInDirectScrollWheelChange(_ event:NSEvent){
         onScrollWheelChange(event)
-        
     }
     func onScrollWheelEnter(){Swift.print("Scrollable3.onScrollWheelEnter()")}
     func onScrollWheelExit(){Swift.print("Scrollable3.onScrollWheelExit()")}
+    func onScrollWheelMomentumEnded(){Swift.print("Scrollable3.onScrollWheelMomentumEnded")}
 }
 extension ContainerView3 {//private maybe?
     /**

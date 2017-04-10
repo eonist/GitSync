@@ -3,7 +3,7 @@ import Cocoa
 @testable import Utils
 
 protocol SlidableScrollable3:Slidable3,Scrollable3 {
-    func onScrollWheelMomentumEnded(_ dir:Dir)
+    
 }
 extension SlidableScrollable3 {
     /**
