@@ -20,8 +20,9 @@ extension ElasticSlidableScrollable3{
         slider(dir).setProgressValue(sliderProgress)//temp fix
         (self as Progressable3).setProgress(sliderProgress,dir)//temp fix
     }
-    func onScrollWheelChange(_ event: NSEvent) {
-        Swift.print("ElasticSlidableScrollable3.onScrollWheelChange()")
+    func scroll(_ event: NSEvent) {
+        Swift.print("ElasticSlidableScrollable3.scroll()")
+        (self as Scrollable3).scroll(event)
     }
     func onInDirectScrollWheelChange(_ event: NSEvent) {}//override to cancel out the event
     func scrollWheelExitedAndIsStationary() {
