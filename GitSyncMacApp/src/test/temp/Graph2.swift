@@ -5,9 +5,6 @@ import Cocoa
 
 class Graph2:/*SlideScrollView3*/ ElasticSlideScrollView3 /*,ElasticView3*/{
     override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
-    //override var itemsHeight: CGFloat {return height}
-    //override var itemHeight: CGFloat {return 24}
-
     override func resolveSkin() {
         StyleManager.addStyle("Graph2 {fill:green;fill-alpha:0;}")
         super.resolveSkin()
