@@ -50,7 +50,9 @@ extension ElasticScrollable3{
         moverGroup!.isDirectlyManipulating = false
         moverGroup!.value = moverGroup!.result/*Copy this back in again, as we used relative friction when above or bellow constraints*/
         
-        //Swift.print("prevScrollingDeltaY: " + "\(iterimScrollY.prevScrollingDelta)")
+        Swift.print("iterimScrollGroup!.iterimScrollX.prevScrollingDelta: " + "\(iterimScrollGroup!.iterimScrollX.prevScrollingDelta)")
+        Swift.print("iterimScrollGroup!.iterimScrollX.prevScrollingDelta: " + "\(iterimScrollGroup!.iterimScrollX.prevScrollingDelta)")
+        
         let caseA = iterimScrollGroup!.iterimScrollX.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollX.prevScrollingDelta != -1.0
         Swift.print("caseA: " + "\(caseA)")
         let caseB = iterimScrollGroup!.iterimScrollY.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollY.prevScrollingDelta != -1.0/*Not 1 and not -1 indicates that the wheel is not stationary*/
