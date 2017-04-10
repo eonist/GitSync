@@ -11,11 +11,11 @@ extension Elastic3{
      * PARAM: value: contentContainer x/y value
      */
     func setProgress(_ value:CGFloat,_ dir:Dir){
-        Swift.print("Elastic3.setProgress(value)")
+        //Swift.print("Elastic3.setProgress(value)")
         contentContainer!.point[dir] = value
     }
     func setProgress(_ point:CGPoint){
-        Swift.print("Elastic3.setProgress(p)")
+        //Swift.print("Elastic3.setProgress(p)")
         contentContainer!.point = point
     }
 }
