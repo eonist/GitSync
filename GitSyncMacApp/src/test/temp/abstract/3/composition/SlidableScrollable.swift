@@ -10,7 +10,7 @@ extension SlidableScrollable3 {
      * TODO: you could also override scroll and hock after the forward scroll call and then retrive the progress from the var. less code, but the value must be written in Displaceview, it could mess up Elastic, because it needs different progress. etc, do later
      */
     func onScrollWheelChange(_ event:NSEvent) {
-        Swift.print("🏂📜 SlidableScrollable3.onScrollWheelChange: \(event.type)")
+        //Swift.print("🏂📜 SlidableScrollable3.onScrollWheelChange: \(event.type)")
         //Swift.print("event.scrollingDelta: " + "\(event.scrollingDelta)")
         //Swift.print("interval(.hor): " + "\(interval(.hor))")
         /*Swift.print("slider(.hor).progress: " + "\(slider(.hor).progress)")*/
