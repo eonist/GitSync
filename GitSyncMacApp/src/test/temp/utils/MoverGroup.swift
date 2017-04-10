@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 @testable import Element
 
-class MoverGroup{
+class MoverGroup{//rename to ElasticMoverGroup
     var xMover:RubberBand
     var yMover:RubberBand
     //TODO: ⚠️️ write a typeAlias for the callback method bellow
