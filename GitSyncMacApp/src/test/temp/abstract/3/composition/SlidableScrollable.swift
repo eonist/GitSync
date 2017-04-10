@@ -3,7 +3,7 @@ import Cocoa
 @testable import Utils
 
 protocol SlidableScrollable3:Slidable3,Scrollable3 {
-    func scrollWheelExitedAndIsStationary()
+    func onScrollWheelMomentumEnded(_ dir:Dir)
 }
 extension SlidableScrollable3 {
     /**
@@ -23,12 +23,18 @@ extension SlidableScrollable3 {
     }
     func onInDirectScrollWheelChange(_ event: NSEvent) {//enables momentum
         onScrollWheelChange(event)
+        if(event.scrollingDeltaX == 0){
+            onScrollWheelMomentumEnded
+        }
     }
     func onScrollWheelEnter() {//IMPORTANT: methods that are called from deep can only override upstream
         showSlider()
     }
     func onScrollWheelExit() {//IMPORTANT: methods that are called from deep can only override upstream
         hideSlider()//this should only be called when scrollwheel becomes stationary. find the code that does this.
+    }
+    func onScrollWheelMomentumEnded(_ dir:Dir)  {
+        
     }
 }
 
