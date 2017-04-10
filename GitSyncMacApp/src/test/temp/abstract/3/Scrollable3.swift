@@ -15,8 +15,8 @@ extension Scrollable3{
      * NOTE: if the prev Change event only had -1 or 1 or 0. Then you released with no momentum and so no anim should be initiated
      */
     func scroll(_ event:NSEvent){
-        Swift.print("event.momentumPhase: " + "\(event.momentumPhase)")
-        Swift.print("event.phase: " + "\(event.phase)")
+        //Swift.print("event.momentumPhase: " + "\(event.momentumPhase)")
+        //Swift.print("event.phase: " + "\(event.phase)")
         
         
         //Swift.print("Scrollable3.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
