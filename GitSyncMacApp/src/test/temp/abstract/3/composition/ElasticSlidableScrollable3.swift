@@ -26,9 +26,11 @@ extension ElasticSlidableScrollable3{
             if(moverGroup!.isDirectlyManipulating){
                 //also manipulates slider, but only on directTransmission, as mover calls setProgress from shallow in indirectTransmission
                 //setProgress(moverGroup!.result.y,.ver)//👈NEW, this migth need to be inSide scrollWheel call, as it needs to be shallow to reach inside setProgress in ElasticFastList.setProgress, but maybe not, To be continued
-                let sliderProgress = ElasticUtils.progress(moverGroup!.result.y,contentSize[.ver],maskSize[.ver])
+                //let sliderProgress:CGFloat = ElasticUtils.progress(moverGroup!.result.y,contentSize[.ver],maskSize[.ver])
+                let sliderProgress:CGPoint = ElasticUtils.progress(moverGroup!.result,contentSize,maskSize)
                 //Swift.print("sliderProgress: " + "\(sliderProgress)")
-                slider(.ver).setProgressValue(sliderProgress)//temp fix
+                (self as Slidable3).setProgress(sliderProgress)
+                //slider(.ver).setProgressValue(sliderProgress)//temp fix
             }
         }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
             showSlider()
