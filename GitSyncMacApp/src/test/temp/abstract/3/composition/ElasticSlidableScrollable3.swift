@@ -20,7 +20,7 @@ extension ElasticSlidableScrollable3{
         (self as Progressable3).setProgress(sliderProgress,dir)//temp fix
     }
     func scroll(_ event: NSEvent) {
-        Swift.print("ElasticSlidableScrollable3.scroll()")
+        Swift.print("👻🏂📜 ElasticSlidableScrollable3.scroll()")
         (self as Scrollable3).scroll(event)
         if(event.phase == NSEventPhase.changed){
             if(moverGroup!.isDirectlyManipulating){

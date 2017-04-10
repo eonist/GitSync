@@ -21,7 +21,7 @@ extension Slidable3 {
      * (0-1)
      */
     func setProgress(_ point:CGPoint){
-        Swift.print("Slidable3.setProgress: " + "\(point)")
+        Swift.print("🏂 Slidable3.setProgress: " + "\(point)")
         slider(.hor).setProgressValue(point.x)
         slider(.ver).setProgressValue(point.y)
     }
