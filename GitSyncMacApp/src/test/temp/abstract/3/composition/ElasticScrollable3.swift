@@ -18,7 +18,7 @@ extension ElasticScrollable3{
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
      */
     func onScrollWheelChange(_ event:NSEvent){
-        //Swift.print("👻📜 (ElasticScrollable).onScrollWheelChange : \(event.type)")
+        Swift.print("👻📜 (ElasticScrollable3).onScrollWheelChange : \(event.type)")
         iterimScrollGroup!.setPrevDelta(event)
         iterimScrollGroup!.shiftAppend(event)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
         moverGroup!.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
