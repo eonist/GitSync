@@ -98,9 +98,14 @@ class TestView:TitleView{
     private class SlideScrollView3Test:SlideScrollView3 /*ElasticSlideScrollView3 ,ElasticView3*/{
         override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
         override func resolveSkin() {
-            StyleManager.addStyle("SlideScrollView3Test {fill:green;fill-alpha:0.5;}")
+            StyleManager.addStyle("SlideScrollView3Test{fill:green;fill-alpha:0.5;}")
             super.resolveSkin()
             createEllipse()
+            Swift.print("getClassType(): " + "\(getClassType())")
+        }
+        override func getClassType() -> String {
+            
+            return "\(type(of: self))"
         }
     }
     func createVerSlider(){
