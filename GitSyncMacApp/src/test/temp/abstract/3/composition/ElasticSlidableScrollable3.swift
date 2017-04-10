@@ -4,10 +4,10 @@ import Cocoa
 
 protocol ElasticSlidableScrollable3:Slidable3,ElasticScrollable3{}
 extension ElasticSlidableScrollable3{
-    func setProgress(_ point: CGPoint) {
-        Swift.print("ElasticSlidableScrollable3.setProgress(p)")
-        
-    }
+    /*func setProgress(_ point: CGPoint) {
+     Swift.print("ElasticSlidableScrollable3.setProgress(p)")
+     
+     }*/
     /**
      * PARAM: value represents real contentContainer x/y value, not 0-1 val
      */
@@ -16,7 +16,6 @@ extension ElasticSlidableScrollable3{
         //(self as Elastic3).setProgress(value,dir)
         let sliderProgress = ElasticUtils.progress(value,contentSize[dir],maskSize[dir])
         //Swift.print("sliderProgress: " + "\(sliderProgress)")
-        
         slider(dir).setProgressValue(sliderProgress)//temp fix
         (self as Progressable3).setProgress(sliderProgress,dir)//temp fix
     }
@@ -26,7 +25,10 @@ extension ElasticSlidableScrollable3{
         if(event.phase == NSEventPhase.changed){
             if(moverGroup!.isDirectlyManipulating){
                 //also manipulates slider, but only on directTransmission, as mover calls setProgress from shallow in indirectTransmission
-                setProgress(moverGroup!.result)//👈NEW, this migth need to be inSide scrollWheel call, as it needs to be shallow to reach inside setProgress in ElasticFastList.setProgress, but maybe not, To be continued
+                //setProgress(moverGroup!.result.y,.ver)//👈NEW, this migth need to be inSide scrollWheel call, as it needs to be shallow to reach inside setProgress in ElasticFastList.setProgress, but maybe not, To be continued
+                let sliderProgress = ElasticUtils.progress(moverGroup!.result.y,contentSize[.ver],maskSize[.ver])
+                //Swift.print("sliderProgress: " + "\(sliderProgress)")
+                slider(.ver).setProgressValue(sliderProgress)//temp fix
             }
         }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
             showSlider()
