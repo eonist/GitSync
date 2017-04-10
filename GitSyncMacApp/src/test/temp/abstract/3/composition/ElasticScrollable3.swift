@@ -53,9 +53,11 @@ extension ElasticScrollable3{
         Swift.print("iterimScrollGroup!.iterimScrollX.prevScrollingDelta: " + "\(iterimScrollGroup!.iterimScrollX.prevScrollingDelta)")
         Swift.print("iterimScrollGroup!.iterimScrollX.prevScrollingDelta: " + "\(iterimScrollGroup!.iterimScrollX.prevScrollingDelta)")
         
-        /*hor*/let caseA = iterimScrollGroup!.iterimScrollX.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollX.prevScrollingDelta != -1.0
+        /*hor*/
+        let caseA = iterimScrollGroup!.iterimScrollX.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollX.prevScrollingDelta != -1.0
         Swift.print("caseA: " + "\(caseA)")
-        /*ver*/let caseB = iterimScrollGroup!.iterimScrollY.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollY.prevScrollingDelta != -1.0/*Not 1 and not -1 indicates that the wheel is not stationary*/
+        /*ver*/
+        let caseB = iterimScrollGroup!.iterimScrollY.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollY.prevScrollingDelta != -1.0/*Not 1 and not -1 indicates that the wheel is not stationary*/
         Swift.print("caseB: " + "\(caseB)")
         var velocity:CGPoint = CGPoint(0,0)
         if(caseA){
