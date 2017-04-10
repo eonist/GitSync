@@ -23,12 +23,6 @@ extension SlidableScrollable3 {
     }
     func onInDirectScrollWheelChange(_ event: NSEvent) {//enables momentum
         onScrollWheelChange(event)
-        if(event.scrollingDeltaX == 0){
-            onScrollWheelMomentumEnded(.hor)
-        }
-        if(event.scrollingDeltaY == 0){
-            onScrollWheelMomentumEnded(.ver)
-        }
     }
     func onScrollWheelEnter() {
         showSlider()
