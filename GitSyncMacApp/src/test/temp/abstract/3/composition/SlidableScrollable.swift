@@ -11,7 +11,7 @@ extension SlidableScrollable3 {
      */
     func onScrollWheelChange(_ event:NSEvent) {
         //Swift.print("🏂📜 SlidableScrollable3.onScrollWheelChange: \(event.type)")
-        Swift.print("event.scrollingDelta: " + "\(event.scrollingDelta)")
+        //Swift.print("event.scrollingDelta: " + "\(event.scrollingDelta)")
         //Swift.print("interval(.hor): " + "\(interval(.hor))")
         /*Swift.print("slider(.hor).progress: " + "\(slider(.hor).progress)")*/
         let horProg:CGFloat = SliderListUtils.progress(event.delta[.hor], interval(.hor), slider(.hor).progress)//TODO: ⚠️️ merge these 2 lines into one and make a method in SliderListUtils that returns point
@@ -43,7 +43,8 @@ extension SlidableScrollable3 {
      * Called only be called when scrollwheel becomes stationary. find the code that does this.
      */
     func onScrollWheelMomentumEnded(_ dir:Dir)  {
-        hideSlider()
+        //Swift.print("onScrollWheelMomentumEnded")
+        //hideSlider()
     }
 }
 /*let caseA = iterimScrollGroup!.iterimScrollX.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollX.prevScrollingDelta != -1.0
