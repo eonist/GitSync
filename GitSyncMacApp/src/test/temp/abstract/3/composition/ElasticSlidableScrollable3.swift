@@ -33,13 +33,16 @@ extension ElasticSlidableScrollable3{
                 //slider(.ver).setProgressValue(sliderProgress)//temp fix
             }
         }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
-            showSlider()
+            
+            showSlider(.ver)
+            showSlider(.hor)
         }
     }
     func onInDirectScrollWheelChange(_ event: NSEvent) {}//override to cancel out the event
     func scrollWheelExitedAndIsStationary() {
-        Swift.print("ElasticSlidableScrollable3.scrollWheelExitedAndIsStationary()")
-        hideSlider()
+        Swift.print("⚠️️⚠️️⚠️️ ElasticSlidableScrollable3.scrollWheelExitedAndIsStationary()")
+        hideSlider(.ver)
+        hideSlider(.hor)
     }
 }
 

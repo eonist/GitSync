@@ -42,13 +42,13 @@ extension Slidable3 {
         */
     }
     func hideSlider(_ dir:Dir = .ver){
-        Swift.print("🏂 hide slider")
+        Swift.print("🏂 hide slider dir: \(dir)")
         //self.slider!.thumb!.setSkinState("inActive")
         if(slider(dir).thumb!.getSkinState() == SkinStates.none){slider(dir).thumb!.fadeOut()}/*only fade out if the state is none, aka not over*/
         //slider?.thumb?.fadeOut()
     }
     func showSlider(_ dir:Dir = .ver){
-        Swift.print("🏂 show slider")
+        Swift.print("🏂 show slider dir: \(dir)")
         slider(dir).thumb!.setSkinState(SkinStates.none)
         //slider!.thumb!.fadeIn()
     }
