@@ -41,11 +41,11 @@ extension Slidable3 {
         slider!.setProgressValue(progress)
         */
     }
-    func hideSliders(){
+    func hideSlider(){//convenience
         hideSlider(.ver)
         hideSlider(.hor)
     }
-    func showSliders(){
+    func showSlider(){//convenience
         showSlider(.ver)
         showSlider(.hor)
     }
