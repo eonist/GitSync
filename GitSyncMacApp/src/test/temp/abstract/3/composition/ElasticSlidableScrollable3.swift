@@ -9,7 +9,6 @@ extension ElasticSlidableScrollable3{
      */
     func setProgress(_ value:CGFloat, _ dir:Dir) {
         Swift.print("ElasticSlidableScrollable3.setProgress()")
-        /**/
         //(self as Elastic3).setProgress(value,dir)
         let sliderProgress = ElasticUtils.progress(value,contentSize[dir],maskSize[dir])
         //Swift.print("sliderProgress: " + "\(sliderProgress)")

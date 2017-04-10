@@ -36,8 +36,8 @@ extension Scrollable3{
     func onInDirectScrollWheelChange(_ event:NSEvent){
         onScrollWheelChange(event)
     }
-    func onScrollWheelEnter(){}
-    func onScrollWheelExit(){}
+    func onScrollWheelEnter(){Swift.print("Scrollable3.onScrollWheelEnter()")}
+    func onScrollWheelExit(){Swift.print("Scrollable3.onScrollWheelExit()")}
 }
 extension ContainerView3 {//private maybe?
     /**
