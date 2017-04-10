@@ -44,7 +44,7 @@ extension ContainerView3 {//private maybe?
      * TODO: Try to override with generics ContainerView<VerticalScrollable>  etc
      */
     override open func scrollWheel(with event: NSEvent) {
-        //Swift.print("scroll")
+        Swift.print("ContainerView3.scrollWheel")
         if(self is Scrollable3){
             (self as! Scrollable3).scroll(event)
         }
