@@ -24,24 +24,26 @@ extension SlidableScrollable3 {
     func onInDirectScrollWheelChange(_ event: NSEvent) {//enables momentum
         onScrollWheelChange(event)
         if(event.scrollingDeltaX == 0){
-            onScrollWheelMomentumEnded
+            onScrollWheelMomentumEnded(.hor)
+        }
+        if(event.scrollingDeltaY == 0){
+            onScrollWheelMomentumEnded(.ver)
         }
     }
-    func onScrollWheelEnter() {//IMPORTANT: methods that are called from deep can only override upstream
+    func onScrollWheelEnter() {
         showSlider()
     }
-    func onScrollWheelExit() {//IMPORTANT: methods that are called from deep can only override upstream
-        hideSlider()//this should only be called when scrollwheel becomes stationary. find the code that does this.
+    func onScrollWheelExit() {
+        hideSlider()
     }
+    /**
+     * Called only be called when scrollwheel becomes stationary. find the code that does this.
+     */
     func onScrollWheelMomentumEnded(_ dir:Dir)  {
-        
+        hideSlider()
     }
 }
 
-
-/**
- *
- */
 /*func progress(_ dir:Dir)->CGFloat{
  return SliderListUtils.progress(event.delta[dir], interval(dir), slider(dir).progress)
  }*/
