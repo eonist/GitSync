@@ -35,6 +35,8 @@ extension SlidableScrollable3 {
     }
     func onScrollWheelExit() {
         hideSlider()
+        //continue here: 
+            //try to listen to delta from NSEvent.current, or else pass the event to the method
     }
     /**
      * Called only be called when scrollwheel becomes stationary. find the code that does this.
