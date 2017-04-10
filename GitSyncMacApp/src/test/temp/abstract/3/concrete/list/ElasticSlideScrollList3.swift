@@ -16,7 +16,7 @@ class ElasticSlideScrollList3:SlideList3,ElasticSlidableScrollable3 {
             Swift.print("moverGroup!.isDirectlyManipulating: " + "\(moverGroup!.isDirectlyManipulating)")
             if(!moverGroup!.isDirectlyManipulating){
                 //Swift.print("bounce back anim stopp")
-                //hideSlider()/*hides the slider when bounce back anim stopps*/
+                hideSlider()/*hides the slider when bounce back anim stopps*/
             }
         }
         super.onEvent(event)
