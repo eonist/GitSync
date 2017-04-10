@@ -15,6 +15,13 @@ extension Scrollable3{
     func scroll(_ event:NSEvent){
         Swift.print("event.momentumPhase: " + "\(event.momentumPhase)")
         Swift.print("event.phase: " + "\(event.phase)")
+        
+        Swift.print("NSEventPhase.changed.rawValue: " + "\(NSEventPhase.changed.rawValue)")
+        Swift.print("NSEventPhase.mayBegin.rawValue: " + "\(NSEventPhase.mayBegin.rawValue)")
+        Swift.print("NSEventPhase.began.rawValue: " + "\(NSEventPhase.began.rawValue)")
+        Swift.print("NSEventPhase.ended.rawValue: " + "\(NSEventPhase.ended.rawValue)")
+        Swift.print("NSEventPhase.cancelled.rawValue: " + "\(NSEventPhase.cancelled.rawValue)")
+        
         //Swift.print("Scrollable3.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
         switch event.phase{
             case NSEventPhase.changed:onScrollWheelChange(event)/*Fires everytime there is direct scrollWheel gesture movment and momentum, the momentum fades.*/
