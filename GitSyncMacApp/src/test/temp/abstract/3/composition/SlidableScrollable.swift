@@ -33,6 +33,9 @@ extension SlidableScrollable3 {
     func onScrollWheelEnter() {
         showSlider()
     }
+    func onScrollWheelCancelled() {
+        hideSlider()
+    }
     func onScrollWheelExit() {
         Swift.print("onScrollWheelExit()")
         //hideSlider()
