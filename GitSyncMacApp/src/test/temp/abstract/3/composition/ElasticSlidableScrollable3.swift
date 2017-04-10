@@ -6,7 +6,7 @@ protocol ElasticSlidableScrollable3:Slidable3,ElasticScrollable3{}
 extension ElasticSlidableScrollable3{
     func setProgress(_ point: CGPoint) {
         Swift.print("ElasticSlidableScrollable3.setProgress(p)")
-        fatalError("debug")
+        
     }
     /**
      * PARAM: value represents real contentContainer x/y value, not 0-1 val
@@ -19,6 +19,9 @@ extension ElasticSlidableScrollable3{
         
         slider(dir).setProgressValue(sliderProgress)//temp fix
         (self as Progressable3).setProgress(sliderProgress,dir)//temp fix
+    }
+    func onScrollWheelChange(_ event: NSEvent) {
+        Swift.print("ElasticSlidableScrollable3.onScrollWheelChange()")
     }
     func onInDirectScrollWheelChange(_ event: NSEvent) {}//override to cancel out the event
     func scrollWheelExitedAndIsStationary() {
