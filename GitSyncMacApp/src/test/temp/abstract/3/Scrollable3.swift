@@ -35,6 +35,7 @@ extension Scrollable3{
     }/*Direct scroll, not momentum*/
     func onInDirectScrollWheelChange(_ event:NSEvent){
         onScrollWheelChange(event)
+        
     }
     func onScrollWheelEnter(){Swift.print("Scrollable3.onScrollWheelEnter()")}
     func onScrollWheelExit(){Swift.print("Scrollable3.onScrollWheelExit()")}
