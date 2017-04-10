@@ -41,14 +41,21 @@ extension Slidable3 {
         slider!.setProgressValue(progress)
         */
     }
-    
-    func hideSlider(_ dir:Dir = .ver){
+    func hideSliders(){
+        hideSlider(.ver)
+        hideSlider(.hor)
+    }
+    func showSliders(){
+        showSlider(.ver)
+        showSlider(.hor)
+    }
+    func hideSlider(_ dir:Dir){
         Swift.print("🏂 hide slider dir: \(dir)")
         //self.slider!.thumb!.setSkinState("inActive")
         if(slider(dir).thumb!.getSkinState() == SkinStates.none){slider(dir).thumb!.fadeOut()}/*only fade out if the state is none, aka not over*/
         //slider?.thumb?.fadeOut()
     }
-    func showSlider(_ dir:Dir = .ver){
+    func showSlider(_ dir:Dir){
         Swift.print("🏂 show slider dir: \(dir)")
         slider(dir).thumb!.setSkinState(SkinStates.none)
         //slider!.thumb!.fadeIn()
