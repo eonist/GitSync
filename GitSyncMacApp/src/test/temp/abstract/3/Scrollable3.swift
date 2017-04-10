@@ -16,28 +16,16 @@ extension Scrollable3{
         Swift.print("event.momentumPhase: " + "\(event.momentumPhase)")
         Swift.print("event.phase: " + "\(event.phase)")
         
-        Swift.print("NSEventPhase.changed.rawValue: " + "\(NSEventPhase.changed.rawValue)")
-        Swift.print("NSEventPhase.mayBegin.rawValue: " + "\(NSEventPhase.mayBegin.rawValue)")
-        Swift.print("NSEventPhase.began.rawValue: " + "\(NSEventPhase.began.rawValue)")
-        Swift.print("NSEventPhase.ended.rawValue: " + "\(NSEventPhase.ended.rawValue)")
-        Swift.print("NSEventPhase.cancelled.rawValue: " + "\(NSEventPhase.cancelled.rawValue)")
         
         //Swift.print("Scrollable3.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
         switch event.phase{
-            case NSEventPhase.changed:onScrollWheelChange(event)/*Fires everytime there is direct scrollWheel gesture movment and momentum, the momentum fades.*/
-            case NSEventPhase.mayBegin:onScrollWheelEnter()/*Can be used to detect if two fingers are touching the trackpad*/
-            case NSEventPhase.began:onScrollWheelEnter()/*The mayBegin phase doesn't fire if you begin the scrollWheel gesture very quickly*/
-            case NSEventPhase.ended:
-                onScrollWheelExit()//Swift.print("ended")/*if you release your touch-gesture and the momentum of the gesture has stopped.*/
-                Swift.print("event.momentumPhase: " + "\(event.momentumPhase)")
-            /*Swift.print("1. event.scrollingDelta: " + "\(event.scrollingDelta)")
-             Swift.print("event.delta: " + "\(event.delta)")*/
-            case NSEventPhase.cancelled:
-                onScrollWheelExit()//Swift.print("cancelled")/*this trigers if the scrollWhell gestures goes off the trackpad etc*/
-            
-            /*Swift.print("2. event.scrollingDelta: " + "\(event.scrollingDelta)")
-             Swift.print("event.delta: " + "\(event.delta)")*/
+            case NSEventPhase.changed/*4*/:onScrollWheelChange(event)/*Fires everytime there is direct scrollWheel gesture movment and momentum, the momentum fades.*/
+            case NSEventPhase.mayBegin/*32*/:onScrollWheelEnter()/*Can be used to detect if two fingers are touching the trackpad*/
+            case NSEventPhase.began/*1*/:onScrollWheelEnter()/*The mayBegin phase doesn't fire if you begin the scrollWheel gesture very quickly*/
+            case NSEventPhase.ended/*8*/:onScrollWheelExit()//Swift.print("ended")/*if you release your touch-gesture and the momentum of the gesture has stopped.*/
+            case NSEventPhase.cancelled/*16*/:onScrollWheelExit()//Swift.print("cancelled")/*this trigers if the scrollWhell gestures goes off the trackpad etc*/
             case NSEventPhase(rawValue:0):onInDirectScrollWheelChange(event);/**//*onScrollWheelChange(event)*/_ = "";/*this is the same as momentum aka inDirect scroll, Toggeling this on and off can break things*/
+            /*case NSEventPhase.stationary: 2*/
             default:break;
         }
         //super.scrollWheel(with:event)
