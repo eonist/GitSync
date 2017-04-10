@@ -14,7 +14,7 @@ class Graph2:/*SlideScrollView3*/ ElasticSlideScrollView3 /*,ElasticView3*/{
         createEllipse()
     }
 }
-extension Containerview3{
+extension ContainerView3{
     
     func createEllipse(){
          /*Styles*/
