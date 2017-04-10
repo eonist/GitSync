@@ -4,11 +4,11 @@ import Cocoa
 @testable import GitSyncMac
 
 //Continue here:
-    //ElasticSlideScrollList3 try to get the sliders to work, see ElasticSlideView3 for example ✅
+    //try to fix the problem where the x snap to the side on release. Try ElasticView again maybe? ✅
 
-    //try to fix the problem where the x snap to the side on release. Try ElasticView again maybe?👈
     //try previouse lists and views to see if they still work 
     //improve code quality
+    //move interim and movergroup into Elastisity class? that has both?
 
 
     //FastList (progressable)
@@ -23,6 +23,7 @@ import Cocoa
 
     //convert Element to use v3 of scroll protocols ⏳⏳⏳
     //move Gradient etc to dedicated repos, move graph to dedicated proj, colorPanel etc ⏳⏳
+    //make awesome Element where you have gradient, colorpanel, graph etc
 
 
 class TestView:TitleView{
