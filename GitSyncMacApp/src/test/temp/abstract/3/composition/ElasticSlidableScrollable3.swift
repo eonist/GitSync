@@ -12,12 +12,12 @@ extension ElasticSlidableScrollable3{
      * PARAM: value represents real contentContainer x/y value, not 0-1 val
      */
     func setProgress(_ value:CGFloat, _ dir:Dir) {
-        Swift.print("ElasticSlidableScrollable3.setProgress() dir: \(dir)")
+        Swift.print("ElasticSlidableScrollable3.setProgress() dir: \(dir) value: \(value)")
         //(self as Elastic3).setProgress(value,dir)
         let sliderProgress = ElasticUtils.progress(value,contentSize[dir],maskSize[dir])
         //Swift.print("sliderProgress: " + "\(sliderProgress)")
         slider(dir).setProgressValue(sliderProgress)//temp fix
-        (self as Progressable3).setProgress(sliderProgress,dir)//temp fix
+        (self as Elastic3).setProgress(value,dir)//temp fix
     }
     func scroll(_ event: NSEvent) {
         Swift.print("👻🏂📜 ElasticSlidableScrollable3.scroll()")
