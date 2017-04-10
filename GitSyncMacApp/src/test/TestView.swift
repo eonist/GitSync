@@ -39,8 +39,9 @@ class TestView:TitleView{
         //createElasticScrollSlideList()
         //createElasticScrollList()
         //createSlideScrollList()
-        createScrollList()
+        //createScrollList()
         //createList()
+        createSlideScrollView()
         //createGraph7Test()
         //createGraph2()
         //createVerSlider()
@@ -86,6 +87,12 @@ class TestView:TitleView{
         let dp = DataProvider(FileParser.xml("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath))/*Loads xml from a xml file on the desktop*/
         let list = self.addSubView(List3(140, 144, CGSize(NaN,NaN), dp,.ver,self))
         _ = list
+    }
+    /**
+     *
+     */
+    func createSlideScrollView(){
+        
     }
     func createVerSlider(){
         let horSlider:Slider = self.addSubView(Slider(6,60,.ver,CGSize(6,30),0,self))
