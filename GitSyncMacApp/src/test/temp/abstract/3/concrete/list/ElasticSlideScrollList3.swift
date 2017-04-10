@@ -11,8 +11,8 @@ class ElasticSlideScrollList3:SlideList3,ElasticSlidableScrollable3 {
         moverGroup!.yMover.event = onEvent
     }
     override func onEvent(_ event:Event) {
-        Swift.print("ElasticSlideScrollList3.onEvent: " + "\(event.type)")
         if(event.type == AnimEvent.stopped){
+            Swift.print("ElasticSlideScrollList3.onEvent: " + "\(event.type)")
             Swift.print("moverGroup!.isDirectlyManipulating: " + "\(moverGroup!.isDirectlyManipulating)")
             if(!moverGroup!.isDirectlyManipulating){
                 
