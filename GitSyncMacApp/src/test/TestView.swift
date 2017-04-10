@@ -38,8 +38,8 @@ class TestView:TitleView{
     func createGUI(){
         //createElasticScrollSlideList()
         //createElasticScrollList()
-        createSlideScrollList()
-        //createScrollList()
+        //createSlideScrollList()
+        createScrollList()
         //createList()
         //createGraph7Test()
         //createGraph2()
