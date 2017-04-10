@@ -22,15 +22,5 @@ extension ElasticSlidableScrollable3{
         hideSlider()
     }
 }
-extension SlideView3{
-    override open func scrollWheel(with event: NSEvent) {
-        Swift.print("SlideView3.scrollWheel() \(event.type)")
-        super.scrollWheel(with: event)
-        if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
-            showSlider()
-        }
-        /*else if(event.phase == NSEventPhase.ended || event.phase == NSEventPhase.cancelled){
-         //hideSlider()
-         }*/
-    }
-}
+
+
