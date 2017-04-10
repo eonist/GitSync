@@ -18,7 +18,6 @@ class ElasticSlideScrollList3:SlideList3,ElasticSlidableScrollable3 {
                 //Swift.print("bounce back anim stopp")
                 //hideSlider()/*hides the slider when bounce back anim stopps*/
             }
-            
         }
         super.onEvent(event)
     }
