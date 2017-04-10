@@ -34,6 +34,7 @@ extension SlidableScrollable3 {
         showSlider()
     }
     func onScrollWheelExit() {
+        Swift.print("onScrollWheelExit()")
         hideSlider()
         //continue here: 
             //try to listen to delta from NSEvent.current, or else pass the event to the method
