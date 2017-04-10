@@ -4,9 +4,13 @@ import Cocoa
 @testable import GitSyncMac
 
 //Continue here:
-    //ElasticScrollList ✅
+    //ElasticSlideScrollList3 try to get the sliders to work, see ElasticSlideView3 for example ✅
 
-    //ElasticSlideScrollList3 try to get the sliders to work, see ElasticSlideView3 for example 👈
+    //try to fix the problem where the x snap to the side on release. Try ElasticView again maybe?👈
+    //try previouse lists and views to see if they still work 
+    //improve code quality
+
+
     //FastList (progressable)
     //ScrolFastlList
     //SlideFastList
