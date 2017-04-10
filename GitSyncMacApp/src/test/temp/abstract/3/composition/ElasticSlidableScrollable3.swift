@@ -22,7 +22,7 @@ extension ElasticSlidableScrollable3{
     }
     func scroll(_ event: NSEvent) {
         Swift.print("ElasticSlidableScrollable3.scroll()")
-        //(self as Scrollable3).scroll(event)
+        (self as Scrollable3).scroll(event)
     }
     func onInDirectScrollWheelChange(_ event: NSEvent) {}//override to cancel out the event
     func scrollWheelExitedAndIsStationary() {
