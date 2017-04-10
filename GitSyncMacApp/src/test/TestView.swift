@@ -92,7 +92,16 @@ class TestView:TitleView{
      *
      */
     func createSlideScrollView(){
-        
+        let test = self.addSubView(SlideScrollView3Test(width,height,nil))
+        _ = test
+    }
+    private class SlideScrollView3Test:SlideScrollView3 /*ElasticSlideScrollView3 ,ElasticView3*/{
+        override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
+        override func resolveSkin() {
+            StyleManager.addStyle("SlideScrollView3 {fill:green;fill-alpha:0;}")
+            super.resolveSkin()
+            createEllipse()
+        }
     }
     func createVerSlider(){
         let horSlider:Slider = self.addSubView(Slider(6,60,.ver,CGSize(6,30),0,self))
