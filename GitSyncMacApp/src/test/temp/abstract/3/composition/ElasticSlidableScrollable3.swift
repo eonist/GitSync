@@ -17,7 +17,8 @@ extension ElasticSlidableScrollable3{
         let sliderProgress = ElasticUtils.progress(value,contentSize[dir],maskSize[dir])
         //Swift.print("sliderProgress: " + "\(sliderProgress)")
         slider(dir).setProgressValue(sliderProgress)//temp fix
-        (self as Elastic3).setProgress(value,dir)//temp fix
+        //(self as Elastic3).setProgress(value,dir)//temp fix
+        contentContainer!.point[dir] = value
     }
     func scroll(_ event: NSEvent) {
         Swift.print("👻🏂📜 ElasticSlidableScrollable3.scroll()")
