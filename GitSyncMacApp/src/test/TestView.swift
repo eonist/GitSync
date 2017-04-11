@@ -36,13 +36,17 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
+        
+        _ = self.addSubView(ElasticScrollView3Test(width,height,nil))
+        _ = self.addSubView(SlideScrollView3Test(width,height,nil))
+        
         //createElasticScrollSlideList()
         //createElasticScrollList()
         //createSlideScrollList()
         //createScrollList()
         //createList()
-        createElasticScrollView()
-        //createSlideScrollView()
+        
+        
         //createGraph7Test()
         //createGraph2()
         //createVerSlider()
@@ -88,12 +92,6 @@ class TestView:TitleView{
         let dp = DataProvider(FileParser.xml("~/Desktop/ElCapitan/assets/xml/scrollist.xml".tildePath))/*Loads xml from a xml file on the desktop*/
         let list = self.addSubView(List3(140, 144, CGSize(NaN,NaN), dp,.ver,self))
         _ = list
-    }
-    func createElasticScrollView(){
-        _ = self.addSubView(ElasticScrollView3Test(width,height,nil))
-    }
-    func createSlideScrollView(){
-        _ = self.addSubView(SlideScrollView3Test(width,height,nil))
     }
     
     func createVerSlider(){
