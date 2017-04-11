@@ -34,11 +34,24 @@ extension ElasticSlidableScrollable3{
         }
     }
     func onInDirectScrollWheelChange(_ event: NSEvent) {}//override to cancel out the event
-    func scrollWheelExitedAndIsStationary() {
-        Swift.print("⚠️️⚠️️⚠️️ ElasticSlidableScrollable3.scrollWheelExitedAndIsStationary()")
+    func onScrollWheelEnter() {
+        showSlider()
+    }
+    func onScrollWheelCancelled() {
+        hideSlider()
+    }
+    func onScrollWheelExit() {
         hideSlider()
     }
 }
+
+/*
+ func scrollWheelExitedAndIsStationary() {
+ Swift.print("⚠️️⚠️️⚠️️ ElasticSlidableScrollable3.scrollWheelExitedAndIsStationary()")
+ fatalError("debug")
+ hideSlider()
+ }
+ */
 
 /*func setProgress(_ point: CGPoint) {
  Swift.print("ElasticSlidableScrollable3.setProgress(p)")
