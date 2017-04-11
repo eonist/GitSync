@@ -17,8 +17,9 @@ extension Scrollable3{
     func scroll(_ event:NSEvent){
         //Swift.print("event.momentumPhase: " + "\(event.momentumPhase)")
         //Swift.print("event.phase: " + "\(event.phase)")
-        if(){
-            
+        if(event.phase != NSEventPhase.changed || event.momentumPhase != NSEventPhase.changed){
+            Swift.print("event.momentumPhase: " + "\(event.momentumPhase)")
+            Swift.print("event.phase: " + "\(event.phase)")
         }
         //continue here: 🏀
             //problem is onExit when stationarry, but has moved
