@@ -51,12 +51,6 @@ extension ElasticScrollable3{
         
         let velocity:CGPoint = event.scrollingDelta
         Swift.print("velocity: " + "\(velocity)")
-        var velocity2:CGPoint = CGPoint(0,0)
-         let x:CGFloat = iterimScrollGroup!.iterimScrollX.velocities.filter{$0 != 0}.average
-         velocity2.x = x
-         let y:CGFloat = iterimScrollGroup!.iterimScrollY.velocities.filter{$0 != 0}.average
-         velocity2.y = y
-        Swift.print("velocity2: " + "\(velocity2)")
         
         
         moverGroup!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
@@ -90,3 +84,18 @@ if(caseB){
     Swift.print("iterimScrollY.velocities: " + "\(iterimScrollGroup!.iterimScrollY.velocities)")
 }
 */
+
+
+/*
+ 
+ //interim works if you do max and * 2 but use native code instead maybe?
+ 
+ var velocity2:CGPoint = CGPoint(0,0)
+ let x:CGFloat = iterimScrollGroup!.iterimScrollX.velocities.filter{$0 != 0}.average
+ velocity2.x = x
+ let y:CGFloat = iterimScrollGroup!.iterimScrollY.velocities.filter{$0 != 0}.average
+ velocity2.y = y
+ Swift.print("velocity2: " + "\(velocity2)")
+
+ 
+ */
