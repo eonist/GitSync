@@ -189,3 +189,11 @@ class ElasticScrollView3Test:ElasticScrollView3{
         createEllipse()
     }
 }
+class ElasticSlideScrollView3Test:ElasticSlideScrollView3{
+    override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
+    override func resolveSkin() {
+        StyleManager.addStyle("ElasticSlideScrollView3Test{fill:green;fill-alpha:0.0;}")
+        super.resolveSkin()
+        createEllipse()
+    }
+}
