@@ -16,25 +16,20 @@ extension ElasticSlidableScrollable3{
         //(self as Elastic3).setProgress(value,dir)//temp fix
         contentContainer!.point[dir] = value
     }
-    func scroll(_ event: NSEvent) {
+    func scroll(_ event:NSEvent) {
         //Swift.print("👻🏂📜 ElasticSlidableScrollable3.scroll()")
         (self as Scrollable3).scroll(event)
         if(event.phase == NSEventPhase.changed){
-            //also manipulates slider, but only on directTransmission, as mover calls setProgress from shallow in indirectTransmission
-            //setProgress(moverGroup!.result.y,.ver)//👈NEW, this migth need to be inSide scrollWheel call, as it needs to be shallow to reach inside setProgress in ElasticFastList.setProgress, but maybe not, To be continued
-            //let sliderProgress:CGFloat = ElasticUtils.progress(moverGroup!.result.y,contentSize[.ver],maskSize[.ver])
             let sliderProgress:CGPoint = ElasticUtils.progress(moverGroup!.result,contentSize,maskSize)
             (self as Slidable3).setProgress(sliderProgress)
         }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
             showSlider()
         }
-        
         if(event.momentumPhase == NSEventPhase.began){//simulates: onScrollWheelMomentumBegan()
             Swift.print("🍊 ElasticSlidableScrollable3.onScrollWheelMomentumBegan")
             showSlider()//cancels out the hide call when onScrollWheelExit is called when you release after pan gesture
         }
     }
-    func onInDirectScrollWheelChange(_ event: NSEvent) {}//override to cancel out the event
     func onScrollWheelEnter() {
         Swift.print("ElasticSlidableScrollable3.onScrollWheelEnter")
         showSlider()
@@ -47,6 +42,7 @@ extension ElasticSlidableScrollable3{
         Swift.print("ElasticSlidableScrollable3.onScrollWheelExit")
         hideSlider()
     }
+    func onInDirectScrollWheelChange(_ event: NSEvent) {}//override to cancel out the event
 }
 
 /*

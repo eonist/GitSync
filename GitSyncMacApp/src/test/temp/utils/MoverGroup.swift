@@ -58,8 +58,8 @@ extension MoverGroup{
         xMover.stop()
         yMover.stop()
     }
-    func updatePosition(){
-        xMover.updatePosition()
-        yMover.updatePosition()
+    func updatePosition(_ direct:Bool = false){
+        xMover.updatePosition(direct)
+        yMover.updatePosition(direct)
     }
 }
