@@ -11,7 +11,7 @@ extension ElasticScrollable3{
     /**
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
      */
-    func onScrollWheelChange(_ event:NSEvent){
+    func onScrollWheelChange(_ event:NSEvent){/*Direct scroll*/
         //Swift.print("👻📜 (ElasticScrollable3).onScrollWheelChange : \(event.type)")
         iterimScrollGroup!.setPrevDelta(event)
         iterimScrollGroup!.shiftAppend(event)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
@@ -39,24 +39,13 @@ extension ElasticScrollable3{
      */
     func onScrollWheelMomentumBegan(_ event:NSEvent) {
         Swift.print("👻📜 (ElasticScrollable3).onScrollWheelExit")
-        //Swift.print("IRBScrollable.onScrollWheelUp")
         moverGroup!.hasStopped = false/*Reset this value to false, so that the FrameAnimatior can start again*/
         moverGroup!.isDirectlyManipulating = false
         moverGroup!.value = moverGroup!.result/*Copy this back in again, as we used relative friction when above or bellow constraints*/
-        
-        Swift.print("iterimScrollGroup!.iterimScrollX.prevScrollingDelta: " + "\(iterimScrollGroup!.iterimScrollX.prevScrollingDelta)")
-        Swift.print("iterimScrollGroup!.iterimScrollX.prevScrollingDelta: " + "\(iterimScrollGroup!.iterimScrollX.prevScrollingDelta)")
-        Swift.print("iterimScrollX.velocities: " + "\(iterimScrollGroup!.iterimScrollX.velocities)")
-        Swift.print("iterimScrollY.velocities: " + "\(iterimScrollGroup!.iterimScrollY.velocities)")
-        
-        let velocity:CGPoint = event.scrollingDelta
-        Swift.print("velocity: " + "\(velocity)")
-        
-        
-        moverGroup!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
+        moverGroup!.velocity = event.scrollingDelta/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
         moverGroup!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*//*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
     }
-    func scrollWheelExitedAndIsStationary(){}/*override when you need this call*/
+    func scrollWheelExitedAndIsStationary(){}
 }
 
 
@@ -97,5 +86,10 @@ if(caseB){
  velocity2.y = y
  Swift.print("velocity2: " + "\(velocity2)")
 
+ 
+ Swift.print("iterimScrollGroup!.iterimScrollX.prevScrollingDelta: " + "\(iterimScrollGroup!.iterimScrollX.prevScrollingDelta)")
+ Swift.print("iterimScrollGroup!.iterimScrollX.prevScrollingDelta: " + "\(iterimScrollGroup!.iterimScrollX.prevScrollingDelta)")
+ Swift.print("iterimScrollX.velocities: " + "\(iterimScrollGroup!.iterimScrollX.velocities)")
+ Swift.print("iterimScrollY.velocities: " + "\(iterimScrollGroup!.iterimScrollY.velocities)")
  
  */
