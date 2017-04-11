@@ -7,9 +7,8 @@ import Cocoa
 protocol Slidable3:Progressable3 {
     var horSlider:Slider? {get}
     var verSlider:Slider? {get}
-    func updateSlider()
+    /*func updateSlider()*/
     func slider(_ dir:Dir) -> Slider/*?*/
-    //func sliderInterval(_ dir:Dir)->CGFloat/*?{get set}*///I think this is the same as intervall, remove
 }
 /**
  * ⚠️️ IMPORTANT: Slidable does not override scroll because a SlideView can't detect scroll. SlideScrollView however can access scroll and call hide and show slider. And then use protocol ambiguity to call scroll on the Scrollable after
@@ -71,3 +70,5 @@ extension Slidable3 {
 /* func setProgress(_ progress:CGFloat, _ dir:Dir) {
  slider(dir).setProgressValue(progress)
  }*/
+
+//func sliderInterval(_ dir:Dir)->CGFloat/*?{get set}*///I think this is the same as intervall, remove
