@@ -90,7 +90,7 @@ class TestView:TitleView{
         _ = list
     }
     func createElasticScrollView(){
-        _ = self.addSubView(ElasticView3Test(width,height,nil))
+        _ = self.addSubView(ElasticScrollView3Test(width,height,nil))
     }
     func createSlideScrollView(){
         _ = self.addSubView(SlideScrollView3Test(width,height,nil))
@@ -181,10 +181,10 @@ class SlideScrollView3Test:SlideScrollView3 /*ElasticSlideScrollView3 ,ElasticVi
         createEllipse()
     }
 }
-class ElasticView3Test:ElasticScrollView3{
+class ElasticScrollView3Test:ElasticScrollView3{
     override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
     override func resolveSkin() {
-        StyleManager.addStyle("ElasticScrollView3{fill:green;fill-alpha:0.0;}")
+        StyleManager.addStyle("ElasticScrollView3Test{fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
         createEllipse()
     }
