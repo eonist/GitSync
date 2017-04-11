@@ -5,9 +5,9 @@ import Cocoa
 
 //Continue here:
 
-    //Figure out the primary direction calculations for momentum,  👈
-    //try previouse lists and views to see if they still work
-    //FastList (progressable)
+    //try previouse lists and views to see if they still work ✅
+
+    //FastList (progressable) 👈
     //ScrolFastlList
     //SlideFastList
     //ElasticFastList
@@ -15,7 +15,7 @@ import Cocoa
 
     //Listable with fast ⏳⏳
     //Add css so that Sliders are aligned in SliderList3 and SliderView3 ⏳⏳
-    //Make UniScrollable sort of scroll in the intentional direction while not directly Manipulated ⏳⏳
+    //Figure out the primary direction calculations for momentum, (maybe later) (Make UniScrollable sort of scroll in the intentional direction while not directly Manipulated)
 
     //convert Element to use v3 of scroll protocols ⏳⏳⏳
     //move Gradient etc to dedicated repos, move graph to dedicated proj, colorPanel etc ⏳⏳
@@ -36,13 +36,13 @@ class TestView:TitleView{
     func createGUI(){
         
         
-        //createElasticScrollSlideList()
+        createElasticScrollSlideList()
         //createElasticScrollList()
         //createSlideScrollList()
         //createScrollList()
         //createList()
         
-        _ = self.addSubView(ElasticSlideScrollView3Test(width,height,nil))
+        //_ = self.addSubView(ElasticSlideScrollView3Test(width,height,nil))
         //_ = self.addSubView(ElasticScrollView3Test(width,height,nil))
         //_ = self.addSubView(SlideScrollView3Test(width,height,nil))
         

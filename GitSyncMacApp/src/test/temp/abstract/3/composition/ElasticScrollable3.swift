@@ -3,7 +3,6 @@ import Cocoa
 @testable import Element
 
 protocol ElasticScrollable3:Elastic3,Scrollable3 {}
-//func scrollWheelExitedAndIsStationary()
 extension ElasticScrollable3{
     /**
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
@@ -28,8 +27,18 @@ extension ElasticScrollable3{
     /**
      * NOTE: Basically when you release your scrollWheel gesture
      */
+    func onScrollWheelExit(){
+        Swift.print("👻📜 (ElasticScrollable2).onScrollWheelExit")
+        //Swift.print("iterimScroll.prevScrollingDelta: " + "\(iterimScroll.prevScrollingDelta)")
+        moverGroup!.hasStopped = false
+        moverGroup!.value = moverGroup!.result
+        moverGroup!.start()
+    }
+    /**
+     * NOTE: Basically when you release your scrollWheel gesture
+     */
     func onScrollWheelMomentumBegan(_ event:NSEvent) {
-        Swift.print("👻📜 (ElasticScrollable3).onScrollWheelExit")
+        Swift.print("👻📜 (ElasticScrollable3).onScrollWheelMomentumBegan")
         moverGroup!.hasStopped = false/*Reset this value to false, so that the FrameAnimatior can start again*/
         //moverGroup!.isDirectlyManipulating = false
         moverGroup!.value = moverGroup!.result/*Copy this back in again, as we used relative friction when above or bellow constraints*/
@@ -39,3 +48,4 @@ extension ElasticScrollable3{
     func onInDirectScrollWheelChange(_ event: NSEvent) {}//we must override this or else we get a too loose elastic effect.
 }
 //func scrollWheelExitedAndIsStationary(){}
+//func scrollWheelExitedAndIsStationary()

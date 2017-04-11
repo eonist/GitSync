@@ -3,7 +3,6 @@ import Cocoa
 
 class ElasticSlideScrollView3:SlideView3,ElasticSlidableScrollable3 {
     lazy var moverGroup:MoverGroup? = MoverGroup(self.setProgress,self.maskSize,self.contentSize)
-    //lazy var iterimScrollGroup:IterimScrollGroup? = IterimScrollGroup()
 
     override func resolveSkin() {
         super.resolveSkin()
@@ -13,8 +12,6 @@ class ElasticSlideScrollView3:SlideView3,ElasticSlidableScrollable3 {
     override func onEvent(_ event:Event) {
         if(event.type == AnimEvent.stopped){
             //Swift.print("ElasticSlideScrollList3.onEvent: " + "\(event.type)")
-            /*Swift.print("moverGroup!.isDirectlyManipulating: " + "\(moverGroup!.isDirectlyManipulating)")
-             if(!moverGroup!.isDirectlyManipulating){}*/
             let dir:Dir = event.origin === moverGroup!.yMover ? .ver : .hor
             Swift.print("bounce back anim stopp dir: \(dir)")
             hideSlider(dir)/*hides the slider when bounce back anim stopps*/

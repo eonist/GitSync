@@ -12,6 +12,7 @@ class MoverGroup{//rename to ElasticMoverGroup
     }
 }
 extension MoverGroup{
+    var event:EventCallBack {get {fatalError("not supported")}set{xMover.event = newValue;yMover.event = newValue}}
     func mover(_ dir:Dir)->RubberBand{/*Convenience*/
         return dir == .hor ? xMover : yMover
     }

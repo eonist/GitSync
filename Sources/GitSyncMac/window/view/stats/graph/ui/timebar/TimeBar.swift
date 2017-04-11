@@ -18,13 +18,13 @@ class TimeBar:ElasticScrollFastList{
         super.scrollWheel(with: event)
     }
     /**
-     * 
+     * CommitGraph.scrollWheel calls this method. its sort of a hack because we need the entire view to manipulate the TimeBar
      */
     func adHockScrollWheel(_ event:NSEvent){
         //Swift.print("ElasticSlideScrollFastList.scrollWheel()")
         (self as ElasticScrollableFast).scroll(event)
         /*⚠️️ temp fix for SnappyRubberBand support, move this into a new protocol extension*/
-        if(event.phase == .changed || event.phase == NSEventPhase(rawValue:0)){
+        if(event.phase == .changed || event.phase == NSEventPhase(rawValue:0)){//👈 use MomentumPhase instead of raw:0 here
             let prevDir = (mover! as! SnappyRubberBand).prevDir
             var tempDir:CGFloat = 0
             let curDir:CGFloat = event.scrollingDelta[dir]
