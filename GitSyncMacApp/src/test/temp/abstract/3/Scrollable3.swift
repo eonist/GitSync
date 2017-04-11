@@ -36,7 +36,9 @@ extension Scrollable3{
             default:break;
         }
         switch event.momentumPhase{
-            case NSEventPhase.began:onScrollWheelMomentumBegan();//this happens when the momentum starts
+            case NSEventPhase.began:
+                Swift.print("event.scrollingDelta: " + "\(event.scrollingDelta)")
+                onScrollWheelMomentumBegan();//this happens when the momentum starts
             case NSEventPhase.changed:onInDirectScrollWheelChange(event);
             case NSEventPhase.ended:onScrollWheelMomentumEnded();
             default:break;
