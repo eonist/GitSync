@@ -1,5 +1,5 @@
 import Foundation
 
-class SlideScrollFastList {
+class SlideScrollFastList3 {
 
 }

@@ -1,5 +1,5 @@
 import Foundation
 
-class FastList {
+class FastList3 {
 
 }
