@@ -25,13 +25,11 @@ extension ElasticScrollable3{
      */
     func onScrollWheelEnter(){
         Swift.print("👻📜 (ElasticScrollable3).onScrollWheelEnter")
-        moverGroup!.isDirectlyManipulating = true//this was moved
+        moverGroup!.isDirectlyManipulating = true/*Toggle to directManipulationMode*/ //this was moved
         moverGroup!.stop()
         moverGroup!.hasStopped = true/*set the stop flag to true*/
         iterimScrollGroup!.prevScrollingDelta = 0/*set last wheel speed delta to stationary, aka not spinning*/
-        /*Toggle to directManipulationMode*/
         Swift.print("moverGroup!.isDirectlyManipulating: " + "\(moverGroup!.isDirectlyManipulating)")
-        iterimScrollGroup!.velocities = Array(repeating: CGPoint(), count: 10)/*Reset the velocities*/
         //⚠️️scrollWheelEnter()
     }
     /**
