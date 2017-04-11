@@ -3,14 +3,19 @@ import Cocoa
 @testable import Element
 
 protocol Scrollable3:Progressable3 {
-    func onScrollWheelChange(_ event:NSEvent)
-    func onScrollWheelEnter()
-    func onScrollWheelExit()
-    func onScrollWheelCancelled()
+    func onScrollWheelChange(_ event:NSEvent)/*Fires onle while direct scroll, not momentum*/
+    func onScrollWheelEnter()/*fires while there still is momentum aka indirect scroll*/
+    func onScrollWheelExit()/*This happens after there has been panning, but touches are stationary*/
+    func onScrollWheelCancelled()/*This happens when there has been no panning, just 2 finger touch and release with out moving around*/
     func onInDirectScrollWheelChange(_ event:NSEvent)//rename to onScrollWheelMomentumChange
     /*Momentum*/
     func onScrollWheelMomentumEnded()
-    func onScrollWheelMomentumBegan()
+    func onScrollWheelMomentumBegan()/*This happens right...*/
+    
+    //continue here:
+        //clean up the classes and write better descriptions
+        //Figure out the primary direction calculations for momentum, 
+        //try to mesure momentum speed on momentumBegan
 }
 extension Scrollable3{
     /**
@@ -41,20 +46,16 @@ extension Scrollable3{
     }
     func onScrollWheelChange(_ event:NSEvent){
         Swift.print("Scrollable3.onScrollWheelChange()")
-        //Swift.print("contentSize: " + "\(contentSize)")
         //let progress:CGFloat = SliderParser.progress(event.delta, maskSize, contentSize).y
         let progressVal:CGPoint = SliderListUtils.progress(event.delta, interval, progress)
-        //setProgress(progressVal)
         setProgress(progressVal)
-    }/*Direct scroll, not momentum*/
+    }
     func onInDirectScrollWheelChange(_ event:NSEvent){
         onScrollWheelChange(event)
     }
     func onScrollWheelEnter(){Swift.print("Scrollable3.onScrollWheelEnter()")}
-    /*This happens after when there has been panning*/
     func onScrollWheelExit(){Swift.print("Scrollable3.onScrollWheelExit()")}
     func onScrollWheelMomentumEnded(){Swift.print("Scrollable3.onScrollWheelMomentumEnded")}
-    /*This happens when there has been no panning, just 2 finger touch and release with out moving around*/
     func onScrollWheelCancelled(){Swift.print("Scrollable3.onScrollWheelCancelled")}
     func onScrollWheelMomentumBegan(){Swift.print("Scrollable3.onScrollWheelMomentumBegan")}
 }
