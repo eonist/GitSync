@@ -2,9 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 
-protocol SlidableScrollable3:Slidable3,Scrollable3 {
-    //func onScrollWheelMomentumEnded(_ dir:Dir)
-}
+protocol SlidableScrollable3:Slidable3,Scrollable3 {}
 extension SlidableScrollable3 {
     /**
      * TODO: you could also override scroll and hock after the forward scroll call and then retrive the progress from the var. less code, but the value must be written in Displaceview, it could mess up Elastic, because it needs different progress. etc, do later
@@ -21,7 +19,7 @@ extension SlidableScrollable3 {
         (self as Slidable3).setProgress(progress)
         (self as Scrollable3).setProgress(progress)
     }
-    func onInDirectScrollWheelChange(_ event: NSEvent) {//enables momentum
+    func onInDirectScrollWheelChange(_ event:NSEvent) {//enables momentum
         onScrollWheelChange(event)
         /*if(event.scrollingDeltaX == 0){
          onScrollWheelMomentumEnded(.hor)
@@ -37,11 +35,10 @@ extension SlidableScrollable3 {
         hideSlider()
     }
     func onScrollWheelExit() {
-        Swift.print("onScrollWheelExit()")
         hideSlider()
     }
     func onScrollWheelMomentumBegan() {
-        showSlider()//cancels out the hide call when onScrollWheelExit
+        showSlider()//cancels out the hide call when onScrollWheelExit is called when you release after pan gesture
     }
     /**
      * Called only be called when scrollwheel becomes stationary. find the code that does this.
