@@ -15,7 +15,7 @@ class ElasticSlideScrollView3:SlideView3,ElasticSlidableScrollable3 {
             //Swift.print("ElasticSlideScrollList3.onEvent: " + "\(event.type)")
             /*Swift.print("moverGroup!.isDirectlyManipulating: " + "\(moverGroup!.isDirectlyManipulating)")
              if(!moverGroup!.isDirectlyManipulating){}*/
-            //let dir:Dir = event.origin === moverGroup!.yMover ? .ver : .hor
+            let dir:Dir = event.origin === moverGroup!.yMover ? .ver : .hor
             Swift.print("bounce back anim stopp dir: \(dir)")
             hideSlider(dir)/*hides the slider when bounce back anim stopps*/
         }
