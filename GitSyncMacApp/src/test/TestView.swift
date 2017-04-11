@@ -44,8 +44,8 @@ class TestView:TitleView{
         //createScrollList()
         //createList()
         
-        _ = self.addSubView(ElasticSlideScrollView3Test(width,height,nil))
-        //_ = self.addSubView(ElasticScrollView3Test(width,height,nil))
+        //_ = self.addSubView(ElasticSlideScrollView3Test(width,height,nil))
+        _ = self.addSubView(ElasticScrollView3Test(width,height,nil))
         //_ = self.addSubView(SlideScrollView3Test(width,height,nil))
         
         //createGraph7Test()
