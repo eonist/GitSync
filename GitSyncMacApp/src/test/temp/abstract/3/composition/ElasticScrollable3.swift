@@ -13,8 +13,8 @@ extension ElasticScrollable3{
      */
     func onScrollWheelChange(_ event:NSEvent){/*Direct scroll*/
         //Swift.print("👻📜 (ElasticScrollable3).onScrollWheelChange : \(event.type)")
-        iterimScrollGroup!.setPrevDelta(event)
-        iterimScrollGroup!.shiftAppend(event)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
+        //iterimScrollGroup!.setPrevDelta(event)
+        //iterimScrollGroup!.shiftAppend(event)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
         moverGroup!.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
         moverGroup!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
         let p = moverGroup!.result
@@ -28,7 +28,7 @@ extension ElasticScrollable3{
         moverGroup!.isDirectlyManipulating = true/*Toggle to directManipulationMode*/ //this was moved
         moverGroup!.stop()
         moverGroup!.hasStopped = true/*set the stop flag to true*/
-        iterimScrollGroup!.prevScrollingDelta = 0/*set last wheel speed delta to stationary, aka not spinning*/
+        //iterimScrollGroup!.prevScrollingDelta = 0/*set last wheel speed delta to stationary, aka not spinning*/
         Swift.print("moverGroup!.isDirectlyManipulating: " + "\(moverGroup!.isDirectlyManipulating)")
         //⚠️️scrollWheelEnter()
     }
