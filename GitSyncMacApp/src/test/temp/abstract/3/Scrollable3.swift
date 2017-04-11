@@ -10,7 +10,7 @@ protocol Scrollable3:Progressable3 {
     func onInDirectScrollWheelChange(_ event:NSEvent)//rename to onScrollWheelMomentumChange
     /*Momentum*/
     func onScrollWheelMomentumEnded()
-    func onScrollWheelMomentumBegan()/*This happens right...*/
+    func onScrollWheelMomentumBegan(_ event:NSEvent)/*This happens right...*/
     
     //continue here:
         //clean up the classes and write better descriptions
@@ -37,8 +37,8 @@ extension Scrollable3{
         }
         switch event.momentumPhase{
             case NSEventPhase.began:
-                Swift.print("event.scrollingDelta: " + "\(event.scrollingDelta)")
-                onScrollWheelMomentumBegan();//this happens when the momentum starts
+                Swift.print("⚠️️ NSEventPhase.began event.scrollingDelta: " + "\(event.scrollingDelta)")
+                onScrollWheelMomentumBegan(event);//this happens when the momentum starts
             case NSEventPhase.changed:onInDirectScrollWheelChange(event);
             case NSEventPhase.ended:onScrollWheelMomentumEnded();
             default:break;
@@ -59,7 +59,7 @@ extension Scrollable3{
     func onScrollWheelExit(){Swift.print("Scrollable3.onScrollWheelExit()")}
     func onScrollWheelMomentumEnded(){Swift.print("Scrollable3.onScrollWheelMomentumEnded")}
     func onScrollWheelCancelled(){Swift.print("Scrollable3.onScrollWheelCancelled")}
-    func onScrollWheelMomentumBegan(){Swift.print("Scrollable3.onScrollWheelMomentumBegan")}
+    func onScrollWheelMomentumBegan(_ event:NSEvent){Swift.print("Scrollable3.onScrollWheelMomentumBegan")}
 }
 extension ContainerView3 {//private maybe?
     /**
