@@ -17,38 +17,23 @@ extension MoverGroup{
     }
     var hasStopped:Bool{
         get{fatalError("get is not supported")}
-        set{
-            xMover.hasStopped = newValue
-            yMover.hasStopped = newValue
-        }
+        set{xMover.hasStopped = newValue;yMover.hasStopped = newValue}
     }
     var isDirectlyManipulating:Bool{
         get{return xMover.isDirectlyManipulating || yMover.isDirectlyManipulating}
-        set{
-            xMover.isDirectlyManipulating = newValue
-            yMover.isDirectlyManipulating = newValue
-        }
+        set{xMover.isDirectlyManipulating = newValue;yMover.isDirectlyManipulating = newValue}
     }
     var value:CGPoint{
         get{return CGPoint(xMover.value,yMover.value)}
-        set{
-            xMover.value = newValue.x
-            yMover.value = newValue.y
-        }
+        set{xMover.value = newValue.x;yMover.value = newValue.y}
     }
     var result:CGPoint{
         get{return CGPoint(xMover.result,yMover.result)}
-        set{
-            xMover.result = newValue.x
-            yMover.result = newValue.y
-        }
+        set{xMover.result = newValue.x;yMover.result = newValue.y}
     }
     var velocity:CGPoint{
         get{fatalError("get is not supported")}
-        set{
-            xMover.velocity = newValue.x
-            yMover.velocity = newValue.y
-        }
+        set{xMover.velocity = newValue.x;yMover.velocity = newValue.y;}
     }
     func start(){
         xMover.start()
