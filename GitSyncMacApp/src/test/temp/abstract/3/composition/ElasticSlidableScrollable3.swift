@@ -4,7 +4,6 @@ import Cocoa
 
 protocol ElasticSlidableScrollable3:Slidable3,ElasticScrollable3{}
 extension ElasticSlidableScrollable3{
-
     /**
      * PARAM: value represents real contentContainer x/y value, not 0-1 val
      */
@@ -45,6 +44,7 @@ extension ElasticSlidableScrollable3{
     }
     func onScrollWheelMomentumBegan(_ event:NSEvent) {
         Swift.print("⚠️️⚠️️⚠️️⚠️️ElasticSlidableScrollable3.onScrollWheelMomentumBegan")
+        self as Elastic3
         showSlider()//cancels out the hide call when onScrollWheelExit is called when you release after pan gesture
     }
 }

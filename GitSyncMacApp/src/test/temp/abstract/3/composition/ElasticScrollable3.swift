@@ -2,9 +2,8 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-protocol ElasticScrollable3:Elastic3,Scrollable3 {
-    //func scrollWheelExitedAndIsStationary()
-}
+protocol ElasticScrollable3:Elastic3,Scrollable3 {}
+//func scrollWheelExitedAndIsStationary()
 extension ElasticScrollable3{
     /**
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
