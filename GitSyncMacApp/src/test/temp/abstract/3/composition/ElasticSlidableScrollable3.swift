@@ -28,6 +28,11 @@ extension ElasticSlidableScrollable3{
         }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
             showSlider()
         }
+        
+        if(event.momentumPhase == NSEventPhase.began){//simulates: onScrollWheelMomentumBegan()
+            Swift.print("🍊 ElasticSlidableScrollable3.onScrollWheelMomentumBegan")
+            showSlider()//cancels out the hide call when onScrollWheelExit is called when you release after pan gesture
+        }
     }
     func onInDirectScrollWheelChange(_ event: NSEvent) {}//override to cancel out the event
     func onScrollWheelEnter() {
@@ -42,10 +47,6 @@ extension ElasticSlidableScrollable3{
         Swift.print("ElasticSlidableScrollable3.onScrollWheelExit")
         hideSlider()
     }
-    /*func onScrollWheelMomentumBegan(_ event:NSEvent) {
-        Swift.print("⚠️️⚠️️⚠️️⚠️️ElasticSlidableScrollable3.onScrollWheelMomentumBegan")
-        
-    }*/
 }
 
 /*
