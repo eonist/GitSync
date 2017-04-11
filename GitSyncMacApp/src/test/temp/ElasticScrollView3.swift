@@ -6,5 +6,5 @@ import Cocoa
  */
 class ElasticScrollView3:ContainerView3,ElasticScrollable3{
     lazy var moverGroup:MoverGroup? = MoverGroup(self.setProgress,self.maskSize,self.contentSize)
-    lazy var iterimScrollGroup:IterimScrollGroup? = IterimScrollGroup()
+    //lazy var iterimScrollGroup:IterimScrollGroup? = IterimScrollGroup()
 }

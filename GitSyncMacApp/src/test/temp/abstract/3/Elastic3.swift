@@ -4,7 +4,7 @@ import Cocoa
 
 protocol Elastic3:Progressable3{
     var moverGroup:MoverGroup? {get}
-    var iterimScrollGroup:IterimScrollGroup? {get}
+    //var iterimScrollGroup:IterimScrollGroup? {get}
 }
 extension Elastic3{
     /**
