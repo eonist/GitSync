@@ -44,6 +44,9 @@ extension ElasticScrollable3{
      * NOTE: Basically when you release your scrollWheel gesture
      */
     func onScrollWheelExit(){
+        
+    }
+    func onScrollWheelMomentumBegan() {
         Swift.print("👻📜 (ElasticScrollable3).onScrollWheelExit")
         //Swift.print("IRBScrollable.onScrollWheelUp")
         moverGroup!.hasStopped = false/*Reset this value to false, so that the FrameAnimatior can start again*/
@@ -70,9 +73,9 @@ extension ElasticScrollable3{
             let y:CGFloat = iterimScrollGroup!.iterimScrollY.velocities.filter{$0 != 0}.average
             velocity.y = y
         }
-    
+        
         Swift.print("velocity: " + "\(velocity)")
-            
+        
         
         moverGroup!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
         moverGroup!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*//*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
