@@ -4,11 +4,10 @@ import Cocoa
 @testable import GitSyncMac
 
 //Continue here:
+    //improve code quality ✅
+    //move interim and movergroup into Elastisity class? that has both? 🚫
 
-    //try previouse lists and views to see if they still work 
-    //improve code quality
-    //move interim and movergroup into Elastisity class? that has both?
-
+    //try previouse lists and views to see if they still work
     //FastList (progressable)
     //ScrolFastlList
     //SlideFastList
@@ -44,8 +43,8 @@ class TestView:TitleView{
         //createScrollList()
         //createList()
         
-        //_ = self.addSubView(ElasticSlideScrollView3Test(width,height,nil))
-        _ = self.addSubView(ElasticScrollView3Test(width,height,nil))
+        _ = self.addSubView(ElasticSlideScrollView3Test(width,height,nil))
+        //_ = self.addSubView(ElasticScrollView3Test(width,height,nil))
         //_ = self.addSubView(SlideScrollView3Test(width,height,nil))
         
         //createGraph7Test()
