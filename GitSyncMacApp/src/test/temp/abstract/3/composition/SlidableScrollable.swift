@@ -39,8 +39,6 @@ extension SlidableScrollable3 {
     func onScrollWheelExit() {
         Swift.print("onScrollWheelExit()")
         hideSlider()
-        //continue here: 
-            //try to listen to delta from NSEvent.current, or else pass the event to the method
     }
     func onScrollWheelMomentumBegan() {
         showSlider()//cancels out the hide call when onScrollWheelExit
@@ -48,19 +46,10 @@ extension SlidableScrollable3 {
     /**
      * Called only be called when scrollwheel becomes stationary. find the code that does this.
      */
-    //func onScrollWheelMomentumEnded(_ dir:Dir)  {
-        //Swift.print("onScrollWheelMomentumEnded")
-        //hideSlider()
-    //}
     func onScrollWheelMomentumEnded()  {
         hideSlider()
     }
 }
-/*let caseA = iterimScrollGroup!.iterimScrollX.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollX.prevScrollingDelta != -1.0
- Swift.print("caseA: " + "\(caseA)")
- /*ver*/
- let caseB = iterimScrollGroup!.iterimScrollY.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollY.prevScrollingDelta != -1.0/*Not 1 and not -1 indicates that the wheel is not stationary*/
- Swift.print("caseB: " + "\(caseB)")*/
 
 /*func progress(_ dir:Dir)->CGFloat{
  return SliderListUtils.progress(event.delta[dir], interval(dir), slider(dir).progress)
