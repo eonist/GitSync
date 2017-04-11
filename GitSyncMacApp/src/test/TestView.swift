@@ -95,16 +95,7 @@ class TestView:TitleView{
         let test = self.addSubView(SlideScrollView3Test(width,height,nil))
         _ = test
     }
-    class SlideScrollView3Test:SlideScrollView3 /*ElasticSlideScrollView3 ,ElasticView3*/{
-        override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
-        override func resolveSkin() {
-            StyleManager.addStyle("SlideScrollView3Test{fill:green;fill-alpha:0.0;}")
-            super.resolveSkin()
-            createEllipse()
-            Swift.print("getClassType(): " + "\(getClassType())")
-        }
-       
-    }
+    
     func createVerSlider(){
         let horSlider:Slider = self.addSubView(Slider(6,60,.ver,CGSize(6,30),0,self))
         _ = horSlider
@@ -181,4 +172,20 @@ class TestView:TitleView{
         //it works, now activate this in a filter, if active is false then don't return repo, easy! test it first, then test gitpull
     }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+}
+class SlideScrollView3Test:SlideScrollView3 /*ElasticSlideScrollView3 ,ElasticView3*/{
+    override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
+    override func resolveSkin() {
+        StyleManager.addStyle("SlideScrollView3Test{fill:green;fill-alpha:0.0;}")
+        super.resolveSkin()
+        createEllipse()
+    }
+}
+class ElasticView3Test:ElasticScrollView3{
+    override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
+    override func resolveSkin() {
+        StyleManager.addStyle("ElasticScrollView3{fill:green;fill-alpha:0.0;}")
+        super.resolveSkin()
+        createEllipse()
+    }
 }
