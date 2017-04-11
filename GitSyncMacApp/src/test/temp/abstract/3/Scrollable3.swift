@@ -8,7 +8,9 @@ protocol Scrollable3:Progressable3 {
     func onScrollWheelExit()
     func onScrollWheelCancelled()
     func onInDirectScrollWheelChange(_ event:NSEvent)
+    /*Momentum*/
     func onScrollWheelMomentumEnded()
+    func onScrollWheelMomentumBegan()
 }
 extension Scrollable3{
     /**
@@ -37,7 +39,7 @@ extension Scrollable3{
             default:break;
         }
         switch event.momentumPhase{
-        case NSEventPhase.began:_ = "";//this happens when the momntum starts
+            case NSEventPhase.began:onScrollWheelMomentumBegan();//this happens when the momntum starts
             case NSEventPhase.changed:onInDirectScrollWheelChange(event);
             case NSEventPhase.ended:onScrollWheelMomentumEnded();
             default:break;
