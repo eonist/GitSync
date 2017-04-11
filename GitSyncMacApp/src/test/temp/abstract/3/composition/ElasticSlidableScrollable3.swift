@@ -2,6 +2,9 @@ import Cocoa
 @testable import Element
 @testable import Utils
 
+//continue here: 🏀
+    //onEnter is overshadowing the default method, use scroll to adhock the showSlider method instead. 👈
+
 protocol ElasticSlidableScrollable3:Slidable3,ElasticScrollable3{}
 extension ElasticSlidableScrollable3{
     /**
