@@ -4,9 +4,8 @@ import Cocoa
 @testable import GitSyncMac
 
 //Continue here:
-    //improve code quality ✅
-    //move interim and movergroup into Elastisity class? that has both? 🚫
 
+    //Figure out the primary direction calculations for momentum,  👈
     //try previouse lists and views to see if they still work
     //FastList (progressable)
     //ScrolFastlList

@@ -37,8 +37,7 @@ extension Scrollable3{
             case NSEventPhase.changed:onInDirectScrollWheelChange(event);
             case NSEventPhase.ended:onScrollWheelMomentumEnded();
             default:break;
-        }
-        
+        } 
         //super.scrollWheel(with:event)
     }
     func onScrollWheelChange(_ event:NSEvent){
