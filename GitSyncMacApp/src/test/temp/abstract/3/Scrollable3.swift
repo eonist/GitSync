@@ -7,7 +7,7 @@ protocol Scrollable3:Progressable3 {
     func onScrollWheelEnter()
     func onScrollWheelExit()
     func onScrollWheelCancelled()
-    func onInDirectScrollWheelChange(_ event:NSEvent)
+    func onInDirectScrollWheelChange(_ event:NSEvent)//rename to onScrollWheelMomentumChange
     /*Momentum*/
     func onScrollWheelMomentumEnded()
     func onScrollWheelMomentumBegan()
@@ -19,11 +19,6 @@ extension Scrollable3{
     func scroll(_ event:NSEvent){
         //Swift.print("event.momentumPhase: " + "\(event.momentumPhase)")
         //Swift.print("event.phase: " + "\(event.phase)")
-        
-        //continue here: 🏀
-            //problem is onExit when stationarry, but has moved
-                //maybe the momentumPhase and phase can be used together to detect 👉 the difference in momentum-exit and non-momentum-exit 👈
-        
         //Swift.print("Scrollable3.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
         switch event.phase{
             case NSEventPhase.changed/*4*/:onScrollWheelChange(event)/*Fires everytime there is direct scrollWheel gesture movment and momentum, the momentum fades.*/
@@ -36,7 +31,7 @@ extension Scrollable3{
             default:break;
         }
         switch event.momentumPhase{
-            case NSEventPhase.began:onScrollWheelMomentumBegan();//this happens when the momntum starts
+            case NSEventPhase.began:onScrollWheelMomentumBegan();//this happens when the momentum starts
             case NSEventPhase.changed:onInDirectScrollWheelChange(event);
             case NSEventPhase.ended:onScrollWheelMomentumEnded();
             default:break;

@@ -46,21 +46,8 @@ extension ElasticScrollable3{
         
         Swift.print("iterimScrollGroup!.iterimScrollX.prevScrollingDelta: " + "\(iterimScrollGroup!.iterimScrollX.prevScrollingDelta)")
         Swift.print("iterimScrollGroup!.iterimScrollX.prevScrollingDelta: " + "\(iterimScrollGroup!.iterimScrollX.prevScrollingDelta)")
-        
-        /*hor*/
-        let caseA = iterimScrollGroup!.iterimScrollX.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollX.prevScrollingDelta != -1.0
-        Swift.print("caseA: " + "\(caseA)")
-        /*ver*/
-        let caseB = iterimScrollGroup!.iterimScrollY.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollY.prevScrollingDelta != -1.0/*Not 1 and not -1 indicates that the wheel is not stationary*/
-        Swift.print("caseB: " + "\(caseB)")
+       
         var velocity:CGPoint = CGPoint(0,0)
-        if(caseA){
-            Swift.print("iterimScrollX.velocities: " + "\(iterimScrollGroup!.iterimScrollX.velocities)")
-            
-        }
-        if(caseB){
-            Swift.print("iterimScrollY.velocities: " + "\(iterimScrollGroup!.iterimScrollY.velocities)")
-        }
         let x:CGFloat = iterimScrollGroup!.iterimScrollX.velocities.filter{$0 != 0}.average
         velocity.x = x
         let y:CGFloat = iterimScrollGroup!.iterimScrollY.velocities.filter{$0 != 0}.average
@@ -81,3 +68,21 @@ extension ElasticScrollable3{
 /*func setProgress(_ point:CGPoint){
  contentContainer!.point = point
  }*/
+
+/*
+
+/*hor*/
+let caseA = iterimScrollGroup!.iterimScrollX.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollX.prevScrollingDelta != -1.0
+Swift.print("caseA: " + "\(caseA)")
+/*ver*/
+let caseB = iterimScrollGroup!.iterimScrollY.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollY.prevScrollingDelta != -1.0/*Not 1 and not -1 indicates that the wheel is not stationary*/
+Swift.print("caseB: " + "\(caseB)")
+var velocity:CGPoint = CGPoint(0,0)
+if(caseA){
+    Swift.print("iterimScrollX.velocities: " + "\(iterimScrollGroup!.iterimScrollX.velocities)")
+    
+}
+if(caseB){
+    Swift.print("iterimScrollY.velocities: " + "\(iterimScrollGroup!.iterimScrollY.velocities)")
+}
+*/
