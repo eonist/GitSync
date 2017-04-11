@@ -55,14 +55,18 @@ extension Slidable3 {
         //Swift.print("🏂 hide slider dir: \(dir)")
         //self.slider!.thumb!.setSkinState("inActive")
         //if(slider(dir).thumb!.getSkinState() == SkinStates.none){slider(dir).thumb!.fadeOut()}/*only fade out if the state is none, aka not over*/
-        slider?.thumb?.fadeOut()
+        Swift.print("slider(dir).thumb!.getSkinState(): " + "\(slider(dir).thumb!.getSkinState())")
+        if(slider(dir).thumb!.getSkinState() == SkinStates.none){
+            slider(dir).thumb!.fadeOut()
+        }
+        
         /*slider(dir).thumb!.alpha = 0
          slider(dir).thumb!.skin?.decoratables[0].draw()*/
     }
     func showSlider(_ dir:Dir){
         //Swift.print("🏂 show slider dir: \(dir)")
         //slider(dir).thumb!.setSkinState(SkinStates.none)
-        slider!.thumb!.fadeIn()
+        slider(dir).thumb!.fadeIn()
         /*slider(dir).thumb!.alpha = 1
          slider(dir).thumb!.skin?.decoratables[0].draw()*/
     }
