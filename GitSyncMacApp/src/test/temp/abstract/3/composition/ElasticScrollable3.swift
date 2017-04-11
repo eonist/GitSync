@@ -37,7 +37,7 @@ extension ElasticScrollable3{
     /**
      * NOTE: Basically when you release your scrollWheel gesture
      */
-    func onScrollWheelMomentumBegan() {
+    func onScrollWheelMomentumBegan(_ event:NSEvent) {
         Swift.print("👻📜 (ElasticScrollable3).onScrollWheelExit")
         //Swift.print("IRBScrollable.onScrollWheelUp")
         moverGroup!.hasStopped = false/*Reset this value to false, so that the FrameAnimatior can start again*/
@@ -47,12 +47,13 @@ extension ElasticScrollable3{
         Swift.print("iterimScrollGroup!.iterimScrollX.prevScrollingDelta: " + "\(iterimScrollGroup!.iterimScrollX.prevScrollingDelta)")
         Swift.print("iterimScrollGroup!.iterimScrollX.prevScrollingDelta: " + "\(iterimScrollGroup!.iterimScrollX.prevScrollingDelta)")
        
-        var velocity:CGPoint = CGPoint(0,0)
-        let x:CGFloat = iterimScrollGroup!.iterimScrollX.velocities.filter{$0 != 0}.average
-        velocity.x = x
-        let y:CGFloat = iterimScrollGroup!.iterimScrollY.velocities.filter{$0 != 0}.average
-        velocity.y = y
-
+        var velocity:CGPoint = event.scrollingDelta
+        /*var velocity:CGPoint = CGPoint(0,0)
+         let x:CGFloat = iterimScrollGroup!.iterimScrollX.velocities.filter{$0 != 0}.average
+         velocity.x = x
+         let y:CGFloat = iterimScrollGroup!.iterimScrollY.velocities.filter{$0 != 0}.average
+         velocity.y = y*/
+        
         
         Swift.print("velocity: " + "\(velocity)")
         moverGroup!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
