@@ -25,10 +25,7 @@ extension ElasticSlidableScrollable3{
             //setProgress(moverGroup!.result.y,.ver)//👈NEW, this migth need to be inSide scrollWheel call, as it needs to be shallow to reach inside setProgress in ElasticFastList.setProgress, but maybe not, To be continued
             //let sliderProgress:CGFloat = ElasticUtils.progress(moverGroup!.result.y,contentSize[.ver],maskSize[.ver])
             let sliderProgress:CGPoint = ElasticUtils.progress(moverGroup!.result,contentSize,maskSize)
-            //Swift.print("sliderProgress: " + "\(sliderProgress)")
             (self as Slidable3).setProgress(sliderProgress)
-            //slider(.ver).setProgressValue(sliderProgress)//temp fix
-            
         }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
             showSlider()
         }
@@ -42,6 +39,9 @@ extension ElasticSlidableScrollable3{
     }
     func onScrollWheelExit() {
         hideSlider()
+    }
+    func onScrollWheelMomentumBegan() {
+        showSlider()//cancels out the hide call when onScrollWheelExit is called when you release after pan gesture
     }
 }
 
