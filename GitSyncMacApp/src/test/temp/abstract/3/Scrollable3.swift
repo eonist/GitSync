@@ -37,6 +37,7 @@ extension Scrollable3{
             default:break;
         }
         switch event.momentumPhase{
+        case NSEventPhase.began:_ = "";//this happens when the momntum starts
             case NSEventPhase.changed:onInDirectScrollWheelChange(event);
             case NSEventPhase.ended:onScrollWheelMomentumEnded();
             default:break;
