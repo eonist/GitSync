@@ -11,7 +11,6 @@ protocol Scrollable3:Progressable3 {
     /*Momentum*/
     func onScrollWheelMomentumEnded()
     func onScrollWheelMomentumBegan(_ event:NSEvent)/*This happens right after touch release and there is enough velocity that momentum is engaged, we forward the event because we might need the scrollingDelta for velocity*/
-
 }
 extension Scrollable3{
     /**
