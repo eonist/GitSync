@@ -7,12 +7,6 @@ protocol ElasticScrollable3:Elastic3,Scrollable3 {
 }
 extension ElasticScrollable3{
     /*Pan related*/
-    /*func setProgress(_ value:CGFloat,_ dir:Dir){
-     contentContainer!.point[dir] = value
-     }*/
-    /*func setProgress(_ point:CGPoint){
-     contentContainer!.point = point
-     }*/
     func onInDirectScrollWheelChange(_ event: NSEvent) {}//we must override this or else we get a too loose elastic effect. 
     /**
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
@@ -43,9 +37,6 @@ extension ElasticScrollable3{
     /**
      * NOTE: Basically when you release your scrollWheel gesture
      */
-    func onScrollWheelExit(){
-        
-    }
     func onScrollWheelMomentumBegan() {
         Swift.print("👻📜 (ElasticScrollable3).onScrollWheelExit")
         //Swift.print("IRBScrollable.onScrollWheelUp")
@@ -73,12 +64,17 @@ extension ElasticScrollable3{
             let y:CGFloat = iterimScrollGroup!.iterimScrollY.velocities.filter{$0 != 0}.average
             velocity.y = y
         }
-        
         Swift.print("velocity: " + "\(velocity)")
-        
-        
         moverGroup!.velocity = velocity/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
         moverGroup!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*//*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
     }
     func scrollWheelExitedAndIsStationary(){}/*override when you need this call*/
 }
+
+
+/*func setProgress(_ value:CGFloat,_ dir:Dir){
+ contentContainer!.point[dir] = value
+ }*/
+/*func setProgress(_ point:CGPoint){
+ contentContainer!.point = point
+ }*/
