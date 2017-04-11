@@ -47,7 +47,7 @@ extension Scrollable3{
         setProgress(progressVal)
     }
     func onInDirectScrollWheelChange(_ event:NSEvent){
-        onScrollWheelChange(event)
+        onScrollWheelChange(event)//is this really needed?
     }
     func onScrollWheelEnter(){Swift.print("Scrollable3.onScrollWheelEnter()")}
     func onScrollWheelExit(){Swift.print("Scrollable3.onScrollWheelExit()")}
