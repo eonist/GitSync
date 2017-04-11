@@ -25,9 +25,7 @@ extension Slidable3 {
         slider(.hor).setProgressValue(point.x)
         slider(.ver).setProgressValue(point.y)
     }
-    /* func setProgress(_ progress:CGFloat, _ dir:Dir) {
-        slider(dir).setProgressValue(progress)
-     }*/
+    
     /**
      * Updates the slider interval and the sliderThumbSize (after DP events: add/remove etc)
      */
@@ -59,7 +57,6 @@ extension Slidable3 {
         if(slider(dir).thumb!.getSkinState() == SkinStates.none){
             slider(dir).thumb!.fadeOut()
         }
-        
         /*slider(dir).thumb!.alpha = 0
          slider(dir).thumb!.skin?.decoratables[0].draw()*/
     }
@@ -71,3 +68,6 @@ extension Slidable3 {
          slider(dir).thumb!.skin?.decoratables[0].draw()*/
     }
 }
+/* func setProgress(_ progress:CGFloat, _ dir:Dir) {
+ slider(dir).setProgressValue(progress)
+ }*/
