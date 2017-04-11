@@ -37,8 +37,6 @@ class TestView:TitleView{
     }
     func createGUI(){
         
-        _ = self.addSubView(ElasticScrollView3Test(width,height,nil))
-        _ = self.addSubView(SlideScrollView3Test(width,height,nil))
         
         //createElasticScrollSlideList()
         //createElasticScrollList()
@@ -46,6 +44,9 @@ class TestView:TitleView{
         //createScrollList()
         //createList()
         
+        _ = self.addSubView(ElasticSlideScrollView3Test(width,height,nil))
+        //_ = self.addSubView(ElasticScrollView3Test(width,height,nil))
+        //_ = self.addSubView(SlideScrollView3Test(width,height,nil))
         
         //createGraph7Test()
         //createGraph2()
