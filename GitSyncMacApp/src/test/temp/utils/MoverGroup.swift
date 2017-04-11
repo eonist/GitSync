@@ -19,10 +19,6 @@ extension MoverGroup{
         get{fatalError("get is not supported")}
         set{xMover.hasStopped = newValue;yMover.hasStopped = newValue}
     }
-    var isDirectlyManipulating:Bool{
-        get{return xMover.isDirectlyManipulating || yMover.isDirectlyManipulating}
-        set{xMover.isDirectlyManipulating = newValue;yMover.isDirectlyManipulating = newValue}
-    }
     var value:CGPoint{
         get{return CGPoint(xMover.value,yMover.value)}
         set{xMover.value = newValue.x;yMover.value = newValue.y}
@@ -46,5 +42,11 @@ extension MoverGroup{
     func updatePosition(_ direct:Bool = false){
         xMover.updatePosition(direct)
         yMover.updatePosition(direct)
+    }
+}
+extension MoverGroup{
+    var isDirectlyManipulating:Bool{
+        get{fatalError("deprecated")/*return xMover.isDirectlyManipulating || yMover.isDirectlyManipulating*/}
+        set{xMover.isDirectlyManipulating = newValue;yMover.isDirectlyManipulating = newValue;fatalError("deprecated")}
     }
 }

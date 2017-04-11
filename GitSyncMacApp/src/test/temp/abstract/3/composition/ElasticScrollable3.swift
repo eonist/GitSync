@@ -20,7 +20,7 @@ extension ElasticScrollable3{
      */
     func onScrollWheelEnter(){
         Swift.print("👻📜 (ElasticScrollable3).onScrollWheelEnter")
-        moverGroup!.isDirectlyManipulating = true/*Toggle to directManipulationMode*/ //this was moved
+        //moverGroup!.isDirectlyManipulating = true/*Toggle to directManipulationMode*/ //this was moved
         moverGroup!.stop()
         moverGroup!.hasStopped = true/*set the stop flag to true*/
         //Swift.print("moverGroup!.isDirectlyManipulating: " + "\(moverGroup!.isDirectlyManipulating)")
@@ -31,7 +31,7 @@ extension ElasticScrollable3{
     func onScrollWheelMomentumBegan(_ event:NSEvent) {
         Swift.print("👻📜 (ElasticScrollable3).onScrollWheelExit")
         moverGroup!.hasStopped = false/*Reset this value to false, so that the FrameAnimatior can start again*/
-        moverGroup!.isDirectlyManipulating = false
+        //moverGroup!.isDirectlyManipulating = false
         moverGroup!.value = moverGroup!.result/*Copy this back in again, as we used relative friction when above or bellow constraints*/
         moverGroup!.velocity = event.scrollingDelta/*set the mover velocity to the current mouse gesture velocity, the reason this can't be additive is because you need to be more immediate when you change direction, this could be done by assering last direction but its not a priority atm*///td try the += on the velocity with more rects to see its effect
         moverGroup!.start()/*start the frameTicker here, do this part in parent view or use event or Selector*//*This needs to start if your in the overshoot areas, if its not in the overshoot area it will just stop after a frame tick*/
