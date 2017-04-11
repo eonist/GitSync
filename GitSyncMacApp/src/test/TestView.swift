@@ -41,7 +41,8 @@ class TestView:TitleView{
         //createSlideScrollList()
         //createScrollList()
         //createList()
-        createSlideScrollView()
+        createElasticScrollView()
+        //createSlideScrollView()
         //createGraph7Test()
         //createGraph2()
         //createVerSlider()
@@ -88,12 +89,11 @@ class TestView:TitleView{
         let list = self.addSubView(List3(140, 144, CGSize(NaN,NaN), dp,.ver,self))
         _ = list
     }
-    /**
-     *
-     */
+    func createElasticScrollView(){
+        _ = self.addSubView(ElasticView3Test(width,height,nil))
+    }
     func createSlideScrollView(){
-        let test = self.addSubView(SlideScrollView3Test(width,height,nil))
-        _ = test
+        _ = self.addSubView(SlideScrollView3Test(width,height,nil))
     }
     
     func createVerSlider(){
