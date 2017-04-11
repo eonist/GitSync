@@ -13,8 +13,7 @@ extension ElasticScrollable3{
      */
     func onScrollWheelChange(_ event:NSEvent){/*Direct scroll*/
         //Swift.print("👻📜 (ElasticScrollable3).onScrollWheelChange : \(event.type)")
-        //iterimScrollGroup!.setPrevDelta(event)
-        //iterimScrollGroup!.shiftAppend(event)/*insert new velocity at the begining and remove the last velocity to make room for the new*/
+        
         moverGroup!.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
         moverGroup!.updatePosition()/*the mover still governs the resulting value, in order to get the displacement friction working*/
         let p = moverGroup!.result
@@ -28,9 +27,7 @@ extension ElasticScrollable3{
         moverGroup!.isDirectlyManipulating = true/*Toggle to directManipulationMode*/ //this was moved
         moverGroup!.stop()
         moverGroup!.hasStopped = true/*set the stop flag to true*/
-        //iterimScrollGroup!.prevScrollingDelta = 0/*set last wheel speed delta to stationary, aka not spinning*/
-        Swift.print("moverGroup!.isDirectlyManipulating: " + "\(moverGroup!.isDirectlyManipulating)")
-        //⚠️️scrollWheelEnter()
+        //Swift.print("moverGroup!.isDirectlyManipulating: " + "\(moverGroup!.isDirectlyManipulating)")
     }
     /**
      * NOTE: Basically when you release your scrollWheel gesture
@@ -45,49 +42,3 @@ extension ElasticScrollable3{
     }
     func scrollWheelExitedAndIsStationary(){}
 }
-
-
-/*func setProgress(_ value:CGFloat,_ dir:Dir){
- contentContainer!.point[dir] = value
- }*/
-/*func setProgress(_ point:CGPoint){
- contentContainer!.point = point
- }*/
-
-/*
-
-/*hor*/
-let caseA = iterimScrollGroup!.iterimScrollX.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollX.prevScrollingDelta != -1.0
-Swift.print("caseA: " + "\(caseA)")
-/*ver*/
-let caseB = iterimScrollGroup!.iterimScrollY.prevScrollingDelta != 1.0 && iterimScrollGroup!.iterimScrollY.prevScrollingDelta != -1.0/*Not 1 and not -1 indicates that the wheel is not stationary*/
-Swift.print("caseB: " + "\(caseB)")
-var velocity:CGPoint = CGPoint(0,0)
-if(caseA){
-    Swift.print("iterimScrollX.velocities: " + "\(iterimScrollGroup!.iterimScrollX.velocities)")
-    
-}
-if(caseB){
-    Swift.print("iterimScrollY.velocities: " + "\(iterimScrollGroup!.iterimScrollY.velocities)")
-}
-*/
-
-
-/*
- 
- //interim works if you do max and * 2 but use native code instead maybe?
- 
- var velocity2:CGPoint = CGPoint(0,0)
- let x:CGFloat = iterimScrollGroup!.iterimScrollX.velocities.filter{$0 != 0}.average
- velocity2.x = x
- let y:CGFloat = iterimScrollGroup!.iterimScrollY.velocities.filter{$0 != 0}.average
- velocity2.y = y
- Swift.print("velocity2: " + "\(velocity2)")
-
- 
- Swift.print("iterimScrollGroup!.iterimScrollX.prevScrollingDelta: " + "\(iterimScrollGroup!.iterimScrollX.prevScrollingDelta)")
- Swift.print("iterimScrollGroup!.iterimScrollX.prevScrollingDelta: " + "\(iterimScrollGroup!.iterimScrollX.prevScrollingDelta)")
- Swift.print("iterimScrollX.velocities: " + "\(iterimScrollGroup!.iterimScrollX.velocities)")
- Swift.print("iterimScrollY.velocities: " + "\(iterimScrollGroup!.iterimScrollY.velocities)")
- 
- */
