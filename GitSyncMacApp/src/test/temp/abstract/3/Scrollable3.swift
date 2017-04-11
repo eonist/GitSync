@@ -19,10 +19,7 @@ extension Scrollable3{
     func scroll(_ event:NSEvent){
         //Swift.print("event.momentumPhase: " + "\(event.momentumPhase)")
         //Swift.print("event.phase: " + "\(event.phase)")
-        if(event.phase != NSEventPhase.changed || event.momentumPhase != NSEventPhase.changed){
-            Swift.print("event.momentumPhase: " + "\(event.momentumPhase)")
-            Swift.print("event.phase: " + "\(event.phase)")
-        }
+        
         //continue here: 🏀
             //problem is onExit when stationarry, but has moved
                 //maybe the momentumPhase and phase can be used together to detect 👉 the difference in momentum-exit and non-momentum-exit 👈
@@ -64,6 +61,7 @@ extension Scrollable3{
     func onScrollWheelMomentumEnded(){Swift.print("Scrollable3.onScrollWheelMomentumEnded")}
     /*This happens when there has been no panning, just 2 finger touch and release with out moving around*/
     func onScrollWheelCancelled(){Swift.print("Scrollable3.onScrollWheelCancelled")}
+    func onScrollWheelMomentumBegan(){Swift.print("Scrollable3.onScrollWheelMomentumBegan")}
 }
 extension ContainerView3 {//private maybe?
     /**
