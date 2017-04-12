@@ -4,16 +4,14 @@ import Cocoa
 @testable import GitSyncMac
 
 //Continue here:
+    //FastList (progressable) ✅
+    //ScrolFastlList ✅
+    //SlideFastList ✅
 
-    //try previouse lists and views to see if they still work ✅
-
-    //FastList (progressable) 👈
-    //ScrolFastlList
-    //SlideFastList
+    //slideScrollFastList 👈
     //ElasticFastList
     //ElasticSlideFastList
 
-    //Listable with fast ⏳⏳
     //Add css so that Sliders are aligned in SliderList3 and SliderView3 ⏳⏳
     //Figure out the primary direction calculations for momentum, (maybe later) (Make UniScrollable sort of scroll in the intentional direction while not directly Manipulated)
 
@@ -35,7 +33,8 @@ class TestView:TitleView{
     }
     func createGUI(){
         
-        scrollFastList()
+        slideScrollFastList()
+        //scrollFastList()
         //fastList()
         
         //createElasticScrollSlideList()
@@ -61,9 +60,9 @@ class TestView:TitleView{
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
     func slideScrollFastList(){
-        //var dp:DataProvider
-        //dp = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
-        //_ = self.addSubView(SlideScrollFastList3(140, 73, CGSize(24,24), dp, self))
+        var dp:DataProvider
+        dp = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
+        _ = self.addSubView(SlideScrollFastList3(140, 73, CGSize(24,24), dp, self))
     }
     func scrollFastList(){
         var dp:DataProvider
