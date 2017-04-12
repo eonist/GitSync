@@ -6,6 +6,7 @@ protocol ElasticScrollableFastListable3:FastListable3,ElasticScrollable3 {
     var rbContainer:Container?{get set}
 }
 extension ElasticScrollableFastListable3{
+    func onInDirectScrollWheelChange(_ event: NSEvent) {}//override to cancel out the event
     func onScrollWheelChange(_ event:NSEvent){/*Direct scroll*/
         Swift.print("ElasticScrollableFastListable3.onScrollWheelChange : \(event.type)")
         moverGroup!.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
