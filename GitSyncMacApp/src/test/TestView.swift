@@ -30,11 +30,12 @@ class TestView:TitleView{
     override func resolveSkin(){
         Swift.print("ListTransitionTestView.resolveSkin()")
         super.resolveSkin()
-        Swift.print(ElementParser.stackString(self))
+        //Swift.print(ElementParser.stackString(self))
         createGUI()
     }
     func createGUI(){
         
+        fastList()
         
         //createElasticScrollSlideList()
         //createElasticScrollList()
@@ -44,7 +45,7 @@ class TestView:TitleView{
         
         //_ = self.addSubView(ElasticSlideScrollView3Test(width,height,nil))
         //_ = self.addSubView(ElasticScrollView3Test(width,height,nil))
-        _ = self.addSubView(SlideScrollView3Test(width,height,nil))
+        //_ = self.addSubView(SlideScrollView3Test(width,height,nil))
         
         //createGraph7Test()
         //createGraph2()
@@ -57,6 +58,11 @@ class TestView:TitleView{
          Swift.print("intervalA: " + "\(intervalA)")
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
+    }
+    func fastList(){
+        let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
+        let list = addSubView(FastList(140,73,24,dp,self))
+        _ = list
     }
     /**
      *
