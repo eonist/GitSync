@@ -8,11 +8,11 @@ extension ElasticScrollable3{
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
      */
     func onScrollWheelChange(_ event:NSEvent){/*Direct scroll*/
-        //Swift.print("👻📜 (ElasticScrollable3).onScrollWheelChange : \(event.type)")
+        Swift.print("👻📜 (ElasticScrollable3).onScrollWheelChange : \(event.type)")
         moverGroup!.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
         moverGroup!.updatePosition(true)/*the mover still governs the resulting value, in order to get the displacement friction working*/
         let p = moverGroup!.result
-        setProgress(p)
+        self.setProgress(p)
     }
     /**
      * NOTE: Basically when you enter your scrollWheel gesture
@@ -28,7 +28,7 @@ extension ElasticScrollable3{
      * NOTE: Basically when you release your scrollWheel gesture
      */
     func onScrollWheelExit(){
-        Swift.print("👻📜 (ElasticScrollable2).onScrollWheelExit")
+        Swift.print("👻📜 (ElasticScrollable3).onScrollWheelExit")
         //Swift.print("iterimScroll.prevScrollingDelta: " + "\(iterimScroll.prevScrollingDelta)")
         moverGroup!.hasStopped = false
         moverGroup!.value = moverGroup!.result
