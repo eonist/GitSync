@@ -12,3 +12,12 @@ extension ScrollableFastListable3{
         //(self as Scrollable3).setProgress(progressVal)
     }
 }
+
+protocol FastListable4:Progressable3{
+    
+}
+extension FastListable4{
+    func setProgress(_ point: CGPoint) {
+        Swift.print("FastListable4")
+    }
+}
