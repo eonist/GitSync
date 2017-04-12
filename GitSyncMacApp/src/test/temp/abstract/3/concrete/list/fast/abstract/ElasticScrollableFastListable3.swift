@@ -54,12 +54,12 @@ extension ElasticScrollableFastListable3{
             /*finds the values that is outside 0 and 1*/
             if(sliderProgress < 0){//⚠️️ You could also just do if value is bellow 0 -> y = value, and if y  < itemsheight - height -> y = the sapce above itemsheight - leftover
                 let v1 = maskSize[dir] * -sliderProgress
-                rbContainer!.point[dir] = v1/*the half height is to limit the rubber effect, should probably be done else where*/
+                //rbContainer!.point[dir] = v1/*the half height is to limit the rubber effect, should probably be done else where*/
             }else if(sliderProgress > 1){
                 let v2 = maskSize[dir] * -(sliderProgress-1)
-                rbContainer!.point[dir] = v2
+                //rbContainer!.point[dir] = v2
             }else{
-                rbContainer!.point[dir] = 0/*default position*/
+                //rbContainer!.point[dir] = 0/*default position*/
             }
         }
         //Swift.print("rbContainer!.point[dir]: " + "\(rbContainer!.point[dir])")
