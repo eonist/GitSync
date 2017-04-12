@@ -33,13 +33,13 @@ class TestView:TitleView{
     }
     func createGUI(){
         
-        elasticScrollFastList()
+        //elasticScrollFastList()
         //slideScrollFastList()
         //scrollFastList()
         //fastList()
         
         //createElasticScrollSlideList()
-        //createElasticScrollList()
+        createElasticScrollList()
         //createSlideScrollList()
         //createScrollList()
         //createList()
@@ -62,8 +62,8 @@ class TestView:TitleView{
     }
     func elasticScrollFastList(){
         var dp:DataProvider
-        dp = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
-        _ = self.addSubView(ElasticScrollFastList3(140, 73, CGSize(24,24), dp, self))
+        dp = DataProvider("~/Desktop/assets/xml/longlist.xml".tildePath)
+        _ = self.addSubView(ElasticScrollFastList3(140, 145, CGSize(24,24), dp, self))
     }
     func slideScrollFastList(){
         var dp:DataProvider
