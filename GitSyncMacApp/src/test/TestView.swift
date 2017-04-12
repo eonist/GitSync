@@ -60,8 +60,9 @@ class TestView:TitleView{
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
     func fastList(){
+        
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
-        let list = addSubView(FastList(140,73,24,dp,self))
+        let list = addSubView(FastList3(140,73,CGSize(24,24),dp,self))
         _ = list
     }
     /**
