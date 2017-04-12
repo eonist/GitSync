@@ -3,8 +3,8 @@ import Cocoa
 @testable import Element
 
 protocol Containable3{
-    var maskSize:CGSize{get}
-    var contentSize:CGSize{get}
+    var maskSize:CGSize {get}
+    var contentSize:CGSize {get}
     var contentContainer:Element? {get}
 }
 extension Containable3{
