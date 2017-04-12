@@ -11,10 +11,9 @@ extension SlidableScrollable3 {
         //Swift.print("🏂📜 SlidableScrollable3.onScrollWheelChange: \(event.type)")
         /*let horProg:CGFloat = SliderListUtils.progress(event.delta[.hor], interval(.hor), slider(.hor).progress)//TODO: ⚠️️ merge these 2 lines into one and make a method in SliderListUtils that returns point
          let verProg:CGFloat = SliderListUtils.progress(event.delta[.ver], /*5*/interval(.ver), slider(.ver).progress)*/
-        let progress:CGPoint = SliderListUtils.progress(event.delta, interval, progress)
-        //Swift.print("progress: " + "\(progress)")
-        (self as Slidable3).setProgress(progress)
-        (self as Scrollable3).setProgress(progress)
+        let progressVal:CGPoint = SliderListUtils.progress(event.delta, interval, progress)
+        (self as Slidable3).setProgress(progressVal)
+        (self as Scrollable3).setProgress(progressVal)
     }
     func onInDirectScrollWheelChange(_ event:NSEvent) {//enables momentum
         onScrollWheelChange(event)
