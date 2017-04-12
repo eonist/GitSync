@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 @testable import Element
 
-protocol FastListable3:Progressable3,Listable3{
+protocol FastListable3:Listable3,Progressable3{
     var selectedIdx:Int? {get set}
     var pool:[FastListItem] {get set}
     func reUse(_ listItem:FastListItem)
