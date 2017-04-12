@@ -49,7 +49,7 @@ class FastList3:ContainerView3,FastListable3{
         return item
     }
     override func onEvent(_ event:Event) {
-        if(event.type == ButtonEvent.upInside && (event.origin as! NSView).superview === contentContainer){onListItemUpInside(event as! ButtonEvent)}// :TODO: should listen for SelectEvent here
+        if(event.type == ButtonEvent.upInside && event.origin.superview === contentContainer){onListItemUpInside(event as! ButtonEvent)}// :TODO: should listen for SelectEvent here
         else if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
         super.onEvent(event)// we stop propegation by not forwarding events to super. The ListEvents go directly to super so they wont be stopped.
     }
