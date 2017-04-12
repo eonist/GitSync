@@ -34,7 +34,7 @@ class FastList3:ContainerView3,FastListable3{
     func createItem(_ index:Int) -> Element{
         //Swift.print("⚠️️ FastList.createItem index: " + "\(index)")
         let item:SelectTextButton = SelectTextButton(itemSize.width, itemSize.height ,"", false, contentContainer)
-        lableContainer!.addSubview(item)
+        contentContainer!.addSubview(item)
         return item
     }
     override func onEvent(_ event:Event) {
