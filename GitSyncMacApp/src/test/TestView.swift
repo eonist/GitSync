@@ -30,7 +30,8 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        elasticScrollFastList()
+        elasticSlideScrollFastList3()
+        //elasticScrollFastList()
         //slideScrollFastList()
         //scrollFastList()
         //fastList()
@@ -56,6 +57,11 @@ class TestView:TitleView{
          Swift.print("intervalA: " + "\(intervalA)")
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
+    }
+    func elasticSlideScrollFastList3(){
+        var dp:DataProvider
+        dp = DataProvider("~/Desktop/assets/xml/longlist.xml".tildePath)
+        _ = self.addSubView(ElasticSlideScrollFastList3(140, 145, CGSize(24,24), dp, self))
     }
     func elasticScrollFastList(){
         var dp:DataProvider
