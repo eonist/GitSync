@@ -7,7 +7,7 @@ protocol ElasticScrollableFastListable3:FastListable3,ElasticScrollable3 {
 }
 extension ElasticScrollableFastListable3{
     func setProgress(_ point: CGPoint) {
-        <#code#>
+        setProgress(<#T##progress: CGFloat##CGFloat#>)
     }
     /**
      * PARAM value: is the final y value for the lableContainer
