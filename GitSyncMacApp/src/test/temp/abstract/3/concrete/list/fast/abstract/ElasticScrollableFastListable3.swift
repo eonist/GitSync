@@ -43,8 +43,9 @@ extension ElasticScrollableFastListable3{
             let progress = progressValue!.clip(0, 1)
             
             //⚠️️🔨the bellow needs refactoring
-            //(self as Scrollable).setProgress(progress)/*moves the lableContainer up and down*/
-            contentContainer!.point[dir] = value//here is the problem
+            (self as Scrollable3).setProgress(progress,dir)/*moves the lableContainer up and down*/
+            //contentContainer!.point[dir] = value//here is the problem
+            
             (self as FastListable3).setProgress(progress)
             //
             let sliderProgress = ElasticUtils.progress(value,contentSide,maskSize[dir])//doing some double calculations here
