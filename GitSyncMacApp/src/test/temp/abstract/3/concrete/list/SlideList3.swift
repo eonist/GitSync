@@ -7,9 +7,6 @@ class SlideList3:List3,Slidable3 {
     lazy var verSlider:Slider? = self.vSlider
     override func resolveSkin() {
         super.resolveSkin()
-        let thumbHeight:CGFloat = SliderParser.thumbSize(height/contentSize.height, verSlider!.height)
-        verSlider!.setThumbSide(thumbHeight)
-        verSlider!.thumb!.fadeOut()//inits fade out anim on init
     }
     override func onEvent(_ event:Event) {
         if(event == SliderEvent.change){
@@ -29,7 +26,10 @@ extension Slidable3{
     }
     var vSlider:Slider{
         let verSlider:Slider = (self as! NSView).addSubView(Slider(self.itemSize.width,self.height,.ver,self.itemSize,0,(self as! IElement)))
-        
+        let thumbHeight:CGFloat = SliderParser.thumbSize(height/contentSize.height, verSlider.height)
+        verSlider.setThumbSide(thumbHeight)
+        verSlider.thumb!.fadeOut()//inits fade out anim on init
+        return verSlider
     }
 }
 /*extension SlideList3{
