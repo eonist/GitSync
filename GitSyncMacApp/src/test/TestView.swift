@@ -36,10 +36,10 @@ class TestView:TitleView{
     func createGUI(){
         
         
-        createElasticScrollSlideList()
+        //createElasticScrollSlideList()
         //createElasticScrollList()
         //createSlideScrollList()
-        //createScrollList()
+        createScrollList()
         //createList()
         
         //_ = self.addSubView(ElasticSlideScrollView3Test(width,height,nil))
