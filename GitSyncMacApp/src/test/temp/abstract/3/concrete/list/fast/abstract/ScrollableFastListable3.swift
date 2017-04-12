@@ -9,15 +9,6 @@ extension ScrollableFastListable3{
         Swift.print("ScrollableFastListable3.onScrollWheelChange()")
         let progressVal:CGPoint = SliderListUtils.progress(event.delta, interval, progress)
         (self as FastListable3).setProgress(progressVal)
-        //(self as Scrollable3).setProgress(progressVal)
-    }
-}
-
-protocol FastListable4:Progressable3{
-    
-}
-extension FastListable4{
-    func setProgress(_ point: CGPoint) {
-        Swift.print("FastListable4")
+        (self as Scrollable3).setProgress(progressVal)
     }
 }
