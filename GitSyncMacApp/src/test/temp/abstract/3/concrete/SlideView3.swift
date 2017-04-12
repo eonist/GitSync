@@ -5,6 +5,7 @@ import Cocoa
 class SlideView3:ContainerView3, Slidable3 {
     var horSlider:Slider?
     var verSlider:Slider?
+    var itemSize:CGSize {return CGSize(24,24)}
     override func resolveSkin() {
         super.resolveSkin()
         /*slider*/
