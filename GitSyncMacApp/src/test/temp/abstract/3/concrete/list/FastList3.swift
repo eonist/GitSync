@@ -1,6 +1,7 @@
 import Foundation
+@testable import Utils
+@testable import Element
 
-class FastList3 {
-    //Continue here:
-        //add basic things like COntainerView3 then 
+class FastList3:ContainerView3{
+    
 }
