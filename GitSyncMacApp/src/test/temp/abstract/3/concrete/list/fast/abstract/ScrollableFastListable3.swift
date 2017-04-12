@@ -8,7 +8,8 @@ extension ScrollableFastListable3{
     func onScrollWheelChange(_ event:NSEvent) {
         Swift.print("ScrollableFastListable3.onScrollWheelChange()")
         let progressVal:CGPoint = SliderListUtils.progress(event.delta, interval, progress)
-        var primaryProgress:CGFloat = 
+        var primaryDir:Dir = dir == .ver ? .ver : .hor
+        let primaryProgress:CGFloat = 
         (self as FastListable3).setProgress(progressVal)
         (self as Scrollable3).setProgress(progressVal)
     }
