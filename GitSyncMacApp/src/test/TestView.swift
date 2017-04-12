@@ -9,6 +9,8 @@ import Cocoa
     //ElasticFastList ✅
     //ElasticSlideFastList ✅
 
+    //Clean up the code 👈
+
     //Add css so that Sliders are aligned in SliderList3 and SliderView3 ⏳⏳
     //Figure out the primary direction calculations for momentum, (maybe later) (Make UniScrollable sort of scroll in the intentional direction while not directly Manipulated)
 
