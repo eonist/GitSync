@@ -27,7 +27,7 @@ extension SlidableScrollable3 {
     func onScrollWheelExit() {
         hideSlider()
     }
-    func onScrollWheelMomentumBegan() {
+    func onScrollWheelMomentumBegan(_ event:NSEvent) {
         showSlider()//cancels out the hide call when onScrollWheelExit is called when you release after pan gesture
     }
     /**
