@@ -5,9 +5,6 @@ import Cocoa
 class SlideList3:List3,Slidable3 {
     lazy var horSlider:Slider? = self.hSlider
     lazy var verSlider:Slider? = self.vSlider
-    override func resolveSkin() {
-        super.resolveSkin()
-    }
     override func onEvent(_ event:Event) {
         if(event == SliderEvent.change){
             let dir:Dir = event.origin === horSlider ? .hor : .ver
