@@ -7,6 +7,7 @@ protocol ElasticScrollableFastListable3:FastListable3,ElasticScrollable3 {
 }
 extension ElasticScrollableFastListable3{
     func setProgress(_ point: CGPoint) {
+        Swift.print("ElasticScrollableFastListable3.setProgress()")
         setProgress(point[dir], dir)
         //(self as ElasticScrollable3).setProgress(point[.hor], .hor)
         //Continue here: 🏀
