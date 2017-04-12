@@ -40,7 +40,7 @@ extension FastListable3 {
      * NOTE: This method makes the Fast list look good when item sout of view vanish. Scroll is realigned and you can continue from where you are
      * NOTE: called by FastList.onDataProviderEvent
      */
-    func aligncontentContainer(_ event:DataProviderEvent){
+    func alignContentContainer(_ event:DataProviderEvent){
         /*Pin to top if itemsHeight is less than height*/
         if(contentSize[dir] < maskSize[dir]){//basically when itemsHeight is less than height was /*dp.count <= numOfItemsThatCanFit*/
             contentContainer!.point[dir] = 0
