@@ -8,7 +8,7 @@ class ElasticScrollFastList3:FastList3,ElasticScrollableFastListable3 {
     override func resolveSkin() {
         super.resolveSkin()
         /*rbContainer*/
-        rbContainer = addSubView(Container(w,h,self,"rb"))
+        rbContainer = addSubView(Container(w,h,self,"rb"))//⚠️️TODO: move to lazy var later
         rbContainer!.addSubview(contentContainer!)//add lable Container inside rbContainer
         contentContainer!.parent = rbContainer!
     }

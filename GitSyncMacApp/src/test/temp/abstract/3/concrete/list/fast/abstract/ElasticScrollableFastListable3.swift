@@ -13,6 +13,7 @@ extension ElasticScrollableFastListable3{
     func setProgress(_ value:CGFloat){
         //Swift.print("👻🏂📜🐎 ElasticScrollableFast.setProgress(\(value))")
         //Swift.print("value: " + "\(value)")
+        var progressValue:CGFloat?//new
         let contentSide:CGFloat = contentSize[dir]//TODO: Use a precalculated itemsHeight instead of recalculating it on every setProgress call, what if dp.count changes though?
         if(contentSide < maskSize[dir]){//when there is few items in view, different overshoot rules apply, this should be written more elegant
             progressValue = value / maskSize[dir]
@@ -26,8 +27,8 @@ extension ElasticScrollableFastListable3{
             
             //⚠️️🔨the bellow needs refactoring
             //(self as Scrollable).setProgress(progress)/*moves the lableContainer up and down*/
-            lableContainer!.point[dir] = value
-            (self as IFastList).setProgress(progress)
+            contentContainer!.point[dir] = value
+            (self as FastListable3).setProgress(progress)
             //
             let sliderProgress = ElasticUtils.progress(value,contentSide,maskSize[dir])//doing some double calculations here
             /*finds the values that is outside 0 and 1*/
