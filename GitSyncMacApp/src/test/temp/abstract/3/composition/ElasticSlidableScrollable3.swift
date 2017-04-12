@@ -17,7 +17,7 @@ extension ElasticSlidableScrollable3{
         //Swift.print("👻🏂📜 ElasticSlidableScrollable3.scroll()")
         (self as Scrollable3).scroll(event)//forward the event
         switch event.phase{
-            case NSEventPhase.changed://Direct scroll
+            case NSEventPhase.changed://Direct scroll, ⚠️️That you need a hock here is not that great
                 let sliderProgress:CGPoint = ElasticUtils.progress(moverGroup!.result,contentSize,maskSize)
                 (self as Slidable3).setProgress(sliderProgress)
             case NSEventPhase.mayBegin, NSEventPhase.began:/*same as onScrollWheelEnter()*/
