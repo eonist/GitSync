@@ -34,5 +34,5 @@ extension ElasticSlidableScrollable3{
         Swift.print("ElasticSlidableScrollable3.onScrollWheelCancelled")
         hideSlider()
     }
-    func onInDirectScrollWheelChange(_ event: NSEvent) {}//override to cancel out the event
+    func onInDirectScrollWheelChange(_ event: NSEvent) {}//override to cancel out the event, put this more central
 }
