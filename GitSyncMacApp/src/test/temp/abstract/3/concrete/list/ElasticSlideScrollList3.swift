@@ -14,7 +14,7 @@ class ElasticSlideScrollList3:SlideList3,ElasticSlidableScrollable3 {
         super.onEvent(event)
     }
 }
-extension Elastic3 where Self:Slidable3, Self:IEventSender{
+private extension ElasticSlideScrollList3{
     var moverGrp:MoverGroup {
         let group = MoverGroup(self.setProgress,self.maskSize,self.contentSize);
         group.event = self.onEvent/*Add an eventHandler for the mover object, , this has no functionality in this class, but may have in classes that extends this class, like hide progress-indicator when all animation has stopped*/
