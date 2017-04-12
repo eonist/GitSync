@@ -11,6 +11,11 @@ class ElasticScrollFastList3:FastList3,ElasticScrollableFastListable3 {
         
     }
 }
-extension Elastic3 where Self:FastListable3{
-    var rbContainer:Container
+extension Elastic3 where Self:FastList3{
+    var rubberBandContainer:Container {
+        let rbContainer = addSubView(Container(w,h,self,"rb"))//⚠️️TODO: move to lazy var later
+        rbContainer.addSubview(contentContainer!)//add lable Container inside rbContainer
+        contentContainer!.parent = rbContainer
+        return rbContainer
+    }
 }
