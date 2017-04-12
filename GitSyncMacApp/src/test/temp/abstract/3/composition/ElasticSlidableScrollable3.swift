@@ -14,7 +14,7 @@ extension ElasticSlidableScrollable3{
         contentContainer!.point[dir] = value
     }
     func scroll(_ event:NSEvent) {
-        //Swift.print("👻🏂📜 ElasticSlidableScrollable3.scroll()")
+        Swift.print("👻🏂📜 ElasticSlidableScrollable3.scroll()")
         (self as Scrollable3).scroll(event)//forward the event
         switch event.phase{
             case NSEventPhase.changed://Direct scroll, ⚠️️That you need a hock here is not that great
