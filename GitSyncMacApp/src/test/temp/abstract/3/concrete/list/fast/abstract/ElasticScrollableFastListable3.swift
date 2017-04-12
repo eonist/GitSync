@@ -9,6 +9,10 @@ extension ElasticScrollableFastListable3{
     func setProgress(_ point: CGPoint) {
         setProgress(point[dir], dir)
         //(self as ElasticScrollable3).setProgress(point[.hor], .hor)
+        //Continue here: 🏀
+            //move the Progressable.setProgress into a static utils method
+            //use this uitls method here
+            //use secondary dir to get correct variables
     }
     /**
      * PARAM value: is the final y value for the lableContainer
