@@ -10,8 +10,8 @@ extension ElasticScrollableFastListable3{
      * PARAM value: is the final y value for the lableContainer
      * ⚠️️ Do not use scalar value here (0-1) well you know...
      */
-    func setProgress(_ value:CGFloat){
-        //Swift.print("👻🏂📜🐎 ElasticScrollableFast.setProgress(\(value))")
+    func setProgress(_ value:CGFloat,_ dir:Dir){
+        Swift.print("👻🏂📜🐎 ElasticScrollableFast.setProgress(\(value))")
         //Swift.print("value: " + "\(value)")
         var progressValue:CGFloat?//new
         let contentSide:CGFloat = contentSize[dir]//TODO: Use a precalculated itemsHeight instead of recalculating it on every setProgress call, what if dp.count changes though?
