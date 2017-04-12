@@ -1,7 +1,9 @@
 import Cocoa
 @testable import Element
 @testable import Utils
-
+/**
+ * TODO: When progress hits 0 or 1 you should hide the slider
+ */
 protocol SlidableScrollable3:Slidable3,Scrollable3 {}
 extension SlidableScrollable3 {
     /**
