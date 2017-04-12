@@ -1,5 +1,8 @@
 import Foundation
 
-class ElasticSlidableScrollableFastListable3 {
+protocol ElasticSlidableScrollableFastListable3:ElasticScrollableFastListable3 {
 
+}
+extension ElasticSlidableScrollableFastListable3{
+    
 }
