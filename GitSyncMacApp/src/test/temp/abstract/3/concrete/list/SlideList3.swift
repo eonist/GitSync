@@ -3,13 +3,10 @@ import Cocoa
 @testable import Element
 
 class SlideList3:List3,Slidable3 {
-    lazy var horSlider:Slider? = self.addSubView(Slider(self.width,self.itemSize.height,.hor,self.itemSize,0,self))
+    lazy var horSlider:Slider? = self.hSlider
     lazy var verSlider:Slider? = self.addSubView(Slider(self.itemSize.width,self.height,.ver,self.itemSize,0,self))
     override func resolveSkin() {
         super.resolveSkin()
-        /*horSlider
-         verSlider*/
-        
         let thumbHeight:CGFloat = SliderParser.thumbSize(height/contentSize.height, verSlider!.height)
         verSlider!.setThumbSide(thumbHeight)
         verSlider!.thumb!.fadeOut()//inits fade out anim on init
@@ -24,6 +21,12 @@ class SlideList3:List3,Slidable3 {
             setProgress((event as! SliderEvent).progress,dir)
         }
         super.onEvent(event)
+    }
+}
+extension Slidable3{
+    var hSlider:Slider {
+        return self.addSubView(Slider(self.width,self.itemSize.height,.hor,self.itemSize,0,self))
+        
     }
 }
 /*extension SlideList3{
