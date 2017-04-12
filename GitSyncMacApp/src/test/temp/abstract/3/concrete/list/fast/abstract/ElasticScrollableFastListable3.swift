@@ -6,6 +6,9 @@ protocol ElasticScrollableFastListable3:FastListable3,ElasticScrollable3 {
     var rbContainer:Container?{get set}
 }
 extension ElasticScrollableFastListable3{
+    func setProgress(_ point: CGPoint) {
+        <#code#>
+    }
     /**
      * PARAM value: is the final y value for the lableContainer
      * ⚠️️ Do not use scalar value here (0-1) well you know...
