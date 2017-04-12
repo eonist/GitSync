@@ -1,5 +1,5 @@
 import Foundation
 
-class SlideScrollFastList3 {
+class SlideScrollFastList3 /*:SlideFastList3,SlidableScrollableFastListable3*/{
 
 }
