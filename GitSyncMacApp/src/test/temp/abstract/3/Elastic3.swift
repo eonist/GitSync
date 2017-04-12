@@ -15,7 +15,7 @@ extension Elastic3{
         contentContainer!.point[dir] = value
     }
     func setProgress(_ point:CGPoint){
-        Swift.print("Elastic3.setProgress(p)")
+        Swift.print("Elastic3.setProgress(\(point))")
         contentContainer!.point = point
     }
 }
