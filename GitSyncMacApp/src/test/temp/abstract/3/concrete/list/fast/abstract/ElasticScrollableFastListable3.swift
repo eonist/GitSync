@@ -14,9 +14,6 @@ extension ElasticScrollableFastListable3{
         moverGroup!.updatePosition(true)/*the mover still governs the resulting value, in order to get the displacement friction working*/
         let p:CGPoint = moverGroup!.result
         
-        //continue here:
-            //measure the p. Is does it have more strength in ElasticlScrollList?
-        
         //(self as ElasticScrollableFastListable3).setProgress(p)
         setProgressVal(p.x,.hor)
         setProgressVal(p.y,.ver)
