@@ -46,7 +46,7 @@ extension FastListable3 {
             contentContainer!.point[dir] = 0
         }
             /*Pin to bottom if (contentContainer.y + itemsHeight) is less than (height) and itemsHeight is more than height*/
-        else if(contentSize. > height){
+        else if(contentSize[dir] > maskSize[dir]){
             if((contentContainer!.point[dir] + contentSize[dir]) < maskSize[dir]){
                 contentContainer!.point[dir] = -(contentSize[dir] - maskSize[dir])
             }
@@ -62,5 +62,4 @@ extension FastListable3 {
             }
         }
     }
-    
 }
