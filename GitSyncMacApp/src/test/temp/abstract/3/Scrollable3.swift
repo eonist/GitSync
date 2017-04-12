@@ -19,7 +19,7 @@ extension Scrollable3{
     func scroll(_ event:NSEvent){
         //Swift.print("event.momentumPhase: " + "\(event.momentumPhase)")
         //Swift.print("event.phase: " + "\(event.phase)")
-        //Swift.print("Scrollable3.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
+        Swift.print("Scrollable3.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
         switch event.phase{
             case NSEventPhase.changed/*4*/:onScrollWheelChange(event)/*Fires everytime there is direct scrollWheel gesture movment and momentum, the momentum fades.*/
             case NSEventPhase.mayBegin/*32*/:onScrollWheelEnter()/*Can be used to detect if two fingers are touching the trackpad*/
@@ -61,7 +61,9 @@ extension ContainerView3 {//private maybe?
      */
     override open func scrollWheel(with event: NSEvent) {
        // Swift.print("ContainerView3.scrollWheel")
-        if(self is ElasticSlidableScrollable3){
+        if(self is ElasticSlidableScrollableFastListable3){
+            (self as! ElasticSlidableScrollableFastListable3).scroll(event)
+        }else if(self is ElasticSlidableScrollable3){
             (self as! ElasticSlidableScrollable3).scroll(event)
         }else if(self is Scrollable3){
             (self as! Scrollable3).scroll(event)
