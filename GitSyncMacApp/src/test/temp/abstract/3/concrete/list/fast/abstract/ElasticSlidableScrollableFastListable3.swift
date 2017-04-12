@@ -13,7 +13,7 @@ extension ElasticSlidableScrollableFastListable3{
     func scroll(_ event: NSEvent) {
         (self as Scrollable3).scroll(event)//forward the event
         if(event.phase == NSEventPhase.changed){
-            setProgressValue()
+            setProgressValue(event.delta)
         }
     }
 }
