@@ -17,8 +17,9 @@ extension ElasticSlidableScrollableFastListable3{
         Swift.print("ElasticSlidableScrollableFastListable3.scroll")
         (self as Scrollable3).scroll(event)//forward the event
         if(event.phase == NSEventPhase.changed){
-            let progressVal:CGPoint = SliderListUtils.progress(event.delta, interval, progress)
-            setProgressValue(event.deltaY,.ver)//not great need to set point not number
+            let progressVal:CGPoint = SliderListUtils.progress(event, .ver, interval(.ver), progress(.ver))
+            
+            setProgressValue(progressVal,.ver)//not great need to set point not number
         }
     }
 }
