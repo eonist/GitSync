@@ -3,7 +3,8 @@ import Cocoa
 @testable import Element
 
 
-//continue here: wee need to
+//continue here: 
+    //you need to convert delta to
 
 protocol ElasticSlidableScrollableFastListable3:Slidable3,ElasticScrollableFastListable3 {}
 extension ElasticSlidableScrollableFastListable3{
@@ -17,8 +18,11 @@ extension ElasticSlidableScrollableFastListable3{
         Swift.print("ElasticSlidableScrollableFastListable3.scroll")
         (self as Scrollable3).scroll(event)//forward the event
         if(event.phase == NSEventPhase.changed){
-            let progressVal:CGFloat = SliderListUtils.progress(event, .ver, interval(.ver), progress(.ver))
-            setProgressValue(progressVal,.ver)//not great need to set point not number
+            let sliderProgress = ElasticUtils.progress(value,contentSize[dir],maskSize[dir])//doing some double calculations here
+            slider(dir).setProgressValue(sliderProgress)//temp fix
+
+            //let progressVal:CGFloat = SliderListUtils.progress(event, .ver, interval(.ver), progress(.ver))
+            //setProgressValue(progressVal,.ver)//not great need to set point not number
         }
     }
 }
