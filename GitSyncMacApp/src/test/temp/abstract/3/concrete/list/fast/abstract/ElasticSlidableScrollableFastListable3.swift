@@ -8,15 +8,12 @@ extension ElasticSlidableScrollableFastListable3{
         Swift.print("ElasticSlidableScrollableFastListable3.setProgress")
         setProgressVal(value, dir)//forward
         let sliderProgress = ElasticUtils.progress(value,contentSize[dir],maskSize[dir])//doing some double calculations here
-        slider!.setProgressValue(sliderProgress)
+        slider(dir).setProgressValue(sliderProgress)//temp fix
      }
     func scroll(_ event: NSEvent) {
         (self as Scrollable3).scroll(event)//forward the event
         if(event.phase == NSEventPhase.changed){
-            
+            setProgressValue()
         }
     }
 }
-/*
-
-*/
