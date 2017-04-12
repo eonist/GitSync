@@ -6,7 +6,7 @@ protocol ElasticScrollableFastListable3:FastListable3,ElasticScrollable3 {
     var rbContainer:Container?{get}
 }
 extension ElasticScrollableFastListable3{
-    func onInDirectScrollWheelChange(_ event: NSEvent) {}//override to cancel out the event
+    func onInDirectScrollWheelChange(_ event: NSEvent) {}//override to cancel out the event,move this more centerally, or remove
     func onScrollWheelChange(_ event:NSEvent){/*Direct scroll*/
         Swift.print("event.type: " + "\(event.phase)")
         Swift.print("ElasticScrollableFastListable3.onScrollWheelChange : \(event.type)")
