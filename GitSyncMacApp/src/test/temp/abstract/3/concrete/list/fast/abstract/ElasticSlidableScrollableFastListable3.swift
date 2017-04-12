@@ -4,15 +4,19 @@ import Cocoa
 
 protocol ElasticSlidableScrollableFastListable3:Slidable3,ElasticScrollableFastListable3 {}
 extension ElasticSlidableScrollableFastListable3{
-    func setProgress(_ value: CGFloat, _ dir: Dir) {
-     Swift.print("ElasticSlidableScrollableFastListable3.setProgress")
+    func setProgressValue(_ value: CGFloat, _ dir: Dir) {
+        Swift.print("ElasticSlidableScrollableFastListable3.setProgress")
+        setProgressVal(value, dir)//forward
+        let sliderProgress = ElasticUtils.progress(value,contentSize[dir],maskSize[dir])//doing some double calculations here
+        slider!.setProgressValue(sliderProgress)
      }
-}
-/*
-func scroll(_ event: NSEvent) {
-    (self as Scrollable3).scroll(event)//forward the event
-    if(event.phase == NSEventPhase.changed){
-        
+    func scroll(_ event: NSEvent) {
+        (self as Scrollable3).scroll(event)//forward the event
+        if(event.phase == NSEventPhase.changed){
+            
+        }
     }
 }
+/*
+
 */
