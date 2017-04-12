@@ -12,19 +12,19 @@ extension ElasticScrollableFastListable3{
         moverGroup!.updatePosition(true)/*the mover still governs the resulting value, in order to get the displacement friction working*/
         let p:CGPoint = moverGroup!.result
         //(self as ElasticScrollableFastListable3).setProgress(p)
-        (self).setProgress(p.x,.hor)
-        (self).setProgress(p.y,.ver)
+        (self).setProgressVal(p.x,.hor)
+        (self).setProgressVal(p.y,.ver)
     }
-    func setProgress(_ point:CGPoint) {
-        Swift.print("ElasticScrollableFastListable3.setProgress(p)")
-        (self as FastListable3).setProgress(point[dir], dir)
-        //(self as ElasticScrollable3).setProgress(point[.hor], .hor)
-    }
+    /*func setProgress(_ point:CGPoint) {
+     Swift.print("ElasticScrollableFastListable3.setProgress(p)")
+     (self as FastListable3).setProgress(point[dir], dir)
+     //(self as ElasticScrollable3).setProgress(point[.hor], .hor)
+     }*/
     /**
      * PARAM value: is the final y value for the lableContainer
      * ⚠️️ Do not use scalar value here (0-1) well you know...
      */
-    func setProgress(_ value:CGFloat,_ dir:Dir){
+    func setProgressVal(_ value:CGFloat,_ dir:Dir){
         Swift.print("👻🏂📜🐎 ElasticScrollableFast.setProgress(\(value))")
         //Swift.print("value: " + "\(value)")
         var progressValue:CGFloat?//new
