@@ -24,7 +24,6 @@ extension Slidable3 {
         slider(.hor).setProgressValue(point.x)
         slider(.ver).setProgressValue(point.y)
     }
-    
     /**
      * Updates the slider interval and the sliderThumbSize (after DP events: add/remove etc)
      */

@@ -9,6 +9,6 @@ extension SlideableScrollableFastListable3{
         let primaryProgress:CGFloat = SliderListUtils.progress(event, dir, interval(dir), progress(dir))
         (self as FastListable3).setProgress(primaryProgress)
         (self as Scrollable3).setProgress(primaryProgress,dir)
-        (self as Slidable3).setProgress(primaryProgress,dir)
+        (self as Slidable3).setProgress(CGPoint(0,primaryProgress))//<-quickfix
     }
 }
