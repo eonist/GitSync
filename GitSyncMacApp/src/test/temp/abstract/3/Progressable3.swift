@@ -27,7 +27,7 @@ extension Progressable3{
      * PARAM: progress: 0-1
      */
     func setProgress(_ point:CGPoint){
-        //Swift.print("Progressable3.setProgress: " + "\(point)")
+        Swift.print("Progressable3.setProgress: " + "\(point)")
         setProgress(point.x,.hor)
         setProgress(point.y,.ver)
     }
