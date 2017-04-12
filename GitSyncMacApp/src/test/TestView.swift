@@ -30,8 +30,8 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        //elasticSlideScrollFastList3()
-        elasticScrollFastList()
+        elasticSlideScrollFastList3()
+        //elasticScrollFastList()
         //slideScrollFastList()
         //scrollFastList()
         //fastList()
