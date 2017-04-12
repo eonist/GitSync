@@ -15,7 +15,7 @@ extension ElasticScrollableFastListable3{
         
     }
     func setProgress(_ point:CGPoint) {
-        Swift.print("ElasticScrollableFastListable3.setProgress()")
+        Swift.print("ElasticScrollableFastListable3.setProgress(p)")
         (self as FastListable3).setProgress(point[dir], dir)
         //(self as ElasticScrollable3).setProgress(point[.hor], .hor)
     }
