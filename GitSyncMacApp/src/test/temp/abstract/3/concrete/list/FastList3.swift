@@ -4,8 +4,9 @@ import Foundation
 
 class FastList3:ContainerView3,FastListable3{
     var selectedIdx:Int?/*This cooresponds to the "absolute" index in dp*/
-    var dataProvider:DataProvider/*data storage*/
+    var dp:DataProvider/*data storage*/
     var itemSize:CGSize
+    var dir:Dir
     var pool:[FastListItem] = []/*Stores the FastListItems*/
     var inActive:[FastListItem] = []/*Stores pool item that are not in-use*/
     override var contentSize:CGSize {get{return dir == .hor ? CGSize(dp.count * itemSize.width ,height) : CGSize(width ,dp.count * itemSize.height) } set{_ = newValue;fatalError("not supported");}}
@@ -32,7 +33,7 @@ class FastList3:ContainerView3,FastListable3{
      */
     func createItem(_ index:Int) -> Element{
         //Swift.print("⚠️️ FastList.createItem index: " + "\(index)")
-        let item:SelectTextButton = SelectTextButton(itemSize.width, itemSize.height ,"", false, lableContainer)
+        let item:SelectTextButton = SelectTextButton(itemSize.width, itemSize.height ,"", false, contentContainer)
         lableContainer!.addSubview(item)
         return item
     }
