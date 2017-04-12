@@ -3,11 +3,11 @@ import Foundation
 @testable import Element
 
 class ElasticSlideScrollList3:SlideList3,ElasticSlidableScrollable3 {
-    lazy var moverGroup:MoverGroup? = MoverGroup(self.setProgress,self.maskSize,self.contentSize)
-    override func resolveSkin() {
-        super.resolveSkin()
-        moverGroup!.event = onEvent/*Add an eventHandler for the mover object, , this has no functionality in this class, but may have in classes that extends this class, like hide progress-indicator when all animation has stopped*/
-    }
+    lazy var moverGroup:MoverGroup? = {
+        let group = MoverGroup(self.setProgress,self.maskSize,self.contentSize);
+        group.event = self.onEvent/*Add an eventHandler for the mover object, , this has no functionality in this class, but may have in classes that extends this class, like hide progress-indicator when all animation has stopped*/
+        return group
+    }()
     override func onEvent(_ event:Event) {
         if(event.type == AnimEvent.stopped){
             Swift.print("ElasticSlideScrollList3.onEvent: " + "\(event.type)")
