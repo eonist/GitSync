@@ -6,16 +6,17 @@ protocol ElasticScrollableFastListable3:FastListable3,ElasticScrollable3 {
     var rbContainer:Container?{get set}
 }
 extension ElasticScrollableFastListable3{
+    func onScrollWheelChange(_ event:NSEvent){/*Direct scroll*/
+        Swift.print("ElasticScrollableFastListable3.onScrollWheelChange : \(event.type)")
+        /*moverGroup!.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
+         moverGroup!.updatePosition(true)/*the mover still governs the resulting value, in order to get the displacement friction working*/
+         let p:CGPoint = moverGroup!.result
+         setProgress(p)*/
+    }
     func setProgress(_ point:CGPoint) {
         Swift.print("ElasticScrollableFastListable3.setProgress()")
         (self as FastListable3).setProgress(point[dir], dir)
         //(self as ElasticScrollable3).setProgress(point[.hor], .hor)
-        //Continue here: 🏀
-            //move the Progressable.setProgress into a static utils method
-            //use this uitls method here
-            //use secondary dir to get correct variables
-        
-        //you need to hock in to onChange while direct scroll
     }
     /**
      * PARAM value: is the final y value for the lableContainer
