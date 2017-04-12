@@ -59,6 +59,14 @@ class TestView:TitleView{
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
+    func scrollFastList(){
+        var dp:DataProvider
+        dp = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
+        let list = self.addSubView(ScrollFastList(140, 73, 24, dp, self))
+        _ = list
+        //ListModifier.select(list, "white")
+        //FastListModifier.select(list as IFastList, 5)
+    }
     func fastList(){
         
         let dp:DataProvider = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
