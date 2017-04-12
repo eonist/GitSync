@@ -5,7 +5,7 @@ import Cocoa
 class SlideView3:ContainerView3, Slidable3 {
     var horSlider:Slider?
     var verSlider:Slider?
-    var itemSize:CGSize {return CGSize(24,24)}
+    var itemSize:CGSize {return CGSize(24,24)}//sort of a quick fix, one should really override interval with a value of 4 or 10 or something
     override func resolveSkin() {
         super.resolveSkin()
         /*slider*/
