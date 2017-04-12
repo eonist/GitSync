@@ -13,6 +13,8 @@ extension ElasticScrollableFastListable3{
             //move the Progressable.setProgress into a static utils method
             //use this uitls method here
             //use secondary dir to get correct variables
+        
+        //you need to hock in to onChange while direct scroll
     }
     /**
      * PARAM value: is the final y value for the lableContainer
