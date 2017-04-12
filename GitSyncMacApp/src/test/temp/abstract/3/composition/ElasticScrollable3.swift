@@ -11,7 +11,7 @@ extension ElasticScrollable3{
         Swift.print("👻📜 (ElasticScrollable3).onScrollWheelChange : \(event.type)")
         moverGroup!.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
         moverGroup!.updatePosition(true)/*the mover still governs the resulting value, in order to get the displacement friction working*/
-        let p = moverGroup!.result
+        let p:CGPoint = moverGroup!.result
         (self as Elastic3).setProgress(p)
     }
     /**
