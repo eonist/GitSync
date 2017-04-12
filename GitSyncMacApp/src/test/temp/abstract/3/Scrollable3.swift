@@ -67,6 +67,8 @@ extension ContainerView3 {//private maybe?
             (self as! ElasticSlidableScrollable3).scroll(event)
         }else if(self is Scrollable3){
             (self as! Scrollable3).scroll(event)
+        }else{
+            fatalError("type not supported")
         }/*else if(self is Slidable3){
          if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
          (self as! Slidable3).showSlider()
