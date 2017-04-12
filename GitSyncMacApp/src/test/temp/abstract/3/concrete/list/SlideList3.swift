@@ -11,9 +11,7 @@ class SlideList3:List3,Slidable3 {
         verSlider!.setThumbSide(thumbHeight)
         verSlider!.thumb!.fadeOut()//inits fade out anim on init
         
-        let thumbWidth:CGFloat = SliderParser.thumbSize(width/itemSize.width, horSlider!.width)
-        horSlider!.setThumbSide(thumbWidth)
-        horSlider!.thumb!.fadeOut()//inits fade out anim on init
+        
     }
     override func onEvent(_ event:Event) {
         if(event == SliderEvent.change){
@@ -25,8 +23,11 @@ class SlideList3:List3,Slidable3 {
 }
 extension Slidable3{
     var hSlider:Slider {
-        return self.addSubView(Slider(self.width,self.itemSize.height,.hor,self.itemSize,0,self))
-        
+        let horSlider:Slider = (self as! NSView).addSubView(Slider(self.width,self.itemSize.height,.hor,self.itemSize,0,(self as! IElement)))
+        let thumbWidth:CGFloat = SliderParser.thumbSize(width/itemSize.width, horSlider.width)
+        horSlider.setThumbSide(thumbWidth)
+        horSlider.thumb!.fadeOut()//inits fade out anim on init
+        return horSlider
     }
 }
 /*extension SlideList3{
