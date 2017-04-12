@@ -1,5 +1,7 @@
 import Foundation
 
-protocol SlideableScrollableFastListable3 {
+protocol SlideableScrollableFastListable3 {}
 
+extension SlideableScrollableFastListable3{
+    
 }
