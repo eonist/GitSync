@@ -9,16 +9,17 @@ extension TreeKind{
     var count:Int{
         return TreeUtils.recursiveFlattened(self).count
     }
+    /**
+     * 
+     */
     func child(_ at:Int, _ i:Int = 0)->TreeKind?{
         var i:Int = i
         for item in self.children{
-            i += 1
             if(at == i){return item}//found item at index
             else{
+                i += 1
                 if(item.children.count > 0){
                     return item.child(at,i)
-                }else{
-                    i += 1
                 }
             }
             
