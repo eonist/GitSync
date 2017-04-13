@@ -16,7 +16,7 @@ class TreeDP:DataProvidable {
         //actually, editing a multidim arr etc is more difficult, eaier to add extensions to tree. better, safeer code
 
 //Tree (Struct)👈
-    //items:[Any]?//check regexident forest code. and lorentey
+    //items:[Any]?//check regexident forest code. and lorentey [Element] ? etc?
     //props:[String:String]?
     //name:String?
     //content:String
