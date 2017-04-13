@@ -30,6 +30,7 @@ import Cocoa
             //then only reflect this new items to dp, if dp isnt hiding this data. 
 
 //Or you could just read Tree as if it was flat. Diving into branches if they are open etc. 
+    //Count would only need recalc if alteration or 
 
 
 class TestView:TitleView{
