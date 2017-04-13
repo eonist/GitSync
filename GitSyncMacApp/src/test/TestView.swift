@@ -5,6 +5,10 @@ import Cocoa
 
 //Continue here:
     //InfiniteTreeList
+        //try old treeList
+        //try to flatten the TreeList DP
+        //try to Extend FastList (FastTreeList)
+            //override DP, with the TreeListDP that extends DP. Flattened
 
 
 class TestView:TitleView{
@@ -46,6 +50,13 @@ class TestView:TitleView{
          Swift.print("intervalA: " + "\(intervalA)")
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
+    }
+    /**
+     *
+     */
+    func infiniteTreeList(){
+        let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
+        _ = addSubView(TreeList(140, 192, 24, Node(xml),self))
     }
     func elasticSlideScrollFastList3(){
         var dp:DataProvider
