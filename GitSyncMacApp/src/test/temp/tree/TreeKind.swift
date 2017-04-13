@@ -16,6 +16,9 @@ extension TreeKind{
     var count:Int{
         return TreeUtils.recursiveFlattened(self).count
     }
+    func child(_ at:Int)->TreeKind{
+        
+    }
 }
 class TreeUtils{
     static func recursiveFlattened(_ tree:TreeKind) -> [TreeKind] {
