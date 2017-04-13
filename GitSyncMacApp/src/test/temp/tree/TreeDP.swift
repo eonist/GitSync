@@ -15,11 +15,7 @@ class TreeDP:DataProvidable {
         //try to make some assert method. isItem, hasItems, hasAttribs etc. then use multidim arr 🚫
         //actually, editing a multidim arr etc is more difficult, eaier to add extensions to tree. better, safeer code
 
-//Tree (Struct)👈
-    //items:[Any]?//check regexident forest code. and lorentey [Element] ? etc?
-    //props:[String:String]?
-    //name:String?
-    //content:String
+
 extension TreeDP{
     func item(_ at:Int) -> [String:String]?{
         //var i = 0
