@@ -13,13 +13,17 @@ extension TreeDP{
         //var i = 0
         
         /*
-         func item(_ at:Int)->[String:String]?{
+         func item()->[String:String]?{
+         
             for (e,item) in items{
-                if(at == i)
-                if(item is Array){
-                    item(at)
+                i += e
+                if(at == i){return items[e]}
                 else{
-                    i++
+                     if(item is Array){
+                        item(at)
+                     else{
+                        i++
+                     }
                 }
             }
          }
