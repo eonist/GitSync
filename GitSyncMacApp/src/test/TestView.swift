@@ -25,7 +25,7 @@ class TestView:TitleView{
     override func resolveSkin(){
         Swift.print("TestView.resolveSkin()")
         super.resolveSkin()
-        //Swift.print(ElementParser.stackString(self))
+        Swift.print(ElementParser.stackString(self))
         createGUI()
     }
     func createGUI(){
@@ -58,7 +58,7 @@ class TestView:TitleView{
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
     func elasticSlideScrollFastList3(){
-        StyleManager.addStyle("List{float:left;clear:left;}")
+        StyleManager.addStyle("Window#listTransitionTestView List{float:left;clear:left;}")
         var dp:DataProvider
         dp = DataProvider("~/Desktop/assets/xml/longlist.xml".tildePath)
         _ = self.addSubView(ElasticSlideScrollFastList3(140, 145, CGSize(24,24), dp, self))
