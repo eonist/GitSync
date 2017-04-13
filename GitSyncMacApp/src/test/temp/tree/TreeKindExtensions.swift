@@ -17,6 +17,7 @@ extension TreeKind{
             else{
                 
             }
+            
         }
         
         func child(_ tree:TreeKind)->TreeKind?{
