@@ -12,14 +12,16 @@ extension TreeKind{
     func child(_ at:Int, _ i:Int = 0)->TreeKind{
         var i:Int = i
         for (e,item) in self.children.enumerated(){
-            i += e
+            
             if(at == i){return item}//found item at index
             else{
-                
+                if(item.children.count > 0){
+                    
+                }
             }
             
         }
-        
+        /*i += e*/
         func child(_ tree:TreeKind)->TreeKind?{
             
             /*
