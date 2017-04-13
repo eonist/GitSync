@@ -14,8 +14,8 @@ extension TreeKind{
         
         
         func child()->TreeKind?{
-            for i in children.indices {
-                print(i)
+            for e in children.indices {
+                print(e)
             }
             /*
             for (e,item) in items{
