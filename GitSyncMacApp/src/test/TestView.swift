@@ -29,6 +29,8 @@ import Cocoa
         //If tree it self gets updated from external source
             //then only reflect this new items to dp, if dp isnt hiding this data. 
 
+//Or you could just read Tree as if it was flat. Diving into branches if they are open etc. 
+
 
 class TestView:TitleView{
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {
