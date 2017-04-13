@@ -22,7 +22,10 @@ import Cocoa
 
 //The flattened array consists of only pathIdecies. 
     //this way it holds as little info as possible
-    //Then when TreeList wants data
+    //Then when TreeList wants data it just quirees dp for item and dp gets this data from Tree at the idx
+    //This keeps data in 1 place. So you can alter Tree, or alter DP and it really alters Tree
+    //IF you click an arrow then the Tree is altred to open:true
+        //
 
 
 class TestView:TitleView{
