@@ -13,8 +13,8 @@ class TreeDP:DataProvidable {
     //actually lets not, as detecting what is an item is not easy.
 
 //Tree
-    //items:[]
-    //props:[String:]
+    //items:[Any]
+    //props:[String:String]
     //name:String
 extension TreeDP{
     func item(_ at:Int) -> [String:String]?{
