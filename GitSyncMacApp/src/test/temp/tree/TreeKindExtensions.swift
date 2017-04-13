@@ -1,6 +1,6 @@
 import Foundation
 
-extension TreeKind{
+extension TreeKind{//maybe treekind isnt needed. Just use Tree?
     /**
      * The num of items in the entire tree
      * NOTE: This should be cached, only re-calc on alteration
@@ -10,7 +10,7 @@ extension TreeKind{
         return TreeUtils.recursiveFlattened(self).count
     }
     /**
-     * 
+     * Tree(<items><item><item><items>).child(0)//what is returned? continue here: make tests 🏀
      */
     func child(_ at:Int, _ i:Int = 0)->TreeKind?{
         var i:Int = i
