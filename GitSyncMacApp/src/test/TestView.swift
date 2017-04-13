@@ -5,8 +5,9 @@ import Cocoa
 
 //Continue here:
 
-    //Clean up the code 👈
-    //review how overriding works when mixing OOP and POP
+
+    //review how overriding works when mixing OOP and POP ✅
+
     //maybe not inherit from SlideList, since its now just 2 extra variables? 👌
 
     //Add css so that Sliders are aligned in SliderList3 and SliderView3 ⏳⏳
