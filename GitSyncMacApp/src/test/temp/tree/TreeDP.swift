@@ -18,7 +18,7 @@ class TreeDP:DataProvidable {
     //items:[Any]?
     //props:[String:String]?
     //name:String?
-    //content
+    //content:String
 extension TreeDP{
     func item(_ at:Int) -> [String:String]?{
         //var i = 0
