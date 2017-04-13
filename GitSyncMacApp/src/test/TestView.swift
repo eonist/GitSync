@@ -31,7 +31,7 @@ import Cocoa
 
 //Or you could just read Tree as if it was flat. Diving into branches if they are open etc. 
     //Count would only need recalc if alteration or hide/show event happened. 
-    //it would simplify things masivly. 
+    //it would simplify things masivly.
 
 
 class TestView:TitleView{
