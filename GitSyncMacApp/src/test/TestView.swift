@@ -54,7 +54,7 @@ class TestView:TitleView{
     }
     func infiniteTreeList(){
         let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
-        _ = addSubView(TreeList(140, 192, 24, Node(xml),self))
+        _ = addSubView(SliderTreeList(140, 192, 24, Node(xml),self))
     }
     func elasticSlideScrollFastList3(){
         var dp:DataProvider
