@@ -7,19 +7,7 @@ protocol TreeKind {
     var name:String? {get}
     var content:String? {get}//or use Any or T
 }
-extension TreeKind{
-    /**
-     * The num of items in the entire tree
-     * NOTE: This should be cached, only re-calc on alteration
-     * IMPORTANT: ⚠️️ This is a exhaustive and naive implementation
-     */
-    var count:Int{
-        return TreeUtils.recursiveFlattened(self).count
-    }
-    func child(_ at:Int)->TreeKind{
-        
-    }
-}
+
 class TreeUtils{
     static func recursiveFlattened(_ tree:TreeKind) -> [TreeKind] {
         var results:[TreeKind] = []
