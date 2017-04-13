@@ -8,7 +8,8 @@ class TreeDP:DataProvidable {
         self.items = items
     }
 }
-//lets try with multidim array first, then maybe upgrade to Tree struc etc
+//lets try with multidim array first, then maybe upgrade to Tree struct etc?
+    //if array count 2 and
 extension TreeDP{
     func item(_ at:Int) -> [String:String]?{
         //var i = 0
