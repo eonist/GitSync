@@ -12,6 +12,7 @@ class TreeDP:DataProvidable {
     //if array count 2 and
     //actually lets not, as detecting what is an item is not easy.
     //maybe if you can assert if an item has complex content etc.🤔
+        //try to make some assert method. isItem, hasItems, hasAttribs etc. then use multidim arr 👈
 
 //Tree (Struct)
     //items:[Any]?
