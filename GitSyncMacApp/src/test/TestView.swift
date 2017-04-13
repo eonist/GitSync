@@ -20,6 +20,10 @@ import Cocoa
 //maybe the flattened list has the pathIdx to their origin. To append new items on demand
     //all FastList items must be SelectCheckButton that is able to hide its arrow if the item is a leaf
 
+//The flattened array consists of only pathIdecies. 
+    //this way it holds as little info as possible
+    //Then when TreeList wants data
+
 
 class TestView:TitleView{
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {
