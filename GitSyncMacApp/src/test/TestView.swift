@@ -4,7 +4,7 @@ import Cocoa
 @testable import GitSyncMac
 
 //Continue here:
-    //
+    //InfiniteTreeList
 
 
 class TestView:TitleView{
