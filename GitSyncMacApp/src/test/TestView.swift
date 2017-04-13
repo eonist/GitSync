@@ -12,7 +12,8 @@ import Cocoa
             //Maybe Create a Tree struct that can store generic data? And use reflection to make XML and back again
             //when you click on the arrow of a TreeList item that is Branch
                 //items are inserted to DP ? and then we rerenderRange?
-                    //So you need to Flatten Tree
+                    //So you need to Flatten Tree by not including hidden items 👈
+                        //You could do this with similar code to RepoList flattened
 
 
 class TestView:TitleView{
