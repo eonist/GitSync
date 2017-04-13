@@ -11,8 +11,8 @@ extension TreeKind{
     }
     func child(_ at:Int, _ i:Int = 0)->TreeKind?{
         var i:Int = i
-        for (e,item) in self.children.enumerated(){
-            i += e
+        for item in self.children{
+            i += 1
             if(at == i){return item}//found item at index
             else{
                 if(item.children.count > 0){
