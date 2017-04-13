@@ -58,7 +58,7 @@ class TestView:TitleView{
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
     func elasticSlideScrollFastList3(){
-        StyleManager.addStyle("Window#listTransitionTestView List{float:left;clear:left;}")
+        StyleManager.addStyle("Window#listTransitionTestView List{float:left;clear:left;margin-top:45px;}")
         var dp:DataProvider
         dp = DataProvider("~/Desktop/assets/xml/longlist.xml".tildePath)
         let list = self.addSubView(ElasticSlideScrollFastList3(140, 145, CGSize(24,24), dp, self))
