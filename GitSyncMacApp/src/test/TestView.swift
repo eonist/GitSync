@@ -23,7 +23,8 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        elasticSlideScrollFastList3()
+        infiniteTreeList()
+        //elasticSlideScrollFastList3()
         //elasticScrollFastList()
         //slideScrollFastList()
         //scrollFastList()
@@ -51,9 +52,6 @@ class TestView:TitleView{
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
-    /**
-     *
-     */
     func infiniteTreeList(){
         let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
         _ = addSubView(TreeList(140, 192, 24, Node(xml),self))
