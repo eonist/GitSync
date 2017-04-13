@@ -10,7 +10,8 @@ import Cocoa
         //try to Extend FastList (FastTreeList)
             //override DP, with the TreeListDP that extends DP. Flattened
             //Maybe Create a Tree struct that can store generic data? And use reflection to make XML and back again
-            //
+            //when you click on the arrow of a TreeList item that is Branch
+                //items are inserted to 
 
 
 class TestView:TitleView{
