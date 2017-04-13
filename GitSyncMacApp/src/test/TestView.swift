@@ -25,7 +25,9 @@ import Cocoa
     //Then when TreeList wants data it just quirees dp for item and dp gets this data from Tree at the idx
     //This keeps data in 1 place. So you can alter Tree, or alter DP and it really alters Tree
     //IF you click an arrow then the Tree is altred to open:true
-        //
+        //DP should now be told to add recursiveFlattened items under the item that was clicked.
+        //If tree it self gets updated from external source
+            //then only reflect this new items to dp, if dp isnt hiding this data. 
 
 
 class TestView:TitleView{
