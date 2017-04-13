@@ -17,11 +17,11 @@ extension TreeDP{
          
             for (e,item) in items{
                 i += e
-                if(at == i){return items[e]}
-                else{
-                     if(item is Array){
+                if(at == i){return items[e]}//found a match
+                else{//keep looping
+                     if(item is Array){//array
                         item(at)
-                     else{
+                     else{//item
                         i++
                      }
                 }
