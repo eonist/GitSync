@@ -15,7 +15,7 @@ import Cocoa
                     //So you need to Flatten Tree by not including hidden items 👈
                         //So I think XML -> multidim array
                             //recursiveFlattened this arr with custom assert clause
-                                //the pathIdx
+                                //the pathIdx needs to be stored in the flattened items, as they need to be able to 
 
 
 class TestView:TitleView{
