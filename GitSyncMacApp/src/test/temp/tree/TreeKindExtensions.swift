@@ -13,7 +13,7 @@ extension TreeKind{
         var i = 0
         
         
-        func item()->[String:String]?{
+        func child()->TreeKind?{
             
             for (e,item) in items{
                 i += e
