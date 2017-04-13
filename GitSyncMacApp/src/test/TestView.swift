@@ -7,6 +7,7 @@ import Cocoa
 
     //Clean up the code 👈
     //review how overriding works when mixing OOP and POP
+    //maybe not inherit from SlideList, since its now just 2 extra variables? 👌
 
     //Add css so that Sliders are aligned in SliderList3 and SliderView3 ⏳⏳
     //Figure out the primary direction calculations for momentum, (maybe later) (Make UniScrollable sort of scroll in the intentional direction while not directly Manipulated)
