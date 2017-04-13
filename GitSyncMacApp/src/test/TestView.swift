@@ -17,6 +17,9 @@ import Cocoa
                             //recursiveFlattened this arr with custom assert clause
                                 //the pathIdx needs to be stored in the flattened items, as they need to be able to 
 
+//maybe the flattened list has the pathIdx to their origin. To append new items on demand
+    //all FastList items must be SelectCheckButton that is able to hide its arrow if the item is a leaf
+
 
 class TestView:TitleView{
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {
