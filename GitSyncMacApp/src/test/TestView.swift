@@ -13,7 +13,9 @@ import Cocoa
             //when you click on the arrow of a TreeList item that is Branch
                 //items are inserted to DP ? and then we rerenderRange?
                     //So you need to Flatten Tree by not including hidden items 👈
-                        //You could do this with similar code to RepoList flattened
+                        //So I think XML -> multidim array
+                            //recursiveFlattened this arr with custom assert clause
+                                //the pathIdx
 
 
 class TestView:TitleView{
