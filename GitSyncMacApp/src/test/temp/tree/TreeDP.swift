@@ -12,10 +12,11 @@ class TreeDP:DataProvidable {
     //if array count 2 and
     //actually lets not, as detecting what is an item is not easy.
 
-//Tree
-    //items:[Any]
-    //props:[String:String]
-    //name:String
+//Tree (Struct)
+    //items:[Any]?
+    //props:[String:String]?
+    //name:String?
+    //content
 extension TreeDP{
     func item(_ at:Int) -> [String:String]?{
         //var i = 0
