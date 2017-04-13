@@ -14,7 +14,10 @@ extension TreeKind{
         
         
         func child()->TreeKind?{
-            
+            for i in children.indices {
+                print(i)
+            }
+            /*
             for (e,item) in items{
                 i += e
                 if(at == i){return items[e]}//found a match
@@ -27,6 +30,7 @@ extension TreeKind{
                     }
                 }
             }
+            */
             
     }
 }
