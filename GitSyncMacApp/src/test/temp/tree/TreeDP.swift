@@ -10,6 +10,12 @@ class TreeDP:DataProvidable {
 }
 //lets try with multidim array first, then maybe upgrade to Tree struct etc?
     //if array count 2 and
+    //actually lets not, as detecting what is an item is not easy.
+
+//Tree
+    //items:[]
+    //props:[String:]
+    //name:String
 extension TreeDP{
     func item(_ at:Int) -> [String:String]?{
         //var i = 0
