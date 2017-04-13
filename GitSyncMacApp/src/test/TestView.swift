@@ -11,7 +11,8 @@ import Cocoa
             //override DP, with the TreeListDP that extends DP. Flattened
             //Maybe Create a Tree struct that can store generic data? And use reflection to make XML and back again
             //when you click on the arrow of a TreeList item that is Branch
-                //items are inserted to 
+                //items are inserted to DP ? and then we rerenderRange?
+                    //So you need to Flatten Tree
 
 
 class TestView:TitleView{
