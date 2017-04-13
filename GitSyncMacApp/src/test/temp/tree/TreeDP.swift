@@ -11,6 +11,7 @@ class TreeDP:DataProvidable {
 //lets try with multidim array first, then maybe upgrade to Tree struct etc?
     //if array count 2 and
     //actually lets not, as detecting what is an item is not easy.
+    //maybe if you can assert if an item has complex content etc.🤔
 
 //Tree (Struct)
     //items:[Any]?
