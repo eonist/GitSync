@@ -61,7 +61,8 @@ class TestView:TitleView{
         StyleManager.addStyle("Window#listTransitionTestView List{float:left;clear:left;}")
         var dp:DataProvider
         dp = DataProvider("~/Desktop/assets/xml/longlist.xml".tildePath)
-        _ = self.addSubView(ElasticSlideScrollFastList3(140, 145, CGSize(24,24), dp, self))
+        let list = self.addSubView(ElasticSlideScrollFastList3(140, 145, CGSize(24,24), dp, self))
+        Swift.print(ElementParser.stackString(list))
     }
     func elasticScrollFastList(){
         var dp:DataProvider
