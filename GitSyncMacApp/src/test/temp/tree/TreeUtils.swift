@@ -7,7 +7,7 @@ class TreeUtils{
      */
     static func flattened(_ tree:Tree) -> [Tree] {
         var results:[Tree] = []
-        for child in tree.children {
+        tree.children.forEach { child in
             if(child.children.count > 0) {/*Array*/
                 results += TreeUtils.flattened(child)
             }else{/*Item*/
@@ -16,6 +16,7 @@ class TreeUtils{
         }
         return results
     }
+    
     /**
      * Convert xml to Tree-struture
      */
