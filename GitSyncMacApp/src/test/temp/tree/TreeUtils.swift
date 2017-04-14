@@ -46,8 +46,7 @@ class TreeUtils{
         let xml = XML()
         xml.name = tree.name
         if(tree.content != nil){xml.stringValue = tree.content}
-        //xml["type"] = "Array"
-        //Swift.print("handleArray.properties.count: " + "\(properties.count)")
+        if(tree.props != nil){xml.set}
         tree.children.forEach{ child in
             
             /*if($0.value is Reflectable){/*The type implements custom reflection*/
