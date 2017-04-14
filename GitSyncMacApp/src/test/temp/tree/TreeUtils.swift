@@ -26,13 +26,8 @@ class TreeUtils{
             if(!attribs.isEmpty){
                 item.props = attribs
             }
-            
             if let content = child.stringValue, content.count > 0 {
-                
-            }
-            
-            if(child.stringValue != nil && child.stringValue!.count > 0) {
-                item.content = child.stringValue!
+                item.content = content
             }else if(child.hasComplexContent) {
                 _ = item.children += TreeUtils.tree(child)
             }
