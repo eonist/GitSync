@@ -82,6 +82,7 @@ class TestView:TitleView{
         
         //Try to build a tree structure from xml
         //Try to flatten this treeStructure into array with pathIdx to original item?!?
+        //try to flatten treestructure to dictionaries
         
         var tree = Tree(name:"Root")
         var subTreeA = Tree(name:"A")
