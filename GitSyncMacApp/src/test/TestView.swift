@@ -48,7 +48,8 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        xml2tree()
+        tree2XML()
+        //xml2tree()
         //treeTesting()
         //infiniteTreeList()
         //elasticSlideScrollFastList3()
@@ -83,13 +84,10 @@ class TestView:TitleView{
      *
      */
     func tree2XML(){
-        var tree = Tree(name:"Root")
-        var subTreeA = Tree(children:[Tree(name:"X"),Tree(name:"Y")],name:"A")
-        subTreeA.add(subSubTreeX)
-        subTreeA.add(subSubTreeY)
-        let subTreeB = Tree(name:"B")
-        tree.add(subTreeA)
-        tree.add(subTreeB)
+        let tree = Tree(children:[Tree(children:[Tree(name:"X"),Tree(name:"Y")],name:"A"),Tree(name:"B")],name:"Root")
+        _ = tree
+        
+        
     }
     /**
      *

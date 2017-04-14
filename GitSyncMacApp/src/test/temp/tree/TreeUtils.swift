@@ -35,4 +35,10 @@ class TreeUtils{
         }
         return tree
     }
+    /**
+     *
+     */
+    static func xml(_ tree:Tree) -> XML{
+        
+    }
 }
