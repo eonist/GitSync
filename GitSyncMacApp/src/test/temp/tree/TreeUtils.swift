@@ -2,11 +2,14 @@ import Foundation
 @testable import Utils
 
 class TreeUtils{
-    static func recursiveFlattened(_ tree:Tree) -> [Tree] {
+    /**
+     * Recusivly flattens the the treeStructure into a column structure array of tree items
+     */
+    static func flattened(_ tree:Tree) -> [Tree] {
         var results:[Tree] = []
         for child in tree.children {
             if(child.children.count > 0) {/*Array*/
-                results += TreeUtils.recursiveFlattened(child)
+                results += TreeUtils.flattened(child)
             }else{/*Item*/
                 results.append(child)
             }
