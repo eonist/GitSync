@@ -10,7 +10,7 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
         return TreeUtils.recursiveFlattened(self).count + 1// +1 because it self is not added when recursiveFlattening. only self.children is flattened
     }
     /**
-     *
+     * 
      */
     mutating func add(_ child:Tree){
         children.append(child)
