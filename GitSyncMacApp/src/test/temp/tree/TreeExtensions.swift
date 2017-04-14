@@ -28,26 +28,18 @@ private class Utils{
     /**
      * NOTE: this method resides in a Utility method because PARAM: i can't have default value
      */
-    
-    //Lets try to speed this up by using .count
-    
     static func child(_ child:Tree, _ at:Int, _ i:inout Int)->Tree?{
-        if(at < i + child.children.count){
-            
-        }else{
-            for item in child.children{
-                if(at == i){return item}//found item at index
-                else{
-                    //Swift.print("i: " + "\(i)")
-                    i += 1
-                    if(item.children.count > 0){
-                        let match:Tree? = Utils.child(item,at,&i)
-                        if(match != nil){return match}
-                    }
+        for item in child.children{
+            if(at == i){return item}//found item at index
+            else{
+                //Swift.print("i: " + "\(i)")
+                i += 1
+                if(item.children.count > 0){
+                    let match:Tree? = Utils.child(item,at,&i)
+                    if(match != nil){return match}
                 }
             }
         }
-        
         return nil
     }
 }
