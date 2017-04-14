@@ -19,17 +19,17 @@ class TreeUtils{
     /**
      *
      */
-    static func pathIndecies(_ tree:Tree,_ depth:Int) -> [[Int]] {
-        var results:[[Int]] = []
+    static func pathIndecies(_ tree:Tree,_ depth:Int = 0, _ indecies:[[Int]] = []) -> [[Int]] {
+        //var results:[[Int]] = []
         for (i,child) in tree.children.enumerated(){
         //tree.children.forEach { child in
             if(child.children.count > 0) {/*Array*/
-                results.appen(TreeUtils.pathIndecies(child))
+                TreeUtils.pathIndecies(child,depth + 1, indecies)
             }else{/*Item*/
-                results.append(i)
+                //results.append(i)
             }
         }
-        return results
+        return indecies
     }
     /**
      * Convert xml to Tree-struture
