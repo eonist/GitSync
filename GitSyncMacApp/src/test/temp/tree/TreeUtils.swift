@@ -45,10 +45,11 @@ class TreeUtils{
         //Swift.print("handleArray: " + "name \(name)" + " $0.value: \(value)" )
         let xml = XML()
         xml.name = tree.name
-        xml["type"] = "Array"
-        let children = tree.children
+        if(tree.content){xml.value = }
+        //xml["type"] = "Array"
         //Swift.print("handleArray.properties.count: " + "\(properties.count)")
-        children.forEach{
+        tree.children.forEach{ child in
+            
             /*if($0.value is Reflectable){/*The type implements custom reflection*/
                 //Swift.print("$0.value: " + "\($0.value)")
                 xml += handleReflectable($0.value as! Reflectable,"item"/*$0.label*/)
