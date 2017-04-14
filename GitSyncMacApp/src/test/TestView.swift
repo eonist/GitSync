@@ -48,7 +48,8 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        treeTesting()
+        xml2tree()
+        //treeTesting()
         //infiniteTreeList()
         //elasticSlideScrollFastList3()
         //elasticScrollFastList()
@@ -85,6 +86,7 @@ class TestView:TitleView{
         let xmlStr:String = "<items><item title=\"A\"/><itemtitle=\"B\"/><itemtitle=\"C\"/></items>"
         let xml:XML = xmlStr.xml
         let tree:Tree = TreeUtils.tree(xml)
+        Swift.print("tree.count: " + "\(tree.count)")
     }
     func treeTesting(){
         
