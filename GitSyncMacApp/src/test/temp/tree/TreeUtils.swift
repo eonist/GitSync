@@ -22,7 +22,7 @@ class TreeUtils{
         for i in 0..<count{
             let child:XML = XMLParser.childAt(xml.children!, i)!
             //print("Import - child.toXMLString(): " + child.toXMLString());
-            var item:[Any] = []
+            var item:Tree = Tree()
             let attribs = child.attribs
             if(!attribs.isEmpty){
                 item.append(attribs)
@@ -32,7 +32,7 @@ class TreeUtils{
             }else if(child.hasComplexContent) {
                 item.append(arr(child))
             }
-            items.append(item)
+            tree.add(item)
         }
         return items
     }
