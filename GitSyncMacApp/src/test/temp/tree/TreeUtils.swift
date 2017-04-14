@@ -19,7 +19,7 @@ class TreeUtils{
     /**
      *
      */
-    static func pathIndecies(_ tree:Tree) -> [Int] {
+    static func pathIndecies(_ tree:Tree,_ depth:Int) -> [[Int]] {
         var results:[[Int]] = []
         for (i,child) in tree.children.enumerated(){
         //tree.children.forEach { child in
