@@ -23,9 +23,11 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
         for item in self.children{
             if(at == i){return item}//found item at index
             else{
+                Swift.print("i: " + "\(i)")
                 i += 1
                 if(item.children.count > 0){
-                    return item.child(at,i)
+                    let match:Tree? = item.child(at,i)
+                    if(match != nil){return match}
                 }
             }
         }
