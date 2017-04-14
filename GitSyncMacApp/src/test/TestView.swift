@@ -79,6 +79,10 @@ class TestView:TitleView{
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
     func treeTesting(){
+        
+        //Try to build a tree structure from xml
+        //Try to flatten this treeStructure into array with pathIdx to original item?!?
+        
         var tree = Tree(name:"Root")
         var subTreeA = Tree(name:"A")
         let subSubTreeX = Tree(name:"X")
