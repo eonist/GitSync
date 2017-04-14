@@ -18,8 +18,8 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
     /**
      * NOTE: root isn't considered item 0. Only descendents from root are considered items
      */
-    func child(_ at:Int, _ i:inout Int = 0)->Tree?{
-        var i:Int = i
+    func child(_ at:Int, _ incrementor:()->Int = {return 0})->Tree?{
+        var i:Int = incrementor()
         for item in self.children{
             if(at == i){return item}//found item at index
             else{
