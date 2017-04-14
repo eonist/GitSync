@@ -87,7 +87,8 @@ class TestView:TitleView{
         let tree = Tree(children:[Tree(children:[Tree(name:"X"),Tree(name:"Y")],name:"A"),Tree(name:"B")],name:"Root")
         _ = tree
         
-        
+        let xml:XML = TreeUtils.xml(tree)
+        Swift.print("xml.stringValue: " + "\(xml.stringValue)")
     }
     /**
      *
