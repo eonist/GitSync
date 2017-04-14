@@ -36,7 +36,7 @@ class TreeUtils{
         return tree
     }
     /**
-     *
+     * Converts Tree to XML
      */
     static func xml(_ tree:Tree) -> XML{
         /**
@@ -52,7 +52,7 @@ class TreeUtils{
         }
 
         let xml:XML = toXML(tree)
-        tree.children.forEach{ child in/*This */
+        tree.children.forEach{ child in/*This can be a single .map method*/
             let childXML:XML = TreeUtils.xml(child)
             xml += childXML
         }
