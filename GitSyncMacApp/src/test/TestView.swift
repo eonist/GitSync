@@ -91,6 +91,7 @@ class TestView:TitleView{
         let xml:XML = TreeUtils.xml(tree)
         Swift.print("xml.stringValue: " + "\(xml.xmlString)")
         let newTree:Tree = TreeUtils.tree(xml)
+        Swift.print("newTree.name: " + "\(newTree.name)")
         let flattened:[Tree] = TreeUtils.flattened(newTree)
         flattened.forEach{Swift.print("\($0.name)")}
     }

@@ -21,10 +21,12 @@ class TreeUtils{
      */
     static func tree(_ xml:XML) -> Tree{
         var tree:Tree = Tree()
+        tree.name = xml.name
         let count = xml.children!.count//or use rootElement.childCount TODO: test this
         for i in 0..<count{
             let child:XML = XMLParser.childAt(xml.children!, i)!
             var item:Tree = Tree()
+            item.name = child.name
             let attribs = child.attribs
             if(!attribs.isEmpty){
                 item.props = attribs
