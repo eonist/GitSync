@@ -32,17 +32,22 @@ private class Utils{
     //Lets try to speed this up by using .count
     
     static func child(_ child:Tree, _ at:Int, _ i:inout Int)->Tree?{
-        for item in child.children{
-            if(at == i){return item}//found item at index
-            else{
-                //Swift.print("i: " + "\(i)")
-                i += 1
-                if(item.children.count > 0){
-                    let match:Tree? = Utils.child(item,at,&i)
-                    if(match != nil){return match}
+        if(){
+            
+        }else{
+            for item in child.children{
+                if(at == i){return item}//found item at index
+                else{
+                    //Swift.print("i: " + "\(i)")
+                    i += 1
+                    if(item.children.count > 0){
+                        let match:Tree? = Utils.child(item,at,&i)
+                        if(match != nil){return match}
+                    }
                 }
             }
         }
+        
         return nil
     }
 }
