@@ -82,11 +82,12 @@ class TestView:TitleView{
      *
      */
     func xml2tree(){
-        let xmlStr:String = ""
+        let xmlStr:String = "<items><item title=\"A\"/><itemtitle=\"B\"/><itemtitle=\"C\"/></items>"
     }
     func treeTesting(){
         
         //Try to build a tree structure from xml
+        //Try building
         //Try to flatten this treeStructure into array with pathIdx to original item?!?
         
         
