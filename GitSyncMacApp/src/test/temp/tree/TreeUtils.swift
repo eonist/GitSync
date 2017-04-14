@@ -14,26 +14,25 @@ class TreeUtils{
         return results
     }
     /**
-     *
+     * Convert xml to Tree-struture
      */
     static func tree(_ xml:XML) -> Tree{
         var tree:Tree = Tree()
         let count = xml.children!.count//or use rootElement.childCount TODO: test this
         for i in 0..<count{
             let child:XML = XMLParser.childAt(xml.children!, i)!
-            //print("Import - child.toXMLString(): " + child.toXMLString());
             var item:Tree = Tree()
             let attribs = child.attribs
             if(!attribs.isEmpty){
-                item.append(attribs)
+                item.props = attribs
             }
             if(child.stringValue != nil && child.stringValue!.count > 0) {
-                item.append(child.stringValue!)
+                item.content = child.stringValue!
             }else if(child.hasComplexContent) {
-                item.append(arr(child))
+                _ = item.children += TreeUtils.tree(child)
             }
             tree.add(item)
         }
-        return items
+        return tree
     }
 }
