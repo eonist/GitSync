@@ -33,7 +33,9 @@ import Cocoa
     //Count would only need recalc if alteration or hide/show event happened. 
     //it would simplify things masivly.
 
-//you will need to make a flat representation that is update on tree change. 
+//you will need to make a flat representation that is update on tree change.
+
+//If you dont know which depth the flattened item is at. then you dont know its  indentation level
 
 
 class TestView:TitleView{
