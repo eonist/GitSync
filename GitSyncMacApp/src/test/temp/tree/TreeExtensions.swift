@@ -24,24 +24,29 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
     /**
      * NOTE: root isn't considered item 0. Only descendents from root are considered items
      */
-    func child(_ at:Int, _ i:inout Int)->Tree?{
-        //var i:Int = incrementor()
-        for item in self.children{
+    func child(_ at:Int)->Tree?{
+        var i:Int = 0
+        return Utils.child(self, at, &i)
+    }
+}
+private class Utils{
+    /**
+     * NOTE: this method resides in a Utility method because PARAM: i cant have default value
+     */
+    static func child(_ child:Tree, _ at:Int, _ i:inout Int)->Tree?{
+        for item in child.children{
             if(at == i){return item}//found item at index
             else{
-                Swift.print("i: " + "\(i)")
+                //Swift.print("i: " + "\(i)")
                 i += 1
                 if(item.children.count > 0){
-                    let match:Tree? = item.child(at,&i)
+                    let match:Tree? = Utils.child(item,at,&i)
                     if(match != nil){return match}
                 }
             }
         }
         return nil
     }
-}
-private class Utils{
-    //move here
 }
 /*protocol TreeKind {
  //associatedtype Element
