@@ -2,13 +2,13 @@ import Foundation
 /**
  * NOTE: Check regexident forest code. and lorentey [Element] ? etc?
  */
-struct Tree:TreeKind{
+struct Tree{
     //typealias Element = T
-    var children:[TreeKind]
+    var children:[Tree]
     var props:[String:String]?
     var name:String?
     var content:String?/*Could be Generic as well*/
-    init(_ children:[TreeKind] = [], _ props:[String:String]? = nil, _ name:String? = nil, _ content:String? = nil) {
+    init(_ children:[Tree] = [], _ props:[String:String]? = nil, _ name:String? = nil, _ content:String? = nil) {
         self.children = children
         self.props = props
         self.name = name

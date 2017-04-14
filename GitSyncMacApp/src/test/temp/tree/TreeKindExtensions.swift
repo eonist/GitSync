@@ -1,6 +1,6 @@
 import Foundation
 
-extension TreeKind{//maybe treekind isnt needed. Just use Tree?
+extension Tree{//maybe treekind isnt needed. Just use Tree?
     /**
      * The num of items in the entire tree
      * NOTE: This should be cached, only re-calc on alteration
@@ -12,7 +12,7 @@ extension TreeKind{//maybe treekind isnt needed. Just use Tree?
     /**
      * Tree(<items><item/><item/></items>).child(0)//what is returned? continue here: make tests 🏀
      */
-    func child(_ at:Int, _ i:Int = 0)->TreeKind?{
+    func child(_ at:Int, _ i:Int = 0)->Tree?{
         var i:Int = i
         for item in self.children{
             if(at == i){return item}//found item at index
