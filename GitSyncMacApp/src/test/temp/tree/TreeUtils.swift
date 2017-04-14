@@ -17,7 +17,8 @@ class TreeUtils{
         return results
     }
     /**
-     *
+     * TODO: you pass the depth along: [Int], and you return [PathIdx] which you concat at root
+     * TODO: create the PathIdx Struct, and then use [[Int]] when you have figured it out
      */
     static func pathIndecies(_ tree:Tree,_ depth:Int = 0, _ indecies:[[Int]] = []) -> [[Int]] {
         //var results:[[Int]] = []
