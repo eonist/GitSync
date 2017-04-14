@@ -46,7 +46,7 @@ class TreeUtils{
         let xml = XML()
         xml.name = tree.name
         if(tree.content != nil){xml.stringValue = tree.content}
-        if(tree.props != nil){xml.set}
+        if(tree.props != nil){xml}
         tree.children.forEach{ child in
             
             /*if($0.value is Reflectable){/*The type implements custom reflection*/
