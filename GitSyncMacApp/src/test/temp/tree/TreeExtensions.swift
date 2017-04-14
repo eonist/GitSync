@@ -7,7 +7,7 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
      * IMPORTANT: ⚠️️ This is a exhaustive and naive implementation
      */
     var count:Int{
-        return TreeUtils.recursiveFlattened(self).count
+        return TreeUtils.recursiveFlattened(self).count + 1// +1 because it self is not added when recursiveFlattening. only self.children is flattened
     }
     /**
      *
@@ -26,7 +26,7 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
 }
 private class Utils{
     /**
-     * NOTE: this method resides in a Utility method because PARAM: i cant have default value
+     * NOTE: this method resides in a Utility method because PARAM: i can't have default value
      */
     static func child(_ child:Tree, _ at:Int, _ i:inout Int)->Tree?{
         for item in child.children{
