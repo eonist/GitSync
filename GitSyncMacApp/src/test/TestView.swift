@@ -80,11 +80,15 @@ class TestView:TitleView{
     }
     func treeTesting(){
         var tree = Tree(name:"Root")
-        let subTreeA = Tree(name:"A")
+        var subTreeA = Tree(name:"A")
+        let subSubTreeX = Tree(name:"X")
+        let subSubTreeY = Tree(name:"Y")
+        subTreeA.add(subSubTreeX)
+        subTreeA.add(subSubTreeY)
         let subTreeB = Tree(name:"B")
         tree.add(subTreeA)
         tree.add(subTreeB)
-        Swift.print(tree.child(1)!.name!)
+        Swift.print("\(tree.child(3)?.name)")
     }
     func infiniteTreeList(){
         let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
