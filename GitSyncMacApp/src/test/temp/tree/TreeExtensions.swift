@@ -15,18 +15,24 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
     mutating func add(_ child:Tree){
         children.append(child)
     }
+    func swapInt( a:inout Int, b:inout Int){
+        var tmp:Int
+        tmp = a
+        a = b
+        b = tmp
+    }
     /**
      * NOTE: root isn't considered item 0. Only descendents from root are considered items
      */
-    func child(_ at:Int, _ incrementor:()->Int = {return 0})->Tree?{
-        var i:Int = incrementor()
+    func child(_ at:Int, _ i:inout Int)->Tree?{
+        //var i:Int = incrementor()
         for item in self.children{
             if(at == i){return item}//found item at index
             else{
                 Swift.print("i: " + "\(i)")
                 i += 1
                 if(item.children.count > 0){
-                    let match:Tree? = item.child(at,{return i})
+                    let match:Tree? = item.child(at,i)
                     if(match != nil){return match}
                 }
             }
