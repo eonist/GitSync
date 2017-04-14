@@ -82,6 +82,18 @@ class TestView:TitleView{
     /**
      *
      */
+    func tree2XML(){
+        var tree = Tree(name:"Root")
+        var subTreeA = Tree(children:[Tree(name:"X"),Tree(name:"Y")],name:"A")
+        subTreeA.add(subSubTreeX)
+        subTreeA.add(subSubTreeY)
+        let subTreeB = Tree(name:"B")
+        tree.add(subTreeA)
+        tree.add(subTreeB)
+    }
+    /**
+     *
+     */
     func xml2tree(){
         let xmlStr:String = "<items><item title=\"A\"/><item title=\"B\"/><item title=\"C\"/></items>"
         let xml:XML = xmlStr.xml
