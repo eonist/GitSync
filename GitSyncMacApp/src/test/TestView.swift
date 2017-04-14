@@ -48,7 +48,8 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        tree2XML()
+        childAtTest()
+        //tree2XML()
         //xml2tree()
         //treeTesting()
         //infiniteTreeList()
@@ -79,6 +80,17 @@ class TestView:TitleView{
          Swift.print("intervalA: " + "\(intervalA)")
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
+    }
+    /**
+     *
+     */
+    func childAtTest(){
+        let xmlStr:String = "<items><item title=\"A\"/><item title=\"B\"/><item title=\"C\"/></items>"
+        let xml:XML = xmlStr.xml
+        let tree:Tree = TreeUtils.tree(xml)
+        let child:Tree? = tree.child(0)
+        Swift.print("child.name: " + "\(child?.name)")
+
     }
     /**
      *
