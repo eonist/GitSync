@@ -45,7 +45,7 @@ class TreeUtils{
         //Swift.print("handleArray: " + "name \(name)" + " $0.value: \(value)" )
         let xml = XML()
         xml.name = tree.name
-        if(tree.content){xml.value = }
+        if(tree.content != nil){xml.value = tree.content}
         //xml["type"] = "Array"
         //Swift.print("handleArray.properties.count: " + "\(properties.count)")
         tree.children.forEach{ child in
