@@ -95,7 +95,8 @@ class TestView:TitleView{
         let flattened:[Tree] = TreeUtils.flattened(newTree)
         flattened.forEach{Swift.print("\($0.name)")}
         
-        
+        //Continue here: 
+            //test child at method 👈
     }
     /**
      *
