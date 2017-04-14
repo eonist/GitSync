@@ -79,7 +79,10 @@ class TestView:TitleView{
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
     func treeTesting(){
+        let tree = Tree()
         
+        let subTreeA = Tree()
+        let subTreeB = Tree()
     }
     func infiniteTreeList(){
         let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)

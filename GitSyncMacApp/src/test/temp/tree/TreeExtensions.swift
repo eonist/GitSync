@@ -1,6 +1,6 @@
 import Foundation
 
-extension Tree{//maybe treekind isnt needed. Just use Tree?
+extension TreeKind{//maybe treekind isnt needed. Just use Tree?
     /**
      * The num of items in the entire tree
      * NOTE: This should be cached, only re-calc on alteration
@@ -8,6 +8,12 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
      */
     var count:Int{
         return TreeUtils.recursiveFlattened(self).count
+    }
+    /**
+     *
+     */
+    func add(child:Tree){
+        children.append(child)
     }
     /**
      * Tree(<items><item/><item/></items>).child(0)//what is returned? continue here: make tests 🏀
@@ -26,10 +32,10 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
         return nil
     }
 }
-/*protocol TreeKind {
+protocol TreeKind {
  //associatedtype Element
  var children:[TreeKind] {get}
  var props:[String:String]? {get}
  var name:String? {get}
  var content:String? {get}//or use Any or T
- }*/
+ }
