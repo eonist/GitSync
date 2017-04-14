@@ -43,10 +43,12 @@ class TreeUtils{
          * Array types
          */
         //Swift.print("handleArray: " + "name \(name)" + " $0.value: \(value)" )
-        let xml = XML()
-        xml.name = tree.name
-        if(tree.content != nil){xml.stringValue = tree.content}
-        if(tree.props != nil){xml.setAttributesWith(tree.props!)}
+        func toXml(){
+            let xml = XML()
+            xml.name = tree.name
+            if(tree.content != nil){xml.stringValue = tree.content}
+            if(tree.props != nil){xml.setAttributesWith(tree.props!)}
+        }
         tree.children.forEach{ child in
             
             /*if($0.value is Reflectable){/*The type implements custom reflection*/
