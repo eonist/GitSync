@@ -19,8 +19,17 @@ class TreeUtils{
     /**
      *
      */
-    static func pathIndecies(){
-        
+    static func pathIndecies(_ tree:Tree) -> [Int] {
+        var results:[Int] = []
+        for (i,child) in tree.children.enumerated(){
+        //tree.children.forEach { child in
+            if(child.children.count > 0) {/*Array*/
+                results += TreeUtils.flattened(child)
+            }else{/*Item*/
+                results.append(child)
+            }
+        }
+        return results
     }
     /**
      * Convert xml to Tree-struture
