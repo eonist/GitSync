@@ -39,6 +39,40 @@ class TreeUtils{
      *
      */
     static func xml(_ tree:Tree) -> XML{
-        return "".xml
+        /**
+         * Array types
+         */
+        
+        //Swift.print("handleArray: " + "name \(name)" + " $0.value: \(value)" )
+        let xml = XML()
+        xml.name = name
+        xml["type"] = "Array"
+        let properties = Reflection.reflect(value)
+        //Swift.print("handleArray.properties.count: " + "\(properties.count)")
+        properties.forEach{
+            if($0.value is Reflectable){/*The type implements custom reflection*/
+                //Swift.print("$0.value: " + "\($0.value)")
+                xml += handleReflectable($0.value as! Reflectable,"item"/*$0.label*/)
+            }else if (stringConvertiable($0.value)){/*<--asserts if the value can be converted to a string*/
+                //Swift.print("array value: stringConvertiable")
+                xml += handleBasicValue($0.value,"item")
+            }else if($0.value is AnyArray){/*array*/
+                xml += handleArray($0.value,$0.label)//<--should this also be: "item" as label in an array is always [0],[1] etc
+            }else if ($0.value is AnyDictionary){/*dictionary*/
+                //Swift.print("value is AnyDict")
+                xml += handleDictionary($0.value,$0.label)//<--should this also be: "item" as label
+            }else if(CFGetTypeID($0.value as AnyObject) == CGColor.typeID){
+                xml += handleReflectable($0.value as! CGColor,"item")
+            }else{/*all other cases*/
+                //Swift.print("array value: else")
+                xml += handleValue($0.value)
+                //fatalError("unsuported type: " + "\($0.value.dynamicType)")
+            }
+        }
+        
+        
+
+        
+        return xml
     }
 }
