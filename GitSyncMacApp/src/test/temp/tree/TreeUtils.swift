@@ -20,11 +20,11 @@ class TreeUtils{
      *
      */
     static func pathIndecies(_ tree:Tree) -> [Int] {
-        var results:[Int] = []
+        var results:[[Int]] = []
         for (i,child) in tree.children.enumerated(){
         //tree.children.forEach { child in
             if(child.children.count > 0) {/*Array*/
-                results += TreeUtils.pathIndecies(child)
+                results.appen(TreeUtils.pathIndecies(child))
             }else{/*Item*/
                 results.append(i)
             }
