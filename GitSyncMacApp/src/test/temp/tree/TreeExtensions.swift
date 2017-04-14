@@ -16,7 +16,7 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
         children.append(child)
     }
     /**
-     * NOTE: root isnt considered item 0. Only descendents from root are considered items     
+     * NOTE: root isn't considered item 0. Only descendents from root are considered items
      */
     func child(_ at:Int, _ i:Int = 0)->Tree?{
         var i:Int = i
