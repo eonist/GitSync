@@ -50,11 +50,11 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        //childAtTest()
+        childAtTest()
         //tree2XML()
         //xml2tree()
         //treeTesting()
-        infiniteTreeList()
+        //infiniteTreeList()
         //elasticSlideScrollFastList3()
         //elasticScrollFastList()
         //slideScrollFastList()
