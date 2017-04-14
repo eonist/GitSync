@@ -27,6 +27,9 @@ class TreeUtils{
                 item.props = attribs
             }
             
+            if let content = child.stringValue, content.count > 0 {
+                
+            }
             
             if(child.stringValue != nil && child.stringValue!.count > 0) {
                 item.content = child.stringValue!
