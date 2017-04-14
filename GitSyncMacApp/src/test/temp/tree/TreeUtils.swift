@@ -24,9 +24,9 @@ class TreeUtils{
         for (i,child) in tree.children.enumerated(){
         //tree.children.forEach { child in
             if(child.children.count > 0) {/*Array*/
-                results += TreeUtils.flattened(child)
+                results += TreeUtils.pathIndecies(child)
             }else{/*Item*/
-                results.append(child)
+                results.append(i)
             }
         }
         return results
