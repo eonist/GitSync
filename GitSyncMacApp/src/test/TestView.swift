@@ -99,7 +99,7 @@ class TestView:TitleView{
         //Continue here: 
             //test child at method 👈
         
-        let child:Tree? = newTree.child(2)
+        let child:Tree? = tree.child(0)
         Swift.print("child.name: " + "\(child?.name)")
     }
     /**
