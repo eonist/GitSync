@@ -22,6 +22,7 @@ class TreeUtils{
      * TODO: create the PathIdx Struct, and then use [[Int]] when you have figured it out
      
      * The truth is that if you need to update a pathIdx items, you already are on the correct map, and 
+     * You need to update 
      */
     static func pathIndecies(_ tree:Tree,_ depth:Int = 0, _ indecies:[[Int]] = []) -> [[Int]] {
         //var results:[[Int]] = []
