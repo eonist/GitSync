@@ -23,7 +23,7 @@ class TreeUtils{
      
      * The truth is that if you need to update a pathIdx items, you already are on the correct map, and 
      * You need to update flattened pathIndecies with info from pathIndecies and Tree. Both pieces of info need to be available. 
-     * If you only have Tree idx for the update you need to use 
+     * If you only have Tree idx for the update you need to use reverse idx on the tree to find the flattenede idx representation
      */
     static func pathIndecies(_ tree:Tree,_ depth:Int = 0, _ indecies:[[Int]] = []) -> [[Int]] {
         //var results:[[Int]] = []
