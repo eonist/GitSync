@@ -16,7 +16,12 @@ class TreeUtils{
         }
         return results
     }
-    
+    /**
+     *
+     */
+    static func pathIndecies(){
+        
+    }
     /**
      * Convert xml to Tree-struture
      */
