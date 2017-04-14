@@ -33,7 +33,7 @@ import Cocoa
     //Count would only need recalc if alteration or hide/show event happened. 
     //it would simplify things masivly.
 
-//you will need to make a flat representation 
+//you will need to make a flat representation
 
 
 class TestView:TitleView{
@@ -48,7 +48,8 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        infiniteTreeList()
+        
+        //infiniteTreeList()
         //elasticSlideScrollFastList3()
         //elasticScrollFastList()
         //slideScrollFastList()
@@ -76,6 +77,9 @@ class TestView:TitleView{
          Swift.print("intervalA: " + "\(intervalA)")
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
+    }
+    func treeTesting(){
+        
     }
     func infiniteTreeList(){
         let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
