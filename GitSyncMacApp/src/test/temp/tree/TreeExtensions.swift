@@ -15,12 +15,7 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
     mutating func add(_ child:Tree){
         children.append(child)
     }
-    func swapInt( a:inout Int, b:inout Int){
-        var tmp:Int
-        tmp = a
-        a = b
-        b = tmp
-    }
+    
     /**
      * NOTE: root isn't considered item 0. Only descendents from root are considered items
      */
