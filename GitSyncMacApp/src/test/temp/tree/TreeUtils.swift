@@ -39,6 +39,6 @@ class TreeUtils{
      *
      */
     static func xml(_ tree:Tree) -> XML{
-        
+        return "".xml
     }
 }
