@@ -78,6 +78,12 @@ class TestView:TitleView{
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
+    /**
+     *
+     */
+    func xml2tree(){
+        let xmlStr:String = ""
+    }
     func treeTesting(){
         
         //Try to build a tree structure from xml
