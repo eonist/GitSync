@@ -32,13 +32,16 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
                 Swift.print("i: " + "\(i)")
                 i += 1
                 if(item.children.count > 0){
-                    let match:Tree? = item.child(at,i)
+                    let match:Tree? = item.child(at,&i)
                     if(match != nil){return match}
                 }
             }
         }
         return nil
     }
+}
+private class Utils{
+    //move here
 }
 /*protocol TreeKind {
  //associatedtype Element
