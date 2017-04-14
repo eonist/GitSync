@@ -32,7 +32,7 @@ private class Utils{
     //Lets try to speed this up by using .count
     
     static func child(_ child:Tree, _ at:Int, _ i:inout Int)->Tree?{
-        if(){
+        if(at < i + child.children.count){
             
         }else{
             for item in child.children{
