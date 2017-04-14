@@ -52,7 +52,7 @@ class TreeUtils{
         }
 
         let xml:XML = toXML(tree)
-        tree.children.forEach{ child in
+        tree.children.forEach{ child in/*This */
             let childXML:XML = TreeUtils.xml(child)
             xml += childXML
         }
