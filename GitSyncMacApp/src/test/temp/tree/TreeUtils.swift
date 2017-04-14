@@ -51,9 +51,9 @@ class TreeUtils{
             return xml
         }
 
-        var xml:XML = toXML(tree)
+        let xml:XML = toXML(tree)
         tree.children.forEach{ child in
-            let childXML:XML = toXML(child)
+            let childXML:XML = TreeUtils.xml(child)
             xml += childXML
         }
  
