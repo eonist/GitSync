@@ -80,6 +80,7 @@ class TestView:TitleView{
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
+    
     /**
      *
      */
@@ -97,6 +98,8 @@ class TestView:TitleView{
         
         //Continue here: 
             //test child at method 👈
+        
+        newTree.child(<#T##at: Int##Int#>)
     }
     /**
      *
