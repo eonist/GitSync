@@ -12,5 +12,10 @@ class TreeUtils{
         }
         return results
     }
-    
+    /**
+     *
+     */
+    static func tree(_ xml:XML)Tree{
+        
+    }
 }
