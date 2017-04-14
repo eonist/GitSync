@@ -33,6 +33,8 @@ import Cocoa
     //Count would only need recalc if alteration or hide/show event happened. 
     //it would simplify things masivly.
 
+//you will need to make a flat representation 
+
 
 class TestView:TitleView{
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {

@@ -22,7 +22,6 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
                     return item.child(at,i)
                 }
             }
-            
         }
         return nil
     }
