@@ -84,7 +84,7 @@ class TestView:TitleView{
         let subTreeB = Tree(name:"B")
         tree.add(subTreeA)
         tree.add(subTreeB)
-        Swift.print(tree.child(0)!.name!)
+        Swift.print(tree.child(1)!.name!)
     }
     func infiniteTreeList(){
         let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
