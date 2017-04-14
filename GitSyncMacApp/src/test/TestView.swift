@@ -85,11 +85,11 @@ class TestView:TitleView{
      *
      */
     func childAtTest(){
-        let xmlStr:String = "<items><item title=\"A\"/><item title=\"B\"/><item title=\"C\"/></items>"
+        let xmlStr:String = "<items title=\"main\"><item title=\"A\"/><item title=\"B\"/><item title=\"C\"/></items>"
         let xml:XML = xmlStr.xml
         let tree:Tree = TreeUtils.tree(xml)
-        let child:Tree? = tree.child(0)
-        Swift.print("child.name: " + "\(child?.name)")
+        let child:Tree? = tree.child(2)
+        Swift.print("child.name: " + "\(child?.props?["title"])")
 
     }
     /**

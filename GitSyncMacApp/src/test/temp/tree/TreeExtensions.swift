@@ -28,6 +28,9 @@ private class Utils{
     /**
      * NOTE: this method resides in a Utility method because PARAM: i can't have default value
      */
+    
+    //Lets try to speed this up by using .count
+    
     static func child(_ child:Tree, _ at:Int, _ i:inout Int)->Tree?{
         for item in child.children{
             if(at == i){return item}//found item at index
