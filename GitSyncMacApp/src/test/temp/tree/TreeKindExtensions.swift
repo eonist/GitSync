@@ -10,7 +10,7 @@ extension TreeKind{//maybe treekind isnt needed. Just use Tree?
         return TreeUtils.recursiveFlattened(self).count
     }
     /**
-     * Tree(<items><item><item><items>).child(0)//what is returned? continue here: make tests 🏀
+     * Tree(<items><item/><item/></items>).child(0)//what is returned? continue here: make tests 🏀
      */
     func child(_ at:Int, _ i:Int = 0)->TreeKind?{
         var i:Int = i
