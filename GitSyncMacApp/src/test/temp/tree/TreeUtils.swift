@@ -42,7 +42,6 @@ class TreeUtils{
         /**
          * Array types
          */
-        
         //Swift.print("handleArray: " + "name \(name)" + " $0.value: \(value)" )
         let xml = XML()
         xml.name = tree.name
