@@ -94,6 +94,8 @@ class TestView:TitleView{
         Swift.print("newTree.name: " + "\(newTree.name)")
         let flattened:[Tree] = TreeUtils.flattened(newTree)
         flattened.forEach{Swift.print("\($0.name)")}
+        
+        
     }
     /**
      *
