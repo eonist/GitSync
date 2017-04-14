@@ -92,7 +92,7 @@ class TestView:TitleView{
         let tree:Tree = TreeUtils.tree(xml)
         let child:Tree? = tree.child(2)
         Swift.print("child.name: " + "\(child?.props?["title"])")
-
+        
     }
     /**
      *
