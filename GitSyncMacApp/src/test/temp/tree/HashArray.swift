@@ -1,13 +1,15 @@
 import Foundation
 @testable import Utils
 /**
+ * NOTE: key gives you idx, idx gives you content
  * https://github.com/raywenderlich/swift-algorithm-club/tree/master/Hash%20Table
  * NOTE: we could use T:Hashable, but no need atm
  */
 class HashArray{
-    var dict:[String:Int] = [:]
-    var arr:[Any] = []
-    init(){}
+    var dict:[String:Int] = [:]//Dictionary holdes the key and index of the content.
+    var arr:[Any] = []//Array holds the content
+    init(dict:[String:Int],arr:[Any]){
+    }
     subscript(key:String) -> Any? {
         get {
             return get(key)
