@@ -34,6 +34,7 @@ class TreeUtils{
         var depth:[Int] = depth + [0]
         var results:[PathIdx] = []
         for (i,child) in tree.children.enumerated(){
+            Swift.print("i: " + "\(i)")
             depth.end = depth.end! + i
             if(child.children.count > 0) {/*Array*/
                 return TreeUtils.pathIndecies(child,depth)
