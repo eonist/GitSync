@@ -1,6 +1,12 @@
 import Foundation
 @testable import Utils
 
+class PathIdx{
+    var idx:[Int]
+    init(_ idx:[Int]){
+        self.idx = idx
+    }
+}
 class TreeUtils{
     /**
      * Recusivly flattens the the treeStructure into a column structure array of tree items
@@ -16,12 +22,7 @@ class TreeUtils{
         }
         return results
     }
-    class PathIdx{
-        var idx:[Int]
-        init(_ idx:[Int]){
-            self.idx = idx
-        }
-    }
+    
     /**
      * //Continue here: 🏀
      * TODO: you pass the depth along: [Int], and you return [PathIdx] which you concat at root

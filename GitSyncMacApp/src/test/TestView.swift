@@ -50,7 +50,8 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        childAtTest()
+        pathIndeciesTest()
+        //childAtTest()
         //tree2XML()
         //xml2tree()
         //treeTesting()
@@ -82,6 +83,16 @@ class TestView:TitleView{
          Swift.print("intervalA: " + "\(intervalA)")
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
+    }
+    /**
+     *
+     */
+    func pathIndeciesTest(){
+        let tree = Tree(children:[Tree(children:[Tree(name:"X"),Tree(name:"Y")],name:"A"),Tree(name:"B")],name:"Root")
+        let pathIndecies:[PathIdx] = TreeUtils.pathIndecies(tree)
+        pathIndecies.forEach{
+            Swift.print("$0.idx: " + "\($0.idx)")
+        }
     }
     /**
      *
