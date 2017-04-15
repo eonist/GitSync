@@ -37,7 +37,7 @@ class TreeUtils{
             Swift.print("i: " + "\(i)")
             depth.end = depth.end! + i
             if(child.children.count > 0) {/*Array*/
-                return TreeUtils.pathIndecies(child,depth)
+                results += TreeUtils.pathIndecies(child,depth)
             }else{/*Item*/
                 let pathIdx:PathIdx = PathIdx(depth)
                 results.append(pathIdx)
