@@ -108,6 +108,14 @@ class TestView:TitleView{
         
         Swift.print("hashList[2]: " + "\(hashList[2])")//"01"
         Swift.print("hashList[01]: " + "\(hashList["01"])")//2
+        
+        var arr:[String] = ["a","b","c"]
+        
+        
+        for (i,obj) in arr.enumerated(){
+            _ = i
+            _ = obj
+        }
     }
     /**
      * failed experiement
