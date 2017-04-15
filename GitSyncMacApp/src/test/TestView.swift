@@ -92,12 +92,12 @@ class TestView:TitleView{
         var arr:[Any] = []
         init(){}
         func add(_ key:String, _ content:Any){
-            let idx:Int = arr.isEmpty ? 0 : arr.count - 1
+            let idx:Int = arr.isEmpty ? 0 : arr.count - 1//use the
             arr[idx] = content
             dict[key] = idx
         }
-        func remove(key:String){
-            if let idx:Int = dict[key]{
+        func remove(_ key:String){
+            if let idx:Int = dict[key]{//make sure the key exists
                 dict.removeValue(forKey: key)
                 _ = arr.removeAt(idx)
             }else{fatalError("key does not exist")}
