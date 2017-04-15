@@ -50,6 +50,13 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
+        
+        
+        //continue here:
+            //Now Tree can easily find its idx in the 2d array (HashArray🎉)
+                //Make the 
+        
+        
         hashArrayTest()
         //pathIndeciesTest()
         //childAtTest()
