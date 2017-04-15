@@ -60,7 +60,8 @@ class TestView:TitleView{
                         //Imagine needing to alter Tree item, with only 2s arr idx
                         //Also why store content 2 places. Just a mistake. 👈 NIce!
         
-        hashListTest()
+        treeHashTest()
+        //hashListTest()
         //hashArrayTest()
         //pathIndeciesTest()
         //childAtTest()
@@ -96,9 +97,13 @@ class TestView:TitleView{
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
-    /**
-     *
-     */
+    func treeHashTest(){
+        let tree = Tree(children:[Tree(children:[Tree(name:"X"),Tree(name:"Y")],name:"A"),Tree(name:"B")],name:"Root")
+        Swift.print("tree.count: " + "\(tree.count)")
+        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
+        
+        
+    }
     func hashListTest(){
         var hashList = HashList()
         hashList.add([0].string)
