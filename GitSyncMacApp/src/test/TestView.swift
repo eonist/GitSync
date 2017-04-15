@@ -93,11 +93,11 @@ class TestView:TitleView{
         var arr:[Any] = []
         init(){}
         func add(_ key:String, _ content:Any){
-            if(dict.hasKey(key)){
+            if(!dict.hasKey(key)){//make sure key doesn't exist
                 let idx:Int = arr.endIndex//idx after last, can also be 0 /*arr.isEmpty ? 0 : arr.count - 1*/
                 arr[idx] = content//store content in arr
                 dict[key] = idx//store idx in key
-            }
+            }else{fatalError("key already exist")}
         }
         func remove(_ key:String){
             if let idx:Int = dict[key]{//make sure the key exists
