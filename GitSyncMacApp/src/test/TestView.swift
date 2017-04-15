@@ -96,6 +96,9 @@ class TestView:TitleView{
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
+    /**
+     *
+     */
     
     /**
      *
