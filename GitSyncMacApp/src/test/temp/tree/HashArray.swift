@@ -12,6 +12,8 @@ struct HashArray{
         self.dict = dict
         self.arr = arr
     }
+}
+extension HashArray{
     subscript(key:String) -> Any? {
         get {
             return get(key)
@@ -20,8 +22,6 @@ struct HashArray{
             add(key,newValue!)
         }
     }
-}
-extension HashArray{
     fileprivate mutating func add(_ key:String, _ content:Any){
         if(!dict.hasKey(key)){
             arr.append(content)//store content in arr
