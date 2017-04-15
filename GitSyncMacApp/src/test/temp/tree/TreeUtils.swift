@@ -38,7 +38,8 @@ class TreeUtils{
             if(child.children.count > 0) {/*Array*/
                 return TreeUtils.pathIndecies(child,depth)
             }else{/*Item*/
-                results.append(child)
+                let pathIdx:PathIdx = PathIdx(depth)
+                results.append(pathIdx)
             }
         }
         return results
