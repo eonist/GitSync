@@ -107,6 +107,9 @@ class TestView:TitleView{
             Swift.print("$0.idx: " + "\($0)")
         }
         
+        //Continue here: 🏀
+            //you need to get all children in tree. currently you are missing x
+                //try some prev tests and fix it.
         
         let hashList:HashList = TreeUtils.hashList(tree)
         Swift.print("hashList.arr.count: " + "\(hashList.arr.count)")
