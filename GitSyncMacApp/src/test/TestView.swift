@@ -50,7 +50,8 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        pathIndeciesTest()
+        hashArrayTest()
+        //pathIndeciesTest()
         //childAtTest()
         //tree2XML()
         //xml2tree()
@@ -107,14 +108,14 @@ class TestView:TitleView{
      *
      */
     func hashArrayTest(){
-        let hashArr = HashArray()
+        //let hashArr = HashArray()
         
         //Continue here: 🏀
             //make a Array extension that stringifies Int arrays etc
             //test the hash array
         
-        let key:String = [0,1,1,0].map{$0.string}.reduce(""){$0+$1}
-        hashArr.add(key, "")
+        //let key:String = [0,1,1,0].string
+        //hashArr.add(key, "")
     }
     /**
      *
