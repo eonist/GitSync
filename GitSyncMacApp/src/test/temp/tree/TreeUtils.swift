@@ -24,14 +24,13 @@ class TreeUtils{
     }
     
     /**
-     * //Continue here: 🏀
+     * Flattens a Tree-Structure to a path Indecies (3d -> 2d)
      * Eureka: Hash Array: You use a Sorted hashArray (Research required)
      */
     static func pathIndecies(_ tree:Tree,_ depth:[Int] = []) -> [[Int]] {
         var depth:[Int] = depth + [0]
         var results:[[Int]] = []
         for (i,child) in tree.children.enumerated(){
-            Swift.print("i: " + "\(i)")
             depth.end = depth.end! + i
             if(child.children.count > 0) {/*Array*/
                 results += TreeUtils.pathIndecies(child,depth)
