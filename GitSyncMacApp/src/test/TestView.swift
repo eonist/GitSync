@@ -91,17 +91,14 @@ class TestView:TitleView{
      */
     func hashArrayTest(){
         let hashArr = HashArray()
+    
+        hashArr[[0].string] =  "John"
+        hashArr[[0,0].string] = "Max"
+        hashArr[[0,1].string] = "Bill"
+        hashArr[[1].string] = "Daniel"
         
-        //Continue here: 🏀
-            //make a Array extension that stringifies Int arrays etc
-            //test the hash array
-        
-        
-        
-        hashArr.add([0].string, "John")
-        hashArr.add([0,0].string, "Max")
-        hashArr.add([0,1].string, "Bill")
-        hashArr.add([1].string, "Daniel")
+        let result = hashArr["01"]
+        Swift.print("result: " + "\(result)")//bill
     }
     /**
      *
