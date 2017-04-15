@@ -53,8 +53,8 @@ class TestView:TitleView{
         
         
         //continue here:
-            //Now Tree can easily find its idx in the 2d array (HashArray🎉)
-                //Make the 
+            //Now Tree can easily find its idx in the 2d array and update 2d array when needed (HashArray🎉)
+                //Make the
         
         
         hashArrayTest()
