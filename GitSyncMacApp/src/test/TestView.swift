@@ -90,7 +90,7 @@ class TestView:TitleView{
      *
      */
     func hashArrayTest(){
-        let hashArr = HashArray()
+        var hashArr = HashArray()
     
         hashArr[[0].string] =  "John"
         hashArr[[0,0].string] = "Max"
