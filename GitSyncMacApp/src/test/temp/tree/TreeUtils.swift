@@ -1,12 +1,12 @@
 import Foundation
 @testable import Utils
 
-class PathIdx{
-    var idx:[Int]
-    init(_ idx:[Int]){
-        self.idx = idx
-    }
-}
+/*class PathIdx{
+ var idx:[Int]
+ init(_ idx:[Int]){
+ self.idx = idx
+ }
+ }*/
 class TreeUtils{
     /**
      * Recusivly flattens the the treeStructure into a column structure array of tree items
@@ -30,17 +30,16 @@ class TreeUtils{
      * You increase the as you iterate,append when you dive
      * Eureka: Hash Array: You use a Sorted hashArray (Research required)
      */
-    static func pathIndecies(_ tree:Tree,_ depth:[Int] = []) -> [PathIdx] {
+    static func pathIndecies(_ tree:Tree,_ depth:[Int] = []) -> [[Int]] {
         var depth:[Int] = depth + [0]
-        var results:[PathIdx] = []
+        var results:[[Int]] = []
         for (i,child) in tree.children.enumerated(){
             Swift.print("i: " + "\(i)")
             depth.end = depth.end! + i
             if(child.children.count > 0) {/*Array*/
                 results += TreeUtils.pathIndecies(child,depth)
             }else{/*Item*/
-                let pathIdx:PathIdx = PathIdx(depth)
-                results.append(pathIdx)
+                results.append(depth)
             }
         }
         return results
