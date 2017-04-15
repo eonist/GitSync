@@ -7,15 +7,7 @@ class HashArray{
     var dict:[String:Int] = [:]
     var arr:[Any] = []
     init(){}
-    subscript(key:String) -> Int? {
-        get {
-            return nil
-        }
-        set {
-            _ = newValue
-        }
-    }
-    subscript(key:String) -> Int? {
+    subscript(key:String) -> Any? {
         get {
             return nil
         }
@@ -37,5 +29,11 @@ extension HashArray{
             dict.removeValue(forKey: key)//remove key and val from dict
             _ = arr.removeAt(idx)//remove item from arr
         }else{fatalError("key does not exist")}
+    }
+    func get(_ key)->Any?{
+        if let idx:Int = dict[key]{
+            
+        }
+        return arr[]
     }
 }
