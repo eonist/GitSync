@@ -114,7 +114,8 @@ class TestView:TitleView{
             //make a Array extension that stringifies Int arrays etc
             //test the hash array
         
-        //let key:String = [0,1,1,0].string
+        let key:String = [0,1,1,0].string
+        Swift.print("key: " + "\(key)")
         //hashArr.add(key, "")
     }
     /**
