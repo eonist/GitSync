@@ -19,9 +19,9 @@ class HashArray{
 }
 extension HashArray{
     fileprivate func add(_ key:String, _ content:Any){
-        if(!dict.hasKey(key)){//make sure key doesn't exist
+        if(!dict.hasKey(key)){
             arr.append(content)//store content in arr
-            let idx:Int = arr.count//idx after last, can also be 0 /*arr.isEmpty ? 0 : arr.count - 1*/
+            let idx:Int = arr.count-1
             dict[key] = idx//store idx in key
         }else{fatalError("key already exist")}
     }
@@ -33,6 +33,7 @@ extension HashArray{
     }
     fileprivate func get(_ key:String)->Any?{
         if let idx:Int = dict[key]{
+            Swift.print("idx: " + "\(idx)")
             return arr[idx]
         }
         return nil
