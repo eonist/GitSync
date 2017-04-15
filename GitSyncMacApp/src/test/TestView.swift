@@ -102,7 +102,7 @@ class TestView:TitleView{
         Swift.print("tree.count: " + "\(tree.count)")
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
         
-        
+        var hashList = HashList()
     }
     func hashListTest(){
         var hashList = HashList()

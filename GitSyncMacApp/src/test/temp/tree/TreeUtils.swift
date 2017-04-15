@@ -84,7 +84,6 @@ class TreeUtils{
             let childXML:XML = TreeUtils.xml(child)
             xml += childXML
         }
- 
         return xml
     }
 }
