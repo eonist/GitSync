@@ -1,5 +1,6 @@
 import Foundation
 
-class HashTable {
-    
+struct HashList {
+    var dict:[String:Int] 
+    var arr:[String]
 }
