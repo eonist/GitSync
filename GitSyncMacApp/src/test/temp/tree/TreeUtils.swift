@@ -16,11 +16,17 @@ class TreeUtils{
         }
         return results
     }
+    class PathIdx{
+        var idx:[Int]
+        init(_ idx:[Int]){
+            self.idx = idx
+        }
+    }
     /**
      * //Continue here: 🏀
      * TODO: you pass the depth along: [Int], and you return [PathIdx] which you concat at root
      * TODO: create the PathIdx Struct, and then use [[Int]] when you have figured it out
-     * You increase the
+     * You increase the as you iterate,append when you dive
      * Eureka: Hash Array: You use a Sorted hashArray (Research required)
      */
     static func pathIndecies(_ tree:Tree,_ depth:Int = 0, _ indecies:[[Int]] = []) -> [[Int]] {
