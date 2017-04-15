@@ -7,16 +7,16 @@ import Foundation
  * NOTE: we could use T:Hashable, but no need atm
  */
 struct HashList {
-    var dict:[String:Int] 
     var arr:[String]
-    init(_ dict:[String:Int] = [:],_ arr:[String] = []){
-        self.dict = dict
+    var dict:[String:Int]
+    init(_ arr:[String] = [],_ dict:[String:Int] = [:]){
         self.arr = arr
+        self.dict = dict
     }
 }
 extension HashList{
     subscript(at:Int) -> String? {//returns key for array idx
-        get {return arr[at]}   
+        get {return arr[at]}
     }
     subscript(key:String) -> Int? {//returns the internal array idx for key
         get {return dict[key]}
