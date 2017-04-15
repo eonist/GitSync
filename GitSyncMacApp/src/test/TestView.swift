@@ -103,7 +103,7 @@ class TestView:TitleView{
         
         
         let hashList = TreeUtils.hashList(tree)
-        Swift.print("hashList[2]: " + "\(hashList[2])")
+        Swift.print("hashList[1]: " + "\(hashList[1])")
         Swift.print("hashList[01]: " + "\(hashList["01"])")
     }
     func hashListTest(){
