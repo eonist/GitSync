@@ -94,9 +94,10 @@ class TestView:TitleView{
             dict[key] = idx
         }
         func remove(key:String){
-            let idx:Int? = dict[key]
-            dict.remo
-            arr.removeAt(idx)
+            if let idx:Int = dict[key]{
+                dict.removeValue(forKey: key)
+                _ = arr.removeAt(idx)
+            }else{fatalError("key does not exist")}
         }
     }
     /**
