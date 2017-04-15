@@ -29,8 +29,8 @@ class TreeUtils{
      * You increase the as you iterate,append when you dive
      * Eureka: Hash Array: You use a Sorted hashArray (Research required)
      */
-    static func pathIndecies(_ tree:Tree,_ depth:[Int] = [0]) -> [PathIdx] {
-        var depth:[Int] = depth
+    static func pathIndecies(_ tree:Tree,_ depth:[Int] = []) -> [PathIdx] {
+        var depth:[Int] = depth + [0]
         var results:[PathIdx] = []
         for (i,child) in tree.children.enumerated(){
         //tree.children.forEach { child in
