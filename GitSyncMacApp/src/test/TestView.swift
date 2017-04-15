@@ -108,7 +108,7 @@ class TestView:TitleView{
      */
     func hashArrayTest(){
         let hashArr = HashArray()
-        let key:String = [0,1,1,0].joined()
+        let key:String = [0,1,1,0].map{$0.string}.reduce(""){$0+$1}
         hashArr.add(key, "")
     }
     /**
