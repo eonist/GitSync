@@ -89,10 +89,16 @@ class TreeUtils{
     /**
      *
      */
-    static func hash(_ tree:Tree) -> [(arr:[String],dict:[String:Int])]{
+    static func hashList(_ tree:Tree) -> HashList{
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
-        let arr:[String] = pathIndecies.map{$0.string}
-        let dict:[String:Int] = arr.hash
-        return (arr,dict)
+        var arr:[String] = []
+        var dict:[String:Int] = [:]
+        pathIndecies.forEach{
+            let key:String = $0.string
+            arr.append(key)
+            dict[key] = arr.count-1
+        }
+        
+        return HashList()
     }
 }
