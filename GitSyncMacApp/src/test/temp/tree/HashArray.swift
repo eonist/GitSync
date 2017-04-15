@@ -13,7 +13,7 @@ class HashArray{
             return get(key)
         }
         set {
-            add(key,newValue)
+            add(key,newValue!)
         }
     }
 }
