@@ -89,8 +89,8 @@ class TestView:TitleView{
         var arr:[Any] = []
         init(){}
         func add(_ key:String, _ content:Any){
-            let idx:
-            arr.append(content)
+            let idx:Int = arr.endIndex
+            arr[idx]
         }
     }
     /**
