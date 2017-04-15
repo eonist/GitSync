@@ -100,7 +100,11 @@ class TestView:TitleView{
      *
      */
     func hashListTest(){
-        
+        var hashList = HashList()
+        hashList.add([0].string)
+        hashList.add([0,0].string)
+        hashList.add([0,1].string)
+        hashList.add([1].string)
     }
     /**
      * failed experiement

@@ -15,9 +15,9 @@ struct HashList {
     }
 }
 extension HashList{
-    subscript(key:String) -> String? {
+    subscript(at:Int) -> String? {//Convenience
         get {
-            return get(key)
+            return arr[index]
         }
     }
     mutating func add(_ key:String){
@@ -32,12 +32,5 @@ extension HashList{
             dict.removeValue(forKey: key)//remove key and val from dict
             _ = arr.removeAt(idx)//remove item from arr
         }else{fatalError("key does not exist")}
-    }
-    fileprivate func get(_ key:String)->String?{
-        if let idx:Int = dict[key]{
-            Swift.print("idx: " + "\(idx)")
-            return arr[idx]
-        }
-        return nil
     }
 }
