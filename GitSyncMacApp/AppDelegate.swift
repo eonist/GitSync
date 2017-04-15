@@ -20,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         initTestWin()//🚧👷
     }
     func initApp(){
-         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
+         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
          win = MainWin(MainView.w,MainView.h)
          //win = ConflictDialogWin(380,400)
          //win = CommitDialogWin(400,356)
@@ -28,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     func initTestWin(){
         //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)
         win = TestWin(500,400)/*Debugging Different List components*/
         fileWatcher = StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
     }

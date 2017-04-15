@@ -89,6 +89,7 @@ class TestView:TitleView{
      */
     func pathIndeciesTest(){
         let tree = Tree(children:[Tree(children:[Tree(name:"X"),Tree(name:"Y")],name:"A"),Tree(name:"B")],name:"Root")
+        Swift.print("tree.count: " + "\(tree.count)")
         let pathIndecies:[PathIdx] = TreeUtils.pathIndecies(tree)
         pathIndecies.forEach{
             Swift.print("$0.idx: " + "\($0.idx)")
