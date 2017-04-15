@@ -105,6 +105,8 @@ class TestView:TitleView{
         hashList.add([0,0].string)
         hashList.add([0,1].string)
         hashList.add([1].string)
+        
+        hashList.
     }
     /**
      * failed experiement

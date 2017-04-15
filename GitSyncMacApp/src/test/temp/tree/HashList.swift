@@ -15,9 +15,14 @@ struct HashList {
     }
 }
 extension HashList{
-    subscript(at:Int) -> String? {//Convenience
+    subscript(at:Int) -> String? {//returns key for array idx
         get {
-            return arr[index]
+            return arr[at]
+        }
+    }
+    subscript(key:String) -> Int? {//returns the internal array idx for key
+        get {
+            return dict[key]
         }
     }
     mutating func add(_ key:String){
