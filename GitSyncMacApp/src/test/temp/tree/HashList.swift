@@ -9,13 +9,9 @@ import Foundation
 struct HashList {
     var arr:[String]
     var dict:[String:Int]
-    init(arr:[String] = [],dict:[String:Int] = [:]){
+    init(_ arr:[String] = [],_ dict:[String:Int] = [:]){
         self.arr = arr
         self.dict = dict
-    }
-    convenience init(_ arr:[String]) {
-        let data = TreeUtils.hash(<#T##tree: Tree##Tree#>)
-        self.init()
     }
 }
 extension HashList{

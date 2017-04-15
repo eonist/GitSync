@@ -87,7 +87,7 @@ class TreeUtils{
         return xml
     }
     /**
-     *
+     * New
      */
     static func hashList(_ tree:Tree) -> HashList{
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
@@ -98,7 +98,6 @@ class TreeUtils{
             arr.append(key)
             dict[key] = arr.count-1
         }
-        
         return HashList()
     }
 }
