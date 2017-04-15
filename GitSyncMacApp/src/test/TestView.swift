@@ -107,7 +107,8 @@ class TestView:TitleView{
      *
      */
     func hashArrayTest(){
-        
+        let hashArr = HashArray()
+        hashArr.add(<#T##key: String##String#>, <#T##content: Any##Any#>)
     }
     /**
      *
