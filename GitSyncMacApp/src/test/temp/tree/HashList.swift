@@ -16,14 +16,10 @@ struct HashList {
 }
 extension HashList{
     subscript(at:Int) -> String? {//returns key for array idx
-        get {
-            return arr[at]
-        }
+        get {return arr[at]}   
     }
     subscript(key:String) -> Int? {//returns the internal array idx for key
-        get {
-            return dict[key]
-        }
+        get {return dict[key]}
     }
     mutating func add(_ key:String){
         if(!dict.hasKey(key)){
