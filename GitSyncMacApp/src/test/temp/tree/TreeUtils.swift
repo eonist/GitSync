@@ -86,4 +86,13 @@ class TreeUtils{
         }
         return xml
     }
+    /**
+     *
+     */
+    static func hash(_ tree:tree) -> [(arr:[String]:dict:[String:Int])]{
+        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
+        let arr:[String] = pathIndecies.map{$0.string}
+        let dict:[String:Int] = arr.hash
+        return (arr,dict)
+    }
 }
