@@ -89,8 +89,12 @@ class TestView:TitleView{
         var arr:[Any] = []
         init(){}
         func add(_ key:String, _ content:Any){
-            let idx:Int = arr.endIndex
-            arr[idx]
+            let idx:Int = arr.isEmpty ? 0 : arr.count - 1
+            arr[idx] = content
+            dict[key] = idx
+        }
+        func remove(){
+            
         }
     }
     /**
