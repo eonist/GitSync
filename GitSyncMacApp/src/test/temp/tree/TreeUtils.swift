@@ -34,6 +34,7 @@ class TreeUtils{
         var results:[PathIdx] = []
         for (i,child) in tree.children.enumerated(){
         //tree.children.forEach { child in
+            
             depth[depth.count] = depth[depth.count] + i
             if(child.children.count > 0) {/*Array*/
                 return TreeUtils.pathIndecies(child,depth)
