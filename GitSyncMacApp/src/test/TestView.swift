@@ -93,8 +93,10 @@ class TestView:TitleView{
             arr[idx] = content
             dict[key] = idx
         }
-        func remove(){
-            
+        func remove(key:String){
+            let idx:Int? = dict[key]
+            dict.remo
+            arr.removeAt(idx)
         }
     }
     /**
