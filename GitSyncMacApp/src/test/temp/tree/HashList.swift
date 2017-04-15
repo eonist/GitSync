@@ -12,13 +12,6 @@ class HashList {
         self.dict = dict
         self.arr = arr
     }
-}
-extension HashList{
-    subscript(key:String) -> String? {
-        get {
-            return get(key)
-        }
-    }
     func add(_ key:String){
         if(!self.dict.hasKey(key)){
             arr.append(key)//store content in arr
@@ -39,4 +32,13 @@ extension HashList{
         }
         return nil
     }
+}
+extension HashList{
+    /*subscript(key:String) -> String? {
+     get {
+     return get(key)
+     }
+     }*/
+    
+    
 }
