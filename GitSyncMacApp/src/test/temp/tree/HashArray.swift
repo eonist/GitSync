@@ -2,6 +2,7 @@ import Foundation
 @testable import Utils
 /**
  * https://github.com/raywenderlich/swift-algorithm-club/tree/master/Hash%20Table
+ * NOTE: we could use T:Hashable, but no need atm
  */
 class HashArray{
     var dict:[String:Int] = [:]
@@ -9,15 +10,15 @@ class HashArray{
     init(){}
     subscript(key:String) -> Any? {
         get {
-            return nil
+            return get(key)
         }
         set {
-            _ = newValue
+            add(key,newValue)
         }
     }
 }
 extension HashArray{
-    func add(_ key:String, _ content:Any){
+    fileprivate func add(_ key:String, _ content:Any){
         if(!dict.hasKey(key)){//make sure key doesn't exist
             let idx:Int = arr.endIndex//idx after last, can also be 0 /*arr.isEmpty ? 0 : arr.count - 1*/
             arr[idx] = content//store content in arr
@@ -30,10 +31,10 @@ extension HashArray{
             _ = arr.removeAt(idx)//remove item from arr
         }else{fatalError("key does not exist")}
     }
-    func get(_ key)->Any?{
+    fileprivate func get(_ key:String)->Any?{
         if let idx:Int = dict[key]{
-            
+            return arr[idx]
         }
-        return arr[]
+        return nil
     }
 }
