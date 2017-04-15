@@ -108,7 +108,8 @@ class TestView:TitleView{
      */
     func hashArrayTest(){
         let hashArr = HashArray()
-        hashArr.add(<#T##key: String##String#>, <#T##content: Any##Any#>)
+        let key:String = [0,1,1,0].reduce("") {"\(0$)"+"\(1$)"}
+        hashArr.add(key, <#T##content: Any##Any#>)
     }
     /**
      *
