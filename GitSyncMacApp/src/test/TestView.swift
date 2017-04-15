@@ -98,12 +98,19 @@ class TestView:TitleView{
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
     func treeHashTest(){
+        Swift.print("🚧 treeHashTest 🚧")
         let tree = Tree(children:[Tree(children:[Tree(name:"X"),Tree(name:"Y")],name:"A"),Tree(name:"B")],name:"Root")
         Swift.print("tree.count: " + "\(tree.count)")
         
+        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
+        pathIndecies.forEach{
+            Swift.print("$0.idx: " + "\($0)")
+        }
         
-        let hashList = TreeUtils.hashList(tree)
-        Swift.print("hashList[1]: " + "\(hashList[1])")
+        
+        let hashList:HashList = TreeUtils.hashList(tree)
+        Swift.print("hashList.arr.count: " + "\(hashList.arr.count)")
+        Swift.print("hashList[2]: " + "\(hashList[2])")
         Swift.print("hashList[01]: " + "\(hashList["01"])")
     }
     func hashListTest(){

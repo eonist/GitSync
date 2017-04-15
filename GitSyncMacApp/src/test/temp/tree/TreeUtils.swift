@@ -98,6 +98,6 @@ class TreeUtils{
             arr.append(key)
             dict[key] = arr.count-1
         }
-        return HashList()
+        return HashList(arr,dict)
     }
 }
