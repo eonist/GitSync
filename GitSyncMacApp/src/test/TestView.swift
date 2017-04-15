@@ -97,8 +97,7 @@ class TestView:TitleView{
         hashArr[[0,1].string] = "Bill"
         hashArr[[1].string] = "Daniel"
         
-        let result = hashArr["01"]
-        Swift.print("result: " + "\(result)")//bill
+        Swift.print(hashArr["01"])//bill
         Swift.print([0,1].string)
         Swift.print(hashArr["1"])//Daniel
     }
