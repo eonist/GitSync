@@ -60,7 +60,7 @@ class TestView:TitleView{
                         //Imagine needing to alter Tree item, with only 2s arr idx
                         //Also why store content 2 places. Just a mistake. 👈 NIce!
         
-        
+        hashListTest()
         hashArrayTest()
         //pathIndeciesTest()
         //childAtTest()
@@ -99,9 +99,11 @@ class TestView:TitleView{
     /**
      *
      */
-    
+    func hashListTest(){
+        
+    }
     /**
-     *
+     * failed experiement
      */
     func hashArrayTest(){
         var hashArr = HashArray()
@@ -111,9 +113,9 @@ class TestView:TitleView{
         hashArr[[0,1].string] = "Bill"
         hashArr[[1].string] = "Daniel"
         
-        Swift.print(hashArr["01"])//bill
+        Swift.print(hashArr["01"]!)//bill
         Swift.print([0,1].string)
-        Swift.print(hashArr["1"])//Daniel
+        Swift.print(hashArr["1"]!)//Daniel
     }
     /**
      *
