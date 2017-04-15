@@ -84,6 +84,9 @@ class TestView:TitleView{
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
+    /**
+     * https://github.com/raywenderlich/swift-algorithm-club/tree/master/Hash%20Table
+     */
     class HashArray{
         var dict:[String:Int] = [:]
         var arr:[Any] = []
