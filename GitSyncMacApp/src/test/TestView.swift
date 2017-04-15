@@ -61,7 +61,7 @@ class TestView:TitleView{
                         //Also why store content 2 places. Just a mistake. 👈 NIce!
         
         hashListTest()
-        hashArrayTest()
+        //hashArrayTest()
         //pathIndeciesTest()
         //childAtTest()
         //tree2XML()
@@ -106,7 +106,8 @@ class TestView:TitleView{
         hashList.add([0,1].string)
         hashList.add([1].string)
         
-        hashList.
+        Swift.print("hashList[2]: " + "\(hashList[2])")//"01"
+        Swift.print("hashList[01]: " + "\(hashList["01"])")//2
     }
     /**
      * failed experiement
