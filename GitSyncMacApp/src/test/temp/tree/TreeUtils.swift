@@ -29,17 +29,19 @@ class TreeUtils{
      * You increase the as you iterate,append when you dive
      * Eureka: Hash Array: You use a Sorted hashArray (Research required)
      */
-    static func pathIndecies(_ tree:Tree,_ depth:Int = 0, _ indecies:[[Int]] = []) -> [[Int]] {
-        //var results:[[Int]] = []
+    static func pathIndecies(_ tree:Tree,_ depth:[Int] = [0]) -> [PathIdx] {
+        var depth:[Int] = depth
+        var results:[PathIdx] = []
         for (i,child) in tree.children.enumerated(){
         //tree.children.forEach { child in
+            depth[depth.count] = depth[depth.count] + i
             if(child.children.count > 0) {/*Array*/
-                TreeUtils.pathIndecies(child,depth + 1, indecies)
+                return TreeUtils.pathIndecies(child,depth)
             }else{/*Item*/
-                //results.append(i)
+                results.append(child)
             }
         }
-        return indecies
+        return results
     }
     /**
      * Convert xml to Tree-struture
