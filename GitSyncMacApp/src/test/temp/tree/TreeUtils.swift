@@ -20,10 +20,8 @@ class TreeUtils{
      * //Continue here: 🏀
      * TODO: you pass the depth along: [Int], and you return [PathIdx] which you concat at root
      * TODO: create the PathIdx Struct, and then use [[Int]] when you have figured it out
-     
-     * The truth is that if you need to update a pathIdx items, you already are on the correct map, and 
-     * You need to update flattened pathIndecies with info from pathIndecies and Tree. Both pieces of info need to be available. 
-     * If you only have Tree idx for the update you need to use reverse idx on the tree to find the flattenede idx representation
+     * You increase the
+     * Eureka: Hash Array: You use a Sorted hashArray (Research required)
      */
     static func pathIndecies(_ tree:Tree,_ depth:Int = 0, _ indecies:[[Int]] = []) -> [[Int]] {
         //var results:[[Int]] = []
