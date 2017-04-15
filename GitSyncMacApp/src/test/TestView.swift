@@ -58,7 +58,7 @@ class TestView:TitleView{
                 //Maybe simplify HashArray, not storing content. 
                     //Yes, you need address to treeItem, not content
                         //Imagine needing to alter Tree item, with only 2s arr idx
-                        //Also why store content 2 places. Just a mistake. 
+                        //Also why store content 2 places. Just a mistake. 👈 NIce!
         
         
         hashArrayTest()
