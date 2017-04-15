@@ -108,6 +108,11 @@ class TestView:TitleView{
      */
     func hashArrayTest(){
         let hashArr = HashArray()
+        
+        //Continue here: 🏀
+            //make a Array extension that stringifies Int arrays etc
+            //test the hash array
+        
         let key:String = [0,1,1,0].map{$0.string}.reduce(""){$0+$1}
         hashArr.add(key, "")
     }
