@@ -86,9 +86,11 @@ class TestView:TitleView{
     }
     class HashArray{
         var dict:[String:Int] = [:]
+        var arr:[Any] = []
         init(){}
         func add(_ key:String, _ content:Any){
-            
+            let idx:
+            arr.append(content)
         }
     }
     /**
