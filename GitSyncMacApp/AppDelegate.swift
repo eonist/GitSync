@@ -32,7 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         win = TestWin(500,400)/*Debugging Different List components*/
         fileWatcher = StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
     }
-    func applicationWillTerminate(_ aNotification: Notification) {
+    func applicationWillTerminate(_ aNotification:Notification) {
         //store the app prefs
         if(PrefsView.keychainUserName != nil){//make sure the data has been read and written to first
             _ = FileModifier.write("~/Desktop/gitsyncprefs.xml".tildePath, PrefsView.xml.xmlString)
