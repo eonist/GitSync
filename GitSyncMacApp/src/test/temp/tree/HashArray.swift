@@ -20,8 +20,8 @@ class HashArray{
 extension HashArray{
     fileprivate func add(_ key:String, _ content:Any){
         if(!dict.hasKey(key)){//make sure key doesn't exist
-            let idx:Int = arr.endIndex//idx after last, can also be 0 /*arr.isEmpty ? 0 : arr.count - 1*/
-            arr[idx] = content//store content in arr
+            arr.append(content)//store content in arr
+            let idx:Int = arr.count//idx after last, can also be 0 /*arr.isEmpty ? 0 : arr.count - 1*/
             dict[key] = idx//store idx in key
         }else{fatalError("key already exist")}
     }
