@@ -108,7 +108,12 @@ class TestView:TitleView{
     func treeDPUITest(){
         let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
         let dp:TreeDP = TreeDP(xml)
-        _ = self.addSubView(ElasticSlideScrollFastList3(140, 145, CGSize(24,24), dp, self))
+        Swift.print("dp.count: " + "\(dp.count)")
+        for i in 0..<dp.count{
+            let item = dp.item(i)
+            let title = item["title"]
+        }
+        //_ = self.addSubView(ElasticSlideScrollFastList3(140, 145, CGSize(24,24), dp, self))
     }
     func treeDPTest(){
         Swift.print("🚧 treeDPTest 🚧")
