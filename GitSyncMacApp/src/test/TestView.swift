@@ -153,7 +153,7 @@ class TestView:TitleView{
         Swift.print("tree.count: " + "\(tree.count)")
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
         pathIndecies.forEach{
-            Swift.print("$0.idx: \($0) name: \($0.name)")
+            Swift.print("$0.idx: \($0)")// name: \($0.name)
         }
     }
     /**
