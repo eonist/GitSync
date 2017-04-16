@@ -108,13 +108,17 @@ class TestView:TitleView{
         }
         
         //Continue here: 🏀
-            //you need to get all children in tree. currently you are missing x
-                //try some prev tests and fix it.
+            //you need to get all children in tree. currently you are missing x ✅
+                //try some prev tests and fix it. ✅
         
         let hashList:HashList = TreeUtils.hashList(tree)
         Swift.print("hashList.arr.count: " + "\(hashList.arr.count)")
         Swift.print("hashList[2]: " + "\(hashList[2])")
         Swift.print("hashList[01]: " + "\(hashList["01"])")
+        
+        
+        //Continue here:
+            //
     }
     func hashListTest(){
         var hashList = HashList()
