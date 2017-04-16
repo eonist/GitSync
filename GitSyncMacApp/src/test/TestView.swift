@@ -116,6 +116,8 @@ class TestView:TitleView{
         hashList.arr.forEach{
             let treeIdxStr:String = $0
             let treeIdx:[Int] = treeIdxStr.array({$0.int})
+            let tree:Tree? = tree[treeIdx]
+            Swift.print("tree.name: " + "\(tree?.name)")
         }
         //Continue here:
             //Tree needs subscript for [int] ✅
