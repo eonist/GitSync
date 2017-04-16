@@ -66,12 +66,12 @@ class TestView:TitleView{
                         //Also why store content 2 places. Just a mistake. 👈 NIce!
         
         
-        //treeDPUITest()
+        treeDPUITest()
         //treeDPTest()
         //treeHashTest()
         //hashListTest()
         //hashArrayTest()
-        pathIndeciesTest()
+        //pathIndeciesTest()
         //childAtTest()
         //tree2XML()
         //xml2tree()
@@ -191,8 +191,8 @@ class TestView:TitleView{
         Swift.print("tree.count: " + "\(tree.count)")
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
         pathIndecies.forEach{
-            Swift.print("$0.idx: \($0) name: \(tree.child($0)?.name)")//
-            //Swift.print("$0: " + "\($0)")
+            //Swift.print("$0.idx: \($0) name: \(tree.child($0)?.name)")//
+            Swift.print("$0: " + "\($0)")
         }
         
         /*
