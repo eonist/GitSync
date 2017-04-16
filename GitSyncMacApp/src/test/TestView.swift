@@ -37,6 +37,12 @@ import Cocoa
 
 //If you dont know which depth the flattened item is at. then you dont know its  indentation level
 
+//Continue here: 🏀
+    //Tree needs subscript for [int] ✅
+    //convert string to int array "001" -> [0,0,1]  ✅
+    //test getting content for 2d-idx in hashList ✅
+    //then setup fastlist test with tree data 👈
+    //then add tree.addAt([idx]) for when you open a tree item etc, and removeAt(),removeAll(at)
 
 class TestView:TitleView{
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {
@@ -50,7 +56,6 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        
         
         //continue here:
             //Now Tree can easily find its idx in the 2d array and update 2d array when needed (HashArray🎉)
@@ -97,6 +102,12 @@ class TestView:TitleView{
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
+    /**
+     *
+     */
+    func treeDPTest(){
+        
+    }
     func treeHashTest(){
         Swift.print("🚧 treeHashTest 🚧")
         let tree = Tree(children:[Tree(children:[Tree(name:"X"),Tree(name:"Y")],name:"A"),Tree(name:"B")],name:"Root")
@@ -119,13 +130,6 @@ class TestView:TitleView{
             let tree:Tree? = tree[treeIdx]
             Swift.print("tree.name: " + "\(tree?.name)")
         }
-        //Continue here:
-            //Tree needs subscript for [int] ✅
-            //convert string to int array "001" -> [0,0,1]  ✅
-            //test getting content for 2d-idx in hashList ✅
-            //then setup fastlist test with tree data 👈
-            //then add tree.addAt([idx]) for when you open a tree item etc, and removeAt(),removeAll(at)
-        
         
     }
     func hashListTest(){
