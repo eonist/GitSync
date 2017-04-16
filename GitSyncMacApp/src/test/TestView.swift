@@ -114,7 +114,8 @@ class TestView:TitleView{
         Swift.print("hashList[01]: " + "\(hashList["01"])")//returns 2d-idx
         
         hashList.arr.forEach{
-            
+            let treeIdx:String = $0
+            let treeIdx:[Int] = treeIdx.
         }
         //Continue here:
             //Tree needs subscript for [int] ✅
