@@ -27,7 +27,7 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
         get {
             return self.children[at]
         }set{
-            self.children[at] = newValue
+            self.children[at] = newValue!
         }
     }
 }
