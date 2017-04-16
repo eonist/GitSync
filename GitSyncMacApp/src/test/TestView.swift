@@ -65,14 +65,14 @@ class TestView:TitleView{
                         //Imagine needing to alter Tree item, with only 2s arr idx
                         //Also why store content 2 places. Just a mistake. 👈 NIce!
         
-        treeDPTest()
+        //treeDPTest()
         //treeHashTest()
         //hashListTest()
         //hashArrayTest()
         //pathIndeciesTest()
         //childAtTest()
         //tree2XML()
-        //xml2tree()
+        xml2tree()
         //treeTesting()
         //infiniteTreeList()
         //elasticSlideScrollFastList3()
@@ -228,6 +228,7 @@ class TestView:TitleView{
         let xmlStr:String = "<items><item title=\"A\"/><item title=\"B\"/><item title=\"C\"/></items>"
         let xml:XML = xmlStr.xml
         let tree:Tree = TreeUtils.tree(xml)
+        Swift.print("tree.children.count: " + "\(tree.children.count)")
         Swift.print("tree.count: " + "\(tree.count)")
     }
     func treeTesting(){
