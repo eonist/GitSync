@@ -1,7 +1,9 @@
 import Foundation
 @testable import Element
 @testable import Utils
-
+/**
+ * TODO: use DataProvidable dont extend DataProvider
+ */
 class TreeDP:DataProvider {
     var tree:Tree
     var hashList:HashList
@@ -28,6 +30,10 @@ class TreeDP:DataProvider {
     override var count:Int{
         return tree.count
     }
+    /*convenience init(_ fileURLStr:String){
+     let xml = FileParser.xml(fileURLStr)
+     self.init(xml)
+     }*/
 }
 extension TreeDP{
     convenience init(_ xml:XML) {
