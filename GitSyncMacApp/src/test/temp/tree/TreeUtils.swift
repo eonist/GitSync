@@ -30,7 +30,7 @@ class TreeUtils{
         var depth:[Int] = depth + [0]
         var results:[[Int]] = []
         
-        //bug is here: try to figure it out
+        //bug is here: try to figure it out, maybe use regular for i. and creat item withing, etc 🏀
         
         for (i,child) in tree.children.enumerated(){
             depth.end = depth.end! + i
