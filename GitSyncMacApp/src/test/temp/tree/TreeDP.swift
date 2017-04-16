@@ -4,6 +4,7 @@ import Foundation
 
 class TreeDP:DataProvidable {
     var tree:Tree
+    var hashList:HashList = {return TreeUtils.hashList(self.tree)}()
     init(_ tree:Tree){
         self.tree = tree
     }
@@ -11,7 +12,7 @@ class TreeDP:DataProvidable {
 
 extension TreeDP{
     /**
-     * PARAM: at: 
+     * PARAM: at:
      */
     func item(_ at:Int) -> [String:String]?{
        
