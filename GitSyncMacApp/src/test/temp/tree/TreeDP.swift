@@ -15,6 +15,10 @@ extension TreeDP{
         let tree:Tree = TreeUtils.tree(xml)
         self.init(tree)
     }
+    convenience init(_ fileURLStr:String){
+        let xml = FileParser.xml(fileURLStr)
+        self.init(xml)
+    }
     /**
      * PARAM: at:
      */
