@@ -18,6 +18,7 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
     
     /**
      * NOTE: root isn't considered item 0. Only descendents from root are considered items
+     * PARAM: at: the index of am item as if the tree structure was flattened
      */
     func child(_ at:Int)->Tree?{
         var i:Int = 0

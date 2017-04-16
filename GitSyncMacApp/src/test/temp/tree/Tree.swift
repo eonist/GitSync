@@ -15,7 +15,6 @@ struct Tree{
         self.content = content
     }
 }
-
 /*
  Terminologies used in Trees:
  
