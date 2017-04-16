@@ -43,6 +43,8 @@ import Cocoa
     //test getting content for 2d-idx in hashList ✅
     //then setup fastlist test with tree data ✅ 👌
     //then add tree.addAt([idx]) for when you open a tree item etc, and removeAt(),removeAll(at)
+        //possibly update DataProvider
+        
 
 class TestView:TitleView{
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {
