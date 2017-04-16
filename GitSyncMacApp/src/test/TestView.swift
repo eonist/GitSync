@@ -45,7 +45,7 @@ import Cocoa
     //then add tree.addAt([idx]) for when you open a tree item etc, and removeAt(),removeAll(at)
         //you also need a filter method when 3d->2d , only render items within open = true
             //click arrow to open -> tree[idx].setProps["isOpen"] = true, insert trees from self.idx w/ filter open
-            //click arrow to close -> tree[idx].setProps["isOpen"] = false, remove
+            //click arrow to close -> tree[idx].setProps["isOpen"] = false, remove every item after curIdx, that has curIdx, then stop if idx is not curIdx
         //possibly update DataProvider to use DataProvidable?
 
 
