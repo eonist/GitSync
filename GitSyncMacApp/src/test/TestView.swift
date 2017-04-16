@@ -110,6 +110,7 @@ class TestView:TitleView{
         Swift.print("🚧 treeDPTest 🚧")
         let xmlStr:String = "<items title=\"main\"><item title=\"A\"/><item title=\"B\"/><item title=\"C\"/></items>"
         let treeDP = TreeDP(xmlStr.xml)
+        Swift.print("treeDP.count: " + "\(treeDP.count)")
         Swift.print("\(treeDP.item(1)?["title"])")
         
     }
