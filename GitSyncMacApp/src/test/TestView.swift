@@ -65,7 +65,9 @@ class TestView:TitleView{
                         //Imagine needing to alter Tree item, with only 2s arr idx
                         //Also why store content 2 places. Just a mistake. 👈 NIce!
         
-        treeDPTest()
+        
+        treeDPUITest()
+        //treeDPTest()
         //treeHashTest()
         //hashListTest()
         //hashArrayTest()
@@ -103,9 +105,11 @@ class TestView:TitleView{
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
-    /**
-     *
-     */
+    func treeDPUITest(){
+        var dp:DataProvider
+        dp = DataProvider("~/Desktop/assets/xml/longlist.xml".tildePath)
+        _ = self.addSubView(ElasticSlideScrollFastList3(140, 145, CGSize(24,24), dp, self))
+    }
     func treeDPTest(){
         Swift.print("🚧 treeDPTest 🚧")
         let xmlStr:String = "<items title=\"main\"><item title=\"A\"/><item title=\"B\"/><item title=\"C\"/></items>"
