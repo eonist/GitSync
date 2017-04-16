@@ -238,7 +238,12 @@ class TestView:TitleView{
      *
      */
     func xml2tree(){
-        let xmlStr:String = "<items><item title=\"A\"/><item title=\"B\"/><item title=\"C\"/></items>"
+        var xmlStr:String = "<items>"
+        xmlStr += "<subItems title=\"X\"><item title=\"Z\"/><item title=\"Y\"/></subItems>"
+        xmlStr += "<item title=\"A\"/>"
+        xmlStr += "<item title=\"B\"/>"
+        xmlStr += "<item title=\"C\"/>"
+        xmlStr += "</items>"
         let xml:XML = xmlStr.xml
         let tree:Tree = TreeUtils.tree(xml)
         /*Swift.print("tree.children.count: " + "\(tree.children.count)")
