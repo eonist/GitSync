@@ -38,7 +38,7 @@ private class Utils{
                 //Swift.print("i: " + "\(i)")
                 i += 1
                 if(item.children.count > 0){
-                    let match:Tree? = Utils.child(item,at,&i)
+                    let match:Tree? = Utils.childFlattened(item,at,&i)
                     if(match != nil){return match}
                 }
             }

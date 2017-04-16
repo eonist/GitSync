@@ -168,7 +168,7 @@ class TestView:TitleView{
          Swift.print("$0.idx: \($0)")// name: \($0.name)
          }*/
         
-        Swift.print("item: " + "\(tree.child([1])?.name)")//y
+        Swift.print("item: " + "\(tree.child([0,1])?.name)")//y
     }
     /**
      *
@@ -177,7 +177,7 @@ class TestView:TitleView{
         let xmlStr:String = "<items title=\"main\"><item title=\"A\"/><item title=\"B\"/><item title=\"C\"/></items>"
         let xml:XML = xmlStr.xml
         let tree:Tree = TreeUtils.tree(xml)
-        let child:Tree? = tree.child(2)
+        let child:Tree? = tree[2]
         Swift.print("child.name: " + "\(child?.props?["title"])")
         
     }
@@ -199,7 +199,7 @@ class TestView:TitleView{
         //Continue here: 
             //test child at method 👈
         
-        let child:Tree? = tree.child(0)
+        let child:Tree? = tree[0]
         Swift.print("child.name: " + "\(child?.name)")
     }
     /**
@@ -227,7 +227,7 @@ class TestView:TitleView{
         let subTreeB = Tree(name:"B")
         tree.add(subTreeA)
         tree.add(subTreeB)
-        Swift.print("\(tree.child(3)?.name)")
+        Swift.print("\(tree.childFlattened(3)?.name)")
         Swift.print("tree.count: " + "\(tree.count)")
     }
     func infiniteTreeList(){
