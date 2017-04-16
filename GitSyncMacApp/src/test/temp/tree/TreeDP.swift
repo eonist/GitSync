@@ -10,7 +10,6 @@ class TreeDP:DataProvidable {
         self.hashList = TreeUtils.hashList(tree)
     }
 }
-
 extension TreeDP{
     /**
      * PARAM: at:
@@ -18,11 +17,11 @@ extension TreeDP{
     func item(_ at:Int) -> [String:String]?{
         if let idx:String = hashList[at]{
             let treeIdx:[Int] = idx.array({$0.int})
-            let tree:Tree? = tree[treeIdx]
-            Swift.print("tree.name: " + "\(tree?.name)")
+            if let tree:Tree = self.tree[treeIdx]{
+                //Swift.print("tree.name: " + "\(tree?.name)")
+                return tree.props
+            }
         }
-        
-        
         return nil
     }
     var count:Int{
