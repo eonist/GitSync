@@ -4,9 +4,10 @@ import Foundation
 
 class TreeDP:DataProvidable {
     var tree:Tree
-    var hashList:HashList = {return TreeUtils.hashList(self.tree)}()
+    var hashList:HashList
     init(_ tree:Tree){
         self.tree = tree
+        self.hashList = TreeUtils.hashList(tree)
     }
 }
 
@@ -15,7 +16,6 @@ extension TreeDP{
      * PARAM: at:
      */
     func item(_ at:Int) -> [String:String]?{
-       
         return nil
     }
     var count:Int{
