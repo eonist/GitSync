@@ -65,14 +65,14 @@ class TestView:TitleView{
                         //Imagine needing to alter Tree item, with only 2s arr idx
                         //Also why store content 2 places. Just a mistake. 👈 NIce!
         
-        treeDPTest()
+        //treeDPTest()
         //treeHashTest()
         //hashListTest()
         //hashArrayTest()
         //pathIndeciesTest()
         //childAtTest()
         //tree2XML()
-        //xml2tree()
+        xml2tree()
         //treeTesting()
         //infiniteTreeList()
         //elasticSlideScrollFastList3()
@@ -228,11 +228,18 @@ class TestView:TitleView{
         let xmlStr:String = "<items><item title=\"A\"/><item title=\"B\"/><item title=\"C\"/></items>"
         let xml:XML = xmlStr.xml
         let tree:Tree = TreeUtils.tree(xml)
-        Swift.print("tree.children.count: " + "\(tree.children.count)")
-        Swift.print("tree.count: " + "\(tree.count)")
-        Swift.print("tree[0]: " + "\(tree[0]?.props?["title"])")//a
-        Swift.print("tree[1]: " + "\(tree[1]?.props?["title"])")//b
-        Swift.print("tree[2]: " + "\(tree[2]?.props?["title"])")//c
+        /*Swift.print("tree.children.count: " + "\(tree.children.count)")
+         Swift.print("tree.count: " + "\(tree.count)")
+         Swift.print("tree[0]: " + "\(tree[0]?.props?["title"])")//a
+         Swift.print("tree[1]: " + "\(tree[1]?.props?["title"])")//b
+         Swift.print("tree[2]: " + "\(tree[2]?.props?["title"])")//c*/
+        
+        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
+        
+        pathIndecies.forEach{
+            //Swift.print("$0.idx: \($0) name: \(tree.child($0)?.name)")//
+            Swift.print("$0: " + "\($0)")
+        }
     }
     func treeTesting(){
         
