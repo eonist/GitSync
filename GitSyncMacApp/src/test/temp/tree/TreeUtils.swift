@@ -56,7 +56,7 @@ class TreeUtils{
             if let content = child.stringValue, content.count > 0 {
                 item.content = content
             }else if(child.hasComplexContent) {
-                _ = item.children += TreeUtils.tree(child)
+                _ = item.children += TreeUtils.tree(child).children
             }
             tree.add(item)
         }

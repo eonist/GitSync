@@ -65,7 +65,7 @@ class TestView:TitleView{
                         //Imagine needing to alter Tree item, with only 2s arr idx
                         //Also why store content 2 places. Just a mistake. 👈 NIce!
         
-        xml2tree()
+        //xml2tree()
         //treeDPUITest()
         //treeDPTest()
         //treeHashTest()
