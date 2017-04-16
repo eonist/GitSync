@@ -21,7 +21,7 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
         return TreeParser.child(self, at)
     }
     func child(_ at:[Int])-> Tree?{
-        return nil
+        return TreeParser.child(self, at)
     }
 }
 

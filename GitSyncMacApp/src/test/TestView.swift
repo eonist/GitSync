@@ -155,6 +155,8 @@ class TestView:TitleView{
         pathIndecies.forEach{
             Swift.print("$0.idx: \($0)")// name: \($0.name)
         }
+        
+        Swift.print("tree.child([0,1]): " + "\(tree.child([0,1])?.name)")
     }
     /**
      *
