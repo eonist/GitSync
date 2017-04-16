@@ -121,6 +121,7 @@ class TestView:TitleView{
             //Tree needs subscript for [int]
             //convert string to int array "001" -> [0,0,1]
             //test getting content for 2d-idx in hashList
+            //then setup fastlist test with tree data
     }
     func hashListTest(){
         var hashList = HashList()
