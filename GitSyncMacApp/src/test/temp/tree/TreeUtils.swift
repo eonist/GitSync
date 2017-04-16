@@ -29,6 +29,9 @@ class TreeUtils{
     static func pathIndecies(_ tree:Tree,_ depth:[Int] = []) -> [[Int]] {
         var depth:[Int] = depth + [0]
         var results:[[Int]] = []
+        
+        //bug is here: try to figure it out
+        
         for (i,child) in tree.children.enumerated(){
             depth.end = depth.end! + i
             results.append(depth)
@@ -90,6 +93,11 @@ class TreeUtils{
      */
     static func hashList(_ tree:Tree) -> HashList{
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
+        Swift.print("⚠️️")
+        pathIndecies.forEach{
+            Swift.print("$0: " + "\($0)")
+        }
+        Swift.print("⚠️️")
         var arr:[String] = []
         var dict:[String:Int] = [:]
         pathIndecies.forEach{
