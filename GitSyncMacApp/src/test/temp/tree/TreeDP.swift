@@ -10,20 +10,10 @@ class TreeDP:DataProvider {
         self.hashList = TreeUtils.hashList(tree)
         super.init([])
     }
-}
-extension TreeDP{
-    convenience init(_ xml:XML) {
-        let tree:Tree = TreeUtils.tree(xml)
-        self.init(tree)
-    }
-    convenience init(_ fileURLStr:String){
-        let xml = FileParser.xml(fileURLStr)
-        self.init(xml)
-    }
     /**
      * PARAM: at:
      */
-    func item(_ at:Int) -> [String:String]?{
+    override func item(_ at:Int) -> [String:String]?{
         //Swift.print("hashList.arr.count: " + "\(hashList.arr.count)")
         if let idx:String = hashList[at]{
             //Swift.print("idx: " + "\(idx)")
@@ -35,7 +25,15 @@ extension TreeDP{
         }
         return nil
     }
-    var count:Int{
+    override var count:Int{
         return tree.count
     }
+}
+extension TreeDP{
+    convenience init(_ xml:XML) {
+        let tree:Tree = TreeUtils.tree(xml)
+        self.init(tree)
+    }
+    
+    
 }
