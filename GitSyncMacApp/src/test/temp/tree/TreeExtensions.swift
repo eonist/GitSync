@@ -10,8 +10,8 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
      * TODO: You should make count a cached variable, only updated on additions and removals
      */
     var count:Int{
-        let count:Int =
-        self.children.forEach{$0.count}
+        var count:Int = 0
+        self.children.forEach{count += $0.count}
         return count
         //return TreeUtils.flattened(self).count + 1// +1 because it self is not added when recursiveFlattening. only self.children is flattened
     }
@@ -32,6 +32,11 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
             return self.children[at]
         }set{
             self.children[at] = newValue!
+        }
+    }
+    subscript(at:[Int]) -> Tree? {
+        get {
+            return self.child(at)
         }
     }
 }
