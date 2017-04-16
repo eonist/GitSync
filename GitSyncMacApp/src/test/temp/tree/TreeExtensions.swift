@@ -24,6 +24,12 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
         var i:Int = 0
         return Utils.child(self, at, &i)
     }
+    /**
+     *
+     */
+    func child(_ at:[Int])-> Tree?{
+        return nil
+    }
 }
 private class Utils{
     /**
