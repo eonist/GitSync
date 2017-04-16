@@ -41,7 +41,7 @@ import Cocoa
     //Tree needs subscript for [int] ✅
     //convert string to int array "001" -> [0,0,1]  ✅
     //test getting content for 2d-idx in hashList ✅
-    //then setup fastlist test with tree data 👈
+    //then setup fastlist test with tree data ✅ 👌
     //then add tree.addAt([idx]) for when you open a tree item etc, and removeAt(),removeAll(at)
 
 class TestView:TitleView{
@@ -66,7 +66,7 @@ class TestView:TitleView{
                         //Also why store content 2 places. Just a mistake. 👈 NIce!
         
         
-        //treeDPUITest()
+        treeDPUITest()
         //treeDPTest()
         //treeHashTest()
         //hashListTest()
@@ -77,7 +77,7 @@ class TestView:TitleView{
         //xml2tree()
         //treeTesting()
         //infiniteTreeList()
-        elasticSlideScrollFastList3()
+        //elasticSlideScrollFastList3()
         //elasticScrollFastList()
         //slideScrollFastList()
         //scrollFastList()
