@@ -160,6 +160,7 @@ class TestView:TitleView{
         tree.add(subTreeB)
         
         Swift.print("tree.children.count: " + "\(tree.children.count)")//2
+        Swift.print("tree[0][1]: " + "\(tree[0]![0]?.name)")//y
         //tree.children.count
         /*Swift.print("tree.count: " + "\(tree.count)")
          let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)*/

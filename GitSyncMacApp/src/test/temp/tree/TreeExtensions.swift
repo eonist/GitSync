@@ -23,6 +23,11 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
     func child(_ at:[Int])-> Tree?{
         return TreeParser.child(self, at)
     }
+    subscript(at:Int) -> Tree? {
+        get {
+            return self.child(at)
+        }
+    }
 }
 
 /*protocol TreeKind {
