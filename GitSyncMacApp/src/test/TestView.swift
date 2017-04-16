@@ -106,6 +106,7 @@ class TestView:TitleView{
      *
      */
     func treeDPTest(){
+        let xmlStr:String = "<items title=\"main\"><item title=\"A\"/><item title=\"B\"/><item title=\"C\"/></items>"
         
     }
     func treeHashTest(){

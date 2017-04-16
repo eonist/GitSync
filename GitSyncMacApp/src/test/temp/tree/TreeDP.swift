@@ -11,6 +11,10 @@ class TreeDP:DataProvidable {
     }
 }
 extension TreeDP{
+    convenience init(_ xml:XML) {
+        let tree:Tree = TreeUtils.tree(xml)
+        self.init(tree)
+    }
     /**
      * PARAM: at:
      */
