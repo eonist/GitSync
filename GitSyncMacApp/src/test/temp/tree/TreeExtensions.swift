@@ -7,6 +7,7 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
      * The num of items in the entire tree
      * NOTE: This should be cached, only re-calc on alteration
      * IMPORTANT: ⚠️️ This is a exhaustive and naive implementation
+     * TODO: You should make count a cached variable, only updated on additions and removals
      */
     var count:Int{
         return TreeUtils.flattened(self).count + 1// +1 because it self is not added when recursiveFlattening. only self.children is flattened
