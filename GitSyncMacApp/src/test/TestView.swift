@@ -111,8 +111,10 @@ class TestView:TitleView{
         let xmlStr:String = "<items title=\"main\"><item title=\"A\"/><item title=\"B\"/><item title=\"C\"/></items>"
         let treeDP = TreeDP(xmlStr.xml)
         Swift.print("treeDP.count: " + "\(treeDP.count)")
-        Swift.print("\(treeDP.item(2)?["title"])")
         
+        for i in 0..<treeDP.count{
+            Swift.print("\(treeDP.item(i)?["title"])")
+        }
     }
     func treeHashTest(){
         Swift.print("🚧 treeHashTest 🚧")

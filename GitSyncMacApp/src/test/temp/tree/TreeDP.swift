@@ -19,9 +19,9 @@ extension TreeDP{
      * PARAM: at:
      */
     func item(_ at:Int) -> [String:String]?{
-        Swift.print("hashList.arr.count: " + "\(hashList.arr.count)")
+        //Swift.print("hashList.arr.count: " + "\(hashList.arr.count)")
         if let idx:String = hashList[at]{
-            Swift.print("idx: " + "\(idx)")
+            //Swift.print("idx: " + "\(idx)")
             let treeIdx:[Int] = idx.array({$0.int})
             if let tree:Tree = self.tree[treeIdx]{
                 //Swift.print("tree.name: " + "\(tree?.name)")
