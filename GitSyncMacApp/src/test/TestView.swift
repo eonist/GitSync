@@ -44,6 +44,7 @@ import Cocoa
     //then setup fastlist test with tree data ✅ 👌
     //then add tree.addAt([idx]) for when you open a tree item etc, and removeAt(),removeAll(at)
         //you also need a filter method when 3d->2d , only render items within open = true
+            //click arrow -> setProps["isOpen"] = self.isSelected
         //possibly update DataProvider to use DataProvidable?
 
 
