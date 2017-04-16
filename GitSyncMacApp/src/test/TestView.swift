@@ -154,11 +154,11 @@ class TestView:TitleView{
         Swift.print("tree.children.count: " + "\(tree.children.count)")//2
         Swift.print("item: " + "\(tree[1]?.name)")//B
         //tree.children.count
-        /*Swift.print("tree.count: " + "\(tree.count)")
-         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)*/
-        /*pathIndecies.forEach{
-         Swift.print("$0.idx: \($0)")// name: \($0.name)
-         }*/
+        Swift.print("tree.count: " + "\(tree.count)")
+        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
+        pathIndecies.forEach{
+            Swift.print("$0.idx: \($0) name: \(tree.child([0,1])?.name)")//
+        }
         
         Swift.print("item: " + "\(tree.child([0,1])?.name)")//y
     }
