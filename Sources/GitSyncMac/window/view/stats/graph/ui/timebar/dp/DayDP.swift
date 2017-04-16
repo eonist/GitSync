@@ -6,7 +6,7 @@ class DayDP:TimeDP{
     static var numOfDaysInYear:Int = 365
     override var count:Int {return yearRange.numOfIndecies * DayDP.numOfDaysInYear}/*numOfDaysInYearRange*/
     override var items:[[String:String]] {get{fatalError("Not available")}set{_ = newValue}}
-    override func item(_ at:Int) -> [String:String]? {
+    /*override*/ func item(_ at:Int) -> [String:String]? {
         if(at >= count){return nil}//out of bound return nil
         let date = DayDP.day(at,yearRange)
         let shortDayName:String = date.shortDayName//short day for date

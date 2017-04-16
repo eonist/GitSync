@@ -4,7 +4,7 @@ import Foundation
 
 class YearDP:TimeDP{
     override var count:Int {return yearRange.numOfIndecies}
-    override func item(_ at:Int) -> [String:String]? {
+    /*override*/func item(_ at:Int) -> [String:String]? {
         let year:Int = YearDP.year(at,yearRange)
         let shortName:String = year.string.subString(2, 4)
         //Swift.print("shortName: " + "\(shortName)")
