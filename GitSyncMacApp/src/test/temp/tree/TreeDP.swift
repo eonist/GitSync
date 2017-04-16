@@ -3,39 +3,15 @@ import Foundation
 @testable import Utils
 
 class TreeDP:DataProvidable {
-    var items:[Any]?
-    init(items:[Any]) {
-        self.items = items
+    
+    init() {
+        
     }
 }
-//lets try with multidim array first, then maybe upgrade to Tree struct etc?
-    //if array count 2 and
-    //actually lets not, as detecting what is an item is not easy.
-    //maybe if you can assert if an item has complex content etc.🤔
-        //try to make some assert method. isItem, hasItems, hasAttribs etc. then use multidim arr 🚫
-        //actually, editing a multidim arr etc is more difficult, eaier to add extensions to tree. better, safeer code
-
 
 extension TreeDP{
     func item(_ at:Int) -> [String:String]?{
-        //var i = 0
-        
-        /*
-         func item()->[String:String]?{
-         
-            for (e,item) in items{
-                i += e
-                if(at == i){return items[e]}//found a match
-                else{//keep looping
-                     if(item is Array){//array
-                        item(at)
-                     else{//item
-                        i++
-                     }
-                }
-            }
-         }
-        */
+       
         return nil
     }
     var count:Int{
