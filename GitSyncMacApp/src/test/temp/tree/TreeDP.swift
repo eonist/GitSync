@@ -16,11 +16,12 @@ extension TreeDP{
      * PARAM: at:
      */
     func item(_ at:Int) -> [String:String]?{
+        if let idx:String = hashList[at]{
+            let treeIdx:[Int] = idx.array({$0.int})
+            let tree:Tree? = tree[treeIdx]
+            Swift.print("tree.name: " + "\(tree?.name)")
+        }
         
-        let treeIdxStr:String = hashList[at]
-        let treeIdx:[Int] = treeIdxStr.array({$0.int})
-        let tree:Tree? = tree[treeIdx]
-        Swift.print("tree.name: " + "\(tree?.name)")
         
         return nil
     }
