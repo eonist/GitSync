@@ -65,7 +65,8 @@ class TestView:TitleView{
                         //Imagine needing to alter Tree item, with only 2s arr idx
                         //Also why store content 2 places. Just a mistake. 👈 NIce!
         
-        treeHashTest()
+        treeDPTest()
+        //treeHashTest()
         //hashListTest()
         //hashArrayTest()
         //pathIndeciesTest()
@@ -106,9 +107,10 @@ class TestView:TitleView{
      *
      */
     func treeDPTest(){
+        Swift.print("🚧 treeDPTest 🚧")
         let xmlStr:String = "<items title=\"main\"><item title=\"A\"/><item title=\"B\"/><item title=\"C\"/></items>"
         let treeDP = TreeDP(xmlStr.xml)
-        tree.item(2)["title"]
+        Swift.print("\(treeDP.item(1)?["title"])")
         
     }
     func treeHashTest(){
