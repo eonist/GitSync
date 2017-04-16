@@ -65,7 +65,7 @@ class TestView:TitleView{
                         //Imagine needing to alter Tree item, with only 2s arr idx
                         //Also why store content 2 places. Just a mistake. 👈 NIce!
         
-        
+        xml2tree()
         //treeDPUITest()
         //treeDPTest()
         //treeHashTest()
@@ -75,7 +75,7 @@ class TestView:TitleView{
         //childAtTest()
         //tree2XML()
         //xml2tree()
-        treeTesting()
+        //treeTesting()
         //infiniteTreeList()
         //elasticSlideScrollFastList3()
         //elasticScrollFastList()
@@ -255,8 +255,8 @@ class TestView:TitleView{
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
         
         pathIndecies.forEach{
-            Swift.print("$0.idx: \($0) title: \(tree.child($0)?.props?["title"])")//a,b,c
-            //Swift.print("$0: " + "\($0)")
+            //Swift.print("$0.idx: \($0) title: \(tree.child($0)?.props?["title"])")//a,b,c
+            Swift.print("$0: " + "\($0)")
         }
     }
     func treeTesting(){
