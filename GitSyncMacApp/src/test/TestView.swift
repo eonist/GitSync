@@ -264,7 +264,8 @@ class TestView:TitleView{
         var tree = Tree(name:"Root")
         var subTreeA = Tree(name:"A")
         let subSubTreeX = Tree(name:"X")
-        let subSubTreeY = Tree(name:"Y")
+        var subSubTreeY = Tree(name:"Y")
+        subSubTreeY.add(Tree(name:"Z"))
         subTreeA.add(subSubTreeX)
         subTreeA.add(subSubTreeY)
         let subTreeB = Tree(name:"B")
@@ -272,6 +273,13 @@ class TestView:TitleView{
         tree.add(subTreeB)
         Swift.print("\(tree.childFlattened(3)?.name)")
         Swift.print("tree.count: " + "\(tree.count)")
+        
+        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
+        
+        pathIndecies.forEach{
+            //Swift.print("$0.idx: \($0) title: \(tree.child($0)?.props?["title"])")//a,b,c
+            Swift.print("$0: " + "\($0)")
+        }
     }
     func infiniteTreeList(){
         let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
