@@ -29,7 +29,7 @@ class StatusUtils{
  	 * NOTE: the space infront of the capetalized char indicates Changes not staged for commit:
  	 * NOTE: Returns = renamed, M = modified, A = addedto index, D = deleted, ?? = untracked file
 	 * NOTE: the state can be:  "Changes not staged for commit" , "Untracked files" , "Changes to be committed"
-	 * @Param: theStatusList is a list with status messages like: {"?? test.txt"," M index.html","A home.html"}
+	 * PARAM:: theStatusList is a list with status messages like: {"?? test.txt"," M index.html","A home.html"}
 	 * NOTE: can also be "UU" unmerged paths
  	 */
     static func transformStatusList(_ theStatusList:[String])->[[String:String]]{

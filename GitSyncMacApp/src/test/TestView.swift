@@ -107,9 +107,6 @@ class TestView:TitleView{
             Swift.print("$0.idx: " + "\($0)")
         }
         
-        //Continue here: 🏀
-            //you need to get all children in tree. currently you are missing x ✅
-                //try some prev tests and fix it. ✅
         
         let hashList:HashList = TreeUtils.hashList(tree)
         Swift.print("hashList.arr.count: " + "\(hashList.arr.count)")
@@ -118,7 +115,7 @@ class TestView:TitleView{
         
         
         //Continue here:
-            //Tree needs subscript for [int]
+            //Tree needs subscript for [int] ✅
             //convert string to int array "001" -> [0,0,1]
             //test getting content for 2d-idx in hashList
             //then setup fastlist test with tree data

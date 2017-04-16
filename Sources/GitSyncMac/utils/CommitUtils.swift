@@ -5,7 +5,7 @@ import Foundation
  */
 class CommitUtils{
 	/**
-	 * Returns a a text "commit message title" derived from @param status_list
+	 * Returns a a text "commit message title" derived from PARAM: status_list
 	 * PARAM: status_list: a list with records that contain staus type, file name and state
 	 * NOTE: C,I,R seems to never be triggered, COPIED,IGNORED,REMOVED,
 	 * NOTE: In place of Renamed, Git first deletes the file then says its untracked
