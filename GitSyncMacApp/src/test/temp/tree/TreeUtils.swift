@@ -29,17 +29,12 @@ class TreeUtils{
     static func pathIndecies(_ tree:Tree,_ depth:[Int] = []) -> [[Int]] {
         var depth:[Int] = depth + [0]
         var results:[[Int]] = []
-        
-        
-        for (i,child) in tree.children.enumerated(){
-            /*Swift.print("i: " + "\(i)")
-             */
-            _ = i
+        tree.children.forEach{
             results.append(depth)
-            depth.end = depth.end! + 1
-            if(child.children.count > 0) {/*Array*/
-                results += TreeUtils.pathIndecies(child,depth)
+            if($0.children.count > 0) {/*Array*/
+                results += TreeUtils.pathIndecies($0,depth)
             }
+            depth.end = depth.end! + 1
         }
         return results
     }

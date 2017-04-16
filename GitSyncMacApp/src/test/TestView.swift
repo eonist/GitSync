@@ -69,10 +69,10 @@ class TestView:TitleView{
         //treeHashTest()
         //hashListTest()
         //hashArrayTest()
-        pathIndeciesTest()
+        //pathIndeciesTest()
         //childAtTest()
         //tree2XML()
-        //xml2tree()
+        xml2tree()
         //treeTesting()
         //infiniteTreeList()
         //elasticSlideScrollFastList3()
@@ -179,8 +179,8 @@ class TestView:TitleView{
         Swift.print("tree.count: " + "\(tree.count)")
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
         pathIndecies.forEach{
-            //Swift.print("$0.idx: \($0) name: \(tree.child($0)?.name)")//
-            Swift.print("$0: " + "\($0)")
+            Swift.print("$0.idx: \($0) name: \(tree.child($0)?.name)")//
+            //Swift.print("$0: " + "\($0)")
         }
         
         /*
@@ -238,8 +238,8 @@ class TestView:TitleView{
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
         
         pathIndecies.forEach{
-            //Swift.print("$0.idx: \($0) name: \(tree.child($0)?.name)")//
-            Swift.print("$0: " + "\($0)")
+            Swift.print("$0.idx: \($0) name: \(tree.child($0)?.name)")//
+            //Swift.print("$0: " + "\($0)")
         }
     }
     func treeTesting(){
