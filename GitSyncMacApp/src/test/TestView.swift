@@ -66,12 +66,12 @@ class TestView:TitleView{
                         //Also why store content 2 places. Just a mistake. 👈 NIce!
         
         
-        treeDPUITest()
+        //treeDPUITest()
         //treeDPTest()
         //treeHashTest()
         //hashListTest()
         //hashArrayTest()
-        //pathIndeciesTest()
+        pathIndeciesTest()
         //childAtTest()
         //tree2XML()
         //xml2tree()
