@@ -106,8 +106,7 @@ class TestView:TitleView{
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
     func treeDPUITest(){
-        var dp:DataProvider = TreeDP("~/Desktop/assets/xml/treelist.xml".tildePath)
-        dp = DataProvider("~/Desktop/assets/xml/longlist.xml".tildePath)
+        let dp:TreeDP = TreeDP("~/Desktop/assets/xml/treelist.xml".tildePath)
         _ = self.addSubView(ElasticSlideScrollFastList3(140, 145, CGSize(24,24), dp, self))
     }
     func treeDPTest(){
