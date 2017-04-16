@@ -60,10 +60,10 @@ class TestView:TitleView{
                         //Imagine needing to alter Tree item, with only 2s arr idx
                         //Also why store content 2 places. Just a mistake. 👈 NIce!
         
-        //treeHashTest()
+        treeHashTest()
         //hashListTest()
         //hashArrayTest()
-        pathIndeciesTest()
+        //pathIndeciesTest()
         //childAtTest()
         //tree2XML()
         //xml2tree()

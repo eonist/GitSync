@@ -31,10 +31,9 @@ class TreeUtils{
         var results:[[Int]] = []
         for (i,child) in tree.children.enumerated(){
             depth.end = depth.end! + i
+            results.append(depth)
             if(child.children.count > 0) {/*Array*/
                 results += TreeUtils.pathIndecies(child,depth)
-            }else{/*Item*/
-                results.append(depth)
             }
         }
         return results
