@@ -25,6 +25,6 @@ extension TreeDP{
         return nil
     }
     var count:Int{
-        return 0
+        return tree.count
     }
 }
