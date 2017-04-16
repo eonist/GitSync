@@ -1,5 +1,7 @@
 import Foundation
-
+/**
+ * TODO: Subscript?
+ */
 extension Tree{//maybe treekind isnt needed. Just use Tree?
     /**
      * The num of items in the entire tree
