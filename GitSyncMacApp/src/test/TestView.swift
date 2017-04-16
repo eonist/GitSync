@@ -230,6 +230,9 @@ class TestView:TitleView{
         let tree:Tree = TreeUtils.tree(xml)
         Swift.print("tree.children.count: " + "\(tree.children.count)")
         Swift.print("tree.count: " + "\(tree.count)")
+        Swift.print("tree[0]: " + "\(tree[0]?.name)")
+        Swift.print("tree[1]: " + "\(tree[1]?.name)")
+        Swift.print("tree[2]: " + "\(tree[2]?.name)")
     }
     func treeTesting(){
         
