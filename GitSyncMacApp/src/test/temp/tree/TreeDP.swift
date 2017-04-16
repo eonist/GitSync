@@ -3,13 +3,16 @@ import Foundation
 @testable import Utils
 
 class TreeDP:DataProvidable {
-    
-    init() {
-        
+    var tree:Tree
+    init(_ tree:Tree){
+        self.tree = tree
     }
 }
 
 extension TreeDP{
+    /**
+     * PARAM: at: 
+     */
     func item(_ at:Int) -> [String:String]?{
        
         return nil
