@@ -15,7 +15,7 @@ class TreeDP:DataProvider {
     /**
      * PARAM: at:
      */
-    override func item(_ at:Int) -> [String:String]?{
+    /*override*/ func item(_ at:Int) -> [String:String]?{
         //Swift.print("hashList.arr.count: " + "\(hashList.arr.count)")
         if let idx:String = hashList[at]{
             //Swift.print("idx: " + "\(idx)")
