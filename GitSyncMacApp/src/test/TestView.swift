@@ -66,7 +66,7 @@ class TestView:TitleView{
                         //Also why store content 2 places. Just a mistake. 👈 NIce!
         
         
-        treeDPUITest()
+        //treeDPUITest()
         //treeDPTest()
         //treeHashTest()
         //hashListTest()
@@ -77,7 +77,7 @@ class TestView:TitleView{
         //xml2tree()
         //treeTesting()
         //infiniteTreeList()
-        //elasticSlideScrollFastList3()
+        elasticSlideScrollFastList3()
         //elasticScrollFastList()
         //slideScrollFastList()
         //scrollFastList()
