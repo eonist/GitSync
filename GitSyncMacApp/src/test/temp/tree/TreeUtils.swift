@@ -30,13 +30,13 @@ class TreeUtils{
         var depth:[Int] = depth + [0]
         var results:[[Int]] = []
         
-        //bug is here: try to figure it out, maybe use regular for i. and create item withing, etc 🏀
-        for i in tree.children.indices{
-            let child:Tree = tree.children[i]
         
-        //for (i,child) in tree.children.enumerated(){
-            depth.end = depth.end! + i
+        for (i,child) in tree.children.enumerated(){
+            /*Swift.print("i: " + "\(i)")
+             */
+            _ = i
             results.append(depth)
+            depth.end = depth.end! + 1
             if(child.children.count > 0) {/*Array*/
                 results += TreeUtils.pathIndecies(child,depth)
             }
