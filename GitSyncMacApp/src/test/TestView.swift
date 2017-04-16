@@ -116,7 +116,7 @@ class TestView:TitleView{
         
         //Continue here:
             //Tree needs subscript for [int] ✅
-            //convert string to int array "001" -> [0,0,1]
+            //convert string to int array "001" -> [0,0,1] 
             //test getting content for 2d-idx in hashList
             //then setup fastlist test with tree data
             //then add tree.addAt([idx]) for when you open a tree item etc, and removeAt(),removeAll(at)
