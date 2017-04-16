@@ -113,12 +113,14 @@ class TestView:TitleView{
         
         let hashList:HashList = TreeUtils.hashList(tree)
         Swift.print("hashList.arr.count: " + "\(hashList.arr.count)")
-        Swift.print("hashList[2]: " + "\(hashList[2])")
-        Swift.print("hashList[01]: " + "\(hashList["01"])")
+        Swift.print("hashList[2]: " + "\(hashList[2])")//returns 3d-idx
+        Swift.print("hashList[01]: " + "\(hashList["01"])")//returns 2d-idx
         
         
         //Continue here:
-            //
+            //Tree needs subscript for [int]
+            //convert string to int array "001" -> [0,0,1]
+            //test getting content for 2d-idx in hashList
     }
     func hashListTest(){
         var hashList = HashList()
