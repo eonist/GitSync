@@ -22,16 +22,16 @@ class TreeParser {
      * NOTE: root isn't considered item 0. Only descendents from root are considered items
      * PARAM: at: the index of am item as if the tree structure was flattened
      */
-    static func child(_ tree:Tree, _ at:Int)->Tree?{
+    static func childFlattened(_ tree:Tree, _ at:Int)->Tree?{
         var i:Int = 0
-        return Utils.child(tree, at, &i)
+        return Utils.childFlattened(tree, at, &i)
     }
 }
 private class Utils{
     /**
      * NOTE: this method resides in a Utility method because PARAM: i can't have default value
      */
-    static func child(_ child:Tree, _ at:Int, _ i:inout Int)->Tree?{
+    static func childFlattened(_ child:Tree, _ at:Int, _ i:inout Int)->Tree?{
         for item in child.children{
             if(at == i){return item}//found item at index
             else{

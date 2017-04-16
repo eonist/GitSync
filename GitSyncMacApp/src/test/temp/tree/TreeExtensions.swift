@@ -17,8 +17,8 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
     mutating func add(_ child:Tree){
         children.append(child)
     }
-    func child(_ at:Int)->Tree?{
-        return TreeParser.child(self, at)
+    func childFlattened(_ at:Int)->Tree?{
+        return TreeParser.childFlattened(self, at)
     }
     func child(_ at:[Int])-> Tree?{
         return TreeParser.child(self, at)
