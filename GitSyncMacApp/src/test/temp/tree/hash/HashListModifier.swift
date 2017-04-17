@@ -16,7 +16,7 @@ class HashListModifier {
             let idxStr:String = idx3d.string
             let subseedingIdx:Int = list[idxStr]!
             if let subseedingItem = list[subseedingIdx]{
-                
+                subseedingItem
             }
         }
         
