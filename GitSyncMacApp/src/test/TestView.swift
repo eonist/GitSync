@@ -63,7 +63,8 @@ class TestView:TitleView{
         let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
         var tree:Tree = TreeUtils.tree(xml)
         //close idx:2
-        tree = tree.setProp([2], ("title","Vegis"))
+        //tree = tree.setProp([2], ("title","Vegis"))
+        tree.children[2].props?["title"] = "Veggis"
         
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
         Swift.print("⚠️️")

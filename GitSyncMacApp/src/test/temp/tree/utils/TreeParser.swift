@@ -7,7 +7,7 @@ class TreeParser {
      * NOTE: this function is recursive
      * NOTE: to find the children of the root use an empty array as the index value
      */
-    static func child(_ tree:Tree?,_ index:[Int])-> Tree?{
+    static func child(_ tree:Tree?,_ index:[Int])->Tree?{
         if(index.count == 0 && tree != nil) {
             return tree
         }else if(index.count == 1 && tree != nil && tree![index.first!] != nil) {//XMLParser.childAt(xml!.children!, index[0])
