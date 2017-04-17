@@ -2,6 +2,9 @@ import Foundation
 @testable import Utils
 
 extension HashList{
+    subscript(at:Int) -> [Int]? {//returns key for array idx
+        get {return arr[at]}
+    }
     subscript(at:Int) -> String? {//returns key for array idx
         get {return arr[at]}
     }

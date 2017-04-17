@@ -31,7 +31,7 @@ class HashListModifier {
      */
     func addDescendants(_ list:inout HashList,_ at:Int,_ tree:Tree){
         //you want all open descendants at 3dIdx
-        
+        let child:Tree = TreeParser.child(tree, <#T##index: [Int]##[Int]#>)
     }
 }
 /*
