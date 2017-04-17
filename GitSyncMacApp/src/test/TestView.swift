@@ -63,7 +63,7 @@ class TestView:TitleView{
         let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
         var tree:Tree = TreeUtils.tree(xml)
         //close idx:2
-        tree.setProp([2], ("isOpen","false"))
+        tree.setProp([2], ("isOpen","false"))//👈 nice!
         //tree.children[2].props?["title"] = "Veggis"
         
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
@@ -90,7 +90,7 @@ class TestView:TitleView{
          let title:String? = item?["title"]
          Swift.print("title: " + "\(title)")
          }*/
-        _ = self.addSubView(ElasticSlideScrollFastList3(140, 145, CGSize(24,24), dp, self))   
+        _ = self.addSubView(ElasticSlideScrollFastList3(140, 145, CGSize(24,24), dp, self))
     }
     func treeDPTest(){
         Swift.print("🚧 treeDPTest 🚧")
