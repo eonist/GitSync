@@ -31,7 +31,7 @@ extension HashList{
         }else{fatalError("key already exist")}
     }
     /**
-     *
+     * Add multiple
      */
     mutating func add(_ at:Int, _ indecies:[Int]){
         var i:Int = at
