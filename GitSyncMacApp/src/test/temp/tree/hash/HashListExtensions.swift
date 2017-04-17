@@ -22,7 +22,7 @@ extension HashList{
         }else{fatalError("key does not exist")}
     }
     /**
-     *
+     * Adds key at index
      */
     mutating func add(_ key:String,_ at:Int){
         if(!dict.hasKey(key)){
@@ -30,6 +30,9 @@ extension HashList{
             dict[key] = at//store idx in key
         }else{fatalError("key already exist")}
     }
+    /**
+     * Removes key at index
+     */
     mutating func removeAt(_ key:String, _ at:Int){
         if(!dict.hasKey(key)){//make sure the key exists
             _ = arr.remove(at:at)
