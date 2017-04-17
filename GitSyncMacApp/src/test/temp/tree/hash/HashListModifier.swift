@@ -29,6 +29,12 @@ class HashListModifier {
     /**
      *
      */
+    func remove(_ list:HashList,_ ){
+        
+    }
+    /**
+     *
+     */
     func addDecendants(_ list:HashList,_ at:Int){
         
     }
