@@ -2,8 +2,8 @@ import Foundation
 /**
  * NOTE: Check regexident forest code. and lorentey [Element] ? etc?
  */
+//typealias Element = T
 struct Tree{
-    //typealias Element = T
     var children:[Tree]
     var props:[String:String]?
     var name:String?
