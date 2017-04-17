@@ -31,6 +31,17 @@ extension HashList{
         }else{fatalError("key already exist")}
     }
     /**
+     *
+     */
+    func add(_ at:Int, _ indecies:[Int]){
+        var i:Int = at
+        indecies.forEach{
+            let key:String = $0.string
+            add(key,i)
+            i += 1
+        }
+    }
+    /**
      * Removes key
      */
     mutating func remove(_ key:String){

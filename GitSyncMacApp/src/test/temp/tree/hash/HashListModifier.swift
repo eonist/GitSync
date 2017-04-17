@@ -36,11 +36,7 @@ class HashListModifier {
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(child,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
         var arr:[String] = []
         var dict:[String:Int] = [:]
-        pathIndecies.forEach{
-            let key:String = $0.string
-            arr.append(key)
-            dict[key] = arr.count-1
-        }
+        
     }
 }
 /*
