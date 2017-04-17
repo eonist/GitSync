@@ -30,6 +30,7 @@ class HashListModifier {
      *
      */
     func addDecendants(_ list:HashList,_ at:Int){
+        //you want all open descendants at 3dIDx
         
     }
 }
