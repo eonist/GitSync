@@ -34,7 +34,7 @@ class TreeUtils{
         tree.children.forEach{
             results.append(depth)
             if($0.children.count > 0 && assert($0)) {/*Array*/
-                results += TreeUtils.pathIndecies($0,depth)//dive deeper
+                results += TreeUtils.pathIndecies($0,depth, assert)//dive deeper
             }
             depth.end = depth.end! + 1//increment cur level
         }
@@ -90,6 +90,7 @@ class TreeUtils{
     static var isOpen:TreeUtils.AssertMethod = { tree in
         if let props = tree.props{
             if let isOpen = props["isOpen"]{
+                Swift.print("isOpen: " + "\(isOpen)")
                 if(isOpen == "true"){
                     return true
                 }
