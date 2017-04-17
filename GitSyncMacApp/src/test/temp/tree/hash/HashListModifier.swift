@@ -7,11 +7,10 @@ import Foundation
 
 class HashListModifier {
     /**
-     *
+     * 
      */
-    func removeDescendants(_ list:HashList,_ idx:Int){
+    static func removeDescendants(_ list:inout HashList,_ idx:Int){
         var end:Int
-        
         let idx3dStr = list[idx]
         var idx3d:[Int] = idx3dStr!.array({$0.int})
         idx3d.end = (idx3d.end ?? 0) + 1//incremts the end with 1
@@ -22,15 +21,15 @@ class HashListModifier {
         }else{//no subseeding item use .count
             end = list.arr.count//<-could be -1
         }
-        
-        //list.arr.remove(idx,end)
-        
+        HashListModifier.remove(&list,idx,end)
     }
     /**
-     *
+     * TODO: use range as arg, if possible
      */
-    func remove(_ list:HashList,_ ){
-        
+    static func remove(_ list:inout HashList,_ from:Int, _ to:Int){
+        for i in from...to{
+            list.remove(i)
+        }
     }
     /**
      *
