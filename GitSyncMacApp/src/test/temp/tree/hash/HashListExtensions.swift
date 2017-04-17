@@ -31,10 +31,9 @@ extension HashList{
         }else{fatalError("key already exist")}
     }
     mutating func removeAt(_ key:String, _ at:Int){
-        if let idx:Int = dict[key]{//make sure the key exists
-            _ = arr.remove(at: at)
-            dict.removeValue(forKey: key)//remove key and val from dict
-            
+        if(!dict.hasKey(key)){//make sure the key exists
+            _ = arr.remove(at:at)
+            dict.removeValue(forKey:key)//remove key and val from dict
         }else{fatalError("key does not exist")}
     }
 }
