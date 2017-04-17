@@ -96,16 +96,6 @@ class TreeUtils{
                 return false
             }
             return true
-            /*
-            if let props = tree.props{
-                if let isOpen = props["isOpen"]{
-                    if(isOpen == "true"){
-                        return true
-                    }
-                }
-            }
-            return false
-            */
         }
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],isOpen)/*flattens 3d to 2d*/
         /*Swift.print("⚠️️")
