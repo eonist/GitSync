@@ -29,8 +29,8 @@ class HashListModifier {
     /**
      *
      */
-    func addDescendants(_ list:HashList,_ at:Int,_ tree:Tree){
-        //you want all open descendants at 3dIDx
+    func addDescendants(_ list:inout HashList,_ at:Int,_ tree:Tree){
+        //you want all open descendants at 3dIdx
         
     }
 }
