@@ -2,7 +2,7 @@ import Foundation
 @testable import Element
 @testable import Utils
 /**
- * TODO: use DataProvidable dont extend DataProvider
+ * TODO: use DataProvidable don't extend DataProvider
  */
 class TreeDP:DataProvider {
     var tree:Tree

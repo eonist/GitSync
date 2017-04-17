@@ -89,7 +89,7 @@ class TreeUtils{
      * New
      */
     static func hashList(_ tree:Tree) -> HashList{
-        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
+        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)/*flattens 3d to 2d*/
         Swift.print("⚠️️")
         pathIndecies.forEach{
             Swift.print("$0: " + "\($0)")
