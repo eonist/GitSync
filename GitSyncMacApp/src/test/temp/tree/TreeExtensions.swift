@@ -21,23 +21,18 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
     mutating func add(_ child:Tree){
         children.append(child)
     }
-    func childFlattened(_ at:Int)->Tree?{
-        return TreeParser.childFlattened(self, at)
-    }
     func child(_ at:[Int])-> Tree?{
         return TreeParser.child(self, at)
     }
+    func childFlattened(_ at:Int)->Tree?{
+        return TreeParser.childFlattened(self, at)
+    }
     subscript(at:Int) -> Tree? {
-        get {
-            return self.children[at]
-        }set{
-            self.children[at] = newValue!
-        }
+        get {return self.children[at]}
+        set {self.children[at] = newValue!}
     }
     subscript(at:[Int]) -> Tree? {
-        get {
-            return self.child(at)
-        }
+        get {return self.child(at)}
     }
 }
 
