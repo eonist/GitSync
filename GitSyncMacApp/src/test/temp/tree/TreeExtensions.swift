@@ -35,7 +35,7 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
         get {return self.child(at)}
     }
     /**
-     * This could even be a subscript
+     * TODO: This could even be a subscript
      */
     mutating func setProp(_ at:[Int], _ prop:(key:String,val:String)){
         TreeModifier.setProp(&self,at,prop)
