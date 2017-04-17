@@ -1,6 +1,9 @@
 import Foundation
 @testable import Utils
 
+//Continue here: 
+    //You cant remove while you walk forward. maybe, make a descendantCount for tree instead would be easier
+
 class HashListModifier {
     /**
      *
