@@ -10,7 +10,11 @@ class HashListModifier {
      *
      */
     func removeDescendants(_ list:HashList,_ idx2D:Int,_ idx3d:[Int]){
-        var i:Int = idx2D
+        if let last = idx3d.last{
+            
+        }
+        
+        /*var i:Int = idx2D
         var isDescendant:Bool = true
         while(i<list.arr.count && isDescendant){
             //print(i)
@@ -21,7 +25,7 @@ class HashListModifier {
                 isDescendant = true
             }
             i+=1
-        }
+        }*/
     }
     /**
      *
