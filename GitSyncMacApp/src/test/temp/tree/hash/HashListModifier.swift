@@ -11,10 +11,11 @@ class HashListModifier {
      */
     static func removeDescendants(_ list:inout HashList,_ idx:Int, _ tree:Tree){
         let idx3dStr = list[idx]
-        var idx3d:[Int] = idx3dStr!.array({$0.int})
-        let tree[idx3d]
+        let idx3d:[Int] = idx3dStr!.array({$0.int})
+        let child:Tree = tree[idx3d]!
+        var count:Int = child.count(TreeUtils.isOpen)
         /*let tree:Tree =
-         var count:Int =*/
+         */
     }
     /**
      * Removes
