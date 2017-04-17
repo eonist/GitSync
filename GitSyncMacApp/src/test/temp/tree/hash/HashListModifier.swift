@@ -7,6 +7,16 @@ import Foundation
 
 class HashListModifier {
     /**
+     *
+     */
+    func addDescendants(_ list:inout HashList,_ idx:Int,_ tree:Tree){
+        let idx3d:[Int] = list[idx]!
+        let child:Tree = TreeParser.child(tree, idx3d)!
+        //you want all open descendants at 3dIdx
+        let indecies:[[Int]] = TreeUtils.pathIndecies(child,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
+        list.add(idx,indecies)
+    }
+    /**
      * 
      */
     static func removeDescendants(_ list:inout HashList,_ idx:Int, _ tree:Tree){
@@ -15,16 +25,6 @@ class HashListModifier {
         let count:Int = child.count(TreeUtils.isOpen)
         let end:Int = idx + count
         HashListModifier.remove(&list,idx,end)
-    }
-    /**
-     *
-     */
-    func addDescendants(_ list:inout HashList,_ idx:Int,_ tree:Tree){
-        //you want all open descendants at 3dIdx
-        let idx3d:[Int] = list[idx]!
-        let child:Tree = TreeParser.child(tree, idx3d)!
-        let indecies:[[Int]] = TreeUtils.pathIndecies(child,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
-        list.add(idx,indecies)
     }
     /**
      * Removes
