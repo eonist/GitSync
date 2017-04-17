@@ -92,10 +92,15 @@ class TreeUtils{
      */
     static func hashList(_ tree:Tree) -> HashList{
         let isOpen:TreeUtils.AssertMethod = { tree in
-            guard let props = tree.props, props["isOpen"] == "true" else {
-                return false
+            if let props = tree.props{
+                if let isOpen = props["isOpen"]{
+                    if(isOpen == "true"){
+                        return true
+                    }
+                }
             }
-            return true
+            return false
+            
         }
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],isOpen)/*flattens 3d to 2d*/
         /*Swift.print("⚠️️")
