@@ -5,10 +5,10 @@ class TreeModifier {
      * EXAMPLE XMLModifier.setAttributeAt(xml, [0,1], "title", "someTitle")
      * NOTE: I think this method works with depth indecies
      */
-    static func setProp(_ tree:inout Tree,_ at:[Int], _ key:String,_ value:String)  {
+    static func setProp(_ tree:inout Tree,_ at:[Int], _ prop:(key:String,val:String))  {
         //may work
         var child = TreeParser.child(tree, at)
-        child?.props?[key] = value
+        child?.props?[prop.key] = prop.val
     }
     /**
      * EXAMPLE: setAttributeAt([0], ["title":"someTitle"]);
@@ -16,7 +16,7 @@ class TreeModifier {
      */
     static func setProp(_ tree:inout Tree,_ at:[Int],_ props:[String:String]){
         for (k, v) in props{
-            TreeModifier.setProp(&tree, at, k, v)
+            TreeModifier.setProp(&tree, at, (k, v))
         }
     }
 }
