@@ -43,10 +43,10 @@ import Cocoa
     //test getting content for 2d-idx in hashList ✅
     //then setup fastlist test with tree data ✅ 👌
     //then add tree.addAt([idx]) for when you open a tree item etc, and removeAt(),removeAll(at)
-        //you also need a filter method when 3d->2d , only render items within open = true
+        //you also need a filter method when 3d->2d , only dive into items within open = true
             //click arrow to open -> tree[idx].setProps["isOpen"] = true, insert trees from self.idx w/ filter open
             //click arrow to close -> tree[idx].setProps["isOpen"] = false, remove every item after curIdx, that has curIdx, then stop if idx is not curIdx
-        
+
 
 
 class TestView:TitleView{
@@ -111,8 +111,8 @@ class TestView:TitleView{
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
     func treeDPUITest(){
-        let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
-        let dp:TreeDP = TreeDP(xml)
+        //let xml:XML = FileParser.xml()
+        let dp:TreeDP = TreeDP("~/Desktop/assets/xml/treelist.xml".tildePath)
         Swift.print("dp.count: " + "\(dp.count)")
         /*for i in 0..<dp.count{
          let item:[String:String]? = dp.item(i)
