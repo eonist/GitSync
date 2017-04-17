@@ -13,9 +13,9 @@ class HashListModifier {
         let idx3dStr = list[idx]
         let idx3d:[Int] = idx3dStr!.array({$0.int})
         let child:Tree = tree[idx3d]!
-        var count:Int = child.count(TreeUtils.isOpen)
-        /*let tree:Tree =
-         */
+        let count:Int = child.count(TreeUtils.isOpen)
+        let end:Int = idx + count
+        HashListModifier.remove(&list,idx,end)
     }
     /**
      * Removes
