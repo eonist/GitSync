@@ -15,6 +15,9 @@ class HashListModifier {
             idx3d.end = (idx3d.end ?? 0) + 1//incremts the end with 1
             let idxStr:String = idx3d.string
             let subseedingIdx:Int = list[idxStr]!
+            if let subseedingItem = list[subseedingIdx]{
+                
+            }
         }
         
         
