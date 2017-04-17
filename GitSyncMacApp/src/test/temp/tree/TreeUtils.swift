@@ -92,13 +92,11 @@ class TreeUtils{
             return false
         }
         return true
-        
     }
     /**
      * New
      */
     static func hashList(_ tree:Tree) -> HashList{
-        
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
         /*Swift.print("⚠️️")
          pathIndecies.forEach{
