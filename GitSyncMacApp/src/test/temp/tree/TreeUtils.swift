@@ -22,11 +22,13 @@ class TreeUtils{
         }
         return results
     }
+    typealias AssertMethod = (_ tree:Tree)->Bool
+    private static var defaultAssert:AssertMethod = {_ in return true}
     /**
      * Flattens a Tree-Structure to a path Indecies (3d -> 2d)
      * Eureka: Hash Array: You use a Sorted hashArray to solve the 3d->2d sync problem (Research required)
      */
-    static func pathIndecies(_ tree:Tree,_ depth:[Int] = []) -> [[Int]] {
+    static func pathIndecies(_ tree:Tree,_ depth:[Int] = [], assert:AssertMethod = defaultAssert) -> [[Int]] {
         var depth:[Int] = depth + [0]
         var results:[[Int]] = []
         tree.children.forEach{
