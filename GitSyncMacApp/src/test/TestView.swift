@@ -62,7 +62,7 @@ class TestView:TitleView{
         
         let dp:TreeDP = TreeDP("~/Desktop/assets/xml/treelist.xml".tildePath)
         
-        //dp.setProp([2],{})
+        //dp.setProp([2],("isOpen","true"))
         
     }
     /**
