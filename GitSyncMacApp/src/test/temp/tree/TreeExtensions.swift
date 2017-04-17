@@ -37,8 +37,8 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
     /**
      * TODO: This could even be a subscript
      */
-    mutating func setProp(_ at:[Int], _ prop:(key:String,val:String)){
-        TreeModifier.setProp(&self,at,prop)
+    mutating func setProp(_ at:[Int], _ prop:(key:String,val:String)) -> Tree{
+        return TreeModifier.setProp(&self,at,prop)
     }
 
 }
