@@ -32,6 +32,12 @@ class HashListModifier {
         //you want all open descendants at 3dIdx
         let idx3d:[Int] = list[idx]!
         let child:Tree = TreeParser.child(tree, idx3d)!
+        
+        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(child,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
+     
+        pathIndecies.forEach{
+            
+        }
     }
 }
 /*
