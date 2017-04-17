@@ -11,7 +11,7 @@ class TreeModifier {
         let apply:ApplyMethod = {tree in
             tree.props?[prop.key] = prop.val
         }
-        TreeModifier.apply(tree, at, apply)
+        TreeModifier.apply(&tree, at, apply)
     }
     /**
      * EXAMPLE: setAttributeAt([0], ["title":"someTitle"]);
@@ -26,14 +26,14 @@ class TreeModifier {
     /**
      * New
      */
-    static func apply(_ tree:inout Tree?,_ index:[Int], _ apply:ApplyMethod){
-        if(index.count == 0 && tree != nil) {
-            apply(tree!)
-        }else if(index.count == 1 && tree != nil && tree![index.first!] != nil) {//XMLParser.childAt(xml!.children!, index[0])
-            apply(tree![index[0]]!)
+    static func apply(_ tree:inout Tree, _ index:[Int], _ apply:ApplyMethod){
+        if(index.count == 0) {
+            apply(&tree)
+        }else if(index.count == 1 && tree[index.first!] != nil) {//XMLParser.childAt(xml!.children!, index[0])
+            apply(&tree[index[0]]!)
         }// :TODO: if index.length is 1 you can just ref index
-        else if(index.count > 1 && tree!.children.count > 0) {
-            TreeModifier.apply(tree![index.first!], index.slice2(1,index.count),apply)//keep digging
+        else if(index.count > 1 && tree.children.count > 0) {
+            TreeModifier.apply(&tree[index.first!]!, index.slice2(1,index.count),apply)//keep digging
         }
     }
 }
