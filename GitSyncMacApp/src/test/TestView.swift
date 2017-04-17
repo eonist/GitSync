@@ -63,8 +63,10 @@ class TestView:TitleView{
         let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
         var tree:Tree = TreeUtils.tree(xml)
         //close idx:2
-        tree.setProp([2], ("isOpen","false"))//👈 nice!
+        
         //tree.children[2].props?["title"] = "Veggis"
+        tree.setProp([2], ("title","Veggis"))//👈 nice!
+        
         
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
         Swift.print("⚠️️")
@@ -80,6 +82,8 @@ class TestView:TitleView{
                 }
             }
         }
+        
+        
     }
     func treeDPUITest(){
         //let xml:XML = FileParser.xml()
