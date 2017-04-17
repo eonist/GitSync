@@ -19,15 +19,6 @@ extension HashList{
         }else{fatalError("key already exist")}
     }
     /**
-     * Removes key
-     */
-    mutating func remove(_ key:String){
-        if let idx:Int = dict[key]{//make sure the key exists
-            _ = arr.removeAt(idx)//remove item from arr
-            dict.removeValue(forKey: key)//remove key and val from dict
-        }else{fatalError("key does not exist")}
-    }
-    /**
      * Adds key at index
      */
     mutating func add(_ key:String,_ at:Int){
@@ -37,6 +28,15 @@ extension HashList{
         }else{fatalError("key already exist")}
     }
     /**
+     * Removes key
+     */
+    mutating func remove(_ key:String){
+        if let idx:Int = dict[key]{//make sure the key exists
+            _ = arr.removeAt(idx)//remove item from arr
+            dict.removeValue(forKey: key)//remove key and val from dict
+        }else{fatalError("key does not exist")}
+    }
+    /**
      * Removes key at index
      */
     mutating func removeAt(_ key:String, _ at:Int){
@@ -44,5 +44,12 @@ extension HashList{
             _ = arr.remove(at:at)
             dict.removeValue(forKey:key)//remove key and val from dict
         }else{fatalError("key does not exist")}
+    }
+    /**
+     * Removes at
+     */
+    mutating func remove(_ at:Int){
+        let key:String = arr[at]
+        removeAt(key, at)
     }
 }
