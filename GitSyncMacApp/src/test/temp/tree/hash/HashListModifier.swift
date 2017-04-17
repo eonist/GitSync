@@ -11,17 +11,19 @@ class HashListModifier {
      */
     func removeDescendants(_ list:HashList,_ idx:Int){
         var end:Int
-        if let idx3dStr = list[idx]{
-            var idx3d:[Int] = idx3dStr.array({$0.int})
-            idx3d.end = (idx3d.end ?? 0) + 1//incremts the end with 1
-            let idxStr:String = idx3d.string
-            let subseedingIdx:Int = list[idxStr]!
-            if let subseedingItem = list[subseedingIdx]{
-                //has subseeding item
-            }else{
-                //no subseeding item use .count
-            }
+        
+        let idx3dStr = list[idx]
+        var idx3d:[Int] = idx3dStr!.array({$0.int})
+        idx3d.end = (idx3d.end ?? 0) + 1//incremts the end with 1
+        let idxStr:String = idx3d.string
+        let subseedingIdx:Int = list[idxStr]!
+        if(list[subseedingIdx] != nil){//has subseeding item
+            end = subseedingIdx
+        }else{//no subseeding item use .count
+            end = list.arr.count//<-could be -1
         }
+        
+        
         
         
         
