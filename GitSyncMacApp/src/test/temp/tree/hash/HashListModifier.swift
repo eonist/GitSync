@@ -5,8 +5,11 @@ class HashListModifier {
      *
      */
     func removeDescendants(_ list:HashList,_ at:Int){
-        
-        //list.arr
+        var i:Int = at
+        while(i<list.arr.count){
+            print(i)
+            i+=1
+        }
     }
     /**
      *
