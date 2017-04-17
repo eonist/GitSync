@@ -69,8 +69,6 @@ class TestView:TitleView{
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
         Swift.print("⚠️️")
         
-        
-        
         pathIndecies.forEach{
             //Swift.print("$0: " + "\($0)")
             let treeIdx:[Int] = $0
@@ -92,9 +90,7 @@ class TestView:TitleView{
          let title:String? = item?["title"]
          Swift.print("title: " + "\(title)")
          }*/
-        _ = self.addSubView(ElasticSlideScrollFastList3(140, 145, CGSize(24,24), dp, self))
-        
-        
+        _ = self.addSubView(ElasticSlideScrollFastList3(140, 145, CGSize(24,24), dp, self))   
     }
     func treeDPTest(){
         Swift.print("🚧 treeDPTest 🚧")
