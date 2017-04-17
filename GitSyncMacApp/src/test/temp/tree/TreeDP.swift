@@ -28,7 +28,8 @@ class TreeDP:DataProvider {
         return nil
     }
     override var count:Int{
-        return tree.count
+        return hashList.arr.count
+        //return tree.count
     }
     convenience init(_ fileURLStr:String){
         let xml = FileParser.xml(fileURLStr)
