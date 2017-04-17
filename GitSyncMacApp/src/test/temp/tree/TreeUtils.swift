@@ -33,7 +33,7 @@ class TreeUtils{
         var results:[[Int]] = []
         tree.children.forEach{
             results.append(depth)
-            if($0.children.count > 0) {/*Array*/
+            if($0.children.count > 0 && assert($0)) {/*Array*/
                 results += TreeUtils.pathIndecies($0,depth)//dive deeper
             }
             depth.end = depth.end! + 1//increment cur level
