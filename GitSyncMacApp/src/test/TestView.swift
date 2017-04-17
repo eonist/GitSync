@@ -119,7 +119,7 @@ class TestView:TitleView{
         
         let hashList:HashList = TreeUtils.hashList(tree)
         Swift.print("hashList.arr.count: " + "\(hashList.arr.count)")
-        Swift.print("hashList[2]: " + "\(hashList[2])")//returns 3d-idx
+        Swift.print("hashList[2]: " + "\("" + hashList[2]!)")//returns 3d-idx
         Swift.print("hashList[01]: " + "\(hashList["01"])")//returns 2d-idx
         
         hashList.arr.forEach{
