@@ -28,7 +28,7 @@ class TreeUtils{
      * Flattens a Tree-Structure to a path Indecies (3d -> 2d)
      * Eureka: Hash Array: You use a Sorted hashArray to solve the 3d->2d sync problem (Research required)
      */
-    static func pathIndecies(_ tree:Tree,_ depth:[Int] = [], assert:AssertMethod = defaultAssert) -> [[Int]] {
+    static func pathIndecies(_ tree:Tree,_ depth:[Int] = [], _ assert:AssertMethod = defaultAssert) -> [[Int]] {
         var depth:[Int] = depth + [0]
         var results:[[Int]] = []
         tree.children.forEach{
@@ -91,7 +91,7 @@ class TreeUtils{
      * New
      */
     static func hashList(_ tree:Tree) -> HashList{
-        func isOpen(_ tree:Tree)->Bool{
+        let isOpen:TreeUtils.AssertMethod = { tree in
             guard let props = tree.props, props["isOpen"] == "true" else {
                 return false
             }
@@ -107,7 +107,7 @@ class TreeUtils{
             return false
             */
         }
-        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)/*flattens 3d to 2d*/
+        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],isOpen)/*flattens 3d to 2d*/
         /*Swift.print("⚠️️")
          pathIndecies.forEach{
          Swift.print("$0: " + "\($0)")
