@@ -34,7 +34,6 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
     subscript(at:[Int]) -> Tree? {
         get {return self.child(at)}
     }
-    
 }
 
 /*protocol TreeKind {
