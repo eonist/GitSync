@@ -24,6 +24,7 @@ class HashListModifier {
         HashListModifier.remove(&list,idx,end)
     }
     /**
+     * Removes
      * TODO: use range as arg, if possible
      */
     static func remove(_ list:inout HashList,_ from:Int, _ to:Int){

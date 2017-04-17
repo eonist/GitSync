@@ -17,7 +17,7 @@ class TestView:TitleView{
     }
     func createGUI(){
         filterTreeTest()
-        treeDPUITest()
+        //treeDPUITest()
         //treeDPTest()
         //treeHashTest()
         //hashListTest()
