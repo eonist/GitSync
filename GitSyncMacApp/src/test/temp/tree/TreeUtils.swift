@@ -92,7 +92,12 @@ class TreeUtils{
      */
     static func hashList(_ tree:Tree) -> HashList{
         func isOpen(_ tree:Tree)->Bool{
-            
+            if let props = tree.props{
+                if let title = ["open"]{
+                    
+                }
+            }
+            return true
         }
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)/*flattens 3d to 2d*/
         /*Swift.print("⚠️️")
