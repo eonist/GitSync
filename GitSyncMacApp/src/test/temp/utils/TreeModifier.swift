@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 
 class TreeModifier {
     /**
@@ -19,5 +20,17 @@ class TreeModifier {
         for (k, v) in props{
             _ = TreeModifier.setProp(&tree, at, (k, v))
         }
+    }
+    typealias ApplyMethod = (_ tree:Tree)->Void
+    static func apply(_ tree:Tree?,_ index:[Int], _ apply:ApplyMethod)->Tree?{
+        if(index.count == 0 && tree != nil) {
+            return tree
+        }else if(index.count == 1 && tree != nil && tree![index.first!] != nil) {//XMLParser.childAt(xml!.children!, index[0])
+            return tree![index[0]]
+        }// :TODO: if index.length is 1 you can just ref index
+        else if(index.count > 1 && tree!.children.count > 0) {
+            return TreeModifier.apply(tree![index.first!], index.slice2(1,index.count),apply)
+        }
+        return nil
     }
 }
