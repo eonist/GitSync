@@ -70,8 +70,8 @@ class TestView:TitleView{
                         //Imagine needing to alter Tree item, with only 2s arr idx
                         //Also why store content 2 places. Just a mistake. 👈 NIce!
         
-        
-        treeDPUITest()
+        filterTreeTest()
+        //treeDPUITest()
         //treeDPTest()
         //treeHashTest()
         //hashListTest()
@@ -109,6 +109,12 @@ class TestView:TitleView{
          Swift.print("intervalA: " + "\(intervalA)")
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
+    }
+    /**
+     *
+     */
+    func filterTreeTest(){
+        
     }
     func treeDPUITest(){
         //let xml:XML = FileParser.xml()
