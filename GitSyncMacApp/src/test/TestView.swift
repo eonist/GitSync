@@ -63,12 +63,11 @@ class TestView:TitleView{
         let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
         let tree:Tree = TreeUtils.tree(xml)
         
-        
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
         Swift.print("⚠️️")
         pathIndecies.forEach{
             Swift.print("$0: " + "\($0)")
-         }/**/
+        }
     }
     func treeDPUITest(){
         //let xml:XML = FileParser.xml()
