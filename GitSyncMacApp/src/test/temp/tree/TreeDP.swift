@@ -14,6 +14,7 @@ class TreeDP:DataProvider {
     }
     /**
      * PARAM: at: 2d idx
+     * RETURNS: DataProvider item (aka Dictionary)
      */
      override func item(_ at:Int) -> [String:String]?{
         //Swift.print("hashList.arr.count: " + "\(hashList.arr.count)")
@@ -41,6 +42,4 @@ class TreeDP:DataProvider {
 }
 extension TreeDP{
     //convenience
-    
-    
 }

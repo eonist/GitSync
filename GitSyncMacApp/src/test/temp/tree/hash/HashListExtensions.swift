@@ -8,6 +8,9 @@ extension HashList{
     subscript(key:String) -> Int? {//returns the internal array idx for key
         get {return dict[key]}
     }
+    /**
+     * Adds key
+     */
     mutating func add(_ key:String){
         if(!dict.hasKey(key)){
             arr.append(key)//store content in arr
@@ -15,6 +18,9 @@ extension HashList{
             dict[key] = idx//store idx in key
         }else{fatalError("key already exist")}
     }
+    /**
+     * Removes key
+     */
     mutating func remove(_ key:String){
         if let idx:Int = dict[key]{//make sure the key exists
             _ = arr.removeAt(idx)//remove item from arr
