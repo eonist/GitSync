@@ -8,8 +8,8 @@ import Foundation
  * NOTE: we could use T:Hashable, but no need atm
  */
 struct HashList {
-    var arr:[String]
-    var dict:[String:Int]
+    var arr:[String]/*Example: [0,00,01,1,2]*/
+    var dict:[String:Int]/**/
     init(_ arr:[String] = [],_ dict:[String:Int] = [:]){
         self.arr = arr
         self.dict = dict
