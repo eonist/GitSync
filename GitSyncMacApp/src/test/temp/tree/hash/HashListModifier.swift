@@ -9,10 +9,16 @@ class HashListModifier {
     /**
      *
      */
-    func removeDescendants(_ list:HashList,_ idx2D:Int,_ idx3d:[Int]){
-        if let last = idx3d.last{
-            
+    func removeDescendants(_ list:HashList,_ idx:Int){
+        if let idx3dStr = list[idx]{
+            let idx3d:[Int] = idx3dStr.array({$0.int})
+            if let last = idx3d.last{
+                list[]
+            }
         }
+        
+        
+        
         
         /*var i:Int = idx2D
         var isDescendant:Bool = true
