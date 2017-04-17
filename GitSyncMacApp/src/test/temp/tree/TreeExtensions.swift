@@ -18,8 +18,10 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
     /**
      *
      */
-    func count(_ tree:Tree,_ assert:TreeUtils.AssertMethod = TreeUtils.defaultAssert){
-        
+    func count(_ assert:TreeUtils.AssertMethod = TreeUtils.defaultAssert){
+        var count:Int = self.children.count
+        self.children.forEach{count += $0.count(assert)}
+        return count
     }
     /**
      * Adds a child to children
