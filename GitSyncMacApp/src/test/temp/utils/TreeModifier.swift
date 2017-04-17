@@ -14,7 +14,7 @@ class TreeModifier {
      * EXAMPLE: setAttributeAt([0], ["title":"someTitle"]);
      * TODO: rename to changeAttribute? or editAttribute?
      */
-    func setProps(_ tree:inout Tree,_ at:[Int],_ props:[String:String]){
+    static func setProp(_ tree:inout Tree,_ at:[Int],_ props:[String:String]){
         for (k, v) in props{
             TreeModifier.setProp(&tree, at, k, v)
         }
