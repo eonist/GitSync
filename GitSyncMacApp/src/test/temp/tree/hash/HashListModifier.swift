@@ -12,6 +12,7 @@ class HashListModifier {
     static func removeDescendants(_ list:inout HashList,_ idx:Int, _ tree:Tree){
         let idx3dStr = list[idx]
         var idx3d:[Int] = idx3dStr!.array({$0.int})
+        let tree[idx3d]
         /*let tree:Tree =
          var count:Int =*/
     }
