@@ -62,13 +62,17 @@ class TestView:TitleView{
         
         let dp:TreeDP = TreeDP("~/Desktop/assets/xml/treelist.xml".tildePath)
         
+        //Continue here: 🏀
+        
         //dp.tree.setProp([2],("isOpen","true"))
             //updates tree
             //adds items to HashList (via HashListModifier.addDescendants)
-            //send event to FastList Ui Component (via HashListModifier.removeDescendants)
+            //send event to FastList UI Component, the times were added
         
         //dp.tree.setProp([2],("isOpen","false"))
-            //
+            //update tree
+            //remove items from HashList (via HashListModifier.removeDescendants)
+            //send event to FastList UI component, that items were removed
         
     }
     /**
