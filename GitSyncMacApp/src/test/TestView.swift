@@ -3,51 +3,6 @@ import Cocoa
 @testable import Element
 @testable import GitSyncMac
 
-//Continue here:
-    //InfiniteTreeList
-        //try old treeList
-        //try to flatten the TreeList DP
-        //try to Extend FastList (FastTreeList)
-            //override DP, with the TreeListDP that extends DP. Flattened
-            //Maybe Create a Tree struct that can store generic data? And use reflection to make XML and back again
-            //when you click on the arrow of a TreeList item that is Branch
-                //items are inserted to DP ? and then we rerenderRange?
-                    //So you need to Flatten Tree by not including hidden items 👈
-                        //So I think XML -> multidim array
-                            //recursiveFlattened this arr with custom assert clause
-                                //the pathIdx needs to be stored in the flattened items, as they need to be able to 
-
-//maybe the flattened list has the pathIdx to their origin. To append new items on demand
-    //all FastList items must be SelectCheckButton that is able to hide its arrow if the item is a leaf
-
-//The flattened array consists of only pathIdecies. 
-    //this way it holds as little info as possible
-    //Then when TreeList wants data it just quirees dp for item and dp gets this data from Tree at the idx
-    //This keeps data in 1 place. So you can alter Tree, or alter DP and it really alters Tree
-    //IF you click an arrow then the Tree is altred to open:true
-        //DP should now be told to add recursiveFlattened items under the item that was clicked.
-        //If tree it self gets updated from external source
-            //then only reflect this new items to dp, if dp isnt hiding this data. 
-
-//Or you could just read Tree as if it was flat. Diving into branches if they are open etc. 
-    //Count would only need recalc if alteration or hide/show event happened. 
-    //it would simplify things masivly.
-
-//you will need to make a flat representation that is update on tree change.
-
-//If you dont know which depth the flattened item is at. then you dont know its  indentation level
-
-//Continue here: 🏀
-    //Tree needs subscript for [int] ✅
-    //convert string to int array "001" -> [0,0,1]  ✅
-    //test getting content for 2d-idx in hashList ✅
-    //then setup fastlist test with tree data ✅ 👌
-    //then add tree.addAt([idx]) for when you open a tree item etc, and removeAt(),removeAll(at)
-        //you also need a filter method when 3d->2d , only dive into items within open = true
-            //click arrow to open -> tree[idx].setProps["isOpen"] = true, insert trees from self.idx w/ filter open
-            //click arrow to close -> tree[idx].setProps["isOpen"] = false, remove every item after curIdx, that has curIdx, then stop if idx is not curIdx
-
-
 
 class TestView:TitleView{
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {
@@ -62,13 +17,7 @@ class TestView:TitleView{
     }
     func createGUI(){
         
-        //continue here:
-            //Now Tree can easily find its idx in the 2d array and update 2d array when needed (HashArray🎉)
-                //Make the pathIndecies -> HAshArray method
-                //Maybe simplify HashArray, not storing content. 
-                    //Yes, you need address to treeItem, not content
-                        //Imagine needing to alter Tree item, with only 2s arr idx
-                        //Also why store content 2 places. Just a mistake. 👈 NIce!
+    
         
         filterTreeTest()
         //treeDPUITest()
@@ -114,7 +63,7 @@ class TestView:TitleView{
      *
      */
     func filterTreeTest(){
-        
+        let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
     }
     func treeDPUITest(){
         //let xml:XML = FileParser.xml()
