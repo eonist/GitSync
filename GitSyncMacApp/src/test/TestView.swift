@@ -16,8 +16,8 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        //filterTreeTest()
-        treeDPUITest()
+        filterTreeTest()
+        //treeDPUITest()
         //treeDPTest()
         //treeHashTest()
         //hashListTest()
@@ -65,9 +65,14 @@ class TestView:TitleView{
         
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
         Swift.print("⚠️️")
+        
+        //close idx:2
+        //tree.setProp
+        
         pathIndecies.forEach{
             Swift.print("$0: " + "\($0)")
         }
+        
     }
     func treeDPUITest(){
         //let xml:XML = FileParser.xml()
@@ -80,8 +85,7 @@ class TestView:TitleView{
          }*/
         _ = self.addSubView(ElasticSlideScrollFastList3(140, 145, CGSize(24,24), dp, self))
         
-        //close idx:2
-        //tree.setProp
+        
     }
     func treeDPTest(){
         Swift.print("🚧 treeDPTest 🚧")
