@@ -9,7 +9,9 @@ class HashListModifier {
     /**
      * 
      */
-    
+    static func removeDescendants(_ list:inout HashList,_ idx:Int){
+        
+    }
     /**
      * Removes
      * TODO: use range as arg, if possible
