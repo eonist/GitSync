@@ -61,13 +61,13 @@ class TestView:TitleView{
      */
     func filterTreeTest(){
         let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
-        let tree:Tree = TreeUtils.tree(xml)
+        var tree:Tree = TreeUtils.tree(xml)
         
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
         Swift.print("⚠️️")
         
         //close idx:2
-        //tree.setProp
+        tree.setProp([2], ("isOpen","false"))
         
         pathIndecies.forEach{
             Swift.print("$0: " + "\($0)")
