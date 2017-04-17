@@ -21,4 +21,13 @@ extension HashList{
             _ = arr.removeAt(idx)//remove item from arr
         }else{fatalError("key does not exist")}
     }
+    /**
+     *
+     */
+    mutating func add(_ key:String,_ at:Int){
+        if(!dict.hasKey(key)){
+            _ = arr.insertAt(key, at)//store content in arr
+            dict[key] = at//store idx in key
+        }else{fatalError("key already exist")}
+    }
 }
