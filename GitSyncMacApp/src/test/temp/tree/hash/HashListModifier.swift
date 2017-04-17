@@ -9,12 +9,12 @@ class HashListModifier {
         var i:Int = idx2D
         var isDescendant:Bool = true
         while(i<list.arr.count && isDescendant){
-            print(i)
+            //print(i)
             let idxStr:String = list.arr[i]
             let idx:[Int] = idxStr.array({$0.int})
             let last:Int? = idx[idx3d.count-1]
-            if(){
-                
+            if(last != nil && last! == idx.last){
+                isDescendant = true
             }
             i+=1
         }
