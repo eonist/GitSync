@@ -60,8 +60,9 @@ class TestView:TitleView{
         //click arrow to open -> tree[idx].setProps["isOpen"] = true, insert trees from self.idx w/ filter open
         //click arrow to close -> tree[idx].setProps["isOpen"] = false, remove every item after curIdx, that has curIdx, then stop if idx is not curIdx
         
-        let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
-        var tree:Tree = TreeUtils.tree(xml)
+        let dp:TreeDP = TreeDP("~/Desktop/assets/xml/treelist.xml".tildePath)
+        
+        //dp.setProp([2],{})
         
     }
     /**
