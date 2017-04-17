@@ -81,7 +81,7 @@ class TestView:TitleView{
         _ = self.addSubView(ElasticSlideScrollFastList3(140, 145, CGSize(24,24), dp, self))
         
         //close idx:2
-        
+        //tree.setProp
     }
     func treeDPTest(){
         Swift.print("🚧 treeDPTest 🚧")
