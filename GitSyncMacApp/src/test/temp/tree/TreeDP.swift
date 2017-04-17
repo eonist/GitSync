@@ -30,16 +30,17 @@ class TreeDP:DataProvider {
     override var count:Int{
         return tree.count
     }
-    /*convenience init(_ fileURLStr:String){
-     let xml = FileParser.xml(fileURLStr)
-     self.init(xml)
-     }*/
-}
-extension TreeDP{
+    convenience init(_ fileURLStr:String){
+        let xml = FileParser.xml(fileURLStr)
+        self.init(xml)
+     }
     convenience init(_ xml:XML) {
         let tree:Tree = TreeUtils.tree(xml)
         self.init(tree)
     }
+}
+extension TreeDP{
+    //convenience
     
     
 }
