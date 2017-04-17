@@ -17,6 +17,16 @@ class HashListModifier {
         HashListModifier.remove(&list,idx,end)
     }
     /**
+     *
+     */
+    func addDescendants(_ list:inout HashList,_ idx:Int,_ tree:Tree){
+        //you want all open descendants at 3dIdx
+        let idx3d:[Int] = list[idx]!
+        let child:Tree = TreeParser.child(tree, idx3d)!
+        let indecies:[[Int]] = TreeUtils.pathIndecies(child,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
+        list.add(idx,indecies)
+    }
+    /**
      * Removes
      * TODO: use range as arg, if possible
      */
@@ -24,19 +34,6 @@ class HashListModifier {
         for i in from...to{
             list.remove(i)
         }
-    }
-    /**
-     *
-     */
-    func addDescendants(_ list:inout HashList,_ idx:Int,_ tree:Tree){
-        //you want all open descendants at 3dIdx
-        let idx3d:[Int] = list[idx]!
-        let child:Tree = TreeParser.child(tree, idx3d)!
-        
-        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(child,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
-        var arr:[String] = []
-        var dict:[String:Int] = [:]
-        
     }
 }
 /*
