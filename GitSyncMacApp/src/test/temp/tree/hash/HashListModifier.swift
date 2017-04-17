@@ -13,7 +13,7 @@ class HashListModifier {
         if let idx3dStr = list[idx]{
             let idx3d:[Int] = idx3dStr.array({$0.int})
             if let last = idx3d.last{
-                list[]
+                list.last = 2
             }
         }
         
