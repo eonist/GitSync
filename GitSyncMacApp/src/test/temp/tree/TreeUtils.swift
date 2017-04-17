@@ -92,15 +92,7 @@ class TreeUtils{
             return false
         }
         return true
-        /*if let props = tree.props{
-         if let isOpen = props["isOpen"]{
-         Swift.print("isOpen: " + "\(isOpen)")
-         if(isOpen == "true"){
-         return true
-         }
-         }
-         }
-         return false*/
+        
     }
     /**
      * New
