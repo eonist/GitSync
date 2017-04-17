@@ -72,6 +72,7 @@ class TestView:TitleView{
         
         pathIndecies.forEach{
             Swift.print("$0: " + "\($0)")
+            Swift.print("$0.name: " + "\($0.name)")
         }
         
     }

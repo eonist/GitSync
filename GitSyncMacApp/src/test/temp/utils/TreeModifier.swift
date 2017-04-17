@@ -9,7 +9,7 @@ class TreeModifier {
         //may work
         var child = TreeParser.child(tree, at)
         child?.props?[prop.key] = prop.val
-        tree
+        return tree
     }
     /**
      * EXAMPLE: setAttributeAt([0], ["title":"someTitle"]);
