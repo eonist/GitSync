@@ -4,13 +4,14 @@ class HashListModifier {
     /**
      *
      */
-    func removeChildren(_ tree:HashList,_ at:Int){
+    func removeDescendants(_ list:HashList,_ at:Int){
         
+        //list.arr
     }
     /**
      *
      */
-    func addChildren(_ tree:HashList,_ at:Int){
+    func addDecendants(_ list:HashList,_ at:Int){
         
     }
 }
