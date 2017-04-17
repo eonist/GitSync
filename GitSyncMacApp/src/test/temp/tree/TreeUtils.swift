@@ -32,9 +32,9 @@ class TreeUtils{
         tree.children.forEach{
             results.append(depth)
             if($0.children.count > 0) {/*Array*/
-                results += TreeUtils.pathIndecies($0,depth)
+                results += TreeUtils.pathIndecies($0,depth)//dive deeper
             }
-            depth.end = depth.end! + 1
+            depth.end = depth.end! + 1//increment cur level
         }
         return results
     }
@@ -90,11 +90,11 @@ class TreeUtils{
      */
     static func hashList(_ tree:Tree) -> HashList{
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)/*flattens 3d to 2d*/
-        Swift.print("⚠️️")
-        pathIndecies.forEach{
-            Swift.print("$0: " + "\($0)")
-        }
-        Swift.print("⚠️️")
+        /*Swift.print("⚠️️")
+         pathIndecies.forEach{
+         Swift.print("$0: " + "\($0)")
+         }*/
+        //Swift.print("⚠️️")
         var arr:[String] = []
         var dict:[String:Int] = [:]
         pathIndecies.forEach{
