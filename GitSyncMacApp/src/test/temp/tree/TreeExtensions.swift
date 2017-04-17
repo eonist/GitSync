@@ -2,7 +2,7 @@ import Foundation
 /**
  * TODO: Subscript?
  */
-extension Tree{//maybe treekind isnt needed. Just use Tree?
+extension Tree{//maybe treekind isn't needed. Just use Tree?
     /**
      * The num of items in the entire tree
      * NOTE: This should be cached, only re-calc on alteration
