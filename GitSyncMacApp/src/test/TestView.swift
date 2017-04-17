@@ -167,21 +167,7 @@ class TestView:TitleView{
         
         
     }
-    /**
-     * failed experiement
-     */
-    func hashArrayTest(){
-        var hashArr = HashArray()
     
-        hashArr[[0].string] =  "John"
-        hashArr[[0,0].string] = "Max"
-        hashArr[[0,1].string] = "Bill"
-        hashArr[[1].string] = "Daniel"
-        
-        Swift.print(hashArr["01"]!)//bill
-        Swift.print([0,1].string)
-        Swift.print(hashArr["1"]!)//Daniel
-    }
     /**
      *
      */
