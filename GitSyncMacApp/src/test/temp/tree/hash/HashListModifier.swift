@@ -11,7 +11,8 @@ class HashListModifier {
         while(i<list.arr.count && isDescendant){
             print(i)
             let idxStr:String = list.arr[i]
-            let idx:[Int] idxStr.array{}
+            let idx:[Int] = idxStr.array({$0.int})
+            let last:Int? = idx[idx3d.count-1]
             if(){
                 
             }
