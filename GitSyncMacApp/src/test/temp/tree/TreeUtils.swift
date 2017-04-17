@@ -23,7 +23,7 @@ class TreeUtils{
         return results
     }
     typealias AssertMethod = (_ tree:Tree)->Bool
-    private static var defaultAssert:AssertMethod = {_ in return true}
+    static var defaultAssert:AssertMethod = {_ in return true}//returns true as default
     /**
      * Flattens a Tree-Structure to a path Indecies (3d -> 2d)
      * Eureka: Hash Array: You use a Sorted hashArray to solve the 3d->2d sync problem (Research required)

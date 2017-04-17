@@ -18,7 +18,7 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
     /**
      *
      */
-    func count(_ tree:Tree,_ assert:TreeUtils.AssertMethod){
+    func count(_ tree:Tree,_ assert:TreeUtils.AssertMethod = TreeUtils.defaultAssert){
         
     }
     /**
