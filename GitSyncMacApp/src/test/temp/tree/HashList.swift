@@ -6,10 +6,12 @@ import Foundation
  * NOTE: idx in array gives you key in dict
  * https://github.com/raywenderlich/swift-algorithm-club/tree/master/Hash%20Table
  * NOTE: we could use T:Hashable, but no need atm
+ * PARAM: arr: stores "3d-idx" [0,00,01,1,2]
+ * PARAM: 
  */
 struct HashList {
-    var arr:[String]/*Example: [0,00,01,1,2]*/
-    var dict:[String:Int]/**/
+    var arr:[String]
+    var dict:[String:Int]/*"0":0,"00":1,"01":2,"1":3,"2":4*/
     init(_ arr:[String] = [],_ dict:[String:Int] = [:]){
         self.arr = arr
         self.dict = dict
