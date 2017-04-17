@@ -16,7 +16,7 @@ extension Tree{//maybe treekind isnt needed. Just use Tree?
         //return TreeUtils.flattened(self).count + 1// +1 because it self is not added when recursiveFlattening. only self.children is flattened
     }
     /**
-     * PARAM: assert
+     * PARAM: assert: can assert things that a Tree instance must assert to true
      */
     func count(_ assert:TreeUtils.AssertMethod = TreeUtils.defaultAssert)->Int{
         var count:Int = self.children.count
