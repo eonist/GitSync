@@ -1,6 +1,7 @@
 import Foundation
 @testable import Utils
 /**
+ * HashList is a 2-way: 2d<->3d idx map
  * NOTE: key gives you idx in array
  * NOTE: idx in array gives you key in dict
  * https://github.com/raywenderlich/swift-algorithm-club/tree/master/Hash%20Table
