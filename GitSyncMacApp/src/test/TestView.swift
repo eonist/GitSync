@@ -71,6 +71,7 @@ class TestView:TitleView{
         func open(){
             dp.tree.setProp([2],("isOpen","true"))//updates tree
             dp.hashList
+            HashListModifier.addDescendants
                 //adds items to HashList (via HashListModifier.addDescendants)
                 //send event to FastList UI Component, the times were added
         }
