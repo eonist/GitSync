@@ -18,7 +18,7 @@ class HashListModifier {
         indecies = indecies.map{idx3d + $0}//prepend the parent pathIdx to get complete pathIndecies
         Swift.print("idx: " + "\(idx)")
         Swift.print("indecies: " + "\(indecies)")
-        list.add(idx,indecies)
+        list.add(idx+1,indecies)
     }
     /**
      * 

@@ -48,7 +48,7 @@ extension HashList{
         if let idx:Int = dict[key]{//make sure the key exists
             _ = arr.removeAt(idx)//remove item from arr
             dict.removeValue(forKey: key)//remove key and val from dict
-        }else{fatalError("key does not exist")}
+        }else{fatalError("key does not exist: \(key)")}
     }
     /**
      * Removes key at index
@@ -57,7 +57,7 @@ extension HashList{
         if(!dict.hasKey(key)){//make sure the key exists
             _ = arr.remove(at:at)
             dict.removeValue(forKey:key)//remove key and val from dict
-        }else{fatalError("key does not exist")}
+        }else{fatalError("key does not exist: \(key)")}
     }
     /**
      * Removes at
