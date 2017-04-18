@@ -4,11 +4,19 @@ import Foundation
 
 class TreeList3:FastList3{
     override func onListItemUpInside(_ buttonEvent:ButtonEvent) {
-        super.onListItemUpInside(buttonEvent)
-        if let selectable:ISelectable = buttonEvent.origin as! ISelectable, selectable.selected{
-            Swift.print("already selected 🚫")
-        }else{/*not selected*/
-            Swift.print("selected 🎉")
+        
+        if let selectable:ISelectable = buttonEvent.origin as? ISelectable{
+            Swift.print("selectable: " + "\(selectable)")
+            Swift.print("selectable.selected: " + "\(selectable.getSelected())")
+            if(selectable.selected){
+                    Swift.print("selected 🎉")
+            }else{
+                Swift.print("already selected 🚫")
+            }
+            
+        }else{
+            
         }
+        super.onListItemUpInside(buttonEvent)
     }
 }
