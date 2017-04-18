@@ -24,7 +24,7 @@ class HashListModifier {
     /**
      * 
      */
-    static func removeDescendants(_ list:inout HashList,_ at:Int, _ tree:Tree){
+    static func removeDescendants(_ list:inout HashList,_ at:Int, _ tree:Tree) -> Int{
         Swift.print("at: " + "\(at)")
         Swift.print("list: " + "\(list)")
         let idx3d:[Int] = list[at]!
@@ -34,6 +34,7 @@ class HashListModifier {
         Swift.print("count: " + "\(count)")
         let end:Int = at + count
         HashListModifier.remove(&list,at,end)
+        return count
     }
     /**
      * Removes
