@@ -61,11 +61,11 @@ extension ContainerView3 {//private maybe?
      */
     override open func scrollWheel(with event: NSEvent) {
        // Swift.print("ContainerView3.scrollWheel")
-        if(self is ElasticSlidableScrollableFastListable3){
+        if(self as? ElasticSlidableScrollableFastListable3 != nil){
             (self as! ElasticSlidableScrollableFastListable3).scroll(event)
-        }else if(self is ElasticSlidableScrollable3){
+        }else if(self as? ElasticSlidableScrollable3 != nil){
             (self as! ElasticSlidableScrollable3).scroll(event)
-        }else if(self is Scrollable3){
+        }else if(self as? Scrollable3 != nil){
             (self as! Scrollable3).scroll(event)
         }else{
             fatalError("type not supported")
