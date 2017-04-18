@@ -86,5 +86,4 @@ extension FastList3{
             reUseFromIdx(event.startIndex)/*the visible range hasn't changed, but the data has changed, apply new data*/
         }
     }
-    
 }
