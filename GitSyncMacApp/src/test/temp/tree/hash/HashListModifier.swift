@@ -7,7 +7,7 @@ import Foundation
 
 class HashListModifier {
     /**
-     *
+     * 
      */
     static func addDescendants(_ list:inout HashList,_ idx:Int,_ tree:Tree){
         let idx3d:[Int] = list[idx]!

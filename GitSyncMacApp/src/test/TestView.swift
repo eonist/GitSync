@@ -85,6 +85,7 @@ class TestView:TitleView{
         
         
         open()
+        close()
         
         //print hashList
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(dp.tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
