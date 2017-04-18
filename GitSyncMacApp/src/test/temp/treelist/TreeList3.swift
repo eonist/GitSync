@@ -1,5 +1,5 @@
 import Foundation
 
-class FastTreeList3 {
+class TreeList3 {
 
 }
