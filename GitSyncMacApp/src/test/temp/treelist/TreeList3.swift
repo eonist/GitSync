@@ -7,10 +7,13 @@ class TreeList3:FastList3{
     override func onListItemUpInside(_ buttonEvent:ButtonEvent) {
         super.onListItemUpInside(buttonEvent)
         if let idx:Int = selectedIdx{
-            let isOpen:Bool = TreeDPParser.getProp(treeDP, selectedIdx, "isOpen") == "true"
+            let isOpen:Bool = TreeDPParser.getProp(treeDP, idx, "isOpen") == "true"
             Swift.print("isOpen: " + "\(isOpen)")
+            if(isOpen){
+                TreeDPModifier.close(treeDP, idx)
+            }else{
+                TreeDPModifier.open(treeDP, idx)
+            }
         }
-        
-        
     }
 }
