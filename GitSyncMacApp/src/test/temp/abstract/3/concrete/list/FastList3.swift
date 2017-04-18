@@ -56,6 +56,18 @@ class FastList3:ContainerView3,FastListable3{
     override func getClassType() -> String {
         return dir == .ver ? "\(List.self)" : "VList"//<--VList rally? isn't it more like HList atleast?
     }
+    /**
+     * This is called when a item in the lableContainer has send the ButtonEvent.upInside event
+     */
+    func onListItemUpInside(_ buttonEvent:ButtonEvent) {
+        //fatalError("not implemented yet")
+        /**/
+        let viewIndex:Int = contentContainer!.indexOf(buttonEvent.origin as! NSView)
+        List3Modifier.selectAt(self,viewIndex)//unSelect all other visibleItems
+        pool.forEach{if($0.item === buttonEvent.origin){selectedIdx = $0.idx}}/*We extract the index by searching for the origin among the visibleItems, the view doesn't store the index it self, but the visibleItems store absolute indecies*/
+        super.onEvent(ListEvent(ListEvent.select,selectedIdx ?? -1,self))/*if selectedIdx is nil then use -1 in the event*///TODO: probably use FastListEvent here in the future
+        
+    }
     required init(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 extension FastList3{
@@ -74,16 +86,5 @@ extension FastList3{
             reUseFromIdx(event.startIndex)/*the visible range hasn't changed, but the data has changed, apply new data*/
         }
     }
-    /**
-     * This is called when a item in the lableContainer has send the ButtonEvent.upInside event
-     */
-    func onListItemUpInside(_ buttonEvent:ButtonEvent) {
-        //fatalError("not implemented yet")
-        /**/
-         let viewIndex:Int = contentContainer!.indexOf(buttonEvent.origin as! NSView)
-         List3Modifier.selectAt(self,viewIndex)//unSelect all other visibleItems
-         pool.forEach{if($0.item === buttonEvent.origin){selectedIdx = $0.idx}}/*We extract the index by searching for the origin among the visibleItems, the view doesn't store the index it self, but the visibleItems store absolute indecies*/
-         super.onEvent(ListEvent(ListEvent.select,selectedIdx ?? -1,self))/*if selectedIdx is nil then use -1 in the event*///TODO: probably use FastListEvent here in the future
- 
-    }
+    
 }

@@ -3,7 +3,7 @@ import Foundation
 @testable import Utils
 
 class TreeList3:FastList3{
-    func onListItemUpInside(_ buttonEvent:ButtonEvent) {
+    override func onListItemUpInside(_ buttonEvent:ButtonEvent) {
         Swift.print("works")
     }
 }
