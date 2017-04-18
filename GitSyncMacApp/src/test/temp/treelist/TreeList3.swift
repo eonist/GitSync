@@ -10,8 +10,10 @@ class TreeList3:FastList3{
             let isOpen:Bool = TreeDPParser.getProp(treeDP, idx, "isOpen") == "true"
             Swift.print("isOpen: " + "\(isOpen)")
             if(isOpen){
+                Swift.print("✅")
                 TreeDPModifier.close(treeDP, idx)
             }else{
+                Swift.print("🚫")
                 TreeDPModifier.open(treeDP, idx)
             }
         }
