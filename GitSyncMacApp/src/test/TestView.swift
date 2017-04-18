@@ -64,7 +64,10 @@ class TestView:TitleView{
         let dp:TreeDP = TreeDP("~/Desktop/assets/xml/treelist.xml".tildePath)
         
         //Continue here: 🏀
-            //
+            //on FastList click -> opens and closes folders
+            //Move UI into TreeList3
+            //Add TreeListItem3 to the fold
+            //Adjust design based on 
         
         TreeDPModifier.open(dp, 2)
         TreeDPModifier.close(dp, 2)
