@@ -83,8 +83,12 @@ class TestView:TitleView{
         pathIndecies.forEach{
             //Swift.print("$0: " + "\($0)")
             let treeIdx:[Int] = $0
-            if let tree = dp.tree[treeIdx], let props:[String:String] = tree.props, let title = props["title"]{
-               Swift.print("title: " + "\(title)")
+            if let tree = dp.tree[treeIdx]{
+                if let props:[String:String] = tree.props{
+                    if let title = props["title"]{
+                        Swift.print("title: " + "\(title)")
+                    }
+                }
             }
         }
     }
