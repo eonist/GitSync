@@ -114,6 +114,8 @@ class TestView:TitleView{
         //Continue here: 🏀
             //print the hashlist after close, use the new Dict printers. 
             //I think the bug is that you have the wrong range somewhere, 👉 almost there 👈
+            //The problem is that if you insert items, the items after the insertion point wotn get updated.
+                //Re-think HashList !
         
         //let xml:XML = FileParser.xml()
         let dp:TreeDP = TreeDP("~/Desktop/assets/xml/treelist.xml".tildePath)
