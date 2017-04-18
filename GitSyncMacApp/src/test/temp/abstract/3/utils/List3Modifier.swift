@@ -1,13 +1,13 @@
-
 import Foundation
 @testable import Utils
 
-class ListModifier3 {
+
+class List3Modifier {
     /**
      * Selects the first item that has PARAM title as its title
      */
     static func select(_ list: Listable3, _ title:String) {
-        let index:Int = list.dp.getItemIndex(list.dataProvider.getItem(title)!)
+        let index:Int = list.dp.getItemIndex(list.dp.getItem(title)!)
         selectAt(list,index)
     }
     /**
