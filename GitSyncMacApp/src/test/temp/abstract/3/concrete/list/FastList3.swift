@@ -54,7 +54,7 @@ class FastList3:ContainerView3,FastListable3{
         super.onEvent(event)// we stop propegation by not forwarding events to super. The ListEvents go directly to super so they wont be stopped.
     }
     override func getClassType() -> String {
-        return dir == .ver ? "\(List.self)" : "VList"//<--VList rally? isnt it more like HList atleast?
+        return dir == .ver ? "\(List.self)" : "VList"//<--VList rally? isn't it more like HList atleast?
     }
     required init(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
