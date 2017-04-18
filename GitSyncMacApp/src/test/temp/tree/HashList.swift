@@ -21,3 +21,6 @@ struct HashList {
     }
 }
 
+//What if dict stored a: 3dIDX:incrementableIDX
+// 
+
