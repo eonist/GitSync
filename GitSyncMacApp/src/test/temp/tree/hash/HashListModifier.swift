@@ -14,7 +14,8 @@ class HashListModifier {
         Swift.print("idx3d: " + "\(idx3d)")
         let child:Tree = TreeParser.child(tree, idx3d)!
         //you want all open descendants at 3dIdx
-        let indecies:[[Int]] = TreeUtils.pathIndecies(child,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
+        var indecies:[[Int]] = TreeUtils.pathIndecies(child,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
+        indecies = indecies.map{idx3d + $0}//prepend the parent pathIdx to get complete pathIndecies
         Swift.print("idx: " + "\(idx)")
         Swift.print("indecies: " + "\(indecies)")
         list.add(idx,indecies)
