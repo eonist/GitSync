@@ -22,5 +22,9 @@ struct HashList {
 }
 
 //What if dict stored a: 3dIDX:incrementableIDX
-// 
+//
+
+
+
+//https://github.com/CosmicMind/Algorithm/blob/master/Sources/SortedDictionary.swift
 
