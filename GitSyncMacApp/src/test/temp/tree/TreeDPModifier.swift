@@ -7,6 +7,7 @@ class TreeDPModifier {
      */
     static func open(_ dp:TreeDP, _ at:Int){
         let idx3d:[Int] = dp.hashList[at]!
+        Swift.print("at: " + "\(at)")
         Swift.print("dp.hashList.dict: " + "\(dp.hashList.dict.sortedByValue)")
         Swift.print("idx3d: " + "\(idx3d)")
         dp.tree.setProp(idx3d,("isOpen","true"))//updates tree
