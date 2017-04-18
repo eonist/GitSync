@@ -6,6 +6,7 @@ class TreeDPModifier {
      */
     static func open(_ dp:TreeDP, _ at:Int){
         let idx3d:[Int] = dp.hashList[at]!
+        Swift.print("idx3d: " + "\(idx3d)")
         dp.tree.setProp(idx3d,("isOpen","true"))//updates tree
         HashListModifier.addDescendants(&dp.hashList, at, dp.tree)//adds items to HashList (via HashListModifier.addDescendants)
     }
@@ -14,6 +15,7 @@ class TreeDPModifier {
      */
     static func close(_ dp:TreeDP, _ at:Int){
         let idx3d:[Int] = dp.hashList[at]!
+        Swift.print("idx3d: " + "\(idx3d)")
         dp.tree.setProp(idx3d,("isOpen","false"))//update tree
         HashListModifier.removeDescendants(&dp.hashList, at, dp.tree)//remove items from HashList (via HashListModifier.removeDescendants)
     }
