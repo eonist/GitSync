@@ -25,7 +25,7 @@ class TreeModifier {
     typealias ApplyMethod = (_ tree:inout Tree)->Void
     /**
      * New
-     * TODO: Clean up with if let and guard
+     * TODO: Clean up with multi if let and guard
      */
     static func apply(_ tree:inout Tree, _ index:[Int], _ apply:ApplyMethod){
         if(index.count == 0) {
