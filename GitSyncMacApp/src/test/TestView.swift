@@ -110,6 +110,11 @@ class TestView:TitleView{
         }
     }
     func treeDPUITest(){
+        
+        //Continue here: 🏀
+            //print the hashlist after close, use the new Dict printers. 
+            //i think the bug is that you have the wrong range somewhere, 👉 almost there 👈
+        
         //let xml:XML = FileParser.xml()
         let dp:TreeDP = TreeDP("~/Desktop/assets/xml/treelist.xml".tildePath)
         Swift.print("dp.count: " + "\(dp.count)")
