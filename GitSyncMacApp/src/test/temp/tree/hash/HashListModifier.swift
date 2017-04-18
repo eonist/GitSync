@@ -23,13 +23,16 @@ class HashListModifier {
     /**
      * 
      */
-    static func removeDescendants(_ list:inout HashList,_ idx:Int, _ tree:Tree){
-        let idx3d:[Int] = list[idx]!
+    static func removeDescendants(_ list:inout HashList,_ at:Int, _ tree:Tree){
+        Swift.print("at: " + "\(at)")
+        Swift.print("list: " + "\(list)")
+        let idx3d:[Int] = list[at]!
         Swift.print("idx3d: " + "\(idx3d)")
         let child:Tree = tree[idx3d]!
         let count:Int = child.count(TreeUtils.isOpen)
-        let end:Int = idx + count
-        HashListModifier.remove(&list,idx,end)
+        Swift.print("count: " + "\(count)")
+        let end:Int = at + count
+        HashListModifier.remove(&list,at,end)
     }
     /**
      * Removes
