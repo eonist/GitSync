@@ -118,6 +118,22 @@ class TestView:TitleView{
                 //Re-think HashList !
                     //Maybe you have 2 dicts? as dicts doesnt have to have 
         
+        
+        
+        //so:
+        
+        //1. use SortedDict 🚫
+        
+        //2. traverse treeStrure on demand. 🚫
+        
+        //3. 2dIDX -> 3dIDX is fast 3dIDX -> 2dIDX slow ✅ (no problem since 3d->2d lookup only happens on Edit) 
+        
+        
+        
+        //https://github.com/CosmicMind/Algorithm/blob/master/Sources/SortedDictionary.swift
+        
+
+        
         //let xml:XML = FileParser.xml()
         let dp:TreeDP = TreeDP("~/Desktop/assets/xml/treelist.xml".tildePath)
         Swift.print("dp.count: " + "\(dp.count)")
