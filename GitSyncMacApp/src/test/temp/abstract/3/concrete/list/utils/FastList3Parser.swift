@@ -6,7 +6,8 @@ class FastList3Parser {
      */
     static func selected(_ fastList:FastListable3, _ item:NSView) -> Int?{
         //use filter on the bellow
-        return fastList.pool.filter(){return $0.item === item}
+        return fastList.pool.first(where:{$0.item === item})?.idx
+        
         /*for obj in fastList.pool{
          if(obj.item === item){
          return obj.idx
