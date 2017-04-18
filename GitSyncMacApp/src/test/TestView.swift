@@ -66,7 +66,7 @@ class TestView:TitleView{
         //Continue here: 🏀
         
         TreeDPModifier.open(dp, 2)
-        //TreeDPModifier.close(dp, 2)
+        TreeDPModifier.close(dp, 2)
 
         
         //print hashList
@@ -77,7 +77,8 @@ class TestView:TitleView{
             //Swift.print("$0: " + "\($0)")
             let treeIdx:[Int] = $0
             if let tree = dp.tree[treeIdx],let props:[String:String] = tree.props,let title = props["title"]{
-               Swift.print("title: " + "\(title)")
+               //Swift.print("title: " + "\(title)")
+                Swift.print("$0: " + "\($0)")
             }
         }
     }

@@ -11,7 +11,7 @@ class HashListModifier {
      */
     static func addDescendants(_ list:inout HashList,_ idx:Int,_ tree:Tree){
         let idx3d:[Int] = list[idx]!
-        Swift.print("idx3d: " + "\(idx3d)")
+        //Swift.print("idx3d: " + "\(idx3d)")
         let child:Tree = TreeParser.child(tree, idx3d)!
         //you want all open descendants at 3dIdx
         var indecies:[[Int]] = TreeUtils.pathIndecies(child,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
@@ -25,6 +25,7 @@ class HashListModifier {
      */
     static func removeDescendants(_ list:inout HashList,_ idx:Int, _ tree:Tree){
         let idx3d:[Int] = list[idx]!
+        Swift.print("idx3d: " + "\(idx3d)")
         let child:Tree = tree[idx3d]!
         let count:Int = child.count(TreeUtils.isOpen)
         let end:Int = idx + count
