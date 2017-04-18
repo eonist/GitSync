@@ -11,7 +11,7 @@ class TreeDPModifier {
         Swift.print("idx3d: " + "\(idx3d)")
         dp.tree.setProp(idx3d,("isOpen","true"))//updates tree
         let count:Int = HashListModifier.addDescendants(&dp.hashList, at, dp.tree)//adds items to HashList (via HashListModifier.addDescendants)
-        dp.onEvent(DataProviderEvent.init(DataProviderEvent.add, at, at+count, dp))
+        dp.onEvent(DataProviderEvent(DataProviderEvent.add, at, at+count, dp))
     }
     /**
      * NOTE: after this method is called, send event to FastList UI component, that items were removed
@@ -22,7 +22,7 @@ class TreeDPModifier {
         let idx3d:[Int] = dp.hashList[at]!
         Swift.print("idx3d: " + "\(idx3d)")
         dp.tree.setProp(idx3d,("isOpen","false"))//update tree
-        HashListModifier.removeDescendants(&dp.hashList, at, dp.tree)//remove items from HashList (via HashListModifier.removeDescendants)
-        
+        let count:Int = HashListModifier.removeDescendants(&dp.hashList, at, dp.tree)//remove items from HashList (via HashListModifier.removeDescendants)
+        dp.onEvent(DataProviderEvent(DataProviderEvent.remove, at, at+count, dp))
     }
 }
