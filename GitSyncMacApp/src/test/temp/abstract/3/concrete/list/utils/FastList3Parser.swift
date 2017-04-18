@@ -8,11 +8,11 @@ class FastList3Parser {
         //use filter on the bellow
         return fastList.pool.first(where:{$0.item === item})?.idx
         
-        /*for obj in fastList.pool{
-         if(obj.item === item){
-         return obj.idx
-         }
-         }
-         return nil*/
+        for obj in fastList.pool{
+            if(obj.item === item){
+                return obj.idx
+            }
+        }
+        return nil
     }
 }
