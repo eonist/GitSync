@@ -30,7 +30,7 @@ struct HashList {
 
 //2. traverse treeStrure on demand. 
 
-//3. 2dIDX -> 3dIDX is fast 3d -> 2d alow
+//3. 2dIDX -> 3dIDX is fast 3dIDX -> 2dIDX slow  (no problem since 3d->2d lookup only happens on Edit)
 
 
 
