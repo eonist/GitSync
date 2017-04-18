@@ -16,8 +16,9 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
+        alterTreeTest()
         //filterTreeTest()
-        treeDPUITest()
+        //treeDPUITest()
         //treeDPTest()
         //treeHashTest()
         //hashListTest()
@@ -74,6 +75,22 @@ class TestView:TitleView{
             //remove items from HashList (via HashListModifier.removeDescendants)
             //send event to FastList UI component, that items were removed
         
+        
+        //print hashList
+        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(dp.tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
+        Swift.print("⚠️️")
+        
+        pathIndecies.forEach{
+            //Swift.print("$0: " + "\($0)")
+            let treeIdx:[Int] = $0
+            if let tree = dp.tree[treeIdx]{
+                if let props:[String:String] = tree.props{
+                    if let title = props["title"]{
+                        Swift.print("title: " + "\(title)")
+                    }
+                }
+            }
+        }
     }
     /**
      *
