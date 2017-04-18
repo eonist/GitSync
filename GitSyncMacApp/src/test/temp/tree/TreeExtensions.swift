@@ -50,7 +50,9 @@ extension Tree{//maybe treekind isn't needed. Just use Tree?
     mutating func setProp(_ at:[Int], _ prop:(key:String,val:String)) {
         TreeModifier.setProp(&self,at,prop)
     }
-
+    func getProps(_ at:[Int]) -> [String:String]? {
+        return self[at]?.props
+    }
 }
 
 /*protocol TreeKind {
