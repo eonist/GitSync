@@ -82,8 +82,6 @@ class TestView:TitleView{
             //send event to FastList UI component, that items were removed
         }
         
-        
-        
         open()
         close()
         
