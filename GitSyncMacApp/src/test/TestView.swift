@@ -65,10 +65,9 @@ class TestView:TitleView{
         
         //Continue here: 🏀
         
-       TreeDPModifier.open(<#T##dp: TreeDP##TreeDP#>, <#T##at: Int##Int#>)
-        
-        open()
-        close()
+        TreeDPModifier.open(dp, [2])
+        TreeDPModifier.close(dp, [2])
+
         
         //print hashList
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(dp.tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
