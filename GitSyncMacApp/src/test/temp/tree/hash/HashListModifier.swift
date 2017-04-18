@@ -9,7 +9,7 @@ class HashListModifier {
     /**
      *
      */
-    func addDescendants(_ list:inout HashList,_ idx:Int,_ tree:Tree){
+    static func addDescendants(_ list:inout HashList,_ idx:Int,_ tree:Tree){
         let idx3d:[Int] = list[idx]!
         let child:Tree = TreeParser.child(tree, idx3d)!
         //you want all open descendants at 3dIdx
