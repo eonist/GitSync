@@ -21,18 +21,4 @@ struct HashList {
     }
 }
 
-//What if dict stored a: 3dIDX:incrementableIDX
-//
-
-//so:
-
-//1. use SortedDict
-
-//2. traverse treeStrure on demand. 
-
-//3. 2dIDX -> 3dIDX is fast 3dIDX -> 2dIDX slow  (no problem since 3d->2d lookup only happens on Edit)
-
-
-
-//https://github.com/CosmicMind/Algorithm/blob/master/Sources/SortedDictionary.swift
 
