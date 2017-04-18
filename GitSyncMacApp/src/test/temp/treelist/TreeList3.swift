@@ -3,11 +3,11 @@ import Foundation
 @testable import Utils
 
 class TreeList3:FastList3{
-    override func onListItemSelected(_ selectEvent:SelectEvent) {
+    override func onListItemUpInside(_ buttonEvent:ButtonEvent) {
         
-        if let selectable:ISelectable = selectEvent.origin as? ISelectable{
+        if let selectable:ISelectable = buttonEvent.origin as? ISelectable{
             Swift.print("selectable: " + "\(selectable)")
-            Swift.print("selectable.selected: " + "\(selectable.getSelected())")
+            Swift.print("selectable.selected: " + "\(selectable.selected)")
             if(selectable.selected){
                     Swift.print("selected 🎉")
             }else{
@@ -17,6 +17,6 @@ class TreeList3:FastList3{
         }else{
             
         }
-        super.onListItemSelected(selectEvent)
+        super.onListItemUpInside(buttonEvent)
     }
 }

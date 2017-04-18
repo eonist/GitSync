@@ -49,7 +49,7 @@ class FastList3:ContainerView3,FastListable3{
         return item
     }
     override func onEvent(_ event:Event) {
-        if(event.type == SelectEvent.select && event.origin.superview === contentContainer){onListItemSelected(event as! SelectEvent)}// :TODO: should listen for SelectEvent here
+        if(event.type == ButtonEvent.upInside && event.origin.superview === contentContainer){onListItemUpInside(event as! ButtonEvent)}// :TODO: should listen for SelectEvent here
         else if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
         super.onEvent(event)// we stop propegation by not forwarding events to super. The ListEvents go directly to super so they wont be stopped.
     }
@@ -59,12 +59,12 @@ class FastList3:ContainerView3,FastListable3{
     /**
      * This is called when a item in the lableContainer has send the ButtonEvent.upInside event
      */
-    func onListItemSelected(_ selectEvent:SelectEvent) {
+    func onListItemUpInside(_ buttonEvent:ButtonEvent) {
         //fatalError("not implemented yet")
         /**/
-        let viewIndex:Int = contentContainer!.indexOf(selectEvent.origin as! NSView)
+        let viewIndex:Int = contentContainer!.indexOf(buttonEvent.origin as! NSView)
         List3Modifier.selectAt(self,viewIndex)//unSelect all other visibleItems
-        pool.forEach{if($0.item === selectEvent.origin){selectedIdx = $0.idx}}/*We extract the index by searching for the origin among the visibleItems, the view doesn't store the index it self, but the visibleItems store absolute indecies*/
+        pool.forEach{if($0.item === buttonEvent.origin){selectedIdx = $0.idx}}/*We extract the index by searching for the origin among the visibleItems, the view doesn't store the index it self, but the visibleItems store absolute indecies*/
         super.onEvent(ListEvent(ListEvent.select,selectedIdx ?? -1,self))/*if selectedIdx is nil then use -1 in the event*///TODO: probably use FastListEvent here in the future
         
     }
