@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Element
 @testable import Utils
 
@@ -7,7 +7,7 @@ class TreeList3:FastList3{
     override func onListItemUpInside(_ buttonEvent:ButtonEvent) {
         super.onListItemUpInside(buttonEvent)
         let viewIndex:Int = contentContainer!.indexOf(buttonEvent.origin as! NSView)
-        let isOpen:Bool = treeDP.tree.
-        
+        let isOpen:Bool = TreeDPParser.getProp(treeDP, viewIndex, "isOpen") == "true"
+        Swift.print("isOpen: " + "\(isOpen)")
     }
 }
