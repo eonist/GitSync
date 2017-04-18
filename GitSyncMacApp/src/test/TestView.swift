@@ -70,24 +70,21 @@ class TestView:TitleView{
          */
         func open(){
             dp.tree.setProp([2],("isOpen","true"))//updates tree
-            dp.hashList
-            HashListModifier.addDescendants
-                //adds items to HashList (via HashListModifier.addDescendants)
-                //send event to FastList UI Component, the times were added
+            HashListModifier.addDescendants(&dp.hashList, 2, dp.tree)//adds items to HashList (via HashListModifier.addDescendants)
+            //send event to FastList UI Component, the times were added
         }
         /**
          *
          */
         func close(){
-            //dp.tree.setProp([2],("isOpen","false"))
-                //update tree
-                //remove items from HashList (via HashListModifier.removeDescendants)
-                //send event to FastList UI component, that items were removed
+            dp.tree.setProp([2],("isOpen","false"))//update tree
+            HashListModifier.removeDescendants(&dp.hashList, 2, dp.tree)//remove items from HashList (via HashListModifier.removeDescendants)
+            //send event to FastList UI component, that items were removed
         }
         
         
         
-        
+        open()
         
         //print hashList
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(dp.tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
