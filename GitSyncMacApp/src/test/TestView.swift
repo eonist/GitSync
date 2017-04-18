@@ -65,22 +65,7 @@ class TestView:TitleView{
         
         //Continue here: 🏀
         
-        /**
-         *
-         */
-        func open(){
-            dp.tree.setProp([2],("isOpen","true"))//updates tree
-            HashListModifier.addDescendants(&dp.hashList, 2, dp.tree)//adds items to HashList (via HashListModifier.addDescendants)
-            //send event to FastList UI Component, the times were added
-        }
-        /**
-         *
-         */
-        func close(){
-            dp.tree.setProp([2],("isOpen","false"))//update tree
-            HashListModifier.removeDescendants(&dp.hashList, 2, dp.tree)//remove items from HashList (via HashListModifier.removeDescendants)
-            //send event to FastList UI component, that items were removed
-        }
+       
         
         open()
         close()
