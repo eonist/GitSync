@@ -9,7 +9,7 @@ class HashListModifier {
     /**
      * 
      */
-    static func addDescendants(_ list:inout HashList,_ idx:Int,_ tree:Tree){
+    static func addDescendants(_ list:inout HashList,_ idx:Int,_ tree:Tree) -> Int{
         let idx3d:[Int] = list[idx]!
         //Swift.print("idx3d: " + "\(idx3d)")
         let child:Tree = TreeParser.child(tree, idx3d)!
@@ -19,6 +19,7 @@ class HashListModifier {
         Swift.print("idx: " + "\(idx)")
         Swift.print("indecies: " + "\(indecies)")
         list.add(idx+1,indecies)
+        return indecies.count
     }
     /**
      * 
