@@ -118,7 +118,7 @@ class TestView:TitleView{
             let title:String? = item?["title"]
             Swift.print("title: " + "\(title)")
         }
-        _ = self.addSubView(ElasticSlideScrollFastList3(140, 145, CGSize(24,24), dp, self))
+        _ = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
     }
     func treeDPTest(){
         Swift.print("🚧 treeDPTest 🚧")
