@@ -39,7 +39,7 @@ class HashListModifier {
      * TODO: use range as arg, if possible
      */
     static func remove(_ list:inout HashList,_ from:Int, _ to:Int){
-        for i in (from...to).reversed(){
+        for i in (from...to).reversed(){//we have to remove backward when dealing with arrays
             Swift.print("i: " + "\(i)")
             list.remove(i)
         }

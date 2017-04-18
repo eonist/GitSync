@@ -54,7 +54,8 @@ extension HashList{
      * Removes key at index
      */
     mutating func removeAt(_ key:String, _ at:Int){
-        if(!dict.hasKey(key)){//make sure the key exists
+        //Swift.print("dict: " + "\(dict)")
+        if(dict.hasKey(key)){//make sure the key exists
             _ = arr.remove(at:at)
             dict.removeValue(forKey:key)//remove key and val from dict
         }else{fatalError("key does not exist: \(key)")}
