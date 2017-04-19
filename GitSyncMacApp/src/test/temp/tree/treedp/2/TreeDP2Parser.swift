@@ -21,12 +21,11 @@ class TreeDP2Parser {
     }
     static func values(_ dp:TreeDP2,_ idx:[Int], _ key:String){
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(dp.tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
-        
+        var values:[String] = []
         pathIndecies.forEach{
-            //Swift.print("$0: " + "\($0)")
             let treeIdx:[Int] = $0
-            if let tree = dp.tree[treeIdx],let props:[String:String] = tree.props,let title = props[key]{
-                Swift.print("\(key): " + "\(title)")
+            if let tree = dp.tree[treeIdx],let props:[String:String] = tree.props,let value = props[key]{
+                values.append(value)
                 //Swift.print("$0: " + "\($0)")
             }
         }
