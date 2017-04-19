@@ -3,17 +3,17 @@ import Cocoa
 @testable import Utils
 
 class TreeList3:ScrollFastList3{
-    var treeDP:TreeDP {return dp as! TreeDP}
+    var treeDP:TreeDP2 {return dp as! TreeDP2}
     override func onListItemUpInside(_ buttonEvent:ButtonEvent) {
         super.onListItemUpInside(buttonEvent)
         if let idx:Int = selectedIdx{
-            let isOpen:Bool = TreeDPParser.getProp(treeDP, idx, "isOpen") == "true"
+            let isOpen:Bool = TreeDP2Parser.getProp(treeDP, idx, "isOpen") == "true"
             if(isOpen){
                 Swift.print("close 🚫")
-                TreeDPModifier.close(treeDP, idx)
+                TreeDP2Modifier.close(treeDP, idx)
             }else{
                 Swift.print("open ✅")
-                TreeDPModifier.open(treeDP, idx)
+                TreeDP2Modifier.open(treeDP, idx)
             }
         }
     }
