@@ -74,6 +74,7 @@ extension FastList3{
     /**
      * DP has changed
      * override this method if dp change can affect the super class
+     * ⚠️️ The verbose range assert method is used because simple != and == didnt work somehow. Very strange
      */
     func onDataProviderEvent(_ event:DataProviderEvent){
         Swift.print("FastList3.onDataProviderEvent: " + "\(event)")
@@ -82,11 +83,7 @@ extension FastList3{
         let range:Range<Int> = visibleItemRange.start..<Swift.min(visibleItemRange.end,dp.count)
         Swift.print("visibleItemRange: " + "\(visibleItemRange)")
         Swift.print("range: " + "\(range)")
-        let equals = RangeAsserter.equals(range, visibleItemRange)
-        Swift.print("equals: " + "\(equals)")
-        let isEqual:Bool = currentVisibleItemRange == range
-        Swift.print("isEqual: " + "\(isEqual)")
-        if(currentVisibleItemRange != range){/*Optimization: only set if it's not the same as prev range*/
+        if(!RangeAsserter.equals(range, visibleItemRange)){/*Optimization: only set if it's not the same as prev range*/
             Swift.print("🎨 render ")
             renderItems(range)/*the visible range has changed, render it*/
         }else{
