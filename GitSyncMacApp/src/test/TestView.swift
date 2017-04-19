@@ -16,7 +16,7 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        hashList2()
+        hashList2Test()
         //alterTreeTest()
         //filterTreeTest()
         //treeDPUITest()
@@ -61,8 +61,21 @@ class TestView:TitleView{
     /**
      *
      */
-    func hashList2(){
+    func hashList2Test(){
+        Swift.print("🚧 hashList2Test 🚧")
+        let tree = Tree(children:[Tree(children:[Tree(name:"X"),Tree(name:"Y")],name:"A"),Tree(name:"B")],name:"Root")
+        Swift.print("tree.count: " + "\(tree.count)")
         
+        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
+        pathIndecies.forEach{
+            Swift.print("$0.idx: " + "\($0)")
+        }
+        
+        pathIndecies.forEach{
+            let treeIdx:[Int] = $0
+            let tree:Tree? = tree[treeIdx]
+            Swift.print("tree.name: " + "\(tree?.name)")
+        }
     }
     func alterTreeTest(){
         //✅ click arrow to open -> tree[idx].setProps["isOpen"] = true, insert trees from self.idx w/ filter open
