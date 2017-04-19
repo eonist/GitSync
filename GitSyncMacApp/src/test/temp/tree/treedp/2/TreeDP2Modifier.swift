@@ -13,7 +13,7 @@ class TreeDP2Modifier {
         dp.tree.setProp(idx3d,("isOpen","true"))//updates tree
         let count:Int = HashList2Modifier.addDescendants(&dp.hashList, at, dp.tree)//adds items to HashList (via HashListModifier.addDescendants)
         Swift.print("dp.hashList: " + "\(dp.hashList)")
-        TreeDP2Parser.values(dp, idx3d, "title").forEach{
+        TreeDP2Parser.values(dp, [], "title").forEach{
             Swift.print("title: " + "\($0)")
         }
         dp.onEvent(DataProviderEvent(DataProviderEvent.add, at, at+count, dp))

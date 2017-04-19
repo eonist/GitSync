@@ -20,8 +20,7 @@ class TreeDP2Parser {
         return nil
     }
     static func values(_ dp:TreeDP2,_ idx:[Int], _ key:String)->[String]{
-        let child:Tree = TreeParser.child(dp.tree, idx)!
-        var indecies:[[Int]] = TreeUtils.pathIndecies(child,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
+        var indecies:[[Int]] = TreeUtils.pathIndecies(dp.tree,idx,TreeUtils.isOpen)/*flattens 3d to 2d*/
         indecies = indecies.map{idx + $0}//prepend the parent pathIdx to get complete pathIndecies
         
         
