@@ -18,12 +18,6 @@ class TreeDP2Modifier {
         }
         dp.onEvent(DataProviderEvent(DataProviderEvent.add, at, at+count, dp))
     }
-    
-    //Contiinue here: 
-        //extract pathIndecies method to Utils, then add one that supports idx3d
-        //print the entire dp after edit
-        //print the 
-    
     /**
      * NOTE: after this method is called, send event to FastList UI component, that items were removed
      */
@@ -33,7 +27,11 @@ class TreeDP2Modifier {
         let idx3d:[Int] = dp.hashList[at]
         Swift.print("idx3d: " + "\(idx3d)")
         dp.tree.setProp(idx3d,("isOpen","false"))//update tree
-        let count:Int = HashList2Modifier.removeDescendants(&dp.hashList, at, dp.tree)//remove items from HashList (via HashListModifier.removeDescendants)
+        let count:Int = HashList2Modifier.removeDescendants(&dp.hashList, at+1, dp.tree)//remove items from HashList (via HashListModifier.removeDescendants)
+        Swift.print("dp.hashList: " + "\(dp.hashList)")
+        TreeDP2Parser.values(dp, [], "title").forEach{
+            Swift.print("title: " + "\($0)")
+        }
         dp.onEvent(DataProviderEvent(DataProviderEvent.remove, at, at+count, dp))
     }
 }
