@@ -16,9 +16,10 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
+        hashList2()
         //alterTreeTest()
         //filterTreeTest()
-        treeDPUITest()
+        //treeDPUITest()
         //treeDPTest()
         //treeHashTest()
         //hashListTest()
@@ -56,6 +57,12 @@ class TestView:TitleView{
          Swift.print("intervalA: " + "\(intervalA)")
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
+    }
+    /**
+     *
+     */
+    func hashList2(){
+        
     }
     func alterTreeTest(){
         //✅ click arrow to open -> tree[idx].setProps["isOpen"] = true, insert trees from self.idx w/ filter open
