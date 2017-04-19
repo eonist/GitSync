@@ -23,10 +23,11 @@ class TreeDP2Parser {
         
         var values:[String] = []
         dp.hashList.forEach{
-            let treeIdx:[Int] = $0
-            if let tree = dp.tree[treeIdx],let props:[String:String] = tree.props,let value = props[key]{
-                values.append(value)
-                //Swift.print("$0: " + "\($0)")
+            if let tree = dp.tree[$0],
+                let props:[String:String] = tree.props,
+                    let value = props[key]{
+                        values.append(value)
+                        //Swift.print("$0: " + "\($0)")
             }
         }
         return values
