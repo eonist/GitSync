@@ -50,7 +50,7 @@ extension FastListable3{
             inActive += pool.splice2(start, diff.0!.length)
         }
         
-        //Continue here: 
+        //Continue here: 🏀
             // I think you need to think about this a bit.  
                 //try hiding inactives and unhiding when the come into play again, taht could work
         
