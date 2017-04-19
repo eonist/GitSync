@@ -33,7 +33,7 @@ extension FastListable3{
      * NOTE: this method is inside an extension because it doesn't need to be overriden by super classes
      */
     func renderItems(_ range:Range<Int>){
-        //Swift.print("IFastlist.renderItems(\(range))")
+        Swift.print("Fastlist.renderItems(\(range))")
         let old = currentVisibleItemRange
         let firstOldIdx:Int = old.start
         /*⚠️️⚠️️⚠️️Figure out which items to remove from pool⚠️️⚠️️⚠️️*/
