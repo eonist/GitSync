@@ -50,6 +50,7 @@ extension FastListable3{
             inActive += pool.splice2(start, diff.0!.length)
         }
         
+        Swift.print("currentVisibleItemRange: " + "\(currentVisibleItemRange)")
         //Continue here: 🏀
             // I think you need to think about this a bit.  
                 //try hiding inactives and unhiding when the come into play again, taht could work
@@ -98,7 +99,7 @@ extension FastListable3{
      * Returns the range to render (based on items in DP and how the lableContainer is positioned)
      * NOTE: actual idx range
      */
-    var visibleItemRange:Range<Int>{
+    var visibleItemRange:Range<Int>{//⚠️️ TODO: Rename to ViewRange
         let firstVisibleItemThatCrossTopOfView:Int = firstVisibleItem
         let lastVisibleItemThatIsWithinBottomOfView:Int = lastVisibleItem
         //Swift.print("🔵 visibleItemRange.lastVisibleItemThatIsWithinBottomOfView: " + "\(lastVisibleItemThatIsWithinBottomOfView)")
@@ -110,7 +111,7 @@ extension FastListable3{
      * Returns the current visible item range in List
      * NOTE: relative idx range
      */
-    var currentVisibleItemRange:Range<Int>{
+    var currentVisibleItemRange:Range<Int>{//⚠️️ TODO: Rename to 
         let firstIdx:Int = pool.count > 0 ? pool.first!.idx : 0
         let lastIdx:Int = pool.count > 0 ? pool.first!.idx + pool.count : 0
         let currentVisibleItemRange:Range<Int> = firstIdx..<lastIdx
