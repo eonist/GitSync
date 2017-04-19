@@ -25,20 +25,11 @@ class TreeUtils{
     typealias AssertMethod = (_ tree:Tree)->Bool
     static var defaultAssert:AssertMethod = {_ in return true}//returns true as default
     /**
-     * Flattens a Tree-Structure to a path Indecies (3d -> 2d)
-     * Eureka: Hash Array: You use a Sorted hashArray to solve the 3d->2d sync problem (Research required)
+     * New
      */
-    static func pathIndecies(_ tree:Tree,_ depth:[Int] = [], _ assert:AssertMethod = defaultAssert) -> [[Int]] {
-        var depth:[Int] = depth + [0]
-        var results:[[Int]] = []
-        tree.children.forEach{
-            results.append(depth)
-            if($0.children.count > 0 && assert($0)) {/*Array*/
-                results += TreeUtils.pathIndecies($0,depth, assert)//dive deeper
-            }
-            depth.end = depth.end! + 1//increment cur level
-        }
-        return results
+    static func pathIndecies(_ tree:Tree,_ idx:[Int] = [], _ assert:AssertMethod = defaultAssert) -> [[Int]] {
+        let child:Tree = TreeParser.child(tree, idx)!
+        return Utils.pathIndecies(child, [], assert)
     }
     /**
      * Convert xml to Tree-struture
@@ -111,5 +102,23 @@ class TreeUtils{
             dict[key] = arr.count-1
         }
         return HashList(arr,dict)
+    }
+}
+private class Utils{
+    /**
+     * Flattens a Tree-Structure to a path Indecies (3d -> 2d)
+     * Eureka: Hash Array: You use a Sorted hashArray to solve the 3d->2d sync problem (Research required)
+     */
+    static func pathIndecies(_ tree:Tree,_ depth:[Int] = [], _ assert:TreeUtils.AssertMethod = TreeUtils.defaultAssert) -> [[Int]] {
+        var depth:[Int] = depth + [0]
+        var results:[[Int]] = []
+        tree.children.forEach{
+            results.append(depth)
+            if($0.children.count > 0 && assert($0)) {/*Array*/
+                results += Utils.pathIndecies($0,depth, assert)//dive deeper
+            }
+            depth.end = depth.end! + 1//increment cur level
+        }
+        return results
     }
 }
