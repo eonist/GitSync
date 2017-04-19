@@ -86,18 +86,10 @@ class TestView:TitleView{
         TreeDP2Modifier.close(dp, 2)
         
         
-        //print hashList
-        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(dp.tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
-        Swift.print("⚠️️")
-        
-        pathIndecies.forEach{
-            //Swift.print("$0: " + "\($0)")
-            let treeIdx:[Int] = $0
-            if let tree = dp.tree[treeIdx],let props:[String:String] = tree.props,let title = props["title"]{
-                Swift.print("title: " + "\(title)")
-                //Swift.print("$0: " + "\($0)")
-            }
+        TreeDP2Parser.values(dp, [], "title").forEach{
+            Swift.print("title: " + "\($0)")
         }
+        
     }
     /**
      *
