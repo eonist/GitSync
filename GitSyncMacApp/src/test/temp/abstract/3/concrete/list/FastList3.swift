@@ -81,6 +81,7 @@ extension FastList3{
         Swift.print("event.startIndex: " + "\(event.startIndex)")
         alignContentContainer(event)
         let range:Range<Int> = visibleItemRange.start..<Swift.min(visibleItemRange.end,dp.count)
+        Swift.print("currentVisibleItemRange: " + "\(currentVisibleItemRange)")
         Swift.print("visibleItemRange: " + "\(visibleItemRange)")
         Swift.print("range: " + "\(range)")
         if(!RangeAsserter.equals(range, visibleItemRange)){/*Optimization: only set if it's not the same as prev range*/
