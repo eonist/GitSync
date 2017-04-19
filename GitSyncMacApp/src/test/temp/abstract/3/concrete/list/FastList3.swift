@@ -82,6 +82,10 @@ extension FastList3{
         let range:Range<Int> = visibleItemRange.start..<Swift.min(visibleItemRange.end,dp.count)
         Swift.print("visibleItemRange: " + "\(visibleItemRange)")
         Swift.print("range: " + "\(range)")
+        let equals = RangeAsserter.equals(range, visibleItemRange)
+        Swift.print("equals: " + "\(equals)")
+        let isEqual:Bool = currentVisibleItemRange == range
+        Swift.print("isEqual: " + "\(isEqual)")
         if(currentVisibleItemRange != range){/*Optimization: only set if it's not the same as prev range*/
             Swift.print("🎨 render ")
             renderItems(range)/*the visible range has changed, render it*/
