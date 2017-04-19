@@ -74,12 +74,7 @@ class TestView:TitleView{
         
         let dp:TreeDP2 = TreeDP2("~/Desktop/assets/xml/treelist.xml".tildePath)
         
-        //Continue here: 🏀
-        //on FastList click -> opens and closes folders
-        //Move UI into TreeList3
-        //Add TreeListItem3 to the fold
-        //Adjust design based on len of array item "1" means no indentaion "210" means 2 levels of indentaion etc
-        
+       
         TreeDP2Modifier.open(dp, 2)
         TreeDP2Modifier.close(dp, 2)
         
