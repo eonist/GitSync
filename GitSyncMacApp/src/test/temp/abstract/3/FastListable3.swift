@@ -43,6 +43,7 @@ extension FastListable3{
             Swift.print("remove.1: \(diff.1)")
             let start = diff.1!.start - firstOldIdx
             inActive += pool.splice2(start, diff.1!.length)
+            
         }
         if(diff.0 != nil){
             Swift.print("remove.0: \(diff.0)")
