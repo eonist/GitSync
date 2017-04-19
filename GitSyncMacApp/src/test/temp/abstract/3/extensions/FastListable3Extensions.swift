@@ -9,6 +9,7 @@ import Cocoa
 extension FastListable3 {
     /**
      * Returns the first item that visible within view. (item.bottom must cross top of view to count as visible)
+     * NOTE: This is the offset index
      */
     var firstVisibleItem:Int{
         let a = abs(contentContainer!.point[dir])//force positive value with abs
@@ -20,6 +21,7 @@ extension FastListable3 {
     /**
      * Returns the last item that is visible within view (item top has not crossed bottom of view)
      * NOTE: the existens of item at this index is not garantued. Its the virtual idx of such an item
+     * NOTE: This is the offset index
      */
     var lastVisibleItem:Int{
         let a:Int = firstVisibleItem
