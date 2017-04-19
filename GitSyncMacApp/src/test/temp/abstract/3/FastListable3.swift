@@ -111,7 +111,7 @@ extension FastListable3{
      * Returns the current visible item range in List
      * NOTE: relative idx range
      */
-    var currentVisibleItemRange:Range<Int>{//⚠️️ TODO: Rename to 
+    var currentVisibleItemRange:Range<Int>{//⚠️️ TODO: Rename to  
         let firstIdx:Int = pool.count > 0 ? pool.first!.idx : 0
         let lastIdx:Int = pool.count > 0 ? pool.first!.idx + pool.count : 0
         let currentVisibleItemRange:Range<Int> = firstIdx..<lastIdx
