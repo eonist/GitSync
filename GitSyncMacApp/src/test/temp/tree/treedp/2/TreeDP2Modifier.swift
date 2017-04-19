@@ -18,6 +18,12 @@ class TreeDP2Modifier {
         }
         dp.onEvent(DataProviderEvent(DataProviderEvent.add, at, at+count, dp))
     }
+    
+    //Contiinue here: 
+        //extract pathIndecies method to Utils, then add one that supports idx3d
+        //print the entire dp after edit
+        //print the 
+    
     /**
      * NOTE: after this method is called, send event to FastList UI component, that items were removed
      */
