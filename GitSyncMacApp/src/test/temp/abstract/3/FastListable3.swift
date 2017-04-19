@@ -55,7 +55,7 @@ extension FastListable3{
             // I think you need to think about this a bit.  
                 //try hiding inactives and unhiding when the come into play again, taht could work
                 //or else maybe remove if .dp.count < possible. range.count
-        
+        let dpRange:Range<Int> = 0..<dp.count
         //inActive.forEach{$0.item.removeFromSuperview()}
         /*⚠️️⚠️️⚠️️Figure out which items to add to pool⚠️️⚠️️⚠️️*/
         let diff2 = RangeParser.difference(old,range)
