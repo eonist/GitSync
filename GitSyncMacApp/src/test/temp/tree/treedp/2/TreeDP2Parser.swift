@@ -20,7 +20,7 @@ class TreeDP2Parser {
         return nil
     }
     static func values(_ dp:TreeDP2,_ idx:[Int], _ key:String)->[String]{
-        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(dp.tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
+        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(dp.tree,idx,TreeUtils.isOpen)/*flattens 3d to 2d*/
         var values:[String] = []
         pathIndecies.forEach{
             let treeIdx:[Int] = $0
