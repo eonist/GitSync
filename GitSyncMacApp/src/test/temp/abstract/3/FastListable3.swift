@@ -43,13 +43,13 @@ extension FastListable3{
             Swift.print("remove.1: \(diff.1)")
             let start = diff.1!.start - firstOldIdx
             inActive += pool.splice2(start, diff.1!.length)
-            $0.item.removeFromSuperview()
         }
         if(diff.0 != nil){
             Swift.print("remove.0: \(diff.0)")
             let start = diff.0!.start - firstOldIdx
             inActive += pool.splice2(start, diff.0!.length)
         }
+        inActive.forEach{$0.item.removeFromSuperview()}
         /*⚠️️⚠️️⚠️️Figure out which items to add to pool⚠️️⚠️️⚠️️*/
         let diff2 = RangeParser.difference(old,range)
         Swift.print("diff2: " + "\(diff2)")
