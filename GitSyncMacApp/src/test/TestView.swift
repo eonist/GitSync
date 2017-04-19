@@ -16,11 +16,11 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        alterTreeDP2Test()
+        treeDPUITest()
+        //alterTreeDP2Test()
         //hashList2Test()
         //alterTreeTest()
         //filterTreeTest()
-        //treeDPUITest()
         //treeDPTest()
         //treeHashTest()
         //hashListTest()
@@ -58,6 +58,17 @@ class TestView:TitleView{
          Swift.print("intervalA: " + "\(intervalA)")
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
+    }
+    func treeDPUITest(){
+        //let xml:XML = FileParser.xml()
+        let dp:TreeDP2 = TreeDP2("~/Desktop/assets/xml/treelist.xml".tildePath)
+        Swift.print("dp.count: " + "\(dp.count)")
+        for i in 0..<dp.count{
+            let item:[String:String]? = dp.item(i)
+            let title:String? = item?["title"]
+            Swift.print("title: " + "\(title)")
+        }
+        _ = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
     }
     func alterTreeDP2Test(){
         //✅ click arrow to open -> tree[idx].setProps["isOpen"] = true, insert trees from self.idx w/ filter open
@@ -159,41 +170,7 @@ class TestView:TitleView{
             }
         }
     }
-    func treeDPUITest(){
-        
-        //Continue here: 🏀
-            //print the hashlist after close, use the new Dict printers. 
-            //I think the bug is that you have the wrong range somewhere, 👉 almost there 👈
-            //The problem is that if you insert items, the items after the insertion point wotn get updated.
-                //Re-think HashList !
-                    //Maybe you have 2 dicts? as dicts doesnt have to have 
-        
-        
-        
-        //so:
-        
-        //1. use SortedDict 🚫
-        
-        //2. traverse treeStrure on demand. 🚫
-        
-        //3. 2dIDX -> 3dIDX is fast 3dIDX -> 2dIDX slow ✅ (no problem since 3d->2d lookup only happens on Edit) 
-        
-        
-        
-        
-        
-
-        
-        //let xml:XML = FileParser.xml()
-        let dp:TreeDP = TreeDP("~/Desktop/assets/xml/treelist.xml".tildePath)
-        Swift.print("dp.count: " + "\(dp.count)")
-        for i in 0..<dp.count{
-            let item:[String:String]? = dp.item(i)
-            let title:String? = item?["title"]
-            Swift.print("title: " + "\(title)")
-        }
-        _ = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
-    }
+    
     func treeDPTest(){
         Swift.print("🚧 treeDPTest 🚧")
         let xmlStr:String = "<items title=\"main\"><item title=\"A\"/><item title=\"B\"/><item title=\"C\"/></items>"
