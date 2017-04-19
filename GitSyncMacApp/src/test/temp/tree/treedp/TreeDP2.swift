@@ -2,7 +2,8 @@ import Foundation
 @testable import Element
 @testable import Utils
 /**
- * TODO: use DataProvidable don't extend DataProvider
+ * TODO: Use DataProvidable don't extend DataProvider
+ * NOTE: This would allow https://github.com/CosmicMind/Algorithm/blob/master/Sources/SortedDictionary.swift
  */
 class TreeDP2:DataProvider {
     var tree:Tree
