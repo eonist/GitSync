@@ -16,7 +16,8 @@ class TestView:TitleView{
         createGUI()
     }
     func createGUI(){
-        hashList2Test()
+        alterTreeDP2Test()
+        //hashList2Test()
         //alterTreeTest()
         //filterTreeTest()
         //treeDPUITest()
@@ -57,6 +58,35 @@ class TestView:TitleView{
          Swift.print("intervalA: " + "\(intervalA)")
          let intervalB = SliderParser.interval(200, 100, 20)
          Swift.print("intervalB: " + "\(intervalB)")*/
+    }
+    func alterTreeDP2Test(){
+        //✅ click arrow to open -> tree[idx].setProps["isOpen"] = true, insert trees from self.idx w/ filter open
+        //✅ click arrow to close -> tree[idx].setProps["isOpen"] = false, remove every item after curIdx, that has curIdx, then stop if idx is not curIdx
+        
+        let dp:TreeDP = TreeDP("~/Desktop/assets/xml/treelist.xml".tildePath)
+        
+        //Continue here: 🏀
+        //on FastList click -> opens and closes folders
+        //Move UI into TreeList3
+        //Add TreeListItem3 to the fold
+        //Adjust design based on len of array item "1" means no indentaion "210" means 2 levels of indentaion etc
+        
+        TreeDPModifier.open(dp, 2)
+        TreeDPModifier.close(dp, 2)
+        
+        
+        //print hashList
+        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(dp.tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
+        Swift.print("⚠️️")
+        
+        pathIndecies.forEach{
+            //Swift.print("$0: " + "\($0)")
+            let treeIdx:[Int] = $0
+            if let tree = dp.tree[treeIdx],let props:[String:String] = tree.props,let title = props["title"]{
+                Swift.print("title: " + "\(title)")
+                //Swift.print("$0: " + "\($0)")
+            }
+        }
     }
     /**
      *
