@@ -18,9 +18,9 @@ class TreeDP2:DataProvider {
      */
     override func item(_ at:Int) -> [String:String]?{
         //Swift.print("hashList.arr.count: " + "\(hashList.arr.count)")
-        if let idx:String = hashList[at]{/*find the 3d-idx*/
+        if let idx:[Int] = at < hashList.count ? hashList[at] : nil{/*find the 3d-idx*/
             //Swift.print("idx: " + "\(idx)")
-            let treeIdx:[Int] = idx.array({$0.int})/*convert the string "3d-idx" to int array "rd-idx"*/
+            let treeIdx:[Int] = idx/*convert the string "3d-idx" to int array "rd-idx"*/
             if let tree:Tree = self.tree[treeIdx]{/*Find the tree that matches the "3d-idx"*/
                 //Swift.print("tree.name: " + "\(tree?.name)")
                 return tree.props
