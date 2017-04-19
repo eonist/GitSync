@@ -53,6 +53,7 @@ extension FastListable3{
         //Continue here: 🏀
             // I think you need to think about this a bit.  
                 //try hiding inactives and unhiding when the come into play again, taht could work
+                //or else maybe remove if .dp.count < possible. range.count
         
         //inActive.forEach{$0.item.removeFromSuperview()}
         /*⚠️️⚠️️⚠️️Figure out which items to add to pool⚠️️⚠️️⚠️️*/
