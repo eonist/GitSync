@@ -63,7 +63,7 @@ class TestView:TitleView{
         //✅ click arrow to open -> tree[idx].setProps["isOpen"] = true, insert trees from self.idx w/ filter open
         //✅ click arrow to close -> tree[idx].setProps["isOpen"] = false, remove every item after curIdx, that has curIdx, then stop if idx is not curIdx
         
-        let dp:TreeDP = TreeDP("~/Desktop/assets/xml/treelist.xml".tildePath)
+        let dp:TreeDP2 = TreeDP2("~/Desktop/assets/xml/treelist.xml".tildePath)
         
         //Continue here: 🏀
         //on FastList click -> opens and closes folders
@@ -71,8 +71,8 @@ class TestView:TitleView{
         //Add TreeListItem3 to the fold
         //Adjust design based on len of array item "1" means no indentaion "210" means 2 levels of indentaion etc
         
-        TreeDPModifier.open(dp, 2)
-        TreeDPModifier.close(dp, 2)
+        TreeDP2Modifier.open(dp, 2)
+        TreeDP2Modifier.close(dp, 2)
         
         
         //print hashList
