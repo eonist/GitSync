@@ -99,7 +99,7 @@ extension FastListable3{
      * Returns the range to render (based on items in DP and how the lableContainer is positioned)
      * NOTE: actual idx range
      */
-    var visibleItemRange:Range<Int>{//⚠️️ TODO: Rename to ViewRange
+    var visibleItemRange:Range<Int>{//⚠️️ TODO: Rename to viewRange?
         let firstVisibleItemThatCrossTopOfView:Int = firstVisibleItem
         let lastVisibleItemThatIsWithinBottomOfView:Int = lastVisibleItem
         //Swift.print("🔵 visibleItemRange.lastVisibleItemThatIsWithinBottomOfView: " + "\(lastVisibleItemThatIsWithinBottomOfView)")
@@ -111,7 +111,7 @@ extension FastListable3{
      * Returns the current visible item range in List
      * NOTE: relative idx range
      */
-    var currentVisibleItemRange:Range<Int>{//⚠️️ TODO: Rename to  
+    var currentVisibleItemRange:Range<Int>{//⚠️️ TODO: Rename to poolRange?
         let firstIdx:Int = pool.count > 0 ? pool.first!.idx : 0
         let lastIdx:Int = pool.count > 0 ? pool.first!.idx + pool.count : 0
         let currentVisibleItemRange:Range<Int> = firstIdx..<lastIdx
