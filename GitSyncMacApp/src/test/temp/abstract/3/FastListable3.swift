@@ -50,12 +50,7 @@ extension FastListable3{
             inActive += pool.splice2(start, diff.0!.length)
         }
         
-        Swift.print("currentVisibleItemRange: " + "\(currentVisibleItemRange)")
-        //Continue here: 🏀
-            // I think you need to think about this a bit.  
-                //try hiding inactives and unhiding when the come into play again, taht could work
-                //or else maybe remove if .dp.count < possible. range.count
-        if(contentContainer!.numSubViews > dp.count){
+        if(contentContainer!.numSubViews > dp.count){//removes items if items dont fill the view anymore
             Swift.print("⚠️️ Clear out items ⚠️️")
             inActive.forEach{$0.item.removeFromSuperview()}
             inActive.removeAll()
