@@ -55,8 +55,12 @@ extension FastListable3{
             // I think you need to think about this a bit.  
                 //try hiding inactives and unhiding when the come into play again, taht could work
                 //or else maybe remove if .dp.count < possible. range.count
-        let dpRange:Range<Int> = 0..<dp.count
-        //inActive.forEach{$0.item.removeFromSuperview()}
+        if(contentContainer!.numSubViews > dp.count){
+            Swift.print("⚠️️ Clear out items ⚠️️")
+            inActive.forEach{$0.item.removeFromSuperview()}
+            inActive.removeAll()
+        }
+        //
         /*⚠️️⚠️️⚠️️Figure out which items to add to pool⚠️️⚠️️⚠️️*/
         let diff2 = RangeParser.difference(old,range)
         Swift.print("diff2: " + "\(diff2)")
