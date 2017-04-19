@@ -71,8 +71,8 @@ class TestView:TitleView{
         //Add TreeListItem3 to the fold
         //Adjust design based on len of array item "1" means no indentaion "210" means 2 levels of indentaion etc
         
-        TreeDP2Modifier.open(dp, 2)
-        TreeDP2Modifier.close(dp, 2)
+        //TreeDP2Modifier.open(dp, 2)
+        //TreeDP2Modifier.close(dp, 2)
         
         
         //print hashList
