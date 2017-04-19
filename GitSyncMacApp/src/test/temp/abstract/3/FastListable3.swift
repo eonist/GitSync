@@ -40,10 +40,12 @@ extension FastListable3{
         let diff = RangeParser.difference(range, old)//may return 1 or 2 ranges
         Swift.print("diff: " + "\(diff)")
         if(diff.1 != nil){
+            Swift.print("remove: \(diff.1)")
             let start = diff.1!.start - firstOldIdx
             inActive += pool.splice2(start, diff.1!.length)
         }
         if(diff.0 != nil){
+            Swift.print("remove: \(diff.0)")
             let start = diff.0!.start - firstOldIdx
             inActive += pool.splice2(start, diff.0!.length)
         }
@@ -51,6 +53,7 @@ extension FastListable3{
         let diff2 = RangeParser.difference(old,range)
         Swift.print("diff2: " + "\(diff2)")
         if(diff2.1 != nil){
+            Swift.print("add: \(diff2.1)")
             let startIdx = diff2.1!.start
             let endIdx = diff2.1!.end
             var items:[FastListItem] = []
@@ -61,6 +64,7 @@ extension FastListable3{
                 items.append(fastListItem)
             }
             if(items.count > 0){
+                Swift.print("add: \(diff2.0)")
                 var idx:Int = items.first!.idx - firstOldIdx//index in pool
                 idx = idx.clip(0, pool.count)
                 _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)
