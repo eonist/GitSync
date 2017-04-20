@@ -21,7 +21,7 @@ class HashList2Modifier {
      * Remove descendants into the 2d list
      */
     static func removeDescendants(_ list:inout [[Int]],_ at:Int, _ tree:Tree) -> Int{
-        Swift.print("removeDescendants")
+        Swift.print("🍐 removeDescendants")
         Swift.print("at: " + "\(at)")
         Swift.print("list: " + "\(list)")
         let idx3d:[Int] = list[at]
