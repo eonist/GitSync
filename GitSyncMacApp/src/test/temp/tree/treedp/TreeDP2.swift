@@ -20,11 +20,10 @@ class TreeDP2:DataProvider {
      */
     override func item(_ at:Int) -> [String:String]?{
         //Swift.print("hashList.arr.count: " + "\(hashList.arr.count)")
-        if let treeIdx:[Int] = hashList[safe:at]{/*find the 3d-idx*/
-            if let child:Tree = tree[treeIdx]{/*Find the tree that matches the "3d-idx"*/
-                //Swift.print("tree.name: " + "\(tree?.name)")
-                return child.props
-            }
+        if let treeIdx:[Int] = hashList[safe:at], let child:Tree = tree[treeIdx]{/*find the 3d-idx*/
+            /*Find the tree that matches the "3d-idx"*/
+            //Swift.print("tree.name: " + "\(tree?.name)")
+            return child.props
         }
         return nil
     }
