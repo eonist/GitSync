@@ -22,19 +22,10 @@ class TreeList3:ScrollFastList3{
         }
     }
     override func reUse(_ listItem:FastListItem) {
-        Swift.print("⭐ reUse ⭐")
-        let idx2d:Int = listItem.idx
-        let idx3d:[Int] = treeDP.hashList[idx2d]
-        listItem.item.id = idx3d.count.string
-        
-        /* let style:IStyle = StyleResolver.style(listItem.item)
-         style.describe()*/
-        
-        //listItem.item.state = SkinStates.over
+        let idx3d:[Int] = treeDP.hashList[listItem.idx]
+        listItem.item.id = idx3d.count.string//the indentation level (from 1 and up)
         listItem.item.setSkinState(listItem.item.getSkinState())
-        
         super.reUse(listItem)
-       
     }
 }
 
