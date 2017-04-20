@@ -126,8 +126,10 @@ extension FastListable3{
             var endIdx = lastVisibleItem - firstVisibleItem
             endIdx = Swift.min(dp.count,endIdx)
             for i in startIdx..<endIdx{/*reUse affected items if item is within visible view*/
-                let fastListItem = pool[i]
-                reUse(fastListItem)
+                if let fastListItem = pool[safe:i]{
+                    reUse(fastListItem)
+                }else{Swift.print("⚠️️⚠️️⚠️️ pool.count: \(pool.count) i: \(i) ⚠️️⚠️️⚠️️")}
+                
             }
         }
     }
