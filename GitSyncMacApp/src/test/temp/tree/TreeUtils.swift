@@ -104,11 +104,14 @@ class TreeUtils{
         return HashList(arr,dict)
     }
     /**
-     *
+     * Used to debug Trees
      */
-    static func describe(_ tree:Tree,_ key:String){
+    static func describe(_ tree:Tree,_ key:String, _ level:Int = 0){
         if let props = tree.props, let value:String = props[key]{
-            Swift.print(value)
+            Swift.print(("\t" * level) +  value)
+        }
+        if !tree.children.isEmpty {
+            tree.children.forEach{describe($0, key, level + 1)}
         }
     }
 }
