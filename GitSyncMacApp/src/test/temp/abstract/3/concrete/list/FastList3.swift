@@ -55,9 +55,6 @@ class FastList3:ContainerView3,FastListable3{
         else if(event is DataProviderEvent){onDataProviderEvent(event as! DataProviderEvent)}
         super.onEvent(event)// we stop propegation by not forwarding events to super. The ListEvents go directly to super so they wont be stopped.
     }
-    override func getClassType() -> String {
-        return dir == .ver ? "\(List.self)" : "VList"//<--VList rally? isn't it more like HList atleast?
-    }
     /**
      * This is called when a item in the lableContainer has send the ButtonEvent.upInside event
      */
@@ -69,6 +66,9 @@ class FastList3:ContainerView3,FastListable3{
         selectedIdx = FastList3Parser.idx(self, buttonEvent.origin as! NSView) ?? selectedIdx
         super.onEvent(ListEvent(ListEvent.select,selectedIdx ?? -1,self))/*if selectedIdx is nil then use -1 in the event*///TODO: probably use FastListEvent here in the future
         
+    }
+    override func getClassType() -> String {
+        return dir == .ver ? "\(List.self)" : "VList"//<--VList really? isn't it more like HList atleast?
     }
     required init(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
