@@ -20,6 +20,7 @@ extension Tree{//maybe treekind isn't needed. Just use Tree?
      */
     func count(_ assert:TreeUtils.AssertMethod = TreeUtils.defaultAssert)->Int{
         var count:Int = self.children.count
+        Swift.print("🍇 count: " + "\(count)")
         if(assert(self)){
             self.children.forEach{count += $0.count(assert)}
         }
