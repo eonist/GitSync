@@ -22,11 +22,12 @@ class TreeList3:ScrollFastList3{
         }
     }
     override func reUse(_ listItem:FastListItem) {
-        super.reUse(listItem)
         let idx2d:Int = listItem.idx
         let idx3d:[Int] = treeDP.hashList[idx2d]
         listItem.item.id = idx3d.count.string
         ElementModifier.refreshStyle(listItem.item)
+        super.reUse(listItem)
+        
     }
 }
 
