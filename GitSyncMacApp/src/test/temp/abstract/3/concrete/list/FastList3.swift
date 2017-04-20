@@ -26,7 +26,7 @@ class FastList3:ContainerView3,FastListable3{
     }
     /**
      * Apply new data / align items
-     * NOTE: override this to use custom ItemList items
+     * NOTE: ⚠️️ override this to use custom ItemList items
      */
     func reUse(_ listItem:FastListItem){
         let item:SelectTextButton = listItem.item as! SelectTextButton
