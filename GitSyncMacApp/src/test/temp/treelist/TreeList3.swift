@@ -17,5 +17,9 @@ class TreeList3:ScrollFastList3{
             }
         }
     }
+    override func reUse(_ listItem:FastListItem) {
+        super.reUse(listItem)
+        
+    }
 }
 
