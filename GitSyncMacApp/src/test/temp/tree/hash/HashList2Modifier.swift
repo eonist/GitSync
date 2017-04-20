@@ -29,7 +29,7 @@ class HashList2Modifier {
         let child:Tree = tree[idx3d]!
         Swift.print("child.children.count: " + "\(child.children.count)")
         let count:Int = child.count(TreeUtils.isOpen)
-        Swift.print("count: " + "\(count)")
+        Swift.print("removeDescendants.count: " + "\(count)")
         let end:Int = at + count
         _ = ArrayModifier.removeRange(&list, at + 1,end + 1)
         return count

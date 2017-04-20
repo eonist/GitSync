@@ -79,7 +79,10 @@ class TreeUtils{
         return xml
     }
     static var isOpen:TreeUtils.AssertMethod = { tree in
-        return tree.props!["isOpen"] == "true"
+        guard let props = tree.props, props["isOpen"] == "true" else {
+            return false
+        }
+        return true
     }
     /**
      * New
