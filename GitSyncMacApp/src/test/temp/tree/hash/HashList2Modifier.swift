@@ -27,6 +27,7 @@ class HashList2Modifier {
         let idx3d:[Int] = list[at]
         Swift.print("idx3d: " + "\(idx3d)")
         let child:Tree = tree[idx3d]!
+        Swift.print("child.children.count: " + "\(child.children.count)")
         let count:Int = child.count(TreeUtils.isOpen)
         Swift.print("count: " + "\(count)")
         let end:Int = at + count
