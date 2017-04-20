@@ -39,3 +39,7 @@ class TreeDP2:DataProvider {
         self.init(tree)
     }
 }
+
+extension TreeDP2{
+    
+}
