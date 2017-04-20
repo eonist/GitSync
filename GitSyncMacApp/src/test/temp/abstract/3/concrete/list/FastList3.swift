@@ -31,8 +31,10 @@ class FastList3:ContainerView3,FastListable3{
     func reUse(_ listItem:FastListItem){
         let item:SelectTextButton = listItem.item as! SelectTextButton
         let idx:Int = listItem.idx/*the index of the data in dataProvider*/
-        let selected:Bool = idx == selectedIdx//dpItem["selected"]!.bool
-        if(item.selected != selected){ item.setSelected(selected)}//only set this if the selected state is different from the current selected state in the ISelectable
+        let selected:Bool = idx == selectedIdx
+        if item.selected != selected{
+            item.setSelected(selected)//only set this if the selected state is different from the current selected state in the ISelectable
+        }
         if let dpItem = dp.item(idx), let title:String = dpItem["title"]{
             item.setTextValue(title)
         }
