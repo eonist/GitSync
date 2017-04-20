@@ -103,6 +103,14 @@ class TreeUtils{
         }
         return HashList(arr,dict)
     }
+    /**
+     *
+     */
+    static func describe(_ tree:Tree,_ key:String){
+        if let props = tree.props, let value:String = props[key]{
+            Swift.print(value)
+        }
+    }
 }
 private class Utils{
     /**
