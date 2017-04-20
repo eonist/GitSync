@@ -22,7 +22,7 @@ class TreeList3:ScrollFastList3{
         let idx2d:Int = listItem.idx
         let idx3d:[Int] = treeDP.hashList[idx2d]
         listItem.item.id = idx3d.count.string
-        ElementModifier.applyStyleProperty(listItem.item, <#T##key: String##String#>, <#T##value: Any##Any#>)
+        ElementModifier.refreshStyle(listItem.item)
     }
 }
 
