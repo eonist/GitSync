@@ -41,5 +41,10 @@ class TreeDP2:DataProvider {
 }
 
 extension TreeDP2{
-    
+    subscript(_ idx2d:Int) -> [Int] {
+        return hashList[idx2d]
+    }
+    subscript(_ idx3:[Int]) -> Int {
+        return hashList.first(where: $0 == idx3)
+    }
 }
