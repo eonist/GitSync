@@ -45,6 +45,6 @@ extension TreeDP2{
         return hashList[idx2d]
     }
     subscript(_ idx3:[Int]) -> Int? {
-        return hashList.first(where: {$0 == idx3})
+        return hashList.index(where: {$0 == idx3})
     }
 }
