@@ -27,14 +27,14 @@ class TreeList3:ScrollFastList3{
         let idx3d:[Int] = treeDP.hashList[idx2d]
         listItem.item.id = idx3d.count.string
         
-        let style:IStyle = StyleResolver.style(listItem.item)
-        style.describe()
+        /* let style:IStyle = StyleResolver.style(listItem.item)
+         style.describe()*/
+        
+        //listItem.item.state = SkinStates.over
+        listItem.item.setSkinState(listItem.item.getSkinState())
         
         super.reUse(listItem)
-        listItem.item.state = SkinStates.over
-        ElementModifier.refreshSkin(listItem.item)
-        listItem.item.state = SkinStates.none
-        ElementModifier.refreshSkin(listItem.item)
+       
     }
 }
 
