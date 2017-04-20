@@ -110,9 +110,7 @@ class TreeUtils{
         if let props = tree.props, let value:String = props[key]{
             Swift.print(("\t" * level) +  value)
         }
-        if !tree.children.isEmpty {
-            tree.children.forEach{describe($0, key, level + 1)}
-        }
+        tree.children.forEach{describe($0, key, level + 1)}
     }
 }
 private class Utils{

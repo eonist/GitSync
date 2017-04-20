@@ -53,6 +53,9 @@ extension Tree{//maybe treekind isn't needed. Just use Tree?
     func getProps(_ at:[Int]) -> [String:String]? {
         return self[at]?.props
     }
+    func describe(_ tree:Tree,_ key:String, _ level:Int = 0){
+        TreeUtils.describe(tree, key, level)
+    }
 }
 
 /*protocol TreeKind {
