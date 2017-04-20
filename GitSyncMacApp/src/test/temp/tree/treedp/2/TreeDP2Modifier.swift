@@ -26,7 +26,8 @@ class TreeDP2Modifier {
         //Swift.print("dp.hashList.dict: " + "\(dp.hashList.dict.sortedByValue)")
         let idx3d:[Int] = dp.hashList[at]
         Swift.print("idx3d: " + "\(idx3d)")
-        dp.tree.setProp(idx3d,("isOpen","false"))//update tree
+        dp.tree.setProp(idx3d,("isOpen","false"))//update tree 
+        dp.tree
         let count:Int = HashList2Modifier.removeDescendants(&dp.hashList, at, dp.tree)//remove items from HashList (via HashListModifier.removeDescendants)
         Swift.print("dp.hashList: " + "\(dp.hashList)")
         TreeDP2Parser.values(dp, [], "title").forEach{
