@@ -16,6 +16,9 @@ class TreeList3:ScrollFastList3{
                 TreeDP2Modifier.open(treeDP, idx)
             }
         }
+        if let element = buttonEvent.origin as? IElement{
+            Swift.print("element.id: " + "\(element.id)")
+        }
     }
     override func reUse(_ listItem:FastListItem) {
         super.reUse(listItem)
