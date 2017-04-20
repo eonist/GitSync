@@ -19,11 +19,13 @@ extension Tree{//maybe treekind isn't needed. Just use Tree?
      * PARAM: assert: can assert things that a Tree instance must assert to true
      */
     func count(_ assert:TreeUtils.AssertMethod = TreeUtils.defaultAssert)->Int{
-        var count:Int = self.children.count
+        var count:Int = 0
         Swift.print("🍇 count: " + "\(count)")
         
         let isOpen:Bool = assert(self)
+        Swift.print("isOpen: " + "\(isOpen)")
         if(isOpen){
+            count = self.children.count
             self.children.forEach{count += $0.count(assert)}
         }
         return count
