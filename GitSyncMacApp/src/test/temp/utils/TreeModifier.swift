@@ -6,12 +6,12 @@ class TreeModifier {
      * EXAMPLE XMLModifier.setAttributeAt(xml, [0,1], "title", "someTitle")
      * NOTE: I think this method works with depth indecies
      */
-    static func setProp(_ tree:inout Tree,_ at:[Int], _ prop:(key:String,val:String)) {
+    static func setProp(_ tree:inout Tree,_ idx3d:[Int], _ prop:(key:String,val:String)) {
         //may work
         let apply:ApplyMethod = {tree in
             tree.props?[prop.key] = prop.val
         }
-        TreeModifier.apply(&tree, at, apply)
+        TreeModifier.apply(&tree, idx3d, apply)
     }
     /**
      * EXAMPLE: setAttributeAt([0], ["title":"someTitle"]);
@@ -24,16 +24,16 @@ class TreeModifier {
     }
     typealias ApplyMethod = (_ tree:inout Tree)->Void
     /**
-     * New
+     * Applies a method at PARAM: idx3d
      * TODO: Clean up with multi if let and guard
      */
-    static func apply(_ tree:inout Tree, _ index:[Int], _ apply:ApplyMethod){
-        if(index.count == 0) {
+    static func apply(_ tree:inout Tree, _ idx3d:[Int], _ apply:ApplyMethod){
+        if(idx3d.count == 0) {
             apply(&tree)
-        }else if(index.count == 1 && tree[index.first!] != nil) {
-            apply(&tree[index[0]]!)
-        }else if(index.count > 1 && tree.children.count > 0) {
-            TreeModifier.apply(&tree[index.first!]!, index.slice2(1,index.count),apply)//keep digging
+        }else if(idx3d.count == 1 && tree[idx3d.first!] != nil) {
+            apply(&tree[idx3d[0]]!)
+        }else if(idx3d.count > 1 && tree.children.count > 0) {
+            TreeModifier.apply(&tree[idx3d.first!]!, idx3d.slice2(1,idx3d.count),apply)//keep digging
         }
     }
 }
