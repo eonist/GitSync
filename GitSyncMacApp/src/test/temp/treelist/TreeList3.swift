@@ -17,7 +17,8 @@ class TreeList3:ScrollFastList3{
             }
         }
         if let element = buttonEvent.origin as? IElement{
-            Swift.print("element.id: " + "\(element.id)")
+            Swift.print("Stack: " + "\(ElementParser.stackString(element))")
+            //Swift.print("element.id: " + "\(element.id)")
         }
     }
     override func reUse(_ listItem:FastListItem) {
