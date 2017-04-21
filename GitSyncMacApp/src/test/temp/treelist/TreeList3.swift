@@ -16,8 +16,7 @@ class TreeList3:ScrollFastList3{
         super.reUse(listItem)/*sets text and position and select state*/
     }
     override func createItem(_ index:Int) -> Element {
-        let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, index)
-        return hasChildren ? Utils.createTreeListItem(itemSize,contentContainer!) : super.createItem(index)/*Create SelectTextButton*/
+        return Utils.createTreeListItem(itemSize,contentContainer!)
     }
     override func onEvent(_ event: Event) {
         if(event.type == CheckEvent.check /*&& event.immediate === itemContainer*/){onItemCheck(event as! CheckEvent)}
