@@ -25,7 +25,7 @@ class TreeList3:ScrollFastList3{
         let idx3d:[Int] = treeDP.hashList[listItem.idx]
         listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up)*/
         listItem.item.setSkinState(listItem.item.getSkinState())
-        
+        //
         if let checkable = listItem.item as? ICheckable{
             let isChecked = TreeDP2Parser.getProp(treeDP, idx, "isOpen") == "true"
             checkable.setChecked(isChecked)/*Sets correct open/close icon*/
@@ -34,16 +34,17 @@ class TreeList3:ScrollFastList3{
     }
     override func createItem(_ index:Int) -> Element {
         let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, index)
-        if hasChildren {/*create TreeItem*/
-            let item:TreeList3Item = TreeList3Item(itemSize.width, itemSize.height ,"", false, false, contentContainer)
-            contentContainer!.addSubview(item)
-            return item
-        }
-        return super.createItem(index)/*Create SelectTextButton*/
+        return hasChildren ? Utils.createTreeListItem(itemSize,contentContainer!) : super.createItem(index)/*Create SelectTextButton*/
     }
     override func getClassType() -> String {
         return "\(TreeList3.self)"
     }
 }
-
-//SelectTextButton(size.x,size.y,itemData.title,itemData.isSelected,parent)
+private class Utils{
+    /*create TreeItem*/
+    static func createTreeListItem(_ itemSize:CGSize, _ parent:Element) -> TreeList3Item{
+        let item:TreeList3Item = TreeList3Item(itemSize.width, itemSize.height ,"", false, false, parent)
+        parent.addSubview(item)
+        return item
+    }
+}
