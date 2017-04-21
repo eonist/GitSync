@@ -8,5 +8,6 @@ class TreeAsserter {
         if let child:Tree = tree[idx3d]{
             return !child.children.isEmpty
         }
+        fatalError("no child at: \(idx3d)")
     }
 }
