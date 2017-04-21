@@ -28,15 +28,11 @@ class TreeList3:ScrollFastList3{
         super.reUse(listItem)
     }
     override func createItem(_ index:Int) -> Element {
-        //find the tree item
         let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, index)
         if hasChildren {
-            //_ width:CGFloat, _ height:CGFloat,  _ text:String = "defaultText", _ isSelected : Bool = false, _ isChecked:Bool = false, _ parent:IElement? = nil, _ id:String = ""
-            
-            //size.x,size.y,itemData.title,itemData.isOpen,itemData.isSelected,parent
-            
-            
-            return TreeList3Item.init(
+            let item:TreeList3Item = TreeList3Item(itemSize.width, itemSize.height ,"", false, false, contentContainer)
+            contentContainer!.addSubview(item)
+            return item
         }
         return super.createItem(index)
     }
