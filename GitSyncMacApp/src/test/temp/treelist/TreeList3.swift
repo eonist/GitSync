@@ -29,9 +29,7 @@ class TreeList3:ScrollFastList3{
         //Continue here: 🏀
             //setText
             //setChecked
-        if let item = listItem.item as? TreeList3Item{
-            
-        }
+        
         
         super.reUse(listItem)
     }
