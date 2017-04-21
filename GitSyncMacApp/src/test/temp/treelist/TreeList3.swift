@@ -25,17 +25,17 @@ class TreeList3:ScrollFastList3{
         let idx3d:[Int] = treeDP.hashList[listItem.idx]
         listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up)*/
         listItem.item.setSkinState(listItem.item.getSkinState())
-        //
+        
         if let checkable = listItem.item as? ICheckable{
             let isChecked = TreeDP2Parser.getProp(treeDP, idx, "isOpen") == "true"
             checkable.setChecked(isChecked)/*Sets correct open/close icon*/
         }
         super.reUse(listItem)/*sets text and position and select state*/
     }
-    override func createItem(_ index:Int) -> Element {
-        let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, index)
-        return hasChildren ? Utils.createTreeListItem(itemSize,contentContainer!) : super.createItem(index)/*Create SelectTextButton*/
-    }
+    /*override func createItem(_ index:Int) -> Element {
+     let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, index)
+     return hasChildren ? Utils.createTreeListItem(itemSize,contentContainer!) : super.createItem(index)/*Create SelectTextButton*/
+     }*/
     override func getClassType() -> String {
         return "\(TreeList3.self)"
     }
