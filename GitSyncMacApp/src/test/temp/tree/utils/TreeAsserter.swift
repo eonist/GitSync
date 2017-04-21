@@ -10,10 +10,4 @@ class TreeAsserter {
         }
         fatalError("no child at: \(idx3d)")
     }
-    /**
-     *
-     */
-    static func isOpen(_ tree:Tree,_ idx3d:[Int])->Bool{
-        tree.props[idx3d]["isOpen"]
-    }
 }
