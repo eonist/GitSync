@@ -42,7 +42,7 @@ class TreeList3:ScrollFastList3{
         return super.createItem(index)/*Create SelectTextButton*/
     }
     override func getClassType() -> String {
-        return "\(TreeList.self)"
+        return "\(TreeList3.self)"
     }
 }
 
