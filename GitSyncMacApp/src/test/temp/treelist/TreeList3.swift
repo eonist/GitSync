@@ -41,6 +41,9 @@ class TreeList3:ScrollFastList3{
         }
         return super.createItem(index)/*Create SelectTextButton*/
     }
+    override func getClassType() -> String {
+        return "\(TreeList.self)"
+    }
 }
 
 //SelectTextButton(size.x,size.y,itemData.title,itemData.isSelected,parent)
