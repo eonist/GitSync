@@ -57,6 +57,9 @@ extension TreeList3{
         ElementModifier.floatChildren(itemContainer!)
         onEvent(TreeListEvent(TreeListEvent.change,self))
     }
+    func onItemSelect(_ event:SelectEvent){
+        
+    }
 }
 private class Utils{
     /*create TreeItem*/
