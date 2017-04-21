@@ -26,7 +26,7 @@ class TreeList3:ScrollFastList3{
         listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up)*/
         listItem.item.setSkinState(listItem.item.getSkinState())
         
-        if let checkable = listItem.item as? ICheckable, let isOpenStr = TreeDP2Parser.getProp(treeDP, idx, "isOpen"){
+        if let checkable = listItem.item as? ICheckable, let isOpenStr = TreeDP2Parser.getProp(treeDP, idx3d, "isOpen"){
             let isChecked = isOpenStr == "true"
             checkable.setChecked(isChecked)/*Sets correct open/close icon*/
         }
