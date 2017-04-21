@@ -65,6 +65,8 @@ class TestView:TitleView{
         //Fix text cut off css problem
         //All items must be TreeListItem for reUse to work.
             //Which means you hide checkbox when item has no children etc. 
+                //start with reprograming TreeList 
+                //add debug colors to TreeList3 css and see things clearly
         //Try big tree list + Elastic
     
     func treeDPUITest(){
