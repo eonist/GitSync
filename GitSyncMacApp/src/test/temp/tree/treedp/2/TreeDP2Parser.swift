@@ -16,10 +16,11 @@ class TreeDP2Parser {
      * Returns properties
      */
     static func getProps(_ dp:TreeDP2,_ idx2d:Int)->[String:String]?{
-        if let idx3d:[Int] = dp.hashList[safe:idx2d]{
-            return dp.tree.getProps(idx3d)
-        }
-        return nil
+        let idx3d:[Int] = dp.hashList[idx2d]
+        return getProps(dp,idx3d)
+    }
+    static func getProps(_ dp:TreeDP2,_ idx3d:[Int])->[String:String]?{
+        return dp.tree.getProps(idx3d)
     }
     static func values(_ dp:TreeDP2,_ idx:[Int], _ key:String)->[String]{
         var indecies:[[Int]] = TreeUtils.pathIndecies(dp.tree,idx,TreeUtils.isOpen)/*flattens 3d to 2d*/
