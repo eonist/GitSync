@@ -27,6 +27,9 @@ class TreeList3:ScrollFastList3{
         listItem.item.setSkinState(listItem.item.getSkinState())
         super.reUse(listItem)
     }
+    override func createItem(_ index: Int) -> Element {
+        return super.createItem(index)
+    }
 }
-
+//class TreeListItem:SelectCheckBoxButton,ITreeListItem
 //SelectTextButton(size.x,size.y,itemData.title,itemData.isSelected,parent)
