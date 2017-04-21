@@ -64,7 +64,7 @@ class TestView:TitleView{
         //Fix the checkButton css
         //Fix text cut off css problem
         //All items must be TreeListItem for reUse to work.
-            //Which means 
+            //Which means you hide checkbox when item has no children etc. 
         //Try big tree list + Elastic
     
     func treeDPUITest(){
