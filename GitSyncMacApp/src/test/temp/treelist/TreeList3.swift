@@ -28,6 +28,7 @@ class TreeList3:ScrollFastList3{
         
         if let checkable = listItem.item as? ICheckable{
             
+            //figure out if item is open or not
             
             
             let isChecked = false
