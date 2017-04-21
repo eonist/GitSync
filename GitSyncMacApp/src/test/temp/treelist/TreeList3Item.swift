@@ -6,5 +6,4 @@ class TreeList3Item:SelectCheckBoxButton/*,ITreeListItem*/ {
     override func getClassType() -> String {
         return "\(TreeListItem.self)"
     }
-    
 }
