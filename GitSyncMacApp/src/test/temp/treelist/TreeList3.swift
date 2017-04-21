@@ -36,8 +36,26 @@ class TreeList3:ScrollFastList3{
         let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, index)
         return hasChildren ? Utils.createTreeListItem(itemSize,contentContainer!) : super.createItem(index)/*Create SelectTextButton*/
     }
+    
+    
+    override func onEvent(_ event: Event) {
+        if(event.type == CheckEvent.check /*&& event.immediate === itemContainer*/){onItemCheck(event as! CheckEvent)}
+        else if(event.type == SelectEvent.select /*&& event.immediate === itemContainer*/){onItemSelect(event as! SelectEvent)}
+    }
     override func getClassType() -> String {
         return "\(TreeList3.self)"
+    }
+}
+extension TreeList3{
+    /**
+     * NOTE: This method gets all CheckEvent's from all decending ICheckable instances
+     */
+    func onItemCheck(_ event:CheckEvent) {
+        let index:[Int] = TreeListParser.index(self, (event.origin as! NSView).superview!)
+        Swift.print("TreeList.onItemCheck() index:" + "\(index)" + " event.isChecked: " + "\(event.isChecked)")
+        _ = XMLModifier.setAttributeAt(node.xml, index, "isOpen",String(event.isChecked))
+        ElementModifier.floatChildren(itemContainer!)
+        onEvent(TreeListEvent(TreeListEvent.change,self))
     }
 }
 private class Utils{
