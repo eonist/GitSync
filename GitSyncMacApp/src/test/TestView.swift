@@ -63,6 +63,8 @@ class TestView:TitleView{
     //Continue here:
         //Fix the checkButton css
         //Fix text cut off css problem
+        //All items must be TreeListItem for reUse to work.
+            //Which means 
         //Try big tree list + Elastic
     
     func treeDPUITest(){
