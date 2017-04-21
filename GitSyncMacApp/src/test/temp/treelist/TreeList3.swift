@@ -4,23 +4,6 @@ import Cocoa
 
 class TreeList3:ScrollFastList3{
     var treeDP:TreeDP2 {return dp as! TreeDP2}
-    override func onListItemUpInside(_ buttonEvent:ButtonEvent) {
-        super.onListItemUpInside(buttonEvent)
-        if let idx:Int = selectedIdx{
-            let isOpen:Bool = TreeDP2Parser.getProp(treeDP, idx, "isOpen") == "true"
-            if(isOpen){
-                Swift.print("close 🚫")
-                TreeDP2Modifier.close(treeDP, idx)
-            }else{
-                Swift.print("open ✅")
-                TreeDP2Modifier.open(treeDP, idx)
-            }
-        }
-        if let element = buttonEvent.origin as? IElement{
-            Swift.print("Stack: " + "\(ElementParser.stackString(element))")
-            //Swift.print("element.id: " + "\(element.id)")
-        }
-    }
     override func reUse(_ listItem:FastListItem) {
         let idx3d:[Int] = treeDP.hashList[listItem.idx]
         listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up)*/
@@ -51,6 +34,20 @@ extension TreeList3{
      */
     func onItemCheck(_ event:CheckEvent) {
         Swift.print("onItemCheck")
+        if let idx:Int = selectedIdx{
+            let isOpen:Bool = TreeDP2Parser.getProp(treeDP, idx, "isOpen") == "true"
+            if(isOpen){
+                Swift.print("close 🚫")
+                TreeDP2Modifier.close(treeDP, idx)
+            }else{
+                Swift.print("open ✅")
+                TreeDP2Modifier.open(treeDP, idx)
+            }
+        }
+        if let element = event.origin as? IElement{
+            Swift.print("Stack: " + "\(ElementParser.stackString(element))")
+            //Swift.print("element.id: " + "\(element.id)")
+        }
         //onEvent(TreeListEvent(TreeListEvent.change,self))
     }
     func onItemSelect(_ event:SelectEvent){
