@@ -4,8 +4,8 @@ class TreeDP2Parser {
     /**
      * Returns
      */
-    static func getProp(_ dp:TreeDP2,_ at:Int, _ key:String)-> String?{
-        if let props = getProps(dp, at){
+    static func getProp(_ dp:TreeDP2,_ idx2d:Int, _ key:String)-> String?{
+        if let props = getProps(dp, idx2d){
             return props[key]
         }
         return nil
