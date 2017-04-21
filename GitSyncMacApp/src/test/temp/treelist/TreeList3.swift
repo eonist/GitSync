@@ -26,6 +26,14 @@ class TreeList3:ScrollFastList3{
         listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up)*/
         listItem.item.setSkinState(listItem.item.getSkinState())
         
+        if let checkable = listItem.item as? ICheckable{
+            
+            
+            
+            let isChecked = false
+            checkable.setChecked(isChecked)
+        }
+        
         super.reUse(listItem)
     }
     override func createItem(_ index:Int) -> Element {
