@@ -4,6 +4,7 @@ import Foundation
 class TreeDP2Parser {
     /**
      * Returns
+     * EXAMPLE: TreeDP2Parser.getProp(treeDP, idx, "isOpen")
      */
     static func getProp(_ dp:TreeDP2,_ idx2d:Int, _ key:String)-> String?{
         if let props = getProps(dp, idx2d){
