@@ -1,15 +1,10 @@
 import Foundation
 
 class TreeDP2Asserter {
-    /**
-     *
-     */
-    static func hasChildren(_ treeDP:TreeDP2,_ idx2d:Int) -> Bool{
-        if let idx3d:[Int] = treeDP[idx2d]{
-            return hasChildren
-        }
+    static func hasChildren(_ dp:TreeDP2,_ idx2d:Int) -> Bool{
+        return hasChildren(dp,dp[idx2d])
     }
-    static func hasChildren(_ treeDP:TreeDP2, _ idx3d:[Int]) -> Bool{
-        return false
+    static func hasChildren(_ dp:TreeDP2, _ idx3d:[Int]) -> Bool{
+        return TreeAsserter.hasChildren(dp.tree, idx3d)
     }
 }
