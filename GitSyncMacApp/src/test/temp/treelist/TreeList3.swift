@@ -29,6 +29,7 @@ class TreeList3:ScrollFastList3{
         //Continue here: 🏀
             //setText
             //setChecked
+        if listItem.
         
         super.reUse(listItem)
     }
