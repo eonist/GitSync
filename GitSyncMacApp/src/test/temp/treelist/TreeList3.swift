@@ -34,20 +34,20 @@ extension TreeList3{
      */
     func onItemCheck(_ event:CheckEvent) {
         Swift.print("onItemCheck")
-        if let idx:Int = selectedIdx{
-            let isOpen:Bool = TreeDP2Parser.getProp(treeDP, idx, "isOpen") == "true"
-            if(isOpen){
-                Swift.print("close 🚫")
-                TreeDP2Modifier.close(treeDP, idx)
-            }else{
-                Swift.print("open ✅")
-                TreeDP2Modifier.open(treeDP, idx)
-            }
+        let idx2d:Int = contentContainer!.indexOf(event.origin as! NSView)
+        let isOpen:Bool = TreeDP2Parser.getProp(treeDP, idx2d, "isOpen") == "true"
+        if(isOpen){
+            Swift.print("close 🚫")
+            TreeDP2Modifier.close(treeDP, idx2d)
+        }else{
+            Swift.print("open ✅")
+            TreeDP2Modifier.open(treeDP, idx2d)
         }
-        if let element = event.origin as? IElement{
-            Swift.print("Stack: " + "\(ElementParser.stackString(element))")
-            //Swift.print("element.id: " + "\(element.id)")
-        }
+        
+        /*if let element = event.origin as? IElement{
+         Swift.print("Stack: " + "\(ElementParser.stackString(element))")
+         //Swift.print("element.id: " + "\(element.id)")
+         }*/
         //onEvent(TreeListEvent(TreeListEvent.change,self))
     }
     func onItemSelect(_ event:SelectEvent){
