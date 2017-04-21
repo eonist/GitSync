@@ -29,12 +29,16 @@ class FastList3:ContainerView3,FastListable3{
      * NOTE: ⚠️️ override this to use custom ItemList items
      */
     func reUse(_ listItem:FastListItem){
-        let item:SelectTextButton = listItem.item as! SelectTextButton
+        //let item:SelectTextButton = listItem.item as! SelectTextButton
         let idx:Int = listItem.idx/*the index of the data in dataProvider*/
-        let selected:Bool = idx == selectedIdx
-        if item.selected != selected{
-            item.setSelected(selected)//only set this if the selected state is different from the current selected state in the ISelectable
+        if let selectable = listItem.item as? ISelectable {
+            let selected:Bool = idx == selectedIdx
+            if selectable.selected != selected{
+                selectable.setSelected(selected)//only set this if the selected state is different from the current selected state in the ISelectable
+            }
         }
+        if 
+        
         if let dpItem = dp.item(idx), let title:String = dpItem["title"]{
             item.setTextValue(title)
         }
