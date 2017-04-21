@@ -23,7 +23,7 @@ class TreeList3:ScrollFastList3{
     }
     override func reUse(_ listItem:FastListItem) {
         let idx3d:[Int] = treeDP.hashList[listItem.idx]
-        listItem.item.id = idx3d.count.string//the indentation level (from 1 and up)
+        listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up)*/
         listItem.item.setSkinState(listItem.item.getSkinState())
         super.reUse(listItem)
     }
@@ -34,7 +34,7 @@ class TreeList3:ScrollFastList3{
             contentContainer!.addSubview(item)
             return item
         }
-        return super.createItem(index)/*Creat SelectTextButton*/
+        return super.createItem(index)/*Create SelectTextButton*/
     }
 }
 
