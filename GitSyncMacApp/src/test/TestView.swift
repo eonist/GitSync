@@ -60,11 +60,10 @@ class TestView:TitleView{
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
     
-    //Continue here: 
-        //Add The checkTextButton from TreeList 
-        //Copy over the css
+    //Continue here:
+        //Fix the checkButton css
+        //Fix text cut off css problem
         //Try big tree list + Elastic
-        //
     
     func treeDPUITest(){
         //let xml:XML = FileParser.xml()
@@ -81,10 +80,8 @@ class TestView:TitleView{
         
         let dp:TreeDP2 = TreeDP2("~/Desktop/assets/xml/treelist.xml".tildePath)
         
-       
         TreeDP2Modifier.open(dp, 2)
         TreeDP2Modifier.close(dp, 2)
-        
         
         TreeDP2Parser.values(dp, [], "title").forEach{
             Swift.print("title: " + "\($0)")
