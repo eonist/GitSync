@@ -31,5 +31,5 @@ class TreeList3:ScrollFastList3{
         return super.createItem(index)
     }
 }
-//class TreeListItem:SelectCheckBoxButton,ITreeListItem
+
 //SelectTextButton(size.x,size.y,itemData.title,itemData.isSelected,parent)
