@@ -30,9 +30,14 @@ class TreeList3:ScrollFastList3{
     override func createItem(_ index:Int) -> Element {
         //find the tree item
         let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, index)
-        //if it has children
-            //make TreeListItem
-        //else use default
+        if hasChildren {
+            //_ width:CGFloat, _ height:CGFloat,  _ text:String = "defaultText", _ isSelected : Bool = false, _ isChecked:Bool = false, _ parent:IElement? = nil, _ id:String = ""
+            
+            //size.x,size.y,itemData.title,itemData.isOpen,itemData.isSelected,parent
+            
+            
+            return TreeList3Item.init(
+        }
         return super.createItem(index)
     }
 }
