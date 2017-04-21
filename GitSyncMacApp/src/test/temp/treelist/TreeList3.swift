@@ -27,14 +27,9 @@ class TreeList3:ScrollFastList3{
         listItem.item.setSkinState(listItem.item.getSkinState())
         
         if let checkable = listItem.item as? ICheckable{
-            
-            //figure out if item is open or not
-            
-            
-            let isChecked = false
+            let isChecked = TreeDP2Parser.getProp(treeDP, idx, "isOpen") == "true"
             checkable.setChecked(isChecked)
         }
-        
         super.reUse(listItem)
     }
     override func createItem(_ index:Int) -> Element {
