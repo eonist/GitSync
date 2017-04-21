@@ -15,8 +15,8 @@ class TreeDP2Parser {
      * Returns properties
      */
     static func getProps(_ dp:TreeDP2,_ idx2d:Int)->[String:String]?{
-        if let idx:[Int] = dp.hashList[safe:idx2d]{
-            return dp.tree.getProps(idx)
+        if let idx3d:[Int] = dp.hashList[safe:idx2d]{
+            return dp.tree.getProps(idx3d)
         }
         return nil
     }
