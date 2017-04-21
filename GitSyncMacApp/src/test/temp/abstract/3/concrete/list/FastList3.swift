@@ -37,12 +37,12 @@ class FastList3:ContainerView3,FastListable3{
                 selectable.setSelected(selected)//only set this if the selected state is different from the current selected state in the ISelectable
             }
         }
-        if 
-        
-        if let dpItem = dp.item(idx), let title:String = dpItem["title"]{
-            item.setTextValue(title)
+        if let textButton = listItem.item as? TextButton{
+            if let dpItem = dp.item(idx), let title:String = dpItem["title"]{
+                textButton.setTextValue(title)
+            }
         }
-        item.point[dir] = listItem.idx * itemSize[dir]/*position the item*/
+        listItem.item.point[dir] = listItem.idx * itemSize[dir]/*position the item*/
     }
     /**
      * CreatesItem
