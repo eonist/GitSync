@@ -25,6 +25,11 @@ class TreeList3:ScrollFastList3{
         let idx3d:[Int] = treeDP.hashList[listItem.idx]
         listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up)*/
         listItem.item.setSkinState(listItem.item.getSkinState())
+        
+        //Continue here: 🏀
+            //setText
+            //setChecked
+        
         super.reUse(listItem)
     }
     override func createItem(_ index:Int) -> Element {
