@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 @testable import Element
 
-class TreeList3Item:SelectCheckBoxButton,LableKind/*,ITreeListItem*/ {
+class TreeList3Item:SelectCheckBoxButton/*,ITreeListItem*/ {
     override func getClassType() -> String {
         return "\(TreeListItem.self)"
     }
