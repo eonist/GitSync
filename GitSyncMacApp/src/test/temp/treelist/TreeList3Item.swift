@@ -4,6 +4,6 @@ import Foundation
 
 class TreeList3Item:SelectCheckBoxButton/*,ITreeListItem*/ {
     override func getClassType() -> String {
-        return "\(TreeListItem.self)"
+        return "\(TreeList3Item.self)"
     }
 }
