@@ -35,7 +35,7 @@ extension TreeList3{
     func onItemCheck(_ event:CheckEvent) {
         Swift.print("onItemCheck")
         Swift.print("event.origin: " + "\(event.origin)")
-        let idx2d:Int = contentContainer!.indexOf(event.origin as! NSView)
+        let idx2d:Int = contentContainer!.indexOf((event.origin as! NSView).superview!)
         let isOpen:Bool = TreeDP2Parser.getProp(treeDP, idx2d, "isOpen") == "true"
         if(isOpen){
             Swift.print("close 🚫")
