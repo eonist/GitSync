@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 
 class TreeDP2Parser {
     /**
@@ -13,8 +14,8 @@ class TreeDP2Parser {
     /**
      * Returns properties
      */
-    static func getProps(_ dp:TreeDP2,_ at:Int)->[String:String]?{
-        if let idx:[Int] = at < dp.hashList.count ? dp.hashList[at] : nil{
+    static func getProps(_ dp:TreeDP2,_ idx2d:Int)->[String:String]?{
+        if let idx:[Int] = dp.hashList[safe:idx2d]{
             return dp.tree.getProps(idx)
         }
         return nil
