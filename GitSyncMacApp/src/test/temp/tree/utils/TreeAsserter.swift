@@ -14,6 +14,6 @@ class TreeAsserter {
      *
      */
     static func isOpen(_ tree:Tree,_ idx3d:[Int])->Bool{
-        
+        TreeParser.child(tree, idx3d)
     }
 }
