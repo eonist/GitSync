@@ -27,7 +27,11 @@ class TreeList3:ScrollFastList3{
         listItem.item.setSkinState(listItem.item.getSkinState())
         super.reUse(listItem)
     }
-    override func createItem(_ index: Int) -> Element {
+    override func createItem(_ index:Int) -> Element {
+        //find the tre item
+        //if it has children
+            //make TreeListItem
+        //else use default
         return super.createItem(index)
     }
 }
