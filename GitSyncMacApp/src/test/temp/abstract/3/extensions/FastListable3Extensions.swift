@@ -47,13 +47,13 @@ extension FastListable3 {
         if(contentSize[dir] < maskSize[dir]){//basically when itemsHeight is less than height was /*dp.count <= numOfItemsThatCanFit*/
             contentContainer!.point[dir] = 0
         }
-            /*Pin to bottom if (contentContainer.y + itemsHeight) is less than (height) and itemsHeight is more than height*/
+        /*Pin to bottom if (contentContainer.y + itemsHeight) is less than (height) and itemsHeight is more than height*/
         else if(contentSize[dir] > maskSize[dir]){
             if((contentContainer!.point[dir] + contentSize[dir]) < maskSize[dir]){
                 contentContainer!.point[dir] = -(contentSize[dir] - maskSize[dir])
             }
         }
-            /*If an item is added / removed above the first visible item*/
+        /*If an item is added / removed above the first visible item*/
         else if(event.startIndex < firstVisibleItem){
             if(event.type == DataProviderEvent.remove){
                 contentContainer!.point[dir] += itemSize[dir]
