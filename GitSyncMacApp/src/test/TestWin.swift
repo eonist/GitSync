@@ -11,9 +11,9 @@ class TestWin:Window {
     override func resolveSkin() {
         //Swift.print("frame.width: " + "\(frame.size.width)")
         //Swift.print("frame.height: " + "\(frame.size.height)")
-        //self.contentView = TestView(frame.size.width,frame.size.height,nil,"listTransitionTestView")
+        self.contentView = TestView(frame.size.width,frame.size.height,nil,"listTransitionTestView")
         //self.contentView = RepoListTestView(frame.size.width,frame.size.height)
-        self.contentView = MinimalView(frame.size.width,frame.size.height)
+        //self.contentView = MinimalView(frame.size.width,frame.size.height)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
@@ -24,6 +24,3 @@ class MinimalView:WindowView{
         _ = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
     }
 }
-
-//continue here: 
-    //what if we moved the entire checkboxbutton over to the side instead? nopp we might want bg to be selected
