@@ -15,7 +15,7 @@ class TreeList3:ScrollFastList3{
         }
         //Does item have children
         let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, idx3d)
-        ElementModifier.hide(listItem.item, hasChildren)
+        (listItem.item as! TreeList3Item).checkBox!
         
         super.reUse(listItem)/*sets text and position and select state*/
     }
