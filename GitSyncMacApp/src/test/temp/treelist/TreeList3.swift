@@ -12,7 +12,7 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
             //Could be the Tree struct, maybe try class
             //try to find some array methods that are expencive
         
-        disableAnim{listItem.item.setSkinState(listItem.item.getSkinState())}
+        //disableAnim{listItem.item.setSkinState(listItem.item.getSkinState())}
         
         if let checkable = listItem.item as? ICheckable, let isOpenStr = TreeDP2Parser.getProp(treeDP, idx3d, "isOpen"){
             let isChecked = isOpenStr == "true"
