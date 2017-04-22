@@ -17,7 +17,7 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
                 //solution is to add a rotation property to the css, and rotate 90deg and offset 1x w 👈
                 //then add some code that only recreates the svg if the assetURL change
         
-        disableAnim{listItem.item.setSkinState(listItem.item.getSkinState())}
+        //disableAnim{listItem.item.setSkinState(listItem.item.getSkinState())}
         
         //SkinModifier.align on a loop
         //build the style
