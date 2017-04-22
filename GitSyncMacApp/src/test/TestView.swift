@@ -15,10 +15,7 @@ class TestView:TitleView{
         Swift.print(ElementParser.stackString(self))
         createGUI()
     }
-    
-    //An idea if TreeList2 is too slow. 
-        //1. flatten the treeList to a list.
-        //2. 
+
     func createGUI(){
         //treeDPUITest()
         //alterTreeDP2Test()
@@ -35,7 +32,7 @@ class TestView:TitleView{
         //xml2tree()
         //treeTesting()
         //infiniteTreeList()
-        //elasticSlideScrollFastList3()
+        elasticSlideScrollFastList3()
         //elasticScrollFastList()
         //slideScrollFastList()
         //scrollFastList()
