@@ -19,7 +19,7 @@ extension Progressable3{
      * PARAM: progress: 0-1
      */
     func setProgress(_ progress:CGFloat,_ dir:Dir){
-        Swift.print("Progressable3.setProgress: " + " progress: \(progress) dir: \(dir)")
+        //Swift.print("Progressable3.setProgress: " + " progress: \(progress) dir: \(dir)")
         let progressValue = self.contentSize[dir] < maskSize[dir] ? 0 : progress/*pins the lableContainer to the top if itemsHeight is less than height*/
         ScrollableUtils.scrollTo(self,progressValue,dir)
     }
@@ -27,7 +27,7 @@ extension Progressable3{
      * PARAM: progress: 0-1
      */
     func setProgress(_ point:CGPoint){
-        Swift.print("Progressable3.setProgress: " + "\(point)")
+        //Swift.print("Progressable3.setProgress: " + "\(point)")
         setProgress(point.x,.hor)
         setProgress(point.y,.ver)
     }

@@ -8,7 +8,7 @@ extension ElasticScrollable3{
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
      */
     func onScrollWheelChange(_ event:NSEvent){/*Direct scroll*/
-        Swift.print("👻📜 (ElasticScrollable3).onScrollWheelChange : \(event.type)")
+        //Swift.print("👻📜 (ElasticScrollable3).onScrollWheelChange : \(event.type)")
         moverGroup!.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
         moverGroup!.updatePosition(true)/*the mover still governs the resulting value, in order to get the displacement friction working*/
         let p:CGPoint = moverGroup!.result
@@ -18,7 +18,7 @@ extension ElasticScrollable3{
      * NOTE: Basically when you enter your scrollWheel gesture
      */
     func onScrollWheelEnter(){
-        Swift.print("👻📜 (ElasticScrollable3).onScrollWheelEnter")
+        //Swift.print("👻📜 (ElasticScrollable3).onScrollWheelEnter")
         //moverGroup!.isDirectlyManipulating = true/*Toggle to directManipulationMode*/ //this was moved
         moverGroup!.stop()
         moverGroup!.hasStopped = true/*set the stop flag to true*/
@@ -28,7 +28,7 @@ extension ElasticScrollable3{
      * NOTE: Basically when you release your scrollWheel gesture
      */
     func onScrollWheelExit(){
-        Swift.print("👻📜 (ElasticScrollable3).onScrollWheelExit")
+        //Swift.print("👻📜 (ElasticScrollable3).onScrollWheelExit")
         //Swift.print("iterimScroll.prevScrollingDelta: " + "\(iterimScroll.prevScrollingDelta)")
         moverGroup!.hasStopped = false
         moverGroup!.value = moverGroup!.result
@@ -38,7 +38,7 @@ extension ElasticScrollable3{
      * NOTE: Basically when you release your scrollWheel gesture
      */
     func onScrollWheelMomentumBegan(_ event:NSEvent) {
-        Swift.print("👻📜 (ElasticScrollable3).onScrollWheelMomentumBegan")
+        //Swift.print("👻📜 (ElasticScrollable3).onScrollWheelMomentumBegan")
         moverGroup!.hasStopped = false/*Reset this value to false, so that the FrameAnimatior can start again*/
         //moverGroup!.isDirectlyManipulating = false
         moverGroup!.value = moverGroup!.result/*Copy this back in again, as we used relative friction when above or bellow constraints*/
