@@ -19,6 +19,8 @@ class TreeList3:ScrollFastList3{
         CATransaction.setDisableActions(true)
         (listItem.item as! TreeList3Item).checkBox!.isHidden = !hasChildren
         CATransaction.commit()
+        
+        
         super.reUse(listItem)/*sets text and position and select state*/
     }
     override func createItem(_ index:Int) -> Element {
