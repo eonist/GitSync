@@ -18,5 +18,9 @@ class TestWin:Window {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class MinimalView:WindowView{
-    
+    override func resolveSkin(){
+        super.resolveSkin()
+        let dp:TreeDP2 = TreeDP2("~/Desktop/assets/xml/treelist.xml".tildePath)
+        _ = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
+    }
 }
