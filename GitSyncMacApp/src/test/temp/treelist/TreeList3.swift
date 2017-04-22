@@ -8,9 +8,10 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
         let idx3d:[Int] = treeDP.hashList[listItem.idx]
         listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up)*/
         
-        //maybe it's the setSkinState that slows things down?
+        //Continue here: maybe it's the setSkinState that slows things down? 🏀
             //Could be the Tree struct, maybe try class
-            //try to find some array methods that are expencive
+            //try to find some array methods that are expencive-> 
+            //It's the stylemanager via setSkin 👈
         
         disableAnim{listItem.item.setSkinState(listItem.item.getSkinState())}
         
