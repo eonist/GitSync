@@ -71,7 +71,9 @@ class TestView:TitleView{
         //
         
         //let xml:XML = FileParser.xml()
-        let dp:TreeDP2 = TreeDP2("~/Desktop/assets/xml/treelist.xml".tildePath)
+        //
+        //~/Desktop/assets/xml/treelist.xml
+        let dp:TreeDP2 = TreeDP2("~/Desktop/repo2.xml".tildePath)
         Swift.print("dp.count: " + "\(dp.count)")
         TreeDP2Parser.values(dp, [], "title").forEach{
             Swift.print("title: " + "\($0)")
