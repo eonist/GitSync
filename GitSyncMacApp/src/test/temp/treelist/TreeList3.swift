@@ -2,7 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 
-class TreeList3:ElasticSlideScrollFastList3{//ElasticSlideScrollFastList3
+class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
     var treeDP:TreeDP2 {return dp as! TreeDP2}
     override func reUse(_ listItem:FastListItem) {
         let idx3d:[Int] = treeDP.hashList[listItem.idx]
