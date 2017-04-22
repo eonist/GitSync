@@ -32,7 +32,7 @@ extension Scrollable3{
         }
         switch event.momentumPhase{
             case NSEventPhase.began:
-                Swift.print("⚠️️ NSMomentumEventPhase.began event.scrollingDelta: " + "\(event.scrollingDelta)")
+                //Swift.print("⚠️️ NSMomentumEventPhase.began event.scrollingDelta: " + "\(event.scrollingDelta)")
                 onScrollWheelMomentumBegan(event);//this happens when the momentum starts
             case NSEventPhase.changed:onInDirectScrollWheelChange(event);
             case NSEventPhase.ended:onScrollWheelMomentumEnded();
