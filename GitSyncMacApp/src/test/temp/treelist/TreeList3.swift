@@ -47,7 +47,8 @@ extension TreeList3{
             Swift.print("open ✅ idx2d: \(idx2d)")
             TreeDP2Modifier.open(treeDP, idx2d)
         }
-        
+        moverGroup!.yMover.contentFrame = (0,contentSize.height)
+        moverGroup!.xMover.contentFrame = (0,contentSize.width)
         /*if let element = event.origin as? IElement{
          Swift.print("Stack: " + "\(ElementParser.stackString(element))")
          //Swift.print("element.id: " + "\(element.id)")
