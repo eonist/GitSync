@@ -14,7 +14,8 @@ class TreeList3:ScrollFastList3{
             checkable.setChecked(isChecked)/*Sets correct open/close icon*/
         }
         //Does item have children
-        let hasChildren:Bool = TreeDP2Asserter.hasChildren(dp, <#T##idx2d: Int##Int#>)
+        let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, idx3d)
+        
         super.reUse(listItem)/*sets text and position and select state*/
     }
     override func createItem(_ index:Int) -> Element {
