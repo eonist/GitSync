@@ -33,34 +33,34 @@ extension FastListable3{
      * NOTE: this method is inside an extension because it doesn't need to be overriden by super classes
      */
     func renderItems(_ range:Range<Int>){
-        Swift.print("Fastlist.renderItems(\(range))")
+        //Swift.print("Fastlist.renderItems(\(range))")
         let old = currentVisibleItemRange
         let firstOldIdx:Int = old.start
         /*⚠️️⚠️️⚠️️Figure out which items to remove from pool⚠️️⚠️️⚠️️*/
         let diff = RangeParser.difference(range, old)//may return 1 or 2 ranges
-        Swift.print("diff: " + "\(diff)")
+        //Swift.print("diff: " + "\(diff)")
         if(diff.1 != nil){
-            Swift.print("remove.1: \(diff.1)")
+            //Swift.print("remove.1: \(diff.1)")
             let start = diff.1!.start - firstOldIdx
             inActive += pool.splice2(start, diff.1!.length)
         }
         if(diff.0 != nil){
-            Swift.print("remove.0: \(diff.0)")
+            //Swift.print("remove.0: \(diff.0)")
             let start = diff.0!.start - firstOldIdx
             inActive += pool.splice2(start, diff.0!.length)
         }
         
         if(contentContainer!.numSubViews > dp.count){//removes items if items dont fill the view anymore
-            Swift.print("⚠️️ Clear out items ⚠️️")
+            //Swift.print("⚠️️ Clear out items ⚠️️")
             inActive.forEach{$0.item.removeFromSuperview()}
             inActive.removeAll()
         }
         //
         /*⚠️️⚠️️⚠️️Figure out which items to add to pool⚠️️⚠️️⚠️️*/
         let diff2 = RangeParser.difference(old,range)
-        Swift.print("diff2: " + "\(diff2)")
+        //Swift.print("diff2: " + "\(diff2)")
         if(diff2.1 != nil){
-            Swift.print("add.1: \(diff2.1)")
+            //Swift.print("add.1: \(diff2.1)")
             let startIdx = diff2.1!.start
             let endIdx = diff2.1!.end
             var items:[FastListItem] = []
@@ -71,7 +71,7 @@ extension FastListable3{
                 items.append(fastListItem)
             }
             if(items.count > 0){
-                Swift.print("add.0: \(diff2.0)")
+                //Swift.print("add.0: \(diff2.0)")
                 var idx:Int = items.first!.idx - firstOldIdx//index in pool
                 idx = idx.clip(0, pool.count)
                 _ = ArrayModifier.mergeInPlaceAt(&pool, &items, idx)

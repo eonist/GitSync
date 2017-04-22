@@ -19,7 +19,7 @@ extension Scrollable3{
     func scroll(_ event:NSEvent){
         //Swift.print("event.momentumPhase: " + "\(event.momentumPhase)")
         //Swift.print("event.phase: " + "\(event.phase)")
-        Swift.print("Scrollable3.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
+        //Swift.print("Scrollable3.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
         switch event.phase{
             case NSEventPhase.changed/*4*/:onScrollWheelChange(event)/*Fires everytime there is direct scrollWheel gesture movment and momentum, the momentum fades.*/
             case NSEventPhase.mayBegin/*32*/:onScrollWheelEnter()/*Can be used to detect if two fingers are touching the trackpad*/
@@ -41,7 +41,7 @@ extension Scrollable3{
         //super.scrollWheel(with:event)
     }
     func onScrollWheelChange(_ event:NSEvent){
-        Swift.print("Scrollable3.onScrollWheelChange()")
+        //Swift.print("Scrollable3.onScrollWheelChange()")
         //let progress:CGFloat = SliderParser.progress(event.delta, maskSize, contentSize).y
         let progressVal:CGPoint = SliderListUtils.progress(event.delta, interval, progress)
         setProgress(progressVal)
