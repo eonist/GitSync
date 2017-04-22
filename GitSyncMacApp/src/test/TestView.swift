@@ -15,8 +15,12 @@ class TestView:TitleView{
         Swift.print(ElementParser.stackString(self))
         createGUI()
     }
+    
+    //An idea if TreeList2 is too slow. 
+        //1. flatten the treeList to a list.
+        //2. 
     func createGUI(){
-        treeDPUITest()
+        //treeDPUITest()
         //alterTreeDP2Test()
         //hashList2Test()
         //alterTreeTest()
