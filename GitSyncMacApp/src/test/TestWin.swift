@@ -24,3 +24,6 @@ class MinimalView:WindowView{
         _ = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
     }
 }
+
+//continue here: 
+    //what if we moved the entire checkboxbutton over to the side instead? nopp we might want bg to be selected
