@@ -13,6 +13,8 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
             //Could be the Tree struct, maybe try class
             //try to find some array methods that are expencive-> 
             //It's the stylemanager via setSkin 👈
+            //Maybe its the SVG asset. Being recreated frequently, readded over and over again. rather than just redrawn
+                //solution is to 
         
         disableAnim{listItem.item.setSkinState(listItem.item.getSkinState())}
         

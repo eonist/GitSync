@@ -61,8 +61,7 @@ class TestView:TitleView{
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
     
-    //Continue here:
-        //figure out why TreeList isn't showing everything
+   
     
     func treeDPUITest(){
         
