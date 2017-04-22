@@ -39,7 +39,6 @@ class TreeDP2:DataProvider {
         self.init(tree)
     }
 }
-
 extension TreeDP2{
     subscript(_ idx2d:Int) -> [Int] {
         return hashList[idx2d]
@@ -47,5 +46,4 @@ extension TreeDP2{
     subscript(_ idx3:[Int]) -> Int? {
         return hashList.index(where: {$0 == idx3})
     }
-    
 }
