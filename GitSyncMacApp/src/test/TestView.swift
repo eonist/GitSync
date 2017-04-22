@@ -63,6 +63,7 @@ class TestView:TitleView{
     //Continue here:
         //Instead of using margin as depth indicator, use color-shade for debugging
             //Something is not working with mouse over etc
+            //try a blank window with minimal .css
         //Try big tree list + Elastic
     
     func treeDPUITest(){
