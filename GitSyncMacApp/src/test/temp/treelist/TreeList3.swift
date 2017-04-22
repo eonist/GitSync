@@ -14,7 +14,8 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
             //try to find some array methods that are expencive-> 
             //It's the stylemanager via setSkin 👈
             //Maybe its the SVG asset. Being recreated frequently, readded over and over again. rather than just redrawn
-                //solution is to 
+                //solution is to add a rotation property to the css, and rotate 90deg and offset 1x w 👈
+                //then add some code that only recreates the svg if the assetURL change
         
         disableAnim{listItem.item.setSkinState(listItem.item.getSkinState())}
         
