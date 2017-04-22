@@ -5,6 +5,7 @@ import Cocoa
 class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
     var treeDP:TreeDP2 {return dp as! TreeDP2}
     override func reUse(_ listItem:FastListItem) {
+        Swift.print("🍊 \(listItem.idx)")
         let idx3d:[Int] = treeDP.hashList[listItem.idx]
         listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up)*/
         
@@ -13,7 +14,9 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
             //try to find some array methods that are expencive-> 
             //It's the stylemanager via setSkin 👈
         
-        disableAnim{listItem.item.setSkinState(listItem.item.getSkinState())}
+        //disableAnim{listItem.item.setSkinState(listItem.item.getSkinState())}
+        
+        //a cheaper way would be to grab the style from
         
         if let checkable = listItem.item as? ICheckable, let isOpenStr = TreeDP2Parser.getProp(treeDP, idx3d, "isOpen"){
             let isChecked = isOpenStr == "true"
