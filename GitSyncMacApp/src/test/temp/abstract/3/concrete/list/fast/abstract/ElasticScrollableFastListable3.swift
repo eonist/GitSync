@@ -8,8 +8,8 @@ protocol ElasticScrollableFastListable3:FastListable3,ElasticScrollable3 {
 extension ElasticScrollableFastListable3{
     func onInDirectScrollWheelChange(_ event: NSEvent) {}//override to cancel out the event,move this more centerally, or remove
     func onScrollWheelChange(_ event:NSEvent){/*Direct scroll*/
-        Swift.print("event.type: " + "\(event.phase)")
-        Swift.print("ElasticScrollableFastListable3.onScrollWheelChange : \(event.type)")
+        //Swift.print("event.type: " + "\(event.phase)")
+        //Swift.print("ElasticScrollableFastListable3.onScrollWheelChange : \(event.type)")
         moverGroup!.value += event.scrollingDelta/*directly manipulate the value 1 to 1 control*/
         moverGroup!.updatePosition(true)/*the mover still governs the resulting value, in order to get the displacement friction working*/
         let p:CGPoint = moverGroup!.result
@@ -28,7 +28,7 @@ extension ElasticScrollableFastListable3{
      * ⚠️️ Do not use scalar value here (0-1) well you know...
      */
     func setProgressVal(_ value:CGFloat,_ dir:Dir){
-        Swift.print("👻🏂📜🐎 ElasticScrollableFast.setProgress(\(value))")
+        //Swift.print("👻🏂📜🐎 ElasticScrollableFastListable.setProgress(\(value))")
         //Swift.print("value: " + "\(value)")
         var progressValue:CGFloat?//new
         let contentSide:CGFloat = contentSize[dir]//TODO: Use a precalculated itemsHeight instead of recalculating it on every setProgress call, what if dp.count changes though?
