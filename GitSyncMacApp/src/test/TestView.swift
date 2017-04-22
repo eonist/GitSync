@@ -17,7 +17,7 @@ class TestView:TitleView{
     }
 
     func createGUI(){
-        //treeDPUITest()
+        treeDPUITest()
         //alterTreeDP2Test()
         //hashList2Test()
         //alterTreeTest()
@@ -32,7 +32,7 @@ class TestView:TitleView{
         //xml2tree()
         //treeTesting()
         //infiniteTreeList()
-        elasticSlideScrollFastList3()
+        //elasticSlideScrollFastList3()
         //elasticScrollFastList()
         //slideScrollFastList()
         //scrollFastList()
@@ -62,13 +62,9 @@ class TestView:TitleView{
     }
     
     //Continue here:
-        //Instead of using margin as depth indicator, use color-shade for debugging
-            //Something is not working with mouse over etc
-            //try a blank window with minimal .css
-        //Try big tree list + Elastic
+        //figure out why TreeList isnt showing everything
     
     func treeDPUITest(){
-        //
         
         //let xml:XML = FileParser.xml()
         //
