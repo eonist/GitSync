@@ -20,7 +20,7 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
         //build the style
         //change the style
         //set the style
-        let style = StyleResolver.style(element!)
+        //let style = StyleResolver.style(element!)
         //a cheaper way would be to grab the style from
         
         if let checkable = listItem.item as? ICheckable, let isOpenStr = TreeDP2Parser.getProp(treeDP, idx3d, "isOpen"){
