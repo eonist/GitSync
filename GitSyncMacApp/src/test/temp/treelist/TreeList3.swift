@@ -16,8 +16,7 @@ class TreeList3:ScrollFastList3{
         //Does item have children
         let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, idx3d)
     
-        let closure:DeAnimateType = {(listItem.item as! TreeList3Item).checkBox!.isHidden = !hasChildren}
-        
+        disableAnim{(listItem.item as! TreeList3Item).checkBox!.isHidden = !hasChildren}
 
         super.reUse(listItem)/*sets text and position and select state*/
     }
