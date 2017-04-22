@@ -16,6 +16,8 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
         
         disableAnim{listItem.item.setSkinState(listItem.item.getSkinState())}
         
+        //SkinModifier.align
+        
         //a cheaper way would be to grab the style from
         
         if let checkable = listItem.item as? ICheckable, let isOpenStr = TreeDP2Parser.getProp(treeDP, idx3d, "isOpen"){
