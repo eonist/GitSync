@@ -11,9 +11,10 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
         
         if let checkable = listItem.item as? ICheckable, let isOpenStr = TreeDP2Parser.getProp(treeDP, idx3d, "isOpen"){
             let isChecked = isOpenStr == "true"
-            checkable.setChecked(isChecked)/*Sets correct open/close icon*/
+            if(checkable.getChecked() != isChecked){//only alter state if that state is the opposite of current state
+                checkable.setChecked(isChecked)/*Sets correct open/close icon*/
+            }
         }
-        
         //let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, idx3d)//Does item have children?
         //disableAnim{}//hides checkBox if item doesnt have children
         //(listItem.item as! TreeList3Item).checkBox!.isHidden = !hasChildren
