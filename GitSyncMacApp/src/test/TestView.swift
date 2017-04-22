@@ -328,7 +328,7 @@ class TestView:TitleView{
     }
     func elasticSlideScrollFastList3(){
         var dp:DataProvider
-        dp = DataProvider("~/Desktop/assets/xml/scrollist.xml".tildePath)
+        dp = DataProvider("~/Desktop/assets/xml/longlist.xml".tildePath)
         _ = self.addSubView(ElasticSlideScrollFastList3(140, 145, CGSize(24,24), dp, self))
     }
     func elasticScrollFastList(){
