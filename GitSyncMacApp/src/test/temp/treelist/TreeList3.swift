@@ -41,10 +41,10 @@ extension TreeList3{
         let idx2d:Int = contentContainer!.indexOf((event.origin as! NSView).superview!)
         let isOpen:Bool = TreeDP2Parser.getProp(treeDP, idx2d, "isOpen") == "true"
         if(isOpen){
-            Swift.print("close 🚫")
+            Swift.print("close 🚫 idx2d: \(idx2d)")
             TreeDP2Modifier.close(treeDP, idx2d)
         }else{
-            Swift.print("open ✅")
+            Swift.print("open ✅ idx2d: \(idx2d)")
             TreeDP2Modifier.open(treeDP, idx2d)
         }
         
