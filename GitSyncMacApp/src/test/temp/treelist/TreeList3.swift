@@ -14,8 +14,8 @@ class TreeList3:ScrollFastList3{
             checkable.setChecked(isChecked)/*Sets correct open/close icon*/
         }
         
-        let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, idx3d)//Does item have children
-        disableAnim{(listItem.item as! TreeList3Item).checkBox!.isHidden = !hasChildren}
+        let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, idx3d)//Does item have children?
+        disableAnim{(listItem.item as! TreeList3Item).checkBox!.isHidden = !hasChildren}//hides checkBox if item doesnt have children
 
         super.reUse(listItem)/*sets text and position and select state*/
     }
