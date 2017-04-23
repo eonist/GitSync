@@ -18,6 +18,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //initApp()
         initTestWin()//🚧👷
+        
+
     }
     func initApp(){
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
