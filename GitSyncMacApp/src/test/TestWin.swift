@@ -19,8 +19,9 @@ class TestWin:Window {
 }
 class MinimalView:WindowView{
     override func resolveSkin(){
-        let css:String = "Window{fill:white;fill-alpha:1;corner-radius:4px;}"
+        let css:String = "Window{corner-radius:4px;fill-alpha:1;fill:white;}"
         StyleManager.addStyle(css)
+        StyleManager.getStyle("Window")?.describe()
         super.resolveSkin()
         let stackString = ElementParser.stackString(self)
         Swift.print("stackString: " + "\(stackString)")
