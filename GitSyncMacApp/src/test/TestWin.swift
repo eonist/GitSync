@@ -21,6 +21,10 @@ class MinimalView:WindowView{
     override func resolveSkin(){
         let css:String = "Window{corner-radius:4px;fill-alpha:1;fill:white;}"
         StyleManager.addStyle(css)
+        
+        //Continue here: 🏀
+            //The problem is that not all styleProps are added. The prob is in CSSPropParser
+        
         StyleManager.getStyle("Window")?.describe()
         super.resolveSkin()
         let stackString = ElementParser.stackString(self)
