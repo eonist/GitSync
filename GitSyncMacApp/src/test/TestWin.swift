@@ -26,11 +26,11 @@ class MinimalView:WindowView{
             //The problem is that not all styleProps are added. The prob is in CSSPropParser ✅
             //MinimalWin 👈
         
-        StyleManager.getStyle("Window")?.describe()
+        //StyleManager.getStyle("Window")?.describe()
         super.resolveSkin()
         //let stackString = ElementParser.stackString(self)
         //Swift.print("stackString: " + "\(stackString)")
-        //rotationUITest()
+        rotationUITest()
     }
     func rotationUITest(){
         
