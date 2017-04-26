@@ -64,9 +64,17 @@ class TestView:TitleView{
     //Continue here: 🏀
         //you want to add transform css syntax
             //do research into css rotation
+            //transform: rotate(20deg);
+    
+            //
         //if Asset URL hasn't changed between state change, then don't reload asset.
             //
     
+    /*
+ 
+ 
+ 
+    */
     func treeDPUITest(){
         
         //let xml:XML = FileParser.xml()
