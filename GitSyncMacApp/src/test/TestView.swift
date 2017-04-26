@@ -61,14 +61,18 @@ class TestView:TitleView{
          Swift.print("intervalB: " + "\(intervalB)")*/
     }
     
-   
+    //Continue here: 🏀
+        //you want to add transform css syntax
+            //do research into css rotation
+        //if Asset URL hasnt changed between state change, then don't reload asset.
+            //
     
     func treeDPUITest(){
         
         //let xml:XML = FileParser.xml()
         //
         //~/Desktop/assets/xml/treelist.xml
-        let dp:TreeDP2 = TreeDP2("~/Desktop/repo2.xml".tildePath)
+        let dp:TreeDP2 = TreeDP2.init("~/Desktop/repo2.xml".tildePath)
         Swift.print("dp.count: " + "\(dp.count)")
         TreeDP2Parser.values(dp, [], "title").forEach{
             Swift.print("title: " + "\($0)")

@@ -37,12 +37,13 @@ class TreeUtils{
     static func tree(_ xml:XML) -> Tree{
         var tree:Tree = Tree()
         tree.name = xml.name
-        let count = xml.children!.count//or use rootElement.childCount TODO: test this
-        for i in 0..<count{
-            let child:XML = XMLParser.childAt(xml.children!, i)!
+        //let count = xml.children!.count//or use rootElement.childCount TODO: test this
+        xml.children?.forEach{
+            let child:XML = $0 as! XML
             var item:Tree = Tree()
             item.name = child.name
-            let attribs = child.attribs
+            let attribs:[String:String] = child.attribs
+            //Swift.print("attribs.isEmpty: " + "\(attribs.isEmpty)")
             if(!attribs.isEmpty){
                 item.props = attribs
             }
@@ -123,7 +124,10 @@ private class Utils{
         var results:[[Int]] = []
         tree.children.forEach{
             results.append(depth)
+            //Swift.print("$0.children.count > 0: " + "\($0.children.count > 0)")
+            //Swift.print("assert($0): " + "\(assert($0))")
             if($0.children.count > 0 && assert($0)) {/*Array*/
+                //Swift.print("dive deeper")
                 results += Utils.pathIndecies($0,depth, assert)//dive deeper
             }
             depth.end = depth.end! + 1//increment cur level
