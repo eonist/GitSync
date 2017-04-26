@@ -81,7 +81,7 @@ class TestView:TitleView{
  
     */
     func rotationUITest(){
-        let css:String = ""
+        let css:String = "Button#test{}"
         let btn = addSubView(Button(20,20,nil,"test"))
         
     }
