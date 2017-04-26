@@ -81,7 +81,9 @@ class TestView:TitleView{
  
     */
     func rotationUITest(){
-        let btn = Button()
+        let css:String = ""
+        let btn = addSubView(Button(20,20,nil,"test"))
+        
     }
     func transformTest(){
         var css:String = "CheckBox{"
