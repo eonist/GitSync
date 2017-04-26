@@ -19,7 +19,7 @@ class TestWin:Window {
 }
 class MinimalView:WindowView{
     override func resolveSkin(){
-        let css:String = "Window{corner-radius:4px;fill-alpha:1;fill:white;}"
+        let css:String = "Window{fill-alpha:1;fill:white;}"//corner-radius:4px;
         StyleManager.addStyle(css)
         
         //Continue here: 🏀
@@ -27,9 +27,9 @@ class MinimalView:WindowView{
         
         StyleManager.getStyle("Window")?.describe()
         super.resolveSkin()
-        let stackString = ElementParser.stackString(self)
-        Swift.print("stackString: " + "\(stackString)")
-        rotationUITest()
+        //let stackString = ElementParser.stackString(self)
+        //Swift.print("stackString: " + "\(stackString)")
+        //rotationUITest()
     }
     func rotationUITest(){
         
