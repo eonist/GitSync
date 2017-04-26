@@ -19,7 +19,7 @@ class TestView:TitleView{
     func createGUI(){
         
         //transformTest()
-        //treeDPUITest()
+        treeDPUITest()
         //alterTreeDP2Test()
         //hashList2Test()
         //alterTreeTest()
