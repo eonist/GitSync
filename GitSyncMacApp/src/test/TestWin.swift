@@ -11,6 +11,7 @@ class TestWin:Window {
     override func resolveSkin() {
         //Swift.print("frame.width: " + "\(frame.size.width)")
         //Swift.print("frame.height: " + "\(frame.size.height)")
+        //StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
         self.contentView = TestView(frame.size.width,frame.size.height,nil,"listTransitionTestView")
         //self.contentView = RepoListTestView(frame.size.width,frame.size.height)
     }

@@ -17,8 +17,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
         //initApp()
-        initTestWin()//🚧👷
-        
+        //initTestWin()//🚧👷
+        initMinimalWin()
 
     }
     func initApp(){
@@ -30,12 +30,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     func initTestWin(){
         //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
-        //StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
-        //StyleManager.addStylesByURL("~/Desktop/ElCapitan/minimal.css",false)
-        //win = TestWin(500,400)/*Debugging Different List components*/
-        win = MinimalWin(500,400)
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
+        win = TestWin(500,400)/*Debugging Different List components*/
+        
         /*fileWatcher = */
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
+    }
+    func initMinimalWin(){
+        //StyleManager.addStylesByURL("~/Desktop/ElCapitan/minimal.css",false)
+        win = MinimalWin(500,400)
     }
     func applicationWillTerminate(_ aNotification:Notification) {
         //store the app prefs
