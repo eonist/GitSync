@@ -84,7 +84,7 @@ class TestView:TitleView{
         css += "fill:blue;"
         css += "transform:rotation(90deg);"
         css += "}"
-        let property = CSSPropertyParser.property("transform:rotation;")
+        let property = CSSPropertyParser.property("transform:rotation(90deg);")
         Swift.print("property: " + "\(property)")
     }
     func treeDPUITest(){
