@@ -23,7 +23,8 @@ class MinimalView:WindowView{
         StyleManager.addStyle(css)
         
         //Continue here: 🏀
-            //The problem is that not all styleProps are added. The prob is in CSSPropParser
+            //The problem is that not all styleProps are added. The prob is in CSSPropParser ✅
+            //MinimalWin 👈
         
         StyleManager.getStyle("Window")?.describe()
         super.resolveSkin()
