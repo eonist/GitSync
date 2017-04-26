@@ -17,7 +17,8 @@ class TestView:TitleView{
     }
 
     func createGUI(){
-        transformTest()
+        rotationUITest()
+        //transformTest()
         //treeDPUITest()
         //alterTreeDP2Test()
         //hashList2Test()
@@ -79,6 +80,9 @@ class TestView:TitleView{
  
  
     */
+    func rotationUITest(){
+        let btn = Button()
+    }
     func transformTest(){
         var css:String = "CheckBox{"
         css += "fill:blue;"
