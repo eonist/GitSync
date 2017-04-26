@@ -23,9 +23,10 @@ class MinimalView:WindowView{
         rotationUITest()
     }
     func rotationUITest(){
-        let css:String = "Button#test{fill:blue}"
+        var css:String = "Window{fill:white;}"
+        css += "Button#test{fill:blue;}"
         StyleManager.addStyle(css)
-        let btn = addSubView(Button(20,20,nil,"test"))
+        let btn = addSubView(Button(20,20,self,"test"))
         _ = btn
     }
     func treeList(){
