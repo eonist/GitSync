@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     func initTestWin(){
         //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
         //StyleManager.addStylesByURL("~/Desktop/ElCapitan/minimal.css",false)
         win = TestWin(500,400)/*Debugging Different List components*/
         /*fileWatcher = */
