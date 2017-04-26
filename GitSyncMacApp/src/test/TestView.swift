@@ -71,7 +71,10 @@ class TestView:TitleView{
             //
     
     /*
- 
+     CheckBox{
+        fill:blue;
+        transform:rotation(90deg);/*Rotates the skin 90deg*/
+     }
  
  
     */
