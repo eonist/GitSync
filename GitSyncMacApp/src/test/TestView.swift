@@ -17,7 +17,8 @@ class TestView:TitleView{
     }
 
     func createGUI(){
-        treeDPUITest()
+        transformTest()
+        //treeDPUITest()
         //alterTreeDP2Test()
         //hashList2Test()
         //alterTreeTest()
@@ -78,6 +79,14 @@ class TestView:TitleView{
  
  
     */
+    func transformTest(){
+        var css:String = "CheckBox{"
+        css += "fill:blue;"
+        css += "transform:rotation(90deg);"
+        css += "}"
+        let property = CSSPropertyParser.property("transform:rotation(90deg);")
+        Swift.print("property: " + "\(property)")
+    }
     func treeDPUITest(){
         
         //let xml:XML = FileParser.xml()
