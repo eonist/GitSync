@@ -15,9 +15,7 @@ class TestView:TitleView{
         Swift.print(ElementParser.stackString(self))
         createGUI()
     }
-
     func createGUI(){
-        
         //transformTest()
         treeDPUITest()
         //alterTreeDP2Test()
