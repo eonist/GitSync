@@ -7,9 +7,10 @@ class MinimalView:WindowView{
         //let css:String = "Window{fill-alpha:1;fill:white;corner-radius:4px;}"//
         //StyleManager.addStyle(css)
         super.resolveSkin()
-        //rotationUITest()
+        rotationUITest()
     }
-    
+    //Continue here: 
+        //try using checkboxbutton on the bellow:
     func rotationUITest(){
         var css = "Button{"
         css += "fill:blue,~/Desktop/ElCapitan/svg/arrow_right.svg grey6;"
