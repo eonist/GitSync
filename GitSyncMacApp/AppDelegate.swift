@@ -31,9 +31,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func initApp(){
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
         
-        let id = "Window#listTransitionTestView Section#titleBar Button#close"
-        let style = StyleManager.getStyle(id)
-        style?.describe()
         //win = MainWin(MainView.w,MainView.h)
          //win = ConflictDialogWin(380,400)
          //win = CommitDialogWin(400,356)
@@ -41,7 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     func initTestWin(){
         //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)
         win = TestWin(500,400)/*Debugging Different List components*/
         
         /*fileWatcher = */
