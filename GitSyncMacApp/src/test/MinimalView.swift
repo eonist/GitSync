@@ -9,6 +9,11 @@ class MinimalView:WindowView{
         super.resolveSkin()
         rotationUITest()
     }
+    
+    //continue here:
+        //load svg
+        //try to not reload svg on mouse over
+    
     func rotationUITest(){
         var css = "Button{fill:blue;fill-alpha:1;transform:rotate(0deg);}"
         css += "Button:over{transform:rotate(45deg);}"
