@@ -9,14 +9,6 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
         let idx3d:[Int] = treeDP.hashList[listItem.idx]
         listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up)*/
         
-        //Continue here: maybe it's the setSkinState that slows things down? 🏀
-            //Could be the Tree struct, maybe try class
-            //try to find some array methods that are expencive-> 
-            //It's the stylemanager via setSkin 
-            //Maybe its the SVG asset. Being recreated frequently, readded over and over again. rather than just redrawn
-                //solution is to add a rotation property to the css, and rotate 90deg and offset 1x w 👈
-                //then add some code that only recreates the svg if the assetURL change
-        
         disableAnim{listItem.item.setSkinState(listItem.item.getSkinState())}
         
         //SkinModifier.align on a loop
@@ -65,7 +57,7 @@ extension TreeList3{
             Swift.print("open ✅ idx2d: \(idx2d)")
             TreeDP2Modifier.open(treeDP, idx2d)
         }
-        moverGroup!.yMover.contentFrame = (0,contentSize.height)
+        moverGroup!.yMover.contentFrame = (0,contentSize.height)/*updates mover group to avoid jumpiness*/
         moverGroup!.xMover.contentFrame = (0,contentSize.width)
         /*if let element = event.origin as? IElement{
          Swift.print("Stack: " + "\(ElementParser.stackString(element))")
