@@ -31,6 +31,7 @@ class MinimalView:WindowView{
         var css = "CheckBox{"
         css += "fill:blue,~/Desktop/ElCapitan/svg/arrow_right.svg grey6;"
         css += "transform:rotate(0deg),rotate(0deg);"
+        css += "margin-left:20px,20px;"
         css += "}"
         css += "CheckBox:checked{"
         css += "transform:rotate(0deg),rotate(90deg);"
