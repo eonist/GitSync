@@ -17,17 +17,12 @@ class MinimalView:WindowView{
     func rotationUITest(){
         var css = "Button{"
         css += "fill:blue,~/Desktop/ElCapitan/svg/arrow_right.svg grey6;"
-        css += "fill-alpha:1,1;"
         css += "transform:rotate(0deg),rotate(0deg);"
         css += "}"
         css += "Button:over{"
         css += "transform:rotate(0deg),rotate(90deg);"
         css += "}"
-        /*fill:blue;fill-alpha:1;transform:rotate(0deg);}*/
-        //css += "Button:over{transform:rotate(45deg);}"
         StyleManager.addStyle(css)
-        /*let style = StyleManager.getStyle("Button")
-         style?.describe()*/
         let btn = addSubView(Button(100,100,self))
         _ = btn
     }
