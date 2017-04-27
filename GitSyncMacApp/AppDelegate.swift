@@ -17,8 +17,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
         //initApp()
-        initTestWin()//🚧👷
-        //initMinimalWin()
+        //initTestWin()//🚧👷
+        initMinimalWin()
         
         
         //Continue here: 🏀
@@ -45,7 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
     }
     func initMinimalWin(){
-        //StyleManager.addStylesByURL("~/Desktop/ElCapitan/minimal.css",false)
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/minimal.css",false)
         win = MinimalWin(500,400)
     }
     func applicationWillTerminate(_ aNotification:Notification) {

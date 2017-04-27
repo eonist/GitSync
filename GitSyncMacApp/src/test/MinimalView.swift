@@ -4,10 +4,10 @@ import Foundation
 
 class MinimalView:WindowView{
     override func resolveSkin(){
-        let css:String = "Window{fill-alpha:1;fill:white;corner-radius:4px;}"//
-        StyleManager.addStyle(css)
+        //let css:String = "Window{fill-alpha:1;fill:white;corner-radius:4px;}"//
+        //StyleManager.addStyle(css)
         super.resolveSkin()
-        rotationUITest()
+        //rotationUITest()
     }
     
     func rotationUITest(){
