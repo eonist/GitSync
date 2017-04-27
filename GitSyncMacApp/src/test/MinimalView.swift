@@ -10,7 +10,8 @@ class MinimalView:WindowView{
         rotationUITest()
     }
     func rotationUITest(){
-        let css = "Button{fill:blue;fill-alpha:1;transform:rotate(45deg);}"
+        var css = "Button{fill:blue;fill-alpha:1;transform:rotate(0deg);}"
+        css += "Button:over{transform:rotate(45deg);}"
         StyleManager.addStyle(css)
         let style = StyleManager.getStyle("Button")
         style?.describe()
