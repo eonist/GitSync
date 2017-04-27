@@ -75,8 +75,6 @@ class TestView:TitleView{
         fill:blue;
         transform:rotation(90deg);/*Rotates the skin 90deg*/
      }
- 
- 
     */
 
     func transformTest(){
@@ -88,9 +86,7 @@ class TestView:TitleView{
         Swift.print("property: " + "\(property)")
     }
     func treeDPUITest(){
-        
         //let xml:XML = FileParser.xml()
-        //
         //~/Desktop/assets/xml/treelist.xml
         let dp:TreeDP2 = TreeDP2.init("~/Desktop/repo2.xml".tildePath)
         Swift.print("dp.count: " + "\(dp.count)")
