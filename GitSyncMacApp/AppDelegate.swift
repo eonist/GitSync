@@ -44,6 +44,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         /*fileWatcher = */
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
     }
+    
+    //try Element Explorer
+    //try TreeList w/o svg
+    //try setting style in reuse w/o querying stylemanager
+    
     func initMinimalWin(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/minimal.css",false)
         //Swift.print("StyleManager.styles.count: " + "\(StyleManager.styles.count)")
