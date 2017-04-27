@@ -12,12 +12,12 @@ class TestView:TitleView{
     override func resolveSkin(){
         Swift.print("TestView.resolveSkin()")
         super.resolveSkin()
-        Swift.print(ElementParser.stackString(self))
+        //Swift.print(ElementParser.stackString(self))
         createGUI()
     }
     func createGUI(){
         //transformTest()
-        treeDPUITest()
+        //treeDPUITest()
         //alterTreeDP2Test()
         //hashList2Test()
         //alterTreeTest()
