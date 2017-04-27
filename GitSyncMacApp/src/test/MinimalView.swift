@@ -10,10 +10,6 @@ class MinimalView:WindowView{
         rotationUITest()
     }
     
-    //continue here:
-        //load svg
-        //try to not reload svg on mouse over
-    
     func rotationUITest(){
         var css = "Button{"
         css += "fill:blue,~/Desktop/ElCapitan/svg/arrow_right.svg grey6;"
