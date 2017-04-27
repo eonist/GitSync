@@ -23,8 +23,8 @@ class MinimalView:WindowView{
         /*fill:blue;fill-alpha:1;transform:rotate(0deg);}*/
         //css += "Button:over{transform:rotate(45deg);}"
         StyleManager.addStyle(css)
-        let style = StyleManager.getStyle("Button")
-        style?.describe()
+        /*let style = StyleManager.getStyle("Button")
+         style?.describe()*/
         let btn = addSubView(Button(100,100,self))
         
         _ = btn
