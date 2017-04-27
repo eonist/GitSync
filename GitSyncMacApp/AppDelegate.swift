@@ -17,8 +17,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
         //initApp()
-        initTestWin()//🚧👷
-        //initMinimalWin()
+        //initTestWin()//🚧👷
+        initMinimalWin()
         
         
         //Continue here: 🏀
@@ -46,8 +46,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     func initMinimalWin(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/minimal.css",false)
-        Swift.print("StyleManager.styles.count: " + "\(StyleManager.styles.count)")
-        Swift.print("StyleManager.styles: " + "\(StyleManager.styles)")
+        //Swift.print("StyleManager.styles.count: " + "\(StyleManager.styles.count)")
+        //Swift.print("StyleManager.styles: " + "\(StyleManager.styles)")
         win = MinimalWin(500,400)
     }
     func applicationWillTerminate(_ aNotification:Notification) {
