@@ -1,7 +1,9 @@
 import Cocoa
 @testable import Element
 @testable import Utils
-
+/**
+ * NOTE: Indentation is the width of the checkBoxButton
+ */
 class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
     var treeDP:TreeDP2 {return dp as! TreeDP2}
     override func reUse(_ listItem:FastListItem) {
@@ -12,7 +14,11 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
             let isChecked = isOpenStr == "true"
             if(checkBox.getChecked() != isChecked){//only alter state if that state is the opposite of current state
                 disableAnim{
-                    checkBox.setChecked(isChecked)
+                    checkBox.isChecked = isChecked
+                    let checkBoxStyle:IStyle = checkBox.skin!.style!
+                    
+                    checkBox.skin?.setStyle(checkBoxStyle)
+                    //checkBox.setChecked(isChecked)
                 }/*Sets correct open/close icon*/
             }
         }
