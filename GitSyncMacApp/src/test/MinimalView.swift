@@ -53,7 +53,8 @@ class MinimalView:WindowView{
                 
                 //Problem:
                     //as soon as you mouse over you loose the custom style
-                    
+                        //solution is to not use css to align .x val on Element
+                            //align via 
                 
                 //what if you load all the depth styles into a temp var?
                 //to keep moving I think you need to just set indent via variable set on treelist.init
