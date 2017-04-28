@@ -11,7 +11,9 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
         if let checkable = listItem.item as? ICheckable, let isOpenStr = TreeDP2Parser.getProp(treeDP, idx3d, "isOpen"){/*Is checkable and open*/
             let isChecked = isOpenStr == "true"
             if(checkable.getChecked() != isChecked){//only alter state if that state is the opposite of current state
-                disableAnim{checkable.setChecked(isChecked)}/*Sets correct open/close icon*/
+                disableAnim{
+                    checkable.setChecked(isChecked)
+                }/*Sets correct open/close icon*/
             }
         }
         disableAnim{//sets correct indentation
