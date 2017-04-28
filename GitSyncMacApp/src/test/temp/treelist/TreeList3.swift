@@ -5,9 +5,8 @@ import Cocoa
 class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
     var treeDP:TreeDP2 {return dp as! TreeDP2}
     override func reUse(_ listItem:FastListItem) {
-        Swift.print("🍊 \(listItem.idx)")
-        let idx3d:[Int] = treeDP.hashList[listItem.idx]
-        listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up)*/
+        
+        //listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up)*/
         /*
          if let checkable = listItem.item as? ICheckable, let isOpenStr = TreeDP2Parser.getProp(treeDP, idx3d, "isOpen"){/*Is checkable and open*/
          let isChecked = isOpenStr == "true"
@@ -21,7 +20,10 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
             //get checkbox width 
             if let treeListItem = listItem.item as? TreeList3Item,
                 let checkBoxWidth:CGFloat = treeListItem.checkBox?.getWidth() {
-                
+                Swift.print("🍊 \(listItem.idx)")
+                let idx3d:[Int] = treeDP.hashList[listItem.idx]
+                let indentationMultiplier:Int = idx3d.count - 1
+                let checkBoxX:CGFloat = 
             }
         }
         //let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, idx3d)//Does item have children?
