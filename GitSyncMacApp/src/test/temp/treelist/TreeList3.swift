@@ -9,8 +9,6 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
         let idx3d:[Int] = treeDP.hashList[listItem.idx]
         listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up)*/
         
-        
-        
         if let checkable = listItem.item as? ICheckable, let isOpenStr = TreeDP2Parser.getProp(treeDP, idx3d, "isOpen"){/*Is checkable and open*/
             let isChecked = isOpenStr == "true"
             if(checkable.getChecked() != isChecked){//only alter state if that state is the opposite of current state
