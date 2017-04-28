@@ -14,25 +14,25 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
     var treeDP:TreeDP2 {return dp as! TreeDP2}
     override func reUse(_ listItem:FastListItem) {
         let idx3d:[Int] = treeDP.hashList[listItem.idx]
-        //listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up)*/
+        listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up)*/
         
-        if let treeListItem = listItem.item as? TreeList3Item,let checkBox = treeListItem.checkBox, let isOpenStr = TreeDP2Parser.getProp(treeDP, idx3d, "isOpen"){/*Is checkable and open*/
+        if let checkable = listItem.item as? ICheckable, let isOpenStr = TreeDP2Parser.getProp(treeDP, idx3d, "isOpen"){/*Is checkable and open*/
             let isChecked = isOpenStr == "true"
-            //if(checkBox.getChecked() != isChecked){//only alter state if that state is the opposite of current state
+            if(checkable.getChecked() != isChecked){//only alter state if that state is the opposite of current state
                 disableAnim{
                     /*checkBox.isChecked = isChecked
                      var checkBoxStyle:IStyle = checkBox.skin!.style!
                      StyleModifier.overrideStyleProperty(&checkBoxStyle, StyleProperty("transform",isChecked ? 0 : 90,1))//you could also store checked style interim. The best solution would be to add some better caching of syles recently accessd
                      checkBox.skin?.setStyle(checkBoxStyle)*/
-                    checkBox.setChecked(isChecked)
+                    checkable.setChecked(isChecked)
                 }/*Sets correct open/close icon*/
-            //}
+            }
         }
         disableAnim{//sets correct indentation
-            //listItem.item.setSkinState(listItem.item.getSkinState())
+            listItem.item.setSkinState(listItem.item.getSkinState())
             //get to checkbox and text
             //get checkbox width 
-            if let treeListItem = listItem.item as? TreeList3Item,
+            /*if let treeListItem = listItem.item as? TreeList3Item,
                 let checkBoxWidth:CGFloat = treeListItem.checkBox?.getWidth() {
                 Swift.print("🍊 \(listItem.idx)")
                 
@@ -41,7 +41,7 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
                 let textX:CGFloat = checkBoxX + checkBoxWidth
                 treeListItem.checkBox?.point.x = checkBoxX
                 treeListItem.text?.point.x = textX
-            }
+            }*/
         }
         //let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, idx3d)//Does item have children?
         ////hides checkBox if item doesnt have children
