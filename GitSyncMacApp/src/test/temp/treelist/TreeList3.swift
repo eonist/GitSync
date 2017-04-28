@@ -7,7 +7,7 @@ import Cocoa
 
 //Continue here:
     //the custom setting of style is not good. Seperate style and content ☝️
-    //
+    //try to think of a way to access styles faster. You have more knowledege now. 👈
 
 
 class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
