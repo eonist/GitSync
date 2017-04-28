@@ -23,7 +23,9 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
                 Swift.print("🍊 \(listItem.idx)")
                 let idx3d:[Int] = treeDP.hashList[listItem.idx]
                 let indentationMultiplier:Int = idx3d.count - 1
-                let checkBoxX:CGFloat = 
+                let checkBoxX:CGFloat = checkBoxWidth * indentationMultiplier
+                let textX:CGFloat = checkBoxX + checkBoxWidth
+                
             }
         }
         //let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, idx3d)//Does item have children?
