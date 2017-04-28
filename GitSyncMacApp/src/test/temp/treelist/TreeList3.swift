@@ -15,13 +15,14 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
          disableAnim{checkable.setChecked(isChecked)}/*Sets correct open/close icon*/
          }
          }*/
-        disableAnim{//sets correct indentation
-            listItem.item.setSkinState(listItem.item.getSkinState())
-        }
+        
         //let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, idx3d)//Does item have children?
         ////hides checkBox if item doesnt have children
         //(listItem.item as! TreeList3Item).checkBox!.isHidden = !hasChildren
         super.reUse(listItem)/*sets text and position and select state*/
+        /*disableAnim{//sets correct indentation
+         listItem.item.setSkinState(listItem.item.getSkinState())
+         }*/
     }
     override func createItem(_ index:Int) -> Element {
         return Utils.createTreeListItem(itemSize,contentContainer!)
