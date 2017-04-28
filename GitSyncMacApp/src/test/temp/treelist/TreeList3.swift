@@ -19,15 +19,14 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
             //get to checkbox and text
             //get checkbox width 
             if let treeListItem = listItem.item as? TreeList3Item,
-                let checkBox = treeListItem.checkBox,
-                let text = treeListItem.text {
+                let checkBoxWidth:CGFloat = treeListItem.checkBox?.getWidth() {
                 Swift.print("🍊 \(listItem.idx)")
-                let checkBoxWidth:CGFloat = checkBox.getWidth()
                 let idx3d:[Int] = treeDP.hashList[listItem.idx]
                 let indentationMultiplier:Int = idx3d.count - 1
                 let checkBoxX:CGFloat = checkBoxWidth * indentationMultiplier
                 let textX:CGFloat = checkBoxX + checkBoxWidth
-                
+                treeListItem.checkBox?.point.x = checkBoxX
+                treeListItem.text?.point.x = textX
             }
         }
         //let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, idx3d)//Does item have children?
