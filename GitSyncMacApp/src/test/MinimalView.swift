@@ -29,7 +29,7 @@ class MinimalView:WindowView{
      */
     func checkBoxTest(){
         var css = "CheckBox{"
-        css += "float:left;clear:left;"
+        css += "float:left;clear:none;"
         css += "fill:blue,~/Desktop/ElCapitan/svg/arrow_right.svg grey6;"
         css += "transform:rotate(0deg),rotate(0deg);"
         css += "margin-left:0px,0px;"
@@ -38,7 +38,7 @@ class MinimalView:WindowView{
         css += "transform:rotate(0deg),rotate(90deg);"
         css += "}"
         css += "Button{"
-        css += "float:left;clear:left;"
+        css += "float:left;clear:none;"
         css += "fill:red;"
         css += "}"
         StyleManager.addStyle(css)
