@@ -49,7 +49,11 @@ class MinimalView:WindowView{
         btn.event = { event in
             if(event.type == ButtonEvent.upInside){
                 Swift.print("click")
-                var style:IStyle = StyleModifier.clone(checkBox1.skin!.style!)// we need to clone the style 
+                var style:IStyle = StyleModifier.clone(checkBox1.skin!.style!)//We need to clone the style so not to change the style on other UI elements
+                
+                //Problem:
+                    //as soon as you mouse over you loose the custom style
+                    
                 
                 //what if you load all the depth styles into a temp var?
                 //to keep moving I think you need to just set indent via variable set on treelist.init
