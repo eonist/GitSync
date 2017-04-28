@@ -19,9 +19,9 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
             //listItem.item.setSkinState(listItem.item.getSkinState())
             //get to checkbox and text
             //get checkbox width 
-            if let treeListItem = listItem.item as? TreeList3Item{
-                
-                var style:IStyle = StyleModifier.clone(checkBox1.skin!.style!)
+            if let treeListItem = listItem.item as? TreeList3Item,
+                let checkBox = treeListItem.checkBox {
+                    var style:IStyle = StyleModifier.clone(checkBox.skin!.style!)
                 //wait a minute.
                     //if you set indentation with a custom style
                         //and then mouseover
