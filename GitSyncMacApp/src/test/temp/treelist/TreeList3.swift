@@ -23,15 +23,16 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
             let isChecked = isOpenStr == "true"
             //if(checkable.getChecked() != isChecked){//only alter state if that state is the opposite of current state
             disableAnim{
-                checkable.setChecked(isChecked)
+                //checkable.setChecked(isChecked)
+                checkable.checkBox!.setChecked(isChecked)
                 //checkable.checkBox!.setSkinState(checkable.checkBox!.getSkinState())
             }/*Sets correct open/close icon*/
             //}
         }
         
-        //let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, idx3d)//Does item have children?
+        let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, idx3d)//Does item have children?
         //hides checkBox if item doesn't have children
-        //disableAnim{(listItem.item as! TreeList3Item).checkBox!.isHidden = !hasChildren}
+        disableAnim{(listItem.item as! TreeList3Item).checkBox!.isHidden = !hasChildren}
         super.reUse(listItem)/*sets text and position and select state*/
     }
     override func createItem(_ index:Int) -> Element {
