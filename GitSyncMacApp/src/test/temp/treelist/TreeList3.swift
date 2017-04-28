@@ -12,15 +12,15 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
         
         if let treeListItem = listItem.item as? TreeList3Item,let checkBox = treeListItem.checkBox, let isOpenStr = TreeDP2Parser.getProp(treeDP, idx3d, "isOpen"){/*Is checkable and open*/
             let isChecked = isOpenStr == "true"
-            if(checkBox.getChecked() != isChecked){//only alter state if that state is the opposite of current state
+            //if(checkBox.getChecked() != isChecked){//only alter state if that state is the opposite of current state
                 disableAnim{
-                    checkBox.isChecked = isChecked
-                    var checkBoxStyle:IStyle = checkBox.skin!.style!
-                    StyleModifier.overrideStyleProperty(&checkBoxStyle, StyleProperty("transform",isChecked ? 0 : 90,1))//you could also store checked style interim. The best solution would be to add some better caching of syles recently accessd
-                    checkBox.skin?.setStyle(checkBoxStyle)
-                    //checkBox.setChecked(isChecked)
+                    /*checkBox.isChecked = isChecked
+                     var checkBoxStyle:IStyle = checkBox.skin!.style!
+                     StyleModifier.overrideStyleProperty(&checkBoxStyle, StyleProperty("transform",isChecked ? 0 : 90,1))//you could also store checked style interim. The best solution would be to add some better caching of syles recently accessd
+                     checkBox.skin?.setStyle(checkBoxStyle)*/
+                    checkBox.setChecked(isChecked)
                 }/*Sets correct open/close icon*/
-            }
+            //}
         }
         disableAnim{//sets correct indentation
             //listItem.item.setSkinState(listItem.item.getSkinState())
