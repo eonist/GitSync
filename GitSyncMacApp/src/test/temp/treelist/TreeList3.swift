@@ -15,12 +15,8 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
             if(checkBox.getChecked() != isChecked){//only alter state if that state is the opposite of current state
                 disableAnim{
                     checkBox.isChecked = isChecked
-                    let checkBoxStyle:IStyle = checkBox.skin!.style!
-                    
-                    "transform:rotate(0deg),rotate(0deg);"
-                    "transform:rotate(0deg),rotate(90deg);"
-                    StyleModifier.overrideStyleProperty(&checkBoxStyle, StyleProperty("transform"))
-                    StyleModifier.overrideStyleProperty(&checkBoxStyle, StyleProperty())
+                    var checkBoxStyle:IStyle = checkBox.skin!.style!
+                    StyleModifier.overrideStyleProperty(&checkBoxStyle, StyleProperty("transform",isChecked ? 0 : 90,1))
                     checkBox.skin?.setStyle(checkBoxStyle)
                     //checkBox.setChecked(isChecked)
                 }/*Sets correct open/close icon*/
