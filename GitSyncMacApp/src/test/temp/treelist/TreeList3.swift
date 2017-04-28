@@ -21,7 +21,10 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
             //get checkbox width 
             if let treeListItem = listItem.item as? TreeList3Item,
                 let checkBoxWidth:CGFloat = treeListItem.checkBox?.getWidth() {
-                
+                //wait a minute.
+                    //if you set indentation with a custom style
+                        //and then mouseover
+                            //the style will be correct anyway, since style adhers to id and check state. 🎉
                 
             }
         }
