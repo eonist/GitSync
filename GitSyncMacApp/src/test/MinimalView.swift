@@ -8,7 +8,8 @@ class MinimalView:WindowView{
         //StyleManager.addStyle(css)
         super.resolveSkin()
         //rotationUITest()
-        checkBoxTest()
+        //checkBoxTest()
+        treeList()
     }
     //Continue here: 
         //try using checkboxbutton on the bellow:
@@ -54,13 +55,13 @@ class MinimalView:WindowView{
                 //Problem: 🏀
                     //as soon as you mouse over you lose the custom style, you cant use setSkinState because its too intensive to call due to stylemanager
                         //solution is to not use css to align .x val on Element
-                            //set float to none on checkbox.
-                                //test if the next UI floats to the none of the prev UI element. 👈
-                                    //if not then you have to align both CheckBox and TextItem in the re-use method
+                            //set float to none on checkbox. 👍
+                                //test if the next UI floats to the none of the prev UI element. ✅
+                                    //if not then you have to align both CheckBox and TextItem in the re-use method 👈
                 
-                //what if you load all the depth styles into a temp var?
-                //to keep moving I think you need to just set indent via variable set on treelist.init
-                    //then use setStyle
+                //what if you load all the depth styles into a temp var? 🚫
+                //to keep moving I think you need to just set indent via variable set on treelist.init 👍
+                    //then use setStyle 🚫
                 
                 var marginLeft0:IStyleProperty = style.getStyleProperty("margin-left",0)!
                 marginLeft0.value = 20
