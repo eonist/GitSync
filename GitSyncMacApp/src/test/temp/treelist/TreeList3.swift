@@ -16,7 +16,11 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
                 disableAnim{
                     checkBox.isChecked = isChecked
                     let checkBoxStyle:IStyle = checkBox.skin!.style!
+                    
+                    "transform:rotate(0deg),rotate(0deg);"
                     "transform:rotate(0deg),rotate(90deg);"
+                    StyleModifier.overrideStyleProperty(&checkBoxStyle, StyleProperty("transform"))
+                    StyleModifier.overrideStyleProperty(&checkBoxStyle, StyleProperty())
                     checkBox.skin?.setStyle(checkBoxStyle)
                     //checkBox.setChecked(isChecked)
                 }/*Sets correct open/close icon*/
