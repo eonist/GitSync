@@ -22,10 +22,10 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
             if let treeListItem = listItem.item as? TreeList3Item,let checkBox = treeListItem.checkBox {
                 var style:IStyle = StyleModifier.clone(checkBox.skin!.style!)
                 var marginLeft0:IStyleProperty = style.getStyleProperty("margin-left",0)!
-                marginLeft0.value = 20
+                marginLeft0.value = 24
                 StyleModifier.overrideStyleProperty(&style, marginLeft0)
                 var marginLeft1:IStyleProperty = style.getStyleProperty("margin-left",1)!
-                marginLeft1.value = 20
+                marginLeft1.value = 30
                 StyleModifier.overrideStyleProperty(&style, marginLeft1)
                 //style.describe()
                 
