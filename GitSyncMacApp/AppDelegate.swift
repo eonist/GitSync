@@ -22,8 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         //Continue here: 🏀
-            //try load testwin
-            //edit the css for treelist
+            //try load testwin ✅
+            //edit the css for treelist ✅
             //🙏
             //check if treelist is smooth
             //load bigtreelist.xml
@@ -45,10 +45,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
     }
     
-    //try Element Explorer
+    //try Element Explorer ✅
     //try TreeList w/o svg
     //try setting style in reuse w/o querying stylemanager
-    
+    //try to setStyle via another button in the minimalview test 👈
     func initMinimalWin(){
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/minimal.css",false)
         //Swift.print("StyleManager.styles.count: " + "\(StyleManager.styles.count)")
