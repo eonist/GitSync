@@ -16,10 +16,14 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
          }
          }*/
         disableAnim{//sets correct indentation
-            listItem.item.setSkinState(listItem.item.getSkinState())
+            //listItem.item.setSkinState(listItem.item.getSkinState())
             //get to checkbox and text
             //get checkbox width 
-            
+            if let treeListItem = listItem.item as? TreeList3Item,
+                let checkBoxWidth:CGFloat = treeListItem.checkBox?.getWidth() {
+                
+                
+            }
         }
         //let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, idx3d)//Does item have children?
         ////hides checkBox if item doesnt have children
