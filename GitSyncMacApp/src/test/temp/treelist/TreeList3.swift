@@ -16,7 +16,7 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
                 disableAnim{
                     checkBox.isChecked = isChecked
                     var checkBoxStyle:IStyle = checkBox.skin!.style!
-                    StyleModifier.overrideStyleProperty(&checkBoxStyle, StyleProperty("transform",isChecked ? 0 : 90,1))
+                    StyleModifier.overrideStyleProperty(&checkBoxStyle, StyleProperty("transform",isChecked ? 0 : 90,1))//you could also store checked style interim. The best solution would be to add some better caching of syles recently accessd
                     checkBox.skin?.setStyle(checkBoxStyle)
                     //checkBox.setChecked(isChecked)
                 }/*Sets correct open/close icon*/
