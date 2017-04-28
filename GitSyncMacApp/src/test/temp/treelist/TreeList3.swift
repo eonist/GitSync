@@ -30,7 +30,7 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
         }
         
         let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, idx3d)//Does item have children?
-        //hides checkBox if item doesnt have children
+        //hides checkBox if item doesn't have children
         (listItem.item as! TreeList3Item).checkBox!.isHidden = !hasChildren
         super.reUse(listItem)/*sets text and position and select state*/
     }
