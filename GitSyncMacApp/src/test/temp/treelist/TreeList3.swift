@@ -19,8 +19,10 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
             //get to checkbox and text
             //get checkbox width 
             if let treeListItem = listItem.item as? TreeList3Item,
-                let checkBoxWidth:CGFloat = treeListItem.checkBox?.getWidth() {
+                let checkBox = treeListItem.checkBox,
+                let text = treeListItem.text {
                 Swift.print("🍊 \(listItem.idx)")
+                let checkBoxWidth:CGFloat = checkBox.getWidth()
                 let idx3d:[Int] = treeDP.hashList[listItem.idx]
                 let indentationMultiplier:Int = idx3d.count - 1
                 let checkBoxX:CGFloat = checkBoxWidth * indentationMultiplier
