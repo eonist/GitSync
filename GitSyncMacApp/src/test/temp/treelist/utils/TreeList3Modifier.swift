@@ -13,14 +13,18 @@ class TreeList3Modifier {
     /**
      *
      */
-    static func open(_ treeList:TreeList3, _ at:[Int]){
-        //continue here 🏀
+    static func open(_ treeList:TreeList3, _ idx3d:[Int]){
+        if let idx2d:Int = treeList.treeDP[idx3d]{
+            TreeDP2Modifier.open(treeList.treeDP, idx2d)
+        }
     }
     /**
      *
      */
-    static func close(_ treeList:TreeList3, _ at:[Int]){
-        
+    static func close(_ treeList:TreeList3, _ idx3d:[Int]){
+        if let idx2d:Int = treeList.treeDP[idx3d]{
+            TreeDP2Modifier.close(treeList.treeDP, idx2d)
+        }
     }
     /**
      * NOTE: To explode the entire treeList pass an empty array as PARAM: index
