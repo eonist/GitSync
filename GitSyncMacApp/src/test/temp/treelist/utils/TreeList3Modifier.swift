@@ -31,7 +31,10 @@ class TreeList3Modifier {
      */
     static func explodeAt(_ treeList:TreeListable3,_ idx3d:[Int]) {
         let apply:TreeModifier.ApplyMethod = {tree in
-            if let isOpen = tree.props?["isOpen"] ,(isOpen == "false") {/*if has isOpen param and its set to false*/
+            if let isOpen = tree.props?["isOpen"]  {/*if has isOpen param and its set to false*/
+                if isOpen == "true" {
+                    //remove descendants
+                }
                 tree.props?["isOpen"] = "true"/*Set it to true*/
             }
         }
