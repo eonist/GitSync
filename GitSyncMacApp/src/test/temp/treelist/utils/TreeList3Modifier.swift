@@ -25,14 +25,14 @@ class TreeList3Modifier {
     /**
      * NOTE: To explode the entire treeList pass an empty array as PARAM: index
      */
-    static func explodeAt(_ treeList:TreeListable3,_ index:[Int]) {
-   
+    static func explodeAt(_ treeList:TreeListable3,_ idx3d:[Int]) {
+        
     }
     /**
      * NOTE: To collapse the entire treeList pass an empty array as PARAM: index
      * NOTE: This method collapses all nodes from the PARAM: index
      */
-    static func collapseAt(_ treeList:TreeListable3,_ index:[Int]) {
+    static func collapseAt(_ treeList:TreeListable3,_ idx3d:[Int]) {
         
     }
 }
