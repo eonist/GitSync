@@ -13,7 +13,7 @@ class HashList2Modifier {
         indecies = indecies.map{idx3d + $0}//prepend the parent pathIdx to get complete pathIndecies
         //Swift.print("idx: " + "\(idx)")
         //Swift.print("indecies: " + "\(indecies)")
-        let indexAfter:Int = idx+1
+        let indexAfter:Int = idx+1/*we need to inser after idx*/
         list.insert(contentsOf: indecies, at: indexAfter)
         return indecies.count
     }
@@ -21,15 +21,15 @@ class HashList2Modifier {
      * Remove descendants into the 2d list
      */
     static func removeDescendants(_ list:inout [[Int]],_ at:Int, _ tree:Tree) -> Int{
-        Swift.print("🍐 removeDescendants")
-        Swift.print("at: " + "\(at)")
-        Swift.print("list: " + "\(list)")
+        //Swift.print("🍐 removeDescendants")
+        //Swift.print("at: " + "\(at)")
+        //Swift.print("list: " + "\(list)")
         let idx3d:[Int] = list[at]
-        Swift.print("idx3d: " + "\(idx3d)")
+        //Swift.print("idx3d: " + "\(idx3d)")
         let child:Tree = tree[idx3d]!
-        Swift.print("child.children.count: " + "\(child.children.count)")
+        //Swift.print("child.children.count: " + "\(child.children.count)")
         let count:Int = child.count(TreeUtils.isOpen)
-        Swift.print("removeDescendants.count: " + "\(count)")
+        //Swift.print("removeDescendants.count: " + "\(count)")
         let end:Int = at + count
         _ = ArrayModifier.removeRange(&list, at + 1,end + 1)
         return count
