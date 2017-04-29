@@ -11,8 +11,8 @@ class HashList2Modifier {
         //you want all open descendants at 3dIdx
         var indecies:[[Int]] = TreeUtils.pathIndecies(tree,idx3d,TreeUtils.isOpen)/*flattens 3d to 2d*/
         indecies = indecies.map{idx3d + $0}//prepend the parent pathIdx to get complete pathIndecies
-        Swift.print("idx: " + "\(idx)")
-        Swift.print("indecies: " + "\(indecies)")
+        //Swift.print("idx: " + "\(idx)")
+        //Swift.print("indecies: " + "\(indecies)")
         let indexAfter:Int = idx+1
         list.insert(contentsOf: indecies, at: indexAfter)
         return indecies.count

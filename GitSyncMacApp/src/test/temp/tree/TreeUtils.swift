@@ -8,6 +8,7 @@ import Foundation
  }
  }*/
 class TreeUtils{
+    typealias AssertMethod = (_ tree:Tree)->Bool
     /**
      * Recusivly flattens the the treeStructure into a column structure array of tree items
      */
@@ -22,10 +23,10 @@ class TreeUtils{
         }
         return results
     }
-    typealias AssertMethod = (_ tree:Tree)->Bool
     static var defaultAssert:AssertMethod = {_ in return true}//returns true as default
     /**
      * New
+     * Returns
      */
     static func pathIndecies(_ tree:Tree,_ idx:[Int] = [], _ assert:AssertMethod = defaultAssert) -> [[Int]] {
         let child:Tree = TreeParser.child(tree, idx)!
