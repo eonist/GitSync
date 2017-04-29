@@ -26,7 +26,7 @@ class TreeUtils{
     static var defaultAssert:AssertMethod = {_ in return true}//returns true as default
     /**
      * New
-     * Returns
+     * Returns an Array of idx3d that passes the PARAM: assert
      */
     static func pathIndecies(_ tree:Tree,_ idx:[Int] = [], _ assert:AssertMethod = defaultAssert) -> [[Int]] {
         let child:Tree = TreeParser.child(tree, idx)!
