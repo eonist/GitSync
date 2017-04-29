@@ -7,19 +7,13 @@ class TreeDP2Parser {
      * EXAMPLE: TreeDP2Parser.getProp(treeDP, idx, "isOpen")
      */
     static func getProp(_ dp:TreeDP2,_ idx2d:Int, _ key:String)-> String?{
-        if let props = getProps(dp, idx2d){
-            return props[key]
-        }
-        return nil
+        return getProps(dp, idx2d)?[key]
     }
     /**
      * Returns prop-value for idx3d and key
      */
     static func getProp(_ dp:TreeDP2,_ idx3:[Int], _ key:String)-> String?{
-        if let props = getProps(dp, idx3){
-            return props[key]
-        }
-        return nil
+        return getProps(dp, idx3)?[key]
     }
     /**
      * Returns properties
