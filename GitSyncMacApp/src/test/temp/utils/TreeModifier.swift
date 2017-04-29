@@ -2,6 +2,7 @@ import Foundation
 @testable import Utils
 
 class TreeModifier {
+    typealias ApplyMethod = (_ tree:inout Tree)->Void
     /**
      * EXAMPLE XMLModifier.setAttributeAt(xml, [0,1], "title", "someTitle")
      * NOTE: I think this method works with depth indecies
@@ -22,7 +23,6 @@ class TreeModifier {
             _ = TreeModifier.setProp(&tree, at, (k, v))
         }
     }
-    typealias ApplyMethod = (_ tree:inout Tree)->Void
     /**
      * Applies a method at PARAM: idx3d
      * TODO: Clean up with multi if let and guard
