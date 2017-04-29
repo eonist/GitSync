@@ -21,12 +21,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //initMinimalWin()
         
         
-        //Continue here: 🏀
-            //try load testwin ✅
-            //edit the css for treelist ✅
-            //🙏
-            //check if treelist is smooth
-            //load bigtreelist.xml
     }
     func initApp(){
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
