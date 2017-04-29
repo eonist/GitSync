@@ -11,8 +11,7 @@ class MinimalView:WindowView{
         //checkBoxTest()
         treeList()
     }
-    //Continue here: 
-        //try using checkboxbutton on the bellow:
+   
     func rotationUITest(){
         var css = "Button{"
         css += "fill:blue,~/Desktop/ElCapitan/svg/arrow_right.svg grey6;"
@@ -24,6 +23,13 @@ class MinimalView:WindowView{
         StyleManager.addStyle(css)
         let btn = addSubView(Button(100,100,self))
         _ = btn
+    }
+    
+    func treeList(){
+        let url = "~/Desktop/repo2.xml"
+        //let url = "~/Desktop/assets/xml/treelist.xml"
+        let dp:TreeDP2 = TreeDP2(url.tildePath)
+        _ = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
     }
     /**
      *
@@ -52,17 +58,6 @@ class MinimalView:WindowView{
                 Swift.print("click")
                 var style:IStyle = StyleModifier.clone(checkBox1.skin!.style!)//We need to clone the style so not to change the style on other UI elements
                 
-                //Problem: 🏀
-                    //as soon as you mouse over you lose the custom style, you cant use setSkinState because its too intensive to call due to stylemanager
-                        //solution is to not use css to align .x val on Element
-                            //set float to none on checkbox. 👍
-                                //test if the next UI floats to the none of the prev UI element. ✅
-                                    //if not then you have to align both CheckBox and TextItem in the re-use method 👈
-                
-                //what if you load all the depth styles into a temp var? 🚫
-                //to keep moving I think you need to just set indent via variable set on treelist.init 👍
-                    //then use setStyle 🚫
-                
                 var marginLeft0:IStyleProperty = style.getStyleProperty("margin-left",0)!
                 marginLeft0.value = 20
                 StyleModifier.overrideStyleProperty(&style, marginLeft0)
@@ -74,11 +69,5 @@ class MinimalView:WindowView{
                 checkBox1.skin?.setStyle(style)
             }
         }
-    }
-    func treeList(){
-        let url = "~/Desktop/repo2.xml"
-        //let url = "~/Desktop/assets/xml/treelist.xml"
-        let dp:TreeDP2 = TreeDP2(url.tildePath)
-        _ = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
     }
 }

@@ -9,9 +9,9 @@ class RepoView:Element {
     static var repoListFilePath:String = "~/Desktop/repo2.xml"/*📝*///"~/Desktop/assets/xml/list.xml"
     static var selectedListItemIndex:[Int] = []
     static var _node:Node? = nil
-    static var node:Node {/*loads 1 time*/
-        if(_node != nil){
-            return _node!
+    static var node:Node {/*loads 1 time, optimization*/
+        if let node = _node {
+            return node
         }else{
             let xml:XML = FileParser.xml(RepoView.repoListFilePath.tildePath)
             _node = Node(xml)
