@@ -15,24 +15,15 @@ class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
     override func reUse(_ listItem:FastListItem) {
         Swift.print("🍊 \(listItem.idx)")
         let idx3d:[Int] = treeDP.hashList[listItem.idx]
-        listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up)*/
-        
-        disableAnim{listItem.item.setSkinState(listItem.item.getSkinState())}
+        listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up), should use classID*/
+        disableAnim{listItem.item.setSkinState(listItem.item.getSkinState())}/*Sets correct indent*/
         let isOpenStr = TreeDP2Parser.getProp(treeDP, idx3d, "isOpen")
         if let checkable = listItem.item as? CheckBoxButton{
             let isChecked = isOpenStr == "true"
-            //if(checkable.getChecked() != isChecked){//only alter state if that state is the opposite of current state
-            disableAnim{
-                //checkable.setChecked(isChecked)
-                checkable.checkBox!.setChecked(isChecked)
-                //checkable.checkBox!.setSkinState(checkable.checkBox!.getSkinState())
-            }/*Sets correct open/close icon*/
-            //}
+            disableAnim{checkable.checkBox!.setChecked(isChecked)}/*Sets correct open/close icon*/
         }
-        
         let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, idx3d)//Does item have children?
-        //hides checkBox if item doesn't have children
-        disableAnim{(listItem.item as! TreeList3Item).checkBox!.isHidden = !hasChildren}
+        disableAnim{(listItem.item as! TreeList3Item).checkBox!.isHidden = !hasChildren}/*hides checkBox if item doesn't have children*/
         super.reUse(listItem)/*sets text and position and select state*/
     }
     override func createItem(_ index:Int) -> Element {
