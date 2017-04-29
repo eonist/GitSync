@@ -34,7 +34,7 @@ class TreeList3Modifier {
             if isOpen == "true" {//already open
                 //remove descendants
             }
-            //Continue here: 🏀 
+            //Continue here: 🏀
                 //make a method that traverses down hierarchy
             //traverse all items and set to open
             //add all descedants to 2d list
