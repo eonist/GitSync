@@ -29,6 +29,7 @@ class TreeDP2Parser {
     }
     /**
      * TODO: ⚠️️ You can probably chain indices as well
+     * TODO: Use .filte instead
      */
     static func values(_ dp:TreeDP2,_ idx:[Int], _ key:String)->[String]{
         var indecies:[[Int]] = TreeUtils.pathIndecies(dp.tree,idx,TreeUtils.isOpen)/*flattens 3d to 2d*/
@@ -38,6 +39,6 @@ class TreeDP2Parser {
             if let tree = dp.tree[idx],let props:[String:String] = tree.props,let value = props[key]{
                 return value
             };return nil
-            }.flatMap{$0}
+            }.flatMap{$0}/*removes nil*/
     }
 }
