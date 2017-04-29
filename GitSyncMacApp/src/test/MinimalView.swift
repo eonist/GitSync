@@ -16,8 +16,8 @@ class MinimalView:WindowView{
         let url = "~/Desktop/repo2.xml"
         //let url = "~/Desktop/assets/xml/treelist.xml"
         let dp:TreeDP2 = TreeDP2(url.tildePath)
-        _ = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
-        TreeListModifier.selectAt(treeList, [2])
+        let treeList = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
+        TreeList3Modifier.select(treeList, [2])
     }
     func rotationUITest(){
         var css = "Button{"

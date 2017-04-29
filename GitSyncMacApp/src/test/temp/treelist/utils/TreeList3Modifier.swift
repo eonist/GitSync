@@ -22,4 +22,17 @@ class TreeList3Modifier {
     static func close(_ treeList:TreeList3, _ at:[Int]){
         
     }
+    /**
+     * NOTE: To explode the entire treeList pass an empty array as PARAM: index
+     */
+    static func explodeAt(_ treeList:TreeListable3,_ index:[Int]) {
+   
+    }
+    /**
+     * NOTE: To collapse the entire treeList pass an empty array as PARAM: index
+     * NOTE: This method collapses all nodes from the PARAM: index
+     */
+    static func collapseAt(_ treeList:TreeListable3,_ index:[Int]) {
+        
+    }
 }
