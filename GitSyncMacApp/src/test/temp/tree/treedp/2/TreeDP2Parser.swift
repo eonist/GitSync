@@ -27,6 +27,9 @@ class TreeDP2Parser {
     static func getProps(_ dp:TreeDP2,_ idx3d:[Int])->[String:String]?{
         return dp.tree.getProps(idx3d)
     }
+    /**
+     * TODO: ⚠️️ You can probably chain indices as well
+     */
     static func values(_ dp:TreeDP2,_ idx:[Int], _ key:String)->[String]{
         var indecies:[[Int]] = TreeUtils.pathIndecies(dp.tree,idx,TreeUtils.isOpen)/*flattens 3d to 2d*/
         Swift.print("indecies: " + "\(indecies)")
