@@ -10,7 +10,7 @@ import Cocoa
     //try to think of a way to access styles faster. You have more knowledege now. 👈
 
 
-class TreeList3:ElasticScrollFastList3{//ElasticSlideScrollFastList3
+class TreeList3:ElasticScrollFastList3,TreeListable3{//ElasticSlideScrollFastList3
     var treeDP:TreeDP2 {return dp as! TreeDP2}
     override func reUse(_ listItem:FastListItem) {
         Swift.print("🍊 \(listItem.idx)")
