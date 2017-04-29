@@ -4,12 +4,6 @@ import Cocoa
 /**
  * NOTE: Indentation is the width of the checkBoxButton
  */
-
-//Continue here:
-    //the custom setting of style is not good. Seperate style and content ☝️
-    //try to think of a way to access styles faster. You have more knowledege now. 👈
-
-
 class TreeList3:ElasticScrollFastList3,TreeListable3{//ElasticSlideScrollFastList3
     var treeDP:TreeDP2 {return dp as! TreeDP2}
     override func reUse(_ listItem:FastListItem) {
