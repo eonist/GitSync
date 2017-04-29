@@ -1,5 +1,7 @@
 import Foundation
+@testable import Element
+@testable import Utils
 
-class TreeListable3 {
-
+protocol TreeListable3:Listable3 {
+    var treeDP:TreeDP2 {get}
 }
