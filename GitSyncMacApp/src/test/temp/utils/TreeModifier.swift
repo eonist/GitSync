@@ -26,6 +26,7 @@ class TreeModifier {
     /**
      * Applies a method at PARAM: idx3d
      * TODO: Clean up with multi if let and guard
+     * NOTE: Recursivly traverses the entire hierarchy
      */
     static func apply(_ tree:inout Tree, _ idx3d:[Int], _ apply:ApplyMethod){
         if(idx3d.count == 0) {
