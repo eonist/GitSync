@@ -30,13 +30,17 @@ class TreeList3Modifier {
      * NOTE: To explode the entire treeList pass an empty array as PARAM: index
      */
     static func explodeAt(_ treeList:TreeListable3,_ idx3d:[Int]) {
-        let apply:TreeModifier.ApplyMethod = {tree in
-            if let isOpen = tree.props?["isOpen"]  {/*if has isOpen param and its set to false*/
-                if isOpen == "true" {
-                    //remove descendants
-                }
-                tree.props?["isOpen"] = "true"/*Set it to true*/
+        if let isOpen = tree.props?["isOpen"]  {/*if has isOpen param and its set to false*/
+            if isOpen == "true" {//already open
+                //for loop children with explodeAt method?
+            }else{//not open
+                //traverse all items and set to open
+                //add all descedants to 2d list
             }
+            //tree.props?["isOpen"] = "true"/*Set it to true*/
+        }
+        let apply:TreeModifier.ApplyMethod = {tree in
+            
         }
         TreeModifier.apply(&treeList.treeDP.tree, idx3d, apply)
     }
