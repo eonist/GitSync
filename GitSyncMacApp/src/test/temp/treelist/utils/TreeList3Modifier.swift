@@ -31,6 +31,13 @@ class TreeList3Modifier {
      */
     static func explodeAt(_ treeList:TreeListable3,_ idx3d:[Int]) {
         
+        let apply:TreeModifier.ApplyMethod = {tree in
+            if let isOpen = tree.props?["isopen"] ,!(isOpen == "true") {
+                
+            }
+        }
+        TreeModifier.apply(&treeList.treeDP.tree, idx3d, apply)
+        
     }
     /**
      * NOTE: To collapse the entire treeList pass an empty array as PARAM: index
