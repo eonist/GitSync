@@ -37,8 +37,8 @@ extension TreeList3{
      * NOTE: This method gets all CheckEvent's from all decending ICheckable instances
      */
     func onItemCheck(_ event:CheckEvent) {
-        Swift.print("onItemCheck")
-        Swift.print("event.origin: " + "\(event.origin)")
+        //Swift.print("onItemCheck")
+        //Swift.print("event.origin: " + "\(event.origin)")
         let idx2d:Int = FastList3Parser.idx(self, (event.origin as! NSView).superview!)!
         if(TreeList3Asserter.isOpen(self, idx2d)){
             Swift.print("close 🚫 idx2d: \(idx2d)")
@@ -49,10 +49,6 @@ extension TreeList3{
         }
         moverGroup!.yMover.contentFrame = (0,contentSize.height)/*updates mover group to avoid jumpiness*/
         moverGroup!.xMover.contentFrame = (0,contentSize.width)
-        /*if let element = event.origin as? IElement{
-         Swift.print("Stack: " + "\(ElementParser.stackString(element))")
-         //Swift.print("element.id: " + "\(element.id)")
-         }*/
         //onEvent(TreeListEvent(TreeListEvent.change,self))
     }
     func onItemSelect(_ event:SelectEvent){

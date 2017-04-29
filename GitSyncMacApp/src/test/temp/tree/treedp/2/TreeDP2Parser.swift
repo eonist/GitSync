@@ -13,7 +13,7 @@ class TreeDP2Parser {
         return nil
     }
     /**
-     * Returns prop-value for idx2d and key
+     * Returns prop-value for idx3d and key
      */
     static func getProp(_ dp:TreeDP2,_ idx3:[Int], _ key:String)-> String?{
         if let props = getProps(dp, idx3){
