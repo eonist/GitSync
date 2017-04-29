@@ -80,6 +80,9 @@ class TreeUtils{
         }
         return xml
     }
+    /**
+     * Assert method for Utils.pathIndecies
+     */
     static var isOpen:TreeUtils.AssertMethod = { tree in
         guard let props = tree.props, props["isOpen"] == "true" else {
             return false
