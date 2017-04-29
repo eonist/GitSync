@@ -40,8 +40,7 @@ extension TreeList3{
         Swift.print("onItemCheck")
         Swift.print("event.origin: " + "\(event.origin)")
         let idx2d:Int = FastList3Parser.idx(self, (event.origin as! NSView).superview!)!
-        let isOpen:Bool = TreeDP2Parser.getProp(treeDP, idx2d, "isOpen") == "true"
-        if(isOpen){
+        if(TreeList3Asserter.isOpen(self, idx2d)){
             Swift.print("close 🚫 idx2d: \(idx2d)")
             TreeDP2Modifier.close(treeDP, idx2d)
         }else{

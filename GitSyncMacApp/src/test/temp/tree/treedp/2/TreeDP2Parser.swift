@@ -3,7 +3,7 @@ import Foundation
 
 class TreeDP2Parser {
     /**
-     * Returns
+     * Returns prop-value for idx2d and key
      * EXAMPLE: TreeDP2Parser.getProp(treeDP, idx, "isOpen")
      */
     static func getProp(_ dp:TreeDP2,_ idx2d:Int, _ key:String)-> String?{
@@ -13,7 +13,7 @@ class TreeDP2Parser {
         return nil
     }
     /**
-     *
+     * Returns prop-value for idx2d and key
      */
     static func getProp(_ dp:TreeDP2,_ idx3:[Int], _ key:String)-> String?{
         if let props = getProps(dp, idx3){
