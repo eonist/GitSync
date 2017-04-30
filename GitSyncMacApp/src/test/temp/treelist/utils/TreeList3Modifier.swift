@@ -37,7 +37,9 @@ class TreeList3Modifier {
             //Continue here: 🏀
                 //make a method that traverses down hierarchy
             //traverse all items and set to open
+            recursiveApply(treeList.treeDP.tree[idx3d],setValue,("isOpen","true"))
             //add all descedants to 2d list
+            let count:Int = HashList2Modifier.addDescendants(&dp.hashList, idx2d, idx3d, dp.tree)/*adds items to HashList (via HashListModifier.addDescendants)*/
             //use the count to update DP and UI
             //tree.props?["isOpen"] = "true"/*Set it to true*/
         }
