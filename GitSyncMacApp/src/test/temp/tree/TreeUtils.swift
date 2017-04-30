@@ -37,7 +37,7 @@ class TreeUtils{
      * TODO: Use the reduce into tuple with arr and dict (See notes for example)
      */
     static func hashList(_ tree:Tree) -> HashList{
-        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],Utils.isOpen)/*flattens 3d to 2d*/
+        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],isOpen)/*flattens 3d to 2d*/
         /*Swift.print("⚠️️")
          pathIndecies.forEach{
          Swift.print("$0: " + "\($0)")
@@ -61,6 +61,15 @@ class TreeUtils{
         }
         tree.children.forEach{describe($0, key, level + 1)}
     }
+    /**
+     * Assert method for Utils.pathIndecies, Other methods also use this method
+     */
+    static var isOpen:TreeUtils.AssertMethod = { tree in
+        guard let props = tree.props, props["isOpen"] == "true" else {
+            return false
+        }
+        return true
+    }
 }
 private class Utils{
     /**
@@ -81,14 +90,5 @@ private class Utils{
             depth.end = depth.end! + 1//increment cur level
         }
         return results
-    }
-    /**
-     * Assert method for Utils.pathIndecies
-     */
-    static var isOpen:TreeUtils.AssertMethod = { tree in
-        guard let props = tree.props, props["isOpen"] == "true" else {
-            return false
-        }
-        return true
     }
 }
