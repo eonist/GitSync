@@ -8,7 +8,7 @@ import Foundation
  */
 class TreeDP2:DataProvider {
     var tree:Tree
-    var hashList:[[Int]]
+    var hashList:[[Int]]/*Stores the idx3d indecies*/
     init(_ tree:Tree){
         self.tree = tree
         self.hashList = TreeUtils.pathIndecies(tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/

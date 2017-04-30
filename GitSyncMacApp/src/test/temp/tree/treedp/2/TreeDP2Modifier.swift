@@ -8,7 +8,7 @@ class TreeDP2Modifier {
     static func open(_ dp:TreeDP2, _ idx2d:Int){
         let idx3d:[Int] = dp.hashList[idx2d]
         dp.tree.setProp(idx3d,("isOpen","true"))//updates tree
-        let count:Int = HashList2Modifier.addDescendants(&dp.hashList, idx2d, dp.tree)/*adds items to HashList (via HashListModifier.addDescendants)*/
+        let count:Int = HashList2Modifier.addDescendants(&dp.hashList, idx2d, idx3d, dp.tree)/*adds items to HashList (via HashListModifier.addDescendants)*/
         dp.onEvent(DataProviderEvent(DataProviderEvent.add, idx2d, idx2d+count, dp))
     }
     /**
@@ -16,7 +16,7 @@ class TreeDP2Modifier {
      */
     static func close(_ dp:TreeDP2, _ idx2d:Int){
         let idx3d:[Int] = dp.hashList[idx2d]
-        let count:Int = HashList2Modifier.removeDescendants(&dp.hashList, idx2d, dp.tree)/*remove items from HashList (via HashListModifier.removeDescendants)*/
+        let count:Int = HashList2Modifier.removeDescendants(&dp.hashList, idx2d, idx3d, dp.tree)/*remove items from HashList (via HashListModifier.removeDescendants)*/
         dp.tree.setProp(idx3d,("isOpen","false"))//update tree
         dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+count, dp))
     }

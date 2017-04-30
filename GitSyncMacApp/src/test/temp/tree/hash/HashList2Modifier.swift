@@ -5,7 +5,7 @@ class HashList2Modifier {
     /**
      * Inserts descendants into the 2d list
      */
-    static func addDescendants(_ list:inout [[Int]],_ idx2d:Int, idx3d:[Int], _ tree:Tree) -> Int{
+    static func addDescendants(_ list:inout [[Int]], _ idx2d:Int, _ idx3d:[Int], _ tree:Tree) -> Int{
         //Swift.print("idx3d: " + "\(idx3d)")
         //you want all open descendants at 3dIdx
         var indecies:[[Int]] = TreeUtils.pathIndecies(tree,idx3d,TreeUtils.isOpen)/*flattens 3d to 2d*/
