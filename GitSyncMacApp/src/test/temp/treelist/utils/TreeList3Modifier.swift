@@ -12,7 +12,7 @@ class TreeList3Modifier {
         }
     }
     /**
-     *
+     * Open a PARAM: treeList at PARAM: idx3d
      */
     static func open(_ treeList:TreeListable3, _ idx3d:[Int]){
         if let idx2d:Int = treeList.treeDP[idx3d]{
@@ -20,7 +20,7 @@ class TreeList3Modifier {
         }
     }
     /**
-     *
+     * Close a PARAM: treeList at PARAM: idx3d
      */
     static func close(_ treeList:TreeListable3, _ idx3d:[Int]){
         if let idx2d:Int = treeList.treeDP[idx3d]{
