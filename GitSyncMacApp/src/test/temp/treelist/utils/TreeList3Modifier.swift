@@ -55,11 +55,19 @@ class TreeList3Modifier {
     /**
      *
      */
+    static func recursiveApply(_ tree:Tree, _ apply:Apply, _ prop:KeyValue){
+        if let child:Tree = tree[idx3d]{
+            apply(child)
+            child.children.forEach {
+                recursiveApply($0,idx3d,apply,prop)
+            }
+        }
+    }
     static func recursiveApply(_ tree:Tree,_ idx3d:[Int], _ apply:Apply, _ prop:KeyValue){
         if let child:Tree = tree[idx3d]{
             apply(child)
             child.children.forEach {
-                recursiveApply(tree,idx3d,apply,prop)
+                recursiveApply($0,idx3d,apply,prop)
             }
         }
     }
