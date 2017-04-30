@@ -14,7 +14,7 @@ class TreeList3Modifier {
     /**
      *
      */
-    static func open(_ treeList:TreeList3, _ idx3d:[Int]){
+    static func open(_ treeList:TreeListable3, _ idx3d:[Int]){
         if let idx2d:Int = treeList.treeDP[idx3d]{
             TreeDP2Modifier.open(treeList.treeDP, idx2d)
         }
@@ -22,7 +22,7 @@ class TreeList3Modifier {
     /**
      *
      */
-    static func close(_ treeList:TreeList3, _ idx3d:[Int]){
+    static func close(_ treeList:TreeListable3, _ idx3d:[Int]){
         if let idx2d:Int = treeList.treeDP[idx3d]{
             TreeDP2Modifier.close(treeList.treeDP, idx2d)
         }
@@ -35,8 +35,7 @@ class TreeList3Modifier {
             if isOpen == "true" {//already open
                 close(treeList,idx3d)
             }
-            //Continue here: 🏀
-                //make a method that traverses down hierarchy
+         
             //traverse all items and set to open
             recursiveApply(&treeList.treeDP.tree[idx3d]!,setValue,("isOpen","true"))
             //add all descedants to 2d list
@@ -50,6 +49,14 @@ class TreeList3Modifier {
         }
         TreeModifier.apply(&treeList.treeDP.tree, idx3d, apply)
     }
+    /**
+     * NOTE: To collapse the entire treeList pass an empty array as PARAM: index
+     * NOTE: This method collapses all nodes from the PARAM: index
+     */
+    static func collapseAt(_ treeList:TreeListable3,_ idx3d:[Int]) {
+        
+    }
+    
     typealias KeyValue = (key:String,val:String)
     typealias Apply = (_ tree:inout Tree, _ prop:KeyValue) -> Void
     
@@ -58,6 +65,7 @@ class TreeList3Modifier {
     }
     /**
      * EXAMPLE: recursiveApply(tree[idx3d],setValue,("isOpen","true"))
+     * NOTE: This method traverses down hierarchy
      */
     static func recursiveApply(_ tree:inout Tree, _ apply:@escaping Apply, _ prop:KeyValue){
         apply(&tree,prop)
@@ -66,11 +74,5 @@ class TreeList3Modifier {
         }
     }
   
-    /**
-     * NOTE: To collapse the entire treeList pass an empty array as PARAM: index
-     * NOTE: This method collapses all nodes from the PARAM: index
-     */
-    static func collapseAt(_ treeList:TreeListable3,_ idx3d:[Int]) {
-        
-    }
+    
 }
