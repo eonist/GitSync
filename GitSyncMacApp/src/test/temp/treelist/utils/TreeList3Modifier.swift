@@ -46,7 +46,11 @@ class TreeList3Modifier {
         }
         TreeModifier.apply(&treeList.treeDP.tree, idx3d, apply)
     }
-    typealias Apply = (_ tree:inout Tree, _ prop:(k:String,v:String)) -> Void
+    typealias Apply = (_ tree:inout Tree, _ prop:(key:String,val:String)) -> Void
+    
+    static var setValue:Apply = {tree,prop in
+        tree.props?[prop.key] = prop.val
+    }
     /**
      *
      */
