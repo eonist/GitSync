@@ -37,4 +37,10 @@ class TreeModifier {
             TreeModifier.apply(&tree[idx3d.first!]!, idx3d.slice2(1,idx3d.count),apply)//keep digging
         }
     }
+    /**
+     *
+     */
+    static func add(_ tree:Tree,_ idx3d:[Int],_ child:Tree){
+        tree[idx3d].children.append(<#T##newElement: Tree##Tree#>)
+    }
 }
