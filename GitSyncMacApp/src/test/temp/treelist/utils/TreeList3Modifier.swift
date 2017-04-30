@@ -52,7 +52,10 @@ class TreeList3Modifier {
      */
     static func recursiveApply(_ tree:Tree,_ idx3d:[Int], apply:Apply){
         if let child:Tree = tree[idx3d]{
-            
+            apply(child)
+            child.children.forEach {
+                $0
+            }
         }
     }
     /**
