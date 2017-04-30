@@ -53,7 +53,7 @@ class TreeList3Modifier {
         tree.props?[prop.key] = prop.val
     }
     /**
-     *
+     * EXAMPLE: recursiveApply(tree[idx3d],setValue,("isOpen","true"))
      */
     static func recursiveApply(_ tree:inout Tree, _ apply:@escaping Apply, _ prop:KeyValue){
         apply(&tree,prop)
