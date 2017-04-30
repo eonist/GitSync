@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 
 class TreeList3Modifier {
     /**
@@ -32,7 +33,7 @@ class TreeList3Modifier {
     static func explodeAt(_ treeList:TreeListable3,_ idx3d:[Int]) {
         if let isOpen = treeList.treeDP.tree.props?["isOpen"]  {/*if has isOpen param and its set to false*/
             if isOpen == "true" {//already open
-                //remove descendants
+                close(treeList,idx3d)
             }
             //Continue here: 🏀
                 //make a method that traverses down hierarchy
@@ -40,9 +41,9 @@ class TreeList3Modifier {
             recursiveApply(&treeList.treeDP.tree[idx3d]!,setValue,("isOpen","true"))
             //add all descedants to 2d list
             let idx2d:Int = treeList.treeDP[idx3d]!
-            let count:Int = HashList2Modifier.addDescendants(&treeList.dp.hashList, idx2d, idx3d, treeList.dp.tree)/*adds items to HashList (via HashListModifier.addDescendants)*/
+            let count:Int = HashList2Modifier.addDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*adds items to HashList (via HashListModifier.addDescendants)*/
             //use the count to update DP and UI
-            //tree.props?["isOpen"] = "true"/*Set it to true*/
+            treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+count, treeList.dp))
         }
         let apply:TreeModifier.ApplyMethod = {tree in
             
