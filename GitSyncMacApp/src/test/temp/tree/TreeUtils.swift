@@ -9,6 +9,7 @@ import Foundation
  }*/
 class TreeUtils{
     typealias AssertMethod = (_ tree:Tree)->Bool
+    static var defaultAssert:AssertMethod = {_ in return true}//returns true as default
     /**
      * Recusivly flattens the the treeStructure into a column structure array of tree items
      */
@@ -23,7 +24,6 @@ class TreeUtils{
         }
         return results
     }
-    static var defaultAssert:AssertMethod = {_ in return true}//returns true as default
     /**
      * New
      * Returns an Array of idx3d that passes the PARAM: assert
@@ -32,22 +32,12 @@ class TreeUtils{
         let child:Tree = TreeParser.child(tree, idx)!
         return Utils.pathIndecies(child, [], assert)
     }
-    
-    /**
-     * Assert method for Utils.pathIndecies
-     */
-    static var isOpen:TreeUtils.AssertMethod = { tree in
-        guard let props = tree.props, props["isOpen"] == "true" else {
-            return false
-        }
-        return true
-    }
     /**
      * New
      * TODO: Use the reduce into tuple with arr and dict (See notes for example)
      */
     static func hashList(_ tree:Tree) -> HashList{
-        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
+        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],Utils.isOpen)/*flattens 3d to 2d*/
         /*Swift.print("⚠️️")
          pathIndecies.forEach{
          Swift.print("$0: " + "\($0)")
@@ -91,5 +81,14 @@ private class Utils{
             depth.end = depth.end! + 1//increment cur level
         }
         return results
+    }
+    /**
+     * Assert method for Utils.pathIndecies
+     */
+    static var isOpen:TreeUtils.AssertMethod = { tree in
+        guard let props = tree.props, props["isOpen"] == "true" else {
+            return false
+        }
+        return true
     }
 }
