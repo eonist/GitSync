@@ -49,6 +49,7 @@ extension Tree{//maybe treekind isn't needed. Just use Tree?
         get {return self.child(at)}
         set {
             /*self.child(at)?.name = newValue?.name*/
+            //you might have to make an apply method and use the traversal method
             fatalError("not implemented yet")
         }
     }
