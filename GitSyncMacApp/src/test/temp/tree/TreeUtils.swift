@@ -91,6 +91,7 @@ class TreeUtils{
     }
     /**
      * New
+     * TODO: Use the reduce into tuple with arr and dict (See notes for example)
      */
     static func hashList(_ tree:Tree) -> HashList{
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
