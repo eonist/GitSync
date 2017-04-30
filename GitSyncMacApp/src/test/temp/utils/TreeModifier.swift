@@ -9,7 +9,7 @@ class TreeModifier {
      */
     static func setProp(_ tree:inout Tree,_ idx3d:[Int], _ prop:(key:String,val:String)) {
         //may work
-        let apply:ApplyMethod = {tree in
+        let apply:ApplyMethod = {tree in//maybe move into global class scope and
             tree.props?[prop.key] = prop.val
         }
         TreeModifier.apply(&tree, idx3d, apply)
