@@ -38,11 +38,6 @@ class TreeUtils{
      */
     static func hashList(_ tree:Tree) -> HashList{
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],isOpen)/*flattens 3d to 2d*/
-        /*Swift.print("⚠️️")
-         pathIndecies.forEach{
-         Swift.print("$0: " + "\($0)")
-         }*/
-        //Swift.print("⚠️️")
         var arr:[String] = []
         var dict:[String:Int] = [:]
         pathIndecies.forEach{
