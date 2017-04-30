@@ -1,4 +1,6 @@
 import Foundation
+@testable import Utils
+@testable import Element
 
 class TreeConverter {
     /**
@@ -20,7 +22,7 @@ class TreeConverter {
             if let content = child.stringValue, content.count > 0 {
                 item.content = content
             }else if(child.hasComplexContent) {
-                _ = item.children += TreeUtils.tree(child).children
+                _ = item.children += TreeConverter.tree(child).children
             }
             tree.add(item)
         }
@@ -44,7 +46,7 @@ class TreeConverter {
         
         let xml:XML = toXML(tree)
         tree.children.forEach{ child in/*This can be a single .map method*/
-            let childXML:XML = TreeUtils.xml(child)
+            let childXML:XML = TreeConverter.xml(child)
             xml += childXML
         }
         return xml

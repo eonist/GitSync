@@ -35,7 +35,7 @@ class TreeDP2:DataProvider {
         self.init(xml)
     }
     convenience init(_ xml:XML) {
-        let tree:Tree = TreeUtils.tree(xml)
+        let tree:Tree = TreeConverter.tree(xml)
         self.init(tree)
     }
 }
