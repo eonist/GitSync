@@ -46,10 +46,11 @@ class TreeList3Modifier {
         }
         TreeModifier.apply(&treeList.treeDP.tree, idx3d, apply)
     }
+    typealias Apply = (_ tree:inout Tree, _ prop:(k:String,v:String)) -> Void
     /**
      *
      */
-    static func recursiveApply(_ tree:Tree,_ idx3d:[Int]){
+    static func recursiveApply(_ tree:Tree,_ idx3d:[Int], apply:Apply){
         
     }
     /**
