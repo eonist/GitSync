@@ -51,7 +51,7 @@ class TreeList3Modifier {
      *
      */
     static func recursiveApply(_ tree:Tree,_ idx3d:[Int], apply:Apply){
-        
+        let child:Tree = tree[idx]
     }
     /**
      * NOTE: To collapse the entire treeList pass an empty array as PARAM: index
