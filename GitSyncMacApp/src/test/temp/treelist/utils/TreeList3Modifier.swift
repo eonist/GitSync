@@ -46,7 +46,12 @@ class TreeList3Modifier {
         }
         TreeModifier.apply(&treeList.treeDP.tree, idx3d, apply)
     }
-    
+    /**
+     *
+     */
+    static func recursiveApply(_ tree:Tree,_ idx3d:[Int]){
+        
+    }
     /**
      * NOTE: To collapse the entire treeList pass an empty array as PARAM: index
      * NOTE: This method collapses all nodes from the PARAM: index
