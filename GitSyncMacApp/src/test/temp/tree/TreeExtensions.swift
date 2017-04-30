@@ -47,6 +47,9 @@ extension Tree{//maybe treekind isn't needed. Just use Tree?
     }
     subscript(at:[Int]) -> Tree? {
         get {return self.child(at)}
+        set {
+            /*self.child(at)?.name = newValue?.name*/
+        }
     }
     /**
      * TODO: This could even be a subscript
