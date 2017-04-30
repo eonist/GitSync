@@ -46,7 +46,8 @@ class TreeList3Modifier {
         }
         TreeModifier.apply(&treeList.treeDP.tree, idx3d, apply)
     }
-    typealias Apply = (_ tree:inout Tree, _ prop:(key:String,val:String)) -> Void
+    typealias KeyValue = (key:String,val:String)
+    typealias Apply = (_ tree:inout Tree, _ prop:KeyValue) -> Void
     
     static var setValue:Apply = {tree,prop in
         tree.props?[prop.key] = prop.val
@@ -54,11 +55,11 @@ class TreeList3Modifier {
     /**
      *
      */
-    static func recursiveApply(_ tree:Tree,_ idx3d:[Int], apply:Apply){
+    static func recursiveApply(_ tree:Tree,_ idx3d:[Int], _ apply:Apply, _ prop:KeyValue){
         if let child:Tree = tree[idx3d]{
             apply(child)
             child.children.forEach {
-                $0
+                recursiveApply(tree,idx3d,apply,prop)
             }
         }
     }
