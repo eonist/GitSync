@@ -46,7 +46,8 @@ class TreeModifier {
     /**
      *
      */
-    static func remove(_ tree: inout Tree,_ idx3d:[Int],_ child:Tree){
-        tree[idx3d]?.children.remove
+    static func remove(_ tree: inout Tree,_ idx3d:[Int],_ at:Int){
+        
+        //let idx:Int = tree[idx3d]?.children.remove(at: at)
     }
 }
