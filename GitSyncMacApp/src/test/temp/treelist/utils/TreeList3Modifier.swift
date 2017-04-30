@@ -55,22 +55,13 @@ class TreeList3Modifier {
     /**
      *
      */
-    static func recursiveApply(_ tree:Tree, _ apply:Apply, _ prop:KeyValue){
-        if let child:Tree = tree[idx3d]{
-            apply(child)
-            child.children.forEach {
-                recursiveApply($0,idx3d,apply,prop)
-            }
+    static func recursiveApply(_ tree:inout Tree, _ apply:@escaping Apply, _ prop:KeyValue){
+        apply(&tree,prop)
+        for i in tree.children.indices {
+            recursiveApply(&tree.children[i],apply,prop)
         }
     }
-    static func recursiveApply(_ tree:Tree,_ idx3d:[Int], _ apply:Apply, _ prop:KeyValue){
-        if let child:Tree = tree[idx3d]{
-            apply(child)
-            child.children.forEach {
-                recursiveApply($0,idx3d,apply,prop)
-            }
-        }
-    }
+  
     /**
      * NOTE: To collapse the entire treeList pass an empty array as PARAM: index
      * NOTE: This method collapses all nodes from the PARAM: index
