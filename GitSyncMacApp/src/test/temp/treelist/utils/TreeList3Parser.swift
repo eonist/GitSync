@@ -16,9 +16,9 @@ class TreeList3Parser {
     /**
      *
      */
-    static func selected(_ treeList:TreeListable3){
-        if let selectedIdx2d = treeList.selectedIdx{
-            
+    static func selected(_ treeList:TreeListable3) -> [Int]{
+        if let idx2d = treeList.selectedIdx{
+            let idx3d:[Int] = treeList.treeDP[idx2d]
         }
     }
 }
