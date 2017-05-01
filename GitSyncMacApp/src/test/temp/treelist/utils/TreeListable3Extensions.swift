@@ -1,5 +1,5 @@
 import Foundation
 
-class TreeListable3Extensions {
-
+extension TreeListable3 {
+    //add convenience methods here
 }
