@@ -2,17 +2,17 @@ import Foundation
 @testable import Utils
 @testable import Element
 
-class TreList3AdvanceModifier {
+class TreeList3AdvanceModifier {
     /**
      * NOTE: To explode the entire treeList pass an empty array as PARAM: index
      */
     static func explodeAt(_ treeList:TreeListable3,_ idx3d:[Int]) {
         if let isOpen = treeList.treeDP.tree.props?["isOpen"]  {/*if has isOpen param and its set to false*/
             if isOpen == "true" {//already open
-                close(treeList,idx3d)
+                TreeList3Modifier.close(treeList,idx3d)
             }
             //1.traverse all items and set to open
-            recursiveApply(&treeList.treeDP.tree[idx3d]!,setValue,("isOpen","true"))
+            TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","true"))
             //2.add all descedants to 2d list
             let idx2d:Int = treeList.treeDP[idx3d]!
             let count:Int = HashList2Modifier.addDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*adds items to HashList (via HashListModifier.addDescendants)*/
