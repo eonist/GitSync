@@ -23,7 +23,7 @@ class MinimalView:WindowView{
             //pass the tests bellow:
                 //do selectedTitle next. in an easy way
         
-        treeList.treeDP
+        treeList.treeDP.tree.p
         
         /*Swift.print("selected: " + "\(TreeListParser.selected(treeList))")
          Swift.print("selectedIndex: " + "\(TreeListParser.selectedIndex(treeList))")//Output:  [2,2,0]
