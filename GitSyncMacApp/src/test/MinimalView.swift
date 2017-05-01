@@ -21,6 +21,7 @@ class MinimalView:WindowView{
         
         //Continue here: 
             //pass the tests bellow:
+                //Continue with unSelectAll
         
         treeList.open([0])
         treeList.select([0,2])//<- make sure that exists, and is open
@@ -28,7 +29,7 @@ class MinimalView:WindowView{
         Swift.print("Selected title: \(treeList.selected?.props?["title"])")
         Swift.print("treeList.selected idx3d: " + "\(treeList.selectedIdx)")
         
-        //treeList.treeDP.tree[]
+        
         
         /*Swift.print("selected: " + "\(TreeListParser.selected(treeList))")
          Swift.print("selectedIndex: " + "\(TreeListParser.selectedIndex(treeList))")//Output:  [2,2,0]
