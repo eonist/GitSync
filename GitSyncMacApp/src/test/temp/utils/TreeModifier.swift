@@ -49,7 +49,9 @@ class TreeModifier {
     static func remove(_ tree: inout Tree,_ idx3d:[Int],_ at:Int){
         //COntinue here: 
             //you need to 
-        
+        if idx3d.count == 1 {
+            
+        }
         //let idx:Int = tree[idx3d]?.children.remove(at: at)
     }
 }
