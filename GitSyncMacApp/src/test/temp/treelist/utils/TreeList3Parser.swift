@@ -25,7 +25,6 @@ class TreeList3Parser {
         }
         return treeList.treeDP[idx2d]
     }
-    
     /**
      * Returns the selected Tree
      */
