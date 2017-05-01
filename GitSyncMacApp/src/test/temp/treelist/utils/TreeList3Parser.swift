@@ -25,6 +25,12 @@ class TreeList3Parser {
         return treeList.treeDP[idx2d]
     }
     
+    /**
+     *
+     */
+    static func selected(_ treeList:TreeListable3) -> ISelectable?{
+        return 
+    }
     //continue here: add item(at:)
         //make extensions as well
 }
