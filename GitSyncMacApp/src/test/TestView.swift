@@ -162,7 +162,7 @@ class TestView:TitleView{
      */
     func filterTreeTest(){
         let xml:XML = FileParser.xml("~/Desktop/assets/xml/treelist.xml".tildePath)
-        var tree:Tree = TreeUtils.tree(xml)
+        var tree:Tree = TreeConverter.tree(xml)
         //close idx:2
         
         //tree.children[2].props?["title"] = "Veggis"
@@ -259,7 +259,7 @@ class TestView:TitleView{
     func childAtTest(){
         let xmlStr:String = "<items title=\"main\"><item title=\"A\"/><item title=\"B\"/><item title=\"C\"/></items>"
         let xml:XML = xmlStr.xml
-        let tree:Tree = TreeUtils.tree(xml)
+        let tree:Tree = TreeConverter.tree(xml)
         let child:Tree? = tree[2]
         Swift.print("child.name: " + "\(child?.props?["title"])")
         
@@ -272,9 +272,9 @@ class TestView:TitleView{
         _ = tree
         Swift.print("tree.count: " + "\(tree.count)")
         
-        let xml:XML = TreeUtils.xml(tree)
+        let xml:XML = TreeConverter.xml(tree)
         Swift.print("xml.stringValue: " + "\(xml.xmlString)")
-        let newTree:Tree = TreeUtils.tree(xml)
+        let newTree:Tree = TreeConverter.tree(xml)
         Swift.print("newTree.name: " + "\(newTree.name)")
         let flattened:[Tree] = TreeUtils.flattened(newTree)
         flattened.forEach{Swift.print("\($0.name)")}
@@ -296,7 +296,7 @@ class TestView:TitleView{
         xmlStr += "<item title=\"C\"/>"
         xmlStr += "</items>"
         let xml:XML = xmlStr.xml
-        let tree:Tree = TreeUtils.tree(xml)
+        let tree:Tree = TreeConverter.tree(xml)
         /*Swift.print("tree.children.count: " + "\(tree.children.count)")
          Swift.print("tree.count: " + "\(tree.count)")
          Swift.print("tree[0]: " + "\(tree[0]?.props?["title"])")//a
@@ -327,7 +327,7 @@ class TestView:TitleView{
         let subTreeB = Tree(name:"B")
         tree.add(subTreeA)
         tree.add(subTreeB)
-        Swift.print("\(tree.childFlattened(3)?.name)")
+        Swift.print("\(tree.descendants(3)?.name)")
         Swift.print("tree.count: " + "\(tree.count)")
         
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)

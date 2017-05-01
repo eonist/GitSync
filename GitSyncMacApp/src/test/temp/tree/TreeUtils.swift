@@ -76,10 +76,7 @@ private class Utils{
         var results:[[Int]] = []
         tree.children.forEach{
             results.append(depth)
-            //Swift.print("$0.children.count > 0: " + "\($0.children.count > 0)")
-            //Swift.print("assert($0): " + "\(assert($0))")
             if($0.children.count > 0 && assert($0)) {/*Array*/
-                //Swift.print("dive deeper")
                 results += Utils.pathIndecies($0,depth, assert)//dive deeper
             }
             depth.end = depth.end! + 1//increment cur level

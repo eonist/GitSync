@@ -38,8 +38,8 @@ extension Tree{//maybe treekind isn't needed. Just use Tree?
     func child(_ at:[Int])-> Tree?{
         return TreeParser.child(self, at)
     }
-    func childFlattened(_ at:Int)->Tree?{
-        return TreeParser.childFlattened(self, at)
+    func descendants(_ at:Int)->Tree?{
+        return TreeParser.descendants(self, at)
     }
     subscript(at:Int) -> Tree? {
         get {return self.children[at]}
@@ -48,9 +48,13 @@ extension Tree{//maybe treekind isn't needed. Just use Tree?
     subscript(at:[Int]) -> Tree? {
         get {return self.child(at)}
         set {
-            /*self.child(at)?.name = newValue?.name*/
-            //you might have to make an apply method and use the traversal method
-            fatalError("not implemented yet")
+            let apply:TreeModifier.ApplyMethod = {tree in
+                tree.name = newValue?.name
+                tree.content = newValue?.content
+                tree.props = newValue?.props
+                tree.children = (newValue?.children)!
+            }
+            TreeModifier.apply(&self, at, apply)
         }
     }
     /**

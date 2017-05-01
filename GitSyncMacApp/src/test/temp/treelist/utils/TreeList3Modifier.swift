@@ -27,11 +27,8 @@ class TreeList3Modifier {
             TreeDP2Modifier.close(treeList.treeDP, idx2d)
         }
     }
-    
-    
     typealias KeyValue = (key:String,val:String)
     typealias Apply = (_ tree:inout Tree, _ prop:KeyValue) -> Void
-    
     static var setValue:Apply = {tree,prop in
         tree.props?[prop.key] = prop.val
     }
@@ -45,6 +42,4 @@ class TreeList3Modifier {
             recursiveApply(&tree.children[i],apply,prop)
         }
     }
-  
-    
 }
