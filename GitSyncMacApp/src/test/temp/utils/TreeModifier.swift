@@ -47,14 +47,13 @@ class TreeModifier {
      * IMPORTANT:idx3d must have at least one value
      */
     static func remove(_ tree: inout Tree,_ idx3d:[Int],_ at:Int){
-        //COntinue here: 
-            //you need to 
         if idx3d.count == 1 {
             tree.children.removeAt(idx3d[0])
+        }else if idx3d.count > 1{
+            let parentIdx3d:[Int] = Array(idx3d[0...(idx3d.count-1)])
+            tree[parentIdx3d]?.children.remove(at: idx3d.last!)
         }else{
-            let parentIdx3d = idx3d[0...(idx3d.count-1)]
-            
+            fatalError("Index not supported: \(idx3d)")
         }
-        //let idx:Int = tree[idx3d]?.children.remove(at: at)
     }
 }
