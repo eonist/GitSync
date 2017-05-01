@@ -37,4 +37,12 @@ class TreeList3AdvanceModifier {
             }
         }
     }
+    /**
+     * TODO: Should explode each node until it reaches its idx3d
+     * NOTE: when to use this? When you programatically want to reveal an item deeply nested in the tree-structure
+     * TODO: acompany this method with a scrollTo(idx3d) method
+     */
+    static func reveal(){
+        
+    }
 }
