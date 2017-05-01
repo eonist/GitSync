@@ -26,7 +26,7 @@ class MinimalView:WindowView{
         treeList.select([0,2])//<- make sure that exists, and is open
         
         Swift.print("Selected title: \(treeList.selected?.props?["title"])")
-        
+        Swift.print("treeList.selected idx3d: " + "\(treeList.selectedIdx)")
         
         //treeList.treeDP.tree[]
         
