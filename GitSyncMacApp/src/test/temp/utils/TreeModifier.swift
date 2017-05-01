@@ -52,7 +52,8 @@ class TreeModifier {
         if idx3d.count == 1 {
             tree.children.removeAt(idx3d[0])
         }else{
-            idx3d[0..<idx3d.count-1]
+            let parentIdx3d:[Int] = idx3d[0..<idx3d.count-1]
+            
         }
         //let idx:Int = tree[idx3d]?.children.remove(at: at)
     }
