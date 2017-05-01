@@ -29,7 +29,9 @@ class TreeList3Parser {
      *
      */
     static func selected(_ treeList:TreeListable3) -> Tree?{
-        let idx3d:[Int] = TreeList3Parser.selected(treeList)
+        guard let idx3d:[Int] = TreeList3Parser.selected(treeList) else{
+            return nil
+        }
         return treeList.treeDP[idx3d]
     }
     //continue here: add item(at:)
