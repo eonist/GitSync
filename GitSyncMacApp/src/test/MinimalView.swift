@@ -21,9 +21,10 @@ class MinimalView:WindowView{
         
         //Continue here: 
             //pass the tests bellow:
-                //do selectedTitle next. in an easy way
+                //
         
-        //treeList.selected?.props?["title"]
+        
+        treeList.selected?.props?["title"]
         
         //treeList.treeDP.tree[]
         
