@@ -32,7 +32,7 @@ class TreeList3Parser {
         guard let idx3d:[Int] = TreeList3Parser.selected(treeList) else{
             return nil
         }
-        return treeList.treeDP.tree[idx3d]
+        return treeList.treeDP.tree.child(idx3d)
     }
     //continue here: add item(at:)
         //make extensions as well

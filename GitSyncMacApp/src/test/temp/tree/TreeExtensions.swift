@@ -35,8 +35,8 @@ extension Tree{//maybe treekind isn't needed. Just use Tree?
     mutating func add(_ child:Tree){
         children.append(child)
     }
-    func child(_ at:[Int])-> Tree?{
-        return TreeParser.child(self, at)
+    func child(_ idx3d:[Int])-> Tree?{
+        return TreeParser.child(self, idx3d)
     }
     func descendants(_ at:Int)->Tree?{
         return TreeParser.descendants(self, at)
