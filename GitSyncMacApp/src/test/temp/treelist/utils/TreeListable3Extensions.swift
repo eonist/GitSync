@@ -9,4 +9,7 @@ extension TreeListable3 {
     func close(_ idx3d:[Int]){/*Convenience*/
         TreeList3Modifier.close(self, idx3d)
     }
+    func select(_ idx3d:[Int],_ isSelected:Bool = true) {
+        TreeList3Modifier.select(self, idx3d, isSelected)
+    }
 }

@@ -23,8 +23,7 @@ class MinimalView:WindowView{
             //pass the tests bellow:
         
         treeList.open([0])
-        treeList.open([0,0])
-        //select[0,0,1]<- make sure that exists, and is open
+        treeList.select([0,2])//<- make sure that exists, and is open
         
         Swift.print("Selected title: \(treeList.selected?.props?["title"])")
         
