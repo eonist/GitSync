@@ -22,7 +22,7 @@ class TreeList3Parser {
         guard let idx2d = treeList.selectedIdx else {
             return nil
         }
-        return idx2d
+        return treeList.treeDP[idx2d]
     }
     
     //continue here: add item(at:)
