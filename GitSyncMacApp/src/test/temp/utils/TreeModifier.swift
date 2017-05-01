@@ -40,6 +40,12 @@ class TreeModifier {
     /**
      *
      */
+    static func insert(_ tree: inout Tree,_ idx3d:[Int],_ child:Tree){
+    
+    }
+    /**
+     *
+     */
     static func append(_ tree: inout Tree,_ idx3d:[Int],_ child:Tree){
         tree[idx3d]?.children.append(child)
     }
