@@ -23,7 +23,8 @@ class MinimalView:WindowView{
             //pass the tests bellow:
                 //do selectedTitle next. in an easy way
         
-        (TreeList3Parser.selected(treeList) as? Tree)?.props["title"]
+        //treeList.selected?.props?["title"]
+        
         //treeList.treeDP.tree[]
         
         /*Swift.print("selected: " + "\(TreeListParser.selected(treeList))")
