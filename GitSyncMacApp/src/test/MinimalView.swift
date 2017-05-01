@@ -21,10 +21,11 @@ class MinimalView:WindowView{
         
         //Continue here: 
             //pass the tests bellow:
-                //
         
         
-        treeList.selected?.props?["title"]
+        //select[2,1,0]<- make sure that exists
+        Swift.print("Selected title: \(treeList.selected?.props?["title"])")
+        
         
         //treeList.treeDP.tree[]
         
