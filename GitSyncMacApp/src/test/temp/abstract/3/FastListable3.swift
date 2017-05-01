@@ -3,7 +3,7 @@ import Foundation
 @testable import Element
 
 protocol FastListable3:Progressable3,Listable3{
-    var selectedIdx:Int? {get set}
+    var selectedIdx:Int? {get set}/*TODO: ⚠️️ rename to just selected?*/
     var pool:[FastListItem] {get set}
     func reUse(_ listItem:FastListItem)
     func createItem(_ index:Int) -> Element

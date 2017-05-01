@@ -1,4 +1,6 @@
 import Foundation
+@testable import Utils
+@testable import Element
 
 class TreeList3Parser {
     /**
@@ -14,7 +16,7 @@ class TreeList3Parser {
         return treeList.treeDP[idx2d]
     }
     /**
-     *
+     * NOTE: to get idx2d, you can use treeList.selectedIdx
      */
     static func selected(_ treeList:TreeListable3) -> [Int]{
         if let idx2d = treeList.selectedIdx{
