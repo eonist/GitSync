@@ -44,7 +44,7 @@ class TreeModifier {
         tree[idx3d]?.children.append(child)
     }
     /**
-     * IMPORTANT:idx3d must have at least one value
+     * IMPORTANT: idx3d must have at least one value
      */
     static func remove(_ tree: inout Tree,_ idx3d:[Int],_ at:Int){
         if idx3d.count == 1 {
