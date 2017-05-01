@@ -23,6 +23,8 @@ class MinimalView:WindowView{
             //pass the tests bellow:
                 //do selectedTitle next. in an easy way
         
+        treeList.treeDP
+        
         /*Swift.print("selected: " + "\(TreeListParser.selected(treeList))")
          Swift.print("selectedIndex: " + "\(TreeListParser.selectedIndex(treeList))")//Output:  [2,2,0]
          Swift.print("selected Title: " + "\(XMLParser.attributesAt(treeList.node.xml, TreeListParser.selectedIndex(treeList))!["title"])")//Output: Oregano
