@@ -35,6 +35,12 @@ class TreeList3Modifier {
             TreeDP2Modifier.close(treeList.treeDP, idx2d)
         }
     }
+    /**
+     * New
+     */
+    static func insert(_ treeList:TreeListable3, _ idx3d:[Int],_ tree:Tree){
+        TreeModifier.insert(&treeList.treeDP.tree, idx3d, tree)
+    }
     typealias KeyValue = (key:String,val:String)
     typealias Apply = (_ tree:inout Tree, _ prop:KeyValue) -> Void
     static var setValue:Apply = {tree,prop in
