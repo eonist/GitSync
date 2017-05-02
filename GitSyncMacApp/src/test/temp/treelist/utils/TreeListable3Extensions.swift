@@ -21,7 +21,7 @@ extension TreeListable3 {
     func unSelectAll(_ treeList:TreeListable3){
         TreeList3Modifier.unSelectAll(self)
     }
-    func insert(_ treeList:TreeListable3, _ idx3d:[Int],_ tree:Tree){
+    func insert(_ idx3d:[Int],_ tree:Tree){
         TreeList3Modifier.insert(self,idx3d,tree)
     }
     var selectedIdx:[Int]? {return TreeList3Parser.selected(self)}

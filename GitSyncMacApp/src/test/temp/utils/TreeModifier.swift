@@ -74,7 +74,7 @@ class TreeModifier {
             tree.children.insert(child, at: idx3d[0])
         }else if idx3d.count > 1{
             let parentIdx3d:[Int] = Array(idx3d[0...(idx3d.count-1)])
-            tree[parentIdx3d]?.children.insert(child, at: idx3d.last!)
+            tree[parentIdx3d]?.children.insert(child, at: idx3d.last!)//should work
         }else{
             fatalError("Index not supported: \(idx3d)")
         }
