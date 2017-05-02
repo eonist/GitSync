@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 /**
- *
+ * TODO: Add selectedIdx to the init arg list?
  */
 class FastList3:ContainerView3,FastListable3{
     var selectedIdx:Int?/*This cooresponds to the "absolute" index in dp*/
