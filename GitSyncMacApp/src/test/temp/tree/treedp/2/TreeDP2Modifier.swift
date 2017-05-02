@@ -24,26 +24,28 @@ class TreeDP2Modifier {
      *
      */
     static func insert(_ dp:TreeDP2, _ idx3d:[Int],_ tree:Tree){
-        TreeModifier.insert(&dp.tree, idx3d, tree)
-        //update fastlist UI here?
+        if let idx2d:Int = dp[idx3d] {/*makes sure it exists*/
+            TreeModifier.insert(&dp.tree, idx3d, tree)
+            dp.onEvent(DataProviderEvent(DataProviderEvent.add, idx2d, idx2d+1, nil))/*updates fastlist UI*/
+        }
     }
     /**
      * New
      * TODO: create remove for idx2d as well
      */
     func remove(_ dp:TreeDP2,_ idx3d:[Int]){
-        if let idx2d:Int = dp[idx3d] {
+        if let idx2d:Int = dp[idx3d] {/*makes sure it exists*/
             TreeModifier.remove(&dp.tree, idx3d)
-            dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+1, self))
+            dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+1, nil))
         }
     }
     /**
      * New
      */
     func append(_ dp:TreeDP2,_ idx3d:[Int],_ child:Tree){
-        if let idx2d:Int = dp[idx3d] {
+        if let idx2d:Int = dp[idx3d] {/*makes sure it exists*/
             TreeModifier.append(&dp.tree, idx3d, child)
-            dp.onEvent(DataProviderEvent(DataProviderEvent.add, idx2d, idx2d+1, self))
+            dp.onEvent(DataProviderEvent(DataProviderEvent.add, idx2d, idx2d+1, nil))
         }
     }
 }
