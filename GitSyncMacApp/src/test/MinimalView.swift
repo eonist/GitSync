@@ -43,7 +43,7 @@ class MinimalView:WindowView{
                 //Swift.print("stackString: " + "💚\(ElementParser.stackString(event.origin as! IElement))💚")
                 Swift.print("selectedIndex: " + "\(treeList.selectedIdx3d)")
                 //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
-                //let selectedXML:XML = XMLParser.childAt(treeList.node.xml, selectedIndex)!
+                let selectedXML:XML = treeList.treeDP.tree[treeList.selectedIdx3d].xml
                 //print("selectedXML: " + selectedXML);
                 Swift.print("selectedXML.toXMLString():")
                 //Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
