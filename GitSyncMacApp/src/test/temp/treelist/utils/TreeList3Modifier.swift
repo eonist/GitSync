@@ -39,7 +39,6 @@ class TreeList3Modifier {
      * New
      */
     static func insert(_ treeList:TreeListable3, _ idx3d:[Int],_ tree:Tree){
-        
         TreeDP2Modifier.insert(treeList.treeDP, idx3d, tree)
     }
     /**

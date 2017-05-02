@@ -20,7 +20,6 @@ class TreeDP2Modifier {
         dp.tree.setProp(idx3d,("isOpen","false"))//update tree
         dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+count, dp))
     }
-    
     /**
      *
      */
@@ -31,15 +30,15 @@ class TreeDP2Modifier {
     /**
      * New
      */
-    func remove(_ treeList:TreeListable3,_ idx3d:[Int]){
-        TreeModifier.remove(&treeList.treeDP.tree, idx3d)
+    func remove(_ treeDP:TreeDP2,_ idx3d:[Int]){
+        TreeModifier.remove(&treeDP.tree, idx3d)
         //update fastlist UI here?
     }
     /**
      * New
      */
-    func append(_ treeList:TreeListable3,_ idx3d:[Int],_ child:Tree){
-        TreeModifier.append(&treeList.treeDP.tree, idx3d, child)
+    func append(_ treeDP:TreeDP2,_ idx3d:[Int],_ child:Tree){
+        TreeModifier.append(&treeDP.tree, idx3d, child)
         //update fastlist UI here?
     }
 }
