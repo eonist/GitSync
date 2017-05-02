@@ -34,7 +34,7 @@ class MinimalView:WindowView{
         
         //continue here: 🏀
             //hock-up the event stuff
-            //add isSelected 
+            //add isSelected 👈
         
         /*Swift.print("selected: " + "\(TreeListParser.selected(treeList))")
          Swift.print("selectedIndex: " + "\(TreeListParser.selectedIndex(treeList))")//Output:  [2,2,0]
