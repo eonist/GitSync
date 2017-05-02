@@ -12,5 +12,8 @@ extension TreeListable3 {
     func select(_ idx3d:[Int],_ isSelected:Bool = true) {
         TreeList3Modifier.select(self, idx3d, isSelected)
     }
+    func explode(_ idx3d:[Int]) {
+        TreeList3AdvanceModifier.explode(self, idx3d)
+    }
     var selectedIdx:[Int]? {return TreeList3Parser.selected(self)}
 }
