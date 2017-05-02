@@ -40,9 +40,11 @@ class TreeDP2Modifier {
     /**
      * New
      */
-    func append(_ treeDP:TreeDP2,_ idx3d:[Int],_ child:Tree){
-        TreeModifier.append(&treeDP.tree, idx3d, child)
-        //update fastlist UI here?
+    func append(_ dp:TreeDP2,_ idx3d:[Int],_ child:Tree){
+        if let idx2d:Int = dp[idx3d] {
+            TreeModifier.append(&dp.tree, idx3d, child)
+            dp.onEvent(DataProviderEvent(DataProviderEvent.add, idx2d, idx2d+1, self))
+        }
     }
 }
 
