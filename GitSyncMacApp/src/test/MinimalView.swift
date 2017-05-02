@@ -32,6 +32,8 @@ class MinimalView:WindowView{
         treeList.collapse([])//closes the treeList
         treeList.explode([])//opens the treeList
         
+        treeList.treeDP.tree.add(Tree())
+        
         /*Swift.print("selected: " + "\(TreeListParser.selected(treeList))")
          Swift.print("selectedIndex: " + "\(TreeListParser.selectedIndex(treeList))")//Output:  [2,2,0]
          Swift.print("selected Title: " + "\(XMLParser.attributesAt(treeList.node.xml, TreeListParser.selectedIndex(treeList))!["title"])")//Output: Oregano

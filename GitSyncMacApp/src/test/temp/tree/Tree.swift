@@ -1,6 +1,7 @@
 import Foundation
 /**
  * NOTE: Check regexident forest code. and lorentey [Element] ? etc?
+ * TODO: maybe rearrange arguments to: name,content,props,children?
  */
 //typealias Element = T
 struct Tree{
@@ -8,7 +9,7 @@ struct Tree{
     var props:[String:String]?
     var name:String?
     var content:String?/*Could be Generic as well*/
-    init( children:[Tree] = [],  props:[String:String]? = nil,  name:String? = nil,  content:String? = nil) {
+    init(children:[Tree] = [],  props:[String:String]? = nil,  name:String? = nil,  content:String? = nil) {
         self.children = children
         self.props = props
         self.name = name
