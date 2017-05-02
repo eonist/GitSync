@@ -17,8 +17,7 @@ class MinimalView:WindowView{
         let url = "~/Desktop/assets/xml/treelist.xml"
         let dp:TreeDP2 = TreeDP2(url.tildePath)
         let treeList = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
-        TreeList3Modifier.select(treeList, [2])
-        
+        treeList.select([2])
         treeList.open([0])/*Opens the first item in root*/
         treeList.select([0,2])
         
