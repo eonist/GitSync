@@ -5,6 +5,7 @@ import Foundation
  * TODO: Use DataProvidable don't extend DataProvider
  * NOTE: This would allow fast translation between 2d and 3d data structure https://github.com/CosmicMind/Algorithm/blob/master/Sources/SortedDictionary.swift
  * NOTE: for now we have a fast way to translate 2d -> 3d and slow 3d -> 2d. But the later doesn't need to be fast as it is only used when editing 3d structure. 2d -> 3d however needs to be super fast since its accessed very frequently when doing animation
+ * TreeDP surogates item(at:Int) in DataProvider. You dont need to touch DataProvider.items
  */
 class TreeDP2:DataProvider {
     var tree:Tree
