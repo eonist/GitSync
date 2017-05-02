@@ -33,7 +33,7 @@ class TreeDP2Parser {
      */
     static func values(_ dp:TreeDP2,_ idx:[Int], _ key:String)->[String]{
         var indecies:[[Int]] = TreeUtils.pathIndecies(dp.tree,idx,TreeUtils.isOpen)/*flattens 3d to 2d*/
-        Swift.print("indecies: " + "\(indecies)")
+        //Swift.print("indecies: " + "\(indecies)")
         indecies = indecies.map{idx + $0}//prepend the parent pathIdx to get complete pathIndecies
         return indecies.lazy.map{ idx -> String? in
             if let tree = dp.tree[idx],let props:[String:String] = tree.props,let value = props[key]{
