@@ -23,24 +23,19 @@ class TreeDP2Modifier {
     /**
      *
      */
-    static func insert(_ treeDP:TreeDP2, _ idx3d:[Int],_ tree:Tree){
-        TreeModifier.insert(&treeDP.tree, idx3d, tree)
+    static func insert(_ dp:TreeDP2, _ idx3d:[Int],_ tree:Tree){
+        TreeModifier.insert(&dp.tree, idx3d, tree)
         //update fastlist UI here?
     }
     /**
      * New
+     * TODO: create remove for idx2d as well
      */
-    func remove(_ treeDP:TreeDP2,_ idx3d:[Int]){
-        if let idx2d:Int? = treeDP.tree {
-            TreeModifier.remove(&treeDP.tree, idx3d)
-            treeDP.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+1, self))
+    func remove(_ dp:TreeDP2,_ idx3d:[Int]){
+        if let idx2d:Int = dp[idx3d] {
+            TreeModifier.remove(&dp.tree, idx3d)
+            dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+1, self))
         }
-        
-        //update fastlist UI here?
-        
-        //Continue here: 🏀
-            //we need idx2d
-            //super.
     }
     /**
      * New
