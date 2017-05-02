@@ -9,7 +9,7 @@ struct Tree{
     var props:[String:String]?
     var name:String?
     var content:String?/*Could be Generic as well*/
-    init(_ children:[Tree] = [],  _ props:[String:String]? = nil,  _ name:String? = nil,  _ content:String? = nil) {
+    init(_ name:String? = nil,  _ content:String? = nil,_ children:[Tree] = [],  _ props:[String:String]? = nil ) {
         self.children = children
         self.props = props
         self.name = name
