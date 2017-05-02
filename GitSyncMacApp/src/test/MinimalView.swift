@@ -34,6 +34,9 @@ class MinimalView:WindowView{
         
         treeList.insert([1],Tree("Indigo"))
         
+        //continue here: 🏀
+            //add remove, append, see old code, dont forget to refresh fastlist
+        
         /*Swift.print("selected: " + "\(TreeListParser.selected(treeList))")
          Swift.print("selectedIndex: " + "\(TreeListParser.selectedIndex(treeList))")//Output:  [2,2,0]
          Swift.print("selected Title: " + "\(XMLParser.attributesAt(treeList.node.xml, TreeListParser.selectedIndex(treeList))!["title"])")//Output: Oregano
