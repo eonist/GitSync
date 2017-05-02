@@ -11,7 +11,8 @@ class FastList3Modifier {
      */
     static func select(_ list:FastListable3, _ index:Int, _ isSelected:Bool = true){
         list.selectedIdx = index/*set the cur selectedIdx in fastList*/
-        if let match = list.pool.first(where:{index == $0.idx}), let selectable = match as? ISelectable,selectable.getSelected() != isSelected{//was-> for (i,_) in list.visibleItems.enumerate(){
+        if let match = list.pool.first(where:{$0.idx == index}), let selectable = match as? ISelectable,selectable.getSelected() != isSelected{//was-> for (i,_) in list.visibleItems.enumerate(){
+            Swift.print("match: " + "\(match)")
             selectable.setSelected(isSelected)
         }
     }
