@@ -13,15 +13,14 @@ class MinimalView:WindowView{
         
     }
     func treeList(){
-        let url = "~/Desktop/repo2.xml"
-        //let url = "~/Desktop/assets/xml/treelist.xml"
+        //let url = "~/Desktop/repo2.xml"
+        let url = "~/Desktop/assets/xml/treelist.xml"
         let dp:TreeDP2 = TreeDP2(url.tildePath)
         let treeList = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
         TreeList3Modifier.select(treeList, [2])
         
-        
-        treeList.open([0])
-        treeList.select([0,2])//<- make sure that exists, and is open
+        treeList.open([0])/*Opens the first item in root*/
+        treeList.select([0,2])
         
         Swift.print("Selected title: \(treeList.selected?.props?["title"])")
         Swift.print("treeList.selected idx3d: " + "\(treeList.selectedIdx3d)")
@@ -44,24 +43,6 @@ class MinimalView:WindowView{
                 }
             }
         }
-        
-        
-        /*Swift.print("selected: " + "\(TreeListParser.selected(treeList))")
-         Swift.print("selectedIndex: " + "\(TreeListParser.selectedIndex(treeList))")//Output:  [2,2,0]
-         Swift.print("selected Title: " + "\(XMLParser.attributesAt(treeList.node.xml, TreeListParser.selectedIndex(treeList))!["title"])")//Output: Oregano
-         TreeListModifier.unSelectAll(treeList)
-         
-         TreeListModifier.selectAt(treeList, [2])
-         
-         TreeListModifier.collapseAt(treeList, [])//closes the treeList
-         TreeListModifier.explodeAt(treeList,[])//opens the treeList
-         
-         _ = treeList.node.removeAt([1])
-         treeList.node.addAt([1], "<item title=\"Fish\"/>".xml)/*new*/
-         
-         //Swift.print("\(treeList.node.xml)")
-         
-         */
     }
     func rotationUITest(){
         var css = "Button{"
