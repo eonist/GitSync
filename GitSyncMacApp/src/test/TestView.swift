@@ -269,7 +269,8 @@ class TestView:TitleView{
      *
      */
     func tree2XML(){
-        let tree = Tree("Root",[Tree([Tree("X"),Tree("Y")],"A"),Tree("B")])
+        let children = [Tree("A",[Tree("X"),Tree("Y")]),Tree("B")]
+        let tree = Tree("Root",children)
         _ = tree
         Swift.print("tree.count: " + "\(tree.count)")
         
