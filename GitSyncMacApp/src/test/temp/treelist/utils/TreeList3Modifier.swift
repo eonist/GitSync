@@ -48,6 +48,12 @@ class TreeList3Modifier {
     func remove(_ treeList:TreeListable3,_ idx3d:[Int]){
         TreeModifier.remove(&treeList.treeDP.tree, idx3d)
     }
+    /**
+     * New
+     */
+    func append(_ treeList:TreeListable3,_ idx3d:[Int],_ child:Tree){
+        TreeModifier.append(&treeList.treeDP.tree, <#T##idx3d: [Int]##[Int]#>, <#T##child: Tree##Tree#>)
+    }
     typealias KeyValue = (key:String,val:String)
     typealias Apply = (_ tree:inout Tree, _ prop:KeyValue) -> Void
     static var setValue:Apply = {tree,prop in
