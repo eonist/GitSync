@@ -27,8 +27,8 @@ class MinimalView:WindowView{
         treeList.collapse([])/*collapses the treeList*/
         treeList.explode([])/*explodes the treeList*/
         
-        treeList.insert([1],Tree("Indigo"))/*Insert item at*/
-        treeList.remove([1])
+        treeList.remove([1])/*removes an item at a idx3d*/
+        treeList.insert([1],Tree("Fish"))/*Insert item at*/
         
         let xml:XML = TreeConverter.xml(treeList.treeDP.tree)
         _ = xml
