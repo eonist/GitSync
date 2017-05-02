@@ -19,7 +19,7 @@ extension TreeListable3 {
     func collapse(_ idx3d:[Int]){
         TreeList3AdvanceModifier.collapse(self, idx3d)
     }
-    func unSelectAll(_ treeList:TreeListable3){
+    func unSelectAll(){
         TreeList3Modifier.unSelectAll(self)
     }
     func insert(_ idx3d:[Int],_ tree:Tree){
