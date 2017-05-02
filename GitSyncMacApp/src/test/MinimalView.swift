@@ -36,7 +36,7 @@ class MinimalView:WindowView{
         treeList.remove([1])
         
         //continue here: 🏀
-            //add remove, append, see old code, dont forget to refresh fastlist
+            //add remove, append, see old code, don't forget to refresh fastlist
             //add isSelected
         
         /*Swift.print("selected: " + "\(TreeListParser.selected(treeList))")
