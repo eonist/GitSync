@@ -194,7 +194,8 @@ class TestView:TitleView{
     }
     func treeHashTest(){
         Swift.print("🚧 treeHashTest 🚧")
-        let tree = Tree(children:[Tree(children:[Tree(name:"X"),Tree(name:"Y")],name:"A"),Tree(name:"B")],name:"Root")
+        let children = [Tree("A",[Tree("X"),Tree("Y")]),Tree("B")]
+        let tree = Tree("Root",children)
         Swift.print("tree.count: " + "\(tree.count)")
         
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
