@@ -6,7 +6,7 @@ class TreeList3AdvanceModifier {
     /**
      * NOTE: To explode the entire treeList pass an empty array as PARAM: index
      */
-    static func explodeAt(_ treeList:TreeListable3,_ idx3d:[Int]) {
+    static func explode(_ treeList:TreeListable3,_ idx3d:[Int]) {
         if let isOpen = treeList.treeDP.tree.props?["isOpen"]  {/*if has isOpen param and its set to false*/
             if isOpen == "true" {/*already open*/
                 TreeList3Modifier.close(treeList,idx3d)
@@ -24,7 +24,7 @@ class TreeList3AdvanceModifier {
      * NOTE: To collapse the entire treeList pass an empty array as PARAM: index
      * NOTE: This method collapses all nodes from the PARAM: index
      */
-    static func collapseAt(_ treeList:TreeListable3,_ idx3d:[Int]) {
+    static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]) {
         if let isOpen = treeList.treeDP.tree.props?["isOpen"]  {/*if has isOpen param and its set to false*/
             /*1.traverse all items and set to open*/
             TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","false"))
