@@ -32,9 +32,25 @@ class MinimalView:WindowView{
         treeList.insert([1],Tree("Indigo"))
         treeList.remove([1])
         
-        //continue here: 🏀
-            //hock-up the event stuff
-            //add isSelected 👈
+        let xml:XML = TreeConverter.xml(treeList.treeDP.tree)
+        _ = xml
+        
+        
+        func onTreeListEvent(event:Event) {//adds local event handler
+            if(event.type == SelectEvent.select && event.immediate === treeList){
+                Swift.print("event.origin: " + "\(event.origin)")
+                Swift.print("stackString: " + "💚\(ElementParser.stackString(event.origin as! IElement))💚")
+                //Swift.print("onTreeListSelect()")
+                let selectedIndex:Array = TreeListParser.selectedIndex(treeList)
+                Swift.print("selectedIndex: " + "\(selectedIndex)")
+                //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
+                let selectedXML:XML = XMLParser.childAt(treeList.node.xml, selectedIndex)!
+                //print("selectedXML: " + selectedXML);
+                Swift.print("selectedXML.toXMLString():")
+                Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
+            }
+        }
+        treeList.event = onTreeListEvent//add local event listener*/
         
         /*Swift.print("selected: " + "\(TreeListParser.selected(treeList))")
          Swift.print("selectedIndex: " + "\(TreeListParser.selectedIndex(treeList))")//Output:  [2,2,0]
@@ -51,21 +67,7 @@ class MinimalView:WindowView{
          
          //Swift.print("\(treeList.node.xml)")
          
-         func onTreeListEvent(event:Event) {//adds local event handler
-         if(event.type == SelectEvent.select && event.immediate === treeList){
-         Swift.print("event.origin: " + "\(event.origin)")
-         Swift.print("stackString: " + "💚\(ElementParser.stackString(event.origin as! IElement))💚")
-         //Swift.print("onTreeListSelect()")
-         let selectedIndex:Array = TreeListParser.selectedIndex(treeList)
-         Swift.print("selectedIndex: " + "\(selectedIndex)")
-         //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
-         let selectedXML:XML = XMLParser.childAt(treeList.node.xml, selectedIndex)!
-         //print("selectedXML: " + selectedXML);
-         Swift.print("selectedXML.toXMLString():")
-         Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
-         }
-         }
-         treeList.event = onTreeListEvent//add local event listener*/
+         */
     }
     func rotationUITest(){
         var css = "Button{"
