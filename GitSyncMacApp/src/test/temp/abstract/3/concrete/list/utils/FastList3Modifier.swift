@@ -7,7 +7,7 @@ class FastList3Modifier {
      * Sets selectedIndex in fastList and makes the appropriate UI changes to the visibleItems
      * PARAM: index: dataProvider index
      * NOTE: Does not unselect prev selected. Implement this else where?
-     * IMPORTANT: ⚠️️ Only selects if its not already selected. or unselects if its selected
+     * IMPORTANT: ⚠️️ Only selects if it's not already selected. or unselects if its selected
      */
     static func select(_ list:FastListable3, _ index:Int, _ isSelected:Bool = true){
         list.selectedIdx = index/*set the cur selectedIdx in fastList*/

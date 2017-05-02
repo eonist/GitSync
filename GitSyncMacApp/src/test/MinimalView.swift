@@ -18,8 +18,9 @@ class MinimalView:WindowView{
         let dp:TreeDP2 = TreeDP2(url.tildePath)
         let treeList = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
         _ = treeList
-        /*
+        
         treeList.select([2])/*Selects third item in root*/
+        /*
         treeList.open([0])/*Opens the first item in root*/
         treeList.select([2,1])/*Selects nest item*/
         
