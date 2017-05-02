@@ -114,7 +114,8 @@ class TestView:TitleView{
      */
     func hashList2Test(){
         Swift.print("🚧 hashList2Test 🚧")
-        let tree = Tree("Root",[Tree("A",[Tree("X"),Tree("Y")]),Tree("B")])
+        let children = [Tree("A",[Tree("X"),Tree("Y")]),Tree("B")]
+        let tree = Tree("Root",children)
         Swift.print("tree.count: " + "\(tree.count)")
         
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
@@ -268,7 +269,7 @@ class TestView:TitleView{
      *
      */
     func tree2XML(){
-        let tree = Tree(children:[Tree(children:[Tree(name:"X"),Tree(name:"Y")],name:"A"),Tree(name:"B")],name:"Root")
+        let tree = Tree("Root",[Tree([Tree("X"),Tree("Y")],"A"),Tree("B")])
         _ = tree
         Swift.print("tree.count: " + "\(tree.count)")
         
@@ -317,14 +318,14 @@ class TestView:TitleView{
         //Try to flatten this treeStructure into array with pathIdx to original item?!?
         
         
-        var tree = Tree(name:"Root")
-        var subTreeA = Tree(name:"A")
-        let subSubTreeX = Tree(name:"X")
-        var subSubTreeY = Tree(name:"Y")
-        subSubTreeY.add(Tree(name:"Z"))
+        var tree = Tree("Root")
+        var subTreeA = Tree("A")
+        let subSubTreeX = Tree("X")
+        var subSubTreeY = Tree("Y")
+        subSubTreeY.add(Tree("Z"))
         subTreeA.add(subSubTreeX)
         subTreeA.add(subSubTreeY)
-        let subTreeB = Tree(name:"B")
+        let subTreeB = Tree("B")
         tree.add(subTreeA)
         tree.add(subTreeB)
         Swift.print("\(tree.descendants(3)?.name)")
