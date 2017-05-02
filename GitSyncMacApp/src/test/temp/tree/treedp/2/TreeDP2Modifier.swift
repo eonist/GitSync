@@ -33,6 +33,9 @@ class TreeDP2Modifier {
     func remove(_ treeDP:TreeDP2,_ idx3d:[Int]){
         TreeModifier.remove(&treeDP.tree, idx3d)
         //update fastlist UI here?
+        //Continue here: 🏀
+            //we need idx2d
+            //super.onEvent(DataProviderEvent(DataProviderEvent.remove, index,index+1,self))
     }
     /**
      * New
