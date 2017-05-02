@@ -47,12 +47,14 @@ class TreeList3Modifier {
      */
     func remove(_ treeList:TreeListable3,_ idx3d:[Int]){
         TreeModifier.remove(&treeList.treeDP.tree, idx3d)
+        //update fastlist UI here?
     }
     /**
      * New
      */
     func append(_ treeList:TreeListable3,_ idx3d:[Int],_ child:Tree){
         TreeModifier.append(&treeList.treeDP.tree, idx3d, child)
+        //update fastlist UI here?
     }
     typealias KeyValue = (key:String,val:String)
     typealias Apply = (_ tree:inout Tree, _ prop:KeyValue) -> Void
