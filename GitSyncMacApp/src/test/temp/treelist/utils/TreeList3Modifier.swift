@@ -39,8 +39,8 @@ class TreeList3Modifier {
      * New
      */
     static func insert(_ treeList:TreeListable3, _ idx3d:[Int],_ tree:Tree){
-        TreeModifier.insert(&treeList.treeDP.tree, idx3d, tree)
-        //update fastlist UI here?
+        
+        TreeDP2Modifier.insert(treeList.treeDP, idx3d, tree)
     }
     /**
      * New
