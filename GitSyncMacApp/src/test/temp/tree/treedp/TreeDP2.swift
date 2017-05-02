@@ -20,7 +20,6 @@ class TreeDP2:DataProvider {
      * RETURNS: DataProvider item (aka Dictionary)
      */
     override func item(_ at:Int) -> [String:String]?{
-        //Swift.print("hashList.arr.count: " + "\(hashList.arr.count)")
         if let treeIdx:[Int] = hashList[safe:at], let child:Tree = tree[treeIdx]{/*find the 3d-idx*/
             /*Find the tree that matches the "3d-idx"*/
             //Swift.print("tree.name: " + "\(tree?.name)")

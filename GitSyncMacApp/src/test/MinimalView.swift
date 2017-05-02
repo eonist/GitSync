@@ -19,9 +19,6 @@ class MinimalView:WindowView{
         let treeList = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
         TreeList3Modifier.select(treeList, [2])
         
-        //Continue here: 
-            //pass the tests bellow:
-                //Continue with unSelectAll
         
         treeList.open([0])
         treeList.select([0,2])//<- make sure that exists, and is open
@@ -36,8 +33,8 @@ class MinimalView:WindowView{
         treeList.remove([1])
         
         //continue here: 🏀
-            //add remove, append, see old code, don't forget to refresh fastlist
-            //add isSelected
+            //hock-up the event stuff
+            //add isSelected 
         
         /*Swift.print("selected: " + "\(TreeListParser.selected(treeList))")
          Swift.print("selectedIndex: " + "\(TreeListParser.selectedIndex(treeList))")//Output:  [2,2,0]
