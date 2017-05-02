@@ -25,9 +25,9 @@ class MinimalView:WindowView{
         treeList.select([2,1])/*Selects nest item*/
         
         Swift.print("Selected title: \(treeList.selected?.props?["title"])")
-        /*Swift.print("treeList.selected idx3d: " + "\(treeList.selectedIdx3d)")
-        treeList.unSelectAll(treeList)/*De-selects all selected items*/
-        treeList.collapse([])/*Collapses the treeList*/
+        Swift.print("treeList.selected idx3d: " + "\(treeList.selectedIdx3d)")
+        treeList.unSelectAll()/*De-selects all selected items*/
+        /*treeList.collapse([])/*Collapses the treeList*/
         treeList.explode([])/*Explodes the treeList*/
         
         treeList.remove([1])/*Removes an item at a idx3d*/
