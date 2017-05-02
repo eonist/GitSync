@@ -76,11 +76,12 @@ extension FastList3{
     /**
      * DP has changed
      * override this method if dp change can affect the super class
+     * NOTE: event contains the range of the affected fastlist items. as long as we reflect this change everything will be synced
      */
     func onDataProviderEvent(_ event:DataProviderEvent){
         Swift.print("FastList3.onDataProviderEvent: " + "\(event)")
         Swift.print("event.startIndex: " + "\(event.startIndex)")
-        alignContentContainer(event)
+        alignContentContainer(event)/*aligns the container*/
         let range:Range<Int> = visibleItemRange.start..<Swift.min(visibleItemRange.end,dp.count)
         Swift.print("currentVisibleItemRange: " + "\(currentVisibleItemRange)")
         Swift.print("visibleItemRange: " + "\(visibleItemRange)")
