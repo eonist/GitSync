@@ -4,7 +4,7 @@ import Foundation
  */
 //typealias Element = T
 struct Tree{
-    var children:[Tree]//should be optional, then we would have to init it too often maybe?
+    var children:[Tree]//should be optional, then we would have to init it too often maybe, maybe lazy actually?
     var props:[String:String]?
     var name:String?
     var content:String?/*Could be Generic as well*/
