@@ -17,9 +17,9 @@ class MinimalView:WindowView{
         let url = "~/Desktop/assets/xml/treelist.xml"
         let dp:TreeDP2 = TreeDP2(url.tildePath)
         let treeList = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
-        treeList.select([2])
+        treeList.select([2])/*Selects third item in root*/
         treeList.open([0])/*Opens the first item in root*/
-        treeList.select([0,2])
+        treeList.select([2,1])/*Selects nest item*/
         
         Swift.print("Selected title: \(treeList.selected?.props?["title"])")
         Swift.print("treeList.selected idx3d: " + "\(treeList.selectedIdx3d)")
