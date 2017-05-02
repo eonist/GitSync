@@ -12,6 +12,13 @@ class TreeList3Modifier {
         }
     }
     /**
+     * NOTE:: this function works as long as multiple selection is not allowed in the treeList
+     */
+    static func unSelectAll(_ treeList:ITreeList){
+        let selectedIndex:[Int] = TreeListParser.selectedIndex(treeList)
+        if(selectedIndex.count > 0) {selectAt(treeList, selectedIndex, false)}
+    }
+    /**
      * Open a PARAM: treeList at PARAM: idx3d
      */
     static func open(_ treeList:TreeListable3, _ idx3d:[Int]){
