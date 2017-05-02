@@ -23,14 +23,15 @@ class MinimalView:WindowView{
         
         Swift.print("Selected title: \(treeList.selected?.props?["title"])")
         Swift.print("treeList.selected idx3d: " + "\(treeList.selectedIdx3d)")
-        treeList.unSelectAll(treeList)/*de-selects all selected items*/
-        treeList.collapse([])/*collapses the treeList*/
-        treeList.explode([])/*explodes the treeList*/
+        treeList.unSelectAll(treeList)/*De-selects all selected items*/
+        treeList.collapse([])/*Collapses the treeList*/
+        treeList.explode([])/*Explodes the treeList*/
         
-        treeList.remove([1])/*removes an item at a idx3d*/
+        treeList.remove([1])/*Removes an item at a idx3d*/
         treeList.insert([1],Tree("Fish"))/*Insert item at*/
         
-        let xml:XML = TreeConverter.xml(treeList.treeDP.tree)
+        let xml:XML = TreeConverter.xml(treeList.treeDP.tree)/*Converts the tree to an xml structure*/
+        Swift.print("xml.xmlString: " + "\(xml.xmlString)")/*Logs the tree as an xml structure*/
         _ = xml
         
         treeList.event = { event in/*add local event listener*/
