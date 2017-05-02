@@ -24,7 +24,7 @@ class MinimalView:WindowView{
         treeList.select([0,2])//<- make sure that exists, and is open
         
         Swift.print("Selected title: \(treeList.selected?.props?["title"])")
-        Swift.print("treeList.selected idx3d: " + "\(treeList.selectedIdx)")
+        Swift.print("treeList.selected idx3d: " + "\(treeList.selectedIdx3d)")
         treeList.unSelectAll(treeList)
         treeList.collapse([])//closes the treeList
         treeList.explode([])//opens the treeList
@@ -41,12 +41,12 @@ class MinimalView:WindowView{
                 //Swift.print("onTreeListSelect()")
                 //Swift.print("event.origin: " + "\(event.origin)")
                 //Swift.print("stackString: " + "💚\(ElementParser.stackString(event.origin as! IElement))💚")
-                Swift.print("selectedIndex: " + "\(treeList.selectedIdx)")
+                Swift.print("selectedIndex: " + "\(treeList.selectedIdx3d)")
                 //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
-                let selectedXML:XML = XMLParser.childAt(treeList.node.xml, selectedIndex)!
+                //let selectedXML:XML = XMLParser.childAt(treeList.node.xml, selectedIndex)!
                 //print("selectedXML: " + selectedXML);
                 Swift.print("selectedXML.toXMLString():")
-                Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
+                //Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
             }
         }
         treeList.event = onTreeListEvent//add local event listener*/

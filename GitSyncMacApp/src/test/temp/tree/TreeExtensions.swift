@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 /**
  * TODO: Subscript?
  */
@@ -69,6 +70,7 @@ extension Tree{//maybe treekind isn't needed. Just use Tree?
     func describe(_ tree:Tree,_ key:String, _ level:Int = 0){
         TreeUtils.describe(tree, key, level)
     }
+    var xml:XML = TreeConverter.xml(self)
 }
 
 /*protocol TreeKind {
