@@ -14,8 +14,8 @@ class TreeList3Modifier {
     /**
      * NOTE:: this function works as long as multiple selection is not allowed in the treeList
      */
-    static func unSelectAll(_ treeList:ITreeList){
-        let selectedIndex:[Int] = TreeListParser.selectedIndex(treeList)
+    static func unSelectAll(_ treeList:TreeListable3){
+        let selectedIndex:[Int] = TreeList3Parser.selected(<#T##treeList: TreeListable3##TreeListable3#>)
         if(selectedIndex.count > 0) {selectAt(treeList, selectedIndex, false)}
     }
     /**
