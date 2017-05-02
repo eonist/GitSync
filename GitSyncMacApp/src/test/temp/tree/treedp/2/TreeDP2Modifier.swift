@@ -20,13 +20,16 @@ class TreeDP2Modifier {
         dp.tree.setProp(idx3d,("isOpen","false"))//update tree
         dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+count, dp))
     }
+    static func open(_ dp:TreeDP2, _ idx3d:[Int]){
+        //convert idx3d to idx2d
+    }
+    static func close(_ dp:TreeDP2, _ idx3d:[Int]){
+        //convert idx3d to idx2d
+    }
     /**
      *
      */
-    static func open(_ dp:TreeDP2, _ idx3d:[Int]){
-        
-    }
-    static func close(_ dp:TreeDP2, _ idx3d:[Int]){
+    static func add(){
         
     }
 }
