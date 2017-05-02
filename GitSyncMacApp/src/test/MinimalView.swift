@@ -38,11 +38,10 @@ class MinimalView:WindowView{
         
         func onTreeListEvent(event:Event) {//adds local event handler
             if(event.type == SelectEvent.select && event.immediate === treeList){
-                Swift.print("event.origin: " + "\(event.origin)")
-                Swift.print("stackString: " + "💚\(ElementParser.stackString(event.origin as! IElement))💚")
                 //Swift.print("onTreeListSelect()")
-                let selectedIndex:[Int]? = TreeList3Parser.selectedIndex(treeList)
-                Swift.print("selectedIndex: " + "\(selectedIndex)")
+                //Swift.print("event.origin: " + "\(event.origin)")
+                //Swift.print("stackString: " + "💚\(ElementParser.stackString(event.origin as! IElement))💚")
+                Swift.print("selectedIndex: " + "\(treeList.selectedIdx)")
                 //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
                 let selectedXML:XML = XMLParser.childAt(treeList.node.xml, selectedIndex)!
                 //print("selectedXML: " + selectedXML);
