@@ -41,7 +41,7 @@ class MinimalView:WindowView{
                 Swift.print("event.origin: " + "\(event.origin)")
                 Swift.print("stackString: " + "💚\(ElementParser.stackString(event.origin as! IElement))💚")
                 //Swift.print("onTreeListSelect()")
-                let selectedIndex:Array = TreeListParser.selectedIndex(treeList)
+                let selectedIndex:[Int]? = TreeList3Parser.selectedIndex(treeList)
                 Swift.print("selectedIndex: " + "\(selectedIndex)")
                 //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
                 let selectedXML:XML = XMLParser.childAt(treeList.node.xml, selectedIndex)!
