@@ -18,5 +18,8 @@ extension TreeListable3 {
     func collapse(_ idx3d:[Int]){
         TreeList3AdvanceModifier.collapse(self, idx3d)
     }
+    func unSelectAll(_ treeList:TreeListable3){
+        TreeList3Modifier.unSelectAll(self)
+    }
     var selectedIdx:[Int]? {return TreeList3Parser.selected(self)}
 }
