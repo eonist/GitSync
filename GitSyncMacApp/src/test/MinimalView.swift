@@ -35,18 +35,14 @@ class MinimalView:WindowView{
         let xml:XML = TreeConverter.xml(treeList.treeDP.tree)
         _ = xml
         
-        
         func onTreeListEvent(event:Event) {//adds local event handler
             if(event.type == SelectEvent.select && event.immediate === treeList){
-                //Swift.print("onTreeListSelect()")
-                //Swift.print("event.origin: " + "\(event.origin)")
+                //Swift.print("onTreeListSelect() event.origin: \(event.origin)")
                 //Swift.print("stackString: " + "💚\(ElementParser.stackString(event.origin as! IElement))💚")
                 Swift.print("selectedIndex: " + "\(treeList.selectedIdx3d)")
-                //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
-                let selectedXML:XML = treeList.treeDP.tree[treeList.selectedIdx3d].xml
-                //print("selectedXML: " + selectedXML);
-                Swift.print("selectedXML.toXMLString():")
-                //Swift.print(selectedXML)//EXAMPLE output: <item title="Ginger"></item>
+                if let selectedIdx:[Int] = treeList.selectedIdx3d, let selectedXML:XML = treeList.treeDP.tree[selectedIdx]?.xml {
+                    Swift.print("selectedXML: \(selectedXML.xmlString)")//EXAMPLE output: <item title="Ginger"></item>
+                }
             }
         }
         treeList.event = onTreeListEvent//add local event listener*/
