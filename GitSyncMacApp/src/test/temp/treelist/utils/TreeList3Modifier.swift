@@ -40,6 +40,7 @@ class TreeList3Modifier {
      */
     static func insert(_ treeList:TreeListable3, _ idx3d:[Int],_ tree:Tree){
         TreeModifier.insert(&treeList.treeDP.tree, idx3d, tree)
+        //update fastlist UI here?
     }
     typealias KeyValue = (key:String,val:String)
     typealias Apply = (_ tree:inout Tree, _ prop:KeyValue) -> Void
