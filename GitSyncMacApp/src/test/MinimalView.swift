@@ -33,7 +33,8 @@ class MinimalView:WindowView{
         treeList.explode([])//opens the treeList
         
         treeList.insert([1],Tree("Indigo"))
-        treeList.remove()
+        treeList.remove([1])
+        
         //continue here: 🏀
             //add remove, append, see old code, dont forget to refresh fastlist
             //add isSelected
