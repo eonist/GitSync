@@ -1,4 +1,5 @@
 import Foundation
+@testable import Utils
 
 extension TreeListable3 {
     //add convenience methods here
@@ -31,4 +32,5 @@ extension TreeListable3 {
         TreeDP2Modifier.append(self.treeDP, idx3d, child)
     }
     var selectedIdx3d:[Int]? {return TreeList3Parser.selected(self)}
+    var xml:XML {return self.treeDP.tree}
 }
