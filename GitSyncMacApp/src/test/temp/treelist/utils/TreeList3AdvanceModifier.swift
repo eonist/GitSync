@@ -37,7 +37,7 @@ class TreeList3AdvanceModifier {
             /*1.traverse all items and set to open*/
             Swift.print("1.traverse all items and set to open")
             TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","false"))
-            /*2.remove all descedants to 2d list*/
+            /*2.remove all descendants to 2d list*/
             Swift.print("2.remove all descedants to 2d list")
             let idx2d:Int = treeList.treeDP[idx3d]!
             Swift.print("idx2d: " + "\(idx2d)")
