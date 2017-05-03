@@ -27,8 +27,8 @@ class TreeList3AdvanceModifier {
      * NOTE: This method collapses all nodes from the PARAM: index
      */
     
-    //Continue here. 🏀 
-        //design this method so it iterates over all children of idx3d and then sends an dp event once with the accumelated count
+    //Continue here: 🏀
+        //Design this method so it iterates over all children of idx3d and then sends an dp event once with the accumulated count
     
     static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]) {
         //check legacy code, but isn't treeList always open by default
