@@ -21,11 +21,12 @@ class TreeList3AdvanceModifier {
         }
     }
     /**
+     * Collapses descendants
      * NOTE: To collapse the entire treeList pass an empty array as PARAM: index
      * NOTE: This method collapses all nodes from the PARAM: index
      */
     static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]) {
-        //check legacy code, but isnt treeList always open by default
+        //check legacy code, but isn't treeList always open by default
         if let child:Tree = treeList.treeDP.tree[idx3d] {
             Swift.print("child.children.count: " + "\(child.children.count)")
         }
