@@ -22,12 +22,13 @@ class TreeConverter {
                 item.content = content
             }else if(child.hasComplexContent) {
                 child.children?.forEach{
-                    tree.add(item)
+                    let subChild:XML = $0 as! XML
+                    let subItem = TreeConverter.tree(subChild)
+                    item.add(subItem)//this line makes it recusive
                 }
-                _ = item.children += TreeConverter.tree(child).children//this line makes it recusive
+                //_ = item.children += TreeConverter.tree(child).children
             }
         }
-        /**/
         apply(&tree,xml)
         return tree
     }
