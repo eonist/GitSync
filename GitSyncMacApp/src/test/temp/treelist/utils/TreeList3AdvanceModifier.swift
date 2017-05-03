@@ -25,7 +25,8 @@ class TreeList3AdvanceModifier {
      * NOTE: This method collapses all nodes from the PARAM: index
      */
     static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]) {
-        if let isOpen = treeList.treeDP.tree.props?["isOpen"]  {/*if has isOpen param and its set to false*/
+        if let isOpen = treeList.treeDP.tree.props?["isOpen"]  {/*if has isOpen param and it's set to false*/
+            Swift.print("collapse isOpen:\(isOpen)")
             /*1.traverse all items and set to open*/
             TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","false"))
             if isOpen == "true" {/*item at idx3d was open*/
