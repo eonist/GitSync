@@ -48,12 +48,7 @@ class TreeList3AdvanceModifier {
             Swift.print("3.use the count to update DP and UI")
             treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+count, treeList.dp))
         }
-        /*if let isOpen = treeList.treeDP.tree.props?["isOpen"]  {/*if has isOpen param and it's set to false*/
-            Swift.print("collapse isOpen:\(isOpen)")
-            if isOpen == "true" {/*item at idx3d was open*/
-         
-            }
-        }*/
+        /**/
     }
     /**
      * TODO: Should explode each node until it reaches its idx3d
