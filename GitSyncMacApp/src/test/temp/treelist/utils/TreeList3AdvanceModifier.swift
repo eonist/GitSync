@@ -21,7 +21,8 @@ class TreeList3AdvanceModifier {
         }
     }
     /**
-     * Collapses descendants
+     * Collapses descendants (if you want to close the item at idx3d as well, then use the folow this call by a close call)
+     * TODO: Consider adding flag to close it self as well
      * NOTE: To collapse the entire treeList pass an empty array as PARAM: index
      * NOTE: This method collapses all nodes from the PARAM: index
      */
