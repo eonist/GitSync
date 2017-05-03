@@ -29,6 +29,7 @@ class HashList2Modifier {
         let count:Int = child.count(TreeUtils.isOpen)/*recursive count that traverses the hierarchy*/
         //Swift.print("removeDescendants.count: " + "\(count)")
         let end:Int = idx2d + count
+        Swift.print("end: " + "\(end)")
         _ = ArrayModifier.removeRange(&list, idx2d + 1,end + 1)
         return count
     }
