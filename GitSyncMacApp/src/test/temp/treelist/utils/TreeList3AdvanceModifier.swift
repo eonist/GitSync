@@ -34,13 +34,11 @@ class TreeList3AdvanceModifier {
         //actually, just collapse the entire list and follow it with an open call. simple, elegant, perfect
     static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]) {
         //check legacy code, but isn't treeList always open by default
-        if let isOpen = treeList.treeDP.tree.props?["isOpen"]  {/*if has isOpen param and it's set to false*/
-            Swift.print("collapse isOpen:\(isOpen)")
-            if isOpen == "true" {/*item at idx3d was open*/
-                
-            }
-        }
-        if let child:Tree = treeList.treeDP.tree[idx3d] {
+        
+        if let child:Tree = treeList.treeDP.tree[idx3d],
+            let isOpen = child.props?["isOpen"],/*if has isOpen param and it's set to false*/
+            isOpen == "true" {/*item at idx3d was open*/
+            
             Swift.print("child.children.count: " + "\(child.children.count)")
             /*1.Remove all descendants to 2d list*/
             Swift.print("1.remove all descedants to 2d list")
