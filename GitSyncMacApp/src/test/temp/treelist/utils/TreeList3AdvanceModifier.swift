@@ -29,12 +29,13 @@ class TreeList3AdvanceModifier {
     
     //Continue here: 🏀
         //Design this method so it iterates over all children of idx3d and then sends an dp event once with the accumulated count
-    
+        //create a method that returns 3dindices from a idx3d
+        
     static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]) {
         //check legacy code, but isn't treeList always open by default
         if let child:Tree = treeList.treeDP.tree[idx3d] {
             //var totCount:Int = 0
-            child.children.forEach{
+            //child.children.forEach{
                 Swift.print("child.children.count: " + "\(child.children.count)")
                 /*2.Remove all descendants to 2d list*/
                 Swift.print("1.remove all descedants to 2d list")
@@ -48,7 +49,7 @@ class TreeList3AdvanceModifier {
                 //totCount += count
                 /*3.Use the count to update DP and UI*/
                 Swift.print("3.use the count to update DP and UI")
-            }
+            //}
             
             treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+count, treeList.dp))
         }
