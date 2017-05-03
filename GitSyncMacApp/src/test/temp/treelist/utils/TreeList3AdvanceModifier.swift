@@ -29,8 +29,6 @@ class TreeList3AdvanceModifier {
      * NOTE: You can collapse the entire list and follow it with an open call. this repoens root again
      */
     static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]) {
-        //check legacy code, but isn't treeList always open by default
-        
         if let child:Tree = treeList.treeDP.tree[idx3d],
             let isOpen = child.props?["isOpen"],/*if has isOpen param and it's set to false*/
             isOpen == "true" {/*item at idx3d was open*/
