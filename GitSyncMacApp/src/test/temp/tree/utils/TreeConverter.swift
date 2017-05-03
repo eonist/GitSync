@@ -8,10 +8,8 @@ class TreeConverter {
      */
     static func tree(_ xml:XML) -> Tree{
         var tree:Tree = Tree()
-
         //let count = xml.children!.count//or use rootElement.childCount TODO: test this
         func apply(_ item: inout Tree,_ child:XML){
-            
             item.name = child.name
             let attribs:[String:String] = child.attribs
             //Swift.print("attribs.isEmpty: " + "\(attribs.isEmpty)")
