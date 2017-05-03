@@ -31,7 +31,7 @@ class TreeList3AdvanceModifier {
         //Design this method so it iterates over all children of idx3d and then sends an dp event once with the accumulated count
         //create a method that returns 3dindices from a idx3d
         //the goal here is to call onEvent only once
-        //
+        //actually, just collapse the entire list and follow it with an open call. simple, elegant, perfect
     static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]) {
         //check legacy code, but isn't treeList always open by default
         if let child:Tree = treeList.treeDP.tree[idx3d] {
