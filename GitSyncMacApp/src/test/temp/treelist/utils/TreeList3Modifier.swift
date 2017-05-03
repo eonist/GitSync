@@ -56,7 +56,8 @@ class TreeList3Modifier {
     typealias KeyValue = (key:String,val:String)
     typealias Apply = (_ tree:inout Tree, _ prop:KeyValue) -> Void
     static var setValue:Apply = {tree,prop in
-        tree.props?[prop.key] = prop.val
+        tree.props
+        //tree.props?[prop.key] = prop.val
     }
     /**
      * EXAMPLE: recursiveApply(tree[idx3d],setValue,("isOpen","true"))
