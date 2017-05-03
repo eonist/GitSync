@@ -63,8 +63,9 @@ class TreeList3Modifier {
      * NOTE: This method traverses down hierarchy
      */
     static func recursiveApply(_ tree:inout Tree, _ apply:@escaping Apply, _ prop:KeyValue){
-        apply(&tree,prop)
-        for i in tree.children.indices {
+        
+        for i in tree.children.indices {//it could be possible to use forEach here, test may be needed
+            apply(&tree.children[i],prop)
             recursiveApply(&tree.children[i],apply,prop)
         }
     }
