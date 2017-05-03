@@ -21,7 +21,7 @@ class TreeConverter {
             if let content = child.stringValue, content.count > 0 {
                 item.content = content
             }else if(child.hasComplexContent) {
-                xml.children?.forEach{
+                child.children?.forEach{
                     tree.add(item)
                 }
                 _ = item.children += TreeConverter.tree(child).children//this line makes it recusive
