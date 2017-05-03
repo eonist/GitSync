@@ -48,7 +48,9 @@ class TreeList3AdvanceModifier {
                         Swift.print("3.use the count to update DP and UI")
                         treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+count, treeList.dp))
                     }else{//basically if idx3d is []
-                        //remove the entire 2d list
+                        //continue here:
+                            //remove the entire 2d list
+                            //recursive apply to tree,
                     }
                 }
             }
