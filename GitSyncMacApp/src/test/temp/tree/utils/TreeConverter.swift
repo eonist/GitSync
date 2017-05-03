@@ -8,14 +8,10 @@ class TreeConverter {
      */
     static func tree(_ xml:XML) -> Tree{
         var tree:Tree = Tree()
-        tree.name = xml.name
+
         //let count = xml.children!.count//or use rootElement.childCount TODO: test this
-        func apply(_ item:Tree,_ child:XML){
+        func apply(_ item: inout Tree,_ child:XML){
             
-        }
-        xml.children?.forEach{
-            let child:XML = $0 as! XML
-            var item:Tree = Tree()
             item.name = child.name
             let attribs:[String:String] = child.attribs
             //Swift.print("attribs.isEmpty: " + "\(attribs.isEmpty)")
@@ -27,8 +23,12 @@ class TreeConverter {
             }else if(child.hasComplexContent) {
                 _ = item.children += TreeConverter.tree(child).children
             }
-            tree.add(item)
         }
+        /*xml.children?.forEach{
+         
+         tree.add(item)
+         }*/
+        apply(&tree,xml)
         return tree
     }
     /**
