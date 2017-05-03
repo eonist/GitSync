@@ -33,6 +33,9 @@ class TreeList3AdvanceModifier {
     static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]) {
         //check legacy code, but isn't treeList always open by default
         if let child:Tree = treeList.treeDP.tree[idx3d] {
+            child.children.forEach{
+                
+            }
             Swift.print("child.children.count: " + "\(child.children.count)")
             /*1.Traverse all items and set to open*/
             Swift.print("1.traverse all items and set to open")
