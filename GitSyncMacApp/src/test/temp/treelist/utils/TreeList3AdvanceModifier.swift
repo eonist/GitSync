@@ -23,15 +23,11 @@ class TreeList3AdvanceModifier {
     /**
      * Collapses descendants (if you want to close the item at idx3d as well, then use the folow this call by a close call)
      * TODO: Consider adding flag to close it self as well
-     * NOTE: To collapse the entire treeList pass an empty array as PARAM: index
      * NOTE: This method collapses all nodes from the PARAM: index
+     * NOTE: A goal here is to call onEvent only once
+     * NOTE: To collapse the entire treeList pass an empty array as PARAM: index
+     * NOTE: You can collapse the entire list and follow it with an open call. this repoens root again
      */
-    
-    //Continue here: 🏀
-        //Design this method so it iterates over all children of idx3d and then sends an dp event once with the accumulated count
-        //create a method that returns 3dindices from a idx3d
-        //the goal here is to call onEvent only once
-        //actually, just collapse the entire list and follow it with an open call. simple, elegant, perfect
     static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]) {
         //check legacy code, but isn't treeList always open by default
         
@@ -52,7 +48,6 @@ class TreeList3AdvanceModifier {
             Swift.print("3.use the count to update DP and UI")
             treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+count, treeList.dp))
         }
-        /**/
     }
     /**
      * TODO: Should explode each node until it reaches its idx3d
