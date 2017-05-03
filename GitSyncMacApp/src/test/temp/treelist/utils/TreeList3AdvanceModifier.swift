@@ -29,22 +29,23 @@ class TreeList3AdvanceModifier {
      * NOTE: You can collapse the entire list and follow it with an open call. this repoens root again
      */
     static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]) {
-        if let child:Tree = treeList.treeDP.tree[idx3d],
-            let isOpen = child.props?["isOpen"],/*if has isOpen param and it's set to false*/
-            isOpen == "true" {/*item at idx3d was open*/
-            
-            Swift.print("child.children.count: " + "\(child.children.count)")
-            /*1.Remove all descendants to 2d list*/
-            Swift.print("1.remove all descedants to 2d list")
-            let idx2d:Int = treeList.treeDP[idx3d]!
-            Swift.print("idx2d: " + "\(idx2d)")
-            let count:Int = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*removes items from HashList (via HashListModifier.removeDescendants)*/
-            /*2.Traverse all items and set to close*/
-            Swift.print("2.traverse all items and set to close")
-            TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","false"))
-            /*3.Use the count to update DP and UI*/
-            Swift.print("3.use the count to update DP and UI")
-            treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+count, treeList.dp))
+        if let child:Tree = treeList.treeDP.tree[idx3d] {
+            if let isOpen = child.props?["isOpen"] {/*if has isOpen param and it's set to false*/
+                if isOpen == "true" {/*item at idx3d was open*/
+                    Swift.print("child.children.count: " + "\(child.children.count)")
+                    /*1.Remove all descendants to 2d list*/
+                    Swift.print("1.remove all descedants to 2d list")
+                    let idx2d:Int = treeList.treeDP[idx3d]!
+                    Swift.print("idx2d: " + "\(idx2d)")
+                    let count:Int = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*removes items from HashList (via HashListModifier.removeDescendants)*/
+                    /*2.Traverse all items and set to close*/
+                    Swift.print("2.traverse all items and set to close")
+                    TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","false"))
+                    /*3.Use the count to update DP and UI*/
+                    Swift.print("3.use the count to update DP and UI")
+                    treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+count, treeList.dp))
+                }
+            }
         }
     }
     /**
