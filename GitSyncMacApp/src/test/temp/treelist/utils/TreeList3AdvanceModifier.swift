@@ -9,7 +9,7 @@ class TreeList3AdvanceModifier {
     static func explode(_ treeList:TreeListable3,_ idx3d:[Int]) {
         if let isOpen = treeList.treeDP.tree.props?["isOpen"]  {/*if has isOpen param and its set to false*/
             if isOpen == "true" {/*already open*/
-                TreeList3Modifier.close(treeList,idx3d)
+                TreeList3Modifier.close(treeList,idx3d)//also updates DP
             }
             /*1.traverse all items and set to open*/
             TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","true"))
