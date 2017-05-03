@@ -10,7 +10,7 @@ class TreeConverter {
         var tree:Tree = Tree()
         tree.name = xml.name
         //let count = xml.children!.count//or use rootElement.childCount TODO: test this
-        func apply(){
+        func apply(_ item:Tree,_ child:XML){
             
         }
         xml.children?.forEach{
