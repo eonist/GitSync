@@ -25,15 +25,22 @@ class TreeList3AdvanceModifier {
      * NOTE: This method collapses all nodes from the PARAM: index
      */
     static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]) {
+        //check legacy code, but isnt treeList always open by default
+        
         if let isOpen = treeList.treeDP.tree.props?["isOpen"]  {/*if has isOpen param and it's set to false*/
             Swift.print("collapse isOpen:\(isOpen)")
             /*1.traverse all items and set to open*/
+            Swift.print("1.traverse all items and set to open")
             TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","false"))
             if isOpen == "true" {/*item at idx3d was open*/
                 /*2.remove all descedants to 2d list*/
+                Swift.print("2.remove all descedants to 2d list")
                 let idx2d:Int = treeList.treeDP[idx3d]!
+                Swift.print("idx2d: " + "\(idx2d)")
                 let count:Int = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*adds items to HashList (via HashListModifier.addDescendants)*/
+                Swift.print("count: " + "\(count)")
                 /*3.use the count to update DP and UI*/
+                Swift.print("3.use the count to update DP and UI")
                 treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+count, treeList.dp))
             }
         }
