@@ -30,24 +30,25 @@ class TreeList3AdvanceModifier {
         //check legacy code, but isn't treeList always open by default
         if let child:Tree = treeList.treeDP.tree[idx3d] {
             Swift.print("child.children.count: " + "\(child.children.count)")
-        }
-        if let isOpen = treeList.treeDP.tree.props?["isOpen"]  {/*if has isOpen param and it's set to false*/
-            Swift.print("collapse isOpen:\(isOpen)")
             /*1.traverse all items and set to open*/
             Swift.print("1.traverse all items and set to open")
             TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","false"))
-            if isOpen == "true" {/*item at idx3d was open*/
-                /*2.remove all descedants to 2d list*/
-                Swift.print("2.remove all descedants to 2d list")
-                let idx2d:Int = treeList.treeDP[idx3d]!
-                Swift.print("idx2d: " + "\(idx2d)")
-                let count:Int = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*adds items to HashList (via HashListModifier.addDescendants)*/
-                Swift.print("count: " + "\(count)")
-                /*3.use the count to update DP and UI*/
-                Swift.print("3.use the count to update DP and UI")
-                treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+count, treeList.dp))
-            }
+            /*2.remove all descedants to 2d list*/
+            Swift.print("2.remove all descedants to 2d list")
+            let idx2d:Int = treeList.treeDP[idx3d]!
+            Swift.print("idx2d: " + "\(idx2d)")
+            let count:Int = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*adds items to HashList (via HashListModifier.addDescendants)*/
+            Swift.print("count: " + "\(count)")
+            /*3.use the count to update DP and UI*/
+            Swift.print("3.use the count to update DP and UI")
+            treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+count, treeList.dp))
         }
+        /*if let isOpen = treeList.treeDP.tree.props?["isOpen"]  {/*if has isOpen param and it's set to false*/
+            Swift.print("collapse isOpen:\(isOpen)")
+            if isOpen == "true" {/*item at idx3d was open*/
+         
+            }
+        }*/
     }
     /**
      * TODO: Should explode each node until it reaches its idx3d
