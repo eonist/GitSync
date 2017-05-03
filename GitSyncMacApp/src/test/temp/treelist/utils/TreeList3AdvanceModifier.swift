@@ -31,6 +31,7 @@ class TreeList3AdvanceModifier {
     static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]) {
         Swift.print("collapse")
         if let child:Tree = treeList.treeDP.tree[idx3d] {
+            Swift.print("child.props: " + "\(child.props)")
             if let isOpen = child.props?["isOpen"] {/*if has isOpen param and it's set to false*/
                 Swift.print("isOpen: " + "\(isOpen)")
                 if isOpen == "true" {/*item at idx3d was open*/
