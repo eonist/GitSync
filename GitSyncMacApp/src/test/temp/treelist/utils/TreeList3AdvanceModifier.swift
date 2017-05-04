@@ -30,33 +30,8 @@ class TreeList3AdvanceModifier {
      */
     static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]) {
         Swift.print("collapse")
-        if let child:Tree = treeList.treeDP.tree[idx3d] {
-            Swift.print("child.props: " + "\(child.props)")
-            if let isOpen = child.props?["isOpen"] {/*if has isOpen param and it's set to false*/
-                Swift.print("isOpen: " + "\(isOpen)")
-                if isOpen == "true" {/*item at idx3d was open*/
-                    Swift.print("child.children.count: " + "\(child.children.count)")
-                    /*1.Remove all descendants to 2d list*/
-                    Swift.print("1.remove all descedants to 2d list")
-                    var range:Range<Int>
-                    if let idx2d = treeList.treeDP[idx3d] {
-                        Swift.print("idx2d: " + "\(idx2d)")
-                        /*removes items from HashList*/
-                        let count:Int = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)
-                        /*2.Traverse all items and set to close*/
-                        range = idx2d..<(idx2d+count)
-                        Swift.print("2.traverse all items and set to close")
-                    }else{//basically if idx3d is [] (aka root)
-                        range = 0..<treeList.treeDP.count
-                        treeList.treeDP.hashList = []//remove the entire 2d list
-                    }
-                    //recursive apply to tree:
-                    TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","false"))
-                    /*3.Use the count to update DP and UI*/
-                    Swift.print("3.use the count to update DP and UI")
-                    treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove,range.start,range.end,treeList.dp))
-                }
-            }
+        if let range:Range<Int> = Utils.collapse(treeList, idx3d){
+            treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove,range.start,range.end,treeList.dp))
         }
     }
     /**
@@ -66,7 +41,9 @@ class TreeList3AdvanceModifier {
         if let child:Tree = treeList.treeDP.tree[idx3d] {
             child.children.indices.forEach { i in
                 let subIdx3d:[Int] = (idx3d + [i])
+                
             }
+            //send dp event here. collect range first
         }
     }
     /**
