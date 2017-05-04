@@ -39,13 +39,13 @@ class TreeList3AdvanceModifier {
      */
     static func collapseAll(_ treeList:TreeListable3,_ idx3d:[Int]){
         if let child:Tree = treeList.treeDP.tree[idx3d] {
-            var totCount
+            var totCount;Int = 0
             child.children.indices.forEach { i in
                 let subIdx3d:[Int] = (idx3d + [i])
                 if let range:Range<Int> = Utils.collapse(treeList, subIdx3d){
-                    
+                    totCount += range.length
                 }else{
-                    
+                    totCount += 1
                 }
             }
             //Continue here: 🏀
