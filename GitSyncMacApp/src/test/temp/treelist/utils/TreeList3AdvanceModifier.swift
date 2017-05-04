@@ -9,19 +9,17 @@ class TreeList3AdvanceModifier {
     static func explode(_ treeList:TreeListable3,_ idx3d:[Int]) {
         if let isOpen = treeList.treeDP.tree.props?["isOpen"]  {/*if has isOpen param and its set to false*/
             if isOpen == "true" {/*already open*/
-                let idx2d:Int = treeList.treeDP[idx3d]!
-                let count:Int = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*remove items from HashList (via HashListModifier.removeDescendants)*/
-                //here you should use HashList2Modifier.removeDescendants instead of the above
-                
-                //the rest should be straight forward
+                if let idx2d:Int = treeList.treeDP[idx3d] {
+                    let delCount:Int = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*remove items from HashList (via HashListModifier.removeDescendants)*/
+                    /*1.traverse all items and set to open*/
+                    TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","true"))
+                    /*2.add all descedants to 2d list*/
+                    let idx2d:Int = treeList.treeDP[idx3d]!
+                    let count:Int = HashList2Modifier.addDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*adds items to HashList (via HashListModifier.addDescendants)*/
+                }
             }
-            /*1.traverse all items and set to open*/
-            TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","true"))
-            /*2.add all descedants to 2d list*/
-            let idx2d:Int = treeList.treeDP[idx3d]!
-            let count:Int = HashList2Modifier.addDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*adds items to HashList (via HashListModifier.addDescendants)*/
             /*3.use the count to update DP and UI*/
-            treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.add, idx2d, idx2d+count, treeList.dp))
+            //treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.add, idx2d, idx2d+count, treeList.dp))
         }
     }
     /**
