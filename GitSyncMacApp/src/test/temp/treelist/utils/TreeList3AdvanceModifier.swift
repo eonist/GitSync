@@ -45,11 +45,10 @@ class TreeList3AdvanceModifier {
                 if let range:Range<Int> = Utils.collapse(treeList, subIdx3d){
                     totCount += range.length
                 }else{
-                    totCount += 1
+                    //totCount += 1
                 }
             }
-            //Continue here: 🏀
-                //send dp event here. collect range first
+            treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove,range.start,range.end,treeList.dp))
         }
     }
     /**
