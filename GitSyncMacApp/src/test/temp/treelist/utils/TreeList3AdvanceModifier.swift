@@ -39,6 +39,7 @@ class TreeList3AdvanceModifier {
      */
     static func collapseAll(_ treeList:TreeListable3,_ idx3d:[Int]){
         if let child:Tree = treeList.treeDP.tree[idx3d] {
+            let idx2d:Int = treeList.treeDP[idx3d] ?? 0//if none exist then it root
             var totCount:Int = 0
             child.children.indices.forEach { i in
                 let subIdx3d:[Int] = (idx3d + [i])
@@ -48,7 +49,7 @@ class TreeList3AdvanceModifier {
                     //totCount += 1
                 }
             }
-            treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove,range.start,range.end,treeList.dp))
+            treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove,idx2d,idx2d+totCount,treeList.dp))
         }
     }
     /**
