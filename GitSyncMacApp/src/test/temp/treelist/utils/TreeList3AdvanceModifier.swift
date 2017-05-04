@@ -14,7 +14,8 @@ class TreeList3AdvanceModifier {
         }
     }
     /**
-     * explodes the children at PARAM: idx3d
+     * Explodes the children at PARAM: idx3d
+     * NOTE: Works great in root for instance aka idx3d: []
      */
     static func explodeAll(_ treeList:TreeListable3,_ idx3d:[Int]){
         if let child:Tree = treeList.treeDP.tree[idx3d] {
@@ -45,6 +46,7 @@ class TreeList3AdvanceModifier {
     }
     /**
      * Collapses the children at PARAM: idx3d
+     * NOTE: Works great in root for instance aka idx3d: []
      */
     static func collapseAll(_ treeList:TreeListable3,_ idx3d:[Int]){
         if let child:Tree = treeList.treeDP.tree[idx3d] {

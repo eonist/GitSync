@@ -29,13 +29,9 @@ class MinimalView:WindowView{
         treeList.unSelectAll()/*De-selects all selected items*/
         treeList.collapseAll([])/*Collapses the treeList*/
         
-        
-        //continue here: 🏀 
-            //consider creating collapseAll instead. root just doesnt work elegantly ✅
-            //Make explode and explodeAll 👈
-        
+        treeList.explodeAll([])/*Explodes the treeList*/
         /*
-        treeList.explode([])/*Explodes the treeList*/
+        
         
         treeList.remove([1])/*Removes an item at a idx3d*/
         treeList.insert([1],Tree("Fish"))/*Insert item at*/
