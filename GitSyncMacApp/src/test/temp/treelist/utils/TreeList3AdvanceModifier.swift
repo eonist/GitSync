@@ -17,7 +17,9 @@ class TreeList3AdvanceModifier {
      *
      */
     static func explodeAll(_ treeList:TreeListable3,_ idx3d:[Int]){
-        
+        if let child:Tree = treeList.treeDP.tree[idx3d] {
+            
+        }
     }
     /**
      * Collapses descendants (if you want to close the item at idx3d as well, then use the folow this call by a close call)
