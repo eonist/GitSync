@@ -102,7 +102,7 @@ private class Utils{
                         TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","false"))
                         /*3.Use the count to update DP and UI*/
                     
-                        
+                        let range:Range<Int> = 0..<treeList.treeDP.count
                         treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove,idx2d,idx2d+count,treeList.dp))
                     }
                 }
