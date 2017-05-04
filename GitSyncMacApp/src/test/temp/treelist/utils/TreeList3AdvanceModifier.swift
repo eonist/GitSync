@@ -55,7 +55,7 @@ class TreeList3AdvanceModifier {
                     TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","false"))
                     /*3.Use the count to update DP and UI*/
                     Swift.print("3.use the count to update DP and UI")
-                    treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d!, idx2d!+count, treeList.dp))
+                    treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove, range.start,range.end, treeList.dp))
                 }
             }
         }
