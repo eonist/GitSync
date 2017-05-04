@@ -65,7 +65,8 @@ class TreeList3AdvanceModifier {
     static func collapseAll(_ treeList:TreeListable3,_ idx3d:[Int]){
         if let child:Tree = treeList.treeDP.tree[idx3d] {
             child.children.indices.forEach { i in
-                let subIdx3d:[Int] = 
+                let subIdx3d:[Int] = (idx3d + [i])
+                
             }
         }
     }
@@ -77,4 +78,7 @@ class TreeList3AdvanceModifier {
     static func reveal(){
         
     }
+}
+private class Utils{
+    
 }
