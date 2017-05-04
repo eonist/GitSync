@@ -63,7 +63,11 @@ class TreeList3AdvanceModifier {
      *
      */
     static func collapseAll(_ treeList:TreeListable3,_ idx3d:[Int]){
-        treeList.treeDP.tree.children
+        if let child:Tree = treeList.treeDP.tree[idx3d] {
+            child.children.indices.forEach { i in
+                let subIdx3d:[Int] = 
+            }
+        }
     }
     /**
      * TODO: Should explode each node until it reaches its idx3d
