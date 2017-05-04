@@ -8,6 +8,9 @@ class TreeList3AdvanceModifier {
      */
     static func explode(_ treeList:TreeListable3,_ idx3d:[Int]) {
         //treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.add, idx2d, idx2d+count, treeList.dp))
+        if let range:Range<Int> = Utils.explode(treeList, idx3d){
+            
+        }
     }
     /**
      * Collapses descendants (if you want to close the item at idx3d as well, then use the folow this call by a close call)
@@ -55,7 +58,7 @@ private class Utils{
      * New
      */
     static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]) -> Range<Int>?{
-        if let child:Tree = treeList.treeDP.tree[idx3d] , let isOpen = child.props?["isOpen"], isOpen == "true", let idx2d = treeList.treeDP[idx3d]{/*if has isOpen param and it's set to false, item at idx3d was open*/
+        if let child:Tree = treeList.treeDP.tree[idx3d], let isOpen = child.props?["isOpen"], isOpen == "true", let idx2d = treeList.treeDP[idx3d]{/*if has isOpen param and it's set to false, item at idx3d was open*/
             let count:Int = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*1.Remove all descendants to 2d list*/
             TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","false"))/*2.Traverse all items and set to close*/
             return idx2d..<(idx2d+count)/*3.Use the count to update DP and UI*/
@@ -66,15 +69,11 @@ private class Utils{
      * NOTE: To explode the entire treeList pass an empty array as PARAM: index
      */
     static func explode(_ treeList:TreeListable3,_ idx3d:[Int]) -> Range<Int>?{
-        if let isOpen = treeList.treeDP.tree.props?["isOpen"] ,isOpen == "true" {/*if has isOpen param and its set to false, already open*/
-            
-                if let idx2d:Int = treeList.treeDP[idx3d] {
-                    _ = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*remove items from HashList (via HashListModifier.removeDescendants)*/
-                    TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","true"))/*1.traverse all items and set to open*/
-                    let count:Int = HashList2Modifier.addDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*2.add all descedants to 2d list*/
-                    return idx2d..<(idx2d+count)/*3.Use the count to update DP and UI*/
-                }
-            
+        if let isOpen = treeList.treeDP.tree.props?["isOpen"] ,isOpen == "true",let idx2d:Int = treeList.treeDP[idx3d] {/*if has isOpen param and its set to false, already open*/
+            _ = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*remove items from HashList (via HashListModifier.removeDescendants)*/
+            TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","true"))/*1.traverse all items and set to open*/
+            let count:Int = HashList2Modifier.addDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*2.add all descedants to 2d list*/
+            return idx2d..<(idx2d+count)/*3.Use the count to update DP and UI*/
         }
         return nil
     }
