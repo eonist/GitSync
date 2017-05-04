@@ -1,15 +1,16 @@
 import Foundation
 @testable import Utils
 @testable import Element
-
+/**
+ * NOTE: To move things up and down hierarchy levels all you do is cut and paste the item
+ */
 class TreeList3AdvanceModifier {
     /**
      * NOTE: To explode the entire treeList pass an empty array as PARAM: index
      */
     static func explode(_ treeList:TreeListable3,_ idx3d:[Int]) {
-        //treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.add, idx2d, idx2d+count, treeList.dp))
         if let range:Range<Int> = Utils.explode(treeList, idx3d){
-            
+            treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.add, range.start,range.end, treeList.dp))
         }
     }
     /**
@@ -66,7 +67,7 @@ private class Utils{
         return nil
     }
     /**
-     * NOTE: To explode the entire treeList pass an empty array as PARAM: index
+     * New
      */
     static func explode(_ treeList:TreeListable3,_ idx3d:[Int]) -> Range<Int>?{
         if let isOpen = treeList.treeDP.tree.props?["isOpen"] ,isOpen == "true",let idx2d:Int = treeList.treeDP[idx3d] {/*if has isOpen param and its set to false, already open*/
