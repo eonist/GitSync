@@ -45,17 +45,15 @@ class TreeList3AdvanceModifier {
                         /*2.Traverse all items and set to close*/
                         range = idx2d..<(idx2d+count)
                         Swift.print("2.traverse all items and set to close")
-                        
-                    }else{//basically if idx3d is []
-                        //continue here:
+                    }else{//basically if idx3d is [] (aka root)
                         range = 0..<treeList.treeDP.items.count
                         treeList.treeDP.items = []//remove the entire 2d list
-                            //recursive apply to tree,
                     }
+                    //recursive apply to tree:
                     TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","false"))
                     /*3.Use the count to update DP and UI*/
                     Swift.print("3.use the count to update DP and UI")
-                    treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove, range.start,range.end, treeList.dp))
+                    treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove,range.start,range.end,treeList.dp))
                 }
             }
         }
