@@ -66,7 +66,6 @@ class TreeList3AdvanceModifier {
         if let child:Tree = treeList.treeDP.tree[idx3d] {
             child.children.indices.forEach { i in
                 let subIdx3d:[Int] = (idx3d + [i])
-                
             }
         }
     }
@@ -87,8 +86,8 @@ private class Utils{
         if let child:Tree = treeList.treeDP.tree[idx3d] , let isOpen = child.props?["isOpen"], isOpen == "true", let idx2d = treeList.treeDP[idx3d]{/*if has isOpen param and it's set to false, item at idx3d was open*/
             let count:Int = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*1.Remove all descendants to 2d list*/
             TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","false"))/*2.Traverse all items and set to close*/
-            return 0..<treeList.treeDP.count/*3.Use the count to update DP and UI*/
+            return idx2d..<(idx2d+count)/*3.Use the count to update DP and UI*/
         }
-        return
+        return nil
     }
 }
