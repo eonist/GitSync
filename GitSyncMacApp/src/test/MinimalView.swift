@@ -31,7 +31,8 @@ class MinimalView:WindowView{
         
         
         //continue here: 🏀 
-            //consider creating collapseAll instead. root just doesnt work elegantly
+            //consider creating collapseAll instead. root just doesnt work elegantly ✅
+            //Make explode and explodeAll 👈
         
         /*
         treeList.explode([])/*Explodes the treeList*/
