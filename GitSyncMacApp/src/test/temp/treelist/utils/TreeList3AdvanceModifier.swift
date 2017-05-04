@@ -50,6 +50,7 @@ class TreeList3AdvanceModifier {
                     }else{//basically if idx3d is []
                         //continue here:
                             //remove the entire 2d list
+                        treeList.treeDP.tree.
                             //recursive apply to tree,
                     }
                 }
