@@ -35,7 +35,7 @@ class TreeList3AdvanceModifier {
         }
     }
     /**
-     * New
+     * Collapses the children at PARAM: idx3d
      */
     static func collapseAll(_ treeList:TreeListable3,_ idx3d:[Int]){
         if let child:Tree = treeList.treeDP.tree[idx3d] {
