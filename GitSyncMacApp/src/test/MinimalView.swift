@@ -30,6 +30,9 @@ class MinimalView:WindowView{
         treeList.collapse([])/*Collapses the treeList*/
         treeList.open([])
         
+        //continue here: 🏀 
+            //consider creating collapseAll instead. root just doesnt work elegantly
+        
         /*
         treeList.explode([])/*Explodes the treeList*/
         
