@@ -6,6 +6,7 @@ class TreeDP2Modifier {
      * NOTE: after this method is called, send event to FastList UI Component, the times were added
      */
     static func open(_ dp:TreeDP2, _ idx2d:Int){
+        Swift.print("TreeDP2Modifier.open")
         let idx3d:[Int] = dp.hashList[idx2d]
         dp.tree.setProp(idx3d,("isOpen","true"))//updates tree
         let count:Int = HashList2Modifier.addDescendants(&dp.hashList, idx2d, idx3d, dp.tree)/*adds items to HashList (via HashListModifier.addDescendants)*/
