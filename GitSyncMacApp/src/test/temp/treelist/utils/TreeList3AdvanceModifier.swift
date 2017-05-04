@@ -41,7 +41,8 @@ class TreeList3AdvanceModifier {
                     var range:Range<Int>
                     if let idx2d = treeList.treeDP[idx3d] {
                         Swift.print("idx2d: " + "\(idx2d)")
-                        let count:Int = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*removes items from HashList (via HashListModifier.removeDescendants)*/
+                        /*removes items from HashList*/
+                        let count:Int = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)
                         /*2.Traverse all items and set to close*/
                         range = idx2d..<(idx2d+count)
                         Swift.print("2.traverse all items and set to close")
