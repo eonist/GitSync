@@ -83,30 +83,12 @@ private class Utils{
     /**
      *
      */
-    static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]){
-        if let child:Tree = treeList.treeDP.tree[idx3d] {
-            
-            if let isOpen = child.props?["isOpen"] {/*if has isOpen param and it's set to false*/
-                
-                if isOpen == "true" {/*item at idx3d was open*/
-                    
-                    /*1.Remove all descendants to 2d list*/
-                    
-                    if let idx2d = treeList.treeDP[idx3d] {
-                    
-                        /*removes items from HashList*/
-                        let count:Int = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)
-                        /*2.Traverse all items and set to close*/
-                        //recursive apply to tree:
-                    
-                        TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","false"))
-                        /*3.Use the count to update DP and UI*/
-                    
-                        let range:Range<Int> = 0..<treeList.treeDP.count
-                        treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove,idx2d,idx2d+count,treeList.dp))
-                    }
-                }
-            }
+    static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]) -> Range<Int>?{
+        if let child:Tree = treeList.treeDP.tree[idx3d] , let isOpen = child.props?["isOpen"], isOpen == "true", let idx2d = treeList.treeDP[idx3d]{/*if has isOpen param and it's set to false, item at idx3d was open*/
+            let count:Int = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*1.Remove all descendants to 2d list*/
+            TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","false"))/*2.Traverse all items and set to close*/
+            return 0..<treeList.treeDP.count/*3.Use the count to update DP and UI*/
         }
+        return
     }
 }
