@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 @testable import Element
 /**
- * NOTE: To move things up and down hierarchy levels all you do is cut and paste the item
+ * NOTE: To move things up and down hierarchy levels all you do is cut and paste the item, see legacy methods for how to do this
  */
 class TreeList3AdvanceModifier {
     /**
@@ -14,6 +14,12 @@ class TreeList3AdvanceModifier {
         }
     }
     /**
+     *
+     */
+    static func explodeAll(_ treeList:TreeListable3,_ idx3d:[Int]){
+        
+    }
+    /**
      * Collapses descendants (if you want to close the item at idx3d as well, then use the folow this call by a close call)
      * TODO: Consider adding flag to close it self as well
      * NOTE: This method collapses all nodes from the PARAM: index
@@ -22,7 +28,7 @@ class TreeList3AdvanceModifier {
      * NOTE: You can collapse the entire list and follow it with an open call. this repoens root again
      */
     static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]) {
-        Swift.print("collapse")
+        //Swift.print("collapse")
         if let range:Range<Int> = Utils.collapse(treeList, idx3d){
             treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove,range.start,range.end,treeList.dp))
         }
