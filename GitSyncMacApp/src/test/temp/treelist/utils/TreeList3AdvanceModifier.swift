@@ -80,5 +80,33 @@ class TreeList3AdvanceModifier {
     }
 }
 private class Utils{
-    
+    /**
+     *
+     */
+    static func collapse(_ treeList:TreeListable3,_ idx3d:[Int]){
+        if let child:Tree = treeList.treeDP.tree[idx3d] {
+            Swift.print("child.props: " + "\(child.props)")
+            if let isOpen = child.props?["isOpen"] {/*if has isOpen param and it's set to false*/
+                Swift.print("isOpen: " + "\(isOpen)")
+                if isOpen == "true" {/*item at idx3d was open*/
+                    Swift.print("child.children.count: " + "\(child.children.count)")
+                    /*1.Remove all descendants to 2d list*/
+                    Swift.print("1.remove all descedants to 2d list")
+                    if let idx2d = treeList.treeDP[idx3d] {
+                        Swift.print("idx2d: " + "\(idx2d)")
+                        /*removes items from HashList*/
+                        let count:Int = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)
+                        /*2.Traverse all items and set to close*/
+                        //recursive apply to tree:
+                        Swift.print("2.traverse all items and set to close")
+                        TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","false"))
+                        /*3.Use the count to update DP and UI*/
+                        Swift.print("3.use the count to update DP and UI")
+                        
+                        treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove,idx2d,idx2d+count,treeList.dp))
+                    }
+                }
+            }
+        }
+    }
 }
