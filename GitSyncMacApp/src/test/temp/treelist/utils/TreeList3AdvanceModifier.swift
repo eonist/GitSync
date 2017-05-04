@@ -47,7 +47,7 @@ class TreeList3AdvanceModifier {
                         range = idx2d..<(idx2d+count)
                         Swift.print("2.traverse all items and set to close")
                     }else{//basically if idx3d is [] (aka root)
-                        range = 0..<treeList.treeDP.items.count
+                        range = 0..<treeList.treeDP.count
                         treeList.treeDP.items = []//remove the entire 2d list
                     }
                     //recursive apply to tree:
