@@ -27,8 +27,8 @@ class MinimalView:WindowView{
         Swift.print("Selected title: \(treeList.selected?.props?["title"])")
         Swift.print("treeList.selected idx3d: " + "\(treeList.selectedIdx3d)")
         treeList.unSelectAll()/*De-selects all selected items*/
-        treeList.collapse([])/*Collapses the treeList*/
-        treeList.open([])
+        treeList.collapseAll([])/*Collapses the treeList*/
+        
         
         //continue here: 🏀 
             //consider creating collapseAll instead. root just doesnt work elegantly
