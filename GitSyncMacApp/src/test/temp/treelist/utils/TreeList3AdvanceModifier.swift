@@ -43,16 +43,17 @@ class TreeList3AdvanceModifier {
                         let count:Int = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*removes items from HashList (via HashListModifier.removeDescendants)*/
                         /*2.Traverse all items and set to close*/
                         Swift.print("2.traverse all items and set to close")
-                        TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","false"))
-                        /*3.Use the count to update DP and UI*/
-                        Swift.print("3.use the count to update DP and UI")
-                        treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+count, treeList.dp))
+                        
                     }else{//basically if idx3d is []
                         //continue here:
-                            //remove the entire 2d list
-                        treeList.treeDP.tree.
+                        
+                        treeList.treeDP.items = []//remove the entire 2d list
                             //recursive apply to tree,
                     }
+                    TreeList3Modifier.recursiveApply(&treeList.treeDP.tree[idx3d]!,TreeList3Modifier.setValue,("isOpen","false"))
+                    /*3.Use the count to update DP and UI*/
+                    Swift.print("3.use the count to update DP and UI")
+                    treeList.dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+count, treeList.dp))
                 }
             }
         }
