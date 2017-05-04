@@ -9,8 +9,8 @@ class TreeList3AdvanceModifier {
     static func explode(_ treeList:TreeListable3,_ idx3d:[Int]) {
         if let isOpen = treeList.treeDP.tree.props?["isOpen"]  {/*if has isOpen param and its set to false*/
             if isOpen == "true" {/*already open*/
-                let idx2d:Int 
-                let count:Int = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, dp.tree)/*remove items from HashList (via HashListModifier.removeDescendants)*/
+                let idx2d:Int = treeList.treeDP[idx3d]!
+                let count:Int = HashList2Modifier.removeDescendants(&treeList.treeDP.hashList, idx2d, idx3d, treeList.treeDP.tree)/*remove items from HashList (via HashListModifier.removeDescendants)*/
                 //here you should use HashList2Modifier.removeDescendants instead of the above
                 
                 //the rest should be straight forward
