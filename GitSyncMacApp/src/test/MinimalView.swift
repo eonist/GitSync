@@ -11,8 +11,9 @@ class MinimalView:WindowView{
         //rotationUITest()
         //checkBoxTest()
         
-        //Continue here: 
-            //
+        //Continue here: 🏀
+            //drag and drop? for the TreeList?
+                //on mouse down, mouse move, 
         
     }
     func treeList(){
