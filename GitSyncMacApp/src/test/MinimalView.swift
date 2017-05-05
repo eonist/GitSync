@@ -19,14 +19,14 @@ class MinimalView:WindowView{
         let treeList = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
         _ = treeList
         
-        treeList.select([2])/*Selects third item in root*/
-        treeList.open([2])/*Opens the first item in root*/
-        treeList.unSelectAll()
-        treeList.select([2,1])/*Selects nest item*/
+        //treeList.select([2])/*Selects third item in root*/
+        //treeList.open([2])/*Opens the first item in root*/
+        //treeList.unSelectAll()
+        //treeList.select([2,1])/*Selects nest item*/
         
-        Swift.print("Selected title: \(treeList.selected?.props?["title"])")
-        Swift.print("treeList.selected idx3d: " + "\(treeList.selectedIdx3d)")
-        treeList.unSelectAll()/*De-selects all selected items*/
+        //Swift.print("Selected title: \(treeList.selected?.props?["title"])")
+        //Swift.print("treeList.selected idx3d: " + "\(treeList.selectedIdx3d)")
+        //treeList.unSelectAll()/*De-selects all selected items*/
         //treeList.collapseAll([])/*Collapses the treeList*/
         //treeList.explodeAll([])/*Explodes the treeList*/
         
