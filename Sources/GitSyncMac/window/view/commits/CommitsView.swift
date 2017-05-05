@@ -17,7 +17,7 @@ class CommitsView:Element {
     }
     func createList(){
         let dp = CommitDPCache.read()/*Creates the dp based on cached data from previous app runs*/
-        list = addSubView(CommitsList(CommitsView.w, CommitsView.h, 102, dp, self,"commitsList"))
+        list = addSubView(CommitsList(CommitsView.w, CommitsView.h, CGSize(NaN,102), dp, self,"commitsList"))
         //⚠️️list!.selectAt(dpIdx: CommitsView.selectedIdx)
     }
     /**
@@ -31,7 +31,7 @@ class CommitsView:Element {
         CommitsView.selectedIdx = list!.selectedIdx!
         
         Swift.print("event.index: " + "\(event.index)")
-        let commitData:[String:String] = list!.dataProvider.getItemAt(event.index)!
+        let commitData:[String:String] = list!.dp.getItemAt(event.index)!
         //(Navigation.currentView as! CommitDetailView).setCommitData(commitData)//updates the UI elements with the selected commit item
         Navigation.setView(.commitDetail(commitData))
     }
