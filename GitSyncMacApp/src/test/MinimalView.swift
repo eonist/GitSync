@@ -15,7 +15,8 @@ class MinimalView:WindowView{
             //drag and drop? for the TreeList?
                 //on mouse down, mouse move, mouse up
                     //change the state of the item under the mousePos
-                        //set skinState to: 
+                        //set skinState to: "drop" which has a weaker color than selected
+                        
         
     }
     func treeList(){
