@@ -7,6 +7,9 @@ import Cocoa
 
 //Continue here: 🏀
     //you need to update the hashList after a tree-item-removal.
+        //but only at 1 level, so its not that bad
+        //it raises a question:
+            //could hashList just be tree with efficient isOpen asserts?
 
 
 class TreeList3:ElasticScrollFastList3,TreeListable3{//ElasticSlideScrollFastList3
