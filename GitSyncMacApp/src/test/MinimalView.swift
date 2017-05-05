@@ -65,8 +65,6 @@ class MinimalView:WindowView{
         let btn = addSubView(Button(100,100,self))
         _ = btn
     }
-    
-    
     /**
      *
      */
