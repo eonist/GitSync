@@ -39,7 +39,7 @@ class MinimalView:WindowView{
         _ = xml
         
         treeList.event = { event in/*add local event listener*/
-            if(event.type == SelectEvent.select && event.immediate === treeList){
+            if(event.type == ListEvent.select && event.immediate === treeList){
                 Swift.print("onTreeListSelect() event.origin: \(event.origin)")
                 Swift.print("selectedIndex: " + "\(treeList.selectedIdx3d)")
                 if let selectedIdx:[Int] = treeList.selectedIdx3d {
