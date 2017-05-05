@@ -28,14 +28,14 @@ extension TreeListable3 {
     func unSelectAll(){
         TreeList3Modifier.unSelectAll(self)
     }
-    func insert(_ idx3d:[Int],_ tree:Tree){
-        TreeList3Modifier.insert(self,idx3d,tree)
+    func insert(_ idx3d:[Int],_ item:Tree){
+        TreeList3Modifier.insert(self,idx3d,item)
     }
     func remove(_ idx3d:[Int]){
         TreeList3Modifier.remove(self, idx3d)
     }
-    func append(_ idx3d:[Int],_ child:Tree){
-        TreeList3Modifier.append(self, idx3d, child)
+    func append(_ idx3d:[Int],_ item:Tree){
+        TreeList3Modifier.append(self, idx3d, item)
     }
     var selectedIdx3d:[Int]? {return TreeList3Parser.selected(self)}
     var xml:XML {return self.treeDP.tree.xml}
