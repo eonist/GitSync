@@ -29,7 +29,7 @@ class MinimalView:WindowView{
         treeList.unSelectAll()/*De-selects all selected items*/
         treeList.collapseAll([])/*Collapses the treeList*/
         
-        treeList.explodeAll([])/*Explodes the treeList*/
+        //treeList.explodeAll([])/*Explodes the treeList*/
         /*
         
         
