@@ -24,7 +24,6 @@ class CommitsList:ElasticSlideScrollFastList,ICommitList{
      * Create ListItem
      */
     override func createItem(_ index:Int) -> Element {
-        //Swift.print("CommitsList.createItem index: \(index)")
         let dpItem = dataProvider.items[index]
         let item:CommitsListItem = CommitsListItem(width, itemHeight ,dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!, false, lableContainer)
         lableContainer!.addSubview(item)
@@ -34,7 +33,6 @@ class CommitsList:ElasticSlideScrollFastList,ICommitList{
      * Apply data to ListItem
      */
     override func reUse(_ listItem:FastListItem) {
-        //Swift.print("CommitsList.reUse: idx: " + "\(listItem.idx)")
         let item:CommitsListItem = listItem.item as! CommitsListItem
         let idx:Int = listItem.idx/*the index of the data in dataProvider*/
         let selected:Bool = idx == selectedIdx//dpItem["selected"]!.bool
