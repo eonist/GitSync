@@ -17,7 +17,7 @@ class CommitsView:Element {
     }
     func createList(){
         let dp = CommitDPCache.read()/*Creates the dp based on cached data from previous app runs*/
-        list = addSubView(CommitsList(CommitsView.w, CommitsView.h, CGSize(NaN,102), dp, self,"commitsList"))
+        list = addSubView(CommitsList(CommitsView.w, CommitsView.h, CGSize(NaN,102), dp, self,"commitsList2"))
         //⚠️️list!.selectAt(dpIdx: CommitsView.selectedIdx)
     }
     /**
