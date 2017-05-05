@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-class CommitsList:ElasticSlideScrollFastList3,ICommitList{
+class CommitsList:ElasticSlideScrollFastList3{//ICommitList
     /*The following variables exists to facilitate the pull to refresh functionality*/
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
@@ -44,9 +44,9 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
         //Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
         if(event.assert(AnimEvent.completed, progressIndicator!.animator)){
             //loopAnimationCompleted()
-        }else if(event.assert(AnimEvent.stopped, mover!)){
+        }/*else if(event.assert(AnimEvent.stopped, mover!)){
             scrollAnimStopped()
-        }
+        }*/
         super.onEvent(event)
     }
     /**
@@ -54,11 +54,11 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
      * NOTE: this method overides the Native NSView scrollWheel method
      * //TODO: ⚠️️you need to make an scroolWheel method that you can override down hirarcy.
      */
-    override func scrollWheel(with event:NSEvent) {//you can probably remove this method and do it in base?"!?
-        Swift.print("CommitsList.scrollWheel()")
-        (self as ICommitList).scroll(event)
+    //override func scrollWheel(with event:NSEvent) {//you can probably remove this method and do it in base?"!?
+        //Swift.print("CommitsList.scrollWheel()")
+        //(self as ICommitList).scroll(event)
         //super.scrollWheel(with: event)/*⚠️️, 👈 not good, forward the event other delegates higher up in the stack*/
-    }
+    //}
     /**
      *
      */
