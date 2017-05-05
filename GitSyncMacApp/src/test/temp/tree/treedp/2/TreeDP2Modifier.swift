@@ -43,7 +43,7 @@ class TreeDP2Modifier {
             dp.tree.children.forEach {
                 Swift.print("$0.name: " + "\($0.props?["title"])")
             }
-            dp.hashList.removeAt(idx2d)
+            dp.hashList = TreeUtils.pathIndecies(dp.tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
             Swift.print("dp.hashList: " + "\(dp.hashList)")
             Swift.print("")
             dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+1, dp))
