@@ -28,6 +28,11 @@ class TreeDP2Modifier {
     static func insert(_ dp:TreeDP2, _ idx3d:[Int],_ tree:Tree){
         Swift.print("insert \(tree.name) at \(idx3d)")
         if let idx2d:Int = dp[idx3d] {/*makes sure it exists*/
+            
+            //continue here:
+                //make sure the tree looks coorect. do a describe then halt the log. 
+                //you might need to insert into parents children etc.
+            
             TreeModifier.insert(&dp.tree, idx3d, tree)
             dp.hashList = TreeUtils.pathIndecies(dp.tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
             dp.onEvent(DataProviderEvent(DataProviderEvent.add, idx2d, idx2d+1, dp))/*updates fastlist UI*/
