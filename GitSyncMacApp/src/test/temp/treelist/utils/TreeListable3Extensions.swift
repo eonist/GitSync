@@ -32,10 +32,10 @@ extension TreeListable3 {
         TreeList3Modifier.insert(self,idx3d,tree)
     }
     func remove(_ idx3d:[Int]){
-        TreeDP2Modifier.remove(self.treeDP, idx3d)
+        TreeList3Modifier.remove(self, idx3d)
     }
     func append(_ idx3d:[Int],_ child:Tree){
-        TreeDP2Modifier.append(self.treeDP, idx3d, child)
+        TreeList3Modifier.append(self, idx3d, child)
     }
     var selectedIdx3d:[Int]? {return TreeList3Parser.selected(self)}
     var xml:XML {return self.treeDP.tree.xml}

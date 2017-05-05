@@ -44,13 +44,13 @@ class TreeList3Modifier {
     /**
      * New
      */
-    func remove(_ treeList:TreeListable3,_ idx3d:[Int]){
+    static func remove(_ treeList:TreeListable3,_ idx3d:[Int]){
         TreeDP2Modifier.remove(treeList.treeDP, idx3d)
     }
     /**
      * New
      */
-    func append(_ treeList:TreeListable3,_ idx3d:[Int],_ child:Tree){
+    static func append(_ treeList:TreeListable3,_ idx3d:[Int],_ child:Tree){
         TreeDP2Modifier.append(treeList.treeDP, idx3d, child)
     }
     typealias KeyValue = (key:String,val:String)
