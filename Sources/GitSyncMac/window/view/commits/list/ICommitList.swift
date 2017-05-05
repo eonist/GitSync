@@ -118,7 +118,7 @@ extension ICommitList{
     func scrollAnimStopped(){
         Swift.print("🌵 ICommitsList.scrollAnimStopped()")
         //⚠️️ defaultScrollAnimStopped()
-        hideSlider()
+        //hideSlider()
         if(isInDeactivateRefreshModeState){
             //Swift.print("reset refreshState")
             hasPulledAndReleasedBeyondRefreshSpace = false//reset
