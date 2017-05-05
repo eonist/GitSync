@@ -34,6 +34,7 @@ class TreeDP2Modifier {
     /**
      * New
      * TODO: create remove for idx2d as well
+     * TODO: A more efficient way of doing this would be to insert pathIndecies only for the affected items
      */
     static func remove(_ dp:TreeDP2,_ idx3d:[Int]){
         Swift.print("TreeDP2Modifier.remove at: \(idx3d)")
