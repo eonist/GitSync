@@ -32,21 +32,7 @@ class TreeUtils{
         let child:Tree = TreeParser.child(tree, idx)!
         return Utils.pathIndecies(child, [], assert)
     }
-    /**
-     * New
-     * TODO: Use the reduce into tuple with arr and dict (See notes for example)
-     */
-    static func hashList(_ tree:Tree) -> DEPRECATEDHashList {
-        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],isOpen)/*flattens 3d to 2d*/
-        var arr:[String] = []
-        var dict:[String:Int] = [:]
-        pathIndecies.forEach{
-            let key:String = $0.string
-            arr.append(key)
-            dict[key] = arr.count-1
-        }
-        return DEPRECATEDHashList(arr,dict)
-    }
+    
     /**
      * Used to debug Trees
      */
