@@ -92,7 +92,7 @@ extension FastList3{
         if(currentVisibleItemRange != range){/*Optimization: only set if it's not the same as prev range*/
             Swift.print("🎨 render: \(event.startIndex) ")
             renderItems(range)/*the visible range has changed, render it*/
-            reUseFromIdx(event.startIndex)//quickfix, the permanent solution would be to only use this if there is a gap that wont get reused etc.
+            reUseFromIdx(currentVisibleItemRange.start/*event.startIndex*/)//quickfix, the permanent solution would be to only use this if there is a gap that wont get reused etc.
         }else{
             Swift.print("♲ reUse")
             reUseFromIdx(event.startIndex)/*the visible range hasn't changed, but the data has changed, apply new data*/
