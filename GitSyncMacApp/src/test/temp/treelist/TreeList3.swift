@@ -9,6 +9,7 @@ class TreeList3:ElasticScrollFastList3,TreeListable3{//ElasticSlideScrollFastLis
     override func reUse(_ listItem:FastListItem) {
         Swift.print("🍊 \(listItem.idx)")
         let idx3d:[Int] = treeDP.hashList[listItem.idx]
+        Swift.print("idx3d: " + "\(idx3d)")
         listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up), should use classID*/
         disableAnim{listItem.item.setSkinState(listItem.item.getSkinState())}/*Sets correct indent*/
         let isOpenStr = TreeDP2Parser.getProp(treeDP, idx3d, "isOpen")
