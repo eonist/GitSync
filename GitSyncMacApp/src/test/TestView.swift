@@ -129,35 +129,7 @@ class TestView:TitleView{
             Swift.print("tree.name: " + "\(tree?.name)")
         }
     }
-    func alterTreeTest(){
-        //✅ click arrow to open -> tree[idx].setProps["isOpen"] = true, insert trees from self.idx w/ filter open
-        //✅ click arrow to close -> tree[idx].setProps["isOpen"] = false, remove every item after curIdx, that has curIdx, then stop if idx is not curIdx
-        
-        let dp: DEPRECATEDTreeDP = DEPRECATEDTreeDP("~/Desktop/assets/xml/treelist.xml".tildePath)
-        
-        //Continue here: 🏀
-            //on FastList click -> opens and closes folders
-            //Move UI into TreeList3
-            //Add TreeListItem3 to the fold
-            //Adjust design based on len of array item "1" means no indentaion "210" means 2 levels of indentaion etc
-        
-        DEPRECATEDTreeDPModifier.open(dp, 2)
-        DEPRECATEDTreeDPModifier.close(dp, 2)
-
-        
-        //print hashList
-        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(dp.tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
-        Swift.print("⚠️️")
-        
-        pathIndecies.forEach{
-            //Swift.print("$0: " + "\($0)")
-            let treeIdx:[Int] = $0
-            if let tree = dp.tree[treeIdx],let props:[String:String] = tree.props,let title = props["title"]{
-               Swift.print("title: " + "\(title)")
-                //Swift.print("$0: " + "\($0)")
-            }
-        }
-    }
+    
     /**
      *
      */
@@ -181,55 +153,7 @@ class TestView:TitleView{
             }
         }
     }
-    
-    func treeDPTest(){
-        Swift.print("🚧 treeDPTest 🚧")
-        let xmlStr:String = "<items title=\"main\"><item title=\"A\"/><item title=\"B\"/><item title=\"C\"/></items>"
-        let treeDP = DEPRECATEDTreeDP(xmlStr.xml)
-        Swift.print("treeDP.count: " + "\(treeDP.count)")
         
-        for i in 0..<treeDP.count{
-            Swift.print("\(treeDP.item(i)?["title"])")
-        }
-    }
-    func treeHashTest(){
-        Swift.print("🚧 treeHashTest 🚧")
-        let children = [Tree("A",[Tree("X"),Tree("Y")]),Tree("B")]
-        let tree = Tree("Root",children)
-        Swift.print("tree.count: " + "\(tree.count)")
-        
-        let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree)
-        pathIndecies.forEach{
-            Swift.print("$0.idx: " + "\($0)")
-        }
-        
-        
-        let hashList: DEPRECATEDHashList = TreeUtils.hashList(tree)
-        Swift.print("hashList.arr.count: " + "\(hashList.arr.count)")
-        Swift.print("hashList[2]: " + "\("" + hashList[2]!)")//returns 3d-idx
-        Swift.print("hashList[01]: " + "\(hashList["01"])")//returns 2d-idx
-        
-        hashList.arr.forEach{
-            let treeIdxStr:String = $0
-            let treeIdx:[Int] = treeIdxStr.array({$0.int})
-            let tree:Tree? = tree[treeIdx]
-            Swift.print("tree.name: " + "\(tree?.name)")
-        }
-        
-    }
-    func hashListTest(){
-        var hashList = DEPRECATEDHashList()
-        hashList.add([0].string)
-        hashList.add([0,0].string)
-        hashList.add([0,1].string)
-        hashList.add([1].string)
-        
-        Swift.print("hashList[2]: " + "\("" + hashList[2]!)")//"01"
-        Swift.print("hashList[01]: " + "\(hashList["01"])")//2
-        
-        
-    }
-    
     /**
      *
      */
