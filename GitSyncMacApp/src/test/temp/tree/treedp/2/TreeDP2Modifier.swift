@@ -6,7 +6,7 @@ class TreeDP2Modifier {
      * NOTE: after this method is called, send event to FastList UI Component, the times were added
      */
     static func open(_ dp:TreeDP2, _ idx2d:Int){
-        Swift.print("TreeDP2Modifier.open")
+        //Swift.print("TreeDP2Modifier.open")
         let idx3d:[Int] = dp.hashList[idx2d]
         dp.tree.setProp(idx3d,("isOpen","true"))//updates tree
         let count:Int = HashList2Modifier.addDescendants(&dp.hashList, idx2d, idx3d, dp.tree)/*adds items to HashList (via HashListModifier.addDescendants)*/
@@ -26,15 +26,10 @@ class TreeDP2Modifier {
      * TODO: ⚠️️ A more efficient way of doing this would be to insert pathIndecies only for the affected items
      */
     static func insert(_ dp:TreeDP2, _ idx3d:[Int],_ tree:Tree){
-        Swift.print("insert \(tree.name) at \(idx3d)")
+        //Swift.print("insert \(tree.name) at \(idx3d)")
         if let idx2d:Int = dp[idx3d] {/*makes sure it exists*/
-            
-            //continue here:
-                //make sure the tree looks coorect. do a describe then halt the log. 
-                //you might need to insert into parents children etc.
-            
             TreeModifier.insert(&dp.tree, idx3d, tree)
-            tree.describe(dp.tree, "title")
+            //tree.describe(dp.tree, "title")
             dp.hashList = TreeUtils.pathIndecies(dp.tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
             dp.onEvent(DataProviderEvent(DataProviderEvent.add, idx2d, idx2d+1, dp))/*updates fastlist UI*/
         }
