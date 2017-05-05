@@ -27,6 +27,7 @@ class TreeDP2Modifier {
     static func insert(_ dp:TreeDP2, _ idx3d:[Int],_ tree:Tree){
         if let idx2d:Int = dp[idx3d] {/*makes sure it exists*/
             TreeModifier.insert(&dp.tree, idx3d, tree)
+            dp.hashList.insert(idx3d, at: idx2d)
             dp.onEvent(DataProviderEvent(DataProviderEvent.add, idx2d, idx2d+1, dp))/*updates fastlist UI*/
         }
     }
@@ -37,6 +38,7 @@ class TreeDP2Modifier {
     static func remove(_ dp:TreeDP2,_ idx3d:[Int]){
         if let idx2d:Int = dp[idx3d] {/*makes sure it exists*/
             TreeModifier.remove(&dp.tree, idx3d)
+            dp.hashList.remove(at: idx2d)
             dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+1, dp))
         }
     }
@@ -46,6 +48,7 @@ class TreeDP2Modifier {
     static func append(_ dp:TreeDP2,_ idx3d:[Int],_ child:Tree){
         if let idx2d:Int = dp[idx3d] {/*makes sure it exists*/
             TreeModifier.append(&dp.tree, idx3d, child)
+            dp.hashList.append(idx3d)
             dp.onEvent(DataProviderEvent(DataProviderEvent.add, idx2d, idx2d+1, dp))
         }
     }
