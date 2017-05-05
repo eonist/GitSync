@@ -345,14 +345,14 @@ class TestView:TitleView{
         let vSlider:VSlider = self.addSubView(VSlider(6,60,30,0,self))
         _ = vSlider
     }
-    func createGraph7Test(){
-        let test = self.addSubView(Graph7(width,height-48,self))
-        _ = test
-    }
-    func createGraph2(){
-        let graph = self.addSubView(Graph2(width,height,nil))
-        _ = graph
-    }
+    /*func createGraph7Test(){
+     let test = self.addSubView(Graph7(width,height-48,self))
+     _ = test
+     }
+     func createGraph2(){
+     let graph = self.addSubView(Graph2(width,height,nil))
+     _ = graph
+     }*/
     
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
