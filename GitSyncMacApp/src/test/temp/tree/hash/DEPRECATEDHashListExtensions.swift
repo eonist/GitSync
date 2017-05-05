@@ -1,7 +1,7 @@
 import Foundation
 @testable import Utils
 
-extension HashList{
+extension DEPRECATEDHashList {
     subscript(at:Int) -> [Int]? {//convenience
         get {return arr[at].array({$0.int})}
     }

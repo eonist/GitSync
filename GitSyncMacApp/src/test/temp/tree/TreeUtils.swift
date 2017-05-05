@@ -36,7 +36,7 @@ class TreeUtils{
      * New
      * TODO: Use the reduce into tuple with arr and dict (See notes for example)
      */
-    static func hashList(_ tree:Tree) -> HashList{
+    static func hashList(_ tree:Tree) -> DEPRECATEDHashList {
         let pathIndecies:[[Int]] = TreeUtils.pathIndecies(tree,[],isOpen)/*flattens 3d to 2d*/
         var arr:[String] = []
         var dict:[String:Int] = [:]
@@ -45,7 +45,7 @@ class TreeUtils{
             arr.append(key)
             dict[key] = arr.count-1
         }
-        return HashList(arr,dict)
+        return DEPRECATEDHashList(arr,dict)
     }
     /**
      * Used to debug Trees

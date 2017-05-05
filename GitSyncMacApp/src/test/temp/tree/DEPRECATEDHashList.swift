@@ -12,7 +12,7 @@ import Foundation
  * PARAM: dict: stores "2d-idx" ["0":0,"00":1,"01":2,"1":3,"2":4]
  * NOTE: "Key-Collisions" can't happen, since 3d-idencies are always unique
  */
-struct HashList {
+struct DEPRECATEDHashList {
     var arr:[String]
     var dict:[String:Int]
     init(_ arr:[String] = [],_ dict:[String:Int] = [:]){

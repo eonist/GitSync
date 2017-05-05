@@ -9,7 +9,7 @@ class HashListModifier {
     /**
      * 
      */
-    static func addDescendants(_ list:inout HashList,_ idx:Int,_ tree:Tree) -> Int{
+    static func addDescendants(_ list:inout DEPRECATEDHashList, _ idx:Int, _ tree:Tree) -> Int{
         let idx3d:[Int] = list[idx]!
         //Swift.print("idx3d: " + "\(idx3d)")
         let child:Tree = TreeParser.child(tree, idx3d)!
@@ -24,7 +24,7 @@ class HashListModifier {
     /**
      * 
      */
-    static func removeDescendants(_ list:inout HashList,_ at:Int, _ tree:Tree) -> Int{
+    static func removeDescendants(_ list:inout DEPRECATEDHashList, _ at:Int, _ tree:Tree) -> Int{
         Swift.print("at: " + "\(at)")
         Swift.print("list: " + "\(list)")
         let idx3d:[Int] = list[at]!
@@ -40,7 +40,7 @@ class HashListModifier {
      * Removes
      * TODO: use range as arg, if possible
      */
-    static func remove(_ list:inout HashList,_ from:Int, _ to:Int){
+    static func remove(_ list:inout DEPRECATEDHashList, _ from:Int, _ to:Int){
         for i in (from...to).reversed(){//we have to remove backward when dealing with arrays
             Swift.print("i: " + "\(i)")
             list.remove(i)

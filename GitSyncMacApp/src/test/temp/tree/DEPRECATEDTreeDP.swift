@@ -4,9 +4,9 @@ import Foundation
 /**
  * TODO: use DataProvidable don't extend DataProvider
  */
-class TreeDP:DataProvider {
+class DEPRECATEDTreeDP:DataProvider {
     var tree:Tree
-    var hashList:HashList
+    var hashList: DEPRECATEDHashList
     init(_ tree:Tree){
         self.tree = tree
         self.hashList = TreeUtils.hashList(tree)/*Creates the 2d<->3d idx map*/
@@ -40,6 +40,6 @@ class TreeDP:DataProvider {
         self.init(tree)
     }
 }
-extension TreeDP{
+extension DEPRECATEDTreeDP {
     //convenience
 }

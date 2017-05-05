@@ -133,7 +133,7 @@ class TestView:TitleView{
         //✅ click arrow to open -> tree[idx].setProps["isOpen"] = true, insert trees from self.idx w/ filter open
         //✅ click arrow to close -> tree[idx].setProps["isOpen"] = false, remove every item after curIdx, that has curIdx, then stop if idx is not curIdx
         
-        let dp:TreeDP = TreeDP("~/Desktop/assets/xml/treelist.xml".tildePath)
+        let dp: DEPRECATEDTreeDP = DEPRECATEDTreeDP("~/Desktop/assets/xml/treelist.xml".tildePath)
         
         //Continue here: 🏀
             //on FastList click -> opens and closes folders
@@ -141,8 +141,8 @@ class TestView:TitleView{
             //Add TreeListItem3 to the fold
             //Adjust design based on len of array item "1" means no indentaion "210" means 2 levels of indentaion etc
         
-        TreeDPModifier.open(dp, 2)
-        TreeDPModifier.close(dp, 2)
+        DEPRECATEDTreeDPModifier.open(dp, 2)
+        DEPRECATEDTreeDPModifier.close(dp, 2)
 
         
         //print hashList
@@ -185,7 +185,7 @@ class TestView:TitleView{
     func treeDPTest(){
         Swift.print("🚧 treeDPTest 🚧")
         let xmlStr:String = "<items title=\"main\"><item title=\"A\"/><item title=\"B\"/><item title=\"C\"/></items>"
-        let treeDP = TreeDP(xmlStr.xml)
+        let treeDP = DEPRECATEDTreeDP(xmlStr.xml)
         Swift.print("treeDP.count: " + "\(treeDP.count)")
         
         for i in 0..<treeDP.count{
@@ -204,7 +204,7 @@ class TestView:TitleView{
         }
         
         
-        let hashList:HashList = TreeUtils.hashList(tree)
+        let hashList: DEPRECATEDHashList = TreeUtils.hashList(tree)
         Swift.print("hashList.arr.count: " + "\(hashList.arr.count)")
         Swift.print("hashList[2]: " + "\("" + hashList[2]!)")//returns 3d-idx
         Swift.print("hashList[01]: " + "\(hashList["01"])")//returns 2d-idx
@@ -218,7 +218,7 @@ class TestView:TitleView{
         
     }
     func hashListTest(){
-        var hashList = HashList()
+        var hashList = DEPRECATEDHashList()
         hashList.add([0].string)
         hashList.add([0,0].string)
         hashList.add([0,1].string)
