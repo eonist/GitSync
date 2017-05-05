@@ -79,6 +79,7 @@ extension FastList3{
      * DP has changed
      * override this method if dp change can affect the super class
      * NOTE: event contains the range of the affected fastlist items. as long as we reflect this change everything will be synced
+     * TODO: ⚠️️ It could be that you could make this method more effective. say if only data changes
      */
     func onDataProviderEvent(_ event:DataProviderEvent){
         Swift.print("FastList3.onDataProviderEvent: " + "\(event)")
