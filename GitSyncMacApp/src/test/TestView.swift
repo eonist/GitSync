@@ -361,7 +361,7 @@ class SlideScrollView3Test:SlideScrollView3 /*ElasticSlideScrollView3 ,ElasticVi
     override func resolveSkin() {
         StyleManager.addStyle("SlideScrollView3Test{fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
-        createEllipse()
+        //createEllipse()
     }
 }
 class ElasticScrollView3Test:ElasticScrollView3{
@@ -369,7 +369,7 @@ class ElasticScrollView3Test:ElasticScrollView3{
     override func resolveSkin() {
         StyleManager.addStyle("ElasticScrollView3Test{fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
-        createEllipse()
+        //createEllipse()
     }
 }
 class ElasticSlideScrollView3Test:ElasticSlideScrollView3{
@@ -377,6 +377,6 @@ class ElasticSlideScrollView3Test:ElasticSlideScrollView3{
     override func resolveSkin() {
         StyleManager.addStyle("ElasticSlideScrollView3Test{fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
-        createEllipse()
+        //createEllipse()
     }
 }
