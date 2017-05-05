@@ -16,7 +16,13 @@ class MinimalView:WindowView{
                 //on mouse down, mouse move, mouse up
                     //change the state of the item under the mousePos
                         //set skinState to: "drop" which has a weaker color than selected
-                        
+            //renameable TreeListItem
+                //Right click then set to rename mode.
+                    //Change skin to input and resetskin
+                        //esc,enter or click outside completes the renaming
+            //a way to cache all git stats in a db
+                //and also a way to add and remove items in this cache storage
+        
         
     }
     func treeList(){
