@@ -33,20 +33,19 @@ class TreeDP2Modifier {
     }
     /**
      * New
-     * TODO: create remove for idx2d as well
-     * TODO: A more efficient way of doing this would be to insert pathIndecies only for the affected items
+     * TODO: create remove for idx2d as well, maybe!?!?
+     * TODO: ⚠️️ A more efficient way of doing this would be to insert pathIndecies only for the affected items
      */
     static func remove(_ dp:TreeDP2,_ idx3d:[Int]){
-        Swift.print("TreeDP2Modifier.remove at: \(idx3d)")
+        //Swift.print("TreeDP2Modifier.remove at: \(idx3d)")
         if let idx2d:Int = dp[idx3d] {/*makes sure it exists*/
-            Swift.print("idx2d: " + "\(idx2d)")
+            //Swift.print("idx2d: " + "\(idx2d)")
             TreeModifier.remove(&dp.tree, idx3d)
-            dp.tree.children.forEach {
-                Swift.print("$0.name: " + "\($0.props?["title"])")
-            }
+            /*dp.tree.children.forEach {
+             Swift.print("$0.name: " + "\($0.props?["title"])")
+             }*/
             dp.hashList = TreeUtils.pathIndecies(dp.tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
-            Swift.print("dp.hashList: " + "\(dp.hashList)")
-            Swift.print("")
+            //Swift.print("dp.hashList: " + "\(dp.hashList)")
             dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+1, dp))
         }
     }
