@@ -13,7 +13,8 @@ class MinimalView:WindowView{
         
         //Continue here: 🏀
             //drag and drop? for the TreeList?
-                //on mouse down, mouse move, 
+                //on mouse down, mouse move, mouse up
+                    //
         
     }
     func treeList(){
