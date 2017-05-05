@@ -32,8 +32,7 @@ class MinimalView:WindowView{
         
         //treeList.remove([1])/*Removes an item at a idx3d*/
         //treeList.insert([1],Tree("item",[],nil,["title":"Fish"]))/*Insert item at*/
-        
-        
+
         let xml:XML = treeList.treeDP.tree.xml/*Converts the tree to an xml structure*/
         //Swift.print("xml.xmlString: " + "\(xml.xmlString)")/*Logs the tree as an xml structure*/
         _ = xml
