@@ -34,6 +34,7 @@ class TreeDP2Modifier {
                 //you might need to insert into parents children etc.
             
             TreeModifier.insert(&dp.tree, idx3d, tree)
+            tree.describe(dp.tree, "title")
             dp.hashList = TreeUtils.pathIndecies(dp.tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
             dp.onEvent(DataProviderEvent(DataProviderEvent.add, idx2d, idx2d+1, dp))/*updates fastlist UI*/
         }
