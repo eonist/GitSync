@@ -40,6 +40,9 @@ class TreeDP2Modifier {
         if let idx2d:Int = dp[idx3d] {/*makes sure it exists*/
             Swift.print("idx2d: " + "\(idx2d)")
             TreeModifier.remove(&dp.tree, idx3d)
+            dp.tree.children.forEach {
+                Swift.print("$0.name: " + "\($0.props?["title"])")
+            }
             dp.hashList.removeAt(idx2d)
             Swift.print("dp.hashList: " + "\(dp.hashList)")
             Swift.print("")
