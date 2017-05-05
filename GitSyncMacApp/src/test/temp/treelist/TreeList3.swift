@@ -5,12 +5,6 @@ import Cocoa
  * NOTE: Indentation is the width of the checkBoxButton
  */
 
-//Continue here: 🏀
-    //you need to update the hashList after a tree-item-removal.
-        //but only at 1 level, so its not that bad
-        //it raises a question:
-            //could hashList just be tree with efficient isOpen asserts?-> probably not. 
-            //tree alterations are not that expensive to reflect onto hashList.  
 
 
 class TreeList3:ElasticScrollFastList3,TreeListable3{//ElasticSlideScrollFastList3
