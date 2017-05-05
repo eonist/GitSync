@@ -30,7 +30,7 @@ class MinimalView:WindowView{
         //treeList.collapseAll([])/*Collapses the treeList*/
         //treeList.explodeAll([])/*Explodes the treeList*/
         
-        treeList.remove([1])/*Removes an item at a idx3d*/
+        //treeList.remove([1])/*Removes an item at a idx3d*/
         
 
         treeList.insert([1],Tree("Fish"))/*Insert item at*/
