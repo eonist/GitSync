@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-class CommitsList:ElasticSlideScrollFastList,ICommitList{
+class CommitsList:ElasticSlideScrollFastList3,ICommitList{
     /*The following variables exists to facilitate the pull to refresh functionality*/
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
@@ -25,7 +25,7 @@ class CommitsList:ElasticSlideScrollFastList,ICommitList{
      */
     override func createItem(_ index:Int) -> Element {
         let dpItem = dp.items[index]
-        let item:CommitsListItem = CommitsListItem(width, itemSize.height ,dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!, false, lableContainer)
+        let item:CommitsListItem = CommitsListItem(width, itemSize.height ,dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!, false, contentContainer)
         contentContainer!.addSubview(item)
         return item
     }
@@ -65,9 +65,9 @@ class CommitsList:ElasticSlideScrollFastList,ICommitList{
     /*func scroll(){
      Swift.print("scroll")
      }*/
-     override func frameTick(_ value: CGFloat) {
+     /*override func frameTick(_ value: CGFloat) {
         //Swift.print("hmm🤔")
         setProgress(value)
-        super.frameTick(value)
-     }
+        //super.frameTick(value)
+     }*/
 }
