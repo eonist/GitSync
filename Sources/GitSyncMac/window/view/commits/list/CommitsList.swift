@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-class CommitsList:ElasticSlideScrollFastList,ICommitList{
+class CommitsList:ElasticSlideScrollFastList3,ICommitList{
     /*The following variables exists to facilitate the pull to refresh functionality*/
     var progressIndicator:ProgressIndicator?
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
@@ -24,7 +24,7 @@ class CommitsList:ElasticSlideScrollFastList,ICommitList{
      * Create ListItem
      */
     override func createItem(_ index:Int) -> Element {
-        let dpItem = dataProvider.items[index]
+        let dpItem = dp.items[index]
         let item:CommitsListItem = CommitsListItem(width, itemHeight ,dpItem["repo-name"]!, dpItem["contributor"]!,dpItem["title"]!,dpItem["description"]!,dpItem["date"]!, false, lableContainer)
         lableContainer!.addSubview(item)
         return item
