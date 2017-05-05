@@ -36,10 +36,10 @@ class TreeDP2Modifier {
      * TODO: create remove for idx2d as well
      */
     static func remove(_ dp:TreeDP2,_ idx3d:[Int]){
+        Swift.print("TreeDP2Modifier.remove at: \(idx3d)")
         if let idx2d:Int = dp[idx3d] {/*makes sure it exists*/
-            Swift.print("idx3d: " + "\(idx3d)")
-            TreeModifier.remove(&dp.tree, idx3d)
             Swift.print("idx2d: " + "\(idx2d)")
+            TreeModifier.remove(&dp.tree, idx3d)
             dp.hashList.remove(at: idx2d)
             dp.onEvent(DataProviderEvent(DataProviderEvent.remove, idx2d, idx2d+1, dp))
         }
