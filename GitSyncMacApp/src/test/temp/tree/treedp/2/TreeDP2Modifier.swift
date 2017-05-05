@@ -23,11 +23,12 @@ class TreeDP2Modifier {
     }
     /**
      * New
+     * TODO: ⚠️️ A more efficient way of doing this would be to insert pathIndecies only for the affected items
      */
     static func insert(_ dp:TreeDP2, _ idx3d:[Int],_ tree:Tree){
         if let idx2d:Int = dp[idx3d] {/*makes sure it exists*/
             TreeModifier.insert(&dp.tree, idx3d, tree)
-            dp.hashList.insert(idx3d, at: idx2d)
+            dp.hashList = TreeUtils.pathIndecies(dp.tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
             dp.onEvent(DataProviderEvent(DataProviderEvent.add, idx2d, idx2d+1, dp))/*updates fastlist UI*/
         }
     }
@@ -51,11 +52,12 @@ class TreeDP2Modifier {
     }
     /**
      * New
+     * TODO: ⚠️️ A more efficient way of doing this would be to insert pathIndecies only for the affected items
      */
     static func append(_ dp:TreeDP2,_ idx3d:[Int],_ child:Tree){
         if let idx2d:Int = dp[idx3d] {/*makes sure it exists*/
             TreeModifier.append(&dp.tree, idx3d, child)
-            dp.hashList.append(idx3d)
+            dp.hashList = TreeUtils.pathIndecies(dp.tree,[],TreeUtils.isOpen)/*flattens 3d to 2d*/
             dp.onEvent(DataProviderEvent(DataProviderEvent.add, idx2d, idx2d+1, dp))
         }
     }
