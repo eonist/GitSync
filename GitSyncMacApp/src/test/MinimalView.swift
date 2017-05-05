@@ -11,6 +11,9 @@ class MinimalView:WindowView{
         //rotationUITest()
         //checkBoxTest()
         
+        //Continue here: 
+            //
+        
     }
     func treeList(){
         //let url = "~/Desktop/repo2.xml"
