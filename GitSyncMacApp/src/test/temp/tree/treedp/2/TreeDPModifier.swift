@@ -1,7 +1,7 @@
 import Foundation
 @testable import Utils
 
-class TreeDP2Modifier {
+class TreeDPModifier {
     /**
      * NOTE: after this method is called, send event to FastList UI Component, the times were added
      */

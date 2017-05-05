@@ -1,7 +1,7 @@
 import Foundation
 @testable import Utils
 
-class TreeDP2Parser {
+class TreeDPParser {
     /**
      * Returns prop-value for idx2d and key
      * EXAMPLE: TreeDP2Parser.getProp(treeDP, idx, "isOpen")

@@ -90,7 +90,7 @@ class TestView:TitleView{
         //~/Desktop/assets/xml/treelist.xml
         let dp: TreeDP = TreeDP.init("~/Desktop/repo2.xml".tildePath)
         Swift.print("dp.count: " + "\(dp.count)")
-        TreeDP2Parser.values(dp, [], "title").forEach{
+        TreeDPParser.values(dp, [], "title").forEach{
             Swift.print("title: " + "\($0)")
         }
         _ = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
@@ -101,10 +101,10 @@ class TestView:TitleView{
         
         let dp: TreeDP = TreeDP("~/Desktop/assets/xml/treelist.xml".tildePath)
         
-        TreeDP2Modifier.open(dp, 2)
-        TreeDP2Modifier.close(dp, 2)
+        TreeDPModifier.open(dp, 2)
+        TreeDPModifier.close(dp, 2)
         
-        TreeDP2Parser.values(dp, [], "title").forEach{
+        TreeDPParser.values(dp, [], "title").forEach{
             Swift.print("title: " + "\($0)")
         }
         

@@ -16,7 +16,7 @@ class TreeList3:ElasticScrollFastList3,TreeListable3{//ElasticSlideScrollFastLis
         //Swift.print("idx3d: " + "\(idx3d)")
         listItem.item.id = idx3d.count.string/*the indentation level (from 1 and up), should use classID*/
         disableAnim{listItem.item.setSkinState(listItem.item.getSkinState())}/*Sets correct indent*/
-        let isOpenStr = TreeDP2Parser.getProp(treeDP, idx3d, "isOpen")
+        let isOpenStr = TreeDPParser.getProp(treeDP, idx3d, "isOpen")
         if let checkable = listItem.item as? CheckBoxButton{
             let isChecked = isOpenStr == "true"
             disableAnim{checkable.checkBox!.setChecked(isChecked)}/*Sets correct open/close icon*/
@@ -47,10 +47,10 @@ extension TreeList3{
         let idx2d:Int = FastList3Parser.idx(self, (event.origin as! NSView).superview!)!
         if(TreeList3Asserter.isOpen(self, idx2d)){
             Swift.print("close 🚫 idx2d: \(idx2d)")
-            TreeDP2Modifier.close(treeDP, idx2d)
+            TreeDPModifier.close(treeDP, idx2d)
         }else{
             Swift.print("open ✅ idx2d: \(idx2d)")
-            TreeDP2Modifier.open(treeDP, idx2d)
+            TreeDPModifier.open(treeDP, idx2d)
         }
         moverGroup!.yMover.contentFrame = (0,contentSize.height)/*updates mover group to avoid jumpiness*/
         moverGroup!.xMover.contentFrame = (0,contentSize.width)

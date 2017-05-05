@@ -24,7 +24,7 @@ class TreeList3Modifier {
      */
     static func open(_ treeList:TreeListable3, _ idx3d:[Int]){
         if let idx2d:Int = treeList.treeDP[idx3d]{
-            TreeDP2Modifier.open(treeList.treeDP, idx2d)
+            TreeDPModifier.open(treeList.treeDP, idx2d)
         }
     }
     /**
@@ -32,26 +32,26 @@ class TreeList3Modifier {
      */
     static func close(_ treeList:TreeListable3, _ idx3d:[Int]){
         if let idx2d:Int = treeList.treeDP[idx3d]{
-            TreeDP2Modifier.close(treeList.treeDP, idx2d)
+            TreeDPModifier.close(treeList.treeDP, idx2d)
         }
     }
     /**
      * New
      */
     static func insert(_ treeList:TreeListable3, _ idx3d:[Int],_ tree:Tree){
-        TreeDP2Modifier.insert(treeList.treeDP, idx3d, tree)
+        TreeDPModifier.insert(treeList.treeDP, idx3d, tree)
     }
     /**
      * New
      */
     static func remove(_ treeList:TreeListable3,_ idx3d:[Int]){
-        TreeDP2Modifier.remove(treeList.treeDP, idx3d)
+        TreeDPModifier.remove(treeList.treeDP, idx3d)
     }
     /**
      * New
      */
     static func append(_ treeList:TreeListable3,_ idx3d:[Int],_ child:Tree){
-        TreeDP2Modifier.append(treeList.treeDP, idx3d, child)
+        TreeDPModifier.append(treeList.treeDP, idx3d, child)
     }
     typealias KeyValue = (key:String,val:String)
     typealias Apply = (_ tree:inout Tree, _ prop:KeyValue) -> Void
