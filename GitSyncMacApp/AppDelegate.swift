@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //initMinimalWin()
     }
     func initApp(){
-         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",true)//<--toggle this bool for live refresh
+         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
         
          win = MainWin(MainView.w,MainView.h)
          //win = ConflictDialogWin(380,400)
