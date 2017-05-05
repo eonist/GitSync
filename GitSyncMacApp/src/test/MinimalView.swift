@@ -20,8 +20,13 @@ class MinimalView:WindowView{
                 //Right click then set to rename mode.
                     //Change skin to input and resetskin
                         //esc,enter or click outside completes the renaming
-            //a way to cache all git stats in a db👈
-                //and also a way to add and remove items in this cache storage
+            //setup Graph3 👈
+                //a way to cache all git stats in a db
+                //and also a way to add and remove items in this cache storage (when projects are deleted etc)
+                //just add interface buttons + - < >
+                //get it working
+                //get it working with resizing
+                //then consider Graph4 with bounciness
         
         
     }
