@@ -42,9 +42,11 @@ class MinimalView:WindowView{
             if(event.type == SelectEvent.select && event.immediate === treeList){
                 Swift.print("onTreeListSelect() event.origin: \(event.origin)")
                 Swift.print("selectedIndex: " + "\(treeList.selectedIdx3d)")
-                if let selectedIdx:[Int] = treeList.selectedIdx3d, let selectedXML:XML = treeList.treeDP.tree[selectedIdx]?.xml {
+                if let selectedIdx:[Int] = treeList.selectedIdx3d {
                     
-                    //Swift.print("selectedXML: \(selectedXML.xmlString)")//EXAMPLE output: <item title="Ginger"></item>
+                    /*if let selectedXML:XML = treeList.treeDP.tree[selectedIdx]?.xml{
+                     Swift.print("selectedXML: \(selectedXML.xmlString)")//EXAMPLE output: <item title="Ginger"></item>
+                     }*/
                 }
             }
         }
