@@ -10,25 +10,7 @@ class MinimalView:WindowView{
         treeList()
         //rotationUITest()
         //checkBoxTest()
-        
-        //Continue here: 🏀
-            //drag and drop? for the TreeList?👈
-                //on mouse down, mouse move, mouse up
-                    //change the state of the item under the mousePos
-                        //set skinState to: "drop" which has a weaker color than selected
-            //renameable TreeListItem👈
-                //Right click then set to rename mode.
-                    //Change skin to input and resetskin
-                        //esc,enter or click outside completes the renaming
-            //setup Graph3 👈
-                //a way to cache all git stats in a db
-                //and also a way to add and remove items in this cache storage (when projects are deleted etc)
-                //just add interface buttons + - < >
-                //get it working
-                //get it working with resizing
-                //then consider Graph4 with bounciness
-        
-        
+                
     }
     func treeList(){
         //let url = "~/Desktop/repo2.xml"
