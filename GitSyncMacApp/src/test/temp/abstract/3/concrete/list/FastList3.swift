@@ -63,7 +63,7 @@ class FastList3:ContainerView3,FastListable3{
      * This is called when a item in the lableContainer has send the ButtonEvent.upInside event
      */
     func onListItemUpInside(_ buttonEvent:ButtonEvent) {
-        //fatalError("not implemented yet")
+        Swift.print("FastList3.onListItemUpInside()")
         let viewIndex:Int = contentContainer!.indexOf(buttonEvent.origin as! NSView)
         List3Modifier.selectAt(self,viewIndex)//unSelect all other visibleItems
         selectedIdx = FastList3Parser.idx(self, buttonEvent.origin as! NSView) ?? selectedIdx
