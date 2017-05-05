@@ -5,7 +5,8 @@ import Cocoa
  * NOTE: Indentation is the width of the checkBoxButton
  */
 class TreeList3:ElasticScrollFastList3,TreeListable3{//ElasticSlideScrollFastList3
-    var treeDP:TreeDP2 {return dp as! TreeDP2}
+    var treeDP: TreeDP {return dp as! TreeDP
+    }
     /**
      * Recycles items rather than recrate them
      */
@@ -20,7 +21,7 @@ class TreeList3:ElasticScrollFastList3,TreeListable3{//ElasticSlideScrollFastLis
             let isChecked = isOpenStr == "true"
             disableAnim{checkable.checkBox!.setChecked(isChecked)}/*Sets correct open/close icon*/
         }
-        let hasChildren:Bool = TreeDP2Asserter.hasChildren(treeDP, idx3d)//Does item have children?
+        let hasChildren:Bool = TreeDPAsserter.hasChildren(treeDP, idx3d)//Does item have children?
         disableAnim{(listItem.item as! TreeList3Item).checkBox!.isHidden = !hasChildren}/*hides checkBox if item doesn't have children*/
         super.reUse(listItem)/*sets text and position and select state*/
     }

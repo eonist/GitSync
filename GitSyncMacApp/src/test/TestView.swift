@@ -88,7 +88,7 @@ class TestView:TitleView{
     func treeDPUITest(){
         //let xml:XML = FileParser.xml()
         //~/Desktop/assets/xml/treelist.xml
-        let dp:TreeDP2 = TreeDP2.init("~/Desktop/repo2.xml".tildePath)
+        let dp: TreeDP = TreeDP.init("~/Desktop/repo2.xml".tildePath)
         Swift.print("dp.count: " + "\(dp.count)")
         TreeDP2Parser.values(dp, [], "title").forEach{
             Swift.print("title: " + "\($0)")
@@ -99,7 +99,7 @@ class TestView:TitleView{
         //✅ click arrow to open -> tree[idx].setProps["isOpen"] = true, insert trees from self.idx w/ filter open
         //✅ click arrow to close -> tree[idx].setProps["isOpen"] = false, remove every item after curIdx, that has curIdx, then stop if idx is not curIdx
         
-        let dp:TreeDP2 = TreeDP2("~/Desktop/assets/xml/treelist.xml".tildePath)
+        let dp: TreeDP = TreeDP("~/Desktop/assets/xml/treelist.xml".tildePath)
         
         TreeDP2Modifier.open(dp, 2)
         TreeDP2Modifier.close(dp, 2)

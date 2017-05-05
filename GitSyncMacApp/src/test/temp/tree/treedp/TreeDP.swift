@@ -7,7 +7,7 @@ import Foundation
  * NOTE: for now we have a fast way to translate 2d -> 3d and slow 3d -> 2d. But the later doesn't need to be fast as it is only used when editing 3d structure. 2d -> 3d however needs to be super fast since its accessed very frequently when doing animation
  * TreeDP surogates item(at:Int) in DataProvider. You dont need to touch DataProvider.items
  */
-class TreeDP2:DataProvider {
+class TreeDP:DataProvider {
     var tree:Tree
     var hashList:[[Int]]/*Stores the idx3d indecies*/
     init(_ tree:Tree){
@@ -37,7 +37,7 @@ class TreeDP2:DataProvider {
         self.init(tree)
     }
 }
-extension TreeDP2{
+extension TreeDP {
     /**
      * Returns idx3d for idx2d
      */
