@@ -46,7 +46,10 @@ extension RepoContextMenu{
      */
     func newIdx(_ idx:[Int]) -> [Int] {
         var idx = idx
-        let itemData:ItemData3 = TreeList3Utils.itemData(treeList, idx)
+        //let itemData:ItemData3 = TreeList3Utils.itemData(treeList, idx)
+        if let hasChildren = treeList.treeDP.tree[idx]?.props?["hasChildren"]{
+            return itemData(tree)
+        }
         if(itemData.hasChildren){//isFolder, add within
             idx += [0]
         }else{//is not folder, add bellow
