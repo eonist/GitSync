@@ -17,7 +17,7 @@ class TestView:TitleView{
     }
     func createGUI(){
         //transformTest()
-        //treeDPUITest()
+        treeDPUITest()//👈
         //alterTreeDP2Test()
         //hashList2Test()
         //alterTreeTest()
@@ -32,7 +32,7 @@ class TestView:TitleView{
         //xml2tree()
         //treeTesting()
         //infiniteTreeList()
-        elasticSlideScrollFastList3()//👈
+        //elasticSlideScrollFastList3()//👈
         //elasticScrollFastList()
         //slideScrollFastList()
         //scrollFastList()
@@ -69,14 +69,12 @@ class TestView:TitleView{
             //
         //if Asset URL hasn't changed between state change, then don't reload asset.
             //
-    
     /*
      CheckBox{
         fill:blue;
         transform:rotation(90deg);/*Rotates the skin 90deg*/
      }
     */
-
     func transformTest(){
         var css:String = "CheckBox{"
         css += "fill:blue;"
@@ -88,7 +86,7 @@ class TestView:TitleView{
     func treeDPUITest(){
         //let xml:XML = FileParser.xml()
         //~/Desktop/assets/xml/treelist.xml
-        let dp: TreeDP = TreeDP.init("~/Desktop/repo2.xml".tildePath)
+        let dp:TreeDP = TreeDP.init("~/Desktop/repo2.xml".tildePath)
         Swift.print("dp.count: " + "\(dp.count)")
         TreeDPParser.values(dp, [], "title").forEach{
             Swift.print("title: " + "\($0)")
@@ -240,7 +238,7 @@ class TestView:TitleView{
     func treeTesting(){
         
         //Try to build a tree structure from xml
-        //Try tree -> xml (dont use reflection as it will store Tree etc as the item etc)
+        //Try tree -> xml (don't use reflection as it will store Tree etc as the item etc)
         //Try to flatten this treeStructure into array with pathIdx to original item?!?
         
         
@@ -273,7 +271,7 @@ class TestView:TitleView{
     func elasticSlideScrollFastList3(){
         var dp:DataProvider
         dp = DataProvider("~/Desktop/assets/xml/longlist.xml".tildePath)
-        _ = self.addSubView(ElasticSlideScrollFastList3(width, height, CGSize(24,24), dp, self))
+        _ = self.addSubView(ElasticSlideScrollFastList3(140, 145, CGSize(24,24), dp, self))
     }
     func elasticScrollFastList(){
         var dp:DataProvider
