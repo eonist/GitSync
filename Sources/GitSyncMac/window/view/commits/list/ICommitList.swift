@@ -23,6 +23,9 @@ extension ICommitList{
         (self as ElasticSlidableScrollableFast).setProgress(value)
     }*/
     
+    //Continue here: 
+        //setup setProgress
+    
     func scroll(_ event:NSEvent) {
         Swift.print("🌵 ICommitList.scroll()")
         if(event.phase == NSEventPhase.changed){//this is only direct manipulation, not momentum
@@ -33,7 +36,7 @@ extension ICommitList{
             (self as ICommitList).scrollWheelExit()
         }
     }
-    /**/
+    
     func scrollWheelEnter() {
         Swift.print("🌵 ICommitsList.scrollWheelEnter")
         //reUseAll()/*Refresh*/
