@@ -9,6 +9,6 @@ GitSync allows you to synchronize your git projects automatically.
 GitSync works similar to iCloud. If a sync conflicts occurs you are asked to use local or remote file. 
 
 ### Installation:
-Download link coming shortly. (Circa May.01.2017)
+Download link coming shortly.
 
 [MIT License](http://opensource.org/licenses/MIT)
