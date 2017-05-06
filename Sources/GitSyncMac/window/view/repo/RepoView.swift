@@ -16,6 +16,9 @@ class RepoView:Element {
         };return treeDP
     }
     
+    //Continue here: 
+        //Try to test treeList in minimalview again, but with bigger mask and check the performance
+    
     var treeList:TreeList3?// {return RepoView.list}
     var contextMenu:RepoContextMenu?
     
