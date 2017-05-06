@@ -48,7 +48,7 @@ class RepoDetailView:ElasticSlideScrollView {
         Swift.print("onEvent: " + "\(event.type)")
         let i:[Int] = RepoView.selectedListItemIndex
         
-        var attrib:[String:String] = XMLParser.attributesAt(RepoView.node.xml, i)!
+        var attrib:[String:String] = RepoView.treeDP.tree[i]!.props!//XMLParser.attributesAt(RepoView.node.xml, i)!
         
         /*LeverSpinner*/
         if(event == (SpinnerEvent.change, autoSyncIntervalLeverSpinner!)){
