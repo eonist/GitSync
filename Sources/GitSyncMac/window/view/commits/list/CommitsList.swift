@@ -12,7 +12,7 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
     /*Debug*/
     var autoSyncStartTime:NSDate?
     var autoSyncAndRefreshStartTime:NSDate?
-
+    
     override func resolveSkin() {
         super.resolveSkin()
         let piContainer = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
@@ -72,4 +72,8 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
         //super.frameTick(value)
      }*/
     
+}
+
+extension CommitsList{
+    override var moverGroup: MoverGroup?
 }
