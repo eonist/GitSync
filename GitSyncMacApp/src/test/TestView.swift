@@ -91,7 +91,7 @@ class TestView:TitleView{
         TreeDPParser.values(dp, [], "title").forEach{
             Swift.print("title: " + "\($0)")
         }
-        _ = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
+        _ = self.addSubView(TreeList3(width, height, CGSize(24,24), dp, self))
     }
     func alterTreeDP2Test(){
         //✅ click arrow to open -> tree[idx].setProps["isOpen"] = true, insert trees from self.idx w/ filter open
