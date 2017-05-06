@@ -7,8 +7,8 @@ import Cocoa
 class RepoContextMenu:NSMenu{
     var rightClickItemIdx:[Int]?
     var clipBoard:XML?
-    var treeList:TreeList
-    init(_ treeList:TreeList) {
+    var treeList:TreeList3
+    init(_ treeList:TreeList3) {
         self.treeList = treeList//Element - mac
         super.init(title:"Contextual menu")
         var menuItems:[(title:String,selector:Foundation.Selector)] = []
