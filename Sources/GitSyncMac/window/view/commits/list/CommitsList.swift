@@ -60,18 +60,12 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
         (self as ICommitList).scroll(event)
         super.scrollWheel(with: event)/*⚠️️, 👈 not good, forward the event other delegates higher up in the stack*/
     }
+    /**
+     * TODO: ⚠️️ You could add this through setting the callback
+     */
     override var moverGrp:MoverGroup {
         let group = MoverGroup(self.setProgressValue,self.maskSize,self.contentSize)
         group.event = self.onEvent/*Add an eventHandler for the mover object, , this has no functionality in this class, but may have in classes that extends this class, like hide progress-indicator when all animation has stopped*/
         return group
     }
-    /*func scroll(){
-     Swift.print("scroll")
-     }*/
-     /*override func frameTick(_ value: CGFloat) {
-        //Swift.print("hmm🤔")
-        setProgress(value)
-        //super.frameTick(value)
-     }*/
-    
 }
