@@ -36,12 +36,11 @@ class RepoView:Element {
         treeList = addSubView(TreeList3(width, height-24, CGSize(24,24), RepoView.treeDP, self))
         
         contextMenu = RepoContextMenu(treeList!)
-        if(RepoView.selectedListItemIndex.count > 0){TreeListModifier.selectAt(treeList!, RepoView.selectedListItemIndex)}
+        //if(RepoView.selectedListItemIndex.count > 0){TreeListModifier.selectAt(treeList!, RepoView.selectedListItemIndex)}
     }
     override func onEvent(_ event:Event) {
         if(event.type == SelectEvent.select && event.immediate === treeList){
-            let selectedIndex:Array = TreeListParser.selectedIndex(treeList!)
-            Swift.print("RepoView.onTreeListEvent() selectedIndex: " + "\(selectedIndex)")
+            Swift.print("RepoView.onTreeListEvent() selectedIndex: " + "\(treeList.selectedIdx3d)")
             //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
             onTreeListSelect()
         }else if(event.type == ButtonEvent.rightMouseDown){
@@ -56,7 +55,7 @@ extension RepoView{
         Swift.print("RepoView.onTreeListSelect()")
         //Sounds.play?.play()
        
-        let selectedIndex:Array = TreeListParser.selectedIndex(treeList!)
+        let selectedIndex:Array = treeList!.selectedIdx3d!
         RepoView.selectedListItemIndex = selectedIndex
         //TODO: Use the RepoItem on the bellow line see AutoSync class for implementation
         let repoItemDict:[String:String] = NodeParser.dataAt(treeList!.node, selectedIndex)
