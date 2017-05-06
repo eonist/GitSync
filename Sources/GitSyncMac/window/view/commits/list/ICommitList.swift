@@ -35,7 +35,7 @@ extension ICommitList{
         }
     }
     /**/
-    mutating func scrollWheelEnter() {
+    func scrollWheelEnter() {
         Swift.print("🌵 ICommitsList.scrollWheelEnter")
         //reUseAll()/*Refresh*/
         isTwoFingersTouching = true
@@ -43,7 +43,7 @@ extension ICommitList{
     }
  
     
-    mutating func scrollWheelExit(){
+    func scrollWheelExit(){
         Swift.print("🌵 CommitList.scrollWheelExit()")
         isTwoFingersTouching = false
         /*let value = mover!.result
@@ -86,11 +86,11 @@ extension ICommitList{
         progressIndicator!.stop()
         isInDeactivateRefreshModeState = true
         hasReleasedBeyondTop = true/*⚠️️Quick temp fix*/
-        mover!.frame.y = 0
+        /*mover!.frame.y = 0
         mover!.hasStopped = false/*reset this value to false, so that the FrameAnimatior can start again*/
         mover!.isDirectlyManipulating = false
         mover!.value = mover!.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
-        mover!.start()
+        mover!.start()*/
         //progressIndicator!.reveal(0)//reset all line alphas to 0
         Swift.print("🏁 AutoSync™ completed \(abs(autoSyncAndRefreshStartTime!.timeIntervalSinceNow))")
     }
