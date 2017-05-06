@@ -13,8 +13,8 @@ class MinimalView:WindowView{
                 
     }
     func treeList(){
-        //let url = "~/Desktop/repo2.xml"
-        let url = "~/Desktop/assets/xml/treelist.xml"
+        let url = "~/Desktop/repo2.xml"
+        //let url = "~/Desktop/assets/xml/treelist.xml"
         let dp: TreeDP = TreeDP(url.tildePath)
         let treeList = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
         _ = treeList
