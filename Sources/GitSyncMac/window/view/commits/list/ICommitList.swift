@@ -18,7 +18,7 @@ extension ICommitList{
     func setProgressValue(_ value: CGFloat, _ dir: Dir){
         if dir == .ver {
             Swift.print("🌵 ICommitList.setProgressValue : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
-            if(!hasReleasedBeyondTop){
+            if(hasReleasedBeyondTop){
                 iterateProgressBar(value)
             }
         }
@@ -47,10 +47,12 @@ extension ICommitList{
     func scrollWheelExit(){
         Swift.print("🌵 CommitList.scrollWheelExit()")
         isTwoFingersTouching = false
-        /*let value = mover!.result
+        let value = moverGroup!.result.y
         if(value > 60){
             //Swift.print("start animation the ProgressIndicator")
-            mover!.frame.y = 60
+            //Continue here: 🏀
+                //set the bellow line correctly
+            //mover!.frame.y = 60
             progressIndicator!.start()//1. start spinning the progressIndicator
             hasPulledAndReleasedBeyondRefreshSpace = true
             autoSyncAndRefreshStartTime = NSDate()//init debug timer
@@ -60,7 +62,7 @@ extension ICommitList{
             //scrollController!.mover.topMargin = 0
         }else{
             hasReleasedBeyondTop = false
-        }*/
+        }/**/
     }
     /**
      * Starts the auto sync process
