@@ -16,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
-        initApp()
+        //initApp()
         //initTestWin()//🚧👷
         //initMinimalWin()
     }
