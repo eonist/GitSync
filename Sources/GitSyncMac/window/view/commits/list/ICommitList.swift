@@ -26,7 +26,7 @@ extension ICommitList{
     func scroll(_ event:NSEvent) {
         Swift.print("🌵 ICommitList.scroll()")
         if(event.phase == NSEventPhase.changed){//this is only direct manipulation, not momentum
-            //iterateProgressBar(mover!.result)
+            iterateProgressBar(moverGroup!.result.y)/*mover!.result*/
         }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
             (self as ICommitList).scrollWheelEnter()
         }else if(event.phase == NSEventPhase.ended || event.phase == NSEventPhase.cancelled){
