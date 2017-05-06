@@ -44,7 +44,8 @@ class RepoView:Element {
             //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
             onTreeListSelect()
         }else if(event.type == ButtonEvent.rightMouseDown){
-            contextMenu!.rightClickItemIdx = TreeListParser.index(treeList!, event.origin as! NSView)
+            let idx3d = TreeList3Parser.index(treeList! as! TreeListable3, event.origin as! NSView)
+            contextMenu!.rightClickItemIdx = idx3d
             Swift.print("RightMouseDown() rightClickItemIdx: " + "\(contextMenu!.rightClickItemIdx)")
             NSMenu.popUpContextMenu(contextMenu!, with: (event as! ButtonEvent).event!, for: self)
         }
@@ -55,7 +56,7 @@ extension RepoView{
         Swift.print("RepoView.onTreeListSelect()")
         //Sounds.play?.play()
        
-        let selectedIndex:Array = treeList!.selectedIdx3d!
+        let selectedIndex:[Int] = treeList!.selectedIdx3d!
         RepoView.selectedListItemIndex = selectedIndex
         //TODO: Use the RepoItem on the bellow line see AutoSync class for implementation
         let repoItemDict:[String:String] = NodeParser.dataAt(treeList!.node, selectedIndex)
