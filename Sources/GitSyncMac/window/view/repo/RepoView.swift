@@ -34,7 +34,6 @@ class RepoView:Element {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         //treeList = addSubView(SliderTreeList(width, height-24, 24, RepoView.node,self))
         treeList = addSubView(TreeList3(width, height-24, CGSize(24,24), RepoView.treeDP, self))
-        
         contextMenu = RepoContextMenu(treeList!)
         //if(RepoView.selectedListItemIndex.count > 0){TreeListModifier.selectAt(treeList!, RepoView.selectedListItemIndex)}
     }
@@ -44,8 +43,7 @@ class RepoView:Element {
             //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
             onTreeListSelect()
         }else if(event.type == ButtonEvent.rightMouseDown){
-            let idx3d = TreeList3Parser.index(treeList!, event.origin as! NSView)
-            contextMenu!.rightClickItemIdx = idx3d
+            contextMenu!.rightClickItemIdx = TreeList3Parser.index(treeList!, event.origin as! NSView)
             Swift.print("RightMouseDown() rightClickItemIdx: " + "\(contextMenu!.rightClickItemIdx)")
             NSMenu.popUpContextMenu(contextMenu!, with: (event as! ButtonEvent).event!, for: self)
         }
