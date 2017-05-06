@@ -87,7 +87,7 @@ extension ICommitList{
         isInDeactivateRefreshModeState = true
         hasReleasedBeyondTop = true/*⚠️️Quick temp fix*/
         moverGroup?.yMover.frame.y = 0
-        mover!.hasStopped = false/*reset this value to false, so that the FrameAnimatior can start again*/
+        moverGroup?.yMover.hasStopped = false/*reset this value to false, so that the FrameAnimatior can start again*/
         mover!.isDirectlyManipulating = false
         mover!.value = mover!.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
         mover!.start()/**/
