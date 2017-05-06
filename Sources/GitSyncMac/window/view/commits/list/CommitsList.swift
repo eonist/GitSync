@@ -48,7 +48,6 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
             scrollAnimStopped()
         }
         super.onEvent(event)
-        
     }
     /**
      * When the the user scrolls
