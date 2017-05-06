@@ -15,13 +15,16 @@ protocol ICommitList:ElasticSlidableScrollableFastListable3 {//ElasticSlidableSc
     var autoSyncStartTime:NSDate? {get set}
 }
 extension ICommitList{
-    /*func setProgress(_ value:CGFloat) {
+    func setProgressValue(_ value: CGFloat, _ dir: Dir){
+        if dir == .ver {
+    
+        }
         Swift.print("🌵 ICommitList.setProgress : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
         if(hasReleasedBeyondTop){
             iterateProgressBar(value)
         }
         (self as ElasticSlidableScrollableFast).setProgress(value)
-    }*/
+    }
     
     //Continue here: 
         //setup setProgress
