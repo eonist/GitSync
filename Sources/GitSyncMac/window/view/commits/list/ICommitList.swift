@@ -16,16 +16,15 @@ protocol ICommitList:ElasticSlidableScrollableFastListable3 {//ElasticSlidableSc
 }
 extension ICommitList{
     /*func setProgress(_ value:CGFloat) {
-     Swift.print("🌵 ICommitList.setProgress : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
-     if(hasReleasedBeyondTop){
-     iterateProgressBar(value)
-     }
-     (self as ElasticSlidableScrollableFast).setProgress(value)
-     }*/
+        Swift.print("🌵 ICommitList.setProgress : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
+        if(hasReleasedBeyondTop){
+            iterateProgressBar(value)
+        }
+        (self as ElasticSlidableScrollableFast).setProgress(value)
+    }*/
     
     func scroll(_ event:NSEvent) {
         Swift.print("🌵 ICommitList.scroll()")
-        //(self as ElasticSlidableScrollableFast3).scroll(event)//👈 calls from shallow can overide downstream
         if(event.phase == NSEventPhase.changed){//this is only direct manipulation, not momentum
             //iterateProgressBar(mover!.result)
         }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
@@ -39,10 +38,7 @@ extension ICommitList{
         Swift.print("🌵 ICommitsList.scrollWheelEnter")
         //reUseAll()/*Refresh*/
         isTwoFingersTouching = true
-        //⚠️️ defaultScrollWheelEnter()
     }
- 
-    
     func scrollWheelExit(){
         Swift.print("🌵 CommitList.scrollWheelExit()")
         isTwoFingersTouching = false
@@ -61,7 +57,6 @@ extension ICommitList{
             hasReleasedBeyondTop = false
         }*/
     }
-    /**/
     /**
      * Starts the auto sync process
      */
