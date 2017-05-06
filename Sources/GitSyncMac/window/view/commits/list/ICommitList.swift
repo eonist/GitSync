@@ -17,13 +17,12 @@ protocol ICommitList:ElasticSlidableScrollableFastListable3 {//ElasticSlidableSc
 extension ICommitList{
     func setProgressValue(_ value: CGFloat, _ dir: Dir){
         if dir == .ver {
-    
+            Swift.print("🌵 ICommitList.setProgressValue : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
+            if(hasReleasedBeyondTop){
+                iterateProgressBar(value)
+            }
         }
-        Swift.print("🌵 ICommitList.setProgress : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
-        if(hasReleasedBeyondTop){
-            iterateProgressBar(value)
-        }
-        (self as ElasticSlidableScrollableFast).setProgress(value)
+        (self as ElasticSlidableScrollableFastListable3).setProgressValue(value,dir)
     }
     
     //Continue here: 
