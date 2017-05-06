@@ -26,7 +26,7 @@ class RepoView:Element {
         };return treeDP
     }
     
-    var treeList:TreeList?// {return RepoView.list}
+    var treeList:TreeList3?// {return RepoView.list}
     var contextMenu:RepoContextMenu?
     
     override func resolveSkin() {
