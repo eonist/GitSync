@@ -18,7 +18,7 @@ extension ICommitList{
     func setProgressValue(_ value: CGFloat, _ dir: Dir){
         if dir == .ver {
             Swift.print("🌵 ICommitList.setProgressValue : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
-            if(hasReleasedBeyondTop){
+            if(!hasReleasedBeyondTop){
                 iterateProgressBar(value)
             }
         }
