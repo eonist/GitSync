@@ -2,6 +2,15 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
+private extension CommitsList{
+    var moverGrp:MoverGroup {
+        let group = MoverGroup(self.setProgressValue,self.maskSize,self.contentSize)
+        group.event = self.onEvent/*Add an eventHandler for the mover object, , this has no functionality in this class, but may have in classes that extends this class, like hide progress-indicator when all animation has stopped*/
+        return group
+    }
+}
+
+
 class CommitsList:ElasticSlideScrollFastList3,ICommitList{
     /*The following variables exists to facilitate the pull to refresh functionality*/
     var progressIndicator:ProgressIndicator?
@@ -12,6 +21,8 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
     /*Debug*/
     var autoSyncStartTime:NSDate?
     var autoSyncAndRefreshStartTime:NSDate?
+    
+    override var moverGroup: MoverGroup? = self.moverGrp
 
     override func resolveSkin() {
         super.resolveSkin()
