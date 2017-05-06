@@ -6,9 +6,10 @@ import Foundation
 class RepoUtils {
     /**
      * Returns a flat Array of RepoItems derived from a nested xml Structure (also skips folders)
+     * TODO: Redesign the flattening, utilize the tree
      */
     static var repoListFlattened:[RepoItem] {
-        let repoXML:XML = RepoView.node.xml/*📝 - FilePath*/
+        let repoXML:XML = RepoView.treeDP.xml/*📝 - FilePath*/
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
         let flatArr:[[String:String]] = arr.recursiveFlatmap()
         //Swift.print("flatArr.count: " + "\(flatArr.count)")
@@ -30,7 +31,7 @@ class RepoUtils {
      * We want parent folders to override all its children.
      */
     static var repoListFlattenedOverridden:[RepoItem]{
-        let repoXML:XML = RepoView.node.xml/*📝 - FilePath*/
+        let repoXML:XML = RepoView.treeDP.xml/*📝 - FilePath*/
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
         let overrideKeys:[String] = [RepoItemType.active,RepoItemType.autoSyncInterval,RepoItemType.download,RepoItemType.fileChange,RepoItemType.pullToAutoSync,RepoItemType.upload]/*These are the keys to the values that should be overridden*/
         let overriders:[String] = [RepoFolderType.isOpen,RepoFolderType.hasChildren]
