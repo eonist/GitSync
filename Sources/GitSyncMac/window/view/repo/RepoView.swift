@@ -18,6 +18,11 @@ class RepoView:Element {
             return _node!
         }
     }
+    
+    static var treeDP:TreeDP = TreeDP(url.tildePath)
+    
+    
+    
     var treeList:TreeList?// {return RepoView.list}
     var contextMenu:RepoContextMenu?
     
@@ -26,8 +31,7 @@ class RepoView:Element {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         treeList = addSubView(SliderTreeList(width, height-24, 24, RepoView.node,self))/**/
         
-        /*let url = "~/Desktop/assets/xml/treelist.xml"
-         let dp: TreeDP = TreeDP(url.tildePath)
+        /*
          let treeList = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
          _ = treeList*/
         
