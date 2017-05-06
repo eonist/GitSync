@@ -16,7 +16,7 @@ class MinimalView:WindowView{
         let url = "~/Desktop/repo2.xml"
         //let url = "~/Desktop/assets/xml/treelist.xml"
         let dp: TreeDP = TreeDP(url.tildePath)
-        let treeList = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
+        let treeList = self.addSubView(TreeList3(width, height, CGSize(24,24), dp, self))
         _ = treeList
         
         //treeList.select([2])/*Selects third item in root*/
