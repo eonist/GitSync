@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-protocol ICommitList:ElasticSlidableScrollableFast3 {//ElasticSlidableScrollableFastListable3
+protocol ICommitList:ElasticSlideScrollFastList3 {//ElasticSlidableScrollableFastListable3
     /*Related to ICommitList*/
     var isTwoFingersTouching:Bool {get set}
     var progressIndicator:ProgressIndicator? {get set}
@@ -25,28 +25,28 @@ extension ICommitList{
     
     func scroll(_ event:NSEvent) {
         Swift.print("🌵 ICommitList.scroll()")
-        (self as ElasticSlidableScrollableFast).scroll(event)//👈 calls from shallow can overide downstream
+        //(self as ElasticSlidableScrollableFast3).scroll(event)//👈 calls from shallow can overide downstream
         if(event.phase == NSEventPhase.changed){//this is only direct manipulation, not momentum
-            iterateProgressBar(mover!.result)
+            //iterateProgressBar(mover!.result)
         }else if(event.phase == NSEventPhase.mayBegin || event.phase == NSEventPhase.began){
             (self as ICommitList).scrollWheelEnter()
         }else if(event.phase == NSEventPhase.ended || event.phase == NSEventPhase.cancelled){
             (self as ICommitList).scrollWheelExit()
         }
     }
-    /*
-    func scrollWheelEnter() {
+    /**/
+    mutating func scrollWheelEnter() {
         Swift.print("🌵 ICommitsList.scrollWheelEnter")
-        reUseAll()/*Refresh*/
+        //reUseAll()/*Refresh*/
         isTwoFingersTouching = true
         //⚠️️ defaultScrollWheelEnter()
     }
-    */
-    /*
-    func scrollWheelExit(){
+ 
+    
+    mutating func scrollWheelExit(){
         Swift.print("🌵 CommitList.scrollWheelExit()")
         isTwoFingersTouching = false
-        let value = mover!.result
+        /*let value = mover!.result
         if(value > 60){
             //Swift.print("start animation the ProgressIndicator")
             mover!.frame.y = 60
@@ -59,8 +59,9 @@ extension ICommitList{
             //scrollController!.mover.topMargin = 0
         }else{
             hasReleasedBeyondTop = false
-        }
+        }*/
     }
+    /**/
     /**
      * Starts the auto sync process
      */
