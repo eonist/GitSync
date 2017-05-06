@@ -59,16 +59,17 @@ extension RepoView{
         let selectedIndex:[Int] = treeList!.selectedIdx3d!
         RepoView.selectedListItemIndex = selectedIndex
         //TODO: Use the RepoItem on the bellow line see AutoSync class for implementation
-        let repoItemDict:[String:String] = NodeParser.dataAt(treeList!.node, selectedIndex)
-        var repoItem:RepoItem
-        if(repoItemDict["hasChildren"] != nil || repoItemDict["isOpen"] != nil){/*Support for folders*/
-            repoItem = RepoItem()
-            if(repoItemDict.hasKey(RepoItemType.title)){repoItem.title = repoItemDict[RepoItemType.title]!}
-            if(repoItemDict.hasKey(RepoItemType.active)){repoItem.active = repoItemDict[RepoItemType.active]!.bool}
-        }else{
-            repoItem = RepoUtils.repoItem(repoItemDict)
+        if let repoItemDict:[String:String] = treeList!.treeDP.tree[selectedIndex]?.props{//NodeParser.dataAt(treeList!.node, selectedIndex)
+            var repoItem:RepoItem
+            if(repoItemDict["hasChildren"] != nil || repoItemDict["isOpen"] != nil){/*Support for folders*/
+                repoItem = RepoItem()
+                if(repoItemDict.hasKey(RepoItemType.title)){repoItem.title = repoItemDict[RepoItemType.title]!}
+                if(repoItemDict.hasKey(RepoItemType.active)){repoItem.active = repoItemDict[RepoItemType.active]!.bool}
+            }else{
+                repoItem = RepoUtils.repoItem(repoItemDict)
+            }
+            //(Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
+            Navigation.setView(.repoDetail(repoItem))
         }
-        //(Navigation.currentView as! RepoDetailView).setRepoData(repoItem)//updates the UI elements with the selected repo data
-        Navigation.setView(.repoDetail(repoItem))
     }
 }
