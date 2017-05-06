@@ -88,9 +88,9 @@ extension ICommitList{
         hasReleasedBeyondTop = true/*⚠️️Quick temp fix*/
         moverGroup?.yMover.frame.y = 0
         moverGroup?.yMover.hasStopped = false/*reset this value to false, so that the FrameAnimatior can start again*/
-        mover!.isDirectlyManipulating = false
-        mover!.value = mover!.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
-        mover!.start()/**/
+        //mover!.isDirectlyManipulating = false
+        moverGroup?.yMover.value = moverGroup!.yMover.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
+        moverGroup?.yMover.start()
         //progressIndicator!.reveal(0)//reset all line alphas to 0
         Swift.print("🏁 AutoSync™ completed \(abs(autoSyncAndRefreshStartTime!.timeIntervalSinceNow))")
     }
