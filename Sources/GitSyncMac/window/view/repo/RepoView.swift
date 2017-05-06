@@ -40,7 +40,7 @@ class RepoView:Element {
     }
     override func onEvent(_ event:Event) {
         if(event.type == SelectEvent.select && event.immediate === treeList){
-            Swift.print("RepoView.onTreeListEvent() selectedIndex: " + "\(treeList.selectedIdx3d)")
+            Swift.print("RepoView.onTreeListEvent() selectedIndex: " + "\(treeList?.selectedIdx3d)")
             //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
             onTreeListSelect()
         }else if(event.type == ButtonEvent.rightMouseDown){

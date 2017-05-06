@@ -59,91 +59,91 @@ extension RepoContextMenu{
      */
     func newFolder(sender:AnyObject) {
         Swift.print("newFolder")
-        let idx = rightClickItemIdx!
-        let a:String = "<item title=\"New folder\" isOpen=\"false\" hasChildren=\"true\"></item>"
-        treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
-        Swift.print("Promt folder name popup")
+        /*let idx = rightClickItemIdx!
+         let a:String = "<item title=\"New folder\" isOpen=\"false\" hasChildren=\"true\"></item>"
+         treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
+         Swift.print("Promt folder name popup")*/
     }
     
     func newRepo(sender:AnyObject) {
         Swift.print("newRepo")
-        let idx = rightClickItemIdx!
-        Swift.print("idx: " + "\(idx)")
-        let xml:XML = ["title":"New repo","local-path":"~/Desktop/test","remote-path":"https://github.com/eonist/test.git","interval":"30","keychain-item-name":"eonist","branch":"master","broadcast":"true","subscribe":"true","auto-sync":"true"].xml
-        Swift.print("xml.xmlString: " + "\(xml.xmlString)")
-        treeList.node.addAt(newIdx(idx), xml)
+        /*let idx = rightClickItemIdx!
+         Swift.print("idx: " + "\(idx)")
+         let xml:XML = ["title":"New repo","local-path":"~/Desktop/test","remote-path":"https://github.com/eonist/test.git","interval":"30","keychain-item-name":"eonist","branch":"master","broadcast":"true","subscribe":"true","auto-sync":"true"].xml
+         Swift.print("xml.xmlString: " + "\(xml.xmlString)")
+         treeList.node.addAt(newIdx(idx), xml)*/
         //Swift.print("Promt repo name popup")
     }
     func duplicate(sender: AnyObject) {
         Swift.print("duplicate")
-        let idx = rightClickItemIdx!
-        Swift.print("idx: " + "\(idx)")
-        let xml:XML = treeList.node.xml.childAt(idx)!
-        treeList.node.addAt(newIdx(idx), xml.copy() as! XML)
+        /*let idx = rightClickItemIdx!
+         Swift.print("idx: " + "\(idx)")
+         let xml:XML = treeList.node.xml.childAt(idx)!
+         treeList.node.addAt(newIdx(idx), xml.copy() as! XML)*/
     }
     func doCopy(sender: AnyObject) {
         Swift.print("copy")
-        let idx = rightClickItemIdx!
-        Swift.print("idx: " + "\(idx)")
-        let xml:XML = treeList.node.xml.childAt(idx)!
-        clipBoard = xml
-        Swift.print("clipBoard: " + "\(clipBoard)")
+        /*let idx = rightClickItemIdx!
+         Swift.print("idx: " + "\(idx)")
+         let xml:XML = treeList.node.xml.childAt(idx)!
+         clipBoard = xml
+         Swift.print("clipBoard: " + "\(clipBoard)")*/
     }
     func cut(sender: AnyObject) {
         Swift.print("cut")
-        let idx = rightClickItemIdx!
-        Swift.print("idx: " + "\(idx)")
-        clipBoard = treeList.node.removeAt(idx)
-        Swift.print("clipBoard: " + "\(clipBoard)")
+        /*let idx = rightClickItemIdx!
+         Swift.print("idx: " + "\(idx)")
+         clipBoard = treeList.node.removeAt(idx)
+         Swift.print("clipBoard: " + "\(clipBoard)")*/
     }
     func paste(sender: AnyObject) {
         Swift.print("paste")
-        if(clipBoard != nil){
-            //"<item title=\"Fish\"/>".xml
-            Swift.print("clipBoard: " + "\(self.clipBoard)")
-            let idx = rightClickItemIdx!
-            treeList.node.addAt(newIdx(idx), clipBoard!.copy() as! XML)
-        }
+        /*if(clipBoard != nil){
+         //"<item title=\"Fish\"/>".xml
+         Swift.print("clipBoard: " + "\(self.clipBoard)")
+         let idx = rightClickItemIdx!
+         treeList.node.addAt(newIdx(idx), clipBoard!.copy() as! XML)
+         }*/
     }
     func delete(sender: AnyObject) {
         Swift.print("delete")
-        let idx = rightClickItemIdx!
-        _ = treeList.node.removeAt(idx)
+        /*let idx = rightClickItemIdx!
+         _ = treeList.node.removeAt(idx)*/
     }
     /*move up down top bottom.*/
     func moveUp(sender: AnyObject){
-        let idx = rightClickItemIdx!
-        _ = TreeListModifier.moveUp(treeList, idx)
+        /*let idx = rightClickItemIdx!
+         _ = TreeListModifier.moveUp(treeList, idx)*/
     }
     func moveDown(sender: AnyObject){
-        let idx = rightClickItemIdx!
-        _ = TreeListModifier.moveDown(treeList, idx)
+        /*let idx = rightClickItemIdx!
+         _ = TreeListModifier.moveDown(treeList, idx)*/
     }
     func moveToTop(sender: AnyObject){
-        let idx = rightClickItemIdx!
-        _ = TreeListModifier.moveToTop(treeList, idx)
+        /*let idx = rightClickItemIdx!
+         _ = TreeListModifier.moveToTop(treeList, idx)*/
     }
     func moveToBottom(sender: AnyObject){
-        let idx = rightClickItemIdx!
-        _ = TreeListModifier.moveToBottom(treeList, idx)
+        /*let idx = rightClickItemIdx!
+         _ = TreeListModifier.moveToBottom(treeList, idx)*/
     }
     func openInFinder(sender: AnyObject){
-        let idx = rightClickItemIdx!
-        let itemData:ItemData = TreeListUtils.itemData(treeList.node.xml, idx)
-        if(!itemData.hasChildren){//only repos can be opened in finder
-            let repoItem = RepoUtils.repoItem(treeList.node.xml, idx)
-            if(FileAsserter.exists(repoItem.localPath.tildePath)){//make sure local-path exists
-                Swift.print("repoItem.localPath: " + "\(repoItem.localPath)")
-                FileUtils.showFileInFinder(repoItem.localPath)
-            }
-        }
+        /*let idx = rightClickItemIdx!
+         let itemData:ItemData = TreeListUtils.itemData(treeList.node.xml, idx)
+         if(!itemData.hasChildren){//only repos can be opened in finder
+         let repoItem = RepoUtils.repoItem(treeList.node.xml, idx)
+         if(FileAsserter.exists(repoItem.localPath.tildePath)){//make sure local-path exists
+         Swift.print("repoItem.localPath: " + "\(repoItem.localPath)")
+         FileUtils.showFileInFinder(repoItem.localPath)
+         }
+         }*/
     }
     func openURL(sender:AnyObject){
-        let idx = rightClickItemIdx!
-        let itemData:ItemData = TreeListUtils.itemData(treeList.node.xml, idx)
-        if(!itemData.hasChildren){//only repos can be opened in finder
-            let repoItem = RepoUtils.repoItem(treeList.node.xml, idx)
-            NetworkUtils.openURLInDefaultBrowser(repoItem.remotePath)
-        }
+        /*let idx = rightClickItemIdx!
+         let itemData:ItemData = TreeListUtils.itemData(treeList.node.xml, idx)
+         if(!itemData.hasChildren){//only repos can be opened in finder
+         let repoItem = RepoUtils.repoItem(treeList.node.xml, idx)
+         NetworkUtils.openURLInDefaultBrowser(repoItem.remotePath)
+         }*/
     }
 }
