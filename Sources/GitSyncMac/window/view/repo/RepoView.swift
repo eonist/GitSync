@@ -24,7 +24,14 @@ class RepoView:Element {
     override func resolveSkin() {
         //Swift.print("RepoView.resolveSkin()")
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
-        treeList = addSubView(SliderTreeList(width, height-24, 24, RepoView.node,self))
+        treeList = addSubView(SliderTreeList(width, height-24, 24, RepoView.node,self))/**/
+        
+        /*let url = "~/Desktop/assets/xml/treelist.xml"
+         let dp: TreeDP = TreeDP(url.tildePath)
+         let treeList = self.addSubView(TreeList3(140, 145, CGSize(24,24), dp, self))
+         _ = treeList*/
+        
+        
         contextMenu = RepoContextMenu(treeList!)
         if(RepoView.selectedListItemIndex.count > 0){TreeListModifier.selectAt(treeList!, RepoView.selectedListItemIndex)}
     }
