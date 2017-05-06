@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-protocol ICommitList:ElasticSlidableScrollableFast {//ElasticSlidableScrollableFastListable3
+protocol ICommitList:ElasticSlidableScrollableFast3 {//ElasticSlidableScrollableFastListable3
     /*Related to ICommitList*/
     var isTwoFingersTouching:Bool {get set}
     var progressIndicator:ProgressIndicator? {get set}
@@ -15,13 +15,13 @@ protocol ICommitList:ElasticSlidableScrollableFast {//ElasticSlidableScrollableF
     var autoSyncStartTime:NSDate? {get set}
 }
 extension ICommitList{
-    func setProgress(_ value:CGFloat) {
-        Swift.print("🌵 ICommitList.setProgress : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
-        if(hasReleasedBeyondTop){
-            iterateProgressBar(value)
-        }
-        (self as ElasticSlidableScrollableFast).setProgress(value)
+    /*func setProgress(_ value:CGFloat) {
+     Swift.print("🌵 ICommitList.setProgress : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
+     if(hasReleasedBeyondTop){
+     iterateProgressBar(value)
      }
+     (self as ElasticSlidableScrollableFast).setProgress(value)
+     }*/
     
     func scroll(_ event:NSEvent) {
         Swift.print("🌵 ICommitList.scroll()")
@@ -34,12 +34,15 @@ extension ICommitList{
             (self as ICommitList).scrollWheelExit()
         }
     }
+    /*
     func scrollWheelEnter() {
         Swift.print("🌵 ICommitsList.scrollWheelEnter")
         reUseAll()/*Refresh*/
         isTwoFingersTouching = true
         //⚠️️ defaultScrollWheelEnter()
     }
+    */
+    /*
     func scrollWheelExit(){
         Swift.print("🌵 CommitList.scrollWheelExit()")
         isTwoFingersTouching = false
