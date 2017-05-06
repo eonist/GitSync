@@ -52,7 +52,7 @@ extension ICommitList{
             //Swift.print("start animation the ProgressIndicator")
             //Continue here: 🏀
                 //set the bellow line correctly
-            //mover!.frame.y = 60
+            moverGroup?.yMover.frame
             progressIndicator!.start()//1. start spinning the progressIndicator
             hasPulledAndReleasedBeyondRefreshSpace = true
             autoSyncAndRefreshStartTime = NSDate()//init debug timer
