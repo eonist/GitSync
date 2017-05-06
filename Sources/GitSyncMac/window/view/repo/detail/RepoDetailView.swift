@@ -84,8 +84,11 @@ class RepoDetailView:ElasticSlideScrollView {
         }
         if(event.type == CheckEvent.check || event.type == Event.update || event.type == SpinnerEvent.change){
             Swift.print("attrib: " + "\(attrib)")
-            RepoView.node.setAttributeAt(i, attrib)
-            Swift.print("node.xml.xmlString: " + "\(RepoView.node.xml.xmlString)")
+            RepoView.treeDP.tree[i]!.props = attrib//RepoView.node.setAttributeAt(i, attrib)
+            
+            if let tree:Tree = RepoView.treeDP.tree[i]{
+                Swift.print("node.xml.xmlString: " + "\(tree.xml.xmlString)")
+            }
         }
         
     }
