@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-protocol ICommitList:ElasticSlideScrollFastList3 {//ElasticSlidableScrollableFastListable3
+protocol ICommitList:ElasticSlidableScrollableFastListable3 {//ElasticSlidableScrollableFastListable3
     /*Related to ICommitList*/
     var isTwoFingersTouching:Bool {get set}
     var progressIndicator:ProgressIndicator? {get set}
