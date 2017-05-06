@@ -22,7 +22,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     func initApp(){
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
-        
          win = MainWin(MainView.w,MainView.h)
          //win = ConflictDialogWin(380,400)
          //win = CommitDialogWin(400,356)
