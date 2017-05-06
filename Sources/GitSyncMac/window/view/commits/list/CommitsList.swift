@@ -43,10 +43,10 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
     override func onEvent(_ event:Event) {
         //Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
         if(event.assert(AnimEvent.completed, progressIndicator!.animator)){
-            //loopAnimationCompleted()
-        }/*else if(event.assert(AnimEvent.stopped, mover!)){
+            loopAnimationCompleted()
+        }else if(event.assert(AnimEvent.stopped, moverGroup?.yMover)){
             scrollAnimStopped()
-        }*/
+        }
         super.onEvent(event)
         
     }
