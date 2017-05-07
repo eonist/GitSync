@@ -8,6 +8,7 @@ class AutoSync {
     static func initSync(_ onComplete:@escaping ()->Void){
         Swift.print("🔁 AutoSync.initSync() 🔁")
         let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden
+        Swift.print("repoList.count: " + "\(repoList.count)")
         var idx:Int = 0
         
         func onPushComplete(_ hasPushed:Bool){
