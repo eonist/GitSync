@@ -353,7 +353,7 @@ class SlideScrollView3Test:SlideScrollView3 /*ElasticSlideScrollView3 ,ElasticVi
     }
 }
 class ElasticScrollView3Test:ElasticScrollView3{
-    override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
+    override var contentSize: CGSize {return CGSize(super.width*1,super.height*1)}
     override func resolveSkin() {
         StyleManager.addStyle("ElasticScrollView3Test{fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
@@ -379,11 +379,11 @@ extension ElasticScrollView3Test{
         let line = GradientLineStyle(lineGradient,lineStyle)
         /*size*/
         let objSize:CGSize = CGSize(200,200)
-        Swift.print("objSize: " + "\(objSize)")
+        //Swift.print("objSize: " + "\(objSize)")
         let viewSize:CGSize = CGSize(width,height)
-        Swift.print("viewSize: " + "\(viewSize)")
+        //Swift.print("viewSize: " + "\(viewSize)")
         let p = Align.alignmentPoint(objSize, viewSize, Alignment.centerCenter, Alignment.centerCenter,CGPoint())
-        Swift.print("p: " + "\(p)")
+        //Swift.print("p: " + "\(p)")
         /*Graphics*/
         let ellipse = EllipseGraphic(p.x,p.y,200,200,fill.mix(Gradients.green()),line.mix(Gradients.lightGreen(0.5)))
         contentContainer!.addSubview(ellipse.graphic)
