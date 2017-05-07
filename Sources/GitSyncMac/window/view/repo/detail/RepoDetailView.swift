@@ -3,12 +3,10 @@ import Cocoa
 @testable import Element
 
 class RepoDetailView:ElasticSlideScrollView3 {
-    //override var height:CGFloat {get{return super.height-48}set{super.height = newValue}}//lazy fix, you can use negative height padding to acchive the same thing
     override var maskSize: CGSize {return CGSize(super.width,super.height-48)}
-    //override var itemsHeight:CGFloat {}
     override var contentSize: CGSize {return CGSize(NaN,(12 * 24)+64) }
     override var itemSize: CGSize {return CGSize(NaN,24)}
-    //override var itemHeight:CGFloat {return 24}
+    
     /*TextInput*/
     var nameTextInput:TextInput?
     var localPathTextInput:TextInput?
