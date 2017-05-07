@@ -395,6 +395,8 @@ extension ElasticScrollView3Test{
         let hCount:Int = 10
         let vCount:Int = 10
         
+        //Try to draw the same amount of rects but as Shapes not NSViews, maybe via svg or manually
+        
         (0..<hCount).indices.forEach{ i in
             (0..<vCount).indices.forEach{ e in
                 let x:CGFloat = /*p.x + */(20 * i)
