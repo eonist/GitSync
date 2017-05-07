@@ -36,7 +36,7 @@ class TestView:TitleView{
         //elasticScrollFastList()
         //slideScrollFastList()
         //scrollFastList()
-        //fastList()
+        fastList()
         
         //createElasticScrollSlideList()
         //createElasticScrollList()
@@ -45,7 +45,7 @@ class TestView:TitleView{
         //createList()
         
         //_ = self.addSubView(ElasticSlideScrollView3Test(width,height,nil))
-        _ = self.addSubView(ElasticScrollView3Test(width,height,nil))
+        //_ = self.addSubView(ElasticScrollView3Test(width,height,nil))
         //_ = self.addSubView(SlideScrollView3Test(width,height,nil))
         
         //createGraph7Test()
