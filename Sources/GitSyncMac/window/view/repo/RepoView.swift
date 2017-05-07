@@ -31,11 +31,13 @@ class RepoView:Element {
         //if(RepoView.selectedListItemIndex.count > 0){TreeListModifier.selectAt(treeList!, RepoView.selectedListItemIndex)}
     }
     override func onEvent(_ event:Event) {
-        if(event.type == SelectEvent.select && event.immediate === treeList){
+        if(event.type == ListEvent.select && event.immediate === treeList){
             Swift.print("RepoView.onTreeListEvent() selectedIndex: " + "\(treeList?.selectedIdx3d)")
             //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
             onTreeListSelect()
-        }else if(event.type == ButtonEvent.rightMouseDown){
+        }
+        //if(event.type == SelectEvent.select && event.immediate === treeList){}
+        else if(event.type == ButtonEvent.rightMouseDown){
             contextMenu!.rightClickItemIdx = TreeList3Parser.index(treeList!, event.origin as! NSView)
             Swift.print("RightMouseDown() rightClickItemIdx: " + "\(contextMenu!.rightClickItemIdx)")
             NSMenu.popUpContextMenu(contextMenu!, with: (event as! ButtonEvent).event!, for: self)
