@@ -389,7 +389,7 @@ extension ElasticScrollView3Test{
          contentContainer!.addSubview(ellipse.graphic)
          ellipse.draw()*/
         
-        
+        let colorFill = FillStyle(.green)
         
         let rectContainer:NSView = contentContainer!.addSubView(Container(200,200))
         rectContainer.frame.origin = p
@@ -400,7 +400,7 @@ extension ElasticScrollView3Test{
             (0..<vCount).indices.forEach{ e in
                 let x:CGFloat = /*p.x + */(20 * i)
                 let y:CGFloat = /*p.y + */(20 * e)
-                let rect = RectGraphic(x,y,10,10,fill,line)
+                let rect = RectGraphic(x,y,10,10,colorFill,nil)
                 rectContainer.addSubview(rect.graphic)
                 rect.draw()
             }
