@@ -10,7 +10,10 @@ class MinimalView:WindowView{
         treeList()
         //rotationUITest()
         //checkBoxTest()
-                
+        
+        //Continue here: 🏀
+            //Try to add many shapes to ElasticView, Is it still smooth?
+            //then try to add many SVG shapes and see if its still fast?
     }
     func treeList(){
         let url = "~/Desktop/repo2.xml"
