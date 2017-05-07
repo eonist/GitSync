@@ -385,12 +385,12 @@ extension ElasticScrollView3Test{
         let p = Align.alignmentPoint(objSize, viewSize, Alignment.centerCenter, Alignment.centerCenter,CGPoint())
         //Swift.print("p: " + "\(p)")
         /*Graphics*/
-        let ellipse = EllipseGraphic(p.x,p.y,200,200,fill.mix(Gradients.green()),line.mix(Gradients.lightGreen(0.5)))
-        contentContainer!.addSubview(ellipse.graphic)
-        ellipse.draw()
+        /*let ellipse = EllipseGraphic(p.x,p.y,200,200,fill.mix(Gradients.green()),line.mix(Gradients.lightGreen(0.5)))
+         contentContainer!.addSubview(ellipse.graphic)
+         ellipse.draw()*/
         
-        /*let rect = RectGraphic(0,0,width,height,fill,line)
-         zoomContainer!.addSubview(rect.graphic)
-         rect.draw()*/
+        let rect = RectGraphic(p.x,p.y,200,200,fill,line)
+         contentContainer!.addSubview(rect.graphic)
+         rect.draw()
     }
 }
