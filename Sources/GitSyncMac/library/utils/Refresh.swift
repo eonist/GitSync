@@ -32,7 +32,7 @@ class Refresh{//TODO:rename to refresh
      */
     func refreshRepos(/*_ sortableRepoList:[FreshnessItem]*/){
         //Swift.print(" Freshness.onFreshnessSortComplete() Time:-> " + "\(abs(self.startTime!.timeIntervalSinceNow))")/*How long it took*/
-        let repos = RepoUtils.repoListFlattened//creates array from xml or cache
+        let repos = RepoUtils.repoListFlattened/*creates array from xml or cache*/
         var idx:Int = 0
         func onComplete(){//you can probably use DispatchGroup here aswell. but in the spirit of moving on
             idx += 1
