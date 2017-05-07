@@ -36,6 +36,7 @@ class RepoUtils {
             //figure out how to flatten the new xml
         
         let repoXML:XML = RepoView.treeDP.xml/*📝 - FilePath*/
+        Swift.print("repoXML.xmlString: " + "\(repoXML.xmlString)")
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
         let overrideKeys:[String] = [RepoItemType.active,RepoItemType.autoSyncInterval,RepoItemType.download,RepoItemType.fileChange,RepoItemType.pullToAutoSync,RepoItemType.upload]/*These are the keys to the values that should be overridden*/
         let overriders:[String] = [RepoFolderType.isOpen,RepoFolderType.hasChildren]
