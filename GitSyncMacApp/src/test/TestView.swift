@@ -368,6 +368,9 @@ class ElasticSlideScrollView3Test:ScrollView3{
         //createEllipse()
     }
 }
+/**
+ * Testing multiple views performance
+ */
 extension ElasticScrollView3Test{
     func createEllipse(){
         /*Styles*/
