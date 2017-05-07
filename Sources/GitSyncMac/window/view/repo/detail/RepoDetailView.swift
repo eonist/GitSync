@@ -4,8 +4,10 @@ import Cocoa
 
 class RepoDetailView:ElasticSlideScrollView3 {
     override var height:CGFloat {get{return super.height-48}set{super.height = newValue}}//lazy fix, you can use negative height padding to acchive the same thing
-    override var itemsHeight:CGFloat {return (12 * 24)+64}
-    override var itemHeight:CGFloat {return 24}
+    //override var itemsHeight:CGFloat {}
+    override var contentSize: CGSize {return CGSize(NaN,(12 * 24)+64) }
+    override var itemSize: CGSize {return CGSize(NaN,24)}
+    //override var itemHeight:CGFloat {return 24}
     /*TextInput*/
     var nameTextInput:TextInput?
     var localPathTextInput:TextInput?
@@ -25,6 +27,7 @@ class RepoDetailView:ElasticSlideScrollView3 {
     override func resolveSkin() {
         super.resolveSkin()/*self.skin = SkinResolver.skin(self)*/
         //Swift.print("RepoDetailView.width: " + "\(width)")
+        let lableContainer = contentContainer
         nameTextInput = lableContainer!.addSubView(TextInput(width, 32, "Name: ", "", lableContainer))
         localPathTextInput = lableContainer!.addSubView(TextInput(width, 32, "Local-path: ", "", lableContainer))
         remotePathTextInput = lableContainer!.addSubView(TextInput(width, 32, "Remote-path: ", "", lableContainer))
