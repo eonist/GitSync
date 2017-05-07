@@ -23,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Continue here: 🏀
             //add general-direction-scrolling in ElasticScrollView 👈
             //figure out how to get hitTest working again
-            //
+            //do some gui design
     }
     func initApp(){
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
