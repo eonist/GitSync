@@ -20,9 +20,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //initTestWin()//🚧👷
         //initMinimalWin()
         
-        //Continue here:
+        //Continue here: 🏀
+            //add general direction in ElasticScrollView 👈
             //figure out how to get hitTest working again
-            //draw 
+            //
     }
     func initApp(){
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
