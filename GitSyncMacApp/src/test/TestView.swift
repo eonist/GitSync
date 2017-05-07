@@ -36,7 +36,7 @@ class TestView:TitleView{
         //elasticScrollFastList()
         //slideScrollFastList()
         //scrollFastList()
-        fastList()
+        //fastList()
         
         //createElasticScrollSlideList()
         //createElasticScrollList()
