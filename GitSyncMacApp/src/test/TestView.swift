@@ -398,12 +398,12 @@ extension ElasticScrollView3Test{
         
         (0..<vCount).indices.forEach{ i in
             (0..<hCount).indices.forEach{ e in
-                let x:CGFloat = 0
-                let y:CGFloat = 0
+                let x:CGFloat = p.x + (10 * i)
+                let y:CGFloat = p.y + (10 * e)
                 let rect = RectGraphic(p.x,p.y,200,200,fill,line)
                 contentContainer!.addSubview(rect.graphic)
                 rect.draw()
             }
-        } 
+        }
     }
 }
