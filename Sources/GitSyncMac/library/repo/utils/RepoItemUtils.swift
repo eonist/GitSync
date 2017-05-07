@@ -1,5 +1,6 @@
 import Foundation
 @testable import Utils
+@testable import Element
 /**
  * Utility methods for parsing the repository.xml file
  */
@@ -35,7 +36,7 @@ class RepoUtils {
         //Continue here: 🏀
             //figure out how to flatten the new xml
         
-        let repoXML:XML = RepoView.treeDP.xml/*📝 - FilePath*/
+        let repoXML:XML = RepoView.treeDP.tree.xml/*📝 - FilePath*/
         Swift.print("repoXML.xmlString: " + "\(repoXML.xmlString)")
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
         let overrideKeys:[String] = [RepoItemType.active,RepoItemType.autoSyncInterval,RepoItemType.download,RepoItemType.fileChange,RepoItemType.pullToAutoSync,RepoItemType.upload]/*These are the keys to the values that should be overridden*/
