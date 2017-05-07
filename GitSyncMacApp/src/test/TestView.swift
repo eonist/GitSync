@@ -353,6 +353,7 @@ class SlideScrollView3Test:SlideScrollView3 /*ElasticSlideScrollView3 ,ElasticVi
     }
 }
 class ElasticScrollView3Test:ScrollView3/*ElasticScrollView3*/{
+    override var itemSize: CGSize {return CGSize(200,200)}
     override var contentSize: CGSize {return CGSize(super.width*1,super.height*1)}
     override func resolveSkin() {
         StyleManager.addStyle("ElasticScrollView3Test{fill:green;fill-alpha:0.0;}")
