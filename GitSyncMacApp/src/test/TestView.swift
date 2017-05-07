@@ -391,17 +391,17 @@ extension ElasticScrollView3Test{
         
         
         
-        let rectContainer = contentContainer!.addSubview(FlippedView())
-        
+        let rectContainer:NSView = contentContainer!.addSubView(FlippedView())
+        rectContainer.frame.origin = p
         let hCount:Int = 10
         let vCount:Int = 10
         
-        (0..<vCount).indices.forEach{ i in
-            (0..<hCount).indices.forEach{ e in
-                let x:CGFloat = p.x + (10 * i)
-                let y:CGFloat = p.y + (10 * e)
-                let rect = RectGraphic(p.x,p.y,200,200,fill,line)
-                contentContainer!.addSubview(rect.graphic)
+        (0..<hCount).indices.forEach{ i in
+            (0..<vCount).indices.forEach{ e in
+                let x:CGFloat = /*p.x + */(10 * i)
+                let y:CGFloat = /*p.y + */(10 * e)
+                let rect = RectGraphic(x,y,10,10,fill,line)
+                rectContainer.addSubview(rect.graphic)
                 rect.draw()
             }
         }
