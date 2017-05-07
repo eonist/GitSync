@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //initMinimalWin()
         
         //Continue here: 🏀
-            //add general direction in ElasticScrollView 👈
+            //add general-direction-scrolling in ElasticScrollView 👈
             //figure out how to get hitTest working again
             //
     }
