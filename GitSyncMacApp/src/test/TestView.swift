@@ -390,7 +390,12 @@ extension ElasticScrollView3Test{
          ellipse.draw()*/
         
         let rect = RectGraphic(p.x,p.y,200,200,fill,line)
-         contentContainer!.addSubview(rect.graphic)
-         rect.draw()
+        contentContainer!.addSubview(rect.graphic)
+        rect.draw()
+        
+        let hCount:Int = 10
+        let vCount:Int = 10
+        
+        
     }
 }
