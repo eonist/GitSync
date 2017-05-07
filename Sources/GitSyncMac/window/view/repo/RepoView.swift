@@ -1,7 +1,6 @@
 import Cocoa
 @testable import Utils
 @testable import Element
-//@testable import GitSyncMac
 /**
  * TODO: should remember previous selected item between transitions
  */
@@ -15,18 +14,12 @@ class RepoView:Element {
             return _treeDP!
         };return treeDP
     }
-    
-    //Continue here: 
-        //Try to test treeList in minimalview again, but with bigger mask and check the performance
-    
     var treeList:TreeList3?// {return RepoView.list}
     var contextMenu:RepoContextMenu?
     
     override func resolveSkin() {
-        //Swift.print("RepoView.resolveSkin()")
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
-        //treeList = addSubView(SliderTreeList(width, height-24, 24, RepoView.node,self))
-        treeList = addSubView(TreeList3(width, height-24, CGSize(24,24), RepoView.treeDP, self))
+        treeList = addSubView(TreeList3(width, height-48, CGSize(24,24), RepoView.treeDP, self))
         contextMenu = RepoContextMenu(treeList!)
         //if(RepoView.selectedListItemIndex.count > 0){TreeListModifier.selectAt(treeList!, RepoView.selectedListItemIndex)}
     }

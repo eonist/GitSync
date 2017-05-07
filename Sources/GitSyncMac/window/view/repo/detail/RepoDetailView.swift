@@ -3,9 +3,9 @@ import Cocoa
 @testable import Element
 
 class RepoDetailView:ElasticSlideScrollView3 {
-    override var maskSize: CGSize {return CGSize(super.width,super.height-48)}
-    override var contentSize: CGSize {return CGSize(NaN,(12 * 24)+64) }
-    override var itemSize: CGSize {return CGSize(NaN,24)}
+    override var maskSize:CGSize {return CGSize(super.width,super.height-48)}
+    override var contentSize:CGSize {return CGSize(NaN,(12 * 24)+64) }
+    override var itemSize:CGSize {return CGSize(NaN,24)}
     
     /*TextInput*/
     var nameTextInput:TextInput?
