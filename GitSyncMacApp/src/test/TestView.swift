@@ -44,7 +44,7 @@ class TestView:TitleView{
         //createScrollList()
         //createList()
         
-        //_ = self.addSubView(ElasticSlideScrollView3Test(width,height,nil))
+        _ = self.addSubView(ElasticSlideScrollView3Test(width,height,nil))
         //_ = self.addSubView(ElasticScrollView3Test(width,height,nil))
         //_ = self.addSubView(SlideScrollView3Test(width,height,nil))
         
@@ -342,7 +342,6 @@ class TestView:TitleView{
      let graph = self.addSubView(Graph2(width,height,nil))
      _ = graph
      }*/
-    
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class SlideScrollView3Test:SlideScrollView3 /*ElasticSlideScrollView3 ,ElasticView3*/{
