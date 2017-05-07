@@ -352,7 +352,7 @@ class SlideScrollView3Test:SlideScrollView3 /*ElasticSlideScrollView3 ,ElasticVi
         //createEllipse()
     }
 }
-class ElasticScrollView3Test:ElasticScrollView3{
+class ElasticScrollView3Test:ScrollView3/*ElasticScrollView3*/{
     override var contentSize: CGSize {return CGSize(super.width*1,super.height*1)}
     override func resolveSkin() {
         StyleManager.addStyle("ElasticScrollView3Test{fill:green;fill-alpha:0.0;}")
@@ -360,7 +360,7 @@ class ElasticScrollView3Test:ElasticScrollView3{
         createEllipse()
     }
 }
-class ElasticSlideScrollView3Test:ScrollView3/*ElasticSlideScrollView3*/{
+class ElasticSlideScrollView3Test:ScrollView3{
     override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
     override func resolveSkin() {
         StyleManager.addStyle("ElasticSlideScrollView3Test{fill:green;fill-alpha:0.0;}")
