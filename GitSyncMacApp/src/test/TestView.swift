@@ -371,25 +371,11 @@ class ElasticSlideScrollView3Test:ScrollView3{
 extension ElasticScrollView3Test{
     func createEllipse(){
         /*Styles*/
-        /* let gradient = LinearGradient(Gradients.blue(),[],π/2)
-         let lineGradient = LinearGradient(Gradients.deepPurple(0.5),[],π/2)
-         let fill:GradientFillStyle = GradientFillStyle(gradient);
-         let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.round)
-         let line = GradientLineStyle(lineGradient,lineStyle)*/
+        let colorFill = FillStyle(.green)
         /*size*/
         let objSize:CGSize = CGSize(200,200)
-        //Swift.print("objSize: " + "\(objSize)")
         let viewSize:CGSize = CGSize(width,height)
-        //Swift.print("viewSize: " + "\(viewSize)")
         let p = Align.alignmentPoint(objSize, viewSize, Alignment.centerCenter, Alignment.centerCenter,CGPoint())
-        //Swift.print("p: " + "\(p)")
-        /*Graphics*/
-        /*let ellipse = EllipseGraphic(p.x,p.y,200,200,fill.mix(Gradients.green()),line.mix(Gradients.lightGreen(0.5)))
-         contentContainer!.addSubview(ellipse.graphic)
-         ellipse.draw()*/
-        
-        let colorFill = FillStyle(.green)
-        
         let rectContainer:NSView = contentContainer!.addSubView(Container(200,200))
         rectContainer.frame.origin = p
         let hCount:Int = 10
