@@ -360,7 +360,7 @@ class ElasticScrollView3Test:ElasticScrollView3{
         createEllipse()
     }
 }
-class ElasticSlideScrollView3Test:ElasticSlideScrollView3{
+class ElasticSlideScrollView3Test:ScrollView3/*ElasticSlideScrollView3*/{
     override var contentSize: CGSize {return CGSize(super.width*2,super.height*2)}
     override func resolveSkin() {
         StyleManager.addStyle("ElasticSlideScrollView3Test{fill:green;fill-alpha:0.0;}")
@@ -372,11 +372,11 @@ class ElasticSlideScrollView3Test:ElasticSlideScrollView3{
 extension ElasticScrollView3Test{
     func createEllipse(){
         /*Styles*/
-        let gradient = LinearGradient(Gradients.blue(),[],π/2)
-        let lineGradient = LinearGradient(Gradients.deepPurple(0.5),[],π/2)
-        let fill:GradientFillStyle = GradientFillStyle(gradient);
-        let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.round)
-        let line = GradientLineStyle(lineGradient,lineStyle)
+        /* let gradient = LinearGradient(Gradients.blue(),[],π/2)
+         let lineGradient = LinearGradient(Gradients.deepPurple(0.5),[],π/2)
+         let fill:GradientFillStyle = GradientFillStyle(gradient);
+         let lineStyle = LineStyle(20,NSColorParser.nsColor(Colors.green()).alpha(0.5),CGLineCap.round)
+         let line = GradientLineStyle(lineGradient,lineStyle)*/
         /*size*/
         let objSize:CGSize = CGSize(200,200)
         //Swift.print("objSize: " + "\(objSize)")
