@@ -44,8 +44,8 @@ class TestView:TitleView{
         //createScrollList()
         //createList()
         
-        _ = self.addSubView(ElasticSlideScrollView3Test(width,height,nil))
-        //_ = self.addSubView(ElasticScrollView3Test(width,height,nil))
+        //_ = self.addSubView(ElasticSlideScrollView3Test(width,height,nil))
+        _ = self.addSubView(ElasticScrollView3Test(width,height,nil))
         //_ = self.addSubView(SlideScrollView3Test(width,height,nil))
         
         //createGraph7Test()
@@ -389,11 +389,8 @@ extension ElasticScrollView3Test{
         contentContainer!.addSubview(ellipse.graphic)
         ellipse.draw()
         
-        
         /*let rect = RectGraphic(0,0,width,height,fill,line)
          zoomContainer!.addSubview(rect.graphic)
          rect.draw()*/
-        
-        
     }
 }
