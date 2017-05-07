@@ -19,6 +19,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         initApp()
         //initTestWin()//🚧👷
         //initMinimalWin()
+        
+        //Continue here:
+            //figure out how to get hitTest working again
+            //draw 
     }
     func initApp(){
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
