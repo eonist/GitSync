@@ -38,7 +38,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         container.addSubview(btn)
         /*container.layer?.position.x = 100
          container.layer?.position.y = 100*/
-        container.frame.origin = CGPoint(100,100)
+        container.layer?.position = CGPoint(100,100)
+        //container.frame.origin = CGPoint(100,100)
         Swift.print("container.layer?.position: " + "\(container.layer?.position)")
         //btn.layer?.position.y = 100
         
