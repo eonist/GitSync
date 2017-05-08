@@ -70,7 +70,7 @@ class RepoDetailView:ElasticSlideScrollView3 {
             attrib[RepoItemType.upload] = String((event as! CheckEvent).isChecked)
         }else if(event == (CheckEvent.check,downloadCheckBoxButton!)){
             attrib[RepoItemType.download] = String((event as! CheckEvent).isChecked)
-        }else if(event === (CheckEvent.check,activeCheckBoxButton!.checkBox!)){
+        }else if(event === (CheckEvent.check,activeCheckBoxButton!.checkBox)){//TODO: <---use getChecked here
             attrib[RepoItemType.active] = String((event as! CheckEvent).isChecked)
         }else if(event == (CheckEvent.check,messageCheckBoxButton!)){
             attrib[RepoItemType.autoCommitMessage] = String((event as! CheckEvent).isChecked)
