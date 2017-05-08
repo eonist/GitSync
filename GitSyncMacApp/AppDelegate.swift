@@ -36,8 +36,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let container = window.contentView!.addSubView(Section(10,10,nil))
         
         container.addSubview(btn)
-        container.layer?.position.x = 100
-        container.layer?.position.y = 100
+        /*container.layer?.position.x = 100
+         container.layer?.position.y = 100*/
+        container.frame.origin = CGPoint(100,100)
         btn.layer?.position.y = 100
         
         btn.event = { event in
