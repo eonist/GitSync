@@ -28,6 +28,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         StyleManager.addStyle("Button{fill:blue;}")
         let btn = Button(100,50)
         window.contentView!.addSubview(btn)
+        btn.frame.origin = CGPoint(0,100)
         btn.event = { event in
             if(event.type == ButtonEvent.upInside){Swift.print("hello world")}
         }
