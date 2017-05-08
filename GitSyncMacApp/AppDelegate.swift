@@ -14,12 +14,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
-        NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
+        //NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
         //initApp()
-        initTestWin()//🚧👷
+        //initTestWin()//🚧👷
         //initMinimalWin()
-        //hitTesting()
+        hitTesting()
         //Continue here: 🏀
             //add general-direction-scrolling in ElasticScrollView 👈
             //figure out how to get hitTest working again
@@ -36,7 +36,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let container = window.contentView!.addSubView(Section(10,10,nil))
         
         container.addSubview(btn)
-        container.layer?.position.x = 50
+        container.layer?.position.x = 100
+        container.layer?.position.y = 100
         btn.layer?.position.y = 100
         
         btn.event = { event in
