@@ -24,6 +24,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //add general-direction-scrolling in ElasticScrollView 👈
             //figure out how to get hitTest working again
             //do some gui design
+        
+        StyleManager.addStyle("Button{fill:blue;}")
+        let btn = Button(100,50)
+        window.contentView!.addSubview(btn)
+        btn.event = { event in
+            if(event.type == ButtonEvent.upInside){Swift.print("hello world")}
+        }
     }
     func initApp(){
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
