@@ -55,9 +55,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //try to write the method in one go and test after
                     //this method should take a localPoint, walk up the hierarchy and find its global point
                     //you globalize frame.origin and ask make hitTestP local. then you use contains on the local hitTestP
-            //try to roll back to a prev state where hittest worked with hit test ✅
+            //try to roll back to a prev state where hitTest worked with hit test ✅
             //Antoher approach would be to just offset hitTest in the ContainerView3 class 🚫
-        
+                //the problem persists
     }
     func initApp(){
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
