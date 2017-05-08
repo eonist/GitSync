@@ -38,11 +38,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         container.addSubview(btn)
         /*container.layer?.position.x = 100
          container.layer?.position.y = 100*/
-        container.layer?.position = CGPoint(50,100)
+        container.layer?.position = CGPoint(50,150)
         //container.frame.origin = CGPoint(100,100)
         Swift.print("container.layer?.position: " + "\(container.layer?.position)")
         Swift.print("container.frame.origin: " + "\(container.frame.origin)")
-        btn.layer?.position = CGPoint(100,50)
+        btn.layer?.position = CGPoint(70,50)
         
         Swift.print("btn.layer?.position: " + "\(btn.layer?.position)")
         Swift.print("btn.frame.origin: " + "\(btn.frame.origin)")
@@ -52,7 +52,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //Continue here: 🏀
             //I think you need to write a recursive method that traverse up the view hierarchy and find the relative P of the view (but also supports layer.position not just frame.origin)
-            //try to roll back to a prev state where hittest worked with hit test
+                //try to write the method in one go and test after
+            //try to roll back to a prev state where hittest worked with hit test ✅
         
     }
     func initApp(){
