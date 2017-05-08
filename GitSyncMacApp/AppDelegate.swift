@@ -50,7 +50,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             if(event.type == ButtonEvent.upInside){Swift.print("hello world")}
         }
         
-        //Continue here: 🏀
+        //Continue here: 🏀 (convert doesn't work when moving things with layer.position)
             //I think you need to write a recursive method that traverse up the view hierarchy and find the relative P of the view (but also supports layer.position not just frame.origin)
                 //try to write the method in one go and test after
                     //this method should take a localPoint, walk up the hierarchy and find its global point
