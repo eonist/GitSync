@@ -84,6 +84,7 @@ class CommitsListItem:Button,ISelectable{
         return "\(CommitsListItem.self)"
     }
     override func hitTest(_ aPoint: NSPoint) -> NSView? {
+        Swift.print("layer!.position: " + "\(layer!.position)")
         let aPoint = aPoint + CGPoint(layer!.position.x,layer!.position.y)
         return super.hitTest(aPoint)
     }
