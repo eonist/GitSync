@@ -32,17 +32,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func hitTesting(){
         window.contentView = InteractiveView2()
         StyleManager.addStyle("Button{fill:blue;}")
-        let btn = Button(100,50)
+        let btn = Button(50,50)
         let container = window.contentView!.addSubView(Container(0,0,nil))
         
         container.addSubview(btn)
         /*container.layer?.position.x = 100
          container.layer?.position.y = 100*/
-        container.frame.origin = CGPoint(100,100)
+        container.layer?.position = CGPoint(100,100)
         //container.frame.origin = CGPoint(100,100)
         Swift.print("container.layer?.position: " + "\(container.layer?.position)")
         Swift.print("container.frame.origin: " + "\(container.frame.origin)")
-        btn.frame.origin = CGPoint(100,100)
+        btn.layer?.position = CGPoint(100,100)
         
         Swift.print("btn.layer?.position: " + "\(btn.layer?.position)")
         Swift.print("btn.frame.origin: " + "\(btn.frame.origin)")
@@ -50,7 +50,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             if(event.type == ButtonEvent.upInside){Swift.print("hello world")}
         }
         
-        //Continue here:
+        //Continue here: 🏀
             //I think you need to write a recursive method that traverse up the view hierarchy and find the relative P of the view (but also supports layer.position not just frame.origin)
             //try to roll back to a prev state where hittest worked with hit test
         
