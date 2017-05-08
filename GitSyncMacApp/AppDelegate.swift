@@ -36,7 +36,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let container = window.contentView!.addSubView(Section(10,10,nil))
         
         container.addSubview(btn)
-        btn.layer!.position.y = 100
+        container.layer?.position.x = 50
+        btn.layer?.position.y = 100
         
         btn.event = { event in
             if(event.type == ButtonEvent.upInside){Swift.print("hello world")}
