@@ -57,7 +57,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     //you globalize frame.origin and ask make hitTestP local. then you use contains on the local hitTestP
             //try to roll back to a prev state where hitTest worked with hit test ✅
             //Antoher approach would be to just offset hitTest in the ContainerView3 class 🚫
-                //the problem persists when you mix frame.origin and layer.position.
+                //the problem persists when you mix frame.origin and layer.position. when it reaches Graphic it doesnt kno whow to convert the P to local space because layer.position isnt being included in the global to local conversion
     }
     func initApp(){
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
