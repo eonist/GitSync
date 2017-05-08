@@ -83,6 +83,10 @@ class CommitsListItem:Button,ISelectable{
     override func getClassType() -> String {
         return "\(CommitsListItem.self)"
     }
+    override func hitTest(_ aPoint: NSPoint) -> NSView? {
+        let aPoint = 
+        return super.hitTest(aPoint)
+    }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
