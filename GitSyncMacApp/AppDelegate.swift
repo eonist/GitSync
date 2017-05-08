@@ -42,7 +42,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //container.frame.origin = CGPoint(100,100)
         Swift.print("container.layer?.position: " + "\(container.layer?.position)")
         Swift.print("container.frame.origin: " + "\(container.frame.origin)")
-        btn.frame.origin = CGPoint(50,50)
+        btn.layer?.position = CGPoint(50,50)
         
         btn.event = { event in
             if(event.type == ButtonEvent.upInside){Swift.print("hello world")}
