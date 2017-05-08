@@ -10,16 +10,16 @@ import Cocoa
 class AppDelegate:NSObject, NSApplicationDelegate {
     weak var window:NSWindow!
     var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
-    var fileWatcher:FileWatcher?
+    //var fileWatcher:FileWatcher?
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
-        //NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
+        NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
-        //initApp()
+        initApp()
         //initTestWin()//🚧👷
         //initMinimalWin()
-        hitTesting()
+        //hitTesting()
         //Continue here: 🏀
             //add general-direction-scrolling in ElasticScrollView 👈
             //figure out how to get hitTest working again
@@ -41,7 +41,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         container.layer?.position = CGPoint(100,100)
         //container.frame.origin = CGPoint(100,100)
         Swift.print("container.layer?.position: " + "\(container.layer?.position)")
-        //btn.layer?.position.y = 100
+        btn.layer?.position = CGPoint(50,50)
         
         btn.event = { event in
             if(event.type == ButtonEvent.upInside){Swift.print("hello world")}
