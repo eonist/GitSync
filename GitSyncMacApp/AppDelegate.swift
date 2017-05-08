@@ -27,7 +27,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = FlippedView()
         StyleManager.addStyle("Button{fill:blue;}")
         let btn = Button(100,50)
-        let container = window.contentView!.addSubView(Container(100,100,nil))
+        let container = window.contentView!.addSubView(Section(10,10,nil))
         
         container.addSubview(btn)
         //btn.layer!.position.y = 100
