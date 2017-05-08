@@ -7,16 +7,16 @@ import Cocoa
  * Not one error in a million keystrokes
  */
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
-    weak var window: NSWindow!
+class AppDelegate:NSObject, NSApplicationDelegate {
+    weak var window:NSWindow!
     var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
     var fileWatcher:FileWatcher?
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
-        NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
+        //NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
-        initApp()
+        //initApp()
         //initTestWin()//🚧👷
         //initMinimalWin()
         
@@ -47,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         win = MinimalWin(500,400)
     }
     func applicationWillTerminate(_ aNotification:Notification) {
-        //store the app prefs
+        /*Stores the app prefs*/
         if(PrefsView.keychainUserName != nil){//make sure the data has been read and written to first
             _ = FileModifier.write("~/Desktop/gitsyncprefs.xml".tildePath, PrefsView.xml.xmlString)
             Swift.print("💾 Write PrefsView to: prefs.xml")
