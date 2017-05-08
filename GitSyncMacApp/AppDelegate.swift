@@ -24,7 +24,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //add general-direction-scrolling in ElasticScrollView 👈
             //figure out how to get hitTest working again
             //do some gui design
-        
+        window.contentView = FlippedView()
         StyleManager.addStyle("Button{fill:blue;}")
         let btn = Button(100,50)
         window.contentView!.addSubview(btn)
