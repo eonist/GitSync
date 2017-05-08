@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Utils
 @testable import Element
 /**
@@ -84,7 +84,7 @@ class CommitsListItem:Button,ISelectable{
         return "\(CommitsListItem.self)"
     }
     override func hitTest(_ aPoint: NSPoint) -> NSView? {
-        let aPoint = 
+        let aPoint = aPoint + CGPoint(layer!.position.x,layer!.position.y)
         return super.hitTest(aPoint)
     }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
