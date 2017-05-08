@@ -49,6 +49,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         btn.event = { event in
             if(event.type == ButtonEvent.upInside){Swift.print("hello world")}
         }
+        
+        //Continue here:
+            //I think you need to write a recursive method that traverse up the view hierarchy and 
+        
     }
     func initApp(){
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
