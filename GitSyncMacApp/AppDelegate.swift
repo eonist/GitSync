@@ -56,6 +56,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     //this method should take a localPoint, walk up the hierarchy and find its global point
                     //you globalize frame.origin and ask make hitTestP local. then you use contains on the local hitTestP
             //try to roll back to a prev state where hittest worked with hit test ✅
+            //Antoher approach would be to just offset hitTest in the ContainerView3 class
         
     }
     func initApp(){
