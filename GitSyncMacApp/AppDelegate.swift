@@ -27,8 +27,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = FlippedView()
         StyleManager.addStyle("Button{fill:blue;}")
         let btn = Button(100,50)
+        btn.layer!.position.y = 100
         window.contentView!.addSubview(btn)
-        btn.frame.origin = CGPoint(0,100)
+        
         btn.event = { event in
             if(event.type == ButtonEvent.upInside){Swift.print("hello world")}
         }
