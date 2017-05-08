@@ -53,6 +53,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Continue here: 🏀
             //I think you need to write a recursive method that traverse up the view hierarchy and find the relative P of the view (but also supports layer.position not just frame.origin)
                 //try to write the method in one go and test after
+                    //this method should take a localPoint, walk up the hierarchy and find its global point
+                    //you globalize frame.origin and ask make hitTestP local. then you use contains on the local hitTestP
             //try to roll back to a prev state where hittest worked with hit test ✅
         
     }
