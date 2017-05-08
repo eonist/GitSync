@@ -38,7 +38,7 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
         let selected:Bool = idx == selectedIdx//dpItem["selected"]!.bool
         item.setData(dp.items[idx])
         if(item.selected != selected){item.setSelected(selected)}//only set this if the selected state is different from the current selected state in the ISelectable
-        item.y = idx * itemSize.height/*position the item*/
+        disableAnim {item.layer?.position[dir] = idx * itemSize.height/*position the item*/}
     }
     override func onEvent(_ event:Event) {
         //Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
