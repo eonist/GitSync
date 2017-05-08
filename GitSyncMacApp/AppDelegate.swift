@@ -41,6 +41,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         container.layer?.position = CGPoint(100,100)
         //container.frame.origin = CGPoint(100,100)
         Swift.print("container.layer?.position: " + "\(container.layer?.position)")
+        Swift.print("container.frame.origin: " + "\(container.frame.origin)")
         btn.frame.origin = CGPoint(50,50)
         
         btn.event = { event in
