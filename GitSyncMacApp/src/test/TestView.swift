@@ -32,7 +32,7 @@ class TestView:TitleView{
         //xml2tree()
         //treeTesting()
         //infiniteTreeList()
-        //elasticSlideScrollFastList3()//👈
+        elasticSlideScrollFastList3()//👈
         //elasticScrollFastList()
         //slideScrollFastList()
         //scrollFastList()
