@@ -51,7 +51,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         
         //Continue here:
-            //I think you need to write a recursive method that traverse up the view hierarchy and 
+            //I think you need to write a recursive method that traverse up the view hierarchy and find the relative P of the view (but also supports layer.position not just frame.origin)
+            //try to roll back to a prev state where hittest worked with hit test
         
     }
     func initApp(){
