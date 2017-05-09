@@ -7,18 +7,20 @@ class CommitsView:Element {
     static let w:CGFloat = MainView.w
     static let h:CGFloat = MainView.h-48
     //var topBar:CommitsTopBar?
-    var list:CommitsList?//TODO: ⚠️️ make lazy
-    
+    lazy var list:CommitsList = {
+        let dp = CommitDPCache.read()/*Creates the dp based on cached data from previous app runs*/
+        let list = self.addSubView(CommitsList.init(CommitsView.w, CommitsView.h, CGSize(24,102), dp, self,"commitsList"))/*24 should be allowed to be nan no?*/
+        //⚠️️list!.selectAt(dpIdx: CommitsView.selectedIdx)
+        return list
+    }()
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         //topBar = addSubView(CommitsTopBar(width-12,36,self))
         //add a container
-        createList()/*creates the GUI List*/
+        _ = list/*creates the GUI List*/
     }
     func createList(){
-        let dp = CommitDPCache.read()/*Creates the dp based on cached data from previous app runs*/
-        list = addSubView(CommitsList.init(CommitsView.w, CommitsView.h, CGSize(24,102), dp, self,"commitsList"))/*24 should be allowed to be nan no?*/
-        //⚠️️list!.selectAt(dpIdx: CommitsView.selectedIdx)
+        
     }
     /**
      * Eventhandler when a CommitsListItem is clicked
@@ -28,10 +30,10 @@ class CommitsView:Element {
         //Sounds.play?.play()
         
         //RepoView.selectedListItemIndex = list!.selectedIndex
-        CommitsView.selectedIdx = list!.selectedIdx!
+        CommitsView.selectedIdx = list.selectedIdx!
         
         Swift.print("event.index: " + "\(event.index)")
-        let commitData:[String:String] = list!.dp.getItemAt(event.index)!
+        let commitData:[String:String] = list.dp.getItemAt(event.index)!
         //(Navigation.currentView as! CommitDetailView).setCommitData(commitData)//updates the UI elements with the selected commit item
         Navigation.setView(.commitDetail(commitData))
     }
