@@ -80,22 +80,20 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
         }
     }
 }
-class CustomContainer:Container,CustomContainable{
-    override func getClassType() -> String {
-        return "\(Container.self)"
-    }
-}
-protocol CustomContainable:IElement{
-   //var layerPos:CGPoint? {get set}
-}
-extension CustomContainable{
-    var layerPos:CGPoint?{
+class CustomContainer:Container{
+    override var layerPos:CGPoint?{
         get{return (self as IElement).layerPos}
         set{
             Swift.print("x")
             (self as IElement).layerPos = CGPoint(0,newValue!.y)
         }
     }
+
+    override func getClassType() -> String {
+        return "\(Container.self)"
+    }
 }
+
+
 
 /*self.addSubView(Container(self.width,self.height,self,"lable"))*/
