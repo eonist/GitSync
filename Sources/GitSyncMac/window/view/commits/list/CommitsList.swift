@@ -57,7 +57,7 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
     override func scrollWheel(with event:NSEvent) {//you can probably remove this method and do it in base?"!?
         //Swift.print("CommitsList.scrollWheel()")
         (self as ICommitList).scroll(event)
-        super.scrollWheel(with: event)/*⚠️️, 👈 not good, forward the event other delegates higher up in the stack*/
+        super.scrollWheel(with:event)/*⚠️️, 👈 not good, forward the event other delegates higher up in the stack*/
     }
     /**
      * TODO: ⚠️️ You could add this through setting the callback

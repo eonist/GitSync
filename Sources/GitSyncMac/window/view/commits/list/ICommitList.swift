@@ -24,7 +24,6 @@ extension ICommitList{
         }
         (self as ElasticSlidableScrollableFastListable3).setProgressValue(value,dir)
     }
- 
     func scroll(_ event:NSEvent) {
         //Swift.print("🌵 ICommitList.scroll()")
         if(event.phase == NSEventPhase.changed){//this is only direct manipulation, not momentum
