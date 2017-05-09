@@ -79,7 +79,10 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
 extension Container{
     var layerPos:CGPoint?{
         get{return self.layerPos}
-        set{self.layerPos = CGPoint(0,newValue!.y)}
+        set{
+            Swift.print("x")
+            self.layerPos = CGPoint(0,newValue!.y)
+        }
     }
     /*override func getClassType() -> String {
      return "\(Container.self)"
