@@ -76,16 +76,17 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
     }
  
 }
-extension Container{
+protocol CustomContainer:IElement{
+   // var layerPos:CGPoint? {get set}
+}
+extension Container:CustomContainer{
     var layerPos:CGPoint?{
-        get{return self.layerPos}
+        get{return (self as IElement).layerPos}
         set{
             Swift.print("x")
-            self.layerPos = CGPoint(0,newValue!.y)
+            (self as IElement).layerPos = CGPoint(0,newValue!.y)
         }
     }
-    /*override func getClassType() -> String {
-     return "\(Container.self)"
-     }*/
 }
+
 /*self.addSubView(Container(self.width,self.height,self,"lable"))*/
