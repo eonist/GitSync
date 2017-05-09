@@ -5,11 +5,11 @@ import Foundation
  * Commit creation dialog view
  */
 class CommitDialogView:TitleView{
-    var repoTextInput:TextInput?
-    var titleTextInput:TextInput?
-    var descTextInput:TextInput?
-    private var okButton:TextButton?
-    private var cancelButton:TextButton?
+    var repoTextInput:TextInput?//TODO: ⚠️️ make lazy
+    var titleTextInput:TextInput?//TODO: ⚠️️ make lazy
+    var descTextInput:TextInput?//TODO: ⚠️️ make lazy
+    private var okButton:TextButton?//TODO: ⚠️️ make lazy
+    private var cancelButton:TextButton?//TODO: ⚠️️ make lazy
     let mergeOptions:[String] = ["keep local version","keep remote version","keep mix of both versions","Review local version","Review remote version","Review mix of both versions"]
     
     override init(_ width:CGFloat, _ height:CGFloat, _ parent:IElement? = nil, _ id:String? = "") {

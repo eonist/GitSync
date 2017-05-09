@@ -7,7 +7,7 @@ class CommitsView:Element {
     static let w:CGFloat = MainView.w
     static let h:CGFloat = MainView.h-48
     //var topBar:CommitsTopBar?
-    var list:CommitsList?
+    var list:CommitsList?//TODO: ⚠️️ make lazy
     
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
