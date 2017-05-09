@@ -43,6 +43,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("container.layer?.position: " + "\(container.layer?.position)")
         Swift.print("container.frame.origin: " + "\(container.frame.origin)")
         Swift.print("container.bounds: " + "\(container.bounds)")
+        container.ancho
         btn.layer?.position = CGPoint(40,20)
         //btn.frame
         Swift.print("btn.layer?.position: " + "\(btn.layer?.position)")
