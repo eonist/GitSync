@@ -20,10 +20,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initTestWin()//🚧👷
         //initMinimalWin()
         //hitTesting()
-        //Continue here: 🏀
-            //add general-direction-scrolling in ElasticScrollView 👈
-                //print the curTrackMomentum and calc which is most dominant?
-            //do some gui design
+   
     }
     /**
      *
@@ -50,17 +47,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         btn.event = { event in
             if(event.type == ButtonEvent.upInside){Swift.print("hello world")}
         }
-        
-        //Continue here: 🏀 (convert doesn't work when moving things with layer.position)
-            //I think you need to write a recursive method that traverse up the view hierarchy and find the relative P of the view (but also supports layer.position not just frame.origin)
-                //try to write the method in one go and test after 👈
-                    //this method should take a localPoint, walk up the hierarchy and find its global point
-                    //you globalize frame.origin and ask make hitTestP local. then you use contains on the local hitTestP
-            //try to roll back to a prev state where hitTest worked with hit test ✅
-            //Antoher approach would be to just offset hitTest in the ContainerView3 class 🚫
-                //the problem persists when you mix frame.origin and layer.position. when it reaches Graphic it doesnt kno whow to convert the P to local space because layer.position isnt being included in the global to local conversion
-            //An idea would be to override frame get 💡
-                //try this
     }
     func initApp(){
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
