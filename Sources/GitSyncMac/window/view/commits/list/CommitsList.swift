@@ -81,7 +81,7 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
     }
 }
 class CustomContainer:Container{
-    override var layerPos:CGPoint?{
+    /*override var layerPos:CGPoint?{
         get{
             return super.layerPos
         }
@@ -89,7 +89,7 @@ class CustomContainer:Container{
             Swift.print("x")
             super.layerPos = CGPoint(0,newValue!.y)
         }
-    }
+    }*/
     override func getClassType() -> String {
         return "\(Container.self)"
     }
