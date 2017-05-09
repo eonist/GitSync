@@ -9,28 +9,30 @@ class CommitDetailView:Element {
         let repoNameText = self.addSubView(Text(120,20,"repo name",self,"repoName"))
         repoNameText.isInteractive = false
         return repoNameText
-
     }()
     lazy var titleText:Text = {
         let titleText = self.addSubView(Text(280,24,"commit title",self,"title"))
-        titleText!.isInteractive = false
+        titleText.isInteractive = false
         return titleText
     }()
-    var descText:Text?
+    lazy var descText:Text = {
+        let descText = self.addSubView(Text(480,220,"commit desc",self,"description"))
+        descText.isInteractive = false
+        return descText
+    }()
     override func resolveSkin() {
         Swift.print("CommitDetailView.resolveSkin()")
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         _ = repoNameText
-        
-        descText = addSubView(Text(480,220,"commit desc",self,"description"))
-        descText!.isInteractive = false
+        _ = titleText
+        _ = descText
     }
     /**
      * Populates the UI elements with data
      */
     func setCommitData(_ commitData:[String:String]){
         repoNameText.setText(commitData["repo-name"]!)
-        titleText!.setText(commitData["title"]!)
-        descText!.setText(commitData["description"]!)
+        titleText.setText(commitData["title"]!)
+        descText.setText(commitData["description"]!)
     }
 }
