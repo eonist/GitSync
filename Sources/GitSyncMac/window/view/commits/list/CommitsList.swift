@@ -90,6 +90,11 @@ class CustomContainer:Container{
             super.layerPos = CGPoint(0,newValue!.y)
         }
     }*/
+    override func layerPos(_ val: CGFloat, _ dir: Dir) {
+        if dir == .ver {
+            super.layerPos(val, dir)
+        }
+    }
     override func getClassType() -> String {
         return "\(Container.self)"
     }
