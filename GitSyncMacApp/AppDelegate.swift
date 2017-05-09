@@ -22,7 +22,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //hitTesting()
         //Continue here: 🏀
             //add general-direction-scrolling in ElasticScrollView 👈
-                //
+                //print the curTrackMomentum and calc which is most dominant?
             //do some gui design
     }
     /**
