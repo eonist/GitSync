@@ -22,7 +22,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //hitTesting()
         //Continue here: 🏀
             //add general-direction-scrolling in ElasticScrollView 👈
-            //figure out how to get hitTest working again ✅
             //do some gui design
     }
     /**
