@@ -15,7 +15,7 @@ protocol ICommitList:ElasticSlidableScrollableFastListable3 {//ElasticSlidableSc
     var autoSyncStartTime:NSDate? {get set}
 }
 extension ICommitList{
-    func setProgressValue(_ value:CGFloat, _ dir: Dir){
+    func setProgressValue(_ value:CGFloat, _ dir:Dir){/*gets called from MoverGroup*/
         if dir == .ver {
             //Swift.print("🌵 ICommitList.setProgressValue : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
             if(hasReleasedBeyondTop){
