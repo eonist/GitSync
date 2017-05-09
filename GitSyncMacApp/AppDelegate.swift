@@ -14,7 +14,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
-        NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
+        //NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
         //initApp()
         //initTestWin()//🚧👷
@@ -38,11 +38,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         container.addSubview(btn)
         /*container.layer?.position.x = 100
          container.layer?.position.y = 100*/
-        container.frame.origin = CGPoint(40,20)
+        container.layer?.position = CGPoint(40,20)
         //container.frame.origin = CGPoint(100,100)
         Swift.print("container.layer?.position: " + "\(container.layer?.position)")
         Swift.print("container.frame.origin: " + "\(container.frame.origin)")
-        btn.frame.origin = CGPoint(40,20)
+        btn.layer?.position = CGPoint(40,20)
         
         Swift.print("btn.layer?.position: " + "\(btn.layer?.position)")
         Swift.print("btn.frame.origin: " + "\(btn.frame.origin)")
