@@ -43,7 +43,7 @@ class RepoDetailView:ElasticSlideScrollView3 {
      * Modifies the dataProvider item on UI change
      * TODO: Collectivly test for event type, then anrrow down on origin
      * TODO: Might need to change to origin testing since these items now are in the container. So event.orgin === downloadButoon.checkBox
-     * TODO: ⚠️️ enumify this method?
+     * TODO: ⚠️️ enumify this method? at least usw switch
      */
     override func onEvent(_ event:Event) {
         Swift.print("onEvent: " + "\(event.type)")

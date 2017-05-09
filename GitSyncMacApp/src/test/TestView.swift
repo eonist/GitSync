@@ -379,7 +379,7 @@ extension ElasticScrollView3Test{
         let objSize:CGSize = CGSize(200,200)
         let viewSize:CGSize = CGSize(width,height)
         let p = Align.alignmentPoint(objSize, viewSize, Alignment.centerCenter, Alignment.centerCenter,CGPoint())
-        let rectContainer:NSView = contentContainer!.addSubView(Container(200,200))
+        let rectContainer:NSView = contentContainer.addSubView(Container(200,200))
         rectContainer.frame.origin = p
         let hCount:Int = 10
         let vCount:Int = 10
