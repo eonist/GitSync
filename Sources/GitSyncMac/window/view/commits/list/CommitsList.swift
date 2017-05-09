@@ -67,39 +67,8 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
         group.event = self.onEvent/*Add an eventHandler for the mover object, , this has no functionality in this class, but may have in classes that extends this class, like hide progress-indicator when all animation has stopped*/
         return group
     }
-    var hasContentContainerBeenAdded:Bool = false
-    override var contentContainer:Element {
-        get{
-            if !hasContentContainerBeenAdded {
-                hasContentContainerBeenAdded = true
-                super.contentContainer = self.addSubView(CustomContainer(super.width,super.height,self,"lable")) //was content, but we want to use old css
-            }
-            return super.contentContainer
-        }set{
-            super.contentContainer = newValue
-        }
-    }
 }
-class CustomContainer:Container{
-    /*override var layerPos:CGPoint?{
-        get{
-            return super.layerPos
-        }
-        set{
-            Swift.print("x")
-            super.layerPos = CGPoint(0,newValue!.y)
-        }
-    }*/
-    override func layerPos(_ val: CGFloat, _ dir: Dir) {
-        Swift.print("OVERIIDE")
-        if dir == .ver {
-            super.layerPos(val, dir)
-        }
-    }
-    override func getClassType() -> String {
-        return "\(Container.self)"
-    }
-}
+
 
 
 
