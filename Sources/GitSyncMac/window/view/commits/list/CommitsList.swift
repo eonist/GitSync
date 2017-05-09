@@ -4,7 +4,7 @@ import Cocoa
 
 class CommitsList:ElasticSlideScrollFastList3,ICommitList{
     /*The following variables exists to facilitate the pull to refresh functionality*/
-    var progressIndicator:ProgressIndicator?
+    lazy var progressIndicator:ProgressIndicator = {self.createProgressIndicator()}()
     var hasPulledAndReleasedBeyondRefreshSpace:Bool = false
     var isInDeactivateRefreshModeState:Bool = false
     var isTwoFingersTouching = false/*is Two Fingers Touching the Touch-Pad*/
@@ -15,10 +15,7 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
     
     override func resolveSkin() {
         super.resolveSkin()
-        let piContainer = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
-        progressIndicator = piContainer.addSubView(ProgressIndicator(30,30,piContainer))
-        progressIndicator!.frame.y = -45/*hide at init*/
-        progressIndicator!.animator.event = onEvent
+        _ = progressIndicator
     }
     /**
      * Create ListItem
@@ -42,7 +39,7 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
     }
     override func onEvent(_ event:Event) {
         //Swift.print("CommitsList.onEvent() event.type: " + "\(event.type)")
-        if(event.assert(AnimEvent.completed, progressIndicator!.animator)){
+        if(event.assert(AnimEvent.completed, progressIndicator.animator)){
             loopAnimationCompleted()
         }else if(event.assert(AnimEvent.stopped, moverGroup?.yMover)){
             scrollAnimStopped()
@@ -68,7 +65,15 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
         return group
     }
 }
-
+extension CommitsList{
+    func createProgressIndicator() -> ProgressIndicator{
+        let piContainer = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
+        let progressIndicator = piContainer.addSubView(ProgressIndicator(30,30,piContainer))
+        progressIndicator.frame.y = -45/*hide at init*/
+        progressIndicator.animator.event = onEvent
+        return progressIndicator
+    }
+}
 
 
 

@@ -11,11 +11,11 @@ class CommitsListItem:Button,ISelectable{
     var desc:String/*Description*/
     var date:String
     var isSelected:Bool
-    var titleText:Text?
-    var repoNameText:Text?
-    var contributorText:Text?
-    var descText:Text?
-    var dateText:Text?
+    var titleText:Text?//TODO: ⚠️️ make lazy
+    var repoNameText:Text?//TODO: ⚠️️ make lazy
+    var contributorText:Text?//TODO: ⚠️️ make lazy
+    var descText:Text?//TODO: ⚠️️ make lazy
+    var dateText:Text?//TODO: ⚠️️ make lazy
     init(_ width:CGFloat, _ height:CGFloat, _ repoName:String,_ contributor:String,_ title:String,_ desc:String,_ date:String,_ isSelected : Bool = false, _ parent:IElement? = nil, _ id:String? = nil){
         self.repoName = repoName
         self.contributor = contributor
@@ -49,7 +49,7 @@ class CommitsListItem:Button,ISelectable{
     /**
      * Sets data to the UI elements
      */
-    func setData(_ data:Dictionary<String,String>){
+    func setData(_ data:[String:String]){
         titleText!.setText(data["title"]!)
         repoNameText!.setText(data["repo-name"]!)
         contributorText!.setText(data["contributor"]!)

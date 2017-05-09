@@ -5,7 +5,7 @@ import Cocoa
 protocol ICommitList:ElasticSlidableScrollableFastListable3 {//ElasticSlidableScrollableFastListable3
     /*Related to ICommitList*/
     var isTwoFingersTouching:Bool {get set}
-    var progressIndicator:ProgressIndicator? {get set}
+    var progressIndicator:ProgressIndicator {get set}
     var isInDeactivateRefreshModeState:Bool {get set}/*is Two Fingers Touching the Touch-Pad*/
     var hasPulledAndReleasedBeyondRefreshSpace:Bool{get set}
     var hasReleasedBeyondTop:Bool {get set}
@@ -46,7 +46,7 @@ extension ICommitList{
         if(value > 60){
             //Swift.print("start animation the ProgressIndicator")
             moverGroup?.yMover.frame.y = 60
-            progressIndicator!.start()//1. start spinning the progressIndicator
+            progressIndicator.start()//1. start spinning the progressIndicator
             hasPulledAndReleasedBeyondRefreshSpace = true
             autoSyncAndRefreshStartTime = NSDate()//init debug timer
             startAutoSync()/*🚪⬅️️ <- starts the process of downloading commits here*/
@@ -77,8 +77,8 @@ extension ICommitList{
     func loopAnimationCompleted(){
         Swift.print("🌵 ICommitList.loopAnimationCompleted()")
         reUseAll()/*Refresh*/
-        progressIndicator!.progress(0)
-        progressIndicator!.stop()
+        progressIndicator.progress(0)
+        progressIndicator.stop()
         isInDeactivateRefreshModeState = true
         hasReleasedBeyondTop = true/*⚠️️Quick temp fix*/
         moverGroup?.yMover.frame.y = 0
@@ -102,13 +102,13 @@ extension ICommitList{
             //Swift.print("start progressing the ProgressIndicator")
             let scalarVal:CGFloat = value / 60//0 to 1 (value settle on near 0)
             if(hasPulledAndReleasedBeyondRefreshSpace){//isInRefreshMode
-                progressIndicator!.frame.y = -45 + (scalarVal * 60)
+                progressIndicator.frame.y = -45 + (scalarVal * 60)
             }else if(isTwoFingersTouching || hasReleasedBeyondTop){
-                progressIndicator!.frame.y = 15//<--this could be set else where but something kept interfering with it
-                progressIndicator!.reveal(scalarVal)//the progress indicator needs to be able to be able to reveal it self 1 tick at the time in the init state
+                progressIndicator.frame.y = 15//<--this could be set else where but something kept interfering with it
+                progressIndicator.reveal(scalarVal)//the progress indicator needs to be able to be able to reveal it self 1 tick at the time in the init state
             }
         }else if(value > 60){
-            progressIndicator!.frame.y = 15
+            progressIndicator.frame.y = 15
         }
     }
     
