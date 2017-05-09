@@ -74,12 +74,14 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
             super.contentContainer = newValue
         }
     }
- 
 }
-protocol CustomContainer:IElement{
-   // var layerPos:CGPoint? {get set}
+class CustomContainer:Container,CustomContainable{
+    
 }
-extension Container:CustomContainer{
+protocol CustomContainable:IElement{
+   var layerPos:CGPoint? {get set}
+}
+extension CustomContainable{
     var layerPos:CGPoint?{
         get{return (self as IElement).layerPos}
         set{
