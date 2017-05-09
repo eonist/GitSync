@@ -75,5 +75,10 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
         }
     }
 }
-
+class CustomContainer:Container{
+    
+    override func getClassType() -> String {
+        return "\(Container.self)"
+    }
+}
 /*self.addSubView(Container(self.width,self.height,self,"lable"))*/
