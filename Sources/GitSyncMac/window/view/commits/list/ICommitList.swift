@@ -21,9 +21,8 @@ extension ICommitList{
             if(hasReleasedBeyondTop){
                 iterateProgressBar(value)
             }
-            (self as ElasticSlidableScrollableFastListable3).setProgressValue(value,dir)
         }
-        
+        (self as ElasticSlidableScrollableFastListable3).setProgressValue(value,dir)
     }
     func scroll(_ event:NSEvent) {
         //Swift.print("🌵 ICommitList.scroll()")
