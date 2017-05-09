@@ -21,7 +21,7 @@ class MainView:TitleView{
         //Sounds.startup?.play()
         MainWin.mainView = self
         menuView = addSubView(MenuView(frame.size.width,48,self))
-        Navigation.setView(Views.main(.repos))/*adds the correct view to MainView*/
+        Navigation.setView(Views.main(.commits))/*adds the correct view to MainView*/
     }
     required init(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
