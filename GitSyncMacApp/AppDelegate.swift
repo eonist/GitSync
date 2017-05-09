@@ -22,6 +22,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //hitTesting()
         //Continue here: 🏀
             //add general-direction-scrolling in ElasticScrollView 👈
+                //
             //do some gui design
     }
     /**
