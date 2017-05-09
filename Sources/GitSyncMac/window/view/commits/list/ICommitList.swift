@@ -35,7 +35,6 @@ extension ICommitList{
             (self as ICommitList).scrollWheelExit()
         }
     }
-    
     func scrollWheelEnter() {
         Swift.print("🌵 ICommitsList.scrollWheelEnter")
         //reUseAll()/*Refresh*/
