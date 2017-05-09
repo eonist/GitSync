@@ -72,7 +72,7 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
         get{
             if !hasContentContainerBeenAdded {
                 hasContentContainerBeenAdded = true
-                return {self.addSubView(Container(super.width,super.height,self,"lable"))}() //was content, but we want to use old css
+                super.contentContainer = self.addSubView(CustomContainer(super.width,super.height,self,"lable")) //was content, but we want to use old css
             }
             return super.contentContainer
         }set{
@@ -81,10 +81,12 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
     }
 }
 class CustomContainer:Container,CustomContainable{
-    
+    override func getClassType() -> String {
+        return "\(Container.self)"
+    }
 }
 protocol CustomContainable:IElement{
-   var layerPos:CGPoint? {get set}
+   //var layerPos:CGPoint? {get set}
 }
 extension CustomContainable{
     var layerPos:CGPoint?{
