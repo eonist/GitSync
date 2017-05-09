@@ -99,10 +99,10 @@ extension RepoDetailView{
      * Populates the UI elements with data from the dp item
      */
     func setRepoData(_ repoItem:RepoItem){
-        nameTextInput!.inputTextArea!.setTextValue(repoItem.title)
-        localPathTextInput!.inputTextArea!.setTextValue(repoItem.localPath)
-        remotePathTextInput!.inputTextArea!.setTextValue(repoItem.remotePath)
-        branchTextInput!.inputTextArea!.setTextValue(repoItem.branch)
+        nameTextInput!.inputTextArea.setTextValue(repoItem.title)
+        localPathTextInput!.inputTextArea.setTextValue(repoItem.localPath)
+        remotePathTextInput!.inputTextArea.setTextValue(repoItem.remotePath)
+        branchTextInput!.inputTextArea.setTextValue(repoItem.branch)
         /*CheckButtons*/
         uploadCheckBoxButton!.setChecked(repoItem.upload)
         downloadCheckBoxButton!.setChecked(repoItem.download)

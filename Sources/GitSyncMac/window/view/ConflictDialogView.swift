@@ -20,7 +20,7 @@ class ConflictDialogView:TitleView{
     override func resolveSkin() {
         Swift.print("ConflictDialogView.resolveSkin()")
         super.resolveSkin()
-        super.textArea!.setTextValue("Resolve merge conflict:")
+        super.textArea.setTextValue("Resolve merge conflict:")
         
         createGUI()
         //Swift.print(ElementParser.stackString(self))

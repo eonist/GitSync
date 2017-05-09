@@ -19,7 +19,7 @@ class CommitDialogView:TitleView{
     override func resolveSkin() {
         Swift.print("ConflictDialogView.resolveSkin()")
         super.resolveSkin()
-        super.textArea!.setTextValue("Commit message:")
+        super.textArea.setTextValue("Commit message:")
         createGUI()
         //Swift.print(ElementParser.stackString(self))
     }
