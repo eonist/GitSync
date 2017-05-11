@@ -32,6 +32,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         style.describe()
         
         let btn = window.contentView!.addSubView(Button(50,50))
+        Swift.print("after")
         Swift.print("btn.skin?.style: " + "\(btn.skin?.style)")
         Swift.print("test")
         btn.skin?.style?.describe()
