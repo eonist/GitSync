@@ -30,10 +30,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         StyleManager.addStyle("Button{fill:blue;}")
 
         
-        let btn = window.contentView!.addSubView(Button(50,50))
+        let btn = Button(50,50)
  
         
-        /*let container = window.contentView!.addSubView(Container(0,0,nil))
+        let container = window.contentView!.addSubView(Container(0,0,nil))
          
          container.addSubview(btn)
          /*container.layer?.position.x = 100
@@ -50,7 +50,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          Swift.print("btn.frame.origin: " + "\(btn.frame.origin)")
          btn.event = { event in
          if(event.type == ButtonEvent.upInside){Swift.print("hello world")}
-         }*/
+         }
     }
     func initApp(){
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
