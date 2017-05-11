@@ -26,16 +26,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func hitTesting(){
-        //window.contentView = InteractiveView2()
+        window.contentView = InteractiveView2()
         StyleManager.addStyle("Button{fill:blue;}")
-        let style = StyleManager.getStyleAt(0)
-        style.describe()
+
         
         let btn = window.contentView!.addSubView(Button(50,50))
-        Swift.print("after")
-        Swift.print("btn.skin?.style: " + "\(btn.skin?.style)")
-        Swift.print("test")
-        btn.skin?.style?.describe()
+ 
         
         /*let container = window.contentView!.addSubView(Container(0,0,nil))
          
