@@ -4,8 +4,8 @@ import Foundation
 
 class MinimalView:WindowView{
     override func resolveSkin(){
-        //let css:String = "Window{fill-alpha:1;fill:white;corner-radius:4px;}"//
-        //StyleManager.addStyle(css)
+        let css:String = "Window{fill-alpha:1;fill:white;corner-radius:4px;}"//
+        StyleManager.addStyle(css)
         super.resolveSkin()
         testing()
         //treeList()
@@ -20,8 +20,9 @@ class MinimalView:WindowView{
      *
      */
     func testing(){
+        
+        let style = "Container#lable{fill:grey;fill-alpha:1;}Button{fill:blue;}"
         let container = addSubView(ElasticScrollView3.init(width, height))
-        let style = "Window{fill:grey;}Button{fill:blue;}"
         StyleManager.addStyle(style)
         let btn = Button(20,100,container)
         container.contentContainer.addSubview(btn)
