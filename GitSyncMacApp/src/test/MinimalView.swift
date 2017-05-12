@@ -20,9 +20,13 @@ class MinimalView:WindowView{
      *
      */
     func testing(){
-        let container = ElasticScrollView()
+        let container = addSubView(ElasticSlideScrollView3.init(width, height))
         let style = "Button{fill:blue;}"
-        let btn = Button()
+        StyleManager.addStyle(style)
+        let btn = Button(20,100,container)
+        container.addSubview(btn)
+        
+        
         //elasticScrolView
             //topLeft button
         //4x strings
