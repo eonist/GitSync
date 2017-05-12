@@ -7,13 +7,20 @@ class MinimalView:WindowView{
         //let css:String = "Window{fill-alpha:1;fill:white;corner-radius:4px;}"//
         //StyleManager.addStyle(css)
         super.resolveSkin()
-        treeList()
+        testing()
+        //treeList()
         //rotationUITest()
         //checkBoxTest()
         
         //Continue here: 🏀
             //Try to add many shapes to ElasticView, Is it still smooth?
             //then try to add many SVG shapes and see if its still fast?
+    }
+    /**
+     *
+     */
+    func testing(){
+        //
     }
     func treeList(){
         let url = "~/Desktop/repo2.xml"
