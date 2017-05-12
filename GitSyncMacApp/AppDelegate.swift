@@ -29,10 +29,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView2()
         StyleManager.addStyle("Button{fill:blue;}")
 
-        
         let btn = Button(50,50)
- 
-        
         let container = window.contentView!.addSubView(Container(0,0,nil))
          
          container.addSubview(btn)
@@ -42,7 +39,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          //container.frame.origin = CGPoint(100,100)
          Swift.print("container.layer?.position: " + "\(container.layer?.position)")
          Swift.print("container.frame.origin: " + "\(container.frame.origin)")
-         
          
          btn.layer?.position = CGPoint(40,20)
          //btn.frame
