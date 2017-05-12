@@ -24,9 +24,11 @@ class MinimalView:WindowView{
         let style = "ElasticScrollView3{fill:grey;fill-alpha:1;}Button{fill:blue;}"
         let container = addSubView(ElasticScrollView3.init(width, height))
         StyleManager.addStyle(style)
+        
+        let bg = Element(width,height)
         let btn = Button(20,100,container)
         container.contentContainer.addSubview(btn)
-        Swift.print("stackString: " + "\(ElementParser.stackString(self))")
+        
         
         //elasticScrolView
             //topLeft button
