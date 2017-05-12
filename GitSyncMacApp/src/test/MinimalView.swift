@@ -20,11 +20,11 @@ class MinimalView:WindowView{
      *
      */
     func testing(){
-        let container = addSubView(ElasticSlideScrollView3.init(width, height))
-        let style = "Button{fill:blue;}"
+        let container = addSubView(ElasticScrollView3.init(width, height))
+        let style = "Window{fill:grey;}Button{fill:blue;}"
         StyleManager.addStyle(style)
         let btn = Button(20,100,container)
-        container.addSubview(btn)
+        container.contentContainer.addSubview(btn)
         
         
         //elasticScrolView
