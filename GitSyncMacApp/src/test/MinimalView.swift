@@ -20,7 +20,17 @@ class MinimalView:WindowView{
      *
      */
     func testing(){
-        //
+        let container = ElasticScrollView()
+        let style = "Button{fill:blue;}"
+        let btn = Button()
+        //elasticScrolView
+            //topLeft button
+        //4x strings
+        //4x textButton's (blue with dark text )
+        //click transition to  2x orange buttons
+            //transition animate alpha out. anim alpha in
+        //zoom out gesture
+            //goes back
     }
     func treeList(){
         let url = "~/Desktop/repo2.xml"
