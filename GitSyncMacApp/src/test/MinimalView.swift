@@ -7,6 +7,7 @@ extension TextButton{
         let style:IStyle = StyleModifier.clone(skin!.style!,skin!.style!.name)/*we clone the style so other Element instances doesnt get their style changed aswell*/// :TODO: this wont do if the skin state changes, therefor we need something similar to DisplayObjectSkin
         var fillProp = style.getStyleProperty("fill",0) /*edits the style*/
         let color = (fillProp?.value as! NSColor).alpha(value)
+        Swift.print("color: " + "\(color)")
         fillProp!.value = color
         skin!.setStyle(style)
     }
