@@ -5,8 +5,11 @@ import Cocoa
 
 class MinimalView:WindowView{
     override func resolveSkin(){
-        let css:String = "Window{fill-alpha:1;fill:white;corner-radius:4px;}"//
-        StyleManager.addStyle(css)
+        var css:String = ""
+        css += "Window{fill-alpha:1;fill:white;corner-radius:4px;}"//
+        css +=  "Button{fill:blue;fill-alpha:1;clear:left;float:left;}"
+        //StyleManager.addStyle(css)
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)
         super.resolveSkin()
         testing()
         //treeList()
@@ -21,30 +24,31 @@ class MinimalView:WindowView{
      *
      */
     func testing(){
-        var css = "ElasticScrollView3{fill:white;}"
-        css +=  "Button{fill:blue;fill-alpha:1;clear:left;float:left;}"
+        //var css = ""
+        //css += "ElasticScrollView3{fill:white;}"
+        
         //css +=  "Container{clear:left;float:left;}"
-        css +=  "TextButton{clear:left;float:left;}"
-        css +=  "TextButton{fill:#30B07D;}"
-        css +=  "TextButton Text{"
-        css +=  	"float:left;"
-        css +=  	"clear:left;"
-        css +=  	"width:100%;"
-        css +=  	"height:100px;"
-        css +=  	"margin-top:40px;"
-        css +=  	"font:Helvetica Neue;"
-        css +=  	"size:16px;"
-        css +=  	"wordWrap:true;"
-        css +=  	"align:center;"
-        css +=  	"color:black;"
-        css +=  	"selectable:false;"
-        css +=  	"backgroundColor:orange;"
-        css +=  	"background:false;"
-        css +=  "}"
+        /*css +=  "TextButton{clear:left;float:left;}"
+         css +=  "TextButton{fill:#30B07D;}"
+         css +=  "TextButton Text{"
+         css +=  	"float:left;"
+         css +=  	"clear:left;"
+         css +=  	"width:100%;"
+         css +=  	"height:100px;"
+         css +=  	"margin-top:40px;"
+         css +=  	"font:Helvetica Neue;"
+         css +=  	"size:16px;"
+         css +=  	"wordWrap:true;"
+         css +=  	"align:center;"
+         css +=  	"color:black;"
+         css +=  	"selectable:false;"
+         css +=  	"backgroundColor:orange;"
+         css +=  	"background:false;"
+         css +=  "}"*/
         //0F75DB
         //F59835
         
-        StyleManager.addStyle(css)
+        //StyleManager.addStyle(css)
         
         
         let container = addSubView(ElasticScrollView3.init(width, height))
@@ -67,7 +71,7 @@ class MinimalView:WindowView{
             case .one:
                 curLevel = .two
                 Swift.print("go to two")
-                let animator = Animator(Animation.sharedInstance,0.5,1,0,{val in textButton2.alphaValue = val},Linear.ease)//{val in textButton.alpha = val}
+                let animator = Animator(Animation.sharedInstance,0.5,1,0,{val in btn.alphaValue = val},Linear.ease)//{val in textButton.alpha = val}
                 
                 animator.start()
                 
@@ -81,7 +85,7 @@ class MinimalView:WindowView{
         
         
         
-        textButton.event = { event in
+        btn.event = { event in
             if event.type == ButtonEvent.upInside {
                 Swift.print("click")
                 transition()
