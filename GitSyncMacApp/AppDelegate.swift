@@ -45,7 +45,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          Swift.print("btn.layer?.position: " + "\(btn.layer?.position)")
          Swift.print("btn.frame.origin: " + "\(btn.frame.origin)")
          btn.event = { event in
-         if(event.type == ButtonEvent.upInside){Swift.print("hello world")}
+            if(event.type == ButtonEvent.upInside){Swift.print("hello world")}
          }
     }
     func initApp(){
