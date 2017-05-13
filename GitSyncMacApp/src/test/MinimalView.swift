@@ -1,7 +1,17 @@
 import Foundation
 @testable import Element
 @testable import Utils
-
+extension TextButton{
+    func bgColorAnim(value:CGFloat){
+        let style:IStyle = StyleModifier.clone(skin!.style!,skin!.style!.name)/*we clone the style so other Element instances doesnt get their style changed aswell*/// :TODO: this wont do if the skin state changes, therefor we need something similar to DisplayObjectSkin
+        var fillProp = style.getStyleProperty("fill",0) /*edits the style*/
+        let initColor = white
+        let endColor = grey
+        let color = initColor.blended(withFraction: value, of: endColor)!
+        fillProp!.value = color
+        skin!.setStyle(style)
+    }
+}
 class MinimalView:WindowView{
     override func resolveSkin(){
         let css:String = "Window{fill-alpha:1;fill:white;corner-radius:4px;}"//
@@ -65,6 +75,7 @@ class MinimalView:WindowView{
                 let animator = Animator(Animation.sharedInstance,3,1,0,1,progress,Easing.easeLinear)
                 func progress(value:CGFloat){
                     textButton
+                    
                 }
                 animator.start()
                 
