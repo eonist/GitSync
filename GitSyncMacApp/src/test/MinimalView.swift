@@ -47,17 +47,41 @@ class MinimalView:WindowView{
         let container = addSubView(ElasticScrollView3.init(width, height))
         
         
-        
+        let textButton = TextButton.init(100, 100, "Lingustics", container)
         
         /* let btn = Button(20,100,container)
          container.contentContainer.addSubview(btn)
          */
         
-        let textButton = TextButton.init(100, 100, "Lingustics", container)
+        var curLevel:Level = .one
+        /**
+         *
+         */
+        func transition(){
+            switch curLevel{
+            case .one:
+                curLevel = .two
+                Swift.print("go to two")
+                let animator = Animator(Animation.sharedInstance,3,1,0,1,progress,Easing.easeLinear)
+                func progress(value:CGFloat){
+                    textButton
+                }
+                animator.start()
+                
+                
+            case .two:
+                curLevel = .two
+                Swift.print("go to one")
+                
+            }
+        }
+        
+        
+        
         textButton.event = { event in
             if event.type == ButtonEvent.upInside {
                 Swift.print("click")
-                self.transition()
+                transition()
             }
         }
        
@@ -72,30 +96,7 @@ class MinimalView:WindowView{
         //zoom out gesture
             //goes back
     }
-    var curLevel:Level = .one
-    /**
-     *
-     */
-    func transition(){
-        switch curLevel{
-        case .one:
-            curLevel = .two
-            Swift.print("go to two")
-            let animator = Animator(Animation.sharedInstance,3,1,0,1,progress,Easing.easeLinear)
-            func progress(value:CGFloat){
-                let angle = π * 2  * value
-                line.p2 = line.p1.polarPoint(50,angle)
-                line.draw()
-            }
-            animator.start()
-            
-            
-        case .two:
-            curLevel = .two
-            Swift.print("go to one")
-            
-        }
-    }
+    
     enum Level {
         case one
         case two
