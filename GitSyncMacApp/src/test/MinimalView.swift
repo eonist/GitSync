@@ -22,8 +22,8 @@ class MinimalView:WindowView{
      */
     func testing(){
         var css = "ElasticScrollView3{fill:white;}"
-        //css +=  "Button{fill:blue;fill-alpha:1;clear:left;float:left;}"
-        css +=  "Container{clear:left;float:left;}"
+        css +=  "Button{fill:blue;fill-alpha:1;clear:left;float:left;}"
+        //css +=  "Container{clear:left;float:left;}"
         css +=  "TextButton{clear:left;float:left;}"
         css +=  "TextButton{fill:#30B07D;}"
         css +=  "TextButton Text{"
@@ -49,10 +49,11 @@ class MinimalView:WindowView{
         
         let container = addSubView(ElasticScrollView3.init(width, height))
         
-        //let btn = container.contentContainer.addSubView(Button(200,200,container))
-        let textButton:TextButton = container.contentContainer.addSubView(TextButton.init(100, 100, "Lingustics", container))
-        let textButton2:TextButton = container.contentContainer.addSubView(TextButton.init(100, 100, "Programming", container))
-        
+        let btn = container.contentContainer.addSubView(Button(100,100,container))
+        let btn2 = container.contentContainer.addSubView(Button(100,100,container))
+        //let textButton:TextButton = container.contentContainer.addSubView(TextButton.init(100, 100, "Lingustics", container))
+        //let textButton2:TextButton = container.contentContainer.addSubView(TextButton.init(100, 100, "Programming", container))
+        //ElementModifier.floatChildren(container.contentContainer)
         
          //container.contentContainer.addSubview(btn)
  
