@@ -11,7 +11,7 @@ class MinimalView:WindowView{
         //StyleManager.addStyle(css)
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)
         super.resolveSkin()
-        //testing()
+        
         treeList()
         //rotationUITest()
         //checkBoxTest()
@@ -20,94 +20,7 @@ class MinimalView:WindowView{
             //Try to add many shapes to ElasticView, Is it still smooth?
             //then try to add many SVG shapes and see if its still fast?
     }
-    /**
-     *
-     */
-    func testing(){
-        //var css = ""
-        //css += "ElasticScrollView3{fill:white;}"
-        
-        //css +=  "Container{clear:left;float:left;}"
-        /*css +=  "TextButton{clear:left;float:left;}"
-         css +=  "TextButton{fill:#30B07D;}"
-         css +=  "TextButton Text{"
-         css +=  	"float:left;"
-         css +=  	"clear:left;"
-         css +=  	"width:100%;"
-         css +=  	"height:100px;"
-         css +=  	"margin-top:40px;"
-         css +=  	"font:Helvetica Neue;"
-         css +=  	"size:16px;"
-         css +=  	"wordWrap:true;"
-         css +=  	"align:center;"
-         css +=  	"color:black;"
-         css +=  	"selectable:false;"
-         css +=  	"backgroundColor:orange;"
-         css +=  	"background:false;"
-         css +=  "}"*/
-        //0F75DB
-        //F59835
-        
-        //StyleManager.addStyle(css)
-        
-        
-        let container = addSubView(ElasticScrollView3.init(width, height))
-        
-        let btn = container.contentContainer.addSubView(Button(100,100,container))
-        let btn2 = container.contentContainer.addSubView(Button(100,100,container))
-        //let textButton:TextButton = container.contentContainer.addSubView(TextButton.init(100, 100, "Lingustics", container))
-        //let textButton2:TextButton = container.contentContainer.addSubView(TextButton.init(100, 100, "Programming", container))
-        //ElementModifier.floatChildren(container.contentContainer)
-        
-         //container.contentContainer.addSubview(btn)
- 
-        
-        var curLevel:Level = .one
-        /**
-         *
-         */
-        func transition(){
-            switch curLevel{
-            case .one:
-                curLevel = .two
-                Swift.print("go to two")
-                let animator = Animator(Animation.sharedInstance,0.5,1,0,{val in btn.alphaValue = val},Linear.ease)//{val in textButton.alpha = val}
-                
-                animator.start()
-                
-                
-            case .two:
-                curLevel = .two
-                Swift.print("go to one")
-                
-            }
-        }
-        
-        
-        
-        btn.event = { event in
-            if event.type == ButtonEvent.upInside {
-                Swift.print("click")
-                transition()
-            }
-        }
-       
-        
-        
-        //elasticScrolView
-            //topLeft button
-        //4x strings
-        //4x textButton's (blue with dark text )
-        //click transition to  2x orange buttons
-            //transition animate alpha out. anim alpha in
-        //zoom out gesture
-            //goes back
-    }
     
-    enum Level {
-        case one
-        case two
-    }
     func treeList(){
         let url = "~/Desktop/repo2.xml"
         //let url = "~/Desktop/assets/xml/treelist.xml"
