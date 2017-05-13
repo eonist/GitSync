@@ -54,6 +54,11 @@ class MinimalView:WindowView{
          */
         
         let textButton = TextButton.init(100, 100, "Lingustics", container)
+        textButton.event = { event in
+            if event.type == ButtonEvent.upInside {
+                Swift.print("click")
+            }
+        }
         
         container.contentContainer.addSubview(textButton)
         //elasticScrolView
