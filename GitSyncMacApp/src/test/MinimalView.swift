@@ -53,8 +53,8 @@ class MinimalView:WindowView{
          container.contentContainer.addSubview(btn)
          */
         
-        let textButton = TextButton.init(100, 100, "", container)
-        textButton.setTextValue("Lingustics")
+        let textButton = TextButton.init(100, 100, "Lingustics", container)
+        
         container.contentContainer.addSubview(textButton)
         //elasticScrolView
             //topLeft button
