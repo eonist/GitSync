@@ -318,7 +318,6 @@ class TestView:TitleView{
         let list = self.addSubView(List3(140, 144, CGSize(NaN,NaN), dp,.ver,self))
         _ = list
     }
-    
     func createVerSlider(){
         let horSlider:Slider = self.addSubView(Slider(6,60,.ver,CGSize(6,30),0,self))
         _ = horSlider
