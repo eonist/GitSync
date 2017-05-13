@@ -11,8 +11,8 @@ class MinimalView:WindowView{
         //StyleManager.addStyle(css)
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)
         super.resolveSkin()
-        testing()
-        //treeList()
+        //testing()
+        treeList()
         //rotationUITest()
         //checkBoxTest()
         
