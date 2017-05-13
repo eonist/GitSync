@@ -21,12 +21,30 @@ class MinimalView:WindowView{
      */
     func testing(){
         
-        let style = "ElasticScrollView3{fill:green;}Button{fill:blue;}"
+        let style = "ElasticScrollView3{fill:white;}Button{fill:blue;}"
+        
+        css +=  "TextButton Text{"
+        css +=  	"float:left;"
+        css +=  	"clear:left;"
+        css +=  	"width:100%;"
+        css +=  	"height:22px;"
+        css +=  	"margin-top:3px;"
+        css +=  	"font:Helvetica Neue;"
+        css +=  	"size:14px;"
+        css +=  	"wordWrap:true;"
+        css +=  	"align:center;"
+        css +=  	"color:#262626;"
+        css +=  	"selectable:false;"
+        css +=  	"backgroundColor:orange;"
+        css +=  	"background:false;"
+        css +=  "}"
+        
+        
         StyleManager.addStyle(style)
         
         
         let container = addSubView(ElasticScrollView3.init(width, height))
-        //_ = addSubView(Section(width,height))
+        
         
         
         
@@ -34,6 +52,7 @@ class MinimalView:WindowView{
         container.contentContainer.addSubview(btn)
         
         
+        let textButton = TextButton.init(100, 100, "Lingustics", container)
         //elasticScrolView
             //topLeft button
         //4x strings
