@@ -65,10 +65,11 @@ class MinimalView:WindowView{
         
         let container = addSubView(ElasticScrollView3.init(width, height))
         
-        
+        let btn = container.contentContainer.addSubView(Button(200,200,container))
         let textButton:TextButton = TextButton.init(100, 100, "Lingustics", container)
+        container.contentContainer.addSubview(textButton)
         
-         let btn = container.contentContainer.addSubView(Button(100,100,container))
+        
          //container.contentContainer.addSubview(btn)
  
         
@@ -81,7 +82,7 @@ class MinimalView:WindowView{
             case .one:
                 curLevel = .two
                 Swift.print("go to two")
-                let animator = Animator(Animation.sharedInstance,3,1,0,{val in btn.alpha = val},Linear.ease)//{val in textButton.alpha = val}
+                let animator = Animator(Animation.sharedInstance,3,1,0,{val in btn.alphaValue = val},Linear.ease)//{val in textButton.alpha = val}
                 
                 animator.start()
                 
@@ -103,7 +104,7 @@ class MinimalView:WindowView{
         }
        
         
-        container.contentContainer.addSubview(textButton)
+        
         //elasticScrolView
             //topLeft button
         //4x strings
