@@ -3,6 +3,7 @@ import Cocoa
 @testable import Utils
 extension TextButton{
     func fillAlpha(value:CGFloat){
+        Swift.print("value: " + "\(value)")
         let style:IStyle = StyleModifier.clone(skin!.style!,skin!.style!.name)/*we clone the style so other Element instances doesnt get their style changed aswell*/// :TODO: this wont do if the skin state changes, therefor we need something similar to DisplayObjectSkin
         var fillProp = style.getStyleProperty("fill",0) /*edits the style*/
         let color = (fillProp?.value as! NSColor).alpha(value)
@@ -70,7 +71,7 @@ class MinimalView:WindowView{
             case .one:
                 curLevel = .two
                 Swift.print("go to two")
-                let animator = Animator(Animation.sharedInstance,3,1,1,0,textButton.fillAlpha,Easing.linear)
+                let animator = Animator(Animation.sharedInstance,3,1,0,textButton.fillAlpha,Linear.ease)
                 
                 animator.start()
                 
