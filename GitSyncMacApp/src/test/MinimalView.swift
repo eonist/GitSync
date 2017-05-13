@@ -4,7 +4,9 @@ import Cocoa
 extension TextButton{
     var alpha:CGFloat{/*Convenience*/
         get{return self.skin!.decoratables[0].getGraphic().fillStyle!.color.alphaComponent}
-        set{skin?.decoratables[0].getGraphic().fillStyle?.color = (skin?.decoratables[0].getGraphic().fillStyle!.color.alpha(newValue))!}
+        set{
+            Swift.print("set")
+            skin?.decoratables[0].getGraphic().fillStyle?.color = (skin?.decoratables[0].getGraphic().fillStyle!.color.alpha(newValue))!}
     }
     func fillAlpha(value:CGFloat){
         Swift.print("value: " + "\(value)")
@@ -76,7 +78,7 @@ class MinimalView:WindowView{
             case .one:
                 curLevel = .two
                 Swift.print("go to two")
-                let animator = Animator(Animation.sharedInstance,3,1,0,{val in textButton.alpha},Linear.ease)
+                let animator = Animator(Animation.sharedInstance,3,1,0,{val in textButton.alpha = val},Linear.ease)
                 
                 animator.start()
                 
