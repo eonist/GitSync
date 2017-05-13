@@ -57,8 +57,10 @@ class MinimalView:WindowView{
         textButton.event = { event in
             if event.type == ButtonEvent.upInside {
                 Swift.print("click")
+                self.transition()
             }
         }
+       
         
         container.contentContainer.addSubview(textButton)
         //elasticScrolView
@@ -69,6 +71,25 @@ class MinimalView:WindowView{
             //transition animate alpha out. anim alpha in
         //zoom out gesture
             //goes back
+    }
+    var curLevel:Level = .one
+    /**
+     *
+     */
+    func transition(){
+        switch curLevel{
+        case .one:
+            curLevel = .two
+            Swift.print("go to two")
+        case .two:
+            curLevel = .two
+            Swift.print("go to one")
+            
+        }
+    }
+    enum Level {
+        case one
+        case two
     }
     func treeList(){
         let url = "~/Desktop/repo2.xml"
