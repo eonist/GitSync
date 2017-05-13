@@ -1,6 +1,7 @@
 import Cocoa
 @testable import Element
 @testable import Utils
+//try let other btn edit alpha of other btn 🏀
 extension TextButton{
     var alpha:CGFloat{/*Convenience*/
         get{return self.skin!.decoratables[0].getGraphic().fillStyle!.color.alphaComponent}
