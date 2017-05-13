@@ -22,8 +22,10 @@ class MinimalView:WindowView{
      */
     func testing(){
         var css = "ElasticScrollView3{fill:white;}"
-        css +=  "Button{fill:blue;fill-alpha:1;clear:left;float:left;}"
-        css +=  "TextButton{fill:#30B07D;fill-alpha:1;clear:left;float:left;}"
+        //css +=  "Button{fill:blue;fill-alpha:1;clear:left;float:left;}"
+        css +=  "Container{clear:left;float:left;}"
+        css +=  "TextButton{clear:left;float:left;}"
+        css +=  "TextButton{fill:#30B07D;}"
         css +=  "TextButton Text{"
         css +=  	"float:left;"
         css +=  	"clear:left;"
