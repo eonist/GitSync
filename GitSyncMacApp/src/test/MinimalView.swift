@@ -1,13 +1,11 @@
-import Foundation
+import Cocoa
 @testable import Element
 @testable import Utils
 extension TextButton{
-    func bgColorAnim(value:CGFloat){
+    func fillAlpha(value:CGFloat){
         let style:IStyle = StyleModifier.clone(skin!.style!,skin!.style!.name)/*we clone the style so other Element instances doesnt get their style changed aswell*/// :TODO: this wont do if the skin state changes, therefor we need something similar to DisplayObjectSkin
         var fillProp = style.getStyleProperty("fill",0) /*edits the style*/
-        let initColor = white
-        let endColor = grey
-        let color = initColor.blended(withFraction: value, of: endColor)!
+        let color = (fillProp?.value as! NSColor).alpha(value)
         fillProp!.value = color
         skin!.setStyle(style)
     }
@@ -57,7 +55,7 @@ class MinimalView:WindowView{
         let container = addSubView(ElasticScrollView3.init(width, height))
         
         
-        let textButton = TextButton.init(100, 100, "Lingustics", container)
+        let textButton:TextButton = TextButton.init(100, 100, "Lingustics", container)
         
         /* let btn = Button(20,100,container)
          container.contentContainer.addSubview(btn)
@@ -72,11 +70,8 @@ class MinimalView:WindowView{
             case .one:
                 curLevel = .two
                 Swift.print("go to two")
-                let animator = Animator(Animation.sharedInstance,3,1,0,1,progress,Easing.easeLinear)
-                func progress(value:CGFloat){
-                    textButton
-                    
-                }
+                let animator = Animator(Animation.sharedInstance,3,1,1,0,textButton.fillAlpha,Easing.linear)
+                
                 animator.start()
                 
                 
