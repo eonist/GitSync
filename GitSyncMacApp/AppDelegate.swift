@@ -20,7 +20,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initTestWin()//🚧👷
         //initMinimalWin()
         //hitTesting()
-   
+        
+        //work on const to enum? and more structs 🏀
+            //run ElementExplorer
+        
     }
     /**
      *
