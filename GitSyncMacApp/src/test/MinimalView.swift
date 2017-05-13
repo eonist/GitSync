@@ -2,25 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 //try let other btn edit alpha of other btn 🏀
-extension Button{
-    var alpha:CGFloat{/*Convenience*/
-        get{return self.skin!.decoratables[0].getGraphic().fillStyle!.color.alphaComponent}
-        set{
-            Swift.print("set")
-            skin?.decoratables[0].getGraphic().fillStyle?.color = (skin?.decoratables[0].getGraphic().fillStyle!.color.alpha(newValue))!}
-    }
-    func fillAlpha(value:CGFloat){
-        Swift.print("value: " + "\(value)")
-        let style:IStyle = StyleModifier.clone(skin!.style!,skin!.style!.name)/*we clone the style so other Element instances doesnt get their style changed aswell*/// :TODO: this wont do if the skin state changes, therefor we need something similar to DisplayObjectSkin
-        var fillAlphaProp = style.getStyleProperty("fill-alpha",0)
-        var fillProp = style.getStyleProperty("fill",0)/*edits the style*/
-        let color = (fillProp?.value as! NSColor).alpha(value)
-        Swift.print("color: " + "\(color)")
-        fillProp!.value = color
-        fillAlphaProp!.value = value
-        skin!.setStyle(style)
-    }
-}
+
 class MinimalView:WindowView{
     override func resolveSkin(){
         let css:String = "Window{fill-alpha:1;fill:white;corner-radius:4px;}"//
@@ -39,8 +21,8 @@ class MinimalView:WindowView{
      *
      */
     func testing(){
-        
-        var css = "ElasticScrollView3{fill:white;}Button{fill:blue;fill-alpha:1;clear:left;float:left;}"
+        var css = "ElasticScrollView3{fill:white;}"
+        css +=  "Button{fill:blue;fill-alpha:1;clear:left;float:left;}"
         css +=  "TextButton{fill:#30B07D;fill-alpha:1;clear:left;float:left;}"
         css +=  "TextButton Text{"
         css +=  	"float:left;"
@@ -65,9 +47,9 @@ class MinimalView:WindowView{
         
         let container = addSubView(ElasticScrollView3.init(width, height))
         
-        let btn = container.contentContainer.addSubView(Button(200,200,container))
-        let textButton:TextButton = TextButton.init(100, 100, "Lingustics", container)
-        container.contentContainer.addSubview(textButton)
+        //let btn = container.contentContainer.addSubView(Button(200,200,container))
+        let textButton:TextButton = container.contentContainer.addSubView(TextButton.init(100, 100, "Lingustics", container))
+        let textButton2:TextButton = container.contentContainer.addSubView(TextButton.init(100, 100, "Programming", container))
         
         
          //container.contentContainer.addSubview(btn)
@@ -82,7 +64,7 @@ class MinimalView:WindowView{
             case .one:
                 curLevel = .two
                 Swift.print("go to two")
-                let animator = Animator(Animation.sharedInstance,3,1,0,{val in btn.alphaValue = val},Linear.ease)//{val in textButton.alpha = val}
+                let animator = Animator(Animation.sharedInstance,0.5,1,0,{val in textButton2.alphaValue = val},Linear.ease)//{val in textButton.alpha = val}
                 
                 animator.start()
                 
