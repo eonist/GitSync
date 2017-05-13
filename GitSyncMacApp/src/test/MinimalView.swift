@@ -12,7 +12,7 @@ extension TextButton{
     func fillAlpha(value:CGFloat){
         Swift.print("value: " + "\(value)")
         let style:IStyle = StyleModifier.clone(skin!.style!,skin!.style!.name)/*we clone the style so other Element instances doesnt get their style changed aswell*/// :TODO: this wont do if the skin state changes, therefor we need something similar to DisplayObjectSkin
-        var fillProp = style.getStyleProperty("fill",0) /*edits the style*/
+        var fillProp = style.getStyleProperty("fill-alpha",0) /*edits the style*/
         let color = (fillProp?.value as! NSColor).alpha(value)
         Swift.print("color: " + "\(color)")
         fillProp!.value = color
@@ -66,9 +66,9 @@ class MinimalView:WindowView{
         
         let textButton:TextButton = TextButton.init(100, 100, "Lingustics", container)
         
-        /* let btn = Button(20,100,container)
-         container.contentContainer.addSubview(btn)
-         */
+         //let btn = container.contentContainer.addSubview(Button(100,100,container))
+         //container.contentContainer.addSubview(btn)
+ 
         
         var curLevel:Level = .one
         /**
