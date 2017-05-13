@@ -81,6 +81,15 @@ class MinimalView:WindowView{
         case .one:
             curLevel = .two
             Swift.print("go to two")
+            let animator = Animator(Animation.sharedInstance,3,1,0,1,progress,Easing.easeLinear)
+            func progress(value:CGFloat){
+                let angle = π * 2  * value
+                line.p2 = line.p1.polarPoint(50,angle)
+                line.draw()
+            }
+            animator.start()
+            
+            
         case .two:
             curLevel = .two
             Swift.print("go to one")
