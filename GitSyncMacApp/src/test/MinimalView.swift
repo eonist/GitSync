@@ -2,7 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 //try let other btn edit alpha of other btn 🏀
-extension TextButton{
+extension Button{
     var alpha:CGFloat{/*Convenience*/
         get{return self.skin!.decoratables[0].getGraphic().fillStyle!.color.alphaComponent}
         set{
@@ -40,8 +40,8 @@ class MinimalView:WindowView{
      */
     func testing(){
         
-        var css = "ElasticScrollView3{fill:white;}Button{fill:blue;}"
-        css +=  "TextButton{fill:#30B07D;}"
+        var css = "ElasticScrollView3{fill:white;}Button{fill:blue;fill-alpha:1;}"
+        css +=  "TextButton{fill:#30B07D;fill-alpha:1;}"
         css +=  "TextButton Text{"
         css +=  	"float:left;"
         css +=  	"clear:left;"
@@ -66,9 +66,9 @@ class MinimalView:WindowView{
         let container = addSubView(ElasticScrollView3.init(width, height))
         
         
-        let textButton:TextButton = TextButton.init(100, 100, "Lingustics", container)
+        //let textButton:TextButton = TextButton.init(100, 100, "Lingustics", container)
         
-         //let btn = container.contentContainer.addSubview(Button(100,100,container))
+         let btn = container.contentContainer.addSubView(Button(100,100,container))
          //container.contentContainer.addSubview(btn)
  
         
@@ -81,7 +81,7 @@ class MinimalView:WindowView{
             case .one:
                 curLevel = .two
                 Swift.print("go to two")
-                let animator = Animator(Animation.sharedInstance,3,1,0,textButton.alphaValue,Linear.ease)//{val in textButton.alpha = val}
+                let animator = Animator(Animation.sharedInstance,3,1,0,btn.fillAlpha,Linear.ease)//{val in textButton.alpha = val}
                 
                 animator.start()
                 
@@ -95,7 +95,7 @@ class MinimalView:WindowView{
         
         
         
-        textButton.event = { event in
+        btn.event = { event in
             if event.type == ButtonEvent.upInside {
                 Swift.print("click")
                 transition()
@@ -103,7 +103,7 @@ class MinimalView:WindowView{
         }
        
         
-        container.contentContainer.addSubview(textButton)
+        //container.contentContainer.addSubview(textButton)
         //elasticScrolView
             //topLeft button
         //4x strings
