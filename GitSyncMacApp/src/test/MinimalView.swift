@@ -22,7 +22,7 @@ class MinimalView:WindowView{
     func testing(){
         
         var css = "ElasticScrollView3{fill:white;}Button{fill:blue;}"
-        css +=  "TextButton{fill:blue;}"
+        css +=  "TextButton{fill:#30B07D;}"
         css +=  "TextButton Text{"
         css +=  	"float:left;"
         css +=  	"clear:left;"
@@ -30,10 +30,10 @@ class MinimalView:WindowView{
         css +=  	"height:22px;"
         css +=  	"margin-top:32px;"
         css +=  	"font:Helvetica Neue;"
-        css +=  	"size:14px;"
+        css +=  	"size:16px;"
         css +=  	"wordWrap:true;"
         css +=  	"align:center;"
-        css +=  	"color:#262626;"
+        css +=  	"color:black;"
         css +=  	"selectable:false;"
         css +=  	"backgroundColor:orange;"
         css +=  	"background:false;"
