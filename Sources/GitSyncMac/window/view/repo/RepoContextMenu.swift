@@ -130,9 +130,9 @@ extension RepoContextMenu{
     func openInFinder(sender: AnyObject){
         Swift.print("openInFinder")
         let idx = rightClickItemIdx!
-        let itemData:ItemData = TreeListUtils.itemData(treeList.node.xml, idx)
-        if(!itemData.hasChildren){//only repos can be opened in finder
-            let repoItem = RepoUtils.repoItem(treeList.node.xml, idx)
+        let itemData:ItemData3 = TreeList3Utils.itemData(treeList, idx)
+        if(!itemData.hasChildren){/*Only repos can be opened in finder*/
+            let repoItem = RepoUtils.repoItem(treeList.dp.xml, idx)
             if(FileAsserter.exists(repoItem.localPath.tildePath)){//make sure local-path exists
                 Swift.print("repoItem.localPath: " + "\(repoItem.localPath)")
                 FileUtils.showFileInFinder(repoItem.localPath)
