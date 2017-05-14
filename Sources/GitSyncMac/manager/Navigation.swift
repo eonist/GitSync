@@ -29,10 +29,8 @@ class Navigation {
      */
     static func setView(_ view:Views){
         Navigation.activeView = view
-        //Swift.print("Navigation.setView() viewName: " + "\(viewName)")
         let mainView:MainView = MainWin.mainView!
         if(mainView.currentView != nil) {mainView.currentView!.removeFromSuperview()}
-        /**/
         mainView.menuView!.selectButton(view)/*Selects the correct menu icon*/
         
         let w:CGFloat = MainView.w/*Convenience*/
