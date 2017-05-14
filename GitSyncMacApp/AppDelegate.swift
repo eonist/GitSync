@@ -53,7 +53,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     func initApp(){
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
-         //win = MainWin(MainView.w,MainView.h)
+         win = MainWin(MainView.w,MainView.h)
          //win = ConflictDialogWin(380,400)
          //win = CommitDialogWin(400,356)
          //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
