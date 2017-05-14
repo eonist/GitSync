@@ -25,7 +25,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //run ElementExplorer ✅
             //clean up some of the git classes
             //start on Graph3
-                //do prototype that has a nice 
+                //do prototype that has a interpolates the graph points nicly as you scroll
+                //
         
     }
     /**
