@@ -22,11 +22,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //hitTesting()
         
         //work on const to enum? and more structs 🏀
-            //run ElementExplorer ✅
             //clean up some of the git classes
             //start on Graph3
                 //do prototype that has a interpolates the graph points nicly as you scroll
-                //
+                //store the commit count for all projects in a DataProvider 
+                    //must also allow adding/removal of repos
+        
         
     }
     /**
