@@ -12,23 +12,23 @@ class RepoContextMenu:NSMenu{
     init(_ treeList:TreeListable3) {
         self.treeList = treeList//Element - mac
         super.init(title:"Contextual menu")
-        var menuItems:[(title:String,selector:Foundation.Selector)] = []
-        menuItems.append(("New folder", #selector(newFolder)))
-        menuItems.append(("New repo", #selector(newRepo)))
-        menuItems.append(("Duplicate", #selector(duplicate)))
-        menuItems.append(("Copy", #selector(doCopy)))
-        menuItems.append(("Cut", #selector(cut)))
-        menuItems.append(("Paste", #selector(paste)))
-        menuItems.append(("Delete", #selector(delete)))
-        menuItems.append(("Move up", #selector(moveUp)))
-        menuItems.append(("Move down", #selector(moveDown)))
-        menuItems.append(("Move top", #selector(moveToTop)))
-        menuItems.append(("Move bottom", #selector(moveToBottom)))
-        menuItems.append(("Open in finder", #selector(openInFinder)))
-        menuItems.append(("Open URL", #selector(openURL)))
+        var menuItems:[(title:RepoMenuItem,selector:Foundation.Selector)] = []
+        menuItems.append((.newFolder, #selector(newFolder)))
+        menuItems.append((.newRepo, #selector(newRepo)))
+        menuItems.append((.duplicate, #selector(duplicate)))
+        menuItems.append((.copy, #selector(doCopy)))
+        menuItems.append((.cut, #selector(cut)))
+        menuItems.append((.paste, #selector(paste)))
+        menuItems.append((.delete, #selector(delete)))
+        menuItems.append((.moveUp, #selector(moveUp)))
+        menuItems.append((.moveDown, #selector(moveDown)))
+        menuItems.append((.moveTop, #selector(moveToTop)))
+        menuItems.append((.moveBottom, #selector(moveToBottom)))
+        menuItems.append((.openInFinder, #selector(openInFinder)))
+        menuItems.append((.openUrl, #selector(openURL)))
         //continue here: add Open in github
         menuItems.forEach{
-            let menuItem = NSMenuItem(title: $0.title, action: $0.selector, keyEquivalent: "")
+            let menuItem = NSMenuItem(title: $0.title.rawValue, action: $0.selector, keyEquivalent: "")
             self.addItem(menuItem)
             menuItem.target = self
         }
@@ -148,4 +148,19 @@ extension RepoContextMenu{
          NetworkUtils.openURLInDefaultBrowser(repoItem.remotePath)
          }*/
     }
+}
+enum RepoMenuItem:String {
+    case newFolder = "New folder"
+    case newRepo = "New repo"
+    case duplicate = "Duplicate"
+    case copy = "Copy"
+    case cut = "Cut"
+    case paste = "Paste"
+    case delete = "Delete"
+    case moveUp = "Move up"
+    case moveDown = "Move down"
+    case moveTop = "Move top"
+    case moveBottom = "Move bottom"
+    case openInFinder = "Open in finder"
+    case openUrl = "Open URL"
 }
