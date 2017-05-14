@@ -74,7 +74,7 @@ class RepoUtils {
             let dict:[String:String] = child.attribs
             let repoItem = self.repoItem(dict)
             return repoItem
-        };fatalError("no child at idx: \(idx)");
+        };fatalError("no child at idx: \(idx)")
     }
 }
 private class Utils{
