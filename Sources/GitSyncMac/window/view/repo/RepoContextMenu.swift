@@ -24,8 +24,7 @@ class RepoContextMenu:NSMenu{
         menuItems.append(("Move down", #selector(moveDown)))
         menuItems.append(("Move top", #selector(moveToTop)))
         menuItems.append(("Move bottom", #selector(moveToBottom)))
-        var openInFinderMethod = openInFinder
-        menuItems.append(("Open in finder", #selector(openInFinderMethod)))
+        menuItems.append(("Open in finder", #selector(openInFinder)))
         menuItems.append(("Open URL", #selector(openURL)))
         //continue here: add Open in github
         menuItems.forEach{
