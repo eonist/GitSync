@@ -36,8 +36,8 @@ class Refresh{//TODO:rename to refresh
                 onRefreshReposComplete()
             }
         }
-        for i in repos.indices{
-            RefreshUtils.refreshRepo(self.commitDP!,repos[i],onComplete)//🚪⬅️️ 🚧 0~1000's of a-sync 💼->🐚->🌵 calls
+        repos.forEach { repo in
+            RefreshUtils.refreshRepo(self.commitDP!,repo,onComplete)//🚪⬅️️ 🚧 0~1000's of a-sync 💼->🐚->🌵 calls
         }
     }
     /**
@@ -65,7 +65,7 @@ class RefreshUtils{
      */
     static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem,_ onComplete:@escaping ()->Void){
         func onCommitItemsCompleted(_ results:[String]){
-            //Swift.print("RefreshUtils.onCommitItemsCompleted(): results.count: \(results.count)" )
+            Swift.print("RefreshUtils.onCommitItemsCompleted(): results.count: \(results.count)" )
             for i in results.indices{
                 let result = results[i]
                 if(result.count > 0){/*resulting string must have characters*/
@@ -85,7 +85,6 @@ class RefreshUtils{
             RefreshUtils.commitItems(repo.localPath, commitCount, onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
         }
         commitCount(dp,repo,onCommitCountComplete)//🚪⬅️️
-        
     }
     /**
      * Find the range of commits to add to CommitDB for this repo
@@ -111,9 +110,8 @@ class RefreshUtils{
                 group.leave()
             }
         }else {//< 100
-             commitCount  = (100)//you need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
+             commitCount  = (100)//You need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
         }
-        //group.wait()
         group.notify(queue: bg, execute: {//TODO: reaplce bg with main, then remove main.async. just call onComplete?
             let clippedCommitCount = Swift.min(totCommitCount,commitCount)
             onComplete(clippedCommitCount)/*🚪➡️️*/
