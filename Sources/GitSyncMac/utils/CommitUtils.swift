@@ -44,19 +44,19 @@ class CommitUtils{
 			}
 		}
 		var commitMessage:String = ""
-		if (numOfNewFiles > 0) {
+		if numOfNewFiles > 0 {
 			commitMessage +=  "New files added: " + "\(numOfNewFiles)"
 		}
-		if (numOfModifiedFiles > 0) {
-			if (commitMessage.characters.count > 0) {  commitMessage +=  ", " }//--append comma
+		if numOfModifiedFiles > 0 {
+			if !commitMessage.isEmpty {  commitMessage +=  ", " }/*--append comma*/
 			commitMessage +=  "Files modified: " + "\(numOfModifiedFiles)"
 		}
-		if (numOfDeletedFiles > 0) {
-			if (commitMessage.characters.count > 0) {  commitMessage += ", " }//--append comma
+		if numOfDeletedFiles > 0 {
+			if !commitMessage.isEmpty {  commitMessage += ", " }/*--append comma*/
 			commitMessage +=  "Files deleted: " + "\(numOfDeletedFiles)"
 		}
-		if (numOfRenamedFiles > 0) {
-			if (commitMessage.characters.count > 0) {  commitMessage +=  ", "}// --append comma
+		if numOfRenamedFiles > 0 {
+			if (commitMessage.isEmpty) {  commitMessage +=  ", "}/*--append comma*/
 			commitMessage +=  "Files renamed: " + "\(numOfRenamedFiles)"
 		}
         //commitMessage = StringParser.decode(commitMessage)!
