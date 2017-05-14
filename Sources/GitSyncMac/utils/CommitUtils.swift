@@ -19,13 +19,13 @@ class CommitUtils{
 			let cmd = statusItem["cmd"]!/*TODO: rename to type or status_type*/
 			switch cmd{
 				case "M":
-					numOfModifiedFiles +=  1
+					numOfModifiedFiles += 1
 				case "D":
-					numOfDeletedFiles +=  1
+					numOfDeletedFiles += 1
 				case "A":
-					numOfNewFiles +=  1
+					numOfNewFiles += 1
 				case "R": /*This command seems to never be triggered in git*/
-					numOfRenamedFiles +=  1
+					numOfRenamedFiles += 1
 				case "??": /*untracked files*/
 					numOfNewFiles += 1
 				case "UU": /*unmerged files*/
