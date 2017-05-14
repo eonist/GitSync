@@ -6,9 +6,8 @@ typealias CommitDPRefresher = Refresh//temp
  * Basically creates/updates a list of the latest commits
  */
 class Refresh{//TODO:rename to refresh
-    //var commitDB:CommitDB/* = CommitDB()*/
     var commitDP:CommitDP?
-    var startTime:NSDate?/*debugging*/
+    var startTime:NSDate?/*Debugging*/
     //var isRefreshing:Bool = false/*avoids refreshing when the refresh has already started*/
     var onComplete:()->Void = {print("⚠️️⚠️️⚠️️ Refresh.onComplete() completed but no onComplete is currently attached")}
     init(_ commitDP:CommitDP){
@@ -20,9 +19,6 @@ class Refresh{//TODO:rename to refresh
     func initRefresh(){
         Swift.print("🔄 Refresh.initRefresh() ")
         //isRefreshing = true/*avoid calling refresh when this is true, it is set to false on completion*/
-        //let freshness = Freshness()
-        //freshness.onFreshnessSortComplete = refreshRepos//
-        //freshness.initFreshnessSort()//begin process on a background thread
         startTime = NSDate()/*Measure the time of the refresh*/
         refreshRepos()//🚪⬅️️Enter refresh process here
     }
@@ -31,10 +27,9 @@ class Refresh{//TODO:rename to refresh
      * NOTE: This method is called from the freshness onComplete
      */
     func refreshRepos(/*_ sortableRepoList:[FreshnessItem]*/){
-        //Swift.print(" Freshness.onFreshnessSortComplete() Time:-> " + "\(abs(self.startTime!.timeIntervalSinceNow))")/*How long it took*/
         let repos = RepoUtils.repoListFlattened/*creates array from xml or cache*/
         var idx:Int = 0
-        func onComplete(){//you can probably use DispatchGroup here aswell. but in the spirit of moving on
+        func onComplete(){/*you can probably use DispatchGroup here aswell. but in the spirit of moving on*/
             idx += 1
             //Swift.print("refreshRepo.onComplete() i: \(idx)")
             if(idx == repos.count){
