@@ -18,7 +18,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //initApp()
         //initTestWin()//🚧👷
-        //initMinimalWin()
+        initMinimalWin()
         //hitTesting()
         
         //work on const to enum? and more structs 🏀
@@ -67,10 +67,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
     }
     func initMinimalWin(){
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/minimal.css",false)
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/minimal.css",true)
         //Swift.print("StyleManager.styles.count: " + "\(StyleManager.styles.count)")
         //Swift.print("StyleManager.styles: " + "\(StyleManager.styles)")
-        win = MinimalWin(500,400)
+        //win = MinimalWin(500,400)
     }
     func applicationWillTerminate(_ aNotification:Notification) {
         /*Stores the app prefs*/
