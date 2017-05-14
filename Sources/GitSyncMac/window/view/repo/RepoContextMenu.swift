@@ -124,8 +124,8 @@ extension RepoContextMenu{
          _ = TreeListModifier.moveToTop(treeList, idx)*/
     }
     func moveToBottom(sender: AnyObject){
-        /*let idx = rightClickItemIdx!
-         _ = TreeListModifier.moveToBottom(treeList, idx)*/
+        let idx = rightClickItemIdx!
+         _ = TreeListModifier.moveToBottom(treeList, idx)
     }
     func showInFinder(sender: AnyObject){
         let idx = rightClickItemIdx!
