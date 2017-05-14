@@ -50,7 +50,7 @@ extension RepoContextMenu{
         //let itemData:ItemData3 = TreeList3Utils.itemData(treeList, idx)
         if let hasChildren = treeList[idx,"hasChildren"],hasChildren == "true"{//isFolder, add within
             idx += [0]
-        }else{//is not folder, add bellow
+        }else{/*is not folder, add bellow*/
             idx[idx.count-1] = idx.last! + 1
         }
         return idx
@@ -65,7 +65,6 @@ extension RepoContextMenu{
          treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
          Swift.print("Promt folder name popup")*/
     }
-    
     func newRepo(sender:AnyObject) {
         Swift.print("newRepo")
         /*let idx = rightClickItemIdx!
@@ -130,15 +129,15 @@ extension RepoContextMenu{
     }
     func openInFinder(sender: AnyObject){
         Swift.print("openInFinder")
-        /*let idx = rightClickItemIdx!
-         let itemData:ItemData = TreeListUtils.itemData(treeList.node.xml, idx)
-         if(!itemData.hasChildren){//only repos can be opened in finder
-         let repoItem = RepoUtils.repoItem(treeList.node.xml, idx)
-         if(FileAsserter.exists(repoItem.localPath.tildePath)){//make sure local-path exists
-         Swift.print("repoItem.localPath: " + "\(repoItem.localPath)")
-         FileUtils.showFileInFinder(repoItem.localPath)
-         }
-         }*/
+        let idx = rightClickItemIdx!
+        let itemData:ItemData = TreeListUtils.itemData(treeList.node.xml, idx)
+        if(!itemData.hasChildren){//only repos can be opened in finder
+            let repoItem = RepoUtils.repoItem(treeList.node.xml, idx)
+            if(FileAsserter.exists(repoItem.localPath.tildePath)){//make sure local-path exists
+                Swift.print("repoItem.localPath: " + "\(repoItem.localPath)")
+                FileUtils.showFileInFinder(repoItem.localPath)
+            }
+        }
     }
     func openURL(sender:AnyObject){
         /*let idx = rightClickItemIdx!
