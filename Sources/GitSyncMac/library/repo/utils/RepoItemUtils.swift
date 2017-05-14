@@ -70,10 +70,12 @@ class RepoUtils {
      * PARAM: idx: matrixIndex
      */
     static func repoItem(_ xml:XML,_ idx:[Int]) -> RepoItem{
-        let child:XML = XMLParser.childAt(xml, idx)!
-        let dict:[String:String] = child.attribs
-        let repoItem = self.repoItem(dict)
-        return repoItem
+        if let child:XML = XMLParser.childAt(xml, idx){
+            let dict:[String:String] = child.attribs
+            let repoItem = self.repoItem(dict)
+            return repoItem
+        }
+        
     }
 }
 private class Utils{
