@@ -38,7 +38,7 @@ class RepoView:Element {
 }
 extension RepoView{
     func onTreeListSelect(){
-        Swift.print("RepoView.onTreeListSelect()")
+        //Swift.print("RepoView.onTreeListSelect()")
         //Sounds.play?.play()
        
         let selectedIndex:[Int] = treeList!.selectedIdx3d!

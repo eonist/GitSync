@@ -28,7 +28,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //store the commit count for all projects in a DataProvider 
                     //must also allow adding/removal of repos
             //Add back the Right click edits tree list feature
-            //
+            //Move the RepoDetail view into RepoView. find the print screen with aligned UI elements
         
         
     }
