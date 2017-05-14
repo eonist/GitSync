@@ -28,8 +28,7 @@ class RepoView:Element {
             Swift.print("RepoView.onTreeListEvent() selectedIndex: " + "\(treeList?.selectedIdx3d)")
             //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
             onTreeListSelect()
-        }
-        else if(event.type == ButtonEvent.rightMouseDown){
+        }else if(event.type == ButtonEvent.rightMouseDown){
             contextMenu!.rightClickItemIdx = TreeList3Parser.index(treeList!, event.origin as! NSView)
             Swift.print("RightMouseDown() rightClickItemIdx: " + "\(contextMenu!.rightClickItemIdx)")
             NSMenu.popUpContextMenu(contextMenu!, with: (event as! ButtonEvent).event!, for: self)
