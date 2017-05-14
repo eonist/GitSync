@@ -1,6 +1,7 @@
 import Cocoa
 @testable import Utils
 @testable import Element
+//enum
 /**
  * Right click context menu
  */
@@ -23,7 +24,8 @@ class RepoContextMenu:NSMenu{
         menuItems.append(("Move down", #selector(moveDown)))
         menuItems.append(("Move top", #selector(moveToTop)))
         menuItems.append(("Move bottom", #selector(moveToBottom)))
-        menuItems.append(("Open in finder", #selector(openInFinder)))
+        var openInFinderMethod = openInFinder
+        menuItems.append(("Open in finder", #selector(openInFinderMethod)))
         menuItems.append(("Open URL", #selector(openURL)))
         //continue here: add Open in github
         menuItems.forEach{
@@ -128,6 +130,7 @@ extension RepoContextMenu{
          _ = TreeListModifier.moveToBottom(treeList, idx)*/
     }
     func openInFinder(sender: AnyObject){
+        Swift.print("openInFinder")
         /*let idx = rightClickItemIdx!
          let itemData:ItemData = TreeListUtils.itemData(treeList.node.xml, idx)
          if(!itemData.hasChildren){//only repos can be opened in finder
