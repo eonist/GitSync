@@ -25,18 +25,18 @@ class CommitUtils{
 		var numOfRenamedFiles:Int = 0
 		for statusItem in statusList{
 			let cmd = statusItem["cmd"]!/*TODO: rename to type or status_type*/
-			switch cmd{
-				case "M":
+            switch GitCMD(rawValue:cmd){
+				case .M?:
 					numOfModifiedFiles += 1
-				case "D":
+				case .D?:
 					numOfDeletedFiles += 1
-				case "A":
+				case .A?:
 					numOfNewFiles += 1
-				case "R": /*This command seems to never be triggered in git*/
+				case .R?: /*This command seems to never be triggered in git*/
 					numOfRenamedFiles += 1
-				case "??": /*untracked files*/
+				case .QQ?: /*untracked files*/
 					numOfNewFiles += 1
-				case "UU": /*unmerged files*/
+				case .UU?: /*unmerged files*/
 					numOfModifiedFiles += 1
 				default:
 					fatalError("cmd: " + "\(cmd)" + " Not supported")
