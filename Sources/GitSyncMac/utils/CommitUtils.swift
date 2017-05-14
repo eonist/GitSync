@@ -3,6 +3,11 @@ import Foundation
 /**
  * Utility methods for parsing the the "git status message" 
  */
+enum GitCMD:String{
+    case M = "M"
+    case D = "D"
+    case A = "A"
+}
 class CommitUtils{
 	/**
 	 * Returns a a text "commit message title" derived from PARAM: status_list
