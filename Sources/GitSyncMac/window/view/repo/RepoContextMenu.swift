@@ -128,7 +128,6 @@ extension RepoContextMenu{
          _ = TreeListModifier.moveToBottom(treeList, idx)*/
     }
     func showInFinder(sender: AnyObject){
-        //Swift.print("openInFinder")
         let idx = rightClickItemIdx!
         let hasChildren:Bool = TreeList3Asserter.hasChildren(treeList,idx)
         if !hasChildren {/*Only repos can be opened in finder*/
@@ -139,12 +138,12 @@ extension RepoContextMenu{
         }
     }
     func openURL(sender:AnyObject){
-        /*let idx = rightClickItemIdx!
-         let itemData:ItemData = TreeListUtils.itemData(treeList.node.xml, idx)
-         if(!itemData.hasChildren){//only repos can be opened in finder
-         let repoItem = RepoUtils.repoItem(treeList.node.xml, idx)
-         NetworkUtils.openURLInDefaultBrowser(repoItem.remotePath)
-         }*/
+        let idx = rightClickItemIdx!
+        let hasChildren:Bool = TreeList3Asserter.hasChildren(treeList,idx)
+        if !hasChildren {/*Only repos can be opened in finder*/
+            let repoItem = RepoUtils.repoItem(treeList.treeDP.tree.xml, idx)
+            NetworkUtils.openURLInDefaultBrowser(repoItem.remotePath)
+        }
     }
 }
 enum RepoMenuItem:String {
