@@ -121,11 +121,11 @@ extension RepoContextMenu{
     }
     func moveToTop(sender: AnyObject){
         let idx = rightClickItemIdx!
-         _ = TreeListModifier.moveToTop(treeList, idx)
+         _ = TreeList3Modifier.moveToTop(treeList, idx)
     }
     func moveToBottom(sender: AnyObject){
         let idx = rightClickItemIdx!
-         _ = TreeListModifier.moveToBottom(treeList, idx)
+         _ = TreeList3Modifier.moveToBottom(treeList, idx)
     }
     func showInFinder(sender: AnyObject){
         let idx = rightClickItemIdx!
