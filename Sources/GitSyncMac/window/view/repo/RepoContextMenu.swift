@@ -24,7 +24,7 @@ class RepoContextMenu:NSMenu{
         menuItems.append((.moveDown, #selector(moveDown)))
         menuItems.append((.moveTop, #selector(moveToTop)))
         menuItems.append((.moveBottom, #selector(moveToBottom)))
-        menuItems.append((.openInFinder, #selector(openInFinder)))
+        menuItems.append((.showInFinder, #selector(showInFinder)))
         menuItems.append((.openUrl, #selector(openURL)))
         //continue here: add Open in github
         menuItems.forEach{
@@ -127,13 +127,13 @@ extension RepoContextMenu{
         /*let idx = rightClickItemIdx!
          _ = TreeListModifier.moveToBottom(treeList, idx)*/
     }
-    func openInFinder(sender: AnyObject){
+    func showInFinder(sender: AnyObject){
         //Swift.print("openInFinder")
         let idx = rightClickItemIdx!
         let hasChildren:Bool = TreeList3Asserter.hasChildren(treeList,idx)
-        if(!hasChildren){/*Only repos can be opened in finder*/
+        if !hasChildren {/*Only repos can be opened in finder*/
             let repoItem = RepoUtils.repoItem(treeList.treeDP.tree.xml, idx)
-            if(FileAsserter.exists(repoItem.localPath.tildePath)){//make sure local-path exists
+            if FileAsserter.exists(repoItem.localPath.tildePath) {/*make sure local-path exists*/
                 FileUtils.showFileInFinder(repoItem.localPath)
             }
         }
@@ -159,6 +159,6 @@ enum RepoMenuItem:String {
     case moveDown = "Move down"
     case moveTop = "Move top"
     case moveBottom = "Move bottom"
-    case openInFinder = "Open in finder"
+    case showInFinder = "Show in finder"
     case openUrl = "Open URL"
 }
