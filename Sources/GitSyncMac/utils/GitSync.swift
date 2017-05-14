@@ -28,7 +28,7 @@ class GitSync{
      * Handles the process of making a push for a single repository
      * NOTE: We must always merge the remote branch into the local branch before we push our changes.
      * NOTE: this method performs a "manual pull" on every interval
-     * TODO: contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
+     * TODO: ⚠️️ Contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
      */
     static func initPush(_ repoList:[RepoItem],_ idx:Int,_ onComplete:@escaping (_ hasPushed:Bool)->Void){
         //Swift.print("initPush")
