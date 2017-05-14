@@ -7,6 +7,9 @@ enum GitCMD:String{
     case M = "M"
     case D = "D"
     case A = "A"
+    case R = "R"
+    case QQ = "??"
+    case UU = "UU"
 }
 class CommitUtils{
 	/**
