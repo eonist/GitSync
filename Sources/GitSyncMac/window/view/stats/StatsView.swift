@@ -6,7 +6,7 @@ import Cocoa
  * TODO: When entering the Graph component, you should animate the graph component from the old data to the new data, if there is new data. Very satesfiyng seeing your day commit graph go up after a long day of work
  */
 class StatsView:Element {
-    var graph:Graph9?
+    //var graph:Graph9?
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
         //Swift.print("StatsView.width: " + "\(width)")
