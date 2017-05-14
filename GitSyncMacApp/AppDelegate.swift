@@ -23,6 +23,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //work on const to enum? and more structs 🏀
             //run ElementExplorer ✅
+            //clean up some of the git classes
+            //start on Graph3
+                //do prototype that has a nice 
         
     }
     /**
