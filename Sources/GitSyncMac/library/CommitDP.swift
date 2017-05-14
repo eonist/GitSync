@@ -15,7 +15,7 @@ extension CommitDP{
      */
     func addCommitItem(_ item:[String:String]){
         let closestIdx:Int = CommitDP.closestIndex(items, item, 0, items.endIndex)
-        if(!Utils.existAtOrBefore(items,closestIdx,item)){//TODO:ideally this should be handled in the binarySearch algo, but this is a quick fix, that doesnt hurt performance
+        if(!Utils.existAtOrBefore(items,closestIdx,item)){//TODO: ideally this should be handled in the binarySearch algo, but this is a quick fix, that doesnt hurt performance
             //Swift.print("📝 insert at: \(closestIdx) item.date: \(GitDateUtils.gitTime(item["sortableDate"]!))" )
             addItemAt(item, closestIdx)
             //_ = items.insertAt(item, closestIdx)
