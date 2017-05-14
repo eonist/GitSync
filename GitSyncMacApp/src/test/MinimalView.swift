@@ -98,7 +98,7 @@ class MinimalView:WindowView{
         btn.event = { event in
             if(event.type == ButtonEvent.upInside){
                 Swift.print("click")
-                var style:IStyle = StyleModifier.clone(checkBox1.skin!.style!)//We need to clone the style so not to change the style on other UI elements
+                var style:Style = StyleModifier.clone(checkBox1.skin!.style!) as! Style//We need to clone the style so not to change the style on other UI elements
                 
                 var marginLeft0:IStyleProperty = style.getStyleProperty("margin-left",0)!
                 marginLeft0.value = 20
