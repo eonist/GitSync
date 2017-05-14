@@ -111,7 +111,7 @@ class RefreshUtils{
         }else {//< 100
              commitCount  = (100)//You need to top up dp with 100 if dp.count = 0, ⚠️️ this works because later this value is cliped to max of repo.commits.count
         }
-        group.notify(queue: bg, execute: {//TODO: reaplce bg with main, then remove main.async. just call onComplete?
+        group.notify(queue: main, execute: {//TODO: reaplce bg with main, then remove main.async. just call onComplete?
             let clippedCommitCount = Swift.min(totCommitCount,commitCount)
             onComplete(clippedCommitCount)/*🚪➡️️*/
         })
