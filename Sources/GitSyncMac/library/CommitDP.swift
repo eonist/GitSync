@@ -28,8 +28,8 @@ extension CommitDP{
      * NOTE: Binary search compares the target value to the middle element of the array; if they are unequal, the half in which the target cannot lie is eliminated and the search continues on the remaining half until it is successful.
      * NOTE: Binary search runs in at worst logarithmic time, making O(log n) comparisons, where n is the number of elements in the array and log is the logarithm. Binary search takes only constant (O(1)) space, meaning that the space taken by the algorithm is the same for any number of elements in the array.[5] Although specialized data structures designed for fast searching—such as hash tables—can be searched more efficiently, binary search applies to a wider range of search problems.
      * NOTE: This implementation of binary search is recursive (it calls it self) (Binary search is recursive in nature because you apply the same logic over and over again to smaller and smaller subarrays.)
-     * IMPORTANT: Although the idea is simple, implementing binary search correctly requires attention to some subtleties about its exit conditions and midpoint calculation.
-     * IMPORTANT: Note that the numbers array is sorted. The binary search algorithm does not work otherwise!
+     * IMPORTANT: ⚠️️ Although the idea is simple, implementing binary search correctly requires attention to some subtleties about its exit conditions and midpoint calculation.
+     * IMPORTANT: ⚠️️ Note that the numbers array is sorted. The binary search algorithm does not work otherwise!
      * DISCUSSION: Is it a problem that the array must be sorted first? It depends. Keep in mind that sorting takes time -- the combination of binary search plus sorting may be slower than doing a simple linear search. Binary search shines in situations where you sort just once and then do many searches.
      * TRIVIA:  YOu can also implement binary serach as iterative implementation by using a while loop
      * TODO: use range instead of start and end int?!?

@@ -22,7 +22,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //hitTesting()
         
         //work on const to enum? and more structs 🏀
-            //run ElementExplorer
+            //run ElementExplorer ✅
         
     }
     /**
