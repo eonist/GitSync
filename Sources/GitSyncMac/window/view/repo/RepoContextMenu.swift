@@ -41,7 +41,6 @@ class RepoContextMenu:NSMenu{
  * Right click Context menu methods
  */
 extension RepoContextMenu{
-    
     /**
      * TODO: A bug is that when you add a folder and its the last item then the list isnt resized
      */
@@ -65,7 +64,7 @@ extension RepoContextMenu{
         treeList.insert(newIdx,tree)
         //Swift.print("Promt repo name popup")
     }
-    func duplicate(sender: AnyObject) {
+    func duplicate(sender:AnyObject) {
         Swift.print("duplicate")
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
@@ -74,7 +73,7 @@ extension RepoContextMenu{
             treeList.insert(newIdx, tree)
         }
     }
-    func doCopy(sender: AnyObject) {
+    func doCopy(sender:AnyObject) {
         Swift.print("copy")
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
@@ -83,7 +82,7 @@ extension RepoContextMenu{
             Swift.print("clipBoard: " + "\(clipBoard)")
         }
     }
-    func cut(sender: AnyObject) {
+    func cut(sender:AnyObject) {
         Swift.print("cut")
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
@@ -93,7 +92,7 @@ extension RepoContextMenu{
             Swift.print("clipBoard: " + "\(clipBoard)")
         }
     }
-    func paste(sender: AnyObject) {
+    func paste(sender:AnyObject) {
         Swift.print("paste")
         if let idx = rightClickItemIdx, let clipBoard:XML = clipBoard{
             //Swift.print("clipBoard: " + "\(self.clipBoard)")
@@ -137,18 +136,20 @@ extension RepoContextMenu{
         Swift.print("showInFinder")
         if let idx = rightClickItemIdx, !TreeList3Asserter.hasChildren(treeList,idx) {
             /*Only repos can be opened in finder*/
-            let repoItem = RepoUtils.repoItem(treeList.treeDP.tree.xml, idx)
+            let repoItem = RepoUtils.repoItem(treeList.xml, idx)
             if FileAsserter.exists(repoItem.localPath.tildePath) {/*make sure local-path exists*/
                 FileUtils.showFileInFinder(repoItem.localPath)
             }
         }
     }
     func openURL(sender:AnyObject){
-        let idx = rightClickItemIdx!
-        let hasChildren:Bool = treeList.hasChildren(idx)
-        if !hasChildren {/*Only repos can be opened in finder*/
-            let repoItem = RepoUtils.repoItem(treeList.treeDP.tree.xml, idx)
-            NetworkUtils.openURLInDefaultBrowser(repoItem.remotePath)
+        Swift.print("openURL")
+        if let idx = rightClickItemIdx {
+            let hasChildren:Bool = treeList.hasChildren(idx)
+            if !hasChildren {/*Only repos can be opened in finder*/
+                let repoItem = RepoUtils.repoItem(treeList.xml, idx)
+                NetworkUtils.openURLInDefaultBrowser(repoItem.remotePath)
+            }
         }
     }
 }
