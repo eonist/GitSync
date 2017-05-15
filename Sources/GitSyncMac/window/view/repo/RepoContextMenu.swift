@@ -69,7 +69,7 @@ extension RepoContextMenu{
         Swift.print("duplicate")
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
-        if let tree = treeList.treeDP.tree[idx] {
+        if let tree = treeList.tree[idx] {
             let newIdx = Utils.newIdx(treeList,idx)
             treeList.insert(newIdx, tree)
         }
@@ -105,7 +105,7 @@ extension RepoContextMenu{
     func delete(sender:AnyObject) {
         Swift.print("delete")
         if let idx = rightClickItemIdx {
-            _ = treeList.remove(idx)
+            treeList.remove(idx)
         }
     }
     /*move up down top bottom.*/
