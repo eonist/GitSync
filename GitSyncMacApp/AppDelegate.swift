@@ -21,6 +21,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initMinimalWin()
         //hitTesting()
         
+        print(TreeUtils.parentIndex([2,1,1,2]))
+        
         //let a:String = "<item title=\"New folder\" isOpen=\"false\" hasChildren=\"true\"></item>"
         //treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
         //let tree = TreeConverter.tree(a.xml)
