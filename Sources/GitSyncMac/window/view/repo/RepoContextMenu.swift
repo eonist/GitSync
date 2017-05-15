@@ -33,8 +33,8 @@ class RepoContextMenu:NSMenu{
             self.addItem(menuItem)
             menuItem.target = self
         }
-        self.insertItem(NSMenuItem.separator(), at: 6)/*Separator*/
-        self.insertItem(NSMenuItem.separator(), at: 11)/*Separator*/
+        self.insertItem(NSMenuItem.separator(), at: 7)/*Separator*/
+        self.insertItem(NSMenuItem.separator(), at: 12)/*Separator*/
     }
     required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
