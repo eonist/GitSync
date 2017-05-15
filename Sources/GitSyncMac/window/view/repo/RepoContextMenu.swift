@@ -101,8 +101,8 @@ extension RepoContextMenu{
         if(clipBoard != nil){
             //"<item title=\"Fish\"/>".xml
             //Swift.print("clipBoard: " + "\(self.clipBoard)")
-            let idx = rightClickItemIdx!
-            treeList.add(newIdx(idx), clipBoard!.copy() as! XML)
+            /*let idx = rightClickItemIdx!
+             treeList.node.addAt(newIdx(idx), clipBoard!.copy() as! XML)*/
         }
     }
     func delete(sender: AnyObject) {
@@ -115,6 +115,7 @@ extension RepoContextMenu{
         //let idx = rightClickItemIdx!
         
         //continue here 🏀
+            //get the cut paste etc working 👈
             // return 3d idx and update 2d list. Check collapse first to see how it works. also how remove and add works etc
         
         //let idxAbove:Int = TreeModifier.moveUp(&treeList.treeDP.tree, idx)//_ = TreeListModifier.moveUp(treeList, idx)
