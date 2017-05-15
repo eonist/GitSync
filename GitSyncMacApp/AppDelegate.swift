@@ -16,10 +16,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
-        initApp()
+        //initApp()
         //initTestWin()//🚧👷
         //initMinimalWin()
         //hitTesting()
+        
+        let a:String = "<item title=\"New folder\" isOpen=\"false\" hasChildren=\"true\"></item>"
+        //treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
+        let tree = TreeConverter.tree(a.xml)
+        tree.describe(tree, <#T##key: String##String#>)
         
         //work on const to enum? and more structs 🏀
             //clean up some of the git classes
