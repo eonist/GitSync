@@ -48,7 +48,7 @@ extension RepoContextMenu{
     func newFolder(sender:AnyObject) {
         Swift.print("newFolder")
         let idx = rightClickItemIdx!
-        let xmlStr:String = "<item title=\"New folder\" isOpen=\"false\" hasChildren=\"true\"></item>"
+        let xmlStr:String = "<item title=\"New folder\" isOpen=\"false\" ></item>"//hasChildren=\"true\"
         let tree = TreeConverter.tree(xmlStr.xml)//treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
         let newIdx = Utils.newIdx(treeList,idx)
         treeList.insert(newIdx,tree)
@@ -57,11 +57,11 @@ extension RepoContextMenu{
     func newRepo(sender:AnyObject) {
         Swift.print("newRepo")
         //treeList.insert([1],Tree("item",[],nil,["title":"Fish"]))/*Insert item at
-        /*let idx = rightClickItemIdx!
+        let idx = rightClickItemIdx!
          Swift.print("idx: " + "\(idx)")
          let xml:XML = ["title":"New repo","local-path":"~/Desktop/test","remote-path":"https://github.com/eonist/test.git","interval":"30","keychain-item-name":"eonist","branch":"master","broadcast":"true","subscribe":"true","auto-sync":"true"].xml
          Swift.print("xml.xmlString: " + "\(xml.xmlString)")
-         treeList.node.addAt(newIdx(idx), xml)*/
+         treeList.node.addAt(newIdx(idx), xml)/**/
         //Swift.print("Promt repo name popup")
     }
     func duplicate(sender: AnyObject) {
