@@ -107,13 +107,12 @@ extension RepoContextMenu{
     }
     func delete(sender: AnyObject) {
         Swift.print("delete")
-        /**/
         let idx = rightClickItemIdx!
-         _ = treeList.node.removeAt(idx)
+         _ = treeList.remove(idx)
     }
     /*move up down top bottom.*/
     func moveUp(sender: AnyObject){
-        let idx = rightClickItemIdx!
+        //let idx = rightClickItemIdx!
         
         //continue here 🏀
             // return 3d idx and update 2d list. Check collapse first to see how it works. also how remove and add works etc
