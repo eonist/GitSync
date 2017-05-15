@@ -177,10 +177,10 @@ private class Utils {
      * Returns a new idx
      * NOTE: isFolder -> add within, is not folder -> add bellow
      */
-    static func newIdx(_ treeList:TreeListable3,_ idx:[Int]) -> [Int] {
-        var idx = idx
+    static func newIdx(_ treeList:TreeListable3,_ idx3d:[Int]) -> [Int] {
+        var idx = idx3d
         //let itemData:ItemData3 = TreeList3Utils.itemData(treeList, idx)
-        if let tree:Tree = treeList[idx], tree.hasChi{//isFolder, add within
+        if treeList.hasChildren(idx){//isFolder, add within
             idx += [0]
         }else{/*is not folder, add bellow*/
             idx[idx.count-1] = idx.last! + 1
