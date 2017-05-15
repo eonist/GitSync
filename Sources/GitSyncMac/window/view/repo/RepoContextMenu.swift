@@ -95,19 +95,18 @@ extension RepoContextMenu{
     }
     func paste(sender: AnyObject) {
         Swift.print("paste")
-        if(clipBoard != nil){
-            if let idx = rightClickItemIdx, let clipBoard:XML = clipBoard{
-                //Swift.print("clipBoard: " + "\(self.clipBoard)")
-                let newIdx = Utils.newIdx(treeList,idx)
-                let tree = TreeConverter.tree(clipBoard)
-                treeList.insert(newIdx, tree)
-            }
+        if let idx = rightClickItemIdx, let clipBoard:XML = clipBoard{
+            //Swift.print("clipBoard: " + "\(self.clipBoard)")
+            let newIdx = Utils.newIdx(treeList,idx)
+            let tree = TreeConverter.tree(clipBoard)
+            treeList.insert(newIdx, tree)
         }
     }
     func delete(sender: AnyObject) {
         Swift.print("delete")
-        let idx = rightClickItemIdx!
-         _ = treeList.remove(idx)
+        if let idx = rightClickItemIdx {
+            _ = treeList.remove(idx)
+        }
     }
     /*move up down top bottom.*/
     func moveUp(sender: AnyObject){
