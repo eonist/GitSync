@@ -78,7 +78,7 @@ extension RepoContextMenu{
         Swift.print("copy")
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
-        if let tree = treeList.treeDP.tree[idx] {
+        if let tree:Tree = treeList[idx] {
             clipBoard = tree.xml
             Swift.print("clipBoard: " + "\(clipBoard)")
         }
