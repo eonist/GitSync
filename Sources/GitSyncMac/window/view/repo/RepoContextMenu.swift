@@ -98,12 +98,12 @@ extension RepoContextMenu{
     }
     func paste(sender: AnyObject) {
         Swift.print("paste")
-        /*if(clipBoard != nil){
-         //"<item title=\"Fish\"/>".xml
-         Swift.print("clipBoard: " + "\(self.clipBoard)")
-         let idx = rightClickItemIdx!
-         treeList.node.addAt(newIdx(idx), clipBoard!.copy() as! XML)
-         }*/
+        if(clipBoard != nil){
+            //"<item title=\"Fish\"/>".xml
+            //Swift.print("clipBoard: " + "\(self.clipBoard)")
+            let idx = rightClickItemIdx!
+            treeList.add(newIdx(idx), clipBoard!.copy() as! XML)
+        }
     }
     func delete(sender: AnyObject) {
         Swift.print("delete")
