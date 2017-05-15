@@ -58,10 +58,11 @@ extension RepoContextMenu{
         Swift.print("newRepo")
         //treeList.insert([1],Tree("item",[],nil,["title":"Fish"]))/*Insert item at
         let idx = rightClickItemIdx!
-         Swift.print("idx: " + "\(idx)")
-         let xml:XML = ["title":"New repo","local-path":"~/Desktop/test","remote-path":"https://github.com/eonist/test.git","interval":"30","keychain-item-name":"eonist","branch":"master","broadcast":"true","subscribe":"true","auto-sync":"true"].xml
-         Swift.print("xml.xmlString: " + "\(xml.xmlString)")
-         treeList.node.addAt(newIdx(idx), xml)/**/
+        Swift.print("idx: " + "\(idx)")
+        let props:[String:String] = ["title":"New repo","local-path":"~/Desktop/test","remote-path":"https://github.com/eonist/test.git","interval":"30","keychain-item-name":"eonist","branch":"master","broadcast":"true","subscribe":"true","auto-sync":"true"]
+        let tree:Tree = Tree.init("item", [], nil, props)
+        let newIdx = Utils.newIdx(treeList,idx)
+        treeList.insert(newIdx,tree)
         //Swift.print("Promt repo name popup")
     }
     func duplicate(sender: AnyObject) {
