@@ -69,7 +69,7 @@ extension RepoContextMenu{
         Swift.print("duplicate")
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
-        if let tree = treeList.tree[idx] {
+        if let tree:Tree = treeList[idx] {
             let newIdx = Utils.newIdx(treeList,idx)
             treeList.insert(newIdx, tree)
         }
@@ -87,7 +87,7 @@ extension RepoContextMenu{
         Swift.print("cut")
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
-        if let tree:Tree = treeList.treeDP.tree[idx] {
+        if let tree:Tree = treeList[idx] {
             treeList.remove(idx)
             clipBoard = tree.xml
             Swift.print("clipBoard: " + "\(clipBoard)")
