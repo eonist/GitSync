@@ -110,29 +110,33 @@ extension RepoContextMenu{
     }
     /*move up down top bottom.*/
     func moveUp(sender:AnyObject){
+        Swift.print("moveUp")
         if let idx3d = rightClickItemIdx {
             TreeList3Modifier.moveUp(treeList, idx3d)
         }
     }
     func moveDown(sender:AnyObject){
+        Swift.print("moveDown")
         if let idx3d = rightClickItemIdx {
             TreeList3Modifier.moveDown(treeList, idx3d)
         }
     }
     func moveToTop(sender:AnyObject){
+        Swift.print("moveToTop")
         if let idx3d = rightClickItemIdx {
             TreeList3Modifier.moveTop(treeList, idx3d)
         }
     }
     func moveToBottom(sender:AnyObject){
+        Swift.print("moveToBottom")
         if let idx3d = rightClickItemIdx {
             TreeList3Modifier.moveBottom(treeList, idx3d)
         }
     }
     func showInFinder(sender:AnyObject){
-        let idx = rightClickItemIdx!
-        let hasChildren:Bool = TreeList3Asserter.hasChildren(treeList,idx)
-        if !hasChildren {/*Only repos can be opened in finder*/
+        Swift.print("showInFinder")
+        if let idx = rightClickItemIdx, !TreeList3Asserter.hasChildren(treeList,idx) {
+            /*Only repos can be opened in finder*/
             let repoItem = RepoUtils.repoItem(treeList.treeDP.tree.xml, idx)
             if FileAsserter.exists(repoItem.localPath.tildePath) {/*make sure local-path exists*/
                 FileUtils.showFileInFinder(repoItem.localPath)
