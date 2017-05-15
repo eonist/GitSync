@@ -112,20 +112,20 @@ extension RepoContextMenu{
     }
     /*move up down top bottom.*/
     func moveUp(sender: AnyObject){
-        /*let idx = rightClickItemIdx!
-         _ = TreeListModifier.moveUp(treeList, idx)*/
+        let idx = rightClickItemIdx!
+         _ = TreeListModifier.moveUp(treeList, idx)
     }
     func moveDown(sender: AnyObject){
         /*let idx = rightClickItemIdx!
          _ = TreeListModifier.moveDown(treeList, idx)*/
     }
     func moveToTop(sender: AnyObject){
-        let idx = rightClickItemIdx!
-         _ = TreeList3AdvanceModifier.moveToTop(treeList, idx)
+        /*let idx = rightClickItemIdx!
+         _ = TreeList3AdvanceModifier.moveToTop(treeList, idx)*/
     }
     func moveToBottom(sender: AnyObject){
-        let idx = rightClickItemIdx!
-         _ = TreeList3AdvanceModifier.moveToBottom(treeList, idx)
+        /*let idx = rightClickItemIdx!
+         _ = TreeList3AdvanceModifier.moveToBottom(treeList, idx)*/
     }
     func showInFinder(sender: AnyObject){
         let idx = rightClickItemIdx!
