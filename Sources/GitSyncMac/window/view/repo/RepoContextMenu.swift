@@ -141,7 +141,7 @@ extension RepoContextMenu{
     }
     func openURL(sender:AnyObject){
         let idx = rightClickItemIdx!
-        let hasChildren:Bool = TreeList3Asserter.hasChildren(treeList,idx)
+        let hasChildren:Bool = treeList.hasChildren(idx)
         if !hasChildren {/*Only repos can be opened in finder*/
             let repoItem = RepoUtils.repoItem(treeList.treeDP.tree.xml, idx)
             NetworkUtils.openURLInDefaultBrowser(repoItem.remotePath)
