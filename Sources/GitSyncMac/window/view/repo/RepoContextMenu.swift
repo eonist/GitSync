@@ -109,31 +109,27 @@ extension RepoContextMenu{
         }
     }
     /*move up down top bottom.*/
-    func moveUp(sender: AnyObject){
-        //let idx = rightClickItemIdx!
-        
-        //continue here 🏀
-            //get the cut paste etc working 👈
-            // return 3d idx and update 2d list. Check collapse first to see how it works. also how remove and add works etc
-        if let idx = rightClickItemIdx {
-            let newIdx:[Int] = TreeModifier.moveUp(&treeList.treeDP.tree, idx)//_ = TreeListModifier.moveUp(treeList, idx)
-            
+    func moveUp(sender:AnyObject){
+        if let idx3d = rightClickItemIdx {
+            TreeList3Modifier.moveUp(treeList, idx3d)
         }
-        
     }
-    func moveDown(sender: AnyObject){
-        /*let idx = rightClickItemIdx!
-         _ = TreeListModifier.moveDown(treeList, idx)*/
+    func moveDown(sender:AnyObject){
+        if let idx3d = rightClickItemIdx {
+            TreeList3Modifier.moveDown(treeList, idx3d)
+        }
     }
-    func moveToTop(sender: AnyObject){
-        /*let idx = rightClickItemIdx!
-         _ = TreeList3AdvanceModifier.moveToTop(treeList, idx)*/
+    func moveToTop(sender:AnyObject){
+        if let idx3d = rightClickItemIdx {
+            TreeList3Modifier.moveTop(treeList, idx3d)
+        }
     }
-    func moveToBottom(sender: AnyObject){
-        /*let idx = rightClickItemIdx!
-         _ = TreeList3AdvanceModifier.moveToBottom(treeList, idx)*/
+    func moveToBottom(sender:AnyObject){
+        if let idx3d = rightClickItemIdx {
+            TreeList3Modifier.moveBottom(treeList, idx3d)
+        }
     }
-    func showInFinder(sender: AnyObject){
+    func showInFinder(sender:AnyObject){
         let idx = rightClickItemIdx!
         let hasChildren:Bool = TreeList3Asserter.hasChildren(treeList,idx)
         if !hasChildren {/*Only repos can be opened in finder*/
