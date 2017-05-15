@@ -67,10 +67,11 @@ extension RepoContextMenu{
     }
     func duplicate(sender: AnyObject) {
         Swift.print("duplicate")
-        /*let idx = rightClickItemIdx!
-         Swift.print("idx: " + "\(idx)")
-         let xml:XML = treeList.node.xml.childAt(idx)!
-         treeList.node.addAt(newIdx(idx), xml.copy() as! XML)*/
+        let idx = rightClickItemIdx!
+        Swift.print("idx: " + "\(idx)")
+        let tree = treeList.treeDP.tree[idx]
+        //let xml:XML = treeList.node.xml.childAt(idx)!
+        //treeList.node.addAt(newIdx(idx), xml.copy() as! XML)
     }
     func doCopy(sender: AnyObject) {
         Swift.print("copy")
