@@ -21,9 +21,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initMinimalWin()
         //hitTesting()
         
-        let a:String = "<item title=\"New folder\" isOpen=\"false\" hasChildren=\"true\"></item>"
+        //let a:String = "<item title=\"New folder\" isOpen=\"false\" hasChildren=\"true\"></item>"
         //treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
-        let tree = TreeConverter.tree(a.xml)
+        //let tree = TreeConverter.tree(a.xml)
         
         
         //work on const to enum? and more structs 🏀
