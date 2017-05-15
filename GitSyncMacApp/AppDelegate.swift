@@ -26,7 +26,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let tree = TreeConverter.tree(a.xml)
         Swift.print("tree.name: " + "\(tree.name)")
         Swift.print("tree.content: " + "\(tree.content)")
-        tree.
+        Swift.print("tree.children: " + "\(tree.children)")
+        Swift.print("tree.props: " + "\(tree.props)")
         
         //work on const to enum? and more structs 🏀
             //clean up some of the git classes
