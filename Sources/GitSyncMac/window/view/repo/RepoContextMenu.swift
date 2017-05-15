@@ -107,6 +107,9 @@ extension RepoContextMenu{
         if let idx = rightClickItemIdx {
             treeList.remove(idx)
         }
+        treeList.hashList.forEach {
+            Swift.print("$0: " + "\($0)")
+        }
     }
     /*move up down top bottom.*/
     func moveUp(sender:AnyObject){
