@@ -117,6 +117,7 @@ extension RepoContextMenu{
             // return 3d idx and update 2d list. Check collapse first to see how it works. also how remove and add works etc
         if let idx = rightClickItemIdx {
             let idxAbove:Int = TreeModifier.moveUp(&treeList.treeDP.tree, idx)//_ = TreeListModifier.moveUp(treeList, idx)
+            
         }
         
     }
