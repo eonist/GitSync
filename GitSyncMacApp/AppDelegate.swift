@@ -16,14 +16,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
-        //initApp()
+        initApp()
         //initTestWin()//🚧👷
         //initMinimalWin()
         //hitTesting()
         
-        print()
-        TreeUtils.parentIndex([2,1,1,2])
-        [2, 1, 1]
         
         //let a:String = "<item title=\"New folder\" isOpen=\"false\" hasChildren=\"true\"></item>"
         //treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
