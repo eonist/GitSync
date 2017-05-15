@@ -1,7 +1,10 @@
 import Cocoa
 @testable import Utils
 @testable import Element
-//enum
+
+//Continue here:
+    //
+
 /**
  * Right click context menu
  */
