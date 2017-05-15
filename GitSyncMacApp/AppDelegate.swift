@@ -24,7 +24,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let a:String = "<item title=\"New folder\" isOpen=\"false\" hasChildren=\"true\"></item>"
         //treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
         let tree = TreeConverter.tree(a.xml)
-        tree.describe(tree, <#T##key: String##String#>)
+        Swift.print("tree.name: " + "\(tree.name)")
+        Swift.print("tree.content: " + "\(tree.content)")
+        tree.
         
         //work on const to enum? and more structs 🏀
             //clean up some of the git classes
