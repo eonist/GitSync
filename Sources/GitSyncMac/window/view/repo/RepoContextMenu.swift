@@ -50,7 +50,8 @@ extension RepoContextMenu{
         let idx = rightClickItemIdx!
         let xmlStr:String = "<item title=\"New folder\" isOpen=\"false\" hasChildren=\"true\"></item>"
         let tree = TreeConverter.tree(xmlStr.xml)//treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
-        treeList.insert(Utils.newIdx(idx),tree)
+        let newIdx = Utils.newIdx(treeList,idx)
+        treeList.insert(newIdx,tree)
         Swift.print("Promt folder name popup")
     }
     func newRepo(sender:AnyObject) {
