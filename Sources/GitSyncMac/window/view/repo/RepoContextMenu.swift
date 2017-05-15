@@ -180,7 +180,7 @@ private class Utils {
     static func newIdx(_ treeList:TreeListable3,_ idx:[Int]) -> [Int] {
         var idx = idx
         //let itemData:ItemData3 = TreeList3Utils.itemData(treeList, idx)
-        if let hasChildren = treeList[idx,"hasChildren"],hasChildren == "true"{//isFolder, add within
+        if let tree:Tree = treeList[idx], tree.hasChi{//isFolder, add within
             idx += [0]
         }else{/*is not folder, add bellow*/
             idx[idx.count-1] = idx.last! + 1
