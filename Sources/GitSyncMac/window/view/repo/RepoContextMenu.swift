@@ -76,11 +76,11 @@ extension RepoContextMenu{
     }
     func doCopy(sender: AnyObject) {
         Swift.print("copy")
-        /*let idx = rightClickItemIdx!
-         Swift.print("idx: " + "\(idx)")
-         let xml:XML = treeList.node.xml.childAt(idx)!
-         clipBoard = xml
-         Swift.print("clipBoard: " + "\(clipBoard)")*/
+        let idx = rightClickItemIdx!
+        Swift.print("idx: " + "\(idx)")
+        let xml:XML = treeList.node.xml.childAt(idx)!
+        clipBoard = xml
+        Swift.print("clipBoard: " + "\(clipBoard)")
     }
     func cut(sender: AnyObject) {
         Swift.print("cut")
