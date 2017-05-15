@@ -41,20 +41,7 @@ class RepoContextMenu:NSMenu{
  * Right click Context menu methods
  */
 extension RepoContextMenu{
-    /**
-     * Returns a new idx
-     * NOTE: isFolder -> add within, is not folder -> add bellow
-     */
-    func newIdx(_ idx:[Int]) -> [Int] {
-        var idx = idx
-        //let itemData:ItemData3 = TreeList3Utils.itemData(treeList, idx)
-        if let hasChildren = treeList[idx,"hasChildren"],hasChildren == "true"{//isFolder, add within
-            idx += [0]
-        }else{/*is not folder, add bellow*/
-            idx[idx.count-1] = idx.last! + 1
-        }
-        return idx
-    }
+    
     /**
      * TODO: A bug is that when you add a folder and its the last item then the list isnt resized
      */
@@ -63,7 +50,7 @@ extension RepoContextMenu{
         let idx = rightClickItemIdx!
         let xmlStr:String = "<item title=\"New folder\" isOpen=\"false\" hasChildren=\"true\"></item>"
         let tree = TreeConverter.tree(xmlStr.xml)//treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
-        treeList.insert([1],)
+        treeList.insert(Utils.newIdx(idx),tree)
         Swift.print("Promt folder name popup")
     }
     func newRepo(sender:AnyObject) {
@@ -167,4 +154,20 @@ enum RepoMenuItem:String {
     case moveBottom = "Move bottom"
     case showInFinder = "Show in finder"
     case openUrl = "Open URL"
+}
+private class Utils {
+    /**
+     * Returns a new idx
+     * NOTE: isFolder -> add within, is not folder -> add bellow
+     */
+    static func newIdx(_ treeList:TreeListable3,_ idx:[Int]) -> [Int] {
+        var idx = idx
+        //let itemData:ItemData3 = TreeList3Utils.itemData(treeList, idx)
+        if let hasChildren = treeList[idx,"hasChildren"],hasChildren == "true"{//isFolder, add within
+            idx += [0]
+        }else{/*is not folder, add bellow*/
+            idx[idx.count-1] = idx.last! + 1
+        }
+        return idx
+    }
 }
