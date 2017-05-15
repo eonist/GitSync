@@ -69,9 +69,10 @@ extension RepoContextMenu{
         Swift.print("duplicate")
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
-        let tree = treeList.treeDP.tree[idx]
-        //let xml:XML = treeList.node.xml.childAt(idx)!
-        //treeList.node.addAt(newIdx(idx), xml.copy() as! XML)
+        if let tree = treeList.treeDP.tree[idx] {
+            let newIdx = Utils.newIdx(treeList,idx)
+            treeList.insert(newIdx, tree)
+        }
     }
     func doCopy(sender: AnyObject) {
         Swift.print("copy")
