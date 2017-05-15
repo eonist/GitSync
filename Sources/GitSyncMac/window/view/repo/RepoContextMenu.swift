@@ -106,7 +106,7 @@ extension RepoContextMenu{
         Swift.print("delete")
         if let idx = rightClickItemIdx {
             _ = treeList.remove(idx)
-        }
+        } 
     }
     /*move up down top bottom.*/
     func moveUp(sender: AnyObject){
