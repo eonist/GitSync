@@ -113,6 +113,10 @@ extension RepoContextMenu{
     /*move up down top bottom.*/
     func moveUp(sender: AnyObject){
         let idx = rightClickItemIdx!
+        
+        //continue here 🏀
+            // return 3d idx and update 2d list. Check collapse first to see how it works. also how remove and add works etc
+        
         //let idxAbove:Int = TreeModifier.moveUp(&treeList.treeDP.tree, idx)//_ = TreeListModifier.moveUp(treeList, idx)
     }
     func moveDown(sender: AnyObject){
