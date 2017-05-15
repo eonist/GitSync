@@ -33,8 +33,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //do prototype that has a interpolates the graph points nicly as you scroll
                 //store the commit count for all projects in a DataProvider 
                     //must also allow adding/removal of repos
-            //Add back the Right click edits tree list feature
-            //Move the RepoDetail view into RepoView. find the print screen with aligned UI elements
+            //Add back the Right click edits tree list feature 👈
+            //Move the RepoDetail view into RepoView. find the print screen with aligned UI elements 👈
         
         
     }
