@@ -43,7 +43,6 @@ class RepoDetailView:ElasticSlideScrollView3 {
     lazy var autoSyncIntervalLeverSpinner:LeverSpinner = {
         return self.contentContainer.addSubView(LeverSpinner(self.width, 32, "Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self.contentContainer))
     }()
-    
     override func resolveSkin() {
         super.resolveSkin()/*self.skin = SkinResolver.skin(self)*/
         //Swift.print("RepoDetailView.width: " + "\(width)")
