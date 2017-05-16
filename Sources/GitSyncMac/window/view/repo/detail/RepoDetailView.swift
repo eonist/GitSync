@@ -87,6 +87,7 @@ class RepoDetailView:ElasticSlideScrollView3 {
             Swift.print("✨ Update dp with: attrib: " + "\(attrib)")
             RepoView.treeDP.tree[idx3d]!.props = attrib//RepoView.node.setAttributeAt(i, attrib)
             if let tree:Tree = RepoView.treeDP.tree[idx3d]{
+                Swift.print("title: " + "\(tree.props?["title"])")
                 Swift.print("node.xml.xmlString: " + "\(tree.xml.xmlString)")
             }
         }
