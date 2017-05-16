@@ -21,7 +21,6 @@ class RepoView:Element {
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         treeList = addSubView(TreeList3(width, height-60, CGSize(24,24), RepoView.treeDP, self))
-        
         contextMenu = RepoContextMenu(treeList!)
         //if(RepoView.selectedListItemIndex.count > 0){TreeListModifier.selectAt(treeList!, RepoView.selectedListItemIndex)}
     }
