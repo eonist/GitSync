@@ -71,13 +71,13 @@ class RepoDetailView:ElasticSlideScrollView3 {
             switch true{
                 /*CheckButtons*/
                 case event.isChildOf(uploadCheckBoxButton!):
-                    attrib[RepoItemType.upload] = uploadCheckBoxButton!.getChecked().description//String((event as! CheckEvent).isChecked)
+                    attrib[RepoItemType.upload] = uploadCheckBoxButton!.getChecked().str//String((event as! CheckEvent).isChecked)
                 case event.isChildOf(downloadCheckBoxButton!):
-                    attrib[RepoItemType.download] = String((event as! CheckEvent).isChecked)
+                    attrib[RepoItemType.download] = downloadCheckBoxButton!.getChecked().str
                 case event.isChildOf(activeCheckBoxButton)://TODO: <---use getChecked here
-                    attrib[RepoItemType.active] = String((event as! CheckEvent).isChecked)
+                    attrib[RepoItemType.active] = activeCheckBoxButton!.getChecked().str
                 case event.isChildOf(messageCheckBoxButton):
-                    attrib[RepoItemType.autoCommitMessage] = String((event as! CheckEvent).isChecked)
+                    attrib[RepoItemType.autoCommitMessage] = messageCheckBoxButton!.getChecked().str
                 case event.isChildOf(pullCheckBoxButton):
                     attrib[RepoItemType.pullToAutoSync] = String((event as! CheckEvent).isChecked)
                 case event.isChildOf(fileChangeCheckBoxButton):
