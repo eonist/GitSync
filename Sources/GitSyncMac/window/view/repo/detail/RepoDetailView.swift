@@ -55,8 +55,13 @@ class RepoDetailView:ElasticSlideScrollView3 {
             /*LeverSpinner*/
             case event == (SpinnerEvent.change, autoSyncIntervalLeverSpinner!):
                 attrib[RepoItemType.interval] = (event as! SpinnerEvent).value.string
-            case 3...8:
-                print("range from 3 to 8")
+            /*TextInput*/
+            case event == (Event.update,nameTextInput!):
+                attrib[RepoItemType.title] = (event as! TextFieldEvent).stringValue
+            case event == (Event.update,localPathTextInput!):
+                attrib[RepoItemType.localPath] = (event as! TextFieldEvent).stringValue
+            case event == (Event.update,remotePathTextInput!)
+                
             default:
                 break;
         }
@@ -64,13 +69,7 @@ class RepoDetailView:ElasticSlideScrollView3 {
         
         if(){
             
-        }
-        /*TextInput*/
-        else if(event == (Event.update,nameTextInput!)){
-            attrib[RepoItemType.title] = (event as! TextFieldEvent).stringValue
-        }else if(event == (Event.update,localPathTextInput!)){
-            attrib[RepoItemType.localPath] = (event as! TextFieldEvent).stringValue
-        }else if(event == (Event.update,remotePathTextInput!)){
+        }else if(){
             attrib[RepoItemType.remotePath] = (event as! TextFieldEvent).stringValue
         }else if(event == (Event.update,remotePathTextInput!)){
             attrib[RepoItemType.branch] = (event as! TextFieldEvent).stringValue
