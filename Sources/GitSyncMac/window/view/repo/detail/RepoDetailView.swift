@@ -7,57 +7,24 @@ class RepoDetailView:ElasticSlideScrollView3 {
     override var contentSize:CGSize {return CGSize(NaN,(12 * 24)+64) }
     override var itemSize:CGSize {return CGSize(NaN,24)}
     /*TextInput*/
-    lazy var nameTextInput:TextInput = {
-         return self.contentContainer.addSubView(TextInput(self.width, 32, "Name: ", "", self.contentContainer))
-    }()
-    lazy var localPathTextInput:TextInput = {
-         return self.contentContainer.addSubView(TextInput(self.width, 32, "Local-path: ", "", self.contentContainer))
-    }()
-    lazy var remotePathTextInput:TextInput = {
-        return self.contentContainer.addSubView(TextInput(self.width, 32, "Remote-path: ", "", self.contentContainer))
-    }()
-    lazy var branchTextInput:TextInput = {
-        return self.contentContainer.addSubView(TextInput(self.width, 32, "Branch: ", "", self.contentContainer))//branch-text-input: master is default, set to dev for instance
-    }()
+    lazy var nameTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Name: ", "", self.contentContainer))}()
+    lazy var localPathTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Local-path: ", "", self.contentContainer))}()
+    lazy var remotePathTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Remote-path: ", "", self.contentContainer))}()
+    lazy var branchTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Branch: ", "", self.contentContainer))}()//branch-text-input: master is default, set to dev for instance
     /*CheckButtons*/
-    lazy var uploadCheckBoxButton:CheckBoxButton = {
-        return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Upload:", false, self.contentContainer))
-    }()
-    lazy var downloadCheckBoxButton:CheckBoxButton = {
-        return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Download:", false, self.contentContainer))//to disable an item uncheck broadcast and subscribe
-    }()
-    lazy var activeCheckBoxButton:CheckBoxButton = {
-        return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Active:", false, self.contentContainer))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
-    }()
-    lazy var messageCheckBoxButton:CheckBoxButton = {
-        return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Auto message:", false, self.contentContainer))
-    }()
-    lazy var intervalCheckBoxButton:CheckBoxButton = {
-        return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Interval:", false, self.contentContainer))
-    }()
-    lazy var fileChangeCheckBoxButton:CheckBoxButton = {
-        return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "File change:", false, self.contentContainer))
-    }()
-    var pullCheckBoxButton:CheckBoxButton?
+    lazy var uploadCheckBoxButton:CheckBoxButton = {return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Upload:", false, self.contentContainer))}()
+    lazy var downloadCheckBoxButton:CheckBoxButton = {return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Download:", false, self.contentContainer))}()//to disable an item uncheck broadcast and subscribe
+    lazy var activeCheckBoxButton:CheckBoxButton = {return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Active:", false, self.contentContainer))}()//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
+    lazy var messageCheckBoxButton:CheckBoxButton = {return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Auto message:", false, self.contentContainer))}()
+    lazy var intervalCheckBoxButton:CheckBoxButton = {return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Interval:", false, self.contentContainer))}()
+    lazy var fileChangeCheckBoxButton:CheckBoxButton = {return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "File change:", false, self.contentContainer))}()
+    lazy var pullCheckBoxButton:CheckBoxButton = {return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Pull to refresh:", false, self.contentContainer))}()
     /*LeverSpinner*/
-    lazy var autoSyncIntervalLeverSpinner:LeverSpinner = {
-        return self.contentContainer.addSubView(LeverSpinner(self.width, 32, "Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self.contentContainer))
-    }()
+    lazy var autoSyncIntervalLeverSpinner:LeverSpinner = {return self.contentContainer.addSubView(LeverSpinner(self.width, 32, "Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self.contentContainer))}()
     override func resolveSkin() {
         super.resolveSkin()/*self.skin = SkinResolver.skin(self)*/
         //Swift.print("RepoDetailView.width: " + "\(width)")
-        _ = nameTextInput
-        _ = localPathTextInput
-        _ = remotePathTextInput
-        _ = branchTextInput
-        _ = autoSyncIntervalLeverSpinner
-        _ = downloadCheckBoxButton
-        _ = uploadCheckBoxButton
-        _ = activeCheckBoxButton
-        _ = pullCheckBoxButton
-        _ = fileChangeCheckBoxButton
-        _ = messageCheckBoxButton
-        _ = intervalCheckBoxButton
+        _ = [nameTextInput,localPathTextInput,remotePathTextInput,branchTextInput,autoSyncIntervalLeverSpinner,downloadCheckBoxButton,uploadCheckBoxButton,activeCheckBoxButton,pullCheckBoxButton,fileChangeCheckBoxButton,messageCheckBoxButton,intervalCheckBoxButton]
     }
     /**
      * Modifies the dataProvider item on UI change
