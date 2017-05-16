@@ -51,18 +51,19 @@ class RepoDetailView:ElasticSlideScrollView3 {
         var attrib:[String:String] = RepoView.treeDP.tree[i]!.props!//XMLParser.attributesAt(RepoView.node.xml, i)!
         
         
-        switch someVal{
-            case 1:
-                printin("one")
+        switch true{
+            /*LeverSpinner*/
+            case event == (SpinnerEvent.change, autoSyncIntervalLeverSpinner!):
+                attrib[RepoItemType.interval] = (event as! SpinnerEvent).value.string
             case 3...8:
-                printin("range from 3 to 8")
+                print("range from 3 to 8")
             default:
                 break;
         }
         
-        /*LeverSpinner*/
-        if(event == (SpinnerEvent.change, autoSyncIntervalLeverSpinner!)){
-            attrib[RepoItemType.interval] = (event as! SpinnerEvent).value.string
+        
+        if(){
+            
         }
         /*TextInput*/
         else if(event == (Event.update,nameTextInput!)){
