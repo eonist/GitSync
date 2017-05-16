@@ -21,16 +21,20 @@ class RepoDetailView:ElasticSlideScrollView3 {
     }()
     /*CheckButtons*/
     lazy var uploadCheckBoxButton:CheckBoxButton = {
-        return contentContainer.addSubView(CheckBoxButton(width, 32, "Upload:", false, contentContainer))
+        return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Upload:", false, self.contentContainer))
     }()
     lazy var downloadCheckBoxButton:CheckBoxButton = {
-        
+        return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Download:", false, self.contentContainer))//to disable an item uncheck broadcast and subscribe
     }()
     lazy var activeCheckBoxButton:CheckBoxButton = {
+        return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Active:", false, self.contentContainer))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
+    }()
+    var messageCheckBoxButton:CheckBoxButton = {
+        return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Auto message:", false, self.contentContainer))
+    }()
+    var intervalCheckBoxButton:CheckBoxButton = {
         
     }()
-    var messageCheckBoxButton:CheckBoxButton?
-    var intervalCheckBoxButton:CheckBoxButton?
     var fileChangeCheckBoxButton:CheckBoxButton?
     var pullCheckBoxButton:CheckBoxButton?
     /*LeverSpinner*/
@@ -46,12 +50,12 @@ class RepoDetailView:ElasticSlideScrollView3 {
         _ = remotePathTextInput
         _ = branchTextInput
         _ = autoSyncIntervalLeverSpinner
-        downloadCheckBoxButton =
-        uploadCheckBoxButton = contentContainer.addSubView(CheckBoxButton(width, 32, "Download:", false, contentContainer))//to disable an item uncheck broadcast and subscribe
-        activeCheckBoxButton = contentContainer.addSubView(CheckBoxButton(width, 32, "Active:", false, contentContainer))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
+        _ = downloadCheckBoxButton
+        _ = uploadCheckBoxButton
+        _ = activeCheckBoxButton
         pullCheckBoxButton = contentContainer.addSubView(CheckBoxButton(width, 32, "Pull to refresh:", false, contentContainer))
         fileChangeCheckBoxButton = contentContainer.addSubView(CheckBoxButton(width, 32, "File change:", false, contentContainer))
-        messageCheckBoxButton = contentContainer.addSubView(CheckBoxButton(width, 32, "Auto message:", false, contentContainer))
+        messageCheckBoxButton =
         intervalCheckBoxButton = contentContainer.addSubView(CheckBoxButton(width, 32, "Interval:", false, contentContainer))
     }
     /**
