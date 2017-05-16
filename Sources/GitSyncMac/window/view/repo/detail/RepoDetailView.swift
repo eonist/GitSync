@@ -29,16 +29,18 @@ class RepoDetailView:ElasticSlideScrollView3 {
     lazy var activeCheckBoxButton:CheckBoxButton = {
         return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Active:", false, self.contentContainer))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
     }()
-    var messageCheckBoxButton:CheckBoxButton = {
+    lazy var messageCheckBoxButton:CheckBoxButton = {
         return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Auto message:", false, self.contentContainer))
     }()
-    var intervalCheckBoxButton:CheckBoxButton = {
-        
+    lazy var intervalCheckBoxButton:CheckBoxButton = {
+        return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Interval:", false, self.contentContainer))
     }()
-    var fileChangeCheckBoxButton:CheckBoxButton?
+    lazy var fileChangeCheckBoxButton:CheckBoxButton = {
+        return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "File change:", false, self.contentContainer))
+    }()
     var pullCheckBoxButton:CheckBoxButton?
     /*LeverSpinner*/
-    lazy var autoSyncIntervalLeverSpinner:LeverSpinner {
+    lazy var autoSyncIntervalLeverSpinner:LeverSpinner = {
         return self.contentContainer.addSubView(LeverSpinner(self.width, 32, "Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self.contentContainer))
     }()
     
@@ -53,10 +55,10 @@ class RepoDetailView:ElasticSlideScrollView3 {
         _ = downloadCheckBoxButton
         _ = uploadCheckBoxButton
         _ = activeCheckBoxButton
-        pullCheckBoxButton = contentContainer.addSubView(CheckBoxButton(width, 32, "Pull to refresh:", false, contentContainer))
-        fileChangeCheckBoxButton = contentContainer.addSubView(CheckBoxButton(width, 32, "File change:", false, contentContainer))
-        messageCheckBoxButton =
-        intervalCheckBoxButton = contentContainer.addSubView(CheckBoxButton(width, 32, "Interval:", false, contentContainer))
+        _ = pullCheckBoxButton
+        _ = fileChangeCheckBoxButton
+        _ = messageCheckBoxButton
+        _ = intervalCheckBoxButton
     }
     /**
      * Modifies the dataProvider item on UI change
