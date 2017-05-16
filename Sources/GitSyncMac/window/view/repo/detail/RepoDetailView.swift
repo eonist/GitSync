@@ -7,10 +7,18 @@ class RepoDetailView:ElasticSlideScrollView3 {
     override var contentSize:CGSize {return CGSize(NaN,(12 * 24)+64) }
     override var itemSize:CGSize {return CGSize(NaN,24)}
     /*TextInput*/
-    var nameTextInput:TextInput?
-    var localPathTextInput:TextInput?
-    var remotePathTextInput:TextInput?
-    var branchTextInput:TextInput?
+    lazy var nameTextInput:TextInput = {
+         return self.contentContainer.addSubView(TextInput(self.width, 32, "Name: ", "", self.contentContainer))
+    }()
+    lazy var localPathTextInput:TextInput = {
+         return self.contentContainer.addSubView(TextInput(self.width, 32, "Local-path: ", "", self.contentContainer))
+    }()
+    lazy var remotePathTextInput:TextInput = {
+        return self.contentContainer.addSubView(TextInput(self.width, 32, "Remote-path: ", "", self.contentContainer))
+    }()
+    lazy var branchTextInput:TextInput = {
+        return self.contentContainer.addSubView(TextInput(self.width, 32, "Branch: ", "", self.contentContainer))//branch-text-input: master is default, set to dev for instance
+    }()
     /*CheckButtons*/
     var uploadCheckBoxButton:CheckBoxButton?
     var downloadCheckBoxButton:CheckBoxButton?
@@ -25,10 +33,10 @@ class RepoDetailView:ElasticSlideScrollView3 {
     override func resolveSkin() {
         super.resolveSkin()/*self.skin = SkinResolver.skin(self)*/
         //Swift.print("RepoDetailView.width: " + "\(width)")
-        nameTextInput = contentContainer.addSubView(TextInput(width, 32, "Name: ", "", contentContainer))
-        localPathTextInput = contentContainer.addSubView(TextInput(width, 32, "Local-path: ", "", contentContainer))
-        remotePathTextInput = contentContainer.addSubView(TextInput(width, 32, "Remote-path: ", "", contentContainer))
-        branchTextInput = contentContainer.addSubView(TextInput(width, 32, "Branch: ", "", contentContainer))//branch-text-input: master is default, set to dev for instance
+        _ = nameTextInput
+        _ = localPathTextInput
+        _ = remotePathTextInput
+        
         autoSyncIntervalLeverSpinner = contentContainer.addSubView(LeverSpinner(width, 32, "Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, contentContainer))
         downloadCheckBoxButton = contentContainer.addSubView(CheckBoxButton(width, 32, "Upload:", false, contentContainer))
         uploadCheckBoxButton = contentContainer.addSubView(CheckBoxButton(width, 32, "Download:", false, contentContainer))//to disable an item uncheck broadcast and subscribe
