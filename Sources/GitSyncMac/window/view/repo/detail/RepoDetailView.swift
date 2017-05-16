@@ -56,9 +56,8 @@ class RepoDetailView:ElasticSlideScrollView3 {
                 attrib[RepoItemType.interval] = (event as! SpinnerEvent).value.string
             /*TextInput*/
             case event.type == Event.update && event.isChildOf(nameTextInput):
-                Swift.print("📝")
                 attrib[RepoItemType.title] = (event as! TextFieldEvent).stringValue
-            case event == (Event.update,localPathTextInput!):
+            case event.type == Event.update == (,localPathTextInput!):
                 attrib[RepoItemType.localPath] = (event as! TextFieldEvent).stringValue
             case event == (Event.update,remotePathTextInput!):
                 attrib[RepoItemType.remotePath] = (event as! TextFieldEvent).stringValue
