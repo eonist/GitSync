@@ -79,11 +79,11 @@ class RepoDetailView:ElasticSlideScrollView3 {
                 case event.isChildOf(messageCheckBoxButton):
                     attrib[RepoItemType.autoCommitMessage] = messageCheckBoxButton!.getChecked().str
                 case event.isChildOf(pullCheckBoxButton):
-                    attrib[RepoItemType.pullToAutoSync] = String((event as! CheckEvent).isChecked)
+                    attrib[RepoItemType.pullToAutoSync] = pullCheckBoxButton!.getChecked().str
                 case event.isChildOf(fileChangeCheckBoxButton):
-                    attrib[RepoItemType.fileChange] = String((event as! CheckEvent).isChecked)
+                    attrib[RepoItemType.fileChange] = fileChangeCheckBoxButton!.getChecked().str
                 case event.isChildOf(intervalCheckBoxButton):
-                    attrib[RepoItemType.autoSyncInterval] = String((event as! CheckEvent).isChecked)
+                    attrib[RepoItemType.autoSyncInterval] = intervalCheckBoxButton!.getChecked().str
                 default:
                     break;
             }
