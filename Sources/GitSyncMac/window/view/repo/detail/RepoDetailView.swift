@@ -50,34 +50,48 @@ class RepoDetailView:ElasticSlideScrollView3 {
         guard var attrib:[String:String] = RepoView.treeDP.tree[idx3d]?.props else{
             fatalError("no attribs at: \(idx3d)")
         }
+        /*LeverSpinner*/
+        if event == (SpinnerEvent.change, autoSyncIntervalLeverSpinner!) {
+            attrib[RepoItemType.interval] = (event as! SpinnerEvent).value.string
+        }else if event.type == Event.update {
+            switch true{
+                /*TextInput*/
+                case event.isChildOf(nameTextInput):
+                    attrib[RepoItemType.title] = nameTextInput!.inputString
+                case event.isChildOf(localPathTextInput):
+                    attrib[RepoItemType.localPath] = localPathTextInput!.inputString
+                case event.isChildOf(remotePathTextInput):
+                    attrib[RepoItemType.remotePath] = remotePathTextInput!.inputString
+                case event.isChildOf(branchTextInput):
+                    attrib[RepoItemType.branch] = branchTextInput!.inputString
+                default:
+                    break;
+                }
+        }else if event.type == CheckEvent.check{
+            switch true{
+                /*CheckButtons*/
+                case event == (CheckEvent.check,uploadCheckBoxButton!):
+                    attrib[RepoItemType.upload] = String((event as! CheckEvent).isChecked)
+                case event == (CheckEvent.check,downloadCheckBoxButton!):
+                    attrib[RepoItemType.download] = String((event as! CheckEvent).isChecked)
+                case event === (CheckEvent.check,activeCheckBoxButton!.checkBox)://TODO: <---use getChecked here
+                    attrib[RepoItemType.active] = String((event as! CheckEvent).isChecked)
+                case event == (CheckEvent.check,messageCheckBoxButton!):
+                    attrib[RepoItemType.autoCommitMessage] = String((event as! CheckEvent).isChecked)
+                case event == (CheckEvent.check,pullCheckBoxButton!):
+                    attrib[RepoItemType.pullToAutoSync] = String((event as! CheckEvent).isChecked)
+                case event == (CheckEvent.check,fileChangeCheckBoxButton!):
+                    attrib[RepoItemType.fileChange] = String((event as! CheckEvent).isChecked)
+                case event == (CheckEvent.check,intervalCheckBoxButton!):
+                    attrib[RepoItemType.autoSyncInterval] = String((event as! CheckEvent).isChecked)
+                default:
+                    break;
+            }
+        }
         switch true{
-            /*LeverSpinner*/
-            case event == (SpinnerEvent.change, autoSyncIntervalLeverSpinner!):
-                attrib[RepoItemType.interval] = (event as! SpinnerEvent).value.string
-            /*TextInput*/
-            case event.type == Event.update && event.isChildOf(nameTextInput):
-                attrib[RepoItemType.title] = nameTextInput!.inputString
-            case event.type == Event.update && event.isChildOf(localPathTextInput):
-                attrib[RepoItemType.localPath] = localPathTextInput!.inputString
-            case event.type == Event.update && event.isChildOf(remotePathTextInput):
-                attrib[RepoItemType.remotePath] = remotePathTextInput!.inputString
-            case event.type == Event.update && event.isChildOf(branchTextInput):
-                attrib[RepoItemType.branch] = branchTextInput!.inputString
-            /*CheckButtons*/
-            case event == (CheckEvent.check,uploadCheckBoxButton!):
-                attrib[RepoItemType.upload] = String((event as! CheckEvent).isChecked)
-            case event == (CheckEvent.check,downloadCheckBoxButton!):
-                attrib[RepoItemType.download] = String((event as! CheckEvent).isChecked)
-            case event === (CheckEvent.check,activeCheckBoxButton!.checkBox)://TODO: <---use getChecked here
-                attrib[RepoItemType.active] = String((event as! CheckEvent).isChecked)
-            case event == (CheckEvent.check,messageCheckBoxButton!):
-                attrib[RepoItemType.autoCommitMessage] = String((event as! CheckEvent).isChecked)
-            case event == (CheckEvent.check,pullCheckBoxButton!):
-                attrib[RepoItemType.pullToAutoSync] = String((event as! CheckEvent).isChecked)
-            case event == (CheckEvent.check,fileChangeCheckBoxButton!):
-                attrib[RepoItemType.fileChange] = String((event as! CheckEvent).isChecked)
-            case event == (CheckEvent.check,intervalCheckBoxButton!):
-                attrib[RepoItemType.autoSyncInterval] = String((event as! CheckEvent).isChecked)
+            
+            
+            
             default://forward other events
                 super.onEvent(event)
                 break;
