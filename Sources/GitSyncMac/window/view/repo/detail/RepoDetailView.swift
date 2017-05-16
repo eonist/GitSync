@@ -60,38 +60,30 @@ class RepoDetailView:ElasticSlideScrollView3 {
                 attrib[RepoItemType.title] = (event as! TextFieldEvent).stringValue
             case event == (Event.update,localPathTextInput!):
                 attrib[RepoItemType.localPath] = (event as! TextFieldEvent).stringValue
-            case event == (Event.update,remotePathTextInput!)
-                
-            default:
+            case event == (Event.update,remotePathTextInput!):
+                attrib[RepoItemType.remotePath] = (event as! TextFieldEvent).stringValue
+            case event == (Event.update,remotePathTextInput!):
+                attrib[RepoItemType.branch] = (event as! TextFieldEvent).stringValue
+            /*CheckButtons*/
+            case event == (CheckEvent.check,uploadCheckBoxButton!):
+                attrib[RepoItemType.upload] = String((event as! CheckEvent).isChecked)
+            case event == (CheckEvent.check,downloadCheckBoxButton!):
+                attrib[RepoItemType.download] = String((event as! CheckEvent).isChecked)
+            case event === (CheckEvent.check,activeCheckBoxButton!.checkBox)://TODO: <---use getChecked here
+                attrib[RepoItemType.active] = String((event as! CheckEvent).isChecked)
+            case event == (CheckEvent.check,messageCheckBoxButton!):
+                attrib[RepoItemType.autoCommitMessage] = String((event as! CheckEvent).isChecked)
+            case event == (CheckEvent.check,pullCheckBoxButton!):
+                attrib[RepoItemType.pullToAutoSync] = String((event as! CheckEvent).isChecked)
+            case event == (CheckEvent.check,fileChangeCheckBoxButton!):
+                attrib[RepoItemType.fileChange] = String((event as! CheckEvent).isChecked)
+            case event == (CheckEvent.check,intervalCheckBoxButton!):
+                attrib[RepoItemType.autoSyncInterval] = String((event as! CheckEvent).isChecked)
+            default://forward other events
+                super.onEvent(event)
                 break;
         }
-        
-        
-        if(){
-            
-        }else if(){
-            attrib[RepoItemType.remotePath] = (event as! TextFieldEvent).stringValue
-        }else if(event == (Event.update,remotePathTextInput!)){
-            attrib[RepoItemType.branch] = (event as! TextFieldEvent).stringValue
-        }
-        /*CheckButtons*/
-        else if(event == (CheckEvent.check,uploadCheckBoxButton!)){
-            attrib[RepoItemType.upload] = String((event as! CheckEvent).isChecked)
-        }else if(event == (CheckEvent.check,downloadCheckBoxButton!)){
-            attrib[RepoItemType.download] = String((event as! CheckEvent).isChecked)
-        }else if(event === (CheckEvent.check,activeCheckBoxButton!.checkBox)){//TODO: <---use getChecked here
-            attrib[RepoItemType.active] = String((event as! CheckEvent).isChecked)
-        }else if(event == (CheckEvent.check,messageCheckBoxButton!)){
-            attrib[RepoItemType.autoCommitMessage] = String((event as! CheckEvent).isChecked)
-        }else if(event == (CheckEvent.check,pullCheckBoxButton!)){
-            attrib[RepoItemType.pullToAutoSync] = String((event as! CheckEvent).isChecked)
-        }else if(event == (CheckEvent.check,fileChangeCheckBoxButton!)){
-            attrib[RepoItemType.fileChange] = String((event as! CheckEvent).isChecked)
-        }else if(event == (CheckEvent.check,intervalCheckBoxButton!)){
-            attrib[RepoItemType.autoSyncInterval] = String((event as! CheckEvent).isChecked)
-        }else{//forward other events
-            super.onEvent(event)
-        }
+  
         if(event.type == CheckEvent.check || event.type == Event.update || event.type == SpinnerEvent.change){
             Swift.print("attrib: " + "\(attrib)")
             RepoView.treeDP.tree[i]!.props = attrib//RepoView.node.setAttributeAt(i, attrib)
