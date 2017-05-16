@@ -24,7 +24,7 @@ class RepoDetailView:ElasticSlideScrollView3 {
     override func resolveSkin() {
         super.resolveSkin()/*self.skin = SkinResolver.skin(self)*/
         //Swift.print("RepoDetailView.width: " + "\(width)")
-        _ = [nameTextInput,localPathTextInput,remotePathTextInput,branchTextInput,autoSyncIntervalLeverSpinner,downloadCheckBoxButton,uploadCheckBoxButton,activeCheckBoxButton,pullCheckBoxButton,fileChangeCheckBoxButton,messageCheckBoxButton,intervalCheckBoxButton]
+        _ = [nameTextInput,localPathTextInput,remotePathTextInput,branchTextInput,autoSyncIntervalLeverSpinner,downloadCheckBoxButton,uploadCheckBoxButton,activeCheckBoxButton,pullCheckBoxButton,fileChangeCheckBoxButton,messageCheckBoxButton,intervalCheckBoxButton]//init the ui
     }
     /**
      * Modifies the dataProvider item on UI change
@@ -39,39 +39,39 @@ class RepoDetailView:ElasticSlideScrollView3 {
             fatalError("no attribs at: \(idx3d)")
         }
         /*LeverSpinner*/
-        if event == (SpinnerEvent.change, autoSyncIntervalLeverSpinner!) {
+        if event == (SpinnerEvent.change, autoSyncIntervalLeverSpinner) {
             attrib[RepoItemType.interval] = (event as! SpinnerEvent).value.string
         }else if event.type == Event.update {
             switch true{
                 /*TextInput*/
                 case event.isChildOf(nameTextInput):
-                    attrib[RepoItemType.title] = nameTextInput!.inputString
+                    attrib[RepoItemType.title] = nameTextInput.inputString
                 case event.isChildOf(localPathTextInput):
-                    attrib[RepoItemType.localPath] = localPathTextInput!.inputString
+                    attrib[RepoItemType.localPath] = localPathTextInput.inputString
                 case event.isChildOf(remotePathTextInput):
-                    attrib[RepoItemType.remotePath] = remotePathTextInput!.inputString
+                    attrib[RepoItemType.remotePath] = remotePathTextInput.inputString
                 case event.isChildOf(branchTextInput):
-                    attrib[RepoItemType.branch] = branchTextInput!.inputString
+                    attrib[RepoItemType.branch] = branchTextInput.inputString
                 default:
                     break;
                 }
         }else if event.type == CheckEvent.check{
             switch true{
                 /*CheckButtons*/
-                case event.isChildOf(uploadCheckBoxButton!):
-                    attrib[RepoItemType.upload] = uploadCheckBoxButton!.getChecked().str//String((event as! CheckEvent).isChecked)
-                case event.isChildOf(downloadCheckBoxButton!):
-                    attrib[RepoItemType.download] = downloadCheckBoxButton!.getChecked().str
+                case event.isChildOf(uploadCheckBoxButton):
+                    attrib[RepoItemType.upload] = uploadCheckBoxButton.getChecked().str//String((event as! CheckEvent).isChecked)
+                case event.isChildOf(downloadCheckBoxButton):
+                    attrib[RepoItemType.download] = downloadCheckBoxButton.getChecked().str
                 case event.isChildOf(activeCheckBoxButton)://TODO: <---use getChecked here
-                    attrib[RepoItemType.active] = activeCheckBoxButton!.getChecked().str
+                    attrib[RepoItemType.active] = activeCheckBoxButton.getChecked().str
                 case event.isChildOf(messageCheckBoxButton):
-                    attrib[RepoItemType.autoCommitMessage] = messageCheckBoxButton!.getChecked().str
+                    attrib[RepoItemType.autoCommitMessage] = messageCheckBoxButton.getChecked().str
                 case event.isChildOf(pullCheckBoxButton):
-                    attrib[RepoItemType.pullToAutoSync] = pullCheckBoxButton!.getChecked().str
+                    attrib[RepoItemType.pullToAutoSync] = pullCheckBoxButton.getChecked().str
                 case event.isChildOf(fileChangeCheckBoxButton):
-                    attrib[RepoItemType.fileChange] = fileChangeCheckBoxButton!.getChecked().str
+                    attrib[RepoItemType.fileChange] = fileChangeCheckBoxButton.getChecked().str
                 case event.isChildOf(intervalCheckBoxButton):
-                    attrib[RepoItemType.autoSyncInterval] = intervalCheckBoxButton!.getChecked().str
+                    attrib[RepoItemType.autoSyncInterval] = intervalCheckBoxButton.getChecked().str
                 default:
                     break;
             }
@@ -93,18 +93,18 @@ extension RepoDetailView{
      * Populates the UI elements with data from the dp item
      */
     func setRepoData(_ repoItem:RepoItem){
-        nameTextInput!.inputTextArea.setTextValue(repoItem.title)
-        localPathTextInput!.inputTextArea.setTextValue(repoItem.localPath)
-        remotePathTextInput!.inputTextArea.setTextValue(repoItem.remotePath)
-        branchTextInput!.inputTextArea.setTextValue(repoItem.branch)
+        nameTextInput.inputTextArea.setTextValue(repoItem.title)
+        localPathTextInput.inputTextArea.setTextValue(repoItem.localPath)
+        remotePathTextInput.inputTextArea.setTextValue(repoItem.remotePath)
+        branchTextInput.inputTextArea.setTextValue(repoItem.branch)
         /*CheckButtons*/
-        uploadCheckBoxButton!.setChecked(repoItem.upload)
-        downloadCheckBoxButton!.setChecked(repoItem.download)
-        messageCheckBoxButton!.setChecked(repoItem.autoCommitMessage)
-        intervalCheckBoxButton!.setChecked(repoItem.autoSyncInterval)
-        autoSyncIntervalLeverSpinner!.setValue(repoItem.interval.cgFloat)
-        activeCheckBoxButton!.setChecked(repoItem.active)
-        pullCheckBoxButton!.setChecked(repoItem.pullToAutoSync)
-        fileChangeCheckBoxButton!.setChecked(repoItem.fileChange)
+        uploadCheckBoxButton.setChecked(repoItem.upload)
+        downloadCheckBoxButton.setChecked(repoItem.download)
+        messageCheckBoxButton.setChecked(repoItem.autoCommitMessage)
+        intervalCheckBoxButton.setChecked(repoItem.autoSyncInterval)
+        autoSyncIntervalLeverSpinner.setValue(repoItem.interval.cgFloat)
+        activeCheckBoxButton.setChecked(repoItem.active)
+        pullCheckBoxButton.setChecked(repoItem.pullToAutoSync)
+        fileChangeCheckBoxButton.setChecked(repoItem.fileChange)
     }
 }
