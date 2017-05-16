@@ -48,10 +48,9 @@ class RepoDetailView:ElasticSlideScrollView3 {
         Swift.print("onEvent: " + "\(event.type)")
         let idx3d:[Int] = RepoView.selectedListItemIndex
         
-        guard let attrib:[String:String] = RepoView.treeDP.tree[idx3d]?.props else{
+        guard var attrib:[String:String] = RepoView.treeDP.tree[idx3d]?.props else{
             fatalError("no attribs at: \(idx3d)")
         }
-        
         switch true{
             /*LeverSpinner*/
             case event == (SpinnerEvent.change, autoSyncIntervalLeverSpinner!):
