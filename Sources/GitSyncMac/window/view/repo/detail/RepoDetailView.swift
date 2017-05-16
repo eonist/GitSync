@@ -87,16 +87,9 @@ class RepoDetailView:ElasticSlideScrollView3 {
                 default:
                     break;
             }
+        }else{
+            super.onEvent(event)//forward other events
         }
-        switch true{
-            
-            
-            
-            default://forward other events
-                super.onEvent(event)
-                break;
-        }
-  
         if(event.type == CheckEvent.check || event.type == Event.update || event.type == SpinnerEvent.change){
             //Swift.print("✨ Update dp with: attrib: " + "\(attrib)")
             RepoView.treeDP.tree[idx3d]!.props = attrib//RepoView.node.setAttributeAt(i, attrib)
