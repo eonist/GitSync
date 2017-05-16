@@ -61,8 +61,8 @@ class RepoDetailView:ElasticSlideScrollView3 {
                 attrib[RepoItemType.localPath] = localPathTextInput!.inputString
             case event.type == Event.update && event.isChildOf(remotePathTextInput):
                 attrib[RepoItemType.remotePath] = remotePathTextInput!.inputString
-            case event == (Event.update,remotePathTextInput!):
-                attrib[RepoItemType.branch] = (event as! TextFieldEvent).stringValue
+            case event.type == Event.update && event.isChildOf(branchTextInput):
+                attrib[RepoItemType.branch] = branchTextInput!.inputString
             /*CheckButtons*/
             case event == (CheckEvent.check,uploadCheckBoxButton!):
                 attrib[RepoItemType.upload] = String((event as! CheckEvent).isChecked)
