@@ -46,10 +46,9 @@ class RepoDetailView:ElasticSlideScrollView3 {
      */
     override func onEvent(_ event:Event) {
         Swift.print("onEvent: " + "\(event.type)")
-        let i:[Int] = RepoView.selectedListItemIndex
+        let idx3d:[Int] = RepoView.selectedListItemIndex
         
-        var attrib:[String:String] = RepoView.treeDP.tree[i]!.props!//XMLParser.attributesAt(RepoView.node.xml, i)!
-        
+        var attrib:[String:String] = RepoView.treeDP.tree[idx3d]!.props!
         
         switch true{
             /*LeverSpinner*/
@@ -85,10 +84,9 @@ class RepoDetailView:ElasticSlideScrollView3 {
         }
   
         if(event.type == CheckEvent.check || event.type == Event.update || event.type == SpinnerEvent.change){
-            Swift.print("attrib: " + "\(attrib)")
-            RepoView.treeDP.tree[i]!.props = attrib//RepoView.node.setAttributeAt(i, attrib)
-            
-            if let tree:Tree = RepoView.treeDP.tree[i]{
+            Swift.print("Update dp with: attrib: " + "\(attrib)")
+            RepoView.treeDP.tree[idx3d]!.props = attrib//RepoView.node.setAttributeAt(i, attrib)
+            if let tree:Tree = RepoView.treeDP.tree[idx3d]{
                 Swift.print("node.xml.xmlString: " + "\(tree.xml.xmlString)")
             }
         }
