@@ -45,7 +45,7 @@ class RepoDetailView:ElasticSlideScrollView3 {
      * TODO: ⚠️️ enumify this method? at least usw switch
      */
     override func onEvent(_ event:Event) {
-        Swift.print("onEvent: " + "\(event.type)")
+        Swift.print("onEvent: type: " + "\(event.type) immediate: \(event.immediate) origin: \(event.origin)")
         let idx3d:[Int] = RepoView.selectedListItemIndex
         guard var attrib:[String:String] = RepoView.treeDP.tree[idx3d]?.props else{
             fatalError("no attribs at: \(idx3d)")
@@ -88,7 +88,7 @@ class RepoDetailView:ElasticSlideScrollView3 {
             RepoView.treeDP.tree[idx3d]!.props = attrib//RepoView.node.setAttributeAt(i, attrib)
             if let tree:Tree = RepoView.treeDP.tree[idx3d]{
                 Swift.print("title: " + "\(tree.props?["title"])")
-                Swift.print("node.xml.xmlString: " + "\(tree.xml.xmlString)")
+                //Swift.print("node.xml.xmlString: " + "\(tree.xml.xmlString)")
             }
         }
     }
