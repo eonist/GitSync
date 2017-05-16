@@ -20,15 +20,23 @@ class RepoDetailView:ElasticSlideScrollView3 {
         return self.contentContainer.addSubView(TextInput(self.width, 32, "Branch: ", "", self.contentContainer))//branch-text-input: master is default, set to dev for instance
     }()
     /*CheckButtons*/
-    var uploadCheckBoxButton:CheckBoxButton?
-    var downloadCheckBoxButton:CheckBoxButton?
-    var activeCheckBoxButton:CheckBoxButton?
+    lazy var uploadCheckBoxButton:CheckBoxButton = {
+        return contentContainer.addSubView(CheckBoxButton(width, 32, "Upload:", false, contentContainer))
+    }()
+    lazy var downloadCheckBoxButton:CheckBoxButton = {
+        
+    }()
+    lazy var activeCheckBoxButton:CheckBoxButton = {
+        
+    }()
     var messageCheckBoxButton:CheckBoxButton?
     var intervalCheckBoxButton:CheckBoxButton?
     var fileChangeCheckBoxButton:CheckBoxButton?
     var pullCheckBoxButton:CheckBoxButton?
     /*LeverSpinner*/
-    var autoSyncIntervalLeverSpinner:LeverSpinner?
+    lazy var autoSyncIntervalLeverSpinner:LeverSpinner {
+        return self.contentContainer.addSubView(LeverSpinner(self.width, 32, "Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self.contentContainer))
+    }()
     
     override func resolveSkin() {
         super.resolveSkin()/*self.skin = SkinResolver.skin(self)*/
@@ -36,9 +44,9 @@ class RepoDetailView:ElasticSlideScrollView3 {
         _ = nameTextInput
         _ = localPathTextInput
         _ = remotePathTextInput
-        
-        autoSyncIntervalLeverSpinner = contentContainer.addSubView(LeverSpinner(width, 32, "Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, contentContainer))
-        downloadCheckBoxButton = contentContainer.addSubView(CheckBoxButton(width, 32, "Upload:", false, contentContainer))
+        _ = branchTextInput
+        _ = autoSyncIntervalLeverSpinner
+        downloadCheckBoxButton =
         uploadCheckBoxButton = contentContainer.addSubView(CheckBoxButton(width, 32, "Download:", false, contentContainer))//to disable an item uncheck broadcast and subscribe
         activeCheckBoxButton = contentContainer.addSubView(CheckBoxButton(width, 32, "Active:", false, contentContainer))//if auto sync is off then a manual commit popup dialog will appear (with pre-populated text)
         pullCheckBoxButton = contentContainer.addSubView(CheckBoxButton(width, 32, "Pull to refresh:", false, contentContainer))
