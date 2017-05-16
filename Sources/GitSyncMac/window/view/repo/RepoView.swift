@@ -11,9 +11,9 @@ class RepoView:Element {
     static var _treeDP:TreeDP? = nil
     static var treeDP:TreeDP {
         guard let treeDP = _treeDP else{
-            _treeDP = TreeDP(RepoView.repoListFilePath.tildePath)
+            _treeDP = TreeDP(RepoView.repoListFilePath.tildePath)/*doesnt exists return new DP*/
             return _treeDP!
-        };return treeDP
+        };return treeDP/*already exist, return old dp*/
     }
     var treeList:TreeList3?// {return RepoView.list}
     var contextMenu:RepoContextMenu?

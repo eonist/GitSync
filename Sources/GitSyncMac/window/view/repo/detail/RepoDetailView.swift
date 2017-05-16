@@ -47,7 +47,6 @@ class RepoDetailView:ElasticSlideScrollView3 {
     override func onEvent(_ event:Event) {
         Swift.print("onEvent: " + "\(event.type)")
         let idx3d:[Int] = RepoView.selectedListItemIndex
-        
         guard var attrib:[String:String] = RepoView.treeDP.tree[idx3d]?.props else{
             fatalError("no attribs at: \(idx3d)")
         }
