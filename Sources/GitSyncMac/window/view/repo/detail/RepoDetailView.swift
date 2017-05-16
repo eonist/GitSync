@@ -71,7 +71,7 @@ class RepoDetailView:ElasticSlideScrollView3 {
             switch true{
                 /*CheckButtons*/
                 case event.isChildOf(uploadCheckBoxButton!):
-                    attrib[RepoItemType.upload] = String((event as! CheckEvent).isChecked)
+                    attrib[RepoItemType.upload] = uploadCheckBoxButton!.getChecked().description//String((event as! CheckEvent).isChecked)
                 case event.isChildOf(downloadCheckBoxButton!):
                     attrib[RepoItemType.download] = String((event as! CheckEvent).isChecked)
                 case event.isChildOf(activeCheckBoxButton)://TODO: <---use getChecked here
