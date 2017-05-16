@@ -84,7 +84,7 @@ class RepoDetailView:ElasticSlideScrollView3 {
         }
   
         if(event.type == CheckEvent.check || event.type == Event.update || event.type == SpinnerEvent.change){
-            Swift.print("✨ Update dp with: attrib: " + "\(attrib)")
+            //Swift.print("✨ Update dp with: attrib: " + "\(attrib)")
             RepoView.treeDP.tree[idx3d]!.props = attrib//RepoView.node.setAttributeAt(i, attrib)
             if let tree:Tree = RepoView.treeDP.tree[idx3d]{
                 Swift.print("title: " + "\(tree.props?["title"])")
