@@ -15,12 +15,14 @@ class RepoView:Element {
             return _treeDP!
         };return treeDP/*already exist, return old dp*/
     }
-    var treeList:TreeList3?// {return RepoView.list}
+    lazy var treeList:TreeList3 = {
+        return  addSubView(TreeList3(width, height-60, CGSize(24,24), RepoView.treeDP, self))
+    }()// {return RepoView.list}
     var contextMenu:RepoContextMenu?
     
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
-        treeList = addSubView(TreeList3(width, height-60, CGSize(24,24), RepoView.treeDP, self))
+        
         contextMenu = RepoContextMenu(treeList!)
         //if(RepoView.selectedListItemIndex.count > 0){TreeListModifier.selectAt(treeList!, RepoView.selectedListItemIndex)}
     }
