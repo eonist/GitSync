@@ -49,8 +49,8 @@ extension RepoView{
             var repoItem:RepoItem
             if !tree.children.isEmpty {/*Support for folders*/
                 repoItem = RepoItem()
-                if repoItemDict.hasKey(RepoItemType.title) {repoItem.title = repoItemDict[RepoItemType.title]!}
-                if repoItemDict.hasKey(RepoItemType.active) {repoItem.active = repoItemDict[RepoItemType.active]!.bool}
+                if let title:String = repoItemDict[RepoItemType.title] {repoItem.title = title}
+                if let active:String = repoItemDict[RepoItemType.active] {repoItem.active = active.bool}
             }else{
                 repoItem = RepoUtils.repoItem(repoItemDict)
             }
