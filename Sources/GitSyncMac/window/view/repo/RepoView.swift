@@ -18,7 +18,7 @@ class RepoView:Element {
     lazy var treeList:TreeList3 = {
         //if(RepoView.selectedListItemIndex.count > 0){TreeListModifier.selectAt(treeList!, RepoView.selectedListItemIndex)}
         return  self.addSubView(TreeList3(self.width, self.height-60, CGSize(24,24), RepoView.treeDP, self))
-    }()// {return RepoView.list}
+    }()
     lazy var contextMenu:RepoContextMenu = {
         return RepoContextMenu(self.treeList)
     }()
@@ -43,18 +43,6 @@ extension RepoView{
     func onTreeListSelect(){
         //Sounds.play?.play()
         let selectedIndex:[Int] = treeList.selectedIdx3d!
-        RepoView.selectedListItemIndex = selectedIndex
-        //TODO: Use the RepoItem on the bellow line see AutoSync class for implementation
-        if let tree:Tree = treeList.tree[selectedIndex], let repoItemDict = tree.props{//NodeParser.dataAt(treeList!.node, selectedIndex)
-            var repoItem:RepoItem
-            if !tree.children.isEmpty {/*Support for folders*/
-                repoItem = RepoItem()
-                if let title:String = repoItemDict[RepoItemType.title] {repoItem.title = title}
-                if let active:String = repoItemDict[RepoItemType.active] {repoItem.active = active.bool}
-            }else{
-                repoItem = RepoUtils.repoItem(repoItemDict)
-            }
-            Navigation.setView(.repoDetail(repoItem))//updates the UI elements with the selected repo data
-        }
+        Navigation.setView(.repoDetail(selectedIndex))//updates the UI elements with the selected repo data
     }
 }
