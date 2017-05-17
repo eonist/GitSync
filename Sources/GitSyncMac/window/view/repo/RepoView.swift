@@ -1,6 +1,12 @@
 import Cocoa
 @testable import Utils
 @testable import Element
+
+//test if new setRepodata works
+//repodetailView that has left aliged items
+//repodetailview needs two collumns, 1 with tree and 1 with detail items
+//remove repodetailview and add 
+
 /**
  * TODO: should remember previous selected item between transitions
  * TODO: ⚠️️ Refactor this class so that it doesnt force unwrap
