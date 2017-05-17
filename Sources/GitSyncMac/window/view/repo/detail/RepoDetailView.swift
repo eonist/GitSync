@@ -21,6 +21,7 @@ class RepoDetailView:ElasticSlideScrollView3 {
     lazy var pullCheckBoxButton:CheckBoxButton = {return self.contentContainer.addSubView(CheckBoxButton(self.width, 32, "Pull to refresh:", false, self.contentContainer))}()
     /*LeverSpinner*/
     lazy var autoSyncIntervalLeverSpinner:LeverSpinner = {return self.contentContainer.addSubView(LeverSpinner(self.width, 32, "Interval: ", 0, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self.contentContainer))}()
+    
     override func resolveSkin() {
         super.resolveSkin()/*self.skin = SkinResolver.skin(self)*/
         //Swift.print("RepoDetailView.width: " + "\(width)")
@@ -93,7 +94,7 @@ extension RepoDetailView{
      *
      */
     func setRepoData(_ idx3d:[Int]){
-        RepoView.selectedListItemIndex = selectedIndex
+        RepoView.selectedListItemIndex = idx3d
         //TODO: Use the RepoItem on the bellow line see AutoSync class for implementation
         if let tree:Tree = treeList.tree[selectedIndex], let repoItemDict = tree.props{//NodeParser.dataAt(treeList!.node, selectedIndex)
             var repoItem:RepoItem
