@@ -2,11 +2,13 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-//test if new setRepodata works
-//create new view item in enum architecture named 
-//repodetailView that has left aliged items
-//repodetailview needs two collumns, 1 with tree and 1 with detail items
-//add repodetailview to repoview
+//continue here: 🏀
+    //test if new setRepodata works
+    //create new view item in enum architecture named Repository
+        //this new view will have 2 collumns
+    //repodetailView that has left aliged items
+    //repodetailview needs two collumns, 1 with tree and 1 with detail items
+    //add repodetailview to repoview
 
 
 /**
