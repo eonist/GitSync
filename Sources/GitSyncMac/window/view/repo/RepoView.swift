@@ -6,6 +6,8 @@ import Cocoa
     //test if new setRepodata works
     //create new view item in enum architecture named Repository
         //this new view will have 2 collumns in bright colors
+        //1 col should be fixed pixel size. the other 100% of available space
+        //first col should be hideable and the second will still use 100% of spce
         
     //repodetailView that has left aliged items
     //repodetailview needs two collumns, 1 with tree and 1 with detail items
