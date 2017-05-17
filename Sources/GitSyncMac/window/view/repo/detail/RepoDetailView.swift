@@ -96,7 +96,7 @@ extension RepoDetailView{
     func setRepoData(_ idx3d:[Int]){
         RepoView.selectedListItemIndex = idx3d
         //TODO: Use the RepoItem on the bellow line see AutoSync class for implementation
-        if let tree:Tree = treeList.tree[selectedIndex], let repoItemDict = tree.props{//NodeParser.dataAt(treeList!.node, selectedIndex)
+        if let tree:Tree = RepoView.treeDP.tree[idx3d], let repoItemDict = tree.props{//NodeParser.dataAt(treeList!.node, selectedIndex)
             var repoItem:RepoItem
             if !tree.children.isEmpty {/*Support for folders*/
                 repoItem = RepoItem()
@@ -105,13 +105,13 @@ extension RepoDetailView{
             }else{
                 repoItem = RepoUtils.repoItem(repoItemDict)
             }
-            Navigation.setView(.repoDetail(repoItem))//updates the UI elements with the selected repo data
+            setRepoData(repoItem)
         }
     }
     /**
      * Populates the UI elements with data from the dp item
      */
-    func setRepoData(_ repoItem:RepoItem){
+    private func setRepoData(_ repoItem:RepoItem){
         nameTextInput.inputTextArea.setTextValue(repoItem.title)
         localPathTextInput.inputTextArea.setTextValue(repoItem.localPath)
         remotePathTextInput.inputTextArea.setTextValue(repoItem.remotePath)

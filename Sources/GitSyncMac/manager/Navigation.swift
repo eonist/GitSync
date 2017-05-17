@@ -14,7 +14,7 @@ enum Views{
     }
     case main(Main)
     case commitDetail([String:String])
-    case repoDetail(RepoItem)
+    case repoDetail([Int])
     case dialog(Dialog)
     enum Dialog{
         case conflict
@@ -51,9 +51,9 @@ class Navigation {
             case .commitDetail(let commitData):/*CommitDetail*/
                 mainView.currentView = mainView.addSubView(CommitDetailView(w,h,mainView))
                 (mainView.currentView as! CommitDetailView).setCommitData(commitData)
-            case .repoDetail(let repoItem):/*RepoDetail*/
+            case .repoDetail(let idx3d):/*RepoDetail*/
                 mainView.currentView = mainView.addSubView(RepoDetailView(w,h,mainView))
-                (mainView.currentView as! RepoDetailView).setRepoData(repoItem)
+                (mainView.currentView as! RepoDetailView).setRepoData(idx3d)
             case .dialog(let dialog):/*Dialogs*/
                 switch dialog{
                     case .commit:
