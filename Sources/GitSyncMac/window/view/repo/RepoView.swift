@@ -26,7 +26,6 @@ class RepoView:Element {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         _ = treeList
         _ = contextMenu
-        
     }
     override func onEvent(_ event:Event) {
         if(event.type == ListEvent.select && event.immediate === treeList){//if(event.type == SelectEvent.select && event.immediate === treeList){}
@@ -42,12 +41,11 @@ class RepoView:Element {
 }
 extension RepoView{
     func onTreeListSelect(){
-        //Swift.print("RepoView.onTreeListSelect()")
         //Sounds.play?.play()
         let selectedIndex:[Int] = treeList.selectedIdx3d!
         RepoView.selectedListItemIndex = selectedIndex
         //TODO: Use the RepoItem on the bellow line see AutoSync class for implementation
-        if let repoItemDict:[String:String] = treeList.treeDP.tree[selectedIndex]?.props{//NodeParser.dataAt(treeList!.node, selectedIndex)
+        if let repoItemDict:[String:String] = treeList.tree[selectedIndex]?.props{//NodeParser.dataAt(treeList!.node, selectedIndex)
             var repoItem:RepoItem
             if(repoItemDict["hasChildren"] != nil || repoItemDict["isOpen"] != nil){/*Support for folders*/
                 repoItem = RepoItem()
