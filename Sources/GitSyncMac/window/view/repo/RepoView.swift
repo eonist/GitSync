@@ -29,12 +29,12 @@ class RepoView:Element {
     }
     override func onEvent(_ event:Event) {
         if(event.type == ListEvent.select && event.immediate === treeList){//if(event.type == SelectEvent.select && event.immediate === treeList){}
-            Swift.print("RepoView.onTreeListEvent() selectedIndex: " + "\(treeList.selectedIdx3d)")
+            //Swift.print("RepoView.onTreeListEvent() selectedIndex: " + "\(treeList.selectedIdx3d)")
             //print("_scrollTreeList.database.xml.toXMLString(): " + _scrollTreeList.database.xml.toXMLString());
             onTreeListSelect()
         }else if(event.type == ButtonEvent.rightMouseDown){
             contextMenu.rightClickItemIdx = TreeList3Parser.index(treeList, event.origin as! NSView)
-            Swift.print("RightMouseDown() rightClickItemIdx: " + "\(contextMenu.rightClickItemIdx)")
+            //Swift.print("RightMouseDown() rightClickItemIdx: " + "\(contextMenu.rightClickItemIdx)")
             NSMenu.popUpContextMenu(contextMenu, with: (event as! ButtonEvent).event!, for: self)
         }
     }
@@ -49,8 +49,8 @@ extension RepoView{
             var repoItem:RepoItem
             if !tree.children.isEmpty {/*Support for folders*/
                 repoItem = RepoItem()
-                if(repoItemDict.hasKey(RepoItemType.title)){repoItem.title = repoItemDict[RepoItemType.title]!}
-                if(repoItemDict.hasKey(RepoItemType.active)){repoItem.active = repoItemDict[RepoItemType.active]!.bool}
+                if repoItemDict.hasKey(RepoItemType.title) {repoItem.title = repoItemDict[RepoItemType.title]!}
+                if repoItemDict.hasKey(RepoItemType.active) {repoItem.active = repoItemDict[RepoItemType.active]!.bool}
             }else{
                 repoItem = RepoUtils.repoItem(repoItemDict)
             }
