@@ -90,6 +90,24 @@ class RepoDetailView:ElasticSlideScrollView3 {
 }
 extension RepoDetailView{
     /**
+     *
+     */
+    func setRepoData(_ idx3d:[Int]){
+        RepoView.selectedListItemIndex = selectedIndex
+        //TODO: Use the RepoItem on the bellow line see AutoSync class for implementation
+        if let tree:Tree = treeList.tree[selectedIndex], let repoItemDict = tree.props{//NodeParser.dataAt(treeList!.node, selectedIndex)
+            var repoItem:RepoItem
+            if !tree.children.isEmpty {/*Support for folders*/
+                repoItem = RepoItem()
+                if let title:String = repoItemDict[RepoItemType.title] {repoItem.title = title}
+                if let active:String = repoItemDict[RepoItemType.active] {repoItem.active = active.bool}
+            }else{
+                repoItem = RepoUtils.repoItem(repoItemDict)
+            }
+            Navigation.setView(.repoDetail(repoItem))//updates the UI elements with the selected repo data
+        }
+    }
+    /**
      * Populates the UI elements with data from the dp item
      */
     func setRepoData(_ repoItem:RepoItem){
