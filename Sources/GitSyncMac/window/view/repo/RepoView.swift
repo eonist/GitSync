@@ -45,9 +45,9 @@ extension RepoView{
         let selectedIndex:[Int] = treeList.selectedIdx3d!
         RepoView.selectedListItemIndex = selectedIndex
         //TODO: Use the RepoItem on the bellow line see AutoSync class for implementation
-        if let repoItemDict:[String:String] = treeList.tree[selectedIndex]?.props{//NodeParser.dataAt(treeList!.node, selectedIndex)
+        if let tree:Tree = treeList.tree[selectedIndex], let repoItemDict = tree.props{//NodeParser.dataAt(treeList!.node, selectedIndex)
             var repoItem:RepoItem
-            if(repoItemDict["hasChildren"] != nil || repoItemDict["isOpen"] != nil){/*Support for folders*/
+            if !tree.children.isEmpty {/*Support for folders*/
                 repoItem = RepoItem()
                 if(repoItemDict.hasKey(RepoItemType.title)){repoItem.title = repoItemDict[RepoItemType.title]!}
                 if(repoItemDict.hasKey(RepoItemType.active)){repoItem.active = repoItemDict[RepoItemType.active]!.bool}
