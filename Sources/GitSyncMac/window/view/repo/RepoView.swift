@@ -4,14 +4,15 @@ import Cocoa
 
 //continue here: 🏀
     //test if new setRepodata works
-    //create new view item in enum architecture named Repository
+    //create new view item in enum architecture named Repository 👈
         //this new view will have 2 collumns in bright colors
         //1 col should be fixed pixel size. the other 100% of available space
         //first col should be hideable and the second will still use 100% of spce
-        
+        //try bigger window to fit both collumns
+
     //repodetailView that has left aliged items
     //repodetailview needs two collumns, 1 with tree and 1 with detail items
-    //add repodetailview to repoview
+    //add repodetailview and tree to the new Repository.swift view ✨
 
 
 /**
