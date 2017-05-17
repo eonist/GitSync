@@ -22,7 +22,6 @@ class RepoView:Element {
     lazy var contextMenu:RepoContextMenu = {
         return RepoContextMenu(self.treeList)
     }()
-    
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         _ = treeList
