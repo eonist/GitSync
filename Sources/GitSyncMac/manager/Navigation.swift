@@ -37,8 +37,7 @@ class Navigation {
         let h:CGFloat = MainView.h
         
         switch view{
-            /*Main*/
-            case .main(let viewType):
+            case .main(let viewType):/*Main*/
                 switch viewType {
                     case .commits:
                         mainView.currentView = mainView.addSubView(CommitsView(w,h,mainView))
@@ -49,16 +48,13 @@ class Navigation {
                     case .prefs:
                         mainView.currentView = mainView.addSubView(PrefsView(w,h,mainView))
             }
-            /*CommitDetail*/
-            case .commitDetail(let commitData):
+            case .commitDetail(let commitData):/*CommitDetail*/
                 mainView.currentView = mainView.addSubView(CommitDetailView(w,h,mainView))
                 (mainView.currentView as! CommitDetailView).setCommitData(commitData)
-            /*RepoDetail*/
-            case .repoDetail(let repoItem):
+            case .repoDetail(let repoItem):/*RepoDetail*/
                 mainView.currentView = mainView.addSubView(RepoDetailView(w,h,mainView))
                 (mainView.currentView as! RepoDetailView).setRepoData(repoItem)
-            /*Dialogs*/
-            case .dialog(let dialog):
+            case .dialog(let dialog):/*Dialogs*/
                 switch dialog{
                     case .commit:
                         fatalError("not implemented yet")
