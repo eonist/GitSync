@@ -3,9 +3,11 @@ import Cocoa
 @testable import Element
 
 //test if new setRepodata works
+//create new view item in enum architecture named 
 //repodetailView that has left aliged items
 //repodetailview needs two collumns, 1 with tree and 1 with detail items
-//remove repodetailview and add 
+//add repodetailview to repoview
+
 
 /**
  * TODO: should remember previous selected item between transitions
