@@ -3,12 +3,12 @@ import Foundation
 @testable import Utils
 
 class RepositoryView:Element{
-    lazy var leftColumn:Element = {return self.addSubView(Element(NaN,NaN,self,"left"))}()
-    lazy var rightColumn:Element = {return self.addSubView(Element(NaN,NaN,self,"right"))}()
+    lazy var leftColumn:Element = {return self.addSubView(Element(NaN,self.height,self,"left"))}()
+    lazy var rightColumn:Element = {return self.addSubView(Element(NaN,self.height,self,"right"))}()
     override func resolveSkin() {
         var css:String = "RepositoryView{float:left;clear:left;}"
-        css += "RepositoryView #left{fill:blue;width:100;height:100;float:left;clear:none;}"
-        css += "RepositoryView #right{fill:red;width:100;height:100;float:left;clear:none;}"
+        css += "RepositoryView #left{fill:blue;width:200px;float:left;clear:none;}"
+        css += "RepositoryView #right{fill:red;width:100%;float:left;clear:none;}"
         StyleManager.addStyle(css)
         super.resolveSkin()
         _ = leftColumn
