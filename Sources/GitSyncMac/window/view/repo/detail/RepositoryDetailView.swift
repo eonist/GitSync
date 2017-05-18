@@ -3,10 +3,11 @@ import Foundation
 @testable import Element
 
 class RepositoryDetailView:Element {
-    lazy var container:Container = {return self.addSubView(Element(NaN,NaN,self,"lable"))}()
-    lazy var text1:Element = {return self.addSubView(Element(NaN,NaN,self,"text1"))}()
-    lazy var text2:Element = {return self.addSubView(Element(NaN,NaN,self,"text2"))}()
-    lazy var nameTextInput:TextInput = {return self.addSubView(TextInput(self.width, 32, "Name: ", "", self))}()
+    lazy var container:Container = {return self.addSubView(Container(self.width,self.height,self,"lable"))}()
+    //lazy var text1:Element = {return self.addSubView(Element(NaN,NaN,self,"text1"))}()
+    //lazy var text2:Element = {return self.addSubView(Element(NaN,NaN,self,"text2"))}()
+    lazy var nameTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Name: ", "", self.contentContainer))}()
+    lazy var localPathTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Local-path: ", "", self.contentContainer))}()
     override func resolveSkin() {
         var css:String = ""
         css += "RepositoryDetailView{float:left;clear:left;}"
@@ -18,8 +19,10 @@ class RepositoryDetailView:Element {
         css += "RepositoryDetailView TextInput TextArea Text{width:100%;fill:purple;fill-alpha:1;}"
         //StyleManager.addStyle(css)
         super.resolveSkin()
-        _ = text1
-        _ = text2
+        _ = container
+        /*_ = text1
+         _ = text2*/
         _ = nameTextInput
+        _ = localPathTextInput
     }
 }
