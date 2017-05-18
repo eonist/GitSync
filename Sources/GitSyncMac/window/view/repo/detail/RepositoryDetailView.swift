@@ -2,12 +2,14 @@ import Foundation
 @testable import Utils
 @testable import Element
 
+class 
+
 class RepositoryDetailView:Element {
     lazy var contentContainer:Container = {return self.addSubView(Container(self.width,self.height,self,"lable"))}()
-    //lazy var text1:Element = {return self.addSubView(Element(NaN,NaN,self,"text1"))}()
-    //lazy var text2:Element = {return self.addSubView(Element(NaN,NaN,self,"text2"))}()
-    lazy var nameTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Name: ", "", self.contentContainer))}()
-    lazy var localPathTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Local-path: ", "", self.contentContainer))}()
+    lazy var text1:Element = {return self.addSubView(Element(NaN,NaN,self,"text1"))}()
+    lazy var text2:Element = {return self.addSubView(Element(NaN,NaN,self,"text2"))}()
+    //lazy var nameTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Name: ", "", self.contentContainer))}()
+    //lazy var localPathTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Local-path: ", "", self.contentContainer))}()
     override func resolveSkin() {
         /*
         var css:String = ""
@@ -22,11 +24,11 @@ class RepositoryDetailView:Element {
         //StyleManager.addStyle(css)
         super.resolveSkin()
         _ = contentContainer
-        /*
+        
          _ = text1
          _ = text2
-         */
-        _ = nameTextInput
-        _ = localPathTextInput
+         /**/
+        //_ = nameTextInput
+        //_ = localPathTextInput
     }
 }
