@@ -18,8 +18,8 @@ class TestItem:Element{
          */
         StyleManager.addStyle(css)
         super.resolveSkin()
-         //_ = text1
-         //_ = text2
+         _ = text1
+         _ = text2
     }
 }
 class RepositoryDetailView:Element {
