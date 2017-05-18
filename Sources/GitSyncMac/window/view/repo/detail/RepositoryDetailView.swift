@@ -24,7 +24,7 @@ class TestItem:Element{
 }
 class RepositoryDetailView:Element {
     lazy var contentContainer:Container = {return self.addSubView(Container(self.width,self.height,self,"lable"))}()
-    lazy var item:TestItem = {return self.addSubView(TestItem(NaN,NaN,self))}()
+    lazy var item:TestItem = {return self.contentContainer.addSubView(TestItem(NaN,NaN,self.contentContainer))}()
     
     //lazy var nameTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Name: ", "", self.contentContainer))}()
     //lazy var localPathTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Local-path: ", "", self.contentContainer))}()
