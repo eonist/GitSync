@@ -8,8 +8,10 @@ import Foundation
     //simulate header with centered btns
     //resize the window in gif anim
     //add to element project, white bg
-class DebugText:Element {
-    
+class DebugTextInput:Element {
+    override func resolveSkin() {
+        super.resolveSkin()
+    }
 }
 class TestItem:Element{
     lazy var text1:Element = {return self.addSubView(Element(NaN,NaN,self,"text1"))}()
