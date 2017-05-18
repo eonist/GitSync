@@ -11,7 +11,8 @@ class RepositoryDetailView:Element {
         css += "RepositoryDetailView #text1{fill:orange;width:100%;height:48px;float:left;clear:left;}"
         css += "RepositoryDetailView #text2{fill:green;width:100%;height:48px;float:left;clear:left;}"
         css += "RepositoryDetailView TextInput{width:100%;height:48px;float:left;clear:left;}"
-        css += "RepositoryDetailView TextInput{width:100%;height:48px;float:left;clear:left;}"
+        css += "RepositoryDetailView Text{width:100px;}"
+        css += "RepositoryDetailView Text{width:100px;}
         StyleManager.addStyle(css)
         super.resolveSkin()
         _ = text1
