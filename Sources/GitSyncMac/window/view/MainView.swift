@@ -3,8 +3,8 @@ import Foundation
 @testable import Element
 
 class MainView:TitleView{
-    static let w:CGFloat = 540//700
-    static let h:CGFloat = 350//400
+    static let w:CGFloat = 700//540//700
+    static let h:CGFloat = 400//350//400
     var title:String
     var menuView:MenuView?
     var currentView:Element?
