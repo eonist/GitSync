@@ -2,9 +2,10 @@ import Foundation
 @testable import Utils
 @testable import Element
 //Continue here 🏀
-    //padding and element inside the text things. to simulate text content
+    //padding and element inside the text things. to simulate text content ✅
     //add resize code
-    //ditch the close btns etc
+    //add more debug areas. 👈
+    //
     //simulate header with centered btns
     //resize the window in gif anim
     //add to element project, white bg
