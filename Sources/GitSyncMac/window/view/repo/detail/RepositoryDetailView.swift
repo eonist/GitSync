@@ -36,7 +36,7 @@ class RepositoryDetailView:Element {
         StyleManager.addStyle(css)
         super.resolveSkin()
         _ = contentContainer
-        // _ = item
+        _ = item
        
         //_ = nameTextInput
         //_ = localPathTextInput
