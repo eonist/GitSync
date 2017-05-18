@@ -3,6 +3,7 @@ import Foundation
 @testable import Element
 
 class RepositoryDetailView:Element {
+    lazy var container:Container = {return self.addSubView(Element(NaN,NaN,self,"lable"))}()
     lazy var text1:Element = {return self.addSubView(Element(NaN,NaN,self,"text1"))}()
     lazy var text2:Element = {return self.addSubView(Element(NaN,NaN,self,"text2"))}()
     lazy var nameTextInput:TextInput = {return self.addSubView(TextInput(self.width, 32, "Name: ", "", self))}()
@@ -15,7 +16,7 @@ class RepositoryDetailView:Element {
         css += "RepositoryDetailView TextInput Text{width:100px;fill:yellow;fill-alpha:1;}"
         css += "RepositoryDetailView TextInput TextArea{width:100%;fill:blue;fill-alpha:1;}"
         css += "RepositoryDetailView TextInput TextArea Text{width:100%;fill:purple;fill-alpha:1;}"
-        StyleManager.addStyle(css)
+        //StyleManager.addStyle(css)
         super.resolveSkin()
         _ = text1
         _ = text2
