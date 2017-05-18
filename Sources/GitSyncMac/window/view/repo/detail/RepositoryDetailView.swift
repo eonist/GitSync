@@ -10,10 +10,12 @@ import Foundation
     //try adding commit browser sidebar
     //try moving mainview into title area so to get perfect shadow
     //remember to mask content within window
-    //drag side menus etc 
+    //drag side menus etc
     //simulate header with centered btns
     //resize the window in gif anim
     //add to element project, white bg
+    //create a debug.css file when you need to debug things ✨
+
 class DebugText:Element {
     lazy var textField:Element = {return self.addSubView(Element(NaN,NaN,self,"textField"))}()
     override func resolveSkin() {
