@@ -7,7 +7,7 @@ class TestItem:Element{
     lazy var text2:Element = {return self.addSubView(Element(NaN,NaN,self,"text2"))}()
     override func resolveSkin() {
          var css:String = ""
-         css += "RepositoryDetailView TestItem{fill:orange;width:100%;height:48px;float:left;clear:left;padding-right:100px;}"
+         css += "RepositoryDetailView TestItem{fill:orange;width:100%;height:48px;float:left;clear:left;}"
          css += "RepositoryDetailView TestItem{fill:yellow;}"//padding-top:12px;padding-left:12px;padding-right:-24px;
          css += "RepositoryDetailView TestItem #text1{fill:purple;width:100px;height:48px;float:left;clear:none;}"
          css += "RepositoryDetailView TestItem #text2{fill:green;width:100%;height:48px;float:left;clear:none;}"
