@@ -14,10 +14,8 @@ class DebugText:Element {
     }
 }
 class DebugTextArea:Element {
-    lazy var text:Element = {return self.addSubView(DebugText(NaN,NaN,self))}()
     override func resolveSkin() {
         super.resolveSkin()
-        _ = text
     }
 }
 class DebugTextInput:Element {
@@ -26,28 +24,17 @@ class DebugTextInput:Element {
     override func resolveSkin() {
         var css:String = ""
         css += "DebugTextInput DebugTextInput{fill:orange;width:100%;height:48px;float:left;clear:left;padding-right:100px;fill:yellow;}"
-        css += "DebugTextInput DebugTextInput #text1{fill:purple;width:100px;height:48px;float:left;clear:none;}"
-        css += "DebugTextInput DebugTextInput #text2{fill:green;width:100%;height:48px;float:left;clear:none;}"
-        
+        css += "DebugTextInput DebugTextInput DebugText{fill:purple;width:100px;height:48px;float:left;clear:none;}"
+        css += "DebugTextInput DebugTextInput DebugTextArea{fill:green;width:100%;height:48px;float:left;clear:none;}"
         StyleManager.addStyle(css)
         super.resolveSkin()
         _ = text
         _ = textArea
     }
 }
-class TestItem:Element{
-    lazy var text1:Element = {return self.addSubView(Element(NaN,NaN,self,"text1"))}()
-    lazy var text2:Element = {return self.addSubView(Element(NaN,NaN,self,"text2"))}()
-    override func resolveSkin() {
-        
-        super.resolveSkin()
-         _ = text1
-         _ = text2
-    }
-}
 class RepositoryDetailView:Element {
     lazy var contentContainer:Container = {return self.addSubView(Container(self.width,self.height,self,"lable"))}()
-    lazy var item:TestItem = {return self.contentContainer.addSubView(TestItem(NaN,NaN,self.contentContainer))}()
+    lazy var textInput:DebugTextInput = {return self.contentContainer.addSubView(DebugTextInput(NaN,NaN,self.contentContainer))}()
     
     //lazy var nameTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Name: ", "", self.contentContainer))}()
     //lazy var localPathTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Local-path: ", "", self.contentContainer))}()
@@ -59,7 +46,7 @@ class RepositoryDetailView:Element {
         StyleManager.addStyle(css)
         super.resolveSkin()
         _ = contentContainer
-        _ = item
+        _ = textInput
        
         //_ = nameTextInput
         //_ = localPathTextInput
