@@ -5,7 +5,12 @@ import Foundation
     //padding and element inside the text things. to simulate text content ✅
     //add resize code
     //add more debug areas. 👈
-    //
+    //try adding hide side bars from app menu
+    //try adding commit detail side bar
+    //try adding commit browser sidebar
+    //try moving mainview into title area so to get perfect shadow
+    //remember to mask content within window
+    //drag side menus etc 
     //simulate header with centered btns
     //resize the window in gif anim
     //add to element project, white bg
