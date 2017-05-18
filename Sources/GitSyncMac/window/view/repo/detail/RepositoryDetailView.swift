@@ -1,10 +1,13 @@
 import Foundation
 @testable import Utils
 @testable import Element
-
-//padding and element inside the text things. to simulate text content
-//add resize code
-//ditch the 
+//Continue here 🏀
+    //padding and element inside the text things. to simulate text content
+    //add resize code
+    //ditch the close btns etc
+    //simulate header with centered btns
+    //resize the window in gif anim
+    //add to element project, white bg
 
 class TestItem:Element{
     lazy var text1:Element = {return self.addSubView(Element(NaN,NaN,self,"text1"))}()
