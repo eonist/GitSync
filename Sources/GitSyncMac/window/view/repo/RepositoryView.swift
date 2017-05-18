@@ -10,7 +10,7 @@ class RepositoryView:Element{
     override func resolveSkin() {
         var css:String = "RepositoryView{float:left;clear:left;}"
         css += "RepositoryView #left{fill:blue;width:200px;float:left;clear:none;}"
-        css += "RepositoryView RepositoryDetailView{fill:red;width:100%;float:left;clear:none;}"
+        css += "RepositoryView RepositoryDetailView{fill:red;width:100%;padding-right:-300px;float:left;clear:none;}"
         StyleManager.addStyle(css)
         super.resolveSkin()
         _ = leftColumn
