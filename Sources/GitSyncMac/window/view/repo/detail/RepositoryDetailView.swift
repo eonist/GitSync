@@ -11,7 +11,7 @@ class RepositoryDetailView:Element {
         css += "RepositoryDetailView #text2{fill:green;width:100%;float:left;clear:clear;}"
         StyleManager.addStyle(css)
         super.resolveSkin()
-        _ = leftColumn
-        _ = rightColumn
+        _ = text1
+        _ = text2
     }
 }
