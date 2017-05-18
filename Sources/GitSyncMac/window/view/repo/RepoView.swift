@@ -1,7 +1,6 @@
 import Cocoa
 @testable import Utils
 @testable import Element
-
 /**
  * TODO: should remember previous selected item between transitions
  * TODO: ⚠️️ Refactor this class so that it doesnt force unwrap
