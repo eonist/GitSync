@@ -2,12 +2,16 @@ import Foundation
 @testable import Utils
 @testable import Element
 
+//padding and element inside the text things. to simulate text content
+//add resize code
+//ditch the 
+
 class TestItem:Element{
     lazy var text1:Element = {return self.addSubView(Element(NaN,NaN,self,"text1"))}()
     lazy var text2:Element = {return self.addSubView(Element(NaN,NaN,self,"text2"))}()
     override func resolveSkin() {
          var css:String = ""
-         css += "RepositoryDetailView TestItem{fill:orange;width:100%;height:48px;float:left;clear:left;padding-right:-100px;}"
+         css += "RepositoryDetailView TestItem{fill:orange;width:100%;height:48px;float:left;clear:left;padding-right:100px;}"
          css += "RepositoryDetailView TestItem{fill:yellow;}"//padding-top:12px;padding-left:12px;padding-right:-24px;
          css += "RepositoryDetailView TestItem #text1{fill:purple;width:100px;height:48px;float:left;clear:none;}"
          css += "RepositoryDetailView TestItem #text2{fill:green;width:100%;height:48px;float:left;clear:none;}"
