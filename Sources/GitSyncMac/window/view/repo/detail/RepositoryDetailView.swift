@@ -8,7 +8,7 @@ class TestItem:Element{
     override func resolveSkin() {
          var css:String = ""
          css += "RepositoryDetailView TestItem{fill:orange;width:100%;height:48px;float:left;clear:left;}"
-         css += "RepositoryDetailView TestItem{fill:yellow;}"
+         css += "RepositoryDetailView TestItem{fill:yellow;margin-top:12px;margin-left:12px;margin-right:-124px;}"
          css += "RepositoryDetailView TestItem #text1{fill:purple;width:100px;height:48px;float:left;clear:none;}"
          css += "RepositoryDetailView TestItem #text2{fill:green;width:100%;height:48px;float:left;clear:none;}"
          /*css += "RepositoryDetailView TextInput{width:100%;height:48px;float:left;clear:left;fill:Blue;fill-alpha:1;}"
