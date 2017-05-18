@@ -2,7 +2,16 @@ import Foundation
 @testable import Utils
 @testable import Element
 
-class 
+class TestItem:Element{
+    lazy var text1:Element = {return self.addSubView(Element(NaN,NaN,self,"text1"))}()
+    lazy var text2:Element = {return self.addSubView(Element(NaN,NaN,self,"text2"))}()
+
+    override func resolveSkin() {
+        super.resolveSkin()
+        _ = text1
+        _ = text2
+    }
+}
 
 class RepositoryDetailView:Element {
     lazy var contentContainer:Container = {return self.addSubView(Container(self.width,self.height,self,"lable"))}()
