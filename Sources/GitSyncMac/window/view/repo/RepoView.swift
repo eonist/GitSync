@@ -3,7 +3,7 @@ import Cocoa
 @testable import Element
 /**
  * TODO: should remember previous selected item between transitions
- * TODO: ⚠️️ Refactor this class so that it doesnt force unwrap
+ * TODO: ⚠️️ Refactor this class so that it doesn't force unwrap
  */
 class RepoView:Element {
     static var repoListFilePath:String = "~/Desktop/repo2.xml"/*📝*///"~/Desktop/assets/xml/list.xml"
