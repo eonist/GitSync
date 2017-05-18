@@ -18,8 +18,8 @@ class TestItem:Element{
          */
         StyleManager.addStyle(css)
         super.resolveSkin()
-         //_ = text1
-         //_ = text2
+         _ = text1
+         _ = text2
     }
 }
 class RepositoryDetailView:Element {
@@ -30,6 +30,7 @@ class RepositoryDetailView:Element {
     //lazy var localPathTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Local-path: ", "", self.contentContainer))}()
     override func resolveSkin() {
         var css:String = ""
+        
         css += "RepositoryDetailView{float:left;clear:left;100%;}"
         css += "RepositoryDetailView Container#lable{float:left;clear:left;width:100%;}"
         StyleManager.addStyle(css)

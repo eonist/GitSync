@@ -12,7 +12,7 @@ class RepositoryView:Element{
         var css:String = "RepositoryView{float:left;clear:left;}"
         css += "RepositoryView Container#content{float:left;clear:left;width:100%;padding-right:200px;}"
         css += "RepositoryView #left{fill:blue;width:200px;float:left;clear:none;}"
-        css += "RepositoryView RepositoryDetailView{fill:red;width:100%;float:left;clear:none;}"
+
         StyleManager.addStyle(css)
         super.resolveSkin()
         _ = contentContainer
