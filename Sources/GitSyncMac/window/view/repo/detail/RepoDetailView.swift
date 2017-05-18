@@ -3,9 +3,9 @@ import Cocoa
 @testable import Element
 
 class RepoDetailView:ElasticSlideScrollView3 {
-    override var maskSize:CGSize {return CGSize(super.width,super.height-48)}
-    override var contentSize:CGSize {return CGSize(NaN,(12 * 24)+64) }
-    override var itemSize:CGSize {return CGSize(NaN,24)}
+    override var maskSize:CGSize {return CGSize(super.width,super.height-48)}/*For the ScrollView*/
+    override var contentSize:CGSize {return CGSize(NaN,(12 * 24)+64) }/*For the ScrollView*/
+    override var itemSize:CGSize {return CGSize(NaN,24)}/*For the ScrollView*/
     /*TextInput*/
     lazy var nameTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Name: ", "", self.contentContainer))}()
     lazy var localPathTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Local-path: ", "", self.contentContainer))}()
