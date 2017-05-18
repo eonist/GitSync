@@ -7,10 +7,10 @@ class TestItem:Element{
     lazy var text2:Element = {return self.addSubView(Element(NaN,NaN,self,"text2"))}()
     override func resolveSkin() {
          var css:String = ""
-         css += "RepositoryDetailView TestItem{fill:orange;width:100%;height:48px;float:left;clear:left;}"
+         css += "RepositoryDetailView TestItem{fill:orange;width:100%;height:48px;float:left;clear:left;padding-right:-48px;}"
          css += "RepositoryDetailView TestItem{fill:yellow;}"//padding-top:12px;padding-left:12px;padding-right:-24px;
-         css += "RepositoryDetailView TestItem #text1{fill:purple;width:100px;height:48px;float:left;clear:left;}"
-         css += "RepositoryDetailView TestItem #text2{fill:green;width:100%;height:48px;float:left;clear:left;}"
+         css += "RepositoryDetailView TestItem #text1{fill:purple;width:100px;height:48px;float:left;clear:none;}"
+         css += "RepositoryDetailView TestItem #text2{fill:green;width:100%;height:48px;float:left;clear:none;}"
          /*css += "RepositoryDetailView TextInput{width:100%;height:48px;float:left;clear:left;fill:Blue;fill-alpha:1;}"
          css += "RepositoryDetailView TextInput Text{width:100px;fill:yellow;fill-alpha:1;}"
          css += "RepositoryDetailView TextInput TextArea{width:100%;fill:blue;fill-alpha:1;}"
@@ -30,9 +30,9 @@ class RepositoryDetailView:Element {
     //lazy var localPathTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Local-path: ", "", self.contentContainer))}()
     override func resolveSkin() {
         var css:String = ""
-        
+        css += "RepositoryView RepositoryDetailView{fill:red;width:100%;float:left;clear:none;}"
         css += "RepositoryDetailView{float:left;clear:left;100%;}"
-        css += "RepositoryDetailView Container#lable{float:left;clear:left;width:100%;}"
+        css += "RepositoryDetailView Container#lable{float:left;clear:left;width:100%;padding-right:0px;}"
         StyleManager.addStyle(css)
         super.resolveSkin()
         _ = contentContainer
