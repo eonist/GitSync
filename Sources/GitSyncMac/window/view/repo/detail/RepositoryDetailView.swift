@@ -7,8 +7,8 @@ class TestItem:Element{
     lazy var text2:Element = {return self.addSubView(Element(NaN,NaN,self,"text2"))}()
     override func resolveSkin() {
          var css:String = ""
-         css += "RepositoryDetailView TestItem{fill:orange;width:100%;height:48px;float:left;clear:left;}"
-         css += "RepositoryDetailView TestItem{fill:yellow;padding-top:12px;padding-left:12px;padding-right:-24px;}"
+         css += "RepositoryDetailView TestItem{fill:orange;width:100%;height:48px;float:left;clear:left;padding-right:100px;}"
+         css += "RepositoryDetailView TestItem{fill:yellow;}"//padding-top:12px;padding-left:12px;padding-right:-24px;
          css += "RepositoryDetailView TestItem #text1{fill:purple;width:100px;height:48px;float:left;clear:none;}"
          css += "RepositoryDetailView TestItem #text2{fill:green;width:100%;height:48px;float:left;clear:none;}"
          /*css += "RepositoryDetailView TextInput{width:100%;height:48px;float:left;clear:left;fill:Blue;fill-alpha:1;}"
@@ -30,7 +30,7 @@ class RepositoryDetailView:Element {
     //lazy var localPathTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Local-path: ", "", self.contentContainer))}()
     override func resolveSkin() {
         var css:String = ""
-        css += "RepositoryDetailView Container#lable{float:left;clear:left;width100%;}"
+        css += "RepositoryDetailView Container#lable{float:left;clear:left;width:100%;}"
         css += "RepositoryDetailView{float:left;clear:left;100%;}"
        
         StyleManager.addStyle(css)
