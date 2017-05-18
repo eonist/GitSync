@@ -26,9 +26,9 @@ class DebugTextInput:Element {
     override func resolveSkin() {
         var css:String = ""
         css += "DebugTextInput DebugTextInput{fill:orange;width:100%;height:48px;float:left;clear:left;padding-right:100px;fill:yellow;}"
-        css += "DebugTextInput DebugTextInput DebugText{fill:purple;width:100px;height:48px;float:left;clear:none;}"
-        css += "DebugTextInput DebugTextInput DebugTextArea{fill:green;width:100%;height:48px;float:left;clear:none;}"
-        css += "DebugTextInput DebugTextInput #textField{fill:grey;width:100%;height:24px;float:left;clear:none;margin:12px;margin-right:24px;}"
+        css += "DebugTextInput DebugTextInput DebugText{fill:purple;width:100px;height:48px;float:left;clear:none;padding:12px;}"
+        css += "DebugTextInput DebugTextInput DebugTextArea{fill:green;width:100%;height:48px;float:left;clear:none;padding:12px;}"
+        css += "DebugTextInput DebugTextInput #textField{fill:grey;width:100%;height:24px;float:left;clear:none;}"
         StyleManager.addStyle(css)
         super.resolveSkin()
         _ = text
