@@ -11,6 +11,7 @@ enum Views{
         case repos = "repos"
         case stats = "stats"
         case prefs = "prefs"
+        case repository = "repository"
     }
     case main(Main)
     case commitDetail([String:String])
@@ -47,6 +48,8 @@ class Navigation {
                         mainView.currentView = mainView.addSubView(StatsView(w,h,mainView))
                     case .prefs:
                         mainView.currentView = mainView.addSubView(PrefsView(w,h,mainView))
+                    case .repository:
+                        mainView.currentView = mainView.addSubView(RepositoryView(w,h,mainView))
             }
             case .commitDetail(let commitData):/*CommitDetail*/
                 mainView.currentView = mainView.addSubView(CommitDetailView(w,h,mainView))
