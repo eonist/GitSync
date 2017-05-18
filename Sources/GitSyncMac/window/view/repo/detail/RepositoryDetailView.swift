@@ -9,11 +9,13 @@ import Foundation
     //resize the window in gif anim
     //add to element project, white bg
 class DebugText:Element {
+    lazy var textField:Element = {return self.addSubView(Element(NaN,NaN,self,"textField"))}()
     override func resolveSkin() {
         super.resolveSkin()
+        _ = textField
     }
 }
-class DebugTextArea:Element {
+class DebugTextArea:DebugText {
     override func resolveSkin() {
         super.resolveSkin()
     }
