@@ -14,7 +14,7 @@ class MenuView:Element{
         _ = self.addSubView(Element(NaN, NaN, self, "ruler"))
     }
     func createButtons(){
-        let buttonSection = self.addSubView(Container(200,48,self,"buttonSection"))
+        let buttonSection = self.addSubView(Container(200,48,self,"buttonSection"))/*The nav bar*/
         var buttons:[ISelectable] = []
         for buttonTitle in MenuView.buttonTitles{
             let btn:SelectButton = buttonSection.addSubView(SelectButton(20,20,false,buttonSection,buttonTitle.rawValue))//buttonTitle.capitalizedString
