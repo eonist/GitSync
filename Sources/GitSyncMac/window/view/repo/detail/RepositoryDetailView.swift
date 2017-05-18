@@ -16,11 +16,12 @@ class TestItem:Element{
          css += "RepositoryDetailView TextInput TextArea{width:100%;fill:blue;fill-alpha:1;}"
          css += "RepositoryDetailView TextInput TextArea Text{width:100%;fill:purple;fill-alpha:1;}"
          */
-        
         StyleManager.addStyle(css)
         super.resolveSkin()
-        /*_ = text1
-         _ = text2*/
+        /*
+         _ = text1
+         _ = text2
+         */
     }
 }
 class RepositoryDetailView:Element {
