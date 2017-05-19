@@ -70,7 +70,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         StyleManager.addStyle(css)
         
 
-        let tree = CustomTree("root")
+        //let tree = CustomTree("root")
         let a0 = CustomTree("DevOps")
         let b0 = CustomTree("Automation")
         let b1 = CustomTree("Cloud computing")
@@ -81,17 +81,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let d0 = CustomTree("Heroku")
         let d1 = CustomTree("Azure")
         let d2 = CustomTree("Aws")
-        //c0.children = [d0,d1,d2]
-        //b0.children = [c0,c1,c2,c3]
+        c0.children = [d0,d1,d2]
+        b0.children = [c0,c1,c2,c3]
         a0.children = [b0,b1]
-        tree.children = [a0]
         //let deepestDepth:Int = CustomTree.deepest(a0)
         //Swift.print("deepestDepth: " + "\(deepestDepth)")
         //let siblings = CustomTree.siblings(a0, 3)
         //Swift.print("siblings.count: " + "\(siblings.count)")
         //Swift.print("a0.deepest: " + "\(a0.deepest)")
-        CustomTree.distribute(tree, 0, CGRect(0,0,400,0))
-        let items = CustomTree.flattened(tree) //basically flattens 3d list into 2d list
+        CustomTree.distribute(a0, 0, CGRect(0,0,400,0))
+        let items = CustomTree.flattened(a0) //basically flattens 3d list into 2d list
         Swift.print("items.count: " + "\(items.count)")
         items.forEach{ item in
             Swift.print("item.pt: " + "\(item.pt)")

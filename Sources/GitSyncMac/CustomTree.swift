@@ -81,7 +81,7 @@ extension CustomTree{
      * TODO: ⚠️️ Use reduce!
      */
     static func flattened(_ tree:CustomTree) -> [CustomTree] {
-        var results:[CustomTree] = []
+        var results:[CustomTree] = [tree]
         tree.children.forEach { child in
             if(child.children.count > 0) {/*Array*/
                 results += CustomTree.flattened(child)
