@@ -113,15 +113,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 class CustomTree{
     var shape:NSView?
     var parent:CustomTree?
-    var children:[CustomTree]?
+    var children:[CustomTree] = []
     func sibling(_ level:Int){//4
         /*return siblings on same level*/
         var curLev:Int = 0
         var curIdx:[Int] = []
         
     }
-    func dive(_ tree:CustomTree,_ level:Int, _ curLevel:Int){
-        tree.children?.forEach{ tree in
+    func dive(_ tree:CustomTree,_ level:Int, _ curLevel:Int)->[CustomTree]{
+        return tree.children.map{ tree in
             if curLevel < level {//keep diving
                 dive(tree,level,level + 1)
             }
