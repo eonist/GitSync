@@ -103,8 +103,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         func posLine(_ tree:CustomTree){//recursive
             tree.children.forEach{ child in
-                
-                child.lineGraphic.setPoints(child.lineGraphic.p1, tree.lineGraphic.p1)
+                let childP:CGPoint = child.pt
+                let parentP:CGPoint = tree.pt
+                let difference:CGPoint = parentP - childP
+                let childCenter:CGPoint = child.lineGraphic.p1
+                let p2:CGPoint = childCenter + difference
+                child.lineGraphic.setPoints(childCenter, tree.lineGraphic.p1)
                 posLine(child)
             }
         }
