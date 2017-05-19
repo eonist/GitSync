@@ -28,11 +28,10 @@ class Navigation {
     /**
      * Navigate between views
      */
-    static func view(_ view:Views)->NSView{
+    static func view(_ view:Views,_ curView:NSView?)->NSView{
         Navigation.activeView = view
-        let mainView:MainView = MainWin.mainView!
-        if(mainView.currentView != nil) {mainView.currentView!.removeFromSuperview()}
-        mainView.menuView!.selectButton(view)/*Selects the correct menu icon*/
+        if let curView = curView {curView.removeFromSuperview()}
+        MainView.menuView!.selectButton(view)/*Selects the correct menu icon*/
         
         let w:CGFloat = MainView.w/*Convenience*/
         let h:CGFloat = MainView.h

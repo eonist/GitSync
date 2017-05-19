@@ -6,7 +6,7 @@ class MainView:TitleView{
     static let w:CGFloat = 700//540//700
     static let h:CGFloat = 400//350//400
     var title:String
-    var menuView:MenuView?
+    static var menuView:MenuView?
     var currentView:Element?
     var conflictDialogWin:ConflictDialogWin?
     
@@ -19,8 +19,8 @@ class MainView:TitleView{
         super.textArea.setTextValue(title)
         //Sounds.startup?.play()
         MainWin.mainView = self
-        menuView = addSubView(MenuView(frame.size.width,48,self))
-        Navigation.setView(Views.main(.repository))/*Adds the correct view to MainView*/
+        MainView.menuView = addSubView(MenuView(frame.size.width,48,self))
+        Navigation.view(Views.main(.repository),currentView)/*Adds the correct view to MainView*/
     }
     required init(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
