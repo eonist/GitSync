@@ -142,10 +142,12 @@ class CustomTree{
         var deepestDepth:Int = depth
         for child in tree.children {
             //print($1.title)
-            
-            deepestDepth = deepest(child, depth + 1) > //keep diving
+            let curDeepest = deepest(child, depth + 1)
+            if curDeepest > deepestDepth {
+                deepestDepth = curDeepest
+            }
             
         }
-        return deepest
+        return deepestDepth
     }
 }
