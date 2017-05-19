@@ -49,4 +49,7 @@ class RepositoryDetailView:Element {
         //_ = nameTextInput
         //_ = localPathTextInput
     }
+    override func setSize(_ width: CGFloat, _ height: CGFloat) {
+        super.setSize(width, height)
+    }
 }
