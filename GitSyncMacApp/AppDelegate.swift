@@ -139,14 +139,14 @@ class CustomTree{
         Swift.print("depth: curDepth: \(curDepth) deepest: \(deepest)")
         /*num of levels on the deepest node from root*/
         var deepest = deepest
-        tree.children.forEach{
+        for child in tree.children {
             //print($1.title)
-            if !$1.children.isEmpty {
+            if !child.children.isEmpty {
                 if ((curDepth+1) > deepest){
                     deepest = curDepth
                 }
-                return depth($1, curDepth + 1)//keep diving
-            };return curDepth + 1
+                return depth(child, curDepth + 1,deepest)//keep diving
+            }
         }
         return deepest
     }
