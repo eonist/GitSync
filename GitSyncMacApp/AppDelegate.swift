@@ -99,6 +99,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             item.view.frame.origin = item.pt
             window.contentView?.addSubview(item.view)
         }//places items into positions, should now be inverted tree
+        a0.lineGraphic.setPoints(a0.lineGraphic.p1, a0.lineGraphic.p1)//hide line in root
         
         func posLine(_ tree:CustomTree){//recursive
             tree.children.forEach{ child in
@@ -106,7 +107,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 posLine(child)
             }
         }
-        
+        //posLine(a0)
     }
     /**
      *
