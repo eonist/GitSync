@@ -8,7 +8,7 @@ class MainView:TitleView{
     var title:String
     static var menuView:MenuView?
     
-    private var _currentView:Element? = nil
+    var _currentView:Element? = nil
     var currentView:Element {
         guard let view = _currentView else{
             _currentView = Navigation.view(Views.main(.repository),self,CGSize(MainView.w,MainView.h))/*Adds the correct view to MainView*/
