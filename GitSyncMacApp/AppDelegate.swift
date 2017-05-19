@@ -127,7 +127,7 @@ class CustomTree{
         return tree.children.reduce(deepest){
             if !$1.children.isEmpty {
                 return depth($1, curDepth + 1, $0)
-            };return deepest
+            };return curDepth 
         }
     }
 }
