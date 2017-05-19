@@ -67,8 +67,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         CustomTree.distribute(a0, 0, CGRect(0,0,500,400))
         let items = CustomTree.flattened(a0) //basically flattens 3d list into 2d list
         items.forEach{ item in
-            item.view.frame.origin = item.ptwindow.contentView?.addSubView(rect.graphic)
-            window.contentView?.addSubView(item.view)
+            item.view.frame.origin = item.pt
+            window.contentView?.addSubview(item.view)
         }//places items into positions, should now be inverted tree
     }
     /**
