@@ -55,14 +55,17 @@ extension CustomTree{
             return $0 + $1.width
         }
         Swift.print("totW: " + "\(totW)")
+        Swift.print("prevBound.center.x: " + "\(prevBound.center.x)")
         var x = prevBound.center.x - (totW/2)//center of prev bound - halfTot
         let y = prevBound.bottom.y
-        _ = siblings.map{
-            $0.pt = CGPoint(x,y)
-            x += x + $0.width
-        }
         let maxH = siblings.map{$0.height}.reduce(0){$0 > $1 ? $0 : $1}
         let curBound = CGRect(x,y,totW,maxH)
+        
+        siblings.forEach{ child in
+            child.pt = CGPoint(x,y)
+            x = (x + child.width)
+        }
+        
         if level < tree.deepest {
             distribute(tree,level+1,curBound)//go to next level
         }
