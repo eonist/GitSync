@@ -64,8 +64,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         a0.children = [b0,b1]
         //let deepestDepth:Int = CustomTree.deepest(a0)
         //Swift.print("deepestDepth: " + "\(deepestDepth)")
-        let siblings = CustomTree.siblings(a0, 3)
-        Swift.print("siblings.count: " + "\(siblings.count)")
+        //let siblings = CustomTree.siblings(a0, 3)
+        //Swift.print("siblings.count: " + "\(siblings.count)")
+        CustomTree.distribute(a0, 0, CGRect(0,0,500,400))
     }
     /**
      *
