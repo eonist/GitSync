@@ -15,7 +15,7 @@ class CustomTree{
         let view = Element(0,0,100,100)
         let textButton:TextButton = view.addSubView(TextButton.init(100, 100, self.title, view))
         
-        return textButton
+        return view
     }()
     var parent:CustomTree?
     var children:[CustomTree] = []
