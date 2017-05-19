@@ -13,6 +13,10 @@ class DebugTextArea:DebugText {
     override func resolveSkin() {
         super.resolveSkin()
     }
+    override func setSize(_ width: CGFloat, _ height: CGFloat) {
+        super.setSize(width, height)
+        textField.setSize(width, height)
+    }
 }
 class DebugTextInput:Element {
     lazy var text:Element = {return self.addSubView(DebugText(NaN,NaN,self))}()
