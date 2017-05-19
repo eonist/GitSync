@@ -13,6 +13,10 @@ class CustomTree{
         //rect.draw()
         //return roundRect.graphic
         let view = Element(0,0,100,100)
+        /*Line*/
+        let lineGraphic = LineGraphic(CGPoint(300,300),CGPoint(500,500),LineStyle(1,.blue))
+        addSubview(lineGraphic.graphic)
+        lineGraphic.draw()
         let textButton:TextButton = view.addSubView(TextButton.init(100, 100, self.title, view))
         
         return view
