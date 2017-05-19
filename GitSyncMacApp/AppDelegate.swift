@@ -108,11 +108,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 let difference:CGPoint = parentP - childP
                 let childCenter:CGPoint = child.lineGraphic.p1
                 let p2:CGPoint = childCenter + difference
-                child.lineGraphic.setPoints(childCenter, tree.lineGraphic.p1)
+                child.lineGraphic.setPoints(childCenter, p2)
                 posLine(child)
             }
         }
-        //posLine(a0)
+        posLine(a0)
     }
     /**
      *
