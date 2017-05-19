@@ -124,30 +124,3 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
-
-class CustomTree{
-    var shape:NSView?
-    var parent:CustomTree?
-    var children:[CustomTree] = []
-    var title:String
-    init(_ title:String){
-        self.title = title
-    }
-    /*return siblings on same level*/
-    static func siblings(_ tree:CustomTree,_ level:Int, _ curLevel:Int = 0) -> [CustomTree] {//4
-        //Swift.print("tree title: \(tree.title) curLevel: \(curLevel)" )
-        if curLevel == level {//correct level
-            return [tree]
-        }else{
-            return tree.children.reduce([]) { result,child in
-                return result + siblings(child,level,curLevel + 1)/*not correct level, keep diving*/
-            }
-        }
-    }
-    static func deepest(_ tree:CustomTree, _ depth:Int = 0) -> Int{/*num of levels on the deepest node from root*/
-        return tree.children.reduce(depth) { deepestDepth, child in
-            let curDeepest = deepest(child, depth + 1)
-            return curDeepest > deepestDepth ? curDeepest : deepestDepth
-        }
-    }
-}
