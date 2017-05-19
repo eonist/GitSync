@@ -3,7 +3,11 @@ import Cocoa
 @testable import Element
 
 class CustomTree{
-    var shape:NSView {return NSView()}
+    lazy var view:NSView = {
+        let rect = RectGraphic(0,0,50,50,FillStyle(.blue),nil)
+        rect.draw()
+        return rect.graphic
+    }()
     var parent:CustomTree?
     var children:[CustomTree] = []
     var title:String
@@ -15,8 +19,8 @@ class CustomTree{
     }
 }
 extension CustomTree{
-    var width:CGFloat {return shape.frame.size.width}
-    var height:CGFloat {return shape.frame.size.height}
+    var width:CGFloat {return 50/*view.frame.size.width*/}
+    var height:CGFloat {return 50/*view.frame.size.height*/}
 }
 extension CustomTree{
     /*Return siblings on same level*/
