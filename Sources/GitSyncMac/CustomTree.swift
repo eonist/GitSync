@@ -49,6 +49,7 @@ extension CustomTree{
         /*align things here*/
         let siblings = CustomTree.siblings(tree,level)/*siblings are the items that are on the same level*/
         //let count = siblings.count
+        Swift.print("siblings.count: " + "\(siblings.count)")
         //figure out how much horizontal space all items take up
         let totW:CGFloat = siblings.reduce(0){
             return $0 + $1.width
