@@ -54,11 +54,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let b0 = CustomTree("b0")
         let b1 = CustomTree("b1")
         let c0 = CustomTree("c0")
+        let c1 = CustomTree("c1")
+        let c2 = CustomTree("c2")
         let d0 = CustomTree("d0")
         let d1 = CustomTree("d1")
         let d2 = CustomTree("d2")
         c0.children = [d0,d1,d2]
-        b0.children = [c0]
+        b0.children = [c0,c1,c2]
         a0.children = [b0,b1]
         //let deepestDepth:Int = CustomTree.deepest(a0)
         //Swift.print("deepestDepth: " + "\(deepestDepth)")

@@ -36,7 +36,7 @@ extension CustomTree{
             return curDeepest > deepestDepth ? curDeepest : deepestDepth
         }
     }
-    //
+    
     /**
      * So the idea is to evenly position from the center of parent position (inverted tree (aka hierarchy))
      */
