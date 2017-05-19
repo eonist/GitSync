@@ -143,7 +143,7 @@ class CustomTree{
         for child in tree.children {
             //print($1.title)
             
-            deepestDepth = deepest(child, depth + 1)//keep diving
+            deepestDepth = deepest(child, depth + 1) > //keep diving
             
         }
         return deepest
