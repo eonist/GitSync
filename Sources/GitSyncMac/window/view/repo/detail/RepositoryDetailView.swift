@@ -29,6 +29,10 @@ class DebugTextInput:Element {
         _ = text
         _ = textArea
     }
+    override func setSize(_ width: CGFloat, _ height: CGFloat) {
+        super.setSize(width, height)
+        textArea.setSize(width, height)
+    }
 }
 class RepositoryDetailView:Element {
     lazy var contentContainer:Container = {return self.addSubView(Container(self.width,self.height,self,"lable"))}()
@@ -51,5 +55,7 @@ class RepositoryDetailView:Element {
     }
     override func setSize(_ width: CGFloat, _ height: CGFloat) {
         super.setSize(width, height)
+        contentContainer.setSize(width, height)
+        textInput.setSize(width, height)
     }
 }
