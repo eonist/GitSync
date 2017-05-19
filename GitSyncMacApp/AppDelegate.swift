@@ -120,9 +120,11 @@ class CustomTree{
         var curIdx:[Int] = []
         
     }
-    func dive(_ tree:CustomTree,_ curIDX:[Int],_ level:Int){
-        if curIDX.count < level {
-            dive(tree,curIDX + [0])
+    func dive(_ tree:CustomTree,_ level:Int){
+        tree.children?.forEach{ tree in
+            if curIDX.count < level {
+                dive(tree,level + 1)
+            }
         }
     }
     var depth:Int{
