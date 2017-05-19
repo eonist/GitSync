@@ -15,7 +15,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
-        
+        test()
         //initApp()
         //initTestWin()//🚧👷
         //initMinimalWin()
@@ -46,8 +46,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         /*Styles*/
        
         /*Rect*/
-        let rect = RectGraphic(40,40,200,200,FillStyle(.blue),nil)
-        _ = window.contentView!.addSubView(rect.graphic)
+        let rect = RectGraphic(0,0,200,200,FillStyle(.blue),nil)
+        _ = window.contentView?.addSubView(rect.graphic)
         rect.draw()
     }
     /**
