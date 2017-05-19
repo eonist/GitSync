@@ -135,14 +135,14 @@ class CustomTree{
     }
     /*return siblings on same level*/
     static func siblings(_ tree:CustomTree,_ level:Int, _ curLevel:Int = 0) -> [CustomTree] {//4
-        Swift.print("tree title: \(tree.title) curLevel: \(curLevel)" )
+        //Swift.print("tree title: \(tree.title) curLevel: \(curLevel)" )
         var result:[CustomTree] = []
         if curLevel == level {//correct level
-            Swift.print("add")
+            //Swift.print("add")
             result.append(tree)
         }else{
-            tree.children.reduce() { child in
-                result += siblings(child,level,curLevel + 1)/*not correct level, keep diving*/
+            result = tree.children.reduce([]) { result,child in
+                return result + siblings(child,level,curLevel + 1)/*not correct level, keep diving*/
             }
         }
         return result
