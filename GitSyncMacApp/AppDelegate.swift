@@ -42,11 +42,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func test(){
-        window.contentView = Element(0,0,500,400)
+        window.contentView = Element(0,0,400,300)
         /*Styles*/
        
         /*Rect*/
-        var css = "Button{fill:blue;}"
+        var css = ""
         css +=  "TextButton{fill:#30B07D;float:none;clear:none;}"
         css +=  "TextButton Text{"
         css +=  	"float:left;"
@@ -88,7 +88,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //let siblings = CustomTree.siblings(a0, 3)
         //Swift.print("siblings.count: " + "\(siblings.count)")
         Swift.print("a0.deepest: " + "\(a0.deepest)")
-        CustomTree.distribute(a0, 0, CGRect(0,0,500,0))
+        CustomTree.distribute(a0, 0, CGRect(0,0,400,0))
         let items = CustomTree.flattened(a0) //basically flattens 3d list into 2d list
         Swift.print("items.count: " + "\(items.count)")
         items.forEach{ item in
@@ -96,6 +96,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             item.view.frame.origin = item.pt
             window.contentView?.addSubview(item.view)
         }//places items into positions, should now be inverted tree
+        
+        
     }
     /**
      *

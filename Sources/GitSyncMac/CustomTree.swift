@@ -6,18 +6,19 @@ import Cocoa
 
 
 
-let textButton:TextButton = TextButton.init(100, 100, "Lingustics", container)
 
 class CustomTree{
     lazy var view:NSView = {
         /*RoundRect*/
-        let roundRect = RoundRectGraphic(0,0,50,50,Fillet(10),FillStyle(.blue),nil)
+        //let roundRect = RoundRectGraphic(0,0,50,50,Fillet(10),FillStyle(.blue),nil)
         //addSubview(roundRect.graphic)
-        roundRect.draw()
+        //roundRect.draw()
         
         //let rect = RectGraphic(0,0,50,50,FillStyle(.blue),nil)
         //rect.draw()
-        return roundRect.graphic
+        //return roundRect.graphic
+        let textButton:TextButton = TextButton.init(100, 100, "Lingustics", nil)
+        return textButton
     }()
     var parent:CustomTree?
     var children:[CustomTree] = []
@@ -30,8 +31,8 @@ class CustomTree{
     }
 }
 extension CustomTree{
-    var width:CGFloat {return 50/*view.frame.size.width*/}
-    var height:CGFloat {return 50/*view.frame.size.height*/}
+    var width:CGFloat {return 100/*view.frame.size.width*/}
+    var height:CGFloat {return 100/*view.frame.size.height*/}
 }
 extension CustomTree{
     /*Return siblings on same level*/
