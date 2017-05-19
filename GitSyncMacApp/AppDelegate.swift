@@ -136,16 +136,13 @@ class CustomTree{
     /*return siblings on same level*/
     static func siblings(_ tree:CustomTree,_ level:Int, _ curLevel:Int = 0) -> [CustomTree] {//4
         //Swift.print("tree title: \(tree.title) curLevel: \(curLevel)" )
-        var result:[CustomTree] = []
         if curLevel == level {//correct level
-            //Swift.print("add")
-            result.append(tree)
+            return [tree]
         }else{
-            result = tree.children.reduce([]) { result,child in
+            return tree.children.reduce([]) { result,child in
                 return result + siblings(child,level,curLevel + 1)/*not correct level, keep diving*/
             }
         }
-        return result
     }
     static func deepest(_ tree:CustomTree, _ depth:Int = 0) -> Int{/*num of levels on the deepest node from root*/
         return tree.children.reduce(depth) { deepestDepth, child in
