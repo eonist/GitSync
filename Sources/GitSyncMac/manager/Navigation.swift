@@ -51,17 +51,19 @@ class Navigation {
                         return RepositoryView(w,h,mainView)
             }
             case .commitDetail(let commitData):/*CommitDetail*/
-                mainView.currentView = mainView.addSubView(CommitDetailView(w,h,mainView))
-                (mainView.currentView as! CommitDetailView).setCommitData(commitData)
+                let view:CommitDetailView =  CommitDetailView(w,h,mainView)
+                view.setCommitData(commitData)
+                return view
             case .repoDetail(let idx3d):/*RepoDetail*/
-                mainView.currentView = mainView.addSubView(RepoDetailView(w,h,mainView))
-                (mainView.currentView as! RepoDetailView).setRepoData(idx3d)
+                let view:RepoDetailView = RepoDetailView(w,h,mainView)
+                view.setRepoData(idx3d)
+                return view
             case .dialog(let dialog):/*Dialogs*/
                 switch dialog{
                     case .commit:
                         fatalError("not implemented yet")
                     case .conflict:
-                        mainView.currentView = mainView.addSubView(ConflictDialogView(w,h,mainView))
+                        return ConflictDialogView(w,h,mainView)
                 }
         }
     }
