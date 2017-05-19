@@ -111,8 +111,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 }
 
 class CustomTree{
-    let shape:NSView?
-    let parent:CustomTree?
-    let children:[CustomTree]?
-    
+    var shape:NSView?
+    var parent:CustomTree?
+    var children:[CustomTree]?
+    func sibling(_ level:Int){
+        /*return siblings on same level*/
+    }
+    var depth:Int{
+        /*num of levels on the deepest node from root*/
+        return 0
+    }
 }
