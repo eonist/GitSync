@@ -43,6 +43,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func test(){
         window.contentView = InteractiveView2()
+        /*Styles*/
+       
+        /*Rect*/
+        let rect = RectGraphic(40,40,200,200,FillStyle(.blue),nil)
+        window.contentView.addSubview(rect.graphic)
+        rect.draw()
     }
     /**
      *
