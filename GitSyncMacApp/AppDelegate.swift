@@ -42,7 +42,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func test(){
-        window.contentView = Element(0,0,400,300)
+        let container = Element(0,0,400,300)
+        window.contentView = container
         /*Styles*/
        
         /*Rect*/
@@ -94,10 +95,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         CustomTree.distribute(a0, 0, CGRect(0,0,600,0))
         let items = CustomTree.flattened(a0) //basically flattens 3d list into 2d list
         Swift.print("items.count: " + "\(items.count)")
+        
+        let lineView = container.addSubView(Element(0,0,500,400))
+        let labelsView = container.addSubView(Element(0,0,500,400))
+        
         items.forEach{ item in
             Swift.print("item.pt: " + "\(item.pt)")
             item.view.frame.origin = item.pt
-            window.contentView?.addSubview(item.view)
+            lineView.addSubview(item.lineGraphic.graphic)
+            labelsView.addSubview(item.view)
         }//places items into positions, should now be inverted tree
         a0.lineGraphic.setPoints(a0.lineGraphic.p1, a0.lineGraphic.p1)//hide line in root
         
