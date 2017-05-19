@@ -122,8 +122,13 @@ class CustomTree{
             };return $0 + sibling($1,level,level + 1)/*not correct level, keep diving*/
         }
     }
-    var depth:Int{
+    func depth(_ tree:CustomTree, curDepth:Int, _ deepest:Int) -> Int{
         /*num of levels on the deepest node from root*/
+        tree.children.forEach{ child in
+            if !child.children.isEmpty {
+                
+            }
+        }
         return 0
     }
 }
