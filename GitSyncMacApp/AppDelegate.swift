@@ -53,7 +53,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         css +=  	"float:left;"
         css +=  	"clear:left;"
         css +=  	"width:100%;"
-        css +=  	"height:100px;"
+        //css +=  	"height:100px;"
         css +=  	"margin-top:40px;"
         css +=  	"font:Helvetica Neue;"
         
