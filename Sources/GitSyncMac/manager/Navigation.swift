@@ -32,7 +32,7 @@ class Navigation {
      */
     static func view(_ view:Views,_ mainView:MainView, _ size:CGSize)->Element{
         //Navigation.activeView = view
-        mainView.sub
+        
         if let curView = mainView.currentView {curView.removeFromSuperview()}
         MainView.menuView!.selectButton(view)/*Selects the correct menu icon*/
         
