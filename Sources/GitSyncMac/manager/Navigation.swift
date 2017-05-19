@@ -30,46 +30,46 @@ class Navigation {
     /**
      * Navigate between views
      */
-    static func view(_ view:Views)->Element{
+    static func view(_ view:Views){
         //Navigation.activeView = view
         let mainView:MainView = MainWin.mainView!
         let size:CGSize = CGSize(MainView.w,MainView.h)
         
         if let curView = mainView.currentView {curView.removeFromSuperview()}
-        MainView.menuView!.selectButton(view)/*Selects the correct menu icon*/
-        
+        MainView.menuView!.selectButton(view)/*Selects the correct menu icon*/ 
+    }
+    private static func getView(_ view:Views,_ mainView:Element,_ size:CGSize)->Element{
         let w:CGFloat = size.w/*Convenience*/
         let h:CGFloat = size.h
-        
         switch view{
-            case .main(let viewType):/*Main*/
-                switch viewType {
-                    case .commits:
-                        return CommitsView(w,h,mainView)
-                    case .repos:
-                        return RepoView(w,h,mainView)
-                    case .stats:
-                        return StatsView(w,h,mainView)
-                    case .prefs:
-                        return PrefsView(w,h,mainView)
-                    case .repository:
-                        return RepositoryView(w,h,mainView)
+        case .main(let viewType):/*Main*/
+            switch viewType {
+            case .commits:
+                return CommitsView(w,h,mainView)
+            case .repos:
+                return RepoView(w,h,mainView)
+            case .stats:
+                return StatsView(w,h,mainView)
+            case .prefs:
+                return PrefsView(w,h,mainView)
+            case .repository:
+                return RepositoryView(w,h,mainView)
             }
-            case .commitDetail(let commitData):/*CommitDetail*/
-                let view:CommitDetailView =  CommitDetailView(w,h,mainView)
-                view.setCommitData(commitData)
-                return view
-            case .repoDetail(let idx3d):/*RepoDetail*/
-                let view:RepoDetailView = RepoDetailView(w,h,mainView)
-                view.setRepoData(idx3d)
-                return view
-            case .dialog(let dialog):/*Dialogs*/
-                switch dialog{
-                    case .commit:
-                        fatalError("not implemented yet")
-                    case .conflict:
-                        return ConflictDialogView(w,h,mainView)
-                }
+        case .commitDetail(let commitData):/*CommitDetail*/
+            let view:CommitDetailView =  CommitDetailView(w,h,mainView)
+            view.setCommitData(commitData)
+            return view
+        case .repoDetail(let idx3d):/*RepoDetail*/
+            let view:RepoDetailView = RepoDetailView(w,h,mainView)
+            view.setRepoData(idx3d)
+            return view
+        case .dialog(let dialog):/*Dialogs*/
+            switch dialog{
+            case .commit:
+                fatalError("not implemented yet")
+            case .conflict:
+                return ConflictDialogView(w,h,mainView)
+            }
         }
     }
 }
