@@ -19,11 +19,7 @@ class CustomTree{
         //return roundRect.graphic
         //let view = Element(0,0,100,100)
         /*Line*/
-        
-        
-        
-        let textButton:TextButton = TextButton.init(100, 100, self.title, nil)
-        
+        let textButton:TextButton = TextButton.init(100, 50, self.title, nil)
         return textButton
     }()
     var parent:CustomTree?
@@ -37,8 +33,8 @@ class CustomTree{
     }
 }
 extension CustomTree{
-    var width:CGFloat {return 100/*view.frame.size.width*/}
-    var height:CGFloat {return 100/*view.frame.size.height*/}
+    var width:CGFloat {return view.frame.size.width}
+    var height:CGFloat {return view.frame.size.height}
 }
 extension CustomTree{
     /*Return siblings on same level*/
