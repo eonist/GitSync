@@ -3,6 +3,10 @@ import Cocoa
 @testable import Element
 
 class CustomTree{
+    lazy var lineGraphic:LineGraphic = {
+        let lineGraphic = LineGraphic(CGPoint(50,50),CGPoint(50,150),LineStyle(1,.blue))
+        return lineGraphic
+    }()
     lazy var view:NSView = {
         /*RoundRect*/
         //let roundRect = RoundRectGraphic(0,0,50,50,Fillet(10),FillStyle(.blue),nil)
@@ -14,9 +18,9 @@ class CustomTree{
         //return roundRect.graphic
         let view = Element(0,0,100,100)
         /*Line*/
-        let lineGraphic = LineGraphic(CGPoint(50,50),CGPoint(50,150),LineStyle(1,.blue))
-        view.addSubview(lineGraphic.graphic)
-        lineGraphic.draw()
+        
+        view.addSubview(self.lineGraphic.graphic)
+        self.lineGraphic.draw()
         let textButton:TextButton = view.addSubView(TextButton.init(100, 100, self.title, view))
         
         return view
