@@ -7,7 +7,7 @@ class MainView:TitleView{
     static let h:CGFloat = 400//350//400
     var title:String
     static var menuView:MenuView?
-    var currentView:Element?
+    static var currentView:Element?
     var conflictDialogWin:ConflictDialogWin?
     
     init(_ width:CGFloat, _ height:CGFloat,_ title:String = "", _ parent:IElement? = nil, _ id:String? = "") {
@@ -20,8 +20,7 @@ class MainView:TitleView{
         //Sounds.startup?.play()
         MainWin.mainView = self
         MainView.menuView = addSubView(MenuView(frame.size.width,48,self))
-        currentView = Navigation.view(Views.main(.repository),self,CGSize(MainView.w,MainView.h))/*Adds the correct view to MainView*/
-        self.addSubview(currentView!)
+        MainView.currentView = self.addSubView(Navigation.view(Views.main(.repository),self,CGSize(MainView.w,MainView.h)))/*Adds the correct view to MainView*/
     }
     required init(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
