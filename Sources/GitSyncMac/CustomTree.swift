@@ -2,11 +2,6 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-
-
-
-
-
 class CustomTree{
     lazy var view:NSView = {
         /*RoundRect*/
@@ -17,7 +12,7 @@ class CustomTree{
         //let rect = RectGraphic(0,0,50,50,FillStyle(.blue),nil)
         //rect.draw()
         //return roundRect.graphic
-        let textButton:TextButton = TextButton.init(100, 100, "Lingustics", nil)
+        let textButton:TextButton = TextButton.init(100, 100, self.title, nil)
         return textButton
     }()
     var parent:CustomTree?
@@ -52,7 +47,6 @@ extension CustomTree{
             return curDeepest > deepestDepth ? curDeepest : deepestDepth
         }
     }
-    
     /**
      * So the idea is to evenly position from the center of parent position (inverted tree (aka hierarchy))
      */

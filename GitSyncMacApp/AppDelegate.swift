@@ -80,7 +80,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let c3 = CustomTree("Ansible")
         let d0 = CustomTree("Heroku")
         let d1 = CustomTree("Azure")
-        let d2 = CustomTree("d2")
+        let d2 = CustomTree("Aws")
         c0.children = [d0,d1,d2]
         b0.children = [c0,c1,c2,c3]
         a0.children = [b0,b1]
