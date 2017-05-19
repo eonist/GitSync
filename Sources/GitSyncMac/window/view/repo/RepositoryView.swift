@@ -24,8 +24,8 @@ class RepositoryView:Element{
         Swift.print("RepositoryView.setSize(\(width), \(height))")
         //update the skin of columns 🏀
         leftColumn.setSize(leftColumn.getWidth(), height)
-        ElementModifier.refreshStyle(leftColumn)
+        //ElementModifier.refreshStyle(leftColumn)
         detailView.setSize(leftColumn.getWidth(), height)
-        ElementModifier.refreshStyle(detailView)
+        //ElementModifier.refreshStyle(detailView)
     }
 }
