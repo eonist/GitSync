@@ -7,12 +7,14 @@ class CustomTree{
     var parent:CustomTree?
     var children:[CustomTree] = []
     var title:String
+    var pt:CGPoint = CGPoint()
     init(_ title:String){
         self.title = title
     }
 }
 extension CustomTree{
     var width:CGFloat {return shape.frame.size.width}
+    var height:CGFloat {return shape.frame.size.height}
 }
 extension CustomTree{
     /*Return siblings on same level*/
@@ -49,6 +51,8 @@ extension CustomTree{
         }
         let maxH = siblings.map{$0.height}.reduce(0){$0 > $1 ? $0 : $1}
         let curBound = CGRect(x,y,totW,maxH)
-        if level <= tree.depth {distribute(tree,level+1)}
+        if level <= CustomTree.deepest(tree) {
+            distribute(tree,level+1,curBound)
+        }
     }
 }
