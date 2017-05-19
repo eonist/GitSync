@@ -69,6 +69,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let items = CustomTree.flattened(a0) //basically flattens 3d list into 2d list
         Swift.print("items.count: " + "\(items.count)")
         items.forEach{ item in
+            Swift.print("item.pt: " + "\(item.pt)")
             item.view.frame.origin = item.pt
             window.contentView?.addSubview(item.view)
         }//places items into positions, should now be inverted tree
