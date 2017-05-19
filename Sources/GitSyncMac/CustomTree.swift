@@ -60,4 +60,19 @@ extension CustomTree{
             distribute(tree,level+1,curBound)//go to next level
         }
     }
+    /**
+     * Recusivly flattens the the treeStructure into a column structure array of tree items
+     * TODO: ⚠️️ Use reduce!
+     */
+    static func flattened(_ tree:CustomTree) -> [CustomTree] {
+        var results:[CustomTree] = []
+        tree.children.forEach { child in
+            if(child.children.count > 0) {/*Array*/
+                results += CustomTree.flattened(child)
+            }else{/*Item*/
+                results.append(child)
+            }
+        }
+        return results
+    }
 }
