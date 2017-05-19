@@ -42,11 +42,34 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func test(){
-        window.contentView = InteractiveView2()
+        window.contentView = Element(0,0,500,400)
         /*Styles*/
        
         /*Rect*/
+        var css = "Button{fill:blue;}"
+        css +=  "TextButton{fill:#30B07D;float:none;clear:none;}"
+        css +=  "TextButton Text{"
+        css +=  	"float:left;"
+        css +=  	"clear:left;"
+        css +=  	"width:100%;"
+        css +=  	"height:100px;"
+        css +=  	"margin-top:40px;"
+        css +=  	"font:Helvetica Neue;"
+        css +=  	"fillet:10;"
+        css +=  	"size:16px;"
+        css +=  	"wordWrap:true;"
+        css +=  	"align:center;"
+        css +=  	"color:black;"
+        css +=  	"selectable:false;"
+        css +=  	"backgroundColor:orange;"
+        css +=  	"background:false;"
+        css +=  "}"
+        //0F75DB
+        //F59835
         
+        StyleManager.addStyle(css)
+        
+
         
         let a0 = CustomTree("a0")
         let b0 = CustomTree("b0")

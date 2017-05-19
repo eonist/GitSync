@@ -2,6 +2,12 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
+
+
+
+
+let textButton:TextButton = TextButton.init(100, 100, "Lingustics", container)
+
 class CustomTree{
     lazy var view:NSView = {
         /*RoundRect*/
