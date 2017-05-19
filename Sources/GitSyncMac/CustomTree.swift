@@ -9,6 +9,7 @@ class CustomTree{
     var title:String
     var pt:CGPoint = CGPoint()
     lazy var deepest:Int = {CustomTree.deepest(self)}()
+    
     init(_ title:String){
         self.title = title
     }
