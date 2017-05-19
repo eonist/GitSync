@@ -20,7 +20,8 @@ class MainView:TitleView{
         //Sounds.startup?.play()
         MainWin.mainView = self
         MainView.menuView = addSubView(MenuView(frame.size.width,48,self))
-        currentView = self.addSubView(Navigation.view(Views.main(.repository),self))/*Adds the correct view to MainView*/
+        let view = Navigation.view(Views.main(.repository),self,CGSize(MainView.w,MainView.h))
+        currentView = self.addSubView(view)/*Adds the correct view to MainView*/
     }
     required init(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
