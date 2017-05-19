@@ -34,11 +34,9 @@ class Navigation {
         //Navigation.activeView = view
         let mainView:MainView = MainWin.mainView!
         let size:CGSize = CGSize(MainView.w,MainView.h)
-        
         if let curView = mainView.currentView {curView.removeFromSuperview()}
         MainView.menuView!.selectButton(viewType)/*Selects the correct menu icon*/
-        let view = getView(viewType,mainView,size)
-        mainView
+        mainView.currentView = mainView.addSubView(getView(viewType,mainView,size))
     }
     private static func getView(_ view:Views,_ mainView:Element,_ size:CGSize)->Element{
         let w:CGFloat = size.w/*Convenience*/
