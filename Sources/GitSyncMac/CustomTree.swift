@@ -4,7 +4,7 @@ import Cocoa
 
 class CustomTree{
     lazy var lineGraphic:LineGraphic = {
-        let lineGraphic = LineGraphic(CGPoint(50,50),CGPoint(50,150),LineStyle(1,.blue))
+        let lineGraphic = LineGraphic(CGPoint(50,50),CGPoint(50,-150),LineStyle(1,.blue))
         return lineGraphic
     }()
     lazy var view:NSView = {
