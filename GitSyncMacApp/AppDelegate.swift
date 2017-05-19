@@ -139,10 +139,9 @@ class CustomTree{
         var result:[CustomTree] = []
         for child in tree.children {
             if curLevel == level {//correct level
-                
-                return $0 + $1.children
+                result += child.children
             }else{
-               return $0 + siblings($1,level,level + 1)/*not correct level, keep diving*/
+               result += siblings(child,level,level + 1)/*not correct level, keep diving*/
             }
         }
         return result
