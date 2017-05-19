@@ -67,7 +67,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //let siblings = CustomTree.siblings(a0, 3)
         //Swift.print("siblings.count: " + "\(siblings.count)")
         CustomTree.distribute(a0, 0, CGRect(0,0,500,400))
-        let items = tree.recursiveFlattned() //basically flattens 3d list into 2d list
+        let items = CustomTree.flattened(a0) //basically flattens 3d list into 2d list
+        
     }
     /**
      *
