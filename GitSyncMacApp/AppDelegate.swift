@@ -116,15 +116,14 @@ class CustomTree{
     var children:[CustomTree] = []
     func sibling(_ level:Int){//4
         /*return siblings on same level*/
-        var curLev:Int = 0
-        var curIdx:[Int] = []
+        dive(self,level)
         
     }
-    func dive(_ tree:CustomTree,_ level:Int, _ curLevel:Int) -> [CustomTree]{
+    func dive(_ tree:CustomTree,_ level:Int, _ curLevel:Int = 0) -> [CustomTree]{
         return tree.children.reduce([]){
-            if curLevel == level {
+            if curLevel == level {//correct level
                 return $0 + $1.children
-            };return $0 + dive($1,level,level + 1)//keep diving
+            };return $0 + dive($1,level,level + 1)//not correct level, keep diving
         }
     }
     var depth:Int{
