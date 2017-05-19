@@ -64,6 +64,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Swift.print("deepestDepth: " + "\(deepestDepth)")
         //let siblings = CustomTree.siblings(a0, 3)
         //Swift.print("siblings.count: " + "\(siblings.count)")
+        Swift.print("a0.deepest: " + "\(a0.deepest)")
         CustomTree.distribute(a0, 0, CGRect(0,0,500,400))
         let items = CustomTree.flattened(a0) //basically flattens 3d list into 2d list
         items.forEach{ item in
