@@ -103,6 +103,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             Swift.print("item.pt: " + "\(item.pt)")
             item.view.frame.origin = item.pt
             lineView.addSubview(item.lineGraphic.graphic)
+            item.lineGraphic.graphic.frame.origin = item.pt
             labelsView.addSubview(item.view)
         }//places items into positions, should now be inverted tree
         a0.lineGraphic.setPoints(a0.lineGraphic.p1, a0.lineGraphic.p1)//hide line in root
