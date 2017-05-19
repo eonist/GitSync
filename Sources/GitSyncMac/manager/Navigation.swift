@@ -30,7 +30,7 @@ class Navigation {
     /**
      * Navigate between views
      */
-    static func view(_ viewType:Views){
+    static func setView(_ viewType:Views){
         //Navigation.activeView = view
         let mainView:MainView = MainWin.mainView!
         let size:CGSize = CGSize(MainView.w,MainView.h)
@@ -56,7 +56,7 @@ class Navigation {
                 return RepositoryView(w,h,mainView)
             }
         case .commitDetail(let commitData):/*CommitDetail*/
-            let view:CommitDetailView =  CommitDetailView(w,h,mainView)
+            let view:CommitDetailView = CommitDetailView(w,h,mainView)
             view.setCommitData(commitData)
             return view
         case .repoDetail(let idx3d):/*RepoDetail*/
