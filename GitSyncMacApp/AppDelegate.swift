@@ -46,9 +46,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         /*Styles*/
        
         /*Rect*/
-        let rect = RectGraphic(0,0,200,200,FillStyle(.blue),nil)
-        _ = window.contentView?.addSubView(rect.graphic)
-        rect.draw()
+        
         
         let a0 = CustomTree("a0")
         let b0 = CustomTree("b0")
@@ -68,7 +66,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Swift.print("siblings.count: " + "\(siblings.count)")
         CustomTree.distribute(a0, 0, CGRect(0,0,500,400))
         let items = CustomTree.flattened(a0) //basically flattens 3d list into 2d list
-        
+        items.forEach{ item in
+            item.view.frame.origin = item.ptwindow.contentView?.addSubView(rect.graphic)
+            window.contentView?.addSubView(item.view)
+        }//places items into positions, should now be inverted tree
     }
     /**
      *
