@@ -53,9 +53,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let a0 = CustomTree()
         let b0 = CustomTree()
         let b1 = CustomTree()
-        a0.children = [b0,b1]
         let c0 = CustomTree()
         b0.children = [c0]
+        a0.children = [b0,b1]
+        let deepestDepth:Int = CustomTree.depth(a0)
+        Swift.print("deepestDepth: " + "\(deepestDepth)")
     }
     /**
      *
@@ -122,14 +124,14 @@ class CustomTree{
     var parent:CustomTree?
     var children:[CustomTree] = []
     /*return siblings on same level*/
-    func sibling(_ tree:CustomTree,_ level:Int, _ curLevel:Int = 0) -> [CustomTree] {//4
+    static func sibling(_ tree:CustomTree,_ level:Int, _ curLevel:Int = 0) -> [CustomTree] {//4
         return tree.children.reduce([]){
             if curLevel == level {//correct level
                 return $0 + $1.children
             };return $0 + sibling($1,level,level + 1)/*not correct level, keep diving*/
         }
     }
-    func depth(_ tree:CustomTree, _ curDepth:Int = 0, _ deepest:Int = 0) -> Int{
+    static func depth(_ tree:CustomTree, _ curDepth:Int = 0, _ deepest:Int = 0) -> Int{
         /*num of levels on the deepest node from root*/
         return tree.children.reduce(deepest){
             if !$1.children.isEmpty {
