@@ -136,9 +136,10 @@ class CustomTree{
         }
     }
     static func depth(_ tree:CustomTree, _ curDepth:Int = 0, _ deepest:Int = 0) -> Int{
+        Swift.print("depth: curDepth: \(curDepth) deepest: \(deepest)")
         /*num of levels on the deepest node from root*/
         return tree.children.reduce(deepest){
-            print($1.title)
+            //print($1.title)
             if !$1.children.isEmpty {
                 return depth($1, curDepth + 1, $0)
             };return curDepth + 1
