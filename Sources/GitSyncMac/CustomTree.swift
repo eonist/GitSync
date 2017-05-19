@@ -21,7 +21,7 @@ class CustomTree{
         //return roundRect.graphic
         //let view = Element(0,0,100,100)
         /*Line*/
-        let textButton:TextButton = TextButton.init(self.w, self.h, self.title, nil)
+        let textButton:TextButton = TextButton.init(self.h, self.h, self.title, nil)
         return textButton
     }()
     var parent:CustomTree?
