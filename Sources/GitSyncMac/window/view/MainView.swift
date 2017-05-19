@@ -8,10 +8,9 @@ class MainView:TitleView{
     var title:String
     static var menuView:MenuView?
     lazy var currentView:Element = {
-        let view = Navigation.view(Views.main(.repository),self,CGSize(MainView.w,MainView.h))
-        currentView = self.addSubView(view)/*Adds the correct view to MainView*/
-        return currentView
-    }
+        let view:Element = Navigation.view(Views.main(.repository),self,CGSize(MainView.w,MainView.h))
+        return self.addSubView(view)/*Adds the correct view to MainView*/
+    }()
     var conflictDialogWin:ConflictDialogWin?
     
     init(_ width:CGFloat, _ height:CGFloat,_ title:String = "", _ parent:IElement? = nil, _ id:String? = "") {
