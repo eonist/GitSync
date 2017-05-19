@@ -120,11 +120,11 @@ class CustomTree{
         var curIdx:[Int] = []
         
     }
-    func dive(_ tree:CustomTree,_ level:Int, _ curLevel:Int)->[CustomTree]{
-        return tree.children.flatMap{ tree in
+    func dive(_ tree:CustomTree,_ level:Int, _ curLevel:Int) -> [CustomTree]{
+        return tree.children.flatMap{ child in
             if curLevel < level {//keep diving
-                return dive(tree,level,level + 1)
-            };else return nil
+                return dive(child,level,level + 1)
+            };return nil
         }
     }
     var depth:Int{
