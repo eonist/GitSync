@@ -8,6 +8,7 @@ class CustomTree{
     var children:[CustomTree] = []
     var title:String
     var pt:CGPoint = CGPoint()
+    lazy var deepest:Int = {CustomTree.deepest(self)}()
     init(_ title:String){
         self.title = title
     }
@@ -34,9 +35,9 @@ extension CustomTree{
             return curDeepest > deepestDepth ? curDeepest : deepestDepth
         }
     }
-    //inverted tree (aka hierarchy)
+    //
     /**
-     * So the idea is to evenly position from the center of parent position
+     * So the idea is to evenly position from the center of parent position (inverted tree (aka hierarchy))
      */
     static func distribute(_ tree:CustomTree, _ level:Int, _ prevBound:CGRect){/*recursive*/
         /*align things here*/
@@ -54,7 +55,7 @@ extension CustomTree{
         }
         let maxH = siblings.map{$0.height}.reduce(0){$0 > $1 ? $0 : $1}
         let curBound = CGRect(x,y,totW,maxH)
-        if level <= CustomTree.deepest(tree) {
+        if level < tree.deepest {
             distribute(tree,level+1,curBound)//go to next level
         }
     }
