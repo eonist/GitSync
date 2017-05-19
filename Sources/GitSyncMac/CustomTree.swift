@@ -5,6 +5,7 @@ import Cocoa
 class CustomTree{
     lazy var lineGraphic:LineGraphic = {
         let lineGraphic = LineGraphic(CGPoint(50,50),CGPoint(50,-150),LineStyle(1,.blue))
+        self.lineGraphic.draw()
         return lineGraphic
     }()
     lazy var view:NSView = {
@@ -16,14 +17,14 @@ class CustomTree{
         //let rect = RectGraphic(0,0,50,50,FillStyle(.blue),nil)
         //rect.draw()
         //return roundRect.graphic
-        let view = Element(0,0,100,100)
+        //let view = Element(0,0,100,100)
         /*Line*/
         
-        view.addSubview(self.lineGraphic.graphic)
-        self.lineGraphic.draw()
-        let textButton:TextButton = view.addSubView(TextButton.init(100, 100, self.title, view))
         
-        return view
+        
+        let textButton:TextButton = TextButton.init(100, 100, self.title, nil)
+        
+        return textButton
     }()
     var parent:CustomTree?
     var children:[CustomTree] = []
