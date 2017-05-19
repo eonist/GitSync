@@ -49,6 +49,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let rect = RectGraphic(0,0,200,200,FillStyle(.blue),nil)
         _ = window.contentView?.addSubView(rect.graphic)
         rect.draw()
+        
+        let a0 = CustomTree()
+        let b0 = CustomTree()
+        let b1 = CustomTree()
+        a0.children = [b0,b1]
+        let c0 = CustomTree()
+        b0.children = [c0]
     }
     /**
      *
@@ -127,7 +134,7 @@ class CustomTree{
         return tree.children.reduce(deepest){
             if !$1.children.isEmpty {
                 return depth($1, curDepth + 1, $0)
-            };return curDepth 
+            };return curDepth
         }
     }
 }
