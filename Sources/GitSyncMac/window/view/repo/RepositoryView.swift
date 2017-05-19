@@ -2,6 +2,9 @@ import Foundation
 @testable import Element
 @testable import Utils
 
+//continue here: add an inner element in left column
+    //override setSize inside detailView
+
 class RepositoryView:Element{
     lazy var contentContainer:Container = {return self.addSubView(Container(self.width,self.height,self,"content"))}()
     lazy var leftColumn:Element = {return self.contentContainer.addSubView(Element(NaN,self.height,self.contentContainer,"left"))}()
