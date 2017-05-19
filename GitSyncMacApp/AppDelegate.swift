@@ -50,10 +50,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         _ = window.contentView?.addSubView(rect.graphic)
         rect.draw()
         
-        let a0 = CustomTree()
-        let b0 = CustomTree()
-        let b1 = CustomTree()
-        let c0 = CustomTree()
+        let a0 = CustomTree("a0")
+        let b0 = CustomTree("b0")
+        let b1 = CustomTree("b1")
+        let c0 = CustomTree("c0")
         b0.children = [c0]
         a0.children = [b0,b1]
         let deepestDepth:Int = CustomTree.depth(a0)
@@ -123,6 +123,10 @@ class CustomTree{
     var shape:NSView?
     var parent:CustomTree?
     var children:[CustomTree] = []
+    var title:String
+    init(_ title:String){
+        self.title = title
+    }
     /*return siblings on same level*/
     static func sibling(_ tree:CustomTree,_ level:Int, _ curLevel:Int = 0) -> [CustomTree] {//4
         return tree.children.reduce([]){
@@ -134,9 +138,10 @@ class CustomTree{
     static func depth(_ tree:CustomTree, _ curDepth:Int = 0, _ deepest:Int = 0) -> Int{
         /*num of levels on the deepest node from root*/
         return tree.children.reduce(deepest){
+            print($1.title)
             if !$1.children.isEmpty {
                 return depth($1, curDepth + 1, $0)
-            };return curDepth
+            };return curDepth + 1
         }
     }
 }
