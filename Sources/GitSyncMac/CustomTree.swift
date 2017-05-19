@@ -3,7 +3,7 @@ import Cocoa
 @testable import Element
 
 class CustomTree{
-    let w:CGFloat = 100
+    let w:CGFloat = 120
     let h:CGFloat = 50
     lazy var lineGraphic:LineGraphic = {
         let lineGraphic = LineGraphic(CGPoint(self.w/2,self.h/2),CGPoint(self.w/2,self.h/2),LineStyle(1,.blue))
@@ -21,7 +21,7 @@ class CustomTree{
         //return roundRect.graphic
         //let view = Element(0,0,100,100)
         /*Line*/
-        let textButton:TextButton = TextButton.init(self.h, self.h, self.title, nil)
+        let textButton:TextButton = TextButton.init(self.w, self.h, self.title, nil)
         return textButton
     }()
     var parent:CustomTree?
