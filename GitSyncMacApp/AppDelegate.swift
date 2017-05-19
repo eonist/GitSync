@@ -114,12 +114,15 @@ class CustomTree{
     var shape:NSView?
     var parent:CustomTree?
     var children:[CustomTree]?
-    func sibling(_ level:Int){
+    func sibling(_ level:Int){//4
         /*return siblings on same level*/
         var curLev:Int = 0
         var curIdx:[Int] = []
-        while curLev < level{
-            self.children
+        
+    }
+    func dive(_ tree:CustomTree,_ curIDX:[Int],_ level:Int){
+        if curIDX.count < level {
+            dive(tree,curIDX + [0])
         }
     }
     var depth:Int{
