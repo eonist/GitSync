@@ -92,7 +92,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //let siblings = CustomTree.siblings(a0, 3)
         //Swift.print("siblings.count: " + "\(siblings.count)")
         //Swift.print("a0.deepest: " + "\(a0.deepest)")
-        CustomTree.distribute(a0, 0, CGRect(0,0,800,0))
+        CustomTree.distribute(a0, 0, CGRect(0,0,800,100))
         let items = CustomTree.flattened(a0) //basically flattens 3d list into 2d list
         Swift.print("items.count: " + "\(items.count)")
         
@@ -106,7 +106,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             item.lineGraphic.graphic.frame.origin = item.pt
             labelsView.addSubview(item.view)
         }//places items into positions, should now be inverted tree
-        a0.lineGraphic.setPoints(a0.lineGraphic.p1, a0.lineGraphic.p1)//hide line in root
+        //a0.lineGraphic.setPoints(a0.lineGraphic.p1, a0.lineGraphic.p1)//hide line in root
         
         func posLine(_ tree:CustomTree){//recursive
             tree.children.forEach{ child in
