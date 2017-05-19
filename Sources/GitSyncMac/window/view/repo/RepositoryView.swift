@@ -21,6 +21,6 @@ class RepositoryView:Element{
     }
     override func setSize(_ width: CGFloat, _ height: CGFloat) {
         super.setSize(width, height)
-        
+        Swift.print("RepositoryView.setSize(\(width), \(height))")
     }
 }
