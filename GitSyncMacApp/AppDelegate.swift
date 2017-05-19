@@ -137,12 +137,12 @@ class CustomTree{
             };return $0 + sibling($1,level,level + 1)/*not correct level, keep diving*/
         }
     }
-    static func deepest(_ tree:CustomTree, _ depth:Int = 0) -> Int{
+    static func deepest(_ tree:CustomTree, _ depth:Int = 0) -> Int{/*num of levels on the deepest node from root*/
         //Swift.print("depth: curDepth: \(depth) ")
-        /*num of levels on the deepest node from root*/
+        
         //var deepest = deepest
-        var deepestDepth:Int = depth
-        for child in tree.children {
+        //var deepestDepth:Int = depth
+        return tree.children.reduce(depth) { deepestDepth, child in
             //print($1.title)
             let curDeepest = deepest(child, depth + 1)
             if curDeepest > deepestDepth {
@@ -150,6 +150,6 @@ class CustomTree{
             }
             
         }
-        return deepestDepth
+        //return deepestDepth
     }
 }
