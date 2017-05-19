@@ -55,7 +55,7 @@ extension CustomTree{
         let maxH = siblings.map{$0.height}.reduce(0){$0 > $1 ? $0 : $1}
         let curBound = CGRect(x,y,totW,maxH)
         if level <= CustomTree.deepest(tree) {
-            distribute(tree,level+1,curBound)
+            distribute(tree,level+1,curBound)//go to next level
         }
     }
 }
