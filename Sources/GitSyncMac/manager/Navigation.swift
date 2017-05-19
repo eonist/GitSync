@@ -40,7 +40,7 @@ class Navigation {
             case .main(let viewType):/*Main*/
                 switch viewType {
                     case .commits:
-                        mainView.currentView = mainView.addSubView(CommitsView(w,h,mainView))
+                        return CommitsView(w,h,mainView)
                     case .repos:
                         mainView.currentView = mainView.addSubView(RepoView(w,h,mainView))
                     case .stats:
