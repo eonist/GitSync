@@ -122,9 +122,9 @@ class CustomTree{
     }
     func dive(_ tree:CustomTree,_ level:Int, _ curLevel:Int) -> [CustomTree]{
         return tree.children.reduce([]){
-            if curLevel == level {//keep diving
+            if curLevel == level {
                 return $0 + $1.children
-            };return $0 
+            };return $0 + dive($1,level,level + 1)//keep diving
         }
     }
     var depth:Int{
