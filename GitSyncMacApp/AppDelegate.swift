@@ -47,7 +47,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
        
         /*Rect*/
         var css = ""
-        css +=  "TextButton{fill:#30B07D;line:white;corner-radius:10px;float:none;clear:none;}"
+        css +=  "TextButton{fill:#30B07D;corner-radius:10px;float:none;clear:none;}"
         css +=  "TextButton Text{"
         css +=  	"float:left;"
         css +=  	"clear:left;"
