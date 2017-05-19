@@ -4,9 +4,14 @@ import Cocoa
 
 class CustomTree{
     lazy var view:NSView = {
-        let rect = RectGraphic(0,0,50,50,FillStyle(.blue),nil)
-        rect.draw()
-        return rect.graphic
+        /*RoundRect*/
+        let roundRect = RoundRectGraphic(0,0,50,50,Fillet(10),FillStyle(.blue),nil)
+        //addSubview(roundRect.graphic)
+        roundRect.draw()
+        
+        //let rect = RectGraphic(0,0,50,50,FillStyle(.blue),nil)
+        //rect.draw()
+        return roundRect.graphic
     }()
     var parent:CustomTree?
     var children:[CustomTree] = []
