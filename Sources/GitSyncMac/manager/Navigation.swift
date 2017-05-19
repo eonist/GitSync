@@ -28,9 +28,9 @@ class Navigation {
     /**
      * Navigate between views
      */
-    static func view(_ view:Views,_ curView:NSView?)->NSView{
+    static func view(_ view:Views,_ mainView:MainView)->NSView{
         Navigation.activeView = view
-        if let curView = curView {curView.removeFromSuperview()}
+        if let curView = mainView.currentView {curView.removeFromSuperview()}
         MainView.menuView!.selectButton(view)/*Selects the correct menu icon*/
         
         let w:CGFloat = MainView.w/*Convenience*/
@@ -42,13 +42,13 @@ class Navigation {
                     case .commits:
                         return CommitsView(w,h,mainView)
                     case .repos:
-                        mainView.currentView = mainView.addSubView(RepoView(w,h,mainView))
+                        return RepoView(w,h,mainView)
                     case .stats:
-                        mainView.currentView = mainView.addSubView(StatsView(w,h,mainView))
+                        return StatsView(w,h,mainView)
                     case .prefs:
-                        mainView.currentView = mainView.addSubView(PrefsView(w,h,mainView))
+                        return PrefsView(w,h,mainView)
                     case .repository:
-                        mainView.currentView = mainView.addSubView(RepositoryView(w,h,mainView))
+                        return RepositoryView(w,h,mainView)
             }
             case .commitDetail(let commitData):/*CommitDetail*/
                 mainView.currentView = mainView.addSubView(CommitDetailView(w,h,mainView))
