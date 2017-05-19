@@ -42,7 +42,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func test(){
-        let container = Element(0,0,400,300)
+        let container = InteractiveView2()
         window.contentView = container
         /*Styles*/
        
@@ -96,8 +96,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let items = CustomTree.flattened(a0) //basically flattens 3d list into 2d list
         Swift.print("items.count: " + "\(items.count)")
         
-        let lineView = container.addSubView(Element(0,0,500,400))
-        let labelsView = container.addSubView(Element(0,0,500,400))
+        let lineView = container.addSubView(InteractiveView2())
+        let labelsView = container.addSubView(InteractiveView2())
         
         items.forEach{ item in
             Swift.print("item.pt: " + "\(item.pt)")
