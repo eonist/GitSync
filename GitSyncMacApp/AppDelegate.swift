@@ -135,14 +135,19 @@ class CustomTree{
             };return $0 + sibling($1,level,level + 1)/*not correct level, keep diving*/
         }
     }
-    static func depth(_ tree:CustomTree, _ curDepth:Int = 0) -> Int{
-        Swift.print("depth: curDepth: \(curDepth) deepest: ")
+    static func depth(_ tree:CustomTree, _ curDepth:Int = 0, _ deepest:Int = 0) -> Int{
+        Swift.print("depth: curDepth: \(curDepth) deepest: \(deepest)")
         /*num of levels on the deepest node from root*/
-        return tree.children.reduce(curDepth){
+        var deepest = deepest
+        tree.children.forEach{
             //print($1.title)
             if !$1.children.isEmpty {
-                return depth($1, curDepth + 1)
-            };return curDepth 
+                if ((curDepth+1) > deepest){
+                    deepest = curDepth
+                }
+                return depth($1, curDepth + 1)//keep diving
+            };return curDepth + 1
         }
+        return deepest
     }
 }
