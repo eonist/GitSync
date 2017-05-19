@@ -141,11 +141,10 @@ class CustomTree{
             Swift.print("add")
             result.append(tree)
         }else{
-            for child in tree.children {
+            tree.children.reduce() { child in
                 result += siblings(child,level,curLevel + 1)/*not correct level, keep diving*/
             }
         }
-        
         return result
     }
     static func deepest(_ tree:CustomTree, _ depth:Int = 0) -> Int{/*num of levels on the deepest node from root*/
