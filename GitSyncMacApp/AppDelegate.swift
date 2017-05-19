@@ -47,7 +47,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
        
         /*Rect*/
         let rect = RectGraphic(40,40,200,200,FillStyle(.blue),nil)
-        window.contentView.addSubview(rect.graphic)
+        _ = window.contentView!.addSubView(rect.graphic)
         rect.draw()
     }
     /**
