@@ -71,15 +71,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
 
         
-        let a0 = CustomTree("a0")
-        let b0 = CustomTree("b0")
-        let b1 = CustomTree("b1")
-        let c0 = CustomTree("c0")
-        let c1 = CustomTree("c1")
-        let c2 = CustomTree("c2")
-        let c3 = CustomTree("c3")
-        let d0 = CustomTree("d0")
-        let d1 = CustomTree("d1")
+        let a0 = CustomTree("DevOps")
+        let b0 = CustomTree("Automation")
+        let b1 = CustomTree("Cloud computing")
+        let c0 = CustomTree("Chef")
+        let c1 = CustomTree("Salt stack")
+        let c2 = CustomTree("Terraform")
+        let c3 = CustomTree("Ansible")
+        let d0 = CustomTree("Heroku")
+        let d1 = CustomTree("Azure")
         let d2 = CustomTree("d2")
         c0.children = [d0,d1,d2]
         b0.children = [c0,c1,c2,c3]
