@@ -19,4 +19,8 @@ class RepositoryView:Element{
         _ = leftColumn
         _ = detailView
     }
+    override func setSize(_ width: CGFloat, _ height: CGFloat) {
+        super.setSize(width, height)
+        
+    }
 }
