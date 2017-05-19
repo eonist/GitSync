@@ -116,6 +116,11 @@ class CustomTree{
     var children:[CustomTree]?
     func sibling(_ level:Int){
         /*return siblings on same level*/
+        var curLev:Int = 0
+        var curIdx:[Int] = []
+        while curLev < level{
+            self.children
+        }
     }
     var depth:Int{
         /*num of levels on the deepest node from root*/
