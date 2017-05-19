@@ -12,7 +12,9 @@ class CustomTree{
         //let rect = RectGraphic(0,0,50,50,FillStyle(.blue),nil)
         //rect.draw()
         //return roundRect.graphic
-        let textButton:TextButton = TextButton.init(100, 100, self.title, nil)
+        let view = Element(0,0,100,100)
+        let textButton:TextButton = view.addSubView(TextButton.init(100, 100, self.title, view))
+        
         return textButton
     }()
     var parent:CustomTree?
