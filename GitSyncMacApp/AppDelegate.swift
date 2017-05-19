@@ -109,3 +109,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
+
+class CustomTree{
+    let shape:NSView?
+    let parent:CustomTree?
+    let children:[CustomTree]?
+    
+}
