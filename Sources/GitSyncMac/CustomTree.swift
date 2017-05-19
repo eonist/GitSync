@@ -3,13 +3,16 @@ import Cocoa
 @testable import Element
 
 class CustomTree{
-    var shape:NSView?
+    var shape:NSView {return NSView()}
     var parent:CustomTree?
     var children:[CustomTree] = []
     var title:String
     init(_ title:String){
         self.title = title
     }
+}
+extension CustomTree{
+    var width:CGFloat {return shape.frame.size.width}
 }
 extension CustomTree{
     /*Return siblings on same level*/
@@ -35,13 +38,13 @@ extension CustomTree{
         let siblings = CustomTree.siblings(tree,level)/*siblings are the items that are on the same level*/
         let count = siblings.count
         //figure out how much horizontal space all items take up
-        let totW = siblings.reduce(0){
-            return $1 + $0.width
+        let totW:CGFloat = siblings.reduce(0){
+            return $0 + $1.width
         }
         var x = prevBound.center.x - (totW/2)//center of prev bound - halfTot
         let y = prevBound.bottom.y
-        siblings.map{
-            $0.pt = Pt(x,y)
+        _ = siblings.map{
+            $0.pt = CGPoint(x,y)
             x += x + $0.width
         }
         let maxH = siblings.map{$0.height}.reduce(0){$0 > $1 ? $0 : $1}
