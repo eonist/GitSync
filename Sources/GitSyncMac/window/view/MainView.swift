@@ -21,7 +21,10 @@ class MainView:TitleView{
         MainWin.mainView = self
         MainView.menuView = addSubView(MenuView(frame.size.width,48,self))
         Navigation.setView(Views.main(.repository))/*Adds the correct view to MainView*/
-        
+    }
+    override func setSize(_ width:CGFloat,_ height:CGFloat){
+        super.setSize(width, height)
+        if let currentView = currentView{currentView.setSize(width, height)}
     }
     required init(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
