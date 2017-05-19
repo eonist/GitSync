@@ -23,18 +23,20 @@ enum Views{
     }
 }
 class Navigation {
-    static var activeView:Views = Views.main(.commits)
-    static var currentView:NSView? {return MainWin.mainView?.currentView}
+    /*    
+     static var activeView:Views = Views.main(.commits)
+     static var currentView:NSView? {return MainWin.mainView?.currentView}
+     */
     /**
      * Navigate between views
      */
-    static func view(_ view:Views,_ mainView:MainView)->NSView{
-        Navigation.activeView = view
+    static func view(_ view:Views,_ mainView:MainView, _ size:CGSize)->Element{
+        //Navigation.activeView = view
         if let curView = mainView.currentView {curView.removeFromSuperview()}
         MainView.menuView!.selectButton(view)/*Selects the correct menu icon*/
         
-        let w:CGFloat = MainView.w/*Convenience*/
-        let h:CGFloat = MainView.h
+        let w:CGFloat = size.w/*Convenience*/
+        let h:CGFloat = size.h
         
         switch view{
             case .main(let viewType):/*Main*/
