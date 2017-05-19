@@ -47,7 +47,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
        
         /*Rect*/
         var css = ""
-        css +=  "TextButton{fill:#30B07D;float:none;clear:none;}"
+        css +=  "TextButton{fill:#30B07D;corner-radius:10px;float:none;clear:none;}"
         css +=  "TextButton Text{"
         css +=  	"float:left;"
         css +=  	"clear:left;"
@@ -55,7 +55,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         css +=  	"height:100px;"
         css +=  	"margin-top:40px;"
         css +=  	"font:Helvetica Neue;"
-        css +=  	"fillet:10px;"
+        
         css +=  	"size:16px;"
         css +=  	"wordWrap:true;"
         css +=  	"align:center;"
@@ -83,7 +83,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let d2 = CustomTree("Aws")
         //c0.children = [d0,d1,d2]
         //b0.children = [c0,c1,c2,c3]
-        a0.children = [b0,b1]
+        //a0.children = [b0,b1]
         //let deepestDepth:Int = CustomTree.deepest(a0)
         //Swift.print("deepestDepth: " + "\(deepestDepth)")
         //let siblings = CustomTree.siblings(a0, 3)
