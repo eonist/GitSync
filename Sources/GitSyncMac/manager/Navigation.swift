@@ -28,7 +28,7 @@ class Navigation {
     /**
      * Navigate between views
      */
-    static func setView(_ view:Views){
+    static func view(_ view:Views)->NSView{
         Navigation.activeView = view
         let mainView:MainView = MainWin.mainView!
         if(mainView.currentView != nil) {mainView.currentView!.removeFromSuperview()}
