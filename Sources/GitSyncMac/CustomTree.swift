@@ -35,6 +35,9 @@ extension CustomTree{
         }
     }
     //inverted tree (aka hierarchy)
+    /**
+     * So the idea is to evenly position from the center of parent position
+     */
     static func distribute(_ tree:CustomTree, _ level:Int, _ prevBound:CGRect){/*recursive*/
         /*align things here*/
         let siblings = CustomTree.siblings(tree,level)/*siblings are the items that are on the same level*/
