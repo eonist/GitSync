@@ -7,19 +7,20 @@ class Pyramidifier {
      * Aligns branch to the next branch (left to right)
      */
     static func align(_ tree:CustomTree){
-        var allItems:[CustomTree] = []//Store accumalitve branches
+        var acumulated:[CustomTree] = []//Store accumalitve branches
         
         for i in tree.children.indices {
             
             if (i < (tree.children.count - 1)) {//if not last branch
                 let child:CustomTree = tree.children[i]
                 let next:CustomTree = tree.children[i+1]
-                let maxX = Pyramidifier.maxX(child)
-                let minX = Pyramidifier.minX(next)
+                let maxX = Pyramidifier.maxX(child)//find maxX of branch
+                let minX = Pyramidifier.minX(next)//find minX of nextBranch
                 let items = CustomTree.flattened(child)
-                allItems += items//accumulate all items
-                if maxX > minX {
-                    
+                acumulated += items//accumulate all items
+                if maxX > minX {//if diff is negative
+                    let diff = minX - maxX//find diff of min and max.
+                    acumulated.forEach{$0.pt.x += diff}//offset every item in branches with diff
                 }
             }
         }
