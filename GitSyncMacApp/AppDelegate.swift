@@ -15,7 +15,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
-        test()
+        DiagramTest.jsonTest(window)
+        //test()
         //initApp()
         //initTestWin()//🚧👷
         //initMinimalWin()
@@ -34,93 +35,38 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //do prototype that has a interpolates the graph points nicly as you scroll
                 //store the commit count for all projects in a DataProvider 
                     //must also allow adding/removal of repos
-        
-        
-        
+
     }
-    /**
-     *
-     */
+    
     func test(){
-        let container = InteractiveView2()
-        window.contentView = container
-        /*Styles*/
-       
-        /*Rect*/
-        var css = ""
-        css +=  "TextButton{fill:#30B07D;corner-radius:10px;float:none;clear:none;}"
-        css +=  "TextButton Text{"
-        css +=  	"float:left;"
-        css +=  	"clear:left;"
-        css +=  	"width:100%;"
         
-        css +=  	"margin-top:15px;"
-        css +=  	"font:Helvetica Neue;"
-        
-        css +=  	"size:16px;"
-        css +=  	"wordWrap:true;"
-        css +=  	"align:center;"
-        css +=  	"color:black;"
-        css +=  	"selectable:false;"
-        css +=  	"backgroundColor:orange;"
-        css +=  	"background:false;"
-        css +=  "}"
-        //0F75DB
-        //F59835
-        
-        StyleManager.addStyle(css)
         
 
         //let tree = CustomTree("root")
-        let a0 = CustomTree("DevOps")
-        let b0 = CustomTree("Automation")
-        let b1 = CustomTree("Cloud computing")
-        
-        let c0 = CustomTree("Chef")
-        let c1 = CustomTree("Salt stack")
-        let c2 = CustomTree("Terraform")
-        let c3 = CustomTree("Ansible")
-        
-        let d0 = CustomTree("Heroku")
-        let d1 = CustomTree("Azure")
-        let d2 = CustomTree("Aws")
+        /*let a0 = CustomTree("DevOps")
+         let b0 = CustomTree("Automation")
+         let b1 = CustomTree("Cloud computing")
+         
+         let c0 = CustomTree("Chef")
+         let c1 = CustomTree("Salt stack")
+         let c2 = CustomTree("Terraform")
+         let c3 = CustomTree("Ansible")
+         
+         let d0 = CustomTree("Heroku")
+         let d1 = CustomTree("Azure")
+         let d2 = CustomTree("Aws")
         b1.children = [d0,d1]
         b0.children = [c0,c1,c2]
-        a0.children = [b0,b1]
+        a0.children = [b0,b1]*/
         //let deepestDepth:Int = CustomTree.deepest(a0)
         //Swift.print("deepestDepth: " + "\(deepestDepth)")
         //let siblings = CustomTree.siblings(a0, 3)
         //Swift.print("siblings.count: " + "\(siblings.count)")
         //Swift.print("a0.deepest: " + "\(a0.deepest)")
-        CustomTree.distribute(a0, 0, CGRect(0,0,800,100))
-        let items = CustomTree.flattened(a0) //basically flattens 3d list into 2d list
-        Swift.print("items.count: " + "\(items.count)")
-        
-        let lineView = container.addSubView(InteractiveView2())
-        let labelsView = container.addSubView(InteractiveView2())
-        
-        items.forEach{ item in
-            Swift.print("item.pt: " + "\(item.pt)")
-            item.view.frame.origin = item.pt
-            lineView.addSubview(item.lineGraphic.graphic)
-            item.lineGraphic.graphic.frame.origin = item.pt
-            labelsView.addSubview(item.view)
-        }//places items into positions, should now be inverted tree
-        //a0.lineGraphic.setPoints(a0.lineGraphic.p1, a0.lineGraphic.p1)//hide line in root
-        
-        func posLine(_ tree:CustomTree){//recursive
-            tree.children.forEach{ child in
-                let childP:CGPoint = child.pt
-                let parentP:CGPoint = tree.pt
-                let difference:CGPoint = parentP - childP
-                let childCenter:CGPoint = child.lineGraphic.p1
-                let p2:CGPoint = childCenter + difference
-                child.lineGraphic.setPoints(childCenter, p2)
-                posLine(child)
-            }
-        }
-        posLine(a0)
+        //createDiagram(a0)
     }
+    
+    
     /**
      *
      */
@@ -180,3 +126,4 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
+
