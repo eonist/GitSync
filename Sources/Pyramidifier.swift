@@ -10,8 +10,10 @@ class Pyramidifier {
         //branches = []//Store accumalitve branches
         
         for i in tree.children.indices {
-            let child:CustomTree = tree.children[i]
+            
             if (i < (tree.children.count - 1)) {//if not last branch
+                let child:CustomTree = tree.children[i]
+                let maxX = maxX(child)
                 
             }
         }
@@ -25,11 +27,10 @@ class Pyramidifier {
                     //offset every item in branches with diff 
         
     }
-    
     /**
      * Returns max x position in a branch
      */
-    func maxX(tree:CustomTree) -> CGFloat{
+    static func maxX(_ tree:CustomTree) -> CGFloat{
         let items = CustomTree.flattened(tree)/*Basically flattens 3d list into 2d list*/
         return items.reduce(items[0].right) {
             return $1.right > $0 ? $1.right : $0
@@ -38,7 +39,7 @@ class Pyramidifier {
     /**
      * Returns min x position in a branch
      */
-    func minX(tree:CustomTree) -> CGFloat{
+    static func minX(_ tree:CustomTree) -> CGFloat{
         let items = CustomTree.flattened(tree)/*Basically flattens 3d list into 2d list*/
         return items.reduce(items[0].left) {
             return $1.left < $0 ? $1.left : $0
