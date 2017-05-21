@@ -14,7 +14,7 @@ class Pyramidifier {
                 //child
                 //find maxX of branch
                 //find minX of nextBranch
-                //find dif of min and max. 
+                //find diff of min and max. 
                 //if diff is negative
                     //offset every item in branches with diff 
         
