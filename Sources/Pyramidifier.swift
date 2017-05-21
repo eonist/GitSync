@@ -9,17 +9,20 @@ class Pyramidifier {
     static func align(_ tree:CustomTree){
         //branches = []//Store accumalitve branches
         
+        for i in tree.children.indices {
+            let child:CustomTree = tree.children[i]
+            if (i < (tree.children.count - 1)) {//if not last branch
+                
+            }
+        }
         //for i in tree.children
             //if not last branch
                 //child
                 //find maxX of branch
                 //find minX of nextBranch
-                //find diff of min and max. 
+                //find diff of min and max.
                 //if diff is negative
                     //offset every item in branches with diff 
-        
-        //branch
-        
         
     }
     
