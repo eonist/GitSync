@@ -13,7 +13,9 @@ class Pyramidifier {
             
             if (i < (tree.children.count - 1)) {//if not last branch
                 let child:CustomTree = tree.children[i]
-                let maxX = maxX(child)
+                let next:CustomTree = tree.children[i+1]
+                let branchMaxX = maxX(child)
+                let nextBranchMinX = minX(next)
                 
             }
         }
