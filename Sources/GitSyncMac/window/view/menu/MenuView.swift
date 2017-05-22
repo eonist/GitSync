@@ -30,8 +30,6 @@ class MenuView:Element{
         if(event === (SelectGroupEvent.change,selectGroup!)){
             let buttonId:String = (selectGroup!.selected as! Element).id!
             Swift.print("MainMenu.onSelect() buttonId: " + "\(buttonId)")
-            //Sounds.enable?.stop()//<--this sound may be played in fast succesion, so stop it and replay it
-            //Sounds.enable?.play()
             let type:Views.Main = Views.Main(rawValue:buttonId)!//<--nice!
             Navigation.setView(Views.main(type))//👌
         }
