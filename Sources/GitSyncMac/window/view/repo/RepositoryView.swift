@@ -4,7 +4,9 @@ import Foundation
 
 class RepositoryView:Element{
     lazy var contentContainer:Container = {return self.addSubView(Container(self.width,self.height,self,"content"))}()
-    lazy var leftColumn:Element = {return self.contentContainer.addSubView(Element(NaN,self.height,self.contentContainer,"left"))}()
+    lazy var leftColumn:Element = {
+        return self.contentContainer.addSubView(Element(NaN,self.height,self.contentContainer,"left"))
+    }()
     lazy var detailView:RepositoryDetailView = {
         return self.contentContainer.addSubView(RepositoryDetailView(NaN,self.height,self.contentContainer))//self.addSubView(Section(NaN,self.height,self,"right"))
     }()
@@ -26,4 +28,7 @@ class RepositoryView:Element{
         leftColumn.setSize(leftColumn.getWidth(), height)
         detailView.setSize(leftColumn.getWidth(), height)
     }
+}
+class LeftSideBar:Eleent{
+    
 }
