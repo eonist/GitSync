@@ -23,7 +23,6 @@ class MenuView:Element{
             buttons.append(btn)
         }
         selectGroup = SelectGroup(buttons,buttons[0])
-        //buttons[0].setSelected(true)
         selectGroup!.event = onSelectGroupChange
     }
     func onSelectGroupChange(event:Event){
@@ -37,7 +36,7 @@ class MenuView:Element{
     override func setSize(_ width: CGFloat, _ height: CGFloat) {
         super.setSize(width, height)
         buttonSection.setSize(width,height)
-        
+        buttonSection.setSkinState(buttonSection.getSkinState())
         //Continue here: 🏀
             //the margin needs to update on setSize. check graphic skin if it does. 
             //use section for buttonSection
