@@ -19,7 +19,7 @@ class MainView:TitleView{
         super.textArea.setTextValue(title)
         //Sounds.startup?.play()
         MainWin.mainView = self
-        MainView.menuView = addSubView(MenuView(frame.size.width,48,self))
+        MainView.menuView = addSubView(MenuView(frame.size.width,MenuView.h,self))
         Navigation.setView(Views.main(.repository))/*Adds the correct view to MainView*/
     }
     override func setSize(_ width:CGFloat,_ height:CGFloat){
