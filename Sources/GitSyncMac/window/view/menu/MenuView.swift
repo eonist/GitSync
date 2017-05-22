@@ -37,7 +37,9 @@ class MenuView:Element{
         }
     }
     override func setSize(_ width: CGFloat, _ height: CGFloat) {
-        <#code#>
+        super.setSize(width, height)
+        buttonSection?.setSize(width,height)
+        Swift.print("MenuView.setSize(width:\(width), height:\(height))")
     }
 }
 extension MenuView{
