@@ -23,7 +23,7 @@ class DiagramTest {
      */
     static func pyramidify(_ window:NSWindow,_ tree:CustomTree){
         //space out all children in a row so that their tot width is at the center of their parent
-        tree.pt = CGPoint(800,100)
+        tree.pt = CGPoint(900,200)
         centerAlignChildren(tree,tree.center)
         Pyramidifier.align(tree)
         let items = CustomTree.flattened(tree)/*Basically flattens 3d list into 2d list*/
@@ -96,7 +96,7 @@ private class Utils{
     static var diagramStyles:String{
         /*Styles*/
         var css = ""
-        css +=  "TextButton{fill:#30B07D;fill-alpha:0.5;corner-radius:10px;float:none;clear:none;}"
+        css +=  "TextButton{fill:#30B07D;fill-alpha:1.0;corner-radius:10px;float:none;clear:none;}"
         css +=  "TextButton Text{"
         css +=  	"float:left;"
         css +=  	"clear:left;"
