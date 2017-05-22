@@ -23,9 +23,9 @@ class DiagramTest {
      */
     static func pyramidify(_ window:NSWindow,_ tree:CustomTree){
         //space out all children in a row so that their tot width is at the center of their parent
-        tree.pt = CGPoint(500,100)
+        tree.pt = CGPoint(800,100)
         centerAlignChildren(tree,tree.center)
-        
+        Pyramidifier.align(tree)
         let items = CustomTree.flattened(tree)/*Basically flattens 3d list into 2d list*/
         renderItems(window, items,tree)
     }
