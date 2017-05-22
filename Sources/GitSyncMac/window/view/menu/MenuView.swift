@@ -36,6 +36,9 @@ class MenuView:Element{
             Navigation.setView(Views.main(type))//👌
         }
     }
+    override func setSize(_ width: CGFloat, _ height: CGFloat) {
+        <#code#>
+    }
 }
 extension MenuView{
     /**
