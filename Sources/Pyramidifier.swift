@@ -23,7 +23,7 @@ class Pyramidifier {
                 }
             }
         }
-        tree.x = 
+        tree.x = tree.children[0].pt.x + CustomTree.totWidth(tree.children, CGPoint())/2
     }
     /**
      * Returns max x position in a branch
