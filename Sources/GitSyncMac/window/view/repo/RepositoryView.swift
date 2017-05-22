@@ -29,6 +29,6 @@ class RepositoryView:Element{
         detailView.setSize(leftColumn.getWidth(), height)
     }
 }
-class LeftSideBar:Eleent{
+class LeftSideBar:Element{
     
 }
