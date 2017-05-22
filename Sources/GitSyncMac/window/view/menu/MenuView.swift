@@ -8,7 +8,7 @@ class MenuView:Element{
     static let h:CGFloat = 48
     static let buttonTitles:[Views.Main] = [.commits,.repos,.stats,.prefs]
     var selectGroup:SelectGroup?
-    lazy var buttonSection:Section = {buttonSection = self.addSubView(Section(200,48,self,"buttonSection"))/*The nav bar*/}()
+    lazy var buttonSection:Section = {return self.addSubView(Section(200,48,self,"buttonSection"))/*The nav bar*/}()
     override func resolveSkin() {
         Swift.print("MenuView.resolveSkin()")
         super.resolveSkin()//skin = SkinResolver.skin(self)
@@ -16,10 +16,10 @@ class MenuView:Element{
         _ = self.addSubView(Element(NaN, NaN, self, "ruler"))
     }
     func createButtons(){
-        
+        _ = buttonSection
         var buttons:[ISelectable] = []
         for buttonTitle in MenuView.buttonTitles{
-            let btn:SelectButton = buttonSection!.addSubView(SelectButton(20,20,false,buttonSection,buttonTitle.rawValue))//buttonTitle.capitalizedString
+            let btn:SelectButton = buttonSection.addSubView(SelectButton(20,20,false,buttonSection,buttonTitle.rawValue))//buttonTitle.capitalizedString
             buttons.append(btn)
         }
         selectGroup = SelectGroup(buttons,buttons[0])
