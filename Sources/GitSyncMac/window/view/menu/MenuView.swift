@@ -39,10 +39,8 @@ class MenuView:Element{
         buttonSection.setSkinState(buttonSection.getSkinState())
         
         SkinModifier.float(buttonSection.skin!)
-        //Continue here: 🏀
-            //the margin needs to update on setSize. check graphic skin if it does. 
-            //use section for buttonSection
-            //rethink centering
+      
+      
         
         Swift.print("MenuView.setSize(width:\(width), height:\(height))")
     }
