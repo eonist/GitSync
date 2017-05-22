@@ -37,6 +37,7 @@ class MenuView:Element{
         super.setSize(width, height)
         buttonSection.setSize(width,height)
         buttonSection.setSkinState(buttonSection.getSkinState())
+        ElementModifier.floatChildren(buttonSection)
         //Continue here: 🏀
             //the margin needs to update on setSize. check graphic skin if it does. 
             //use section for buttonSection
