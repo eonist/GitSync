@@ -30,5 +30,8 @@ class RepositoryView:Element{
     }
 }
 class LeftSideBar:Element{
-    
+    override func resolveSkin() {
+        super.resolveSkin()
+        
+    }
 }
