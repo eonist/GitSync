@@ -40,6 +40,12 @@ class MenuView:Element{
     override func setSize(_ width: CGFloat, _ height: CGFloat) {
         super.setSize(width, height)
         buttonSection?.setSize(width,height)
+        
+        //Continue here: 🏀
+            //the margin needs to update on setSize. check graphic skin if it does. 
+            //use section for buttonSection
+            //rethink centering
+        
         Swift.print("MenuView.setSize(width:\(width), height:\(height))")
     }
 }
