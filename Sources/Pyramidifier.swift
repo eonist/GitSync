@@ -23,7 +23,7 @@ class Pyramidifier {
                 }
             }
         }
-        if let left = tree.children.first?.left, let right = tree.children.last?.right {
+        if let left = tree.children.first?.left, let right = tree.children.last?.right, (tree.children.count %% 2.0) != 0.0 {
             tree.pt.x = tree.children[0].pt.x + ((right - left)/2) - (tree.width/2) //center root to children bounds.center
         }
         
