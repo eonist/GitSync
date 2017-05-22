@@ -18,15 +18,15 @@ class RepositoryView:Element{
         StyleManager.addStyle(css)
         super.resolveSkin()
         _ = contentContainer
-        _ = leftColumn
+        _ = leftSideBar
         _ = detailView
     }
     override func setSize(_ width: CGFloat, _ height: CGFloat) {
         super.setSize(width, height)
         Swift.print("RepositoryView.setSize(\(width), \(height))")
         //update the skin of columns 🏀
-        leftColumn.setSize(leftColumn.getWidth(), height)
-        detailView.setSize(leftColumn.getWidth(), height)
+        leftSideBar.setSize(leftSideBar.getWidth(), height)
+        detailView.setSize(detailView.getWidth(), height)
     }
 }
 class LeftSideBar:Element{
