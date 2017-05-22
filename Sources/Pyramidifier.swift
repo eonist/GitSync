@@ -23,7 +23,7 @@ class Pyramidifier {
                 }
             }
         }
-       
+        tree.x = 
     }
     /**
      * Returns max x position in a branch

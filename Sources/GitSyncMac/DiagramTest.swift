@@ -27,6 +27,7 @@ class DiagramTest {
         centerAlignChildren(tree,tree.center)
         Pyramidifier.align(tree)
         let items = CustomTree.flattened(tree)/*Basically flattens 3d list into 2d list*/
+        
         renderItems(window, items,tree)
     }
     /**
