@@ -81,7 +81,7 @@ extension CustomTree{
         return siblings.map{$0.height}.reduce(0){$0 > $1 ? $0 : $1}
     }
     /**
-     * figure out how much horizontal space all items take up
+     * figure out how much horizontal space all items take up (items are aligned right next to each other)
      */
     static func totWidth(_ siblings:[CustomTree], _ padding:CGPoint) -> CGFloat{
         return siblings.reduce(0){
