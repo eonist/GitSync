@@ -15,7 +15,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
-        DiagramTest.jsonTest(window)
+        
         //test()
         //initApp()
         //initTestWin()//🚧👷
@@ -37,36 +37,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     //must also allow adding/removal of repos
 
     }
-    
-    func test(){
-        
-        
-
-        //let tree = CustomTree("root")
-        /*let a0 = CustomTree("DevOps")
-         let b0 = CustomTree("Automation")
-         let b1 = CustomTree("Cloud computing")
-         
-         let c0 = CustomTree("Chef")
-         let c1 = CustomTree("Salt stack")
-         let c2 = CustomTree("Terraform")
-         let c3 = CustomTree("Ansible")
-         
-         let d0 = CustomTree("Heroku")
-         let d1 = CustomTree("Azure")
-         let d2 = CustomTree("Aws")
-        b1.children = [d0,d1]
-        b0.children = [c0,c1,c2]
-        a0.children = [b0,b1]*/
-        //let deepestDepth:Int = CustomTree.deepest(a0)
-        //Swift.print("deepestDepth: " + "\(deepestDepth)")
-        //let siblings = CustomTree.siblings(a0, 3)
-        //Swift.print("siblings.count: " + "\(siblings.count)")
-        //Swift.print("a0.deepest: " + "\(a0.deepest)")
-        //createDiagram(a0)
-    }
-    
-    
     /**
      *
      */

@@ -3,6 +3,9 @@ import Cocoa
 @testable import Element
 
 class DiagramTest {
+    /**
+     * EXAMPLE: DiagramTest.jsonTest(window)//renders diagram
+     */
     static func jsonTest(_ window:NSWindow){
         let content:String = "~/desktop/pet-grooming.json".content!
         let data = content.data(using: String.Encoding.utf8, allowLossyConversion: false)!
