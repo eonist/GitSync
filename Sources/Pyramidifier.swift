@@ -25,8 +25,13 @@ class Pyramidifier {
         }
         let isOdd:Bool = (tree.children.count.cgFloat %% 2.0) != 0.0
         if isOdd {//1,3,5,7 etc
-            let centerIndex:Int = ((tree.children.count-1)/2)
+            Swift.print("odd")
+            let mid:Int = ((tree.children.count+1)/2)-1
+            Swift.print("mid: " + "\(mid)")
+            let midChild = tree.children[mid]
+            tree.pt.x = midChild.pt.x + (midChild.width/2) - (tree.width/2)
         }else{//even 0,2,4, etc
+            Swift.print("even")
             if let left = tree.children.first?.left, let right = tree.children.last?.right  {
                 tree.pt.x = tree.children[0].pt.x + ((right - left)/2) - (tree.width/2) //center root to children bounds.center
             }
