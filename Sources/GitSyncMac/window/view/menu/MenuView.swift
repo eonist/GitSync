@@ -5,6 +5,7 @@ import Cocoa
  * NOTE: The reasoning behind having this menu is that when a skeptical user tries the app for the first time, the first thing they do is browse around. If the menu system is too clever they wont even do that. 
  */
 class MenuView:Element{
+    static let h:CGFloat = 48
     static let buttonTitles:[Views.Main] = [.commits,.repos,.stats,.prefs]
     var selectGroup:SelectGroup?
     override func resolveSkin() {
