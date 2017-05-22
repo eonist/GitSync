@@ -24,7 +24,6 @@ class MenuView:Element{
         }
         selectGroup = SelectGroup(buttons,buttons[0])
         //buttons[0].setSelected(true)
-        
         selectGroup!.event = onSelectGroupChange
     }
     func onSelectGroupChange(event:Event){
