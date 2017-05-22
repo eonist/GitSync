@@ -24,7 +24,10 @@ class MainView:TitleView{
     }
     override func setSize(_ width:CGFloat,_ height:CGFloat){
         super.setSize(width, height)
-        if let menuView = MainView.menuView {menuView.setSize(width, height)}
+        if let menuView = MainView.menuView {
+            menuView.setSize(width, height)
+            menuView.setSkinState(menuView.getSkinState())
+        }
         if let currentView = currentView{currentView.setSize(width, height)}
     }
     required init(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
