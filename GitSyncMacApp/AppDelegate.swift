@@ -102,8 +102,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
  */
 class Menu {
     init(){
-        while(NSApp.mainMenu!.itemArray.count > 1){
-            NSApp.mainMenu!.removeItemAtIndex(NSApp.mainMenu!.itemArray.count-1)
+        while(NSApp.mainMenu!.items.count > 1){
+            NSApp.mainMenu!.removeItem(at: NSApp.mainMenu!.items.count-1)
         }
         /*NSApp.mainMenu!.addMenuItem(FileMenu())
          NSApp.mainMenu!.addMenuItem(EditMenu())
@@ -120,8 +120,8 @@ class CustomAboutMenu {
     static let appName:String = "DrawLab"
     private var preferencesMenuItem:NSMenuItem?
     init(){
-        let appMenuItem = NSApp.mainMenu!.itemAtIndex(0)//ref to App.menu
-        appMenuItem
+        let appMenuItem = NSApp.mainMenu!.item(at: 0)//ref to App.menu
+        _ = appMenuItem
         /*
          Swift.print("appMenuItem?.submenu?.itemAtIndex(0): " + "\(appMenuItem?.submenu?.itemAtIndex(0))")
          Swift.print("appMenuItem?.submenu?.itemAtIndex(2): " + "\(appMenuItem?.submenu?.itemAtIndex(2))")
@@ -135,13 +135,13 @@ class CustomAboutMenu {
          prefsMenuItem?.title = "Prefs"*/
         //Swift.print("appMenuItem?.submenu?.itemWithTitle(CustomAboutMenu.preferences): " + "\(appMenuItem?.submenu?.itemWithTitle(CustomAboutMenu.preferences))")
         
-        if(appMenuItem?.submenu?.itemWithTitle(CustomAboutMenu.preferences) != nil){
+        if(appMenuItem?.submenu?.item(withTitle: CustomAboutMenu.preferences) != nil){
             //Swift.print("prefs menu created")
-            preferencesMenuItem = appMenuItem!.submenu!.itemWithTitle(CustomAboutMenu.preferences)
-            let index:Int = appMenuItem!.submenu!.indexOfItem(preferencesMenuItem!)
+            preferencesMenuItem = appMenuItem!.submenu!.item(withTitle: CustomAboutMenu.preferences)
+            let index:Int = appMenuItem!.submenu!.index(of: preferencesMenuItem!)
             appMenuItem!.submenu!.removeItem(preferencesMenuItem!)
             preferencesMenuItem = PreferencesMenuItem()
-            appMenuItem!.submenu!.insertItem(preferencesMenuItem!, atIndex: index)
+            appMenuItem!.submenu!.insertItem(preferencesMenuItem!, at: index)
         }
     }
 }
@@ -156,7 +156,7 @@ class PreferencesMenuItem:CustomMenuItem{
     /**
      * Return true if you want to enable the menu item, false will disable it
      */
-    override func validateMenuItem(menuItem: NSMenuItem) -> Bool {
+    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         //add assertion logic here
         return true
     }
@@ -165,9 +165,13 @@ class PreferencesMenuItem:CustomMenuItem{
 }
 class CustomMenuItem:NSMenuItem{
     init(_ title:String = "", _ keyEquivalent:String = "") {
-        super.init(title: title, action: ObjectiveC.Selector("onSelect:"), keyEquivalent: keyEquivalent)
+        super.init(title: title, action: ObjectiveC.Selector(("onSelect:")), keyEquivalent: keyEquivalent)
         target = self/*target specifies where the selector should work, in this case in this class scope*/
         //self.enabled = true
+    }
+    
+    required init(coder decoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     func onSelect(event : AnyObject) {
         //override in subclass (optional)
@@ -176,10 +180,9 @@ class CustomMenuItem:NSMenuItem{
      * Return true if you want to enable the menu item, false will disable it
      * NOTE: add assertion logic here
      */
-    override func validateMenuItem(menuItem: NSMenuItem) -> Bool {
+    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         //override in subclass (optional)
         return true
         
     }
-    required init?(coder aDecoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
