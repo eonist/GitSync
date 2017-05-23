@@ -14,7 +14,7 @@ class RepositoryView:Element{
     }()
     override func resolveSkin() {
         var css:String = "RepositoryView{float:left;clear:left;}"
-        css += "RepositoryView Container#content{float:left;clear:left;width:100%;padding-right:200px;}"
+        css += "RepositoryView Container#content{float:left;clear:left;width:100%;}"
         css += "RepositoryView LeftSideBar{fill:blue;width:200px;float:left;clear:none;padding:12px;}"
         css += "RepositoryView LeftSideBar #list{fill:grey;width:100%;float:left;clear:none;}"
         
@@ -42,14 +42,13 @@ class RepositoryView:Element{
         if hide {
             if let leftSideBar = leftSideBar {
                 leftSideBar.removeFromSuperview()
-                self.leftSideBar = nil
             }
         }else{
             if leftSideBar == nil{
                 self.leftSideBar = createLeftSideBar()
             }
         }
-        detailView.setSkinState(detailView.getSkinState())
+        /*detailView.setSkinState(detailView.getSkinState())*/
         ElementModifier.float(detailView)
         self.setSize(getWidth(),getHeight())
     }
