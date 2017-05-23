@@ -11,7 +11,7 @@ class ToggleMenuBarMenuItem:CustomMenuItem {
         
         let toggle:Bool = !ToggleMenuBarMenuItem.isMenuBarHidden
         ToggleMenuBarMenuItem.isMenuBarHidden = toggle//toggle
-        if let view = MainWin.mainView?.men {
+        if let view = MainWin.mainView?.menuView {
             view.toggleSideBar(toggle)
         }
     }
