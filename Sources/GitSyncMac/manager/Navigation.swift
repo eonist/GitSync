@@ -32,7 +32,7 @@ class Navigation {
      */
     static func setView(_ viewType:Views){
         //Navigation.activeView = view
-        let mainView:MainView = MainWin.mainView!
+        guard let mainView:MainView = MainWin.mainView else{fatalError("mainView is nil")}
         let size:CGSize = CGSize(MainView.w,MainView.h - MenuView.h)
         if let curView = mainView.currentView {curView.removeFromSuperview()}
         MainWin.mainView?.menuView?.selectButton(viewType)/*Selects the correct menu icon*/
