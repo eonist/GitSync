@@ -35,7 +35,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //do prototype that has a interpolates the graph points nicly as you scroll
                 //store the commit count for all projects in a DataProvider 
                     //must also allow adding/removal of repos
-
+        var menu:Menu?
     }
     /**
      *
@@ -94,6 +94,22 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("💾 Write RepoList to: repo.xml")
         _ = FileModifier.write(RepoView.repoListFilePath.tildePath, RepoView.treeDP.tree.xml.xmlString)/*store the repo xml*/
         print("Good-bye")
+    }
+}
+/**
+ * //TODO: support tray menu
+ * //TODO: create the Menu class and Customize the about menu, and remove the others, then add the missing items
+ */
+class Menu {
+    init(){
+        while(NSApp.mainMenu!.itemArray.count > 1){NSApp.mainMenu!.removeItemAtIndex(NSApp.mainMenu!.itemArray.count-1)}
+        /*NSApp.mainMenu!.addMenuItem(FileMenu())
+         NSApp.mainMenu!.addMenuItem(EditMenu())
+         NSApp.mainMenu!.addMenuItem(ViewMenu())
+         NSApp.mainMenu!.addMenuItem(ToolsMenu())
+         NSApp.mainMenu!.addMenuItem(WindowMenu())*/
+        let customAboutMenu = CustomAboutMenu()
+        customAboutMenu
     }
 }
 
