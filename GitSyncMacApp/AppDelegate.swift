@@ -98,9 +98,9 @@ class Menu {
             NSApp.mainMenu!.removeItem(at: NSApp.mainMenu!.items.count-1)
         }
         /*NSApp.mainMenu!.addMenuItem(FileMenu())
-         NSApp.mainMenu!.addMenuItem(EditMenu())
-         NSApp.mainMenu!.addMenuItem(ViewMenu())
-         NSApp.mainMenu!.addMenuItem(ToolsMenu())
+         NSApp.mainMenu!.addMenuItem(EditMenu())*/
+         _ = NSApp.mainMenu!.addMenuItem(ViewMenu())
+         /*NSApp.mainMenu!.addMenuItem(ToolsMenu())
          NSApp.mainMenu!.addMenuItem(WindowMenu())*/
         let customAboutMenu = CustomAboutMenu()
         _ = customAboutMenu
@@ -160,7 +160,7 @@ class CustomMenuItem:NSMenuItem{
         target = self/*target specifies where the selector should work, in this case in this class scope*/
         //self.enabled = true
     }
-    func onSelect(event : AnyObject) {
+    func onSelect(event:AnyObject) {
         //override in subclass (optional)
     }
     /**
