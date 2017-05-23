@@ -30,7 +30,7 @@ class Navigation {
     /**
      * Navigate between views
      */
-    static func setView(_ viewType:Views, _ mainView:MainView){
+    static func setView(_ viewType:Views){
         //Navigation.activeView = view
         guard let mainView:MainView = MainWin.mainView else{fatalError("mainView is nil")}
         let size:CGSize = CGSize(MainView.w,MainView.h - MenuView.h)
