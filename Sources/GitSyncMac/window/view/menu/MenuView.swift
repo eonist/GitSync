@@ -37,7 +37,7 @@ class MenuView:Element{
         super.setSize(width, height)
         buttonSection.setSize(width,height)
         buttonSection.setSkinState(buttonSection.getSkinState())
-        SkinModifier.float(buttonSection.skin!)
+        ElementModifier.float(buttonSection)
         Swift.print("MenuView.setSize(width:\(width), height:\(height))")
     }
 }
