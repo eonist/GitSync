@@ -7,15 +7,10 @@ import Cocoa
  */
 class Menu {
     init(){
-        NSApp.mainMenu?.title = "GitSync"
-        while(NSApp.mainMenu!.items.count > 1){
+        while(NSApp.mainMenu?.items.count > 1){
             NSApp.mainMenu!.removeItem(at: NSApp.mainMenu!.items.count-1)
         }
-        /*NSApp.mainMenu!.addMenuItem(FileMenu())
-         NSApp.mainMenu!.addMenuItem(EditMenu())*/
         _ = NSApp.mainMenu!.addMenuItem(ViewMenu())
-        /*NSApp.mainMenu!.addMenuItem(ToolsMenu())
-         NSApp.mainMenu!.addMenuItem(WindowMenu())*/
         let customAboutMenu = CustomAboutMenu()
         _ = customAboutMenu
     }
@@ -27,20 +22,6 @@ class CustomAboutMenu {
     private var preferencesMenuItem:NSMenuItem?
     init(){
         let appMenuItem = NSApp.mainMenu!.item(at: 0)//ref to App.menu
-        _ = appMenuItem
-        /*
-         Swift.print("appMenuItem?.submenu?.itemAtIndex(0): " + "\(appMenuItem?.submenu?.itemAtIndex(0))")
-         Swift.print("appMenuItem?.submenu?.itemAtIndex(2): " + "\(appMenuItem?.submenu?.itemAtIndex(2))")
-         Swift.print("appMenuItem?.submenu?.itemAtIndex(2).title: " + "\(appMenuItem?.submenu?.itemAtIndex(2)!.title)")
-         */
-        //appMenuItem?.submenu?.removeItemAtIndex(0)//remove the old aboutMenuItem
-        //let aboutMenuItem = appMenuItem?.submenu?.addMenuItem(NSMenuItem())
-        //aboutMenuItem?.title = "About"
-        
-        /*let prefsMenuItem = appMenuItem?.submenu?.addMenuItem(NSMenuItem())
-         prefsMenuItem?.title = "Prefs"*/
-        //Swift.print("appMenuItem?.submenu?.itemWithTitle(CustomAboutMenu.preferences): " + "\(appMenuItem?.submenu?.itemWithTitle(CustomAboutMenu.preferences))")
-        
         if(appMenuItem?.submenu?.item(withTitle: CustomAboutMenu.preferences) != nil){
             //Swift.print("prefs menu created")
             preferencesMenuItem = appMenuItem!.submenu!.item(withTitle: CustomAboutMenu.preferences)
