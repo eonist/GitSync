@@ -68,7 +68,8 @@ class ShowSideBarMenuItem:CustomMenuItem{
     
     override func onSelect(event:AnyObject) {
         Swift.print("ShowGridMenuItem.onSelect()")
-        //Proxy.page!.gridLayer!.hidden = !Proxy.page!.gridLayer!.hidden
+        //add hiding logic here
+        
     }
     /**
      * Return true if you want to enable the menu item, false will disable it
