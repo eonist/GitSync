@@ -154,7 +154,6 @@ class PreferencesMenuItem:CustomMenuItem{
     }
     required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-
 class ViewMenu:CustomMenuItem {
     init(){
         super.init("View", "")
@@ -172,8 +171,7 @@ class ShowSideBarMenuItem:CustomMenuItem{
     static var isSideMenuHidden:Bool = false
     init() {super.init("Show side bar", "l")}
     
-    
-    override func onSelect(event : AnyObject) {
+    override func onSelect(event:AnyObject) {
         Swift.print("ShowGridMenuItem.onSelect()")
         //Proxy.page!.gridLayer!.hidden = !Proxy.page!.gridLayer!.hidden
     }
