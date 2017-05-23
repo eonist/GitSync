@@ -5,7 +5,7 @@ import Foundation
 class RepositoryView:Element{
     lazy var contentContainer:Container = {return self.addSubView(Container(self.width,self.height,self,"content"))}()
     
-    var leftSideBar:LeftSideBar? 
+    var leftSideBar:LeftSideBar?
     func createLeftSideBar() -> LeftSideBar {
         return self.contentContainer.addSubView(LeftSideBar(NaN,self.height,self.contentContainer))
     }
@@ -21,7 +21,7 @@ class RepositoryView:Element{
         StyleManager.addStyle(css)
         super.resolveSkin()
         _ = contentContainer
-        _ = leftSideBar
+        leftSideBar = createLeftSideBar()
         _ = detailView
         Swift.print("⚠️️ height: " + "\(height)")
     }
@@ -29,15 +29,20 @@ class RepositoryView:Element{
         super.setSize(width, height)
         Swift.print("RepositoryView.setSize(\(width), \(height))")
         //update the skin of columns 🏀
-        leftSideBar.setSize(leftSideBar.getWidth(), height)
+        if let leftSideBar = leftSideBar {leftSideBar.setSize(leftSideBar.getWidth(), height)}
         detailView.setSize(detailView.getWidth(), getHeight())
     }
     /**
      *
      */
-    func hideSideBar(){
-        //remove leftSideBar with element hider
-        //
+    func hideSideBar(_ isSideBarHidden:Bool){
+        //remove leftSideBar 
+        if isSideBarHidden {
+            
+        }else{
+        
+        }
+        //self.setSize
     }
 }
 class LeftSideBar:Element{
