@@ -1,7 +1,9 @@
 import Foundation
 @testable import Utils
 @testable import Element
-
+/**
+ * TODO: Maybe make mainView 
+ */
 class MainWin:Window {
     static var mainView:MainView?
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){

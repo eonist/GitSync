@@ -20,8 +20,8 @@ class MainView:TitleView{
     override func resolveSkin() {
         super.resolveSkin()
         super.textArea.setTextValue(title)
-        MainWin.mainView = self
         
+        menuView = createMenuView()
         Navigation.setView(Views.main(.repository))/*Adds the correct view to MainView*/
     }
     override func setSize(_ width:CGFloat,_ height:CGFloat){
