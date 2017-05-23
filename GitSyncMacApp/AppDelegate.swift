@@ -27,15 +27,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
         //let tree = TreeConverter.tree(a.xml)
         
-        
-        //work on const to enum? and more structs 🏀
-            //clean up some of the git classes 👈
-            //Move the RepoDetail view into RepoView. find the print screen with aligned UI elements 👈
-            //start on Graph3
-                //do prototype that has a interpolates the graph points nicly as you scroll
-                //store the commit count for all projects in a DataProvider 
-                    //must also allow adding/removal of repos
-        
+        menu = Menu()/*This creates the App menu*/
     }
     /**
      *
@@ -117,7 +109,7 @@ class Menu {
 class CustomAboutMenu {
     static let about:String = "About"
     static let preferences:String = "Preferences…"
-    static let appName:String = "DrawLab"
+    static let appName:String = "GitSync"
     private var preferencesMenuItem:NSMenuItem?
     init(){
         let appMenuItem = NSApp.mainMenu!.item(at: 0)//ref to App.menu
