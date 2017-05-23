@@ -7,10 +7,11 @@ import Cocoa
  */
 class Menu {
     init(){
-        while(NSApp.mainMenu?.items.count > 1){
+        guard let mainMenu = NSApp.mainMenu else {fatalError("")}
+        while(mainMenu.items.count > 1){
             NSApp.mainMenu!.removeItem(at: NSApp.mainMenu!.items.count-1)
         }
-        _ = NSApp.mainMenu!.addMenuItem(ViewMenu())
+        _ = mainMenu.addMenuItem(ViewMenu())
         let customAboutMenu = CustomAboutMenu()
         _ = customAboutMenu
     }
