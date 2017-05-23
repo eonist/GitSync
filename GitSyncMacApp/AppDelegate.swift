@@ -188,6 +188,8 @@ class ViewMenu:CustomMenuItem {
 class ShowGridMenuItem:CustomMenuItem{
     static var isSideMenuHidden:Bool = false
     init() {super.init("Show grid", "g")}
+    
+    required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     override func onSelect(event : AnyObject) {
         Swift.print("ShowGridMenuItem.onSelect()")
         //Proxy.page!.gridLayer!.hidden = !Proxy.page!.gridLayer!.hidden
@@ -195,13 +197,9 @@ class ShowGridMenuItem:CustomMenuItem{
     /**
      * Return true if you want to enable the menu item, false will disable it
      */
-    override func validateMenuItem(menuItem: NSMenuItem) -> Bool {
-        if(DocWinAsserter.hasActiveDocWin()){
-            self.title = ShowGridMenuItem.isSideMenuHidden ? "Show grid" : "Hide grid"
-            return true
-        }else{
-            return false
-        }
+    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+        self.title = ShowGridMenuItem.isSideMenuHidden ? "Show side bar" : "Hide side bar"
+        return true
     }
     //required init?(coder aDecoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
