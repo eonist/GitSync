@@ -26,7 +26,6 @@ class ShowSideBarMenuItem:CustomMenuItem{
         if let view = MainWin.mainView?.currentView as? RepositoryView {
             view.toggleSideBar(ShowSideBarMenuItem.isSideMenuHidden)
         }
-        
     }
     /**
      * Return true if you want to enable the menu item, false will disable it
