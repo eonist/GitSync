@@ -5,8 +5,8 @@ import Foundation
 class RepositoryView:Element{
     lazy var contentContainer:Container = {return self.addSubView(Container(self.width,self.height,self,"content"))}()
     
-    
-    func leftSideBar:LeftSideBar = {
+    var leftSideBar:LeftSideBar? 
+    func createLeftSideBar() -> LeftSideBar {
         return self.contentContainer.addSubView(LeftSideBar(NaN,self.height,self.contentContainer))
     }
     lazy var detailView:RepositoryDetailView = {
