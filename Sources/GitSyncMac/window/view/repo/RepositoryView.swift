@@ -35,14 +35,16 @@ class RepositoryView:Element{
     /**
      *
      */
-    func hideSideBar(_ isSideBarHidden:Bool){
+    func toggleSideBar(_ hide:Bool){
         //remove leftSideBar 
-        if isSideBarHidden {
-            
+        if hide {
+            if let leftSideBar = leftSideBar {leftSideBar.removeFromSuperview()}
         }else{
-        
+            if leftSideBar == nil{
+                self.leftSideBar = createLeftSideBar()
+            }
         }
-        //self.setSize
+        self.setSize(getWidth(),getHeight())
     }
 }
 class LeftSideBar:Element{
