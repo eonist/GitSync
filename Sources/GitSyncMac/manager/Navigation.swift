@@ -23,7 +23,7 @@ enum Views{
     }
 }
 class Navigation {
-    /*    
+    /**
      static var activeView:Views = Views.main(.commits)
      static var currentView:NSView? {return MainWin.mainView?.currentView}
      */
