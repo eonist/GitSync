@@ -33,7 +33,7 @@ class RepositoryView:Element{
         detailView.setSize(detailView.getWidth(), getHeight())
     }
     /**
-     *
+     * 
      */
     func toggleSideBar(_ hide:Bool){
         //remove leftSideBar 
