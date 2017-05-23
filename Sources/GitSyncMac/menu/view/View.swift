@@ -20,11 +20,12 @@ class ShowSideBarMenuItem:CustomMenuItem{
     init() {super.init("Show side bar", "l")}
     
     override func onSelect(event:AnyObject) {
-        Swift.print("ShowGridMenuItem.onSelect()")
+        Swift.print("ShowSideBarMenuItem.onSelect()")
         //add hiding logic here
-        ShowSideBarMenuItem.isSideMenuHidden = !ShowSideBarMenuItem.isSideMenuHidden//toggle
+        let toggle:Bool = !ShowSideBarMenuItem.isSideMenuHidden
+        ShowSideBarMenuItem.isSideMenuHidden = toggle//toggle
         if let view = MainWin.mainView?.currentView as? RepositoryView {
-            view.toggleSideBar(ShowSideBarMenuItem.isSideMenuHidden)
+            view.toggleSideBar(toggle)
         }
     }
     /**
