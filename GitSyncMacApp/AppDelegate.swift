@@ -173,3 +173,52 @@ class CustomMenuItem:NSMenuItem{
     }
     required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
+class ViewMenu:CustomMenuItem {
+    init(){
+        super.init("View", "")
+        submenu = NSMenu(title: "View")
+        //submenu!.addMenuItem(ShowRulerMenuItem())
+        _ = submenu!.addMenuItem(ShowGridMenuItem())
+        //submenu!.addMenuItem(CustomMenuItem("Fullscreen",""))
+    }
+    override func onSelect(event sender: AnyObject){
+        Swift.print("ViewMenu.onSelect() " + "\(sender)")
+    }
+}
+class ShowGridMenuItem:CustomMenuItem{
+    static var isSideMenuHidden:Bool = false
+    init() {super.init("Show grid", "g")}
+    override func onSelect(event : AnyObject) {
+        Swift.print("ShowGridMenuItem.onSelect()")
+        //Proxy.page!.gridLayer!.hidden = !Proxy.page!.gridLayer!.hidden
+    }
+    /**
+     * Return true if you want to enable the menu item, false will disable it
+     */
+    override func validateMenuItem(menuItem: NSMenuItem) -> Bool {
+        if(DocWinAsserter.hasActiveDocWin()){
+            self.title = ShowGridMenuItem.isSideMenuHidden ? "Show grid" : "Hide grid"
+            return true
+        }else{
+            return false
+        }
+    }
+    //required init?(coder aDecoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+}
+/*class ShowRulerMenuItem:CustomMenuItem{
+ init() {super.init("Show rulers", "r")}
+ override func onSelect(event : AnyObject) {
+ Swift.print("ShowRulerMenuItem()")
+ Proxy.activeDocView!.rulerLayer!.hidden = !Proxy.activeDocView!.rulerLayer!.hidden
+ }
+ /**
+ * Return true if you want to enable the menu item, false will disable it
+ */
+ override func validateMenuItem(menuItem: NSMenuItem) -> Bool {
+ if(DocWinAsserter.hasActiveDocWin()){
+ self.title = Proxy.page!.gridLayer!.hidden ? "Show rulers" : "Hide rulers"
+ return true
+ }else{return false}
+ }
+ required init?(coder aDecoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+ }*/
