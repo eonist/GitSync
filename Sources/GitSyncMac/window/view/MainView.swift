@@ -38,7 +38,7 @@ extension MainView{
     /**
      *
      */
-    func toggleSideBar(_ hide:Bool){
+    func toggleMenuBar(_ hide:Bool){
         Swift.print("toggleSideBar: hide: " + "\(hide)")
         //remove leftSideBar
         if hide {
