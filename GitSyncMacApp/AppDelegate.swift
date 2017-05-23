@@ -160,7 +160,7 @@ class ViewMenu:CustomMenuItem {
         super.init("View", "")
         submenu = NSMenu(title: "View")
         //submenu!.addMenuItem(ShowRulerMenuItem())
-        _ = submenu!.addMenuItem(ShowGridMenuItem())
+        _ = submenu!.addMenuItem(ShowSideBarMenuItem())
         //submenu!.addMenuItem(CustomMenuItem("Fullscreen",""))
     }
     override func onSelect(event sender: AnyObject){
@@ -168,11 +168,11 @@ class ViewMenu:CustomMenuItem {
     }
     required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-class ShowGridMenuItem:CustomMenuItem{
+class ShowSideBarMenuItem:CustomMenuItem{
     static var isSideMenuHidden:Bool = false
     init() {super.init("Show side bar", "l")}
     
-    required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    
     override func onSelect(event : AnyObject) {
         Swift.print("ShowGridMenuItem.onSelect()")
         //Proxy.page!.gridLayer!.hidden = !Proxy.page!.gridLayer!.hidden
@@ -181,11 +181,12 @@ class ShowGridMenuItem:CustomMenuItem{
      * Return true if you want to enable the menu item, false will disable it
      */
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-        self.title = ShowGridMenuItem.isSideMenuHidden ? "Show side bar" : "Hide side bar"
+        self.title = ShowSideBarMenuItem.isSideMenuHidden ? "Show side bar" : "Hide side bar"
         Swift.print("validateMenuItem")
         return true
     }
-    //required init?(coder aDecoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    
 }
 /*class ShowRulerMenuItem:CustomMenuItem{
  init() {super.init("Show rulers", "r")}
