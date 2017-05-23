@@ -22,6 +22,7 @@ class MainView:TitleView{
         super.textArea.setTextValue(title)
         
         menuView = createMenuView()
+        MainWin.mainView = self/*⚠️️ We set the ref because it is needed in navigation*/
         Navigation.setView(Views.main(.repository))/*Adds the correct view to MainView*/
     }
     override func setSize(_ width:CGFloat,_ height:CGFloat){
