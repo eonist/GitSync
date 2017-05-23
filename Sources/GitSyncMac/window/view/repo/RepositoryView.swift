@@ -45,6 +45,7 @@ class RepositoryView:Element{
                 self.leftSideBar = createLeftSideBar()
             }
         }
+        detailView.setSkinState(detailView.getSkinState())
         ElementModifier.float(detailView)
         self.setSize(getWidth(),getHeight())
     }
