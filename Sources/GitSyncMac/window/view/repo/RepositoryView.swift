@@ -30,6 +30,12 @@ class RepositoryView:Element{
         leftSideBar.setSize(leftSideBar.getWidth(), height)
         detailView.setSize(detailView.getWidth(), getHeight())
     }
+    /**
+     *
+     */
+    func hideSideBar(){
+        //remove leftSideBar
+    }
 }
 class LeftSideBar:Element{
     lazy var list:Element = {
