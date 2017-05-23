@@ -34,3 +34,24 @@ class MainView:TitleView{
     }
     required init(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
+extension MainView{
+    /**
+     *
+     */
+    func toggleSideBar(_ hide:Bool){
+        Swift.print("toggleSideBar: hide: " + "\(hide)")
+        //remove leftSideBar
+        if hide {
+            if let menuView = self.menuView {
+                menuView.removeFromSuperview()
+            }
+        }else{
+            if menuView == nil{
+                self.menuView = createMenuView()
+            }
+        }
+        /*detailView.setSkinState(detailView.getSkinState())*/
+        if let currentView = currentView{ElementModifier.float(currentView)}
+        self.setSize(getWidth(),getHeight())
+    }
+}
