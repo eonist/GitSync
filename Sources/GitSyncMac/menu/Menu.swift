@@ -7,7 +7,7 @@ import Cocoa
  */
 class Menu {
     init(){
-        NSApp.mainMenu!.items.first?.title 
+        NSApp.mainMenu!.items.first?.title = "GitSync"
         while(NSApp.mainMenu!.items.count > 1){
             NSApp.mainMenu!.removeItem(at: NSApp.mainMenu!.items.count-1)
         }
