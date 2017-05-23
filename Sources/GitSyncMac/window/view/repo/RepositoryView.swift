@@ -25,7 +25,7 @@ class RepositoryView:Element{
         _ = detailView
         Swift.print("⚠️️ height: " + "\(height)")
     }
-    override func setSize(_ width: CGFloat, _ height: CGFloat) {
+    override func setSize(_ width:CGFloat, _ height:CGFloat) {
         super.setSize(width, height)
         Swift.print("RepositoryView.setSize(\(width), \(height))")
         Swift.print("detailView.getWidth(): " + "\(detailView.getWidth())")
