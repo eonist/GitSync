@@ -6,7 +6,7 @@ class MainView:TitleView{
     static let w:CGFloat = 700/*540,700*/
     static let h:CGFloat = 400/*350,400*/
     var title:String
-    var menuView:MenuView?
+    var menuView:MenuView?//TODO: ⚠️️ Rename to MenuBar
     func createMenuView() -> MenuView{
         return addSubView(MenuView(frame.size.width,MenuView.h,self))
     }
@@ -39,8 +39,7 @@ extension MainView{
      *
      */
     func toggleMenuBar(_ hide:Bool){
-        Swift.print("toggleSideBar: hide: " + "\(hide)")
-        //remove leftSideBar
+        Swift.print("toggleMenuBar: hide: " + "\(hide)")
         if hide {
             if let menuView = self.menuView {
                 menuView.removeFromSuperview()
