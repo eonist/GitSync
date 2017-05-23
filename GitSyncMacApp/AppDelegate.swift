@@ -170,7 +170,7 @@ class ViewMenu:CustomMenuItem {
 }
 class ShowGridMenuItem:CustomMenuItem{
     static var isSideMenuHidden:Bool = false
-    init() {super.init("Show grid", "g")}
+    init() {super.init("Show side bar", "l")}
     
     required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     override func onSelect(event : AnyObject) {
@@ -182,6 +182,7 @@ class ShowGridMenuItem:CustomMenuItem{
      */
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         self.title = ShowGridMenuItem.isSideMenuHidden ? "Show side bar" : "Hide side bar"
+        Swift.print("validateMenuItem")
         return true
     }
     //required init?(coder aDecoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
