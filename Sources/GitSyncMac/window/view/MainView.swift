@@ -7,7 +7,7 @@ class MainView:TitleView{
     static let h:CGFloat = 400/*350,400*/
     var title:String
     var menuView:MenuView?
-    func createMenuView() -> {
+    func createMenuView() -> MenuView{
         return addSubView(MenuView(frame.size.width,MenuView.h,self))
     }
     var currentView:Element?
