@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 @testable import Element
 /**
- * TODO: Maybe make mainView
+ * TODO: Maybe make mainView into a lazy static prop similar to RepoView
  */
 class MainWin:Window {
     static var mainView:MainView?
