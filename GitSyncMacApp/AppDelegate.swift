@@ -182,6 +182,7 @@ class ShowSideBarMenuItem:CustomMenuItem{
      */
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         self.title = ShowSideBarMenuItem.isSideMenuHidden ? "Show side bar" : "Hide side bar"
+        ShowSideBarMenuItem.isSideMenuHidden = !ShowSideBarMenuItem.isSideMenuHidden//toggle
         Swift.print("validateMenuItem")
         return true
     }
