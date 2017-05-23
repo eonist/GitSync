@@ -22,8 +22,8 @@ class ShowSideBarMenuItem:CustomMenuItem{
     override func onSelect(event:AnyObject) {
         Swift.print("ShowGridMenuItem.onSelect()")
         //add hiding logic here
-        if let view = MainWin.mainView as? RepositoryView {
-            view
+        if let view = MainWin.mainView.contentView as? RepositoryView {
+            _ = view
         }
     }
     /**
