@@ -8,7 +8,6 @@ class ToggleMenuBarMenuItem:CustomMenuItem {
     
     override func onSelect(event:AnyObject) {
         Swift.print("ToggleMenuBarMenuItem.onSelect()")
-        
         let toggle:Bool = !ToggleMenuBarMenuItem.isMenuBarHidden
         ToggleMenuBarMenuItem.isMenuBarHidden = toggle//toggle
         if let view = MainWin.mainView {
@@ -19,7 +18,7 @@ class ToggleMenuBarMenuItem:CustomMenuItem {
      * Return true if you want to enable the menu item, false will disable it
      */
     override func validateMenuItem(_ menuItem:NSMenuItem) -> Bool {
-        self.title = ShowSideBarMenuItem.isSideMenuHidden ? "Show side bar" : "Hide side bar"
+        self.title = ShowSideBarMenuItem.isSideMenuHidden ? "Show menu bar" : "Hide menu bar"
         Swift.print("validateMenuItem")
         return true
     }
