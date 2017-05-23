@@ -10,7 +10,7 @@ import Cocoa
 class AppDelegate:NSObject, NSApplicationDelegate {
     weak var window:NSWindow!
     var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
-    //var fileWatcher:FileWatcher?
+    var menu:Menu?
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
@@ -35,7 +35,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //do prototype that has a interpolates the graph points nicly as you scroll
                 //store the commit count for all projects in a DataProvider 
                     //must also allow adding/removal of repos
-        var menu:Menu?
+        
     }
     /**
      *
@@ -160,18 +160,13 @@ class PreferencesMenuItem:CustomMenuItem{
         //add assertion logic here
         return true
     }
-    
-    required init?(coder aDecoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class CustomMenuItem:NSMenuItem{
     init(_ title:String = "", _ keyEquivalent:String = "") {
         super.init(title: title, action: ObjectiveC.Selector(("onSelect:")), keyEquivalent: keyEquivalent)
         target = self/*target specifies where the selector should work, in this case in this class scope*/
         //self.enabled = true
-    }
-    
-    required init(coder decoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     func onSelect(event : AnyObject) {
         //override in subclass (optional)
@@ -183,6 +178,6 @@ class CustomMenuItem:NSMenuItem{
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         //override in subclass (optional)
         return true
-        
     }
+    required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
