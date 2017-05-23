@@ -4,9 +4,11 @@ import Foundation
 
 class RepositoryView:Element{
     lazy var contentContainer:Container = {return self.addSubView(Container(self.width,self.height,self,"content"))}()
-    lazy var leftSideBar:LeftSideBar = {
+    
+    
+    func leftSideBar:LeftSideBar = {
         return self.contentContainer.addSubView(LeftSideBar(NaN,self.height,self.contentContainer))
-    }()
+    }
     lazy var detailView:RepositoryDetailView = {
         return self.contentContainer.addSubView(RepositoryDetailView(NaN,self.height,self.contentContainer))//self.addSubView(Section(NaN,self.height,self,"right"))
     }()
@@ -34,7 +36,8 @@ class RepositoryView:Element{
      *
      */
     func hideSideBar(){
-        //remove leftSideBar
+        //remove leftSideBar with element hider
+        //
     }
 }
 class LeftSideBar:Element{
