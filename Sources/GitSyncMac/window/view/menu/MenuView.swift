@@ -18,7 +18,7 @@ class MenuView:Element{
     func createButtons(){
         _ = buttonSection
         var buttons:[ISelectable] = []
-        for buttonTitle in MenuView.buttonTitles{
+        MenuView.buttonTitles.forEach { buttonTitle in
             let btn:SelectButton = buttonSection.addSubView(SelectButton(20,20,false,buttonSection,buttonTitle.rawValue))//buttonTitle.capitalizedString
             buttons.append(btn)
         }
