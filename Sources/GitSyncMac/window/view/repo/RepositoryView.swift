@@ -45,6 +45,7 @@ class RepositoryView:Element{
                 self.leftSideBar = createLeftSideBar()
             }
         }
+        ElementModifier.float(<#T##element: IElement##IElement#>)
         self.setSize(getWidth(),getHeight())
     }
 }
