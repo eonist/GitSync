@@ -7,13 +7,12 @@ import Cocoa
  */
 class Menu {
     init(){
-        guard let mainMenu = NSApp.mainMenu else {fatalError("")}
+        guard let mainMenu = NSApp.mainMenu else {fatalError("NSApp.mainMenu not accessible")}
         while(mainMenu.items.count > 1){
-            NSApp.mainMenu!.removeItem(at: NSApp.mainMenu!.items.count-1)
+            mainMenu.removeItem(at: mainMenu.items.count-1)
         }
         _ = mainMenu.addMenuItem(ViewMenu())
-        let customAboutMenu = CustomAboutMenu()
-        _ = customAboutMenu
+        _ = CustomAboutMenu()
     }
 }
 class CustomAboutMenu {
@@ -37,17 +36,17 @@ class PreferencesMenuItem:CustomMenuItem{
     init() {
         super.init(CustomAboutMenu.preferences, ",")
     }
-    override func onSelect(event : AnyObject) {
+    override func onSelect(event:AnyObject) {
         Swift.print("PreferencesMenuItem.onSelect")
         //Proxy.windows.append(WinUtils.buildWin(PreferencesWin.self))/*open the prefs window*/
     }
     /**
      * Return true if you want to enable the menu item, false will disable it
      */
-    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+    override func validateMenuItem(_ menuItem:NSMenuItem) -> Bool {
         //add assertion logic here
         return true
     }
-    required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    required init(coder decoder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
