@@ -6,7 +6,10 @@ class MainView:TitleView{
     static let w:CGFloat = 700/*540,700*/
     static let h:CGFloat = 400/*350,400*/
     var title:String
-    static var menuView:MenuView?
+    var menuView:MenuView?
+    func createMenuView() -> {
+        return addSubView(MenuView(frame.size.width,MenuView.h,self))
+    }
     var currentView:Element?
     var conflictDialogWin:ConflictDialogWin?
     
@@ -18,12 +21,12 @@ class MainView:TitleView{
         super.resolveSkin()
         super.textArea.setTextValue(title)
         MainWin.mainView = self
-        MainView.menuView = addSubView(MenuView(frame.size.width,MenuView.h,self))
+        
         Navigation.setView(Views.main(.repository))/*Adds the correct view to MainView*/
     }
     override func setSize(_ width:CGFloat,_ height:CGFloat){
         super.setSize(width, height)
-        if let menuView = MainView.menuView {
+        if let menuView = self.menuView {
             menuView.setSize(width, height)
             menuView.setSkinState(menuView.getSkinState())
         }
