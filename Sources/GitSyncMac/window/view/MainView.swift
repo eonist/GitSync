@@ -17,7 +17,6 @@ class MainView:TitleView{
     override func resolveSkin() {
         super.resolveSkin()
         super.textArea.setTextValue(title)
-        //Sounds.startup?.play()
         MainWin.mainView = self
         MainView.menuView = addSubView(MenuView(frame.size.width,MenuView.h,self))
         Navigation.setView(Views.main(.repository))/*Adds the correct view to MainView*/
