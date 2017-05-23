@@ -15,7 +15,7 @@ class RepositoryView:Element{
         css += "RepositoryView Container#content{float:left;clear:left;width:100%;padding-right:200px;}"
         css += "RepositoryView LeftSideBar{fill:blue;width:200px;float:left;clear:none;padding:12px;}"
         css += "RepositoryView LeftSideBar #list{fill:grey;width:100%;float:left;clear:none;}"
-
+        
         StyleManager.addStyle(css)
         super.resolveSkin()
         _ = contentContainer
