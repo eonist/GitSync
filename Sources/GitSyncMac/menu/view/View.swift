@@ -13,7 +13,7 @@ class ViewMenu:CustomMenuItem {
     override func onSelect(event sender: AnyObject){
         Swift.print("ViewMenu.onSelect() " + "\(sender)")
     }
-    required init(coder decoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    required init(coder decoder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class ShowSideBarMenuItem:CustomMenuItem{
     static var isSideMenuHidden:Bool = false
@@ -23,7 +23,7 @@ class ShowSideBarMenuItem:CustomMenuItem{
         Swift.print("ShowGridMenuItem.onSelect()")
         //add hiding logic here
         if let view = MainWin.mainView as? RepositoryView {
-            
+            view
         }
     }
     /**
