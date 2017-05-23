@@ -28,6 +28,7 @@ class RepositoryView:Element{
     override func setSize(_ width: CGFloat, _ height: CGFloat) {
         super.setSize(width, height)
         Swift.print("RepositoryView.setSize(\(width), \(height))")
+        Swift.print("detailView.getWidth(): " + "\(detailView.getWidth())")
         //update the skin of columns 🏀
         if let leftSideBar = leftSideBar {leftSideBar.setSize(leftSideBar.getWidth(), height)}
         detailView.setSize(detailView.getWidth(), getHeight())
@@ -39,7 +40,10 @@ class RepositoryView:Element{
         Swift.print("toggleSideBar: hide: " + "\(hide)")
         //remove leftSideBar
         if hide {
-            if let leftSideBar = leftSideBar {leftSideBar.removeFromSuperview()}
+            if let leftSideBar = leftSideBar {
+                leftSideBar.removeFromSuperview()
+                self.leftSideBar = nil
+            }
         }else{
             if leftSideBar == nil{
                 self.leftSideBar = createLeftSideBar()
