@@ -51,7 +51,8 @@ extension MainView{
         }*/
         /*detailView.setSkinState(detailView.getSkinState())*/
         
-        //try to get the display from the header style check what it is 🏀
+        //Continue here: 🏀
+            //try to get the display from the header style check what it is
         
         ElementModifier.float(header)
         if let currentView = currentView{ElementModifier.float(currentView)}
