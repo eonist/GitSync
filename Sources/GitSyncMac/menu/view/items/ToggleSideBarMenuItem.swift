@@ -2,15 +2,15 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-class ShowSideBarMenuItem:CustomMenuItem{
+class ToggleSideBarMenuItem:CustomMenuItem{
     static var isSideMenuHidden:Bool = false
     init() {super.init("Show side bar", "l")}
     
     override func onSelect(event:AnyObject) {
         Swift.print("ShowSideBarMenuItem.onSelect()")
         //add hiding logic here
-        let toggle:Bool = !ShowSideBarMenuItem.isSideMenuHidden
-        ShowSideBarMenuItem.isSideMenuHidden = toggle//toggle
+        let toggle:Bool = !ToggleSideBarMenuItem.isSideMenuHidden
+        ToggleSideBarMenuItem.isSideMenuHidden = toggle//toggle
         if let view = MainWin.mainView?.currentView as? RepositoryView {
             view.toggleSideBar(toggle)
         }
@@ -19,7 +19,7 @@ class ShowSideBarMenuItem:CustomMenuItem{
      * Return true if you want to enable the menu item, false will disable it
      */
     override func validateMenuItem(_ menuItem:NSMenuItem) -> Bool {
-        self.title = ShowSideBarMenuItem.isSideMenuHidden ? "Show side bar" : "Hide side bar"
+        self.title = ToggleSideBarMenuItem.isSideMenuHidden ? "Show side bar" : "Hide side bar"
         Swift.print("validateMenuItem")
         return true
     }

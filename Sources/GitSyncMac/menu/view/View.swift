@@ -7,7 +7,7 @@ class ViewMenu:CustomMenuItem {
         super.init("View", "")
         submenu = NSMenu(title: "View")
         //submenu!.addMenuItem(ShowRulerMenuItem())
-        _ = submenu?.addMenuItem(ShowSideBarMenuItem())
+        _ = submenu?.addMenuItem(ToggleSideBarMenuItem())
         _ = submenu?.addMenuItem(ToggleMenuBarMenuItem())
         //submenu!.addMenuItem(CustomMenuItem("Fullscreen",""))
     }
