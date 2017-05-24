@@ -48,6 +48,8 @@ class RepositoryView:Element{
                 self.leftSideBar = createLeftSideBar()
             }
         }
+        
+        ElementModifier.hide(leftSideBar, !hide)
         /*detailView.setSkinState(detailView.getSkinState())*/
         ElementModifier.float(detailView)
         self.setSize(getWidth(),getHeight())
