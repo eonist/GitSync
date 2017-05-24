@@ -39,16 +39,6 @@ class RepositoryView:Element{
     func toggleSideBar(_ hide:Bool){
         Swift.print("toggleSideBar: hide: " + "\(hide)")
         //remove leftSideBar
-        if hide {
-            if let leftSideBar = leftSideBar {
-                leftSideBar.removeFromSuperview()
-            }
-        }else{
-            if leftSideBar == nil{
-                self.leftSideBar = createLeftSideBar()
-            }
-        }
-        
         ElementModifier.hide(leftSideBar, !hide)
         /*detailView.setSkinState(detailView.getSkinState())*/
         ElementModifier.float(detailView)
