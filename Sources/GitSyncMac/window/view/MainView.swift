@@ -8,7 +8,7 @@ class MainView:CustomView{
     var title:String
     var menuView:MenuView?//TODO: ⚠️️ Rename to MenuBar
     func createMenuView() -> MenuView{
-        return addSubView(MenuView(frame.size.width,MenuView.h,self))
+        return header.addSubView(MenuView(frame.size.width,MenuView.h,header))
     }
     var currentView:Element?
     var conflictDialogWin:ConflictDialogWin?
