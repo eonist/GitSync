@@ -38,23 +38,9 @@ extension MainView{
      *
      */
     func toggleMenuBar(_ hide:Bool){
-        Swift.print("toggleMenuBar: hide: " + "\(hide)")
+        //Swift.print("toggleMenuBar: hide: " + "\(hide)")
         ElementModifier.hide(header, !hide)
-        /*if hide {
-            if let menuView = self.menuView {
-                menuView.removeFromSuperview()
-            }
-        }else{
-            if menuView == nil{
-                self.menuView = createMenuView()
-            }
-        }*/
-        /*detailView.setSkinState(detailView.getSkinState())*/
-        
-        //Continue here: 🏀
-            //try to get the display from the header style check what it is
-        
-        Swift.print("display: " + "\(header.skin?.style?.getStyleProperty(CSSConstants.display.rawValue))")
+        //Swift.print("display: " + "\(header.skin?.style?.getStyleProperty(CSSConstants.display.rawValue))")
         if let currentView = currentView{ElementModifier.float(currentView)}
         self.setSize(getWidth(),getHeight())
     }
