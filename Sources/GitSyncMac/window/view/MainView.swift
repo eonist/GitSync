@@ -39,7 +39,8 @@ extension MainView{
      */
     func toggleMenuBar(_ hide:Bool){
         Swift.print("toggleMenuBar: hide: " + "\(hide)")
-        if hide {
+        ElementModifier.hide(header, !hide)
+        /*if hide {
             if let menuView = self.menuView {
                 menuView.removeFromSuperview()
             }
@@ -47,7 +48,7 @@ extension MainView{
             if menuView == nil{
                 self.menuView = createMenuView()
             }
-        }
+        }*/
         /*detailView.setSkinState(detailView.getSkinState())*/
         if let currentView = currentView{ElementModifier.float(currentView)}
         self.setSize(getWidth(),getHeight())
