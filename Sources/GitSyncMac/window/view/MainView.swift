@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 @testable import Element
 
-class MainView:TitleView{
+class MainView:CustomView{
     static let w:CGFloat = 700/*540,700*/
     static let h:CGFloat = 400/*350,400*/
     var title:String
@@ -19,8 +19,6 @@ class MainView:TitleView{
     }
     override func resolveSkin() {
         super.resolveSkin()
-        super.textArea.setTextValue(title)
-        
         menuView = createMenuView()
         MainWin.mainView = self/*⚠️️ We set the ref because it is needed in navigation*/
         Navigation.setView(Views.main(.repository))/*Adds the correct view to MainView*/
