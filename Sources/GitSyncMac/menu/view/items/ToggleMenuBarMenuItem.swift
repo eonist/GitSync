@@ -18,7 +18,7 @@ class ToggleMenuBarMenuItem:CustomMenuItem {
      * Return true if you want to enable the menu item, false will disable it
      */
     override func validateMenuItem(_ menuItem:NSMenuItem) -> Bool {
-        self.title = ToggleMenuBarMenuItem.isMenuBarHidden ?  "Hide menu bar" : "Show menu bar"
+        self.title = ToggleMenuBarMenuItem.isMenuBarHidden ?  "Show menu bar" : "Hide menu bar"
         Swift.print("validateMenuItem")
         return true
     }
