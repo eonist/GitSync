@@ -54,8 +54,7 @@ extension MainView{
         //Continue here: 🏀
             //try to get the display from the header style check what it is
         
-        ElementModifier.ref(header)
-        header.skin.style?.getStyleProperty("display")
+        Swift.print("display: " + "\(header.skin?.style?.getStyleProperty(CSSConstants.display.rawValue))")
         if let currentView = currentView{ElementModifier.float(currentView)}
         self.setSize(getWidth(),getHeight())
     }
