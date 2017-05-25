@@ -14,24 +14,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
-        NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
+        //NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
         //test()
-        initApp()
+        //initApp()
         //initTestWin()//🚧👷
         //initMinimalWin()
-        //hitTesting()
+        paddingTest()
+    
         
-        
-        //let a:String = "<item title=\"New folder\" isOpen=\"false\" hasChildren=\"true\"></item>"
-        //treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
-        //let tree = TreeConverter.tree(a.xml)
-        
-        menu = Menu()/*This creates the App menu*/
     }
-    /**
-     *
-     */
     func paddingTest(){
         window.contentView = InteractiveView2()
         var css:String = "Button{fill:blue;}"
@@ -39,9 +31,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         StyleManager.addStyle(css)
         
         let btn = Element(NaN,NaN)
-        let container = window.contentView!.addSubView(Container(0,0,nil))
+        let section = window.contentView!.addSubView(Section(200,200))
         
-        container.addSubview(btn)
+        section.addSubview(btn)
     }
     func initApp(){
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
@@ -50,6 +42,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          //win = ConflictDialogWin(380,400)
          //win = CommitDialogWin(400,356)
          //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
+        menu = Menu()/*This creates the App menu*/
     }
     func initTestWin(){
         //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
