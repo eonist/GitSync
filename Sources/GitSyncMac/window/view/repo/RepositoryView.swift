@@ -5,7 +5,7 @@ import Foundation
 class RepositoryView:Element{
     lazy var contentContainer:Container = {return self.addSubView(Container(self.width,self.height,self,"content"))}()
     
-    var leftSideBar:LeftSideBar?
+    var leftSideBar:LeftSideBar?//TODO: ⚠️️ lazify this again
     func createLeftSideBar() -> LeftSideBar {
         return self.contentContainer.addSubView(LeftSideBar(NaN,self.height,self.contentContainer))
     }
