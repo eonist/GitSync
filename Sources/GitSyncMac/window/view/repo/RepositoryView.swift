@@ -16,7 +16,7 @@ class RepositoryView:Element{
         var css:String = "RepositoryView{float:left;clear:left;}"
         css += "RepositoryView Container#content{float:left;clear:left;width:100%;}"
         css += "RepositoryView LeftSideBar{fill:blue;width:200px;float:left;clear:none;padding:12px;}"
-        css += "RepositoryView LeftSideBar #list{fill:grey;width:100%;float:left;clear:none;}"
+        css += "RepositoryView LeftSideBar #list{fill:grey;width:100%;height:100%;float:left;clear:none;}"
         
         StyleManager.addStyle(css)
         super.resolveSkin()
@@ -54,8 +54,8 @@ class LeftSideBar:Element{
         super.resolveSkin()
         _ = list
     }
-    override func setSize(_ width: CGFloat, _ height: CGFloat) {
+    override func setSize(_ width:CGFloat, _ height:CGFloat) {
         super.setSize(width,height)
-        list.setSize(list.getWidth(), self.getHeight())
+        ElementModifier.refreshStyle(list)
     }
 }
