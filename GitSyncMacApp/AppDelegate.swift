@@ -32,28 +32,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     /**
      *
      */
-    func hitTesting(){
+    func paddingTest(){
         window.contentView = InteractiveView2()
         StyleManager.addStyle("Button{fill:blue;}")
-
+        
         let btn = Button(50,50)
         let container = window.contentView!.addSubView(Container(0,0,nil))
-         
-         container.addSubview(btn)
-         /*container.layer?.position.x = 100
-         container.layer?.position.y = 100*/
-         container.layer?.position = CGPoint(40,20)
-         //container.frame.origin = CGPoint(100,100)
-         Swift.print("container.layer?.position: " + "\(container.layer?.position)")
-         Swift.print("container.frame.origin: " + "\(container.frame.origin)")
-         
-         btn.layer?.position = CGPoint(40,20)
-         //btn.frame
-         Swift.print("btn.layer?.position: " + "\(btn.layer?.position)")
-         Swift.print("btn.frame.origin: " + "\(btn.frame.origin)")
-         btn.event = { event in
-            if(event.type == ButtonEvent.upInside){Swift.print("hello world")}
-         }
+        
+        container.addSubview(btn)
     }
     func initApp(){
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
@@ -88,3 +74,31 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
+/**
+ *
+ */
+/*
+func hitTesting(){
+    window.contentView = InteractiveView2()
+    StyleManager.addStyle("Button{fill:blue;}")
+    
+    let btn = Button(50,50)
+    let container = window.contentView!.addSubView(Container(0,0,nil))
+    
+    container.addSubview(btn)
+    /*container.layer?.position.x = 100
+     container.layer?.position.y = 100*/
+    container.layer?.position = CGPoint(40,20)
+    //container.frame.origin = CGPoint(100,100)
+    Swift.print("container.layer?.position: " + "\(container.layer?.position)")
+    Swift.print("container.frame.origin: " + "\(container.frame.origin)")
+    
+    btn.layer?.position = CGPoint(40,20)
+    //btn.frame
+    Swift.print("btn.layer?.position: " + "\(btn.layer?.position)")
+    Swift.print("btn.frame.origin: " + "\(btn.frame.origin)")
+    btn.event = { event in
+        if(event.type == ButtonEvent.upInside){Swift.print("hello world")}
+    }
+}
+ */
