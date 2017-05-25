@@ -26,7 +26,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     func paddingTest(){
         window.contentView = InteractiveView2()
-        var css:String = "btn{fill:blue;width:100;height:100px;}"
+        var css:String = "#btn{fill:blue;width:100%;height:100%;float:left;clear:left;}"
         css += "Section{fill:silver;padding:12px;}"
         StyleManager.addStyle(css)
 
