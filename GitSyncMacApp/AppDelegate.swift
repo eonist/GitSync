@@ -14,13 +14,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
-        
-        
-        //test()
-        initApp()
+   
+        //initApp()
         //initTestWin()//🚧👷
         //initMinimalWin()
-        //paddingTest()
+        paddingTest()
     
         
     }
@@ -30,7 +28,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         css += "Section{fill:silver;padding:12px;}"
         StyleManager.addStyle(css)
 
-        let section = window.contentView!.addSubView(Section(200,200))
+        let section = window.contentView!.addSubView(Section(200,300))
         let btn = section.addSubView(Element(NaN,NaN,section,"btn"))
         
         section.addSubview(btn)
