@@ -14,13 +14,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
-        //NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
+        
         
         //test()
-        //initApp()
+        initApp()
         //initTestWin()//🚧👷
         //initMinimalWin()
-        paddingTest()
+        //paddingTest()
     
         
     }
@@ -36,6 +36,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         section.addSubview(btn)
     }
     func initApp(){
+        NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
          win = MainWin(MainView.w,MainView.h)
          //win = VibrantMainWin(MainView.w,MainView.h)
