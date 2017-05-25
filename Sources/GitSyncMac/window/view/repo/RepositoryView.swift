@@ -48,10 +48,13 @@ class RepositoryView:Element{
 }
 class LeftSideBar:Element{
     lazy var list:Element = {
-        return self.addSubView(Element(NaN,self.height,self,"list"))
+        return self.addSubView(Element(NaN,self.getHeight(),self,"list"))
     }()
     override func resolveSkin() {
         super.resolveSkin()
         _ = list
+    }
+    override func setSize(_ width: CGFloat, _ height: CGFloat) {
+        super.setSize(width,height)
     }
 }
