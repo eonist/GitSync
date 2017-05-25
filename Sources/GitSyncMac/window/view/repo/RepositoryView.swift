@@ -7,6 +7,7 @@ class RepositoryView:Element{
     
     var leftSideBar:LeftSideBar?//TODO: ⚠️️ lazify this again
     func createLeftSideBar() -> LeftSideBar {
+        Swift.print("🌵 self.height: " + "\(self.height)")
         return self.contentContainer.addSubView(LeftSideBar(NaN,self.height,self.contentContainer))
     }
     lazy var detailView:RepositoryDetailView = {
