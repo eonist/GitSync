@@ -19,8 +19,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initTestWin()//🚧👷
         //initMinimalWin()
         paddingTest()
-    
-        
     }
     func paddingTest(){
         window.contentView = InteractiveView2()
