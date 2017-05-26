@@ -29,7 +29,7 @@ class RepositoryView:Element{
     override func setSize(_ width:CGFloat, _ height:CGFloat) {
         super.setSize(width, height)
         Swift.print("RepositoryView.setSize(\(width), \(height))")
-        Swift.print("detailView.getWidth(): " + "\(detailView.getWidth())")
+        Swift.print("detailView.getWidth(): " + "\(detailView.getWidth())" + "detailView.getHeight: " + "\(detailView.getHeight())")
         //update the skin of columns 🏀
         if let leftSideBar = leftSideBar {leftSideBar.setSize(leftSideBar.getWidth(), height)}
         detailView.setSize(detailView.getWidth(), getHeight())
