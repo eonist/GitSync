@@ -53,12 +53,13 @@ class RepositoryDetailView:Element {
     override func resolveSkin() {
         var css:String = ""
         css += "RepositoryView RepositoryDetailView{fill:red;width:100%;float:left;clear:none;}"
-        css += "RepositoryDetailView{float:left;clear:left;100%;}"
+        css += "RepositoryDetailView{float:left;clear:left;}"
         css += "RepositoryDetailView Container#lable{float:left;clear:left;}"//padding-right:0px;
         StyleManager.addStyle(css)
         super.resolveSkin()
         
         _ = contentContainer
+        contentContainer.skin?.style?.describe()
         Swift.print("contentContainer.width: " + "\(contentContainer.width)")
         _ = textInput
        
