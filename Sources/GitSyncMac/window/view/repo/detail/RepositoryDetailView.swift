@@ -65,7 +65,7 @@ class RepositoryDetailView:Element {
         //_ = nameTextInput
         //_ = localPathTextInput
     }
-    override func setSize(_ width: CGFloat, _ height: CGFloat) {
+    override func setSize(_ width:CGFloat, _ height:CGFloat) {
         super.setSize(width, height)
         Swift.print("RepositoryDetailView.setSize w: (\(width) )" )
         contentContainer.setSize(width, height)
