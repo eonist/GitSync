@@ -11,7 +11,7 @@ class RepositoryView:Element{
         return self.contentContainer.addSubView(LeftSideBar(NaN,self.height,self.contentContainer))
     }
     lazy var detailView:RepositoryDetailView = {
-        return self.contentContainer.addSubView(RepositoryDetailView(NaN,self.height,self.contentContainer))//self.addSubView(Section(NaN,self.height,self,"right"))
+        return self.contentContainer.addSubView(RepositoryDetailView(self.width-self.leftSideBar!.getWidth(),self.height,self.contentContainer))//self.addSubView(Section(NaN,self.height,self,"right"))
     }()
     override func resolveSkin() {
         var css:String = "RepositoryView{float:left;clear:left;}"
@@ -32,7 +32,7 @@ class RepositoryView:Element{
         Swift.print("detailView.getWidth(): " + "\(detailView.getWidth())" + "detailView.getHeight: " + "\(detailView.getHeight())")
         //update the skin of columns 🏀
         if let leftSideBar = leftSideBar {leftSideBar.setSize(leftSideBar.getWidth(), height)}
-        detailView.setSize(detailView.getWidth(), getHeight())
+        detailView.setSize(width-leftSideBar!.getWidth(), getHeight())
     }
     /**
      *
