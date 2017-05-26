@@ -29,6 +29,9 @@ class MainView:CustomView{
             menuView.setSize(width, height)
             menuView.setSkinState(menuView.getSkinState())
         }
+        let curViewHeight:CGFloat = {
+           if let 
+        }()
         currentView?.setSize(width, height-MenuView.h)
     }
     required init(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
