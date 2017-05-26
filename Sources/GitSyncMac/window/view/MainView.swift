@@ -30,7 +30,9 @@ class MainView:CustomView{
             menuView.setSkinState(menuView.getSkinState())
         }
         let curViewHeight:CGFloat = {
-           if let 
+            if let display:String = header.skin.style?.getValue(CSSConstants.display.rawValue) as? String, display == CSSConstants.none.rawValue{
+                
+            }
         }()
         currentView?.setSize(width, height-MenuView.h)
     }
