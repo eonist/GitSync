@@ -34,9 +34,9 @@ class RepositoryView:Element{
         if let leftSideBar = leftSideBar {leftSideBar.setSize(leftSideBar.getWidth(), height)}
         
         let leftSideSideBarWidth:CGFloat = {
-            if let display:String = leftSideBar?.skin?.style?.getValue(CSSConstants.display.rawValue) as? String, display != CSSConstants.none.rawValue{
-                return leftSideBar!.getWidth()
-            };return 0
+            if let display:String = leftSideBar?.skin?.style?.getValue(CSSConstants.display.rawValue) as? String, display == CSSConstants.none.rawValue{
+                return 0
+            };return leftSideBar!.getWidth()
         }()
         detailView.setSize(width-leftSideSideBarWidth, getHeight())
     }

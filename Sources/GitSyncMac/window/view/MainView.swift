@@ -30,11 +30,11 @@ class MainView:CustomView{
             menuView.setSkinState(menuView.getSkinState())
         }
         let curViewHeight:CGFloat = {
-            if let display:String = header.skin.style?.getValue(CSSConstants.display.rawValue) as? String, display == CSSConstants.none.rawValue{
-                
-            }
+            if let display:String = header.skin?.style?.getValue(CSSConstants.display.rawValue) as? String, display == CSSConstants.none.rawValue{
+                return 0
+            };return MenuView.h
         }()
-        currentView?.setSize(width, height-MenuView.h)
+        currentView?.setSize(width, height-curViewHeight)
     }
     required init(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
