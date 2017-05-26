@@ -20,7 +20,11 @@ class DebugTextArea:DebugText {
 }
 class DebugTextInput:Element {
     lazy var text:Element = {return self.addSubView(DebugText(NaN,NaN,self))}()
-    lazy var textArea:Element = {return self.addSubView(DebugTextArea(self.getWidth()-self.text.getWidth(),NaN,self))}()
+    lazy var textArea:Element = {
+        let txw = self.getWidth()-self.text.getWidth()
+        Swift.print("txw: " + "\(txw)")
+        return self.addSubView(DebugTextArea(self.getWidth()-self.text.getWidth(),NaN,self))
+    }()
     override func resolveSkin() {
         var css:String = ""
         css += "DebugTextInput DebugTextInput{fill:orange;width:100%;height:48px;float:left;clear:left;padding-right:100px;fill:yellow;}"
