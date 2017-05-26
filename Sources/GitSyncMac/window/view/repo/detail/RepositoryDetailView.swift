@@ -54,7 +54,7 @@ class RepositoryDetailView:Element {
         var css:String = ""
         css += "RepositoryView RepositoryDetailView{fill:red;width:100%;float:left;clear:none;}"
         css += "RepositoryDetailView{float:left;clear:left;100%;}"
-        css += "RepositoryDetailView Container#lable{float:left;clear:left;width:100%;padding-right:0px;}"
+        css += "RepositoryDetailView Container#lable{float:left;clear:left;padding-right:0px;}"
         StyleManager.addStyle(css)
         super.resolveSkin()
         Swift.print("Container.self.width: " + "\(self.width)")
@@ -66,7 +66,9 @@ class RepositoryDetailView:Element {
     }
     override func setSize(_ width: CGFloat, _ height: CGFloat) {
         super.setSize(width, height)
+        Swift.print("RepositoryDetailView.setSize w: (\(width) h:  \(height))" )
         contentContainer.setSize(width, height)
-        textInput.setSize(width, height)
+        ElementModifier.refreshStyle(textInput)
+        Swift.print("textInput.getWidth(): " + "\(textInput.getWidth())")
     }
 }
