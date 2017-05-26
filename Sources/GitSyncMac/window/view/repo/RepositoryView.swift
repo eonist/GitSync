@@ -57,6 +57,7 @@ class LeftSideBar:Element{
     }
     override func setSize(_ width:CGFloat, _ height:CGFloat) {
         super.setSize(width,height)
-        ElementModifier.refreshStyle(list)
+        ElementModifier.refreshSkin(list)
+        //ElementModifier.refreshStyle(list)
     }
 }
