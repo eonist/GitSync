@@ -39,6 +39,8 @@ class DebugTextInput:Element {
     }
     override func setSize(_ width: CGFloat, _ height: CGFloat) {
         super.setSize(width, height)
+        let txw = width-self.text.getWidth()
+        Swift.print("txw: " + "\(txw)")
         textArea.setSize(width-text.getWidth(), height)
     }
 }
