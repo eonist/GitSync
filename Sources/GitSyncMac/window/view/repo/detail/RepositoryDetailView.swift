@@ -69,9 +69,8 @@ class RepositoryDetailView:Element {
     override func setSize(_ width:CGFloat, _ height:CGFloat) {
         super.setSize(width, height)
         Swift.print("RepositoryDetailView.setSize w: (\(width) )" )
-        contentContainer.setSize(width, height)
+        contentContainer.setSize(contentContainer.getWidth(), contentContainer.getHeight())
         Swift.print("contentContainer.width: " + "\(contentContainer.width)")
-        //ElementModifier.refreshSkin(textInput)
         textInput.setSize(textInput.getWidth(), textInput.getHeight())
         Swift.print("textInput.getWidth(): " + "\(textInput.getWidth())")
     }
