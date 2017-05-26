@@ -45,7 +45,7 @@ class DebugTextInput:Element {
     }
 }
 class RepositoryDetailView:Element {
-    lazy var contentContainer:Container = {return self.addSubView(Container(self.width,self.height,self,"lable"))}()
+    lazy var contentContainer:Container = {return self.addSubView(Container(self.width,self.height,self,"items"))}()
     lazy var textInput:DebugTextInput = {return self.contentContainer.addSubView(DebugTextInput(NaN,NaN,self.contentContainer))}()
     
     //lazy var nameTextInput:TextInput = {return self.contentContainer.addSubView(TextInput(self.width, 32, "Name: ", "", self.contentContainer))}()
@@ -54,7 +54,7 @@ class RepositoryDetailView:Element {
         var css:String = ""
         css += "RepositoryView RepositoryDetailView{fill:red;width:100%;float:left;clear:none;}"
         css += "RepositoryDetailView{float:left;clear:left;}"
-        css += "RepositoryDetailView Container#lable{float:left;clear:left;}"//padding-right:0px;
+        css += "RepositoryDetailView Container#items{float:left;clear:left;}"//padding-right:0px;
         StyleManager.addStyle(css)
         super.resolveSkin()
         

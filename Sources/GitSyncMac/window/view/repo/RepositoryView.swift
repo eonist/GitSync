@@ -15,7 +15,7 @@ class RepositoryView:Element{
     }()
     override func resolveSkin() {
         var css:String = "RepositoryView{float:left;clear:left;}"
-        css += "RepositoryView Container#content{float:left;clear:left;width:100%;}"
+        css += "RepositoryView Container#content{float:left;clear:left;}"
         css += "RepositoryView LeftSideBar{fill:blue;width:200px;float:left;clear:none;padding:12px;}"
         css += "RepositoryView LeftSideBar #list{fill:grey;width:100%;height:100%;float:left;clear:none;}"
         
