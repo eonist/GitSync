@@ -35,7 +35,7 @@ class DebugTextInput:Element {
     }
     override func setSize(_ width: CGFloat, _ height: CGFloat) {
         super.setSize(width, height)
-        textArea.setSize(width, height)
+        textArea.setSize(width-text.getWidth(), height)
     }
 }
 class RepositoryDetailView:Element {
