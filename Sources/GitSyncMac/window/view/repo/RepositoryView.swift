@@ -49,7 +49,7 @@ class RepositoryView:Element{
 }
 class LeftSideBar:Element{
     lazy var list:Element = {
-        return self.addSubView(Element(NaN,self.getHeight(),self,"list"))
+        return self.addSubView(Element(NaN,NaN,self,"list"))
     }()
     override func resolveSkin() {
         super.resolveSkin()
