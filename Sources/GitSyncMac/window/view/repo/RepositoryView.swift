@@ -38,7 +38,7 @@ class RepositoryView:Element{
                 return leftSideBar!.getWidth()
             };return 0
         }()
-        detailView.setSize(width-leftSideBar!.getWidth(), getHeight())
+        detailView.setSize(width-leftSideSideBarWidth, getHeight())
     }
     /**
      *
