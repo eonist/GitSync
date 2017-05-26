@@ -20,13 +20,13 @@ class DebugTextArea:DebugText {
 }
 class DebugTextInput:Element {
     lazy var text:Element = {return self.addSubView(DebugText(NaN,NaN,self))}()
-    lazy var textArea:Element = {return self.addSubView(DebugTextArea(NaN,NaN,self))}()
+    lazy var textArea:Element = {return self.addSubView(DebugTextArea(self.getWidth()-self.text.getWidth(),NaN,self))}()
     override func resolveSkin() {
         var css:String = ""
         css += "DebugTextInput DebugTextInput{fill:orange;width:100%;height:48px;float:left;clear:left;padding-right:100px;fill:yellow;}"
         css += "DebugTextInput DebugTextInput DebugText{fill:purple;width:100px;height:48px;float:left;clear:none;}"
         css += "DebugTextInput DebugTextInput DebugText #textField{fill:grey;width:76;height:24px;float:left;clear:none;margin-left:12px;margin-top:12px;}"
-        css += "DebugTextInput DebugTextInput DebugTextArea{fill:green;width:100%;height:48px;float:left;clear:none;padding:12px;}"
+        css += "DebugTextInput DebugTextInput DebugTextArea{fill:green;height:48px;float:left;clear:none;padding:12px;}"
         css += "DebugTextInput DebugTextInput DebugTextArea #textField{fill:grey;width:100%;height:24px;float:left;clear:none;}"
         StyleManager.addStyle(css)
         super.resolveSkin()
