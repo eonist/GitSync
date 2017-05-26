@@ -33,9 +33,11 @@ class RepositoryView:Element{
         //update the skin of columns 🏀
         if let leftSideBar = leftSideBar {leftSideBar.setSize(leftSideBar.getWidth(), height)}
         
-        if let display:String = leftSideBar?.skin?.style?.getValue("display") as? String, display == CSSConstants.display.rawValue{
-            
-        }
+        let leftSideSideBarWidth:CGFloat = {
+            if let display:String = leftSideBar?.skin?.style?.getValue("display") as? String, display == CSSConstants.display.rawValue{
+                return leftSideBar!.getWidth()
+            };return 0
+        }()
         detailView.setSize(width-leftSideBar!.getWidth(), getHeight())
     }
     /**
