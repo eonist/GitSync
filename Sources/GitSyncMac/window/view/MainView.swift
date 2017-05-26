@@ -29,7 +29,7 @@ class MainView:CustomView{
             menuView.setSize(width, height)
             menuView.setSkinState(menuView.getSkinState())
         }
-        if let currentView = currentView{currentView.setSize(width, height)}
+        currentView?.setSize(width, height-MenuView.h)
     }
     required init(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
