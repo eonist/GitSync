@@ -35,6 +35,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         _ = section
         
         //add 4 boxes, yellow,green,blue,red
+        /*Rect*/
+        let yellowRect = RectGraphic(00,00,80,80,FillStyle(.yellow),nil)
+        section.addSubview(yellowRect.graphic)
+        yellowRect.draw()
+        
         
         //grey bg
         //FlexBoxModifier.justifyContent(container,.end)//.start,.center,.spaceBetween,.spaceAround
