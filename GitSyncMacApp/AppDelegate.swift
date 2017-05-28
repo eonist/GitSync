@@ -20,6 +20,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initMinimalWin()
         //paddingTest()
     }
+    /**
+     *
+     */
+    func flexBoxTest(){
+        window.contentView = InteractiveView2()
+    }
     func paddingTest(){
         window.contentView = InteractiveView2()
         var css:String = "#btn{fill:blue;width:100%;height:100%;float:left;clear:left;}"
