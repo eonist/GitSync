@@ -43,13 +43,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let items:[RectGraphic] = (0..<4).indices.map{ i in
             let color = colors[i]
             let size = sizes[i]
-            let yellowRect = RectGraphic(0,0,size.w,size.h,FillStyle(color),nil)
-            section.addSubview(yellowRect.graphic)
-            yellowRect.draw()
-            return yellowRect
+            let item = RectGraphic(0,0,size.w,size.h,FillStyle(color),nil)
+            section.addSubview(item.graphic)
+            item.draw()
+            return item
         }
         
-        FlexBox
+        FlexBoxModifier.justifyContent(items, .flexStart)
+        items.forEach{ item in
+            item.draw()
+        }
         
         //grey bg
         //FlexBoxModifier.justifyContent(container,.end)//.start,.center,.spaceBetween,.spaceAround
