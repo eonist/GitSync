@@ -26,6 +26,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func flexBoxTest(){
         window.contentView = InteractiveView2()
+        var css:String = "#btn{fill:blue;width:100%;height:100%;float:left;clear:left;}"
+        css += "Section{fill:silver;}"
+        StyleManager.addStyle(css)
+        
+        Swift.print(WinParser.width(window))
+        Swift.print(WinParser.height(window))
+        let section = window.contentView!.addSubView(Section(500,400))
+        _ = section
         
         //add 4 boxes, yellow,green,blue,red
         //grey bg
