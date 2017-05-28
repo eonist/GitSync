@@ -36,6 +36,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //add 4 boxes, yellow,green,blue,red
         /*Rect*/
+        let sizes:[CGSize] = (0..<4).indices.forEach{CGSize(80,80)}
         let yellowRect = RectGraphic(00,00,80,80,FillStyle(.yellow),nil)
         section.addSubview(yellowRect.graphic)
         yellowRect.draw()
