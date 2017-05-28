@@ -39,11 +39,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let sizes:[CGSize] = (0..<4).indices.map{ _ in CGSize(80,80)}
         let colors:[NSColor] = [.yellow,.green,.blue,.red]
         
-        let items:[NSView] = (0..<4).indices.map{ i in
-            let color = 
-            let yellowRect = RectGraphic(00,00,80,80,FillStyle(.yellow),nil)
+        
+        let items:[RectGraphic] = (0..<4).indices.map{ i in
+            let color = colors[i]
+            let size = sizes[i]
+            let yellowRect = RectGraphic(0,0,size.w,size.h,FillStyle(color),nil)
             section.addSubview(yellowRect.graphic)
             yellowRect.draw()
+            return yellowRect
         }
         
         
