@@ -31,6 +31,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         StyleManager.addStyle(css)
         
         let size:CGSize = WinParser.size(window)
+        let frame:CGRect = CGRect(0,0,size.w,size.h)
         let section = window.contentView!.addSubView(Section(size.w,size.h))
         _ = section
         
@@ -49,7 +50,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             return item
         }
         
-        FlexBoxModifier.justifyContent(items, .spaceAround, CGRect(0,0,size.w,size.h))
+        FlexBoxModifier.justifyContent(items, .spaceAround, frame)
+        FlexBoxModifier.alignItems(items, .flexEnd, frame)
         items.forEach{$0.draw()}/*FlexBox only sets x,y,w,h it doesn't render, so render here*/
             
         
