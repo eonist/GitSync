@@ -30,12 +30,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         css += "Section{fill:silver;float:left;clear:left;}"
         StyleManager.addStyle(css)
         
-        Swift.print(WinParser.width(window))
-        Swift.print(WinParser.height(window))
-        let section = window.contentView!.addSubView(Section(500,400))
+        let size:CGSize = WinParser.size(window)
+        let section = window.contentView!.addSubView(Section(size.w,size.h))
         _ = section
         
         //add 4 boxes, yellow,green,blue,red
+        
         //grey bg
         //FlexBoxModifier.justifyContent(container,.end)//.start,.center,.spaceBetween,.spaceAround
     }
