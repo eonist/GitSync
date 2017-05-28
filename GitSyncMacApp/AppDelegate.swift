@@ -26,6 +26,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func flexBoxTest(){
         window.contentView = InteractiveView2()
+        
+        //add 4 boxes, yellow,green,blue,red
+        //grey bg
+        //FlexBoxModifier.justifyContent(container,.end)//.start,.center,.spaceBetween,.spaceAround
     }
     func paddingTest(){
         window.contentView = InteractiveView2()
