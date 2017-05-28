@@ -50,9 +50,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         
         FlexBoxModifier.justifyContent(items, .flexEnd, size)
-        items.forEach{ item in//FlexBox only sets x,y,w,h it doesn't render, so render here
-            item.draw()
-        }
+        items.forEach{$0.draw()}/*FlexBox only sets x,y,w,h it doesn't render, so render here*/
+            
+        
         
         //grey bg
         //FlexBoxModifier.justifyContent(container,.end)//.start,.center,.spaceBetween,.spaceAround
