@@ -51,7 +51,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         
         FlexBoxModifier.justifyContent(items, .spaceAround, frame)
-        FlexBoxModifier.alignItems(items, .flexEnd, frame)
+        FlexBoxModifier.alignItems(items, .stretch, frame)
         items.forEach{$0.draw()}/*FlexBox only sets x,y,w,h it doesn't render, so render here*/
             
         
