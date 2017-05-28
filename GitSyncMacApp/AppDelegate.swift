@@ -15,7 +15,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
    
-        initApp()
+        //initApp()
+        flexBoxTest()
         //initTestWin()//🚧👷
         //initMinimalWin()
         //paddingTest()
