@@ -23,6 +23,9 @@ class MainView:CustomView{
         MainWin.mainView = self/*⚠️️ We set the ref because it is needed in navigation*/
         Navigation.setView(Views.main(.repository))/*Adds the correct view to MainView*/
     }
+    /**
+     * NOTE: gets calls from Window.didResize
+     */
     override func setSize(_ width:CGFloat,_ height:CGFloat){
         super.setSize(width, height)
         if let menuView = self.menuView {
