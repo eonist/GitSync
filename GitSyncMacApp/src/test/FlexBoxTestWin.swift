@@ -59,7 +59,6 @@ class FlexBoxViewView:WindowView{
             return item
         }
         
-        
         let flexItems:[FlexItem] = (0..<numBoxes).indices.map{ i in
             let flexible:Flexible = graphicItems[i]
             let grow:CGFloat = grows[i]
