@@ -112,7 +112,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
-class Label{
+class Label:Flexible{
     //graphic bg
     //text that is centeres
     //implement Flexible
