@@ -24,7 +24,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func flexBoxTest()  {
         NSApp.windows[0].close()
         window.contentView = InteractiveView2()
-        window.title = "FlexBox"
+        
         window.setFrame(NSRect.init(window.frame.x, window.frame.y, window.frame.width, (80 + 26 + 20)), display: true)
         window.center()
 

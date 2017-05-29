@@ -8,13 +8,17 @@ class FlexBoxTestWin:Window {
         WinModifier.align(self, Alignment.centerCenter, Alignment.centerCenter,CGPoint(6,0))/*aligns the window to the screen*/
     }
     override func resolveSkin() {
-        self.contentView = MinimalView(frame.size.width,frame.size.height)
+        
+        
+        self.contentView = FlexBoxViewView(frame.size.width,frame.size.height)
+        
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class FlexBoxViewView:WindowView{
     override func resolveSkin(){
        super.resolveSkin()
+        self.window?.title = "FlexBox"
     }
     /**
      *
