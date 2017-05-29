@@ -27,7 +27,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func flexBoxTest(){
         window.contentView = InteractiveView2()
         window.title = "FlexBox"
-        window.setFrame(NSRect.init(window.frame.x, window.frame.y, window.frame.width, (160 + 26 + 20)), display: true)
+        window.setFrame(NSRect.init(window.frame.x, window.frame.y, window.frame.width, (80 + 26 + 20)), display: true)
         window.center()
         var css:String = ""//"#btn{fill:blue;width:100%;height:100%;float:left;clear:left;}"
         css += "Section{fill:white;float:left;clear:left;}"
@@ -63,7 +63,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         FlexBoxGrowUtils.grow(flexItems,frame)
         FlexBoxModifier.justifyContent(graphicItems, .flexStart, frame)
-        FlexBoxModifier.alignItems(graphicItems, .stretch, frame)
+        FlexBoxModifier.alignItems(graphicItems, .flexStart, frame)
         //graphicItems.forEach{$0.draw()}/*FlexBox only sets x,y,w,h it doesn't render, so render here*/
         
         //grey bg
@@ -142,7 +142,7 @@ private class Utils{
         css +=  	"float:left;"
         css +=  	"clear:left;"
         css +=  	"width:100%;"
-        css +=  	"margin-top:74px;"
+        css +=  	"margin-top:32px;"
         css +=  	"font:Helvetica Neue;"
         css +=  	"size:16px;"
         css +=  	"wordWrap:true;"
