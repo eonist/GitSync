@@ -33,7 +33,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         StyleManager.addStyle(Utils.labelStyles)
         
         let size:CGSize = WinParser.size(window)
-        let frame:CGRect = CGRect(0,0,size.w,size.h)
+        let frame:CGRect = CGRect(10,10,size.w-20,size.h-20)
         let section = window.contentView!.addSubView(Section(size.w,size.h))
         _ = section
         
@@ -61,7 +61,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         FlexBoxGrowUtils.grow(flexItems,frame)
         FlexBoxModifier.justifyContent(graphicItems, .flexStart, frame)
-        //FlexBoxModifier.alignItems(items, .stretch, frame)
+        FlexBoxModifier.alignItems(graphicItems, .flexStart, frame)
         //graphicItems.forEach{$0.draw()}/*FlexBox only sets x,y,w,h it doesn't render, so render here*/
         
         //grey bg
