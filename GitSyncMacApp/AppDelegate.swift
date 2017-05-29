@@ -127,7 +127,7 @@ extension TextButton:ISizeable{
     override open var size:CGSize {get{return CGSize(width,height)} set{setSizeValue(newValue)}}
     public func setSizeValue(_ size:CGSize){
         self.setSize(size.width, size.height)
-        ElementModifier.refreshStyle(self)//<-- may not be needed
+        ElementModifier.refreshSkin(self)//<-- may not be needed
     }
 }
 private class Utils{
