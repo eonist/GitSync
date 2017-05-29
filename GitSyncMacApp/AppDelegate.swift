@@ -45,7 +45,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let grows:[CGFloat] = [2,1,2,1]
         
         let graphicItems:[TextButton] = (0..<numBoxes).indices.map{ i in
-            let color = colors[i]
+            //let color = colors[i]
             let size = sizes[i]
             let title = "item"
             let item = TextButton.init(size.w, size.h, title, nil)//RoundRectGraphic(0,0,size.w,size.h,Fillet(10),FillStyle(color),nil)
@@ -64,7 +64,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         FlexBoxGrowUtils.grow(flexItems,frame)
         FlexBoxModifier.justifyContent(graphicItems, .flexStart, frame)
         //FlexBoxModifier.alignItems(items, .stretch, frame)
-        graphicItems.forEach{$0.draw()}/*FlexBox only sets x,y,w,h it doesn't render, so render here*/
+        //graphicItems.forEach{$0.draw()}/*FlexBox only sets x,y,w,h it doesn't render, so render here*/
         
         //grey bg
         //FlexBoxModifier.justifyContent(container,.end)//.start,.center,.spaceBetween,.spaceAround
@@ -116,16 +116,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
 }
 extension TextButton:IPositional{
-    func setPosition(_ position:CGPoint){
+    public func setPosition(_ position:CGPoint){
         self.pos = position
     }
-    func getPosition() -> CGPoint{
+    public func getPosition() -> CGPoint{
         return self.pos
     }
 }
 extension TextButton:ISizeable{
-    var size:CGSize {get{return CGSize(width,height)} set{setSizeValue(newValue)}}
-    func setSizeValue(_ size:CGSize){
+    override open var size:CGSize {get{return CGSize(width,height)} set{setSizeValue(newValue)}}
+    public func setSizeValue(_ size:CGSize){
         self.setSize(size.width, size.height)
         ElementModifier.refreshStyle(self)//<-- may not be needed
     }
