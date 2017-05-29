@@ -43,7 +43,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let numBoxes:Int = 4
         /*Rect*/
         let sizes:[CGSize] = (0..<numBoxes).indices.map{ _ in CGSize(80,80)}
-        let grows:[CGFloat] = [1,1,1,6]
+        let grows:[CGFloat] = [0,0,0,0]//[1,1,1,3]
         
         let graphicItems:[TextButton] = (0..<numBoxes).indices.map{ i in
             let size = sizes[i]
@@ -62,7 +62,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             return flexItem
         }
         FlexBoxGrowUtils.grow(flexItems,frame)
-        FlexBoxModifier.justifyContent(graphicItems, .flexStart, frame)
+        FlexBoxModifier.justifyContent(graphicItems, .flexEnd, frame)
         FlexBoxModifier.alignItems(graphicItems, .flexStart, frame)
         //graphicItems.forEach{$0.draw()}/*FlexBox only sets x,y,w,h it doesn't render, so render here*/
         
