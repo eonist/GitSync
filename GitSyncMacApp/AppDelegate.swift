@@ -49,15 +49,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             item.draw()
             return item
         }
-        let flexibles:[Flexible] {
-            let flexible:Flexible = Flexible()
+        let flexItems:[FlexItem] = items.map{ flexible in
+            let flexible:FlexItem = FlexItem(flexible,1)
             return flexible
-        }
-        FlexBoxGrowUtils.grow(items,frame)
+        }()
+        FlexBoxGrowUtils.grow(flexItems,frame)
         FlexBoxModifier.justifyContent(items, .flexStart, frame)
         //FlexBoxModifier.alignItems(items, .stretch, frame)
         items.forEach{$0.draw()}/*FlexBox only sets x,y,w,h it doesn't render, so render here*/
-            
         
         //grey bg
         //FlexBoxModifier.justifyContent(container,.end)//.start,.center,.spaceBetween,.spaceAround
