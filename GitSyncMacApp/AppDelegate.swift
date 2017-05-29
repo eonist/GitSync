@@ -140,7 +140,7 @@ private class Utils{
         css +=  	"float:left;"
         css +=  	"clear:left;"
         css +=  	"width:100%;"
-        css +=  	"margin-top:18px;"
+        css +=  	"margin-top:32px;"
         css +=  	"font:Helvetica Neue;"
         css +=  	"size:16px;"
         css +=  	"wordWrap:true;"
