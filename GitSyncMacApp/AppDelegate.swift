@@ -41,18 +41,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let numBoxes:Int = 4
         /*Rect*/
         let sizes:[CGSize] = (0..<numBoxes).indices.map{ _ in CGSize(80,80)}
-        let colors:[NSColor] = ["#22FFA0".nsColor,"#1DE3E6".nsColor,"#FB1B4D".nsColor,"#FED845".nsColor]
         let grows:[CGFloat] = [2,1,2,1]
         
         let graphicItems:[TextButton] = (0..<numBoxes).indices.map{ i in
-            //let color = colors[i]
             let size = sizes[i]
             let title = "item"
-            
-            //Continue here 🏀
-                //add id and custom colors
-            
-            let item = TextButton.init(size.w, size.h, title, nil)//RoundRectGraphic(0,0,size.w,size.h,Fillet(10),FillStyle(color),nil)
+            let item = TextButton.init(size.w, size.h, title, nil,i.string)//RoundRectGraphic(0,0,size.w,size.h,Fillet(10),FillStyle(color),nil)
             section.addSubview(item)
             //item.draw()
             return item
@@ -156,6 +150,10 @@ private class Utils{
         css +=  	"backgroundColor:orange;"
         css +=  	"background:false;"
         css +=  "}"
+        css += "TextButton#0{fill:#22FFA0;}"
+        css += "TextButton#1{fill:#1DE3E6;}"
+        css += "TextButton#2{fill:#FB1B4D;}"
+        css += "TextButton#3{fill:#FED845;}"
         return css
     }
 }
