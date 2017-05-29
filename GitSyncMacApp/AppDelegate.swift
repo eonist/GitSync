@@ -39,7 +39,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let numBoxes:Int = 4
         /*Rect*/
         let sizes:[CGSize] = (0..<numBoxes).indices.map{ _ in CGSize(80,80)}
-        let colors:[NSColor] = [.yellow,.green,.blue,.red]
+        let colors:[NSColor] = ["#22FFA0".nsColor,.green,.blue,.red]
         
         
         let graphicItems:[RoundRectGraphic] = (0..<numBoxes).indices.map{ i in
