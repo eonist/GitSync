@@ -42,7 +42,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let colors:[NSColor] = [.yellow,.green,.blue,.red]
         
         
-        let graphicItems:[RectGraphic] = (0..<numBoxes).indices.map{ i in
+        let graphicItems:[RoundRectGraphic] = (0..<numBoxes).indices.map{ i in
             let color = colors[i]
             let size = sizes[i]
             let item = RectGraphic(0,0,size.w,size.h,FillStyle(color),nil)
@@ -50,7 +50,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             item.draw()
             return item
         }
-        let grows:[CGFloat] = [1,1,1,1]
+        let grows:[CGFloat] = [2,2,1,1]
         
         let flexItems:[FlexItem] = (0..<numBoxes).indices.map{ i in
             let flexible:Flexible = graphicItems[i]
