@@ -41,16 +41,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         /*Rect*/
         let sizes:[CGSize] = (0..<numBoxes).indices.map{ _ in CGSize(80,80)}
         let colors:[NSColor] = ["#22FFA0".nsColor,"#1DE3E6".nsColor,"#FB1B4D".nsColor,"#FED845".nsColor]
+        let grows:[CGFloat] = [2,1,2,1]
         
-        let graphicItems:[RoundRectGraphic] = (0..<numBoxes).indices.map{ i in
+        let graphicItems:[TextButton] = (0..<numBoxes).indices.map{ i in
             let color = colors[i]
             let size = sizes[i]
-            let item = RoundRectGraphic(0,0,size.w,size.h,Fillet(10),FillStyle(color),nil)
+            let title = "item"
+            let item = TextButton.init(size.w, size.h, title, nil)//RoundRectGraphic(0,0,size.w,size.h,Fillet(10),FillStyle(color),nil)
             section.addSubview(item.graphic)
             item.draw()
             return item
         }
-        let grows:[CGFloat] = [2,1,2,1]
+        
         
         let flexItems:[FlexItem] = (0..<numBoxes).indices.map{ i in
             let flexible:Flexible = graphicItems[i]
