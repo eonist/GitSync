@@ -48,6 +48,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //let color = colors[i]
             let size = sizes[i]
             let title = "item"
+            
+            //Continue here 🏀
+                //add id and custom colors
+            
             let item = TextButton.init(size.w, size.h, title, nil)//RoundRectGraphic(0,0,size.w,size.h,Fillet(10),FillStyle(color),nil)
             section.addSubview(item)
             //item.draw()
@@ -117,10 +121,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 }
 extension TextButton:IPositional{
     public func setPosition(_ position:CGPoint){
-        self.pos = position
+        self.frame.origin = position
     }
     public func getPosition() -> CGPoint{
-        return self.pos
+        return self.frame.origin
     }
 }
 extension TextButton:ISizeable{
