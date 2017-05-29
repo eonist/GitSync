@@ -30,6 +30,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         var css:String = ""//"#btn{fill:blue;width:100%;height:100%;float:left;clear:left;}"
         css += "Section{fill:white;float:left;clear:left;}"
         StyleManager.addStyle(css)
+        StyleManager.addStyle(Utils.labelStyles)
         
         let size:CGSize = WinParser.size(window)
         let frame:CGRect = CGRect(0,0,size.w,size.h)
@@ -48,8 +49,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             let size = sizes[i]
             let title = "item"
             let item = TextButton.init(size.w, size.h, title, nil)//RoundRectGraphic(0,0,size.w,size.h,Fillet(10),FillStyle(color),nil)
-            section.addSubview(item.graphic)
-            item.draw()
+            section.addSubview(item)
+            //item.draw()
             return item
         }
         
@@ -127,6 +128,31 @@ extension TextButton:ISizeable{
     func setSizeValue(_ size:CGSize){
         self.setSize(size.width, size.height)
         ElementModifier.refreshStyle(self)//<-- may not be needed
+    }
+}
+private class Utils{
+    /**
+     *
+     */
+    static var labelStyles:String{
+        /*Styles*/
+        var css = ""
+        css +=  "TextButton{fill:#30B07D;fill-alpha:1.0;corner-radius:10px;float:none;clear:none;}"
+        css +=  "TextButton Text{"
+        css +=  	"float:left;"
+        css +=  	"clear:left;"
+        css +=  	"width:100%;"
+        css +=  	"margin-top:18px;"
+        css +=  	"font:Helvetica Neue;"
+        css +=  	"size:16px;"
+        css +=  	"wordWrap:true;"
+        css +=  	"align:center;"
+        css +=  	"color:black;"
+        css +=  	"selectable:false;"
+        css +=  	"backgroundColor:orange;"
+        css +=  	"background:false;"
+        css +=  "}"
+        return css
     }
 }
 /*class Label:Flexible{
