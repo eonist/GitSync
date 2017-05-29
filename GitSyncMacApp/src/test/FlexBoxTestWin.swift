@@ -1,5 +1,6 @@
 import Foundation
-
+@testable import Element
+@testable import Utils
 
 class FlexBoxTestWin:Window {
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
@@ -10,4 +11,9 @@ class FlexBoxTestWin:Window {
         self.contentView = MinimalView(frame.size.width,frame.size.height)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+}
+class FlexBoxViewView:WindowView{
+    override func resolveSkin(){
+       super.resolveSkin()
+    }
 }

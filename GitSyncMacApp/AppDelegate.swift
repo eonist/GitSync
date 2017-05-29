@@ -21,53 +21,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initMinimalWin()
         //paddingTest()
     }
-    /**
-     *
-     */
-    func flexBoxTest(){
-        window.contentView = InteractiveView2()
-        window.title = "FlexBox"
-        window.setFrame(NSRect.init(window.frame.x, window.frame.y, window.frame.width, (80 + 26 + 20)), display: true)
-        window.center()
-        var css:String = ""//"#btn{fill:blue;width:100%;height:100%;float:left;clear:left;}"
-        css += "Section{fill:white;float:left;clear:left;}"
-        StyleManager.addStyle(css)
-        StyleManager.addStyle(Utils.labelStyles)
+    func flexBoxTest()  {
         
-        let size:CGSize = WinParser.size(window)
-        let frame:CGRect = CGRect(10,10,size.w-20,size.h-20)
-        let section = window.contentView!.addSubView(Section(size.w,size.h))
-        _ = section
-        
-        //add 4 boxes, yellow,green,blue,red
-        let numBoxes:Int = 4
-        /*Rect*/
-        let sizes:[CGSize] = (0..<numBoxes).indices.map{ _ in CGSize(80,80)}
-        let grows:[CGFloat] = [1,1,1,3]//[0,0,0,0]//
-        
-        let graphicItems:[TextButton] = (0..<numBoxes).indices.map{ i in
-            let size = sizes[i]
-            let title = "item-" + i.string
-            let item = TextButton.init(size.w, size.h, title, nil,i.string)//RoundRectGraphic(0,0,size.w,size.h,Fillet(10),FillStyle(color),nil)
-            section.addSubview(item)
-            //item.draw()
-            return item
-        }
-        
-        
-        let flexItems:[FlexItem] = (0..<numBoxes).indices.map{ i in
-            let flexible:Flexible = graphicItems[i]
-            let grow:CGFloat = grows[i]
-            let flexItem:FlexItem = FlexItem(flexible,grow)
-            return flexItem
-        }
-        FlexBoxGrowUtils.grow(flexItems,frame)
-        FlexBoxModifier.justifyContent(graphicItems, .flexStart, frame)
-        FlexBoxModifier.alignItems(graphicItems, .flexStart, frame)
-        //graphicItems.forEach{$0.draw()}/*FlexBox only sets x,y,w,h it doesn't render, so render here*/
-        
-        //grey bg
-        //FlexBoxModifier.justifyContent(container,.end)//.start,.center,.spaceBetween,.spaceAround
     }
     func paddingTest(){
         window.contentView = InteractiveView2()
