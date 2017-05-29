@@ -27,7 +27,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func flexBoxTest(){
         window.contentView = InteractiveView2()
         var css:String = ""//"#btn{fill:blue;width:100%;height:100%;float:left;clear:left;}"
-        css += "Section{fill:silver;float:left;clear:left;}"
+        css += "Section{fill:white;float:left;clear:left;}"
         StyleManager.addStyle(css)
         
         let size:CGSize = WinParser.size(window)
@@ -39,8 +39,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let numBoxes:Int = 4
         /*Rect*/
         let sizes:[CGSize] = (0..<numBoxes).indices.map{ _ in CGSize(80,80)}
-        let colors:[NSColor] = ["#22FFA0".nsColor,.green,.blue,.red]
-        
+        let colors:[NSColor] = ["#22FFA0".nsColor,"#1DE3E6".nsColor,"#FB1B4D".nsColor,"#FED845".nsColor]
         
         let graphicItems:[RoundRectGraphic] = (0..<numBoxes).indices.map{ i in
             let color = colors[i]
@@ -50,7 +49,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             item.draw()
             return item
         }
-        let grows:[CGFloat] = [2,2,1,1]
+        let grows:[CGFloat] = [2,1,2,1]
         
         let flexItems:[FlexItem] = (0..<numBoxes).indices.map{ i in
             let flexible:Flexible = graphicItems[i]
