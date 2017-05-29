@@ -65,9 +65,7 @@ class FlexBoxViewView:WindowView{
             let flexItem:FlexItem = FlexItem(flexible,grow)
             return flexItem
         }
-        FlexBoxGrowUtils.grow(flexItems,frame)
-        FlexBoxModifier.justifyContent(graphicItems, .flexStart, frame)
-        FlexBoxModifier.alignItems(graphicItems, .flexStart, frame)
+        
         //graphicItems.forEach{$0.draw()}/*FlexBox only sets x,y,w,h it doesn't render, so render here*/
         
         //grey bg
