@@ -112,7 +112,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
-class Label:Flexible{
+extension TextButton:IPositional{
+    func setPosition(_ position:CGPoint){
+        self.pos = position
+    }
+    func getPosition() -> CGPoint{
+        return self.pos
+    }
+}
+extension TextButton:ISizeable{
+    
+}
+/*class Label:Flexible{
     //graphic bg
     //text that is centeres
     //implement Flexible
@@ -124,7 +135,7 @@ class Label:Flexible{
     init(_ rect:CGRect){
         
     }
-}
+}*/
 /**
  *
  */
