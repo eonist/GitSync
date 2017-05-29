@@ -25,8 +25,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()
         window.contentView = InteractiveView2()
         
-        window.setFrame(NSRect.init(window.frame.x, window.frame.y, window.frame.width, (80 + 26 + 20)), display: true)
-        window.center()
+        win = FlexBoxTestWin(500,(80 + 26 + 20))
+       
 
     }
     func paddingTest(){

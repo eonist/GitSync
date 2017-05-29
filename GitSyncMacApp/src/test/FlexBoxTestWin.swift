@@ -31,7 +31,7 @@ class FlexBoxViewView:WindowView{
         
         let size:CGSize = WinParser.size(self.window!)
         let frame:CGRect = CGRect(10,10,size.w-20,size.h-20)
-        let section = self.window!.contentView!.addSubView(Section(size.w,size.h))
+        let section = self.addSubView(Section(size.w,size.h))
         _ = section
         
         //add 4 boxes, yellow,green,blue,red
