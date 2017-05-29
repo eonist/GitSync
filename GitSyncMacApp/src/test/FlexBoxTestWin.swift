@@ -37,8 +37,7 @@ class FlexBoxViewView:WindowView{
         let section = self.addSubView(Section(size.w,size.h))
         _ = section
         
-        //add 4 boxes, yellow,green,blue,red
-        let numBoxes:Int = 4
+        let numBoxes:Int = 4/*yellow,green,blue,red*/
         /*Rect*/
         let sizes:[CGSize] = (0..<numBoxes).indices.map{ _ in CGSize(80,80)}
         let grows:[CGFloat] = [1,1,1,3]//[0,0,0,0]//
@@ -55,7 +54,7 @@ class FlexBoxViewView:WindowView{
         let flexBoxItems:[FlexBoxItem] = (0..<numBoxes).indices.map{ i in
             let flexible:Flexible = graphicItems[i]
             let grow:CGFloat = grows[i]
-            let flexItem:FlexItem = FlexBoxItem(flexible,grow)
+            let flexItem:FlexBoxItem = FlexBoxItem(flexible,grow)
             return flexItem
         }
         
@@ -63,8 +62,6 @@ class FlexBoxViewView:WindowView{
         FlexBoxModifier.flex(flexBoxContainer)
         //graphicItems.forEach{$0.draw()}/*FlexBox only sets x,y,w,h it doesn't render, so render here*/
         
-        //grey bg
-        //FlexBoxModifier.justifyContent(container,.end)//.start,.center,.spaceBetween,.spaceAround
     }
     /**
      * NOTE: gets calls from Window.didResize
