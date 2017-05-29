@@ -24,6 +24,13 @@ class FlexBoxViewView:WindowView{
         flexBoxTest()
     }
     /**
+     * NOTE: gets calls from Window.didResize
+     */
+    override func setSize(_ width:CGFloat,_ height:CGFloat){
+        super.setSize(width, height)
+        Swift.print("resize: w: \(width) h \(height)")
+    }
+    /**
      *
      */
     func flexBoxTest(){
