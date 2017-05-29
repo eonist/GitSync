@@ -52,7 +52,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let flexItems:[FlexItem] = items.map{ flexible in
             let flexible:FlexItem = FlexItem(flexible,1)
             return flexible
-        }()
+        }
         FlexBoxGrowUtils.grow(flexItems,frame)
         FlexBoxModifier.justifyContent(items, .flexStart, frame)
         //FlexBoxModifier.alignItems(items, .stretch, frame)
