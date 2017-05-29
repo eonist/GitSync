@@ -45,7 +45,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let graphicItems:[TextButton] = (0..<numBoxes).indices.map{ i in
             let size = sizes[i]
-            let title = "item"
+            let title = "item-" + i.string
             let item = TextButton.init(size.w, size.h, title, nil,i.string)//RoundRectGraphic(0,0,size.w,size.h,Fillet(10),FillStyle(color),nil)
             section.addSubview(item)
             //item.draw()
