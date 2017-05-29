@@ -27,7 +27,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func flexBoxTest(){
         window.contentView = InteractiveView2()
         window.title = "FlexBox"
-        window.setFrame(NSRect.init(window.frame.x, window.frame.y, window.frame.width, (80 + 26 + 20)), display: <#T##Bool#>)
+        window.setFrame(NSRect.init(window.frame.x, window.frame.y, window.frame.width, (80 + 26 + 20)), display: true)
+        window.center()
         var css:String = ""//"#btn{fill:blue;width:100%;height:100%;float:left;clear:left;}"
         css += "Section{fill:white;float:left;clear:left;}"
         StyleManager.addStyle(css)
@@ -42,7 +43,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let numBoxes:Int = 4
         /*Rect*/
         let sizes:[CGSize] = (0..<numBoxes).indices.map{ _ in CGSize(80,80)}
-        let grows:[CGFloat] = [2,1,2,1]
+        let grows:[CGFloat] = [1,1,1,6]
         
         let graphicItems:[TextButton] = (0..<numBoxes).indices.map{ i in
             let size = sizes[i]
