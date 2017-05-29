@@ -45,7 +45,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let graphicItems:[RoundRectGraphic] = (0..<numBoxes).indices.map{ i in
             let color = colors[i]
             let size = sizes[i]
-            let item = RectGraphic(0,0,size.w,size.h,FillStyle(color),nil)
+            let item = RoundRectGraphic(0,0,size.w,size.h,Fillet(5),FillStyle(color),nil)
             section.addSubview(item.graphic)
             item.draw()
             return item
