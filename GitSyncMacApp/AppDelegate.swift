@@ -26,6 +26,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func flexBoxTest(){
         window.contentView = InteractiveView2()
+        window.title = "FlexBox"
         var css:String = ""//"#btn{fill:blue;width:100%;height:100%;float:left;clear:left;}"
         css += "Section{fill:white;float:left;clear:left;}"
         StyleManager.addStyle(css)
@@ -44,7 +45,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let graphicItems:[RoundRectGraphic] = (0..<numBoxes).indices.map{ i in
             let color = colors[i]
             let size = sizes[i]
-            let item = RoundRectGraphic(0,0,size.w,size.h,Fillet(5),FillStyle(color),nil)
+            let item = RoundRectGraphic(0,0,size.w,size.h,Fillet(10),FillStyle(color),nil)
             section.addSubview(item.graphic)
             item.draw()
             return item
