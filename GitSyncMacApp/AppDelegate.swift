@@ -123,8 +123,8 @@ extension TextButton:IPositional{
 extension TextButton:ISizeable{
     var size:CGSize {get{return CGSize(width,height)} set{setSizeValue(newValue)}}
     func setSizeValue(_ size:CGSize){
-        self.width = size.width
-        self.height = size.height
+        self.setSize(size.width, size.height)
+        ElementModifier.refreshStyle(self)//<-- may not be needed
     }
 }
 /*class Label:Flexible{
