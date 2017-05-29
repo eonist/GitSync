@@ -22,7 +22,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //paddingTest()
     }
     func flexBoxTest()  {
-        
+        NSApp.windows[0].close()
+        window.contentView = InteractiveView2()
+        window.title = "FlexBox"
+        window.setFrame(NSRect.init(window.frame.x, window.frame.y, window.frame.width, (80 + 26 + 20)), display: true)
+        window.center()
+
     }
     func paddingTest(){
         window.contentView = InteractiveView2()
@@ -83,35 +88,6 @@ extension TextButton:ISizeable{
     public func setSizeValue(_ size:CGSize){
         self.setSize(size.width, size.height)
         ElementModifier.refreshSkin(self)//<-- may not be needed
-    }
-}
-private class Utils{
-    /**
-     *
-     */
-    static var labelStyles:String{
-        /*Styles*/
-        var css = ""
-        css +=  "TextButton{fill:#30B07D;fill-alpha:1.0;corner-radius:10px;float:none;clear:none;}"
-        css +=  "TextButton Text{"
-        css +=  	"float:left;"
-        css +=  	"clear:left;"
-        css +=  	"width:100%;"
-        css +=  	"margin-top:32px;"
-        css +=  	"font:Helvetica Neue;"
-        css +=  	"size:16px;"
-        css +=  	"wordWrap:true;"
-        css +=  	"align:center;"
-        css +=  	"color:black;"
-        css +=  	"selectable:false;"
-        css +=  	"backgroundColor:orange;"
-        css +=  	"background:false;"
-        css +=  "}"
-        css += "TextButton#0{fill:#22FFA0;}"
-        css += "TextButton#1{fill:#1DE3E6;}"
-        css += "TextButton#2{fill:#FB1B4D;}"
-        css += "TextButton#3{fill:#FED845;}"
-        return css
     }
 }
 /*class Label:Flexible{

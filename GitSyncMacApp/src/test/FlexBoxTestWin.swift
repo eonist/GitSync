@@ -16,4 +16,77 @@ class FlexBoxViewView:WindowView{
     override func resolveSkin(){
        super.resolveSkin()
     }
+    /**
+     *
+     */
+    func flexBoxTest(){
+        var css:String = ""//"#btn{fill:blue;width:100%;height:100%;float:left;clear:left;}"
+        css += "Section{fill:white;float:left;clear:left;}"
+        StyleManager.addStyle(css)
+        StyleManager.addStyle(Utils.labelStyles)
+        
+        let size:CGSize = WinParser.size(self.window!)
+        let frame:CGRect = CGRect(10,10,size.w-20,size.h-20)
+        let section = self.window!.contentView!.addSubView(Section(size.w,size.h))
+        _ = section
+        
+        //add 4 boxes, yellow,green,blue,red
+        let numBoxes:Int = 4
+        /*Rect*/
+        let sizes:[CGSize] = (0..<numBoxes).indices.map{ _ in CGSize(80,80)}
+        let grows:[CGFloat] = [1,1,1,3]//[0,0,0,0]//
+        
+        let graphicItems:[TextButton] = (0..<numBoxes).indices.map{ i in
+            let size = sizes[i]
+            let title = "item-" + i.string
+            let item = TextButton.init(size.w, size.h, title, nil,i.string)//RoundRectGraphic(0,0,size.w,size.h,Fillet(10),FillStyle(color),nil)
+            section.addSubview(item)
+            //item.draw()
+            return item
+        }
+        
+        
+        let flexItems:[FlexItem] = (0..<numBoxes).indices.map{ i in
+            let flexible:Flexible = graphicItems[i]
+            let grow:CGFloat = grows[i]
+            let flexItem:FlexItem = FlexItem(flexible,grow)
+            return flexItem
+        }
+        FlexBoxGrowUtils.grow(flexItems,frame)
+        FlexBoxModifier.justifyContent(graphicItems, .flexStart, frame)
+        FlexBoxModifier.alignItems(graphicItems, .flexStart, frame)
+        //graphicItems.forEach{$0.draw()}/*FlexBox only sets x,y,w,h it doesn't render, so render here*/
+        
+        //grey bg
+        //FlexBoxModifier.justifyContent(container,.end)//.start,.center,.spaceBetween,.spaceAround
+    }
+}
+private class Utils{
+    /**
+     *
+     */
+    static var labelStyles:String{
+        /*Styles*/
+        var css = ""
+        css +=  "TextButton{fill:#30B07D;fill-alpha:1.0;corner-radius:10px;float:none;clear:none;}"
+        css +=  "TextButton Text{"
+        css +=  	"float:left;"
+        css +=  	"clear:left;"
+        css +=  	"width:100%;"
+        css +=  	"margin-top:32px;"
+        css +=  	"font:Helvetica Neue;"
+        css +=  	"size:16px;"
+        css +=  	"wordWrap:true;"
+        css +=  	"align:center;"
+        css +=  	"color:black;"
+        css +=  	"selectable:false;"
+        css +=  	"backgroundColor:orange;"
+        css +=  	"background:false;"
+        css +=  "}"
+        css += "TextButton#0{fill:#22FFA0;}"
+        css += "TextButton#1{fill:#1DE3E6;}"
+        css += "TextButton#2{fill:#FB1B4D;}"
+        css += "TextButton#3{fill:#FED845;}"
+        return css
+    }
 }
