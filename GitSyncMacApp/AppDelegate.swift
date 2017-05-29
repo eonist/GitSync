@@ -117,6 +117,13 @@ class Label{
     //text that is centeres
     //implement Flexible
     // that also repos the text etc
+    lazy var txtBtn:NSView = {
+        let textButton:TextButton = TextButton.init(self.w, self.h, self.title, nil)
+        return textButton
+    }()
+    init(_ rect:CGRect){
+        
+    }
 }
 /**
  *
