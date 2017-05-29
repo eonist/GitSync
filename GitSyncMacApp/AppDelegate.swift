@@ -36,12 +36,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         _ = section
         
         //add 4 boxes, yellow,green,blue,red
+        let numBoxes:Int = 4
         /*Rect*/
-        let sizes:[CGSize] = (0..<4).indices.map{ _ in CGSize(80,80)}
+        let sizes:[CGSize] = (0..<numBoxes).indices.map{ _ in CGSize(80,80)}
         let colors:[NSColor] = [.yellow,.green,.blue,.red]
         
         
-        let items:[RectGraphic] = (0..<4).indices.map{ i in
+        let graphicItems:[RectGraphic] = (0..<numBoxes).indices.map{ i in
             let color = colors[i]
             let size = sizes[i]
             let item = RectGraphic(0,0,size.w,size.h,FillStyle(color),nil)
@@ -49,14 +50,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             item.draw()
             return item
         }
-        let flexItems:[FlexItem] = items.map{ flexible in
-            let flexible:FlexItem = FlexItem(flexible,1)
-            return flexible
+        let grows:[CGFloat] = [1,1,1,1]
+        
+        let flexItems:[FlexItem] = (0..<numBoxes).indices.map{ i in
+            let flexible:Flexible = graphicItems[i]
+            let grow:CGFloat = grows[i]
+            let flexItem:FlexItem = FlexItem(flexible,grow)
+            return flexItem
         }
         FlexBoxGrowUtils.grow(flexItems,frame)
-        FlexBoxModifier.justifyContent(items, .flexStart, frame)
+        FlexBoxModifier.justifyContent(graphicItems, .flexStart, frame)
         //FlexBoxModifier.alignItems(items, .stretch, frame)
-        items.forEach{$0.draw()}/*FlexBox only sets x,y,w,h it doesn't render, so render here*/
+        graphicItems.forEach{$0.draw()}/*FlexBox only sets x,y,w,h it doesn't render, so render here*/
         
         //grey bg
         //FlexBoxModifier.justifyContent(container,.end)//.start,.center,.spaceBetween,.spaceAround
