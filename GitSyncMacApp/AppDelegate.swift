@@ -27,7 +27,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func flexBoxTest(){
         window.contentView = InteractiveView2()
         window.title = "FlexBox"
-        window.height = 80 + 26 + 20
+        window.frame.size = CGSize()
         var css:String = ""//"#btn{fill:blue;width:100%;height:100%;float:left;clear:left;}"
         css += "Section{fill:white;float:left;clear:left;}"
         StyleManager.addStyle(css)
