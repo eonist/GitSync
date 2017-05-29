@@ -112,6 +112,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
+class Label{
+    //graphic bg
+    //text that is centeres
+    //implement Flexible
+    // that also repos the text etc
+}
 /**
  *
  */
