@@ -24,13 +24,6 @@ class FlexBoxViewView:WindowView{
         flexBoxTest()
     }
     /**
-     * NOTE: gets calls from Window.didResize
-     */
-    override func setSize(_ width:CGFloat,_ height:CGFloat){
-        super.setSize(width, height)
-        Swift.print("resize: w: \(width) h \(height)")
-    }
-    /**
      *
      */
     func flexBoxTest(){
@@ -59,17 +52,26 @@ class FlexBoxViewView:WindowView{
             return item
         }
         
-        let flexItems:[FlexBoxItem] = (0..<numBoxes).indices.map{ i in
+        let flexBoxItems:[FlexBoxItem] = (0..<numBoxes).indices.map{ i in
             let flexible:Flexible = graphicItems[i]
             let grow:CGFloat = grows[i]
             let flexItem:FlexItem = FlexBoxItem(flexible,grow)
             return flexItem
         }
         
+        let flexBoxContainer = FlexBoxContainer(frame,flexBoxItems,.flexStart,.flexStart)
+        FlexBoxModifier.flex(flexBoxContainer)
         //graphicItems.forEach{$0.draw()}/*FlexBox only sets x,y,w,h it doesn't render, so render here*/
         
         //grey bg
         //FlexBoxModifier.justifyContent(container,.end)//.start,.center,.spaceBetween,.spaceAround
+    }
+    /**
+     * NOTE: gets calls from Window.didResize
+     */
+    override func setSize(_ width:CGFloat,_ height:CGFloat){
+        super.setSize(width, height)
+        Swift.print("resize: w: \(width) h \(height)")
     }
 }
 private class Utils{

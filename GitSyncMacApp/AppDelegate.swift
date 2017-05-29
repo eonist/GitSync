@@ -23,10 +23,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     func flexBoxTest()  {
         NSApp.windows[0].close()
-        
         win = FlexBoxTestWin(500,(80 + 20))
-       
-
     }
     func paddingTest(){
         window.contentView = InteractiveView2()
