@@ -23,7 +23,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     func flexBoxTest()  {
         NSApp.windows[0].close()
-        window.contentView = InteractiveView2()
         
         win = FlexBoxTestWin(500,(80 + 26 + 20))
        

@@ -8,17 +8,20 @@ class FlexBoxTestWin:Window {
         WinModifier.align(self, Alignment.centerCenter, Alignment.centerCenter,CGPoint(6,0))/*aligns the window to the screen*/
     }
     override func resolveSkin() {
-        
-        
         self.contentView = FlexBoxViewView(frame.size.width,frame.size.height)
-        
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class FlexBoxViewView:WindowView{
     override func resolveSkin(){
-       super.resolveSkin()
+        Swift.print("FlexBoxViewView")
+        var css:String = ""
+        css += "Window{fill-alpha:1;fill:white;corner-radius:4px;}"//
+        css +=  "Button{fill:blue;fill-alpha:1;clear:left;float:left;}"
+        StyleManager.addStyle(css)
+        super.resolveSkin()
         self.window?.title = "FlexBox"
+        flexBoxTest()
     }
     /**
      *
