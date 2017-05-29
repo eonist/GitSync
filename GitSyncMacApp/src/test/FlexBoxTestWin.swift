@@ -28,11 +28,11 @@ class FlexBoxViewView:WindowView{
      */
     func flexBoxTest(){
         var css:String = ""//"#btn{fill:blue;width:100%;height:100%;float:left;clear:left;}"
-        css += "Section{fill:white;float:left;clear:left;}"
+        css += "Section{fill:white;float:left;clear:left;fill-alpha:0;}"
         StyleManager.addStyle(css)
         StyleManager.addStyle(Utils.labelStyles)
         
-        let size:CGSize = WinParser.size(self.window!)
+        let size:CGSize = self.frame.size//WinParser.size(self.window!)
         let frame:CGRect = CGRect(10,10,size.w-20,size.h-20)
         let section = self.addSubView(Section(size.w,size.h))
         _ = section

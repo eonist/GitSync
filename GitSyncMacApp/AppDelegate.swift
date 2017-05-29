@@ -24,7 +24,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func flexBoxTest()  {
         NSApp.windows[0].close()
         
-        win = FlexBoxTestWin(500,(80 + 26 + 20))
+        win = FlexBoxTestWin(500,(80 + 20))
        
 
     }
