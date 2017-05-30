@@ -57,7 +57,9 @@ class FlexBoxViewView:WindowView{
         /*Create FlexBoxContainer*/
         let flexBoxContainer = FlexBoxContainer(frame,flexBoxItems,.flexStart,.flexStart)
         FlexBoxModifier.flex(flexBoxContainer)
-        
+        bg.async {
+            <#code#>
+        }
     }
     /**
      * NOTE: gets calls from Window.didResize
