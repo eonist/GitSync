@@ -23,7 +23,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     func flexBoxTest()  {
         NSApp.windows[0].close()
-        win = FlexBoxTestWin(500,(80 + 20))
+        win = FlexBoxTestWin(500,(400 + 10))
     }
     func paddingTest(){
         window.contentView = InteractiveView2()
@@ -69,21 +69,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("💾 Write RepoList to: repo.xml")
         _ = FileModifier.write(RepoView.repoListFilePath.tildePath, RepoView.treeDP.tree.xml.xmlString)/*store the repo xml*/
         print("Good-bye")
-    }
-}
-extension TextButton:IPositional{
-    public func setPosition(_ position:CGPoint){
-        self.frame.origin = position
-    }
-    public func getPosition() -> CGPoint{
-        return self.frame.origin
-    }
-}
-extension TextButton:ISizeable{
-    override open var size:CGSize {get{return CGSize(width,height)} set{setSizeValue(newValue)}}
-    public func setSizeValue(_ size:CGSize){
-        self.setSize(size.width, size.height)
-        ElementModifier.refreshSkin(self)//<-- may not be needed
     }
 }
 /*class Label:Flexible{
