@@ -32,35 +32,31 @@ class FlexBoxViewView:WindowView{
         StyleManager.addStyle(css)
         StyleManager.addStyle(Utils.labelStyles)
         
-        let size:CGSize = self.frame.size//WinParser.size(self.window!)
-        let frame:CGRect = CGRect(10,10,size.w-20,size.h-20)
+        /*Config*/
+        let size:CGSize = self.frame.size
+        let frame:CGRect = CGRect(10,10,size.w-20,size.h-20)/*Add inset*/
         let section = self.addSubView(Section(size.w,size.h))
-        _ = section
-        
-        let numBoxes:Int = 4/*yellow,green,blue,red*/
-        /*Rect*/
+        let numBoxes:Int = 4
         let sizes:[CGSize] = (0..<numBoxes).indices.map{ _ in CGSize(80,80)}
-        let grows:[CGFloat] = [1,1,1,3]//[0,0,0,0]//
-        
+        let grows:[CGFloat] = [1,1,1,3]//[0,0,0,0]
+        /*Add Views*/
         let graphicItems:[TextButton] = (0..<numBoxes).indices.map{ i in
             let size = sizes[i]
             let title = "item-" + i.string
             let item = TextButton.init(size.w, size.h, title, nil,i.string)//RoundRectGraphic(0,0,size.w,size.h,Fillet(10),FillStyle(color),nil)
             section.addSubview(item)
-            //item.draw()
             return item
         }
-        
+        /*Create FlexBoxItems*/
         let flexBoxItems:[FlexBoxItem] = (0..<numBoxes).indices.map{ i in
             let flexible:Flexible = graphicItems[i]
             let grow:CGFloat = grows[i]
             let flexItem:FlexBoxItem = FlexBoxItem(flexible,grow)
             return flexItem
         }
-        
+        /*Create FlexBoxContainer*/
         let flexBoxContainer = FlexBoxContainer(frame,flexBoxItems,.flexStart,.flexStart)
         FlexBoxModifier.flex(flexBoxContainer)
-        //graphicItems.forEach{$0.draw()}/*FlexBox only sets x,y,w,h it doesn't render, so render here*/
         
     }
     /**
