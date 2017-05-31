@@ -23,8 +23,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         calcTest()
         //StyleManager.addStyle("Button{width:calc(100% - 20px);}")
         
-        //a recursive resize method
-            
+        //A recursive resize method
+            //let minSize = CGSize(element.style["min-width"],element.style["min-height"])
+            //let maxSize = CGSize(element.style["max-width"],element.style["max-height"])
             //setSize(element.getWidth,element.getHeight)
     }
     func styleTest()  {
