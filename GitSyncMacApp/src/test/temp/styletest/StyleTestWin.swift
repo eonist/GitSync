@@ -1,6 +1,28 @@
-import Foundation
+import Cocoa
+@testable import Element
+@testable import Utils
 
-class StyleTestWin {
+class StyleTestWin:Window {
+    required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
+        super.init(docWidth, docHeight)
+        WinModifier.align(self, Alignment.centerCenter, Alignment.centerCenter,CGPoint(6,0))/*aligns the window to the screen*/
+    }
+    override func resolveSkin() {
+        self.contentView = FlexBoxViewView(frame.size.width,frame.size.height)
+    }
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+}
+class StyleTestView:WindowView{
+    override func resolveSkin(){
+        Swift.print("FlexBoxViewView")
+        var css:String = ""
+        css += "Window{fill-alpha:1;fill:white;corner-radius:4px;}"//
+        css +=  "Button{fill:blue;fill-alpha:1;clear:left;float:left;}"
+        StyleManager.addStyle(css)
+        super.resolveSkin()
+        self.window?.title = "StyleTest"
+        
+    }
     //customMenuBar
     //Enum nav system
     //use nice css colors
@@ -11,7 +33,4 @@ class StyleTestWin {
         //2. repoView (repoBrowserView,repoDetailView)
         //3. statsView (repoBRowserView,statsView)
         //4. prefsView
-}
-class StyleTestView{
-    
 }
