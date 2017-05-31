@@ -22,7 +22,23 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //paddingTest()
         //calcTest()
         //
-        StyleManager.addStyle("Button{width:calc(100% - 20px);}")
+        //StyleManager.addStyle("Button{width:calc(100% - 20px);}")
+        
+        let str:String = "100% -20px"
+        //seperate on space
+        Swift.print("isMetric: \(StringAsserter.metric(str))")
+        let components:[String] = str.split(" ")
+        components.forEach{
+            Swift.print("$0: " + "\($0)")
+            if StringAsserter.metric(str) {
+                Swift.print("isMetric")
+            }else if StringAsserter.digit(str){
+                
+            }
+        }
+        
+        //test that it does not test positive on metric or numeric tests
+        //sum some test amounts
     }
     func styleTest()  {
         NSApp.windows[0].close()
