@@ -18,14 +18,14 @@ class StyleTestView:WindowView{
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
         
         var css:String = "#btn{fill:blue;width:calc(100% -20px);height:50;float:left;clear:left;}"
-        css += "Section{fill:silver;padding:12px;}"
+        css += "Section{width:100px;height:100px;fill:silver;padding:12px;}"
         StyleManager.addStyle(css)
         
         super.resolveSkin()
         //self.window?.title = "StyleTest"
         
         
-        let section = self.addSubView(Section(200,200))
+        let section = self.addSubView(Section(NaN,NaN))
         let btn = section.addSubView(Element(NaN,NaN,section,"btn"))
         //topBar
             //titleBtns
