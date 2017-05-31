@@ -20,8 +20,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initTestWin()//🚧👷
         //initMinimalWin()
         //paddingTest()
-        calcTest()
-        //width:calc(100% - 20px)
+        //calcTest()
+        //
+        StyleManager.addStyle("Button{width:calc(100% - 20px);}")
     }
     func styleTest()  {
         NSApp.windows[0].close()
