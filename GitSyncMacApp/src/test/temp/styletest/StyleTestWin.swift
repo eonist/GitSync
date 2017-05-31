@@ -15,9 +15,8 @@ class StyleTestWin:Window {
 class StyleTestView:WindowView{
     override func resolveSkin(){
         Swift.print("StyleTestView")
-        var css:String = ""
         
-        StyleManager.addStyle(css)
+        StyleManager.addStylesByURL("~/Desktop")
         super.resolveSkin()
         self.window?.title = "StyleTest"
         
