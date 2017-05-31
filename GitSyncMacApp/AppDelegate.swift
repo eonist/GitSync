@@ -21,7 +21,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initMinimalWin()
         //paddingTest()
         //calcTest()
-        //
         //StyleManager.addStyle("Button{width:calc(100% - 20px);}")
         
         let str:String = "100% -20px"
