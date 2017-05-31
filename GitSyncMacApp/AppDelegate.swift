@@ -20,9 +20,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initTestWin()//🚧👷
         //initMinimalWin()
         //paddingTest()
-        //calcTest()
+        calcTest()
         //StyleManager.addStyle("Button{width:calc(100% - 20px);}")
-        
+        /*
         let str:String = "100% -20px"
         //seperate on space
         Swift.print("isMetric: \(StringAsserter.metric(str))")//test that it does not test positive on metric or numeric tests
@@ -38,7 +38,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let result = [2,4,1,2].reduce(0) {$0 + $1}//sum some test amounts
         Swift.print("result: " + "\(result)")
-        
+        */
     }
     func styleTest()  {
         NSApp.windows[0].close()
@@ -49,7 +49,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func calcTest(){
         window.contentView = InteractiveView2()
-        var css:String = "#btn{fill:blue;width:50%;height:50%;float:left;clear:left;}"
+        var css:String = "#btn{fill:blue;width:calc(100%);height:50;float:left;clear:left;}"
         css += "Section{fill:silver;padding:12px;}"
         StyleManager.addStyle(css)
         
