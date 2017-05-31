@@ -24,7 +24,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //StyleManager.addStyle("Button{width:calc(100% - 20px);}")
         
         //a recursive resize method
-            //
+            
+            //setSize(element.getWidth,element.getHeight)
     }
     func styleTest()  {
         NSApp.windows[0].close()
