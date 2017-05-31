@@ -29,6 +29,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //let getSize = CGSize(element.getWidth,element.getHeight)
             //let size = getsize.clip(minSize,maxSize)
             //element.skin.setSize(size.w,size.h)/*We use the skin and work directly on that*/
+            //element.subViews.filter{$0 is IElement}.forEach{/*.call.*/}
     }
     func styleTest()  {
         NSApp.windows[0].close()
