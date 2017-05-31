@@ -49,7 +49,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func calcTest(){
         window.contentView = InteractiveView2()
-        var css:String = "#btn{fill:blue;width:calc(100%);height:50;float:left;clear:left;}"
+        var css:String = "#btn{fill:blue;width:calc(100% -20px);height:50;float:left;clear:left;}"
         css += "Section{fill:silver;padding:12px;}"
         StyleManager.addStyle(css)
         
