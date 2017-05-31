@@ -23,10 +23,14 @@ class StyleTestView:WindowView{
             //menu
         //main
             //leftBar
-            //rightBar
         
         //CommitsView
+            //left view
         //RepoView
+            //left view
         //StatsView
+            //no bars
+        //PrefsView
+            //no bars
     }
 }
