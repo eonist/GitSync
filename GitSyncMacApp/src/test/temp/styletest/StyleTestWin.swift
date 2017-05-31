@@ -18,7 +18,12 @@ class StyleTestView:WindowView{
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
         super.resolveSkin()
         self.window?.title = "StyleTest"
-        
+        //topBar
+            //titleBtns
+            //menu
+        //main
+            //leftBar
+            //rightBar
+        //
     }
-   
 }
