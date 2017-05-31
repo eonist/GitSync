@@ -18,7 +18,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initApp()
         //initTestWin()//🚧👷
         //initMinimalWin()
-        //paddingTest()
+        paddingTest()
     }
   
     func paddingTest(){
