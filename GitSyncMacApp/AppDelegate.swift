@@ -28,7 +28,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //let maxSize = CGSize(element.style["max-width"],element.style["max-height"])
             //let getSize = CGSize(element.getWidth,element.getHeight)
             //let size = getsize.clip(minSize,maxSize)
-            //setSize(size.w,size.h)
+            //element.skin.setSize(size.w,size.h)/*We use the skin and work directly on that*/
     }
     func styleTest()  {
         NSApp.windows[0].close()
