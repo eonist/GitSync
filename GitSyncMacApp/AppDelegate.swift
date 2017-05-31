@@ -16,14 +16,30 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
    
         //initApp()
-        styleTest()
+        //styleTest()
         //initTestWin()//🚧👷
         //initMinimalWin()
         //paddingTest()
+        calcTest()
+        //width:calc(100% - 20px)
     }
     func styleTest()  {
         NSApp.windows[0].close()
         win = StyleTestWin(500,(400 + 10))
+    }
+    /**
+     *
+     */
+    func calcTest(){
+        window.contentView = InteractiveView2()
+        var css:String = "#btn{fill:blue;width:50%;height:50%;float:left;clear:left;}"
+        css += "Section{fill:silver;padding:12px;}"
+        StyleManager.addStyle(css)
+        
+        let section = window.contentView!.addSubView(Section(200,200))
+        let btn = section.addSubView(Element(NaN,NaN,section,"btn"))
+        
+        section.addSubview(btn)
     }
     func paddingTest(){
         window.contentView = InteractiveView2()
