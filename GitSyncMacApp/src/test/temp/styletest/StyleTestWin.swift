@@ -16,8 +16,17 @@ class StyleTestView:WindowView{
     override func resolveSkin(){
         Swift.print("StyleTestView")
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
+        
+        var css:String = "#btn{fill:blue;width:calc(100% -20px);height:50;float:left;clear:left;}"
+        css += "Section{fill:silver;padding:12px;}"
+        StyleManager.addStyle(css)
+        
         super.resolveSkin()
-        self.window?.title = "StyleTest"
+        //self.window?.title = "StyleTest"
+        
+        
+        let section = self.addSubView(Section(200,200))
+        let btn = section.addSubView(Element(NaN,NaN,section,"btn"))
         //topBar
             //titleBtns
             //menu
@@ -37,6 +46,7 @@ class StyleTestView:WindowView{
      * NOTE: gets calls from Window.didResize
      */
     override func setSize(_ width:CGFloat,_ height:CGFloat){
+        super.setSize(width, height)
         Swift.print("StyleTestView.setSize w:\(width) h:\(height)")
     }
 }
