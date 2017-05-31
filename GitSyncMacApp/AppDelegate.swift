@@ -23,13 +23,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         calcTest()
         //StyleManager.addStyle("Button{width:calc(100% - 20px);}")
         
-        //A recursive resize method
-            //let minSize = CGSize(element.style["min-width"],element.style["min-height"])
-            //let maxSize = CGSize(element.style["max-width"],element.style["max-height"])
-            //let getSize = CGSize(element.getWidth,element.getHeight)
-            //let size = getsize.clip(minSize,maxSize)
-            //element.skin.setSize(size.w,size.h)/*We use the skin and work directly on that*/
-            //element.subViews.filter{$0 is IElement}.forEach{/*.call.*/}
     }
     func styleTest()  {
         NSApp.windows[0].close()
