@@ -33,4 +33,10 @@ class StyleTestView:WindowView{
         //PrefsView
             //no bars
     }
+    /**
+     * NOTE: gets calls from Window.didResize
+     */
+    override func setSize(_ width:CGFloat,_ height:CGFloat){
+        Swift.print("StyleTestView.setSize w:\(width) h:\(height)")
+    }
 }
