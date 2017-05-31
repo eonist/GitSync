@@ -24,6 +24,9 @@ class StyleTestView:WindowView{
         //main
             //leftBar
             //rightBar
-        //
+        
+        //CommitsView
+        //RepoView
+        //StatsView
     }
 }
