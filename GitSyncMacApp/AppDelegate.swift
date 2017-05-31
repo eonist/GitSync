@@ -30,12 +30,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let components:[String] = str.split(" ")
         components.forEach{
             Swift.print("$0: " + "\($0)")
-            if StringAsserter.metric(str) {
+            if StringAsserter.metric($0) {
                 Swift.print("isMetric")
-            }else if StringAsserter.digit(str){
-                
+            }else if StringAsserter.digit($0){
+                Swift.print("isDigit")
             }
         }
+        
+        let result = [2,4,1,2].reduce(0) {$0 + $1}
+        Swift.print("result: " + "\(result)")
         
         //test that it does not test positive on metric or numeric tests
         //sum some test amounts
