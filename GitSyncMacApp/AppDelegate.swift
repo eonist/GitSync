@@ -26,7 +26,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //A recursive resize method
             //let minSize = CGSize(element.style["min-width"],element.style["min-height"])
             //let maxSize = CGSize(element.style["max-width"],element.style["max-height"])
-            //setSize(element.getWidth,element.getHeight)
+            //let getSize = CGSize(element.getWidth,element.getHeight)
+            //let size = getsize.clip(minSize,maxSize)
+            //setSize(size.w,size.h)
     }
     func styleTest()  {
         NSApp.windows[0].close()
