@@ -8,16 +8,15 @@ class StyleTestWin:Window {
         WinModifier.align(self, Alignment.centerCenter, Alignment.centerCenter,CGPoint(6,0))/*aligns the window to the screen*/
     }
     override func resolveSkin() {
-        self.contentView = FlexBoxViewView(frame.size.width,frame.size.height)
+        self.contentView = StyleTestView(frame.size.width,frame.size.height)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class StyleTestView:WindowView{
     override func resolveSkin(){
-        Swift.print("FlexBoxViewView")
+        Swift.print("StyleTestView")
         var css:String = ""
-        css += "Window{fill-alpha:1;fill:white;corner-radius:4px;}"//
-        css +=  "Button{fill:blue;fill-alpha:1;clear:left;float:left;}"
+        
         StyleManager.addStyle(css)
         super.resolveSkin()
         self.window?.title = "StyleTest"
@@ -25,7 +24,7 @@ class StyleTestView:WindowView{
     }
     //customMenuBar
     //Enum nav system
-    //use nice css colors
+    //use nice css colors (4 colors from FlexTest)
     //use win with gd shadow
     
     //4 views:

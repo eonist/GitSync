@@ -16,9 +16,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
    
         //initApp()
+        styleTest()
         //initTestWin()//🚧👷
         //initMinimalWin()
-        paddingTest()
+        //paddingTest()
+    }
+    func styleTest()  {
+        NSApp.windows[0].close()
+        win = StyleTestWin(500,(400 + 10))
     }
     func paddingTest(){
         window.contentView = InteractiveView2()
