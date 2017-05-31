@@ -26,7 +26,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let str:String = "100% -20px"
         //seperate on space
-        Swift.print("isMetric: \(StringAsserter.metric(str))")
+        Swift.print("isMetric: \(StringAsserter.metric(str))")//test that it does not test positive on metric or numeric tests
         let components:[String] = str.split(" ")
         components.forEach{
             Swift.print("$0: " + "\($0)")
@@ -37,11 +37,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         
-        let result = [2,4,1,2].reduce(0) {$0 + $1}
+        let result = [2,4,1,2].reduce(0) {$0 + $1}//sum some test amounts
         Swift.print("result: " + "\(result)")
         
-        //test that it does not test positive on metric or numeric tests
-        //sum some test amounts
     }
     func styleTest()  {
         NSApp.windows[0].close()
