@@ -13,6 +13,7 @@ class StyleTestWin:Window {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class StyleTestView:WindowView{
+    var section:Section?
     override func resolveSkin(){
         Swift.print("StyleTestView")
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
@@ -25,8 +26,8 @@ class StyleTestView:WindowView{
         //self.window?.title = "StyleTest"
         
         
-        let section = self.addSubView(Section(NaN,NaN,self))
-        let btn = section.addSubView(Element(NaN,NaN,section,"btn"))
+        section = self.addSubView(Section(NaN,NaN,self))
+        let btn = section!.addSubView(Element(NaN,NaN,section,"btn"))
         _ = btn
         //topBar
             //titleBtns
@@ -49,5 +50,6 @@ class StyleTestView:WindowView{
     override func setSize(_ width:CGFloat,_ height:CGFloat){
         super.setSize(width, height)
         Swift.print("StyleTestView.setSize w:\(width) h:\(height)")
+        ElementModifier.refreshSize(section!)
     }
 }
