@@ -44,16 +44,16 @@ class Navigation {
         switch view{
         case .main(let viewType):/*Main*/
             switch viewType {
-            case .commits:
-                return CommitsView(w,h,mainView)
-            case .repos:
-                return RepoView(w,h,mainView)
-            case .stats:
-                return StatsView(w,h,mainView)
-            case .prefs:
-                return PrefsView(w,h,mainView)
-            case .repository:
-                return RepositoryView(w,h,mainView)
+                case .commits:
+                    return CommitsView(w,h,mainView)
+                case .repos:
+                    return RepoView(w,h,mainView)
+                case .stats:
+                    return StatsView(w,h,mainView)
+                case .prefs:
+                    return PrefsView(w,h,mainView)
+                case .repository:
+                    return RepositoryView(w,h,mainView)
             }
         case .commitDetail(let commitData):/*CommitDetail*/
             let view:CommitDetailView = CommitDetailView(w,h,mainView)
@@ -65,10 +65,10 @@ class Navigation {
             return view
         case .dialog(let dialog):/*Dialogs*/
             switch dialog{
-            case .commit:
-                fatalError("not implemented yet")
-            case .conflict:
-                return ConflictDialogView(w,h,mainView)
+                case .commit:
+                    fatalError("not implemented yet")
+                case .conflict:
+                    return ConflictDialogView(w,h,mainView)
             }
         }
     }
