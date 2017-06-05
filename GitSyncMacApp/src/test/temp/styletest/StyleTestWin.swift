@@ -14,7 +14,7 @@ class StyleTestWin:Window {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-class StyleTestView:WindowView{
+class StyleTestView:CustomView{
     var main:Section?
     override func resolveSkin(){
         Swift.print("StyleTestView")
