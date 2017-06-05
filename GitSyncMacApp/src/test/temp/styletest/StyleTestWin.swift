@@ -20,21 +20,22 @@ class StyleTestView:CustomView{
         Swift.print("StyleTestView")
         
         var css:String = ""
+        css += "Window{100px;height:100px;}"
         css += "#main{width:100%;height:100%;fill:silver;fill-alpha:0;padding:0px;min-width:300px;max-width:500px;min-height:350px;max-height:700;}"
         css += "#content{fill:yellow;width:calc(100% -80px);height:100%;float:left;}"
         //"#btn{fill:blue;width:100%;height:50;float:left;clear:left;}"//calc(100% -20px)
         
         StyleManager.addStyle(css)
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
-        super.resolveSkin()
+        //StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
+        //super.resolveSkin()
         //self.window?.title = "StyleTest"
-        /*
+        
          main = self.addSubView(Section(NaN,NaN,self,"main"))
          let leftbar = main?.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
          _ = leftbar
          
          let content = main?.addSubView(Section(NaN,NaN,main,"content"))
-         _ = content*/
+         _ = content/**/
         //let btn = section!.addSubView(Element(NaN,NaN,section,"btn"))
         //_ = btn
         
