@@ -21,7 +21,7 @@ class StyleTestView:CustomView{
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
         
         var css:String = ""
-        css += "#main{width:100%;height:100%;fill:silver;padding:0px;min-width:300px;max-width:500px;min-height:350px;max-height:700;}"
+        css += "#main{width:100%;height:100%;fill:silver;fill-alpha:0;padding:0px;min-width:300px;max-width:500px;min-height:350px;max-height:700;}"
         css += "#content{fill:yellow;width:calc(100% -80px);height:100%;float:left;}"
         //"#btn{fill:blue;width:100%;height:50;float:left;clear:left;}"//calc(100% -20px)
         
