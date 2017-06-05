@@ -13,22 +13,26 @@ class StyleTestWin:Window {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class StyleTestView:WindowView{
-    var section:Section?
+    var main:Section?
     override func resolveSkin(){
         Swift.print("StyleTestView")
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
         
-        var css:String = "#btn{fill:blue;width:100%;height:50;float:left;clear:left;}"//calc(100% -20px)
-        css += "Section{width:100%;height:100%;fill:silver;padding:12px;min-width:200px;max-width:600px;}"
+        var css:String = ""
+        css += "Section#leftBar"
+        //"#btn{fill:blue;width:100%;height:50;float:left;clear:left;}"//calc(100% -20px)
+        css += "Section#main{width:100%;height:100%;fill:silver;padding:0px;min-width:200px;max-width:600px;}"
         StyleManager.addStyle(css)
         
         super.resolveSkin()
         //self.window?.title = "StyleTest"
         
         
-        section = self.addSubView(Section(NaN,NaN,self))
-        let btn = section!.addSubView(Element(NaN,NaN,section,"btn"))
-        _ = btn
+        main = self.addSubView(Section(NaN,NaN,self,"main"))
+        let leftbar = main?.addSubView(Section(NaN,NaN,main,"leftBar"))
+        _ = leftbar
+        //let btn = section!.addSubView(Element(NaN,NaN,section,"btn"))
+        //_ = btn
         
         
         //main
@@ -52,6 +56,6 @@ class StyleTestView:WindowView{
     override func setSize(_ width:CGFloat,_ height:CGFloat){
         super.setSize(width, height)
         Swift.print("StyleTestView.setSize w:\(width) h:\(height)")
-        ElementModifier.refreshSize(section!)
+        ElementModifier.refreshSize(main!)
     }
 }
