@@ -19,9 +19,9 @@ class StyleTestView:WindowView{
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
         
         var css:String = ""
-        css += "Section#leftBar{fill:blue;width:20px;height:100px;float:left;}"
+        css += "#leftBar{fill:blue;width:80px;height:100%;float:left;}"
         //"#btn{fill:blue;width:100%;height:50;float:left;clear:left;}"//calc(100% -20px)
-        css += "Section#main{width:100%;height:100%;fill:silver;padding:0px;min-width:100px;max-width:600px;}"
+        css += "#main{width:100%;height:100%;fill:silver;padding:0px;min-width:200px;max-width:600px;}"
         StyleManager.addStyle(css)
         
         super.resolveSkin()

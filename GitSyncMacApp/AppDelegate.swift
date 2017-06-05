@@ -26,7 +26,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     func styleTest()  {
         NSApp.windows[0].close()
-        win = StyleTestWin(500,(400 + 10))
+        win = StyleTestWin(340,(400 + 10))
     }
     /**
      *
