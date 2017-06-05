@@ -16,9 +16,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
    
         //initApp()
-        styleTest()
+        //styleTest()
         //initTestWin()//🚧👷
-        //initMinimalWin()
+        initMinimalWin()
         //paddingTest()
         //calcTest()
         //StyleManager.addStyle("Button{width:calc(100% - 20px);}")
@@ -72,6 +72,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
     }
     func initMinimalWin(){
+        NSApp.windows[0].close()
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/minimal.css",true)
         //Swift.print("StyleManager.styles.count: " + "\(StyleManager.styles.count)")
         //Swift.print("StyleManager.styles: " + "\(StyleManager.styles)")
