@@ -67,7 +67,7 @@ class StyleTestView:WindowView{
 class LeftSideBar:Element{
     override func resolveSkin() {
         var css:String = ""
-        css += "#leftBar{fill:orange;width:80px;height:100%;float:left;}"
+        css += "#leftBar{fill:orange;fill-alpha:0;width:80px;height:100%;float:left;}"
         css += "#buttonSection {"
         css +=     "width:100%;"
         css +=     "height:100%;"
