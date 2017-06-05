@@ -31,20 +31,20 @@ class StyleTestView:WindowView{
         _ = btn
         
         
-        //topBar
-            //titleBtns
-            //menu
         //main
-            //leftBar
-        
+            //all UI
+        //leftBar
+            //topBar
+                //titleBtns
+            //menu
         //CommitsView
-            //left view
+            //List
         //RepoView
-            //left view
-        //StatsView
-            //no bars
+            //List
+        //RepoDetail
+            //TextInput's
         //PrefsView
-            //no bars
+            //TextInput's
     }
     /**
      * NOTE: gets calls from Window.didResize
