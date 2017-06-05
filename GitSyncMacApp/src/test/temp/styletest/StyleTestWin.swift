@@ -22,7 +22,6 @@ class StyleTestView:WindowView{
         
         var css:String = ""
         css += "#main{width:100%;height:100%;fill:silver;padding:0px;min-width:300px;max-width:500px;min-height:350px;max-height:700;}"
-        css += "#leftBar{fill:blue;width:80px;height:100%;float:left;}"
         css += "#content{fill:red;width:calc(100% -80px);height:100%;float:left;}"
         //"#btn{fill:blue;width:100%;height:50;float:left;clear:left;}"//calc(100% -20px)
         
@@ -32,7 +31,7 @@ class StyleTestView:WindowView{
         //self.window?.title = "StyleTest"
         
         main = self.addSubView(Section(NaN,NaN,self,"main"))
-        let leftbar = main?.addSubView(Section(NaN,NaN,main,"leftBar"))
+        let leftbar = main?.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
         _ = leftbar
         
         let content = main?.addSubView(Section(NaN,NaN,main,"content"))
@@ -68,6 +67,7 @@ class StyleTestView:WindowView{
 class LeftSideBar:Element{
     override func resolveSkin() {
         var css:String = ""
+        css += "#leftBar{fill:blue;width:80px;height:100%;float:left;}"
         css += "#buttonSection {"
         css +=     "width:100%;"
         css +=     "height:100%;"
@@ -76,13 +76,19 @@ class LeftSideBar:Element{
         css += "}"
         css += "#buttonSection SelectButton{"
         css +=     "fill:green;"
+        css +=     "fill-alpha:0.3;"
         css +=     "width:24;"
         css +=     "height:24;"
         css +=     "float:left;"
         css +=     "clear:left;"
         css +=     "margin-bottom:12px;"
         css += "}"
+        css += "#buttonSection SelectButton:selected{"
+        css +=      "fill-alpha:0.6;"
+        css += "}"
+        StyleManager.addStyle(css)
         super.resolveSkin()
+        createButtons()
     }
     func createButtons(){
         let buttonSection = self.addSubView(Section(NaN,NaN,self,"buttonSection"))
