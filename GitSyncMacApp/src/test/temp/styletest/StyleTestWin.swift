@@ -92,7 +92,7 @@ class LeftSideBar:Element{
     }
     func createButtons(){
         let buttonSection = self.addSubView(Section(NaN,NaN,self,"buttonSection"))
-        let buttonTitles = ["inbox","home","pics","camera","game","view"]
+        let buttonTitles = ["commits","repos","settings","updates"]
         var buttons:[ISelectable] = []
         for buttonTitle in buttonTitles{
             buttons.append(buttonSection.addSubView(SelectButton(20,20,true,buttonSection,buttonTitle)))
