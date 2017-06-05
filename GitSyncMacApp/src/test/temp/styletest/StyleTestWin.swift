@@ -26,7 +26,6 @@ class StyleTestView:WindowView{
         //"#btn{fill:blue;width:100%;height:50;float:left;clear:left;}"//calc(100% -20px)
         
         StyleManager.addStyle(css)
-        
         super.resolveSkin()
         //self.window?.title = "StyleTest"
         
