@@ -21,6 +21,7 @@ class StyleTestView:WindowView{
         var css:String = ""
         css += "#main{width:100%;height:100%;fill:silver;padding:0px;min-width:200px;max-width:500px;min-height:300px;max-height:600;}"
         css += "#leftBar{fill:blue;width:80px;height:100%;float:left;}"
+        css += "#content{fill:red;width:calc(100% -80px);height:100%;float:left;}"
         //"#btn{fill:blue;width:100%;height:50;float:left;clear:left;}"//calc(100% -20px)
         
         StyleManager.addStyle(css)
@@ -32,8 +33,8 @@ class StyleTestView:WindowView{
         let leftbar = main?.addSubView(Section(NaN,NaN,main,"leftBar"))
         _ = leftbar
         
-        let leftbar = main?.addSubView(Section(NaN,NaN,main,"leftBar"))
-        _ = leftbar
+        let content = main?.addSubView(Section(NaN,NaN,main,"content"))
+        _ = content
         //let btn = section!.addSubView(Element(NaN,NaN,section,"btn"))
         //_ = btn
         
