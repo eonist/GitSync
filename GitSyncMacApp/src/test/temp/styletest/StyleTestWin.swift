@@ -18,7 +18,6 @@ class StyleTestView:CustomView{
     var main:Section?
     override func resolveSkin(){
         Swift.print("StyleTestView")
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
         
         var css:String = ""
         css += "#main{width:100%;height:100%;fill:silver;fill-alpha:0;padding:0px;min-width:300px;max-width:500px;min-height:350px;max-height:700;}"
