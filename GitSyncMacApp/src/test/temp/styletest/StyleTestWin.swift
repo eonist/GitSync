@@ -26,6 +26,7 @@ class StyleTestView:CustomView{
         //"#btn{fill:blue;width:100%;height:50;float:left;clear:left;}"//calc(100% -20px)
         
         StyleManager.addStyle(css)
+        StyleManager.addStyle("~/Desktop/ElCapitan/basic/window/titlebar.css")
         super.resolveSkin()
         //self.window?.title = "StyleTest"
         
