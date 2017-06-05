@@ -67,10 +67,17 @@ class StyleTestView:WindowView{
 }
 class LeftSideBar:Element{
     override func resolveSkin() {
-        "Section#buttonSection {"
-            "padding-top:16px;"
-            "padding-left:28px;"
-        "}"
+        var css:String = ""
+        css += "Section#buttonSection {"
+        css +=     "padding-top:16px;"
+        css +=     "padding-left:28px;"
+        css += "}"
+        css += "Section#buttonSection SelectButton{"
+        css +=     "fill:green;"
+        css +=     "float:left;"
+        css +=     "clear:left;"
+        css +=     "margin-bottom:12px;"
+        css += "}"
         super.resolveSkin()
     }
     func createButtons(){
