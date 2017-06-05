@@ -8,7 +8,7 @@ class MainView:CustomView{
     var title:String
     var menuView:MenuView?//TODO: ⚠️️ Rename to MenuBar
     func createMenuView() -> MenuView{
-        return header.addSubView(MenuView(frame.size.width,MenuView.h,header))
+        return self.addSubView(MenuView(frame.size.width,MenuView.h,self))
     }
     var currentView:Element?
     var conflictDialogWin:ConflictDialogWin?
@@ -33,7 +33,7 @@ class MainView:CustomView{
             menuView.setSkinState(menuView.getSkinState())
         }
         let curViewHeight:CGFloat = {
-            if let display:String = header.skin?.style?.getValue(CSSConstants.display.rawValue) as? String, display == CSSConstants.none.rawValue{
+            if let display:String = self.skin?.style?.getValue(CSSConstants.display.rawValue) as? String, display == CSSConstants.none.rawValue{
                 return 0
             };return MenuView.h
         }()
