@@ -68,11 +68,13 @@ class StyleTestView:WindowView{
 class LeftSideBar:Element{
     override func resolveSkin() {
         var css:String = ""
-        css += "Section#buttonSection {"
+        css += "#buttonSection {"
+        css +=     "width:100%;"
+        css +=     "height:100%;"
         css +=     "padding-top:16px;"
         css +=     "padding-left:28px;"
         css += "}"
-        css += "Section#buttonSection SelectButton{"
+        css += "#buttonSection SelectButton{"
         css +=     "fill:green;"
         css +=     "width:24;"
         css +=     "height:24;"
@@ -83,9 +85,9 @@ class LeftSideBar:Element{
         super.resolveSkin()
     }
     func createButtons(){
-        let buttonSection = self.addSubView(Section(75,200,self,"buttonSection"))
+        let buttonSection = self.addSubView(Section(NaN,NaN,self,"buttonSection"))
         let buttonTitles = ["inbox","home","pics","camera","game","view"]
-        var buttons:Array<ISelectable> = []
+        var buttons:[ISelectable] = []
         for buttonTitle in buttonTitles{
             buttons.append(buttonSection.addSubView(SelectButton(20,20,true,buttonSection,buttonTitle)))
         }
