@@ -65,3 +65,6 @@ class StyleTestView:WindowView{
         ElementModifier.refreshSize(main!)
     }
 }
+class LeftSideBar:Element{
+    
+}
