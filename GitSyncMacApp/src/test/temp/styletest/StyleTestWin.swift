@@ -37,15 +37,16 @@ class StyleTestView:CustomView{
         
         let content = main?.addSubView(Section(NaN,NaN,main,"content"))
         _ = content
+        
+        let repoView = content?.addSubView(Section(NaN,NaN,content,"repo"))
         //let btn = section!.addSubView(Element(NaN,NaN,section,"btn"))
         //_ = btn
         
         
         //main ✅
-            //all UI
         //leftBar ✅
-            //topBar
-                //titleBtns
+            //topBar ✅
+                //titleBtns ✅
             //menu
         //CommitsView
             //List
