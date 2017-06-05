@@ -29,6 +29,8 @@ class StyleTestView:WindowView{
         section = self.addSubView(Section(NaN,NaN,self))
         let btn = section!.addSubView(Element(NaN,NaN,section,"btn"))
         _ = btn
+        
+        
         //topBar
             //titleBtns
             //menu
