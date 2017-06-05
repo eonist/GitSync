@@ -26,16 +26,16 @@ class StyleTestView:CustomView{
         //"#btn{fill:blue;width:100%;height:50;float:left;clear:left;}"//calc(100% -20px)
         
         StyleManager.addStyle(css)
-        StyleManager.addStyle("~/Desktop/ElCapitan/basic/window/titlebar.css")
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/basic/window/titlebar.css")
         super.resolveSkin()
         //self.window?.title = "StyleTest"
-        
-        main = self.addSubView(Section(NaN,NaN,self,"main"))
-        let leftbar = main?.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
-        _ = leftbar
-        
-        let content = main?.addSubView(Section(NaN,NaN,main,"content"))
-        _ = content
+        /*
+         main = self.addSubView(Section(NaN,NaN,self,"main"))
+         let leftbar = main?.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
+         _ = leftbar
+         
+         let content = main?.addSubView(Section(NaN,NaN,main,"content"))
+         _ = content*/
         //let btn = section!.addSubView(Element(NaN,NaN,section,"btn"))
         //_ = btn
         
