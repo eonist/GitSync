@@ -74,6 +74,8 @@ class LeftSideBar:Element{
         css += "}"
         css += "Section#buttonSection SelectButton{"
         css +=     "fill:green;"
+        css +=     "width:24;"
+        css +=     "height:24;"
         css +=     "float:left;"
         css +=     "clear:left;"
         css +=     "margin-bottom:12px;"
