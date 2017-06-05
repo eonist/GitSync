@@ -14,7 +14,7 @@ class StyleTestWin:Window {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-class StyleTestView:WindowView{
+class StyleTestView:CustomView{
     var main:Section?
     override func resolveSkin(){
         Swift.print("StyleTestView")
@@ -26,7 +26,6 @@ class StyleTestView:WindowView{
         //"#btn{fill:blue;width:100%;height:50;float:left;clear:left;}"//calc(100% -20px)
         
         StyleManager.addStyle(css)
-        
         super.resolveSkin()
         //self.window?.title = "StyleTest"
         
