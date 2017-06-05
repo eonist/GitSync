@@ -21,7 +21,7 @@ class StyleTestView:WindowView{
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
         
         var css:String = ""
-        css += "#main{width:100%;height:100%;fill:silver;padding:0px;min-width:200px;max-width:500px;min-height:300px;max-height:600;}"
+        css += "#main{width:100%;height:100%;fill:silver;padding:0px;min-width:300px;max-width:500px;min-height:350px;max-height:700;}"
         css += "#leftBar{fill:blue;width:80px;height:100%;float:left;}"
         css += "#content{fill:red;width:calc(100% -80px);height:100%;float:left;}"
         //"#btn{fill:blue;width:100%;height:50;float:left;clear:left;}"//calc(100% -20px)
@@ -41,9 +41,9 @@ class StyleTestView:WindowView{
         //_ = btn
         
         
-        //main
+        //main ✅
             //all UI
-        //leftBar
+        //leftBar ✅
             //topBar
                 //titleBtns
             //menu
