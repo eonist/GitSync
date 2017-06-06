@@ -34,8 +34,8 @@ class StyleTestView:CustomView{
         var css:String = ""
         
         css += "#main{width:100%;height:100%;fill:silver;fill-alpha:0;padding:0px;min-width:300px;max-width:500px;min-height:350px;max-height:700;}"
-        css += "#content{fill:yellow;fill-alpha:0;width:calc(100% -80px);height:100%;float:left;}"
-        css += "Section#commit{fill:white;width:100%;height:100%;}"
+        css += "#content{fill:white;fill-alpha:1;width:calc(100% -80px);height:100%;float:left;}"
+        //css += "Section#commit{fill:white;width:100%;height:100%;}"
         css += "Section#repo{fill:maroon;width:100%;height:100%;}"
         css += "Section#prefs{fill:fuchsia;width:100%;height:100%;}"
         css += "Section#repoDetail{fill:teal;width:100%;height:100%}"

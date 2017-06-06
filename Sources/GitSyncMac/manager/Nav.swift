@@ -39,7 +39,7 @@ class Nav {
         case .main(let viewType):/*Main*/
             switch viewType {
             case .commit:
-                return CommitView(NaN,NaN,mainView,"commit")
+                return CommitView(NaN,NaN,mainView)
             case .repo:
                 return Section(NaN,NaN,mainView,"repo")
             case .prefs:
