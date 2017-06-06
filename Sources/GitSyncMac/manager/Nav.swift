@@ -25,9 +25,11 @@ class Nav {
         //Navigation.activeView = view
         guard let mainView:Element = StyleTestView.main else{fatalError("mainView is nil")}
          /*let size:CGSize = CGSize(MainView.w,MainView.h - MenuView.h)
-         if let curView = mainView.currentView {curView.removeFromSuperview()}
+         
          MainWin.mainView?.menuView?.selectButton(viewType)/*Selects the correct menu icon*/
          mainView.currentView = mainView.addSubView(getView(viewType,mainView,size))*/
+        
+        if let curView = StyleTestView.currentView {curView.removeFromSuperview()}
         
         let view = getView(viewType,mainView/*,size*/)
         mainView.addSubView(view)
