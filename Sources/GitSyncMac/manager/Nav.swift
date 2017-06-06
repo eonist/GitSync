@@ -23,7 +23,7 @@ class Nav {
      */
     static func setView(_ viewType:Views2){
         //Navigation.activeView = view
-        guard let mainView:Element = StyleTestView.main else{fatalError("mainView is nil")}
+        guard let mainView:Element = StyleTestView.content else{fatalError("mainView is nil")}
          /*let size:CGSize = CGSize(MainView.w,MainView.h - MenuView.h)
          
          MainWin.mainView?.menuView?.selectButton(viewType)/*Selects the correct menu icon*/
