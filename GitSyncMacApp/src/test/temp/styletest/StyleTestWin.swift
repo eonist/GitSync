@@ -44,11 +44,9 @@ class StyleTestView:CustomView{
         StyleTestView.content = main!.addSubView(Section(NaN,NaN,main,"content"))
         
         
-        //continue here: 🏀
-            //each view should have a color 👈
-            //transition to each view via menu + enum nav sys
+        Nav.setView(Views2.main(.commit))
         
-       
+        
         //let btn = section!.addSubView(Element(NaN,NaN,section,"btn"))
         //_ = btn
         
