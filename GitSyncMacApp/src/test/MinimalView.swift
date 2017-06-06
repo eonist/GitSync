@@ -7,18 +7,15 @@ class MinimalView:WindowView{
     override func resolveSkin(){
         var css:String = ""
         css += "Window{fill-alpha:1;fill:white;corner-radius:4px;}"
-        css +=  "Button{fill:blue;fill-alpha:1;clear:left;float:left;}"
+        //css +=  "Button{fill:blue;fill-alpha:1;clear:left;float:left;}"
         //StyleManager.addStyle(css)
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)
+        //StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)
         super.resolveSkin()
         
         //treeList()
         //rotationUITest()
         //checkBoxTest()
         
-        //Continue here: 🏀
-            //Try to add many shapes to ElasticView, Is it still smooth?
-            //then try to add many SVG shapes and see if its still fast?
     }
     func treeList(){
         let url = "~/Desktop/repo2.xml"
