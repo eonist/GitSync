@@ -38,17 +38,18 @@ class StyleTestView:CustomView{
         let content = main?.addSubView(Section(NaN,NaN,main,"content"))
         _ = content
         
+        //continue here: 🏀
+            //each view should have a color 👈
+            //transition to each view via menu + enum nav sys
+        
+        let commitsView = content?.addSubView(Section(NaN,NaN,content,"commit"))
+        _ = commitsView
+        
         let repoView = content?.addSubView(Section(NaN,NaN,content,"repo"))
         _ = repoView
         //let btn = section!.addSubView(Element(NaN,NaN,section,"btn"))
         //_ = btn
         
-        
-        //main ✅
-        //leftBar ✅
-            //topBar ✅
-                //titleBtns ✅
-            //menu
         //CommitsView
             //List
         //RepoView
