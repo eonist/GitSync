@@ -7,7 +7,7 @@ class MenuContainer:Element {
     var selectGroup:SelectGroup?
     
     override func resolveSkin() {
-        Swift.print("MenuView.resolveSkin()")
+        Swift.print("MenuContainer.resolveSkin()")
         var css:String = ""
         css += "#buttonSection {"
         css +=     "width:100%;"
@@ -27,9 +27,9 @@ class MenuContainer:Element {
         css += "#buttonSection SelectButton:selected{"
         css +=      "fill-alpha:0.6;"
         css += "}"
+        StyleManager.addStyle(css)
         super.resolveSkin()//skin = SkinResolver.skin(self)
         createButtons()
-        
     }
     
     func createButtons(){
