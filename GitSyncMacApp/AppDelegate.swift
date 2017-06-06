@@ -18,9 +18,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initApp()
         styleTest()
         //initTestWin()//🚧👷
-        //initMinimalWin()
-        //paddingTest()
-        //calcTest()
+        initMinimalWin()
+        
         //StyleManager.addStyle("Button{width:calc(100% - 20px);}")
         
     }
@@ -65,6 +64,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
+
+//paddingTest()
+//calcTest()
+
 /*class Label:Flexible{
     //graphic bg
     //text that is centeres
