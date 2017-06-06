@@ -8,15 +8,7 @@ class MenuContainer:Element {
     
     override func resolveSkin() {
         Swift.print("MenuContainer.resolveSkin()")
-        var css:String = ""
-        css += "#buttonSection {"
-        css +=     "width:100%;"
-        css +=     "height:100%;"
-        css +=     "padding-top:16px;"
-        css +=     "padding-left:28px;"
-        css += "}"
         
-        StyleManager.addStyle(css)
         super.resolveSkin()//skin = SkinResolver.skin(self)
         createButtons()
     }
