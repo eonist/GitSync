@@ -18,7 +18,7 @@ class StyleTestWin:TranslucentWin {
         super.windowDidResize(notification)
         Swift.print("CustomWin.windowDidResize " + "\(self.frame.size)")
         
-        if let view = (self.view as? Element) {view.setSize(self.frame.size.width,self.frame.size.height)}
+        if let view = view {view.setSize(self.frame.size.width,self.frame.size.height)}
     }
     /*
      required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
