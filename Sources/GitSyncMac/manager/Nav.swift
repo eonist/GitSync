@@ -4,8 +4,8 @@ import Foundation
 
 enum Views2{
     enum Main:String{
-        case commits = "commit"
-        case repos = "repo"
+        case commit = "commit"
+        case repo = "repo"
         case prefs = "prefs"
     }
     case main(Main)
@@ -27,8 +27,7 @@ class Nav {
          /*let size:CGSize = CGSize(MainView.w,MainView.h - MenuView.h)
          
          MainWin.mainView?.menuView?.selectButton(viewType)/*Selects the correct menu icon*/
-         mainView.currentView = mainView.addSubView(getView(viewType,mainView,size))*/
-        
+        */
         if let curView = StyleTestView.currentView {curView.removeFromSuperview()}
         let view = getView(viewType,mainView/*,size*/)
         StyleTestView.currentView = mainView.addSubView(view)
@@ -42,12 +41,10 @@ class Nav {
         switch view{
         case .main(let viewType):/*Main*/
             switch viewType {
-            case .commits:
-                //return CommitsView(w,h,mainView)
-                fatalError("not implemented yet")
-            case .repos:
-                //return RepoView(w,h,mainView)
-                fatalError("not implemented yet")
+            case .commit:
+                return Section(NaN,NaN,StyleTestView.content,"commit")
+            case .repo:
+                return Section(NaN,NaN,StyleTestView.content,"repo")
             case .prefs:
                 //return PrefsView(w,h,mainView)
                 fatalError("not implemented yet")
