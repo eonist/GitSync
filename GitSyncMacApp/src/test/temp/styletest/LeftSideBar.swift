@@ -38,7 +38,9 @@ class LeftSideBar:Element{
         let selectGroup = SelectGroup(buttons,buttons[0]);
         func onSelect(event:Event){
             //do something here
-            
+            if let btn:SelectButton = event.origin as? SelectButton{
+                Swift.print("btn.id: " + "\(btn.id)")
+            }
         }
         selectGroup.event = onSelect
     }
