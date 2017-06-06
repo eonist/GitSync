@@ -19,15 +19,11 @@ class CommitsView:Element {
         //add a container
         _ = list/*creates the GUI List*/
     }
-    func createList(){
-        
-    }
     /**
      * Eventhandler when a CommitsListItem is clicked
      */
     func onListSelect(_ event:ListEvent){
         Swift.print("CommitsView.onListSelect()")
-        //Sounds.play?.play()
         
         //RepoView.selectedListItemIndex = list!.selectedIndex
         CommitsView.selectedIdx = list.selectedIdx!
@@ -43,20 +39,3 @@ class CommitsView:Element {
     }
 }
 
-
-/*
-class CommitsTopBar:Element{
-    var reposButton:Button?
-    override func resolveSkin() {
-        self.skin = SkinResolver.skin(self)//super.resolveSkin()
-        reposButton = addSubView(Button(16,16,self,"repos"))
-    }
-    func onReposButtonClick(){
-        Swift.print("onReposButtonClick()")
-        Navigation.setView(MenuView.repos)
-    }
-    override func onEvent(event:Event) {
-        if(event.assert(ButtonEvent.upInside, reposButton)){onReposButtonClick()}
-    }
-}
-*/
