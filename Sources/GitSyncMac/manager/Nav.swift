@@ -46,8 +46,7 @@ class Nav {
             case .repo:
                 return Section(NaN,NaN,StyleTestView.content,"repo")
             case .prefs:
-                //return PrefsView(w,h,mainView)
-                fatalError("not implemented yet")
+                return Section(NaN,NaN,StyleTestView.content,"prefs")
             }
         case .commitDetail(let commitData):/*CommitDetail*/
             _ = commitData

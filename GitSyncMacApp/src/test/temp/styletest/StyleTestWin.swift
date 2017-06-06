@@ -29,6 +29,7 @@ class StyleTestView:CustomView{
         css += "#content{fill:yellow;width:calc(100% -80px);height:100%;float:left;}"
         css += "Section#commit{fill:green;width:100%;height:100%;}"
         css += "Section#repo{fill:maroon;width:100%;height:100%;}"
+        css += "Section#prefs{fill:fuchsia;width:100%;height:100%;}"
         css += "Section#repoDetail{fill:teal;width:100%;height:100%}"
         //"#btn{fill:blue;width:100%;height:50;float:left;clear:left;}"//calc(100% -20px)
         
