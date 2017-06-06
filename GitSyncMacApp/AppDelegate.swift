@@ -28,31 +28,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()
         win = StyleTestWin(340,(400 + 10))
     }
-    /**
-     *
-     */
-    func calcTest(){
-        window.contentView = InteractiveView2()
-        var css:String = "#btn{fill:blue;width:calc(100% -20px);height:50;float:left;clear:left;}"
-        css += "Section{fill:silver;padding:12px;}"
-        StyleManager.addStyle(css)
-        
-        let section = window.contentView!.addSubView(Section(200,200))
-        let btn = section.addSubView(Element(NaN,NaN,section,"btn"))
-        
-        section.addSubview(btn)
-    }
-    func paddingTest(){
-        window.contentView = InteractiveView2()
-        var css:String = "#btn{fill:blue;width:100%;height:100%;float:left;clear:left;}"
-        css += "Section{fill:silver;padding:12px;}"
-        StyleManager.addStyle(css)
-
-        let section = window.contentView!.addSubView(Section(200,300))
-        let btn = section.addSubView(Element(NaN,NaN,section,"btn"))
-        
-        section.addSubview(btn)
-    }
+    
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
@@ -102,6 +78,34 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
     }
 }*/
+
+/*
+/**
+ *
+ */
+func calcTest(){
+    window.contentView = InteractiveView2()
+    var css:String = "#btn{fill:blue;width:calc(100% -20px);height:50;float:left;clear:left;}"
+    css += "Section{fill:silver;padding:12px;}"
+    StyleManager.addStyle(css)
+    
+    let section = window.contentView!.addSubView(Section(200,200))
+    let btn = section.addSubView(Element(NaN,NaN,section,"btn"))
+    
+    section.addSubview(btn)
+}
+func paddingTest(){
+    window.contentView = InteractiveView2()
+    var css:String = "#btn{fill:blue;width:100%;height:100%;float:left;clear:left;}"
+    css += "Section{fill:silver;padding:12px;}"
+    StyleManager.addStyle(css)
+    
+    let section = window.contentView!.addSubView(Section(200,300))
+    let btn = section.addSubView(Element(NaN,NaN,section,"btn"))
+    
+    section.addSubview(btn)
+}
+ */
 /**
  *
  */
