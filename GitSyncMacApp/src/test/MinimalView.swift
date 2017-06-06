@@ -12,7 +12,7 @@ class MinimalView:WindowView{
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)
         super.resolveSkin()
         
-        treeList()
+        //treeList()
         //rotationUITest()
         //checkBoxTest()
         
@@ -20,7 +20,6 @@ class MinimalView:WindowView{
             //Try to add many shapes to ElasticView, Is it still smooth?
             //then try to add many SVG shapes and see if its still fast?
     }
-    
     func treeList(){
         let url = "~/Desktop/repo2.xml"
         //let url = "~/Desktop/assets/xml/treelist.xml"
