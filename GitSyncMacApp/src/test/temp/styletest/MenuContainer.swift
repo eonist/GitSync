@@ -33,9 +33,8 @@ class MenuContainer:Element {
     }
     
     func createButtons(){
-        let buttonSection = self.addSubView(Section(NaN,NaN,self,"buttonSection"))
         var buttons:[ISelectable] = MenuContainer.buttonTitles.map{ buttonTitle in
-            return buttonSection.addSubView(SelectButton(20,20,true,buttonSection,buttonTitle.rawValue))
+            return self.addSubView(SelectButton(20,20,true,self,buttonTitle.rawValue))
         }
         selectGroup = SelectGroup(buttons,buttons[0])
         func onSelect(event:Event){
@@ -48,8 +47,6 @@ class MenuContainer:Element {
         selectGroup!.event = onSelectGroupChange
         //selectGroup.event = onSelect
     }
-    
-    
     func onSelectGroupChange(event:Event){
         if(event === (SelectGroupEvent.change,selectGroup!)){
             let buttonId:String = (selectGroup!.selected as! Element).id!

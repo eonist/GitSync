@@ -10,7 +10,8 @@ class LeftSideBar:Element{
         
         StyleManager.addStyle(css)
         super.resolveSkin()
-        
+        let menuContainer = MenuContainer(NaN,NaN,self)
+        self.addSubview(menuContainer)
     }
     
 }
