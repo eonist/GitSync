@@ -30,9 +30,9 @@ class Nav {
          mainView.currentView = mainView.addSubView(getView(viewType,mainView,size))*/
         
         if let curView = StyleTestView.currentView {curView.removeFromSuperview()}
-        
         let view = getView(viewType,mainView/*,size*/)
-        mainView.addSubView(view)
+        StyleTestView.currentView = mainView.addSubView(view)
+        
     }
     private static func getView(_ view:Views2,_ mainView:Element/*,_ size:CGSize*/)->Element{
         /*let w:CGFloat = size.w/*Convenience*/
