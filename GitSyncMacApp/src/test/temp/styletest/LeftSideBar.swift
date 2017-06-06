@@ -30,20 +30,16 @@ class LeftSideBar:Element{
     }
     func createButtons(){
         let buttonSection = self.addSubView(Section(NaN,NaN,self,"buttonSection"))
-        let buttonTitles = ["commit","repo","prefs"]
-        var buttons:[ISelectable] = []
-        for buttonTitle in buttonTitles{
-            buttons.append(buttonSection.addSubView(SelectButton(20,20,true,buttonSection,buttonTitle)))
+        var buttons:[ISelectable] = ["commit","repo","prefs"].map{ buttonTitle in
+            return buttonSection.addSubView(SelectButton(20,20,true,buttonSection,buttonTitle))
         }
-        let selectGroup = SelectGroup(buttons,buttons[0]);
+        let selectGroup = SelectGroup(buttons,buttons[0])
         func onSelect(event:Event){
-            //do something here
             if event.type == SelectEvent.select {
                 if let btn:SelectButton = event.origin as? SelectButton{
                     Swift.print("btn.id: " + "\(btn.id)")
                 }
             }
-            
         }
         selectGroup.event = onSelect
     }
