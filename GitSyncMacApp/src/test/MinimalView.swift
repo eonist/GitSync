@@ -6,7 +6,7 @@ import Cocoa
 class MinimalView:WindowView{
     override func resolveSkin(){
         var css:String = ""
-        css += "Window{fill-alpha:1;fill:maroon;corner-radius:4px;}"
+        css += "Window{fill-alpha:1;fill:maroon;}"/*corner-radius:0px;*/
         //css +=  "Button{fill:blue;fill-alpha:1;clear:left;float:left;}"
         StyleManager.addStyle(css)
         //StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)
