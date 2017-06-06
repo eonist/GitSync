@@ -10,7 +10,7 @@ class CommitView:Element{
     //var topBar:CommitsTopBar?
     lazy var list:CommitsList = {
         let dp = CommitDPCache.read()/*Creates the dp based on cached data from previous app runs*/
-        let list = self.addSubView(CommitsList.init(CommitsView.w, CommitsView.h, CGSize(24,102), dp, self,"commitsList"))/*24 should be allowed to be nan no?*/
+        let list = self.addSubView(CommitsList.init(CommitsView.w, CommitsView.h, CGSize(24,102), dp, self,"commitList"))/*24 should be allowed to be nan no?*/
         //⚠️️list!.selectAt(dpIdx: CommitsView.selectedIdx)
         return list
     }()
