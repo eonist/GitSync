@@ -23,19 +23,19 @@ class Nav {
      */
     static func setView(_ viewType:Views2){
         //Navigation.activeView = view
-        /*guard let mainView:MainView = MainWin.mainView else{fatalError("mainView is nil")}
-         let size:CGSize = CGSize(MainView.w,MainView.h - MenuView.h)
+        guard let mainView:Element = StyleTestView.main else{fatalError("mainView is nil")}
+         /*let size:CGSize = CGSize(MainView.w,MainView.h - MenuView.h)
          if let curView = mainView.currentView {curView.removeFromSuperview()}
          MainWin.mainView?.menuView?.selectButton(viewType)/*Selects the correct menu icon*/
          mainView.currentView = mainView.addSubView(getView(viewType,mainView,size))*/
         
-        let view = getView(viewType,mainView,size)
+        let view = getView(viewType,mainView/*,size*/)
     }
-    private static func getView(_ view:Views2,_ mainView:Element,_ size:CGSize)->Element{
-        let w:CGFloat = size.w/*Convenience*/
-        _ = w
-        let h:CGFloat = size.h
-        _ = h
+    private static func getView(_ view:Views2,_ mainView:Element/*,_ size:CGSize*/)->Element{
+        /*let w:CGFloat = size.w/*Convenience*/
+         _ = w
+         let h:CGFloat = size.h
+         _ = h*/
         switch view{
         case .main(let viewType):/*Main*/
             switch viewType {
