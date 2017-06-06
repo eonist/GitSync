@@ -2,19 +2,33 @@ import Cocoa
 @testable import Element
 @testable import Utils
 
+class VibrantWin:TranslucentWin{
+    
+}
+
 class StyleTestWin:TranslucentWin {
-    required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
-        super.init(docWidth, docHeight)
+    convenience init(_ w:CGFloat,_ h:CGFloat){
+        self.init(contentRect:NSRect(0,0,w,h), styleMask: [.borderless,.resizable], backing:NSBackingStoreType.buffered, defer: false)
         WinModifier.align(self, Alignment.centerCenter, Alignment.centerCenter,CGPoint(6,0))/*aligns the window to the screen*/
         self.minSize = CGSize(300,350)
         self.maxSize = CGSize(500,700)
+        
+        let view = StyleTestView(frame.size.width,frame.size.height)//340,(400 + 10)
+        self.contentView?.addSubview(view)
+        
+        
     }
-    override func resolveSkin() {
-        self.contentView = StyleTestView(frame.size.width,frame.size.height)
-    }
-    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    /*
+     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
+     super.init(docWidth, docHeight)
+     
+     }
+     override func resolveSkin() {
+     
+     }*/
+    //required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-class StyleTestView:TranslucentView{
+class StyleTestView:Element{
     var main:Section?
     static var content:Section?
     static var currentView:Element?
