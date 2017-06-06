@@ -39,6 +39,7 @@ class StyleTestView:CustomView{
         _ = content
         
         let repoView = content?.addSubView(Section(NaN,NaN,content,"repo"))
+        _ = repoView
         //let btn = section!.addSubView(Element(NaN,NaN,section,"btn"))
         //_ = btn
         
