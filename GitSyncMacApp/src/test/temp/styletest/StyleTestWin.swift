@@ -15,7 +15,7 @@ class StyleTestWin:Window {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 class StyleTestView:CustomView{
-    var main:Section?
+    static var main:Section?
     override func resolveSkin(){
         Swift.print("StyleTestView")
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")//StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
@@ -34,18 +34,19 @@ class StyleTestView:CustomView{
         super.resolveSkin()
         //self.window?.title = "StyleTest"
         
-        main = self.addSubView(Section(NaN,NaN,self,"main"))
-        let leftbar = main?.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
+        StyleTestView.main = self.addSubView(Section(NaN,NaN,self,"main"))
+        guard let main = StyleTestView.main else{}
+        let leftbar = main.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
         _ = leftbar
         
-        let content = main?.addSubView(Section(NaN,NaN,main,"content"))
+        let content = main.addSubView(Section(NaN,NaN,main,"content"))
         _ = content
         
         //continue here: 🏀
             //each view should have a color 👈
             //transition to each view via menu + enum nav sys
         
-        let commitsView = content?.addSubView(Section(NaN,NaN,content,"commit"))
+        let commitsView = content.addSubView(Section(NaN,NaN,content,"commit"))
         _ = commitsView
         
         /*let repoView = content?.addSubView(Section(NaN,NaN,content,"repo"))
