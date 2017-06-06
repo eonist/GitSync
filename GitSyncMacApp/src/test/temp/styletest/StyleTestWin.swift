@@ -3,15 +3,22 @@ import Cocoa
 @testable import Utils
 
 class StyleTestWin:TranslucentWin {
+    var view:Element?
     convenience init(_ w:CGFloat,_ h:CGFloat){
         self.init(contentRect:NSRect(0,0,w,h), styleMask: [.borderless,.resizable], backing:NSBackingStoreType.buffered, defer: false)
         WinModifier.align(self, Alignment.centerCenter, Alignment.centerCenter,CGPoint(6,0))/*aligns the window to the screen*/
         self.minSize = CGSize(300,350)
         self.maxSize = CGSize(500,700)
         
-        let view = StyleTestView(frame.size.width,frame.size.height)//340,(400 + 10)
-        self.contentView?.addSubview(view)
+        view = StyleTestView(frame.size.width,frame.size.height)//340,(400 + 10)
+        self.contentView?.addSubview(view!)
         
+    }
+    override func windowDidResize(_ notification: Notification) {
+        super.windowDidResize(notification)
+        Swift.print("CustomWin.windowDidResize " + "\(self.frame.size)")
+        
+        if let view = (self.view as? Element) {view.setSize(self.frame.size.width,self.frame.size.height)}
     }
     /*
      required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
