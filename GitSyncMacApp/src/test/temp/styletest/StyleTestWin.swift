@@ -18,6 +18,8 @@ class StyleTestView:CustomView{
     var main:Section?
     static var content:Section?
     static var currentView:Element?
+    static var leftbar:Element?
+    
     override func resolveSkin(){
         Swift.print("StyleTestView")
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")//StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
@@ -39,8 +41,8 @@ class StyleTestView:CustomView{
         
         main = self.addSubView(Section(NaN,NaN,self,"main"))
         
-        let leftbar = main!.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
-        _ = leftbar
+        StyleTestView.leftbar = main!.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
+        
         
         StyleTestView.content = main!.addSubView(Section(NaN,NaN,main,"content"))
         
