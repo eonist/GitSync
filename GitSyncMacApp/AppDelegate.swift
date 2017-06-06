@@ -42,7 +42,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/test.css",false)
         win = TestWin(500,400)/*Debugging Different List components*/
         
-        /*fileWatcher = */
+        /*fileWatcher =*/
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
     }
     func initMinimalWin(){
