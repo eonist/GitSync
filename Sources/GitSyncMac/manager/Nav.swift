@@ -30,6 +30,7 @@ class Nav {
          mainView.currentView = mainView.addSubView(getView(viewType,mainView,size))*/
         
         let view = getView(viewType,mainView/*,size*/)
+        mainView.addSubView(view)
     }
     private static func getView(_ view:Views2,_ mainView:Element/*,_ size:CGSize*/)->Element{
         /*let w:CGFloat = size.w/*Convenience*/

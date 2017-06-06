@@ -16,6 +16,7 @@ class StyleTestWin:Window {
 }
 class StyleTestView:CustomView{
     static var main:Section?
+    var currentView:Element?
     override func resolveSkin(){
         Swift.print("StyleTestView")
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")//StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
