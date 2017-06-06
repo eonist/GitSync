@@ -16,9 +16,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
    
         //initApp()
-        //styleTest()
+        styleTest()
         //initTestWin()//🚧👷
-        initMinimalWin()
+        //initMinimalWin()
         
         //StyleManager.addStyle("Button{width:calc(100% - 20px);}")
     }
