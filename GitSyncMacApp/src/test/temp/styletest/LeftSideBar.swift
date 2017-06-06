@@ -30,7 +30,7 @@ class LeftSideBar:Element{
     }
     func createButtons(){
         let buttonSection = self.addSubView(Section(NaN,NaN,self,"buttonSection"))
-        let buttonTitles = ["commits","repos","settings"]
+        let buttonTitles = ["commit","repo","prefs"]
         var buttons:[ISelectable] = []
         for buttonTitle in buttonTitles{
             buttons.append(buttonSection.addSubView(SelectButton(20,20,true,buttonSection,buttonTitle)))
@@ -38,6 +38,7 @@ class LeftSideBar:Element{
         let selectGroup = SelectGroup(buttons,buttons[0]);
         func onSelect(event:Event){
             //do something here
+            
         }
         selectGroup.event = onSelect
     }
