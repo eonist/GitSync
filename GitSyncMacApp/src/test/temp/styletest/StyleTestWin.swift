@@ -2,7 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 
-class StyleTestWin:Window {
+class StyleTestWin:TranslucentWin {
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
         super.init(docWidth, docHeight)
         WinModifier.align(self, Alignment.centerCenter, Alignment.centerCenter,CGPoint(6,0))/*aligns the window to the screen*/
@@ -14,7 +14,7 @@ class StyleTestWin:Window {
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-class StyleTestView:CustomView{
+class StyleTestView:TranslucentView{
     var main:Section?
     static var content:Section?
     static var currentView:Element?
