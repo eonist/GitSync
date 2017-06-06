@@ -15,7 +15,7 @@ class MenuContainer:Element {
     
     func createButtons(){
         var buttons:[ISelectable] = MenuContainer.buttonTitles.map{ buttonTitle in
-            return self.addSubView(SelectButton(20,20,true,self,buttonTitle.rawValue))
+            return self.addSubView(SelectButton(20,20,false,self,buttonTitle.rawValue))
         }
         selectGroup = SelectGroup(buttons,buttons[0])
         func onSelect(event:Event){
