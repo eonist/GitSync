@@ -13,5 +13,4 @@ class LeftSideBar:Element{
         self.menuContainer = self.addSubView(MenuContainer(NaN,NaN,self,"buttonSection"))
         
     }
-    
 }

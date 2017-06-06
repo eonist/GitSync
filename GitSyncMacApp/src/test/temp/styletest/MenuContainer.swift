@@ -37,3 +37,17 @@ class MenuContainer:Element {
         }
     }
 }
+
+extension MenuContainer{
+    /**
+     * Selects the button based on Main view enum case 👌
+     */
+    func selectButton(_ view:Views2){
+        switch view {
+        case .main(let viewType):
+            selectGroup!.selectables.forEach{if(($0 as! Element).id == viewType.rawValue){$0.setSelected(true)}}
+        default:
+            _ = ""//do nothing
+        }
+    }
+}

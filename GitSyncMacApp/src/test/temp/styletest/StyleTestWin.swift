@@ -18,7 +18,7 @@ class StyleTestView:CustomView{
     var main:Section?
     static var content:Section?
     static var currentView:Element?
-    static var leftbar:Element?
+    static var leftbar:LeftSideBar?
     
     override func resolveSkin(){
         Swift.print("StyleTestView")

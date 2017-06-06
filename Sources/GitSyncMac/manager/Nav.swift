@@ -24,7 +24,7 @@ class Nav {
     static func setView(_ viewType:Views2){
         //Navigation.activeView = view
         guard let mainView:Element = StyleTestView.content else{fatalError("mainView is nil")}
-        StyleTestView.leftbar.menuContainer.selectButton(viewType)/*Selects the correct menu icon*/
+        StyleTestView.leftbar?.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
         if let curView = StyleTestView.currentView {curView.removeFromSuperview()}
         let view = getView(viewType,mainView/*,size*/)
         StyleTestView.currentView = mainView.addSubView(view)
