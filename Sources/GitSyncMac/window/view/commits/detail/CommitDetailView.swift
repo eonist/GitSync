@@ -22,7 +22,7 @@ class CommitDetailView:Element {
     }()
     override func resolveSkin() {
         Swift.print("CommitDetailView.resolveSkin()")
-        self.skin = SkinResolver.skin(self)//super.resolveSkin()
+       super.resolveSkin()// self.skin = SkinResolver.skin(self)//
         _ = repoNameText
         _ = titleText
         _ = descText
