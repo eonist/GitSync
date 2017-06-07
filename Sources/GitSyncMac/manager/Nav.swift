@@ -43,7 +43,7 @@ class Nav {
             case .repo:
                 return RepoView2(NaN,NaN,mainView)
             case .prefs:
-                return Section(NaN,NaN,mainView,"prefs")
+                return PrefsView(NaN,NaN,mainView)
             }
         case .commitDetail(let commitData):/*CommitDetail*/
             let view:CommitDetailView = CommitDetailView(NaN,NaN,mainView)
