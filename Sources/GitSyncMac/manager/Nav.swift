@@ -47,7 +47,7 @@ class Nav {
             }
         case .commitDetail(let commitData):/*CommitDetail*/
             let view:CommitDetailView = CommitDetailView(NaN,NaN,mainView)
-             view.setCommitData(commitData)/*updates the UI elements with the selected commit item*/
+             view.setCommitData(commitData)
              return view
             //fatalError("not implemented yet")
         case .repoDetail(let idx3d):/*RepoDetail*/
