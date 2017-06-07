@@ -27,7 +27,7 @@ class CommitsListItem:Button,ISelectable{
     }
     override func resolveSkin() {
         super.resolveSkin()
-        let container = addSubView(Section(getWidth(),100,self,"textContainer"))
+        let container = addSubView(Section(NaN,100,self,"textContainer"))
         
         repoNameText = container.addSubView(Text(NaN,NaN,repoName,container,"repoName"))
         repoNameText!.isInteractive = false
@@ -85,7 +85,8 @@ class CommitsListItem:Button,ISelectable{
         return "\(CommitsListItem.self)"
     }
     override func setSize(_ width: CGFloat, _ height: CGFloat) {
-        Swift.print("width: " + "\(width)")
+        Swift.print("CommitsListItem.width: " + "\(width)")
+        Swift.print("getWidth(): " + "\(getWidth())")
         super.setSize(width,height)
     }
     /*override func hitTest(_ aPoint: NSPoint) -> NSView? {
