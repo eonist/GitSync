@@ -6,6 +6,7 @@ enum Views2{
     enum Main:String{
         case commit = "commit"
         case repo = "repo"
+        case stats = "stats"
         case prefs = "prefs"
     }
     case main(Main)
@@ -42,6 +43,8 @@ class Nav {
                 return CommitView(NaN,NaN,mainView)
             case .repo:
                 return Section(NaN,NaN,mainView,"repo")
+            case .stats:
+                return Section(NaN,NaN,mainView,"stats")
             case .prefs:
                 return Section(NaN,NaN,mainView,"prefs")
             }
