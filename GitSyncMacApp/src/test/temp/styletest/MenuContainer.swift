@@ -3,7 +3,7 @@ import Cocoa
 @testable import Element
 
 class MenuContainer:Element {
-    static let buttonTitles:[Views2.Main] = [.commit,.repo,.stats,.prefs]
+    static let buttonTitles:[Views2.Main] = [.commit,.repo,.prefs]
     var selectGroup:SelectGroup?
     
     override func resolveSkin() {
