@@ -11,7 +11,7 @@ class MenuContainer:Element {
         
         super.resolveSkin()//skin = SkinResolver.skin(self)
         createButtons()
-        _ = self.addSubView(Element(100, 100, self, "ruler"))
+        
     }
     
     func createButtons(){
