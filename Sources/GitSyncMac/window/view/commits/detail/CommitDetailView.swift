@@ -11,7 +11,7 @@ class CommitDetailView:Element {
         return repoNameText
     }()
     lazy var titleText:Text = {
-        let titleText = self.addSubView(Text(NaN,24,"commit title",self,"title"))
+        let titleText = self.addSubView(Text(NaN,NaN,"commit title",self,"title"))
         titleText.isInteractive = false
         return titleText
     }()
