@@ -54,7 +54,7 @@ class StyleTestView:CustomView{
      */
     override func setSize(_ width:CGFloat,_ height:CGFloat){
         super.setSize(width, height)
-        Swift.print("StyleTestView.setSize w:\(width) h:\(height)")
+        //Swift.print("StyleTestView.setSize w:\(width) h:\(height)")
         ElementModifier.refreshSize(main!)
     }
 }
