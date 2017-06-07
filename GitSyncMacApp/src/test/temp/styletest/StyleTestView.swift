@@ -13,25 +13,12 @@ class StyleTestView:CustomView{
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")//StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
         
         super.resolveSkin()
-        
         main = self.addSubView(Section(NaN,NaN,self,"main"))
         
         StyleTestView.leftbar = main!.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
         StyleTestView.content = main!.addSubView(Section(NaN,NaN,main,"content"))
-        Nav.setView(Views2.main(.repo))
+        Nav.setView(Views2.main(.prefs))
         
-        
-        //let btn = section!.addSubView(Element(NaN,NaN,section,"btn"))
-        //_ = btn
-        
-        //CommitsView
-        //List
-        //RepoView
-        //List
-        //RepoDetail
-        //TextInput's
-        //PrefsView
-        //TextInput's
     }
     /**
      * NOTE: gets calls from Window.didResize
