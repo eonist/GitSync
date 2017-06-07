@@ -84,6 +84,10 @@ class CommitsListItem:Button,ISelectable{
     override func getClassType() -> String {
         return "\(CommitsListItem.self)"
     }
+    override func setSize(_ width: CGFloat, _ height: CGFloat) {
+        Swift.print("width: " + "\(width)")
+        super.setSize(width,height)
+    }
     /*override func hitTest(_ aPoint: NSPoint) -> NSView? {
      Swift.print("layer!.position: " + "\(layer!.position)")
      let aPoint = aPoint + CGPoint(layer!.position.x,layer!.position.y)
