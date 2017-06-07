@@ -37,4 +37,8 @@ class CommitView:Element{
         if(event.type == ListEvent.select){onListSelect(event as! ListEvent)}
         //else {super.onEvent(event)}//forward other events
     }
+    override func setSize(_ width: CGFloat, _ height: CGFloat) {
+        Swift.print("CommitView.width: " + "\(width)")
+        super.setSize(width, height)
+    }
 }
