@@ -28,6 +28,7 @@ class CommitsListItem:Button,ISelectable{
     override func resolveSkin() {
         super.resolveSkin()
         let container = addSubView(Section(getWidth(),100,self,"textContainer"))
+        
         repoNameText = container.addSubView(Text(220,20,repoName,container,"repoName"))
         repoNameText!.isInteractive = false
         contributorText = container.addSubView(Text(100,20,contributor,container,"contributor"))
