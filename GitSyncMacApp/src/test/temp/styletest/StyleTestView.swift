@@ -18,7 +18,7 @@ class StyleTestView:CustomView{
         
         StyleTestView.leftbar = main!.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
         StyleTestView.content = main!.addSubView(Section(NaN,NaN,main,"content"))
-        Nav.setView(Views2.main(.commit))
+        Nav.setView(Views2.main(.repo))
         
         
         //let btn = section!.addSubView(Element(NaN,NaN,section,"btn"))
