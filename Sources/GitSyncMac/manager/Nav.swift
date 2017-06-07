@@ -1,7 +1,7 @@
 import Foundation
 @testable import Utils
 @testable import Element
-
+@testable import GitSyncMac
 enum Views2{
     enum Main:String{
         case commit = "commit"
@@ -46,11 +46,10 @@ class Nav {
                 return Section(NaN,NaN,mainView,"prefs")
             }
         case .commitDetail(let commitData):/*CommitDetail*/
-            _ = commitData
-            /*let view:CommitDetailView = CommitDetailView(w,h,mainView)
-             view.setCommitData(commitData)
-             return view*/
-            fatalError("not implemented yet")
+            let view:CommitDetailView = CommitDetailView(NaN,NaN,mainView)
+             view.setCommitData(commitData)/*updates the UI elements with the selected commit item*/
+             return view
+            //fatalError("not implemented yet")
         case .repoDetail(let idx3d):/*RepoDetail*/
             _ = idx3d
             /*let view:RepoDetailView = RepoDetailView(w,h,mainView)
