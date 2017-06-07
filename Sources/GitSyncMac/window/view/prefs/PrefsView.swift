@@ -36,7 +36,7 @@ class PrefsView:Element {
         //Git-Config-EmailName
         gitEmailNameTextInput = addSubView(TextInput(width, NaN, "Git Config Email: ", PrefsView.gitEmailNameText!, self))
         //defaultLocalPath
-        defaultLocalPathTextInput = addSubView(TextInput(width, NaN, "Default local path: ", PrefsView.defaultLocalPath, self))
+        defaultLocalPathTextInput = addSubView(TextInput(width, NaN, "Local path: ", PrefsView.defaultLocalPath, self))
         //UI sounds [x]
         uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, NaN, "UI sounds: ", PrefsView.uiSounds!, self))
         //Dark mode:
