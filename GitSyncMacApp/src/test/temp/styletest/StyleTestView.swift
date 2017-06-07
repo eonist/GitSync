@@ -12,27 +12,12 @@ class StyleTestView:CustomView{
         Swift.print("StyleTestView")
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")//StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
         
-        var css:String = ""
-        
-        
-        //css += "Section#commit{fill:white;width:100%;height:100%;}"
-        css += ""
-        css += ""
-        css += ""
-        //"#btn{fill:blue;width:100%;height:50;float:left;clear:left;}"//calc(100% -20px)
-        
-        StyleManager.addStyle(css)
         super.resolveSkin()
-        //self.window?.title = "StyleTest"
         
         main = self.addSubView(Section(NaN,NaN,self,"main"))
         
         StyleTestView.leftbar = main!.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
-        
-        
         StyleTestView.content = main!.addSubView(Section(NaN,NaN,main,"content"))
-        
-        
         Nav.setView(Views2.main(.commit))
         
         
