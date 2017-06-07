@@ -29,9 +29,9 @@ class CommitsListItem:Button,ISelectable{
         super.resolveSkin()
         let container = addSubView(Section(getWidth(),100,self,"textContainer"))
         
-        repoNameText = container.addSubView(Text(220,20,repoName,container,"repoName"))
+        repoNameText = container.addSubView(Text(NaN,NaN,repoName,container,"repoName"))
         repoNameText!.isInteractive = false
-        contributorText = container.addSubView(Text(100,20,contributor,container,"contributor"))
+        contributorText = container.addSubView(Text(NaN,NaN,contributor,container,"contributor"))
         contributorText!.isInteractive = false
         
         titleText = container.addSubView(Text(360,24,title,container,"title"))
