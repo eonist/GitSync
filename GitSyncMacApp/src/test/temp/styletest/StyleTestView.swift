@@ -16,9 +16,9 @@ class StyleTestView:CustomView{
         
         
         //css += "Section#commit{fill:white;width:100%;height:100%;}"
-        css += "Section#repo{fill:maroon;width:100%;height:100%;}"
-        css += "Section#prefs{fill:fuchsia;width:100%;height:100%;}"
-        css += "Section#repoDetail{fill:teal;width:100%;height:100%}"
+        css += ""
+        css += ""
+        css += ""
         //"#btn{fill:blue;width:100%;height:50;float:left;clear:left;}"//calc(100% -20px)
         
         StyleManager.addStyle(css)
