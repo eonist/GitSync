@@ -39,6 +39,9 @@ class CommitView:Element{
     }
     override func setSize(_ width: CGFloat, _ height: CGFloat) {
         Swift.print("CommitView.width: " + "\(width)")
+        Swift.print("list.frame.width: " + "\(list.frame.width)")
+        /*Swift.print("list.contentContainer.frame.width: " + "\(list.contentContainer.frame.width)")
+         Swift.print("list.rbContainer.frame.width: " + "\(list.rbContainer?.frame.width)")*/
         super.setSize(width, height)
     }
 }
