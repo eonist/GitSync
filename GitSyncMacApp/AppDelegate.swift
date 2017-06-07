@@ -26,7 +26,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()
         win = StyleTestWin(320,(400 + 10))
     }
-    
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
          StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
