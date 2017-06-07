@@ -41,8 +41,9 @@ class CommitView:Element{
         Swift.print("CommitView.width: " + "\(width)")
         Swift.print("list.frame.width: " + "\(list.frame.width)")
         Swift.print("list.contentContainer.width: " + "\(list.contentContainer.width)")
+        Swift.print("list.rbContainer.width: " + "\(list.rbContainer?.width)")
         /*Swift.print("list.contentContainer.frame.width: " + "\(list.contentContainer.frame.width)")
-         Swift.print("list.rbContainer.frame.width: " + "\(list.rbContainer?.frame.width)")*/
+         */
         super.setSize(width, height)
     }
 }
