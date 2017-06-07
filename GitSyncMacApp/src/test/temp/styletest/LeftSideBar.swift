@@ -12,6 +12,7 @@ class LeftSideBar:Element{
         super.resolveSkin()
         self.menuContainer = self.addSubView(MenuContainer(NaN,NaN,self,"buttonSection"))
         
+        
         _ = self.addSubView(Element(100, 100, self, "ruler"))
     }
 }
