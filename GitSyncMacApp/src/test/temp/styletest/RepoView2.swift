@@ -12,7 +12,7 @@ class RepoView2:Element {
         let dp:DataProvider = DataProvider(xml)
         
         let buttonSection = addSubView(Section(NaN,NaN,self,"buttonSection"))
-        
+        _ = buttonSection
         
         let list:ElasticSlideScrollFastList3 = self.addSubView(ElasticSlideScrollFastList3.init(getWidth(), getHeight(), CGSize(24,32), dp, self, "", .ver))
         list.selectAt(1)
