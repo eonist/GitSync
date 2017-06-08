@@ -25,7 +25,7 @@ import Cocoa
         //getItemsAt3dIDX
         //addItemsToList
 
-    
+
 
 
 class RepoView2:Element {
@@ -35,13 +35,10 @@ class RepoView2:Element {
     lazy var backBtn:TextButton = {
         return self.buttonSection.addSubView(TextButton(NaN,NaN,"Back",self.buttonSection,"back"))
     }()
-    lazy var forwardBtn:TextButton = {
-        return self.buttonSection.addSubView(TextButton(NaN,NaN,"Forward",self.buttonSection,"forward"))
-    }()
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
         _ = backBtn
-        _ = forwardBtn
+        
         
         _ = self.addSubView(Element(NaN, NaN, self, "ruler"))
         
