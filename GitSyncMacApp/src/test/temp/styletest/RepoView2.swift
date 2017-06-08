@@ -30,7 +30,7 @@ class RepoView2:Element {
     override func onEvent(_ event: Event) {
         if event.type == ButtonEvent.upInside && event.origin === backBtn {
             Swift.print("back")
-        }else if event.type == ButtonEvent.upInside && event.origin === backBtn {
+        }else if event.type == ButtonEvent.upInside && event.origin === forwardBtn {
             Swift.print("forward")
         }
     }
