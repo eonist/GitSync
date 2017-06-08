@@ -6,6 +6,8 @@ import Cocoa
  * 
  */
 class RepoView2:Element {
+    
+    
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
         let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)
