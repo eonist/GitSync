@@ -10,10 +10,10 @@ class RepoView2:Element {
         return self.addSubView(Section(NaN,NaN,self,"buttonSection"))
     }()
     lazy var backBtn:TextButton = {
-        return self.buttonSection.addSubView(TextButton(NaN,NaN,"back",self.buttonSection,"back"))
+        return self.buttonSection.addSubView(TextButton(NaN,NaN,"Back",self.buttonSection,"back"))
     }()
     lazy var forwardBtn:TextButton = {
-        return self.buttonSection.addSubView(TextButton(NaN,NaN,"forward",self.buttonSection,"forward"))
+        return self.buttonSection.addSubView(TextButton(NaN,NaN,"Forward",self.buttonSection,"forward"))
     }()
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
@@ -24,6 +24,13 @@ class RepoView2:Element {
         let dp:DataProvider = DataProvider(xml)
         let list:ElasticSlideScrollFastList3 = self.addSubView(ElasticSlideScrollFastList3.init(getWidth(), getHeight(), CGSize(24,32), dp, self, "", .ver))
         list.selectAt(1)
+    }
+    override func onEvent(_ event: Event) {
+        if event.type == ButtonEvent.upInside && event.origin === backBtn {
+            
+        }else if event.type == ButtonEvent.upInside && event.origin === backBtn {
+            
+        }
     }
     override func getClassType() -> String {
         return "\(RepoView.self)"
