@@ -11,6 +11,7 @@ class RepoView2:Element {
         let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)
         let dp:DataProvider = DataProvider(xml)
         
+        let buttonSection = addSubView(Section(NaN,NaN,self,"buttonSection"))
         
         
         let list:ElasticSlideScrollFastList3 = self.addSubView(ElasticSlideScrollFastList3.init(getWidth(), getHeight(), CGSize(24,32), dp, self, "", .ver))
