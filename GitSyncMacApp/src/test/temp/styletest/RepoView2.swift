@@ -14,10 +14,10 @@ class RepoView2:Element {
         let buttonSection = addSubView(Section(NaN,NaN,self,"buttonSection"))
         _ = buttonSection
         
-        let backBtn = addSubView(TextButton(NaN,NaN,"back",self,"back"))
+        let backBtn = buttonSection.addSubView(TextButton(NaN,NaN,"back",buttonSection,"back"))
         _ = backBtn
         
-        let forwardBtn = addSubView(TextButton(NaN,NaN,"forward",self,"forward"))
+        let forwardBtn = buttonSection.addSubView(TextButton(NaN,NaN,"forward",buttonSection,"forward"))
         _ = forwardBtn
         
         let list:ElasticSlideScrollFastList3 = self.addSubView(ElasticSlideScrollFastList3.init(getWidth(), getHeight(), CGSize(24,32), dp, self, "", .ver))
