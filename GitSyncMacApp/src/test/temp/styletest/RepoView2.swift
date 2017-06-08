@@ -12,12 +12,20 @@ import Cocoa
     //cur3dIdx:[Int] = [0]
     //prev3dIdx:[Int]? = nil
 
-    //get items at idx
+    //getItemsAt3dIdx
 
     //on list click
         //find 2dIDX
-        //
+        //append to cur3dIDX
+        //getItemsAt3dIdx
+        //add items to list
 
+    //on backBtn click
+        //remove the last item in curidx3d
+        //getItemsAt3dIDX
+        //addItemsToList
+
+    
 
 
 class RepoView2:Element {
