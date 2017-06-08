@@ -20,6 +20,8 @@ class RepoView2:Element {
         _ = backBtn
         _ = forwardBtn
         
+        _ = self.addSubView(Element(NaN, NaN, self, "ruler"))
+        
         let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)
         let dp:DataProvider = DataProvider(xml)
         let list:ElasticSlideScrollFastList3 = self.addSubView(ElasticSlideScrollFastList3.init(getWidth(), getHeight(), CGSize(24,32), dp, self, "", .ver))
