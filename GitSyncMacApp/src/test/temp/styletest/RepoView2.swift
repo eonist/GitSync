@@ -29,9 +29,9 @@ class RepoView2:Element {
     }
     override func onEvent(_ event: Event) {
         if event.type == ButtonEvent.upInside && event.origin === backBtn {
-            
+            Swift.print("back")
         }else if event.type == ButtonEvent.upInside && event.origin === backBtn {
-            
+            Swift.print("forward")
         }
     }
     override func getClassType() -> String {
