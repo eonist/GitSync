@@ -5,6 +5,21 @@ import Cocoa
 /**
  * 
  */
+
+
+//XML
+
+    //cur3dIdx:[Int] = [0]
+    //prev3dIdx:[Int]? = nil
+
+    //get items at idx
+
+    //on list click
+        //find 2dIDX
+        //
+
+
+
 class RepoView2:Element {
     lazy var buttonSection:Section = {
         return self.addSubView(Section(NaN,NaN,self,"buttonSection"))
