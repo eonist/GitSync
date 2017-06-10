@@ -3,8 +3,6 @@
 # GitSync
 <img width="516" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Element210-01.png">
 
-GitSync is currently being developed as OSS [gitsync.io](gitsync.io) 
-
 ### Commits:
 
 <img width="412" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2017-06-07 at 18.01.40.png">
