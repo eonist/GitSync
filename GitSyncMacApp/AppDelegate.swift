@@ -7,7 +7,7 @@ import Cocoa
     //remove things from the css files
     //add repoDetailView
         //add items that scale with windowresize
-    //try to figure out the TreeList scroll bug
+    //try to figure out the TreeList scroll bug ✅
 
 /**
  * This is the main class for the application
