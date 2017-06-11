@@ -24,9 +24,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         
-        if let dict:[String: Any] = JSONParser.dict("{\"title\":\"doctor\"}".json) {
-            Swift.print("dict: " + "\(dict)")
-            Swift.print("title \(dict["title"])")
+        if let json:[String:Any] = JSONParser.dict("[{\"title\":\"doctor\"}]".json) {
+            Swift.print("json: " + "\(json)")
+            let type = JSONType.type(json)
+            Swift.print("type: " + "\(type)")
+            //Swift.print("title \(dict["title"])")
         }else{
             Swift.print("not valid json")
         }
