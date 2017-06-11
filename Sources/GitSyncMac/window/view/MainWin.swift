@@ -11,8 +11,7 @@ class StyleTestWin:Window {
         self.maxSize = CGSize(600,800)
     }
     override func resolveSkin() {
-        self.contentView = MainView(frame.size.width,frame.size.height)//340,(400 + 10)
+        self.contentView = StyleTestView(frame.size.width,frame.size.height)
     }
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
-    
 }

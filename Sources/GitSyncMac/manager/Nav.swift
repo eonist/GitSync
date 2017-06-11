@@ -1,7 +1,7 @@
 import Foundation
 @testable import Utils
 @testable import Element
-@testable import GitSyncMac
+
 enum Views2{
     enum Main:String{
         case commit = "commit"

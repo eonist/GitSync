@@ -8,11 +8,11 @@ class ToggleMenuBarMenuItem:CustomMenuItem {
     
     override func onSelect(event:AnyObject) {
         Swift.print("ToggleMenuBarMenuItem.onSelect()")
-        let toggle:Bool = !ToggleMenuBarMenuItem.isMenuBarHidden
-        ToggleMenuBarMenuItem.isMenuBarHidden = toggle//toggle
-        if let view = MainWin.mainView {
-            view.toggleMenuBar(toggle)
-        }
+        /*let toggle:Bool = !ToggleMenuBarMenuItem.isMenuBarHidden
+         ToggleMenuBarMenuItem.isMenuBarHidden = toggle//toggle
+         if let view = MainWin.mainView {
+         view.toggleMenuBar(toggle)
+         }*/
     }
     /**
      * Return true if you want to enable the menu item, false will disable it
