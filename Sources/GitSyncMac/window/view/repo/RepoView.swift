@@ -38,6 +38,7 @@ extension RepoView{
     func onTreeListSelect(){
         //Sounds.play?.play()
         let selectedIndex:[Int] = treeList.selectedIdx3d!
-        Navigation.setView(.repoDetail(selectedIndex))//updates the UI elements with the selected repo data
+        Swift.print("selectedIndex: " + "\(selectedIndex)")
+        //Navigation.setView(.repoDetail(selectedIndex))/*Updates the UI elements with the selected repo data*/
     }
 }
