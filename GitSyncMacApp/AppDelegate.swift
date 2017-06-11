@@ -31,12 +31,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("json: " + "\(json)")
         let dict = JSONParser.dict("~/Desktop/gitsync.json".content?.json)
         Swift.print("dict: " + "\(dict)")
-        
+        /*
         JSONParser.dictArr(JSONParser.dict("~/Desktop/gitsync.json".content?.json)?["repoDetailView"])?.forEach{
             Swift.print("$0: " + "\($0)")
             /*let id:String = JSONParser.dict($0)["id"]
              let text:String = JSONParser.dict($0)["text"]*/
-        }
+        }*/
         //initApp()
     }
     func initApp(){
