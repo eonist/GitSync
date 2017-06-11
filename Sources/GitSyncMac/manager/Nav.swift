@@ -52,9 +52,9 @@ class Nav {
             //fatalError("not implemented yet")
         case .repoDetail(let idx3d):/*RepoDetail*/
             _ = idx3d
-            /*let view:RepoDetailView = RepoDetailView(w,h,mainView)
+            let view:RepoDetailView = RepoDetailView(NaN,NaN,mainView)
              view.setRepoData(idx3d)
-             return view*/
+             return view
             fatalError("not implemented yet")
         case .dialog(let dialog):/*Dialogs*/
             _ = dialog
