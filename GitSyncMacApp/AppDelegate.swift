@@ -43,6 +43,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("text: " + "\(text)")
             }
         }
+        
+        
         //initApp()
     }
     func initApp(){
