@@ -3,14 +3,16 @@ import Foundation
 @testable import Element
 
 class RepoDetailView:Element {
-    lazy var repoNameText:Text = {
-        let repoNameText = self.addSubView(Text(NaN,NaN,"repo name",self,"repoName"))
-        repoNameText.isInteractive = false
-        return repoNameText
+ 
+    
+    lazy var nameTextInput:Text = {
+        let nameTextInput = self.addSubView(Text(NaN,NaN,"Name: ",self,"name"))
+        nameTextInput.isInteractive = false
+        return nameTextInput
     }()
     override func resolveSkin() {
         Swift.print("RepoDetailView.resolveSkin()")
         super.resolveSkin()// self.skin = SkinResolver.skin(self)//
-        _ = repoNameText
+        _ = nameTextInput
     }
 }
