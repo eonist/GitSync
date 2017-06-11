@@ -2,6 +2,12 @@ import Cocoa
 @testable import Utils
 @testable import Element
 @testable import GitSyncMac
+
+//Continue here:
+    //remove things from the css files
+    //add repoDetailView
+        //add items that scale with windowresize
+
 /**
  * This is the main class for the application
  * Not one error in a million keystrokes
