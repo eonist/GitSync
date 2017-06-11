@@ -26,7 +26,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          Swift.print("\(JSONParser.dict($0)?["title"])")//doctor
          }*/
         
-        JSONParser.dict("~/Desktop/gitsync.json".content?.json)?["repoDetailView"] as [Any]
+        JSONParser.dictArr(JSONParser.dict("~/Desktop/gitsync.json".content?.json)?["repoDetailView"])?.forEach{
+            JSONParser.dict($0).ke
+        }
         //initApp()
     }
     func initApp(){
