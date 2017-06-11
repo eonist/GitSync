@@ -22,23 +22,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
 
-        let json:Any? = "[{\"title\":\"doctor\"}]".json
-        
-        if let dictArr = JSONParser.dictArr(json) {
-            //Swift.print("json: " + "\(json)")
-            //let type = JSONType.type(json)
-            //Swift.print("type: " + "\(type)")
-            //
-            dictArr.forEach{
-                if let dict = JSONParser.dict($0){
-                    Swift.print("title \(dict["title"])")
-                }
-            }
-        }else{
-            Swift.print("not valid json")
+        JSONParser.dictArr("[{\"title\":\"doctor\"},{\"title\":\"teacher\"}]".json)?.forEach{
+            Swift.print("\(JSONParser.dict($0)?["title"])")//doctor,teacher
         }
-        
-        
         //initApp()
     }
     func initApp(){
