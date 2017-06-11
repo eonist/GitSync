@@ -12,7 +12,6 @@ class StyleTestView:CustomView{
     
     override func resolveSkin(){
         Swift.print("StyleTestView")
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")//StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
         
         super.resolveSkin()
         main = self.addSubView(Section(NaN,NaN,self,"main"))

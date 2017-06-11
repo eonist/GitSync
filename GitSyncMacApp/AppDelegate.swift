@@ -10,28 +10,18 @@ import Cocoa
 class AppDelegate:NSObject, NSApplicationDelegate {
     weak var window:NSWindow!
     var win:NSWindow?/*<--The window must be a class variable, local variables doesn't work*/
-    var menu:Menu?
+    var menu:Menu?//TODO: ⚠️️ make lazy. does it need to be scoped globally?
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
-   
-        //initApp()
-        styleTest()
-     
-        //StyleManager.addStyle("Button{width:calc(100% - 20px);}")
+        initApp()
     }
-    func styleTest()  {
-        NSApp.windows[0].close()
-        win = StyleTestWin(300,350)
-    }
+
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
-         StyleManager.addStylesByURL("~/Desktop/ElCapitan/gitsync.css",false)//<--toggle this bool for live refresh
-         win = MainWin(MainView.w,MainView.h)
-         //win = VibrantMainWin(MainView.w,MainView.h)
-         //win = ConflictDialogWin(380,400)
-         //win = CommitDialogWin(400,356)
-         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")//<--toggle this bool for live refresh
+        win = MainWin(300,350)
+        //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
         menu = Menu()/*This creates the App menu*/
     }
 
