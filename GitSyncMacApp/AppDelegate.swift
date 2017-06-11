@@ -21,11 +21,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
-        
-        
-        
-        if let json:[String:Any] = JSONParser.dict("[\"item\":{\"title\":\"doctor\"}]".json) {
-            Swift.print("json: " + "\(json)")
+
+        if let json:Any = "[{\"title\":\"doctor\"}]".json {
+            //Swift.print("json: " + "\(json)")
             let type = JSONType.type(json)
             Swift.print("type: " + "\(type)")
             //Swift.print("title \(dict["title"])")
