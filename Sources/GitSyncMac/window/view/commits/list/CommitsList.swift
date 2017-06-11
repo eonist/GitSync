@@ -67,7 +67,7 @@ class CommitsList:ElasticSlideScrollFastList3,ICommitList{
 }
 extension CommitsList{
     func createProgressIndicator() -> ProgressIndicator{
-        let piContainer = addSubView(Container(CommitsView.w, CommitsView.h,self,"progressIndicatorContainer"))
+        let piContainer = addSubView(Container(self.getWidth(), self.getHeight(),self,"progressIndicatorContainer"))
         let progressIndicator = piContainer.addSubView(ProgressIndicator(30,30,piContainer))
         progressIndicator.frame.y = -45/*hide at init*/
         progressIndicator.animator.event = onEvent

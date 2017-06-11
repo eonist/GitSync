@@ -16,11 +16,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         initApp()
     }
-
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")//<--toggle this bool for live refresh
-        win = MainWin(300,350)
+        win = StyleTestWin(300,350)
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
         menu = Menu()/*This creates the App menu*/
     }

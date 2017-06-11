@@ -1,7 +1,6 @@
 import Foundation
 @testable import Element
 @testable import Utils
-@testable import GitSyncMac
 
 class CommitView:Element{
     static var selectedIdx:Int = 1
