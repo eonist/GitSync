@@ -1,7 +1,9 @@
 import Cocoa
 @testable import Utils
 @testable import Element
-
+/**
+ * TODO: Maybe make mainView into a lazy static prop similar to RepoView
+ */
 class StyleTestView:CustomView{
     var main:Section?
     static var content:Section?
