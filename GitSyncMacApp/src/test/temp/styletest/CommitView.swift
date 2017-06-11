@@ -18,6 +18,8 @@ class CommitView:Element{
         //topBar = addSubView(CommitsTopBar(width-12,36,self))
         //add a container
         _ = list/*creates the GUI List*/
+        
+        _ = self.addSubView(Element(NaN, NaN, self, "ruler"))
     }
     /**
      * Eventhandler when a CommitsListItem is clicked
