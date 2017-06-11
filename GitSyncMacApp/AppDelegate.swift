@@ -22,7 +22,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         
-        
+        let json:JSONSerialization = JSONSerialization.
         if let dict:[String: Any] = JSONParser.dict("{\"title\":\"doctor\"}") {
             Swift.print("dict: " + "\(dict)")
             Swift.print("title \(dict["title"])")
