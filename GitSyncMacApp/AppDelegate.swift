@@ -24,7 +24,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     func styleTest()  {
         NSApp.windows[0].close()
-        win = StyleTestWin(550,300)
+        win = StyleTestWin(480,300)
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/

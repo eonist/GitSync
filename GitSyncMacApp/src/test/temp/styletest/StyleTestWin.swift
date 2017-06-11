@@ -7,8 +7,8 @@ class StyleTestWin:Window { /*TranslucentWin*/
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
         super.init(docWidth, docHeight)
         WinModifier.align(self, Alignment.centerCenter, Alignment.centerCenter,CGPoint(6,0))/*aligns the window to the screen*/
-        self.minSize = CGSize(300,350)
-        self.maxSize = CGSize(500,700)
+        self.minSize = CGSize(250,250)
+        self.maxSize = CGSize(600,800)
     }
     override func resolveSkin() {
         self.contentView = StyleTestView(frame.size.width,frame.size.height)//340,(400 + 10)
