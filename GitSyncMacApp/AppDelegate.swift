@@ -33,9 +33,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Swift.print("dict: " + "\(dict)")
         
         JSONParser.dictArr(JSONParser.dict("~/Desktop/gitsync.json".content?.json)?["repoDetailView"])?.forEach{
-            Swift.print("$0: " + "\($0)")
-            /*let id:String = JSONParser.dict($0)["id"]
-             let text:String = JSONParser.dict($0)["text"]*/
+            //Swift.print("$0: " + "\($0)")
+            if let dict = JSONParser.dict($0) {
+                let type:String = dict["type"]
+                Swift.print("type: " + "\(type)")
+                let id:String = dict["id"]
+                let text:String = dict["text"]
+            }
+            
+            
         }
         //initApp()
     }
