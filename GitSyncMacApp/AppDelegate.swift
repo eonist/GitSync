@@ -24,7 +24,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         
-        if let json:[String:Any] = JSONParser.dict("[{\"title\":\"doctor\"}]".json) {
+        if let json:[String:Any] = JSONParser.dict("[\"item\":{\"title\":\"doctor\"}]".json) {
             Swift.print("json: " + "\(json)")
             let type = JSONType.type(json)
             Swift.print("type: " + "\(type)")
