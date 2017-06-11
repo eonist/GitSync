@@ -3,8 +3,6 @@ import Foundation
 @testable import Element
 
 class RepoDetailView:Element {
- 
-    
     lazy var nameTextInput:Text = {
         let nameTextInput = self.addSubView(Text(NaN,NaN,"Name: ",self,"name"))
         nameTextInput.isInteractive = false
