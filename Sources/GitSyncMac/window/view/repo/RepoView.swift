@@ -1,10 +1,9 @@
 import Cocoa
 @testable import Utils
 @testable import Element
-@testable import GitSyncMac
+
 /**
  * TODO: should remember previous selected item between transitions
- * TODO: ⚠️️ Refactor this class so that it doesn't force unwrap
  */
 class RepoView:Element {
     static var repoListFilePath:String = "~/Desktop/repo2.xml"/*📝*///"~/Desktop/assets/xml/list.xml"
