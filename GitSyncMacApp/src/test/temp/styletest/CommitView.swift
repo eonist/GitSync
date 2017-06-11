@@ -13,6 +13,7 @@ class CommitView:Element{
         //⚠️️list!.selectAt(dpIdx: CommitsView.selectedIdx)
         return list
     }()
+    var commitDetailView:CommitDetailView?
     override func resolveSkin() {
         /*StyleManager.addStyle("#redBox{fill:red;float:left;}")
          StyleManager.addStyle("#blueBox{fill:blue;float:left;}")*/
@@ -26,7 +27,8 @@ class CommitView:Element{
         
         _ = self.addSubView(Element(NaN, NaN, self, "ruler"))
         
-        
+        commitDetailView = CommitDetailView(200,self.getHeight(),self)
+        //view.setCommitData(commitData)
        
         //_ = self.addSubView(Element(100, 100, self, "redBox"))
     }
