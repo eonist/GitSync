@@ -5,9 +5,9 @@ import Cocoa
 
 //Continue here:
     //remove things from the css files
-    //add repoDetailView
+    //add repoDetailView👈
         //add items that scale with windowresize
-        
+
 
 /**
  * This is the main class for the application
