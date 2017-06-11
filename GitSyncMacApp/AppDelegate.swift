@@ -26,7 +26,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          Swift.print("\(JSONParser.dict($0)?["title"])")//doctor
          }*/
         
-        
+        "~/Desktop/gitsync.json"
         //initApp()
     }
     func initApp(){
