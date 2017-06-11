@@ -44,6 +44,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         
+        //1. provide json and view name
+        //2. provide parent 
+        //3. retrieve item via parent.subViews.first(where:{$0.id == ""})
+        
         
         //initApp()
     }
