@@ -14,16 +14,20 @@ class CommitView:Element{
         return list
     }()
     override func resolveSkin() {
+        StyleManager.addStyle("#redBox{fill:red;float:left;}")
+        StyleManager.addStyle("#blueBox{fill:blue;float:left;}")
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         //topBar = addSubView(CommitsTopBar(width-12,36,self))
         //add a container
-        StyleManager.addStyle("#redBox{fill:red;float:left;}")
+        
+        _ = self.addSubView(Element(100, 100, self, "blueBox"))
+        
         _ = list/*creates the GUI List*/
         
         //_ = self.addSubView(Element(NaN, NaN, self, "ruler"))
-        StyleManager.addStyle("#blueBox{fill:blue;float:left;}")
         
-        _ = self.addSubView(Element(100, 100, self, "blueBox"))
+        
+       
         _ = self.addSubView(Element(100, 100, self, "redBox"))
     }
     /**
