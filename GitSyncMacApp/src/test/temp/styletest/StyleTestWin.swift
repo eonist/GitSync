@@ -2,7 +2,7 @@ import Cocoa
 @testable import Element
 @testable import Utils
 
-class StyleTestWin:Window { /*TranslucentWin*/
+class StyleTestWin:Window {
     //var view:Element?
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
         super.init(docWidth, docHeight)
