@@ -17,9 +17,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
    
         //initApp()
         styleTest()
-        //initTestWin()//🚧👷
-        //initMinimalWin()
-        
+     
         //StyleManager.addStyle("Button{width:calc(100% - 20px);}")
     }
     func styleTest()  {
@@ -36,21 +34,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
         menu = Menu()/*This creates the App menu*/
     }
-    func initTestWin(){
-        //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/test.css",false)
-        win = TestWin(500,400)/*Debugging Different List components*/
-        
-        /*fileWatcher =*/
-        //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
-    }
-    func initMinimalWin(){
-        NSApp.windows[0].close()
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/minimal.css",true)
-        //Swift.print("StyleManager.styles.count: " + "\(StyleManager.styles.count)")
-        //Swift.print("StyleManager.styles: " + "\(StyleManager.styles)")
-        win = MinimalWin(500,400)
-    }
+
     func applicationWillTerminate(_ aNotification:Notification) {
         /*Stores the app prefs*/
         if(PrefsView.keychainUserName != nil){//make sure the data has been read and written to first
@@ -65,7 +49,26 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 
 //paddingTest()
 //calcTest()
-
+/*
+ func initTestWin(){
+ //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
+ StyleManager.addStylesByURL("~/Desktop/ElCapitan/test.css",false)
+ win = TestWin(500,400)/*Debugging Different List components*/
+ 
+ /*fileWatcher =*/
+ //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
+ }
+ 
+ 
+ func initMinimalWin(){
+ NSApp.windows[0].close()
+ StyleManager.addStylesByURL("~/Desktop/ElCapitan/minimal.css",true)
+ //Swift.print("StyleManager.styles.count: " + "\(StyleManager.styles.count)")
+ //Swift.print("StyleManager.styles: " + "\(StyleManager.styles)")
+ win = MinimalWin(500,400)
+ }
+ 
+ */
 /*class Label:Flexible{
     //graphic bg
     //text that is centeres
