@@ -5,29 +5,6 @@ import Cocoa
 /**
  * 
  */
-
-
-//XML
-
-    //cur3dIdx:[Int] = [0]
-    //prev3dIdx:[Int]? = nil
-
-    //getItemsAt3dIdx
-
-    //on list click
-        //find 2dIDX
-        //append to cur3dIDX
-        //getItemsAt3dIdx
-        //add items to list
-
-    //on backBtn click
-        //remove the last item in curidx3d
-        //getItemsAt3dIDX
-        //addItemsToList
-
-
-
-
 class RepoView2:Element {
     lazy var buttonSection:Section = {
         return self.addSubView(Section(NaN,NaN,self,"buttonSection"))
@@ -38,7 +15,6 @@ class RepoView2:Element {
     override func resolveSkin() {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)//
         _ = backBtn
-        
         
         _ = self.addSubView(Element(NaN, NaN, self, "ruler"))
         
