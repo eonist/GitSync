@@ -17,9 +17,14 @@ class CommitView:Element{
         self.skin = SkinResolver.skin(self)//super.resolveSkin()
         //topBar = addSubView(CommitsTopBar(width-12,36,self))
         //add a container
+        StyleManager.addStyle("#redBox{fill:red;float:left;}")
         _ = list/*creates the GUI List*/
         
-        _ = self.addSubView(Element(NaN, NaN, self, "ruler"))
+        //_ = self.addSubView(Element(NaN, NaN, self, "ruler"))
+        StyleManager.addStyle("#blueBox{fill:blue;float:left;}")
+        
+        _ = self.addSubView(Element(100, 100, self, "blueBox"))
+        _ = self.addSubView(Element(100, 100, self, "redBox"))
     }
     /**
      * Eventhandler when a CommitsListItem is clicked
