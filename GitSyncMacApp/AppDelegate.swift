@@ -7,6 +7,7 @@ import Cocoa
     //remove things from the css files
     //add repoDetailView
         //add items that scale with windowresize
+    //try to figure out the TreeList scroll bug
 
 /**
  * This is the main class for the application
@@ -29,7 +30,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
         menu = Menu()/*This creates the App menu*/
     }
-
     func applicationWillTerminate(_ aNotification:Notification) {
         /*Stores the app prefs*/
         if(PrefsView.keychainUserName != nil){//make sure the data has been read and written to first
