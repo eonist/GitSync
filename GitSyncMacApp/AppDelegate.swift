@@ -45,7 +45,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         
         //Continue here: 🏀
-            //research How you use reflection and how it can create items via xml
+            //research How you use reflection and how it can create items via xml 👈
         
         //1. provide json and key
         //2. provide parent and every UI item is created and added to
