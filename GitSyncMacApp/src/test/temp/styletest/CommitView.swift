@@ -27,7 +27,7 @@ class CommitView:Element{
         
         _ = self.addSubView(Element(NaN, NaN, self, "ruler"))
         
-        commitDetailView = CommitDetailView(200,self.getHeight(),self)
+        commitDetailView = self.addSubView(CommitDetailView(200,self.getHeight(),self))
         //view.setCommitData(commitData)
        
         //_ = self.addSubView(Element(100, 100, self, "redBox"))
@@ -44,7 +44,8 @@ class CommitView:Element{
         Swift.print("event.index: " + "\(event.index)")
         let commitData:[String:String] = list.dp.getItemAt(event.index)!
         //(Navigation.currentView as! CommitDetailView).setCommitData(commitData)//updates the UI elements with the selected commit item
-        Nav.setView(.commitDetail(commitData))
+        //Nav.setView(.commitDetail(commitData))
+        commitDetailView?.setCommitData(commitData)
     }
     override func onEvent(_ event:Event) {
         if(event.type == ListEvent.select){onListSelect(event as! ListEvent)}
