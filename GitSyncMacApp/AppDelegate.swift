@@ -44,9 +44,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         
-        //1. provide json and view name
-        //2. provide parent 
-        //3. retrieve item via parent.subViews.first(where:{$0.id == ""})
+        //Continue here: 🏀
+            //research How you use reflection and how it can create items via xml
+        
+        //1. provide json and key
+        //2. provide parent and every UI item is created and added to
+        //3. Returns dict with id and ref to item
         
         
         //initApp()
