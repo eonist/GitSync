@@ -6,8 +6,8 @@ extension TextInput{
     /**
      * New
      */
-    static func unFold(_ dict:[String:Any]) -> TextInput{
-        //element tuple _ width:CGFloat, _ height:CGFloat, parent, id
+    static func unFold(_ dict:[String:Any],_ parent:IElement?) -> TextInput{
+        let elementConfig:ElementConfig = Element.elementConfig(dict)
         //config tuple
         return TextInput(NaN,NaN,"","",nil)
     }
@@ -15,6 +15,7 @@ extension TextInput{
     convenience init(element:ElementConfig, config:TextInputConfig) {
         self.init(element.width, element.height, config.text, config.inputText, element.parent, element.id)
     }
+    
 }
 extension Element{
     typealias ElementConfig = (width:CGFloat, height:CGFloat, parent:IElement?, id:String?)
