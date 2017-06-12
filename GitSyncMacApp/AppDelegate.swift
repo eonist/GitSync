@@ -82,14 +82,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 }
 
 class UnFoldUtils{
-    static func unfold<T:IElement>(_ dict:[String:Any]) -> T{
+    static func unfold<T:IElement>(_ dict:[String:Any]) -> T?{
         switch true{
             case dict["key"] == "\(TextInput.self)":
                 return TextInput.unFold(dict)
             case dict["key"] == "\(CheckBoxButton.self)":
-                return
+                return nil
             default:
-                break;
+                return nil
         }
     }
 }
@@ -97,10 +97,10 @@ extension TextInput{
     /**
      * New
      */
-    static func unFold(_ dict:[String:Any])->TextInput{
+    static func unFold(_ dict:[String:Any]) -> TextInput{
         //element tuple _ width:CGFloat, _ height:CGFloat, parent, id
         //config tuple
-        return TextInput()
+        return TextInput(NaN,NaN,"",nil)
     }
 }
 //paddingTest()
