@@ -81,6 +81,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
 }
 
+class UnFoldUtils{
+    unfold()
+}
+
 //paddingTest()
 //calcTest()
 /*
