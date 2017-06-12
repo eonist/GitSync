@@ -110,6 +110,12 @@ extension TextInput{
 }
 extension Element{
     typealias ElementConfig = (width:CGFloat, height:CGFloat, parent:IElement?, id:String?)
+    /**
+     * New
+     */
+    static func element(_ dict:[String:Any]){
+        guard let type:String = dict["type"] as? String else {fatalError("type must be string")}
+    }
 }
 //paddingTest()
 //calcTest()
