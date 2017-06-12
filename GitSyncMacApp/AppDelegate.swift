@@ -114,7 +114,13 @@ extension Element{
      * New
      */
     static func element(_ dict:[String:Any]){
-        guard let type:String = dict["type"] as? String else {fatalError("type must be string")}
+        let width:CGFloat = {
+            if let value:Any = dict["width"] {
+                if let value as? String
+            };return NaN
+        
+            
+        }()
     }
 }
 //paddingTest()
