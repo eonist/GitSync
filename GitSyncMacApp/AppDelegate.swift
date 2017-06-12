@@ -132,10 +132,11 @@ extension Element{
     /**
      * New
      */
-    static func element(_ dict:[String:Any], _ parent:IElement? = nil){
+    static func element(_ dict:[String:Any], _ parent:IElement? = nil) -> ElementConfig{
         let width:CGFloat = UnFoldUtils.cgFloat(dict, "width")
-        let height:CGFloat = UnFoldUtils.cgFloat(dict, "width")
-        let id:String
+        let height:CGFloat = UnFoldUtils.cgFloat(dict, "height")
+        let id:String? = UnFoldUtils.string(dict, "id")
+        return (width:width,height:height,parent:parent,id:id)
     }
 }
 //paddingTest()
