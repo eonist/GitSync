@@ -4,9 +4,7 @@ import Foundation
 
 class UnFoldUtils{
     static func unFold(_ dict:[String:Any], _ parent:IElement? = nil) -> IElement?{
-        Swift.print("unFold")
         guard let type:String = dict["type"] as? String else {fatalError("type must be string")}
-        Swift.print("type: " + "\(type)")
         switch true{
             case type == "\(TextInput.self)":
                 return TextInput.unFold(dict,parent)

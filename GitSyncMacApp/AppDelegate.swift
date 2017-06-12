@@ -47,6 +47,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Swift.print("json: " + "\(json)")
         //let dict = JSONParser.dict("~/Desktop/gitsync.json".content?.json)
         //Swift.print("dict: " + "\(dict)")
+        
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
         JSONParser.dictArr(JSONParser.dict("~/Desktop/gitsync.json".content?.json)?["repoDetailView"])?.forEach{
             if let element:IElement = UnFoldUtils.unFold($0) {
