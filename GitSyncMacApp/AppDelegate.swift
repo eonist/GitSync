@@ -59,8 +59,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("text: " + "\(text)")
             }*/
             if let element:IElement = UnFoldUtils.unFold($0) {
-                _ = element
                 Swift.print("created an element")
+                _ = element
             }else{
                 Swift.print("did not create an element")
             }

@@ -13,11 +13,15 @@ extension TextInput{
         let text:String = UnFoldUtils.string(dict, "text") ?? ""
         let inputText:String = UnFoldUtils.string(dict, "inputText") ?? ""
         let config:TextInputConfig = (text:text,inputText:inputText)
-        return TextInput.init(elementConfig, config)
+        let textInput:TextInput = TextInput.init(elementConfig, config)
+        Swift.print("after init")
+        return textInput
     }
     convenience init(_ element:ElementConfig, _ config:TextInputConfig) {
         Swift.print("TextInput.init")
+        Swift.print("element.id: " + "\(element.id)")
         self.init(element.width, element.height, config.text, config.inputText, element.parent, element.id)
+        Swift.print("after")
     }
 }
 extension CheckBoxButton{
