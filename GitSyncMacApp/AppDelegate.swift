@@ -132,7 +132,7 @@ extension Element{
     /**
      * New
      */
-    static func element(_ dict:[String:Any], _ parent:IElement? = nil) -> ElementConfig{
+    static func elementConfig(_ dict:[String:Any], _ parent:IElement? = nil) -> ElementConfig{
         let width:CGFloat = UnFoldUtils.cgFloat(dict, "width")
         let height:CGFloat = UnFoldUtils.cgFloat(dict, "height")
         let id:String? = UnFoldUtils.string(dict, "id")
