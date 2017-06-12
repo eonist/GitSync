@@ -8,6 +8,7 @@ extension TextInput{
      * New
      */
     static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> TextInput{
+        Swift.print("TextInput.unFold")
         let elementConfig:ElementConfig = Element.elementConfig(dict)
         let text:String = UnFoldUtils.string(dict, "text") ?? ""
         let inputText:String = UnFoldUtils.string(dict, "inputText") ?? ""
@@ -15,6 +16,7 @@ extension TextInput{
         return TextInput.init(elementConfig, config)
     }
     convenience init(_ element:ElementConfig, _ config:TextInputConfig) {
+        Swift.print("TextInput.init")
         self.init(element.width, element.height, config.text, config.inputText, element.parent, element.id)
     }
 }
