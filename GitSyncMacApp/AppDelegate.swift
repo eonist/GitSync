@@ -37,7 +37,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func jsonTest(){
-        
+        Swift.print("jsonTest")
         /*JSONParser.dictArr("[{\"title\":\"doctor\"}]".json)?.forEach{
          Swift.print("\(JSONParser.dict($0)?["title"])")//doctor
          }*/
@@ -58,7 +58,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 let text:Any? = dict["text"]
                 Swift.print("text: " + "\(text)")
             }*/
-            let element:IElement = UnFoldUtils.unFold(<#T##dict: [String : Any]##[String : Any]#>)
+            if let element:IElement = UnFoldUtils.unFold($0) {
+                _ = element
+                Swift.print("created an element")
+            }else{
+                Swift.print("did not create an element")
+            }
         }
         
         //Continue here: 🏀
