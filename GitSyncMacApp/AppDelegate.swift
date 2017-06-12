@@ -82,11 +82,26 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 }
 
 class UnFoldUtils{
-    static func unfold(_ dict:[String:Any]){
-        
+    static func unfold<T:IElement>(_ dict:[String:Any]) -> T{
+        switch true{
+            case dict["key"] == "\(TextInput.self)":
+                return TextInput.unFold(dict)
+            case dict["key"] == "\(CheckBoxButton.self)":
+            
+            default:
+                break;
+        }
     }
 }
-
+extension TextInput{
+    /**
+     * New
+     */
+    static func unFold(_ dict:[String:Any])->TextInput{
+        
+        return TextInput()
+    }
+}
 //paddingTest()
 //calcTest()
 /*
