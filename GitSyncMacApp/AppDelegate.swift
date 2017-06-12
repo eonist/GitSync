@@ -22,6 +22,22 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
 
+        //jsonTest()
+        
+        initApp()
+    }
+    func initApp(){
+        NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")//<--toggle this bool for live refresh
+        win = StyleTestWin(300,350)
+        //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
+        menu = Menu()/*This creates the App menu*/
+    }
+    /**
+     *
+     */
+    func jsonTest(){
+        
         /*JSONParser.dictArr("[{\"title\":\"doctor\"}]".json)?.forEach{
          Swift.print("\(JSONParser.dict($0)?["title"])")//doctor
          }*/
@@ -52,14 +68,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //3. Returns dict with id and ref to item
         
         
-        //initApp()
-    }
-    func initApp(){
-        NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")//<--toggle this bool for live refresh
-        win = StyleTestWin(300,350)
-        //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
-        menu = Menu()/*This creates the App menu*/
     }
     func applicationWillTerminate(_ aNotification:Notification) {
         /*Stores the app prefs*/
