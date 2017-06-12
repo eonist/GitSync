@@ -82,11 +82,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 }
 
 class UnFoldUtils{
-    static func unfold<T:IElement>(_ dict:[String:Any]) -> T?{
+    static func unfold(_ dict:[String:Any]) -> IElement?{
+        guard let type:String = dict["type"] as? String else {fatalError("type must be string")}
         switch true{
-            case dict["key"] == "\(TextInput.self)":
+            case type == "\(TextInput.self)":
                 return TextInput.unFold(dict)
-            case dict["key"] == "\(CheckBoxButton.self)":
+            case type == "\(CheckBoxButton.self)":
                 return nil
             default:
                 return nil
