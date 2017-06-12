@@ -87,7 +87,7 @@ class UnFoldUtils{
             case dict["key"] == "\(TextInput.self)":
                 return TextInput.unFold(dict)
             case dict["key"] == "\(CheckBoxButton.self)":
-            
+                return
             default:
                 break;
         }
@@ -98,7 +98,8 @@ extension TextInput{
      * New
      */
     static func unFold(_ dict:[String:Any])->TextInput{
-        
+        //element tuple _ width:CGFloat, _ height:CGFloat, parent, id
+        //config tuple
         return TextInput()
     }
 }
