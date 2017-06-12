@@ -102,6 +102,12 @@ extension TextInput{
         //config tuple
         return TextInput(NaN,NaN,"",nil)
     }
+    convenience init(element:ElementConfig, config:TextInputConfig) {
+        <#code#>
+    }
+}
+extension Element{
+    typealias ElementConfig = (width:CGFloat, height:CGFloat, parent:IElement?, id:String?)
 }
 //paddingTest()
 //calcTest()
