@@ -1,15 +1,17 @@
 import Foundation
+@testable import Element
+@testable import Utils
 
 class UnFoldUtils{
     static func unFold(_ dict:[String:Any]) -> IElement?{
         guard let type:String = dict["type"] as? String else {fatalError("type must be string")}
         switch true{
-        case type == "\(TextInput.self)":
-            return TextInput.unFold(dict)
-        case type == "\(CheckBoxButton.self)":
-            return nil
-        default:
-            return nil
+            case type == "\(TextInput.self)":
+                return TextInput.unFold(dict)
+            case type == "\(CheckBoxButton.self)":
+                return nil
+            default:
+                return nil
         }
     }
     /**
