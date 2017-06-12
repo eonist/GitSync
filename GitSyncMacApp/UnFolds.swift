@@ -34,7 +34,7 @@ extension CheckBoxButton{
      * New
      */
     static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> CheckBoxButton{
-        let elementConfig:ElementConfig = Element.elementConfig(dict)
+        let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
         let text:String = UnFoldUtils.string(dict, "text") ?? ""
         let isCheckedStr:String = UnFoldUtils.string(dict, "isChecked") ?? "false"
         let config:CheckBoxButtonConfig = (text:text,isChecked:isCheckedStr.bool)

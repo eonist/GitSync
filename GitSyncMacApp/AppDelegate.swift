@@ -47,9 +47,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Swift.print("json: " + "\(json)")
         //let dict = JSONParser.dict("~/Desktop/gitsync.json".content?.json)
         //Swift.print("dict: " + "\(dict)")
-        let container = Container(100,100)
+        let section = Section(100,100)
         JSONParser.dictArr(JSONParser.dict("~/Desktop/gitsync.json".content?.json)?["repoDetailView"])?.forEach{
-            if let element:IElement = UnFoldUtils.unFold($0,container) {
+            if let element:IElement = UnFoldUtils.unFold($0,section) {
                 Swift.print("created an element")
                 _ = element
             }else{
