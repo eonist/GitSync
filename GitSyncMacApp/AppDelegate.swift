@@ -94,10 +94,10 @@ class UnFoldUtils{
         }
     }
     /**
-     *
+     * New
      */
-    static func cgFloat(_ dict:[String:Any],_ key:String){
-        let width:CGFloat = {
+    static func cgFloat(_ dict:[String:Any],_ key:String) -> CGFloat{
+        return {
             if let value:Any = dict[key] {
                 if let str = value as? String {return str.cgFloat}
                 else if let int = value as? Int {return int.cgFloat}
