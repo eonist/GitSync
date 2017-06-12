@@ -20,6 +20,10 @@ extension TextInput{
     convenience init(_ element:ElementConfig, _ config:TextInputConfig) {
         Swift.print("TextInput.init")
         Swift.print("element.id: " + "\(element.id)")
+        Swift.print("element.width: " + "\(element.width)")
+        Swift.print("element.height: " + "\(element.height)")
+        Swift.print("config.text: " + "\(config.text)")
+        Swift.print("element.parent: " + "\(element.parent)")
         self.init(element.width, element.height, config.text, config.inputText, element.parent, element.id)
         Swift.print("after")
     }
