@@ -3,6 +3,7 @@ import Foundation
 @testable import Element
 
 extension TextInput{
+    typealias TextInputConfig = (text:String, inputText:String)
     /**
      * New
      */
@@ -13,7 +14,6 @@ extension TextInput{
         let textInputConfig:TextInputConfig = (text:text,inputText:inputText)
         return TextInput.init(element: elementConfig, config: textInputConfig)
     }
-    typealias TextInputConfig = (text:String, inputText:String)
     convenience init(element:ElementConfig, config:TextInputConfig) {
         self.init(element.width, element.height, config.text, config.inputText, element.parent, element.id)
     }
