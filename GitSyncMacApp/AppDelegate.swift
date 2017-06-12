@@ -22,7 +22,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
 
-        //jsonTest()
+        jsonTest()
         
         //initApp()
     }
@@ -50,14 +50,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         JSONParser.dictArr(JSONParser.dict("~/Desktop/gitsync.json".content?.json)?["repoDetailView"])?.forEach{
             //Swift.print("$0: " + "\($0)")
-            if let dict:[String:Any] = JSONParser.dict($0){
+            /*if let dict:[String:Any] = JSONParser.dict($0){
                 let type:Any? = dict["type"]
                 Swift.print("type: " + "\(type)")
                 let id:Any? = dict["id"]
                 Swift.print("id: " + "\(id)")
                 let text:Any? = dict["text"]
                 Swift.print("text: " + "\(text)")
-            }
+            }*/
+            let element:IElement = UnFoldUtils.unFold(<#T##dict: [String : Any]##[String : Any]#>)
         }
         
         //Continue here: 🏀
