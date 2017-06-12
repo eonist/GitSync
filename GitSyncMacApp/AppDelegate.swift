@@ -59,13 +59,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         
         //Continue here: 🏀
-            //research How you use reflection and how it can create items via xml 👈
-        
-        //1. provide json and key
-        //2. provide parent and every UI item is created and added to
-        //3. Returns dict with id and ref to item
-        
-        
+            //Make JSON.swift 
+                //let json:JSON = "~/Desktop/test.json".json
+                //if let color:String = json[0]["color"] {print()}
+                //else {print("does not exist")}
+                //Use subScript and generics to return the correct type
     }
     func applicationWillTerminate(_ aNotification:Notification) {
         /*Stores the app prefs*/
