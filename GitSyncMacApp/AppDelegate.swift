@@ -94,16 +94,23 @@ class UnFoldUtils{
         }
     }
     /**
-     * New
+     * String
+     */
+    static func string(_ dict:[String:Any],_ key:String) -> String?{
+        if let value:Any = dict[key] {
+            if let str = value as? String {return str}
+            else {fatalError("type not supported: \(value)")}
+        };return nil
+    }
+    /**
+     * cgFloat
      */
     static func cgFloat(_ dict:[String:Any],_ key:String) -> CGFloat{
-        return {
-            if let value:Any = dict[key] {
-                if let str = value as? String {return str.cgFloat}
-                else if let int = value as? Int {return int.cgFloat}
-                else {fatalError("type not supported: \(value)")}
-            };return NaN
-        }()
+        if let value:Any = dict[key] {
+            if let str = value as? String {return str.cgFloat}
+            else if let int = value as? Int {return int.cgFloat}
+            else {fatalError("type not supported: \(value)")}
+        };return NaN
     }
 }
 extension TextInput{
@@ -125,14 +132,10 @@ extension Element{
     /**
      * New
      */
-    static func element(_ dict:[String:Any]){
-        let width:CGFloat = {
-            if let value:Any = dict["width"] {
-                if let str = value as? String {return str.cgFloat}
-                else if let int = value as? Int {return int.cgFloat}
-                else {fatalError("type not supported: \(value)")}
-            };return NaN
-        }()
+    static func element(_ dict:[String:Any], _ parent:IElement? = nil){
+        let width:CGFloat = UnFoldUtils.cgFloat(dict, "width")
+        let height:CGFloat = UnFoldUtils.cgFloat(dict, "width")
+        let id:String
     }
 }
 //paddingTest()
