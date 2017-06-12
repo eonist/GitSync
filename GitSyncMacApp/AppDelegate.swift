@@ -100,10 +100,11 @@ extension TextInput{
     static func unFold(_ dict:[String:Any]) -> TextInput{
         //element tuple _ width:CGFloat, _ height:CGFloat, parent, id
         //config tuple
-        return TextInput(NaN,NaN,"",nil)
+        return TextInput(NaN,NaN,"","",nil)
     }
+    typealias TextInputConfig = (text:String, inputText:String)
     convenience init(element:ElementConfig, config:TextInputConfig) {
-        <#code#>
+        self.init(element.width, element.height, config.text, config.inputText, element.parent, element.id)
     }
 }
 extension Element{
