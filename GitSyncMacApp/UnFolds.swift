@@ -7,7 +7,7 @@ extension TextInput{
     /**
      * New
      */
-    static func unFold(_ dict:[String:Any],_ parent:IElement?) -> TextInput{
+    static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> TextInput{
         let elementConfig:ElementConfig = Element.elementConfig(dict)
         let text:String = UnFoldUtils.string(dict, "text") ?? ""
         let inputText:String = UnFoldUtils.string(dict, "inputText") ?? ""
@@ -20,7 +20,13 @@ extension TextInput{
 }
 extension CheckBoxButton{
     typealias CheckBoxButtonConfig = (text:String, isChecked:Bool)
-    convenience init(element:ElementConfig, config:CheckBoxButtonConfig) {
+    /**
+     * New
+     */
+    static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> CheckBoxButton{
+        
+    }
+    convenience init(_ element:ElementConfig, _ config:CheckBoxButtonConfig) {
         self.init(element.width, element.height,"",false, element.parent, element.id)
     }
 }
