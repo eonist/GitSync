@@ -9,7 +9,7 @@ extension TextInput{
      */
     static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> TextInput{
         Swift.print("TextInput.unFold")
-        let elementConfig:ElementConfig = Element.elementConfig(dict)
+        let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
         let text:String = UnFoldUtils.string(dict, "text") ?? ""
         let inputText:String = UnFoldUtils.string(dict, "inputText") ?? ""
         let config:TextInputConfig = (text:text,inputText:inputText)

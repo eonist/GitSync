@@ -47,18 +47,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Swift.print("json: " + "\(json)")
         //let dict = JSONParser.dict("~/Desktop/gitsync.json".content?.json)
         //Swift.print("dict: " + "\(dict)")
-        
+        let container = Container(100,100)
         JSONParser.dictArr(JSONParser.dict("~/Desktop/gitsync.json".content?.json)?["repoDetailView"])?.forEach{
-            //Swift.print("$0: " + "\($0)")
-            /*if let dict:[String:Any] = JSONParser.dict($0){
-                let type:Any? = dict["type"]
-                Swift.print("type: " + "\(type)")
-                let id:Any? = dict["id"]
-                Swift.print("id: " + "\(id)")
-                let text:Any? = dict["text"]
-                Swift.print("text: " + "\(text)")
-            }*/
-            if let element:IElement = UnFoldUtils.unFold($0) {
+            if let element:IElement = UnFoldUtils.unFold($0,container) {
                 Swift.print("created an element")
                 _ = element
             }else{
