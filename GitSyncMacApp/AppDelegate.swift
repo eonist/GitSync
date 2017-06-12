@@ -93,6 +93,18 @@ class UnFoldUtils{
                 return nil
         }
     }
+    /**
+     *
+     */
+    static func cgFloat(_ dict:[String:Any],_ key:String){
+        let width:CGFloat = {
+            if let value:Any = dict[key] {
+                if let str = value as? String {return str.cgFloat}
+                else if let int = value as? Int {return int.cgFloat}
+                else {fatalError("type not supported: \(value)")}
+            };return NaN
+        }()
+    }
 }
 extension TextInput{
     /**
@@ -116,10 +128,10 @@ extension Element{
     static func element(_ dict:[String:Any]){
         let width:CGFloat = {
             if let value:Any = dict["width"] {
-                if let value as? String
+                if let str = value as? String {return str.cgFloat}
+                else if let int = value as? Int {return int.cgFloat}
+                else {fatalError("type not supported: \(value)")}
             };return NaN
-        
-            
         }()
     }
 }
