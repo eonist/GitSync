@@ -12,10 +12,16 @@ extension TextInput{
         let text:String = UnFoldUtils.string(dict, "text") ?? ""
         let inputText:String = UnFoldUtils.string(dict, "inputText") ?? ""
         let textInputConfig:TextInputConfig = (text:text,inputText:inputText)
-        return TextInput.init(element: elementConfig, config: textInputConfig)
+        return TextInput.init(elementConfig, textInputConfig)
     }
-    convenience init(element:ElementConfig, config:TextInputConfig) {
+    convenience init(_ element:ElementConfig, _ config:TextInputConfig) {
         self.init(element.width, element.height, config.text, config.inputText, element.parent, element.id)
+    }
+}
+extension CheckBoxButton{
+    typealias CheckBoxButtonConfig = (text:String, isChecked:Bool)
+    convenience init(element:ElementConfig, config:CheckBoxButtonConfig) {
+        self.init(element.width, element.height,"",false, element.parent, element.id)
     }
 }
 extension Element{
