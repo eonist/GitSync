@@ -82,7 +82,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 }
 
 class UnFoldUtils{
-    static func unfold(_ dict:[String:Any]) -> IElement?{
+    static func unFold(_ dict:[String:Any]) -> IElement?{
         guard let type:String = dict["type"] as? String else {fatalError("type must be string")}
         switch true{
             case type == "\(TextInput.self)":
