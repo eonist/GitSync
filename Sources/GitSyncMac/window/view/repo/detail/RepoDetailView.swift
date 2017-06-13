@@ -31,6 +31,7 @@ extension RepoDetailView{
      * Populates the UI elements with data from the dp item
      */
     private func setRepoData(_ repoItem:RepoItem){
+        /*TextInput*/
         nameText?.inputTextArea.setTextValue(repoItem.title)
         localText?.inputTextArea.setTextValue(repoItem.localPath)
         remoteText?.inputTextArea.setTextValue(repoItem.remotePath)
@@ -39,16 +40,9 @@ extension RepoDetailView{
         autoCheckBoxButton?.setChecked(!repoItem.pullToAutoSync)
         messageCheckBoxButton?.setChecked(repoItem.autoCommitMessage)
         activeCheckBoxButton?.setChecked(repoItem.active)
-        /*downloadCheckBoxButton.setChecked(repoItem.download)
-         messageCheckBoxButton.setChecked(repoItem.autoCommitMessage)
-         intervalCheckBoxButton.setChecked(repoItem.autoSyncInterval)
-         autoSyncIntervalLeverSpinner.setValue(repoItem.interval.cgFloat)
-         activeCheckBoxButton.setChecked(repoItem.active)
-         pullCheckBoxButton.setChecked(repoItem.pullToAutoSync)
-         fileChangeCheckBoxButton.setChecked(repoItem.fileChange)*/
     }
 }
-extension RepoDetailView{
+extension RepoDetailView{/*Convenience*/
     var nameText:TextInput? {return self.element("name")}
     var localText:TextInput? {return self.element("local")}
     var remoteText:TextInput? {return self.element("remote")}
