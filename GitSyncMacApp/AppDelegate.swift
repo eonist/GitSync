@@ -70,7 +70,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     func applicationWillTerminate(_ aNotification:Notification) {
         /*Stores the app prefs*/
-        if(PrefsView.keychainUserName != nil){//make sure the data has been read and written to first
+        if(PrefsView.prefs["login"] != nil){//make sure the data has been read and written to first
             _ = FileModifier.write("~/Desktop/gitsyncprefs.xml".tildePath, PrefsView.xml.xmlString)
             Swift.print("💾 Write PrefsView to: prefs.xml")
         }
