@@ -19,6 +19,7 @@ class PrefsView:Element {
         UnFoldUtils.unFold("~/Desktop/gitsync.json","prefsView",self)
         let xml:XML = FileParser.xml("~/Desktop/gitsyncprefs.xml".tildePath)/*Loads the xml*/
         PrefsView.xml = xml
+        setPrefs(PrefsView.prefs)
     }
     override func onEvent(_ event:Event) {
         Swift.print("PrefsView.onEvent")
@@ -50,13 +51,13 @@ class PrefsView:Element {
 }
 extension PrefsView{
     /**
-     *
+     * New
      */
     func setPrefs(_ dict:[String:String]){
         login?.setInputText(dict["login"] ?? "")
         pass?.setInputText(dict["pass"] ?? "")
-        local?.setInputText(dict["pass"] ?? "")
-        //login,pass,local,darkMode etc 🏀
+        local?.setInputText(dict["local"] ?? "")
+        darkMode?.setChecked(dict["local"]?.bool ?? false)
     }
     static var xml:XML{
         get{
