@@ -4,7 +4,8 @@ import Foundation
 
 class RepoDetailView:Element {
     var nameTextInput:TextInput? {
-        self.subviews.flatMap{$0 as? IElement}.fi
+        let element:IElement = self.subviews.lazy.flatMap{$0 as? IElement}.first(where: {$0.id == "name"})
+        return nil
     }
     override func resolveSkin() {
         Swift.print("RepoDetailView.resolveSkin()")
