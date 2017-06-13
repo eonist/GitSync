@@ -19,6 +19,7 @@ class PrefsView:Element {
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
         UnFoldUtils.unFold("~/Desktop/gitsync.json","prefsView",self)
+        let xml:XML = FileParser.xml("~/Desktop/gitsyncprefs.xml".tildePath)/*Loads the xml*/
     }
     override func onEvent(_ event: Event) {
         Swift.print("PrefsView.onEvent")
