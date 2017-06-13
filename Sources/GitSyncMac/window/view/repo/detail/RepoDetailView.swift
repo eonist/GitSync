@@ -6,8 +6,8 @@ class RepoDetailView:Element {
     override func resolveSkin() {
         Swift.print("RepoDetailView.resolveSkin()")
         super.resolveSkin()//self.skin = SkinResolver.skin(self)
-        
-        "~/Desktop/gitsync.json","repoDetailView"
+
+        UnFoldUtils.unfold("~/Desktop/gitsync.json","repoDetailView",self)
     }
 }
 extension RepoDetailView{
