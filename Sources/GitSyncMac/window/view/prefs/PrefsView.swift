@@ -12,11 +12,6 @@ import Foundation
     //research password mode in textfield
     //research writing keychain item
     //save to xml
-    //create an enum for login,pass,local,darkMode
-enum PrefsType:String{
-    case login = "login"
-    case pass = "pass"
-}
 class PrefsView:Element {
     static var prefs:[String:String] = [:]
     override func resolveSkin() {
@@ -59,12 +54,16 @@ class PrefsView:Element {
 }
 extension PrefsView{
     static var xml:XML{
-        let xml:XML = "<prefs></prefs>".xml
-        xml.appendChild("<login>\(PrefsView.prefs["login"])</login>".xml)
-        xml.appendChild("<pass>\(PrefsView.prefs["pass"])</pass>".xml)
-        xml.appendChild("<local>\(PrefsView.prefs["local"])</local>".xml)
-        xml.appendChild("<darkMode>\(PrefsView.prefs["darkMode"])</darkMode>".xml)
-        return xml
+        get{
+            let xml:XML = "<prefs></prefs>".xml
+            xml.appendChild("<login>\(PrefsView.prefs["login"])</login>".xml)
+            xml.appendChild("<pass>\(PrefsView.prefs["pass"])</pass>".xml)
+            xml.appendChild("<local>\(PrefsView.prefs["local"])</local>".xml)
+            xml.appendChild("<darkMode>\(PrefsView.prefs["darkMode"])</darkMode>".xml)
+            return xml
+        }set{
+            
+        }
     }
 }
 extension PrefsView{
