@@ -20,13 +20,7 @@ class PrefsView:Element {
     static var uiSounds:Bool?
     static var darkMode:Bool = true
     static var autoSyncInterval:CGFloat = 30.0
-    var keychainUserNameTextInput:TextInput?
-    var gitConfigUserNameTextInput:TextInput?
-    var gitEmailNameTextInput:TextInput?
-    var defaultLocalPathTextInput:TextInput?
-    var uiSoundsCheckBoxButton:CheckBoxButton?
-    var darkModeCheckBoxButton:CheckBoxButton?
-    var autoSyncIntervalLeverSpinner:LeverSpinner?
+    
     
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
@@ -59,6 +53,15 @@ extension PrefsView{
         xml.appendChild("<uiSounds>\(String(PrefsView.uiSounds!))</uiSounds>".xml)
         return xml
     }
+    /*
+    var keychainUserNameTextInput:TextInput?
+    var gitConfigUserNameTextInput:TextInput?
+    var gitEmailNameTextInput:TextInput?
+    var defaultLocalPathTextInput:TextInput?
+    var uiSoundsCheckBoxButton:CheckBoxButton?
+    var darkModeCheckBoxButton:CheckBoxButton?
+    var autoSyncIntervalLeverSpinner:LeverSpinner?
+    */
 }
 
 
