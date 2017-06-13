@@ -11,6 +11,7 @@ import Foundation
     //research password mode in textfield
     //research writing keychain item
     //save to xml ✅
+
 class PrefsView:Element {
     static var prefs:[String:String] = [:]
     override func resolveSkin() {
@@ -51,7 +52,7 @@ extension PrefsView{
     /**
      *
      */
-    func setPrefs(/*Dict*/){
+    func setPrefs(dict:[String:String]){
         //login,pass,local,darkMode etc 🏀
     }
     static var xml:XML{
