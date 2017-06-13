@@ -38,12 +38,12 @@ extension RepoDetailView{
      */
     private func setRepoData(_ repoItem:RepoItem){
         nameText?.inputTextArea.setTextValue(repoItem.title)
-        /*localPathTextInput.inputTextArea.setTextValue(repoItem.localPath)
-         remotePathTextInput.inputTextArea.setTextValue(repoItem.remotePath)
-         branchTextInput.inputTextArea.setTextValue(repoItem.branch)
-         /*CheckButtons*/
-         uploadCheckBoxButton.setChecked(repoItem.upload)
-         downloadCheckBoxButton.setChecked(repoItem.download)
+        localText?.inputTextArea.setTextValue(repoItem.localPath)
+        remoteText?.inputTextArea.setTextValue(repoItem.remotePath)
+        branchText?.inputTextArea.setTextValue(repoItem.branch)
+        /*CheckButtons*/
+        //uploadCheckBoxButton?.setChecked(repoItem.upload)
+        /*downloadCheckBoxButton.setChecked(repoItem.download)
          messageCheckBoxButton.setChecked(repoItem.autoCommitMessage)
          intervalCheckBoxButton.setChecked(repoItem.autoSyncInterval)
          autoSyncIntervalLeverSpinner.setValue(repoItem.interval.cgFloat)
