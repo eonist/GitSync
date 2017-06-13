@@ -27,7 +27,6 @@ class PrefsView:Element {
             case event.isChildOf(login):
                 PrefsView.prefs["login"] = login?.inputText
             case event.isChildOf(pass):
-                if event.type == Text
                 PrefsView.prefs["pass"] = pass?.inputText
             case event.isChildOf(local):
                 PrefsView.prefs["localPath"] = local?.inputText
