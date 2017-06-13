@@ -21,13 +21,13 @@ class RepoDetailView:Element {
             switch true{
             /*TextInput*/
             case event.isChildOf(nameText):
-                attrib[RepoItemType.title] = nameText?.inputString
+                attrib[RepoItemType.title] = nameText?.inputText
             case event.isChildOf(localText):
-                attrib[RepoItemType.localPath] = localText?.inputString
+                attrib[RepoItemType.localPath] = localText?.inputText
             case event.isChildOf(remoteText):
-                attrib[RepoItemType.remotePath] = remoteText?.inputString
+                attrib[RepoItemType.remotePath] = remoteText?.inputText
             case event.isChildOf(branchText):
-                attrib[RepoItemType.branch] = branchText?.inputString
+                attrib[RepoItemType.branch] = branchText?.inputText
             default:
                 break;
             }
@@ -50,7 +50,7 @@ class RepoDetailView:Element {
             //Swift.print("✨ Update dp with: attrib: " + "\(attrib)")
             RepoView.treeDP.tree[idx3d]!.props = attrib/*Overrides the cur attribs*///RepoView.node.setAttributeAt(i, attrib)
             if let tree:Tree = RepoView.treeDP.tree[idx3d]{
-                Swift.print("title: " + "\(tree.props?["title"])")
+                Swift.print("title: " + "\(tree.props?[RepoItemType.title])")
                 //Swift.print("node.xml.xmlString: " + "\(tree.xml.xmlString)")
             }
         }
