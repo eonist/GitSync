@@ -18,14 +18,10 @@ class PrefsView:Element {
         self.skin = SkinResolver.skin(self)
         UnFoldUtils.unFold("~/Desktop/gitsync.json","prefsView",self)
         let xml:XML = FileParser.xml("~/Desktop/gitsyncprefs.xml".tildePath)/*Loads the xml*/
-        PrefsView.prefs["login"] = xml.firstNode("login")!.stringValue
-        PrefsView.prefs["pass"] = xml.firstNode("pass")!.stringValue
-        PrefsView.prefs["local"] = xml.firstNode("local")!.stringValue
-        PrefsView.prefs["darkMode"] = xml.firstNode("darkMode")!.stringValue
+        PrefsView.xml = xml
     }
-    override func onEvent(_ event: Event) {
+    override func onEvent(_ event:Event) {
         Swift.print("PrefsView.onEvent")
-        
         if event.type == Event.update {
             switch true{/*TextInput*/
             case event.isChildOf(login):
@@ -62,7 +58,10 @@ extension PrefsView{
             xml.appendChild("<darkMode>\(PrefsView.prefs["darkMode"])</darkMode>".xml)
             return xml
         }set{
-            
+            PrefsView.prefs["login"] = newValue.firstNode("login")!.stringValue
+            PrefsView.prefs["pass"] = newValue.firstNode("pass")!.stringValue
+            PrefsView.prefs["local"] = newValue.firstNode("local")!.stringValue
+            PrefsView.prefs["darkMode"] = newValue.firstNode("darkMode")!.stringValue
         }
     }
 }
