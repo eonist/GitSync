@@ -42,7 +42,7 @@ extension RepoDetailView{
         remoteText?.inputTextArea.setTextValue(repoItem.remotePath)
         branchText?.inputTextArea.setTextValue(repoItem.branch)
         /*CheckButtons*/
-        //uploadCheckBoxButton?.setChecked(repoItem.upload)
+        autoCheckBoxButton?.setChecked(repoItem.upload)
         /*downloadCheckBoxButton.setChecked(repoItem.download)
          messageCheckBoxButton.setChecked(repoItem.autoCommitMessage)
          intervalCheckBoxButton.setChecked(repoItem.autoSyncInterval)
@@ -57,5 +57,7 @@ extension RepoDetailView{
     var localText:TextInput? {return self.element("local")}
     var remoteText:TextInput? {return self.element("remote")}
     var branchText:TextInput? {return self.element("branch")}
-    var uploadCheckBoxButton:CheckBoxButton? {return self.element("upload")}
+    var autoCheckBoxButton:CheckBoxButton? {return self.element("auto")}
+    var messageCheckBoxButton:CheckBoxButton? {return self.element("message")}
+    var activeCheckBoxButton:CheckBoxButton? {return self.element("active")}
 }
