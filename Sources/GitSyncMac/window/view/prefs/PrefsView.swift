@@ -48,6 +48,12 @@ class PrefsView:Element {
     }
 }
 extension PrefsView{
+    /**
+     *
+     */
+    func setPrefs(/*Dict*/){
+        //login,pass,local,darkMode etc 🏀
+    }
     static var xml:XML{
         get{
             let xml:XML = "<prefs></prefs>".xml
