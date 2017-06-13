@@ -9,7 +9,7 @@ class RepoDetailView:Element {
     }
     /**
      * Modifies the dataProvider item on UI change
-     * TODO: ⚠️️ enumify this method? at least usw switch
+     * TODO: ⚠️️ enumify this method? at least use switch
      */
     override func onEvent(_ event:Event) {
         Swift.print("onEvent: type: " + "\(event.type) immediate: \(event.immediate) origin: \(event.origin)")
