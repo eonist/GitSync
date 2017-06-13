@@ -31,10 +31,6 @@ class Nav {
         
     }
     private static func getView(_ view:Views2,_ mainView:Element/*,_ size:CGSize*/)->Element{
-        /*let w:CGFloat = size.w/*Convenience*/
-         _ = w
-         let h:CGFloat = size.h
-         _ = h*/
         switch view{
         case .main(let viewType):/*Main*/
             switch viewType {
