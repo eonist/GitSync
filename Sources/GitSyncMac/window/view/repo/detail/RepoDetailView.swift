@@ -53,6 +53,6 @@ extension RepoDetailView{
     }
 }
 extension RepoDetailView{
-    var nameText:TextInput? {return ElementParser.element(self, "name")}
-    var localText:TextInput? {return ElementParser.element(self, "local")}
+    var nameText:TextInput? {return self.element("name")}
+    var localText:TextInput? {return self.element("local")}
 }
