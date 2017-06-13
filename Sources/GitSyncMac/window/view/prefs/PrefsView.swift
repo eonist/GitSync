@@ -3,14 +3,13 @@ import Foundation
 @testable import Element
 /**
  * NOTE: this must be a view, if you want to be consistent between macOS and iOS
+ * TODO: ⚠️️ Save the prefs in json, research how writing to json works
+ * TODO: ⚠️️ make a reusable setUI,getUI method for the UnFold system
+ * TODO: ⚠️️ make a reusable event handler that stores the state of the UI
  */
 //Continue here: 🏀
-    //make the json for the UI ✅
-    //improve the event handling ✅
-    //github login, github pass, local-path, darkmode ✅
     //research password mode in textfield
     //research writing keychain item
-    //save to xml ✅
 
 class PrefsView:Element {
     static var prefs:[String:String] = [:]
@@ -43,9 +42,6 @@ class PrefsView:Element {
             }
         }else{
             super.onEvent(event)//forward other events
-        }
-        if(event.type == CheckEvent.check || event.type == Event.update){
-            Swift.print("✨ Update dp with: attrib: " + "\(PrefsView.prefs)")
         }
     }
 }
