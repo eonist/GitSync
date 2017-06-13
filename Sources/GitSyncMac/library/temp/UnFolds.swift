@@ -32,7 +32,7 @@ extension CheckBoxButton{
         return CheckBoxButton.init(elementConfig, config)
     }
     convenience init(_ element:ElementConfig, _ config:CheckBoxButtonConfig) {
-        self.init(element.width, element.height,"",false, element.parent, element.id)
+        self.init(element.width, element.height,config.text,config.isChecked, element.parent, element.id)
     }
 }
 extension Element{
