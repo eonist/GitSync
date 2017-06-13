@@ -13,44 +13,37 @@ import Foundation
     //research writing keychain item
 
 class PrefsView:Element {
-    static var keychainUserName:String?
-    static var gitConfigUserName:String?
-    static var gitEmailNameText:String?
-    static var defaultLocalPath:String = "~/Documents/"
-    static var uiSounds:Bool?
-    static var darkMode:Bool = true
-    static var autoSyncInterval:CGFloat = 30.0
-    
-    
+    /*static var keychainUserName:String?
+     static var gitConfigUserName:String?
+     static var gitEmailNameText:String?
+     static var defaultLocalPath:String = "~/Documents/"
+     static var uiSounds:Bool?
+     static var darkMode:Bool = true
+     static var autoSyncInterval:CGFloat = 30.0
+     */
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
         
         let xml:XML = FileParser.xml("~/Desktop/gitsyncprefs.xml".tildePath)/*Loads the xml*/
-        PrefsView.gitConfigUserName = xml.firstNode("gitConfigUserName")!.stringValue
+        _ = xml
+        //PrefsView.gitConfigUserName = xml.firstNode("gitConfigUserName")!.stringValue
         UnFoldUtils.unFold("~/Desktop/gitsync.json","prefsView",self)
     }
     override func onEvent(_ event: Event) {
         //Swift.print("PrefsView.onEvent")
         //Continue here: use immediate to assert not origin on the bellow
-        if(event.type == Event.update && event.immediate === keychainUserNameTextInput){
-            PrefsView.keychainUserName = (event as! TextFieldEvent).stringValue
-            //Swift.print("stores to keychainUserName")
-        }else if(event.type == Event.update && event.immediate === gitConfigUserNameTextInput){
-            PrefsView.gitConfigUserName = (event as! TextFieldEvent).stringValue
-        }else if(event.type == Event.update && event.immediate === gitEmailNameTextInput){
-            PrefsView.gitEmailNameText = (event as! TextFieldEvent).stringValue
-        }else if(event.type == CheckEvent.check && event.immediate === uiSoundsCheckBoxButton){
-            PrefsView.uiSounds = (event as! CheckEvent).isChecked
-        }
     }
+}
+extension PrefsView{
+    var nameText:TextInput? {return self.element("name")}
 }
 extension PrefsView{
     static var xml:XML{
         let xml:XML = "<prefs></prefs>".xml
-        xml.appendChild("<keychainUserName>\(PrefsView.keychainUserName!)</keychainUserName>".xml)
-        xml.appendChild("<gitConfigUserName>\(PrefsView.gitConfigUserName!)</gitConfigUserName>".xml)
-        xml.appendChild("<gitEmailName>\(PrefsView.gitEmailNameText!)</gitEmailName>".xml)
-        xml.appendChild("<uiSounds>\(String(PrefsView.uiSounds!))</uiSounds>".xml)
+        /*xml.appendChild("<keychainUserName>\(PrefsView.keychainUserName!)</keychainUserName>".xml)
+         xml.appendChild("<gitConfigUserName>\(PrefsView.gitConfigUserName!)</gitConfigUserName>".xml)
+         xml.appendChild("<gitEmailName>\(PrefsView.gitEmailNameText!)</gitEmailName>".xml)
+         xml.appendChild("<uiSounds>\(String(PrefsView.uiSounds!))</uiSounds>".xml)*/
         return xml
     }
     /*
@@ -63,8 +56,17 @@ extension PrefsView{
     var autoSyncIntervalLeverSpinner:LeverSpinner?
     */
 }
-
-
+/*
+if(event.type == Event.update && event.immediate === keychainUserNameTextInput){
+    PrefsView.keychainUserName = (event as! TextFieldEvent).stringValue
+}else if(event.type == Event.update && event.immediate === gitConfigUserNameTextInput){
+    PrefsView.gitConfigUserName = (event as! TextFieldEvent).stringValue
+}else if(event.type == Event.update && event.immediate === gitEmailNameTextInput){
+    PrefsView.gitEmailNameText = (event as! TextFieldEvent).stringValue
+}else if(event.type == CheckEvent.check && event.immediate === uiSoundsCheckBoxButton){
+    PrefsView.uiSounds = (event as! CheckEvent).isChecked
+}
+*/
 /*
 //keychain-user-name (TextInput)
 keychainUserNameTextInput = addSubView(TextInput(width, NaN, "keychain user: ", PrefsView.keychainUserName!, self))
