@@ -3,9 +3,6 @@ import Foundation
 @testable import Element
 
 class RepoDetailView:Element {
-    var nameTextInput:TextInput? {
-        return ElementParser.element(self, "name", TextInput.self)
-    }
     override func resolveSkin() {
         Swift.print("RepoDetailView.resolveSkin()")
         super.resolveSkin()//self.skin = SkinResolver.skin(self)
