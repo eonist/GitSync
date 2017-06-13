@@ -42,7 +42,7 @@ extension RepoDetailView{
         remoteText?.inputTextArea.setTextValue(repoItem.remotePath)
         branchText?.inputTextArea.setTextValue(repoItem.branch)
         /*CheckButtons*/
-        autoCheckBoxButton?.setChecked(repoItem.upload)
+        autoCheckBoxButton?.setChecked(!repoItem.pullToAutoSync)
         /*downloadCheckBoxButton.setChecked(repoItem.download)
          messageCheckBoxButton.setChecked(repoItem.autoCommitMessage)
          intervalCheckBoxButton.setChecked(repoItem.autoSyncInterval)
