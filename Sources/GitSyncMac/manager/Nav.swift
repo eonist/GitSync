@@ -30,7 +30,7 @@ class Nav {
         StyleTestView.currentView = mainView.addSubView(view)
         
     }
-    private static func getView(_ view:Views2,_ mainView:Element/*,_ size:CGSize*/)->Element{
+    private static func getView(_ view:Views2,_ mainView:Element)->Element{
         switch view{
         case .main(let viewType):/*Main*/
             switch viewType {
