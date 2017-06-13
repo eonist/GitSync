@@ -6,7 +6,6 @@ class RepoDetailView:Element {
     override func resolveSkin() {
         Swift.print("RepoDetailView.resolveSkin()")
         super.resolveSkin()//self.skin = SkinResolver.skin(self)
-        //nameTextInput = addSubView(TextInput(width, NaN, "Name: ", "Test", self,""))
         
         JSONParser.dictArr(JSONParser.dict("~/Desktop/gitsync.json".content?.json)?["repoDetailView"])?.forEach{
             if let element:IElement = UnFoldUtils.unFold($0) {
