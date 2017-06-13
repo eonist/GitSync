@@ -4,6 +4,11 @@ import Foundation
 /**
  * NOTE: this must be a view, if you want to be consistent between macOS and iOS
  */
+
+//Continue here:
+    //make the json for the UI
+    //improve the 
+
 class PrefsView:Element {
     static var keychainUserName:String?
     static var gitConfigUserName:String?
