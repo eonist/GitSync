@@ -32,13 +32,8 @@ class PrefsView:Element {
         self.skin = SkinResolver.skin(self)
         
         let xml:XML = FileParser.xml("~/Desktop/gitsyncprefs.xml".tildePath)/*Loads the xml*/
-        /*PrefsView.keychainUserName = xml.firstNode("keychainUserName")!.stringValue*/
         PrefsView.gitConfigUserName = xml.firstNode("gitConfigUserName")!.stringValue
-        /*PrefsView.gitEmailNameText = xml.firstNode("gitEmailName")!.stringValue
-         PrefsView.uiSounds = xml.firstNode("uiSounds")!.stringValue!.bool*/
-        
-        UnFoldUtils.unFold("~/Desktop/gitsync.json","PrefsView",self)
-        
+        UnFoldUtils.unFold("~/Desktop/gitsync.json","prefsView",self)
     }
     override func onEvent(_ event: Event) {
         //Swift.print("PrefsView.onEvent")
@@ -82,4 +77,9 @@ uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, NaN, "UI sounds: ", Pr
 darkModeCheckBoxButton = addSubView(CheckBoxButton(width, NaN, "Dark mode: ", PrefsView.darkMode, self))
 //Auto-Sync interval:
 autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Sync-Interval: ", 30, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))//autoSyncIntervall needs to be a time setter: Day,Hour,Min,Seconds,0 means do not sync on an interval, the min setting is 30 sec, anything bellow this will be clamped to 30 sec
+ 
+ 
+ /*PrefsView.gitEmailNameText = xml.firstNode("gitEmailName")!.stringValue
+ PrefsView.uiSounds = xml.firstNode("uiSounds")!.stringValue!.bool*/
+ /*PrefsView.keychainUserName = xml.firstNode("keychainUserName")!.stringValue*/
 */
