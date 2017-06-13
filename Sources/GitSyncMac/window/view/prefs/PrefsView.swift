@@ -53,6 +53,9 @@ extension PrefsView{
      *
      */
     func setPrefs(_ dict:[String:String]){
+        login?.setInputText(dict["login"] ?? "")
+        pass?.setInputText(dict["pass"] ?? "")
+        local?.setInputText(dict["pass"] ?? "")
         //login,pass,local,darkMode etc 🏀
     }
     static var xml:XML{
