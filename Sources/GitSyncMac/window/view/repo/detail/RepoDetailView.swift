@@ -10,7 +10,7 @@ class RepoDetailView:Element {
 }
 extension RepoDetailView{
     /**
-     *
+     * Filters groups and items
      */
     func setRepoData(_ idx3d:[Int]){
         RepoView.selectedListItemIndex = idx3d
