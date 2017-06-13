@@ -3,7 +3,10 @@ import Foundation
 @testable import Element
 
 class RepoDetailView:Element {
-        override func resolveSkin() {
+    var nameTextInput:TextInput? {
+        return ElementParser.element(self, "name", TextInput.self)
+    }
+    override func resolveSkin() {
         Swift.print("RepoDetailView.resolveSkin()")
         super.resolveSkin()//self.skin = SkinResolver.skin(self)
         //nameTextInput = addSubView(TextInput(width, NaN, "Name: ", "Test", self,""))
@@ -39,7 +42,7 @@ extension RepoDetailView{
      * Populates the UI elements with data from the dp item
      */
     private func setRepoData(_ repoItem:RepoItem){
-        //nameTextInput?.inputTextArea.setTextValue(repoItem.title)
+        nameTextInput?.inputTextArea.setTextValue(repoItem.title)
         /*localPathTextInput.inputTextArea.setTextValue(repoItem.localPath)
          remotePathTextInput.inputTextArea.setTextValue(repoItem.remotePath)
          branchTextInput.inputTextArea.setTextValue(repoItem.branch)
