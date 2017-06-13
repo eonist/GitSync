@@ -7,6 +7,64 @@ class RepoDetailView:Element {
         super.resolveSkin()
         UnFoldUtils.unfold("~/Desktop/gitsync.json","repoDetailView",self)
     }
+    /**
+     * Modifies the dataProvider item on UI change
+     * TODO: Collectivly test for event type, then anrrow down on origin
+     * TODO: Might need to change to origin testing since these items now are in the container. So event.orgin === downloadButoon.checkBox
+     * TODO: ⚠️️ enumify this method? at least usw switch
+     */
+    override func onEvent(_ event:Event) {
+        Swift.print("onEvent: type: " + "\(event.type) immediate: \(event.immediate) origin: \(event.origin)")
+        let idx3d:[Int] = RepoView.selectedListItemIndex
+        guard var attrib:[String:String] = RepoView.treeDP.tree[idx3d]?.props else{
+            fatalError("no attribs at: \(idx3d)")
+        }
+        if event.type == Event.update {
+            switch true{
+            /*TextInput*/
+            case event.isChildOf(nameText):
+                attrib[RepoItemType.title] = nameText?.inputString
+            case event.isChildOf(localText):
+                attrib[RepoItemType.localPath] = localText?.inputString
+            case event.isChildOf(remoteText):
+                attrib[RepoItemType.remotePath] = remoteText?.inputString
+            case event.isChildOf(branchText):
+                attrib[RepoItemType.branch] = branchText?.inputString
+            default:
+                break;
+            }
+        }else if event.type == CheckEvent.check{
+            switch true{
+                /*CheckButtons*/
+            case event.isChildOf(uploadCheckBoxButton):
+                attrib[RepoItemType.upload] = uploadCheckBoxButton.getChecked().str//String((event as! CheckEvent).isChecked)
+            case event.isChildOf(downloadCheckBoxButton):
+                attrib[RepoItemType.download] = downloadCheckBoxButton.getChecked().str
+            case event.isChildOf(activeCheckBoxButton)://TODO: <---use getChecked here
+                attrib[RepoItemType.active] = activeCheckBoxButton.getChecked().str
+            case event.isChildOf(messageCheckBoxButton):
+                attrib[RepoItemType.autoCommitMessage] = messageCheckBoxButton.getChecked().str
+            case event.isChildOf(pullCheckBoxButton):
+                attrib[RepoItemType.pullToAutoSync] = pullCheckBoxButton.getChecked().str
+            case event.isChildOf(fileChangeCheckBoxButton):
+                attrib[RepoItemType.fileChange] = fileChangeCheckBoxButton.getChecked().str
+            case event.isChildOf(intervalCheckBoxButton):
+                attrib[RepoItemType.autoSyncInterval] = intervalCheckBoxButton.getChecked().str
+            default:
+                break;
+            }
+        }else{
+            super.onEvent(event)//forward other events
+        }
+        if(event.type == CheckEvent.check || event.type == Event.update || event.type == SpinnerEvent.change){
+            //Swift.print("✨ Update dp with: attrib: " + "\(attrib)")
+            RepoView.treeDP.tree[idx3d]!.props = attrib//RepoView.node.setAttributeAt(i, attrib)
+            if let tree:Tree = RepoView.treeDP.tree[idx3d]{
+                Swift.print("title: " + "\(tree.props?["title"])")
+                //Swift.print("node.xml.xmlString: " + "\(tree.xml.xmlString)")
+            }
+        }
+    }
 }
 extension RepoDetailView{
     /**
