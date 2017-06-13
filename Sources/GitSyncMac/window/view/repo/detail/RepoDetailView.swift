@@ -4,7 +4,7 @@ import Foundation
 
 class RepoDetailView:Element {
     var nameTextInput:TextInput? {
-        NSViewParser.
+        self.subviews.flatMap{$0 as? IElement}.fi
     }
     override func resolveSkin() {
         Swift.print("RepoDetailView.resolveSkin()")
