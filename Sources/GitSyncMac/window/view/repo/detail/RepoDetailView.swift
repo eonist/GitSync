@@ -35,30 +35,22 @@ class RepoDetailView:Element {
             }
         }else if event.type == CheckEvent.check{
             switch true{
-                /*CheckButtons*/
-            case event.isChildOf(uploadCheckBoxButton):
-                attrib[RepoItemType.upload] = uploadCheckBoxButton.getChecked().str//String((event as! CheckEvent).isChecked)
-            case event.isChildOf(downloadCheckBoxButton):
-                attrib[RepoItemType.download] = downloadCheckBoxButton.getChecked().str
+            /*CheckButtons*/
             case event.isChildOf(activeCheckBoxButton)://TODO: <---use getChecked here
-                attrib[RepoItemType.active] = activeCheckBoxButton.getChecked().str
+                attrib[RepoItemType.active] = activeCheckBoxButton?.getChecked().str
             case event.isChildOf(messageCheckBoxButton):
-                attrib[RepoItemType.autoCommitMessage] = messageCheckBoxButton.getChecked().str
-            case event.isChildOf(pullCheckBoxButton):
-                attrib[RepoItemType.pullToAutoSync] = pullCheckBoxButton.getChecked().str
-            case event.isChildOf(fileChangeCheckBoxButton):
-                attrib[RepoItemType.fileChange] = fileChangeCheckBoxButton.getChecked().str
-            case event.isChildOf(intervalCheckBoxButton):
-                attrib[RepoItemType.autoSyncInterval] = intervalCheckBoxButton.getChecked().str
+                attrib[RepoItemType.autoCommitMessage] = messageCheckBoxButton?.getChecked().str
+            case event.isChildOf(autoCheckBoxButton):
+                attrib[RepoItemType.pullToAutoSync] = autoCheckBoxButton?.getChecked().str
             default:
                 break;
             }
         }else{
             super.onEvent(event)//forward other events
         }
-        if(event.type == CheckEvent.check || event.type == Event.update || event.type == SpinnerEvent.change){
+        if(event.type == CheckEvent.check || event.type == Event.update){
             //Swift.print("✨ Update dp with: attrib: " + "\(attrib)")
-            RepoView.treeDP.tree[idx3d]!.props = attrib//RepoView.node.setAttributeAt(i, attrib)
+            RepoView.treeDP.tree[idx3d]!.props = attrib/*Overrides the cur attribs*///RepoView.node.setAttributeAt(i, attrib)
             if let tree:Tree = RepoView.treeDP.tree[idx3d]{
                 Swift.print("title: " + "\(tree.props?["title"])")
                 //Swift.print("node.xml.xmlString: " + "\(tree.xml.xmlString)")
@@ -68,7 +60,7 @@ class RepoDetailView:Element {
 }
 extension RepoDetailView{
     /**
-     * Filters groups and items
+     * NOTE: Filters groups and items
      */
     func setRepoData(_ idx3d:[Int]){
         RepoView.selectedListItemIndex = idx3d
