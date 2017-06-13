@@ -53,7 +53,7 @@ extension PrefsView{
         login?.setInputText(dict["login"] ?? "")
         pass?.setInputText(dict["pass"] ?? "")
         local?.setInputText(dict["local"] ?? "")
-        darkMode?.setChecked(dict["local"]?.bool ?? false)
+        darkMode?.setChecked((dict["darkMode"] ?? "false").bool)
     }
     static var xml:XML{
         get{
