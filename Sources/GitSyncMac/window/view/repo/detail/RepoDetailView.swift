@@ -13,11 +13,8 @@ class RepoDetailView:Element {
             if let element:IElement = UnFoldUtils.unFold($0) {
                 Swift.print("created an element")
                 _ = element
-            }else{
-                Swift.print("did not create an element")
             }
         }
-        
     }
 }
 extension RepoDetailView{
