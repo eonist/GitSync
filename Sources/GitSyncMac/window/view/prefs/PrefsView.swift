@@ -7,7 +7,8 @@ import Foundation
 
 //Continue here:
     //make the json for the UI
-    //improve the 
+    //improve the event handling
+    //github login, github pass, darkmode,
 
 class PrefsView:Element {
     static var keychainUserName:String?
