@@ -39,7 +39,7 @@ extension RepoDetailView{
      * Populates the UI elements with data from the dp item
      */
     private func setRepoData(_ repoItem:RepoItem){
-        nameTextInput?.inputTextArea.setTextValue(repoItem.title)
+        ElementParser.element(self, "name", TextInput.self)?.inputTextArea.setTextValue(repoItem.title)
         /*localPathTextInput.inputTextArea.setTextValue(repoItem.localPath)
          remotePathTextInput.inputTextArea.setTextValue(repoItem.remotePath)
          branchTextInput.inputTextArea.setTextValue(repoItem.branch)
