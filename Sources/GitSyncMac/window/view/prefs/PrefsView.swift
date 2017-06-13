@@ -52,7 +52,7 @@ extension PrefsView{
     /**
      *
      */
-    func setPrefs(dict:[String:String]){
+    func setPrefs(_ dict:[String:String]){
         //login,pass,local,darkMode etc 🏀
     }
     static var xml:XML{
