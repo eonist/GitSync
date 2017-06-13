@@ -32,12 +32,12 @@ class PrefsView:Element {
         self.skin = SkinResolver.skin(self)
         
         let xml:XML = FileParser.xml("~/Desktop/gitsyncprefs.xml".tildePath)/*Loads the xml*/
-        PrefsView.keychainUserName = xml.firstNode("keychainUserName")!.stringValue
+        /*PrefsView.keychainUserName = xml.firstNode("keychainUserName")!.stringValue*/
         PrefsView.gitConfigUserName = xml.firstNode("gitConfigUserName")!.stringValue
-        PrefsView.gitEmailNameText = xml.firstNode("gitEmailName")!.stringValue
-        PrefsView.uiSounds = xml.firstNode("uiSounds")!.stringValue!.bool
+        /*PrefsView.gitEmailNameText = xml.firstNode("gitEmailName")!.stringValue
+         PrefsView.uiSounds = xml.firstNode("uiSounds")!.stringValue!.bool*/
         
-        UnFoldUtils.unFold("~/Desktop/gitsync.json","repoDetailView",self)
+        UnFoldUtils.unFold("~/Desktop/gitsync.json","PrefsView",self)
         
     }
     override func onEvent(_ event: Event) {
