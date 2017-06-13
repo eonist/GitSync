@@ -8,9 +8,8 @@ class RepoDetailView:Element {
         super.resolveSkin()//self.skin = SkinResolver.skin(self)
         
         JSONParser.dictArr(JSONParser.dict("~/Desktop/gitsync.json".content?.json)?["repoDetailView"])?.forEach{
-            if let element:IElement = UnFoldUtils.unFold($0) {
-                Swift.print("created an element")
-                _ = element
+            if let element:Element = UnFoldUtils.unFold($0) {
+                addSubview(element)
             }
         }
     }

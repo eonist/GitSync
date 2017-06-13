@@ -3,7 +3,7 @@ import Foundation
 @testable import Utils
 
 class UnFoldUtils{
-    static func unFold(_ dict:[String:Any], _ parent:IElement? = nil) -> IElement?{
+    static func unFold(_ dict:[String:Any], _ parent:IElement? = nil) -> Element?{
         guard let type:String = dict["type"] as? String else {fatalError("type must be string")}
         switch true{
             case type == "\(TextInput.self)":
