@@ -12,30 +12,32 @@ import Foundation
     //research password mode in textfield
     //research writing keychain item
     //save to xml
+    //create an enum for login,pass,local,darkMode
 
 class PrefsView:Element {
+    static var prefs:[String:String] = [:]
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
         UnFoldUtils.unFold("~/Desktop/gitsync.json","prefsView",self)
     }
     override func onEvent(_ event: Event) {
         Swift.print("PrefsView.onEvent")
-        var attrib:[String:String] = [:]
+        
         if event.type == Event.update {
             switch true{/*TextInput*/
             case event.isChildOf(login):
-                attrib["login"] = login?.inputText
+                PrefsView.prefs["login"] = login?.inputText
             case event.isChildOf(pass):
-                attrib["pass"] = pass?.inputText
+                PrefsView.prefs["pass"] = pass?.inputText
             case event.isChildOf(local):
-                attrib["localPath"] = local?.inputText
+                PrefsView.prefs["localPath"] = local?.inputText
             default:
                 break;
             }
         }else if event.type == CheckEvent.check{
             switch true{/*CheckButtons*/
             case event.isChildOf(darkMode)://TODO: <---use getChecked here
-                attrib["darkMode"] = darkMode?.getChecked().str
+                PrefsView.prefs["darkMode"] = darkMode?.getChecked().str
             default:
                 break;
             }
@@ -43,16 +45,17 @@ class PrefsView:Element {
             super.onEvent(event)//forward other events
         }
         if(event.type == CheckEvent.check || event.type == Event.update){
-            Swift.print("✨ Update dp with: attrib: " + "\(attrib)")
+            Swift.print("✨ Update dp with: attrib: " + "\(PrefsView.prefs)")
         }
     }
 }
 extension PrefsView{
     static var xml:XML{
         let xml:XML = "<prefs></prefs>".xml
-        xml.appendChild("<login>\(login?.inputText)</login>".xml)
-        xml.appendChild("<pass>\(pass?.inputText)</pass>".xml)
-        xml.appendChild("<darkMode>\(String(PrefsView.uiSounds!))</darkMode>".xml)
+        xml.appendChild("<login>\(PrefsView.prefs["login"])</login>".xml)
+        xml.appendChild("<pass>\(PrefsView.prefs["pass"])</pass>".xml)
+        xml.appendChild("<local>\(PrefsView.prefs["local"])</local>".xml)
+        xml.appendChild("<darkMode>\(PrefsView.prefs["darkMode"])</darkMode>".xml)
         return xml
     }
 }
