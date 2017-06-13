@@ -55,4 +55,7 @@ extension RepoDetailView{
 extension RepoDetailView{
     var nameText:TextInput? {return self.element("name")}
     var localText:TextInput? {return self.element("local")}
+    var remoteText:TextInput? {return self.element("remote")}
+    var branchText:TextInput? {return self.element("branch")}
+    var uploadCheckBoxButton:CheckBoxButton? {return self.element("upload")}
 }
