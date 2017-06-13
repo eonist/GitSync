@@ -3,6 +3,17 @@ import Foundation
 @testable import Utils
 
 class UnFoldUtils{
+    /**
+     * New
+     * TODO: ⚠️️ In the future you will use a json method that can take an [Any] that contains str and int for the path. so you can do path:["app",0,"repoView"] etc
+     */
+    static func unfold(_ fileURL:String, _ path:String, _ parent:Element){
+        JSONParser.dictArr(JSONParser.dict(fileURL.content?.json)?[path])?.forEach{
+            if let element:Element = UnFoldUtils.unFold($0,parent) {
+                parent.addSubview(element)
+            }
+        }
+    }
     static func unFold(_ dict:[String:Any], _ parent:IElement? = nil) -> Element?{
         guard let type:String = dict["type"] as? String else {fatalError("type must be string")}
         switch true{
