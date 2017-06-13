@@ -4,14 +4,13 @@ import Foundation
 /**
  * NOTE: this must be a view, if you want to be consistent between macOS and iOS
  */
-
 //Continue here: 🏀
     //make the json for the UI ✅
     //improve the event handling ✅
     //github login, github pass, local-path, darkmode ✅
     //research password mode in textfield
     //research writing keychain item
-    //save to xml
+    //save to xml ✅
 class PrefsView:Element {
     static var prefs:[String:String] = [:]
     override func resolveSkin() {
