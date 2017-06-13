@@ -35,7 +35,10 @@ class PrefsView:Element {
     }
 }
 extension PrefsView{
-    var nameText:TextInput? {return self.element("name")}
+    var login:TextInput? {return self.element("login")}
+    var pass:TextInput? {return self.element("pass")}
+    var local:TextInput? {return self.element("local")}
+    var darkMode:CheckBoxButton? {return self.element("darkMode")}
 }
 extension PrefsView{
     static var xml:XML{
