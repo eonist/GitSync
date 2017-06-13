@@ -60,8 +60,8 @@ extension PrefsView{
             let xml:XML = "<prefs></prefs>".xml
             xml.appendChild("<login>\(PrefsView.prefs["login"] ?? "")</login>".xml)
             xml.appendChild("<pass>\(PrefsView.prefs["pass"] ?? "")</pass>".xml)
-            xml.appendChild("<local>\(PrefsView.prefs["local" ?? ""])</local>".xml)
-            xml.appendChild("<darkMode>\(PrefsView.prefs["darkMode" ?? ""])</darkMode>".xml)
+            xml.appendChild("<local>\(PrefsView.prefs["local"] ?? "")</local>".xml)
+            xml.appendChild("<darkMode>\(PrefsView.prefs["darkMode"] ?? "")</darkMode>".xml)
             return xml
         }set{
             PrefsView.prefs["login"] = newValue.firstNode("login")!.stringValue
