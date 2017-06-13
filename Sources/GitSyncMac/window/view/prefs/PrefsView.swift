@@ -19,6 +19,46 @@ class PrefsView:Element {
     }
     override func onEvent(_ event: Event) {
         Swift.print("PrefsView.onEvent")
+        var attrib:[String:String] = [:]()
+        
+        if event.type == Event.update {
+            switch true{
+            /*TextInput*/
+            case event.isChildOf(login):
+                attrib[RepoItemType.title] = login?.inputText
+            case event.isChildOf(pass):
+                attrib[RepoItemType.localPath] = pass?.inputText
+            case event.isChildOf(remoteText):
+                attrib[RepoItemType.remotePath] = remoteText?.inputText
+            case event.isChildOf(branchText):
+                attrib[RepoItemType.branch] = branchText?.inputText
+            default:
+                break;
+            }
+        }else if event.type == CheckEvent.check{
+            switch true{
+                /*CheckButtons*/
+            case event.isChildOf(activeCheckBoxButton)://TODO: <---use getChecked here
+                attrib[RepoItemType.active] = activeCheckBoxButton?.getChecked().str
+            case event.isChildOf(messageCheckBoxButton):
+                attrib[RepoItemType.autoCommitMessage] = messageCheckBoxButton?.getChecked().str
+            case event.isChildOf(autoCheckBoxButton):
+                attrib[RepoItemType.pullToAutoSync] = autoCheckBoxButton?.getChecked().str
+            default:
+                break;
+            }
+        }else{
+            super.onEvent(event)//forward other events
+        }
+        if(event.type == CheckEvent.check || event.type == Event.update){
+            //Swift.print("✨ Update dp with: attrib: " + "\(attrib)")
+            RepoView.treeDP.tree[idx3d]!.props = attrib/*Overrides the cur attribs*///RepoView.node.setAttributeAt(i, attrib)
+            if let tree:Tree = RepoView.treeDP.tree[idx3d]{
+                Swift.print("title: " + "\(tree.props?[RepoItemType.title])")
+                //Swift.print("node.xml.xmlString: " + "\(tree.xml.xmlString)")
+            }
+        }
+        
     }
 }
 extension PrefsView{
