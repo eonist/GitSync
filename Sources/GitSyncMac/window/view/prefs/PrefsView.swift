@@ -6,7 +6,7 @@ import Foundation
  */
 
 //Continue here: 🏀
-    //make the json for the UI
+    //make the json for the UI 
     //improve the event handling
     //github login, github pass, local-path, darkmode
     //research password mode in textfield
@@ -19,31 +19,22 @@ class PrefsView:Element {
     }
     override func onEvent(_ event: Event) {
         Swift.print("PrefsView.onEvent")
-        var attrib:[String:String] = [:]()
-        
+        var attrib:[String:String] = [:]
         if event.type == Event.update {
-            switch true{
-            /*TextInput*/
+            switch true{/*TextInput*/
             case event.isChildOf(login):
-                attrib[RepoItemType.title] = login?.inputText
+                attrib["login"] = login?.inputText
             case event.isChildOf(pass):
-                attrib[RepoItemType.localPath] = pass?.inputText
-            case event.isChildOf(remoteText):
-                attrib[RepoItemType.remotePath] = remoteText?.inputText
-            case event.isChildOf(branchText):
-                attrib[RepoItemType.branch] = branchText?.inputText
+                attrib["pass"] = pass?.inputText
+            case event.isChildOf(local):
+                attrib["localPath"] = local?.inputText
             default:
                 break;
             }
         }else if event.type == CheckEvent.check{
-            switch true{
-                /*CheckButtons*/
-            case event.isChildOf(activeCheckBoxButton)://TODO: <---use getChecked here
-                attrib[RepoItemType.active] = activeCheckBoxButton?.getChecked().str
-            case event.isChildOf(messageCheckBoxButton):
-                attrib[RepoItemType.autoCommitMessage] = messageCheckBoxButton?.getChecked().str
-            case event.isChildOf(autoCheckBoxButton):
-                attrib[RepoItemType.pullToAutoSync] = autoCheckBoxButton?.getChecked().str
+            switch true{/*CheckButtons*/
+            case event.isChildOf(darkMode)://TODO: <---use getChecked here
+                attrib["darkMode"] = darkMode?.getChecked().str
             default:
                 break;
             }
@@ -51,14 +42,8 @@ class PrefsView:Element {
             super.onEvent(event)//forward other events
         }
         if(event.type == CheckEvent.check || event.type == Event.update){
-            //Swift.print("✨ Update dp with: attrib: " + "\(attrib)")
-            RepoView.treeDP.tree[idx3d]!.props = attrib/*Overrides the cur attribs*///RepoView.node.setAttributeAt(i, attrib)
-            if let tree:Tree = RepoView.treeDP.tree[idx3d]{
-                Swift.print("title: " + "\(tree.props?[RepoItemType.title])")
-                //Swift.print("node.xml.xmlString: " + "\(tree.xml.xmlString)")
-            }
+            Swift.print("✨ Update dp with: attrib: " + "\(attrib)")
         }
-        
     }
 }
 extension PrefsView{
