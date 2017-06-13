@@ -6,11 +6,12 @@ import Foundation
  */
 
 //Continue here: 🏀
-    //make the json for the UI 
-    //improve the event handling
-    //github login, github pass, local-path, darkmode
+    //make the json for the UI ✅
+    //improve the event handling ✅
+    //github login, github pass, local-path, darkmode ✅
     //research password mode in textfield
     //research writing keychain item
+    //save to xml
 
 class PrefsView:Element {
     override func resolveSkin() {
@@ -44,6 +45,15 @@ class PrefsView:Element {
         if(event.type == CheckEvent.check || event.type == Event.update){
             Swift.print("✨ Update dp with: attrib: " + "\(attrib)")
         }
+    }
+}
+extension PrefsView{
+    static var xml:XML{
+        let xml:XML = "<prefs></prefs>".xml
+        xml.appendChild("<login>\(login?.inputText)</login>".xml)
+        xml.appendChild("<pass>\(pass?.inputText)</pass>".xml)
+        xml.appendChild("<darkMode>\(String(PrefsView.uiSounds!))</darkMode>".xml)
+        return xml
     }
 }
 extension PrefsView{
