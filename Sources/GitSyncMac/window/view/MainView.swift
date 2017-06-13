@@ -19,7 +19,7 @@ class StyleTestView:CustomView{
         StyleTestView.leftbar = main!.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
         StyleTestView.content = main!.addSubView(Section(NaN,NaN,main,"content"))
         //Nav.setView(Views2.main(.repo))
-        Nav.setView(.repoDetail([0,0]))
+        Nav.setView(.repoDetail([0,0,0]))
     }
     /**
      * NOTE: gets calls from Window.didResize
