@@ -37,20 +37,8 @@ class PrefsView:Element {
         PrefsView.gitEmailNameText = xml.firstNode("gitEmailName")!.stringValue
         PrefsView.uiSounds = xml.firstNode("uiSounds")!.stringValue!.bool
         
-        //keychain-user-name (TextInput)
-        keychainUserNameTextInput = addSubView(TextInput(width, NaN, "keychain user: ", PrefsView.keychainUserName!, self))
-        //Git-Config-UserName
-        gitConfigUserNameTextInput = addSubView(TextInput(width, NaN, "Git Config User: ", PrefsView.gitConfigUserName!, self))
-        //Git-Config-EmailName
-        gitEmailNameTextInput = addSubView(TextInput(width, NaN, "Git Config Email: ", PrefsView.gitEmailNameText!, self))
-        //defaultLocalPath
-        defaultLocalPathTextInput = addSubView(TextInput(width, NaN, "Local path: ", PrefsView.defaultLocalPath, self))
-        //UI sounds [x]
-        uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, NaN, "UI sounds: ", PrefsView.uiSounds!, self))
-        //Dark mode:
-        darkModeCheckBoxButton = addSubView(CheckBoxButton(width, NaN, "Dark mode: ", PrefsView.darkMode, self))
-        //Auto-Sync interval:
-        autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Sync-Interval: ", 30, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))//autoSyncIntervall needs to be a time setter: Day,Hour,Min,Seconds,0 means do not sync on an interval, the min setting is 30 sec, anything bellow this will be clamped to 30 sec
+        UnFoldUtils.unFold("~/Desktop/gitsync.json","repoDetailView",self)
+        
     }
     override func onEvent(_ event: Event) {
         //Swift.print("PrefsView.onEvent")
@@ -77,3 +65,21 @@ extension PrefsView{
         return xml
     }
 }
+
+
+/*
+//keychain-user-name (TextInput)
+keychainUserNameTextInput = addSubView(TextInput(width, NaN, "keychain user: ", PrefsView.keychainUserName!, self))
+//Git-Config-UserName
+gitConfigUserNameTextInput = addSubView(TextInput(width, NaN, "Git Config User: ", PrefsView.gitConfigUserName!, self))
+//Git-Config-EmailName
+gitEmailNameTextInput = addSubView(TextInput(width, NaN, "Git Config Email: ", PrefsView.gitEmailNameText!, self))
+//defaultLocalPath
+defaultLocalPathTextInput = addSubView(TextInput(width, NaN, "Local path: ", PrefsView.defaultLocalPath, self))
+//UI sounds [x]
+uiSoundsCheckBoxButton = addSubView(CheckBoxButton(width, NaN, "UI sounds: ", PrefsView.uiSounds!, self))
+//Dark mode:
+darkModeCheckBoxButton = addSubView(CheckBoxButton(width, NaN, "Dark mode: ", PrefsView.darkMode, self))
+//Auto-Sync interval:
+autoSyncIntervalLeverSpinner = addSubView(LeverSpinner(width, 32, "Sync-Interval: ", 30, 1, Int.min.cgFloat, Int.max.cgFloat, 0, 100, 200, self))//autoSyncIntervall needs to be a time setter: Day,Hour,Min,Seconds,0 means do not sync on an interval, the min setting is 30 sec, anything bellow this will be clamped to 30 sec
+*/
