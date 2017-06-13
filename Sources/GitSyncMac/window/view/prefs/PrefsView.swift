@@ -13,13 +13,20 @@ import Foundation
     //research writing keychain item
     //save to xml
     //create an enum for login,pass,local,darkMode
-
+enum PrefsType:String{
+    case login = "login"
+    case pass = "pass"
+}
 class PrefsView:Element {
     static var prefs:[String:String] = [:]
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
         UnFoldUtils.unFold("~/Desktop/gitsync.json","prefsView",self)
         let xml:XML = FileParser.xml("~/Desktop/gitsyncprefs.xml".tildePath)/*Loads the xml*/
+        PrefsView.prefs["login"] = xml.firstNode("login")!.stringValue
+        PrefsView.prefs["pass"] = xml.firstNode("pass")!.stringValue
+        PrefsView.prefs["local"] = xml.firstNode("local")!.stringValue
+        PrefsView.prefs["darkMode"] = xml.firstNode("darkMode")!.stringValue
     }
     override func onEvent(_ event: Event) {
         Swift.print("PrefsView.onEvent")
