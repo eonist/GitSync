@@ -7,10 +7,6 @@ import Foundation
  * TODO: ⚠️️ make a reusable setUI,getUI method for the UnFold system
  * TODO: ⚠️️ make a reusable event handler that stores the state of the UI
  */
-//Continue here: 🏀
-    //research password mode in textfield ✅
-    //research writing keychain item
-
 class PrefsView:Element {
     static var prefs:[String:String] = [:]
     override func resolveSkin() {
