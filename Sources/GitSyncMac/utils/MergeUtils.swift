@@ -38,8 +38,10 @@ class MergeUtils{
 		//log ("MergeUtil's resolve_merge_conflicts()")
         for unMergedFile:String in unMergedFiles {
 			let lastSelectedAction:String = options.first! //you may want to make this a "property" to store the last item more permenantly
-			print(lastSelectedAction)
-            print(unMergedFile)
+			Swift.print("localRepoPath: " + "\(localRepoPath)")
+            Swift.print("branch: " + "\(branch)")
+            Swift.print("lastSelectedAction: " + "\(lastSelectedAction)")
+            Swift.print("unMergedFile: " + "\(unMergedFile)")
             fatalError("not implemented yet")
             //let listWindow:ListWindow = ListWindow(options,headerTitle:"Resolve merge conflict in: ",title:unMergedFile + ":",selected:lastSelectedAction,cancelButtonName:"Exit")//promt user with list of options, title: Merge conflict in: unmerged_file
 			//listWindow.addTarget(self, action: "Complete: ", forControlEvents: .complete)
