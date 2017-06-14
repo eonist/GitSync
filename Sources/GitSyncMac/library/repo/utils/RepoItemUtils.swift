@@ -47,19 +47,19 @@ class RepoUtils {
      */
     static func repoItem(_ dict:[String:String]) -> RepoItem{
         //let keychainItemName:String = dict[RepoItemType.keyChainItemName]!
-        let interval:String = dict[RepoItemType.interval]!//default is 1min
+        //let interval:String = dict[RepoType.interval]!//default is 1min
         var repoItem:RepoItem = RepoItem()
-        let localPath:String = dict[RepoItemType.localPath]! //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
+        let localPath:String = dict[RepoType.local.rawValue]! //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
         //localPath = ShellUtils.run("echo " + StringModifier.wrapWith(localPath,"'") + " | sed 's/ /\\\\ /g'")//--Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths.
         repoItem.localPath = localPath
-        repoItem.interval = interval.int
-        repoItem.branch = dict[RepoItemType.branch]!
+        //repoItem.interval = interval.int
+        repoItem.branch = dict[RepoType.branch.rawValue]!
         //repoItem.keyChainItemName = keychainItemName
-        repoItem.upload = dict[RepoItemType.upload]!.bool
-        repoItem.title = dict[RepoItemType.title]!
-        repoItem.download = dict[RepoItemType.download]!.bool
-        repoItem.active = dict[RepoItemType.active]!.bool
-        let remotePath:String = dict[RepoItemType.remotePath]!
+        //repoItem.upload = dict[RepoItemType.upload]!.bool
+        repoItem.title = dict[RepoType.title.rawValue]!
+        //repoItem.download = dict[RepoItemType.download]!.bool
+        repoItem.active = dict[RepoType.active.rawValue]!.bool
+        let remotePath:String = dict[RepoType.remotePath.rawValue]!
         //remotePath = RegExp.replace(remotePath,"^https://.+$","")//support for partial and full url, strip away the https://, since this will be added later
         //print(remotePath)
         repoItem.remotePath = remotePath
