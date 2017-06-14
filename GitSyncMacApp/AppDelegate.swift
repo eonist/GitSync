@@ -26,6 +26,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //initApp()
         
+        KeyChainModifier.save( <#T##String#>, <#T##data: NSData##NSData#>)
+        
         let password = KeyChainParser.password("eonist")
         Swift.print("password: " + "\(password)")
     }
