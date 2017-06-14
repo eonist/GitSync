@@ -2,13 +2,9 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-//Continue here: 🏀
-    //test all the right click menu items
-    //add a few more repo items
-
-
 /**
  * Right click context menu
+ * TODO: ⚠️️ maybe create sub menus to appear more organized?
  */
 class RepoContextMenu:NSMenu{
     var rightClickItemIdx:[Int]?
