@@ -66,7 +66,6 @@ extension PrefsView{
             return xml
         }set{
             PrefsView.prefs["login"] = newValue.firstNode("login")!.stringValue
-            PrefsView.prefs["pass"] = newValue.firstNode("pass")!.stringValue
             PrefsView.prefs["local"] = newValue.firstNode("local")!.stringValue
             PrefsView.prefs["darkMode"] = newValue.firstNode("darkMode")!.stringValue
         }
