@@ -64,6 +64,10 @@ extension RepoContextMenu{
         //treeList.insert([1],Tree("item",[],nil,["title":"Fish"]))/*Insert item at
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
+        
+        //Continue here: 🏀
+            //Add repoItem bellow:
+        
         let props:[String:String] = ["title":"New repo","local-path":"~/Desktop/test","remote-path":"https://github.com/eonist/test.git","interval":"30","keychain-item-name":"eonist","branch":"master","broadcast":"true","subscribe":"true","auto-sync":"true"]
         let tree:Tree = Tree.init("item", [], nil, props)
         let newIdx = Utils.newIdx(treeList,idx)
