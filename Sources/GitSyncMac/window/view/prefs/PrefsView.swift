@@ -27,7 +27,9 @@ class PrefsView:Element {
             case event.isChildOf(login):
                 PrefsView.prefs["login"] = login?.inputText
             case event.isChildOf(pass):
-                PrefsView.prefs["pass"] = pass?.inputText
+                let passStr:String = pass?.inputText
+                KeyChainModifier.save("GitSyncApp", passStr.dataValue)
+                
             case event.isChildOf(local):
                 PrefsView.prefs["localPath"] = local?.inputText
             default:
@@ -50,9 +52,8 @@ extension PrefsView{
      * New
      */
     func setPrefs(_ dict:[String:String]){
-        let loginStr = dict["login"] ?? ""
-        login?.setInputText(loginStr)
-        let passStr = KeyChainParser.password(loginStr) ?? ""
+        login?.setInputText(dict["login"] ?? "")
+        let passStr = KeyChainParser.password("GitSyncApp") ?? ""
         pass?.setInputText(passStr)
         local?.setInputText(dict["local"] ?? "")
         darkMode?.setChecked((dict["darkMode"] ?? "false").bool)
