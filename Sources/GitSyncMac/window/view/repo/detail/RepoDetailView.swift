@@ -92,11 +92,20 @@ extension RepoDetailView{
     }
 }
 extension RepoDetailView{/*Convenience*/
-    var nameText:TextInput? {return self.element("name")}
-    var localText:TextInput? {return self.element("local")}
-    var remoteText:TextInput? {return self.element("remote")}
-    var branchText:TextInput? {return self.element("branch")}
-    var autoCheckBoxButton:CheckBoxButton? {return self.element("auto")}
-    var messageCheckBoxButton:CheckBoxButton? {return self.element("message")}
-    var activeCheckBoxButton:CheckBoxButton? {return self.element("active")}
+    var nameText:TextInput? {return self.element(RepoType.name.rawValue)}
+    var localText:TextInput? {return self.element(RepoType.local.rawValue)}
+    var remoteText:TextInput? {return self.element(RepoType.remote.rawValue)}
+    var branchText:TextInput? {return self.element(RepoType.branch.rawValue)}
+    var autoCheckBoxButton:CheckBoxButton? {return self.element(RepoType.auto.rawValue)}
+    var messageCheckBoxButton:CheckBoxButton? {return self.element(RepoType.message.rawValue)}
+    var activeCheckBoxButton:CheckBoxButton? {return self.element(RepoType.active.rawValue)}
+}
+enum RepoType:String{
+    case name = "name"
+    case local = "local"
+    case remote = "remote"
+    case branch = "branch"
+    case auto = "auto"
+    case message = "message"
+    case active = "active"
 }
