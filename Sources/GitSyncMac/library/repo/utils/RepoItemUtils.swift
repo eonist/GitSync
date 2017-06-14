@@ -49,7 +49,7 @@ class RepoUtils {
      * TODO: test if the full/partly file path still works?
      */
     static func repoItem(_ dict:[String:String]) -> RepoItem{
-        Swift.print("dict: " + "\(dict)")
+        //Swift.print("dict: " + "\(dict)")
         var repoItem:RepoItem = RepoItem()
         let localPath:String = dict[RepoType.local.rawValue]! //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
         //localPath = ShellUtils.run("echo " + StringModifier.wrapWith(localPath,"'") + " | sed 's/ /\\\\ /g'")//--Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths.
@@ -58,6 +58,7 @@ class RepoUtils {
         repoItem.title = dict[RepoType.title.rawValue]!
         repoItem.auto = dict[RepoType.auto.rawValue]!.bool
         repoItem.message = dict[RepoType.message.rawValue]!.bool
+        Swift.print("dict[RepoType.active.rawValue]!: " + "\(dict[RepoType.active.rawValue]!)")
         repoItem.active = dict[RepoType.active.rawValue]!.bool
         let remotePath:String = dict[RepoType.remote.rawValue]!
         //remotePath = RegExp.replace(remotePath,"^https://.+$","")//support for partial and full url, strip away the https://, since this will be added later
