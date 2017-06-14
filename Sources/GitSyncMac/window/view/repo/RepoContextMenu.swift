@@ -53,7 +53,7 @@ extension RepoContextMenu{
     func newFolder(sender:AnyObject) {
         Swift.print("newFolder")
         let idx = rightClickItemIdx!
-        let xmlStr:String = "<item title=\"New folder\" isOpen=\"false\" ></item>"//hasChildren=\"true\"
+        let xmlStr:String = "<item title=\"New group\" isOpen=\"false\" ></item>"//hasChildren=\"true\"
         let tree = TreeConverter.tree(xmlStr.xml)//treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
         let newIdx = Utils.newIdx(treeList,idx)
         treeList.insert(newIdx,tree)
@@ -64,11 +64,14 @@ extension RepoContextMenu{
         //treeList.insert([1],Tree("item",[],nil,["title":"Fish"]))/*Insert item at
         let idx = rightClickItemIdx!
         Swift.print("idx: " + "\(idx)")
-        
-        //Continue here: 🏀
-            //Add repoItem bellow:
-        
-        let props:[String:String] = ["title":"New repo","local-path":"~/Desktop/test","remote-path":"https://github.com/eonist/test.git","interval":"30","keychain-item-name":"eonist","branch":"master","broadcast":"true","subscribe":"true","auto-sync":"true"]
+        let props:[String:String] = [
+            RepoType.title.rawValue:"New repo",
+            RepoType.local.rawValue:"~/Desktop/test",
+            RepoType.remote.rawValue:"https://github.com/eonist/test.git",
+            RepoType.branch.rawValue:"master",
+            RepoType.message.rawValue:"true",
+            RepoType.active.rawValue:"true",
+            RepoType.auto.rawValue:"true"]
         let tree:Tree = Tree.init("item", [], nil, props)
         let newIdx = Utils.newIdx(treeList,idx)
         treeList.insert(newIdx,tree)
