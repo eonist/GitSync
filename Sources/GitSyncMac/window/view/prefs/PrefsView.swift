@@ -11,8 +11,8 @@ class PrefsView:Element {
     static var prefs:[String:String] = [:]
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
-        UnFoldUtils.unFold("~/Desktop/gitsync.json","prefsView",self)
-        let xml:XML = FileParser.xml("~/Desktop/gitsyncprefs.xml".tildePath)/*Loads the xml*/
+        UnFoldUtils.unFold(Config.app,"prefsView",self)
+        let xml:XML = FileParser.xml(Config.prefs.tildePath)/*Loads the xml*/
         PrefsView.xml = xml
         setPrefs(PrefsView.prefs)
     }
