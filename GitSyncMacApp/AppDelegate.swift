@@ -25,11 +25,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //jsonTest()
         
         //initApp()
-        let key2 = "testSaveLoadKey2"
-        let saveData:Data = "data".dataValue
-        KeyChainModifier.save( key2, saveData)
+        let key2 = "Antilion"
+        let saveData:Data = "abc1234".dataValue
+        //_ = KeyChainModifier.save( key2, saveData)
         
-        let password = KeyChainParser.password("eonist")
+        let password = KeyChainParser.password("Antilion")
         Swift.print("password: " + "\(password)")
     }
     func initApp(){
