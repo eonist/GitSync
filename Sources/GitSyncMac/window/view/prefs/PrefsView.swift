@@ -13,8 +13,9 @@ enum PrefsType:String {
     case local = "local"
     case darkMode = "darkMode"
 }
+typealias Prefs = (login:String,pass:String,local:String,darkMode:Bool)
 class PrefsView:Element {
-    static var prefs:[String:String] = [:]
+    static var prefs:Prefs = (login:"",pass:"",local:"",darkMode:false)
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
         UnFoldUtils.unFold(Config.app,"prefsView",self)
@@ -54,19 +55,19 @@ extension PrefsView{
     /**
      * New
      */
-    func setPrefs(_ dict:[String:String]){
-        login?.setInputText(dict["login"] ?? "")
+    func setPrefs(_ prefs:Prefs){
+        login?.setInputText(prefs.login)
         let passStr = KeyChainParser.password("GitSyncApp") ?? ""
         pass?.setInputText(passStr)
-        local?.setInputText(dict["local"] ?? "")
-        darkMode?.setChecked((dict["darkMode"] ?? "false").bool)
+        local?.setInputText(prefs.local)
+        darkMode?.setChecked(prefs.darkMode)
     }
     static var xml:XML{
         get{
             let xml:XML = "<prefs></prefs>".xml
-            xml.appendChild("<login>\(PrefsView.prefs["login"] ?? "")</login>".xml)
-            xml.appendChild("<local>\(PrefsView.prefs["local"] ?? "")</local>".xml)
-            xml.appendChild("<darkMode>\(PrefsView.prefs["darkMode"] ?? "")</darkMode>".xml)
+            xml.appendChild("<login>\(PrefsView.prefs.login)</login>".xml)
+            xml.appendChild("<local>\(PrefsView.prefs.local)</local>".xml)
+            xml.appendChild("<darkMode>\(PrefsView.prefs.darkMode)</darkMode>".xml)
             return xml
         }set{
             PrefsView.prefs["login"] = newValue.firstNode("login")!.stringValue
