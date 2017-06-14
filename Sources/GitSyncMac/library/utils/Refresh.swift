@@ -81,7 +81,7 @@ class RefreshUtils{
         //once these completes then do result, you do not want to wait until calling refreshRepo
         func onCommitCountComplete(_ commitCount:Int){
             //Swift.print("💙 RefreshUtils.refreshRepo() \(repo.title): commitCount: " + "\(commitCount)")
-            RefreshUtils.commitItems(repo.localPath, commitCount, onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
+            RefreshUtils.commitItems(repo.local, commitCount, onCommitItemsCompleted)//🚧0~100 Git calls/*creates an array raw commit item logs, from repo*/
         }
         commitCount(dp,repo,onCommitCountComplete)//🚪⬅️️
     }
@@ -94,7 +94,7 @@ class RefreshUtils{
         let group = DispatchGroup()
         bg.async {//do some work
             group.enter()
-            totCommitCount = GitUtils.commitCount(repo.localPath).int - 1//🚧1 Git call/*Get the total commitCount of this repo*/
+            totCommitCount = GitUtils.commitCount(repo.local).int - 1//🚧1 Git call/*Get the total commitCount of this repo*/
             group.leave()
         }
         if(dp.items.count > 0){
@@ -102,7 +102,7 @@ class RefreshUtils{
             let gitTime = GitDateUtils.gitTime(lastDate.string)/*converts descending date to git time*/
             bg.async {/*maybe do some work*/
                 group.enter()
-                let rangeCount:Int = GitUtils.commitCount(repo.localPath, after: gitTime).int//🚧1 Git call /*Finds the num of commits from now until */
+                let rangeCount:Int = GitUtils.commitCount(repo.local, after: gitTime).int//🚧1 Git call /*Finds the num of commits from now until */
                 commitCount = min(rangeCount,100)/*force the value to be no more than max allowed*/
                 group.leave()
             }
