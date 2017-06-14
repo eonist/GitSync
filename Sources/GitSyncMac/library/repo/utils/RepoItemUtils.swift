@@ -13,18 +13,16 @@ class RepoUtils {
         let repoXML:XML = RepoView.treeDP.tree.xml/*📝 - FilePath*/
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
         let flatArr:[[String:String]] = arr.recursiveFlatmap()
-        //Swift.print("flatArr.count: " + "\(flatArr.count)")
         //flatArr.forEach{Swift.print("$0: " + "\($0)")}
-        
         let repoList:[RepoItem] = Utils.filterFolders(flatArr,[RepoFolderType.isOpen.rawValue,RepoFolderType.hasChildren.rawValue])//Swift.print("repoList.count: " + "\(repoList.count)")
         //repoList.forEach{Swift.print("$0.title: " + "\($0.title)")}
-        
-        return repoList//.filter{$0.title == "Research" || $0.title == "Research wiki"}/*👈 filter enables you to test one item at the time, for debugging*/
+        let activeRepoList = repoList.filter{$0.active}
+        return activeRepoList
     }
     /**
      * Returns dupe free flattened repo list
      */
-    private static var repoListFlattenedDupeFree:[RepoItem]{
+    private static var repoListFlattenedDupeFree:[RepoItem]{//TODO: ⚠️️ possibly remove this, its not used
         let repoList:[RepoItem] = RepoUtils.repoListFlattened//.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
         return repoList.removeDups({$0.remote == $1.remote && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         //Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
