@@ -47,32 +47,7 @@ class CommitsListItem:Button,ISelectable{
         super.mouseUpInside(event)
         self.event!(SelectEvent(SelectEvent.select,self/*,self*/))
     }
-    /**
-     * Sets data to the UI elements
-     */
-    func setData(_ data:[String:String]){
-        titleText!.setText(data[CommitType.title.rawValue]!)
-        repoNameText!.setText(data[CommitType.repoName.rawValue]!)
-        contributorText!.setText(data[CommitType.contributor.rawValue]!)
-        descText!.setText(data[CommitType.description.rawValue]!)
-        /**/
-        let date:Date = GitDateUtils.date(data[CommitType.date.rawValue]!)
-        //Swift.print("date.shortDate: " + "\(date.shortDate)")
-        let relativeTime:(value:Int,type:String) = DateParser.relativeTime(Date(),date)[0]
-        let relativeDate:String = relativeTime.value.string + relativeTime.type/*create date like 3s,4m,5h,6w,2y*/
-        dateText!.setText(relativeDate)
-    }
-    /**
-     * NOTE: do not add a dispatch event here, that is the responsibilyy of the caller
-     */
-    func setSelected(_ isSelected:Bool){
-        Swift.print("setSelected(): " + "\(isSelected)")
-        self.isSelected = isSelected
-        setSkinState(getSkinState())
-    }
-    func getSelected() -> Bool {
-        return self.isSelected
-    }
+    
     override func setSkinState(_ skinState:String) {
         //Swift.print("\(self.dynamicType)" + " setSkinState() skinState: " + "\(skinState)")
         super.setSkinState(skinState)
@@ -96,7 +71,38 @@ class CommitsListItem:Button,ISelectable{
      }*/
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-
+extension CommitsListItem{
+    /**
+     * Sets data to the UI elements
+     */
+    func setData(_ data:[String:String]){
+        titleText!.setText(data[CommitType.title.rawValue]!)
+        repoNameText!.setText(data[CommitType.repoName.rawValue]!)
+        contributorText!.setText(data[CommitType.contributor.rawValue]!)
+        let descStr:String = {
+            let str = data[CommitType.description.rawValue]!
+            if str.isEmpty {return "There is no description for this commit"}
+            else {return str}
+        }()
+        descText!.setText(descStr)
+        let date:Date = GitDateUtils.date(data[CommitType.date.rawValue]!)
+        //Swift.print("date.shortDate: " + "\(date.shortDate)")
+        let relativeTime:(value:Int,type:String) = DateParser.relativeTime(Date(),date)[0]
+        let relativeDate:String = relativeTime.value.string + relativeTime.type/*create date like 3s,4m,5h,6w,2y*/
+        dateText!.setText(relativeDate)
+    }
+    /**
+     * NOTE: do not add a dispatch event here, that is the responsibilyy of the caller
+     */
+    func setSelected(_ isSelected:Bool){
+        Swift.print("setSelected(): " + "\(isSelected)")
+        self.isSelected = isSelected
+        setSkinState(getSkinState())
+    }
+    func getSelected() -> Bool {
+        return self.isSelected
+    }
+}
 //<commit repo-name="Element" contributor="Eonist" title="Comment update" description="Updated a comment in the file: View.swift" date="2016-01-22"/>
 
 enum CommitType:String{
