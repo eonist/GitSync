@@ -41,6 +41,7 @@ class RepoUtils {
         let flatArr:[[String:String]] = Utils.recursiveFlattened(arr,overrideKeys,overriders)
         let repoList:[RepoItem] = Utils.filterFolders(flatArr,overriders)//remove folders
         let activeRepoList = repoList.filter{$0.active}/*filter out inActive*/
+        activeRepoList.forEach{Swift.print("$0.title: " + "\($0.title)")}
         return activeRepoList
     }
     /**
