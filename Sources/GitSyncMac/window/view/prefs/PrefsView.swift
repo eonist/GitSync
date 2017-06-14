@@ -27,9 +27,9 @@ class PrefsView:Element {
             case event.isChildOf(login):
                 PrefsView.prefs["login"] = login?.inputText
             case event.isChildOf(pass):
-                let passStr:String = pass?.inputText
-                KeyChainModifier.save("GitSyncApp", passStr.dataValue)
-                
+                if let passStr:String = pass?.inputText {
+                    _ = KeyChainModifier.save("GitSyncApp", passStr.dataValue)
+                }
             case event.isChildOf(local):
                 PrefsView.prefs["localPath"] = local?.inputText
             default:
@@ -43,7 +43,7 @@ class PrefsView:Element {
                 break;
             }
         }else{
-            super.onEvent(event)//forward other events
+            super.onEvent(event)/*forward other events*/
         }
     }
 }
