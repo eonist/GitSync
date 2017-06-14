@@ -81,13 +81,14 @@ extension RepoDetailView{
      */
     private func setRepoData(_ repoItem:RepoItem){
         /*TextInput*/
+        Swift.print("repoItem.title: " + "\(repoItem.title)")
         nameText?.inputTextArea.setTextValue(repoItem.title)
-        localText?.inputTextArea.setTextValue(repoItem.localPath)
-        remoteText?.inputTextArea.setTextValue(repoItem.remotePath)
+        localText?.inputTextArea.setTextValue(repoItem.local)
+        remoteText?.inputTextArea.setTextValue(repoItem.remote)
         branchText?.inputTextArea.setTextValue(repoItem.branch)
         /*CheckButtons*/
-        autoCheckBoxButton?.setChecked(!repoItem.pullToAutoSync)
-        messageCheckBoxButton?.setChecked(repoItem.autoCommitMessage)
+        autoCheckBoxButton?.setChecked(!repoItem.auto)
+        messageCheckBoxButton?.setChecked(repoItem.message)
         activeCheckBoxButton?.setChecked(repoItem.active)
     }
 }

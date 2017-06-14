@@ -1,13 +1,13 @@
 import Foundation
 
 struct RepoItem {
-    var localPath:String = ""
+    var local:String = ""
     var branch:String = ""
     var title:String = ""
     var active:Bool = false
-    var remotePath:String = ""
-    var autoCommitMessage:Bool = false
-    var pullToAutoSync:Bool = false
+    var remote:String = ""
+    var message:Bool = false
+    var auto:Bool = false
     //var interval:Int = 0
     //var keyChainItemName:String = ""
     //var upload:Bool = false
