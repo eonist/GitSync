@@ -59,7 +59,7 @@ class RepoUtils {
         repoItem.title = dict[RepoType.title.rawValue]!
         //repoItem.download = dict[RepoItemType.download]!.bool
         repoItem.active = dict[RepoType.active.rawValue]!.bool
-        let remotePath:String = dict[RepoType.remotePath.rawValue]!
+        let remotePath:String = dict[RepoType.remote.rawValue]!
         //remotePath = RegExp.replace(remotePath,"^https://.+$","")//support for partial and full url, strip away the https://, since this will be added later
         //print(remotePath)
         repoItem.remotePath = remotePath

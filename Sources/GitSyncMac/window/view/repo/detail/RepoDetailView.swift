@@ -21,13 +21,13 @@ class RepoDetailView:Element {
             switch true{
             /*TextInput*/
             case event.isChildOf(nameText):
-                attrib[RepoItemType.title] = nameText?.inputText
+                attrib[RepoType.title.rawValue] = nameText?.inputText
             case event.isChildOf(localText):
-                attrib[RepoItemType.localPath] = localText?.inputText
+                attrib[RepoType.local.rawValue] = localText?.inputText
             case event.isChildOf(remoteText):
-                attrib[RepoItemType.remotePath] = remoteText?.inputText
+                attrib[RepoType.remote.rawValue] = remoteText?.inputText
             case event.isChildOf(branchText):
-                attrib[RepoItemType.branch] = branchText?.inputText
+                attrib[RepoType.branch.rawValue] = branchText?.inputText
             default:
                 break;
             }
@@ -35,11 +35,11 @@ class RepoDetailView:Element {
             switch true{
             /*CheckButtons*/
             case event.isChildOf(activeCheckBoxButton)://TODO: <---use getChecked here
-                attrib[RepoItemType.active] = activeCheckBoxButton?.getChecked().str
+                attrib[RepoType.active.rawValue] = activeCheckBoxButton?.getChecked().str
             case event.isChildOf(messageCheckBoxButton):
-                attrib[RepoItemType.autoCommitMessage] = messageCheckBoxButton?.getChecked().str
+                attrib[RepoType.message.rawValue] = messageCheckBoxButton?.getChecked().str
             case event.isChildOf(autoCheckBoxButton):
-                attrib[RepoItemType.pullToAutoSync] = autoCheckBoxButton?.getChecked().str
+                attrib[RepoType.auto.rawValue] = autoCheckBoxButton?.getChecked().str
             default:
                 break;
             }
@@ -50,7 +50,7 @@ class RepoDetailView:Element {
             //Swift.print("✨ Update dp with: attrib: " + "\(attrib)")
             RepoView.treeDP.tree[idx3d]!.props = attrib/*Overrides the cur attribs*///RepoView.node.setAttributeAt(i, attrib)
             if let tree:Tree = RepoView.treeDP.tree[idx3d]{
-                Swift.print("title: " + "\(tree.props?[RepoType.title])")
+                Swift.print("title: " + "\(tree.props?[RepoType.title.rawValue])")
                 //Swift.print("node.xml.xmlString: " + "\(tree.xml.xmlString)")
             }
         }
@@ -68,8 +68,8 @@ extension RepoDetailView{
             var repoItem:RepoItem
             if !tree.children.isEmpty {/*Support for folders*/
                 repoItem = RepoItem()
-                if let title:String = repoItemDict[RepoType.title] {repoItem.title = title}
-                if let active:String = repoItemDict[RepoType.active] {repoItem.active = active.bool}
+                if let title:String = repoItemDict[RepoType.title.rawValue] {repoItem.title = title}
+                if let active:String = repoItemDict[RepoType.active.rawValue] {repoItem.active = active.bool}
             }else{
                 repoItem = RepoUtils.repoItem(repoItemDict)
             }
