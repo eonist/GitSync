@@ -104,6 +104,7 @@ extension RepoContextMenu{
     func paste(sender:AnyObject) {
         Swift.print("paste")
         if let idx = rightClickItemIdx, let clipBoard:XML = clipBoard{
+            Swift.print("idx: " + "\(idx)")
             //Swift.print("clipBoard: " + "\(self.clipBoard)")
             let newIdx = Utils.newIdx(treeList,idx)
             let tree = TreeConverter.tree(clipBoard)
