@@ -16,7 +16,7 @@ class RepoUtils {
         //flatArr.forEach{Swift.print("$0: " + "\($0)")}
         let repoList:[RepoItem] = Utils.filterFolders(flatArr,[RepoFolderType.isOpen.rawValue,RepoFolderType.hasChildren.rawValue])//Swift.print("repoList.count: " + "\(repoList.count)")
         //repoList.forEach{Swift.print("$0.title: " + "\($0.title)")}
-        let activeRepoList = repoList.filter{$0.active}
+        let activeRepoList = repoList.filter{$0.active}/*filter out inActive*/
         return activeRepoList
     }
     /**
@@ -39,7 +39,8 @@ class RepoUtils {
         let overriders:[String] = [RepoFolderType.isOpen.rawValue,RepoFolderType.hasChildren.rawValue]
         let flatArr:[[String:String]] = Utils.recursiveFlattened(arr,overrideKeys,overriders)
         let repoList:[RepoItem] = Utils.filterFolders(flatArr,overriders)//remove folders
-        return repoList
+        let activeRepoList = repoList.filter{$0.active}/*filter out inActive*/
+        return activeRepoList
     }
     /**
      * Conforms repoItem data and returns a RepoItem that can be used with git
