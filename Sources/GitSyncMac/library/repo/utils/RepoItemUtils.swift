@@ -10,6 +10,9 @@ class RepoUtils {
      * TODO: Redesign the flattening, utilize the tree
      */
     /*
+     
+     DEPREACATE this, we use repoListFlattenedOverridden now
+     
     static var repoListFlattened:[RepoItem] {
         let repoXML:XML = RepoView.treeDP.tree.xml/*📝 - FilePath*/
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
@@ -25,7 +28,11 @@ class RepoUtils {
     /**
      * Returns dupe free flattened repo list
      */
-    /*private static var repoListFlattenedDupeFree:[RepoItem]{//TODO: ⚠️️ possibly remove this, its not used
+    /*
+     
+     //TODO: ⚠️️ possibly remove this, its not used, removing dups is cool but we sort of need to sync all repos
+     
+     private static var repoListFlattenedDupeFree:[RepoItem]{
         let repoList:[RepoItem] = RepoUtils.repoListFlattened//.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
         return repoList.removeDups({$0.remote == $1.remote && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         //Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
