@@ -9,7 +9,8 @@ class RepoUtils {
      * Returns a flat Array of RepoItems derived from a nested xml Structure (also skips folders)
      * TODO: Redesign the flattening, utilize the tree
      */
-    static var repoListFlattened2:[RepoItem] {
+    /*
+    static var repoListFlattened:[RepoItem] {
         let repoXML:XML = RepoView.treeDP.tree.xml/*📝 - FilePath*/
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
         let flatArr:[[String:String]] = arr.recursiveFlatmap()
@@ -20,6 +21,7 @@ class RepoUtils {
         activeRepoList.forEach{Swift.print("$0.title: " + "\($0.title)")}
         return activeRepoList
     }
+    */
     /**
      * Returns dupe free flattened repo list
      */
