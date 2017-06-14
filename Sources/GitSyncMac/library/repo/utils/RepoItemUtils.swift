@@ -34,7 +34,7 @@ class RepoUtils {
     static var repoListFlattenedOverridden:[RepoItem]{
         let repoXML:XML = RepoView.treeDP.tree.xml/*📝 - FilePath*/
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
-        let overrideKeys:[String] = [RepoItemType.active,RepoItemType.autoSyncInterval,RepoItemType.download,RepoItemType.fileChange,RepoItemType.pullToAutoSync,RepoItemType.upload]/*These are the keys to the values that should be overridden*/
+        let overrideKeys:[String] = [RepoType.active,/*RepoType.autoSyncInterval,RepoType.download,RepoType.fileChange,*/RepoType.pullToAutoSync/*,RepoType.upload*/]/*These are the keys to the values that should be overridden*/
         let overriders:[String] = [RepoFolderType.isOpen,RepoFolderType.hasChildren]
         let flatArr:[[String:String]] = Utils.recursiveFlattened(arr,overrideKeys,overriders)
         let repoList:[RepoItem] = Utils.filterFolders(flatArr,overriders)//remove folders
