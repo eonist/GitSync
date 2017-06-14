@@ -46,7 +46,7 @@ class RepoUtils {
      * TODO: test if the full/partly file path still works?
      */
     static func repoItem(_ dict:[String:String]) -> RepoItem{
-        let keychainItemName:String = dict[RepoItemType.keyChainItemName]!
+        //let keychainItemName:String = dict[RepoItemType.keyChainItemName]!
         let interval:String = dict[RepoItemType.interval]!//default is 1min
         var repoItem:RepoItem = RepoItem()
         let localPath:String = dict[RepoItemType.localPath]! //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
@@ -54,7 +54,7 @@ class RepoUtils {
         repoItem.localPath = localPath
         repoItem.interval = interval.int
         repoItem.branch = dict[RepoItemType.branch]!
-        repoItem.keyChainItemName = keychainItemName
+        //repoItem.keyChainItemName = keychainItemName
         repoItem.upload = dict[RepoItemType.upload]!.bool
         repoItem.title = dict[RepoItemType.title]!
         repoItem.download = dict[RepoItemType.download]!.bool

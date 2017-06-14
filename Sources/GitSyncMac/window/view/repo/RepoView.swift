@@ -6,12 +6,12 @@ import Cocoa
  * TODO: should remember previous selected item between transitions
  */
 class RepoView:Element {
-    static var repoListFilePath:String = "~/Desktop/repo2.xml"/*📝*///"~/Desktop/assets/xml/list.xml"
+    
     static var selectedListItemIndex:[Int] = []
     static var _treeDP:TreeDP? = nil
     static var treeDP:TreeDP {
         guard let treeDP = _treeDP else{
-            _treeDP = TreeDP(RepoView.repoListFilePath.tildePath)/*doesnt exists return new DP*/
+            _treeDP = TreeDP(Config.repoListFilePath.tildePath)/*doesnt exists return new DP*/
             return _treeDP!
         };return treeDP/*already exist, return old dp*/
     }
