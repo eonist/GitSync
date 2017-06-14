@@ -91,7 +91,7 @@ extension RepoDetailView{
         remoteText?.inputTextArea.setTextValue(repoItem.remote)
         branchText?.inputTextArea.setTextValue(repoItem.branch)
         /*CheckButtons*/
-        autoCheckBoxButton?.setChecked(!repoItem.auto)
+        autoCheckBoxButton?.setChecked(repoItem.auto)
         messageCheckBoxButton?.setChecked(repoItem.message)
         activeCheckBoxButton?.setChecked(repoItem.active)
     }
