@@ -15,8 +15,9 @@ class RepoUtils {
         let flatArr:[[String:String]] = arr.recursiveFlatmap()
         //flatArr.forEach{Swift.print("$0: " + "\($0)")}
         let repoList:[RepoItem] = Utils.filterFolders(flatArr,[RepoFolderType.isOpen.rawValue,RepoFolderType.hasChildren.rawValue])//Swift.print("repoList.count: " + "\(repoList.count)")
-        //repoList.forEach{Swift.print("$0.title: " + "\($0.title)")}
+        
         let activeRepoList = repoList.filter{$0.active}/*filter out inActive*/
+        activeRepoList.forEach{Swift.print("$0.title: " + "\($0.title)")}
         return activeRepoList
     }
     /**
