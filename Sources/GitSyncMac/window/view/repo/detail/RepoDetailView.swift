@@ -50,7 +50,7 @@ class RepoDetailView:Element {
             //Swift.print("✨ Update dp with: attrib: " + "\(attrib)")
             RepoView.treeDP.tree[idx3d]!.props = attrib/*Overrides the cur attribs*///RepoView.node.setAttributeAt(i, attrib)
             if let tree:Tree = RepoView.treeDP.tree[idx3d]{
-                Swift.print("title: " + "\(tree.props?[RepoType.title.rawValue])")
+                //Swift.print("title: " + "\(tree.props?[RepoType.title.rawValue])")
                 //Swift.print("node.xml.xmlString: " + "\(tree.xml.xmlString)")
             }
         }
