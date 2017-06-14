@@ -25,31 +25,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
         menu = Menu()/*This creates the App menu*/
     }
-    /**
-     *
-     */
-    func jsonTest(){
-        Swift.print("jsonTest")
-        /*JSONParser.dictArr("[{\"title\":\"doctor\"}]".json)?.forEach{
-         Swift.print("\(JSONParser.dict($0)?["title"])")//doctor
-         }*/
-        //let content = "~/Desktop/gitsync.json".content
-        //Swift.print("content: " + "\(content)")
-        //let json = "~/Desktop/gitsync.json".content!.json
-        //Swift.print("json: " + "\(json)")
-        //let dict = JSONParser.dict("~/Desktop/gitsync.json".content?.json)
-        //Swift.print("dict: " + "\(dict)")
-        
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
-        JSONParser.dictArr(JSONParser.dict("~/Desktop/gitsync.json".content?.json)?["repoDetailView"])?.forEach{
-            if let element:IElement = UnFoldUtils.unFold($0) {
-                Swift.print("created an element")
-                _ = element
-            }else{
-                Swift.print("did not create an element")
-            }
-        }
-    }
+    
     func applicationWillTerminate(_ aNotification:Notification) {
         /*Stores the app prefs*/
         if(PrefsView.prefs["login"] != nil){//make sure the data has been read and written to first
@@ -61,7 +37,32 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
-
+/**
+ *
+ */
+/*
+func jsonTest(){
+    Swift.print("jsonTest")
+    /*JSONParser.dictArr("[{\"title\":\"doctor\"}]".json)?.forEach{
+     Swift.print("\(JSONParser.dict($0)?["title"])")//doctor
+     }*/
+    //let content = "~/Desktop/gitsync.json".content
+    //Swift.print("content: " + "\(content)")
+    //let json = "~/Desktop/gitsync.json".content!.json
+    //Swift.print("json: " + "\(json)")
+    //let dict = JSONParser.dict("~/Desktop/gitsync.json".content?.json)
+    //Swift.print("dict: " + "\(dict)")
+    
+    StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
+    JSONParser.dictArr(JSONParser.dict("~/Desktop/gitsync.json".content?.json)?["repoDetailView"])?.forEach{
+        if let element:IElement = UnFoldUtils.unFold($0) {
+            Swift.print("created an element")
+            _ = element
+        }else{
+            Swift.print("did not create an element")
+        }
+    }
+}*/
 //paddingTest()
 //calcTest()
 /*
