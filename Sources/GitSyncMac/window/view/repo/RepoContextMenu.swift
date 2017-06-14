@@ -103,13 +103,13 @@ extension RepoContextMenu{
     }
     func paste(sender:AnyObject) {
         Swift.print("paste")
-        if let idx = rightClickItemIdx, let clipBoard:XML = clipBoard{
-            Swift.print("idx: " + "\(idx)")
+        if let idx3d = rightClickItemIdx, let clipBoard:XML = clipBoard{
+            Swift.print("idx: " + "\(idx3d)")
             //Swift.print("clipBoard: " + "\(self.clipBoard)")
             
+            TreeAsserter.hasAttribute(treeList.tree, idx3d, "isOpen")
             
-            
-            let newIdx = Utils.newIdx(treeList,idx)
+            let newIdx = Utils.newIdx(treeList,idx3d)
             let tree = TreeConverter.tree(clipBoard)
             treeList.insert(newIdx, tree)
         }
