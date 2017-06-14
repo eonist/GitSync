@@ -16,6 +16,7 @@ class RepoUtils {
         //Swift.print("flatArr.count: " + "\(flatArr.count)")
         //flatArr.forEach{Swift.print("$0: " + "\($0)")}
         let repoList:[RepoItem] = Utils.filterFolders(flatArr,[RepoFolderType.isOpen.rawValue,RepoFolderType.hasChildren.rawValue])//Swift.print("repoList.count: " + "\(repoList.count)")
+        repoList.forEach{Swift.print("$0.title: " + "\($0.title)")}
         return repoList//.filter{$0.title == "Research" || $0.title == "Research wiki"}/*👈 filter enables you to test one item at the time, for debugging*/
     }
     /**
