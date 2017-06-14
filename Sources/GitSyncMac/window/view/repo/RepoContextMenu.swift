@@ -107,7 +107,6 @@ extension RepoContextMenu{
             Swift.print("idx: " + "\(idx3d)")
             //Swift.print("clipBoard: " + "\(self.clipBoard)")
             
-            TreeAsserter.hasAttribute(treeList.tree, idx3d, "isOpen")
             
             let newIdx = Utils.newIdx(treeList,idx3d)
             let tree = TreeConverter.tree(clipBoard)
@@ -192,7 +191,8 @@ private class Utils {
     static func newIdx(_ treeList:TreeListable3,_ idx3d:[Int]) -> [Int] {
         var idx3d = idx3d
         //let itemData:ItemData3 = TreeList3Utils.itemData(treeList, idx)
-        if treeList.hasChildren(idx3d){//isFolder, add within
+        let isGroup:Bool = TreeAsserter.hasAttribute(treeList.tree, idx3d, RepoFolderType.isOpen.rawValue)
+        if treeList.hasChildren(idx3d) || isGroup{/*isFolder, add within*/
             idx3d += [0]
         }else{/*is not folder, add bellow*/
             idx3d[idx3d.count-1] = idx3d.last! + 1
