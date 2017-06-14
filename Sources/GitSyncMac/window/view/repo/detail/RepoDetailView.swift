@@ -12,7 +12,7 @@ class RepoDetailView:Element {
      * TODO: ⚠️️ enumify this method? at least use switch
      */
     override func onEvent(_ event:Event) {
-        Swift.print("onEvent: type: " + "\(event.type) immediate: \(event.immediate) origin: \(event.origin)")
+        //Swift.print("RepoDetailView.onEvent: type: " + "\(event.type) immediate: \(event.immediate) origin: \(event.origin)")
         let idx3d:[Int] = RepoView.selectedListItemIndex
         guard var attrib:[String:String] = RepoView.treeDP.tree[idx3d]?.props else{
             fatalError("no attribs at: \(idx3d)")
