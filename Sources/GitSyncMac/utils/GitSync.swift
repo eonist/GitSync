@@ -45,7 +45,7 @@ class GitSync{
                 guard let keychainPassword:String = KeyChainParser.password("GitSyncApp") else{ fatalError("password not found")}
                 //Swift.print("keychainPassword: 🔑" + "\(keychainPassword)")
                 //Swift.print("repo.keyChainItemName: " + "\(repoItem.keyChainItemName)")
-                let key:GitKey = (repoItem.keyChainItemName, keychainPassword)
+                let key:GitKey = (PrefsView.prefs["login"], keychainPassword)
                 let pushCallBack = GitModifier.push(repo,key)/*🌵*/
                 _ = pushCallBack
                 //Swift.print("pushCallBack: " + "\(pushCallBack)")
