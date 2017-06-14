@@ -18,7 +18,7 @@ class RepoContextMenu:NSMenu{
         self.treeList = treeList//Element - mac
         super.init(title:"Contextual menu")
         let menuItems:[(title:RepoMenuItem,selector:Foundation.Selector)] = [
-              (.newFolder, #selector(newFolder))
+              (.newGroup, #selector(newGroup))
             , (.newRepo, #selector(newRepo))
             , (.duplicate, #selector(duplicate))
             , (.copy, #selector(doCopy))
@@ -50,7 +50,7 @@ extension RepoContextMenu{
     /**
      * TODO: A bug is that when you add a folder and its the last item then the list isnt resized
      */
-    func newFolder(sender:AnyObject) {
+    func newGroup(sender:AnyObject) {
         Swift.print("newFolder")
         let idx = rightClickItemIdx!
         let xmlStr:String = "<item title=\"New group\" isOpen=\"false\" ></item>"//hasChildren=\"true\"
@@ -170,7 +170,7 @@ extension RepoContextMenu{
     }
 }
 enum RepoMenuItem:String {
-    case newFolder = "New folder"
+    case newGroup = "New group"
     case newRepo = "New repo"
     case duplicate = "Duplicate"
     case copy = "Copy"
