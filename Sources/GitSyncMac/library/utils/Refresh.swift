@@ -27,7 +27,7 @@ class Refresh{//TODO:rename to refresh
      * NOTE: This method is called from the freshness onComplete
      */
     func refreshRepos(/*_ sortableRepoList:[FreshnessItem]*/){
-        let repos = RepoUtils.repoListFlattened/*creates array from xml or cache*/
+        let repos = RepoUtils.repoListFlattenedOverridden/*creates array from xml or cache*/
         var idx:Int = 0
         func onComplete(){/*you can probably use DispatchGroup here aswell. but in the spirit of moving on*/
             idx += 1
