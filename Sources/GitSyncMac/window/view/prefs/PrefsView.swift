@@ -28,6 +28,7 @@ class PrefsView:Element {
                 PrefsView.prefs["login"] = login?.inputText
             case event.isChildOf(pass):
                 if let passStr:String = pass?.inputText {
+                    Swift.print("passStr: " + "\(passStr)")
                     _ = KeyChainModifier.save("GitSyncApp", passStr.dataValue)
                 }
             case event.isChildOf(local):
