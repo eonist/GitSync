@@ -32,7 +32,7 @@ class RepoView:Element {
         }else if(event.type == ButtonEvent.rightMouseDown){
             contextMenu.rightClickItemIdx = TreeList3Parser.index(treeList, event.origin as! NSView)
             //Swift.print("RightMouseDown() rightClickItemIdx: " + "\(contextMenu.rightClickItemIdx)")
-            NSMenu.popUpContextMenu(contextMenu, with: (event as! ButtonEvent).event!, for: self)
+            NSMenu.popUpContextMenu(contextMenu, with:(event as! ButtonEvent).event!, for: self)
         }
     }
 }
