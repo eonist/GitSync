@@ -22,11 +22,11 @@ class RepoUtils {
     /**
      * Returns dupe free flattened repo list
      */
-    private static var repoListFlattenedDupeFree:[RepoItem]{//TODO: ⚠️️ possibly remove this, its not used
+    /*private static var repoListFlattenedDupeFree:[RepoItem]{//TODO: ⚠️️ possibly remove this, its not used
         let repoList:[RepoItem] = RepoUtils.repoListFlattened//.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
         return repoList.removeDups({$0.remote == $1.remote && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         //Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
-    }
+    }*/
     /**
      * Returns a flat Array of RepoItems derived from a nested xml Structure
      * NOTE: parent override child for every key in overrideKeys
