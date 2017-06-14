@@ -58,7 +58,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         
         //Continue here: 🏀
-            //try to make RepoDetailView with the new json system 👈
+            //try to make RepoDetailView with the new json system ✅
             //Make JSON.swift 
                 //let json:JSON = "~/Desktop/test.json".json
                 //if let color:String = json[0]["color"] {print()}
