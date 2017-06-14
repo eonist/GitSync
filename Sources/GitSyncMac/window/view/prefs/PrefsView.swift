@@ -7,6 +7,12 @@ import Foundation
  * TODO: ⚠️️ make a reusable setUI,getUI method for the UnFold system
  * TODO: ⚠️️ make a reusable event handler that stores the state of the UI
  */
+enum PrefsType:String {
+    case login = "login"
+    case pass = "pass"
+    case local = "local"
+    case darkMode = "darkMode"
+}
 class PrefsView:Element {
     static var prefs:[String:String] = [:]
     override func resolveSkin() {
@@ -28,7 +34,7 @@ class PrefsView:Element {
                     _ = KeyChainModifier.save("GitSyncApp", passStr.dataValue)
                 }
             case event.isChildOf(local):
-                PrefsView.prefs["localPath"] = local?.inputText
+                PrefsView.prefs["local"] = local?.inputText
             default:
                 break;
             }
