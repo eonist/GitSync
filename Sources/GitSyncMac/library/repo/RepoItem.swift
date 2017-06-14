@@ -25,9 +25,9 @@ enum RepoType:String{
     case message = "message"
     case active = "active"
 }
-class RepoFolderType{
-    static var isOpen:String = "isOpen"
-    static var hasChildren:String = "hasChildren"
+enum RepoFolderType:String{
+    case isOpen = "isOpen"
+    case hasChildren = "hasChildren"
 }
 
 /*
