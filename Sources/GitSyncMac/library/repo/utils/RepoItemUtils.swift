@@ -5,7 +5,6 @@ import Foundation
  * Utility methods for parsing the repository.xml file
  */
 class RepoUtils {
-   
     /**
      * Returns a flat Array of RepoItems derived from a nested xml Structure (also skips folders)
      * NOTE: parent override child for every key in overrideKeys
