@@ -44,12 +44,13 @@ class RepoContextMenu:NSMenu{
  */
 extension RepoContextMenu{
     /**
-     * TODO: A bug is that when you add a folder and its the last item then the list isnt resized
+     * TODO: ⚠️️ A bug is that when you add a folder and its the last item then the list isnt resized
+     * TODO: ⚠️️ There is a bug if you add items to closed groups, then there will be an error
      */
     func newGroup(sender:AnyObject) {
         Swift.print("newFolder")
         let idx = rightClickItemIdx!
-        let xmlStr:String = "<item title=\"New group\" \(RepoFolderType.isOpen.rawValue)=\"false\" \(RepoType.active.rawValue)=\"true\"></item>"//hasChildren=\"true\"
+        let xmlStr:String = "<item title=\"New group\" \(RepoFolderType.isOpen.rawValue)=\"true\" \(RepoType.active.rawValue)=\"true\"></item>"//hasChildren=\"true\"
         let tree = TreeConverter.tree(xmlStr.xml)//treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
         let newIdx = Utils.newIdx(treeList,idx)
         treeList.insert(newIdx,tree)
