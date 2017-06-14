@@ -3,12 +3,6 @@ import Cocoa
 @testable import Element
 @testable import GitSyncMac
 
-//Continue here:
-    //remove things from the css files
-    //add repoDetailView👈
-        //add items that scale with windowresize
-
-
 /**
  * This is the main class for the application
  * Not one error in a million keystrokes
@@ -21,7 +15,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
-
         //jsonTest()
         initApp()
     }
@@ -56,16 +49,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("did not create an element")
             }
         }
-        
-        //Continue here: 🏀
-            //try to make RepoDetailView with the new json system ✅
-            //Make JSON.swift 
-                //let json:JSON = "~/Desktop/test.json".json
-                //if let color:String = json[0]["color"] {print()}
-                //else {print("does not exist")}
-                //Use subScript and generics to return the correct type
-            //try to create composite components
-        
     }
     func applicationWillTerminate(_ aNotification:Notification) {
         /*Stores the app prefs*/
