@@ -119,7 +119,7 @@ private class Utils{
      */
     static func filterFolders(_ list:[[String:String]], _ mustNotContain:[String])->[RepoItem]{
         let repoList:[RepoItem] = list.filter{
-            (!$0.contains(mustNotContain) && $0.hasKey(RepoItemType.active) && $0[RepoItemType.active]!.bool)/*skips folders, and active must be true*/
+            (!$0.contains(mustNotContain) && $0.hasKey(RepoType.active.rawValue) && $0[RepoType.active.rawValue]!.bool)/*skips folders, and active must be true*/
             }.map{/*create array of tuples*/
                 RepoUtils.repoItem($0)
         }

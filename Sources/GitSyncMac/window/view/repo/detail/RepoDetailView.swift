@@ -92,7 +92,7 @@ extension RepoDetailView{
     }
 }
 extension RepoDetailView{/*Convenience*/
-    var nameText:TextInput? {return self.element(RepoType.name.rawValue)}
+    var nameText:TextInput? {return self.element(RepoType.title.rawValue)}
     var localText:TextInput? {return self.element(RepoType.local.rawValue)}
     var remoteText:TextInput? {return self.element(RepoType.remote.rawValue)}
     var branchText:TextInput? {return self.element(RepoType.branch.rawValue)}
