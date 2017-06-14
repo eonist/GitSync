@@ -37,14 +37,6 @@ class RepoUtils {
         let overrideKeys:[String] = [RepoType.active.rawValue,/*RepoType.autoSyncInterval,RepoType.download,RepoType.fileChange,*/RepoType.auto.rawValue/*,RepoType.upload*/]/*These are the keys to the values that should be overridden*/
         let overriders:[String] = [RepoFolderType.isOpen.rawValue,RepoFolderType.hasChildren.rawValue]
         let flatArr:[[String:String]] = Utils.recursiveFlattened(arr,overrideKeys,overriders)
-        flatArr.forEach {
-            if let title = $0["title"] {
-                Swift.print("title: " + "\(title)")
-            }else{
-                Swift.print("$0: " + "\($0)")
-                fatalError("no title ")
-            }
-        }
         let repoList:[RepoItem] = Utils.filterFolders(flatArr,overriders)//remove folders
         return repoList
     }
