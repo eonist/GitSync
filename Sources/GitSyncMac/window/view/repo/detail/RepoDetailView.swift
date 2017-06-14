@@ -5,7 +5,7 @@ import Foundation
 class RepoDetailView:Element {
     override func resolveSkin() {
         super.resolveSkin()
-        UnFoldUtils.unFold("~/Desktop/gitsync.json","repoDetailView",self)
+        UnFoldUtils.unFold(Config.app,"repoDetailView",self)
     }
     /**
      * Modifies the dataProvider item on UI change
