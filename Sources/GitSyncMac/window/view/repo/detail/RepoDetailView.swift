@@ -50,7 +50,7 @@ class RepoDetailView:Element {
             //Swift.print("✨ Update dp with: attrib: " + "\(attrib)")
             RepoView.treeDP.tree[idx3d]!.props = attrib/*Overrides the cur attribs*///RepoView.node.setAttributeAt(i, attrib)
             if let tree:Tree = RepoView.treeDP.tree[idx3d]{
-                Swift.print("title: " + "\(tree.props?[RepoItemType.title])")
+                Swift.print("title: " + "\(tree.props?[RepoType.title])")
                 //Swift.print("node.xml.xmlString: " + "\(tree.xml.xmlString)")
             }
         }
@@ -68,8 +68,8 @@ extension RepoDetailView{
             var repoItem:RepoItem
             if !tree.children.isEmpty {/*Support for folders*/
                 repoItem = RepoItem()
-                if let title:String = repoItemDict[RepoItemType.title] {repoItem.title = title}
-                if let active:String = repoItemDict[RepoItemType.active] {repoItem.active = active.bool}
+                if let title:String = repoItemDict[RepoType.title] {repoItem.title = title}
+                if let active:String = repoItemDict[RepoType.active] {repoItem.active = active.bool}
             }else{
                 repoItem = RepoUtils.repoItem(repoItemDict)
             }
@@ -99,13 +99,4 @@ extension RepoDetailView{/*Convenience*/
     var autoCheckBoxButton:CheckBoxButton? {return self.element(RepoType.auto.rawValue)}
     var messageCheckBoxButton:CheckBoxButton? {return self.element(RepoType.message.rawValue)}
     var activeCheckBoxButton:CheckBoxButton? {return self.element(RepoType.active.rawValue)}
-}
-enum RepoType:String{
-    case name = "name"
-    case local = "local"
-    case remote = "remote"
-    case branch = "branch"
-    case auto = "auto"
-    case message = "message"
-    case active = "active"
 }
