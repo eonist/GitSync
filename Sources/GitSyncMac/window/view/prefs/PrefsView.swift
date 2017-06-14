@@ -28,6 +28,7 @@ class PrefsView:Element {
                 PrefsView.prefs["login"] = login?.inputText
             case event.isChildOf(pass):
                 PrefsView.prefs["pass"] = pass?.inputText
+                Swift.print("pass?.inputText: " + "\(pass?.inputText)")
             case event.isChildOf(local):
                 PrefsView.prefs["localPath"] = local?.inputText
             default:
