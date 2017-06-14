@@ -53,7 +53,7 @@ extension RepoContextMenu{
     func newGroup(sender:AnyObject) {
         Swift.print("newFolder")
         let idx = rightClickItemIdx!
-        let xmlStr:String = "<item title=\"New group\" \(RepoFolderType.isOpen)=\"false\" \(RepoFolderType.)=\"false\"></item>"//hasChildren=\"true\"
+        let xmlStr:String = "<item title=\"New group\" \(RepoFolderType.isOpen.rawValue)=\"false\" \(RepoType.active.rawValue)=\"true\"></item>"//hasChildren=\"true\"
         let tree = TreeConverter.tree(xmlStr.xml)//treeList.node.addAt(newIdx(idx), a.xml)//"<item title=\"New folder\"/>"
         let newIdx = Utils.newIdx(treeList,idx)
         treeList.insert(newIdx,tree)

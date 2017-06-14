@@ -15,7 +15,7 @@ class RepoUtils {
         let flatArr:[[String:String]] = arr.recursiveFlatmap()
         //Swift.print("flatArr.count: " + "\(flatArr.count)")
         //flatArr.forEach{Swift.print("$0: " + "\($0)")}
-        let repoList:[RepoItem] = Utils.filterFolders(flatArr,[RepoFolderType.isOpen,RepoFolderType.hasChildren])        //Swift.print("repoList.count: " + "\(repoList.count)")
+        let repoList:[RepoItem] = Utils.filterFolders(flatArr,[RepoFolderType.isOpen.rawValue.,RepoFolderType.hasChildren])        //Swift.print("repoList.count: " + "\(repoList.count)")
         return repoList//.filter{$0.title == "Research" || $0.title == "Research wiki"}/*👈 filter enables you to test one item at the time, for debugging*/
     }
     /**
@@ -35,7 +35,7 @@ class RepoUtils {
         let repoXML:XML = RepoView.treeDP.tree.xml/*📝 - FilePath*/
         let arr:[Any] = XMLParser.arr(repoXML)//convert xml to multidimensional array
         let overrideKeys:[String] = [RepoType.active.rawValue,/*RepoType.autoSyncInterval,RepoType.download,RepoType.fileChange,*/RepoType.auto.rawValue/*,RepoType.upload*/]/*These are the keys to the values that should be overridden*/
-        let overriders:[String] = [RepoFolderType.isOpen,RepoFolderType.hasChildren]
+        let overriders:[String] = [RepoFolderType.isOpen.rawValue,RepoFolderType.hasChildren.rawValue]
         let flatArr:[[String:String]] = Utils.recursiveFlattened(arr,overrideKeys,overriders)
         let repoList:[RepoItem] = Utils.filterFolders(flatArr,overriders)//remove folders
         return repoList
