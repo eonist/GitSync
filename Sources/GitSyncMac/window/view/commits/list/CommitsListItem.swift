@@ -51,12 +51,12 @@ class CommitsListItem:Button,ISelectable{
      * Sets data to the UI elements
      */
     func setData(_ data:[String:String]){
-        titleText!.setText(data["title"]!)
-        repoNameText!.setText(data["repo-name"]!)
-        contributorText!.setText(data["contributor"]!)
-        descText!.setText(data["description"]!)
+        titleText!.setText(data[CommitType.title.rawValue]!)
+        repoNameText!.setText(data[CommitType.repoName.rawValue]!)
+        contributorText!.setText(data[CommitType.contributor.rawValue]!)
+        descText!.setText(data[CommitType.description.rawValue]!)
         /**/
-        let date:Date = GitDateUtils.date(data["gitDate"]!)
+        let date:Date = GitDateUtils.date(data[CommitType.date.rawValue]!)
         //Swift.print("date.shortDate: " + "\(date.shortDate)")
         let relativeTime:(value:Int,type:String) = DateParser.relativeTime(Date(),date)[0]
         let relativeDate:String = relativeTime.value.string + relativeTime.type/*create date like 3s,4m,5h,6w,2y*/
@@ -99,10 +99,10 @@ class CommitsListItem:Button,ISelectable{
 
 //<commit repo-name="Element" contributor="Eonist" title="Comment update" description="Updated a comment in the file: View.swift" date="2016-01-22"/>
 
-enum CommitItem:String{
+enum CommitType:String{
     case repoName = "repo-name"
     case contributor = "contributor"
     case title = "title"
     case description = "description"
-    case date = "date"
+    case date = "gitDate"
 }
