@@ -7,12 +7,7 @@ import Foundation
  * TODO: ⚠️️ make a reusable setUI,getUI method for the UnFold system
  * TODO: ⚠️️ make a reusable event handler that stores the state of the UI
  */
-enum PrefsType:String {
-    case login = "login"
-    case pass = "pass"
-    case local = "local"
-    case darkMode = "darkMode"
-}
+
 typealias Prefs = (login:String,pass:String,local:String,darkMode:Bool)
 class PrefsView:Element {
     static var prefs:Prefs = (login:"",pass:"",local:"",darkMode:false)
@@ -65,20 +60,26 @@ extension PrefsView{
     static var xml:XML{
         get{
             let xml:XML = "<prefs></prefs>".xml
-            xml.appendChild("<login>\(PrefsView.prefs.login)</login>".xml)
-            xml.appendChild("<local>\(PrefsView.prefs.local)</local>".xml)
-            xml.appendChild("<darkMode>\(PrefsView.prefs.darkMode)</darkMode>".xml)
+            xml.appendChild("<\(PrefsType.login.rawValue)>\(PrefsView.prefs.login)</\(PrefsType.login.rawValue)>".xml)
+            xml.appendChild("<\(PrefsType.local.rawValue)>\(PrefsView.prefs.local)</\(PrefsType.local.rawValue)>".xml)
+            xml.appendChild("<\(PrefsType.darkMode.rawValue)>\(PrefsView.prefs.darkMode)</\(PrefsType.darkMode.rawValue)>".xml)
             return xml
         }set{
-            PrefsView.prefs.login = newValue.firstNode("login")!.stringValue!
-            PrefsView.prefs.local = newValue.firstNode("local")!.stringValue!
-            PrefsView.prefs.darkMode = newValue.firstNode("darkMode")!.stringValue!.bool
+            PrefsView.prefs.login = newValue.firstNode(PrefsType.login.rawValue)!.stringValue!
+            PrefsView.prefs.local = newValue.firstNode(PrefsType.local.rawValue)!.stringValue!
+            PrefsView.prefs.darkMode = newValue.firstNode(PrefsType.darkMode.rawValue)!.stringValue!.bool
         }
     }
 }
 extension PrefsView{
-    var login:TextInput? {return self.element("login")}
-    var pass:TextInput? {return self.element("pass")}
-    var local:TextInput? {return self.element("local")}
-    var darkMode:CheckBoxButton? {return self.element("darkMode")}
+    var login:TextInput? {return self.element(PrefsType.login.rawValue)}
+    var pass:TextInput? {return self.element(PrefsType.pass.rawValue)}
+    var local:TextInput? {return self.element(PrefsType.local.rawValue)}
+    var darkMode:CheckBoxButton? {return self.element(PrefsType.darkMode.rawValue)}
+}
+enum PrefsType:String {
+    case login = "login"
+    case pass = "pass"
+    case local = "local"
+    case darkMode = "darkMode"
 }
