@@ -17,7 +17,7 @@ struct RepoItem {
     
 }
 enum RepoType:String{
-    case title = "name"
+    case name = "name"
     case local = "local"
     case remote = "remote"
     case branch = "branch"
