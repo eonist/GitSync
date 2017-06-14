@@ -28,21 +28,21 @@ class PrefsView:Element {
         if event.type == Event.update {
             switch true{/*TextInput*/
             case event.isChildOf(login):
-                PrefsView.prefs["login"] = login?.inputText
+                PrefsView.prefs.login = login!.inputText
             case event.isChildOf(pass):
                 if let passStr:String = pass?.inputText {
                     Swift.print("passStr: " + "\(passStr)")
                     _ = KeyChainModifier.save("GitSyncApp", passStr.dataValue)
                 }
             case event.isChildOf(local):
-                PrefsView.prefs["local"] = local?.inputText
+                PrefsView.prefs.local = local!.inputText
             default:
                 break;
             }
         }else if event.type == CheckEvent.check{
             switch true{/*CheckButtons*/
             case event.isChildOf(darkMode)://TODO: <---use getChecked here
-                PrefsView.prefs["darkMode"] = darkMode?.getChecked().str
+                PrefsView.prefs.darkMode = darkMode!.getChecked()
             default:
                 break;
             }
@@ -70,9 +70,9 @@ extension PrefsView{
             xml.appendChild("<darkMode>\(PrefsView.prefs.darkMode)</darkMode>".xml)
             return xml
         }set{
-            PrefsView.prefs["login"] = newValue.firstNode("login")!.stringValue
-            PrefsView.prefs["local"] = newValue.firstNode("local")!.stringValue
-            PrefsView.prefs["darkMode"] = newValue.firstNode("darkMode")!.stringValue
+            PrefsView.prefs.login = newValue.firstNode("login")!.stringValue!
+            PrefsView.prefs.local = newValue.firstNode("local")!.stringValue!
+            PrefsView.prefs.darkMode = newValue.firstNode("darkMode")!.stringValue!.bool
         }
     }
 }
