@@ -57,7 +57,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             Swift.print("💾 Write PrefsView to: prefs.xml")
         }
         Swift.print("💾 Write RepoList to: repo.xml")
-        _ = FileModifier.write(RepoView.repoListFilePath.tildePath, RepoView.treeDP.tree.xml.xmlString)/*store the repo xml*/
+        _ = FileModifier.write(Config.repoListFilePath.tildePath, RepoView.treeDP.tree.xml.xmlString)/*store the repo xml*/
         print("Good-bye")
     }
 }
