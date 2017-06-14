@@ -24,13 +24,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 
         //jsonTest()
         
-        //initApp()
-        let key2 = "Antilion"
-        let saveData:Data = "abc1234".dataValue
-        _ = KeyChainModifier.save( key2, saveData)
-        
-        let password = KeyChainParser.password("Antilion")
-        Swift.print("password: " + "\(password)")
+        initApp()
+      
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
