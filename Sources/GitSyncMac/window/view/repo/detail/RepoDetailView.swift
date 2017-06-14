@@ -17,9 +17,8 @@ class RepoDetailView:Element {
         guard var attrib:[String:String] = RepoView.treeDP.tree[idx3d]?.props else{
             fatalError("no attribs at: \(idx3d)")
         }
-        if event.type == Event.update {
+        if event.type == Event.update {/*TextInput*/
             switch true{
-            /*TextInput*/
             case event.isChildOf(nameText):
                 //Swift.print("nameText?.inputText: " + "\(nameText?.inputText)")
                 attrib[RepoType.title.rawValue] = nameText?.inputText
@@ -32,9 +31,8 @@ class RepoDetailView:Element {
             default:
                 break;
             }
-        }else if event.type == CheckEvent.check{
+        }else if event.type == CheckEvent.check{/*CheckButtons*/
             switch true{
-            /*CheckButtons*/
             case event.isChildOf(activeCheckBoxButton)://TODO: <---use getChecked here
                 attrib[RepoType.active.rawValue] = activeCheckBoxButton?.getChecked().str
             case event.isChildOf(messageCheckBoxButton):
