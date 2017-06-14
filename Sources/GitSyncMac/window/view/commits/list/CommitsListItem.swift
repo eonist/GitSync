@@ -90,19 +90,19 @@ class CommitsListItem:Button,ISelectable{
         super.setSize(width,height)
     }
     /*override func hitTest(_ aPoint: NSPoint) -> NSView? {
-     Swift.print("layer!.position: " + "\(layer!.position)")
-     let aPoint = aPoint + CGPoint(layer!.position.x,layer!.position.y)
-     return super.hitTest(aPoint)
+        Swift.print("layer!.position: " + "\(layer!.position)")
+        let aPoint = aPoint + CGPoint(layer!.position.x,layer!.position.y)
+        return super.hitTest(aPoint)
      }*/
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 
-
-
 //<commit repo-name="Element" contributor="Eonist" title="Comment update" description="Updated a comment in the file: View.swift" date="2016-01-22"/>
 
-//repo-name
-//contributor
-//title
-//description
-//date
+enum CommitItem:String{
+    case repoName = "repo-name"
+    case contributor = "contributor"
+    case title = "title"
+    case description = "description"
+    case date = "date"
+}
