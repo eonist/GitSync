@@ -28,7 +28,6 @@ class PrefsView:Element {
                 PrefsView.prefs["login"] = login?.inputText
             case event.isChildOf(pass):
                 PrefsView.prefs["pass"] = pass?.inputText
-                Swift.print("pass?.inputText: " + "\(pass?.inputText)")
             case event.isChildOf(local):
                 PrefsView.prefs["localPath"] = local?.inputText
             default:
@@ -51,8 +50,10 @@ extension PrefsView{
      * New
      */
     func setPrefs(_ dict:[String:String]){
-        login?.setInputText(dict["login"] ?? "")
-        pass?.setInputText(dict["pass"] ?? "")
+        let loginStr = dict["login"] ?? ""
+        login?.setInputText(loginStr)
+        let passStr = KeyChainParser.password(loginStr) ?? ""
+        pass?.setInputText(passStr)
         local?.setInputText(dict["local"] ?? "")
         darkMode?.setChecked((dict["darkMode"] ?? "false").bool)
     }
@@ -60,7 +61,6 @@ extension PrefsView{
         get{
             let xml:XML = "<prefs></prefs>".xml
             xml.appendChild("<login>\(PrefsView.prefs["login"] ?? "")</login>".xml)
-            xml.appendChild("<pass>\(PrefsView.prefs["pass"] ?? "")</pass>".xml)
             xml.appendChild("<local>\(PrefsView.prefs["local"] ?? "")</local>".xml)
             xml.appendChild("<darkMode>\(PrefsView.prefs["darkMode"] ?? "")</darkMode>".xml)
             return xml
