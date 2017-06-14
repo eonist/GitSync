@@ -21,6 +21,7 @@ class RepoDetailView:Element {
             switch true{
             /*TextInput*/
             case event.isChildOf(nameText):
+                Swift.print("nameText?.inputText: " + "\(nameText?.inputText)")
                 attrib[RepoType.title.rawValue] = nameText?.inputText
             case event.isChildOf(localText):
                 attrib[RepoType.local.rawValue] = localText?.inputText
@@ -50,7 +51,7 @@ class RepoDetailView:Element {
             //Swift.print("✨ Update dp with: attrib: " + "\(attrib)")
             RepoView.treeDP.tree[idx3d]!.props = attrib/*Overrides the cur attribs*///RepoView.node.setAttributeAt(i, attrib)
             if let tree:Tree = RepoView.treeDP.tree[idx3d]{
-                //Swift.print("title: " + "\(tree.props?[RepoType.title.rawValue])")
+                Swift.print("title: " + "\(tree.props?[RepoType.title.rawValue])")
                 //Swift.print("node.xml.xmlString: " + "\(tree.xml.xmlString)")
             }
         }
@@ -62,6 +63,7 @@ extension RepoDetailView{
      * NOTE: Filters groups and items
      */
     func setRepoData(_ idx3d:[Int]){
+        Swift.print("setRepoData(idx3d) ")
         RepoView.selectedListItemIndex = idx3d
         //TODO: Use the RepoItem on the bellow line see AutoSync class for implementation
         if let tree:Tree = RepoView.treeDP.tree[idx3d], let repoItemDict = tree.props{//NodeParser.dataAt(treeList!.node, selectedIndex)
@@ -80,6 +82,7 @@ extension RepoDetailView{
      * Populates the UI elements with data from the dp item
      */
     private func setRepoData(_ repoItem:RepoItem){
+        Swift.print("setRepoData(repoItem)")
         /*TextInput*/
         Swift.print("repoItem.title: " + "\(repoItem.title)")
         nameText?.inputTextArea.setTextValue(repoItem.title)
