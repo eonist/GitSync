@@ -37,8 +37,8 @@ class RepoUtils {
         let overrideKeys:[String] = [RepoType.active.rawValue,/*RepoType.autoSyncInterval,RepoType.download,RepoType.fileChange,*/RepoType.auto.rawValue/*,RepoType.upload*/]/*These are the keys to the values that should be overridden*/
         let overriders:[String] = [RepoFolderType.isOpen.rawValue,RepoFolderType.hasChildren.rawValue]
         let flatArr:[[String:String]] = Utils.recursiveFlattened(arr,overrideKeys,overriders)
-        flatArr.forEach{
-            if let title $0["title"] {
+        flatArr.forEach {
+            if let title = $0["title"] {
                 Swift.print("title: " + "\(title)")
             }else{
                 Swift.print("$0: " + "\($0)")
@@ -54,6 +54,7 @@ class RepoUtils {
      * TODO: test if the full/partly file path still works?
      */
     static func repoItem(_ dict:[String:String]) -> RepoItem{
+        Swift.print("dict: " + "\(dict)")
         var repoItem:RepoItem = RepoItem()
         let localPath:String = dict[RepoType.local.rawValue]! //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
         //localPath = ShellUtils.run("echo " + StringModifier.wrapWith(localPath,"'") + " | sed 's/ /\\\\ /g'")//--Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths.
