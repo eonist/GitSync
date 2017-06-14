@@ -41,8 +41,8 @@ class GitSync{
             let hasLocalCommits = GitAsserter.hasLocalCommits(repo.localPath, repoItem.branch)/*🌵🌵 TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line*/
             //Swift.print("hasLocalCommits: " + "\(hasLocalCommits)")
             var hasPushed:Bool = false
-            if (hasLocalCommits) { //only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
-                let keychainPassword = KeyChainParser.password(repoItem.keyChainItemName)
+            if hasLocalCommits { //only push if there are commits to be pushed, hence the has_commited flag, we check if there are commits to be pushed, so we dont uneccacerly push if there are no local commits to be pushed, we may set the commit interval and push interval differently so commits may stack up until its ready to be pushed, read more about this in the projects own FAQ
+                let keychainPassword:String = KeyChainParser.password(repoItem.keyChainItemName) ?? fatalError("password not found")
                 //Swift.print("keychainPassword: 🔑" + "\(keychainPassword)")
                 //Swift.print("repo.keyChainItemName: " + "\(repoItem.keyChainItemName)")
                 let key:GitKey = (repoItem.keyChainItemName, keychainPassword)

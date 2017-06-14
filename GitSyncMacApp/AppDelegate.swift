@@ -24,7 +24,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 
         //jsonTest()
         
-        initApp()
+        //initApp()
+        
+        let password = KeyChainParser.password("eonist")
+        Swift.print("password: " + "\(password)")
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
