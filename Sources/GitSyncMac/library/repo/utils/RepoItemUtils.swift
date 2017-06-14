@@ -23,7 +23,7 @@ class RepoUtils {
      */
     static var repoListFlattenedDupeFree:[RepoItem]{
         let repoList:[RepoItem] = RepoUtils.repoListFlattened//.filter{$0.title == "GitSync"}//👈 filter enables you to test one item at the time
-        return repoList.removeDups({$0.remotePath == $1.remotePath && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
+        return repoList.removeDups({$0.remote == $1.remote && $0.branch == $1.branch})/*remove dups that have the same remote and branch. */
         //Swift.print("After removal of dupes - repoList: " + "\(repoList.count)")
     }
     /**
@@ -51,7 +51,7 @@ class RepoUtils {
         var repoItem:RepoItem = RepoItem()
         let localPath:String = dict[RepoType.local.rawValue]! //this is the path to the local repository (we need to be in this path to execute git commands on this repo)
         //localPath = ShellUtils.run("echo " + StringModifier.wrapWith(localPath,"'") + " | sed 's/ /\\\\ /g'")//--Shell doesnt handle file paths with space chars very well. So all space chars are replaced with a backslash and space, so that shell can read the paths.
-        repoItem.localPath = localPath
+        repoItem.local = localPath
         //repoItem.interval = interval.int
         repoItem.branch = dict[RepoType.branch.rawValue]!
         //repoItem.keyChainItemName = keychainItemName
@@ -62,7 +62,7 @@ class RepoUtils {
         let remotePath:String = dict[RepoType.remote.rawValue]!
         //remotePath = RegExp.replace(remotePath,"^https://.+$","")//support for partial and full url, strip away the https://, since this will be added later
         //print(remotePath)
-        repoItem.remotePath = remotePath
+        repoItem.remote = remotePath
         return repoItem
     }
     /**

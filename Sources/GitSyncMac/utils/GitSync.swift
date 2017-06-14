@@ -10,14 +10,14 @@ class GitSync{
         //Swift.print("initCommit: title: " + "\(repoItem.title)")
         //log "GitSync's handle_commit_interval() a repo with doCommit " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
         bg.async {/*All these git processes needs to happen one after the other*/
-            let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.localPath)//🌵Asserts if there are unmerged paths that needs resolvment
+            let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.local)//🌵Asserts if there are unmerged paths that needs resolvment
             //Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
             if(hasUnMergedpaths){
                 //Swift.print("has unmerged paths to resolve")
-                let unMergedFiles = GitParser.unMergedFiles(repoItem.localPath)// 🌵 Asserts if there are unmerged paths that needs resolvment
-                MergeUtils.resolveMergeConflicts(repoItem.localPath, repoItem.branch, unMergedFiles)
+                let unMergedFiles = GitParser.unMergedFiles(repoItem.local)// 🌵 Asserts if there are unmerged paths that needs resolvment
+                MergeUtils.resolveMergeConflicts(repoItem.local, repoItem.branch, unMergedFiles)
             }
-            let hasCommited = commit(repoItem.localPath)//🌵 if there were no commits false will be returned
+            let hasCommited = commit(repoItem.local)//🌵 if there were no commits false will be returned
             //Swift.print("hasCommited: " + "\(hasCommited)")
             main.async {/*jump back on the main thread again*/
                 onComplete(idx,hasCommited)//🚪➡️️ -> Exit here
@@ -34,9 +34,9 @@ class GitSync{
         //Swift.print("initPush")
         bg.async {/*The git calls needs to happen one after the other on bg thread*/
             let repoItem = repoList[idx]
-            var remotePath:String = repoItem.remotePath
+            var remotePath:String = repoItem.remote
             if(remotePath.test("^https://.+$")){remotePath = remotePath.subString(8, remotePath.count)}/*support for partial and full url,strip away the https://, since this will be added later*/
-            let repo:GitRepo = (repoItem.localPath, remotePath, repoItem.branch)
+            let repo:GitRepo = (repoItem.local, remotePath, repoItem.branch)
             MergeUtils.manualMerge(repo)//🌵🌵🌵 commits, merges with promts, (this method also test if a merge is needed or not, and skips it if needed)
             let hasLocalCommits = GitAsserter.hasLocalCommits(repo.localPath, repoItem.branch)/*🌵🌵 TODO: maybe use GitAsserter's is_local_branch_ahead instead of this line*/
             //Swift.print("hasLocalCommits: " + "\(hasLocalCommits)")
