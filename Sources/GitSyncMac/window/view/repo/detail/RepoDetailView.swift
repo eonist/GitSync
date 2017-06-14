@@ -69,7 +69,10 @@ extension RepoDetailView{
         //TODO: Use the RepoItem on the bellow line see AutoSync class for implementation
         if let tree:Tree = RepoView.treeDP.tree[idx3d], let repoItemDict = tree.props{//NodeParser.dataAt(treeList!.node, selectedIndex)
             var repoItem:RepoItem
-            if !tree.children.isEmpty  || TreeAsserter.hasAttribute(tree, idx3d, "isOpen") {/*Support for folders*/
+            let hasIsOpenAttrib:Bool = TreeAsserter.hasAttribute(RepoView.treeDP.tree, idx3d, "isOpen")
+            
+            Swift.print("hasIsOpenAttrib: " + "\(hasIsOpenAttrib)")
+            if !tree.children.isEmpty  || hasIsOpenAttrib {/*Support for folders*/
                 repoItem = RepoItem()
                 if let title:String = repoItemDict[RepoType.title.rawValue] {repoItem.title = title}
                 if let active:String = repoItemDict[RepoType.active.rawValue] {repoItem.active = active.bool}
