@@ -65,7 +65,7 @@ class RefreshUtils{
      */
     static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem,_ onComplete:@escaping ()->Void){
         func onCommitItemsCompleted(_ results:[String]){
-            Swift.print("🍌🍌🍌 Refresh.swift RefreshUtils.onCommitItemsCompleted(): results.count: \(results.count)" )
+            Swift.print("🍌🍌🍌 Refresh.swift RefreshUtils.onCommitItemsCompleted(): \(repo.title) results.count: \(results.count)" )
             results.forEach { result in
                 if(result.count > 0){/*resulting string must have characters*/
                     let commitData:CommitData = CommitData.conform(result)/*Compartmentalizes the result into a Tuple*/
