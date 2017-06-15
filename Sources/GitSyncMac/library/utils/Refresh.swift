@@ -65,11 +65,12 @@ class RefreshUtils{
      */
     static func refreshRepo(_ dp:CommitDP,_ repo:RepoItem,_ onComplete:@escaping ()->Void){
         func onCommitItemsCompleted(_ results:[String]){
-            Swift.print("🍌🍌🍌 RefreshUtils.onCommitItemsCompleted(): results.count: \(results.count)" )
+            Swift.print("🍌🍌🍌 Refresh.swift RefreshUtils.onCommitItemsCompleted(): results.count: \(results.count)" )
             results.forEach { result in
                 if(result.count > 0){/*resulting string must have characters*/
                     let commitData:CommitData = GitLogParser.commitData(result)/*Compartmentalizes the result into a Tuple*/
                     //let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
+                    Swift.print("repo.title: " + "\(repo.title)")
                     let commitDict:[String:String] = CommitViewUtils.processCommitData(repo.title, commitData, 0)//<---TODO:add repo idx here
                     dp.addCommitItem(commitDict)/* 🏁 add the commit log items to the CommitDB*/
                 }else{

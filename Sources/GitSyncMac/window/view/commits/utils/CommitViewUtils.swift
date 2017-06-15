@@ -25,7 +25,16 @@ class CommitViewUtils {
      */
     static func processCommitData(_ repoTitle:String,_ commitData:CommitData, _ repoIndex:Int)-> Dictionary<String, String>{
         let data:ProcessedCommitData = processCommitData(repoTitle,commitData,repoIndex)
-        let dict:[String:String] = ["repo-name":repoTitle,"contributor":commitData.author,"title":data.subject,"description":data.body,"date":data.relativeDate,"sortableDate":data.descendingDate,"hash":commitData.hash,"gitDate":commitData.date]
+        //TODO: Make Enums of the bellow and align the array better
+        let dict:[String:String] = [
+            CommitItem.repoName.rawValue:repoTitle,
+            CommitItem.contributor.rawValue:commitData.author,
+            CommitItem.title.rawValue:data.subject,
+            CommitItem.description.rawValue:data.body,
+            CommitItem.date.rawValue:data.relativeDate,
+            CommitItem.sortableDate.rawValue:data.descendingDate,
+            CommitItem.hash.rawValue:commitData.hash,
+            CommitItem.gitDate.rawValue:commitData.date]
         return dict
     }
     
@@ -61,6 +70,17 @@ class CommitViewUtils {
         return (task,pipe,repoTitle,repoIndex)
     }
 }
+enum CommitItem:String {
+    case repoName = "repo-name"
+    case contributor = "contributor"
+    case title = "title"
+    case description = "description"
+    case date = "date"
+    case sortableDate = "sortableDate"
+    case hash = "hash"
+    case gitDate = "gitDate"
+}
+
 //DEPRECATED
 extension CommitViewUtils{
     /**
