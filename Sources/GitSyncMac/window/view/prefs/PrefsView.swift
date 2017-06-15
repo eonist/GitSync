@@ -15,9 +15,7 @@ class PrefsView:Element {
         if _prefs == nil {
             let xml:XML = FileParser.xml(Config.prefs.tildePath)/*Loads the xml*/
             let login = xml.firstNode(PrefsType.login.rawValue)!.stringValue!
-            Swift.print("login: " + "\(login)")
             let local = xml.firstNode(PrefsType.local.rawValue)!.stringValue!
-            Swift.print("local: " + "\(local)")
             let darkMode = xml.firstNode(PrefsType.darkMode.rawValue)!.stringValue!.bool
             _prefs = (login:login,pass:"",local:local,darkMode:darkMode)
         }

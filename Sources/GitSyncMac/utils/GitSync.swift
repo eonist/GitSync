@@ -46,8 +46,6 @@ class GitSync{
                 //Swift.print("keychainPassword: 🔑" + "\(keychainPassword)")
                 //Swift.print("repo.keyChainItemName: " + "\(repoItem.keyChainItemName)")
                 let key:GitKey = (PrefsView.prefs.login, keychainPassword)
-                Swift.print("PrefsView.prefs.login: " + "\(PrefsView.prefs.login)")
-                Swift.print("keychainPassword: " + "\(keychainPassword)")
                 if PrefsView.prefs.login.isEmpty || keychainPassword.isEmpty {fatalError("need login and pass")}
                 let pushCallBack = GitModifier.push(repo,key)/*🌵*/
                 _ = pushCallBack
