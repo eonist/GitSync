@@ -68,7 +68,7 @@ class RefreshUtils{
             Swift.print("🍌🍌🍌 Refresh.swift RefreshUtils.onCommitItemsCompleted(): results.count: \(results.count)" )
             results.forEach { result in
                 if(result.count > 0){/*resulting string must have characters*/
-                    let commitData:CommitData = GitLogParser.commitData(result)/*Compartmentalizes the result into a Tuple*/
+                    let commitData:CommitData = CommitData.conform(result)/*Compartmentalizes the result into a Tuple*/
                     //let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
                     Swift.print("repo.title: " + "\(repo.title)")
                     let commitDict:[String:String] = CommitViewUtils.processCommitData(repo.title, commitData)
