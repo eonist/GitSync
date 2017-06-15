@@ -10,7 +10,14 @@ import Foundation
 
 typealias Prefs = (login:String,pass:String,local:String,darkMode:Bool)
 class PrefsView:Element {
-    static var prefs:Prefs = (login:"",pass:"",local:"",darkMode:false)
+    static var _prefs:Prefs?
+    static var prefs:Prefs = {
+        if _prefs == nil {
+            _prefs = (login:"",pass:"",local:"",darkMode:false)
+        }
+        
+    
+    }()
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
         UnFoldUtils.unFold(Config.app,"prefsView",self)
