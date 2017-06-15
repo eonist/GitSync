@@ -64,12 +64,12 @@ extension ICommitList{
         Swift.print("🌵 ICommitList.startAutoSync")
         let refresh = Refresh(dp as! CommitDP)/*attach the dp that RBSliderFastList uses*/
         refresh.onComplete = loopAnimationCompleted // Attach the refresh.completion handler here
-        autoSyncStartTime = NSDate()
+        autoSyncStartTime = NSDate()//sets debug timer
         func onComplete(){
             Swift.print("⏳ All 🔨 & 🚀 " + "\(abs(autoSyncStartTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
-            refresh.initRefresh()
+            refresh.initRefresh()//⬅️️ 
         }
-        AutoSync.initSync(onComplete)/* start the refresh process when AutoSync.onComplete is fired off*/
+        AutoSync.initSync(onComplete)/*⬅️️🚪 start the refresh process when AutoSync.onComplete is fired off*/
     }
     /**
      * Basically not in refreshState
