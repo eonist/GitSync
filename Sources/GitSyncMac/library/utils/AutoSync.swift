@@ -10,7 +10,6 @@ class AutoSync {
         let repoList:[RepoItem] = RepoUtils.repoListFlattenedOverridden
         Swift.print("repoList.count: " + "\(repoList.count)")
         var idx:Int = 0
-        
         func onPushComplete(_ hasPushed:Bool){
             Swift.print("🚀🏁 AutoSync.onPushComplete() hasPushed: " + "\(hasPushed ? "✅":"🚫")")
             idx += 1
