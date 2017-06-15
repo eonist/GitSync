@@ -31,7 +31,7 @@ class GitSync{
      * TODO: ⚠️️ Contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
      */
     static func initPush(_ repoList:[RepoItem],_ idx:Int,_ onComplete:@escaping (_ hasPushed:Bool)->Void){
-        //Swift.print("initPush")
+        Swift.print("initPush")
         bg.async {/*The git calls needs to happen one after the other on bg thread*/
             let repoItem = repoList[idx]
             var remotePath:String = repoItem.remote
@@ -48,9 +48,10 @@ class GitSync{
                 let key:GitKey = (PrefsView.prefs.login, keychainPassword)
                 let pushCallBack = GitModifier.push(repo,key)/*🌵*/
                 _ = pushCallBack
-                //Swift.print("pushCallBack: " + "\(pushCallBack)")
+                Swift.print("pushCallBack: " + "\(pushCallBack)")
                 hasPushed = true
             }
+            Swift.print("hasPushed: " + "\(hasPushed)")
             main.async {/*jump back on the main thread*/
                 onComplete(hasPushed)
             }
