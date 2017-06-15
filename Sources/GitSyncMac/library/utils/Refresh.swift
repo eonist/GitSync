@@ -29,7 +29,7 @@ class Refresh{//TODO:rename to refresh
     func refreshRepos(/*_ sortableRepoList:[FreshnessItem]*/){
         let repos = RepoUtils.repoListFlattenedOverridden/*creates array from xml or cache*/
         var idx:Int = 0
-        func onComplete(){/*you can probably use DispatchGroup here aswell. but in the spirit of moving on*/
+        func onComplete(){/*TODO: ⚠️️ You can probably use DispatchGroup here aswell. but in the spirit of moving on*/
             idx += 1
             //Swift.print("refreshRepo.onComplete() i: \(idx)")
             if(idx == repos.count){
