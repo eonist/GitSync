@@ -75,7 +75,7 @@ extension ICommitList{
      * Basically not in refreshState
      */
     func loopAnimationCompleted(){
-        Swift.print("🌵 ICommitList.loopAnimationCompleted()")
+        //Swift.print("🌵 ICommitList.loopAnimationCompleted()")
         reUseAll()/*Refresh*/
         progressIndicator.progress(0)
         progressIndicator.stop()
@@ -87,7 +87,7 @@ extension ICommitList{
         moverGroup?.yMover.value = moverGroup!.yMover.result/*copy this back in again, as we used relative friction when above or bellow constraints*/
         moverGroup?.yMover.start()
         //progressIndicator!.reveal(0)//reset all line alphas to 0
-        Swift.print("🏁 AutoSync™ completed \(abs(autoSyncAndRefreshStartTime!.timeIntervalSinceNow))")
+        Swift.print("🏁 ICommitList AutoSync™ completed \(abs(autoSyncAndRefreshStartTime!.timeIntervalSinceNow))")
     }
     /**
      * Happens when you use the scrollwheel or use the slider (also works while there still is momentum) (This content of this method could be inside setProgress, but its easier to reason with if it is its own method)
@@ -97,7 +97,7 @@ extension ICommitList{
         //Swift.print("🌵 ICommitsList.iterateProgressBar(\(value))")
         //let value = mover!.result
         //Swift.print("CommitsList.onProgress() mover!.result: \(mover!.result) progressValue: \(progressValue!)  hasPulledAndReleasedBeyondRefreshSpace: \(hasPulledAndReleasedBeyondRefreshSpace) isTwoFingersTouching \(isTwoFingersTouching)")
-        Swift.print("value: " + "\(value)")
+        //Swift.print("ICommitList.iterateProgressBar value: " + "\(value)")
         if(value >  0 && value < 60){//between 0 and 60
             //Swift.print("start progressing the ProgressIndicator")
             let scalarVal:CGFloat = value / 60//0 to 1 (value settle on near 0)
