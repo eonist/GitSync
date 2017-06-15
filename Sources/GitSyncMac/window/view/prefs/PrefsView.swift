@@ -14,11 +14,12 @@ class PrefsView:Element {
     static var prefs:Prefs = {
         if _prefs == nil {
             let xml:XML = FileParser.xml(Config.prefs.tildePath)/*Loads the xml*/
-            _prefs.login = newValue.firstNode(PrefsType.login.rawValue)!.stringValue!
-            _prefs.local = newValue.firstNode(PrefsType.local.rawValue)!.stringValue!
-            _prefs.darkMode = newValue.firstNode(PrefsType.darkMode.rawValue)!.stringValue!.bool
+            let login = xml.firstNode(PrefsType.login.rawValue)!.stringValue!
+            let local = xml.firstNode(PrefsType.local.rawValue)!.stringValue!
+            let darkMode = xml.firstNode(PrefsType.darkMode.rawValue)!.stringValue!.bool
+            _prefs = (login:login,pass:"",local:local,darkMode:darkMode)
         }
-        return _prefs
+        return _prefs!
     }()
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
