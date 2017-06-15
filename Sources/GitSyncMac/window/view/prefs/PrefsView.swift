@@ -13,16 +13,16 @@ class PrefsView:Element {
     static var _prefs:Prefs?
     static var prefs:Prefs = {
         if _prefs == nil {
-            _prefs = (login:"",pass:"",local:"",darkMode:false)
+            let xml:XML = FileParser.xml(Config.prefs.tildePath)/*Loads the xml*/
+            _prefs.login = newValue.firstNode(PrefsType.login.rawValue)!.stringValue!
+            _prefs.local = newValue.firstNode(PrefsType.local.rawValue)!.stringValue!
+            _prefs.darkMode = newValue.firstNode(PrefsType.darkMode.rawValue)!.stringValue!.bool
         }
-        
-    
+        return _prefs
     }()
     override func resolveSkin() {
         self.skin = SkinResolver.skin(self)
         UnFoldUtils.unFold(Config.app,"prefsView",self)
-        let xml:XML = FileParser.xml(Config.prefs.tildePath)/*Loads the xml*/
-        PrefsView.xml = xml
         setPrefs(PrefsView.prefs)
     }
     override func onEvent(_ event:Event) {
@@ -71,10 +71,6 @@ extension PrefsView{
             xml.appendChild("<\(PrefsType.local.rawValue)>\(PrefsView.prefs.local)</\(PrefsType.local.rawValue)>".xml)
             xml.appendChild("<\(PrefsType.darkMode.rawValue)>\(PrefsView.prefs.darkMode)</\(PrefsType.darkMode.rawValue)>".xml)
             return xml
-        }set{
-            PrefsView.prefs.login = newValue.firstNode(PrefsType.login.rawValue)!.stringValue!
-            PrefsView.prefs.local = newValue.firstNode(PrefsType.local.rawValue)!.stringValue!
-            PrefsView.prefs.darkMode = newValue.firstNode(PrefsType.darkMode.rawValue)!.stringValue!.bool
         }
     }
 }
