@@ -15,6 +15,9 @@ protocol ICommitList:ElasticSlidableScrollableFastListable3 {//ElasticSlidableSc
     var autoSyncStartTime:NSDate? {get set}
 }
 extension ICommitList{
+    /**
+     * TODO: Comment this method
+     */
     func setProgressValue(_ value:CGFloat, _ dir:Dir){/*gets called from MoverGroup*/
         if dir == .ver {
             //Swift.print("🌵 ICommitList.setProgressValue : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
@@ -24,6 +27,9 @@ extension ICommitList{
         }
         (self as ElasticSlidableScrollableFastListable3).setProgressValue(value,dir)
     }
+    /**
+     * TODO: Comment this method
+     */
     func scroll(_ event:NSEvent) {
         //Swift.print("🌵 ICommitList.scroll()")
         if(event.phase == NSEventPhase.changed){//this is only direct manipulation, not momentum
@@ -34,13 +40,19 @@ extension ICommitList{
             (self as ICommitList).scrollWheelExit()
         }
     }
+    /**
+     * TODO: Comment this method
+     */
     func scrollWheelEnter() {
-        Swift.print("🌵 ICommitsList.scrollWheelEnter")
+        //Swift.print("🌵 ICommitsList.scrollWheelEnter")
         //reUseAll()/*Refresh*/
         isTwoFingersTouching = true
     }
+    /**
+     * TODO: Comment this method
+     */
     func scrollWheelExit(){
-        Swift.print("🌵 CommitList.scrollWheelExit()")
+        //Swift.print("🌵 CommitList.scrollWheelExit()")
         isTwoFingersTouching = false
         let value = moverGroup!.result.y
         if(value > 60){
@@ -48,7 +60,7 @@ extension ICommitList{
             moverGroup?.yMover.frame.y = 60
             progressIndicator.start()//1. start spinning the progressIndicator
             hasPulledAndReleasedBeyondRefreshSpace = true
-            autoSyncAndRefreshStartTime = NSDate()//init debug timer
+            autoSyncAndRefreshStartTime = NSDate()//init debug timer, TODO: move this inside startAutoSync method, maybe?
             startAutoSync()/*🚪⬅️️ <- starts the process of downloading commits here*/
         }else if (value > 0){
             hasReleasedBeyondTop = true
@@ -58,18 +70,19 @@ extension ICommitList{
         }/**/
     }
     /**
-     * Starts the auto sync process
+     * Starts the auto sync process (Happens after the pull to refresh gesture)
      */
-    func startAutoSync(){
+    private func startAutoSync(){
         Swift.print("🌵 ICommitList.startAutoSync")
-        let refresh = Refresh(dp as! CommitDP)/*attach the dp that RBSliderFastList uses*/
-        refresh.onComplete = loopAnimationCompleted // Attach the refresh.completion handler here
-        autoSyncStartTime = NSDate()//sets debug timer
-        func onComplete(){
+        
+        let refresh = Refresh(dp as! CommitDP)/*Attach the dp that RBSliderFastList uses*/
+        refresh.onComplete = loopAnimationCompleted/*Attach the refresh.completion handler here*/
+        autoSyncStartTime = NSDate()/*Sets debug timer*/
+        func onAllAutoSyncCompleted(){/*Refresh happens after AutoSync is fully completed*/
             Swift.print("⏳ All 🔨 & 🚀 " + "\(abs(autoSyncStartTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
-            refresh.initRefresh()//⬅️️ 
+            refresh.initRefresh()/*⬅️️ */
         }
-        AutoSync.initSync(onComplete)/*⬅️️🚪 start the refresh process when AutoSync.onComplete is fired off*/
+        AutoSync.initSync(onAllAutoSyncCompleted)/*⬅️️🚪 Start the refresh process when AutoSync.onComplete is fired off*/
     }
     /**
      * Basically not in refreshState
@@ -90,8 +103,8 @@ extension ICommitList{
         Swift.print("🏁 ICommitList AutoSync™ completed \(abs(autoSyncAndRefreshStartTime!.timeIntervalSinceNow))")
     }
     /**
-     * Happens when you use the scrollwheel or use the slider (also works while there still is momentum) (This content of this method could be inside setProgress, but its easier to reason with if it is its own method)
-     * TODO: Spring back motion shouldn't produce ProgressIndicator, only pull should
+     * This Happens when you use the scrollwheel or use the slider (also works while there still is momentum) (This content of this method could be inside setProgress, but its easier to reason with if it is its own method)
+     * TODO: ⚠️️ Spring back motion shouldn't produce ProgressIndicator, only pull should
      */
     func iterateProgressBar(_ value:CGFloat){//TODO: rename to iterateProgressBar
         //Swift.print("🌵 ICommitsList.iterateProgressBar(\(value))")
@@ -112,7 +125,7 @@ extension ICommitList{
         }
     }
     
-    //TODO:move into extension
+    //TODO: ⚠️️ Move into extension ?
     
     func scrollAnimStopped(){
         Swift.print("🌵 ICommitsList.scrollAnimStopped()")

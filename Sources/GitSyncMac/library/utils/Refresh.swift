@@ -8,7 +8,6 @@ typealias CommitDPRefresher = Refresh//temp
 class Refresh{//TODO:rename to refresh
     var commitDP:CommitDP?
     var startTime:NSDate?/*Debugging*/
-    //var isRefreshing:Bool = false/*avoids refreshing when the refresh has already started*/
     var onComplete:()->Void = {print("⚠️️⚠️️⚠️️ Refresh.onComplete() completed but no onComplete is currently attached")}
     init(_ commitDP:CommitDP){
         self.commitDP = commitDP
@@ -26,13 +25,13 @@ class Refresh{//TODO:rename to refresh
      * Adds commits to CommitDB
      * NOTE: This method is called from the freshness onComplete
      */
-    func refreshRepos(/*_ sortableRepoList:[FreshnessItem]*/){
+    private func refreshRepos(/*_ sortableRepoList:[FreshnessItem]*/){
         let repos = RepoUtils.repoListFlattenedOverridden/*creates array from xml or cache*/
         var idx:Int = 0
         func onComplete(){/*TODO: ⚠️️ You can probably use DispatchGroup here aswell. but in the spirit of moving on*/
             idx += 1
             //Swift.print("refreshRepo.onComplete() i: \(idx)")
-            if(idx == repos.count){
+            if idx == repos.count {
                 onRefreshReposComplete()
             }
         }
@@ -43,19 +42,17 @@ class Refresh{//TODO:rename to refresh
     /**
      * The final complete call
      */
-    func onRefreshReposComplete(){/*All repo items are now refreshed, the entire refresh process is finished*/
-        //Swift.print("onRefreshReposComplete()")
+    private func onRefreshReposComplete(){/*All repo items are now refreshed, the entire refresh process is finished*/
         //Swift.print("commitDB.sortedArr.count: " + "\(commitDP!.items.count)")
         //Swift.print("Printing sortedArr after refresh: ")
         //commitDP!.items.forEach{
             //Swift.print("hash: \($0["hash"]!) date: \(GitDateUtils.gitTime($0["sortableDate"]!)) repo: \($0["repo-name"]!) ")
         //}
-        //
         CommitDPCache.write(commitDP!)//write data to disk, we could also do this on app exit
         //Swift.print("💾 Refresh.onRefreshReposComplete() Written to disk")
         //isRefreshing = false
         Swift.print("⏰ Refresh.onRefreshReposComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
-        onComplete()/*🚪➡️️  calls a dynamic onComplete method, other classes can override this variable to get callback*/
+        onComplete()/*🚪➡️️  Calls a dynamic onComplete method, other classes can override this variable to get callback*/
     }
 }
 class RefreshUtils{

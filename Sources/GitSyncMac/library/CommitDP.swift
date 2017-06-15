@@ -6,21 +6,21 @@ import Foundation
  * TODO: it would be significatly faster if we knew the freshesht commit for each repo. -> store a Dict of repoHash, descChronoDate -> and assert on each add wether to store a new freshest item or not
  */
 class CommitDP:DataProvider{
-    //var max:Int = 100
+    static var max:Int = 100
 }
 extension CommitDP{
     /**
-     * Adds an item to the sortedArr (at the correct index according to descending chronology, by using a custom binarySearch method)
-     * NOTE: items must be added one after the other. A Bulk add method wouldn't work, unless you iterate one by one i guess???
+     * Adds An item to the sortedArr (at the correct index according to descending chronology, by using a custom binarySearch method)
+     * NOTE: Items must be added one after the other. A Bulk add method wouldn't work, unless you iterate one by one I guess???
      */
     func addCommitItem(_ item:[String:String]){
         let closestIdx:Int = CommitDP.closestIndex(items, item, 0, items.endIndex)
         if(!Utils.existAtOrBefore(items,closestIdx,item)){//TODO: ⚠️️ ideally this should be handled in the binarySearch algo, but this is a quick fix, that doesnt hurt performance
             //Swift.print("📝 insert at: \(closestIdx) item.date: \(GitDateUtils.gitTime(item["sortableDate"]!))" )
-            self.add(item, closestIdx)
+            self.add(item, closestIdx,false)
             //_ = items.insertAt(item, closestIdx)
         }
-        if(items.count > /*max*/100){_ = items.popLast()}/*keeps the array at max items*/
+        if(items.count > CommitDP.max){_ = items.popLast()}/*keeps the array at max items*/
     }
     /**
      * This binarySearch finds a suitable index to insert an item in a sorted list (a regular binarySearch would return nil if no match is found, this implmentation returns the closestIndex)

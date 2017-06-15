@@ -14,7 +14,7 @@ class AutoSync {
         func onPushComplete(_ hasPushed:Bool){
             Swift.print("🚀🏁 AutoSync.onPushComplete() hasPushed: " + "\(hasPushed ? "✅":"🚫")")
             idx += 1
-            if(idx == repoList.count){
+            if(idx == repoList.count){//TODO: ⚠️️ USE dispatchgroup instead
                 Swift.print("🏁🏁🏁 AutoSync.swift All repos are now AutoSync'ed")//now go and read commits to list
                 onComplete()//🚪➡️️ Exits here
             }
