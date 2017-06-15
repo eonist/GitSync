@@ -5,7 +5,8 @@ typealias CommitLogOperation = (task:Process,pipe:Pipe,repoTitle:String,repoInde
 class CommitViewUtils {
     typealias ProcessedCommitData = (date:Date,relativeDate:String,descendingDate:String,body:String,subject:String,hash:String,author:String)
     /**
-     * -> ProcessedCommitData
+     * ProcessedCommitData
+     * NOTE: conforms dates, msg-desc, msg-title,
      */
     static func processCommitData(_ repoTitle:String,_ commitData:CommitData)->ProcessedCommitData{
         let date:Date = GitDateUtils.date(commitData.date)
@@ -13,14 +14,14 @@ class CommitViewUtils {
         let relativeTime:(value:Int,type:String) = DateParser.relativeTime(Date(),date)[0]
         let relativeDate:String = relativeTime.value.string + relativeTime.type/*create date like 3s,4m,5h,6w,2y*/
         let descendingDate:String = DateParser.descendingDate(date)
-        let compactBody:String = GitLogParser.compactBody(commitData.body)/*compact the commit msg body*/
+        let compactBody:String = GitLogParser.compactBody(commitData.body)/*Compact the commit msg body*/
         let subject:String = StringParser.trim(commitData.subject, "'", "'")
         return (date,relativeDate,descendingDate,compactBody,subject,commitData.hash,commitData.author)
     }
     /**
      * -> Dictionary<String, String>
      */
-    static func processCommitData(_ repoTitle:String,_ commitData:CommitData)-> Dictionary<String, String>{
+    static func processCommitData(_ repoTitle:String,_ commitData:CommitData)-> [String:String]{
         let data:ProcessedCommitData = processCommitData(repoTitle,commitData)
         let dict:[String:String] = [
             CommitItem.repoName.rawValue:repoTitle,
