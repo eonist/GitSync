@@ -25,7 +25,6 @@ class CommitViewUtils {
      */
     static func processCommitData(_ repoTitle:String,_ commitData:CommitData, _ repoIndex:Int)-> Dictionary<String, String>{
         let data:ProcessedCommitData = processCommitData(repoTitle,commitData,repoIndex)
-        //TODO: Make Enums of the bellow and align the array better
         let dict:[String:String] = [
             CommitItem.repoName.rawValue:repoTitle,
             CommitItem.contributor.rawValue:commitData.author,
@@ -37,7 +36,6 @@ class CommitViewUtils {
             CommitItem.gitDate.rawValue:commitData.date]
         return dict
     }
-    
     /**
      * PARAM: max = max Items Allowed per repo
      */
