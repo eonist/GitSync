@@ -30,10 +30,9 @@ class GitSync{
      * NOTE: this method performs a "manual pull" on every interval
      * TODO: ⚠️️ Contemplate implimenting a fetch call after the pull call, to update the status, whats the diff between git fetch and git remote update again?
      */
-    static func initPush(_ repoList:[RepoItem],_ idx:Int,/*_ onComplete:@escaping (_ hasPushed:Bool)->Void,*/ _ group:DispatchGroup){
+    static func initPush(_ repoList:[RepoItem],_ idx:Int,_ onComplete:@escaping (_ hasPushed:Bool)->Void){
         Swift.print("initPush")
         bg.async {/*The git calls needs to happen one after the other on bg thread*/
-            group.enter()
             let repoItem = repoList[idx]
             var remotePath:String = repoItem.remote
             if(remotePath.test("^https://.+$")){remotePath = remotePath.subString(8, remotePath.count)}/*support for partial and full url,strip away the https://, since this will be added later*/
@@ -54,7 +53,9 @@ class GitSync{
                 hasPushed = true
             }
             Swift.print("hasPushed: " + "\(hasPushed)")
-            group.leave()
+            main.async {/*jump back on the main thread*/
+                onComplete(hasPushed)
+            }
         }
     }
     /**
