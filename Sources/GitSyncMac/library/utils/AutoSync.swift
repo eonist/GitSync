@@ -13,7 +13,7 @@ class AutoSync {
         //Swift.print("🔁 AutoSync.initSync() 🔁")
         onAllCommitAndPushComplete = onComplete
         repoList = RepoUtils.repoListFlattenedOverridden
-        idx = 0//reset the idx
+        idx = 0/*reset the idx*/
         repoList?.indices.forEach { i in /*all the initCommit calls are non-waiting. */
             GitSync.initCommit(repoList!,i,onCommitComplete)//🚪⬅️️ Enter the AutoSync process here
         }
