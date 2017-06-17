@@ -8,13 +8,10 @@ class GitSync{
     static func initCommit(_ repoList:[RepoItem],_ idx:Int, _ onComplete:@escaping (_ idx:Int,_ hasCommited:Bool)->Void){
         let repoItem = repoList[idx]
         //Swift.print("initCommit: title: " + "\(repoItem.title)")
-        //log "GitSync's handle_commit_interval() a repo with doCommit " & (remote_path of repo_item) & " local path: " & (local_path of repo_item)
         bg.async {/*All these git processes needs to happen one after the other*/
-            let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.local)//🌵Asserts if there are unmerged paths that needs resolvment
-            //Swift.print("hasUnMergedpaths: " + "\(hasUnMergedpaths)")
+            let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.local)/*🌵Asserts if there are unmerged paths that needs resolvment*/
             if(hasUnMergedpaths){
-                //Swift.print("has unmerged paths to resolve")
-                let unMergedFiles = GitParser.unMergedFiles(repoItem.local)// 🌵 Asserts if there are unmerged paths that needs resolvment
+                let unMergedFiles = GitParser.unMergedFiles(repoItem.local)/*🌵 Asserts if there are unmerged paths that needs resolvment*/
                 MergeUtils.resolveMergeConflicts(repoItem.local, repoItem.branch, unMergedFiles)
             }
             let hasCommited = commit(repoItem.local)//🌵 if there were no commits false will be returned

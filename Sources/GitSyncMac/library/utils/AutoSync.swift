@@ -1,6 +1,8 @@
 import Foundation
 @testable import Utils
-
+/**
+ * NOTE: It seems its dificult to add Dispatch group to this, as all commits are fired of at once and depending on its result a subsequent push is called
+ */
 class AutoSync {
     static var repoList:[RepoItem]?
     static var idx:Int?

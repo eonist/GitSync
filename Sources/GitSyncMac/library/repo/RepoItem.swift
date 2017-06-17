@@ -3,13 +3,13 @@ import Foundation
  * TODO: Could this be a struct?
  */
 struct RepoItem {
-    var local:String = ""
-    var branch:String = ""
-    var title:String = ""
-    var active:Bool = false
-    var remote:String = ""
-    var message:Bool = false
-    var auto:Bool = false
+    var local:String = ""/*Local path*/
+    var branch:String = ""/*Repo branch, Master is default*/
+    var title:String = ""/*The title displayed in the app*/
+    var active:Bool = false/*Active means that auto and pull will sync the repo*/
+    var remote:String = ""/*Remote path to repository*/
+    var message:Bool = false/*Auto-created commit message*/
+    var auto:Bool = false/*Automatically syncs on an intervall*/
     //var interval:Int = 0
     //var keyChainItemName:String = ""
     //var upload:Bool = false
