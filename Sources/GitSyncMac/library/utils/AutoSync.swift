@@ -3,7 +3,7 @@ import Foundation
 
 class AutoSync {
     static var repoList:[RepoItem]?
-    static var idx:Int = 0
+    static var idx:Int?
     static var onAllCommitAndPushComplete:()->Void = {fatalError("⚠️️⚠️️⚠️️ a callback method must be attached")}
     /**
      * The GitSync automation algo (Basically Commits and pushes)
@@ -13,6 +13,7 @@ class AutoSync {
         //Swift.print("🔁 AutoSync.initSync() 🔁")
         onAllCommitAndPushComplete = onComplete
         repoList = RepoUtils.repoListFlattenedOverridden
+        idx = 0//reset the idx
         repoList?.indices.forEach { i in /*all the initCommit calls are non-waiting. */
             GitSync.initCommit(repoList!,i,onCommitComplete)//🚪⬅️️ Enter the AutoSync process here
         }
@@ -22,7 +23,7 @@ class AutoSync {
      */
     static func onPushComplete(_ hasPushed:Bool){
         Swift.print("🚀🏁 AutoSync.onPushComplete() hasPushed: " + "\(hasPushed ? "✅":"🚫")")
-        idx += 1
+        idx? += 1
         if(idx == repoList?.count){//TODO: ⚠️️ USE dispatchgroup instead
             Swift.print("🏁🏁🏁 AutoSync.swift All repos are now AutoSync'ed")//now go and read commits to list
             onAllCommitAndPushComplete()/*All commits and pushes was completed*/
