@@ -17,7 +17,6 @@ class Refresh{//TODO:rename to refresh
      */
     func initRefresh(){
         Swift.print("🔄 Refresh.initRefresh() ")
-        //isRefreshing = true/*avoid calling refresh when this is true, it is set to false on completion*/
         startTime = NSDate()/*Measure the time of the refresh*/
         refreshRepos()//🚪⬅️️Enter refresh process here
     }
