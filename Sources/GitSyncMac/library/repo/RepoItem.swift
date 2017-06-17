@@ -1,5 +1,7 @@
 import Foundation
-
+/**
+ * TODO: Could this be a struct?
+ */
 struct RepoItem {
     var local:String = ""
     var branch:String = ""
