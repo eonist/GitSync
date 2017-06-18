@@ -1,8 +1,9 @@
 import Foundation
+@testable import Utils
+@testable import Element
 
-class class RepoDetailView:Element {
+class CommitDialogView:Element {
     override func resolveSkin() {
         super.resolveSkin()
-        UnFoldUtils.unFold(Config.app,"repoDetailView",self)
     }
 }
