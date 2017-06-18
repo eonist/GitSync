@@ -7,7 +7,6 @@ import Cocoa
  * TODO: ⚠️️ make a reusable setUI,getUI method for the UnFold system
  * TODO: ⚠️️ make a reusable event handler that stores the state of the UI
  */
-
 typealias Prefs = (login:String,pass:String,local:String,darkMode:Bool)
 class PrefsView:Element {
     static var _prefs:Prefs? = nil
@@ -72,8 +71,11 @@ extension PrefsView{
             xml.appendChild("<\(PrefsType.local)>\(PrefsView.prefs.local)</\(PrefsType.local)>".xml)
             xml.appendChild("<\(PrefsType.darkMode)>\(PrefsView.prefs.darkMode)</\(PrefsType.darkMode)>".xml)
             let winSize:CGSize = WinParser.size(NSApp.windows.first!)
+            let pos:CGPoint = WinParser.topLeft(NSApp.windows.first!)
             xml.appendChild("<\(PrefsType.width)>\(winSize.w.str)</\(PrefsType.width)>".xml)
             xml.appendChild("<\(PrefsType.height)>\(winSize.h.str)</\(PrefsType.height)>".xml)
+            xml.appendChild("<\(PrefsType.x)>\(winSize.x.str)</\(PrefsType.x)>".xml)
+            xml.appendChild("<\(PrefsType.y)>\(winSize.y.str)</\(PrefsType.y)>".xml)
             return xml
         }
     }
