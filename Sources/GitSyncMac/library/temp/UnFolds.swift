@@ -35,6 +35,21 @@ extension CheckBoxButton{
         self.init(element.width, element.height,config.text,config.isChecked, element.parent, element.id)
     }
 }
+extension TextButton{
+    typealias TextButtonConfig = (text:String)
+    /**
+     * New
+     */
+    static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> CheckBoxButton{
+        let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
+        let text:String = UnFoldUtils.string(dict, "text") ?? ""
+        let config:TextButtonConfig = (text:text)
+        return TextButton.init(elementConfig, config)
+    }
+    convenience init(_ element:ElementConfig, _ config:TextButtonConfig) {
+        self.init(element.width, element.height,config.text, element.parent, element.id)
+    }
+}
 extension Element{
     typealias ElementConfig = (width:CGFloat, height:CGFloat, parent:IElement?, id:String?)
     /**

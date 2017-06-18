@@ -21,7 +21,7 @@ class UnFoldUtils{
                 return TextInput.unFold(dict,parent)
             case type == "\(CheckBoxButton.self)":
                 return CheckBoxButton.unFold(dict,parent)
-            case type == "\(CheckBoxButton.self)":
+            case type == "\(TextButton.self)":
                 return TextButton.unFold(dict,parent)
             default:
                 return nil/*we return nil here instead of fatalError, as this method could be wrapped in a custom method to add other types etc*/
