@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Utils
 @testable import Element
 /**
@@ -71,8 +71,9 @@ extension PrefsView{
             xml.appendChild("<\(PrefsType.login)>\(PrefsView.prefs.login)</\(PrefsType.login)>".xml)
             xml.appendChild("<\(PrefsType.local)>\(PrefsView.prefs.local)</\(PrefsType.local)>".xml)
             xml.appendChild("<\(PrefsType.darkMode)>\(PrefsView.prefs.darkMode)</\(PrefsType.darkMode)>".xml)
-            xml.appendChild("<\(PrefsType.width)>\(PrefsView.prefs.winW.str)</\(PrefsType.width)>".xml)
-            xml.appendChild("<\(PrefsType.height)>\(PrefsView.prefs.winH.str)</\(PrefsType.height)>".xml)
+            let winSize:CGSize = WinParser.size(NSApp.windows.first!)
+            xml.appendChild("<\(PrefsType.width)>\(winSize.w.str)</\(PrefsType.width)>".xml)
+            xml.appendChild("<\(PrefsType.height)>\(winSize.h.str)</\(PrefsType.height)>".xml)
             return xml
         }
     }
@@ -82,8 +83,6 @@ extension PrefsView{
     var pass:TextInput? {return self.element(PrefsType.pass)}
     var local:TextInput? {return self.element(PrefsType.local)}
     var darkMode:CheckBoxButton? {return self.element(PrefsType.darkMode)}
-    var winW:CGFloat {return WinParser.width(self.window!)}
-    var winH:CGFloat {return WinParser.height(self.window!)}
 }
 struct PrefsType {
     static var prefs = "prefs"
