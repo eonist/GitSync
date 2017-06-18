@@ -7,7 +7,6 @@ import Cocoa
  * TODO: ⚠️️ make a reusable setUI,getUI method for the UnFold system
  * TODO: ⚠️️ make a reusable event handler that stores the state of the UI
  */
-typealias Prefs = (login:String,pass:String,local:String,darkMode:Bool)
 class PrefsView:Element {
     static var _prefs:Prefs? = nil
     static var prefs:Prefs = {
@@ -52,48 +51,4 @@ class PrefsView:Element {
             super.onEvent(event)/*forward other events*/
         }
     }
-}
-extension PrefsView{
-    /**
-     * New
-     */
-    func setPrefs(_ prefs:Prefs){
-        login?.setInputText(prefs.login)
-        let passStr = KeyChainParser.password("GitSyncApp") ?? ""
-        pass?.setInputText(passStr)
-        local?.setInputText(prefs.local)
-        darkMode?.setChecked(prefs.darkMode)
-    }
-    static var xml:XML{
-        get{
-            let xml:XML = "<prefs></prefs>".xml
-            xml.appendChild("<\(PrefsType.login)>\(PrefsView.prefs.login)</\(PrefsType.login)>".xml)
-            xml.appendChild("<\(PrefsType.local)>\(PrefsView.prefs.local)</\(PrefsType.local)>".xml)
-            xml.appendChild("<\(PrefsType.darkMode)>\(PrefsView.prefs.darkMode)</\(PrefsType.darkMode)>".xml)
-            let winSize:CGSize = WinParser.size(NSApp.windows.first!)
-            let pos:CGPoint = WinParser.topLeft(NSApp.windows.first!)
-            xml.appendChild("<\(PrefsType.width)>\(winSize.w.str)</\(PrefsType.width)>".xml)
-            xml.appendChild("<\(PrefsType.height)>\(winSize.h.str)</\(PrefsType.height)>".xml)
-            xml.appendChild("<\(PrefsType.x)>\(winSize.x.str)</\(PrefsType.x)>".xml)
-            xml.appendChild("<\(PrefsType.y)>\(winSize.y.str)</\(PrefsType.y)>".xml)
-            return xml
-        }
-    }
-}
-extension PrefsView{
-    var login:TextInput? {return self.element(PrefsType.login)}
-    var pass:TextInput? {return self.element(PrefsType.pass)}
-    var local:TextInput? {return self.element(PrefsType.local)}
-    var darkMode:CheckBoxButton? {return self.element(PrefsType.darkMode)}
-}
-struct PrefsType {
-    static var prefs = "prefs"
-    static var login = "login"
-    static var pass = "pass"
-    static var local = "local"
-    static var darkMode = "darkMode"
-    static var width = "width"
-    static var height = "height"
-    static var x = "x"
-    static var y = "y"
 }
