@@ -56,8 +56,9 @@ class Nav {
             _ = dialog
             switch dialog{
             case .commit:
-                let view:CommitDialogView = RepoDetailView(NaN,NaN,mainView)
-                fatalError("not implemented yet")
+                let view:CommitDialogView = CommitDialogView(NaN,NaN,mainView)
+                return view
+                //fatalError("not implemented yet")
             case .conflict:
                 //return ConflictDialogView(w,h,mainView)
                 fatalError("not implemented yet")
