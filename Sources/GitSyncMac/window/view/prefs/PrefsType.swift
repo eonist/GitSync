@@ -1,6 +1,6 @@
 import Foundation
 
-typealias Prefs = (login:String,pass:String,local:String,darkMode:Bool)
+typealias Prefs = (login:String,pass:String,local:String,darkMode:Bool,_ rect:CGRect)
 
 struct PrefsType {
     static var prefs = "prefs"
