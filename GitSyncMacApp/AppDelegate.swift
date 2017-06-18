@@ -21,7 +21,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")//<--toggle this bool for live refresh
-        win = StyleTestWin(300,350)
+        let rect:CGRect = PrefsView.prefs.rect
+        win = StyleTestWin(rect.w, rect.h)
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
         menu = Menu()/*This creates the App menu*/
     }
