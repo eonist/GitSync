@@ -26,7 +26,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
         menu = Menu()/*This creates the App menu*/
     }
-    
     func applicationWillTerminate(_ aNotification:Notification) {
         _ = FileModifier.write(Config.prefs.tildePath, PrefsView.xml.xmlString)/*Stores the app prefs*/
         Swift.print("💾 Write PrefsView to: prefs.xml")
