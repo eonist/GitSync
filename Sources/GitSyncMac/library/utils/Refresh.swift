@@ -66,7 +66,7 @@ class RefreshUtils{
                 if(result.count > 0){/*resulting string must have characters*/
                     let commitData:CommitData = CommitData.conform(result)/*Compartmentalizes the result into a Tuple*/
                     //let commit:Commit = CommitViewUtils.processCommitData(repoTitle,commitData,0)/*Format the data*/
-                    Swift.print("repo.title: " + "\(repo.title)")
+                    //Swift.print("repo.title: " + "\(repo.title)")
                     let commitDict:[String:String] = CommitViewUtils.processCommitData(repo.title, commitData)
                     dp.addCommitItem(commitDict)/* 🏁 add the commit log items to the CommitDB*/
                 }else{
