@@ -30,9 +30,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification:Notification) {
         _ = FileModifier.write(Config.prefs.tildePath, PrefsView.xml.xmlString)/*Stores the app prefs*/
         Swift.print("💾 Write PrefsView to: prefs.xml")
-        
-        Swift.print("💾 Write RepoList to: repo.xml")
         _ = FileModifier.write(Config.repoListFilePath.tildePath, RepoView.treeDP.tree.xml.xmlString)/*store the repo xml*/
+        Swift.print("💾 Write RepoList to: repo.xml")
         print("Good-bye")
     }
 }
