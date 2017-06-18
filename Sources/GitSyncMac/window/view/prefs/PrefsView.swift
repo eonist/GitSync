@@ -14,9 +14,9 @@ class PrefsView:Element {
     static var prefs:Prefs = {
         if _prefs == nil {
             let xml:XML = FileParser.xml(Config.prefs.tildePath)/*Loads the xml*/
-            let login = xml.firstNode(PrefsType.login.rawValue)!.stringValue!
-            let local = xml.firstNode(PrefsType.local.rawValue)!.stringValue!
-            let darkMode = xml.firstNode(PrefsType.darkMode.rawValue)!.stringValue!.bool
+            let login = xml.firstNode(PrefsType.login)!.stringValue!
+            let local = xml.firstNode(PrefsType.local)!.stringValue!
+            let darkMode = xml.firstNode(PrefsType.darkMode)!.stringValue!.bool
             _prefs = (login:login,pass:"",local:local,darkMode:darkMode)
         }
         return _prefs!
@@ -68,22 +68,23 @@ extension PrefsView{
     static var xml:XML{
         get{
             let xml:XML = "<prefs></prefs>".xml
-            xml.appendChild("<\(PrefsType.login.rawValue)>\(PrefsView.prefs.login)</\(PrefsType.login.rawValue)>".xml)
-            xml.appendChild("<\(PrefsType.local.rawValue)>\(PrefsView.prefs.local)</\(PrefsType.local.rawValue)>".xml)
-            xml.appendChild("<\(PrefsType.darkMode.rawValue)>\(PrefsView.prefs.darkMode)</\(PrefsType.darkMode.rawValue)>".xml)
+            xml.appendChild("<\(PrefsType.login)>\(PrefsView.prefs.login)</\(PrefsType.login)>".xml)
+            xml.appendChild("<\(PrefsType.local)>\(PrefsView.prefs.local)</\(PrefsType.local)>".xml)
+            xml.appendChild("<\(PrefsType.darkMode)>\(PrefsView.prefs.darkMode)</\(PrefsType.darkMode)>".xml)
             return xml
         }
     }
 }
 extension PrefsView{
-    var login:TextInput? {return self.element(PrefsType.login.rawValue)}
-    var pass:TextInput? {return self.element(PrefsType.pass.rawValue)}
-    var local:TextInput? {return self.element(PrefsType.local.rawValue)}
-    var darkMode:CheckBoxButton? {return self.element(PrefsType.darkMode.rawValue)}
+    var login:TextInput? {return self.element(PrefsType.login)}
+    var pass:TextInput? {return self.element(PrefsType.pass)}
+    var local:TextInput? {return self.element(PrefsType.local)}
+    var darkMode:CheckBoxButton? {return self.element(PrefsType.darkMode)}
 }
-enum PrefsType:String {
-    case login = "login"
-    case pass = "pass"
-    case local = "local"
-    case darkMode = "darkMode"
+struct PrefsType {
+    static var prefs = "prefs"
+    static var login = "login"
+    static var pass = "pass"
+    static var local = "local"
+    static var darkMode = "darkMode"
 }
