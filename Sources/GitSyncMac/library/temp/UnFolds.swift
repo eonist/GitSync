@@ -51,7 +51,6 @@ extension TextButton{
     }
 }
 extension Text{
-    
     /**
      * New
      */
