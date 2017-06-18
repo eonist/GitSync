@@ -5,7 +5,7 @@ import Cocoa
 class StyleTestWin:Window {
     //var view:Element?
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
-        PrefsView.prefs
+        let rect:CGRect = PrefsView.prefs.rect
         super.init(docWidth, docHeight)
         WinModifier.align(self, Alignment.centerCenter, Alignment.centerCenter,CGPoint(6,0))/*aligns the window to the screen*/
         self.minSize = CGSize(250,250)

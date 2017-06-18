@@ -19,8 +19,8 @@ class PrefsView:Element {
             let h = xml.firstNode(PrefsType.h)!.stringValue!.cgFloat
             let x = xml.firstNode(PrefsType.x)!.stringValue!.cgFloat
             let y = xml.firstNode(PrefsType.y)!.stringValue!.cgFloat
-            let rect:CGRect = CGRect
-            _prefs = (login:login,pass:"",local:local,darkMode:darkMode)
+            let rect:CGRect = CGRect(x,y,w,h)
+            _prefs = (login:login,pass:"",local:local,darkMode:darkMode,rect:rect)
         }
         return _prefs!
     }()
