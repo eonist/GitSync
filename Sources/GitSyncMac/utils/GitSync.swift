@@ -4,10 +4,10 @@ import Foundation
 class GitSync{
     /**
      * Handles the process of making a commit for a single repository
+     * PARAM: idx: stores the idx of the repoItem in PARAM repoList which is needed in the onComplete
      */
     static func initCommit(_ repoList:[RepoItem],_ idx:Int, _ onComplete:@escaping (_ idx:Int,_ hasCommited:Bool)->Void){
         let repoItem = repoList[idx]
-        //Swift.print("initCommit: title: " + "\(repoItem.title)")
         bg.async {/*All these git processes needs to happen one after the other*/
             let hasUnMergedpaths = GitAsserter.hasUnMergedPaths(repoItem.local)/*🌵Asserts if there are unmerged paths that needs resolvment*/
             if(hasUnMergedpaths){
@@ -15,9 +15,8 @@ class GitSync{
                 MergeUtils.resolveMergeConflicts(repoItem.local, repoItem.branch, unMergedFiles)
             }
             let hasCommited = commit(repoItem.local)//🌵 if there were no commits false will be returned
-            //Swift.print("hasCommited: " + "\(hasCommited)")
             main.async {/*jump back on the main thread again*/
-                onComplete(idx,hasCommited)//🚪➡️️ -> Exit here
+                onComplete(idx,hasCommited)/*🚪➡️️ -> Exit here*/
             }
         }
     }
