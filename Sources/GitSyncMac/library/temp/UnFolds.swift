@@ -51,18 +51,17 @@ extension TextButton{
     }
 }
 extension Text{
-    typealias TextConfig = (String)
+    
     /**
      * New
      */
     static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> Text{
         let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
         let text:String = UnFoldUtils.string(dict, "text") ?? ""
-        let config:TextConfig = (text:text)
-        return Text.init(elementConfig, config)
+        return Text.init(elementConfig, text)
     }
-    convenience init(_ element:ElementConfig, _ config:TextConfig) {
-        self.init(element.width, element.height, config, element.parent, element.id)
+    convenience init(_ element:ElementConfig, _ text:String) {
+        self.init(element.width, element.height, text, element.parent, element.id)
     }
 }
 extension Element{
