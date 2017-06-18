@@ -71,7 +71,8 @@ extension PrefsView{
             xml.appendChild("<\(PrefsType.login)>\(PrefsView.prefs.login)</\(PrefsType.login)>".xml)
             xml.appendChild("<\(PrefsType.local)>\(PrefsView.prefs.local)</\(PrefsType.local)>".xml)
             xml.appendChild("<\(PrefsType.darkMode)>\(PrefsView.prefs.darkMode)</\(PrefsType.darkMode)>".xml)
-            xml.appendChild("<\(PrefsType.width)>\(PrefsView.prefs.width)</\(PrefsType.width)>".xml)
+            xml.appendChild("<\(PrefsType.width)>\(PrefsView.prefs.winW)</\(PrefsType.width)>".xml)
+            xml.appendChild("<\(PrefsType.height)>\(PrefsView.prefs.winH)</\(PrefsType.height)>".xml)
             return xml
         }
     }
@@ -81,6 +82,8 @@ extension PrefsView{
     var pass:TextInput? {return self.element(PrefsType.pass)}
     var local:TextInput? {return self.element(PrefsType.local)}
     var darkMode:CheckBoxButton? {return self.element(PrefsType.darkMode)}
+    var winW:CGFloat {return WinParser.width(self.window!)}
+    var winH:CGFloat {return WinParser.height(self.window!)}
 }
 struct PrefsType {
     static var prefs = "prefs"
