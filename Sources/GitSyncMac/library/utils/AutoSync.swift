@@ -21,6 +21,13 @@ class AutoSync {
         }
     }
     /**
+     * When a commit has competed this method is called
+     */
+    static func onCommitComplete(_ idx:Int, _ hasCommited:Bool){
+        //Swift.print("🔨 AutoSync.onCommitComplete() hasCommited: " + "\(hasCommited ? "✅" : "🚫")")
+        GitSync.initPush(repoList!,idx,onPushComplete)
+    }
+    /**
      * When a push is compelete this method is called
      */
     static func onPushComplete(_ hasPushed:Bool){
@@ -30,12 +37,5 @@ class AutoSync {
             Swift.print("🏁🏁🏁 AutoSync.swift All repos are now AutoSync'ed")//now go and read commits to list
             onAllCommitAndPushComplete()/*All commits and pushes was completed*/
         }
-    }
-    /**
-     * When a commit has competed this method is called
-     */
-    static func onCommitComplete(_ idx:Int, _ hasCommited:Bool){
-        //Swift.print("🔨 AutoSync.onCommitComplete() hasCommited: " + "\(hasCommited ? "✅" : "🚫")")
-        GitSync.initPush(repoList!,idx,onPushComplete)
     }
 }
