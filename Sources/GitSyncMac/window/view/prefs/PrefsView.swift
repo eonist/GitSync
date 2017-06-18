@@ -9,7 +9,7 @@ import Cocoa
  */
 class PrefsView:Element {
     static var _prefs:Prefs? = nil
-    static var prefs:Prefs = {
+    static var prefs:Prefs = {/*Stores values in a singleton like data-container*/
         if _prefs == nil {
             let xml:XML = FileParser.xml(Config.prefs.tildePath)/*Loads the xml*/
             let login = xml.firstNode(PrefsType.login)!.stringValue!
