@@ -8,8 +8,7 @@ typealias CommitDPRefresher = Refresh//temp
 class Refresh{//TODO:rename to refresh
     var commitDP:CommitDP?
     var startTime:NSDate?/*Debugging*/
-    /*When all repos has refreshed this method signature is called*/
-    var onAllRefreshComplete:()->Void = {fatalError("Must attach onComplete handler")}
+    var onAllRefreshComplete:()->Void = {fatalError("Must attach onComplete handler")}/*When all repos has refreshed this method signature is called*/
     init(_ commitDP:CommitDP){
         self.commitDP = commitDP
     }
