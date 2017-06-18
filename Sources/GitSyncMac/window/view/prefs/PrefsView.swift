@@ -71,8 +71,8 @@ extension PrefsView{
             xml.appendChild("<\(PrefsType.login)>\(PrefsView.prefs.login)</\(PrefsType.login)>".xml)
             xml.appendChild("<\(PrefsType.local)>\(PrefsView.prefs.local)</\(PrefsType.local)>".xml)
             xml.appendChild("<\(PrefsType.darkMode)>\(PrefsView.prefs.darkMode)</\(PrefsType.darkMode)>".xml)
-            xml.appendChild("<\(PrefsType.width)>\(PrefsView.prefs.winW)</\(PrefsType.width)>".xml)
-            xml.appendChild("<\(PrefsType.height)>\(PrefsView.prefs.winH)</\(PrefsType.height)>".xml)
+            xml.appendChild("<\(PrefsType.width)>\(PrefsView.prefs.winW.str)</\(PrefsType.width)>".xml)
+            xml.appendChild("<\(PrefsType.height)>\(PrefsView.prefs.winH.str)</\(PrefsType.height)>".xml)
             return xml
         }
     }
