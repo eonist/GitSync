@@ -5,5 +5,6 @@ import Foundation
 class CommitDialogView:Element {
     override func resolveSkin() {
         super.resolveSkin()
+        UnFoldUtils.unFold(Config.app,"commitDialogView",self)
     }
 }

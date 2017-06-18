@@ -18,7 +18,7 @@ class CommitView:Element{
         _ = list/*creates the GUI List*/
     }
     /**
-     * Eventhandler when a CommitsListItem is clicked
+     * EventHandler when a CommitsListItem is clicked
      */
     func onListSelect(_ event:ListEvent){
         Swift.print("CommitView.onListSelect()")
