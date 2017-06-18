@@ -5,7 +5,7 @@ typealias CommitDPRefresher = Refresh//temp
 /**
  * Basically creates/updates a list of the latest commits
  */
-class Refresh{//TODO:rename to refresh
+class Refresh{
     var commitDP:CommitDP?
     var startTime:NSDate?/*Debugging*/
     var onAllRefreshComplete:()->Void = {fatalError("Must attach onComplete handler")}/*When all repos has refreshed this method signature is called*/
@@ -31,7 +31,7 @@ class Refresh{//TODO:rename to refresh
             idx += 1
             //Swift.print("refreshRepo.onComplete() i: \(idx)")
             if idx == repos.count {
-                onRefreshReposComplete()
+                allRefreshesCompleted()
             }
         }
         repos.forEach { repo in
@@ -41,7 +41,7 @@ class Refresh{//TODO:rename to refresh
     /**
      * The final complete call
      */
-    private func onRefreshReposComplete(){/*All repo items are now refreshed, the entire refresh process is finished*/
+    private func allRefreshesCompleted(){/*All repo items are now refreshed, the entire refresh process is finished*/
         //Swift.print("commitDB.sortedArr.count: " + "\(commitDP!.items.count)")
         //Swift.print("Printing sortedArr after refresh: ")
         //commitDP!.items.forEach{
