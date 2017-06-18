@@ -8,7 +8,8 @@ typealias CommitDPRefresher = Refresh//temp
 class Refresh{//TODO:rename to refresh
     var commitDP:CommitDP?
     var startTime:NSDate?/*Debugging*/
-    var onComplete:()->Void = {print("⚠️️⚠️️⚠️️ Refresh.onComplete() completed but no onComplete is currently attached")}
+    /*When all repos has refreshed this method signature is called*/
+    var onAllRefreshComplete:()->Void = {fatalError("Must attach onComplete handler")}
     init(_ commitDP:CommitDP){
         self.commitDP = commitDP
     }
@@ -51,7 +52,7 @@ class Refresh{//TODO:rename to refresh
         //Swift.print("💾 Refresh.onRefreshReposComplete() Written to disk")
         //isRefreshing = false
         Swift.print("⏰ Refresh.onRefreshReposComplete() Time: " + "\(abs(startTime!.timeIntervalSinceNow))")/*How long did the gathering of git commit logs take?*/
-        onComplete()/*🚪➡️️  Calls a dynamic onComplete method, other classes can override this variable to get callback*/
+        onAllRefreshComplete()/*🚪➡️️  Calls a dynamic onComplete method, other classes can override this variable to get callback*/
     }
 }
 class RefreshUtils{
