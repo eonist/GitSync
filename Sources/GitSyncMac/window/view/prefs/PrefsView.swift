@@ -71,6 +71,7 @@ extension PrefsView{
             xml.appendChild("<\(PrefsType.login)>\(PrefsView.prefs.login)</\(PrefsType.login)>".xml)
             xml.appendChild("<\(PrefsType.local)>\(PrefsView.prefs.local)</\(PrefsType.local)>".xml)
             xml.appendChild("<\(PrefsType.darkMode)>\(PrefsView.prefs.darkMode)</\(PrefsType.darkMode)>".xml)
+            xml.appendChild("<\(PrefsType.width)>\(PrefsView.prefs.width)</\(PrefsType.width)>".xml)
             return xml
         }
     }
@@ -87,4 +88,8 @@ struct PrefsType {
     static var pass = "pass"
     static var local = "local"
     static var darkMode = "darkMode"
+    static var width = "width"
+    static var height = "height"
+    static var x = "x"
+    static var y = "y"
 }
