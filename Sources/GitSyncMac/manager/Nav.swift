@@ -47,7 +47,7 @@ class Nav {
              return view
             //fatalError("not implemented yet")
         case .repoDetail(let idx3d):/*RepoDetail*/
-            _ = idx3d
+             _ = idx3d
              let view:RepoDetailView = RepoDetailView(NaN,NaN,mainView)
              view.setRepoData(idx3d)
              return view
@@ -56,6 +56,7 @@ class Nav {
             _ = dialog
             switch dialog{
             case .commit:
+                let view:CommitDialogView = RepoDetailView(NaN,NaN,mainView)
                 fatalError("not implemented yet")
             case .conflict:
                 //return ConflictDialogView(w,h,mainView)
