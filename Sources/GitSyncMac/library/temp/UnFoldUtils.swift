@@ -52,11 +52,28 @@ class UnFoldUtils{
     /**
      * Apply data to unfolded items
      */
-    static func applyData(_ fileURL:String, _ path:String){
-        JSONParser.dictArr(JSONParser.dict(fileURL.content?.json)?[path])?.forEach{
-            if let element:Element = UnFoldUtils.unFold($0,parent) {
-                parent.addSubview(element)
-            }
-        }
+    static func applyData(_ unfoldable:NSView){
+        //for each item in unfoldable
+            //if is unfoldable
+                //item.apply
     }
+    /**
+     *
+     */
+    /*static func applyData(_ dict:[String:Any]){
+     guard let type:String = dict["type"] as? String else {fatalError("type must be string")}
+     switch true{
+     case type == "\(TextInput.self)":
+     return TextInput.unFold(dict,parent)
+     case type == "\(CheckBoxButton.self)":
+     return CheckBoxButton.unFold(dict,parent)
+     case type == "\(TextButton.self)":
+     return TextButton.unFold(dict,parent)
+     case type == "\(Text.self)":
+     return Text.unFold(dict,parent)
+     default:
+     fatalError("Type is not unFoldable: \(type)")
+     //return nil/*we return nil here instead of fatalError, as this method could be wrapped in a custom method to add other types etc*/
+     }
+     }*/
 }
