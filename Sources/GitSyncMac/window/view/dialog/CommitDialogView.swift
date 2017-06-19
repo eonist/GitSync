@@ -6,6 +6,12 @@ class CommitDialogView:Element {
     override func resolveSkin() {
         super.resolveSkin()
         UnFoldUtils.unFold(Config.app,"commitDialogView",self)
+        let data:[String:[String:Any]] = [
+            "repo"
+            "title"
+            "desc"
+        ]
+        UnFoldUtils.applyData(self, <#T##data: [String : [String : Any]]##[String : [String : Any]]#>)
     }
     /*var data:[String:Any]{
         get{fatalError("not avilable")}
