@@ -49,4 +49,14 @@ class UnFoldUtils{
             else {fatalError("type not supported: \(value)")}
         };return NaN
     }
+    /**
+     * Apply data to unfolded items
+     */
+    static func applyData(_ fileURL:String, _ path:String){
+        JSONParser.dictArr(JSONParser.dict(fileURL.content?.json)?[path])?.forEach{
+            if let element:Element = UnFoldUtils.unFold($0,parent) {
+                parent.addSubview(element)
+            }
+        }
+    }
 }
