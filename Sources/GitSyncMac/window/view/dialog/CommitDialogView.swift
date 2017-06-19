@@ -7,11 +7,11 @@ class CommitDialogView:Element {
         super.resolveSkin()
         UnFoldUtils.unFold(Config.app,"commitDialogView",self)
         let data:[String:[String:Any]] = [
-            "repo"
-            "title"
-            "desc"
+            "repo":["inputText":"ElementiOS"],
+            "title":["inputText":"Added support for padding"],
+            "desc":["inputText":"4 Files changed"]
         ]
-        UnFoldUtils.applyData(self, <#T##data: [String : [String : Any]]##[String : [String : Any]]#>)
+        UnFoldUtils.applyData(self, data)
     }
     /*var data:[String:Any]{
         get{fatalError("not avilable")}
