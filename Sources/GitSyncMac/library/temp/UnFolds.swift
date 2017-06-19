@@ -58,7 +58,8 @@ extension Text{
         let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
         let text:String = UnFoldUtils.string(dict, "text") ?? ""
         Swift.print("text: " + "\(text)")
-        return Text.init(elementConfig, text)
+        return Text(NaN,NaN,text, elementConfig.parent, elementConfig.id )
+        //return Text.init(elementConfig, text)
     }
     convenience init(_ element:ElementConfig, _ text:String) {
         self.init(element.width, element.height, text, element.parent, element.id)
