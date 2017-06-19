@@ -8,5 +8,12 @@ class CommitDialogView:Element {
         UnFoldUtils.unFold(Config.app,"commitDialogView",self)
         
     }
-    
+    var data:[String:Any]{
+        get{fatalError("not avilable")}
+        set{
+            //repo
+            //title
+            //description
+        }
+    }
 }
