@@ -22,7 +22,7 @@ extension TextInput:UnFoldable{
         get{fatalError("not avilabale")}
         set{
             if let text:String = newValue["text"] as? String { self.text.setText(text) }
-            if let inputText:String = newValue["inputText"] as? String { self.inputTextArea(inputText) }
+            if let inputText:String = newValue["inputText"] as? String { self.inputTextArea.setTextValue(inputText) }
         }
     }
 }
