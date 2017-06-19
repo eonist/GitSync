@@ -41,7 +41,7 @@ class Nav {
                 return PrefsView(NaN,NaN,mainView)
             }
         case .commitDetail(let commitData):/*CommitDetail*/
-            let view:CommitDetailView = CommitDetailView(NaN,NaN,mainView)
+             let view:CommitDetailView = CommitDetailView(NaN,NaN,mainView)
              view.setCommitData(commitData)
              return view
             //fatalError("not implemented yet")
