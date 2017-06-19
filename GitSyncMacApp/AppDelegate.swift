@@ -25,6 +25,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let rect:CGRect = PrefsView.prefs.rect
         win = StyleTestWin(rect.w, rect.h)/*⬅️️🚪*/
         menu = Menu()/*This creates the App menu*/
+        
+        //Continue here: 🏀
+            //
+        
     }
     func applicationWillTerminate(_ aNotification:Notification) {
         _ = FileModifier.write(Config.prefs.tildePath, PrefsView.xml.xmlString)/*Stores the app prefs*/
@@ -34,9 +38,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
-/**
- *
- */
 /*
 func jsonTest(){
     Swift.print("jsonTest")
