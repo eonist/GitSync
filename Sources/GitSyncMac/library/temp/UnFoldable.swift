@@ -1,6 +1,7 @@
 import Foundation
 
-class UnFoldable {
+protocol UnFoldable {
     //unfold
     //data 
+    var data:[String:Any] {get set}
 }

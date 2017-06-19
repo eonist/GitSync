@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 @testable import Element
 
-extension TextInput{
+extension TextInput:UnFoldable{
     typealias TextInputConfig = (text:String, inputText:String)
     /**
      * New
@@ -17,6 +17,10 @@ extension TextInput{
     }
     convenience init(_ element:ElementConfig, _ config:TextInputConfig) {
         self.init(element.width, element.height, config.text, config.inputText, element.parent, element.id)
+    }
+    var data: [String : Any] {
+        get{fatalError("not avilabale")}
+        set{}
     }
 }
 extension CheckBoxButton{
