@@ -9,8 +9,7 @@ extension TextInput:UnFoldable{
      */
     static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> TextInput{
         let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
-        let text:String = UnFoldUtils.string(dict, "text") ?? ""
-        let inputText:String = UnFoldUtils.string(dict, "inputText") ?? ""
+        
         let config:TextInputConfig = (text:text,inputText:inputText)
         let textInput:TextInput = TextInput.init(elementConfig, config)
         return textInput
@@ -20,7 +19,10 @@ extension TextInput:UnFoldable{
     }
     var data: [String : Any] {
         get{fatalError("not avilabale")}
-        set{}
+        set{
+            let text:String = UnFoldUtils.string(dict, "text") ?? ""
+            let inputText:String = UnFoldUtils.string(dict, "inputText") ?? ""
+        }
     }
 }
 extension CheckBoxButton{
