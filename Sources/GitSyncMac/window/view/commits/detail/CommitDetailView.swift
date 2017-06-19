@@ -3,6 +3,7 @@ import Foundation
 @testable import Element
 /**
  * Enables you to view the commit title and commit description of a single commit 
+ * TODO: ⚠️️ Convert this to 
  */
 class CommitDetailView:Element {
     lazy var repoNameText:Text = {

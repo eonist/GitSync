@@ -11,6 +11,7 @@ class CommitDialogView:Element {
     var data:[String:Any]{
         get{fatalError("not avilable")}
         set{
+            
             //repo
             //title
             //description
