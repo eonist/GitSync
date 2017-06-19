@@ -21,8 +21,8 @@ extension TextInput:UnFoldable{
     var data: [String : Any] {
         get{fatalError("not avilabale")}
         set{
-            let text:String = UnFoldUtils.string(dict, "text") ?? ""
-            let inputText:String = UnFoldUtils.string(dict, "inputText") ?? ""
+            let text:String = newValue["text"] as? String  { self.text.setText(text) }
+            let inputText:String = newValue["inputText"] as? String { self.inputText.setText(inputText) }
         }
     }
 }
