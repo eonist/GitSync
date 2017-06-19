@@ -2,7 +2,7 @@ import Foundation
 @testable import Utils
 @testable import Element
 
-extension TextInput:UnFoldable{
+extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput*/
     typealias TextInputConfig = (text:String, inputText:String)
     /**
      * New
