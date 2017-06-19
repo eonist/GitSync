@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Element
 @testable import Utils
 
@@ -55,7 +55,7 @@ class UnFoldUtils{
     static func applyData(_ unfoldable:NSView){
         //for each item in unfoldable
             //if is unfoldable
-                //item.apply
+                //item.data = dict[item.id]
     }
     /**
      *
