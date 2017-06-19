@@ -24,7 +24,8 @@ class UnFoldUtils{
             case type == "\(TextButton.self)":
                 return TextButton.unFold(dict,parent)
             case type == "\(Text.self)":
-                return Text.unFold(dict,parent)
+                //return Text.unFold(dict,parent)
+                return Text(100,100,"soemthine", parent, "header" )
             default:
                 fatalError("Type is not unFoldable: \(type)")
                 //return nil/*we return nil here instead of fatalError, as this method could be wrapped in a custom method to add other types etc*/
