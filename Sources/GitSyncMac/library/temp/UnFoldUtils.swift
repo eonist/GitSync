@@ -52,13 +52,14 @@ class UnFoldUtils{
     /**
      * Apply data to unfolded items
      */
-    
-    
-    
-    static func applyData(_ unfoldable:NSView){
-        //for each item in unfoldable
-            //if is unfoldable
-                //item.data = dict[item.id]
+ 
+    static func applyData(_ view:Element, data:[String:Any]){
+        for subView in view.subviews{
+            if var unFoldable:UnFoldable = subView as? UnFoldable {
+                unFoldable.data = data[subView.id]
+            }
+        }
+        
     }
     /**
      *
