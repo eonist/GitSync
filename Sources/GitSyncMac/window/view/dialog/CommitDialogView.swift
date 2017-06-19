@@ -12,9 +12,10 @@ class CommitDialogView:Element {
         get{fatalError("not avilable")}
         set{
             
-            //repo
-            //title
-            //description
+            var repo:TextInput? {return self.element("repo")}
+            var title:TextInput? {return self.element("title")}
+            var desc:TextInput? {return self.element("desc")}
+            
         }
     }
 }
