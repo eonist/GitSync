@@ -3,13 +3,15 @@ import Foundation
 @testable import Element
 /**
  * TODO: ⚠️️ Set the AppMenu to only have quit
+ * TODO: Somehow hide the sidemenu
+ * TODO: Change the color of the OK button to blue, and switch position with cancel
  */
 class CommitDialogView:Element,UnFoldable {
     override func resolveSkin() {
         super.resolveSkin()
         UnFoldUtils.unFold(Config.app,"commitDialogView",self)
         let data:[String:[String:Any]] = [
-            "repo":["inputText":"ElementiOS"],
+            "repo":["inputText":"Element iOS"],
             "title":["inputText":"Added support for padding"],
             "desc":["inputText":"4 Files changed"]
         ]
