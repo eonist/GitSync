@@ -14,6 +14,9 @@ class UnFoldUtils{
             }
         }
     }
+    /**
+     * Initiates and returns a UI Component
+     */
     static func unFold(_ dict:[String:Any], _ parent:IElement? = nil) -> Element?{
         guard let type:String = dict["type"] as? String else {fatalError("type must be string")}
         switch true{
