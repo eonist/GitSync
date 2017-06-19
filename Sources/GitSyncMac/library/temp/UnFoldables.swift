@@ -5,7 +5,7 @@ import Foundation
 extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput*/
     typealias TextInputConfig = (text:String, inputText:String)
     /**
-     * New
+     * Unfolds a TextInput component
      */
     static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> TextInput{
         let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
@@ -29,7 +29,7 @@ extension TextInput:UnFoldable{/*<-Attaches the Unfoldable protocol to TextInput
 extension CheckBoxButton{
     typealias CheckBoxButtonConfig = (text:String, isChecked:Bool)
     /**
-     * New
+     * UnFolds a CheckBoxButton
      */
     static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> CheckBoxButton{
         let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
@@ -45,7 +45,7 @@ extension CheckBoxButton{
 extension TextButton{
     typealias TextButtonConfig = (String)
     /**
-     * New
+     * UnFolds a TextButton Component
      */
     static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> TextButton{
         let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
@@ -59,7 +59,7 @@ extension TextButton{
 }
 extension Text{
     /**
-     * New
+     * UnFolds a Text Component
      */
     static func unFold(_ dict:[String:Any],_ parent:IElement? = nil) -> Text{
         let elementConfig:ElementConfig = Element.elementConfig(dict,parent)
