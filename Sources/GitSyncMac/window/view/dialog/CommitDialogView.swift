@@ -1,10 +1,7 @@
 import Foundation
 @testable import Utils
 @testable import Element
-/**
- * TODO: ⚠️️ Set the AppMenu to only have quit
- * TODO: Somehow hide the sidemenu
- */
+
 class CommitDialogView:Element,UnFoldable {
     override func resolveSkin() {
         super.resolveSkin()
