@@ -27,7 +27,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         menu = Menu()/*This creates the App menu*/
         
         //Continue here: 🏀
-            //
+            //Get hide sidemenu working again
         
     }
     func applicationWillTerminate(_ aNotification:Notification) {
