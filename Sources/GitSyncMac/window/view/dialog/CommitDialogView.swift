@@ -6,12 +6,10 @@ class CommitDialogView:Element {
     override func resolveSkin() {
         super.resolveSkin()
         UnFoldUtils.unFold(Config.app,"commitDialogView",self)
-        
     }
     /*var data:[String:Any]{
         get{fatalError("not avilable")}
         set{
-            
             if let repo:TextInput? = self.element("repo"), let repoText {
                 
             }
