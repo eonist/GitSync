@@ -13,15 +13,4 @@ class CommitDialogView:Element {
         ]
         UnFoldUtils.applyData(self, data)
     }
-    /*var data:[String:Any]{
-        get{fatalError("not avilable")}
-        set{
-            if let repo:TextInput? = self.element("repo"), let repoText {
-                
-            }
-            var title:TextInput? {return self.element("title")}
-            var desc:TextInput? {return self.element("desc")}
-            
-        }
-    }*/
 }
