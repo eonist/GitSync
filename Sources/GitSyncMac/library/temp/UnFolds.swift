@@ -18,7 +18,7 @@ extension TextInput:UnFoldable{
     convenience init(_ element:ElementConfig, _ config:TextInputConfig) {
         self.init(element.width, element.height, config.text, config.inputText, element.parent, element.id)
     }
-    var data: [String : Any] {
+    var data:[String:Any] {
         get{fatalError("not avilabale")}
         set{
             if let text:String = newValue["text"] as? String { self.text.setText(text) }
