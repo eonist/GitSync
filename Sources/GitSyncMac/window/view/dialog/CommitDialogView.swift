@@ -1,7 +1,9 @@
 import Foundation
 @testable import Utils
 @testable import Element
-
+/**
+ * TODO: ⚠️️ Set the AppMenu to only have quit
+ */
 class CommitDialogView:Element,UnFoldable {
     override func resolveSkin() {
         super.resolveSkin()
@@ -14,9 +16,9 @@ class CommitDialogView:Element,UnFoldable {
         self.data = data
     }
     var data:[String:Any] {
-        get{fatalError("notavialbe")}
+        get{fatalError("not avialbe")}
         set{
-            if let data = newValue as? [String : [String : Any]] {
+            if let data = newValue as? [String:[String:Any]] {
                 UnFoldUtils.applyData(self, data)
             }
         }
