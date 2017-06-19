@@ -50,16 +50,14 @@ class UnFoldUtils{
         };return NaN
     }
     /**
-     * Apply data to unfolded items
+     * Apply data to unfoldable items
      */
- 
-    static func applyData(_ view:Element, data:[String:Any]){
+    static func applyData(_ view:Element, data:[String:[String:Any]]){
         for subView in view.subviews{
-            if var unFoldable:UnFoldable = subView as? UnFoldable {
-                unFoldable.data = data[subView.id]
+            if var unFoldable:UnFoldable = subView as? UnFoldable, let element = subView as? IElement, let id:String = element.id, let value:[String:Any] = data[id] {
+                unFoldable.data = value
             }
         }
-        
     }
     /**
      *
