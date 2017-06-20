@@ -35,10 +35,12 @@ class StyleTestView:CustomView{
     func toggleSideBar(_ hide:Bool){
         Swift.print("toggleSideBar: hide: " + "\(hide)")
         //remove leftSideBar
-        ElementModifier.hide(leftSideBar!, !hide)
+        guard let leftBar = StyleTestView.leftbar else{fatalError("must be avilabale")}
+        guard let content = StyleTestView.content else{fatalError("must be avilabale")}
+        ElementModifier.hide(leftBar, !hide)
         /*detailView.setSkinState(detailView.getSkinState())*/
-        ElementModifier.float(leftSideBar!)
-        ElementModifier.float(detailView)
-        self.setSize(getWidth(),getHeight())
+        ElementModifier.float(leftBar)
+        ElementModifier.float(content)
+        //self.setSize(getWidth(),getHeight())
     }
 }
