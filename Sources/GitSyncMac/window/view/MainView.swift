@@ -39,7 +39,7 @@ class StyleTestView:CustomView{
         guard let content = StyleTestView.content else{fatalError("must be avilabale")}
         ElementModifier.hide(leftBar, !hide)
         if var style = content.skin?.style as? Style, var prop = style.getStyleProperty("width"){
-            StyleManager.getStyle("#content")
+            let defaultStyle = StyleManager.getStyle("#content")
             prop.value = hide ? "100%" : ""
             StyleModifier.overrideStyleProperty(&style, prop)
         }
