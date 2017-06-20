@@ -40,6 +40,9 @@ class StyleTestView:CustomView{
         if hide {
             leftBar.setSkinState("hidden")
             leftBar.setSkinState("full")
+        }else {
+            leftBar.setSkinState("")
+            leftBar.setSkinState("")
         }
         
         /*detailView.setSkinState(detailView.getSkinState())*/
