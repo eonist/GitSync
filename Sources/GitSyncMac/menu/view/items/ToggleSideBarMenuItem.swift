@@ -10,7 +10,7 @@ class ToggleSideBarMenuItem:CustomMenuItem{
         Swift.print("ShowSideBarMenuItem.onSelect()")
         //add hiding logic here
         let toggle:Bool = !ToggleSideBarMenuItem.isSideMenuHidden
-        ToggleSideBarMenuItem.isSideMenuHidden = toggle//toggle
+        ToggleSideBarMenuItem.isSideMenuHidden = toggle/*toggle*/
         StyleTestView.toggleSideBar(toggle)
     }
     /**
