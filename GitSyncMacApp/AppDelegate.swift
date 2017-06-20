@@ -17,6 +17,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //jsonTest()
         initApp()
+        
+        
+        //continue here:
+            //create a hidden state test for an element that you toggle on of with a button
+            //then create a 
+        
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
@@ -25,7 +31,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let rect:CGRect = PrefsView.prefs.rect
         win = StyleTestWin(rect.w, rect.h)/*⬅️️🚪*/
         menu = Menu()/*This creates the App menu*/
-
     }
     func applicationWillTerminate(_ aNotification:Notification) {
         _ = FileModifier.write(Config.prefs.tildePath, PrefsView.xml.xmlString)/*Stores the app prefs*/

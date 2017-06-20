@@ -9,7 +9,6 @@ class LeftSideBar:Element{
     override func resolveSkin() {
         super.resolveSkin()
         self.menuContainer = self.addSubView(MenuContainer(NaN,NaN,self,"buttonSection"))
-        
         _ = self.addSubView(Element(NaN, NaN, self, "ruler"))
     }
 }
