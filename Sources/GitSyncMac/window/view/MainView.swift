@@ -38,6 +38,10 @@ class StyleTestView:CustomView{
         guard let leftBar = StyleTestView.leftbar else{fatalError("must be avilabale")}
         guard let content = StyleTestView.content else{fatalError("must be avilabale")}
         ElementModifier.hide(leftBar, !hide)
+        if let style:Style = content.skin?.style as? Style?{
+            StyleModifier.overrideStyleProperty(&style, <#T##styleProperty: IStyleProperty##IStyleProperty#>)
+        }
+        
         /*detailView.setSkinState(detailView.getSkinState())*/
         ElementModifier.float(leftBar)
         ElementModifier.float(content)
