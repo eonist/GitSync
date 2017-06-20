@@ -50,5 +50,6 @@ class StyleTestView:CustomView{
         ElementModifier.float(leftBar)
         ElementModifier.float(content)
         //self.setSize(getWidth(),getHeight())
+        Swift.print("toggle completed")
     }
 }
