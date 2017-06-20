@@ -44,7 +44,8 @@ class StyleTestView:CustomView{
             leftBar.setSkinState("")
             leftBar.setSkinState("")
         }
-        
+        ElementModifier.refreshSkin(leftBar)
+        ElementModifier.refreshSkin(content)
         /*detailView.setSkinState(detailView.getSkinState())*/
         ElementModifier.float(leftBar)
         ElementModifier.float(content)
