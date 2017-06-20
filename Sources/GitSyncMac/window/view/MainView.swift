@@ -32,7 +32,7 @@ class StyleTestView:CustomView{
     /**
      *
      */
-    func toggleSideBar(_ hide:Bool){
+    static func toggleSideBar(_ hide:Bool){
         Swift.print("toggleSideBar: hide: " + "\(hide)")
         //remove leftSideBar
         guard let leftBar = StyleTestView.leftbar else{fatalError("must be avilabale")}

@@ -9,11 +9,9 @@ class ToggleSideBarMenuItem:CustomMenuItem{
     override func onSelect(event:AnyObject) {
         Swift.print("ShowSideBarMenuItem.onSelect()")
         //add hiding logic here
-        /*let toggle:Bool = !ToggleSideBarMenuItem.isSideMenuHidden
-         ToggleSideBarMenuItem.isSideMenuHidden = toggle//toggle
-         if let view = MainWin.mainView?.currentView as? RepositoryView {
-         view.toggleSideBar(toggle)
-         }*/
+        let toggle:Bool = !ToggleSideBarMenuItem.isSideMenuHidden
+        ToggleSideBarMenuItem.isSideMenuHidden = toggle//toggle
+        StyleTestView.toggleSideBar(toggle)
     }
     /**
      * Return true if you want to enable the menu item, false will disable it
