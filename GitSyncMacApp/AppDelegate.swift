@@ -25,10 +25,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let rect:CGRect = PrefsView.prefs.rect
         win = StyleTestWin(rect.w, rect.h)/*⬅️️🚪*/
         menu = Menu()/*This creates the App menu*/
-        
-        //Continue here: 🏀
-            //Get hide sidemenu working again
-        
+
     }
     func applicationWillTerminate(_ aNotification:Notification) {
         _ = FileModifier.write(Config.prefs.tildePath, PrefsView.xml.xmlString)/*Stores the app prefs*/
