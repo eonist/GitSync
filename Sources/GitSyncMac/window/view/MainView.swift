@@ -29,4 +29,16 @@ class StyleTestView:CustomView{
         //Swift.print("StyleTestView.setSize w:\(width) h:\(height)")
         ElementModifier.refreshSize(main!)
     }
+    /**
+     *
+     */
+    func toggleSideBar(_ hide:Bool){
+        Swift.print("toggleSideBar: hide: " + "\(hide)")
+        //remove leftSideBar
+        ElementModifier.hide(leftSideBar!, !hide)
+        /*detailView.setSkinState(detailView.getSkinState())*/
+        ElementModifier.float(leftSideBar!)
+        ElementModifier.float(detailView)
+        self.setSize(getWidth(),getHeight())
+    }
 }
