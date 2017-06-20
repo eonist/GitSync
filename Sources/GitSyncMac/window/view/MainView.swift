@@ -37,11 +37,9 @@ class StyleTestView:CustomView{
         //remove leftSideBar
         guard let leftBar = StyleTestView.leftbar else{fatalError("must be avilabale")}
         guard let content = StyleTestView.content else{fatalError("must be avilabale")}
-        ElementModifier.hide(leftBar, !hide)
-        if var style = content.skin?.style as? Style, var prop = style.getStyleProperty("width"){
-            let defaultStyle = StyleManager.getStyle("#content")
-            prop.value = hide ? "100%" : ""
-            StyleModifier.overrideStyleProperty(&style, prop)
+        if hide {
+            leftBar.setSkinState("hidden")
+            leftBar.setSkinState("full")
         }
         
         /*detailView.setSkinState(detailView.getSkinState())*/
