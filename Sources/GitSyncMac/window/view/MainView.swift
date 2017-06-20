@@ -35,8 +35,8 @@ class StyleTestView:CustomView{
     static func toggleSideBar(_ hide:Bool){
         Swift.print("toggleSideBar: hide: " + "\(hide)")
         //remove leftSideBar
-        guard let leftBar = StyleTestView.leftbar else{fatalError("must be avilabale")}
-        guard let content = StyleTestView.content else{fatalError("must be avilabale")}
+        guard let leftBar = StyleTestView.leftbar else{fatalError("must be available")}
+        guard let content = StyleTestView.content else{fatalError("must be available")}
         if hide {
             leftBar.setSkinState("hidden")
             leftBar.setSkinState("full")
