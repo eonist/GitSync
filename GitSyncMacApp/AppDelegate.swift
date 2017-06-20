@@ -21,7 +21,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //continue here:
             //create a hidden state test for an element that you toggle on of with a button
-            //then create a 
+            //then create a container with 2 elements that can be hidden aswell etc
         
     }
     func initApp(){
