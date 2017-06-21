@@ -25,8 +25,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     func stateTest(){
         window.contentView = InteractiveView2()
-        let css:String = "#btn{fill:blue;width:100px;height:24px;float:left;clear:left;}"
-        //css += "Section{fill:silver;padding:12px;}"
+        var css:String = "#btn{fill:blue;width:100px;height:24px;float:left;clear:left;}"
+        css += "#green{fill:green;clear:left;float:left;}"
         StyleManager.addStyle(css)
         
         let section = window.contentView!.addSubView(Section(200,300))
@@ -38,6 +38,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         let greenElement = section.addSubView(Element(100,100,section,"green"))
+        
         
     }
     func initApp(){
