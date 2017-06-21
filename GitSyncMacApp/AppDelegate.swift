@@ -33,9 +33,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let section = window.contentView!.addSubView(Section(200,300))
         let btn = section.addSubView(Button(NaN,NaN,section,"btn"))
         
-        
         let one = section.addSubView(Element(100,100,section,"green"))
-        
         btn.event = { event in
             if event.type == ButtonEvent.upInside {
                 Swift.print("test")
