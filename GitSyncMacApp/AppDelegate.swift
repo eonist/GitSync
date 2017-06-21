@@ -18,7 +18,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //jsonTest()
         //initApp()
         
-        
         //continue here:
             //create a hidden state test for an element that you toggle on of with a button
             //then create a container with 2 elements that can be hidden aswell etc
@@ -35,7 +34,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         btn.event = { event in
             if event.type == ButtonEvent.upInside {
-                
+                Swift.print("test")
             }
         }
     }
