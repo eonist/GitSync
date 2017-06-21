@@ -27,18 +27,21 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView2()
         var css:String = "#btn{fill:blue;width:100px;height:24px;float:left;clear:left;}"
         css += "#green{fill:green;clear:left;float:left;}"
+        css += "#green:hidden{fill:orange;}"
         StyleManager.addStyle(css)
         
         let section = window.contentView!.addSubView(Section(200,300))
         let btn = section.addSubView(Button(NaN,NaN,section,"btn"))
         
+        
+        let one = section.addSubView(Element(100,100,section,"green"))
+        
         btn.event = { event in
             if event.type == ButtonEvent.upInside {
                 Swift.print("test")
+                one.setSkinState("hidden")
             }
         }
-        let greenElement = section.addSubView(Element(100,100,section,"green"))
-        
         
     }
     func initApp(){
