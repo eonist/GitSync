@@ -33,7 +33,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let section = window.contentView!.addSubView(Section(200,300))
         let btn = section.addSubView(Element(NaN,NaN,section,"btn"))
         
-        section.addSubview(btn)
+        btn.event = { event in
+            if event.type == ButtonEvent.upInside {
+                
+            }
+        }
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
