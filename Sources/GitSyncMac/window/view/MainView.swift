@@ -39,10 +39,10 @@ class StyleTestView:CustomView{
         guard let content = StyleTestView.content else{fatalError("must be available")}
         if hide {
             leftBar.setSkinState("hidden")
-            //leftBar.setSkinState("full")
+            content.setSkinState("full")
         }else {
             leftBar.setSkinState("")
-            //leftBar.setSkinState("")
+            content.setSkinState("")
         }
         /*ElementModifier.refreshSkin(leftBar)
          ElementModifier.refreshSkin(content)*/
