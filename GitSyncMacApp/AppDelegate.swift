@@ -26,8 +26,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func stateTest(){
         window.contentView = InteractiveView2()
         var css:String = "#btn{fill:blue;width:100px;height:24px;float:left;clear:left;}"
-        css += "#green{fill:green;clear:left;float:left;}"
-        css += "#green:hidden{fill:orange;}"
+        css += "#green{fill:green;clear:left;float:left;display:block;}"
+        css += "#green:hidden{fill:orange;display:none;}"
         StyleManager.addStyle(css)
         
         let section = window.contentView!.addSubView(Section(200,300))
