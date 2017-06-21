@@ -30,13 +30,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         StyleManager.addStyle(css)
         
         let section = window.contentView!.addSubView(Section(200,300))
-        let btn = section.addSubView(Button(NaN,NaN,section))
+        let btn = section.addSubView(Button(NaN,NaN,section,"btn"))
         
         btn.event = { event in
             if event.type == ButtonEvent.upInside {
                 Swift.print("test")
             }
         }
+        let greenElement = section.addSubView(Element(100,100,section,"green"))
+        
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
