@@ -25,12 +25,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     func stateTest(){
         window.contentView = InteractiveView2()
-        let css:String = "#btn{fill:blue;width:100%;height:100%;float:left;clear:left;}"
+        let css:String = "#btn{fill:blue;width:100px;height:24px;float:left;clear:left;}"
         //css += "Section{fill:silver;padding:12px;}"
         StyleManager.addStyle(css)
         
         let section = window.contentView!.addSubView(Section(200,300))
-        let btn = section.addSubView(Element(NaN,NaN,section,"btn"))
+        let btn = section.addSubView(Button(NaN,NaN,section))
         
         btn.event = { event in
             if event.type == ButtonEvent.upInside {
