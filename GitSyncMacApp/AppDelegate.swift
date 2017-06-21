@@ -21,8 +21,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //continue here: 🏀
             //create a hidden state test for an element that you toggle on of with a button ✅
             //then create a container with 2 elements that can be hidden as well etc ✅
-            //also hide title buttons when you toggle, hide these in css or 
-            //the confirm buttons seems to be wrongly positioned in full mode
+            //also hide title buttons when you toggle, hide these in css or
+            //the confirm buttons seems to be wrongly positioned in full mode, maybe a 
         
         //stateTest()
     }
