@@ -22,7 +22,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //continue here:
             //create a hidden state test for an element that you toggle on of with a button
             //then create a container with 2 elements that can be hidden aswell etc
+        stateTest()
+    }
+    func stateTest(){
+        window.contentView = InteractiveView2()
+        let css:String = "#btn{fill:blue;width:100%;height:100%;float:left;clear:left;}"
+        //css += "Section{fill:silver;padding:12px;}"
+        StyleManager.addStyle(css)
         
+        let section = window.contentView!.addSubView(Section(200,300))
+        let btn = section.addSubView(Element(NaN,NaN,section,"btn"))
+        
+        section.addSubview(btn)
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
