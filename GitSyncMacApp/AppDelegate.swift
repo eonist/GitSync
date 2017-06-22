@@ -23,6 +23,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //then create a container with 2 elements that can be hidden as well etc ✅
             //also hide title buttons when you toggle, hide these in css or 👈
             //the confirm buttons seems to be wrongly positioned in full mode, maybe a css bug?
+            //look at the TreeList hiding code, it ha a bug now because of the change in the hiding code
         
         //stateTest()
     }
