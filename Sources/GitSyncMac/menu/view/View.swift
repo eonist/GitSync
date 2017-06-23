@@ -23,9 +23,9 @@ class PagesMenu:CustomMenuItem{
         super.init("Pages", "")
         submenu = NSMenu(title: "Pages")
         
-        _ = submenu?.addMenuItem(LogMenu( "Log", "L"))
-        _ = submenu?.addMenuItem(RepoMenu("Repos","R"))
-        _ = submenu?.addMenuItem(PrefsMenu("Prefs","S"))
+        _ = submenu?.addMenuItem(LogMenu( "Log", "l"))
+        _ = submenu?.addMenuItem(RepoMenu("Repos","r"))
+        _ = submenu?.addMenuItem(PrefsMenu("Prefs","s"))
     }
     override func onSelect(event sender:AnyObject){
         Swift.print("PagesMenu.onSelect() " + "\(sender)")
