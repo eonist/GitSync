@@ -6,7 +6,7 @@ import Cocoa
  */
 class StyleTestView:CustomView{
     var main:Section?
-    var content:Section?
+    static var content:Section?
     var currentView:Element?
     var leftbar:LeftSideBar?
     
@@ -17,7 +17,7 @@ class StyleTestView:CustomView{
         main = self.addSubView(Section(NaN,NaN,self,"main"))
         
         leftbar = main?.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
-        content = main?.addSubView(Section(NaN,NaN,main,"content"))
+        StyleTestView.content = main?.addSubView(Section(NaN,NaN,main,"content"))
         Nav.setView(Views2.dialog(.commit))/*⬅️️🚪*/
         //Nav.setView(.repoDetail([0,0,0]))
     }
@@ -37,7 +37,7 @@ class StyleTestView:CustomView{
         //remove leftSideBar
         guard let mainView:StyleTestView = NSApp.mainWindow?.contentView as? StyleTestView else{fatalError("must be available")}
         guard let leftBar = mainView.leftbar else{fatalError("must be available")}
-        guard let content = mainView.content else{fatalError("must be available")}
+        guard let content = StyleTestView.content else{fatalError("must be available")}
         let iconSection = mainView.iconSection
         
         if hide {
