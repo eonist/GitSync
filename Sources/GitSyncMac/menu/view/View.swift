@@ -22,11 +22,10 @@ class PagesMenu:CustomMenuItem{
     init(){
         super.init("Pages", "")
         submenu = NSMenu(title: "Pages")
-        //_ = submenu?.addMenuItem(ToggleSideBarMenuItem())
-        //_ = submenu?.addMenuItem(ToggleMenuBarMenuItem())
-        let log = submenu?.addMenuItem(CustomMenuItem( "Log", "L"))
-        //let repos = submenu?.addMenuItem(NSMenuItem("Repos","R"))
-        //let settings = submenu?.addMenuItem(NSMenuItem("Settings","S"))
+        
+        _ = submenu?.addMenuItem(LogMenu( "Log", "L"))
+        _ = submenu?.addMenuItem(RepoMenu("Repos","R"))
+        _ = submenu?.addMenuItem(PrefsMenu("Prefs","S"))
     }
     override func onSelect(event sender:AnyObject){
         Swift.print("PagesMenu.onSelect() " + "\(sender)")
@@ -36,6 +35,16 @@ class PagesMenu:CustomMenuItem{
 
 class LogMenu:CustomMenuItem{
     override func onSelect(event: AnyObject) {
-        Nav
+        Nav.setView(Views2.main(.commit))
+    }
+}
+class RepoMenu:CustomMenuItem{
+    override func onSelect(event: AnyObject) {
+        Nav.setView(Views2.main(.repo))
+    }
+}
+class PrefsMenu:CustomMenuItem{
+    override func onSelect(event: AnyObject) {
+        Nav.setView(Views2.main(.prefs))
     }
 }
