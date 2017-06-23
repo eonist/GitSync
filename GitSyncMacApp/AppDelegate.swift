@@ -38,9 +38,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     func themeSwitchTest(){
         window.contentView = InteractiveView2()
-        var css:String = "#btn{fill:blue;width:100px;height:24px;float:left;clear:left;}"
+        var css:String = ""
+        css += "#btn{fill:blue;width:100px;height:24px;float:left;clear:left;}"
         css += "#green{fill:green;clear:left;float:left;display:block;}"
         css += "#green:hidden{fill:orange;display:none;}"
+        
         StyleManager.addStyle(css)
         
         let section = window.contentView!.addSubView(Section(200,300))
@@ -50,7 +52,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         btn.event = { event in
             if event.type == ButtonEvent.upInside {
                 Swift.print("test")
-                one.setSkinState("hidden")
+                
             }
         }
     }
