@@ -24,7 +24,7 @@ class PagesMenu:CustomMenuItem{
         submenu = NSMenu(title: "Pages")
         //_ = submenu?.addMenuItem(ToggleSideBarMenuItem())
         //_ = submenu?.addMenuItem(ToggleMenuBarMenuItem())
-        let log = submenu?.addMenuItem(CustomMenuItem( "Log", "L", #selector(self.onSelect)))
+        let log = submenu?.addMenuItem(CustomMenuItem.init( "Log", "L", #selector(self.onSelect)))
         //let repos = submenu?.addMenuItem(NSMenuItem("Repos","R"))
         //let settings = submenu?.addMenuItem(NSMenuItem("Settings","S"))
     }
