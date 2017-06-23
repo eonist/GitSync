@@ -36,7 +36,7 @@ class Nav {
             case .commit:
                 return CommitView(NaN,NaN,mainView)
             case .repo:
-                return RepoView(NaN,NaN,mainView)//RepoView2
+                return RepoView(NaN,NaN,mainView)/*RepoView2*/
             case .prefs:
                 return PrefsView(NaN,NaN,mainView)
             }
