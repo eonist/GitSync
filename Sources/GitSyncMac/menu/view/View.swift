@@ -24,12 +24,18 @@ class PagesMenu:CustomMenuItem{
         submenu = NSMenu(title: "Pages")
         //_ = submenu?.addMenuItem(ToggleSideBarMenuItem())
         //_ = submenu?.addMenuItem(ToggleMenuBarMenuItem())
-        let log = submenu?.addMenuItem(CustomMenuItem.init( "Log", "L", #selector(self.onSelect)))
+        let log = submenu?.addMenuItem(CustomMenuItem( "Log", "L"))
         //let repos = submenu?.addMenuItem(NSMenuItem("Repos","R"))
         //let settings = submenu?.addMenuItem(NSMenuItem("Settings","S"))
     }
-    override func onSelect(event sender: AnyObject){
+    override func onSelect(event sender:AnyObject){
         Swift.print("PagesMenu.onSelect() " + "\(sender)")
     }
     required init(coder decoder:NSCoder) {fatalError("init(coder:) has not been implemented")}
+}
+
+class LogMenu:CustomMenuItem{
+    override func onSelect(event: AnyObject) {
+        Nav
+    }
 }
