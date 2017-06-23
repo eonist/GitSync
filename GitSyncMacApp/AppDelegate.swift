@@ -18,7 +18,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //jsonTest()
         initApp()
         
-        //continue here: 🏀
+        //Continue here: 🏀
             //create a hidden state test for an element that you toggle on of with a button ✅
             //then create a container with 2 elements that can be hidden as well etc ✅
             //also hide title buttons when you toggle, hide these in css or 👈
