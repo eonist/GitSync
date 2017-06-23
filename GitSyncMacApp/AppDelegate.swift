@@ -16,7 +16,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //jsonTest()
-        initApp()
+        //initApp()
         
         //Continue here: 🏀
             //create a hidden state test for an element that you toggle on of with a button ✅
@@ -36,7 +36,24 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         win = StyleTestWin(rect.w, rect.h)/*⬅️️🚪*/
         menu = Menu()/*This creates the App menu*/
     }
-    
+    func themeSwitchTest(){
+        window.contentView = InteractiveView2()
+        var css:String = "#btn{fill:blue;width:100px;height:24px;float:left;clear:left;}"
+        css += "#green{fill:green;clear:left;float:left;display:block;}"
+        css += "#green:hidden{fill:orange;display:none;}"
+        StyleManager.addStyle(css)
+        
+        let section = window.contentView!.addSubView(Section(200,300))
+        let btn = section.addSubView(Button(NaN,NaN,section,"btn"))
+        
+        let one = section.addSubView(Element(100,100,section,"green"))
+        btn.event = { event in
+            if event.type == ButtonEvent.upInside {
+                Swift.print("test")
+                one.setSkinState("hidden")
+            }
+        }
+    }
     func stateTest(){
         window.contentView = InteractiveView2()
         var css:String = "#btn{fill:blue;width:100px;height:24px;float:left;clear:left;}"
