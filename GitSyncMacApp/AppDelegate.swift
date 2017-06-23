@@ -44,7 +44,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 one.setSkinState("hidden")
             }
         }
-        
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
