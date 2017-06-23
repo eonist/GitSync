@@ -43,10 +43,10 @@ class StyleTestView:CustomView{
             iconSection.setSkinState("hidden")
             leftBar.setSkinState("hidden")
             content.setSkinState("full")
-        }else {
-            iconSection.setSkinState("")
-            leftBar.setSkinState("")
-            content.setSkinState("")
+        }else{
+            iconSection.setSkinState("")/*default*/
+            leftBar.setSkinState("")/*default*/
+            content.setSkinState("")/*default*/
         }
         ElementModifier.refreshSkin(leftBar)
         ElementModifier.refreshSkin(content)
