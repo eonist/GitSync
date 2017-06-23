@@ -38,17 +38,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     func themeSwitchTest(){
         window.contentView = InteractiveView2()
-        var css:String = ""
+        var css:String = "Theme{fill:green;}"
         css += "#btn{fill:blue;width:100px;height:24px;float:left;clear:left;}"
-        css += "#green{fill:green;clear:left;float:left;display:block;}"
-        css += "#green:hidden{fill:orange;display:none;}"
+        css += "#one{fill:<Theme>;clear:left;float:left;}"
+        
         
         StyleManager.addStyle(css)
         
         let section = window.contentView!.addSubView(Section(200,300))
         let btn = section.addSubView(Button(NaN,NaN,section,"btn"))
         
-        let one = section.addSubView(Element(100,100,section,"green"))
+        let one = section.addSubView(Element(100,100,section,"one"))
         btn.event = { event in
             if event.type == ButtonEvent.upInside {
                 Swift.print("test")
