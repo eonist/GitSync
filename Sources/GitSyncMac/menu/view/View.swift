@@ -6,11 +6,8 @@ class ViewMenu:CustomMenuItem {
     init(){
         super.init("View", "")
         submenu = NSMenu(title: "View")
-        //submenu!.addMenuItem(ShowRulerMenuItem())
         _ = submenu?.addMenuItem(ToggleSideBarMenuItem())
         _ = submenu?.addMenuItem(PagesMenu())
-        //_ = submenu?.addMenuItem(ToggleMenuBarMenuItem())
-        //submenu!.addMenuItem(CustomMenuItem("Fullscreen",""))
     }
     override func onSelect(event sender: AnyObject){
         Swift.print("ViewMenu.onSelect() " + "\(sender)")

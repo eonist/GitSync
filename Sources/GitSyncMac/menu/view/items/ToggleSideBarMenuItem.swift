@@ -4,7 +4,7 @@ import Cocoa
 
 class ToggleSideBarMenuItem:CustomMenuItem{
     static var isSideMenuHidden:Bool = false
-    init() {super.init("Show side bar", "l")}
+    init() {super.init("Show side bar", "m")}
     
     override func onSelect(event:AnyObject) {
         Swift.print("ShowSideBarMenuItem.onSelect()")
