@@ -57,7 +57,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 
                 Swift.print("value: " + "\(value)")
                 
-                //Continue here: 
+                //Continue here: 🏀
                     //set style somehow
                 
                 //StyleManager.getStyle("Theme")?.getStyleProperty("fill")?.value = NSColor.red
