@@ -41,7 +41,7 @@ class StyleTestView:CustomView{
         let iconSection = mainView.iconSection
         
         if hide {
-            iconSection.setSkinState("hidden")
+            iconSection.setSkinState("hidden")/*hides the Min,Max,Close btns*/
             leftBar.setSkinState("hidden")
             content.setSkinState("full")
         }else{
