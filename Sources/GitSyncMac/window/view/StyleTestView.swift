@@ -6,9 +6,9 @@ import Cocoa
  */
 class StyleTestView:CustomView{
     var main:Section?
-    static var content:Section?
-    static var currentView:Element?
-    static var leftbar:LeftSideBar?
+    var content:Section?
+    var currentView:Element?
+    var leftbar:LeftSideBar?
     
     override func resolveSkin(){
         Swift.print("StyleTestView")
@@ -16,8 +16,8 @@ class StyleTestView:CustomView{
         super.resolveSkin()
         main = self.addSubView(Section(NaN,NaN,self,"main"))
         
-        StyleTestView.leftbar = main!.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
-        StyleTestView.content = main!.addSubView(Section(NaN,NaN,main,"content"))
+        leftbar = main?.addSubView(LeftSideBar(NaN,NaN,main,"leftBar"))
+        content = main?.addSubView(Section(NaN,NaN,main,"content"))
         Nav.setView(Views2.dialog(.commit))/*⬅️️🚪*/
         //Nav.setView(.repoDetail([0,0,0]))
     }
@@ -35,9 +35,10 @@ class StyleTestView:CustomView{
     static func toggleSideBar(_ hide:Bool){
         Swift.print("toggleSideBar: hide: " + "\(hide)")
         //remove leftSideBar
-        guard let leftBar = StyleTestView.leftbar else{fatalError("must be available")}
-        guard let content = StyleTestView.content else{fatalError("must be available")}
-        guard let iconSection = (NSApp.mainWindow?.contentView as? CustomView)?.iconSection else {fatalError("must be availabale")}
+        guard let mainView:StyleTestView = NSApp.mainWindow?.contentView as? StyleTestView else{fatalError("must be available")}
+        guard let leftBar = mainView.leftbar else{fatalError("must be available")}
+        guard let content = mainView.content else{fatalError("must be available")}
+        let iconSection = mainView.iconSection
         
         if hide {
             iconSection.setSkinState("hidden")
