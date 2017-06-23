@@ -7,7 +7,7 @@ import Cocoa
 class StyleTestView:CustomView{
     var main:Section?
     static var content:Section?
-    var currentView:Element?
+    static var currentView:Element?
     static var leftbar:LeftSideBar?
     
     override func resolveSkin(){

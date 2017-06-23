@@ -1,4 +1,4 @@
-import Cocoa
+import Foundation
 @testable import Utils
 @testable import Element
 
@@ -23,11 +23,11 @@ class Nav {
      */
     static func setView(_ viewType:Views2){
         //Navigation.activeView = view
-        //guard let mainView:StyleTestView = NSApp.mainWindow?.contentView as? StyleTestView else{fatalError("must be available")}
+        guard let mainView:Element = StyleTestView.content else{fatalError("mainView is nil")}
         StyleTestView.leftbar?.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
-        if let curView = mainView.currentView {curView.removeFromSuperview()}
+        if let curView = StyleTestView.currentView {curView.removeFromSuperview()}
         let view = getView(viewType,mainView/*size*/)
-        mainView.currentView = mainView.addSubView(view)
+        StyleTestView.currentView = mainView.addSubView(view)
     }
     private static func getView(_ view:Views2,_ mainView:Element)->Element{
         switch view{
@@ -36,7 +36,7 @@ class Nav {
             case .commit:
                 return CommitView(NaN,NaN,mainView)
             case .repo:
-                return RepoView(NaN,NaN,mainView)/*RepoView2*/
+                return RepoView(NaN,NaN,mainView)//RepoView2
             case .prefs:
                 return PrefsView(NaN,NaN,mainView)
             }
