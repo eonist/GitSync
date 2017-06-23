@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Utils
 @testable import Element
 
@@ -23,11 +23,11 @@ class Nav {
      */
     static func setView(_ viewType:Views2){
         //Navigation.activeView = view
-        guard let mainView:Element = StyleTestView.content else{fatalError("mainView is nil")}
-        StyleTestView.leftbar?.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
-        if let curView = StyleTestView.currentView {curView.removeFromSuperview()}
+        guard let mainView:StyleTestView = NSApp.mainWindow?.contentView as? StyleTestView else{fatalError("must be available")}
+        mainView.leftbar?.menuContainer?.selectButton(viewType)/*Selects the correct menu icon*/
+        if let curView = mainView.currentView {curView.removeFromSuperview()}
         let view = getView(viewType,mainView/*size*/)
-        StyleTestView.currentView = mainView.addSubView(view)
+        mainView.currentView = mainView.addSubView(view)
     }
     private static func getView(_ view:Views2,_ mainView:Element)->Element{
         switch view{
