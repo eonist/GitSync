@@ -40,9 +40,11 @@ class StyleTestView:CustomView{
         guard let iconSection = (NSApp.mainWindow?.contentView as? CustomView)?.iconSection else {fatalError("must be availabale")}
         
         if hide {
+            iconSection.setSkinState("hidden")
             leftBar.setSkinState("hidden")
             content.setSkinState("full")
         }else {
+            iconSection.setSkinState("")
             leftBar.setSkinState("")
             content.setSkinState("")
         }
