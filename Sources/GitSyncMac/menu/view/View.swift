@@ -8,6 +8,7 @@ class ViewMenu:CustomMenuItem {
         submenu = NSMenu(title: "View")
         //submenu!.addMenuItem(ShowRulerMenuItem())
         _ = submenu?.addMenuItem(ToggleSideBarMenuItem())
+        _ = submenu?.addMenuItem(PagesMenu())
         //_ = submenu?.addMenuItem(ToggleMenuBarMenuItem())
         //submenu!.addMenuItem(CustomMenuItem("Fullscreen",""))
     }
@@ -21,9 +22,11 @@ class PagesMenu:CustomMenuItem{
     init(){
         super.init("Pages", "")
         submenu = NSMenu(title: "Pages")
-        _ = submenu?.addMenuItem(ToggleSideBarMenuItem())
+        //_ = submenu?.addMenuItem(ToggleSideBarMenuItem())
         //_ = submenu?.addMenuItem(ToggleMenuBarMenuItem())
-        //submenu!.addMenuItem(CustomMenuItem("Fullscreen",""))
+        _ = submenu?.addMenuItem(CustomMenuItem("Log","L"))
+        _ = submenu?.addMenuItem(CustomMenuItem("Repos","R"))
+        _ = submenu?.addMenuItem(CustomMenuItem("Settings","S"))
     }
     override func onSelect(event sender: AnyObject){
         Swift.print("PagesMenu.onSelect() " + "\(sender)")
