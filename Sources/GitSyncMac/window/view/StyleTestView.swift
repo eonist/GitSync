@@ -37,7 +37,10 @@ class StyleTestView:CustomView{
         //remove leftSideBar
         guard let leftBar = StyleTestView.leftbar else{fatalError("must be available")}
         guard let content = StyleTestView.content else{fatalError("must be available")}
-        guard let iconSection = self.iconSection else {fatalError("must be availabale")}
+        
+        
+        
+        //guard let iconSection = self.iconSection else {fatalError("must be availabale")}
         if hide {
             leftBar.setSkinState("hidden")
             content.setSkinState("full")
