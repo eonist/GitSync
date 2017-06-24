@@ -50,13 +50,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let one = section.addSubView(Element(100,100,section,"one"))
         btn.event = { event in
             if event.type == ButtonEvent.upInside {
-                Swift.print("test")
                 
-                Swift.print("value: " + "\(StyleManager.getStyle("Theme")?.getStyleProperty("fill")?.value)")
-                
+                Swift.print("value: " + "\(StyleManager.getStylePropVal("Theme", "fill"))")
                 StyleManager.overrideStylePropertyValue("Theme", "fill", NSColor.red)
+                Swift.print("value: " + "\(StyleManager.getStylePropVal("Theme", "fill"))")
                 
-                Swift.print("value: " + "\(StyleManager.getStyle("Theme")?.getStyleProperty("fill")?.value)")
+                
             }
         }
     }
