@@ -42,7 +42,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //setup the themes for styleTest
             //You then store the colors in light and dark theme
             //then hock up the switch to the css switcher code
-        
+                //
         window.contentView = InteractiveView2()
         
         StyleManager.addStylesByURL("~/Desktop/theme/lighttheme.css")
