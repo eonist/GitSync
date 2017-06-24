@@ -39,7 +39,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func themeSwitchTest(){
         
         //Continue here: 🏀
-            //setup the themes for styletest
+            //setup the themes for styleTest
             //You then store the colors in light and dark theme
             //then hock up the switch to the css switcher code
         
