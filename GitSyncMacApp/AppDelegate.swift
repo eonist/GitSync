@@ -28,7 +28,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //stateTest()
         themeSwitchTest()
     }
-    
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")//<--toggle this bool for live refresh
@@ -52,9 +51,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         btn.event = { event in
             if event.type == ButtonEvent.upInside {
                 Swift.print("test")
-                let value = StyleManager.getStyle("Theme")?.getStyleProperty("fill")?.value
-                
-                Swift.print("value: " + "\(value)")
+       
+                Swift.print("value: " + "\(StyleManager.getStyle("Theme")?.getStyleProperty("fill")?.value)")
                 
                 //Continue here: 🏀
                     //set style somehow
@@ -62,6 +60,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 let style = (StyleManager.getStyle("Theme") as? Style)
                 var styleProp = (style?.getStyleProperty("fill") as? StyleProperty)
                 styleProp?.value = NSColor.red
+                
+                Swift.print("value: " + "\(StyleManager.getStyle("Theme")?.getStyleProperty("fill")?.value)")
             }
         }
     }
