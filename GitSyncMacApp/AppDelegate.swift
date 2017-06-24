@@ -55,7 +55,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 StyleManager.overrideStylePropertyValue("Theme", "fill", NSColor.red)
                 Swift.print("value: " + "\(StyleManager.getStylePropVal("Theme", "fill"))")
                 
-                section.skin?.setSkinState(section.skin!.state + "changed")
+                one.skin?.setSkinState(one.skin!.state)
+                let newVal = one.skin?.style?.styleProperties.first(where: {$0.name == "fill"})?.value
+                Swift.print("newVal: " + "\(newVal)")
             }
         }
     }
