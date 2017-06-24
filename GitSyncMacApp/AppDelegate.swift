@@ -60,6 +60,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 
                 //StyleManager.getStyle("Theme")
                 if let i = StyleManager.index("Theme"), var style:Style = StyleManager.styles[safe:i] as? Style {
+                    StyleManager.styles[i]
                     StyleModifier.overrideStyleProperty(&style, StyleProperty("fill",NSColor.red))
                     Swift.print("value: " + "\(style.getStyleProperty("fill")?.value)")
                 }
