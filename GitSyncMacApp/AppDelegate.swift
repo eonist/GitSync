@@ -37,30 +37,27 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         menu = Menu()/*This creates the App menu*/
     }
     func themeSwitchTest(){
-        window.contentView = InteractiveView2()
-        var css:String = "Theme{fill:green;}"
-        css += "#btn{fill:blue;width:100px;height:24px;float:left;clear:left;}"
-        css += "#one{fill:<Theme>;clear:left;float:left;}"
         
-        StyleManager.addStyle(css)
+        //Continue here:
+            //setup the themes for styletest
+            //You then store the colors in light and dark theme
+            //then hock up the switch to the css switcher code
+        
+        window.contentView = InteractiveView2()
+        
+        StyleManager.addStylesByURL("~/Desktop/theme/lighttheme.css")
         
         let section = window.contentView!.addSubView(Section(200,300))
         let btn = section.addSubView(Button(NaN,NaN,section,"btn"))
-        
         let one = section.addSubView(Element(100,100,section,"one"))
+        
         btn.event = { event in
             if event.type == ButtonEvent.upInside {
-                
-                //Do this: 🏀
-                    //
-                
-                //Swift.print("value: " + "\(StyleManager.getStylePropVal("Theme", "fill"))")
-                //StyleManager.overrideStylePropertyValue("Theme", "fill", NSColor.red)
-                //Swift.print("value: " + "\(StyleManager.getStylePropVal("Theme", "fill"))")
-                
-                //one.skin?.setSkinState(one.skin!.state)
-                let newVal = one.skin?.style?.styleProperties.first(where: {$0.name == "fill"})?.value
-                Swift.print("newVal: " + "\(newVal)")
+                Swift.print("value: " + "\(StyleManager.getStylePropVal("Theme", "fill"))")//white
+                StyleManager.reset()
+                StyleManager.addStylesByURL("~/Desktop/theme/darktheme.css")
+                ElementModifier.refreshSkin(section)
+                Swift.print("newVal: " + "\(StyleManager.getStylePropVal("Theme", "fill")))")//black
             }
         }
     }
