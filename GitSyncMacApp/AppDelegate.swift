@@ -38,7 +38,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     func themeSwitchTest(){
         
-        //Continue here:
+        //Continue here: 🏀
             //setup the themes for styletest
             //You then store the colors in light and dark theme
             //then hock up the switch to the css switcher code
@@ -49,7 +49,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let section = window.contentView!.addSubView(Section(200,300))
         let btn = section.addSubView(Button(NaN,NaN,section,"btn"))
-        let one = section.addSubView(Element(100,100,section,"one"))
+        _ = section.addSubView(Element(100,100,section,"one"))
         
         btn.event = { event in
             if event.type == ButtonEvent.upInside {
