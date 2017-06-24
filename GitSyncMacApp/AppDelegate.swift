@@ -57,9 +57,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //Continue here: 🏀
                     //set style somehow
                 
-                let style = (StyleManager.getStyle("Theme") as? Style)
-                var styleProp = (style?.getStyleProperty("fill") as? StyleProperty)
-                styleProp?.value = NSColor.red
+                
+                ((StyleManager.getStyle("Theme") as? Style)?.getStyleProperty("fill") as? StyleProperty)?.value = NSColor.red
                 
                 Swift.print("value: " + "\(StyleManager.getStyle("Theme")?.getStyleProperty("fill")?.value)")
             }
