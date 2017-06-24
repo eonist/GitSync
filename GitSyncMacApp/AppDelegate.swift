@@ -51,11 +51,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         btn.event = { event in
             if event.type == ButtonEvent.upInside {
                 
-                Swift.print("value: " + "\(StyleManager.getStylePropVal("Theme", "fill"))")
-                StyleManager.overrideStylePropertyValue("Theme", "fill", NSColor.red)
-                Swift.print("value: " + "\(StyleManager.getStylePropVal("Theme", "fill"))")
+                //Do this: 🏀
+                    //
                 
-                one.skin?.setSkinState(one.skin!.state)
+                //Swift.print("value: " + "\(StyleManager.getStylePropVal("Theme", "fill"))")
+                //StyleManager.overrideStylePropertyValue("Theme", "fill", NSColor.red)
+                //Swift.print("value: " + "\(StyleManager.getStylePropVal("Theme", "fill"))")
+                
+                //one.skin?.setSkinState(one.skin!.state)
                 let newVal = one.skin?.style?.styleProperties.first(where: {$0.name == "fill"})?.value
                 Swift.print("newVal: " + "\(newVal)")
             }
