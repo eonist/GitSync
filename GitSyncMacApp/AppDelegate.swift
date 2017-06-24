@@ -59,10 +59,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     //use index 👈
                 
                 //StyleManager.getStyle("Theme")
-                if let i = StyleManager.index("Theme"), var style:Style = StyleManager.styles[safe:i] as? Style, let e:Int = StyleParser.idx(style, "fill") {
+                if let i = StyleManager.index("Theme"), let style:IStyle = StyleManager.styles[safe:i], let e:Int = StyleParser.idx(style, "fill") {
                     StyleManager.styles[i].styleProperties[e].value = NSColor.red
                     //StyleModifier.overrideStyleProperty(&style, StyleProperty("fill",NSColor.red))
-                    Swift.print("value: " + "\(style.getStyleProperty("fill")?.value)")
+                    //Swift.print("value: " + "\(style.getStyleProperty("fill")?.value)")
                 }
                 //((StyleManager.getStyle("Theme") as? Style)?.getStyleProperty("fill") as? StyleProperty)?.value = NSColor.red
                 
