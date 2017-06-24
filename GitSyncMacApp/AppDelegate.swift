@@ -56,6 +56,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 
                 //Continue here: 🏀
                     //set style somehow
+                    //use index 👈
                 
                 StyleManager.getStyle("Theme")
                 //((StyleManager.getStyle("Theme") as? Style)?.getStyleProperty("fill") as? StyleProperty)?.value = NSColor.red
