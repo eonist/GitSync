@@ -51,7 +51,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         btn.event = { event in
             if event.type == ButtonEvent.upInside {
                 Swift.print("test")
-       
+                
                 Swift.print("value: " + "\(StyleManager.getStyle("Theme")?.getStyleProperty("fill")?.value)")
                 
                 StyleManager.overrideStylePropertyValue("Theme", "fill", NSColor.red)
