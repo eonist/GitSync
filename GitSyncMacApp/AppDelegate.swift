@@ -43,7 +43,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         css += "#btn{fill:blue;width:100px;height:24px;float:left;clear:left;}"
         css += "#one{fill:<Theme>;clear:left;float:left;}"
         
-        
         StyleManager.addStyle(css)
         
         let section = window.contentView!.addSubView(Section(200,300))
@@ -60,7 +59,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //Continue here: 🏀
                     //set style somehow
                 
-                //StyleManager.getStyle("Theme")?.getStyleProperty("fill")?.value = NSColor.red
+                let style = (StyleManager.getStyle("Theme") as? Style)
+                var styleProp = (style?.getStyleProperty("fill") as? StyleProperty)
+                styleProp?.value = NSColor.red
             }
         }
     }
