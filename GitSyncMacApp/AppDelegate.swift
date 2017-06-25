@@ -20,7 +20,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //Continue here: 🏀
             //theme switching is slow, but it works.
-            //maybe 
+            //maybe you can store 2 themes in the xml
+                //maybe it will be fast then?
+                
         
         //stateTest()
         //themeSwitchTest()
