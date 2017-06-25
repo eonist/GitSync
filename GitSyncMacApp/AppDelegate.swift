@@ -27,7 +27,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest/light.css")//<--toggle this bool for live refresh
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest/dark.css")//<--toggle this bool for live refresh
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
         let rect:CGRect = PrefsView.prefs.rect
         win = StyleTestWin(rect.w, rect.h)/*⬅️️🚪*/
