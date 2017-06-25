@@ -54,8 +54,10 @@ class PrefsView:Element {
                 let themeStr:String = darkMode!.getChecked() ? "darktheme.css" : "lightheme.css"
                 
                 StyleManager.addStylesByURL("~/Desktop/theme/" + themeStr)
-                //ElementModifier.refreshSkin(section)
-                
+                //
+                if let win:NSWindow = WinParser.focusedWindow(), let styleTestWin:NSWindow = win as? StyleTestWin, let styleTestView = styleTestWin.contentView as? StyleTestView{
+                    ElementModifier.refreshSkin(styleTestView)
+                }
                 
                 
             default:
