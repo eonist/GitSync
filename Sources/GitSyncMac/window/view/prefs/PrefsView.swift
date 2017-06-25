@@ -53,7 +53,7 @@ class PrefsView:Element {
                 StyleManager.reset()
                 let themeStr:String = darkMode!.getChecked() ? "dark.css" : "light.css"
                 
-                StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest/" + themeStr)
+                StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest/" + themeStr,true)
                 
                 if let win:NSWindow = WinParser.focusedWindow(), let styleTestWin:NSWindow = win as? StyleTestWin, let styleTestView = styleTestWin.contentView as? StyleTestView{
                     Swift.print("refreshSkin init")
