@@ -19,10 +19,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         initApp()
         
         //Continue here: 🏀
-            //theme switching is slow, but it works.
+            //theme switching is slow, but it works. ✅
             //maybe you can store 2 themes in the xml
                 //maybe it will be fast then?
-                
+            //setup the correct dark-theme colors 👈
+                //and make sure Text color is also set
         
         //stateTest()
         //themeSwitchTest()
