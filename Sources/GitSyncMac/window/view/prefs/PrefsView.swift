@@ -30,7 +30,7 @@ class PrefsView:Element {
         setPrefs(PrefsView.prefs)
     }
     override func onEvent(_ event:Event) {
-        Swift.print("PrefsView.onEvent")
+        Swift.print("PrefsView.onEvent event.type: \(event.type)")
         if event.type == Event.update {
             switch true{/*TextInput*/
             case event.isChildOf(login):
@@ -54,13 +54,16 @@ class PrefsView:Element {
                 let themeStr:String = darkMode!.getChecked() ? "darktheme.css" : "lightheme.css"
                 
                 StyleManager.addStylesByURL("~/Desktop/theme/" + themeStr)
-                //
+                
                 if let win:NSWindow = WinParser.focusedWindow(), let styleTestWin:NSWindow = win as? StyleTestWin, let styleTestView = styleTestWin.contentView as? StyleTestView{
+                    Swift.print("refreshSkin init")
                     ElementModifier.refreshSkin(styleTestView)
+                    Swift.print("refreshSkin completed")
                 }
                 
                 
             default:
+                Swift.print("no match")
                 break;
             }
         }else{
