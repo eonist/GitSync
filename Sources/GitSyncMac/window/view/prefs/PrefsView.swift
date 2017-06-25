@@ -55,6 +55,7 @@ class PrefsView:Element {
                 
                 StyleManager.addStylesByURL("~/Desktop/theme/" + themeStr)
                 //ElementModifier.refreshSkin(section)
+                if let win:NSWindow = WinParser.focusedWindow(), let styleTestWin:NSWindow = win as? StyleTestWin, 
                 
                 
             default:
