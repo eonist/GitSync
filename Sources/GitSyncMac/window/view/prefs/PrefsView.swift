@@ -49,6 +49,14 @@ class PrefsView:Element {
             switch true{/*CheckButtons*/
             case event.isChildOf(darkMode)://TODO: <---use getChecked here
                 PrefsView.prefs.darkMode = darkMode!.getChecked()
+                
+                StyleManager.reset()
+                let themeStr:String = darkMode!.getChecked() ? "darktheme.css" : "lightheme.css"
+                
+                StyleManager.addStylesByURL("~/Desktop/theme/" + themeStr)
+                //ElementModifier.refreshSkin(section)
+                
+                
             default:
                 break;
             }
