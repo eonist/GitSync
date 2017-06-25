@@ -36,7 +36,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func themeSwitchTest(){
         
         //Continue here: 🏀
-            //deprecated the lat of gitsync old css files
+            //deprecated the last of gitsync old css files
             //setup the themes for styleTest 👈
             //You then store the colors in light and dark theme
             //then hock up the switch to the css switcher code
