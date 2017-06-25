@@ -19,8 +19,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         initApp()
         
         //Continue here: 🏀
-            //the confirm buttons seems to be wrongly positioned in full mode, maybe a css bug?
-            //look at the TreeList hiding code, it ha a bug now because of the change in the hiding code
+            //theme switching is slow, but it works.
+            //
         
         //stateTest()
         //themeSwitchTest()
