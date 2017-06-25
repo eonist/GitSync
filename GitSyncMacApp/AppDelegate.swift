@@ -29,9 +29,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest/general.css")//<--toggle this bool for live refresh
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
-        let rect:CGRect = PrefsView.prefs.rect
-        win = StyleTestWin(rect.w, rect.h)/*⬅️️🚪*/
-        menu = Menu()/*This creates the App menu*/
+        /*let rect:CGRect = PrefsView.prefs.rect
+         win = StyleTestWin(rect.w, rect.h)/*⬅️️🚪*/
+         menu = Menu()/*This creates the App menu*/*/
     }
     func themeSwitchTest(){
         
