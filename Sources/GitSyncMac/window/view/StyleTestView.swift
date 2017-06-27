@@ -31,7 +31,8 @@ class StyleTestView:CustomView{
     }
     /**
      * 1. make StyleTestWin have a static view
-     * 2. make then you can make this method a nonstatic one and use ELementParser.element(self,id,class)
+     * 2. make then you can make this method a non-static one and use ELementParser.element(self,id,class)
+     * 3. 
      */
     static func toggleSideBar(_ hide:Bool){
         Swift.print("toggleSideBar: hide: " + "\(hide)")
