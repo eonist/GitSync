@@ -9,10 +9,6 @@ class StyleTestView:CustomView{
     static var content:Section?
     static var currentView:Element?
     static var leftbar:LeftSideBar?
-    static var iconSection:Section? {
-        
-    }
-   
     
     override func resolveSkin(){
         Swift.print("StyleTestView")
@@ -34,7 +30,8 @@ class StyleTestView:CustomView{
         ElementModifier.refreshSize(main!)
     }
     /**
-     *
+     * 1. make StyleTestWin have a static view
+     * 2. make 
      */
     static func toggleSideBar(_ hide:Bool){
         Swift.print("toggleSideBar: hide: " + "\(hide)")
