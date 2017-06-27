@@ -9,6 +9,9 @@ class StyleTestView:CustomView{
     static var content:Section?
     static var currentView:Element?
     static var leftbar:LeftSideBar?
+    static var iconSection:Section? {
+        
+    }
    
     
     override func resolveSkin(){
