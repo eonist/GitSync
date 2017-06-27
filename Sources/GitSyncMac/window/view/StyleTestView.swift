@@ -30,9 +30,9 @@ class StyleTestView:CustomView{
         ElementModifier.refreshSize(main!)
     }
     /**
-     * 1. make StyleTestWin have a static view
-     * 2. make then you can make this method a non-static one and use ELementParser.element(self,id,class)
-     * 3. 
+     * 1. make StyleTestWin have a static view 👈
+     * 2. make then you can make this method a non-static one and use regular optionals
+     * 3. Then continue making the hide sidebar when dialog etc
      */
     static func toggleSideBar(_ hide:Bool){
         Swift.print("toggleSideBar: hide: " + "\(hide)")
