@@ -18,7 +18,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //jsonTest()
         initApp()
         
-                
+        
         //stateTest()
         //themeSwitchTest()
     }
