@@ -8,7 +8,6 @@ class ToggleSideBarMenuItem:CustomMenuItem{
     
     override func onSelect(event:AnyObject) {
         Swift.print("ShowSideBarMenuItem.onSelect()")
-        
         let toggle:Bool = !ToggleSideBarMenuItem.isSideMenuHidden
         ToggleSideBarMenuItem.isSideMenuHidden = toggle/*toggle*/
         StyleTestView.toggleSideBar(toggle)/*hiding logic*/
