@@ -58,7 +58,6 @@ class Nav {
                 if !ToggleSideBarMenuItem.isSideMenuHidden {
                     StyleTestView.toggleSideBar(true)/*true means hide*/
                 }
-                
                 let view:CommitDialogView = CommitDialogView(NaN,NaN,mainView)
                 return view
                 //fatalError("not implemented yet")
