@@ -24,6 +24,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
+        
+        let themeStr:String = darkMode!.getChecked() ? "dark.css" : "light.css"
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest/" + themeStr,true)
+        
+        
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest/dark.css")//<--toggle this bool for live refresh
         //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
         let rect:CGRect = PrefsView.prefs.rect
