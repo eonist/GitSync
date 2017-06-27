@@ -3,7 +3,7 @@ import Cocoa
 @testable import Utils
 
 class StyleTestWin:Window {
-    static var view:Element?
+    //static var view:StyleTestView?
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
         super.init(docWidth, docHeight)
         WinModifier.align(self, Alignment.centerCenter, Alignment.centerCenter,CGPoint(6,0))/*aligns the window to the screen*/
@@ -11,8 +11,8 @@ class StyleTestWin:Window {
         self.maxSize = CGSize(600,800)
     }
     override func resolveSkin() {
-        StyleTestWin.view = StyleTestView(frame.size.width,frame.size.height)/*⬅️️🚪*/
-        self.contentView = StyleTestWin.view!
+        self.contentView = StyleTestView(frame.size.width,frame.size.height)/*⬅️️🚪*/
+        // = StyleTestWin.view!
     }
     required init?(coder:NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
