@@ -36,7 +36,7 @@ class StyleTestView:CustomView{
     static func toggleSideBar(_ hide:Bool){
         Swift.print("toggleSideBar: hide: " + "\(hide)")
         //remove leftSideBar
-        guard let mainView:StyleTestView = StyleTestWin.view else{fatalError("must be available")}//NSApp.mainWindow?.contentView as? StyleTestView
+        guard let mainView:StyleTestView = NSApp.mainWindow?.contentView as? StyleTestView else{fatalError("must be available")}//
         guard let leftBar = StyleTestView.leftbar else{fatalError("must be available")}
         guard let content = StyleTestView.content else{fatalError("must be available")}
         let iconSection = mainView.iconSection
