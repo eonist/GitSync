@@ -4,10 +4,6 @@
 # GitSync
 <img width="516" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Element210-01.png">
 
-### DarkMode:
-
-<img width="412" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2017-06-07 at 17.49.33 copy.png">
-
 ### Commits:
 
 <img width="412" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2017-06-07 at 18.01.40.png">
@@ -16,5 +12,8 @@
 
 <img width="404" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2017-06-07 at 23.34.36.png">
 
+### DarkMode:
+
+<img width="412" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2017-06-07 at 17.49.33 copy.png">
 
 [MIT License](http://opensource.org/licenses/MIT)
