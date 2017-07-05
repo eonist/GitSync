@@ -16,11 +16,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //jsonTest()
-        initApp()
         
-        
+        //initApp()
         //stateTest()
         //themeSwitchTest()
+        graphXTest()
+    }
+    /**
+     *
+     */
+    func graphXTest(){
+        
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
@@ -39,8 +45,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //deprecated the last of gitsync old css files ✅
             //setup the themes for styleTest 👈
             //You then store the colors in light and dark theme ✅
-            //then hock up the switch to the css switcher code ✅
-                //
+            //then hook up the switch to the css switcher code ✅
+                //COntinue here: StyleTestView.swift
         window.contentView = InteractiveView2()
         
         StyleManager.addStylesByURL("~/Desktop/theme/lighttheme.css")
