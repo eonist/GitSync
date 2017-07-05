@@ -26,6 +26,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func graphXTest(){
+        Swift.print("Hello GraphX")
+        window.contentView = InteractiveView2()
+        
         
     }
     func initApp(){
