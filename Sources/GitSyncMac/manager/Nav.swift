@@ -17,6 +17,7 @@ enum Views2{
         case commit
     }
 }
+
 class Nav {
     /**
      * Navigate between views
