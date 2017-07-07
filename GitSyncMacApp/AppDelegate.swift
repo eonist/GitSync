@@ -17,10 +17,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //jsonTest()
         
-        //initApp()
+        initApp()
         //stateTest()
         //themeSwitchTest()
-        graphXTest()
+        //graphXTest()
     }
     /**
      *
@@ -49,7 +49,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //setup the themes for styleTest 👈
             //You then store the colors in light and dark theme ✅
             //then hook up the switch to the css switcher code ✅
-                //COntinue here: StyleTestView.swift
+                //COntinue here: 
+        
         window.contentView = InteractiveView2()
         
         StyleManager.addStylesByURL("~/Desktop/theme/lighttheme.css")

@@ -10,7 +10,8 @@ class ToggleSideBarMenuItem:CustomMenuItem{
         Swift.print("ShowSideBarMenuItem.onSelect()")
         let toggle:Bool = !ToggleSideBarMenuItem.isSideMenuHidden
         ToggleSideBarMenuItem.isSideMenuHidden = toggle/*toggle*/
-        StyleTestView.toggleSideBar(toggle)/*hiding logic*/
+        guard let styleTestView:StyleTestView = NSApp.mainWindow?.contentView as? StyleTestView else {fatalError("not avilable")}
+        styleTestView.toggleSideBar(toggle)/*hiding logic*/
     }
     /**
      * Return true if you want to enable the menu item, false will disable it

@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Utils
 @testable import Element
 
@@ -55,9 +55,10 @@ class Nav {
             _ = dialog
             switch dialog{
             case .commit:
-                if !ToggleSideBarMenuItem.isSideMenuHidden {
-                    StyleTestView.toggleSideBar(true)/*true means hide*/
-                }
+                /*if !ToggleSideBarMenuItem.isSideMenuHidden {
+                    guard let styleTestView:StyleTestView = NSApp.mainWindow?.contentView as? StyleTestView else {fatalError("not avilable")}
+                    styleTestView.toggleSideBar(true)/*true means hide*/
+                }*/
                 let view:CommitDialogView = CommitDialogView(NaN,NaN,mainView)
                 return view
                 //fatalError("not implemented yet")
