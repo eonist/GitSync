@@ -30,12 +30,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView2()
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/graphx/graphxtest.css",true)
         
-        
-        //Continue here: 👈
-            //setup basic css styles ✅
-            //try to run the graphtest ✅
-            //move things into a GraphXTestWin and GraphXTestView
-        
         let winSize:CGSize = WinParser.size(window)
         let graph = window.contentView!.addSubView(GraphX(winSize.w,winSize.h))
         _ = graph
