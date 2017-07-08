@@ -20,11 +20,15 @@ class GraphAreaX:Element{
         contentContainer = addSubView(Container(width,height,self,"content"))
         createGraphLine()
         //createGraphPoints()
+        
+        //continue here:Draw the graph points
+        
     }
     /**
      * Creates the Graph line
      */
     func createGraphLine(/*_ vValues:[CGFloat], _ maxValue:CGFloat*/){
+        Swift.print("createGraphLine")
         let vValues:[CGFloat] = Array(repeating:0, count:GraphX.config.tCount)/*placeholder values*/
         let maxValue:CGFloat = 0
         points = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue, 0, 0)
