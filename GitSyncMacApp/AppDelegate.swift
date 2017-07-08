@@ -17,7 +17,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //jsonTest()
         
-//        initApp()
+//      initApp()
         //stateTest()
         //themeSwitchTest()
         graphXTest()
@@ -28,8 +28,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func graphXTest(){
         Swift.print("Hello GraphX")
         window.contentView = InteractiveView2()
-        
-        
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
