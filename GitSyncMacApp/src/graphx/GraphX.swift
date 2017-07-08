@@ -28,12 +28,12 @@ class GraphArea:Element{
     //createGraphPoints
 }
 class TimeBar:Element{
-    var lables:[TextArea] = []
-    override func resolveSkin() {
-        //createLables()
-        //
-    }
+    
 }
 class ValueBar:Element{
-    
+    //var valueLables:[TextArea] = []
+    override func resolveSkin() {
+        super.resolveSkin()
+        //valueLables()
+    }
 }
