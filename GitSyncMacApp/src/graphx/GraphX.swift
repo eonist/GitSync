@@ -16,16 +16,15 @@ class GraphX:Element{
     /**/
     var leftMargin:CGFloat {return 50}
     var topMargin:CGFloat {return 50}
-    var vCount:Int {return Graph9.config.vCount}
-    var tCount:Int {return Graph9.config.tCount}
-    var maxZoom:Int {return Graph9.config.maxZoom}
+    var vCount:Int {return 5}
+    var tCount:Int {return 7}
     
     override func resolveSkin() {
         super.resolveSkin()
         createUI()
     }
     /**
-     *
+     * Creates the UI Components
      */
     func createUI(){
         createTimeBar()
@@ -36,7 +35,7 @@ class GraphX:Element{
      * Creates the TimeBar
      */
     func createTimeBar(){
-        timeBar = addSubView(TimeBarX(w,24,24,self))
+        timeBar = addSubView(TimeBarX(w,24,self))
     }
     /**
      * Creates the GraphArea
@@ -51,7 +50,7 @@ class GraphX:Element{
      * Creates the ValueBar
      */
     func createValueBar(){
-        valueBar = addSubView(ValueBar(32,height,self))
+        valueBar = addSubView(ValueBarX(32,height,self))
         let objSize = CGSize(42,valueBar!.h)
         let canvasSize = CGSize(w,h)
         let p = Align.alignmentPoint(objSize, canvasSize, Alignment.topLeft, Alignment.topLeft, CGPoint())
