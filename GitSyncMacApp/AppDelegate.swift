@@ -28,7 +28,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func graphXTest(){
         Swift.print("Hello GraphX")
         window.contentView = InteractiveView2()
-        StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest/" + themeStr,true)
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/graphx/graphxtest.css",true)
+        
+        
+        //Continue here:
+            
+        
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
