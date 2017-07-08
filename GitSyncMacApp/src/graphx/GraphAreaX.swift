@@ -20,8 +20,7 @@ class GraphAreaX:Element{
         contentContainer = addSubView(Container(width,height,self,"content"))
         createGraphLine()
         createGraphPoints()
-        
-        //continue here: Draw the graph points
+    
         
     }
     /**
