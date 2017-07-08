@@ -36,7 +36,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //try to run the graphtest 
             //move things into a GraphXTestWin and GraphXTestView
         
-        let graph = window.contentView!.addSubView(GraphX(300,200))
+        let graph = window.contentView!.addSubView(GraphX(self.w,self.h-24))
         _ = graph
     }
     func initApp(){
