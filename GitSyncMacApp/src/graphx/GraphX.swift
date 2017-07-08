@@ -9,9 +9,9 @@ import Foundation
  * TODO: ⚠️️ Then try to anim the graph at trigger integers
  */
 class GraphX:Element{
-    var timeBar:TimeBar?
-    var valueBar:ValueBar?
-    var graphComponent:GraphComponent?
+    var timeBar:TimeBarX?
+    var valueBar:ValueBarX?
+    var graphComponent:GraphAreaX?
     
     override func resolveSkin() {
         super.resolveSkin()
@@ -29,7 +29,7 @@ class GraphX:Element{
      * Creates the TimeBar
      */
     func createTimeBar(){
-        timeBar = addSubView(TimeBar(w,24,24,self))
+        timeBar = addSubView(TimeBarX(w,24,24,self))
     }
     /**
      * Creates the GraphArea
@@ -37,7 +37,7 @@ class GraphX:Element{
     func createGraphArea(){
         let w:CGFloat = self.w - (leftMargin*2)
         let h:CGFloat = self.h - (topMargin*2)
-        graphComponent = addSubView(GraphComponent(w,h,self))
+        graphComponent = addSubView(GraphAreaX(w,h,self))
         graphComponent!.point = CGPoint(leftMargin,topMargin)
     }
     /**
