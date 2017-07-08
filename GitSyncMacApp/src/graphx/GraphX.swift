@@ -20,9 +20,12 @@ class GraphArea:Element{
     //points
     //prevPoints
     //contentContainer
-    
+    override func resolveSkin() {
+        super.resolveSkin()
+        //createUI()
+    }
     //createGraphLine
-    
+    //createGraphPoints
 }
 class TimeBar:Element{
     
