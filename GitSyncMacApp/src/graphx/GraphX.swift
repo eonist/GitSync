@@ -30,7 +30,7 @@ class GraphX:Element{
     func createUI(){
         createValueBar()
         createGraphArea()
-        //createTimeBar()
+        createTimeBar()
     }
     /**
      * Creates the ValueBar
@@ -55,6 +55,6 @@ class GraphX:Element{
      * Creates the TimeBar
      */
     func createTimeBar(){
-        timeBar = addSubView(TimeBarX(w,24,self))
+        timeBar = addSubView(TimeBarX(NaN,NaN,self))
     }
 }
