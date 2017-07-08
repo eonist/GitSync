@@ -33,6 +33,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //Continue here:
             //setup basic css styles
+            //try to run the graphtest
+            //move things into a GraphXTestWin and GraphXTestView
         
     }
     func initApp(){
