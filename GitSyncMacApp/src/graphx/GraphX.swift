@@ -17,6 +17,8 @@ class GraphX:Element{
      *
      */
     func createUI(){
-        
+        createTimeBar()
+        createGraphArea()
+        createValueBar()
     }
 }
