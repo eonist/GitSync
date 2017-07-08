@@ -28,15 +28,19 @@ class GraphX:Element{
      * Creates the UI Components
      */
     func createUI(){
-        createTimeBar()
-        createGraphArea()
         createValueBar()
+        //createGraphArea()
+        //createTimeBar()
     }
     /**
-     * Creates the TimeBar
+     * Creates the ValueBar
      */
-    func createTimeBar(){
-        timeBar = addSubView(TimeBarX(w,24,self))
+    func createValueBar(){
+        valueBar = addSubView(ValueBarX(32,height,self))
+        //let objSize = CGSize(42,valueBar!.h)
+        //let canvasSize = CGSize(w,h)
+        //let p = Align.alignmentPoint(objSize, canvasSize, Alignment.topLeft, Alignment.topLeft, CGPoint())/*Manually aligned*/
+        //valueBar!.point = p/*aligns timeBar to bottom*/
     }
     /**
      * Creates the GraphArea
@@ -48,13 +52,9 @@ class GraphX:Element{
         graphArea!.point = CGPoint(leftMargin,topMargin)/*Manually aligned*/
     }
     /**
-     * Creates the ValueBar
+     * Creates the TimeBar
      */
-    func createValueBar(){
-        valueBar = addSubView(ValueBarX(32,height,self))
-        let objSize = CGSize(42,valueBar!.h)
-        let canvasSize = CGSize(w,h)
-        let p = Align.alignmentPoint(objSize, canvasSize, Alignment.topLeft, Alignment.topLeft, CGPoint())/*Manually aligned*/
-        valueBar!.point = p/*aligns timeBar to bottom*/
+    func createTimeBar(){
+        timeBar = addSubView(TimeBarX(w,24,self))
     }
 }
