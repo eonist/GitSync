@@ -11,7 +11,7 @@ class GraphAreaX:Element{
     //var animator:Animator?/*Anim*/
     override func resolveSkin() {
         super.resolveSkin()
-        //createUI()
+        createUI()
     }
     /**
      * Creates the UI Components
@@ -32,7 +32,7 @@ class GraphAreaX:Element{
         let maxValue:CGFloat = 0
         points = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue, 0, 0)
         let path:IPath = PolyLineGraphicUtils.path(points!)
-        graphLine = contentContainer!.addSubView(GraphLine(width,height,path,contentContainer!))
+        graphLine = contentContainer!.addSubView(GraphLine(getWidth(),getHeight(),path,contentContainer!))
     }
     /**
      * Creates The visual Graph points that hover above the Graph line
