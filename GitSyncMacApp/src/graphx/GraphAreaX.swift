@@ -54,6 +54,22 @@ class GraphAreaX:Element{
         /*if(animator != nil){animator!.stop()}/*stop any previous running animation*/
          animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Quad.easeIn)
          animator!.start()
-         */    }
+         */
+        
+        var positions:[CGPoint] = []
+        /*GraphPoints*/
+        for i in 0..<points!.count{
+            let pos:CGPoint = prevPoints![i].interpolate(points![i], val)/*interpolates from one point to another*/
+            positions.append(pos)
+            dots[i].setPosition(pos)//moves the points
+        }
+        /*GraphLine*/
+        let path:IPath = PolyLineGraphicUtils.path(positions)/*convert points to a Path*/
+        //TODO: Ideally we should create the CGPath from the points use CGPathParser.polyline
+        let cgPath = CGPathUtils.compile(CGMutablePath(), path)//convert path to cgPath
+        graphLine!.line!.cgPath = cgPath.clone()//applies the new path
+        graphLine!.line!.draw()//draws the path
+        
+    }
 }
 
