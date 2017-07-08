@@ -19,9 +19,9 @@ class GraphAreaX:Element{
     func createUI(){
         contentContainer = addSubView(Container(width,height,self,"content"))
         createGraphLine()
-        //createGraphPoints()
+        createGraphPoints()
         
-        //continue here:Draw the graph points
+        //continue here: Draw the graph points
         
     }
     /**
