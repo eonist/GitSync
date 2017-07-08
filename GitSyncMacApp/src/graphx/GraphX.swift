@@ -13,11 +13,13 @@ class GraphX:Element{
     var timeBar:TimeBarX?
     var valueBar:ValueBarX?
     var graphArea:GraphAreaX?
-    /**/
-    var leftMargin:CGFloat {return 50}
-    var topMargin:CGFloat {return 50}
-    var vCount:Int {return 5}
-    var tCount:Int {return 7}
+    /*Config*/
+    static var config:GraphConfig = (5,7,CGSize(50,50),3)/*Static storage of config values*/
+    /*We then store static vars inside local vars so that local methods can easily refer to the values with less verbosity*/
+    var leftMargin:CGFloat {return GraphX.config.margin.width}
+    var topMargin:CGFloat {return GraphX.config.margin.height}
+    var vCount:Int {return GraphX.config.vCount}
+    var tCount:Int {return GraphX.config.tCount}
     
     override func resolveSkin() {
         super.resolveSkin()
