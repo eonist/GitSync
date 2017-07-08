@@ -21,7 +21,8 @@ class GraphX:Element{
     
     override func resolveSkin() {
         super.resolveSkin()
-        createUI()
+        Swift.print("GraphX.resolveSkin()")
+        //createUI()
     }
     /**
      * Creates the UI Components
