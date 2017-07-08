@@ -35,12 +35,13 @@ class TimeBar:Element{
     //timeLabels
     override func resolveSkin() {
         super.resolveSkin()
+        //createTimeLables()
     }
 }
 class ValueBar:Element{
     //var valueLables:[TextArea] = []
     override func resolveSkin() {
         super.resolveSkin()
-        //valueLables()
+        //createValueLables()
     }
 }
