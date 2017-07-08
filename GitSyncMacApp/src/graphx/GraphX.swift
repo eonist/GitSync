@@ -17,6 +17,12 @@ class GraphX:Element{
 class GraphArea:Element{
     //graphDots
     //graphLine
+    //points
+    //prevPoints
+    //contentContainer
+    
+    //createGraphLine
+    
 }
 class TimeBar:Element{
     
