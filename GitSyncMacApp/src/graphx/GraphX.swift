@@ -9,9 +9,16 @@ import Foundation
  * TODO: ⚠️️ Then try to anim the graph at trigger integers
  */
 class GraphX:Element{
+    /*Components*/
     var timeBar:TimeBarX?
     var valueBar:ValueBarX?
     var graphComponent:GraphAreaX?
+    /**/
+    var leftMargin:CGFloat {return 50}
+    var topMargin:CGFloat {return 50}
+    var vCount:Int {return Graph9.config.vCount}
+    var tCount:Int {return Graph9.config.tCount}
+    var maxZoom:Int {return Graph9.config.maxZoom}
     
     override func resolveSkin() {
         super.resolveSkin()
