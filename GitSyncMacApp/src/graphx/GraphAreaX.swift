@@ -19,13 +19,13 @@ class GraphAreaX:Element{
     func createUI(){
         contentContainer = addSubView(Container(width,height,self,"content"))
         createGraphLine()
-        createGraphPoints()
+        //createGraphPoints()
     }
     /**
      * Creates the Graph line
      */
     func createGraphLine(/*_ vValues:[CGFloat], _ maxValue:CGFloat*/){
-        let vValues:[CGFloat] = Array(repeating: 0, count: GraphX.tCount)/*placeholder values*/
+        let vValues:[CGFloat] = Array(repeating:0, count:GraphX.config.tCount)/*placeholder values*/
         let maxValue:CGFloat = 0
         points = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue, 0, 0)
         let path:IPath = PolyLineGraphicUtils.path(points!)
@@ -38,7 +38,7 @@ class GraphAreaX:Element{
     func createGraphPoints(){
         points!.forEach{
             let graphPoint:Element = contentContainer!.addSubView(Element(NaN,NaN,contentContainer!,"graphPoint"))
-            dots.append(graphPoint)
+            graphDots.append(graphPoint)
             graphPoint.setPosition($0)
         }
     }
