@@ -57,7 +57,6 @@ class GraphAreaX:Element{
          animator!.start()
          */
         
-        
         /*GraphPoints*/
         for i in 0..<points!.count{
             let pos:CGPoint = points![i]/*interpolates from one point to another*/
