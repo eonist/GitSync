@@ -25,6 +25,15 @@ class GraphX:Element{
         super.resolveSkin()
         Swift.print("GraphX.resolveSkin()")
         createUI()
+        update()
+    }
+    /**
+     *
+     */
+    func update(){
+        let results:[Int] = []
+        let vValues:[CGFloat] = results.map{$0.cgFloat}
+        graphArea!.updateGraph(vValues)
     }
     /**
      * Creates the UI Components
