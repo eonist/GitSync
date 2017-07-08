@@ -31,9 +31,9 @@ class GraphX:Element{
      *
      */
     func update(){
-        let results:[Int] = []
+        let results:[Int] = ArrayParser.uniqueRandom(<#T##start: Int##Int#>, <#T##end: Int##Int#>)
         let vValues:[CGFloat] = results.map{$0.cgFloat}
-        let vValues:[CGFloat] = Array(repeating:0, count:GraphX.config.tCount)/*placeholder values*/
+        
         graphArea!.updateGraph(vValues)
     }
     /**
