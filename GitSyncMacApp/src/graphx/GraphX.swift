@@ -29,7 +29,7 @@ class GraphX:Element{
      */
     func createUI(){
         createValueBar()
-        createGraphArea()
+        //createGraphArea()
         //createTimeBar()
     }
     /**
