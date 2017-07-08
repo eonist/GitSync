@@ -28,7 +28,7 @@ class GraphArea:Element{
     //createGraphPoints
 }
 class TimeBar:Element{
-    
+    //
 }
 class ValueBar:Element{
     //var valueLables:[TextArea] = []
