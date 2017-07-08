@@ -21,4 +21,29 @@ class GraphX:Element{
         createGraphArea()
         createValueBar()
     }
+    /**
+     * Creates the TimeBar
+     */
+    func createTimeBar(){
+        timeBar = addSubView(TimeBar(w,24,24,self))
+    }
+    /**
+     * Creates the GraphArea
+     */
+    func createGraphArea(){
+        let w:CGFloat = self.w - (leftMargin*2)
+        let h:CGFloat = self.h - (topMargin*2)
+        graphComponent = addSubView(GraphComponent(w,h,self))
+        graphComponent!.point = CGPoint(leftMargin,topMargin)
+    }
+    /**
+     * Creates the ValueBar
+     */
+    func createValueBar(){
+        valueBar = addSubView(ValueBar(32,height,self))
+        let objSize = CGSize(42,valueBar!.h)
+        let canvasSize = CGSize(w,h)
+        let p = Align.alignmentPoint(objSize, canvasSize, Alignment.topLeft, Alignment.topLeft, CGPoint())
+        valueBar!.point = p/*aligns timeBar to bottom*/
+    }
 }
