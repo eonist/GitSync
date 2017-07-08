@@ -32,7 +32,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         //Continue here:
-            
+            //setup basic css styles
         
     }
     func initApp(){
