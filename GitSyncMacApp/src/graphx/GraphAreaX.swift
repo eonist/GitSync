@@ -47,7 +47,7 @@ class GraphAreaX:Element{
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
      */
     func updateGraph(_ vValues:[CGFloat]){
-        prevPoints = points.map{$0}//grabs the location of where the pts are now
+        //prevPoints = points.map{$0}//grabs the location of where the pts are now
         let maxValue:CGFloat = vValues.max()!//Finds the largest number in among vValues
         points = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue,0,0)
         /*GraphPoints*/
@@ -56,15 +56,14 @@ class GraphAreaX:Element{
          animator!.start()
          */
         
-        var positions:[CGPoint] = []
+        
         /*GraphPoints*/
         for i in 0..<points!.count{
             let pos:CGPoint = points![i]/*interpolates from one point to another*/
-            positions.append(pos)
             graphDots[i].setPosition(pos)//moves the points
         }
         /*GraphLine*/
-        let path:IPath = PolyLineGraphicUtils.path(positions)/*convert points to a Path*/
+        let path:IPath = PolyLineGraphicUtils.path(points!)/*convert points to a Path*/
         //TODO: Ideally we should create the CGPath from the points use CGPathParser.polyline
         let cgPath = CGPathUtils.compile(CGMutablePath(), path)//convert path to cgPath
         graphLine!.line!.cgPath = cgPath.clone()//applies the new path
