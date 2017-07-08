@@ -12,7 +12,7 @@ class GraphX:Element{
     /*Components*/
     var timeBar:TimeBarX?
     var valueBar:ValueBarX?
-    var graphComponent:GraphAreaX?
+    var graphArea:GraphAreaX?
     /**/
     var leftMargin:CGFloat {return 50}
     var topMargin:CGFloat {return 50}
@@ -43,8 +43,8 @@ class GraphX:Element{
     func createGraphArea(){
         let w:CGFloat = self.w - (leftMargin*2)
         let h:CGFloat = self.h - (topMargin*2)
-        graphComponent = addSubView(GraphAreaX(w,h,self))
-        graphComponent!.point = CGPoint(leftMargin,topMargin)
+        graphArea = addSubView(GraphAreaX(w,h,self))
+        graphArea!.point = CGPoint(leftMargin,topMargin)/*Manually aligned*/
     }
     /**
      * Creates the ValueBar
@@ -53,7 +53,7 @@ class GraphX:Element{
         valueBar = addSubView(ValueBarX(32,height,self))
         let objSize = CGSize(42,valueBar!.h)
         let canvasSize = CGSize(w,h)
-        let p = Align.alignmentPoint(objSize, canvasSize, Alignment.topLeft, Alignment.topLeft, CGPoint())
+        let p = Align.alignmentPoint(objSize, canvasSize, Alignment.topLeft, Alignment.topLeft, CGPoint())/*Manually aligned*/
         valueBar!.point = p/*aligns timeBar to bottom*/
     }
 }
