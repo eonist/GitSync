@@ -29,7 +29,7 @@ class GraphX:Element{
      */
     func createUI(){
         createValueBar()
-        //createGraphArea()
+        createGraphArea()
         //createTimeBar()
     }
     /**
@@ -46,10 +46,10 @@ class GraphX:Element{
      * Creates the GraphArea
      */
     func createGraphArea(){
-        let w:CGFloat = self.w - (leftMargin*2)
-        let h:CGFloat = self.h - (topMargin*2)
-        graphArea = addSubView(GraphAreaX(w,h,self))
-        graphArea!.point = CGPoint(leftMargin,topMargin)/*Manually aligned*/
+        /*let w:CGFloat = self.w - (leftMargin*2)
+         let h:CGFloat = self.h - (topMargin*2)*/
+        graphArea = addSubView(GraphAreaX(NaN,NaN,self))
+        //graphArea!.point = CGPoint(leftMargin,topMargin)/*Manually aligned*/
     }
     /**
      * Creates the TimeBar
