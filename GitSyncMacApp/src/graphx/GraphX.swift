@@ -9,6 +9,10 @@ import Foundation
  * TODO: ⚠️️ Then try to anim the graph at trigger integers
  */
 class GraphX:Element{
+    var timeBar:TimeBar?
+    var valueBar:ValueBar?
+    var graphComponent:GraphComponent?
+    
     override func resolveSkin() {
         super.resolveSkin()
         createUI()
