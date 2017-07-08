@@ -14,9 +14,13 @@ class GraphX:Element{
         
     }
 }
-class TimeBar{
+class GraphArea:Element{
+    //graph
+    //
+}
+class TimeBar:Element{
     
 }
-class ValueBar{
+class ValueBar:Element{
     
 }
