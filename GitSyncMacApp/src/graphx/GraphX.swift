@@ -36,7 +36,7 @@ class GraphX:Element{
      * Creates the ValueBar
      */
     func createValueBar(){
-        valueBar = addSubView(ValueBarX(32,height,self))
+        valueBar = addSubView(ValueBarX(NaN,NaN,self))
         //let objSize = CGSize(42,valueBar!.h)
         //let canvasSize = CGSize(w,h)
         //let p = Align.alignmentPoint(objSize, canvasSize, Alignment.topLeft, Alignment.topLeft, CGPoint())/*Manually aligned*/
