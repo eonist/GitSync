@@ -15,8 +15,8 @@ class GraphX:Element{
     }
 }
 class GraphArea:Element{
-    //graph
-    //
+    //graphDots
+    //graphLine
 }
 class TimeBar:Element{
     
