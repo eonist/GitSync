@@ -14,9 +14,9 @@ class GraphX:Element{
     var valueBar:ValueBarX?
     var graphArea:GraphAreaX?
     /*Config*/
-    static var config:GraphConfig = (5,7,CGSize(50,50),3)/*Static storage of config values*/
-    /*We then store static vars inside local vars so that local methods can easily refer to the values with less verbosity*/
-    var leftMargin:CGFloat {return GraphX.config.margin.width}
+    typealias GraphConfig = (vCount:Int,tCount:Int,margin:CGSize,maxZoom:Int)
+    static var config:GraphConfig = (5,7,CGSize(50,50),3)/*We store config in a static var so that outside classes canuse props*/
+    var leftMargin:CGFloat {return GraphX.config.margin.width}/*We then store static vars inside local vars so that local methods can easily refer to the values with less verbosity*/
     var topMargin:CGFloat {return GraphX.config.margin.height}
     var vCount:Int {return GraphX.config.vCount}
     var tCount:Int {return GraphX.config.tCount}
