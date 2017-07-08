@@ -32,7 +32,7 @@ class GraphX:Element{
      */
     func update(){
         let results:[Int] = Array(repeating:0, count:GraphX.config.tCount)
-        let vValues:[CGFloat] = results.map{$0.cgFloat}
+        let vValues:[CGFloat] = results.map{_ in IntParser.random(0, 40).cgFloat}
         
         graphArea!.updateGraph(vValues)
     }
