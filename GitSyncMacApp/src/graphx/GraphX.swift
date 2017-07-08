@@ -31,7 +31,7 @@ class GraphX:Element{
      *
      */
     func update(){
-        let vValues:[CGFloat] = 
+        let vValues:[CGFloat] = GraphUtils.randomVerticalValues(GraphX.config.tCount)
         graphArea!.updateGraph(vValues)
     }
     /**
