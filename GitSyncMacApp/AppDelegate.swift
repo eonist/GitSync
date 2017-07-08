@@ -35,6 +35,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //setup basic css styles ✅
             //try to run the graphtest 
             //move things into a GraphXTestWin and GraphXTestView
+        
         let winSize:CGSize = WinParser.size(window)
         let graph = window.contentView!.addSubView(GraphX(winSize.w,winSize.h))
         _ = graph
