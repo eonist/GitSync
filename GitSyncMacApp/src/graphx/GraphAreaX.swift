@@ -59,9 +59,9 @@ class GraphAreaX:Element{
         var positions:[CGPoint] = []
         /*GraphPoints*/
         for i in 0..<points!.count{
-            let pos:CGPoint = prevPoints![i].interpolate(points![i], val)/*interpolates from one point to another*/
+            let pos:CGPoint = points![i]/*interpolates from one point to another*/
             positions.append(pos)
-            dots[i].setPosition(pos)//moves the points
+            graphDots[i].setPosition(pos)//moves the points
         }
         /*GraphLine*/
         let path:IPath = PolyLineGraphicUtils.path(positions)/*convert points to a Path*/
