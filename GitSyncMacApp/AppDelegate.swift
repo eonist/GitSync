@@ -28,6 +28,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func graphXTest(){
         Swift.print("Hello GraphX")
         window.contentView = InteractiveView2()
+        StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest/" + themeStr,true)
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
@@ -40,51 +41,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         win = StyleTestWin(rect.w, rect.h)/*⬅️️🚪*/
         menu = Menu()/*This creates the App menu*/
     }
-    func themeSwitchTest(){
-        
-        //Continue here: 🏀
-            //deprecated the last of gitsync old css files ✅
-            //setup the themes for styleTest 👈
-            //You then store the colors in light and dark theme ✅
-            //then hook up the switch to the css switcher code ✅
-                //COntinue here: 
-        
-        window.contentView = InteractiveView2()
-        
-        StyleManager.addStylesByURL("~/Desktop/theme/lighttheme.css")
-        
-        let section = window.contentView!.addSubView(Section(200,300))
-        let btn = section.addSubView(Button(NaN,NaN,section,"btn"))
-        _ = section.addSubView(Element(100,100,section,"one"))
-        
-        btn.event = { event in
-            if event.type == ButtonEvent.upInside {
-                Swift.print("value: " + "\(StyleManager.getStylePropVal("Theme", "fill"))")//white
-                StyleManager.reset()
-                StyleManager.addStylesByURL("~/Desktop/theme/darktheme.css")
-                ElementModifier.refreshSkin(section)
-                Swift.print("newVal: " + "\(StyleManager.getStylePropVal("Theme", "fill")))")//black
-            }
-        }
-    }
-    func stateTest(){
-        window.contentView = InteractiveView2()
-        var css:String = "#btn{fill:blue;width:100px;height:24px;float:left;clear:left;}"
-        css += "#green{fill:green;clear:left;float:left;display:block;}"
-        css += "#green:hidden{fill:orange;display:none;}"
-        StyleManager.addStyle(css)
-        
-        let section = window.contentView!.addSubView(Section(200,300))
-        let btn = section.addSubView(Button(NaN,NaN,section,"btn"))
-        
-        let one = section.addSubView(Element(100,100,section,"green"))
-        btn.event = { event in
-            if event.type == ButtonEvent.upInside {
-                Swift.print("test")
-                one.setSkinState("hidden")
-            }
-        }
-    }
+    
     func applicationWillTerminate(_ aNotification:Notification) {
         _ = FileModifier.write(Config.prefs.tildePath, PrefsView.xml.xmlString)/*Stores the app prefs*/
         Swift.print("💾 Write PrefsView to: prefs.xml")
@@ -93,6 +50,53 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
+/*
+func themeSwitchTest(){
+    
+    //Continue here: 🏀
+    //deprecated the last of gitsync old css files ✅
+    //setup the themes for styleTest 👈
+    //You then store the colors in light and dark theme ✅
+    //then hook up the switch to the css switcher code ✅
+    //COntinue here:
+    
+    window.contentView = InteractiveView2()
+    
+    StyleManager.addStylesByURL("~/Desktop/theme/lighttheme.css")
+    
+    let section = window.contentView!.addSubView(Section(200,300))
+    let btn = section.addSubView(Button(NaN,NaN,section,"btn"))
+    _ = section.addSubView(Element(100,100,section,"one"))
+    
+    btn.event = { event in
+        if event.type == ButtonEvent.upInside {
+            Swift.print("value: " + "\(StyleManager.getStylePropVal("Theme", "fill"))")//white
+            StyleManager.reset()
+            StyleManager.addStylesByURL("~/Desktop/theme/darktheme.css")
+            ElementModifier.refreshSkin(section)
+            Swift.print("newVal: " + "\(StyleManager.getStylePropVal("Theme", "fill")))")//black
+        }
+    }
+}
+func stateTest(){
+    window.contentView = InteractiveView2()
+    var css:String = "#btn{fill:blue;width:100px;height:24px;float:left;clear:left;}"
+    css += "#green{fill:green;clear:left;float:left;display:block;}"
+    css += "#green:hidden{fill:orange;display:none;}"
+    StyleManager.addStyle(css)
+    
+    let section = window.contentView!.addSubView(Section(200,300))
+    let btn = section.addSubView(Button(NaN,NaN,section,"btn"))
+    
+    let one = section.addSubView(Element(100,100,section,"green"))
+    btn.event = { event in
+        if event.type == ButtonEvent.upInside {
+            Swift.print("test")
+            one.setSkinState("hidden")
+        }
+    }
+}
+*/
 /*
 func jsonTest(){
     Swift.print("jsonTest")
