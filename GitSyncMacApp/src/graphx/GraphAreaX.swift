@@ -57,7 +57,7 @@ class GraphAreaX:Element{
         
         
         //Continue here: 🏀
-            //figure out why the points method is only returning zero values
+            //figure out why the points method is only returning zero values 👈
         
         
         /*GraphPoints*/
