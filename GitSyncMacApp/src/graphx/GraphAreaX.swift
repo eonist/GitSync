@@ -54,6 +54,12 @@ class GraphAreaX:Element{
         
         points = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue,0,0)
         Swift.print("points: " + "\(points)")
+        
+        
+        //Continue here: 🏀
+            //figure out why the points method is only returning zero values
+        
+        
         /*GraphPoints*/
         /*if(animator != nil){animator!.stop()}/*stop any previous running animation*/
          animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Quad.easeIn)
