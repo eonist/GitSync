@@ -36,6 +36,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //try to run the graphtest
             //move things into a GraphXTestWin and GraphXTestView
         
+        let graph = window.contentView!.addSubView(GraphX(200,300))
+        _ = graph
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
