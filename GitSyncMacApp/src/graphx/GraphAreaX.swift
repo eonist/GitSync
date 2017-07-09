@@ -80,5 +80,5 @@ class GraphAreaX:Element{
 class GraphScrollView:ScrollView3{
     override var maskSize:CGSize {return CGSize(super.getWidth(),super.getHeight())}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
     override var contentSize:CGSize {return CGSize(100*20,super.getHeight())}
-    var itemSize:CGSize {return CGSize(24,24)}
+    override var itemSize:CGSize {return CGSize(24,24)}
 }
