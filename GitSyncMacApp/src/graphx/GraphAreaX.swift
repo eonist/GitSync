@@ -87,25 +87,33 @@ class GraphAreaX:Element{
     }
 }
 class GraphScrollView:ContainerView3,GraphScrollable{
-    lazy var moverGroup:MoverGroup? = {
-        var group = MoverGroup(self.setProgressValue,self.maskSize,self.contentSize)
-        return group
-    }()
-
-    //MoverGroup(self.setProgress,self.maskSize,self.contentSize)
-    
+    lazy var moverGroup:MoverGroup? = MoverGroup(self.setProgress,self.maskSize,self.contentSize)
     override var maskSize:CGSize {return CGSize(super.getWidth(),super.getHeight())}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
     override var contentSize:CGSize {return CGSize(100*19,super.getHeight())}
     var itemSize:CGSize {return CGSize(24,24)}
-    
+    /**
+     * When the the user scrolls
+     * NOTE: this method overides the Native NSView scrollWheel method
+     * //TODO: ⚠️️you need to make an scroolWheel method that you can override down hirarcy.
+     */
+    override func scrollWheel(with event:NSEvent) {//you can probably remove this method and do it in base?"!?
+        //Swift.print("GraphAreaX.scrollWheel()")
+        //(self as ICommitList).scroll(event)
+        if(event.phase == NSEventPhase.changed){//this is only direct manipulation, not momentum
+            Swift.print("moverGroup!.result.x: " + "\(moverGroup!.result.x)")
+        }
+        super.scrollWheel(with:event)/*⚠️️, 👈 not good, forward the event other delegates higher up in the stack*/
+    }
 }
 protocol GraphScrollable:ElasticScrollable3 {}
 extension GraphScrollable {
+    func tick(){
+        Swift.print("tick")
+    }
     /**
      * TODO: Comment this method
      */
     func setProgressValue(_ value:CGFloat, _ dir:Dir){/*gets called from MoverGroup*/
-        Swift.print("GraphScrollable.setProgressValue")
         if dir == .hor {
             Swift.print("🍏 GraphScrollable.setProgressValue .hor: \(value)")
         }
