@@ -7,7 +7,7 @@ import Cocoa
  * TODO: ⚠️️ Implement ElasticView ✅
  * TODO: ⚠️️ Implement integer animate to onProgress ticks
     //you need to hock into the on progress ticks and log these ✅
-    //you need to get the active range of dots 
+    //you need to get the active range of dots 👈 using contentView.x and finding the cur visible positions
     //you need to get the vValuea for this dot
     //you need to get the max vValue in the range
     //you need to find the scale to go from prevMaxVal to newMAxVal
