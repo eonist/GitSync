@@ -8,7 +8,7 @@ import Foundation
  * TODO: ⚠️️ Implement integer animate to onProgress ticks
     //you need to hock into the on progress ticks and log these
     //you need to get the active range of dots
-    //you need to you need to get the tored vValue for this dot
+    //you need to get the vValuea for this dot
     //you need to get the max vValue in the range
     //you need to find the scale to go from prevMaxVal to newMAxVal
     //you need to scale all graphPoints to this new scale
