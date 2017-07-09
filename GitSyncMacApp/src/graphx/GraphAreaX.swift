@@ -88,20 +88,18 @@ class GraphAreaX:Element{
 }
 class GraphScrollView:ContainerView3,ElasticScrollable3{
     lazy var moverGroup:MoverGroup? = MoverGroup(self.setProgress,self.maskSize,self.contentSize)
-    override var maskSize:CGSize {
-        let maskSize = CGSize(super.getWidth(),super.getHeight())
-        //Swift.print("🍏 maskSize: " + "\(maskSize)")
-        return maskSize
-    }/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
-    override var contentSize:CGSize {
-        let contentSize:CGSize = CGSize(100*19,super.getHeight())
-        //Swift.print("🍏 contentSize: " + "\(contentSize)")
-        return contentSize
-    }
-    var itemSize:CGSize {
-        let itemSize = CGSize(24,24)
-        //Swift.print("🍏 itemSize: " + "\(itemSize)")
-        return itemSize
+    override var maskSize:CGSize {return CGSize(super.getWidth(),super.getHeight())}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
+    override var contentSize:CGSize {return CGSize(100*19,super.getHeight())}
+    var itemSize:CGSize {return CGSize(24,24)}
+    /**
+     * When the the user scrolls
+     * NOTE: this method overides the Native NSView scrollWheel method
+     * //TODO: ⚠️️you need to make an scroolWheel method that you can override down hirarcy.
+     */
+    override func scrollWheel(with event:NSEvent) {//you can probably remove this method and do it in base?"!?
+        //Swift.print("CommitsList.scrollWheel()")
+        (self as ICommitList).scroll(event)
+        super.scrollWheel(with:event)/*⚠️️, 👈 not good, forward the event other delegates higher up in the stack*/
     }
 }
 //protocol GraphScrollable:Progressable3 {
