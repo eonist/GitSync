@@ -24,7 +24,8 @@ class GraphAreaX:Element{
      */
     func createUI(){
         scrollView = addSubView(GraphScrollView(getWidth(),getHeight(),self,"graphScrollView"))
-        contentContainer = addSubView(Container(width,height,self,"content"))
+        //contentContainer = addSubView(Container(width,height,self,"content"))
+        //scrollView?.contentContainer = contentContainer!
         createGraphLine()
         createGraphPoints()
     }
@@ -80,6 +81,6 @@ class GraphAreaX:Element{
 }
 
 class GraphScrollView:ScrollView3{
-    var maskSize:CGSize {return CGSize(super.width,super.height)}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
-    var contentSize:CGSize {return CGSize(super.width,super.height)}
+    override var maskSize:CGSize {return CGSize(super.getWidth(),super.getHeight())}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
+    override var contentSize:CGSize {return CGSize(100*20,super.getHeight())}
 }
