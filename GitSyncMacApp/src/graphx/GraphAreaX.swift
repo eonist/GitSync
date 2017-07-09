@@ -112,7 +112,8 @@ extension GraphScrollable {
         Swift.print("tick \(moverGroup!.result.x)")
         //width
         //find cur 0 to 1 progress
-        
+        //avialableSpace = totWidth - maskWidth
+        //abs()
     }
     /**
      * TODO: Comment this method
