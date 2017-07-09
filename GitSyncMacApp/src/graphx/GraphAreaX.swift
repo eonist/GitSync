@@ -24,7 +24,7 @@ class GraphAreaX:Element{
      */
     func createUI(){
         scrollView = addSubView(GraphScrollView(getWidth(),getHeight(),self))
-        //contentContainer = addSubView(Container(width,height,self,"content"))
+        let bg = addSubView(Section(getWidth(),getHeight(),self,"bg"))
         //scrollView?.contentContainer = contentContainer!
         createGraphLine()
         createGraphPoints()
@@ -78,8 +78,6 @@ class GraphAreaX:Element{
     }
 }
 
-//Continue here: 🏀
-    //
 
 class GraphScrollView:ContainerView3,ElasticScrollable3{
     lazy var moverGroup:MoverGroup? = MoverGroup(self.setProgress,self.maskSize,self.contentSize)
