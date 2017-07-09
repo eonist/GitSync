@@ -107,20 +107,17 @@ class GraphScrollView:ContainerView3,GraphScrollable{
 }
 protocol GraphScrollable:ElasticScrollable3 {}
 extension GraphScrollable {
-    
-}
-/**
- * TODO: Comment this method
- */
-func setProgressValue(_ value:CGFloat, _ dir:Dir){/*gets called from MoverGroup*/
-    if dir == .ver {
-        //Swift.print("🌵 ICommitList.setProgressValue : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
-        if(hasReleasedBeyondTop){
-            iterateProgressBar(value)
+    /**
+     * TODO: Comment this method
+     */
+    func setProgressValue(_ value:CGFloat, _ dir:Dir){/*gets called from MoverGroup*/
+        if dir == .hor {
+            Swift.print("🍏 GraphScrollable.setProgressValue")
         }
+        (self as ElasticScrollable3).setProgress(value, dir)
     }
-    (self as ElasticSlidableScrollableFastListable3).setProgressValue(value,dir)
 }
+
 
 //protocol GraphScrollable:Progressable3 {
 //    
