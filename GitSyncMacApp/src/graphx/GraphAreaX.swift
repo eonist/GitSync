@@ -77,6 +77,12 @@ class GraphAreaX:Element{
         graphLine!.line!.draw()//draws the path
     }
 }
+
+//Continue here: 🏀
+    //log the sizes
+    //simplify the examples
+    
+
 class GraphScrollView:ContainerView3,Scrollable3{
     override var maskSize:CGSize {return CGSize(super.getWidth(),super.getHeight())}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
     override var contentSize:CGSize {return CGSize(100*20,super.getHeight())}
