@@ -88,13 +88,18 @@ class GraphAreaX:Element{
 class GraphScrollView:ContainerView3,Scrollable3{
     override var maskSize:CGSize {
         let maskSize = CGSize(super.getWidth(),super.getHeight())
-        Swift.print("maskSize: " + "\(maskSize)")
+        Swift.print("🍏 maskSize: " + "\(maskSize)")
         return maskSize
     }/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
     override var contentSize:CGSize {
         let contentSize:CGSize = CGSize(100*20,super.getHeight())
-        Swift.print("contentSize: " + "\(contentSize)")
+        Swift.print("🍏 contentSize: " + "\(contentSize)")
         return contentSize
+    }
+    var itemSize:CGSize {
+        let itemSize = CGSize(24,24)
+        Swift.print("🍏 itemSize: " + "\(itemSize)")
+        return itemSize
     }
 }
 //protocol GraphScrollable:Progressable3 {
