@@ -120,7 +120,11 @@ extension GraphScrollable {
         
         
         //continue here: ball
+            //you need to find the integer at the min visible dot
             //Draw on paper how to find the visual dots at the current progression
+            //you just take abs(x) and ceil it to next whole integer, see Math lib for this method
+            //Then you divide this position in 20 and you have your integer
+            //then count the max amount of dots ahead and you have your visible dots
     }
     /**
      * TODO: Comment this method
