@@ -52,7 +52,8 @@ class GraphAreaX:Element{
         let maxValue:CGFloat = vValues.max()!//Finds the largest number in among vValues
         Swift.print("maxValue: " + "\(maxValue)")
         
-        points = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue,0,0)
+        let size:CGSize = CGSize(w,h)
+        points = GraphUtils.points(size, CGPoint(0,0), CGSize(100,100), vValues, maxValue,0,0)
         Swift.print("points: " + "\(points)")
         
         
