@@ -28,8 +28,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func graphXTest(){
         Swift.print("Hello GraphX")
         
-        
-        
+        window.setContentSize(CGSize(200,200))
         window.contentView = InteractiveView2()
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/graphx/graphxtest.css",true)
         
