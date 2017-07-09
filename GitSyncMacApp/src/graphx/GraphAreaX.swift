@@ -3,8 +3,8 @@ import Foundation
 @testable import Element
 /**
  * TODO: ⚠️️ Draw more points
+ * TODO: ⚠️️ Draw a bit on paper to make sure you understand what needs to be coded
  * TODO: ⚠️️ Implement ElasticView
- * TODO: ⚠️️ 
  */
 class GraphAreaX:Element{
     var graphDots:[Element] = []//rename to graphDots for clearity?
