@@ -13,6 +13,8 @@ import Foundation
     //you need to find the scale to go from prevMaxVal to newMAxVal
     //you need to scale all graphPoints to this new scale
     //you need to scale at every tick, use modulo and prevTick
+    //you then need to animate the scale at every tick
+    //
  */
 class GraphAreaX:Element{
     var graphDots:[Element] = []//rename to graphDots for clearity?
