@@ -3,8 +3,8 @@ import Foundation
 @testable import Element
 /**
  * TODO: ⚠️️ Draw a bit on paper to make sure you understand what needs to be coded ✅
- * TODO: ⚠️️ Draw more points 👈
- * TODO: ⚠️️ Implement ElasticView
+ * TODO: ⚠️️ Draw more points ✅
+ * TODO: ⚠️️ Implement ElasticView ✅
  * TODO: ⚠️️ Implement integer animate to onProgress ticks
  */
 class GraphAreaX:Element{
