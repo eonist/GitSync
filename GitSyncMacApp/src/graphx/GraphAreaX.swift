@@ -75,5 +75,11 @@ class GraphAreaX:Element{
         graphLine!.line!.draw()//draws the path
         
     }
+    /**
+     *
+     */
+    func setProgress(){
+        
+    }
 }
 
