@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 @testable import Utils
 @testable import Element
 /**
@@ -97,8 +97,11 @@ class GraphScrollView:ContainerView3,ElasticScrollable3{
      * //TODO: ⚠️️you need to make an scroolWheel method that you can override down hirarcy.
      */
     override func scrollWheel(with event:NSEvent) {//you can probably remove this method and do it in base?"!?
-        //Swift.print("CommitsList.scrollWheel()")
-        (self as ICommitList).scroll(event)
+        //Swift.print("GraphAreaX.scrollWheel()")
+        //(self as ICommitList).scroll(event)
+        if(event.phase == NSEventPhase.changed){//this is only direct manipulation, not momentum
+            Swift.print("moverGroup!.result.x: " + "\(moverGroup!.result.x)")
+        }
         super.scrollWheel(with:event)/*⚠️️, 👈 not good, forward the event other delegates higher up in the stack*/
     }
 }
