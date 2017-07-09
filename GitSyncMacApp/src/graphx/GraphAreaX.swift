@@ -80,8 +80,10 @@ class GraphAreaX:Element{
 
 //Continue here: 🏀
     //log the sizes
-    //simplify the examples
-    
+    //simplify the example
+    //try elastic
+    //hardcode the itemsize
+    //hardcode the sizes
 
 class GraphScrollView:ContainerView3,Scrollable3{
     override var maskSize:CGSize {return CGSize(super.getWidth(),super.getHeight())}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
