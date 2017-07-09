@@ -6,6 +6,11 @@ import Foundation
  * TODO: ⚠️️ Draw more points ✅
  * TODO: ⚠️️ Implement ElasticView ✅
  * TODO: ⚠️️ Implement integer animate to onProgress ticks
+    //you need to hock into the on progress ticks and log these
+    //you need to get the active range of dots
+    //you need to you need to get the tored vValue for this dot
+    //you need to get the max vValue in the range
+    //you need to 
  */
 class GraphAreaX:Element{
     var graphDots:[Element] = []//rename to graphDots for clearity?
