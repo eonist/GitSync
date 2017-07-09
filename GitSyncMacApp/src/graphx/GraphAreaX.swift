@@ -120,7 +120,7 @@ extension GraphScrollable {
         
         
         //continue here:
-            //use modulo to track
+            //abs(x) 
     }
     /**
      * TODO: Comment this method
