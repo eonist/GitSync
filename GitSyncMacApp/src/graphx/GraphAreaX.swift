@@ -79,13 +79,10 @@ class GraphAreaX:Element{
 }
 
 //Continue here: 🏀
-    //log the sizes ✅
-    //simplify the example
-    //try elastic
-    //hardcode the itemsize
-    //hardcode the sizes
+    //
 
-class GraphScrollView:ElasticScrollView3,Scrollable3{
+class GraphScrollView:ContainerView3,ElasticScrollable3{
+    lazy var moverGroup:MoverGroup? = MoverGroup(self.setProgress,self.maskSize,self.contentSize)
     override var maskSize:CGSize {
         let maskSize = CGSize(super.getWidth(),super.getHeight())
         Swift.print("🍏 maskSize: " + "\(maskSize)")
