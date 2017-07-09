@@ -10,7 +10,7 @@ import Foundation
 class GraphAreaX:Element{
     var graphDots:[Element] = []//rename to graphDots for clearity?
     var graphLine:GraphLine?
-    var contentContainer:Element?//contains dots and line
+    var contentContainer:Element? {return scrollView?.contentContainer}//contains dots and line
     var scrollView:ScrollView3?
     var points:[CGPoint]?
     var prevPoints:[CGPoint]?/*interim var*/
