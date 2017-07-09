@@ -6,8 +6,8 @@ import Cocoa
  * TODO: ⚠️️ Draw more points ✅
  * TODO: ⚠️️ Implement ElasticView ✅
  * TODO: ⚠️️ Implement integer animate to onProgress ticks
-    //you need to hock into the on progress ticks and log these 👈
-    //you need to get the active range of dots
+    //you need to hock into the on progress ticks and log these ✅
+    //you need to get the active range of dots 
     //you need to get the vValuea for this dot
     //you need to get the max vValue in the range
     //you need to find the scale to go from prevMaxVal to newMAxVal
@@ -64,14 +64,14 @@ class GraphAreaX:Element{
      * Re-calc and set the graphPoint positions (for instance if the hValues has changed etc)
      */
     func updateGraph(_ vValues:[CGFloat]){
-        Swift.print("updateGraph.vValues: " + "\(vValues)")
+        //Swift.print("updateGraph.vValues: " + "\(vValues)")
         //prevPoints = points.map{$0}//grabs the location of where the pts are now
         let maxValue:CGFloat = vValues.max()!//Finds the largest number in among vValues
-        Swift.print("maxValue: " + "\(maxValue)")
+        //Swift.print("maxValue: " + "\(maxValue)")
         
         let size:CGSize = CGSize(getWidth(),getHeight())
         points = GraphUtils.points(size, CGPoint(0,0), CGSize(100,100), vValues, maxValue,0,0)
-        Swift.print("points: " + "\(points)")
+        //Swift.print("points: " + "\(points)")
         
         /*GraphPoints*/
         for i in 0..<points!.count{
@@ -87,7 +87,7 @@ class GraphAreaX:Element{
     }
 }
 class GraphScrollView:ContainerView3,GraphScrollable{
-    lazy var moverGroup:MoverGroup? = MoverGroup(self.setProgress,self.maskSize,self.contentSize)
+    lazy var moverGroup:MoverGroup? = MoverGroup(self.setProgressValue,self.maskSize,self.contentSize)
     override var maskSize:CGSize {return CGSize(super.getWidth(),super.getHeight())}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
     override var contentSize:CGSize {return CGSize(100*19,super.getHeight())}
     var itemSize:CGSize {return CGSize(24,24)}
