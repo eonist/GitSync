@@ -4,7 +4,6 @@ import Foundation
 /**
  * TODO: ⚠️️ Draw a bit on paper to make sure you understand what needs to be coded ✅
  * TODO: ⚠️️ Draw more points 👈
- * TODO: ⚠️️ You need a setProgress method in GraphArea
  * TODO: ⚠️️ Implement ElasticView
  * TODO: ⚠️️ Implement integer animate to onProgress ticks
  */
@@ -75,11 +74,6 @@ class GraphAreaX:Element{
         graphLine!.line!.draw()//draws the path
         
     }
-    /**
-     *
-     */
-    func setProgress(){
-        
-    }
+    
 }
 
