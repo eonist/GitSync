@@ -86,7 +86,11 @@ class GraphAreaX:Element{
     //hardcode the sizes
 
 class GraphScrollView:ContainerView3,Scrollable3{
-    override var maskSize:CGSize {return CGSize(super.getWidth(),super.getHeight())}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
+    override var maskSize:CGSize {
+        let maskSize = CGSize(super.getWidth(),super.getHeight())
+        Swift.print("maskSize: " + "\(maskSize)")
+        return maskSize
+    }/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
     override var contentSize:CGSize {return CGSize(100*20,super.getHeight())}
     var itemSize:CGSize = CGSize(24,24)
     
