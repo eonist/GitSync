@@ -117,6 +117,10 @@ extension GraphScrollable {
         let x = moverGroup!.result.x
         let progress = abs(x) / availableSpace
         Swift.print("progress: " + "\(progress)")
+        
+        
+        //continue here:
+            //use modulo to track
     }
     /**
      * TODO: Comment this method
