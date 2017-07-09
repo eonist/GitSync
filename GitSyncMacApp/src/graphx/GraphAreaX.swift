@@ -24,7 +24,7 @@ class GraphAreaX:Element{
      */
     func createUI(){
         scrollView = addSubView(GraphScrollView(getWidth(),getHeight(),self))
-        contentContainer?.addSubView(Section(100*19,getHeight(),contentContainer,"bg"))
+        _ = contentContainer?.addSubView(Section(100*19,getHeight(),contentContainer,"bg"))
         //scrollView?.contentContainer = contentContainer!
         createGraphLine()
         createGraphPoints()
