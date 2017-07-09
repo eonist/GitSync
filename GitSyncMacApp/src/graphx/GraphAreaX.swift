@@ -86,7 +86,7 @@ class GraphAreaX:Element{
         graphLine!.line!.draw()//draws the path
     }
 }
-class GraphScrollView:ContainerView3,ElasticScrollable3{
+class GraphScrollView:ContainerView3,GraphScrollable{
     lazy var moverGroup:MoverGroup? = MoverGroup(self.setProgress,self.maskSize,self.contentSize)
     override var maskSize:CGSize {return CGSize(super.getWidth(),super.getHeight())}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
     override var contentSize:CGSize {return CGSize(100*19,super.getHeight())}
@@ -105,6 +105,23 @@ class GraphScrollView:ContainerView3,ElasticScrollable3{
         super.scrollWheel(with:event)/*⚠️️, 👈 not good, forward the event other delegates higher up in the stack*/
     }
 }
+protocol GraphScrollable:ElasticScrollable3 {}
+extension GraphScrollable {
+    
+}
+/**
+ * TODO: Comment this method
+ */
+func setProgressValue(_ value:CGFloat, _ dir:Dir){/*gets called from MoverGroup*/
+    if dir == .ver {
+        //Swift.print("🌵 ICommitList.setProgressValue : hasReleasedBeyondTop: \(hasReleasedBeyondTop)")
+        if(hasReleasedBeyondTop){
+            iterateProgressBar(value)
+        }
+    }
+    (self as ElasticSlidableScrollableFastListable3).setProgressValue(value,dir)
+}
+
 //protocol GraphScrollable:Progressable3 {
 //    
 //}
