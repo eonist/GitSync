@@ -1,7 +1,10 @@
 import Foundation
 @testable import Utils
 @testable import Element
-
+/**
+ * TODO: ⚠️️ Draw more points
+ * TODO: ⚠️️ 
+ */
 class GraphAreaX:Element{
     var graphDots:[Element] = []//rename to graphDots for clearity?
     var graphLine:GraphLine?
