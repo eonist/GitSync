@@ -100,7 +100,8 @@ class GraphScrollView:ContainerView3,GraphScrollable{
         //Swift.print("GraphAreaX.scrollWheel()")
         //(self as ICommitList).scroll(event)
         if(event.phase == NSEventPhase.changed){//this is only direct manipulation, not momentum
-            Swift.print("moverGroup!.result.x: " + "\(moverGroup!.result.x)")
+            //Swift.print("moverGroup!.result.x: " + "\(moverGroup!.result.x)")
+            tick()
         }
         super.scrollWheel(with:event)/*⚠️️, 👈 not good, forward the event other delegates higher up in the stack*/
     }
@@ -108,14 +109,15 @@ class GraphScrollView:ContainerView3,GraphScrollable{
 protocol GraphScrollable:ElasticScrollable3 {}
 extension GraphScrollable {
     func tick(){
-        Swift.print("tick")
+        Swift.print("tick \(moverGroup!.result.x)")
     }
     /**
      * TODO: Comment this method
      */
     func setProgressValue(_ value:CGFloat, _ dir:Dir){/*gets called from MoverGroup*/
         if dir == .hor {
-            Swift.print("🍏 GraphScrollable.setProgressValue .hor: \(value)")
+            //Swift.print("🍏 GraphScrollable.setProgressValue .hor: \(value)")
+            tick()
         }
         (self as ElasticScrollable3).setProgress(value, dir)
     }
