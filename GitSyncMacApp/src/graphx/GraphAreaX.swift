@@ -110,6 +110,8 @@ protocol GraphScrollable:ElasticScrollable3 {}
 extension GraphScrollable {
     func tick(){
         Swift.print("tick \(moverGroup!.result.x)")
+        //width
+        //find cur 0 to 1 progress
         
     }
     /**
