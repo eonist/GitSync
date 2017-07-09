@@ -10,7 +10,8 @@ import Foundation
     //you need to get the active range of dots
     //you need to you need to get the tored vValue for this dot
     //you need to get the max vValue in the range
-    //you need to 
+    //you need to find the 
+    //you need to scale all graphPoints to this new scale
  */
 class GraphAreaX:Element{
     var graphDots:[Element] = []//rename to graphDots for clearity?
