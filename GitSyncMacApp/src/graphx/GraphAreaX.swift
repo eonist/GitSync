@@ -12,7 +12,7 @@ import Foundation
     //you need to get the max vValue in the range
     //you need to find the scale to go from prevMaxVal to newMAxVal
     //you need to scale all graphPoints to this new scale
-    //you need to 
+    //you need to scale at every tick, use modulo and prevTick
  */
 class GraphAreaX:Element{
     var graphDots:[Element] = []//rename to graphDots for clearity?
@@ -84,8 +84,6 @@ class GraphAreaX:Element{
         graphLine!.line!.draw()//draws the path
     }
 }
-
-
 class GraphScrollView:ContainerView3,ElasticScrollable3{
     lazy var moverGroup:MoverGroup? = MoverGroup(self.setProgress,self.maskSize,self.contentSize)
     override var maskSize:CGSize {
