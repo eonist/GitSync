@@ -11,6 +11,7 @@ class GraphAreaX:Element{
     var graphDots:[Element] = []//rename to graphDots for clearity?
     var graphLine:GraphLine?
     var contentContainer:Element?//contains dots and line
+    var scrollView:ScrollView3?
     var points:[CGPoint]?
     var prevPoints:[CGPoint]?/*interim var*/
     //var animator:Animator?/*Anim*/
@@ -22,8 +23,8 @@ class GraphAreaX:Element{
      * Creates the UI Components
      */
     func createUI(){
-        contentContainer = addSubView(ScrollView3(width,height,self,"content"))
-        //contentContainer = addSubView(Container(width,height,self,"content"))
+        scrollView = addSubView(ScrollView3(width,height,self,"scrollView"))
+        contentContainer = addSubView(Container(width,height,self,"content"))
         createGraphLine()
         createGraphPoints()
     }
