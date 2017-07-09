@@ -91,9 +91,11 @@ class GraphScrollView:ContainerView3,Scrollable3{
         Swift.print("maskSize: " + "\(maskSize)")
         return maskSize
     }/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
-    override var contentSize:CGSize {return CGSize(100*20,super.getHeight())}
-    var itemSize:CGSize = CGSize(24,24)
-    
+    override var contentSize:CGSize {
+        let contentSize:CGSize = CGSize(100*20,super.getHeight())
+        Swift.print("contentSize: " + "\(contentSize)")
+        return contentSize
+    }
 }
 //protocol GraphScrollable:Progressable3 {
 //    
