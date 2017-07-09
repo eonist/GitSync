@@ -6,7 +6,7 @@ import Foundation
  * TODO: ⚠️️ Draw more points ✅
  * TODO: ⚠️️ Implement ElasticView ✅
  * TODO: ⚠️️ Implement integer animate to onProgress ticks
-    //you need to hock into the on progress ticks and log these
+    //you need to hock into the on progress ticks and log these 👈
     //you need to get the active range of dots
     //you need to get the vValuea for this dot
     //you need to get the max vValue in the range
@@ -90,17 +90,17 @@ class GraphScrollView:ContainerView3,ElasticScrollable3{
     lazy var moverGroup:MoverGroup? = MoverGroup(self.setProgress,self.maskSize,self.contentSize)
     override var maskSize:CGSize {
         let maskSize = CGSize(super.getWidth(),super.getHeight())
-        Swift.print("🍏 maskSize: " + "\(maskSize)")
+        //Swift.print("🍏 maskSize: " + "\(maskSize)")
         return maskSize
     }/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
     override var contentSize:CGSize {
         let contentSize:CGSize = CGSize(100*19,super.getHeight())
-        Swift.print("🍏 contentSize: " + "\(contentSize)")
+        //Swift.print("🍏 contentSize: " + "\(contentSize)")
         return contentSize
     }
     var itemSize:CGSize {
         let itemSize = CGSize(24,24)
-        Swift.print("🍏 itemSize: " + "\(itemSize)")
+        //Swift.print("🍏 itemSize: " + "\(itemSize)")
         return itemSize
     }
 }
