@@ -87,7 +87,14 @@ class GraphAreaX:Element{
     }
 }
 class GraphScrollView:ContainerView3,GraphScrollable{
-    lazy var moverGroup:MoverGroup? = MoverGroup(self.setProgress,self.maskSize,self.contentSize)
+    lazy var moverGroup:MoverGroup? = {
+        var group = MoverGroup(self.setProgressValue,self.maskSize,self.contentSize)
+        group.event = self.onEvent/*Add an eventHandler for the mover object, , this has no functionality in this class, but may have in classes that extends this class, like hide progress-indicator when all animation has stopped*/
+        return group
+    }()
+
+    //MoverGroup(self.setProgress,self.maskSize,self.contentSize)
+    
     override var maskSize:CGSize {return CGSize(super.getWidth(),super.getHeight())}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
     override var contentSize:CGSize {return CGSize(100*19,super.getHeight())}
     var itemSize:CGSize {return CGSize(24,24)}
