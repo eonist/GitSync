@@ -3,6 +3,7 @@ import Foundation
 @testable import Element
 /**
  * TODO: ⚠️️ Draw more points
+ * TODO: ⚠️️ Implement ElasticView
  * TODO: ⚠️️ 
  */
 class GraphAreaX:Element{
