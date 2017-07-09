@@ -89,7 +89,6 @@ class GraphAreaX:Element{
 class GraphScrollView:ContainerView3,GraphScrollable{
     lazy var moverGroup:MoverGroup? = {
         var group = MoverGroup(self.setProgressValue,self.maskSize,self.contentSize)
-        group.event = self.onEvent/*Add an eventHandler for the mover object, , this has no functionality in this class, but may have in classes that extends this class, like hide progress-indicator when all animation has stopped*/
         return group
     }()
 
@@ -106,6 +105,7 @@ extension GraphScrollable {
      * TODO: Comment this method
      */
     func setProgressValue(_ value:CGFloat, _ dir:Dir){/*gets called from MoverGroup*/
+        Swift.print("GraphScrollable.setProgressValue")
         if dir == .hor {
             Swift.print("🍏 GraphScrollable.setProgressValue .hor: \(value)")
         }
