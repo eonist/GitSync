@@ -24,7 +24,7 @@ class GraphAreaX:Element{
      */
     func createUI(){
         scrollView = addSubView(GraphScrollView(getWidth(),getHeight(),self))
-        contentContainer?.addSubView(Section(100*20,getHeight(),contentContainer,"bg"))
+        contentContainer?.addSubView(Section(100*19,getHeight(),contentContainer,"bg"))
         //scrollView?.contentContainer = contentContainer!
         createGraphLine()
         createGraphPoints()
@@ -87,7 +87,7 @@ class GraphScrollView:ContainerView3,ElasticScrollable3{
         return maskSize
     }/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
     override var contentSize:CGSize {
-        let contentSize:CGSize = CGSize(100*20,super.getHeight())
+        let contentSize:CGSize = CGSize(100*19,super.getHeight())
         Swift.print("🍏 contentSize: " + "\(contentSize)")
         return contentSize
     }
