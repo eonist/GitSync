@@ -31,7 +31,7 @@ class GraphAreaX:Element{
      */
     func createGraphLine(/*_ vValues:[CGFloat], _ maxValue:CGFloat*/){
         Swift.print("createGraphLine")
-        let vValues:[CGFloat] = Array(repeating:0, count:20)/*placeholder values*/
+        let vValues:[CGFloat] = Array(repeating:0, count:GraphX.config.tCount)/*placeholder values*/
         let maxValue:CGFloat = 0
         points = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue, 0, 0)
         let path:IPath = PolyLineGraphicUtils.path(points!)
