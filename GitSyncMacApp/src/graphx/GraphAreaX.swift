@@ -119,8 +119,8 @@ extension GraphScrollable {
         Swift.print("progress: " + "\(progress)")
         
         
-        //continue here:
-            //abs(x) 
+        //continue here: ball
+            //Draw on paper how to find the visual dots at the current progression
     }
     /**
      * TODO: Comment this method
