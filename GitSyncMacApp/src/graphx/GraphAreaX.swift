@@ -2,9 +2,10 @@ import Foundation
 @testable import Utils
 @testable import Element
 /**
- * TODO: ⚠️️ Draw more points
  * TODO: ⚠️️ Draw a bit on paper to make sure you understand what needs to be coded
+ * TODO: ⚠️️ Draw more points
  * TODO: ⚠️️ Implement ElasticView
+ * TODO: ⚠️️ Implement integer animate to onProgress ticks
  */
 class GraphAreaX:Element{
     var graphDots:[Element] = []//rename to graphDots for clearity?
