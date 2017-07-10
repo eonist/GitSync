@@ -22,7 +22,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //themeSwitchTest()
         //graphXTest()
         
-        print(CGFloatModifier.roundTo(55 , 100))
+        print(CGFloatModifier.roundTo(44 , 100))
     }
     /**
      *
