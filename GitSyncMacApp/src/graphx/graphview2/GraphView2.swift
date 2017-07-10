@@ -102,7 +102,9 @@ extension GraphView2{
         //Swift.print("🍏 diff: " + "\(diff)")
         
         let ratio:CGFloat = height / diff
+        prevPoints = newPoints ??
         newPoints = points!.map{CGPointModifier.scale($0, P($0.x,height), P(1,ratio))}
+        
         
         /*initAnim*/
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/
