@@ -43,7 +43,7 @@ extension GraphView2{
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)
     }
-    var prevX:CGFloat = 
+    var prevX:CGFloat = 0
     /**
      * Moves the contentContainer in the x position, recalculates the modulated path and draws it
      */
@@ -55,10 +55,11 @@ extension GraphView2{
             //curX
             //prevX
             //if x > prevX
-        tick(x)
+        
         if x > prevX {
-            
+            tick(x)
         }
+        prevX = x
     }
     /**
      *
