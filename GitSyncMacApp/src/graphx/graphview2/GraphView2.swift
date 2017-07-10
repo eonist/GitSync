@@ -115,8 +115,11 @@ extension GraphView2{
     /**
      *
      */
-    func initAnim(){
-        
+    func initAnim(_ newPoints:[P]){
+        //continue here 🏀
+            //add prevPoints
+            //copy over the anim code
+            //see if it works
     }
 }
 
