@@ -46,7 +46,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.size = CGSize(664,400)
         window.contentView = InteractiveView2()
         let winSize:CGSize = WinParser.size(window)
-        let test = self.addSubView(GraphView2(winSize.width,winSize.height-48,self))
+        let test = window.contentView!.addSubView(GraphView2(winSize.width,winSize.height-48,self))
         _ = test
     }
     func initApp(){
