@@ -101,7 +101,7 @@ extension GraphView2{
         //Swift.print("🍏 diff: " + "\(diff)")
         
         let ratio:CGFloat = height / diff
-        let newPoints:[P] = points!.map{CGPointModifier.scale($0, P($0.x,height), P(1,ratio))}
+        newPoints = points!.map{CGPointModifier.scale($0, P($0.x,height), P(1,ratio))}
         
         initAnim(newPoints)
         
@@ -122,10 +122,11 @@ extension GraphView2{
             //see if it works
     }
     /**
-     *
+     * Interpolates between 0 and 1 while the duration of the animation
+     * NOTE: ReCalc the hValue indicators (each week has a different max hValue etc)
      */
-    func interpolateValue(){
-        newPoints.forEach{
+    func interpolateValue(_ val:CGFloat){
+        newPoints?.forEach{
             //Swift.print("$0: " + "\($0)")
             graphPoint2!.point = $0
         }
