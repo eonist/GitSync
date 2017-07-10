@@ -21,7 +21,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //stateTest()
         //themeSwitchTest()
         //graphXTest()
-        
+        createGraphView2()
        
     }
     

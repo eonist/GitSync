@@ -4,7 +4,7 @@ import Cocoa
 /**
  * This tests 🗜 scaling the graph chart 📈 as you scroll  
  */
-class GraphView2:ContainerView2{
+class GraphView2:ContainerView3{
     typealias P = CGPoint
     var points:[CGPoint]?
     var graphPoint1:Element?
