@@ -50,6 +50,16 @@ extension GraphView2{
         let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize.w, contentSize.w)
         Swift.print("x: " + "\(x)")
         contentContainer!.x = x
+                //onlye redraw at every 100px
+            //curX
+            //prevX
+            //if x > prevX
+        tick(x)
+    }
+    /**
+     *
+     */
+    func tick(_ x:CGFloat){
         /*gp1*/
         let x1:CGFloat = -1 * x
         let y1:CGFloat = findY(x1,points!)
@@ -81,10 +91,7 @@ extension GraphView2{
         graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)
         graphLine!.line!.draw()//TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
         
-        //onlye redraw at every 100px
-            //curX
-            //prevX
-            //if x > prevX || x < 
+
     }
 }
 
