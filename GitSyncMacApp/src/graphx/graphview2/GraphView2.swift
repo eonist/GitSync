@@ -80,6 +80,11 @@ extension GraphView2{
         let path:IPath = PolyLineGraphicUtils.path(newPoints)
         graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)
         graphLine!.line!.draw()//TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
+        
+        //onlye redraw at every 100px
+            //curX
+            //prevX
+            //if x > prevX || x < 
     }
 }
 
