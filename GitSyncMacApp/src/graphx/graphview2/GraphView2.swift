@@ -43,6 +43,9 @@ extension GraphView2{
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)
     }
+    /**
+     * Moves the contentContainer in the x position, recalculates the modulated path and draws it
+     */
     func setProgress(_ progress:CGFloat){
         let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize.w, contentSize.w)
         Swift.print("x: " + "\(x)")
@@ -67,7 +70,6 @@ extension GraphView2{
         Swift.print("🍏 diff: " + "\(diff)")
         
         let ratio:CGFloat = height / diff
-        
         let newPoints:[P] = points!.map{CGPointModifier.scale($0, P($0.x,height), P(1,ratio))}
         
         newPoints.forEach{
