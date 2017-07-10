@@ -109,7 +109,7 @@ extension GraphView2{
         
         /*initAnim*/
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/
-        animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Quad.easeIn)
+        animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Elastic.easeInOut)
         animator!.start()
         Swift.print("start anim")
         
