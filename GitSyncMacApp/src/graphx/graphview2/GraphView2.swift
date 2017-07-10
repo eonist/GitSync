@@ -152,7 +152,7 @@ extension GraphView2{
         /*gp1*/
         let x:CGFloat = 0
         let p = findGraphP(x,points!)
-        Swift.print("-p-: " + "\(p)")
+        //Swift.print("addGraphPoint -p-: " + "\(p)")
         
         addGraphPointStyle()
         graphPoint1 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
@@ -160,7 +160,7 @@ extension GraphView2{
         /*gp2*/
         let x2:CGFloat = width
         let p2 = findGraphP(x2,points!)
-        Swift.print("-p2-: " + "\(p2)")
+        //Swift.print("addGraphPoint -p2-: " + "\(p2)")
 
         graphPoint2 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
         graphPoint2!.point = p2
@@ -179,7 +179,7 @@ extension GraphView2{
      *
      */
     func findY(_ x:CGFloat, _ points:[P])->CGFloat{
-        Swift.print("findY x: " + "\(x)")
+        //Swift.print("findY x: " + "\(x)")
         var seg:(p1:P,p2:P)?
         for i in 0..<points.count-1{
             let cur = points[i]
@@ -190,9 +190,9 @@ extension GraphView2{
             }
         }
         //seg = seg ?? (points[points.count-2],points.last!)
-        Swift.print("findY seg: " + "\(String(describing: seg))")
+        //Swift.print("findY seg: " + "\(String(describing: seg))")
         let slope:CGFloat = CGPointParser.slope(seg!.p1, seg!.p2)
-        Swift.print("findY slope: " + "\(slope)")
+        //Swift.print("findY slope: " + "\(slope)")
         let y:CGFloat = CGPointParser.y(seg!.p1, x, slope)/*seg!.p2.x*/
         return y
     }
