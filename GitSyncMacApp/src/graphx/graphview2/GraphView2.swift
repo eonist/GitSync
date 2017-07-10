@@ -32,6 +32,7 @@ class GraphView2:ContainerView2{
         let maxX:CGFloat = self.width
         
         let minY:CGFloat = self.minY(minX,maxX)
+        _ = minY
         //Swift.print("⚠️️ minY: " + "\(minY))")
     }
 }
@@ -87,11 +88,11 @@ extension GraphView2{
         let minX:CGFloat = x1
         let maxX:CGFloat = x2
         let minY:CGFloat = self.minY(minX,maxX)
-        Swift.print("⚠️️ minY: " + "\(minY))")
+        //Swift.print("⚠️️ minY: " + "\(minY))")
         
         //let dist:CGFloat = 400.cgFloat.distance(to: minY)
         let diff:CGFloat = height + (-1 * minY)
-        Swift.print("🍏 diff: " + "\(diff)")
+        //Swift.print("🍏 diff: " + "\(diff)")
         
         let ratio:CGFloat = height / diff
         let newPoints:[P] = points!.map{CGPointModifier.scale($0, P($0.x,height), P(1,ratio))}
@@ -178,7 +179,7 @@ extension GraphView2{
      *
      */
     func findY(_ x:CGFloat, _ points:[P])->CGFloat{
-        Swift.print("x: " + "\(x)")
+        Swift.print("findY x: " + "\(x)")
         var seg:(p1:P,p2:P)?
         for i in 0..<points.count-1{
             let cur = points[i]
@@ -189,9 +190,9 @@ extension GraphView2{
             }
         }
         //seg = seg ?? (points[points.count-2],points.last!)
-        Swift.print("seg: " + "\(String(describing: seg))")
+        Swift.print("findY seg: " + "\(String(describing: seg))")
         let slope:CGFloat = CGPointParser.slope(seg!.p1, seg!.p2)
-        Swift.print("slope: " + "\(slope)")
+        Swift.print("findY slope: " + "\(slope)")
         let y:CGFloat = CGPointParser.y(seg!.p1, x, slope)/*seg!.p2.x*/
         return y
     }
