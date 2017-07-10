@@ -80,7 +80,7 @@ extension GraphView2{
      *
      */
     func tick(_ x:CGFloat){
-        prevPoints = points.map{$0}
+        
         //Swift.print("tick: x: \(x)")
         /*gp1*/
         let x1:CGFloat = -1 * x
@@ -110,6 +110,7 @@ extension GraphView2{
         animator!.start()
         Swift.print("start anim")
         
+        prevPoints = points.map{$0}
     }
    
     /**
