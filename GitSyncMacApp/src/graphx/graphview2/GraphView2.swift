@@ -25,11 +25,7 @@ class GraphView2:ContainerView2{
         super.resolveSkin()
         /*config*/
         Swift.print("⚠️️IMPLEMENT THE BELLOW AS COMPUTED PROPS⚠️️")
-        //maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
-        //contentSize = CGSize(3000,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         
-        //Continue here: 🏀
-            //setup computed properties probably and it should work
         
         addGraphLine()
         addGraphPoint()
@@ -43,6 +39,7 @@ class GraphView2:ContainerView2{
 /*Animation*/
 extension GraphView2{
     func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
+        Swift.print("onScrollWheelChange")
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)
     }
