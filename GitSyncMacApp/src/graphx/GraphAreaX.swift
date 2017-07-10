@@ -16,6 +16,11 @@ import Cocoa
     //you then need to animate the scale at every tick
     //
  */
+
+
+//Continue here:
+    //try to reimplement GraphView2 as it has all but the animate at threshold points. Then reformat the code to look more like this code etc
+
 class GraphAreaX:Element{
     var graphDots:[Element] = []//rename to graphDots for clearity?
     var graphLine:GraphLine?
