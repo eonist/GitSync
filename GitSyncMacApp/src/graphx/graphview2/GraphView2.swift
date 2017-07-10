@@ -56,11 +56,15 @@ extension GraphView2{
        
         let absX = abs(x)
         if absX >= prevX + 100 {/*only redraw at every 100px*/
+            Swift.print("if")
             tick(x)
-        }else if x < prevX{
+            prevX = absX
+        }else if absX < prevX{
+            Swift.print("else if")
             tick(x)
+            prevX = absX - 100
         }
-        prevX = absX
+        
     }
     
     //Continue here: 🏀
@@ -73,7 +77,7 @@ extension GraphView2{
      *
      */
     func tick(_ x:CGFloat){
-        Swift.print("tick: x: \(x)")
+        //Swift.print("tick: x: \(x)")
         /*gp1*/
         let x1:CGFloat = -1 * x
         let y1:CGFloat = findY(x1,points!)
