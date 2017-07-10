@@ -24,8 +24,8 @@ class GraphView2:ContainerView2{
         //maskSize = CGSize(width,height)/*represents the visible part of the content *///TODO: could be ranmed to maskRect
         //contentSize = CGSize(3000,height)/*represents the total size of the content *///TODO: could be ranmed to contentRect
         
-        //Continue here:
-            //
+        //Continue here: 🏀
+            //setup computed properties probably and it should work
         
         addGraphLine()
         addGraphPoint()
