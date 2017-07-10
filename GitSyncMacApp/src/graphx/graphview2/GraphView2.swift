@@ -80,6 +80,7 @@ extension GraphView2{
      *
      */
     func tick(_ x:CGFloat){
+        prevPoints = points.map{$0}
         //Swift.print("tick: x: \(x)")
         /*gp1*/
         let x1:CGFloat = -1 * x
@@ -120,6 +121,14 @@ extension GraphView2{
             //Swift.print("$0: " + "\($0)")
             graphPoint2!.point = $0
         }
+        var positions:[CGPoint] = []
+        /*GraphPoints*/
+        for i in 0..<points!.count{
+            let pos:CGPoint = prevPoints![i].interpolate(newPoints![i], val)/*interpolates from one point to another*/
+            positions.append(pos)
+            
+        }
+        
         
         let path:IPath = PolyLineGraphicUtils.path(newPoints!)
         graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)
