@@ -3,7 +3,9 @@ import Foundation
 @testable import Element
 
 /**
- * TODO: ⚠️️ 
+ * TODO: ⚠️️ Account for next and prev point when calculating min and max
+ * TODO: ⚠️️ Animate the graph in an isolated test with random data points that range adjust
+ * TODO: ⚠️️ Add 
  */
 class GraphX:Element{
     /*Components*/
