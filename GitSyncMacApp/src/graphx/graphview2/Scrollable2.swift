@@ -11,17 +11,17 @@ extension ContainerView2{//use some where magic? see your notes on this
      * TODO: Try to override with generics ContainerView<VerticalScrollable>  etc
      */
     override open func scrollWheel(with event: NSEvent) {
-        //Swift.print("ScrollVList.scrollWheel")
+        Swift.print("ScrollVList.scrollWheel")
         if(self is Scrollable2){
             (self as! Scrollable2).scroll(event)
         }
-        //super.scrollWheel(with: event)
+        super.scrollWheel(with: event)
     }
 }
 
 extension Scrollable2{
     func scroll(_ event:NSEvent){
-        //Swift.print("Scrollable2.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
+        Swift.print("Scrollable2.scroll() \(event.phase.type) scrollDeltaX: \(event.scrollingDeltaX) deltaX: \(event.deltaX)")
         switch event.phase{
             
             //if the prev Change event only had -1 or 1 or 0. Then you released with no momentum and so no anim should be initiated
