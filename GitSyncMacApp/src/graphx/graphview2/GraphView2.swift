@@ -101,6 +101,14 @@ extension GraphView2{
         let ratio:CGFloat = height / diff
         let newPoints:[P] = points!.map{CGPointModifier.scale($0, P($0.x,height), P(1,ratio))}
         
+        initAnim(newPoints)
+        
+    }
+    /**
+     *
+     */
+    func initAnim(_ newPoints:[P]){
+        
         newPoints.forEach{
             //Swift.print("$0: " + "\($0)")
             graphPoint2!.point = $0
@@ -111,12 +119,6 @@ extension GraphView2{
         graphLine!.line!.draw()//TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
         
         
-    }
-    
-    /**
-     *
-     */
-    func initAnim(_ newPoints:[P]){
         //continue here 🏀
             //add prevPoints 👈
             //copy over the anim code 👈
