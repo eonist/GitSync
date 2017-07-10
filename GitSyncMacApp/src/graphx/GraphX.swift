@@ -4,8 +4,9 @@ import Foundation
 
 /**
  * TODO: ⚠️️ Account for next and prev point when calculating min and max
- * TODO: ⚠️️ Animate the graph in an isolated test with random data points that range adjust
- * TODO: ⚠️️ Add 
+ * TODO: ⚠️️ Animate the graph in an isolated test with random data points that range modulate
+ * TODO: ⚠️️ Add the range modulate code to GraphX
+ * TODO: ⚠️️ 
  */
 class GraphX:Element{
     /*Components*/
