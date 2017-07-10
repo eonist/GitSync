@@ -17,11 +17,11 @@ class GraphView2:ContainerView2{
     override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
     
     override var maskSize:CGSize {return CGSize(super.width,super.height)}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
-    override var contentSize:CGSize {return CGSize(100*19,super.getHeight())}
+    override var contentSize:CGSize {return CGSize(3000,height)}
     
     
     override func resolveSkin() {
-        StyleManager.addStyle("GraphView2{float:none;clear:none;fill:green;fill-alpha:0.0;}")
+        StyleManager.addStyle("GraphView2{float:none;clear:none;fill:green;fill-alpha:1.0;}")
         super.resolveSkin()
         /*config*/
         Swift.print("⚠️️IMPLEMENT THE BELLOW AS COMPUTED PROPS⚠️️")
