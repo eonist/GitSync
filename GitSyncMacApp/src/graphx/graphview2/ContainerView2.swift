@@ -23,7 +23,7 @@ class ContainerView2:Element,Containable2 {
     }
     required init(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
-/*extension ContainerView2:Scrollable2{
+extension ContainerView2:Scrollable2{
     override open func scrollWheel(with event: NSEvent) {
         Swift.print("ContainerView2.scrollWheel")
         scroll(event)
@@ -34,4 +34,4 @@ extension ContainerView2{
     func onScrollWheelEnter(){Swift.print("ContainerView2.must be overriden")/*fatalError("must be overriden")*/}
     func onScrollWheelExit(){Swift.print("ContainerView2.must be overriden")/*fatalError("must be overriden")*/}
     func onScrollWheelChange(_ event:NSEvent){Swift.print("ContainerView2.must be overriden")/*fatalError("must be overriden")*/}
-}*/
+}
