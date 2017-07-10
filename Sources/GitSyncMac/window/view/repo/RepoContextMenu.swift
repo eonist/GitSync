@@ -89,7 +89,7 @@ extension RepoContextMenu{
         Swift.print("idx: " + "\(idx)")
         if let tree:Tree = treeList[idx] {
             clipBoard = tree.xml
-            Swift.print("clipBoard: " + "\(clipBoard)")
+            Swift.print("clipBoard: " + "\(clipBoard!.string)")
         }
     }
     func cut(sender:AnyObject) {
@@ -99,7 +99,7 @@ extension RepoContextMenu{
         if let tree:Tree = treeList[idx] {
             treeList.remove(idx)
             clipBoard = tree.xml
-            Swift.print("clipBoard: " + "\(clipBoard)")
+            Swift.print("clipBoard: " + "\(clipBoard!.string)")
         }
     }
     func paste(sender:AnyObject) {
