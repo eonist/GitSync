@@ -118,7 +118,7 @@ extension GraphScrollable {
         let progress = abs(x) / availableSpace
         Swift.print("progress: " + "\(progress)")
         
-        abs(x) 
+        
         //continue here: ball
             //you need to find the integer at the min visible dot
             //Draw on paper how to find the visual dots at the current progression
