@@ -108,7 +108,7 @@ extension GraphView2{
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/
         animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Quad.easeIn)
         animator!.start()
-
+        Swift.print("start anim")
         
     }
    
@@ -117,10 +117,10 @@ extension GraphView2{
      * NOTE: ReCalc the hValue indicators (each week has a different max hValue etc)
      */
     func interpolateValue(_ val:CGFloat){
-        newPoints!.forEach{
-            //Swift.print("$0: " + "\($0)")
-            graphPoint2!.point = $0
-        }
+        /*newPoints!.forEach{
+         //Swift.print("$0: " + "\($0)")
+         graphPoint2!.point = $0
+         }*/
         var positions:[CGPoint] = []
         /*GraphPoints*/
         for i in 0..<newPoints!.count{
@@ -130,7 +130,7 @@ extension GraphView2{
         }
         
         
-        let path:IPath = PolyLineGraphicUtils.path(newPoints!)
+        let path:IPath = PolyLineGraphicUtils.path(positions)
         graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)
         graphLine!.line!.draw()//draws the path//TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
         
