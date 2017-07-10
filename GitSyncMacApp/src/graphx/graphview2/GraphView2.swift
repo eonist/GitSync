@@ -19,14 +19,12 @@ class GraphView2:ContainerView2{
     override var maskSize:CGSize {return CGSize(super.width,super.height)}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
     override var contentSize:CGSize {return CGSize(3000,height)}
     
-    var prevX:CGFloat = 0
+    var prevX:CGFloat = -100
     
     override func resolveSkin() {
         StyleManager.addStyle("GraphView2{float:none;clear:none;fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
         /*config*/
-        Swift.print("⚠️️IMPLEMENT THE BELLOW AS COMPUTED PROPS⚠️️")
-        
         
         addGraphLine()
         addGraphPoint()
@@ -34,13 +32,13 @@ class GraphView2:ContainerView2{
         let maxX:CGFloat = self.width
         
         let minY:CGFloat = self.minY(minX,maxX)
-        Swift.print("⚠️️ minY: " + "\(minY))")
+        //Swift.print("⚠️️ minY: " + "\(minY))")
     }
 }
 /*Animation*/
 extension GraphView2{
     override func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
-        Swift.print("onScrollWheelChange")
+        //Swift.print("GraphView2.onScrollWheelChange")
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)
     }
@@ -50,7 +48,7 @@ extension GraphView2{
      */
     func setProgress(_ progress:CGFloat){
         let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize.w, contentSize.w)
-        Swift.print("x: " + "\(x)")
+        //Swift.print("x: " + "\(x)")
         contentContainer!.x = x
         //only redraw at every 100px
             //curX
