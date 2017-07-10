@@ -134,6 +134,8 @@ extension GraphScrollable {
         
         //Continue here: 🏀
             //you can probably use the GraphUtils.points to get the points
+        
+        GraphUtils.points(<#T##size: CGSize##CGSize#>, <#T##position: CGPoint##CGPoint#>, <#T##spacing: CGSize##CGSize#>, <#T##vValues: [CGFloat]##[CGFloat]#>, <#T##maxValue: CGFloat##CGFloat#>)
     }
     /**
      * TODO: Comment this method
