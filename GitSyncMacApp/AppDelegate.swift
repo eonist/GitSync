@@ -38,6 +38,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let winSize:CGSize = WinParser.size(window)
         let graph = window.contentView!.addSubView(GraphX(winSize.w,winSize.h))
         _ = graph
+        
+        
+    }
+    
+    func createGraphView2(){
+        let test = self.addSubView(GraphView2(width,height-48,self))
+        _ = test
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
