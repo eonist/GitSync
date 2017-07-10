@@ -18,7 +18,7 @@ import Cocoa
  */
 
 
-//Continue here:
+//Continue here: 🏀
     //try to reimplement GraphView2 as it has all but the animate at threshold points. Then reformat the code to look more like this code etc
 
 class GraphAreaX:Element{
