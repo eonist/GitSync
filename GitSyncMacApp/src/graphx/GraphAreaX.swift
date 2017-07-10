@@ -2,19 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 /**
- * TODO: ⚠️️ Draw a bit on paper to make sure you understand what needs to be coded ✅
- * TODO: ⚠️️ Draw more points ✅
- * TODO: ⚠️️ Implement ElasticView ✅
- * TODO: ⚠️️ Implement integer animate to onProgress ticks
-    //you need to hock into the on progress ticks and log these ✅
-    //you need to get the active range of dots ✅ using contentView.x and finding the cur visible positions
-    //you need to get the vValue a for this dot
-    //you need to get the max vValue in the range
-    //you need to find the scale to go from prevMaxVal to newMAxVal
-    //you need to scale all graphPoints to this new scale (you have code for this)
-    //you need to scale at every tick, use modulo and prevTick
-    //you then need to animate the scale at every tick
-    //
+ * TODO: ⚠️️ 
  */
 
 
