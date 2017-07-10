@@ -34,6 +34,7 @@ class GraphView2:ContainerView2{
         let minY:CGFloat = self.minY(minX,maxX)
         _ = minY
         //Swift.print("⚠️️ minY: " + "\(minY))")
+        setProgress(<#T##progress: CGFloat##CGFloat#>)
     }
 }
 /*Animation*/
@@ -48,6 +49,7 @@ extension GraphView2{
      * Moves the contentContainer in the x position, recalculates the modulated path and draws it
      */
     func setProgress(_ progress:CGFloat){
+        Swift.print("setProgress: progress: \(progress)")
         let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize.w, contentSize.w)
         //Swift.print("x: " + "\(x)")
         contentContainer!.x = x
@@ -56,7 +58,7 @@ extension GraphView2{
             //prevX
             //if x > prevX
         
-        if x > prevX + 100 {
+        if x >= prevX + 100 {
             tick(x)
         }else if x < prevX{
             tick(x)
