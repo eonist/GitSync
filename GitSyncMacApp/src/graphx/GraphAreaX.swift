@@ -125,6 +125,8 @@ extension GraphScrollable {
         let right:CGFloat = abs(x)+(100*GraphX.config.vCount)
         let max:Int = floor(right/100).int
         
+        
+        
     }
     /**
      * TODO: Comment this method
