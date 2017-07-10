@@ -23,6 +23,7 @@ class GraphAreaX:Element{
     var scrollView:GraphScrollView?
     var points:[CGPoint]?
     var prevPoints:[CGPoint]?/*interim var*/
+    var vValues:[CGFloat]?
     //var animator:Animator?/*Anim*/
     override func resolveSkin() {
         super.resolveSkin()
