@@ -109,6 +109,20 @@ extension GraphView2{
      */
     func initAnim(_ newPoints:[P]){
         
+        if(animator != nil){animator!.stop()}/*stop any previous running animation*/
+        animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Quad.easeIn)
+        animator!.start()
+        
+        
+        //continue here 🏀
+            //add prevPoints 👈
+            //copy over the anim code 👈
+            //see if it works
+    }
+    /**
+     *
+     */
+    func interpolateValue(){
         newPoints.forEach{
             //Swift.print("$0: " + "\($0)")
             graphPoint2!.point = $0
@@ -119,10 +133,6 @@ extension GraphView2{
         graphLine!.line!.draw()//TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
         
         
-        //continue here 🏀
-            //add prevPoints 👈
-            //copy over the anim code 👈
-            //see if it works
     }
 }
 
