@@ -20,7 +20,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //      initApp()
         //stateTest()
         //themeSwitchTest()
-        graphXTest()
+        //graphXTest()
         
        
     }
@@ -31,19 +31,22 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func graphXTest(){
         Swift.print("Hello GraphX")
         
-        window.setContentSize(CGSize(664,400))
+        window.size = CGSize(664,400)
         window.contentView = InteractiveView2()
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/graphx/graphxtest.css",true)
         
         let winSize:CGSize = WinParser.size(window)
         let graph = window.contentView!.addSubView(GraphX(winSize.w,winSize.h))
         _ = graph
-        
-        
     }
-    
+    /**
+     * Earlier test that modulates the graph while you scroll
+     */
     func createGraphView2(){
-        let test = self.addSubView(GraphView2(width,height-48,self))
+        window.size = CGSize(664,400)
+        window.contentView = InteractiveView2()
+        let winSize:CGSize = WinParser.size(window)
+        let test = self.addSubView(GraphView2(winSize.width,winSize.height-48,self))
         _ = test
     }
     func initApp(){
