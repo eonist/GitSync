@@ -103,35 +103,25 @@ extension GraphView2{
         let ratio:CGFloat = height / diff
         newPoints = points!.map{CGPointModifier.scale($0, P($0.x,height), P(1,ratio))}
         
-        initAnim(newPoints)
-        
-    }
-    /**
-     *
-     */
-    func initAnim(_ newPoints:[P]){
-        
+        /*initAnim*/
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/
         animator = Animator(Animation.sharedInstance,0.5,0,1,interpolateValue,Quad.easeIn)
         animator!.start()
+
         
-        
-        //continue here 🏀
-            //add prevPoints 👈
-            //copy over the anim code 👈
-            //see if it works
     }
+   
     /**
      * Interpolates between 0 and 1 while the duration of the animation
      * NOTE: ReCalc the hValue indicators (each week has a different max hValue etc)
      */
     func interpolateValue(_ val:CGFloat){
-        newPoints?.forEach{
+        newPoints!.forEach{
             //Swift.print("$0: " + "\($0)")
             graphPoint2!.point = $0
         }
         
-        let path:IPath = PolyLineGraphicUtils.path(newPoints)
+        let path:IPath = PolyLineGraphicUtils.path(newPoints!)
         graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)
         graphLine!.line!.draw()//TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
         
