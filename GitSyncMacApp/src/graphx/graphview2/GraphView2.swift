@@ -123,7 +123,7 @@ extension GraphView2{
         }
         var positions:[CGPoint] = []
         /*GraphPoints*/
-        for i in 0..<points!.count{
+        for i in 0..<newPoints!.count{
             let pos:CGPoint = prevPoints![i].interpolate(newPoints![i], val)/*interpolates from one point to another*/
             positions.append(pos)
             
@@ -132,7 +132,7 @@ extension GraphView2{
         
         let path:IPath = PolyLineGraphicUtils.path(newPoints!)
         graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)
-        graphLine!.line!.draw()//TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
+        graphLine!.line!.draw()//draws the path//TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
         
         
     }
