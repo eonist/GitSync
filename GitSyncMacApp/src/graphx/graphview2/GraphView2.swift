@@ -19,6 +19,7 @@ class GraphView2:ContainerView2{
     override var maskSize:CGSize {return CGSize(super.width,super.height)}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
     override var contentSize:CGSize {return CGSize(3000,height)}
     
+    var prevX:CGFloat = 0
     
     override func resolveSkin() {
         StyleManager.addStyle("GraphView2{float:none;clear:none;fill:green;fill-alpha:0.0;}")
@@ -43,7 +44,7 @@ extension GraphView2{
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)
     }
-    var prevX:CGFloat = 0
+    
     /**
      * Moves the contentContainer in the x position, recalculates the modulated path and draws it
      */
@@ -51,20 +52,28 @@ extension GraphView2{
         let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize.w, contentSize.w)
         Swift.print("x: " + "\(x)")
         contentContainer!.x = x
-                //only redraw at every 100px
+        //only redraw at every 100px
             //curX
             //prevX
             //if x > prevX
         
-        if x > prevX {
+        if x > prevX + 100 {
+            tick(x)
+        }else if x < prevX{
             tick(x)
         }
         prevX = x
     }
+    
+    //Continue here:
+        //
+    
+    
     /**
      *
      */
     func tick(_ x:CGFloat){
+        Swift.print("tick")
         /*gp1*/
         let x1:CGFloat = -1 * x
         let y1:CGFloat = findY(x1,points!)
