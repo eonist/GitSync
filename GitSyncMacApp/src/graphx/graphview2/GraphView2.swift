@@ -54,12 +54,13 @@ extension GraphView2{
         //Swift.print("x: " + "\(x)")
         contentContainer!.x = x
        
-        if x >= prevX + 100 {/*only redraw at every 100px*/
+        let absX = abs(x)
+        if absX >= prevX + 100 {/*only redraw at every 100px*/
             tick(x)
         }else if x < prevX{
             tick(x)
         }
-        prevX = x
+        prevX = absX
     }
     
     //Continue here: 🏀
@@ -72,7 +73,7 @@ extension GraphView2{
      *
      */
     func tick(_ x:CGFloat){
-        Swift.print("tick")
+        Swift.print("tick: x: \(x)")
         /*gp1*/
         let x1:CGFloat = -1 * x
         let y1:CGFloat = findY(x1,points!)
