@@ -23,7 +23,7 @@ class GraphAreaX:Element{
     var scrollView:GraphScrollView?
     var points:[CGPoint]?
     var prevPoints:[CGPoint]?/*interim var*/
-    var vValues:[CGFloat]?
+    static var vValues:[CGFloat]?
     //var animator:Animator?/*Anim*/
     override func resolveSkin() {
         super.resolveSkin()
@@ -67,6 +67,7 @@ class GraphAreaX:Element{
     func updateGraph(_ vValues:[CGFloat]){
         //Swift.print("updateGraph.vValues: " + "\(vValues)")
         //prevPoints = points.map{$0}//grabs the location of where the pts are now
+        GraphAreaX.vValues = vValues
         let maxValue:CGFloat = vValues.max()!//Finds the largest number in among vValues
         //Swift.print("maxValue: " + "\(maxValue)")
         
