@@ -122,7 +122,7 @@ extension GraphScrollable {
         /*print(ceil(334/100))
          print(ceil(300/100))*/
         let min:Int = ceil(abs(x)/100).int
-        let max:Int = min + GraphX.config.vCount
+        let max:Int = floor(abs(x))// + GraphX.config.vCount
     }
     /**
      * TODO: Comment this method
