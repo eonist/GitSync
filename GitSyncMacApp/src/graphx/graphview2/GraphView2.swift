@@ -157,7 +157,7 @@ extension GraphView2{
             }
         }
         //seg = seg ?? (points[points.count-2],points.last!)
-        Swift.print("seg: " + "\(seg)")
+        Swift.print("seg: " + "\(String(describing: seg))")
         let slope:CGFloat = CGPointParser.slope(seg!.p1, seg!.p2)
         Swift.print("slope: " + "\(slope)")
         let y:CGFloat = CGPointParser.y(seg!.p1, x, slope)/*seg!.p2.x*/
