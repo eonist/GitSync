@@ -34,7 +34,7 @@ class GraphView2:ContainerView2{
         let minY:CGFloat = self.minY(minX,maxX)
         _ = minY
         //Swift.print("⚠️️ minY: " + "\(minY))")
-        setProgress(<#T##progress: CGFloat##CGFloat#>)
+        setProgress(0)/*init tick*/
     }
 }
 /*Animation*/
@@ -49,16 +49,12 @@ extension GraphView2{
      * Moves the contentContainer in the x position, recalculates the modulated path and draws it
      */
     func setProgress(_ progress:CGFloat){
-        Swift.print("setProgress: progress: \(progress)")
+        //Swift.print("setProgress: progress: \(progress)")
         let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize.w, contentSize.w)
         //Swift.print("x: " + "\(x)")
         contentContainer!.x = x
-        //only redraw at every 100px
-            //curX
-            //prevX
-            //if x > prevX
-        
-        if x >= prevX + 100 {
+       
+        if x >= prevX + 100 {/*only redraw at every 100px*/
             tick(x)
         }else if x < prevX{
             tick(x)
@@ -67,9 +63,9 @@ extension GraphView2{
     }
     
     //Continue here: 🏀
-        //remove many of the log prints
+        //remove many of the log prints ✅
         //draw out how you want to solve the threshold ticks better, maybe with insp from snap?
-        //add AnimTo from points to points. You should have code for this as well
+        //add AnimTo from points to points. You should have code for this as well 👌
     
     
     /**
