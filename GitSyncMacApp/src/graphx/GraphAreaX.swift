@@ -111,9 +111,9 @@ extension GraphScrollable {
     func tick(){
         Swift.print("tick \(moverGroup!.result.x)")
         //find cur 0 to 1 progress
-        let totWidth = contentSize.width
-        let maskWidth = maskSize.width
-        let availableSpace = totWidth - maskWidth
+        /*let totWidth = contentSize.width
+         let maskWidth = maskSize.width
+         let availableSpace = totWidth - maskWidth*/
         let x = moverGroup!.result.x
         /*let progress = abs(x) / availableSpace
          Swift.print("progress: " + "\(progress)")*/
@@ -122,7 +122,9 @@ extension GraphScrollable {
         /*print(ceil(334/100))
          print(ceil(300/100))*/
         let min:Int = ceil(abs(x)/100).int
-        let max:Int = floor(abs(x))// + GraphX.config.vCount
+        let right:CGFloat = abs(x)+(100*GraphX.config.vCount)
+        let max:Int = floor(right/100).int
+        
     }
     /**
      * TODO: Comment this method
