@@ -109,7 +109,14 @@ extension GraphView2{
         graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)
         graphLine!.line!.draw()//TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
         
-
+        
+    }
+    
+    /**
+     *
+     */
+    func initAnim(){
+        
     }
 }
 
