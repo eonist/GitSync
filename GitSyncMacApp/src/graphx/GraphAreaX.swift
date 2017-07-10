@@ -135,7 +135,10 @@ extension GraphScrollable {
         //Continue here: 🏀
             //you can probably use the GraphUtils.points to get the points
         
-        GraphUtils.points(<#T##size: CGSize##CGSize#>, <#T##position: CGPoint##CGPoint#>, <#T##spacing: CGSize##CGSize#>, <#T##vValues: [CGFloat]##[CGFloat]#>, <#T##maxValue: CGFloat##CGFloat#>)
+        let size:CGSize = maskSize
+        let points = GraphUtils.points(size, CGPoint(0,0), CGSize(100,100), range, maxValue,0,0)
+        
+        
     }
     /**
      * TODO: Comment this method
