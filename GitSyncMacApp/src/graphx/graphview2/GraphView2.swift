@@ -16,6 +16,10 @@ class GraphView2:ContainerView2{
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
     override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
     
+    override var maskSize:CGSize {return CGSize(super.width,super.height)}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
+    override var contentSize:CGSize {return CGSize(100*19,super.getHeight())}
+    
+    
     override func resolveSkin() {
         StyleManager.addStyle("GraphView2{float:none;clear:none;fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
