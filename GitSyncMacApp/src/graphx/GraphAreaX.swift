@@ -137,8 +137,7 @@ extension GraphScrollable {
         
         let size:CGSize = maskSize
         let points = GraphUtils.points(size, CGPoint(0,0), CGSize(100,100), range, maxValue,0,0)
-        
-        
+        _ = points
     }
     /**
      * TODO: Comment this method
