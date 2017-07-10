@@ -115,16 +115,14 @@ extension GraphScrollable {
         let maskWidth = maskSize.width
         let availableSpace = totWidth - maskWidth
         let x = moverGroup!.result.x
-        let progress = abs(x) / availableSpace
-        Swift.print("progress: " + "\(progress)")
+        /*let progress = abs(x) / availableSpace
+         Swift.print("progress: " + "\(progress)")*/
         
         
-        //continue here: ball
-            //you need to find the integer at the min visible dot
-            //Draw on paper how to find the visual dots at the current progression
-            //you just take abs(x) and ceil it to next whole integer, see Math lib for this method
-            //Then you divide this position in 20 and you have your integer
-            //then count the max amount of dots ahead and you have your visible dots
+        /*print(ceil(334/100))
+         print(ceil(300/100))*/
+        let min:Int = ceil(abs(x)/100).int
+        let max:Int = min + GraphX.config.vCount
     }
     /**
      * TODO: Comment this method
