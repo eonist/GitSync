@@ -20,6 +20,7 @@ class GraphView2:ContainerView2{
     override var contentSize:CGSize {return CGSize(3000,height)}
     
     var prevX:CGFloat = -100
+    var prevPoints:[CGPoint]?/*interim var*/
     
     override func resolveSkin() {
         StyleManager.addStyle("GraphView2{float:none;clear:none;fill:green;fill-alpha:0.0;}")
