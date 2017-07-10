@@ -50,11 +50,14 @@ extension GraphView2{
         let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize.w, contentSize.w)
         Swift.print("x: " + "\(x)")
         contentContainer!.x = x
-                //onlye redraw at every 100px
+                //only redraw at every 100px
             //curX
             //prevX
             //if x > prevX
         tick(x)
+        if x > prevX {
+            
+        }
     }
     /**
      *
