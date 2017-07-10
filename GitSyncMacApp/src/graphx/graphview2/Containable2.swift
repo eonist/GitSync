@@ -1,5 +1,6 @@
 import Cocoa
 @testable import Utils
+@testable import Element
 
 protocol Containable2:class {
     var maskSize:CGSize{get}

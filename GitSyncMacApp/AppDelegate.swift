@@ -24,9 +24,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         createGraphView2()
        
     }
-    
     /**
-     *
+     * Testing the zoomable and bouncing graph
      */
     func graphXTest(){
         Swift.print("Hello GraphX")
