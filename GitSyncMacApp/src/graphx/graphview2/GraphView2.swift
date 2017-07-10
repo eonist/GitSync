@@ -56,11 +56,11 @@ extension GraphView2{
        
         let absX = abs(x)
         if absX >= prevX + 100 {/*only redraw at every 100px*/
-            Swift.print("if")
+            Swift.print("if x:\(x)")
             tick(x)
             prevX = absX
         }else if absX < prevX{
-            Swift.print("else if")
+            Swift.print("else if x: \(x)")
             tick(x)
             prevX = absX - 100
         }
@@ -69,7 +69,7 @@ extension GraphView2{
     
     //Continue here: 🏀
         //remove many of the log prints ✅
-        //draw out how you want to solve the threshold ticks better, maybe with insp from snap?
+        //draw out how you want to solve the threshold ticks better, maybe with insp from snap? ✅
         //add AnimTo from points to points. You should have code for this as well 👌
     
     
