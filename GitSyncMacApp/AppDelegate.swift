@@ -20,9 +20,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //      initApp()
         //stateTest()
         //themeSwitchTest()
-        //graphXTest()
+        graphXTest()
         
-        print(CGFloatModifier.roundTo(44 , 100))
+       
     }
     /**
      *
