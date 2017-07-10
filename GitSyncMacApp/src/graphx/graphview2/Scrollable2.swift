@@ -10,13 +10,13 @@ extension ContainerView2{//use some where magic? see your notes on this
     /**
      * TODO: Try to override with generics ContainerView<VerticalScrollable>  etc
      */
-    override open func scrollWheel(with event: NSEvent) {
-        Swift.print("ScrollVList.scrollWheel")
-        if(self is Scrollable2){
-            (self as! Scrollable2).scroll(event)
-        }
-        super.scrollWheel(with: event)
-    }
+    /*override open func scrollWheel(with event: NSEvent) {
+     Swift.print("ScrollVList.scrollWheel")
+     if(self is Scrollable2){
+     (self as! Scrollable2).scroll(event)
+     }
+     super.scrollWheel(with: event)
+     }*/
 }
 
 extension Scrollable2{

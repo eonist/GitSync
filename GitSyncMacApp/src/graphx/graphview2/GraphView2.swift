@@ -21,7 +21,7 @@ class GraphView2:ContainerView2{
     
     
     override func resolveSkin() {
-        StyleManager.addStyle("GraphView2{float:none;clear:none;fill:green;fill-alpha:1.0;}")
+        StyleManager.addStyle("GraphView2{float:none;clear:none;fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
         /*config*/
         Swift.print("⚠️️IMPLEMENT THE BELLOW AS COMPUTED PROPS⚠️️")
@@ -38,7 +38,7 @@ class GraphView2:ContainerView2{
 }
 /*Animation*/
 extension GraphView2{
-    func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
+    override func onScrollWheelChange(_ event:NSEvent) {/*Direct scroll, not momentum*/
         Swift.print("onScrollWheelChange")
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)
