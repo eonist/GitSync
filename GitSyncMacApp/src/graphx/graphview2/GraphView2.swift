@@ -108,7 +108,6 @@ extension GraphView2{
         Swift.print("start anim")
         
     }
-   
     /**
      * Interpolates between 0 and 1 while the duration of the animation
      * NOTE: ReCalc the hValue indicators (each week has a different max hValue etc)
@@ -126,21 +125,19 @@ extension GraphView2{
             
         }
         
-        
         let path:IPath = PolyLineGraphicUtils.path(positions)
         graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)
-        graphLine!.line!.draw()//draws the path//TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
-        
-        
+        graphLine!.line!.draw()//draws the path //TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
     }
 }
 
 extension GraphView2{
     /**
-     *
+     * minY
      */
     func minY(_ minX:CGFloat,_ maxX:CGFloat) -> CGFloat {
-        return ([edgeValues!.start, edgeValues!.end] + points!.filter{$0.x >= minX && $0.x <= maxX}.map{$0.y}).min()!
+        let yValuesWithinMinXAndMaxX:[CGFloat] = points!.filter{$0.x >= minX && $0.x <= maxX}.map{$0.y}
+        return ([edgeValues!.start, edgeValues!.end] + yValuesWithinMinXAndMaxX).min()!
     }
     /**
      *
@@ -153,7 +150,6 @@ extension GraphView2{
             let y:CGFloat = (0..<(h*4)).random.cgFloat - (h.cgFloat * 3)
             return P(x,y)
         }
-        
         let path:IPath = PolyLineGraphicUtils.path(points!)
         graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
     }
@@ -171,7 +167,6 @@ extension GraphView2{
         StyleManager.addStyle(css)
     }
 }
-
 extension GraphView2{
     func addGraphPoint(){
         /*gp1*/
