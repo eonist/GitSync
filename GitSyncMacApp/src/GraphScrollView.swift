@@ -36,8 +36,6 @@ extension GraphScrollable {
         let x = moverGroup!.result.x
         /*let progress = abs(x) / availableSpace
          Swift.print("progress: " + "\(progress)")*/
-        
-        
         /*print(ceil(334/100))
          print(ceil(300/100))*/
         let min:Int = ceil(abs(x)/100).int
@@ -50,7 +48,7 @@ extension GraphScrollable {
         Swift.print("maxValue: " + "\(maxValue)")
         
         //Continue here: 🏀
-        //you can probably use the GraphUtils.points to get the points
+            //you can probably use the GraphUtils.points to get the points
         
         let size:CGSize = maskSize
         let points = GraphUtils.points(size, CGPoint(0,0), CGSize(100,100), range, maxValue,0,0)
