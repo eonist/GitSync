@@ -25,7 +25,7 @@ class GraphScrollView:ContainerView3,GraphScrollable{
 protocol GraphScrollable:ElasticScrollable3 {}
 extension GraphScrollable {
     /**
-     * 
+     * This method is fired on each scrollWheel change event and MoverGroup setProgressValue call-back
      */
     func frameTick(){
         Swift.print("tick \(moverGroup!.result.x)")
