@@ -91,8 +91,10 @@ extension GraphView2{
         let minY:CGFloat = self.minY(minX,maxX)//returns the smallest Y value in the visible range
         
         
-        //Continue here:
-            //figure out all the ratio stuff etc
+        //Continue here: 🏀
+            //figure out all the ratio stuff etc 👈
+        
+        
         //Swift.print("⚠️️ minY: " + "\(minY))")
         
         //let dist:CGFloat = 400.cgFloat.distance(to: minY)
