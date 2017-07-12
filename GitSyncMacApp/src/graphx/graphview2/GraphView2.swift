@@ -70,14 +70,8 @@ extension GraphView2{
         
     }
     
-    //Continue here: 🏀
-        //remove many of the log prints ✅
-        //draw out how you want to solve the threshold ticks better, maybe with insp from snap? ✅
-        //add AnimTo from points to points. You should have code for this as well 👌
-    
-    
     /**
-     *
+     * When the scroll hits the threshold this method is called to recalculate the graph etc
      */
     func tick(_ x:CGFloat){
         
