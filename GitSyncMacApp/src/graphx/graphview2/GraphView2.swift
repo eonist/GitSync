@@ -12,7 +12,7 @@ class GraphView2:ContainerView2{
     var edgeValues:(start:CGFloat,end:CGFloat)?
     var graphLine:GraphLine?
     
-    override var itemSize:CGSize {return CGSize(100,100)}//override this for custom value
+    override var itemSize:CGSize {return CGSize(100,100)}/*override this for custom value*/
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
     override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
     
