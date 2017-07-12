@@ -48,12 +48,14 @@ extension GraphScrollable {
         let range:[CGFloat] = GraphAreaX.vValues!.slice2(min, max)
         
         let maxValue:CGFloat = range.max()!
+        _ = maxValue
         //Swift.print("maxValue: " + "\(maxValue)")
         
         //Continue here: 🏀
             //you can probably use the GraphUtils.points to get the points
         
-        /*let size:CGSize = maskSize
+        /*
+        let size:CGSize = maskSize
         let points = GraphUtils.points(size, CGPoint(0,0), CGSize(100,100), range, maxValue,0,0)
         _ = points
         */
