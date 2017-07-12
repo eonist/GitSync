@@ -7,6 +7,7 @@ class GraphScrollView:ContainerView3,GraphScrollable{
     override var maskSize:CGSize {return CGSize(super.getWidth(),super.getHeight())}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
     override var contentSize:CGSize {return CGSize(100*19,super.getHeight())}
     var itemSize:CGSize {return CGSize(24,24)}
+    var prevX:CGFloat = -100
     /**
      * When the the user scrolls
      * NOTE: this method overides the Native NSView scrollWheel method
@@ -50,9 +51,22 @@ extension GraphScrollable {
         //Continue here: 🏀
             //you can probably use the GraphUtils.points to get the points
         
-        let size:CGSize = maskSize
+        /*let size:CGSize = maskSize
         let points = GraphUtils.points(size, CGPoint(0,0), CGSize(100,100), range, maxValue,0,0)
         _ = points
+        */
+        
+        let absX = abs(x)
+        if absX >= prevX + 100 {/*only redraw at every 100px*/
+            Swift.print("if x:\(x)")
+            tick(x)
+            prevX = absX
+        }else if absX < prevX{
+            Swift.print("else if x: \(x)")
+            tick(x)
+            prevX = absX - 100
+        }
+
     }
     /**
      * TODO: Comment this method
