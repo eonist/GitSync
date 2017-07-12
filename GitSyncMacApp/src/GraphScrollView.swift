@@ -31,7 +31,7 @@ extension GraphScrollable {
      * This method is fired on each scrollWheel change event and MoverGroup setProgressValue call-back
      */
     func frameTick(){
-        Swift.print("tick \(moverGroup!.result.x)")
+        //Swift.print("frameTick \(moverGroup!.result.x)")
         //find cur 0 to 1 progress
         /*let totWidth = contentSize.width
          let maskWidth = maskSize.width
@@ -48,7 +48,7 @@ extension GraphScrollable {
         let range:[CGFloat] = GraphAreaX.vValues!.slice2(min, max)
         
         let maxValue:CGFloat = range.max()!
-        Swift.print("maxValue: " + "\(maxValue)")
+        //Swift.print("maxValue: " + "\(maxValue)")
         
         //Continue here: 🏀
             //you can probably use the GraphUtils.points to get the points
