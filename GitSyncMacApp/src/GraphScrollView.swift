@@ -70,7 +70,7 @@ extension GraphScrollable {
         }
     }
     func tick(_ xVal:CGFloat){
-        
+        Swift.print("Tick: \(xVal)")
     }
     /**
      * TODO: Comment this method
