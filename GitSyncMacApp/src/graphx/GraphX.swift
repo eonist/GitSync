@@ -3,8 +3,8 @@ import Foundation
 @testable import Element
 
 /**
- * TODO: ⚠️️ Account for next and prev point when calculating min and max 🤔
- * TODO: ⚠️️ Animate the graph in an isolated test with random data points that range modulate
+ * TODO: ⚠️️ Account for next and prev point when calculating min and max 🤔 🚫 nopp transition to new state when a point enters visible view, not before
+ * TODO: ⚠️️ Animate the graph in an isolated test with random data points that range modulate 
  * TODO: ⚠️️ Add the range modulate code to GraphX 👈
  * TODO: ⚠️️ Range modulate only the points in the visible field. smoother anim 👌
  */
