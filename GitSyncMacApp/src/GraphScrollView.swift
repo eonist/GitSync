@@ -23,7 +23,9 @@ class GraphScrollView:ContainerView3,GraphScrollable{
         super.scrollWheel(with:event)/*⚠️️, 👈 not good, forward the event other delegates higher up in the stack*/
     }
 }
-protocol GraphScrollable:ElasticScrollable3 {}
+protocol GraphScrollable:ElasticScrollable3 {
+    var prevX:CGFloat
+}
 extension GraphScrollable {
     /**
      * This method is fired on each scrollWheel change event and MoverGroup setProgressValue call-back
@@ -67,6 +69,9 @@ extension GraphScrollable {
             prevX = absX - 100
         }
 
+    }
+    func tick(_ xVal:CGFloat){
+        
     }
     /**
      * TODO: Comment this method
