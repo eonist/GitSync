@@ -24,7 +24,7 @@ class GraphScrollView:ContainerView3,GraphScrollable{
     }
 }
 protocol GraphScrollable:ElasticScrollable3 {
-    var prevX:CGFloat
+    var prevX:CGFloat {get set}
 }
 extension GraphScrollable {
     /**
@@ -68,7 +68,6 @@ extension GraphScrollable {
             tick(x)
             prevX = absX - 100
         }
-
     }
     func tick(_ xVal:CGFloat){
         
