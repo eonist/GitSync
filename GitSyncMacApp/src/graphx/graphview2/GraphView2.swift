@@ -79,11 +79,11 @@ extension GraphView2{
         /*gp1*/
         let x1:CGFloat = -1 * x
         let y1:CGFloat = findY(x1,points!)
-        graphPoint1!.point = P(0,y1)
+        graphPoint1!.point = P(0,y1)//min edge
         /*gp2*/
         let x2:CGFloat = (-1 * x) + width
         let y2:CGFloat = findY(x2,points!)
-        graphPoint2!.point = P(width,y2)
+        graphPoint2!.point = P(width,y2)//max edge
         edgeValues = (y1,y2)
         /**/
         let minX:CGFloat = x1
