@@ -77,7 +77,7 @@ extension GraphView2{
         
         //Swift.print("tick: x: \(x)")
         /*gp1*/
-        let x1:CGFloat = -1 * x
+        let x1:CGFloat = -1 * x//flip the x to be positive
         let y1:CGFloat = findY(x1,points!)
         graphPoint1!.point = P(0,y1)//min edge
         /*gp2*/
@@ -86,8 +86,8 @@ extension GraphView2{
         graphPoint2!.point = P(width,y2)//max edge
         edgeValues = (y1,y2)
         /**/
-        let minX:CGFloat = x1
-        let maxX:CGFloat = x2
+        let minX:CGFloat = x1//the begining of the visible range
+        let maxX:CGFloat = x2//the end of the visible range
         let minY:CGFloat = self.minY(minX,maxX)
         //Swift.print("⚠️️ minY: " + "\(minY))")
         
