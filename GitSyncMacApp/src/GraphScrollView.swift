@@ -74,6 +74,32 @@ extension GraphScrollable {
     }
     func tick(_ xVal:CGFloat){
         Swift.print("Tick: \(xVal)")
+        
+       
+        /**/
+        let minX:CGFloat = x1/*The begining of the current visible graph*/
+        let maxX:CGFloat = x2/*The end of the visible range*/
+        let minY:CGFloat = self.minY(minX,maxX)/*Returns the smallest Y value in the visible range*/
+        //Swift.print("⚠️️ minY: " + "\(minY))")
+        
+        //let dist:CGFloat = 400.cgFloat.distance(to: minY)
+        let diff:CGFloat = height + (-1 * minY)/*Since graphs start from the bottom we need to flip the y coordinates*/
+        //Swift.print("🍏 diff: " + "\(diff)")
+        
+        let ratio:CGFloat = height / diff/*Now that we have the flipped y coordinate we can get the ratio to scale all other points with */
+        prevPoints = newPoints ?? (0...30).map{P($0*100,0)}//basically use newPoints if they exist or default points if not
+        newPoints = points!.map{CGPointModifier.scale($0/*<--point to scale*/, P($0.x,height)/*<--pivot*/, P(1,ratio)/*<--Scalar ratio*/)}
+        
+    }
+    /**
+     * Returns minY for the visible graph
+     * NOTE: The visible graph is the portion of the graph that is visible at any given progression.
+     * PARAM: minX: The begining of the current visible graph
+     * PARAM: maxX: The end of the visible range
+     */
+    func minY(_ minX:CGFloat,_ maxX:CGFloat) -> CGFloat {
+        let yValuesWithinMinXAndMaxX:[CGFloat] = points!.filter{$0.x >= minX && $0.x <= maxX}.map{$0.y}/*We gather the points within the current minX and maxX*/
+        return ([edgeValues!.start, edgeValues!.end] + yValuesWithinMinXAndMaxX).min()!
     }
     /**
      * TODO: Comment this method
