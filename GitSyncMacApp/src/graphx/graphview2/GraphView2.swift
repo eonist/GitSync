@@ -124,7 +124,9 @@ extension GraphView2{
         graphLine!.line!.draw()//draws the path //TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
     }
 }
-
+/**
+ * Init graph elements
+ */
 extension GraphView2{
     /**
      * Adds CGPoints that represents the Graph
@@ -171,6 +173,9 @@ extension GraphView2{
         edgeValues = (p.y,p2.y)
     }
 }
+/**
+ * Utilitiy methods
+ */
 extension GraphView2{
     /**
      * Returns minY for the visible graph
@@ -212,6 +217,9 @@ extension GraphView2{
         return y
     }
 }
+/**
+ * Adds the styles used in the graph
+ */
 extension GraphView2{
     /**
      * Adds the GraphLine style
