@@ -100,7 +100,7 @@ extension GraphView2{
         
         let ratio:CGFloat = height / diff
         prevPoints = newPoints ?? (0...30).map{P($0*100,0)}//basically use newPoints if they exist or default points if not
-        newPoints = points!.map{CGPointModifier.scale($0, P($0.x,height), P(1,ratio))}
+        newPoints = points!.map{CGPointModifier.scale($0/*<--point to scale*/, P($0.x,height)/*<--pivot*/, P(1,ratio)/*<--Scalar ratio*/)}
         
         /*initAnim*/
         if(animator != nil){animator!.stop()}/*Stop any previous running animation*/
