@@ -130,9 +130,9 @@ extension GraphView2{
         //continue here:
             //consider porting over the code to GraphX and see if its more performant.
             //or start stubbing out the code that only interpolates the visible subrange
-                //you find the startRange, midRange, endRange of the point array's
+                //you find the startRange, midRange, endRange of the point Array's
                 //then you only interpolate the midRange
-                //then you stich the parts together
+                //then you stitch the parts together
         
         //let path:IPath = PolyLineGraphicUtils.path(positions)/*Compiles a path that conceptually is a polyLine*/
         //graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)/*Converts the path to a cgPath*/
