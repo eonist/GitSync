@@ -58,8 +58,8 @@ extension GraphView2{
         //Swift.print("x: " + "\(x)")
         contentContainer!.x = x
        
-        let absX = abs(x)
-        if absX >= prevX + 100 {/*only redraw at every 100px*/
+        let absX = abs(x)/*Force the x value to be possitive*/
+        if absX >= prevX + 100 {/*only redraw at every 100px threshold*/
             Swift.print("if x:\(x)")
             tick(x)
             prevX = absX
