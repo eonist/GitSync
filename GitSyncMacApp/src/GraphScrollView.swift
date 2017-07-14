@@ -61,7 +61,7 @@ extension GraphScrollable {
         */
         
         let absX = abs(x)
-        if absX >= prevX + 100 {/*only redraw at every 100px*/
+        if absX >= prevX + 100 {/*only redraw at every 100px threshold*/
             Swift.print("if x:\(x)")
             tick(x)
             prevX = absX

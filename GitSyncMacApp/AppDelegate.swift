@@ -20,8 +20,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initApp()
         //stateTest()
         //themeSwitchTest()
-        //testGraphXTest()
-        testGraphView2()
+        testGraphXTest()
+        //testGraphView2()
        
     }
     /**
