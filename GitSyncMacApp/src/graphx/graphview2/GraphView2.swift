@@ -69,7 +69,7 @@ extension GraphView2{
         }
     }
     /**
-     * When the scroll hits a threshold this method is called to re-calculate the graph etc
+     * When the scroll hits threshold this method is called to adjust the GraphPoints in the y-coordinate-space to fit inside the view
      */
     func tick(_ x:CGFloat){
         //Swift.print("tick: x: \(x)")
