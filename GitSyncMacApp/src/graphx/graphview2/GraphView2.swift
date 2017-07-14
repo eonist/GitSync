@@ -30,7 +30,7 @@ class GraphView2:ContainerView2{
         /*config*/
         
         addGraphLine()
-        addGraphPoint()
+        addGraphEdgePoints()
         let minX:CGFloat = 0
         let maxX:CGFloat = self.width
         
@@ -143,7 +143,7 @@ extension GraphView2{
         graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
     }
     /**
-     * 
+     * Add
      */
     func addGraphPoints(){
         let h:Int = height.int
@@ -168,7 +168,7 @@ extension GraphView2{
     }
 }
 extension GraphView2{
-    func addGraphPoint(){
+    func addGraphEdgePoints(){
         /*gp1*/
         let x:CGFloat = 0
         let p = findGraphP(x,points!)
@@ -188,7 +188,7 @@ extension GraphView2{
         edgeValues = (p.y,p2.y)
     }
     /**
-     *
+     * 
      */
     func findGraphP(_ x:CGFloat, _ points:[P]) -> P{
         let y:CGFloat = findY(x,points)
