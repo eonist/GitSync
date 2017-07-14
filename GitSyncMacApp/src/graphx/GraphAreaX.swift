@@ -28,13 +28,19 @@ class GraphAreaX:Element{
         createGraphPoints()
     }
     /**
+     * 
+     */
+    func createCGPoints(){
+        let vValues:[CGFloat] = Array(repeating:0, count:GraphX.config.tCount)/*placeholder values*/
+        let maxValue:CGFloat = 0
+        points = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue, 0, 0)
+    }
+    /**
      * Creates the Graph line
      */
     func createGraphLine(/*_ vValues:[CGFloat], _ maxValue:CGFloat*/){
         Swift.print("createGraphLine")
-        let vValues:[CGFloat] = Array(repeating:0, count:GraphX.config.tCount)/*placeholder values*/
-        let maxValue:CGFloat = 0
-        points = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue, 0, 0)
+        
         let path:IPath = PolyLineGraphicUtils.path(points!)
         graphLine = contentContainer!.addSubView(GraphLine(getWidth(),getHeight(),path,contentContainer!))
     }
@@ -44,9 +50,9 @@ class GraphAreaX:Element{
      */
     func createGraphPoints(){
         points!.forEach{
-            let graphPoint:Element = contentContainer!.addSubView(Element(NaN,NaN,contentContainer!,"graphPoint"))
-            graphDots.append(graphPoint)
-            graphPoint.setPosition($0)
+            let graphDot:Element = contentContainer!.addSubView(Element(NaN,NaN,contentContainer!,"graphPoint"))
+            graphDots.append(graphDot)
+            graphDot.setPosition($0)
         }
     }
     /**
