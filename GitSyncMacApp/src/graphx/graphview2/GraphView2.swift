@@ -6,7 +6,7 @@ import Cocoa
  */
 class GraphView2:ContainerView2{
     typealias P = CGPoint
-    var points:[CGPoint]?
+    var points:[CGPoint]?//TODO: ⚠️️ This could probably be lazy
     var graphPoint1:Element?/*Min graph point, left*/
     var graphPoint2:Element?/*Max graph point, right*/
     var edgeValues:(start:CGFloat,end:CGFloat)?
