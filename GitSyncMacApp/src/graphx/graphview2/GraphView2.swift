@@ -116,7 +116,6 @@ extension GraphView2{
         for i in 0..<newPoints!.count{
             let pos:CGPoint = prevPoints![i].interpolate(newPoints![i], val)/*interpolates from one point to another*/
             positions.append(pos)
-            
         }
         
         let path:IPath = PolyLineGraphicUtils.path(positions)
