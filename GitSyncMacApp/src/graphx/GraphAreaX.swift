@@ -9,7 +9,7 @@ class GraphAreaX:Element{
     var graphLine:GraphLine?
     var contentContainer:Element? {return scrollView?.contentContainer}/*contains dots and line*/
     var scrollView:GraphScrollView?
-    var points:[CGPoint]?
+    static var points:[CGPoint]?
     var prevPoints:[CGPoint]?/*interim var*/
     static var vValues:[CGFloat]?
     //var animator:Animator?/*Anim*/
@@ -34,7 +34,7 @@ class GraphAreaX:Element{
     func createCGPoints(){
         let vValues:[CGFloat] = Array(repeating:0, count:GraphX.config.tCount)/*placeholder values*/
         let maxValue:CGFloat = 0
-        points = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue, 0, 0)
+        GraphAreaX.points = GraphUtils.points(CGSize(w,h), CGPoint(0,0), CGSize(100,100), vValues, maxValue, 0, 0)
     }
     /**
      * Creates the Graph line
@@ -48,7 +48,7 @@ class GraphAreaX:Element{
      * NOTE: We could create something called GraphPoint, but it would be another thing to manager so instead we just use an Element with id: graphPoint
      */
     func createGraphPoints(){
-        points?.forEach{_ in 
+        GraphAreaX.points?.forEach{_ in
             let graphDot:Element = contentContainer!.addSubView(Element(NaN,NaN,contentContainer!,"graphPoint"))
             graphDots.append(graphDot)
             //graphDot.setPosition($0)
@@ -65,19 +65,19 @@ class GraphAreaX:Element{
         //Swift.print("maxValue: " + "\(maxValue)")
         
         let size:CGSize = CGSize(getWidth(), getHeight())
-        points = GraphUtils.points(size, CGPoint(0,0), CGSize(100,100), vValues, maxValue,0,0)
+        GraphAreaX.points = GraphUtils.points(size, CGPoint(0,0), CGSize(100,100), vValues, maxValue,0,0)
         //Swift.print("points: " + "\(points)")
         
         /*Update graph points*/
-        for i in 0..<points!.count{
-            let pos:CGPoint = points![i]/*interpolates from one point to another*/
+        for i in 0..<GraphAreaX.points!.count{
+            let pos:CGPoint = GraphAreaX.points![i]/*Interpolates from one point to another*/
             graphDots[i].setPosition(pos)//moves the points
         }
         /*Update graph lines*/
         //let path:IPath = PolyLineGraphicUtils.path(points!)/*convert points to a Path*/
         //TODO: ⚠️️ Ideally we should create the CGPath from the points use CGPathParser.polyline
         //let cgPath = CGPathUtils.compile(CGMutablePath(), path)//convert path to cgPath
-        graphLine!.line!.cgPath = CGPathParser.polyLine(points!)//cgPath.clone()//applies the new path
+        graphLine!.line!.cgPath = CGPathParser.polyLine(GraphAreaX.points!)//cgPath.clone()//applies the new path
         graphLine!.line!.draw()//draws the path
     }
 }
