@@ -47,7 +47,7 @@ extension GraphScrollable {
         
         let range:[CGFloat] = GraphAreaX.vValues!.slice2(min, max)
         
-        let maxValue:CGFloat = range.max()!
+        let maxValue:CGFloat = range.max()!/*The max value in the current visible range*/
         _ = maxValue
         //Swift.print("maxValue: " + "\(maxValue)")
         
