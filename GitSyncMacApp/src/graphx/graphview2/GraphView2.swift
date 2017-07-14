@@ -30,7 +30,7 @@ class GraphView2:ContainerView2{
         /*config*/
         
         addGraphLine()
-        addGraphEdgePoints()
+        addDebugEdgePoints()
         let minX:CGFloat = 0
         let maxX:CGFloat = self.width
         
@@ -128,12 +128,18 @@ extension GraphView2{
 
 extension GraphView2{
     /**
-     * minY
+     * Adds CGPoints that represents the Graph
+     * NOTE:
      */
-    func minY(_ minX:CGFloat,_ maxX:CGFloat) -> CGFloat {
-        let yValuesWithinMinXAndMaxX:[CGFloat] = points!.filter{$0.x >= minX && $0.x <= maxX}.map{$0.y}
-        return ([edgeValues!.start, edgeValues!.end] + yValuesWithinMinXAndMaxX).min()!
+    func addGraphCGPoints(){
+        let h:Int = height.int
+        points = (0...30).map{
+            let x:CGFloat = 100*$0/*Evenly place points at every 100th pixel*/
+            let y:CGFloat = (0..<(h*4)).random.cgFloat - (h.cgFloat * 3)/*Randomly set the Y coordinate within 0 and height*///TODO: ⚠️️ this could be simplified by not doing the multipliations
+            return P(x,y)
+        }
     }
+    
     /**
      * Creates the GraphLines
      */
@@ -142,18 +148,7 @@ extension GraphView2{
         let path:IPath = PolyLineGraphicUtils.path(points!)
         graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
     }
-    /**
-     * Adds CGPoints that represents the Graph
-     * NOTE:
-     */
-    func addGraphPoints(){
-        let h:Int = height.int
-        points = (0...30).map{
-            let x:CGFloat = 100*$0/*Evenly place points at every 100th pixel*/
-            let y:CGFloat = (0..<(h*4)).random.cgFloat - (h.cgFloat * 3)/*Randomly set the Y coordinate within 0 and height*///TODO: this could be simplified by not doing the multipliations 
-            return P(x,y)
-        }
-    }
+    
     /**
      * Adds the GraphLine style
      */
@@ -167,13 +162,11 @@ extension GraphView2{
         css += "}"
         StyleManager.addStyle(css)
     }
-}
-extension GraphView2{
     /**
      * Adds graphical representations of the begining and end of the graphline
      * NOTE: These are used to display exactly the edges of the graph line. Beginning and end
      */
-    func addGraphEdgePoints(){
+    func addDebugEdgePoints(){
         /*gp1*/
         let x:CGFloat = 0
         let p = findGraphP(x,points!)
@@ -186,14 +179,23 @@ extension GraphView2{
         let x2:CGFloat = width
         let p2 = findGraphP(x2,points!)
         //Swift.print("addGraphPoint -p2-: " + "\(p2)")
-
+        
         graphPoint2 = self.addSubView(Element(NaN,NaN,self,"graphPoint"))
         graphPoint2!.point = p2
         
         edgeValues = (p.y,p2.y)
     }
+}
+extension GraphView2{
     /**
-     *
+     * minY
+     */
+    func minY(_ minX:CGFloat,_ maxX:CGFloat) -> CGFloat {
+        let yValuesWithinMinXAndMaxX:[CGFloat] = points!.filter{$0.x >= minX && $0.x <= maxX}.map{$0.y}
+        return ([edgeValues!.start, edgeValues!.end] + yValuesWithinMinXAndMaxX).min()!
+    }
+    /**
+     * 
      */
     func findGraphP(_ x:CGFloat, _ points:[P]) -> P{
         let y:CGFloat = findY(x,points)
