@@ -101,7 +101,8 @@ extension GraphView2{
 }
 extension GraphView2{
     /**
-     * 
+     * Initiates the animation sequence 
+     * NOTE: this method can be called in quick sucession as it stops any ongoing animation before it is started
      */
     func initAnim(){
         if(animator != nil){animator!.stop()}/*Stop any previous running animation*/
@@ -109,9 +110,14 @@ extension GraphView2{
         animator!.start()
         Swift.print("Start anim")
     }
+    
+    //Continue here 🏀
+        //Add commentarry to the interpolateValue method
+    
     /**
      * Interpolates between 0 and 1 while the duration of the animation
-     * NOTE: ReCalc the hValue indicators (each week has a different max hValue etc)
+     *
+     * NOTE: ReCalc the hValue indicators (each graph range has a different max hValue etc)
      */
     func interpolateValue(_ val:CGFloat){
         /*newPoints!.forEach{
