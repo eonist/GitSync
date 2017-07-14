@@ -96,7 +96,14 @@ extension GraphView2{
         prevPoints = newPoints ?? (0...30).map{P($0*100,0)}//basically use newPoints if they exist or default points if not
         newPoints = points!.map{CGPointModifier.scale($0/*<--point to scale*/, P($0.x,height)/*<--pivot*/, P(1,ratio)/*<--Scalar ratio*/)}
         
-        /*initAnim*/
+        initAnim()/*initiates the animation*/
+    }
+}
+extension GraphView2{
+    /**
+     * 
+     */
+    func initAnim(){
         if(animator != nil){animator!.stop()}/*Stop any previous running animation*/
         animator = Animator(Animation.sharedInstance,0.7,0,1,interpolateValue,Bounce.easeInOut)
         animator!.start()
