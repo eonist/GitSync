@@ -27,7 +27,6 @@ class GraphAreaX:Element{
         createCGPoints()
         createGraphLine()
         createGraphPoints()
-        updateGraph(GraphAreaX.vValues!)
     }
     /**
      * Creates the initial graph CGPoint's
