@@ -8,6 +8,8 @@ class GraphScrollView:ContainerView3,GraphScrollable{
     override var contentSize:CGSize {return CGSize(100*19,super.getHeight())}
     var itemSize:CGSize {return CGSize(24,24)}
     var prevX:CGFloat = -100
+    var prevPoints:[CGPoint]?/*Interim var*/
+    var newPoints:[CGPoint]?
     /**
      * When the the user scrolls
      * NOTE: this method overides the Native NSView scrollWheel method
@@ -25,6 +27,8 @@ class GraphScrollView:ContainerView3,GraphScrollable{
 }
 protocol GraphScrollable:ElasticScrollable3 {
     var prevX:CGFloat {get set}
+    var points:[CGPoint] {get set}
+    var prevPoints:[CGPoint] {get set}
     var points:[CGPoint] {get set}
 }
 extension GraphScrollable {
