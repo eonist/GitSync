@@ -84,4 +84,8 @@ extension GraphScrollable {
             (self as ElasticScrollable3).setProgress(value, dir)
         }
     }
+    func setProgress(_ point:CGPoint){
+        Swift.print("override setProgress")
+        disableAnim {contentContainer.layer?.position = point}
+    }
 }
