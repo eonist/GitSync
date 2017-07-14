@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 /**
- *
+ * 
  */
 class GraphAreaX:Element{
     var graphDots:[Element] = []
