@@ -69,16 +69,14 @@ extension GraphView2{
         }
         
     }
-    
     /**
      * When the scroll hits the threshold this method is called to recalculate the graph etc
      */
     func tick(_ x:CGFloat){
-        
         //Swift.print("tick: x: \(x)")
         /*gp1*/
-        let x1:CGFloat = -1 * x//flip the x to be positive
-        let y1:CGFloat = findY(x1,points!)
+        let x1:CGFloat = -1 * x/*Here we flip the x to be positive*/
+        let y1:CGFloat = findY(x1,points!)/*Here we */
         graphPoint1!.point = P(0,y1)//min edge
         /*gp2*/
         let x2:CGFloat = (-1 * x) + width
