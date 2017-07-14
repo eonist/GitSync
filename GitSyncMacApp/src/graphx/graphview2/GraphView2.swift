@@ -150,7 +150,7 @@ extension GraphView2{
         let h:Int = height.int
         points = (0...30).map{
             let x:CGFloat = 100*$0/*Evenly place points at every 100th pixel*/
-            let y:CGFloat = (0..<(h*4)).random.cgFloat - (h.cgFloat * 3)/*Randomly set the Y coordinate between*/
+            let y:CGFloat = (0..<(h*4)).random.cgFloat - (h.cgFloat * 3)/*Randomly set the Y coordinate within 0 and height*///TODO: this could be simplified by not doing the multipliations 
             return P(x,y)
         }
     }
