@@ -155,7 +155,7 @@ extension GraphView2{
      */
     func addGraphLine(){
         addGraphLineStyle()
-        let path:IPath = PolyLineGraphicUtils.path(points!)
+        let path:IPath = Path()
         graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
     }
     
