@@ -25,8 +25,10 @@ class GraphScrollView:ContainerView3,GraphScrollable{
 }
 protocol GraphScrollable:ElasticScrollable3 {
     var prevX:CGFloat {get set}
+    var points:[CGPoint] {get set}
 }
 extension GraphScrollable {
+    var points:[CGPoint] 
     /**
      * This method is fired on each "scrollWheel change event" and "MoverGroup setProgressValue call-back"
      */
@@ -72,10 +74,11 @@ extension GraphScrollable {
             prevX = absX - 100
         }
     }
-    func tick(_ xVal:CGFloat){
-        Swift.print("Tick: \(xVal)")
+    func tick(_ x:CGFloat){
+        Swift.print("Tick: \(x)")
         
-       
+        let x1:CGFloat = -1 * x/*Here we flip the x to be positive*/
+        let x2:CGFloat = (-1 * x) + width
         /**/
         let minX:CGFloat = x1/*The begining of the current visible graph*/
         let maxX:CGFloat = x2/*The end of the visible range*/
@@ -87,8 +90,8 @@ extension GraphScrollable {
         //Swift.print("🍏 diff: " + "\(diff)")
         
         let ratio:CGFloat = height / diff/*Now that we have the flipped y coordinate we can get the ratio to scale all other points with */
-        prevPoints = newPoints ?? (0...30).map{P($0*100,0)}//basically use newPoints if they exist or default points if not
-        newPoints = points!.map{CGPointModifier.scale($0/*<--point to scale*/, P($0.x,height)/*<--pivot*/, P(1,ratio)/*<--Scalar ratio*/)}
+        prevPoints = newPoints ?? (0...30).map{CGPoint($0*100,0)}//basically use newPoints if they exist or default points if not
+        newPoints = points!.map{CGPointModifier.scale($0/*<--point to scale*/, CGPoint($0.x,height)/*<--pivot*/, CGPoint(1,ratio)/*<--Scalar ratio*/)}
         
     }
     /**
