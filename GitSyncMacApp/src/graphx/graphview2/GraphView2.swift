@@ -126,14 +126,12 @@ extension GraphView2{
             let pos:CGPoint = prevPoints![i].interpolate(newPoints![i], val)/*interpolates from one point to another*/
             positions.append(pos)
         }
-        
         //let path:IPath = PolyLineGraphicUtils.path(positions)/*Compiles a path that conceptually is a polyLine*/
         //graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)/*Converts the path to a cgPath*/
         graphLine!.line!.cgPath = CGPathParser.polyLine(positions)
         disableAnim{
-            graphLine!.line!.draw()//draws the path //TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
+            graphLine!.line!.draw() /*draws the path*///TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
         }
-        
     }
 }
 /**
