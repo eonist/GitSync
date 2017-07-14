@@ -133,7 +133,7 @@ extension GraphView2{
                 //you find the startRange, midRange, endRange of the point Array's
                 //then you only interpolate the midRange
                 //then you stitch the parts together
-            //Consider 
+            //Consider virtually scrolling the graph across the screen, and only drawing the segment that is with the visible view
         
         //let path:IPath = PolyLineGraphicUtils.path(positions)/*Compiles a path that conceptually is a polyLine*/
         //graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)/*Converts the path to a cgPath*/
