@@ -14,7 +14,7 @@ class GraphView2:ContainerView2{
     
     override var itemSize:CGSize {return CGSize(100,100)}/*override this for custom value*/
     override var interval:CGFloat{return floor(contentSize.w - maskSize.w)/itemSize.width}
-    override var progress:CGFloat{return SliderParser.progress(contentContainer!.x, maskSize.w, contentSize.w)}
+    override var progress:CGFloat{return SliderParser.progress(contentContainer!.layer!.position.x, maskSize.w, contentSize.w)}
     
     override var maskSize:CGSize {return CGSize(super.width,super.height)}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
     override var contentSize:CGSize {return CGSize(3000,height)}
@@ -57,7 +57,7 @@ extension GraphView2{
         let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize.w, contentSize.w)
         //Swift.print("x: " + "\(x)")
         disableAnim {
-            contentContainer?.layer?.x = x
+            contentContainer?.layer?.position.x = x
         }
         let absX = abs(x)/*Force the x value to be possitive*/
         if absX >= prevX + 100 {/*only redraw at every 100px threshold*/
