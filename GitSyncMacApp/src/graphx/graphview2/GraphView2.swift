@@ -91,9 +91,6 @@ extension GraphView2{
         let minY:CGFloat = self.minY(minX,maxX)//returns the smallest Y value in the visible range
         //Swift.print("⚠️️ minY: " + "\(minY))")
         
-        //Continue here: 🏀
-            //figure out all the ratio stuff etc 👈
-        
         //let dist:CGFloat = 400.cgFloat.distance(to: minY)
         let diff:CGFloat = height + (-1 * minY)/*Since graphs start from the bottom we need to flip the y coordinates*/
         //Swift.print("🍏 diff: " + "\(diff)")
