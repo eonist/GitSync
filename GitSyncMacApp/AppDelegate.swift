@@ -20,14 +20,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 //      initApp()
         //stateTest()
         //themeSwitchTest()
-        //graphXTest()
-        createGraphView2()
+        //testGraphXTest()
+        testGraphView2()
        
     }
     /**
      * Testing the zoomable and bouncing graph
      */
-    func graphXTest(){
+    func testGraphXTest(){
         Swift.print("Hello GraphX")
         
         window.size = CGSize(664,400)
@@ -41,7 +41,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     /**
      * Earlier test that modulates the graph while you scroll
      */
-    func createGraphView2(){
+    func testGraphView2(){
         window.size = CGSize(664,400)
         window.contentView = InteractiveView2()
         let winSize:CGSize = WinParser.size(window)

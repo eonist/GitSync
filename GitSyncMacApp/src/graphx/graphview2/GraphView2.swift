@@ -20,7 +20,7 @@ class GraphView2:ContainerView2{
     override var contentSize:CGSize {return CGSize(3000,height)}
     
     var prevX:CGFloat = -100
-    var prevPoints:[CGPoint]?/*interim var*/
+    var prevPoints:[CGPoint]?/*Interim var*/
     var newPoints:[CGPoint]?
     var animator:Animator?/*Anim*/
     
@@ -145,9 +145,9 @@ extension GraphView2{
      * Adds CGPoints that represents the Graph
      * NOTE:
      */
-    func addGraphCGPoints(){
+    func createGraphCGPoints() -> [P] {
         let h:Int = height.int
-        points = (0...30).map{
+        return (0...30).map{
             let x:CGFloat = 100*$0/*Evenly place points at every 100th pixel*/
             let y:CGFloat = (0..<(h*4)).random.cgFloat - (h.cgFloat * 3)/*Randomly set the Y coordinate within 0 and height*///TODO: ⚠️️ this could be simplified by not doing the multipliations
             return P(x,y)
