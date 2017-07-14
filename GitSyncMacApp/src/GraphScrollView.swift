@@ -95,7 +95,11 @@ extension GraphScrollable {
         setProgress(p)
     }
     func setProgress(_ point:CGPoint){
-        Swift.print("override setProgress")
-        disableAnim {contentContainer.layer?.position = point}
+        //Swift.print("override setProgress")
+        disableAnim {contentContainer.layer?.position = CGPoint(point.x,0)}
     }
+    
+    //Continue here:
+        //
+    
 }
