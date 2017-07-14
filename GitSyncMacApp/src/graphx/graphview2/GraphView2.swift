@@ -118,7 +118,7 @@ extension GraphView2{
             positions.append(pos)
         }
         
-        let path:IPath = PolyLineGraphicUtils.path(positions)
+        let path:IPath = PolyLineGraphicUtils.path(positions)/**/
         graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)
         graphLine!.line!.draw()//draws the path //TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
     }
