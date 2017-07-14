@@ -81,7 +81,7 @@ extension GraphScrollable {
         if dir == .hor {
             //Swift.print("🍏 GraphScrollable.setProgressValue .hor: \(value)")
             frameTick()
+            (self as ElasticScrollable3).setProgress(value, dir)
         }
-        (self as ElasticScrollable3).setProgress(value, dir)
     }
 }
