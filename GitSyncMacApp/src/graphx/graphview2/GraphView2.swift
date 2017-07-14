@@ -188,7 +188,8 @@ extension GraphView2{
 }
 extension GraphView2{
     /**
-     * Returns minY 
+     * Returns minY for the visible graph
+     * NOTE: The visible graph is the portion of the graph that is visible at any given progression.
      */
     func minY(_ minX:CGFloat,_ maxX:CGFloat) -> CGFloat {
         let yValuesWithinMinXAndMaxX:[CGFloat] = points!.filter{$0.x >= minX && $0.x <= maxX}.map{$0.y}
