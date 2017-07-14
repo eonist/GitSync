@@ -68,12 +68,12 @@ class GraphAreaX:Element{
         points = GraphUtils.points(size, CGPoint(0,0), CGSize(100,100), vValues, maxValue,0,0)
         //Swift.print("points: " + "\(points)")
         
-        /*GraphPoints*/
+        /*Update graph points*/
         for i in 0..<points!.count{
             let pos:CGPoint = points![i]/*interpolates from one point to another*/
             graphDots[i].setPosition(pos)//moves the points
         }
-        /*GraphLine*/
+        /*Update graph lines*/
         let path:IPath = PolyLineGraphicUtils.path(points!)/*convert points to a Path*/
         //TODO: Ideally we should create the CGPath from the points use CGPathParser.polyline
         let cgPath = CGPathUtils.compile(CGMutablePath(), path)//convert path to cgPath
