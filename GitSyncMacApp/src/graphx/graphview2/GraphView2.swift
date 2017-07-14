@@ -95,7 +95,7 @@ extension GraphView2{
             //figure out all the ratio stuff etc 👈
         
         //let dist:CGFloat = 400.cgFloat.distance(to: minY)
-        let diff:CGFloat = height + (-1 * minY)
+        let diff:CGFloat = height + (-1 * minY)/*Since graphs start from the bottom we need to flip the y coordinates*/
         //Swift.print("🍏 diff: " + "\(diff)")
         
         let ratio:CGFloat = height / diff
