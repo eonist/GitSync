@@ -89,30 +89,25 @@ extension GraphView2{
         let minX:CGFloat = x1//the begining of the visible range
         let maxX:CGFloat = x2//the end of the visible range
         let minY:CGFloat = self.minY(minX,maxX)//returns the smallest Y value in the visible range
-        
+        //Swift.print("⚠️️ minY: " + "\(minY))")
         
         //Continue here: 🏀
             //figure out all the ratio stuff etc 👈
-        
-        
-        //Swift.print("⚠️️ minY: " + "\(minY))")
         
         //let dist:CGFloat = 400.cgFloat.distance(to: minY)
         let diff:CGFloat = height + (-1 * minY)
         //Swift.print("🍏 diff: " + "\(diff)")
         
         let ratio:CGFloat = height / diff
-        prevPoints = newPoints ?? (0...30).map{P($0*100,0)}
+        prevPoints = newPoints ?? (0...30).map{P($0*100,0)}//basically use calculated points if they exist or default points if not
 
         newPoints = points!.map{CGPointModifier.scale($0, P($0.x,height), P(1,ratio))}
-        
         
         /*initAnim*/
         if(animator != nil){animator!.stop()}/*stop any previous running animation*/
         animator = Animator(Animation.sharedInstance,0.7,0,1,interpolateValue,Bounce.easeInOut)
         animator!.start()
         Swift.print("start anim")
-        
     }
     /**
      * Interpolates between 0 and 1 while the duration of the animation
