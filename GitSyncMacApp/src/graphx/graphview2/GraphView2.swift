@@ -103,10 +103,10 @@ extension GraphView2{
         newPoints = points!.map{CGPointModifier.scale($0, P($0.x,height), P(1,ratio))}
         
         /*initAnim*/
-        if(animator != nil){animator!.stop()}/*stop any previous running animation*/
+        if(animator != nil){animator!.stop()}/*Stop any previous running animation*/
         animator = Animator(Animation.sharedInstance,0.7,0,1,interpolateValue,Bounce.easeInOut)
         animator!.start()
-        Swift.print("start anim")
+        Swift.print("Start anim")
     }
     /**
      * Interpolates between 0 and 1 while the duration of the animation
