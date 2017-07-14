@@ -168,6 +168,10 @@ extension GraphView2{
     }
 }
 extension GraphView2{
+    /**
+     * Adds graphical representations of the begining and end of the graphline
+     * NOTE: These are used to display exactly the edges of the graph line. Beginning and end
+     */
     func addGraphEdgePoints(){
         /*gp1*/
         let x:CGFloat = 0
@@ -188,7 +192,7 @@ extension GraphView2{
         edgeValues = (p.y,p2.y)
     }
     /**
-     * 
+     *
      */
     func findGraphP(_ x:CGFloat, _ points:[P]) -> P{
         let y:CGFloat = findY(x,points)
