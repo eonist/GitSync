@@ -28,7 +28,7 @@ protocol GraphScrollable:ElasticScrollable3 {
     var points:[CGPoint] {get set}
 }
 extension GraphScrollable {
-    var points:[CGPoint] 
+    var points:[CGPoint] {get{}set{}}
     /**
      * This method is fired on each "scrollWheel change event" and "MoverGroup setProgressValue call-back"
      */
