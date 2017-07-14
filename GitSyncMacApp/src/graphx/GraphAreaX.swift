@@ -40,7 +40,6 @@ class GraphAreaX:Element{
      */
     func createGraphLine(/*_ vValues:[CGFloat], _ maxValue:CGFloat*/){
         Swift.print("createGraphLine")
-        
         let path:IPath = PolyLineGraphicUtils.path(points!)
         graphLine = contentContainer!.addSubView(GraphLine(getWidth(),getHeight(),path,contentContainer!))
     }
