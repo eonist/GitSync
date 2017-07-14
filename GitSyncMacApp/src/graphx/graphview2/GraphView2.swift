@@ -56,7 +56,10 @@ extension GraphView2{
         //Swift.print("setProgress: progress: \(progress)")
         let x:CGFloat = ScrollableUtils.scrollTo(progress, maskSize.w, contentSize.w)
         //Swift.print("x: " + "\(x)")
-        contentContainer?.x = x
+        disableAnim {
+            contentContainer?.x = x
+        }
+        
         
         let absX = abs(x)/*Force the x value to be possitive*/
         if absX >= prevX + 100 {/*only redraw at every 100px threshold*/
