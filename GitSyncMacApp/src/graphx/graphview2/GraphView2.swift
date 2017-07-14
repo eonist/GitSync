@@ -67,7 +67,6 @@ extension GraphView2{
             tick(x)
             prevX = absX - 100
         }
-        
     }
     /**
      * When the scroll hits the threshold this method is called to recalculate the graph etc
