@@ -76,7 +76,7 @@ extension GraphView2{
         //Swift.print("tick: x: \(x)")
         /*gp1*/
         let x1:CGFloat = -1 * x/*Here we flip the x to be positive*/
-        let y1:CGFloat = findY(x1,points!)/*Here we */
+        let y1:CGFloat = findY(x1,points!)/*Here we find the y for x value via trig and finding the correct segment*/
         graphPoint1!.point = P(0,y1)//min edge
         /*gp2*/
         let x2:CGFloat = (-1 * x) + width
@@ -191,7 +191,7 @@ extension GraphView2{
         return p
     }
     /**
-     *
+     * Returns y for X by finding the correct segment and then finally using trig to calculate the y for x
      */
     func findY(_ x:CGFloat, _ points:[P])->CGFloat{
         //Swift.print("findY x: " + "\(x)")
