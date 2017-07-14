@@ -84,9 +84,9 @@ extension GraphView2{
         graphPoint2!.point = P(width,y2)//max edge
         edgeValues = (y1,y2)
         /**/
-        let minX:CGFloat = x1//the begining of the visible range
-        let maxX:CGFloat = x2//the end of the visible range
-        let minY:CGFloat = self.minY(minX,maxX)//returns the smallest Y value in the visible range
+        let minX:CGFloat = x1/*The begining of the current visible graph*/
+        let maxX:CGFloat = x2/*The end of the visible range*/
+        let minY:CGFloat = self.minY(minX,maxX)/*Returns the smallest Y value in the visible range*/
         //Swift.print("⚠️️ minY: " + "\(minY))")
         
         //let dist:CGFloat = 400.cgFloat.distance(to: minY)
@@ -190,9 +190,11 @@ extension GraphView2{
     /**
      * Returns minY for the visible graph
      * NOTE: The visible graph is the portion of the graph that is visible at any given progression.
+     * PARAM: minX: The begining of the current visible graph
+     * PARAM: maxX: The end of the visible range
      */
     func minY(_ minX:CGFloat,_ maxX:CGFloat) -> CGFloat {
-        let yValuesWithinMinXAndMaxX:[CGFloat] = points!.filter{$0.x >= minX && $0.x <= maxX}.map{$0.y}
+        let yValuesWithinMinXAndMaxX:[CGFloat] = points!.filter{$0.x >= minX && $0.x <= maxX}.map{$0.y}/*We gather the points within the current minX and maxX*/
         return ([edgeValues!.start, edgeValues!.end] + yValuesWithinMinXAndMaxX).min()!
     }
     /**
