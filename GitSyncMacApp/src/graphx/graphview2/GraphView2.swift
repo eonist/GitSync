@@ -128,7 +128,8 @@ extension GraphView2{
         }
         
         //continue here:
-            //consider 
+            //consider porting over the code to GraphX and see if its more performant.
+            //or start stubbing out the code that only interpolates the visible subrange
         
         //let path:IPath = PolyLineGraphicUtils.path(positions)/*Compiles a path that conceptually is a polyLine*/
         //graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)/*Converts the path to a cgPath*/
