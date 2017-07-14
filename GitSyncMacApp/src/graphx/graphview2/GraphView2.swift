@@ -135,21 +135,26 @@ extension GraphView2{
         return ([edgeValues!.start, edgeValues!.end] + yValuesWithinMinXAndMaxX).min()!
     }
     /**
-     *
+     * Creates the GraphLines
      */
     func addGraphLine(){
         addGraphLineStyle()
+        let path:IPath = PolyLineGraphicUtils.path(points!)
+        graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
+    }
+    /**
+     * 
+     */
+    func addGraphPoints(){
         let h:Int = height.int
         points = (0...30).map{
             let x:CGFloat = 100*$0
             let y:CGFloat = (0..<(h*4)).random.cgFloat - (h.cgFloat * 3)
             return P(x,y)
         }
-        let path:IPath = PolyLineGraphicUtils.path(points!)
-        graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
     }
     /**
-     *
+     * Adds the GraphLine style
      */
     func addGraphLineStyle(){
         var css:String = "GraphLine{"
