@@ -24,6 +24,7 @@ class GraphAreaX:Element{
         scrollView = addSubView(GraphScrollView(getWidth(),getHeight(),self))
         _ = contentContainer?.addSubView(Section(100*19,getHeight(),contentContainer,"bg"))
         //scrollView?.contentContainer = contentContainer!
+        createCGPoints()
         createGraphLine()
         createGraphPoints()
     }
@@ -47,10 +48,10 @@ class GraphAreaX:Element{
      * NOTE: We could create something called GraphPoint, but it would be another thing to manager so instead we just use an Element with id: graphPoint
      */
     func createGraphPoints(){
-        points?.forEach{
+        points?.forEach{_ in 
             let graphDot:Element = contentContainer!.addSubView(Element(NaN,NaN,contentContainer!,"graphPoint"))
             graphDots.append(graphDot)
-            graphDot.setPosition($0)
+            //graphDot.setPosition($0)
         }
     }
     /**
@@ -63,7 +64,7 @@ class GraphAreaX:Element{
         let maxValue:CGFloat = vValues.max()!//Finds the largest number in among vValues
         //Swift.print("maxValue: " + "\(maxValue)")
         
-        let size:CGSize = CGSize(getWidth(),getHeight())
+        let size:CGSize = CGSize(getWidth(), getHeight())
         points = GraphUtils.points(size, CGPoint(0,0), CGSize(100,100), vValues, maxValue,0,0)
         //Swift.print("points: " + "\(points)")
         
