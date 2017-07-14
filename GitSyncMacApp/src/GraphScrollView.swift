@@ -11,7 +11,7 @@ class GraphScrollView:ContainerView3,GraphScrollable{
     /**
      * When the the user scrolls
      * NOTE: this method overides the Native NSView scrollWheel method
-     * //TODO: ⚠️️you need to make an scroolWheel method that you can override down hirarcy.
+     * //TODO: ⚠️️ You need to make an scroolWheel method that you can override down hirarcy.
      */
     override func scrollWheel(with event:NSEvent) {//you can probably remove this method and do it in base?"!?
         //Swift.print("GraphAreaX.scrollWheel()")
