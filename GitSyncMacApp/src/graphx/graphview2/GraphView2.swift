@@ -210,7 +210,7 @@ extension GraphView2{
         for i in 0..<points.count-1{
             let cur = points[i]
             let next = points[i+1]
-            if(x >= cur.x && x <= next.x){//within
+            if(x >= cur.x && x <= next.x){/*within*/
                 seg = (cur,next)
                 break
             }
