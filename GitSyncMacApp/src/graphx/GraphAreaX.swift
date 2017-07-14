@@ -40,8 +40,7 @@ class GraphAreaX:Element{
      */
     func createGraphLine(/*_ vValues:[CGFloat], _ maxValue:CGFloat*/){
         Swift.print("createGraphLine")
-        let path:IPath = PolyLineGraphicUtils.path(points!)
-        graphLine = contentContainer!.addSubView(GraphLine(getWidth(),getHeight(),path,contentContainer!))
+        graphLine = contentContainer!.addSubView(GraphLine(getWidth(),getHeight(),Path(),contentContainer!))
     }
     /**
      * Creates The visual Graph points that hover above the Graph line
