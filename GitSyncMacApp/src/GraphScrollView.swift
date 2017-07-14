@@ -28,7 +28,7 @@ protocol GraphScrollable:ElasticScrollable3 {
 }
 extension GraphScrollable {
     /**
-     * This method is fired on each scrollWheel change event and MoverGroup setProgressValue call-back
+     * This method is fired on each "scrollWheel change event" and "MoverGroup setProgressValue call-back"
      */
     func frameTick(){
         //Swift.print("frameTick \(moverGroup!.result.x)")
@@ -41,6 +41,8 @@ extension GraphScrollable {
          Swift.print("progress: " + "\(progress)")*/
         /*print(ceil(334/100))
          print(ceil(300/100))*/
+        
+        /*
         let min:Int = ceil(abs(x)/100).int
         let right:CGFloat = abs(x)+(100*GraphX.config.vCount)
         let max:Int = floor(right/100).int
@@ -49,10 +51,9 @@ extension GraphScrollable {
         
         let maxValue:CGFloat = range.max()!/*The max value in the current visible range*/
         _ = maxValue
-        //Swift.print("maxValue: " + "\(maxValue)")
+        */
         
-        //Continue here: 🏀
-            //you can probably use the GraphUtils.points to get the points
+        //Swift.print("maxValue: " + "\(maxValue)")
         
         /*
         let size:CGSize = maskSize
