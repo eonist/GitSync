@@ -47,7 +47,7 @@ class GraphAreaX:Element{
      * NOTE: We could create something called GraphPoint, but it would be another thing to manager so instead we just use an Element with id: graphPoint
      */
     func createGraphPoints(){
-        points!.forEach{
+        points?.forEach{
             let graphDot:Element = contentContainer!.addSubView(Element(NaN,NaN,contentContainer!,"graphPoint"))
             graphDots.append(graphDot)
             graphDot.setPosition($0)
