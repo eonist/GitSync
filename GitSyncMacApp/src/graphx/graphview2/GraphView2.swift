@@ -116,7 +116,6 @@ extension GraphView2{
     
     /**
      * Interpolates between 0 and 1 while the duration of the animation
-     *
      * NOTE: ReCalc the hValue indicators (each graph range has a different max hValue etc)
      */
     func interpolateValue(_ val:CGFloat){
