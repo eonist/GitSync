@@ -138,12 +138,12 @@ extension GraphView2{
     }
 }
 /**
- * Init graph elements
+ * Create graph elements
  */
 extension GraphView2{
     /**
-     * Adds CGPoints that represents the Graph
-     * NOTE:
+     * Returns CGPoint's that represents the Graph
+     * NOTE: Returns random y-values and evenly spaced x-values at every 100th pixel
      */
     func createGraphCGPoints() -> [P] {
         let h:Int = height.int
