@@ -133,11 +133,15 @@ extension GraphView2{
                 //you find the startRange, midRange, endRange of the point Array's
                 //then you only interpolate the midRange
                 //then you stitch the parts together
+            //Consider 
         
         //let path:IPath = PolyLineGraphicUtils.path(positions)/*Compiles a path that conceptually is a polyLine*/
         //graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)/*Converts the path to a cgPath*/
         graphLine!.line!.cgPath = CGPathParser.polyLine(positions)
-        graphLine!.line!.draw()//draws the path //TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
+        disableAnim{
+            graphLine!.line!.draw()//draws the path //TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
+        }
+        
     }
 }
 /**
