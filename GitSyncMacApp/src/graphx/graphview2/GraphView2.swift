@@ -187,11 +187,10 @@ extension GraphView2{
      */
     func findGraphP(_ x:CGFloat, _ points:[P]) -> P{
         let y:CGFloat = findY(x,points)
-        let p:P = P(x,y)
-        return p
+        return P(x,y)
     }
     /**
-     * Returns y for X by finding the correct segment and then finally using trig to calculate the y for x
+     * Returns Y for X by finding the correct segment and then finally using trig to calculate the y for x
      */
     func findY(_ x:CGFloat, _ points:[P])->CGFloat{
         //Swift.print("findY x: " + "\(x)")
