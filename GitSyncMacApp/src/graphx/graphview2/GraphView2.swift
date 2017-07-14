@@ -28,7 +28,7 @@ class GraphView2:ContainerView2{
         StyleManager.addStyle("GraphView2{float:none;clear:none;fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
         /*config*/
-        points = createGraphCGPoints()
+        points = createGraphCGPoints()/*Creates the init CGPoints that make up the Graph*/
         addGraphLine()
         addDebugEdgePoints()
         let minX:CGFloat = 0
