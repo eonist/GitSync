@@ -20,7 +20,7 @@ class GraphScrollView:ContainerView3,GraphScrollable{
             //Swift.print("moverGroup!.result.x: " + "\(moverGroup!.result.x)")
             frameTick()
         }
-        //super.scrollWheel(with:event)/*⚠️️, 👈 not good, forward the event other delegates higher up in the stack*/
+        super.scrollWheel(with:event)/*⚠️️, 👈 not good, forward the event other delegates higher up in the stack*/
     }
 }
 protocol GraphScrollable:ElasticScrollable3 {
