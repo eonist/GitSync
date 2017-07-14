@@ -139,7 +139,6 @@ extension GraphView2{
             return P(x,y)
         }
     }
-    
     /**
      * Creates the GraphLines
      */
@@ -149,19 +148,6 @@ extension GraphView2{
         graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
     }
     
-    /**
-     * Adds the GraphLine style
-     */
-    func addGraphLineStyle(){
-        var css:String = "GraphLine{"
-        css +=    "float:none;"
-        css +=    "clear:none;"
-        css +=    "line:#2AA3EF;"
-        css +=    "line-alpha:1;"
-        css +=    "line-thickness:0.5px;"
-        css += "}"
-        StyleManager.addStyle(css)
-    }
     /**
      * Adds graphical representations of the begining and end of the graphline
      * NOTE: These are used to display exactly the edges of the graph line. Beginning and end
@@ -225,6 +211,21 @@ extension GraphView2{
         //Swift.print("findY slope: " + "\(slope)")
         let y:CGFloat = CGPointParser.y(seg!.p1, x, slope)/*seg!.p2.x*/
         return y
+    }
+}
+extension GraphView2{
+    /**
+     * Adds the GraphLine style
+     */
+    func addGraphLineStyle(){
+        var css:String = "GraphLine{"
+        css +=    "float:none;"
+        css +=    "clear:none;"
+        css +=    "line:#2AA3EF;"
+        css +=    "line-alpha:1;"
+        css +=    "line-thickness:0.5px;"
+        css += "}"
+        StyleManager.addStyle(css)
     }
     func addGraphPointStyle(){
         /*GraphPoint*/
