@@ -188,14 +188,15 @@ extension GraphView2{
 }
 extension GraphView2{
     /**
-     * minY
+     * Returns minY 
      */
     func minY(_ minX:CGFloat,_ maxX:CGFloat) -> CGFloat {
         let yValuesWithinMinXAndMaxX:[CGFloat] = points!.filter{$0.x >= minX && $0.x <= maxX}.map{$0.y}
         return ([edgeValues!.start, edgeValues!.end] + yValuesWithinMinXAndMaxX).min()!
     }
     /**
-     * 
+     * Returns a GraphCGPoint for PARAM: x value
+     * PARAM: points: We need the points in order to find the correct segment to calc the y value. (Uses trig equation slope)
      */
     func findGraphP(_ x:CGFloat, _ points:[P]) -> P{
         let y:CGFloat = findY(x,points)
