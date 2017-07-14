@@ -143,13 +143,14 @@ extension GraphView2{
         graphLine = contentContainer!.addSubView(GraphLine(width,height,path))
     }
     /**
-     * Add
+     * Adds CGPoints that represents the Graph
+     * NOTE:
      */
     func addGraphPoints(){
         let h:Int = height.int
         points = (0...30).map{
-            let x:CGFloat = 100*$0
-            let y:CGFloat = (0..<(h*4)).random.cgFloat - (h.cgFloat * 3)
+            let x:CGFloat = 100*$0/*Evenly place points at every 100th pixel*/
+            let y:CGFloat = (0..<(h*4)).random.cgFloat - (h.cgFloat * 3)/*Randomly set the Y coordinate between*/
             return P(x,y)
         }
     }
