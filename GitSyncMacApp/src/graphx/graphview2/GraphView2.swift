@@ -31,11 +31,10 @@ class GraphView2:ContainerView2{
         points = createGraphCGPoints()/*Creates the init CGPoints that make up the Graph*/
         addGraphLine()
         addDebugEdgePoints()
-        let minX:CGFloat = 0
-        let maxX:CGFloat = self.width
-        
-        let minY:CGFloat = self.minY(minX,maxX)
-        _ = minY
+        /*let minX:CGFloat = 0
+         let maxX:CGFloat = self.width
+         let minY:CGFloat = self.minY(minX,maxX)
+         _ = minY*/
         //Swift.print("⚠️️ minY: " + "\(minY))")
         setProgress(0)/*init tick*/
     }
@@ -47,7 +46,6 @@ extension GraphView2{
         let progressVal:CGFloat = SliderListUtils.progress(event.deltaX, interval, progress)
         setProgress(progressVal)
     }
-    
     /**
      * Moves the contentContainer in the x position, recalculates the modulated path and draws it
      */
