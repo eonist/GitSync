@@ -98,7 +98,7 @@ extension GraphView2{
         let diff:CGFloat = height + (-1 * minY)/*Since graphs start from the bottom we need to flip the y coordinates*/
         //Swift.print("🍏 diff: " + "\(diff)")
         
-        let ratio:CGFloat = height / diff
+        let ratio:CGFloat = height / diff/*Now that we have the flipped y coordinate we can get the ratio to scale all other points with */
         prevPoints = newPoints ?? (0...30).map{P($0*100,0)}//basically use newPoints if they exist or default points if not
         newPoints = points!.map{CGPointModifier.scale($0/*<--point to scale*/, P($0.x,height)/*<--pivot*/, P(1,ratio)/*<--Scalar ratio*/)}
         
