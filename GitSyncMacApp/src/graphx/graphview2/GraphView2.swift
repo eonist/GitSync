@@ -28,7 +28,7 @@ class GraphView2:ContainerView2{
         StyleManager.addStyle("GraphView2{float:none;clear:none;fill:green;fill-alpha:0.0;}")
         super.resolveSkin()
         /*config*/
-        
+        points = createGraphCGPoints()
         addGraphLine()
         addDebugEdgePoints()
         let minX:CGFloat = 0
@@ -110,10 +110,6 @@ extension GraphView2{
         animator!.start()
         Swift.print("Start anim")
     }
-    
-    //Continue here 🏀
-        //Add commentarry to the interpolateValue method
-    
     /**
      * Interpolates between 0 and 1 while the duration of the animation
      * NOTE: ReCalc the hValue indicators (each graph range has a different max hValue etc)
