@@ -5,9 +5,9 @@ import Cocoa
  *
  */
 class GraphAreaX:Element{
-    var graphDots:[Element] = []//rename to graphDots for clearity?
+    var graphDots:[Element] = []
     var graphLine:GraphLine?
-    var contentContainer:Element? {return scrollView?.contentContainer}//contains dots and line
+    var contentContainer:Element? {return scrollView?.contentContainer}/*contains dots and line*/
     var scrollView:GraphScrollView?
     var points:[CGPoint]?
     var prevPoints:[CGPoint]?/*interim var*/
