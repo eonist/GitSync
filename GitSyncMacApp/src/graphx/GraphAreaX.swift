@@ -76,7 +76,7 @@ class GraphAreaX:Element{
         }
         /*Update graph lines*/
         //let path:IPath = PolyLineGraphicUtils.path(points!)/*convert points to a Path*/
-        //TODO: Ideally we should create the CGPath from the points use CGPathParser.polyline
+        //TODO: ⚠️️ Ideally we should create the CGPath from the points use CGPathParser.polyline
         //let cgPath = CGPathUtils.compile(CGMutablePath(), path)//convert path to cgPath
         graphLine!.line!.cgPath = CGPathParser.polyLine(points!)//cgPath.clone()//applies the new path
         graphLine!.line!.draw()//draws the path
