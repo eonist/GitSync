@@ -28,7 +28,7 @@ class GraphAreaX:Element{
         createGraphPoints()
     }
     /**
-     * 
+     * Creates the initial graph CGPoint's
      */
     func createCGPoints(){
         let vValues:[CGFloat] = Array(repeating:0, count:GraphX.config.tCount)/*placeholder values*/
