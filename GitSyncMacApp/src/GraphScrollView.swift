@@ -133,9 +133,11 @@ extension GraphScrollable {
         GraphAreaX.graphLine!.line!.cgPath = CGPathParser.polyLine(positions)
         disableAnim{
             GraphAreaX.graphLine!.line!.draw() /*draws the path*///TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
-            GraphAreaX.graphDots.forEach{
-                $0.layer?.position = 
+            
+            for (i,obj) in GraphAreaX.graphDots.enumerated() {
+                obj.layer?.position = positions[i]//positions the graphDots
             }
+            
         }
     }
     /**
