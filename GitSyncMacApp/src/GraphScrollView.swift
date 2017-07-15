@@ -118,8 +118,13 @@ extension GraphScrollable {
         if(animator != nil){animator!.stop()}/*Stop any previous running animation*/
         animator = Animator(Animation.sharedInstance,1.2,0,1,interpolateValue,Elastic.easeOut)
         animator!.start()
-        animator!.on
+        animator!.event = self.onAnimEvent
         Swift.print("Start anim")
+    }
+    func onAnimEvent(_ event:Event)  {
+        if event.type == AnimEvent.completed {
+            Swift.print("animation completed")
+        }
     }
     /**
      * Interpolates between 0 and 1 while the duration of the animation
