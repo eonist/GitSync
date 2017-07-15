@@ -97,7 +97,7 @@ extension GraphScrollable {
         let minY:CGFloat = self.minY(minX,maxX)/*Returns the smallest Y value in the visible range*/
         //Swift.print("⚠️️ minY: " + "\(minY))")
         
-        if let prevMinY = self.prevMinY, prevMinY != minY {//skips anim if the graph doesnt need to scale
+        if let prevMinY = self.prevMinY, prevMinY != minY {//skips anim if the graph doesn't need to scale
             //let dist:CGFloat = 400.cgFloat.distance(to: minY)
             let diff:CGFloat = height + (-1 * minY)/*Since graphs start from the bottom we need to flip the y coordinates*/
             let ratio:CGFloat = height / diff/*Now that we have the flipped y coordinate we can get the ratio to scale all other points with */
