@@ -102,8 +102,12 @@ extension GraphScrollable {
         
         prevMinY = minY//set the prev anim
     }
+    
+    //Continue here: 
+        //make calcScaledPoints, and 
+    
     /**
-     *
+     * New
      */
     func calcMinY(_ x:CGFloat) -> CGFloat{
         let x1:CGFloat = -1 * x/*Here we flip the x to be positive*/
