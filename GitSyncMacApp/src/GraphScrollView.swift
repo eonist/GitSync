@@ -127,7 +127,7 @@ extension GraphScrollable {
      */
     
     
-    // a new idea is that you 
+    // you need to improve the dynamics to make it more realistic looking. Springsolver maybe?
     
     
     func initAnim(){
