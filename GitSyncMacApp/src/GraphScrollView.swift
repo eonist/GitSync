@@ -99,6 +99,39 @@ extension GraphScrollable {
         prevPoints = newPoints ?? (0...30).map{CGPoint($0*100,0)}//basically use newPoints if they exist or default points if not
         newPoints = points!.map{CGPointModifier.scale($0/*<--point to scale*/, CGPoint($0.x,height)/*<--pivot*/, CGPoint(1,ratio)/*<--Scalar ratio*/)}
         
+        initAnim()/*initiates the animation*/
+    }
+    /**
+     * Initiates the animation sequence
+     * NOTE: this method can be called in quick sucession as it stops any ongoing animation before it is started
+     */
+    func initAnim(){
+        if(animator != nil){animator!.stop()}/*Stop any previous running animation*/
+        animator = Animator(Animation.sharedInstance,0.7,0,1,interpolateValue,Bounce.easeInOut)
+        animator!.start()
+        Swift.print("Start anim")
+    }
+    /**
+     * Interpolates between 0 and 1 while the duration of the animation
+     * NOTE: ReCalc the hValue indicators (each graph range has a different max hValue etc)
+     */
+    func interpolateValue(_ val:CGFloat){
+        /*newPoints!.forEach{
+         //Swift.print("$0: " + "\($0)")
+         graphPoint2!.point = $0
+         }*/
+        var positions:[CGPoint] = []
+        /*GraphPoints*/
+        for i in 0..<newPoints!.count{
+            let pos:CGPoint = prevPoints![i].interpolate(newPoints![i], val)/*interpolates from one point to another*/
+            positions.append(pos)
+        }
+        //let path:IPath = PolyLineGraphicUtils.path(positions)/*Compiles a path that conceptually is a polyLine*/
+        //graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)/*Converts the path to a cgPath*/
+        graphLine!.line!.cgPath = CGPathParser.polyLine(positions)
+        disableAnim{
+            graphLine!.line!.draw() /*draws the path*///TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
+        }
     }
     /**
      * Returns minY for the visible graph
@@ -108,7 +141,7 @@ extension GraphScrollable {
      */
     func minY(_ minX:CGFloat,_ maxX:CGFloat) -> CGFloat {
         let yValuesWithinMinXAndMaxX:[CGFloat] = points!.filter{$0.x >= minX && $0.x <= maxX}.map{$0.y}/*We gather the points within the current minX and maxX*/
-        return ([edgeValues!.start, edgeValues!.end] + yValuesWithinMinXAndMaxX).min()!
+        return (yValuesWithinMinXAndMaxX).min()!
     }
     /**
      * TODO: Comment this method
