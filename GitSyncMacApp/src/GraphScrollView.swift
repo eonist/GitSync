@@ -129,7 +129,10 @@ extension GraphScrollable {
         if event.type == AnimEvent.completed {
             Swift.print("animation completed")
             animator = nil
-            
+            if let animationCue = self.animationCue{
+                animationCue.start()
+                animationCue.event = self.onAnimEvent
+            }
         }
     }
     /**
