@@ -34,6 +34,7 @@ protocol GraphScrollable:ElasticScrollable3 {
     var prevPoints:[CGPoint]? {get set}
     var newPoints:[CGPoint]? {get set}
     var animator:Animator? {get set}/*Anim*/
+    var prevMinY:CGFloat? {get set}
     
     //continue adding the tick variables to test the performance 🏀
 }
