@@ -126,6 +126,18 @@ extension GraphScrollable {
      * NOTE: this method can be called in quick sucession as it stops any ongoing animation before it is started
      */
     func initAnim(){
+        if(animator != nil){
+            animator?.stop()
+            animator = nil
+        }
+        prevPoints = points//basically use newPoints if they exist or default points if not
+        let x = moverGroup!.result.x
+        let minY = calcMinY(x)
+        newPoints = calcScaledPoints(x,minY)
+        animator = Animator(Animation.sharedInstance,2.0,0,1,interpolateValue,Elastic.easeOut)
+        animator?.start()
+        
+        /*
         if(animator == nil){
             Swift.print("Start anim")
             prevPoints = points//basically use newPoints if they exist or default points if not
@@ -139,6 +151,7 @@ extension GraphScrollable {
             Swift.print("add animation que")
             animationCue = Animator(Animation.sharedInstance,2.0,0,1,interpolateValue,Elastic.easeOut)
         }
+        */
     }
     
     func onAnimEvent(_ event:Event)  {
