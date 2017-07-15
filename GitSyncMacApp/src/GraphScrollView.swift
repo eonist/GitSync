@@ -103,7 +103,7 @@ extension GraphScrollable {
         prevMinY = minY//set the prev anim
     }
     
-    //Continue here: 
+    //Continue here: 🏀
         //make calcScaledPoints, and rename new and prev -> from and to
     
     /**
