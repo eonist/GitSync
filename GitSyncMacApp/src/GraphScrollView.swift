@@ -134,6 +134,7 @@ extension GraphScrollable {
             animator?.event = self.onAnimEvent
         }else{
             Swift.print("add animation que")
+            
             animationCue = Animator(Animation.sharedInstance,1.0,0,1,interpolateValue,Elastic.easeInOut)
         }
     }
