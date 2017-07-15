@@ -76,17 +76,17 @@ extension GraphScrollable {
         
         let absX = abs(x)
         if absX >= prevX + 100 {/*only redraw at every 100px threshold*/
-            Swift.print("if x:\(x)")
+            //Swift.print("if x:\(x)")
             tick(x)
             prevX = absX
         }else if absX < prevX{
-            Swift.print("else if x: \(x)")
+            //Swift.print("else if x: \(x)")
             tick(x)
             prevX = absX - 100
         }
     }
     func tick(_ x:CGFloat){
-        Swift.print("Tick: \(x)")
+        //Swift.print("Tick: \(x)")
         
         let x1:CGFloat = -1 * x/*Here we flip the x to be positive*/
         let x2:CGFloat = (-1 * x) + width
@@ -94,7 +94,7 @@ extension GraphScrollable {
         let minX:CGFloat = x1/*The begining of the current visible graph*/
         let maxX:CGFloat = x2/*The end of the visible range*/
         let minY:CGFloat = self.minY(minX,maxX)/*Returns the smallest Y value in the visible range*/
-        Swift.print("⚠️️ minY: " + "\(minY))")
+        //Swift.print("⚠️️ minY: " + "\(minY))")
         
         //let dist:CGFloat = 400.cgFloat.distance(to: minY)
         let diff:CGFloat = height + (-1 * minY)/*Since graphs start from the bottom we need to flip the y coordinates*/
