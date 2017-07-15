@@ -134,9 +134,7 @@ extension GraphScrollable {
             animator?.event = self.onAnimEvent
         }else{
             Swift.print("add animation que")
-            if animationCue == nil {
-                
-            }
+            
             animationCue = Animator(Animation.sharedInstance,1.0,0,1,interpolateValue,Elastic.easeInOut)
         }
     }
@@ -148,7 +146,10 @@ extension GraphScrollable {
             if let animationCue = self.animationCue{
                 Swift.print("start queued anim")
                 animator = animationCue
+                let x = moverGroup!.result.x
+                let minY = calcMinY(x)
                 prevPoints = points//we asign the start points to interpolate from
+                newPoints = calcScaledPoints(x,minY)
                 animator?.start()
                 animator?.event = self.onAnimEvent
                 self.animationCue = nil//remove item from anim cue
