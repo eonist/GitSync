@@ -91,7 +91,7 @@ extension GraphScrollable {
         let minX:CGFloat = x1/*The begining of the current visible graph*/
         let maxX:CGFloat = x2/*The end of the visible range*/
         let minY:CGFloat = self.minY(minX,maxX)/*Returns the smallest Y value in the visible range*/
-        //Swift.print("⚠️️ minY: " + "\(minY))")
+        Swift.print("⚠️️ minY: " + "\(minY))")
         
         //let dist:CGFloat = 400.cgFloat.distance(to: minY)
         let diff:CGFloat = height + (-1 * minY)/*Since graphs start from the bottom we need to flip the y coordinates*/

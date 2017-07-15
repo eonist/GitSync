@@ -71,7 +71,7 @@ class GraphAreaX:Element{
         /*Update graph points*/
         for i in 0..<GraphAreaX.points!.count{
             let pos:CGPoint = GraphAreaX.points![i]/*Interpolates from one point to another*/
-            GraphAreaX.graphDots[i].layer.position = (pos)/*Moves the points*/
+            GraphAreaX.graphDots[i].layer?.position = (pos)/*Moves the points*/
         }
         /*Update graph lines*/
         //let path:IPath = PolyLineGraphicUtils.path(points!)/*convert points to a Path*/
