@@ -132,12 +132,12 @@ extension GraphScrollable {
             let x = moverGroup!.result.x
             let minY = calcMinY(x)
             newPoints = calcScaledPoints(x,minY)
-            animator = Animator(Animation.sharedInstance,2.4,0,1,interpolateValue,Elastic.easeOut)
+            animator = Animator(Animation.sharedInstance,2.0,0,1,interpolateValue,Elastic.easeOut)
             animator?.start()
             animator?.event = self.onAnimEvent
         }else{
             Swift.print("add animation que")
-            animationCue = Animator(Animation.sharedInstance,2.4,0,1,interpolateValue,Elastic.easeOut)
+            animationCue = Animator(Animation.sharedInstance,2.0,0,1,interpolateValue,Elastic.easeOut)
         }
     }
     
@@ -217,6 +217,6 @@ extension GraphScrollable {
     }
     func setProgress(_ point:CGPoint){
         //Swift.print("override setProgress")
-        disableAnim {contentContainer.layer?.position = CGPoint(point.x,0)}
+        disableAnim {contentContainer.layer?.position = CGPoint(point.x,/*0*/point.y)}
     }
 }
