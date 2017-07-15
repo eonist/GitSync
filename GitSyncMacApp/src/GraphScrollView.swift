@@ -126,6 +126,7 @@ extension GraphScrollable {
      * NOTE: this method can be called in quick sucession as it stops any ongoing animation before it is started
      */
     func initAnim(){
+        Swift.print("initAnim")
         if(animator != nil){
             animator?.stop()
             animator = nil
@@ -215,9 +216,9 @@ extension GraphScrollable {
         if dir == .hor {
             //Swift.print("🍏 GraphScrollable.setProgressValue .hor: \(value)")
             frameTick()
-            
+            (self as ElasticScrollable3).setProgress(value, dir)
         }
-        (self as ElasticScrollable3).setProgress(value, dir)
+        
     }
     /**
      * NOTE: Basically when you perform a scroll-gesture on the touch-pad
@@ -231,6 +232,6 @@ extension GraphScrollable {
     }
     func setProgress(_ point:CGPoint){
         //Swift.print("override setProgress")
-        disableAnim {contentContainer.layer?.position = CGPoint(point.x,/*0*/point.y)}
+        disableAnim {contentContainer.layer?.position = CGPoint(point.x,0)}
     }
 }
