@@ -31,8 +31,8 @@ class GraphScrollView:ContainerView3,GraphScrollable{
 protocol GraphScrollable:ElasticScrollable3 {
     var prevX:CGFloat {get set}
     var points:[CGPoint]? {get set}
-    var prevPoints:[CGPoint]? {get set}
-    var newPoints:[CGPoint]? {get set}
+    var prevPoints:[CGPoint]? {get set}//rename 👉 fromPoints
+    var newPoints:[CGPoint]? {get set}//rename 👉 toPoints
     var animator:Animator? {get set}/*Anim*/
     var prevMinY:CGFloat? {get set}
     var animationCue:Animator? {get set}
@@ -88,8 +88,7 @@ extension GraphScrollable {
     }
     func tick(_ x:CGFloat){
         //Swift.print("Tick: \(x)")
-        
-       
+        let minY = calcMinY(x)
         //Swift.print("⚠️️ minY: " + "\(minY))")
         
         if let prevMinY = self.prevMinY, prevMinY != minY {//skips anim if the graph doesn't need to scale
