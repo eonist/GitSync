@@ -132,13 +132,13 @@ extension GraphScrollable {
             let x = moverGroup!.result.x
             let minY = calcMinY(x)
             newPoints = calcScaledPoints(x,minY)
-            animator = Animator(Animation.sharedInstance,1.0,0,1,interpolateValue,Elastic.easeInOut)
+            animator = Animator(Animation.sharedInstance,1.0,0,1,interpolateValue,Elastic.easeOut)
             animator?.start()
             animator?.event = self.onAnimEvent
         }else{
             Swift.print("add animation que")
             
-            animationCue = Animator(Animation.sharedInstance,1.0,0,1,interpolateValue,Elastic.easeInOut)
+            animationCue = Animator(Animation.sharedInstance,1.0,0,1,interpolateValue,Elastic.easeOut)
         }
     }
     
