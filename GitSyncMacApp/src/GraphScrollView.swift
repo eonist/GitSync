@@ -12,7 +12,7 @@ class GraphScrollView:ContainerView3,GraphScrollable{
     var newPoints:[CGPoint]?
     var animator:Animator?/*Anim*/
     var prevMinY:CGFloat?//prevMinY to avoid calling start anim
-    
+    var animationCue:Animator?
     /**
      * When the the user scrolls
      * NOTE: this method overides the Native NSView scrollWheel method
@@ -35,6 +35,7 @@ protocol GraphScrollable:ElasticScrollable3 {
     var newPoints:[CGPoint]? {get set}
     var animator:Animator? {get set}/*Anim*/
     var prevMinY:CGFloat? {get set}
+    var animationCue:Animator? {get set}
     
     //continue adding the tick variables to test the performance 🏀
 }
@@ -121,13 +122,14 @@ extension GraphScrollable {
             animator!.start()
             animator!.event = self.onAnimEvent
         }else{
-            animationCue = 
+            animationCue = Animator(Animation.sharedInstance,1.2,0,1,interpolateValue,Elastic.easeOut)
         }
     }
     func onAnimEvent(_ event:Event)  {
         if event.type == AnimEvent.completed {
             Swift.print("animation completed")
             animator = nil
+            
         }
     }
     /**
