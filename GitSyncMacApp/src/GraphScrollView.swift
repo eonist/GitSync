@@ -128,7 +128,11 @@ extension GraphScrollable {
     
     //continue here: 🏀
         // you need to improve the dynamics to make it more realistic looking. Springsolver maybe?
-    
+            //SprintTo
+            //SpringToTarget
+            //Dampener
+            //Gravity
+            
     
     func initAnim(){
         Swift.print("initAnim")
