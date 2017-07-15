@@ -2,10 +2,10 @@ import Cocoa
 @testable import Utils
 @testable import Element
 /**
- * 
+ *
  */
 class GraphAreaX:Element{
-    var graphDots:[Element] = []
+    static var graphDots:[Element] = []
     static var graphLine:GraphLine?
     var contentContainer:Element? {return scrollView?.contentContainer}/*contains dots and line*/
     var scrollView:GraphScrollView?
@@ -50,7 +50,7 @@ class GraphAreaX:Element{
     func createGraphPoints(){
         GraphAreaX.points?.forEach{_ in
             let graphDot:Element = contentContainer!.addSubView(Element(NaN,NaN,contentContainer!,"graphPoint"))
-            graphDots.append(graphDot)
+            GraphAreaX.graphDots.append(graphDot)
             //graphDot.setPosition($0)
         }
     }
@@ -71,7 +71,7 @@ class GraphAreaX:Element{
         /*Update graph points*/
         for i in 0..<GraphAreaX.points!.count{
             let pos:CGPoint = GraphAreaX.points![i]/*Interpolates from one point to another*/
-            graphDots[i].setPosition(pos)//moves the points
+            GraphAreaX.graphDots[i].setPosition(pos)//moves the points
         }
         /*Update graph lines*/
         //let path:IPath = PolyLineGraphicUtils.path(points!)/*convert points to a Path*/
