@@ -11,13 +11,12 @@ class GraphScrollView:ContainerView3,GraphScrollable{
     var prevPoints:[CGPoint]?/*Interim var*/
     var newPoints:[CGPoint]?
     var animator:Animator?/*Anim*/
-    
-    //add prevMinY to avoid calling start anim
+    var prevMinY:CGFloat?//prevMinY to avoid calling start anim
     
     /**
      * When the the user scrolls
      * NOTE: this method overides the Native NSView scrollWheel method
-     * //TODO: ⚠️️ You need to make an scroolWheel method that you can override down hierarcy.
+     * //TODO: ⚠️️ You need to make an scroolWheel method that you can override down hierarchy.
      */
     override func scrollWheel(with event:NSEvent) {//you can probably remove this method and do it in base?"!?
         //Swift.print("GraphAreaX.scrollWheel()")
