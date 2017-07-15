@@ -119,19 +119,20 @@ extension GraphScrollable {
         if(animator != nil){
             Swift.print("Start anim")
             animator = Animator(Animation.sharedInstance,1.2,0,1,interpolateValue,Elastic.easeOut)
-            animator!.start()
-            animator!.event = self.onAnimEvent
+            animator?.start()
+            animator?.event = self.onAnimEvent
         }else{
             animationCue = Animator(Animation.sharedInstance,1.2,0,1,interpolateValue,Elastic.easeOut)
         }
     }
     func onAnimEvent(_ event:Event)  {
         if event.type == AnimEvent.completed {
-            Swift.print("animation completed")
+            Swift.print("Animation completed")
             animator = nil
             if let animationCue = self.animationCue{
-                animationCue.start()
-                animationCue.event = self.onAnimEvent
+                animator = animationCue
+                animator?.start()
+                animator?.event = self.onAnimEvent
             }
         }
     }
