@@ -135,6 +135,7 @@ extension GraphScrollable {
             //friction
             //Mover
         //Make the move to click position with a ball start with mover then add friction and gravity etc, it should work 👈👈👈 this is what you need have smooth animation in the graph 👌
+            //Potentially find the chapter in that as book about animation and springsolvers
     
     func initAnim(){
         Swift.print("initAnim")
