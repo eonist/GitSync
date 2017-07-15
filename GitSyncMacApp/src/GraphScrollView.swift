@@ -11,7 +11,7 @@ class GraphScrollView:ContainerView3,GraphScrollable{
     var prevPoints:[CGPoint]?/*Interim var*/
     var newPoints:[CGPoint]?
     var animator:Animator?/*Anim*/
-    var prevMinY:CGFloat?//prevMinY to avoid calling start anim
+    var prevMinY:CGFloat? = NaN//prevMinY to avoid calling start anim
     
     /**
      * When the the user scrolls
@@ -105,6 +105,7 @@ extension GraphScrollable {
         newPoints = points!.map{CGPointModifier.scale($0/*<--point to scale*/, CGPoint($0.x,height)/*<--pivot*/, CGPoint(1,ratio)/*<--Scalar ratio*/)}
         
         initAnim()/*initiates the animation*/
+        prevMinY = minY
     }
     /**
      * Initiates the animation sequence
