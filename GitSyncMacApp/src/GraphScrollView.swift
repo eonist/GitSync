@@ -118,12 +118,12 @@ extension GraphScrollable {
     func initAnim(){
         if(animator == nil){
             Swift.print("Start anim")
-            animator = Animator(Animation.sharedInstance,1.2,0,1,interpolateValue,Elastic.easeOut)
+            animator = Animator(Animation.sharedInstance,1.0,0,1,interpolateValue,Elastic.easeOut)
             animator?.start()
             animator?.event = self.onAnimEvent
         }else{
             Swift.print("add animation que")
-            animationCue = Animator(Animation.sharedInstance,1.2,0,1,interpolateValue,Elastic.easeOut)
+            animationCue = Animator(Animation.sharedInstance,1.0,0,1,interpolateValue,Elastic.easeOut)
         }
     }
     
