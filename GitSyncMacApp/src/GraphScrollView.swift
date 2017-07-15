@@ -132,7 +132,8 @@ extension GraphScrollable {
             //SpringToTarget
             //Dampener
             //Gravity
-            
+            //friction
+            //Mover
     
     func initAnim(){
         Swift.print("initAnim")
