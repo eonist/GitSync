@@ -120,6 +120,8 @@ extension GraphScrollable {
             animator = Animator(Animation.sharedInstance,1.2,0,1,interpolateValue,Elastic.easeOut)
             animator!.start()
             animator!.event = self.onAnimEvent
+        }else{
+            animationCue = 
         }
     }
     func onAnimEvent(_ event:Event)  {
