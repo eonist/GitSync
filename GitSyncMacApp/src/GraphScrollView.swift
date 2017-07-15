@@ -89,12 +89,7 @@ extension GraphScrollable {
     func tick(_ x:CGFloat){
         //Swift.print("Tick: \(x)")
         
-        let x1:CGFloat = -1 * x/*Here we flip the x to be positive*/
-        let x2:CGFloat = (-1 * x) + width
-        /**/
-        let minX:CGFloat = x1/*The begining of the current visible graph*/
-        let maxX:CGFloat = x2/*The end of the visible range*/
-        let minY:CGFloat = self.minY(minX,maxX)/*Returns the smallest Y value in the visible range*/
+       
         //Swift.print("⚠️️ minY: " + "\(minY))")
         
         if let prevMinY = self.prevMinY, prevMinY != minY {//skips anim if the graph doesn't need to scale
@@ -107,6 +102,18 @@ extension GraphScrollable {
         }
         
         prevMinY = minY//set the prev anim
+    }
+    /**
+     *
+     */
+    func calcMinY(_ x:CGFloat) -> CGFloat{
+        let x1:CGFloat = -1 * x/*Here we flip the x to be positive*/
+        let x2:CGFloat = (-1 * x) + width
+        /**/
+        let minX:CGFloat = x1/*The begining of the current visible graph*/
+        let maxX:CGFloat = x2/*The end of the visible range*/
+        let minY:CGFloat = self.minY(minX,maxX)/*Returns the smallest Y value in the visible range*/
+        return minY
     }
     /**
      * Initiates the animation sequence
