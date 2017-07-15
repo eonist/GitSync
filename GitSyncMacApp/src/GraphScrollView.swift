@@ -92,8 +92,7 @@ extension GraphScrollable {
         //Swift.print("⚠️️ minY: " + "\(minY))")
         
         if let prevMinY = self.prevMinY, prevMinY != minY {//skips anim if the graph doesn't need to scale
-            prevPoints = /*newPoints ??*/ points//basically use newPoints if they exist or default points if not
-            newPoints = calcScaledPoints(x,minY)
+            
             initAnim()/*initiates the animation*/
         }
         
@@ -129,6 +128,10 @@ extension GraphScrollable {
     func initAnim(){
         if(animator == nil){
             Swift.print("Start anim")
+            prevPoints = points//basically use newPoints if they exist or default points if not
+            let x = moverGroup!.result.x
+            let minY = calcMinY(x)
+            newPoints = calcScaledPoints(x,minY)
             animator = Animator(Animation.sharedInstance,1.0,0,1,interpolateValue,Elastic.easeInOut)
             animator?.start()
             animator?.event = self.onAnimEvent
