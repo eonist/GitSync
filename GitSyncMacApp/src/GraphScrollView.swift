@@ -11,6 +11,9 @@ class GraphScrollView:ContainerView3,GraphScrollable{
     var prevPoints:[CGPoint]?/*Interim var*/
     var newPoints:[CGPoint]?
     var animator:Animator?/*Anim*/
+    
+    //add prevMinY to avoid calling start anim
+    
     /**
      * When the the user scrolls
      * NOTE: this method overides the Native NSView scrollWheel method
