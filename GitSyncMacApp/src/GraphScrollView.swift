@@ -104,7 +104,7 @@ extension GraphScrollable {
     }
     
     //Continue here: 
-        //make calcScaledPoints, and 
+        //make calcScaledPoints, and rename new and prev -> from and to
     
     /**
      * New
