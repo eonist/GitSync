@@ -27,8 +27,9 @@ class GraphScrollView:ContainerView3,GraphScrollable{
 }
 protocol GraphScrollable:ElasticScrollable3 {
     var prevX:CGFloat {get set}
-    var points:[CGPoint] {get set}
-    var prevPoints:[CGPoint] {get set}
+    var points:[CGPoint]? {get set}
+    var prevPoints:[CGPoint]? {get set}
+    var newPoints:[CGPoint]? {get set}
     
     //continue adding the tick variables to test the performance 🏀
 }
