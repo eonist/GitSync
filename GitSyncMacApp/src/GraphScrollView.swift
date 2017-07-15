@@ -134,6 +134,7 @@ extension GraphScrollable {
             //Gravity
             //friction
             //Mover
+        //I think you should 
     
     func initAnim(){
         Swift.print("initAnim")
