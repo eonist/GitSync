@@ -115,16 +115,17 @@ extension GraphScrollable {
      * NOTE: this method can be called in quick sucession as it stops any ongoing animation before it is started
      */
     func initAnim(){
-        if(animator != nil){animator!.stop()}/*Stop any previous running animation*/
-        animator = Animator(Animation.sharedInstance,1.2,0,1,interpolateValue,Elastic.easeOut)
-        animator!.start()
-        animator!.event = self.onAnimEvent
-        Swift.print("Start anim")
+        if(animator != nil){
+            Swift.print("Start anim")
+            animator = Animator(Animation.sharedInstance,1.2,0,1,interpolateValue,Elastic.easeOut)
+            animator!.start()
+            animator!.event = self.onAnimEvent
+        }
     }
     func onAnimEvent(_ event:Event)  {
         if event.type == AnimEvent.completed {
             Swift.print("animation completed")
-            
+            animator = nil
         }
     }
     /**
