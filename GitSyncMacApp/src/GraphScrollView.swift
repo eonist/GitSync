@@ -92,11 +92,8 @@ extension GraphScrollable {
         //Swift.print("⚠️️ minY: " + "\(minY))")
         
         if let prevMinY = self.prevMinY, prevMinY != minY {//skips anim if the graph doesn't need to scale
-            //let dist:CGFloat = 400.cgFloat.distance(to: minY)
-            let diff:CGFloat = height + (-1 * minY)/*Since graphs start from the bottom we need to flip the y coordinates*/
-            let ratio:CGFloat = height / diff/*Now that we have the flipped y coordinate we can get the ratio to scale all other points with */
             prevPoints = /*newPoints ??*/ points//basically use newPoints if they exist or default points if not
-            newPoints = points!.map{CGPointModifier.scale($0/*<--point to scale*/, CGPoint($0.x,height)/*<--pivot*/, CGPoint(1,ratio)/*<--Scalar ratio*/)}
+            newPoints = calcScaledPoints(x,minY)
             initAnim()/*initiates the animation*/
         }
         
@@ -109,7 +106,7 @@ extension GraphScrollable {
         //let dist:CGFloat = 400.cgFloat.distance(to: minY)
         let diff:CGFloat = height + (-1 * minY)/*Since graphs start from the bottom we need to flip the y coordinates*/
         let ratio:CGFloat = height / diff/*Now that we have the flipped y coordinate we can get the ratio to scale all other points with */
-        prevPoints = /*newPoints ??*/ points//basically use newPoints if they exist or default points if not
+        
         let scaledPoints = points!.map{CGPointModifier.scale($0/*<--point to scale*/, CGPoint($0.x,height)/*<--pivot*/, CGPoint(1,ratio)/*<--Scalar ratio*/)}
         return scaledPoints
     }
