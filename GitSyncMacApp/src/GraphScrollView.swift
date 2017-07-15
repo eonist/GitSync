@@ -126,13 +126,14 @@ extension GraphScrollable {
         }
     }
     
-    //try it  🏀
+    //try it 🏀
     
     func onAnimEvent(_ event:Event)  {
         if event.type == AnimEvent.completed {
             Swift.print("Animation completed")
             animator = nil
             if let animationCue = self.animationCue{
+                Swift.print("start queued anim")
                 animator = animationCue
                 self.animationCue = nil//remove item from anim cue
                 animator?.start()
