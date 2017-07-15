@@ -6,7 +6,7 @@ import Cocoa
  */
 class GraphAreaX:Element{
     var graphDots:[Element] = []
-    var graphLine:GraphLine?
+    static var graphLine:GraphLine?
     var contentContainer:Element? {return scrollView?.contentContainer}/*contains dots and line*/
     var scrollView:GraphScrollView?
     static var points:[CGPoint]?
@@ -41,7 +41,7 @@ class GraphAreaX:Element{
      */
     func createGraphLine(/*_ vValues:[CGFloat], _ maxValue:CGFloat*/){
         Swift.print("createGraphLine")
-        graphLine = contentContainer!.addSubView(GraphLine(getWidth(),getHeight(),Path(),contentContainer!))
+        GraphAreaX.graphLine = contentContainer!.addSubView(GraphLine(getWidth(),getHeight(),Path(),contentContainer!))
     }
     /**
      * Creates The visual Graph points that hover above the Graph line
@@ -77,8 +77,8 @@ class GraphAreaX:Element{
         //let path:IPath = PolyLineGraphicUtils.path(points!)/*convert points to a Path*/
         //TODO: ⚠️️ Ideally we should create the CGPath from the points use CGPathParser.polyline
         //let cgPath = CGPathUtils.compile(CGMutablePath(), path)//convert path to cgPath
-        graphLine!.line!.cgPath = CGPathParser.polyLine(GraphAreaX.points!)//cgPath.clone()//applies the new path
-        graphLine!.line!.draw()//draws the path
+        GraphAreaX.graphLine!.line!.cgPath = CGPathParser.polyLine(GraphAreaX.points!)//cgPath.clone()//applies the new path
+        GraphAreaX.graphLine!.line!.draw()//draws the path
     }
 }
 
