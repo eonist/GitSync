@@ -174,6 +174,7 @@ extension GraphScrollable {
             let pos:CGPoint = prevPoints![i].interpolate(newPoints![i], val)/*interpolates from one point to another*/
             positions.append(pos)
         }
+        points = positions
         //let path:IPath = PolyLineGraphicUtils.path(positions)/*Compiles a path that conceptually is a polyLine*/
         //graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)/*Converts the path to a cgPath*/
         GraphAreaX.graphLine!.line!.cgPath = CGPathParser.polyLine(positions)
