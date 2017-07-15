@@ -131,6 +131,7 @@ extension GraphScrollable {
             animator = nil
             if let animationCue = self.animationCue{
                 animator = animationCue
+                self.animationCue = nil//remove item from anim cue
                 animator?.start()
                 animator?.event = self.onAnimEvent
             }
