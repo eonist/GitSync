@@ -125,6 +125,9 @@ extension GraphScrollable {
             animationCue = Animator(Animation.sharedInstance,1.2,0,1,interpolateValue,Elastic.easeOut)
         }
     }
+    
+    //
+    
     func onAnimEvent(_ event:Event)  {
         if event.type == AnimEvent.completed {
             Swift.print("Animation completed")
