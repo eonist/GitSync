@@ -10,6 +10,7 @@ class GraphScrollView:ContainerView3,GraphScrollable{
     var prevX:CGFloat = -100
     var prevPoints:[CGPoint]?/*Interim var*/
     var newPoints:[CGPoint]?
+    var animator:Animator?/*Anim*/
     /**
      * When the the user scrolls
      * NOTE: this method overides the Native NSView scrollWheel method
@@ -30,6 +31,7 @@ protocol GraphScrollable:ElasticScrollable3 {
     var points:[CGPoint]? {get set}
     var prevPoints:[CGPoint]? {get set}
     var newPoints:[CGPoint]? {get set}
+    var animator:Animator? {get set}/*Anim*/
     
     //continue adding the tick variables to test the performance 🏀
 }
