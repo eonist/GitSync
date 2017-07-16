@@ -49,8 +49,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //setup click on window event handler
         func onViewEvent(_ event:Event) {
             //Swift.print("onViewEvent: " + "\(event)")
-            if event.type == ButtonEvent.upInside {
-                Swift.print("view upInside")
+            if let buttonEvent = event as? ButtonEvent, event.type == ButtonEvent.upInside {
+                Swift.print("bg upInside")
+                buttonEvent.
             }
         }
         bg?.event = onViewEvent
