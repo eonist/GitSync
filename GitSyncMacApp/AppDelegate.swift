@@ -43,11 +43,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         ellipse.draw()
         
         //setup click on window event handler
-        
+        func onViewEvent(_ event:Event) {
+            if event.type == MouseEvent.up
+        }
+        window.contentView?.event = onViewEvent
         //update mover target on window event mouseUpEvent
         
             //setup Mover animator
-            
+        
         
     }
     
