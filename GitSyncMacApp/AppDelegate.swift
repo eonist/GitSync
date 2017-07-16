@@ -45,25 +45,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let ellipse = EllipseGraphic(-50,-50,100,100,FillStyle(.blue),nil)
         window.contentView?.addSubview(ellipse.graphic)
         ellipse.draw()
-        
-        
-        
-        //setup Mover animator
-        
-        var spring:CGFloat = 0.02
-        var targetX:CGFloat = 0
-        var vx:CGFloat = 0
-        var friction:CGFloat = 0.95
+    
         
         func progress(value:CGFloat){
-            let dx:CGFloat = targetX - (ellipse.graphic.point.x)
-            let ax:CGFloat = dx * spring
-            vx += ax
-            vx *= friction
-            ellipse.graphic.point.x += vx
+            ellipse.graphic.point.x = value
         }
         
-        let animator = FrameTicker(Animation.sharedInstance,progress)
+        let animator:Spring = Spring(Animation.sharedInstance,progress)/*setup Mover animator*/
         //setup click on window event handler
         func onViewEvent(_ event:Event) {
             //Swift.print("onViewEvent: " + "\(event)")
@@ -71,8 +59,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //Swift.print("bg upInside")
                 //Swift.print("buttonEvent.loc: " + "\(buttonEvent.loc)")
                 //Swift.print("bg.localPos(): " + "\(bg?.localPos())")
-                vx = 0
-                targetX = (bg?.localPos().x)!
+                animator.vx = 0//im not sure this is needed
+                animator.targetX = (bg?.localPos().x)!
                 animator.stop()
                 animator.start()
             }
