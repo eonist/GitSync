@@ -53,11 +53,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         var spring:CGFloat = 0.1
         var targetX:CGFloat = 0
         var vx:CGFloat = 0
+        var friction:CGFloat = 0.95
         
         func progress(value:CGFloat){
             let dx:CGFloat = targetX - (ellipse.graphic.layer?.position.x)!
             let ax:CGFloat = dx * spring
             vx += ax
+            vx *= friction
             ellipse.graphic.layer?.position.x += vx
         }
         
