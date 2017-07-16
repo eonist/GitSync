@@ -51,11 +51,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //Swift.print("onViewEvent: " + "\(event)")
             if let buttonEvent = event as? ButtonEvent, event.type == ButtonEvent.upInside {
                 Swift.print("bg upInside")
-                //buttonEvent.
+                
             }
-            if event.type == MouseEvent.up{
-                Swift.print("up")
-            }
+         
         }
         bg?.event = onViewEvent
         //update mover target on window event mouseUpEvent
