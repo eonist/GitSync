@@ -38,7 +38,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView2()
         
         StyleManager.addStyle("#bg{fill:green;}")
-        let bg = window.contentView?.addSubView(Element(window.size.w,window.size.h,nil,"bg"))
+        let bg = window.contentView?.addSubView(Button(window.size.w,window.size.h,nil,"bg"))
         
         
         /*Ellipse*/
@@ -48,9 +48,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //setup click on window event handler
         func onViewEvent(_ event:Event) {
-            Swift.print("onViewEvent: " + "\(event)")
-            if event.type == MouseEvent.down {
-                Swift.print("view down")
+            //Swift.print("onViewEvent: " + "\(event)")
+            if event.type == ButtonEvent.upInside {
+                Swift.print("view upInside")
             }
         }
         bg?.event = onViewEvent
