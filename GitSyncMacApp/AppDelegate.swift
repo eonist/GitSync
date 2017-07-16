@@ -44,9 +44,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //setup click on window event handler
         func onViewEvent(_ event:Event) {
-            if event.type == MouseEvent.up
+            Swift.print("onViewEvent: " + "\(event)")
+            if event.type == MouseEvent.down {
+                Swift.print("view down")
+            }
         }
-        window.contentView?.event = onViewEvent
+        (window.contentView as? InteractiveView2)?.event = onViewEvent
         //update mover target on window event mouseUpEvent
         
             //setup Mover animator
