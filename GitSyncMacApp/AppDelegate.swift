@@ -42,12 +42,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView?.addSubview(ellipse.graphic)
         ellipse.draw()
         
-        //setup Mover animator
-        
         //setup click on window event handler
         
         //update mover target on window event mouseUpEvent
+        
+            //setup Mover animator
+        
+        
     }
+    
     /**
      * Testing the zoomable and bouncing graph
      */
