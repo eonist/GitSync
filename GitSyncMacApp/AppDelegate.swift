@@ -59,6 +59,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //setup Mover animator
         
     }
+    
     /**
      * Testing the zoomable and bouncing graph
      */
