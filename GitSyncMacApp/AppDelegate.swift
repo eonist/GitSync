@@ -42,7 +42,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         /*Ellipse*/
-        let ellipse = EllipseGraphic(0,0,100,100,FillStyle(.blue),nil)
+        let ellipse = EllipseGraphic(-50,-50,100,100,FillStyle(.blue),nil)
         window.contentView?.addSubview(ellipse.graphic)
         ellipse.draw()
         
@@ -50,17 +50,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //setup Mover animator
         
-        var spring:CGFloat = 0.1
+        var spring:CGFloat = 0.02
         var targetX:CGFloat = 0
-        var vx:CGFloat = 50
+        var vx:CGFloat = 0
         var friction:CGFloat = 0.95
         
         func progress(value:CGFloat){
-            let dx:CGFloat = targetX - (ellipse.graphic.position.x)!
+            let dx:CGFloat = targetX - (ellipse.graphic.point.x)
             let ax:CGFloat = dx * spring
             vx += ax
             vx *= friction
-            ellipse.graphic.position.x += vx
+            ellipse.graphic.point.x += vx
         }
         
         let animator = FrameTicker(Animation.sharedInstance,progress)
