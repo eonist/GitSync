@@ -91,9 +91,8 @@ extension GraphScrollable {
         let minY = calcMinY(x)
         //Swift.print("⚠️️ minY: " + "\(minY))")
         
-        if let prevMinY = self.prevMinY, prevMinY != minY {//skips anim if the graph doesn't need to scale
-            
-            initAnim()/*initiates the animation*/
+        if let prevMinY = self.prevMinY, prevMinY != minY {/*Skips anim if the graph doesn't need to scale*/
+            initAnim()/*Initiates the animation*/
         }
         
         prevMinY = minY//set the prev anim
