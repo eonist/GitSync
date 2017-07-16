@@ -126,16 +126,7 @@ extension GraphScrollable {
      * NOTE: this method can be called in quick sucession as it stops any ongoing animation before it is started
      */
     
-    //continue here: 🏀
-        // you need to improve the dynamics to make it more realistic looking. Springsolver maybe?
-            //SprintTo
-            //SpringToTarget
-            //Dampener
-            //Gravity
-            //friction
-            //Mover
-        //Make the move to click position with a ball start with mover then add friction and gravity etc, it should work 👈👈👈 this is what you need have smooth animation in the graph 👌
-            //Potentially find the chapter in that as book about animation and springsolvers
+    
     
     func initAnim(){
         Swift.print("initAnim")
