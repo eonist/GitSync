@@ -20,9 +20,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //initApp()
         //stateTest()
         //themeSwitchTest()
-        testGraphXTest()
+        //testGraphXTest()
         //testGraphView2()
        
+    }
+    /**
+     *
+     */
+    func targetAnimationTest(){
+        
     }
     /**
      * Testing the zoomable and bouncing graph
