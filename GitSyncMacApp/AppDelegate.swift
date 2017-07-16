@@ -37,7 +37,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.size = CGSize(664,400)
         window.contentView = InteractiveView2()
         
-        //Setup a ball
+        /*Ellipse*/
+        let ellipse = EllipseGraphic(0,0,100,100,FillStyle(.blue),nil)
+        window.contentView?.addSubview(ellipse.graphic)
+        ellipse.draw()
+        
+        
         
         //setup Mover animator
         
