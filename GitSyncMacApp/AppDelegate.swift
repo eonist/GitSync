@@ -50,18 +50,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //setup Mover animator
         
-        var spring:CGFloat = 0.1;
+        var spring:CGFloat = 0.1
         var targetX:CGFloat = 0
-        var vx:CGFloat = 0;
-        
+        var vx:CGFloat = 0
         
         func progress(value:CGFloat){
             let dx:CGFloat = targetX - (ellipse.graphic.layer?.position.x)!
             let ax:CGFloat = dx * spring
-            vx += ax;
+            vx += ax
             ellipse.graphic.layer?.position.x += vx
         }
-    
         
         let animator = FrameTicker(Animation.sharedInstance,progress)
         //setup click on window event handler
