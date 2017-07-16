@@ -56,11 +56,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         func progress(value:CGFloat){
-            
+            var dx:Number = targetX - ball.x;
+            var ax:Number = dx * spring;
+            vx += ax;
+            ball.x += vx;
         }
     
         
-        let animator = LoopingAnimator(Animation.sharedInstance,3,1,0,1,progress,Linear.ease)
+        let animator = Mover(Animation.sharedInstance,progress,0, 10)
         //setup click on window event handler
         func onViewEvent(_ event:Event) {
             //Swift.print("onViewEvent: " + "\(event)")
