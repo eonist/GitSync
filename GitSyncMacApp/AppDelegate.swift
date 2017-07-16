@@ -56,9 +56,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         bg?.event = onViewEvent
+        
+        //setup Mover animator
+        
         //update mover target on window event mouseUpEvent
         
-            //setup Mover animator
+        
         
     }
     
