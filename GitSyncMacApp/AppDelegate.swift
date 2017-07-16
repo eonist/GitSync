@@ -50,10 +50,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //setup Mover animator
         
+        var spring:CGFloat = 0.1;
+        var targetX:CGFloat? = nil
+        var vx:CGFloat = 0;
+        
+        
         func progress(value:CGFloat){
-            let angle = π * 2  * value
-            line.p2 = line.p1.polarPoint(50,angle)
-            line.draw()
+            
         }
     
         
@@ -61,11 +64,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //setup click on window event handler
         func onViewEvent(_ event:Event) {
             //Swift.print("onViewEvent: " + "\(event)")
-            if let buttonEvent = event as? ButtonEvent, event.type == ButtonEvent.upInside {
-                Swift.print("bg upInside")
+            if let buttonEvent = event as? ButtonEvent, buttonEvent.type == ButtonEvent.upInside {
+                //Swift.print("bg upInside")
                 //Swift.print("buttonEvent.loc: " + "\(buttonEvent.loc)")
-                Swift.print("bg.localPos(): " + "\(bg?.localPos())")
+                //Swift.print("bg.localPos(): " + "\(bg?.localPos())")
                 animator.start()
+                targetX = bg?.localPos().x
             }
         }
         bg?.event = onViewEvent
