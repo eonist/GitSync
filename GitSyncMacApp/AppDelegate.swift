@@ -46,6 +46,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView?.addSubview(ellipse.graphic)
         ellipse.draw()
         
+        
+        
+        //setup Mover animator
+        
+        func progress(value:CGFloat){
+            let angle = π * 2  * value
+            line.p2 = line.p1.polarPoint(50,angle)
+            line.draw()
+        }
+    
+        
+        let animator = LoopingAnimator(Animation.sharedInstance,3,1,0,1,progress,Easing.linear)
         //setup click on window event handler
         func onViewEvent(_ event:Event) {
             //Swift.print("onViewEvent: " + "\(event)")
@@ -53,17 +65,19 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("bg upInside")
                 //Swift.print("buttonEvent.loc: " + "\(buttonEvent.loc)")
                 Swift.print("bg.localPos(): " + "\(bg?.localPos())")
+                animator.start()
             }
         }
         bg?.event = onViewEvent
         
-        //setup Mover animator
+        
         
         //update mover target on window event mouseUpEvent
         
         
         
     }
+    
     
     /**
      * Testing the zoomable and bouncing graph
