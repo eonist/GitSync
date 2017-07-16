@@ -46,9 +46,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView?.addSubview(ellipse.graphic)
         ellipse.draw()
     
-        
         func progress(value:CGFloat){
-            ellipse.graphic.point.x = value
+            disableAnim {
+                ellipse.graphic.layer?.position.x = value
+            }
+            
         }
         
         let animator:Spring = Spring(Animation.sharedInstance,progress)/*setup Mover animator*/
@@ -59,7 +61,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //Swift.print("bg upInside")
                 //Swift.print("buttonEvent.loc: " + "\(buttonEvent.loc)")
                 //Swift.print("bg.localPos(): " + "\(bg?.localPos())")
-                animator.vx = 0//im not sure this is needed
+                //animator.vx = 0//i'm not sure this is needed
                 animator.targetX = (bg?.localPos().x)!
                 animator.stop()
                 animator.start()
