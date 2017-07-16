@@ -51,7 +51,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //Swift.print("onViewEvent: " + "\(event)")
             if let buttonEvent = event as? ButtonEvent, event.type == ButtonEvent.upInside {
                 Swift.print("bg upInside")
-                
+                Swift.print("buttonEvent.loc: " + "\(buttonEvent.loc)")
             }
          
         }
