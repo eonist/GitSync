@@ -47,10 +47,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         ellipse.draw()
     
         func progress(value:CGFloat){
-            disableAnim {
+            disableAnim {//important so that you dont get the apple auto anim as well
                 ellipse.graphic.layer?.position.x = value
             }
-            
         }
         
         let animator:Spring = Spring(Animation.sharedInstance,progress)/*setup Mover animator*/
