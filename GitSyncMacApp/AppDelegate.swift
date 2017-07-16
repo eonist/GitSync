@@ -56,11 +56,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         var friction:CGFloat = 0.95
         
         func progress(value:CGFloat){
-            let dx:CGFloat = targetX - (ellipse.graphic.layer?.position.x)!
+            let dx:CGFloat = targetX - (ellipse.graphic.position.x)!
             let ax:CGFloat = dx * spring
             vx += ax
             vx *= friction
-            ellipse.graphic.layer?.position.x += vx
+            ellipse.graphic.position.x += vx
         }
         
         let animator = FrameTicker(Animation.sharedInstance,progress)
@@ -71,8 +71,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //Swift.print("bg upInside")
                 //Swift.print("buttonEvent.loc: " + "\(buttonEvent.loc)")
                 //Swift.print("bg.localPos(): " + "\(bg?.localPos())")
-                animator.start()
+                vx = 0
                 targetX = (bg?.localPos().x)!
+                animator.stop()
+                animator.start()
             }
         }
         bg?.event = onViewEvent
