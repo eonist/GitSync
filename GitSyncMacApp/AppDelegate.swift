@@ -28,7 +28,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func targetAnimationTest(){
-        
+        //
     }
     /**
      * Testing the zoomable and bouncing graph
