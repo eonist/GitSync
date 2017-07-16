@@ -47,7 +47,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //update mover target on window event mouseUpEvent
         
             //setup Mover animator
-        
+            
         
     }
     
