@@ -57,7 +57,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
     
         
-        let animator = LoopingAnimator(Animation.sharedInstance,3,1,0,1,progress,Easing.linear)
+        let animator = LoopingAnimator(Animation.sharedInstance,3,1,0,1,progress,Linear.ease)
         //setup click on window event handler
         func onViewEvent(_ event:Event) {
             //Swift.print("onViewEvent: " + "\(event)")
