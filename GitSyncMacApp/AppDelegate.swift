@@ -51,15 +51,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //setup Mover animator
         
         var spring:CGFloat = 0.1;
-        var targetX:CGFloat? = nil
+        var targetX:CGFloat = 0
         var vx:CGFloat = 0;
         
         
         func progress(value:CGFloat){
-            var dx:Number = targetX - ball.x;
-            var ax:Number = dx * spring;
+            let dx:CGFloat = targetX - (ellipse.graphic.layer?.position.x)!
+            let ax:CGFloat = dx * spring
             vx += ax;
-            ball.x += vx;
+            ellipse.graphic.layer?.position.x += vx
         }
     
         
@@ -72,20 +72,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //Swift.print("buttonEvent.loc: " + "\(buttonEvent.loc)")
                 //Swift.print("bg.localPos(): " + "\(bg?.localPos())")
                 animator.start()
-                targetX = bg?.localPos().x
+                targetX = (bg?.localPos().x)!
             }
         }
         bg?.event = onViewEvent
-        
-        
-        
+  
         //update mover target on window event mouseUpEvent
-        
-        
-        
+
     }
-    
-    
     /**
      * Testing the zoomable and bouncing graph
      */
