@@ -63,7 +63,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
     
         
-        let animator = Mover(Animation.sharedInstance,progress,0, 10)
+        let animator = FrameTicker(Animation.sharedInstance,progress)
         //setup click on window event handler
         func onViewEvent(_ event:Event) {
             //Swift.print("onViewEvent: " + "\(event)")
