@@ -37,8 +37,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.size = CGSize(664,400)
         window.contentView = InteractiveView2()
         
-        let bg = Element(window.size.w,window.size.h,nil,"bg")
-        StyleManager.addStyle("#bg{fill:green;width:100%;height:100%;}")
+        StyleManager.addStyle("#bg{fill:green;}")
+        let bg = window.contentView?.addSubView(Element(window.size.w,window.size.h,nil,"bg"))
+        
         
         /*Ellipse*/
         let ellipse = EllipseGraphic(0,0,100,100,FillStyle(.blue),nil)
@@ -52,10 +53,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("view down")
             }
         }
-        (window.contentView as? InteractiveView2)?.event = onViewEvent
+        bg?.event = onViewEvent
         //update mover target on window event mouseUpEvent
         
-            //setup Mover animator 
+            //setup Mover animator
         
     }
     /**
