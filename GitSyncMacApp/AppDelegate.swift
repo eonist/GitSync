@@ -22,13 +22,28 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //themeSwitchTest()
         //testGraphXTest()
         //testGraphView2()
+        
+        targetAnimationTest()
        
     }
     /**
      *
      */
     func targetAnimationTest(){
-        //
+        //animate to to target
+        //then we change the target and the ball should gravitate towards this new target
+        
+        //Setup a window
+        window.size = CGSize(664,400)
+        window.contentView = InteractiveView2()
+        
+        //Setup a ball
+        
+        //setup Mover animator
+        
+        //setup click on window event handler
+        
+        //update mover target on window event mouseUpEvent
     }
     /**
      * Testing the zoomable and bouncing graph
