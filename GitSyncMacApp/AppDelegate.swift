@@ -42,8 +42,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView?.addSubview(ellipse.graphic)
         ellipse.draw()
         
-        
-        
         //setup Mover animator
         
         //setup click on window event handler
