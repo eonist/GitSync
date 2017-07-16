@@ -42,7 +42,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         /*Ellipse*/
-        let ellipse = EllipseGraphic(-50,-50,100,100,FillStyle(.blue),nil)
+        let ellipse = EllipseGraphic(-50,0,100,100,FillStyle(.blue),nil)
         window.contentView?.addSubview(ellipse.graphic)
         ellipse.draw()
     
