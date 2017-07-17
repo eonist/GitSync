@@ -40,17 +40,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let bg = window.contentView?.addSubView(Button(window.size.w,window.size.h,nil,"bg"))
         
         /*Ellipse*/
-        let ellipse = EllipseGraphic(-50,0,100,100,FillStyle(.blue),nil)
+        let ellipse = EllipseGraphic(-50,-50,100,100,FillStyle(.blue),nil)
         window.contentView?.addSubview(ellipse.graphic)
         ellipse.draw()
     
-        func progress(value:CGFloat){
+        func progress(value:CGPoint){
             disableAnim {//important so that you dont get the apple auto anim as well
-                ellipse.graphic.layer?.position.x = value
+                ellipse.graphic.layer?.position = value
             }
         }
         
-        let animator:Spring = Spring<CGPoint>(Animation.sharedInstance,progress,(CGPoint(0.02,0.02),CGPoint(0.90,0.90)), (CGPoint(0,0),CGPoint(0,0),CGPoint(0,0)))/*setup Mover animator*/
+        let animator:Spring = Spring<CGPoint>(Animation.sharedInstance,progress,(CGPoint(0.02,0.02),CGPoint(0.90,0.90)), (CGPoint(0,0),CGPoint(0,0),CGPoint(0,0)), Spring.pointStopAssert)/*setup Mover animator*/
         //setup click on window event handler
         func onViewEvent(_ event:Event) {
             //Swift.print("onViewEvent: " + "\(event)")
