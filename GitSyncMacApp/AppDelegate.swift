@@ -61,7 +61,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //Swift.print("buttonEvent.loc: " + "\(buttonEvent.loc)")
                 //Swift.print("bg.localPos(): " + "\(bg?.localPos())")
                 //animator.vx = 0//i'm not sure this is needed
-                animator.targetX = (bg?.localPos().x)!
+                animator.targetValue = (bg?.localPos().x)!
                 animator.stop()
                 animator.start()
             }
