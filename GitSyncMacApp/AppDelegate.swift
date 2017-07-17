@@ -35,6 +35,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Setup a window
         window.size = CGSize(664,400)
         window.contentView = InteractiveView2()
+        window.title = ""
         
         StyleManager.addStyle("#bg{fill:white;}")
         let bg = window.contentView?.addSubView(Button(window.size.w,window.size.h,nil,"bg"))
