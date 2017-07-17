@@ -50,7 +50,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         
-        let animator:Spring = Spring(Animation.sharedInstance,progress)/*setup Mover animator*/
+        let animator:Spring = Spring(Animation.sharedInstance,progress,(spring:0.02.cgFloat,friction:0.90.cgFloat))/*setup Mover animator*/
         //setup click on window event handler
         func onViewEvent(_ event:Event) {
             //Swift.print("onViewEvent: " + "\(event)")
