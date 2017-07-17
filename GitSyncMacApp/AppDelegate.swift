@@ -24,7 +24,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //testGraphView2()
         
         targetAnimationTest()
-       
     }
     /**
      *
@@ -39,7 +38,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         StyleManager.addStyle("#bg{fill:green;}")
         let bg = window.contentView?.addSubView(Button(window.size.w,window.size.h,nil,"bg"))
-        
         
         /*Ellipse*/
         let ellipse = EllipseGraphic(-50,0,100,100,FillStyle(.blue),nil)
