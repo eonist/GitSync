@@ -50,7 +50,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         
-        let animator:Spring = Spring<CGPoint>(progress,(CGPoint(0.02,0.02),CGPoint(0.90,0.90)), (CGPoint(0,0),CGPoint(0,0),CGPoint(0,0),CGPoint(0,0)), Spring.pointStopAssert)/*setup Mover animator*/
+        let animator:Spring = Spring<CGPoint>(progress,(CGPoint(0.02,0.02),CGPoint(0.90,0.90)), (CGPoint(0,0),CGPoint(0,0),CGPoint(0,0),CGPoint(0,0)))/*setup Mover animator*/
         //setup click on window event handler
         func onViewEvent(_ event:Event) {
             //Swift.print("onViewEvent: " + "\(event)")
