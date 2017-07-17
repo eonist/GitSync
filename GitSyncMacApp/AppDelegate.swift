@@ -50,7 +50,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         
-        let animator:Spring = Spring<CGPoint>(Animation.sharedInstance,progress,(0.02,0.90), (0,0,0))/*setup Mover animator*/
+        let animator:Spring = Spring<CGPoint>(Animation.sharedInstance,progress,(CGPoint(0.02,0.02),CGPoint(0.90,0.90)), (CGPoint(0,0),CGPoint(0,0),CGPoint(0,0)))/*setup Mover animator*/
         //setup click on window event handler
         func onViewEvent(_ event:Event) {
             //Swift.print("onViewEvent: " + "\(event)")
@@ -59,7 +59,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //Swift.print("buttonEvent.loc: " + "\(buttonEvent.loc)")
                 //Swift.print("bg.localPos(): " + "\(bg?.localPos())")
                 //animator.vx = 0//i'm not sure this is needed
-                animator.targetValue = (bg?.localPos().x)!
+                animator.targetValue = bg!.localPos()
                 animator.stop()
                 animator.start()
             }
