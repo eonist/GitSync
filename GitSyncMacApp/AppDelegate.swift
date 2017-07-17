@@ -58,7 +58,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //Swift.print("bg upInside")
                 //Swift.print("buttonEvent.loc: " + "\(buttonEvent.loc)")
                 //Swift.print("bg.localPos(): " + "\(bg?.localPos())")
-                //animator.vx = 0//i'm not sure this is needed
                 animator.targetValue = bg!.localPos()
                 animator.stop()
                 animator.start()
