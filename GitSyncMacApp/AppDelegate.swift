@@ -46,19 +46,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         ellipse.draw()
     
         func progress(value:CGPoint){
-            disableAnim {//Important so that you don't get the apple auto anim as well
+            disableAnim {/*Important so that you don't get the apple auto anim as well*/
                 ellipse.graphic.layer?.position = value
             }
         }
-        
+        //Continue here:
+            //try to use subclassing or decoration instead of generics. You need to be able to set the init vals outside the init call as well
         let animator = Easer<CGPoint>(progress,CGPoint(0.2,0.2), (CGPoint(0,0),CGPoint(0,0),CGPoint(0,0),CGPoint(0,0)))/*setup Mover animator*/
         //setup click on window event handler
         func onViewEvent(_ event:Event) {
             //Swift.print("onViewEvent: " + "\(event)")
             if let buttonEvent = event as? ButtonEvent, buttonEvent.type == ButtonEvent.upInside {
-                //Swift.print("bg upInside")
-                //Swift.print("buttonEvent.loc: " + "\(buttonEvent.loc)")
-                //Swift.print("bg.localPos(): " + "\(bg?.localPos())")
                 animator.targetValue = bg!.localPos()
                 animator.stop()
                 animator.start()
