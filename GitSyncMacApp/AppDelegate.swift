@@ -46,7 +46,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         ellipse.draw()
     
         func progress(value:CGPoint){
-            disableAnim {//important so that you dont get the apple auto anim as well
+            disableAnim {//Important so that you don't get the apple auto anim as well
                 ellipse.graphic.layer?.position = value
             }
         }
