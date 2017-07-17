@@ -36,7 +36,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.size = CGSize(664,400)
         window.contentView = InteractiveView2()
         
-        StyleManager.addStyle("#bg{fill:green;}")
+        StyleManager.addStyle("#bg{fill:white;}")
         let bg = window.contentView?.addSubView(Button(window.size.w,window.size.h,nil,"bg"))
         
         /*Ellipse*/
