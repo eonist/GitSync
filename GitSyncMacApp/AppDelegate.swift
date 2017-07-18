@@ -56,7 +56,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //try to see if you can call something dynamically based on what type it is 👈
             //what about decoration 🤔 eventSender can be in a struct, so can the ref to animatable etc, try it, you need more struct designs
             
-        let animator = PointSpringer(progress, PointSpringer.initValues,PointSpringer.initConfig)/*setup Mover animator*/
+        let animator = PointEaser(progress, PointEaser.initValues,PointEaser.initConfig)/*setup Mover animator*/
         //setup click on window event handler
         //Springer.initPointConfig
         //Springer.defaultInitPointValues,
