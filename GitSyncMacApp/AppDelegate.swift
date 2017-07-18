@@ -52,7 +52,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         //Continue here: 🏀
             //try to use subclassing or decoration instead of generics. You need to be able to set the init vals outside the init call as well ✅
-            //make the Easer the same way you made Springer
+            //make the Easer the same way you made Springer 👈
+            //try to see if you can call something dynamically based on what type it is 👈
+            //what about decoration 🤔
             
         let animator = PointSpringer(progress, PointSpringer.initValues,PointSpringer.initConfig)/*setup Mover animator*/
         //setup click on window event handler
