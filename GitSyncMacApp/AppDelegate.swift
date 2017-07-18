@@ -17,13 +17,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //jsonTest()
         
-        //initApp()
+        initApp()
         //stateTest()
         //themeSwitchTest()
         //testGraphXTest()
         //testGraphView2()
         
-        targetAnimationTest()
+        //targetAnimationTest()
     }
     /**
      *
@@ -54,7 +54,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //try to use subclassing or decoration instead of generics. You need to be able to set the init vals outside the init call as well ✅
             //make the Easer the same way you made Springer 👈
             //try to see if you can call something dynamically based on what type it is 👈
-            //what about decoration 🤔
+            //what about decoration 🤔 eventSender can be in a struct, so can the ref to animatable etc, try it, you need more struct designs
             
         let animator = PointSpringer(progress, PointSpringer.initValues,PointSpringer.initConfig)/*setup Mover animator*/
         //setup click on window event handler
