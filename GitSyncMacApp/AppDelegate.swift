@@ -53,7 +53,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Continue here: 🏀
             //try to use subclassing or decoration instead of generics. You need to be able to set the init vals outside the init call as well
             
-        let animator = Springer<CGPoint>(progress,(CGPoint(0.02,0.02),CGPoint(0.90,0.90)), (CGPoint(0,0),CGPoint(0,0),CGPoint(0,0),CGPoint(0,0)))/*setup Mover animator*/
+        let animator = Springer<CGPoint>(progress, (CGPoint(0,0),CGPoint(0,0),CGPoint(0,0),CGPoint(0,0)),(CGPoint(0.02,0.02),CGPoint(0.90,0.90)))/*setup Mover animator*/
         //setup click on window event handler
         func onViewEvent(_ event:Event) {
             //Swift.print("onViewEvent: " + "\(event)")
