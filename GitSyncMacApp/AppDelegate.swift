@@ -54,7 +54,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //try to use subclassing or decoration instead of generics. You need to be able to set the init vals outside the init call as well ✅
             //make the Easer the same way you made Springer
             
-        let animator = Springer<CGPoint>(progress, Springer<CGPoint>.defaultInitPointValues,Springer<CGPoint>.initPointConfig)/*setup Mover animator*/
+        let animator = PointSpringer(progress, PointSpringer.defaultInitPointValues,PointSpringer.initPointConfig)/*setup Mover animator*/
         //setup click on window event handler
         //Springer.initPointConfig
         //Springer.defaultInitPointValues,
