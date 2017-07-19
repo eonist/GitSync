@@ -9,6 +9,7 @@ enum GitCMD:String{
     case D = "D"
     case A = "A"
     case R = "R"
+    case MM = "MM"//There are two Ms in your example because it's a merge commit with two parents
     case RM = "RM"//new and experimental
     case QQ = "??"
     case UU = "UU"
@@ -30,6 +31,8 @@ class CommitUtils{
             switch GitCMD(rawValue:cmd){
 				case .M?:
 					numOfModifiedFiles += 1
+                case .MM?://new and experimental
+                    numOfModifiedFiles += 1
 				case .D?:
 					numOfDeletedFiles += 1
 				case .A?:
