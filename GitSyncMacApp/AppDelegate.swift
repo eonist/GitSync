@@ -37,11 +37,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView2()
         window.title = ""
         
-        StyleManager.addStyle("#bg{fill:black;}")
+        StyleManager.addStyle("#bg{fill:white;}")
         let bg = window.contentView?.addSubView(Button(window.size.w,window.size.h,nil,"bg"))
         
         /*Ellipse*/
-        let ellipse = EllipseGraphic(-50,-50,100,100,FillStyle(.white),nil)
+        let ellipse = EllipseGraphic(-50,-50,100,100,FillStyle(.blue),nil)
         window.contentView?.addSubview(ellipse.graphic)
         ellipse.draw()
     
