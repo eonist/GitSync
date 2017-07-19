@@ -17,6 +17,8 @@ class DescUtils{
 			switch GitCMD(rawValue:cmd){
 				case .D?:
                     deletedItems.append(statusItem) //--add a record to a list
+                case .R?://new and experimental
+                    deletedItems.append(statusItem) //--add a record to a list
                 case .RM?://new and experimental
                     deletedItems.append(statusItem) //--add a record to a list
 				case .M?:
