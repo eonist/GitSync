@@ -103,6 +103,12 @@ extension GraphScrollable {
         prevMinY = minY//set the prev anim
     }
     /**
+     *
+     */
+    func calcRatio(_ x:CGFloat,_ minY:CGFloat) ->CGFloat{
+        
+    }
+    /**
      * New
      */
     func calcScaledPoints(_ x:CGFloat,_ minY:CGFloat) -> [CGPoint]{
