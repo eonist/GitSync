@@ -2,7 +2,7 @@ import Cocoa
 @testable import Utils
 @testable import Element
 /**
- *
+ * A Graph that modulates the graph while you scroll
  */
 class GraphAreaX:Element{
     static var graphDots:[Element] = []
