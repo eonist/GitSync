@@ -12,7 +12,7 @@ class GraphScrollView:ContainerView3,GraphScrollable{
     var prevX:CGFloat = -100
     var prevPoints:[CGPoint]?/*Interim var*/
     var newPoints:[CGPoint]?
-    var animator:NumberSpringer?/*Anim*/
+    var animator:NumberSpringer?
     var prevMinY:CGFloat?//prevMinY to avoid calling start anim
     //var animationCue:Animator?
     /**
@@ -35,7 +35,7 @@ protocol GraphScrollable:ElasticScrollable3 {
     var points:[CGPoint]? {get set}
     var prevPoints:[CGPoint]? {get set}//rename 👉 fromPoints
     var newPoints:[CGPoint]? {get set}//rename 👉 toPoints
-    var animator:NumberSpringer {get set}/*Anim*/
+    var animator:NumberSpringer? {get set}/*Anim*/
     var prevMinY:CGFloat? {get set}
     //var animationCue:Animator? {get set}
     
@@ -141,6 +141,7 @@ extension GraphScrollable {
         newPoints = calcScaledPoints(x,minY)
         /*Setup interuptable animator*/
         //animator = Animator(Animation.sharedInstance,2.0,0,1,interpolateValue,Elastic.easeOut)
+        if animator == nil {animator = NumberSpringer(interpolateValue, NumberSpringer.initValues,NumberSpringer.initConfig)/*Anim*/}
         if animator!.stopped {animator!.start()}
         
         /*
