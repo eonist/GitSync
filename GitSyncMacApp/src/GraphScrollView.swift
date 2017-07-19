@@ -12,9 +12,9 @@ class GraphScrollView:ContainerView3,GraphScrollable{
     var prevX:CGFloat = -100
     var prevPoints:[CGPoint]?/*Interim var*/
     var newPoints:[CGPoint]?
-    var animator:Animator?/*Anim*/
+    var animator:NumberSpringer?/*Anim*/
     var prevMinY:CGFloat?//prevMinY to avoid calling start anim
-    var animationCue:Animator?
+    //var animationCue:Animator?
     /**
      * When the the user scrolls
      * NOTE: this method overides the Native NSView scrollWheel method
@@ -35,9 +35,9 @@ protocol GraphScrollable:ElasticScrollable3 {
     var points:[CGPoint]? {get set}
     var prevPoints:[CGPoint]? {get set}//rename 👉 fromPoints
     var newPoints:[CGPoint]? {get set}//rename 👉 toPoints
-    var animator:Animator? {get set}/*Anim*/
+    var animator:NumberSpringer? {get set}/*Anim*/
     var prevMinY:CGFloat? {get set}
-    var animationCue:Animator? {get set}
+    //var animationCue:Animator? {get set}
     
     //continue adding the tick variables to test the performance 🏀
 }
@@ -139,7 +139,8 @@ extension GraphScrollable {
         let x = moverGroup!.result.x
         let minY = calcMinY(x)
         newPoints = calcScaledPoints(x,minY)
-        animator = Animator(Animation.sharedInstance,2.0,0,1,interpolateValue,Elastic.easeOut)
+        animator = NumberSpringer(interpolateValue, NumberSpringer.initValues,NumberSpringer.initConfig)/*Setup interuptable animator*/
+        //animator = Animator(Animation.sharedInstance,2.0,0,1,interpolateValue,Elastic.easeOut)
         animator?.start()
         
         /*
@@ -158,7 +159,7 @@ extension GraphScrollable {
         }
         */
     }
-    
+    /*
     func onAnimEvent(_ event:Event)  {
         if event.type == AnimEvent.completed {
             Swift.print("Animation completed")
@@ -176,6 +177,7 @@ extension GraphScrollable {
             }
         }
     }
+    */
     /**
      * Interpolates between 0 and 1 while the duration of the animation
      * NOTE: ReCalc the hValue indicators (each graph range has a different max hValue etc)
