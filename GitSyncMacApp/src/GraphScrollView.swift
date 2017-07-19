@@ -39,7 +39,7 @@ protocol GraphScrollable:ElasticScrollable3 {
     var points:[CGPoint]? {get set}
     var prevPoints:[CGPoint]? {get set}//rename 👉 fromPoints
     var newPoints:[CGPoint]? {get set}//rename 👉 toPoints
-    var animator:NumberSpringer? {get set}/*Anim*/
+    var animator:NumberEaser? {get set}/*Anim*/
     var prevMinY:CGFloat? {get set}
     //var animationCue:Animator? {get set}
     
