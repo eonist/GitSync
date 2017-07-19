@@ -142,7 +142,7 @@ extension GraphScrollable {
         /*Setup interuptable animator*/
         //animator = Animator(Animation.sharedInstance,2.0,0,1,interpolateValue,Elastic.easeOut)
         if animator == nil {animator = NumberSpringer(interpolateValue, NumberSpringer.initValues,NumberSpringer.initConfig)/*Anim*/}
-        animator?.targetValue
+        animator?.targetValue = 1
         if animator!.stopped {animator!.start()}
         
         /*
