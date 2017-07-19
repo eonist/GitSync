@@ -3,7 +3,7 @@ import Foundation
 /**
  * Utility methods for generating the "Git Commit Message Description"
  */
-class DescUtils{
+class CommitDescUtils{
 	/**
 	 * Returns a "Git Commit Message Description" derived from a "git status list" with "status items records"
 	 */
