@@ -174,7 +174,7 @@ extension GraphScrollable {
      * NOTE: ReCalc the hValue indicators (each graph range has a different max hValue etc)
      */
     func interpolateValue(_ val:CGFloat){
-        Swift.print("val: " + "\(val)")
+        //Swift.print("val: " + "\(val)")
         /*newPoints!.forEach{
          //Swift.print("$0: " + "\($0)")
          graphPoint2!.point = $0
