@@ -12,7 +12,7 @@ class GraphScrollView:ContainerView3,GraphScrollable{
     var prevX:CGFloat = -100
     var prevPoints:[CGPoint]?/*Interim var*/
     var newPoints:[CGPoint]?
-    var animator:NumberSpringer?
+    var animator:NumberEaser?
     var prevMinY:CGFloat?//prevMinY to avoid calling start anim
     //var animationCue:Animator?
     override func resolveSkin() {
@@ -132,8 +132,8 @@ extension GraphScrollable {
         //animator = Animator(Animation.sharedInstance,2.0,0,1,interpolateValue,Elastic.easeOut)
         
         if animator == nil {
-            let initValues:NumberSpringer.InitValues = (value:1,targetValue:ratio,velocity:0,stopVelocity:0)
-            animator = NumberSpringer(interpolateValue, initValues,NumberSpringer.initConfig)/*Anim*/
+            let initValues:NumberEaser.InitValues = (value:1,targetValue:ratio,velocity:0,stopVelocity:0)
+            animator = NumberEaser(interpolateValue, initValues,NumberEaser.initConfig)/*Anim*/
         }
         animator?.targetValue = ratio
         if animator!.stopped {animator!.start()}
