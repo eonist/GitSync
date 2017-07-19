@@ -41,8 +41,10 @@ protocol GraphScrollable:ElasticScrollable3 {
     
     //continue adding the tick variables to test the performance 🏀
 }
-extension GraphScrollable {
-    var points:[CGPoint]? {get{return GraphAreaX.points}set{GraphAreaX.points = newValue}}
+/**
+ * Scrolling related
+ */
+extension GraphScrollable{
     /**
      * This method is fired on each "scrollWheel change event" and "MoverGroup setProgressValue call-back"
      */
@@ -59,23 +61,23 @@ extension GraphScrollable {
          print(ceil(300/100))*/
         
         /*
-        let min:Int = ceil(abs(x)/100).int
-        let right:CGFloat = abs(x)+(100*GraphX.config.vCount)
-        let max:Int = floor(right/100).int
-        
-        let range:[CGFloat] = GraphAreaX.vValues!.slice2(min, max)
-        
-        let maxValue:CGFloat = range.max()!/*The max value in the current visible range*/
-        _ = maxValue
-        */
+         let min:Int = ceil(abs(x)/100).int
+         let right:CGFloat = abs(x)+(100*GraphX.config.vCount)
+         let max:Int = floor(right/100).int
+         
+         let range:[CGFloat] = GraphAreaX.vValues!.slice2(min, max)
+         
+         let maxValue:CGFloat = range.max()!/*The max value in the current visible range*/
+         _ = maxValue
+         */
         
         //Swift.print("maxValue: " + "\(maxValue)")
         
         /*
-        let size:CGSize = maskSize
-        let points = GraphUtils.points(size, CGPoint(0,0), CGSize(100,100), range, maxValue,0,0)
-        _ = points
-        */
+         let size:CGSize = maskSize
+         let points = GraphUtils.points(size, CGPoint(0,0), CGSize(100,100), range, maxValue,0,0)
+         _ = points
+         */
         
         let absX = abs(x)
         if absX >= prevX + 100 {/*only redraw at every 100px threshold*/
@@ -102,34 +104,13 @@ extension GraphScrollable {
         
         prevMinY = minY//set the prev anim
     }
-    /**
-     * New
-     */
-    func calcRatio(_ x:CGFloat,_ minY:CGFloat) -> CGFloat{
-        //let dist:CGFloat = 400.cgFloat.distance(to: minY)
-        let diff:CGFloat = height + (-1 * minY)/*Since graphs start from the bottom we need to flip the y coordinates*/
-        let ratio:CGFloat = height / diff/*Now that we have the flipped y coordinate we can get the ratio to scale all other points with */
-        return ratio
-    }
-    /**
-     * New
-     */
-    func calcScaledPoints(_ ratio:CGFloat) -> [CGPoint]{
-        let scaledPoints = points!.map{CGPointModifier.scale($0/*<--point to scale*/, CGPoint($0.x,height)/*<--pivot*/, CGPoint(1,ratio)/*<--Scalar ratio*/)}
-        return scaledPoints
-    }
-    /**
-     * New
-     */
-    func calcMinY(_ x:CGFloat) -> CGFloat{
-        let x1:CGFloat = -1 * x/*Here we flip the x to be positive*/
-        let x2:CGFloat = (-1 * x) + width
-        /**/
-        let minX:CGFloat = x1/*The begining of the current visible graph*/
-        let maxX:CGFloat = x2/*The end of the visible range*/
-        let minY:CGFloat = self.minY(minX,maxX)/*Returns the smallest Y value in the visible range*/
-        return minY
-    }
+
+}
+/**
+ * Animation related
+ */
+extension GraphScrollable {
+    var points:[CGPoint]? {get{return GraphAreaX.points}set{GraphAreaX.points = newValue}}
     /**
      * Initiates the animation sequence
      * NOTE: this method can be called in quick sucession as it stops any ongoing animation before it is started
@@ -152,7 +133,7 @@ extension GraphScrollable {
             let initValues:NumberSpringer.InitValues = (value:1,targetValue:ratio,velocity:0,stopVelocity:0)
             animator = NumberSpringer(interpolateValue, initValues,NumberSpringer.initConfig)/*Anim*/
         }
-        animator?.targetValue = 1
+        animator?.targetValue = ratio
         if animator!.stopped {animator!.start()}
         
         /*
@@ -250,5 +231,38 @@ extension GraphScrollable {
     func setProgress(_ point:CGPoint){
         //Swift.print("override setProgress")
         disableAnim {contentContainer.layer?.position = CGPoint(point.x,0)}
+    }
+}
+/**
+ * utilities related
+ */
+extension GraphScrollable{
+    /**
+     * New
+     */
+    func calcRatio(_ x:CGFloat,_ minY:CGFloat) -> CGFloat{
+        //let dist:CGFloat = 400.cgFloat.distance(to: minY)
+        let diff:CGFloat = height + (-1 * minY)/*Since graphs start from the bottom we need to flip the y coordinates*/
+        let ratio:CGFloat = height / diff/*Now that we have the flipped y coordinate we can get the ratio to scale all other points with */
+        return ratio
+    }
+    /**
+     * New
+     */
+    func calcScaledPoints(_ ratio:CGFloat) -> [CGPoint]{
+        let scaledPoints = points!.map{CGPointModifier.scale($0/*<--point to scale*/, CGPoint($0.x,height)/*<--pivot*/, CGPoint(1,ratio)/*<--Scalar ratio*/)}
+        return scaledPoints
+    }
+    /**
+     * New
+     */
+    func calcMinY(_ x:CGFloat) -> CGFloat{
+        let x1:CGFloat = -1 * x/*Here we flip the x to be positive*/
+        let x2:CGFloat = (-1 * x) + width
+        /**/
+        let minX:CGFloat = x1/*The begining of the current visible graph*/
+        let maxX:CGFloat = x2/*The end of the visible range*/
+        let minY:CGFloat = self.minY(minX,maxX)/*Returns the smallest Y value in the visible range*/
+        return minY
     }
 }
