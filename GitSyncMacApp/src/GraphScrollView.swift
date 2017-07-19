@@ -118,19 +118,19 @@ extension GraphScrollable {
          animator?.stop()
          animator = nil
          }*/
-        prevPoints = points//basically use newPoints if they exist or default points if not
+        prevPoints = points/*basically use newPoints if they exist or default points if not*/
         let x = moverGroup!.result.x
         let minY = calcMinY(x)
         let ratio = calcRatio(x, minY)
-        newPoints = calcScaledPoints(ratio)
+        newPoints = calcScaledPoints(ratio)/*calc where the new points should go*/
         /*Setup interuptable animator*/
         //animator = Animator(Animation.sharedInstance,2.0,0,1,interpolateValue,Elastic.easeOut)
         
         if animator == nil {
-            let initValues:NumberSpringer.InitValues = (value:1,targetValue:ratio,velocity:0,stopVelocity:0)
+            let initValues:NumberSpringer.InitValues = (value:0,targetValue:ratio,velocity:0,stopVelocity:0)
             animator = NumberSpringer(interpolateValue, initValues,NumberSpringer.initConfig)/*Anim*/
         }
-        animator?.targetValue = ratio
+        animator?.targetValue = 1
         if animator!.stopped {animator!.start()}
         
         /*
