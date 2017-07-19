@@ -147,7 +147,11 @@ extension GraphScrollable {
         newPoints = calcScaledPoints(ratio)
         /*Setup interuptable animator*/
         //animator = Animator(Animation.sharedInstance,2.0,0,1,interpolateValue,Elastic.easeOut)
-        if animator == nil {animator = NumberSpringer(interpolateValue, NumberSpringer.initValues,NumberSpringer.initConfig)/*Anim*/}
+        
+        if animator == nil {
+            let initValues:NumberSpringer.InitValues = (value:1,targetValue:0,velocity:0,stopVelocity:0)
+            animator = NumberSpringer(interpolateValue, initValues,NumberSpringer.initConfig)/*Anim*/
+        }
         animator?.targetValue = 1
         if animator!.stopped {animator!.start()}
         
