@@ -1,7 +1,9 @@
 import Cocoa
 @testable import Utils
 @testable import Element
-
+/**
+ *
+ */
 class GraphScrollView:ContainerView3,GraphScrollable{
     lazy var moverGroup:MoverGroup? = MoverGroup(self.setProgressValue,self.maskSize,self.contentSize)
     override var maskSize:CGSize {return CGSize(super.getWidth(),super.getHeight())}/*Represents the visible part of the content *///TODO: could be ranmed to maskRect, say if you need x and y aswell
@@ -86,6 +88,9 @@ extension GraphScrollable {
             prevX = absX - 100
         }
     }
+    /**
+     * This method is only called on every 100th px threshold
+     */
     func tick(_ x:CGFloat){
         //Swift.print("Tick: \(x)")
         let minY = calcMinY(x)
@@ -124,9 +129,6 @@ extension GraphScrollable {
      * Initiates the animation sequence
      * NOTE: this method can be called in quick sucession as it stops any ongoing animation before it is started
      */
-    
-    
-    
     func initAnim(){
         Swift.print("initAnim")
         if(animator != nil){
