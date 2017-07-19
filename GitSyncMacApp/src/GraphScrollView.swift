@@ -35,7 +35,7 @@ protocol GraphScrollable:ElasticScrollable3 {
     var points:[CGPoint]? {get set}
     var prevPoints:[CGPoint]? {get set}//rename 👉 fromPoints
     var newPoints:[CGPoint]? {get set}//rename 👉 toPoints
-    var animator:NumberSpringer? {get set}/*Anim*/
+    var animator:NumberSpringer {get set}/*Anim*/
     var prevMinY:CGFloat? {get set}
     //var animationCue:Animator? {get set}
     
@@ -131,17 +131,17 @@ extension GraphScrollable {
      */
     func initAnim(){
         Swift.print("initAnim")
-        if(animator != nil){
-            animator?.stop()
-            animator = nil
-        }
+        /*if(animator != nil){
+         animator?.stop()
+         animator = nil
+         }*/
         prevPoints = points//basically use newPoints if they exist or default points if not
         let x = moverGroup!.result.x
         let minY = calcMinY(x)
         newPoints = calcScaledPoints(x,minY)
-        animator = NumberSpringer(interpolateValue, NumberSpringer.initValues,NumberSpringer.initConfig)/*Setup interuptable animator*/
+        /*Setup interuptable animator*/
         //animator = Animator(Animation.sharedInstance,2.0,0,1,interpolateValue,Elastic.easeOut)
-        animator?.start()
+        if animator!.stopped {animator!.start()}
         
         /*
         if(animator == nil){
