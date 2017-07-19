@@ -9,6 +9,7 @@ enum GitCMD:String{
     case D = "D"
     case A = "A"
     case R = "R"
+    case RM = "RM"//new and experimental
     case QQ = "??"
     case UU = "UU"
 }
@@ -35,6 +36,8 @@ class CommitUtils{
 					numOfNewFiles += 1
 				case .R?: /*This command seems to never be triggered in git*/
 					numOfRenamedFiles += 1
+                case .RM?://new and experimental
+                    numOfRenamedFiles += 1
 				case .QQ?: /*untracked files*/
 					numOfNewFiles += 1
 				case .UU?: /*unmerged files*/
