@@ -15,6 +15,10 @@ class GraphScrollView:ContainerView3,GraphScrollable{
     var animator:NumberSpringer?
     var prevMinY:CGFloat?//prevMinY to avoid calling start anim
     //var animationCue:Animator?
+    override func resolveSkin() {
+        super.resolveSkin()
+        layer!.masksToBounds = false
+    }
     /**
      * When the the user scrolls
      * NOTE: this method overides the Native NSView scrollWheel method
