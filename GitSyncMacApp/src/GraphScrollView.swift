@@ -142,7 +142,7 @@ extension GraphScrollable {
         /*Setup interuptable animator*/
         //animator = Animator(Animation.sharedInstance,2.0,0,1,interpolateValue,Elastic.easeOut)
         if animator == nil {animator = NumberSpringer(interpolateValue, NumberSpringer.initValues,NumberSpringer.initConfig)/*Anim*/}
-        animator?.targetValue 
+        animator?.targetValue
         if animator!.stopped {animator!.start()}
         
         /*
@@ -201,7 +201,6 @@ extension GraphScrollable {
         GraphAreaX.graphLine!.line!.cgPath = CGPathParser.polyLine(positions)
         disableAnim{
             GraphAreaX.graphLine!.line!.draw() /*draws the path*///TODO: ⚠️️ it draws the entire path I think, we really only need the portion that is visible
-            
             for (i,obj) in GraphAreaX.graphDots.enumerated() {
                 obj.layer?.position = positions[i]//positions the graphDots
             }
