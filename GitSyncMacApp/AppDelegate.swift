@@ -54,10 +54,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let animator = PointEaser(progress, PointEaser.initValues,PointEaser.initConfig)/*setup Mover animator*/
         
         func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
-            if let buttonEvent = event as? ButtonEvent, buttonEvent.type == ButtonEvent.upInside {
+            if event.type == ButtonEvent.upInside {
                 animator.targetValue = bg!.localPos()/*Set the position of where you want the anim to go*/
-                animator.stop()/*We must stop an ongoing animation if it exists*/
-                animator.start()/*We must start an animation incase it was stopped*/
+                //animator.stop()/*We must stop an ongoing animation if it exists*/
+                if animator.hasStopped {animator.start()}/*We must start an animation incase it was stopped*/
             }
         }
         bg?.event = onViewEvent
