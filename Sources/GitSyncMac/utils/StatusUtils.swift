@@ -13,7 +13,7 @@ class StatusUtils{
 		//Swift.print("theStatus: " + "\(theStatus)")
 		let theStatusList:[String] = StringParser.paragraphs(theStatus) //--store each line as items in a list
         var transformedList:[[String:String]] = []
-		if (theStatusList.count > 0) {
+		if theStatusList.count > 0 {
 			transformedList = transformStatusList(theStatusList)
 		}else{
 			//Swift.print("nothing to commit, working directory clean")// --this is the status msg if there has happened nothing new since last, but also if you have commits that are ready for push to origin
@@ -29,8 +29,9 @@ class StatusUtils{
  	 * NOTE: the space infront of the capetalized char indicates Changes not staged for commit:
  	 * NOTE: Returns = renamed, M = modified, A = addedto index, D = deleted, ?? = untracked file
 	 * NOTE: the state can be:  "Changes not staged for commit" , "Untracked files" , "Changes to be committed"
-	 * PARAM:: theStatusList is a list with status messages like: {"?? test.txt"," M index.html","A home.html"}
+	 * PARAM: theStatusList is a list with status messages like: {"?? test.txt"," M index.html","A home.html"}
 	 * NOTE: can also be "UU" unmerged paths
+     * TODO: ⚠️️ Use functional programming on this method.
  	 */
     static func transformStatusList(_ theStatusList:[String])->[[String:String]]{
         //Swift.print("transformStatusList()")
