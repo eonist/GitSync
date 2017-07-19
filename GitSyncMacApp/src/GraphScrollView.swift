@@ -118,19 +118,19 @@ extension GraphScrollable {
          animator?.stop()
          animator = nil
          }*/
-        prevPoints = points/*basically use newPoints if they exist or default points if not*/
+        //prevPoints = points/*basically use newPoints if they exist or default points if not*/
         let x = moverGroup!.result.x
         let minY = calcMinY(x)
         let ratio = calcRatio(x, minY)
-        newPoints = calcScaledPoints(ratio)/*calc where the new points should go*/
+        //newPoints = calcScaledPoints(ratio)/*calc where the new points should go*/
         /*Setup interuptable animator*/
         //animator = Animator(Animation.sharedInstance,2.0,0,1,interpolateValue,Elastic.easeOut)
         
         if animator == nil {
-            let initValues:NumberSpringer.InitValues = (value:0,targetValue:ratio,velocity:0,stopVelocity:0)
+            let initValues:NumberSpringer.InitValues = (value:1,targetValue:ratio,velocity:0,stopVelocity:0)
             animator = NumberSpringer(interpolateValue, initValues,NumberSpringer.initConfig)/*Anim*/
         }
-        animator?.targetValue = 1
+        animator?.targetValue = ratio
         if animator!.stopped {animator!.start()}
         
         /*
@@ -173,16 +173,20 @@ extension GraphScrollable {
      * NOTE: ReCalc the hValue indicators (each graph range has a different max hValue etc)
      */
     func interpolateValue(_ val:CGFloat){
+        Swift.print("val: " + "\(val)")
         /*newPoints!.forEach{
          //Swift.print("$0: " + "\($0)")
          graphPoint2!.point = $0
          }*/
         var positions:[CGPoint] = []
+        positions = calcScaledPoints(val)
         /*GraphPoints*/
+        /*
         for i in 0..<newPoints!.count{
             let pos:CGPoint = prevPoints![i].interpolate(newPoints![i], val)/*interpolates from one point to another*/
             positions.append(pos)
         }
+        */
         points = positions
         //let path:IPath = PolyLineGraphicUtils.path(positions)/*Compiles a path that conceptually is a polyLine*/
         //graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)/*Converts the path to a cgPath*/
