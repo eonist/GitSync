@@ -17,13 +17,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //jsonTest()
         
-        //initApp()
+        initApp()
         //stateTest()
         //themeSwitchTest()
         //testGraphXTest()
         //testGraphView2()
         
-        targetAnimationTest()
+        //targetAnimationTest()
     }
     /**
      *
@@ -47,7 +47,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
         func progress(value:CGPoint){/*This method gets called 60FPS, add the values to be manipulated here*/
             disableAnim {/*Important so that you don't get the apple "auto" anim as well*/
-                ellipse.graphic.layer?.position = value
+                ellipse.graphic.layer?.position = value/*We manipulate the layer because it is GPU accelerated as oppose to setting the view.position which is slow*/
             }
         }
         let animator = PointSpringer(progress, PointSpringer.initValues,PointSpringer.initConfig)/*Setup interuptable animator*/
