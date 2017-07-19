@@ -2,7 +2,8 @@ import Cocoa
 @testable import Utils
 @testable import Element
 
-protocol ICommitList:ElasticSlidableScrollableFastListable3 {//ElasticSlidableScrollableFastListable3
+typealias ICommitList = CommitListable
+protocol CommitListable:ElasticSlidableScrollableFastListable3 {//ElasticSlidableScrollableFastListable3
     /*Related to ICommitList*/
     var isTwoFingersTouching:Bool {get set}
     var progressIndicator:ProgressIndicator {get set}
@@ -14,7 +15,7 @@ protocol ICommitList:ElasticSlidableScrollableFastListable3 {//ElasticSlidableSc
     var autoSyncAndRefreshStartTime:NSDate? {get set}
     var autoSyncStartTime:NSDate? {get set}
 }
-extension ICommitList{
+extension CommitListable{
     /**
      * TODO: Comment this method
      */
