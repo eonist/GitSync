@@ -57,7 +57,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             if event.type == ButtonEvent.upInside {
                 animator.targetValue = bg!.localPos()/*Set the position of where you want the anim to go*/
                 //animator.stop()/*We must stop an ongoing animation if it exists*/
-                if (animator as BaseAnimation).stopped {animator.start()}/*We must start an animation incase it was stopped*/
+                if animator.stopped {animator.start()}/*We must start an animation incase it was stopped*/
             }
         }
         bg?.event = onViewEvent
