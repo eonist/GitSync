@@ -45,19 +45,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView?.addSubview(ellipse.graphic)
         ellipse.draw()
     
-        func progress(value:CGPoint){
+        func progress(value:CGPoint){/*This method gets called 60FPS, add the values to be manipulated here*/
             disableAnim {/*Important so that you don't get the apple "auto" anim as well*/
                 ellipse.graphic.layer?.position = value
             }
         }
-        
-        let animator = PointEaser(progress, PointEaser.initValues,PointEaser.initConfig)/*setup Mover animator*/
-        
+        let animator = PointSpringer(progress, PointSpringer.initValues,PointSpringer.initConfig)/*Setup interuptable animator*/
         func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
             if event.type == ButtonEvent.upInside {
                 animator.targetValue = bg!.localPos()/*Set the position of where you want the anim to go*/
-                //animator.stop()/*We must stop an ongoing animation if it exists*/
-                if animator.stopped {animator.start()}/*We must start an animation incase it was stopped*/
+                if animator.stopped {animator.start()}/*We only need to start the animation if it has already stopped*/
             }
         }
         bg?.event = onViewEvent
