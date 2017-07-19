@@ -21,6 +21,8 @@ enum Views2{
 class Nav {
     /**
      * Navigate between views
+     * EXAMPLE: Nav.setView(.main(.prefs))
+     * EXAMPLE: Nav.setView(.dialog(.commit))
      */
     static func setView(_ viewType:Views2){
         //Navigation.activeView = view
