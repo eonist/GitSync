@@ -122,6 +122,7 @@ extension GraphScrollable {
         let x = moverGroup!.result.x
         let minY = calcMinY(x)
         let ratio = calcRatio(x, minY)
+        Swift.print("ratio: " + "\(ratio)")
         //newPoints = calcScaledPoints(ratio)/*calc where the new points should go*/
         /*Setup interuptable animator*/
         //animator = Animator(Animation.sharedInstance,2.0,0,1,interpolateValue,Elastic.easeOut)
@@ -187,7 +188,7 @@ extension GraphScrollable {
             positions.append(pos)
         }
         */
-        points = positions
+        //points = positions
         //let path:IPath = PolyLineGraphicUtils.path(positions)/*Compiles a path that conceptually is a polyLine*/
         //graphLine!.line!.cgPath = CGPathUtils.compile(CGMutablePath(), path)/*Converts the path to a cgPath*/
         GraphAreaX.graphLine!.line!.cgPath = CGPathParser.polyLine(positions)
