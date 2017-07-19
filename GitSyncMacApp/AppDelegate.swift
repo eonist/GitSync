@@ -57,15 +57,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //what about decoration 🤔 eventSender can be in a struct, so can the ref to animatable etc, try it, you need more struct designs 🚫
             
         let animator = PointEaser(progress, PointEaser.initValues,PointEaser.initConfig)/*setup Mover animator*/
-        //setup click on window event handler
-        //Springer.initPointConfig
-        //Springer.defaultInitPointValues,
-        func onViewEvent(_ event:Event) {
-            //Swift.print("onViewEvent: " + "\(event)")
+        
+        func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
             if let buttonEvent = event as? ButtonEvent, buttonEvent.type == ButtonEvent.upInside {
-                animator.targetValue = bg!.localPos()
-                animator.stop()
-                animator.start()
+                animator.targetValue = bg!.localPos()/*Set the position of where you want the anim to go*/
+                animator.stop()/*We must stop an ongoing animation if it exists*/
+                animator.start()/**/
             }
         }
         bg?.event = onViewEvent
