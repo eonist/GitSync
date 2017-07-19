@@ -143,7 +143,7 @@ extension GraphScrollable {
         //animator = Animator(Animation.sharedInstance,2.0,0,1,interpolateValue,Elastic.easeOut)
         if animator == nil {animator = NumberSpringer(interpolateValue, NumberSpringer.initValues,NumberSpringer.initConfig)/*Anim*/}
         if animator!.stopped {animator!.start()}
-        animator?.targetValue
+        animator?.targetValue 
         /*
         if(animator == nil){
             Swift.print("Start anim")
