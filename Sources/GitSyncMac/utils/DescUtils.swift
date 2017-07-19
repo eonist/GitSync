@@ -7,20 +7,25 @@ class DescUtils{
 	/**
 	 * Returns a "Git Commit Message Description" derived from a "git status list" with "status items records"
 	 */
-	class func sequenceDescription(_ statusList:[Dictionary<String,String>])->String{
+	class func sequenceDescription(_ statusList:[[String:String]])->String{
 		var descText:String = ""
-		var modifiedItems:[Dictionary<String,String>] = []
-		var deletedItems:[Dictionary<String,String>] = []
-		var addedItems:[Dictionary<String,String>] = []
-        for statusItem:Dictionary<String,String> in statusList{
+		var modifiedItems:[[String:String]] = []
+		var deletedItems:[[String:String]] = []
+        var addedItems:[[String:String]] = []
+        for statusItem:[String:String] in statusList{
             let cmd:String = statusItem["cmd"]!
-			switch cmd{
-				case "D": deletedItems.append(statusItem) //--add a record to a list
-				case "M": modifiedItems.append(statusItem)//--add a record to a list
-				case "??": addedItems.append(statusItem)//--add a record to a list
-				case "UU": modifiedItems.append(statusItem)//--add a record to a list
+			switch GitCMD(rawValue:cmd){
+				case .D?:
+                    deletedItems.append(statusItem) //--add a record to a list
+				case .M?:
+                    modifiedItems.append(statusItem)//--add a record to a list
+				case .QQ?:
+                    addedItems.append(statusItem)//--add a record to a list
+				case .UU?:
+                    modifiedItems.append(statusItem)//--add a record to a list
 				default:
 					/*throw error*/
+                    fatalError("cmd: " + "\(cmd)" + " Not supported")
 					break;
 			}
 		}
