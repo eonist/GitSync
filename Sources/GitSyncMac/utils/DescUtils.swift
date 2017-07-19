@@ -11,6 +11,7 @@ class DescUtils{
 		var descText:String = ""
 		var modifiedItems:[[String:String]] = []
 		var deletedItems:[[String:String]] = []
+        var renamedItems:[[String:String]] = []
         var addedItems:[[String:String]] = []
         for statusItem:[String:String] in statusList{
             let cmd:String = statusItem["cmd"]!
@@ -18,9 +19,9 @@ class DescUtils{
 				case .D?:
                     deletedItems.append(statusItem) //--add a record to a list
                 case .R?://new and experimental
-                    deletedItems.append(statusItem) //--add a record to a list
+                    renamedItems.append(statusItem) //--add a record to a list
                 case .RM?://new and experimental
-                    deletedItems.append(statusItem) //--add a record to a list
+                    renamedItems.append(statusItem) //--add a record to a list
 				case .M?:
                     modifiedItems.append(statusItem)//--add a record to a list
 				case .QQ?:
@@ -35,6 +36,7 @@ class DescUtils{
 		}
 		descText += descriptionParagraph(addedItems, "Added ") + "\n" //--add an extra line break at the end "paragraph like"
 		descText += descriptionParagraph(deletedItems, "Deleted ") + "\n"
+        descText += descriptionParagraph(renamedItems, "Renamed ") + "\n"
 		descText += descriptionParagraph(modifiedItems, "Modified ")
         //descText = StringParser.decode(descText)!
         return descText
