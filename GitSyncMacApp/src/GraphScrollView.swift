@@ -103,19 +103,18 @@ extension GraphScrollable {
         prevMinY = minY//set the prev anim
     }
     /**
-     *
+     * New
      */
-    func calcRatio(_ x:CGFloat,_ minY:CGFloat) ->CGFloat{
-        
+    func calcRatio(_ x:CGFloat,_ minY:CGFloat) -> CGFloat{
+        //let dist:CGFloat = 400.cgFloat.distance(to: minY)
+        let diff:CGFloat = height + (-1 * minY)/*Since graphs start from the bottom we need to flip the y coordinates*/
+        let ratio:CGFloat = height / diff/*Now that we have the flipped y coordinate we can get the ratio to scale all other points with */
+        return ratio
     }
     /**
      * New
      */
-    func calcScaledPoints(_ x:CGFloat,_ minY:CGFloat) -> [CGPoint]{
-        //let dist:CGFloat = 400.cgFloat.distance(to: minY)
-        let diff:CGFloat = height + (-1 * minY)/*Since graphs start from the bottom we need to flip the y coordinates*/
-        let ratio:CGFloat = height / diff/*Now that we have the flipped y coordinate we can get the ratio to scale all other points with */
-        
+    func calcScaledPoints(_ ratio:CGFloat) -> [CGPoint]{
         let scaledPoints = points!.map{CGPointModifier.scale($0/*<--point to scale*/, CGPoint($0.x,height)/*<--pivot*/, CGPoint(1,ratio)/*<--Scalar ratio*/)}
         return scaledPoints
     }
@@ -144,7 +143,8 @@ extension GraphScrollable {
         prevPoints = points//basically use newPoints if they exist or default points if not
         let x = moverGroup!.result.x
         let minY = calcMinY(x)
-        newPoints = calcScaledPoints(x,minY)
+        let ratio = calcRatio(x, minY)
+        newPoints = calcScaledPoints(ratio)
         /*Setup interuptable animator*/
         //animator = Animator(Animation.sharedInstance,2.0,0,1,interpolateValue,Elastic.easeOut)
         if animator == nil {animator = NumberSpringer(interpolateValue, NumberSpringer.initValues,NumberSpringer.initConfig)/*Anim*/}
