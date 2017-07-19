@@ -37,32 +37,27 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView2()
         window.title = ""
         
-        StyleManager.addStyle("#bg{fill:white;}")
+        StyleManager.addStyle("#bg{fill:black;}")
         let bg = window.contentView?.addSubView(Button(window.size.w,window.size.h,nil,"bg"))
         
         /*Ellipse*/
-        let ellipse = EllipseGraphic(-50,-50,100,100,FillStyle(.blue),nil)
+        let ellipse = EllipseGraphic(-50,-50,100,100,FillStyle(.white),nil)
         window.contentView?.addSubview(ellipse.graphic)
         ellipse.draw()
     
         func progress(value:CGPoint){
-            disableAnim {/*Important so that you don't get the apple auto anim as well*/
+            disableAnim {/*Important so that you don't get the apple "auto" anim as well*/
                 ellipse.graphic.layer?.position = value
             }
         }
-        //Continue here: 🏀
-            //try to use subclassing or decoration instead of generics. You need to be able to set the init vals outside the init call as well ✅
-            //make the Easer the same way you made Springer ✅
-            //try to see if you can call something dynamically based on what type it is 👈 🚫
-            //what about decoration 🤔 eventSender can be in a struct, so can the ref to animatable etc, try it, you need more struct designs 🚫
-            
+        
         let animator = PointEaser(progress, PointEaser.initValues,PointEaser.initConfig)/*setup Mover animator*/
         
         func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
             if let buttonEvent = event as? ButtonEvent, buttonEvent.type == ButtonEvent.upInside {
                 animator.targetValue = bg!.localPos()/*Set the position of where you want the anim to go*/
                 animator.stop()/*We must stop an ongoing animation if it exists*/
-                animator.start()/**/
+                animator.start()/*We must start an animation incase it was stopped*/
             }
         }
         bg?.event = onViewEvent
