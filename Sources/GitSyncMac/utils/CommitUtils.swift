@@ -2,6 +2,7 @@ import Foundation
 @testable import Utils
 /**
  * Utility methods for parsing the the "git status message" 
+ * TODO: Sometimes RM shows up, figure out what that does
  */
 enum GitCMD:String{
     case M = "M"
