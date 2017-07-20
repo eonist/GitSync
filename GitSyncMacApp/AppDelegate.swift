@@ -37,9 +37,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //scrollList
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/general.css",true)
         let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)
+        let button = Button(120,24)
+        window.contentView?.addSubview(button)
+        
         let dp:DataProvider = DataProvider(xml)
-        let list:List3 = window.contentView!.addSubView(List3(140, 73, CGSize(NaN,NaN), dp,.ver, nil))
+        let list:List3 = List3(140, 73, CGSize(NaN,NaN), dp,.ver, nil)
+        window.contentView!.addSubview(list)
         list.selectAt(1)
+        /**/
         //then make custom scrolllist
     }
     /**
