@@ -29,7 +29,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func horizontalListTest(){
-        
+        //window
+        //scrollbar
     }
     /**
      *
