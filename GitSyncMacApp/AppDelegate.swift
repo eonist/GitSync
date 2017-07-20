@@ -48,7 +48,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)
         let dp:DP = DP(xml)
-        let list = ScrollList3(140, 140, CGSize(NaN,NaN), dp,.ver,section)
+        let list = ScrollFastList3(140, 140, CGSize(NaN,NaN), dp,section,"",.ver)
         section.addSubview(list)
         
         //
