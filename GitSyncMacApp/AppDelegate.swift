@@ -28,6 +28,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     /**
      *
      */
+    func horizontalListTest(){
+        
+    }
+    /**
+     *
+     */
     func targetAnimationTest(){
         //animate to to target
         //then we change the target and the ball should gravitate towards this new target
