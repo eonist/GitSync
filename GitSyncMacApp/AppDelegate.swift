@@ -36,16 +36,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.title = ""
         //scrollList
         StyleManager.addStylesByURL("~/Desktop/ElCapitan/general.css",true)
-        let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)
-        let button = Button(120,24)
-        window.contentView?.addSubview(button)
         
-        let dp:DataProvider = DataProvider(xml)
+        /*let button = Button(120,24)
+         window.contentView?.addSubview(button)*/
+        
+        
         
         StyleManager.addStyle("#listContainer{fill:red;float:left;clear:left;}")
-        let section = Section(100,100,nil,"listContainer")
+        let section = Section(300,400,nil,"listContainer")
         window.contentView!.addSubview(section)
         
+        let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)
+        let dp:DP = DP(xml)
         let list:List3 = List3(140, 73, CGSize(NaN,NaN), dp,.ver,section)
         section.addSubview(list)
         
