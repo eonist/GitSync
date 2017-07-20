@@ -51,6 +51,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let list:List3 = List3(140, 73, CGSize(NaN,NaN), dp,.ver,section)
         section.addSubview(list)
         
+        //
         //list.selectAt(1)
         /**/
         //then make custom scrolllist
