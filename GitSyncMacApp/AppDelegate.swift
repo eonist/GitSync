@@ -31,7 +31,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     func horizontalListTest(){
         //window
         //scrollList
-        
+        //then make custom scrolllist
     }
     /**
      *
