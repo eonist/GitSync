@@ -17,19 +17,23 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //jsonTest()
         
-        initApp()
+        //initApp()
         //stateTest()
         //themeSwitchTest()
         //testGraphXTest()
         //testGraphView2()
         
         //targetAnimationTest()
+        horizontalListTest
     }
     /**
      *
      */
     func horizontalListTest(){
         //window
+        window.size = CGSize(664,400)
+        window.contentView = InteractiveView2()
+        window.title = ""
         //scrollList
         //then make custom scrolllist
     }
