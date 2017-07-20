@@ -35,6 +35,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView2()
         window.title = ""
         //scrollList
+        let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)
+        let dp:DataProvider = DataProvider(xml)
+        let list:List3 = window.contentView!.addSubView(List3(140, 73, CGSize(NaN,NaN), dp,.ver, nil))
+        list.selectAt(1)
         //then make custom scrolllist
     }
     /**
