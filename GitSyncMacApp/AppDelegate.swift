@@ -41,6 +41,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView?.addSubview(button)
         
         let dp:DataProvider = DataProvider(xml)
+        
+        StyleManager.
+        let section = Section(100,100,nil,"listContainer")
+        window.contentView!.addSubview(section)
+        
         let list:List3 = List3(140, 73, CGSize(NaN,NaN), dp,.ver)
         window.contentView!.addSubview(list)
         //list.selectAt(1)
