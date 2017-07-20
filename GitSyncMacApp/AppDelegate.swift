@@ -41,9 +41,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView?.addSubview(button)
         
         let dp:DataProvider = DataProvider(xml)
-        let list:List3 = List3(140, 73, CGSize(NaN,NaN), dp,.ver, nil)
+        let list:List3 = List3(140, 73, CGSize(NaN,NaN), dp,.ver)
         window.contentView!.addSubview(list)
-        list.selectAt(1)
+        //list.selectAt(1)
         /**/
         //then make custom scrolllist
     }
