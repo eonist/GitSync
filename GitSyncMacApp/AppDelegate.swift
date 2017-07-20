@@ -24,7 +24,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //testGraphView2()
         
         //targetAnimationTest()
-        horizontalListTest
+        horizontalListTest()
     }
     /**
      *
