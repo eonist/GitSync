@@ -17,14 +17,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //jsonTest()
         
-        initApp()
+        //initApp()
         //stateTest()
         //themeSwitchTest()
         //testGraphXTest()
         //testGraphView2()
         
         //targetAnimationTest()
-        //horizontalListTest()
+        horizontalListTest()
+        
+        
     }
     /**
      *
@@ -46,7 +48,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let section = Section(300,400,nil,"listContainer")
         window.contentView!.addSubview(section)
         
-        let xml = FileParser.xml("~/Desktop/assets/xml/list.xml".tildePath)
+        let xml = FileParser.xml("~/Desktop/assets/xml/longlist.xml".tildePath)
         let dp:DP = DP(xml)
         let list = ScrollFastList3(140, 140, CGSize(24,24), dp,section,"",.ver)
         section.addSubview(list)
