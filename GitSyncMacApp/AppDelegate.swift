@@ -25,7 +25,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //targetAnimationTest()
         horizontalListTest()
-        
+        Animator2().onFrameTick = {
+            return 
+        }()
         
         /*Animator2().onFrame { value in
          
