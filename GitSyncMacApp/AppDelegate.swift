@@ -27,8 +27,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         horizontalListTest()
         
         
-        Animator2().onFrame {
-            
+        Animator2().onFrame { val in
+            Swift.print("val: " + "\(val)")
         }
         
     }
