@@ -29,7 +29,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             return Animator2()
         }
         
-        //take a closer that can get a value, then insert self inside
+        //Continue here 🏀
+            //take a closer that can get a value, then insert self inside
+            //do some closure research
+            //look into hydra
+            //etc
+        
+        
         Animator2().onFrameTick = { (_ value:CGFloat) -> Animator2 in
             return Animator2()
         }
