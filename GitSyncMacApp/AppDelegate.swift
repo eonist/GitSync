@@ -27,7 +27,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         horizontalListTest()
         
         
-        Animator2().onComplete()
+        Animator2().onFrame {
+            
+        }
         
     }
     /**
