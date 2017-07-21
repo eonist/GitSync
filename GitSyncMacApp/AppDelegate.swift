@@ -27,10 +27,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         horizontalListTest()
         
         
-        Animator2().onFrameTick { val:C in
-            Swift.print("val: " + "\(val)")
-        }
-        
+        /*Animator2().onFrame { value in
+         
+         
+         }
+         */
     }
     /**
      *
