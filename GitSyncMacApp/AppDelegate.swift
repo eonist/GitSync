@@ -17,7 +17,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //jsonTest()
         
-        //initApp()
+        initApp()
         //stateTest()
         //themeSwitchTest()
         //testGraphXTest()
@@ -25,20 +25,21 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //targetAnimationTest()
         horizontalListTest()
-        func onFrame(_ value:CGFloat) -> Animator2{
-            return Animator2()
-        }
+        
+//        func onFrame(_ value:CGFloat) -> Animator2{
+//            return Animator2()
+//         }
         
         //Continue here 🏀
-            //take a closer that can get a value, then insert self inside
+            //take a clouser that can get a value, then insert self inside
             //do some closure research
             //look into hydra
             //etc
         
         
-        Animator2().onFrameTick = { (_ value:CGFloat) -> Animator2 in
-            return Animator2()
-        }
+//        Animator2().onFrameTick = { (_ value:CGFloat) -> Animator2 in
+//            return Animator2()//TODO: ⚠️️ must get ref to self inside, but how?
+//        }
         
         /*Animator2().onFrame { value in
          
