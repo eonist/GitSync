@@ -25,9 +25,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //targetAnimationTest()
         horizontalListTest()
-        Animator2().onFrameTick = {
+        func onFrame(_ value:CGFloat) -> Animator2{
             return Animator2()
-        }()
+        }
+        
+        //take a closer that can get a value, then insert self inside
+        Animator2().onFrameTick = { (_ value:CGFloat) -> Animator2 in
+            return Animator2()
+        }
         
         /*Animator2().onFrame { value in
          
