@@ -24,11 +24,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //testGraphView2()
         
         //targetAnimationTest()
-        //horizontalListTest()
-        let a:Int = 5
-        let b:Int = 2
-        let c:Int = a % b
-        
+        horizontalListTest()
     }
     /**
      *
