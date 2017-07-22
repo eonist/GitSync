@@ -27,32 +27,29 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //targetAnimationTest()
         //horizontalListTest()
         
-//        func onFrame(_ value:CGFloat) -> Animator2{
-//            return Animator2()
-//         }
-        
-        //Continue here 🏀
-            //take a clouser that can get a value, then insert self inside
-            //do some closure research
-            //look into hydra
-            //etc
-        
-        
-//        Animator2().onFrameTick = { (_ value:CGFloat) -> Animator2 in
-//            return Animator2()//TODO: ⚠️️ must get ref to self inside, but how?
-//        }
-        
-        /*Animator2().onFrame { value in
-         
-         
-         }
-         */
         
     }
     /**
      *
      */
     func animator2Test(){
+        //Setup a window
+        window.size = CGSize(664,400)
+        window.contentView = InteractiveView2()
+        window.title = ""
+        
+        let anim1 = Animator2(initValues:Animator2.initValues){ value in
+            //onFrame anim here, move X forward
+        }.pause(at:1.25,for:2){//pauses the anim for a little bit
+                //do some things, fetch data etc
+        }.completed = Animator2(initValues:Animator2.initValues){ value in//adds a new anim block to the completed callBack
+                //onFrame anim here, rotate 360deg , this animation is repeated 3 times
+        }.complete = {
+                    //this is the final complete call in the chain
+        }
+        anim1.start()//initiates the animation chain
+        
+        
         _ = Animator2(initValues:Animator2.initValues){ value in
             Swift.print("value: " + "\(value)")
             //_ = value
