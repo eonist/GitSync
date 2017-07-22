@@ -54,6 +54,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             /*do stuff when the animation completes*/
             Swift.print("Animation completed")
         }
+        
+        
+        
+        let a = 2 + b
+        let b = 3
     }
     
     
