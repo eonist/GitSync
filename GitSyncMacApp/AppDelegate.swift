@@ -49,11 +49,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          */
         _ = Animator2(initValues:Animator2.initValues){ value in
             Swift.print("value: " + "\(value)")
-        }.onComplete{
+            //_ = value
+        }.completed = {
             /*do stuff when the animation completes*/
-            print("Animation completed")
-        }.start(initValues: Animator2.initValues){ value in
-                
+            Swift.print("Animation completed")
         }
     }
     
