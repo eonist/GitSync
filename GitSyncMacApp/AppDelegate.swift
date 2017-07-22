@@ -168,19 +168,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
 }
 class TestingClass{
-    init(){
-        
-    }
-    func initiate(from:CGFloat,to:CGFloat, closure: (Int) -> Void) -> Self {
+
+    init(from:CGFloat,to:CGFloat,durInSec:CGFloat, closure: (Int) -> Void) {
         closure(value)/*Call the method*/
-        return TestingClass()
+        //return TestingClass()
         
     }
-    func pause(durInSec:CGFloat, closure: (Int) -> Void) -> Self {
-        closure(value)/*Call the method*/
-        return self
-        
-    }
+    /*func pause(durInSec:CGFloat, closure: (Int) -> Void) -> Self {
+     closure(value)/*Call the method*/
+     return self
+     
+     }*/
     /**
      *
      */
