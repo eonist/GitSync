@@ -38,26 +38,22 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView2()
         window.title = ""
         
-        let anim1:Animator2 = Animator2(initValues:Animator2.initValues){ value in
+        let anim1 = Animator2(initValues:Animator2.initValues){ value in
             Swift.print("value: " + "\(value)")
             //onFrame anim here, move X forward
-        }.wait(duration:2){//pauses the anim for a little bit
-            //do some things, fetch data etc
         }
-        let anim2 = anim1.chain {//adds a new anim block to the completed callBack
-            return Animator2(initValues:Animator2.initValues)
+        let anim2 = anim1.wait(duration:2){//pauses the anim for a little bit
+            //do some things, fetch data etc
+        }.chain(initValues:Animator2.initValues) { value in//adds a new anim block to the completed callBack
+            Swift.print("value: " + "\(value)")
             //onFrame anim here, rotate 360deg , this animation is repeated 3 times
-            //Swift.print("value: " + "\(value)")
         }.onComplete {//this is the final complete call in the chain
             Swift.print("anim chain completed")
         }
         anim1.start()//initiates the animation chain
         
+        _ = anim2
         
-        _ = Animator2(initValues:Animator2.initValues){ value in
-            Swift.print("value: " + "\(value)")
-            //_ = value
-        }
     }
     /**
      *
