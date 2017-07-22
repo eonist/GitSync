@@ -41,7 +41,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let anim = Animator2(initValues:Animator2.initValues){ value in
             Swift.print("value: " + "\(value)")
             //onFrame anim here, move X forward
-        }.start{
             //starts the animation
         }.wait(duration:2){//pauses the anim for a little bit
             //do some things, fetch data etc
@@ -51,7 +50,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }.onComplete {//this is the final complete call in the chain
             Swift.print("anim chain completed")
         }
-        anim1.start()//initiates the animation chain
+        anim.start()//initiates the animation chain
         
         
         
