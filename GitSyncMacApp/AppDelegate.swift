@@ -33,11 +33,21 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func animator2Test(){
-        //Setup a window
+        /*Setup a window*/
         window.size = CGSize(664,400)
         window.contentView = InteractiveView2()
         window.title = ""
         
+        /*Ellipse*/
+        let ellipse = EllipseGraphic(-50,-50,100,100,FillStyle(.blue),nil)
+        window.contentView?.addSubview(ellipse.graphic)
+        ellipse.draw()
+        
+        func progress(value:CGPoint){/*This method gets called 60FPS, add the values to be manipulated here*/
+            disableAnim {/*Important so that you don't get the apple "auto" anim as well*/
+                ellipse.graphic.layer?.position = value/*We manipulate the layer because it is GPU accelerated as oppose to setting the view.position which is slow*/
+            }
+        }
         
         let anim1 = Animator2(initValues:Animator2.initValues){ value in
             Swift.print("value: " + "\(value)")
@@ -51,7 +61,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //onFrame anim here, rotate 360deg , this animation is repeated 3 times
         }.pause { animRef in
             bg.async{
-                //do heavy calculations
+                Swift.print("do heavy calculations")
                 main.async{
                     animRef.resume()//start the anim again
                 }
