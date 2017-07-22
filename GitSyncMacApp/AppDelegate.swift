@@ -22,6 +22,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //themeSwitchTest()
         //testGraphXTest()
         //testGraphView2()
+        CGFloat(0.3).remainder(dividingBy: <#T##CGFloat#>)
         
         //targetAnimationTest()
         horizontalListTest()
