@@ -66,16 +66,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         anim1.completed = {
             Swift.print("anim1 completed")
+            sleep(1)
             anim2.start()//start the second anim right after the first started
         }
         bg.async{
-            Swift.print("do heavy calculations")
-            sleep(4)//simulates a bg process taking 2 secs
+            sleep(2)/*start anim after 2 sec, but don't block the app*/
             main.async{
                 anim1.start()/*initiates the animation chain*/
             }
         }
-        //sleep(14)//simulates a bg process taking 2 secs
+        
         
          
         
