@@ -47,10 +47,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          
          }
          */
-        _ = Animator2(initValues:Animator.initValues){ value in
+        _ = Animator2(initValues:Animator2.initValues){ value in
             Swift.print("value: " + "\(value)")
         }.onComplete{
             print("Animation completed")
+        }.start(initValues: Animator2.initValues){ value in
+                
         }
     }
     
