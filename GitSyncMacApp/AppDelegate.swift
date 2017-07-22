@@ -27,7 +27,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //targetAnimationTest()
         //horizontalListTest()
         
-        
+        animator2Test()
     }
     /**
      *
