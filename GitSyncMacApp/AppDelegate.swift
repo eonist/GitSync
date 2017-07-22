@@ -47,8 +47,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          
          }
          */
-        TestingClass().applyMutliplication(value: 2){ value in
-            value * 3/*Do calculations*/
+        TestingClass(from: 0, to: 1, durInSec: 0.75){ value in
+            Swift.print("value: " + "\(value)")
         }.go()
     }
     
@@ -168,9 +168,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
 }
 class TestingClass{
-
-    init(from:CGFloat,to:CGFloat,durInSec:CGFloat, closure: (Int) -> Void) {
-        closure(value)/*Call the method*/
+    var frameTick:FrameTick
+    init(from:CGFloat,to:CGFloat,durInSec:CGFloat, closure: @escaping FrameTick) {
+        self.frameTick = closure
         //return TestingClass()
         
     }
