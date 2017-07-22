@@ -47,7 +47,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          
          }
          */
-         let anim = Animator2(initValues:Animator2.initValues){ value in
+         _ = Animator2(initValues:Animator2.initValues){ value in
          Swift.print("value: " + "\(value)")
          //_ = value
          }
