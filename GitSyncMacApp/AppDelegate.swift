@@ -171,8 +171,8 @@ class TestingClass{
     init(){
         
     }
-    func applyMutliplication(value: Int, multFunction: (Int) -> Int) -> TestingClass {
-        let result = multFunction(value)
+    func initiate(value: Int, closure: (Int) -> Void) -> TestingClass {
+        closure(value)/*Call the method*/
         return TestingClass()
         
     }
