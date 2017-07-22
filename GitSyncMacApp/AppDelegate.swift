@@ -17,15 +17,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //jsonTest()
         
-        initApp()
+        //initApp()
         //stateTest()
         //themeSwitchTest()
         //testGraphXTest()
         //testGraphView2()
-        CGFloat(0.3).remainder(dividingBy: <#T##CGFloat#>)
+        
         
         //targetAnimationTest()
-        horizontalListTest()
+        //horizontalListTest()
         
 //        func onFrame(_ value:CGFloat) -> Animator2{
 //            return Animator2()
@@ -47,7 +47,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          
          }
          */
+        let train = jediTrainer()
+        train("Obi Wan", 3)
     }
+    func jediTrainer () -> ((String, Int) -> String) {
+        func train(name: String, times: Int) -> (String) {
+            return "\(name) has been trained in the Force \(times) times"
+        }
+        return train
+    }
+    
     /**
      *
      */
