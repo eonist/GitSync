@@ -172,20 +172,21 @@ class TestingClass{
     init(from:CGFloat,to:CGFloat,durInSec:CGFloat, closure: @escaping FrameTick) {
         self.frameTick = closure
         //return TestingClass()
-        
     }
     /*func pause(durInSec:CGFloat, closure: (Int) -> Void) -> Self {
      closure(value)/*Call the method*/
      return self
      
      }*/
+    
     /**
      *
      */
     func go(){
         
     }
-    func onComplete() -> Self{
+    func onComplete(closure: () -> Void) -> Self{
+        closure()/*execute the closure*/
         return self
     }
     
