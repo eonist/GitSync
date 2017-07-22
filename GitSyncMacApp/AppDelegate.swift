@@ -42,6 +42,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //just code the bellow up and test 🏖
         
         /*
+        
         let anim1 = Animator2(initValues:Animator2.initValues){ value in
             Swift.print("value: " + "\(value)")
             //onFrame anim here, move X forward
