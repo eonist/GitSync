@@ -47,36 +47,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          
          }
          */
-         _ = Animator2(initValues:Animator2.initValues){ value in
-         Swift.print("value: " + "\(value)")
-         //_ = value
-         }
         
-        
-        /*.completed = {
-         /*do stuff when the animation completes*/
-         Swift.print("Animation completed")
-         }
-         
-        
-         
-         let a = 2 + b
-         let b = 3*/
-        Swift.print(deferTest())
     }
-    
     /**
      *
      */
-    func deferTest() -> String{
-        defer{
-            Swift.print("defer this")
+    func animator2Test(){
+        _ = Animator2(initValues:Animator2.initValues){ value in
+            Swift.print("value: " + "\(value)")
+            //_ = value
         }
-        Swift.print("before return")
-        return "test"
     }
-    
-    
     /**
      *
      */
