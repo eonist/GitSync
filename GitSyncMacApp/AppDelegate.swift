@@ -61,21 +61,22 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("anim chain completed")
         }
 //        .pause { animRef in
-//            bg.async{
-//                Swift.print("do heavy calculations")
-//                sleep(4)//simulates a bg process taking 2 secs
-//                main.async{
-//                    animRef.resume()//start the anim again
-//                }
-//            }
+//
 //        }
         
         anim1.completed = {
             Swift.print("anim1 completed")
             anim2.start()//start the second anim right after the first started
         }
-        sleep(4)//simulates a bg process taking 2 secs
-        anim1.start()/*initiates the animation chain*/
+        bg.async{
+            Swift.print("do heavy calculations")
+            sleep(4)//simulates a bg process taking 2 secs
+            main.async{
+                anim1.start()/*initiates the animation chain*/
+            }
+        }
+        //sleep(14)//simulates a bg process taking 2 secs
+        
          
         
         
