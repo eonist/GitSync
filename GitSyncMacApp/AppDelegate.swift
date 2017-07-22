@@ -32,6 +32,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //Make more ellaborate animation test
                 //simultaniouse anims etc, color and position at the same time etc
             //add interuptabable animators to the fold
+            //also add bgSleep(1.5){anim.start} aka a non blocking sleep method
         
         animator2Test()
     }
