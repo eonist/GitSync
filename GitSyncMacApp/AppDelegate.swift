@@ -50,7 +50,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             Swift.print("value: " + "\(value)")
             //onFrame anim here, rotate 360deg , this animation is repeated 3 times
         }.wait { animRef in
-            doBackgroundProcess
+            bg.async{
+                //do heavy calculations
+            }
         }.onComplete {//this is the final complete call in the chain
             Swift.print("anim chain completed")
         }
