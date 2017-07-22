@@ -38,10 +38,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView2()
         window.title = ""
         
-        //Continue here: 🏀
-            //just code the bellow up and test 🏖
-        
-        /*
         
         let anim1 = Animator2(initValues:Animator2.initValues){ value in
             Swift.print("value: " + "\(value)")
@@ -63,15 +59,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }.onComplete {//this is the final complete call in the chain
             Swift.print("anim chain completed")
         }
-        anim1.onComplete{
+        anim1.completed = {
             anim2.start()//start the second anim right after the first started
         }
          
         anim1.start()//initiates the animation chain
          
-         //remember this needs to support many different animators and also simultan animations, so it cant be too intertwined
         
-        */
+        
+        
         
     }
     /**
