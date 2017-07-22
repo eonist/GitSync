@@ -169,7 +169,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 }
 class TestingClass{
     var frameTick:FrameTick
-    init(from:CGFloat,to:CGFloat,durInSec:CGFloat, closure: @escaping FrameTick) {
+    init(from:CGFloat, to:CGFloat, durInSec:CGFloat, closure: @escaping FrameTick) {
         self.frameTick = closure
         //return TestingClass()
     }
@@ -187,7 +187,7 @@ class TestingClass{
     }
     func onComplete(closure: () -> Void) -> Self{
         closure()/*execute the closure*/
-        return self
+        return self/*Always return self so we can chain */
     }
     
     /**
