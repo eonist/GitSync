@@ -44,13 +44,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         ellipse.draw()
         
         func progress(value:CGPoint){/*This method gets called 60FPS, add the values to be manipulated here*/
-            disableAnim {/*Important so that you don't get the apple "auto" anim as well*/
-                ellipse.graphic.layer?.position = value/*We manipulate the layer because it is GPU accelerated as oppose to setting the view.position which is slow*/
-            }
+            
         }
         
         let anim1 = Animator2(initValues:Animator2.initValues){ value in
             Swift.print("value: " + "\(value)")
+            disableAnim {/*Important so that you don't get the apple "auto" anim as well*/
+                ellipse.graphic.layer?.position = CGPoint(100*value,0)/*We manipulate the layer because it is GPU accelerated as oppose to setting the view.position which is slow*/
+            }
             //onFrame anim here, move X forward
             //starts the animation
         }.wait(duration:2){//pauses the anim for a little bit
