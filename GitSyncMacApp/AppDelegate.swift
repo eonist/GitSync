@@ -44,12 +44,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //onFrame anim here, move X forward
             //starts the animation
         }.wait(duration:2){//pauses the anim for a little bit
-            //do some things, fetch data etc
+            //give the user some time to think
         }
         
         let anim2 = Animator2(initValues:Animator2.initValues) { value in//adds a new anim block to the completed callBack
             Swift.print("value: " + "\(value)")
             //onFrame anim here, rotate 360deg , this animation is repeated 3 times
+        }.wait { animRef in
+            
         }.onComplete {//this is the final complete call in the chain
             Swift.print("anim chain completed")
         }
