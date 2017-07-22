@@ -38,6 +38,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView2()
         window.title = ""
         
+        /*
         let anim = Animator2(initValues:Animator2.initValues){ value in
             Swift.print("value: " + "\(value)")
             //onFrame anim here, move X forward
@@ -52,7 +53,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         anim.start()//initiates the animation chain
         
-        
+        */
         
     }
     /**
