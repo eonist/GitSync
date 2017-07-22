@@ -47,15 +47,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          
          }
          */
-        /* _ = Animator2(initValues:Animator2.initValues){ value in
+         let anim = Animator2(initValues:Animator2.initValues){ value in
          Swift.print("value: " + "\(value)")
          //_ = value
-         }.completed = {
+         }
+        
+        
+        /*.completed = {
          /*do stuff when the animation completes*/
          Swift.print("Animation completed")
          }
          
-         
+        
          
          let a = 2 + b
          let b = 3*/
