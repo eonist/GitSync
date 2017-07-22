@@ -39,27 +39,23 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.title = ""
         
         /*Ellipse*/
-        let ellipse = EllipseGraphic(-50,-50,100,100,FillStyle(.blue),nil)
+        let ellipse = EllipseGraphic(0,0,100,100,FillStyle(.blue),nil)
         window.contentView?.addSubview(ellipse.graphic)
         ellipse.draw()
         
-        func progress(value:CGPoint){/*This method gets called 60FPS, add the values to be manipulated here*/
-            
-        }
-        
-        let anim1 = Animator2(initValues:Animator2.initValues){ value in
+        let anim1 = Animator2(initValues:Animator2.initValues){ value in/*This method gets called 60FPS, add the values to be manipulated here*/
             Swift.print("value: " + "\(value)")
             disableAnim {/*Important so that you don't get the apple "auto" anim as well*/
                 ellipse.graphic.layer?.position = CGPoint(100*value,0)/*We manipulate the layer because it is GPU accelerated as oppose to setting the view.position which is slow*/
             }
-            //onFrame anim here, move X forward
-            //starts the animation
         }.wait(duration:2){//pauses the anim for a little bit
             //give the user some time to think
         }
         let anim2 = Animator2(initValues:Animator2.initValues) { value in//adds a new anim block to the completed callBack
             Swift.print("value: " + "\(value)")
-            //onFrame anim here, rotate 360deg , this animation is repeated 3 times
+            disableAnim {/*Important so that you don't get the apple "auto" anim as well*/
+                ellipse.graphic.layer?.position = CGPoint(100*value,0)/*We manipulate the layer because it is GPU accelerated as oppose to setting the view.position which is slow*/
+            }
         }.pause { animRef in
             bg.async{
                 Swift.print("do heavy calculations")
