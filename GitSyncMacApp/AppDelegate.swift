@@ -47,15 +47,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          
          }
          */
-        applyMutliplication(value: 2, multFunction: {value in
+        TestingClass().applyMutliplication(value: 2){ value in
             value * 3/*Do calculations*/
-        })
+        }.go()
     }
-    func applyMutliplication(value: Int, multFunction: (Int) -> Int) -> TestingClass {
-        multFunction(value)
-        return TestingClass()
-        
-    }
+    
     
     
     
@@ -173,6 +169,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 }
 class TestingClass{
     init(){
+        
+    }
+    func applyMutliplication(value: Int, multFunction: (Int) -> Int) -> TestingClass {
+        let result = multFunction(value)
+        return TestingClass()
+        
+    }
+    /**
+     *
+     */
+    func go(){
         
     }
 }
