@@ -38,11 +38,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView2()
         window.title = ""
         
-        let anim1 = Animator2(initValues:Animator2.initValues){ value in
+        let anim = Animator2(initValues:Animator2.initValues){ value in
             Swift.print("value: " + "\(value)")
             //onFrame anim here, move X forward
-        }
-        let anim2 = anim1.wait(duration:2){//pauses the anim for a little bit
+        }.start{
+            //starts the animation
+        }.wait(duration:2){//pauses the anim for a little bit
             //do some things, fetch data etc
         }.chain(initValues:Animator2.initValues) { value in//adds a new anim block to the completed callBack
             Swift.print("value: " + "\(value)")
@@ -52,7 +53,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         anim1.start()//initiates the animation chain
         
-        _ = anim2
+        
         
     }
     /**
