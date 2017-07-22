@@ -171,9 +171,14 @@ class TestingClass{
     init(){
         
     }
-    func initiate(value: Int, closure: (Int) -> Void) -> TestingClass {
+    func initiate(from:CGFloat,to:CGFloat, closure: (Int) -> Void) -> Self {
         closure(value)/*Call the method*/
         return TestingClass()
+        
+    }
+    func pause(durInSec:CGFloat, closure: (Int) -> Void) -> Self {
+        closure(value)/*Call the method*/
+        return self
         
     }
     /**
