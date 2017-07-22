@@ -48,11 +48,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          }
          */
         applyMutliplication(value: 2, multFunction: {value in
-            value * 3
+            value * 3/*Do calculations*/
         })
     }
-    func applyMutliplication(value: Int, multFunction: (Int) -> Int) -> Int {
-        return multFunction(value)
+    func applyMutliplication(value: Int, multFunction: (Int) -> Int) -> TestingClass {
+        multFunction(value)
+        return TestingClass()
+        
     }
     
     
@@ -167,6 +169,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         _ = FileModifier.write(Config.repoListFilePath.tildePath, RepoView.treeDP.tree.xml.xmlString)/*store the repo xml*/
         Swift.print("💾 Write RepoList to: repo.xml")
         print("Good-bye")
+    }
+}
+class TestingClass{
+    init(){
+        
     }
 }
 /*
