@@ -57,7 +57,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             bg.async{
                 //do heavy calculations
                 main.async{
-                    animRef.continue()//start the anim again
+                    animRef.resume()//start the anim again
                 }
             }
         }.onComplete {//this is the final complete call in the chain
