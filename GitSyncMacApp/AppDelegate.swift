@@ -51,7 +51,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }.wait(duration:1.5){//pauses the anim for a little bit
             //give the user some time to think
         }
-        let anim2 = Animator2(initValues:Animator2.initValues) { value in//adds a new anim block to the completed callBack
+        let anim2 = Animator2(initValues:(duration:0.5,from:1,to:0)) { value in//adds a new anim block to the completed callBack
             Swift.print("value: " + "\(value)")
             disableAnim {/*Important so that you don't get the apple "auto" anim as well*/
                 ellipse.graphic.layer?.position = CGPoint(100*value,0)/*We manipulate the layer because it is GPU accelerated as oppose to setting the view.position which is slow*/
