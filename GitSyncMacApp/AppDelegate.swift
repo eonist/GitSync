@@ -169,7 +169,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
 }
 class TestingClass{
     var frameTick:FrameTick
-    init(from:CGFloat, to:CGFloat, durInSec:CGFloat, closure: @escaping FrameTick) {
+    init(initValues:Animator.InitValues, closure: @escaping FrameTick) {
         self.frameTick = closure
         //return TestingClass()
     }
@@ -182,7 +182,7 @@ class TestingClass{
     /**
      *
      */
-    func go(){
+    func start(){
         
     }
     func onComplete(closure: () -> Void) -> Self{
