@@ -182,6 +182,16 @@ class TestingClass{
     func go(){
         
     }
+    func onComplete() -> Self{
+        return self
+    }
+    
+    /**
+     *
+     */
+    func onFrame(_ value:CGFloat) -> Self{
+        return self
+    }
 }
 /*
 func themeSwitchTest(){
