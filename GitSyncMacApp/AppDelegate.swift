@@ -48,30 +48,33 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             disableAnim {/*Important so that you don't get the apple "auto" anim as well*/
                 ellipse.graphic.layer?.position = CGPoint(100*value,0)/*We manipulate the layer because it is GPU accelerated as oppose to setting the view.position which is slow*/
             }
-        }.wait(duration:3.5){//pauses the anim for a little bit
-            //give the user some time to think
         }
+//        .wait(duration:3.5){//pauses the anim for a little bit
+//            //give the user some time to think
+//        }
         let anim2 = Animator2(initValues:(duration:0.5,from:1,to:0)) { value in//adds a new anim block to the completed callBack
             Swift.print("value: " + "\(value)")
             disableAnim {/*Important so that you don't get the apple "auto" anim as well*/
                 ellipse.graphic.layer?.position = CGPoint(100*value,0)/*We manipulate the layer because it is GPU accelerated as oppose to setting the view.position which is slow*/
             }
-        }.pause { animRef in
-            bg.async{
-                Swift.print("do heavy calculations")
-                sleep(4)//simulates a bg process taking 2 secs
-                main.async{
-                    animRef.resume()//start the anim again
-                }
-            }
         }.onComplete {//this is the final complete call in the chain
-            Swift.print("anim chain completed")
+                Swift.print("anim chain completed")
         }
+//        .pause { animRef in
+//            bg.async{
+//                Swift.print("do heavy calculations")
+//                sleep(4)//simulates a bg process taking 2 secs
+//                main.async{
+//                    animRef.resume()//start the anim again
+//                }
+//            }
+//        }
+        
         anim1.completed = {
             Swift.print("anim1 completed")
             anim2.start()//start the second anim right after the first started
         }
-         
+        sleep(4)//simulates a bg process taking 2 secs
         anim1.start()/*initiates the animation chain*/
          
         
