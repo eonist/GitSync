@@ -38,6 +38,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView2()
         window.title = ""
         
+        //Continue here: 🏀
+            //just code the bellow up and test 🏖
+        
         /*
         let anim1 = Animator2(initValues:Animator2.initValues){ value in
             Swift.print("value: " + "\(value)")
@@ -65,7 +68,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          
         anim1.start()//initiates the animation chain
          
-         //remember this 
+         //remember this needs to support many different animators and also simultan animations, so it cant be too intertwined
         
         */
         
