@@ -48,7 +48,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             disableAnim {/*Important so that you don't get the apple "auto" anim as well*/
                 ellipse.graphic.layer?.position = CGPoint(100*value,0)/*We manipulate the layer because it is GPU accelerated as oppose to setting the view.position which is slow*/
             }
-        }.wait(duration:1.5){//pauses the anim for a little bit
+        }.wait(duration:3.5){//pauses the anim for a little bit
             //give the user some time to think
         }
         let anim2 = Animator2(initValues:(duration:0.5,from:1,to:0)) { value in//adds a new anim block to the completed callBack
@@ -59,7 +59,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }.pause { animRef in
             bg.async{
                 Swift.print("do heavy calculations")
-                sleep(2)//simulates a bg process taking 2 secs
+                sleep(4)//simulates a bg process taking 2 secs
                 main.async{
                     animRef.resume()//start the anim again
                 }
@@ -72,7 +72,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             anim2.start()//start the second anim right after the first started
         }
          
-        anim1.start()//initiates the animation chain
+        anim1.start()/*initiates the animation chain*/
          
         
         
