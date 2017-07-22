@@ -17,7 +17,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //jsonTest()
         
-        initApp()
+        //initApp()
         //stateTest()
         //themeSwitchTest()
         //testGraphXTest()
@@ -47,15 +47,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          
          }
          */
-        let train = jediTrainer()
-        train("Obi Wan", 3)
+        applyMutliplication(value: 2, multFunction: {value in
+            value * 3
+        })
     }
-    func jediTrainer () -> ((String, Int) -> String) {
-        func train(name: String, times: Int) -> (String) {
-            return "\(name) has been trained in the Force \(times) times"
-        }
-        return train
+    func applyMutliplication(value: Int, multFunction: (Int) -> Int) -> Int {
+        return multFunction(value)
     }
+    
+    
     
     /**
      *
