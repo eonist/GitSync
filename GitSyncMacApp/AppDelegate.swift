@@ -46,7 +46,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }.completed = Animator2(initValues:Animator2.initValues) { value in//adds a new anim block to the completed callBack
             //onFrame anim here, rotate 360deg , this animation is repeated 3 times
             Swift.print("value: " + "\(value)")
-        }.completed = { () -> Animator2 in//this is the final complete call in the chain
+        }.onComplete {//this is the final complete call in the chain
             Swift.print("anim chain completed")
         }
         anim1.start()//initiates the animation chain
