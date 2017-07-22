@@ -39,18 +39,21 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.title = ""
         
         /*
-        let anim = Animator2(initValues:Animator2.initValues){ value in
+        let anim1 = Animator2(initValues:Animator2.initValues){ value in
             Swift.print("value: " + "\(value)")
             //onFrame anim here, move X forward
             //starts the animation
         }.wait(duration:2){//pauses the anim for a little bit
             //do some things, fetch data etc
-        }.chain(initValues:Animator2.initValues) { value in//adds a new anim block to the completed callBack
+        }
+         
+        let anim2 = Animator2(initValues:Animator2.initValues) { value in//adds a new anim block to the completed callBack
             Swift.print("value: " + "\(value)")
             //onFrame anim here, rotate 360deg , this animation is repeated 3 times
         }.onComplete {//this is the final complete call in the chain
             Swift.print("anim chain completed")
         }
+        anim
         anim.start()//initiates the animation chain
         
         */
