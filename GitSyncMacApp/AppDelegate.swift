@@ -187,14 +187,14 @@ class TestingClass{
     }
     func onComplete(closure: () -> Void) -> Self{
         closure()/*execute the closure*/
-        return self/*Always return self so we can chain */
+        return self/*Always return self so we can chain*/
     }
-    
     /**
      *
      */
-    func onFrame(_ value:CGFloat) -> Self{
-        return self
+    func onFrame(closure: () -> Void) -> Self{
+        closure()/*execute the closure*/
+        return self/*Always return self so we can chain*/
     }
 }
 /*
