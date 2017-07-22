@@ -47,9 +47,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
          
          }
          */
-        TestingClass(from: 0, to: 1, durInSec: 0.75){ value in
+        _ = Animator2(initValues:Animator.initValues){ value in
             Swift.print("value: " + "\(value)")
-        }.go()
+        }.onComplete{
+            print("Animation completed")
+        }
     }
     
     
@@ -167,36 +169,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         print("Good-bye")
     }
 }
-class TestingClass{
-    var frameTick:FrameTick
-    init(initValues:Animator.InitValues, closure: @escaping FrameTick) {
-        self.frameTick = closure
-        //return TestingClass()
-    }
-    /*func pause(durInSec:CGFloat, closure: (Int) -> Void) -> Self {
-     closure(value)/*Call the method*/
-     return self
-     
-     }*/
-    
-    /**
-     *
-     */
-    func start(){
-        
-    }
-    func onComplete(closure: () -> Void) -> Self{
-        closure()/*execute the closure*/
-        return self/*Always return self so we can chain*/
-    }
-    /**
-     *
-     */
-    func onFrame(closure: () -> Void) -> Self{
-        closure()/*execute the closure*/
-        return self/*Always return self so we can chain*/
-    }
-}
+
 /*
 func themeSwitchTest(){
     
