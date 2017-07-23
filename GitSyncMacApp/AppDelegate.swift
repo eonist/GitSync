@@ -55,7 +55,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         window.contentView?.addSubview(roundRect.graphic)
         roundRect.draw()
-        roundRect.graphic.layer?.position = CGPoint(50,20)
+        roundRect.graphic.layer?.position = CGPoint(50,5)
         
         let anim1 = Animator2.init(initValues:(dur:2,from:0,to:1), easing:Easing.cubic.easeOut) { value in
             disableAnim {
@@ -72,7 +72,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 roundRect.size = size
                 
                 /*Position*/
-                roundRect.graphic.layer?.position = CGPoint(50 + (-25*value),20 + (30 * value))
+                roundRect.graphic.layer?.position = CGPoint(50 + (-25*value),5 + (20 * value))
                 
                 /*draw it all*/
                 roundRect.draw()
