@@ -33,8 +33,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //Make more ellaborate animation test
                 //color ✅
                 //find some anims you would like to replicate, see awesome list for examples etc
-                //simultaniouse anims etc, color and position at the same time etc 👈
+                //simultaniouse anims etc, color and position at the same time etc ✅
                     //try with out disableAnim
+                //do circle to roundRect z-zoom effect with bounce
             //add interuptabable animators to the fold
             //also add bgSleep(1.5){anim.start} aka a non blocking sleep method ✅
         
@@ -47,7 +48,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func circle2RectAnimTest(){
         /*Setup a window*/
-        window.size = CGSize(200,200)
+        window.size = CGSize(200,300)
         window.contentView = InteractiveView2()
         window.title = ""
         
