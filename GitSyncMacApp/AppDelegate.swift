@@ -51,6 +51,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView2()
         window.title = ""
         
+        StyleManager.addStyle("#bg{fill:white;}")
+        let bg = window.contentView?.addSubView(Button(window.size.w,window.size.h,nil,"bg"))
+        
         let roundRect = RoundRectGraphic(0,0,100,100,Fillet(50),FillStyle(.blue),nil)
         
         window.contentView?.addSubview(roundRect.graphic)
