@@ -70,8 +70,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         let anim3 = LoopAnimator2(initValues: (duration:0.5,from:0,to:1,repeatCount:3)){ value in
             disableAnim {
-//                NSColor.blue.inter
-                ellipse.graphic.layer?.position = CGPoint(0,100*value)
+                let color = NSColor.blue.interpolate(.red, value)
+                ellipse.graphic.fillStyle = FillStyle(color)
+                ellipse.draw()
             }
         }.onComplete {//this is the final complete call in the chain
             Swift.print("entire anim sequence completed 🏆")
