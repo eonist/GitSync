@@ -37,21 +37,24 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //add interuptabable animators to the fold 👈
             //also add bgSleep(1.5){anim.start} aka a non blocking sleep method ✅
         
-        animator2Test()
+        //animator2Test()
+        circle2RectAnimTest()
     }
     //circle to rect and color test
     /**
      *
      */
-    func circle2RectTest(){
+    func circle2RectAnimTest(){
         /*Setup a window*/
         window.size = CGSize(200,200)
         window.contentView = InteractiveView2()
         window.title = ""
         
-        let shape = RectGraphic(10,10,100,100,FillStyle(.blue),nil)
-        window.contentView?.addSubview(ellipse.graphic)
-        ellipse.draw()
+        let roundRect = RoundRectGraphic(50,50,100,100,Fillet(50),FillStyle(.blue),nil)
+        window.contentView?.addSubview(roundRect.graphic)
+        roundRect.draw()
+        
+       
     }
     /**
      *
