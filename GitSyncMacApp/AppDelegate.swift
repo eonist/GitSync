@@ -54,7 +54,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView?.addSubview(roundRect.graphic)
         roundRect.draw()
         
-        /*let anim1*/_ = Animator2.init(initValues:(dur:0.7,from:0,to:1), easing:Quad.easeInOut) { value in
+        let anim1 = Animator2.init(initValues:(dur:0.7,from:0,to:1), easing:Quad.easeInOut) { value in
             //fillet
             let fillet:Fillet = Fillet(50+(-50*value))
             roundRect.fillet = fillet
@@ -70,9 +70,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             roundRect.draw()
         }.onComplete {
                 Swift.print("animation completed 🏁")
-        }.start()
+        }
         
-        
+        bgPause(2){//delay anim for 2 secs
+            anim1.start()
+        }
+
     }
     /**
      *
