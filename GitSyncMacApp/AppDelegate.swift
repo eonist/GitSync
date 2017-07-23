@@ -28,8 +28,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //horizontalListTest()
         
         //Continue here: 🏀
-            //add support for LoopAnimator
-            //Make more ellaborate animation test
+            //add support for LoopAnimator ✅
+            //Make more ellaborate animation test 👈 do size grow?
                 //simultaniouse anims etc, color and position at the same time etc
             //add interuptabable animators to the fold
             //also add bgSleep(1.5){anim.start} aka a non blocking sleep method
