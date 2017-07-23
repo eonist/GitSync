@@ -69,7 +69,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             sleep(2)
             anim2.start()//start the second anim right after the first started
         }
-        let anim3 = LoopAnimator2(initValues: (duration:1.2,from:0,to:1,repeatCount:3),easing:Easing.expo.easeOut){ value in
+        let anim3 = Animator2(initValues: (duration:1.2,from:0,to:1)){ value in
             disableAnim {
                 let color = NSColor.blue.interpolate(.red, value)
                 ellipse.graphic.fillStyle = FillStyle(color)
