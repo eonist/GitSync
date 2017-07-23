@@ -55,13 +55,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         window.contentView?.addSubview(roundRect.graphic)
         roundRect.draw()
-        roundRect.graphic.layer?.position = CGPoint(50,5)
+        roundRect.graphic.layer?.position = CGPoint(50,50)
         
         let anim1 = Animator2.init(initValues:(dur:2,from:0,to:1), easing:Easing.cubic.easeOut) { value in
             disableAnim {
                 
                 /*fillet*/
-                let fillet:Fillet = Fillet(50+(-50*value))
+                let fillet:Fillet = Fillet(50+(-25*value))
                 roundRect.fillet = fillet
                 
                 /*color*/
