@@ -38,6 +38,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     //try with out disableAnim
                 //do circle to roundRect z-zoom effect, maybedropShadow increase, with bounce back and forth 👈
                 //try to do a rotation test back and forth with elastic
+                //Playground testing 👈👈👈
+        
             //add interuptabable animators to the fold
             //also add bgSleep(1.5){anim.start} aka a non blocking sleep method ✅
         
