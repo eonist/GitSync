@@ -105,7 +105,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             anim5.start()
         }
 
-        bgSleep(1){/*start anim after 2 sec, but doesn't block the app*/
+        bgSleep(20){/*start anim after 2 sec, but doesn't block the app*/
             anim3.start()/*initiates the animation chain*/
         }
     }
