@@ -74,11 +74,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             sleep(2)
             anim2.start()//start the second anim right after the first started
         }
-        bg.async{
-            sleep(2)/*start anim after 2 sec, but don't block the app*/
-            main.async{
-                anim1.start()/*initiates the animation chain*/
-            }
+        bgSleep(2){/*start anim after 2 sec, but doesn't block the app*/
+            anim1.start()/*initiates the animation chain*/
         }
     }
     /**
