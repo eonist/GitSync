@@ -60,6 +60,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             roundRect.fillet = fillet
             
             //color
+            let color = NSColor.blue.interpolate(.red, value)
+            roundRect.graphic.fillStyle = FillStyle(color)
+            
+            //Position
+            let y:CGFloat = 20 * value
+            roundRect.graphic.layer?.position = CGPoint(0,0)
+            
+            //draw it all
+            roundRect.draw()
+            
+            
         }
     }
     /**
