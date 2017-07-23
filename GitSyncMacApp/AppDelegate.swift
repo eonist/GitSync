@@ -64,8 +64,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             roundRect.graphic.fillStyle = FillStyle(color)
             
             //Position
-            let y:CGFloat = 20 * value
-            roundRect.graphic.layer?.position = CGPoint(0,0)
+            roundRect.graphic.layer?.position.y = 20 + (30 * value)
             
             //draw it all
             roundRect.draw()
