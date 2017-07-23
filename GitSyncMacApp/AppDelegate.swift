@@ -42,13 +42,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func animator2Test(){
         /*Setup a window*/
-        window.size = CGSize(100,100)
+        window.size = CGSize(200,200)
         window.contentView = InteractiveView2()
         window.title = ""
         
         /*Ellipse*/
 //        let newColor = NSColor.blue.interpolate(.red, 1)
-        let ellipse = EllipseGraphic(0,0,100,100,FillStyle(.blue),nil)
+        let ellipse = RectGraphic(10,10,100,100,FillStyle(.blue),nil)
         window.contentView?.addSubview(ellipse.graphic)
         ellipse.draw()
         
@@ -69,7 +69,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             sleep(2)
             anim2.start()//start the second anim right after the first started
         }
-        let anim3 = Animator2(initValues: (duration:1.2,from:0,to:1)){ value in
+        let anim3 = Animator2(initValues: (duration:2.2,from:0,to:1)){ value in
             disableAnim {
                 let color = NSColor.blue.interpolate(.red, value)
                 ellipse.graphic.fillStyle = FillStyle(color)
@@ -82,9 +82,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             sleep(2)
             anim3.start()
         }
-        let anim4 = Animator2(initValues: (duration:1.2,from:0,to:1)){ value in
+        let anim4 = Animator2(initValues: (duration:2.2,from:0,to:1)){ value in
             disableAnim {
-                let color = NSColor.red.interpolate(.green, value)
+                let color = NSColor.red.interpolate(.blue, value)
                 ellipse.graphic.fillStyle = FillStyle(color)
                 ellipse.draw()
             }
@@ -93,19 +93,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             sleep(CGFloat(0.4).int.uint32)
             anim4.start()
         }
-        let anim5 = Animator2(initValues: (duration:1.2,from:0,to:1)){ value in
-            disableAnim {
-                let color = NSColor.green.interpolate(.blue, value)
-                ellipse.graphic.fillStyle = FillStyle(color)
-                ellipse.draw()
-            }
-        }
-        anim4.completed = {
-            sleep(CGFloat(0.4).int.uint32)
-            anim5.start()
-        }
+        
 
-        bgSleep(20){/*start anim after 2 sec, but doesn't block the app*/
+        bgSleep(30){/*start anim after 2 sec, but doesn't block the app*/
             anim3.start()/*initiates the animation chain*/
         }
     }
