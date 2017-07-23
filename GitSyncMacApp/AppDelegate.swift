@@ -68,8 +68,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             
             //draw it all
             roundRect.draw()
-            
-            
+        }.onComplete {
+                <#code#>
         }
     }
     /**
