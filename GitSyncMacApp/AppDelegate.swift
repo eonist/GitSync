@@ -50,7 +50,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView2()
         window.title = ""
         
-        let roundRect = RoundRectGraphic(50,50,100,100,Fillet(50),FillStyle(.blue),nil)
+        let roundRect = RoundRectGraphic(20,50,100,100,Fillet(50),FillStyle(.blue),nil)
         window.contentView?.addSubview(roundRect.graphic)
         roundRect.draw()
         
