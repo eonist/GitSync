@@ -68,10 +68,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 let color = NSColor.blue.interpolate(.red, value)
                 roundRect.graphic.fillStyle = FillStyle(color)
                 
-                
+                let size:CGSize = CGSize(100+(50*value),100+(50*value))
+                roundRect.size = size
                 
                 /*Position*/
-                roundRect.graphic.layer?.position = CGPoint(50,20 + (30 * value))
+                roundRect.graphic.layer?.position = CGPoint(50 + (-25*value),20 + (30 * value))
                 
                 /*draw it all*/
                 roundRect.draw()
