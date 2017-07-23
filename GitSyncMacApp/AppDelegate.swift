@@ -60,7 +60,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         roundRect.draw()
         roundRect.graphic.layer?.position = CGPoint(50,50)
         
-        let anim1 = Animator2.init(initValues:(dur:0.6,from:0,to:1), easing:Easing.bounce.easeOut) { value in
+        let anim1 = Animator2.init(initValues:(dur:0.6,from:0,to:1), easing:Easing.expo.easeOut) { value in
             disableAnim {
                 
                 /*fillet*/
@@ -79,7 +79,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 
                 /*draw it all*/
                 roundRect.draw()
-                
             }
         }.onComplete {
                 Swift.print("animation completed 🏁")
