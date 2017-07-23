@@ -77,7 +77,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 /*Position*/
                 roundRect.graphic.layer?.position = CGPoint(50+(-25*value),50 + (-25*value))
                 
-                /*draw it all*/
+                /*Draw it all*/
                 roundRect.draw()
             }
         }.onComplete {
