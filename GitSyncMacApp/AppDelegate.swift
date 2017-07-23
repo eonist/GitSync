@@ -77,7 +77,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 roundRect.graphic.fillStyle = FillStyle(color)
                 
                 let endSize = CGSize(150,50)
-                let newSize = startSize.in
+                let newSize = startSize
                 let size:CGSize = CGSize(100+(50*value),100 + (-50*value))
                 roundRect.size = size
                 
