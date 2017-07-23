@@ -29,15 +29,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //Continue here: 🏀
             //add support for LoopAnimator ✅
-                //test LoopAnimator 👈
-            //reconsider making Advancable, think CGSize, CGRect etc, these needs 2,4,8 etc values animated at once.
-                //Making subclasses for all of these are kinda much?
-                //try to make Advancable in a small environment to see what can be done etc
-        
+                //test LoopAnimator ✅
             //Make more ellaborate animation test
                 //simultaniouse anims etc, color and position at the same time etc
-            //add interuptabable animators to the fold
-            //also add bgSleep(1.5){anim.start} aka a non blocking sleep method
+            //add interuptabable animators to the fold 👈
+            //also add bgSleep(1.5){anim.start} aka a non blocking sleep method ✅
         
         animator2Test()
     }
@@ -72,7 +68,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             sleep(2)
             anim2.start()//start the second anim right after the first started
         }
-        let anim3 = LoopAnimator2.init(initValues: (duration:0.5,from:0,to:1,repeatCount:3)){ value in
+        let anim3 = LoopAnimator2(initValues: (duration:0.5,from:0,to:1,repeatCount:3)){ value in
             disableAnim {
                 ellipse.graphic.layer?.position = CGPoint(0,100*value)
             }
