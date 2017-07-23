@@ -74,6 +74,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             sleep(2)
             anim2.start()//start the second anim right after the first started
         }
+        let anim3 = LoopAnimator2.init(initValues: LoopAnimator2.initLoopValues){
+            
+        }
         bgSleep(2){/*start anim after 2 sec, but doesn't block the app*/
             anim1.start()/*initiates the animation chain*/
         }
