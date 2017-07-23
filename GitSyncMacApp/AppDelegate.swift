@@ -42,7 +42,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func animator2Test(){
         /*Setup a window*/
-        window.size = CGSize(664,400)
+        window.size = CGSize(300,300)
         window.contentView = InteractiveView2()
         window.title = ""
         
@@ -69,7 +69,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             sleep(2)
             anim2.start()//start the second anim right after the first started
         }
-        let anim3 = LoopAnimator2(initValues: (duration:1.5,from:0,to:1,repeatCount:3)){ value in
+        let anim3 = LoopAnimator2(initValues: (duration:1.2,from:0,to:1,repeatCount:3),easing:Easing.expo.easeOut){ value in
             disableAnim {
                 let color = NSColor.blue.interpolate(.red, value)
                 ellipse.graphic.fillStyle = FillStyle(color)
