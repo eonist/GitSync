@@ -47,7 +47,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.title = ""
         
         /*Ellipse*/
-        let newColor = NSColor.blue.interpolate(.red, 0.9)
+        let newColor = NSColor.blue.interpolate(.red, 1)
         let ellipse = EllipseGraphic(0,0,100,100,FillStyle(newColor),nil)
         window.contentView?.addSubview(ellipse.graphic)
         ellipse.draw()
