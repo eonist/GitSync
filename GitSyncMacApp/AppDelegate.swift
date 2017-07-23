@@ -24,7 +24,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //testGraphView2()
         
         
-        targetAnimationTest()
+        //targetAnimationTest()
         //horizontalListTest()
         
         //Continue here: 🏀
@@ -34,7 +34,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //add interuptabable animators to the fold
             //also add bgSleep(1.5){anim.start} aka a non blocking sleep method
         
-        //animator2Test()
+        animator2Test()
     }
     /**
      *
@@ -75,7 +75,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 anim1.start()/*initiates the animation chain*/
             }
         }
-        
     }
     /**
      *
