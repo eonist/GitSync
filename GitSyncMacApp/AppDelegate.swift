@@ -54,9 +54,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView?.addSubview(roundRect.graphic)
         roundRect.draw()
         
-        let anim1 = Animator2.init(initValues: (dur:0.), easing: Quad.easeInOut) { value in
+        let anim1 = Animator2.init(initValues: (dur:0.7,from:0,to:1), easing: Quad.easeInOut) { value in
             //fillet
             var fillet:Fillet = Fillet(50-(+50*value))
+            
             //color
         }
     }
@@ -81,7 +82,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 ellipse.graphic.layer?.position = CGPoint(100*value,0)/*We manipulate the layer because it is GPU accelerated as oppose to setting the view.position which is slow*/
             }
         }
-        let anim2 = Animator2(initValues:(duration:0.5,from:1,to:0)) { value in//adds a new anim block to the completed callBack
+        let anim2 = Animator2(initValues:(dur:0.5,from:1,to:0)) { value in//adds a new anim block to the completed callBack
             Swift.print("value: " + "\(value)")
             disableAnim {/*Important so that you don't get the apple "auto" anim as well*/
                 ellipse.graphic.layer?.position = CGPoint(100*value,0)/*We manipulate the layer because it is GPU accelerated as oppose to setting the view.position which is slow*/
@@ -92,7 +93,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             sleep(2)
             anim2.start()//start the second anim right after the first started
         }
-        let anim3 = Animator2(initValues: (duration:2.2,from:0,to:1)){ value in
+        let anim3 = Animator2(initValues: (dur:2.2,from:0,to:1)){ value in
             disableAnim {
                 let color = NSColor.blue.interpolate(.red, value)
                 ellipse.graphic.fillStyle = FillStyle(color)
@@ -105,7 +106,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             sleep(2)
             anim3.start()
         }
-        let anim4 = Animator2(initValues: (duration:2.2,from:0,to:1)){ value in
+        let anim4 = Animator2(initValues: (dur:2.2,from:0,to:1)){ value in
             disableAnim {
                 let color = NSColor.red.interpolate(.blue, value)
                 ellipse.graphic.fillStyle = FillStyle(color)
