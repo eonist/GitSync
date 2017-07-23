@@ -24,7 +24,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //testGraphView2()
         
         
-        //targetAnimationTest()
+        targetAnimationTest()
         //horizontalListTest()
         
         //Continue here: 🏀
@@ -34,7 +34,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //add interuptabable animators to the fold
             //also add bgSleep(1.5){anim.start} aka a non blocking sleep method
         
-        animator2Test()
+        //animator2Test()
     }
     /**
      *
@@ -132,7 +132,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 ellipse.graphic.layer?.position = value/*We manipulate the layer because it is GPU accelerated as oppose to setting the view.position which is slow*/
             }
         }
-        let animator = PointSpringer(progress, PointSpringer.initValues,PointSpringer.initConfig)/*Setup interuptable animator*/
+        let animator = PointEaser(progress, PointEaser.initValues,PointEaser.initConfig)/*Setup interuptable animator*/
         func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
             if event.type == ButtonEvent.upInside {
                 animator.targetValue = bg!.localPos()/*Set the position of where you want the anim to go*/
