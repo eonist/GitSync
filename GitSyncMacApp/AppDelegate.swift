@@ -30,7 +30,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //Continue here: 🏀
             //add support for LoopAnimator ✅
                 //test LoopAnimator 👈
-            //reconsider making Animatable, think CGSize, CGRect etc, these are not 
+            //reconsider making Advancable, think CGSize, CGRect etc, these needs 2,4,8 etc values animated at once.
+                //Making subclasses for all of these are kinda much?
+                //try to make Advancable in a small environment to see what can be done etc
+        
             //Make more ellaborate animation test
                 //simultaniouse anims etc, color and position at the same time etc
             //add interuptabable animators to the fold
