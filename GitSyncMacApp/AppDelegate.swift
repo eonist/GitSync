@@ -72,9 +72,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             sleep(2)
             anim2.start()//start the second anim right after the first started
         }
-        let anim3 = LoopAnimator2.init(initValues: LoopAnimator2.initLoopValues){ value in
-            ellipse.graphic.layer?.position = CGPoint(0,100*value)
+        let anim3 = LoopAnimator2.init(initValues: (duration:0.5,from:0,to:1,repeatCount:3)){ value in
+            disableAnim {
+                ellipse.graphic.layer?.position = CGPoint(0,100*value)
+            }
+        }.onComplete {//this is the final complete call in the chain
+            Swift.print("entire anim sequence completed 🏆")
         }
+        anim2.completed = {
+            sleep(2)
+            anim3.start()
+        }
+
         bgSleep(2){/*start anim after 2 sec, but doesn't block the app*/
             anim1.start()/*initiates the animation chain*/
         }
