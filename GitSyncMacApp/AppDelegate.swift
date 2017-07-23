@@ -49,7 +49,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView2()
         window.title = ""
         
-        let ellipse = RectGraphic(10,10,100,100,FillStyle(.blue),nil)
+        let shape = RectGraphic(10,10,100,100,FillStyle(.blue),nil)
         window.contentView?.addSubview(ellipse.graphic)
         ellipse.draw()
     }
