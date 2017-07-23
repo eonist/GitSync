@@ -39,6 +39,20 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         animator2Test()
     }
+    //circle to rect and color test
+    /**
+     *
+     */
+    func circle2RectTest(){
+        /*Setup a window*/
+        window.size = CGSize(200,200)
+        window.contentView = InteractiveView2()
+        window.title = ""
+        
+        let ellipse = RectGraphic(10,10,100,100,FillStyle(.blue),nil)
+        window.contentView?.addSubview(ellipse.graphic)
+        ellipse.draw()
+    }
     /**
      *
      */
@@ -98,7 +112,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
 
         bgSleep(30){/*start anim after 2 sec, but doesn't block the app*/
-            anim3.start()/*initiates the animation chain*/
+            anim1.start()/*initiates the animation chain*/
         }
     }
     /**
