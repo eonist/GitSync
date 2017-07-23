@@ -32,9 +32,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //test LoopAnimator ✅
             //Make more ellaborate animation test
                 //color ✅
-                //find some anims you would like to replicate, see awesome list for examples etc 👈
-                //simultaniouse anims etc, color and position at the same time etc
-            //add interuptabable animators to the fold 👈
+                //find some anims you would like to replicate, see awesome list for examples etc
+                //simultaniouse anims etc, color and position at the same time etc 👈
+                    //try with out disableAnim
+            //add interuptabable animators to the fold
             //also add bgSleep(1.5){anim.start} aka a non blocking sleep method ✅
         
         //animator2Test()
@@ -50,29 +51,33 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView2()
         window.title = ""
         
-        let roundRect = RoundRectGraphic(20,50,100,100,Fillet(50),FillStyle(.blue),nil)
+        let roundRect = RoundRectGraphic(50,20,100,100,Fillet(50),FillStyle(.blue),nil)
         window.contentView?.addSubview(roundRect.graphic)
         roundRect.draw()
         
-        let anim1 = Animator2.init(initValues:(dur:0.7,from:0,to:1), easing:Quad.easeInOut) { value in
-            //fillet
-            let fillet:Fillet = Fillet(50+(-50*value))
-            roundRect.fillet = fillet
-            
-            //color
-            let color = NSColor.blue.interpolate(.red, value)
-            roundRect.graphic.fillStyle = FillStyle(color)
-            
-            //Position
-            roundRect.graphic.layer?.position.y = 20 + (30 * value)
-            
-            //draw it all
-            roundRect.draw()
+        let anim1 = Animator2.init(initValues:(dur:0.7,from:0,to:1), easing:Quad.easeOut) { value in
+            disableAnim {
+                
+                /*fillet*/
+                let fillet:Fillet = Fillet(50+(-50*value))
+                roundRect.fillet = fillet
+                
+                /*color*/
+                let color = NSColor.blue.interpolate(.red, value)
+                roundRect.graphic.fillStyle = FillStyle(color)
+                
+                /*Position*/
+                roundRect.graphic.layer?.position.y = 20 + (30 * value)
+                
+                /*draw it all*/
+                roundRect.draw()
+                
+            }
         }.onComplete {
                 Swift.print("animation completed 🏁")
         }
         
-        bgPause(2){//delay anim for 2 secs
+        bgSleep(2){//delay anim for 2 secs
             anim1.start()
         }
 
