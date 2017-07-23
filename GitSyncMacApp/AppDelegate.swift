@@ -42,7 +42,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func animator2Test(){
         /*Setup a window*/
-        window.size = CGSize(300,300)
+        window.size = CGSize(100,100)
         window.contentView = InteractiveView2()
         window.title = ""
         
@@ -82,9 +82,31 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             sleep(2)
             anim3.start()
         }
+        let anim4 = Animator2(initValues: (duration:1.2,from:0,to:1)){ value in
+            disableAnim {
+                let color = NSColor.red.interpolate(.green, value)
+                ellipse.graphic.fillStyle = FillStyle(color)
+                ellipse.draw()
+            }
+        }
+        anim3.completed = {
+            sleep(CGFloat(0.4).int.uint32)
+            anim4.start()
+        }
+        let anim5 = Animator2(initValues: (duration:1.2,from:0,to:1)){ value in
+            disableAnim {
+                let color = NSColor.green.interpolate(.blue, value)
+                ellipse.graphic.fillStyle = FillStyle(color)
+                ellipse.draw()
+            }
+        }
+        anim4.completed = {
+            sleep(CGFloat(0.4).int.uint32)
+            anim5.start()
+        }
 
-        bgSleep(2){/*start anim after 2 sec, but doesn't block the app*/
-            anim1.start()/*initiates the animation chain*/
+        bgSleep(1){/*start anim after 2 sec, but doesn't block the app*/
+            anim3.start()/*initiates the animation chain*/
         }
     }
     /**
