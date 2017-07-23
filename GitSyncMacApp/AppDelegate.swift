@@ -17,7 +17,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
         //jsonTest()
         
-        //initApp()
+        initApp()
         //stateTest()
         //themeSwitchTest()
         //testGraphXTest()
@@ -44,7 +44,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //also add bgSleep(1.5){anim.start} aka a non blocking sleep method ✅
         
         //animator2Test()
-        circle2RectAnimTest()
+       // circle2RectAnimTest()
     }
     //circle to rect and color test
     /**
