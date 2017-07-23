@@ -47,10 +47,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.title = ""
         
         /*Ellipse*/
-        let ellipse = EllipseGraphic(0,0,100,100,FillStyle(.blue),nil)
+        let newColor = NSColor.blue.interpolate(.red, 0.9)
+        let ellipse = EllipseGraphic(0,0,100,100,FillStyle(newColor),nil)
         window.contentView?.addSubview(ellipse.graphic)
         ellipse.draw()
-        
+        return
         let anim1 = Animator2(initValues:Animator2.initValues){ value in/*This method gets called 60FPS, add the values to be manipulated here*/
             Swift.print("value: " + "\(value)")
             disableAnim {/*Important so that you don't get the apple "auto" anim as well*/
