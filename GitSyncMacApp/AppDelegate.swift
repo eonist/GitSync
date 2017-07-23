@@ -66,16 +66,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             disableAnim {/*Important so that you don't get the apple "auto" anim as well*/
                 ellipse.graphic.layer?.position = CGPoint(100*value,0)/*We manipulate the layer because it is GPU accelerated as oppose to setting the view.position which is slow*/
             }
-        }.onComplete {//this is the final complete call in the chain
-                Swift.print("anim chain completed")
         }
         anim1.completed = {
             Swift.print("anim1 completed")
             sleep(2)
             anim2.start()//start the second anim right after the first started
         }
-        let anim3 = LoopAnimator2.init(initValues: LoopAnimator2.initLoopValues){
-            
+        let anim3 = LoopAnimator2.init(initValues: LoopAnimator2.initLoopValues){ value in
+            ellipse.graphic.layer?.position = CGPoint(0,100*value)
         }
         bgSleep(2){/*start anim after 2 sec, but doesn't block the app*/
             anim1.start()/*initiates the animation chain*/
