@@ -29,7 +29,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //Continue here: 🏀
             //add support for LoopAnimator ✅
-            //Make more ellaborate animation test 👈 do size grow?
+                //test LoopAnimator 👈
+            //reconsider making Animatable, think CGSize, CGRect etc, these are not 
+            //Make more ellaborate animation test
                 //simultaniouse anims etc, color and position at the same time etc
             //add interuptabable animators to the fold
             //also add bgSleep(1.5){anim.start} aka a non blocking sleep method
