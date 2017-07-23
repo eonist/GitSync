@@ -47,11 +47,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.title = ""
         
         /*Ellipse*/
-        let newColor = NSColor.blue.interpolate(.red, 1)
-        let ellipse = EllipseGraphic(0,0,100,100,FillStyle(newColor),nil)
+//        let newColor = NSColor.blue.interpolate(.red, 1)
+        let ellipse = EllipseGraphic(0,0,100,100,FillStyle(.blue),nil)
         window.contentView?.addSubview(ellipse.graphic)
         ellipse.draw()
-        return
+        
         let anim1 = Animator2(initValues:Animator2.initValues){ value in/*This method gets called 60FPS, add the values to be manipulated here*/
             Swift.print("value: " + "\(value)")
             disableAnim {/*Important so that you don't get the apple "auto" anim as well*/
@@ -69,7 +69,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             sleep(2)
             anim2.start()//start the second anim right after the first started
         }
-        let anim3 = LoopAnimator2(initValues: (duration:0.5,from:0,to:1,repeatCount:3)){ value in
+        let anim3 = LoopAnimator2(initValues: (duration:1.5,from:0,to:1,repeatCount:3)){ value in
             disableAnim {
                 let color = NSColor.blue.interpolate(.red, value)
                 ellipse.graphic.fillStyle = FillStyle(color)
