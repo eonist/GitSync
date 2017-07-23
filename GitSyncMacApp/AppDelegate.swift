@@ -51,11 +51,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView2()
         window.title = ""
         
-        let roundRect = RoundRectGraphic(50,20,100,100,Fillet(50),FillStyle(.blue),nil)
+        let roundRect = RoundRectGraphic(0,0,100,100,Fillet(50),FillStyle(.blue),nil)
+        
         window.contentView?.addSubview(roundRect.graphic)
         roundRect.draw()
+        roundRect.graphic.layer?.position = CGPoint(50,20)
         
-        let anim1 = Animator2.init(initValues:(dur:2,from:0,to:1), easing:Easing.cubic.easeInOut) { value in
+        let anim1 = Animator2.init(initValues:(dur:2,from:0,to:1), easing:Easing.cubic.easeOut) { value in
             disableAnim {
                 
                 /*fillet*/
@@ -65,6 +67,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 /*color*/
                 let color = NSColor.blue.interpolate(.red, value)
                 roundRect.graphic.fillStyle = FillStyle(color)
+                
+                
                 
                 /*Position*/
                 roundRect.graphic.layer?.position = CGPoint(50,20 + (30 * value))
