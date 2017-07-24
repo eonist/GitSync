@@ -51,9 +51,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         var color:CGFloat = 0
     }
     class Testing{
-        /**
-         *
-         */
         func test(){
             let animState:Something = .init(color: 0)
             _ = animState
