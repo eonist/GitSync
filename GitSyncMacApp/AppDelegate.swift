@@ -52,12 +52,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func easer3Test(){
-        func progress(value:CGFloat){/*This method gets called 60FPS, add the values to be manipulated here*/
+        func progress(value:CGPoint){/*This method gets called 60FPS, add the values to be manipulated here*/
             Swift.print("value: " + "\(value)")
         }
         //(progress, PointEaser.initValues,PointEaser.initConfig)/*Setup interuptable animator*/
-        let initial = AnimationState<CGFloat>.init(value: 0.0, velocity: 0.2, target: 100, stopVelocity: 0)
-        let target = AnimationState<CGFloat>.init(value: 0.0, velocity: 0.2, target: 100, stopVelocity: 0)
+        let initial = AnimationState(value: CGPoint(0.0,0.0), velocity: CGPoint(0.2,0.2), target: CGPoint(100,100), stopVelocity: CGPoint(0,0))
+        let target = AnimationState(value: CGPoint(0.0,0.0), velocity: CGPoint(0.2,0.2), target: CGPoint(100,100), stopVelocity: CGPoint(0,0))
         let animator = Easer3.init(initial: initial, target: target, damping: 0.2, progress)
         //animator.targetValue = 100
         animator.start()
