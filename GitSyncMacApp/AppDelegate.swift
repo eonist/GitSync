@@ -61,10 +61,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             animator.start()
         }()
         _ = {
-            let pointAnimator = Springer4<CGPoint>(initPointValues,initPointSpringerConfig){ val in
+            let animator = Springer4<CGPoint>(initPointValues,initPointSpringerConfig){ val in
                 Swift.print("val: " + "\(val)")
             }
-            pointAnimator.start()
+            animator.start()
         }
     }
     /**
@@ -77,14 +77,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
             animator.targetValue = 100
             animator.start()
-        }()
+        }
         _ = {
-            let pointAnimator = Easer4<CGPoint>(initPointValues,initPointConfig){ val in
+            let animator = Easer4<CGPoint>(initPointValues,initPointConfig){ val in
                 Swift.print("val: " + "\(val)")
             }
-            animator.targetValue = CGPoint(100)
-            pointAnimator.start()
-        }
+            animator.targetValue = CGPoint(100,100)
+            animator.start()
+        }()
     }
     /**
      *
