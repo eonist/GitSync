@@ -128,9 +128,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             return CGRect(p,size)
         }()
         
+        let startColor:NSColor = .blue
         let startFillet:CGFloat = 35
         let roundRect:RoundRectGraphic = {
-            let roundRect = RoundRectGraphic(0,0,startRect.w,startRect.h,Fillet(startFillet),FillStyle(NSColor.yellow.alpha(1)),nil)
+            let roundRect = RoundRectGraphic(0,0,startRect.w,startRect.h,Fillet(startFillet),FillStyle(startColor.alpha(1)),nil)
             window.contentView?.addSubview(roundRect.graphic)
             roundRect.draw()
             roundRect.graphic.layer?.position = startRect.origin
@@ -142,17 +143,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
+        let endColor:NSColor = .red
         let endFillet:CGFloat = 20
 
         /*Elastic anim to roundRect state*/
-        let anim = Animator2.init(initValues:(dur:0.6,from:0,to:1), easing:Easing.elastic.easeInOut) { value in
+        let anim = Animator2.init(initValues:(dur:0.8,from:0,to:1), easing:Easing.bounce.easeOut) { value in
             disableAnim {
                 /*Fillet*/
                 let fillet:Fillet = Fillet(startFillet.interpolate(endFillet, value))
                 roundRect.fillet = fillet
                 
                 /*Color*/
-                let color = NSColor.yellow.interpolate(.purple, value)
+                let color = NSColor.yellow.interpolate(endColor, value)
                 roundRect.graphic.fillStyle = FillStyle(color)
                 
                 /*Size*/
@@ -169,7 +171,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         anim.completed = {
             bgSleep(1){/*delay anim for 1 secs*/
-                anim.initValues = (dur:0.6,from:1,to:0)/*reverse*/
+                anim.initValues = (dur:0.8,from:1,to:0)/*reverse*/
                 anim.currentFrameCount = 0/*reset*/
                 anim.completed = {}/*reset*/
                 anim.start()/*start the reverse anim*/
