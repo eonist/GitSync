@@ -181,7 +181,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         
-        bgSleep(3){/*delay anim for 2 secs*/
+        bgSleep(30){/*delay anim for 2 secs*/
             anim.start()
         }
         //reverse
