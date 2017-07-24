@@ -58,7 +58,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //(progress, PointEaser.initValues,PointEaser.initConfig)/*Setup interuptable animator*/
         let initial = AnimationState<CGPoint>(value: CGPoint(0.0,0.0), velocity: CGPoint(0.2,0.2), target: CGPoint(100,100), stopVelocity: CGPoint(0,0))
         let target = AnimationState<CGPoint>(value: CGPoint(0.0,0.0), velocity: CGPoint(0.2,0.2), target: CGPoint(100,100), stopVelocity: CGPoint(0,0))
-        let animator = Easer3.init(initial: initial, target: target, damping: 0.2, progress)
+        let animator = Easer3.init(initial: initial, target: target, damping: CGPoint(0.2,0.2), progress)
         //animator.targetValue = 100
         animator.start()
         
