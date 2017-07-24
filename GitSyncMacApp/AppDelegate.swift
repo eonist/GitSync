@@ -131,7 +131,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let startColor:NSColor = .gray
         let startFillet:CGFloat = 20
         let roundRect:RoundRectGraphic = {
-            let roundRect = RoundRectGraphic(0,0,startRect.w,startRect.h,Fillet(startFillet),FillStyle(startColor.alpha(1)),nil)
+            let roundRect = RoundRectGraphic(0,0,startRect.w,startRect.h,Fillet(startFillet),FillStyle(startColor),nil)
             window.contentView?.addSubview(roundRect.graphic)
             roundRect.draw()
             roundRect.graphic.layer?.position = startRect.origin
