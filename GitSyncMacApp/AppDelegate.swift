@@ -46,6 +46,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //animator2Test()
         //circle2RectAnimTest()
         //zoomBackAndForthAnimTest()
+        easer4Test()
     }
 
     /**
@@ -81,8 +82,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             let pointAnimator = Easer4<CGPoint>(initPointValues,initPointConfig){ val in
                 Swift.print("val: " + "\(val)")
             }
+            animator.targetValue = CGPoint(100)
             pointAnimator.start()
-        }()
+        }
     }
     /**
      *
