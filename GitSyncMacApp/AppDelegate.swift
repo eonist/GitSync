@@ -74,7 +74,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let startRect2 = CGRect.init(rect.center,CGSize(0,0))
         
         let roundRect2:RoundRectGraphic = {
-            let roundRect = RoundRectGraphic(startRect2.x,startRect2.y,startRect2.w,startRect2.h,Fillet(0),FillStyle(.green),nil)
+            let roundRect = RoundRectGraphic(0,0,startRect2.w,startRect2.h,Fillet(0),FillStyle(.green),nil)
             window.contentView?.addSubview(roundRect.graphic)
             roundRect.draw()
             roundRect.graphic.layer?.position = startRect.origin
