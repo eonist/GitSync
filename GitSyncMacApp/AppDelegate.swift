@@ -34,9 +34,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //color ✅
                 //find some anims you would like to replicate, see awesome list for examples etc
                 //simultaniouse anims etc, color and position at the same time etc ✅
-                    //add modal box reveal, alpha, size, color, position
+                    //add modal box reveal, alpha, size, color, position ✅
                     //try with out disableAnim
-                //do circle to roundRect z-zoom effect, maybedropShadow increase, with bounce back and forth ✅
+                //do circle to roundRect z-zoom effect, maybedropShadow increase, with bounce back and forth
                 //try to do a rotation test back and forth with elastic
                 //Playground testing 👈👈👈
         
@@ -44,9 +44,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //also add bgSleep(1.5){anim.start} aka a non blocking sleep method ✅
         
         //animator2Test()
-        circle2RectAnimTest()
+        //circle2RectAnimTest()
+        zoomBackAndForthAnimTest()
     }
     //circle to rect and color test
+    
+    /**
+     *
+     */
+    func zoomBackAndForthAnimTest(){
+        
+    }
     /**
      *
      */
