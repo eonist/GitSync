@@ -133,9 +133,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     roundRect2.draw()
                 }()
             }
-        }.onComplete {
-                Swift.print("animation completed 🏁")
         }
+        anim1.initValues = (dur:0.6,from:1,to:0)
         
         bgSleep(2){//delay anim for 2 secs
             anim1.start()
