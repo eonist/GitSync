@@ -119,12 +119,81 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         StyleManager.addStyle("#bg{fill:white;}")
         window.contentView?.addSubview(Section(window.size.w,window.size.h,nil,"bg"))
         
-        //circle, 100x100,centered
-        
+        //circle, 70-radius,centered
+        let startRect = CGRect.init(rect.center,CGSize(70,70))
+        let roundRect:RoundRectGraphic = {
+            let roundRect = RoundRectGraphic(0,0,startRect.w,startRect.h,Fillet(35),FillStyle(NSColor.yellow.alpha(1)),nil)
+            window.contentView?.addSubview(roundRect.graphic)
+            roundRect.draw()
+            roundRect.graphic.layer?.position = startRect.origin
+            return roundRect
+        }()
         //roundRect, 150x150, Fillet:25, centered
-        
+        let endRect = CGRect()
+
         //elastic anim to roundRect state
+        let anim1 = Animator2.init(initValues:(dur:0.6,from:0,to:1), easing:Easing.expo.easeOut) { value in
+            disableAnim {
+                /*roundRect1*/
+                _ = {
+                    /*Fillet*/
+                    let fillet:Fillet = Fillet(50+(-25*value))
+                    roundRect.fillet = fillet
+                    
+                    /*Color*/
+                    let color = NSColor.blue.interpolate(.red, value)
+                    roundRect.graphic.fillStyle = FillStyle(color)
+                    
+                    /*Size*/
+                    let endSize = CGSize(150,50)
+                    let newSize = startRect.size.interpolate(endSize, value)
+                    roundRect.size = newSize
+                    
+                    /*Position*/
+                    let endP = CGPoint(25,25)
+                    let newP = startRect.origin.interpolate(endP, value)
+                    roundRect.graphic.layer?.position = newP
+                    
+                    /*Draw it all*/
+                    roundRect.draw()
+                }()
+                /*roundRect2*/
+                _ = {
+                    /*Fillet*/
+                    let fillet:Fillet = Fillet((25*value))
+                    roundRect2.fillet = fillet
+                    
+                    /*Color*/
+                    let color = NSColor.green.interpolate(NSColor.green.alpha(1), value)
+                    roundRect2.graphic.fillStyle = FillStyle(color)
+                    
+                    /*Size*/
+                    let endSize = CGSize(150,150)
+                    let newSize = startRect2.size.interpolate(endSize, value)
+                    roundRect2.size = newSize
+                    
+                    /*Position*/
+                    let endP = CGPoint(25,100)
+                    let newP = startRect2.origin.interpolate(endP, value)
+                    roundRect2.graphic.layer?.position = newP
+                    
+                    /*Draw it all*/
+                    roundRect2.draw()
+                }()
+            }
+        }
+        anim1.completed = {
+            bgSleep(1){/*delay anim for 1 secs*/
+                anim1.initValues = (dur:0.6,from:1,to:0)/*reverse*/
+                anim1.currentFrameCount = 0/*reset*/
+                anim1.completed = {}/*reset*/
+                anim1.start()/*start the reverse anim*/
+            }
+        }
         
+        bgSleep(30){/*delay anim for 2 secs*/
+            anim1.start()
+        }
         //reverse
         
     }
