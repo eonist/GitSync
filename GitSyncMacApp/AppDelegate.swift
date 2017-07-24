@@ -48,7 +48,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //animator2Test()
         //circle2RectAnimTest()
         //zoomBackAndForthAnimTest()
-        easer4Test()
+        //easer4Test()
+        zoomBackAndForthAnimTest()
     }
 
     /**
@@ -111,8 +112,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func zoomBackAndForthAnimTest(){
         //Setup window 200x300,white
-        let rect = CGRect(0,0,200,300)
-        window.size = rect.size
+        let winRect = CGRect(0,0,200,300)
+        window.size = winRect.size
         window.contentView = InteractiveView2()
         window.title = ""
         
@@ -123,12 +124,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let startRect:CGRect = {
             let size:CGSize = CGSize(70,70)
-            let p:CGPoint = Align.alignmentPoint(size, rect.size, Alignment.centerCenter, Alignment.centerCenter)
+            let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
         
+        let startFillet:CGFloat = 35
         let roundRect:RoundRectGraphic = {
-            let roundRect = RoundRectGraphic(0,0,startRect.w,startRect.h,Fillet(35),FillStyle(NSColor.yellow.alpha(1)),nil)
+            let roundRect = RoundRectGraphic(0,0,startRect.w,startRect.h,Fillet(startFillet),FillStyle(NSColor.yellow.alpha(1)),nil)
             window.contentView?.addSubview(roundRect.graphic)
             roundRect.draw()
             roundRect.graphic.layer?.position = startRect.origin
@@ -137,36 +139,32 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //roundRect, 150x150, Fillet:25, centered
         let endRect:CGRect = {
             let size:CGSize = CGSize(150,150)
-            let p:CGPoint = Align.alignmentPoint(size, rect.size, Alignment.centerCenter, Alignment.centerCenter)
+            let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
+        let endFillet:CGFloat = 20
 
-        //elastic anim to roundRect state
-        let anim = Animator2.init(initValues:(dur:0.6,from:0,to:1), easing:Easing.elastic.easeOut) { value in
+        /*Elastic anim to roundRect state*/
+        let anim = Animator2.init(initValues:(dur:0.6,from:0,to:1), easing:Easing.elastic.easeInOut) { value in
             disableAnim {
-            
                 /*Fillet*/
-                let fillet:Fillet = Fillet(50+(-25*value))
+                let fillet:Fillet = Fillet(startFillet.interpolate(endFillet, value))
                 roundRect.fillet = fillet
                 
                 /*Color*/
-                let color = NSColor.blue.interpolate(.red, value)
+                let color = NSColor.yellow.interpolate(.purple, value)
                 roundRect.graphic.fillStyle = FillStyle(color)
                 
                 /*Size*/
-                let endSize = CGSize(150,50)
-                let newSize = startRect.size.interpolate(endSize, value)
+                let newSize = startRect.size.interpolate(endRect.size, value)
                 roundRect.size = newSize
                 
                 /*Position*/
-                let endP = CGPoint(25,25)
-                let newP = startRect.origin.interpolate(endP, value)
+                let newP = startRect.origin.interpolate(endRect.origin, value)
                 roundRect.graphic.layer?.position = newP
                 
                 /*Draw it all*/
                 roundRect.draw()
-                
-                
             }
         }
         anim.completed = {
