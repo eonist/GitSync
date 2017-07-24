@@ -117,14 +117,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     roundRect2.graphic.fillStyle = FillStyle(color)
                     
                     /*Size*/
-                    let endSize = CGSize(150,50)
+                    let endSize = CGSize(150,150)
                     let newSize = startRect.size.interpolate(endSize, value)
-                    roundRect.size = newSize
+                    roundRect2.size = newSize
 
                     /*Position*/
+                    let endP = CGPoint(25,100)
+                    let newP = startRect2.origin.interpolate(endP, value)
+                    roundRect2.graphic.layer?.position = newP
                     
                     /*Draw it all*/
-
+                    roundRect2.draw()
                 }()
             }
         }.onComplete {
