@@ -50,7 +50,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
 
     /**
-     *
+     * Springer4 tests
      */
     func springer4Test(){
         _ = {
@@ -68,7 +68,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
     }
     /**
-     *
+     * Easer4 tests
      */
     func easer4Test(){
         _ = {
