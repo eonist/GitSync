@@ -38,6 +38,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     //add modal box reveal, alpha, size, color, position ✅
                     //try with out disableAnim
                 //do circle to roundRect z-zoom effect, maybedropShadow increase, with bounce back and forth
+                //Try to make
                 //try to do a rotation test back and forth with elastic
                 //Playground testing 👈👈👈
         
