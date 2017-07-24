@@ -51,12 +51,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func easer4Test(){
-        let initial = AnimationState(value: CGPoint(0.0,0.0), velocity: CGPoint(0.2,0.2), target: CGPoint(0,0), stopVelocity: CGPoint(0,0))
-        //        let target = AnimationState(value: CGPoint(0.0,0.0), velocity: CGPoint(0.2,0.2), target: CGPoint(100,100), stopVelocity: CGPoint(0,0))
-        //        let animator = Easer3(initial: initial, target: target, damping: CGPoint(0.2,0.2)) { (value:CGPoint) in
-        //            Swift.print("value: " + "\(value)")
-        //        }
-        //        animator.start()
+        //let initial = AnimationState(value: CGPoint(0.0,0.0), velocity: CGPoint(0.2,0.2), target: CGPoint(0,0), stopVelocity: CGPoint(0,0))
+        //let target = AnimationState(value: CGPoint(0.0,0.0), velocity: CGPoint(0.2,0.2), target: CGPoint(100,100), stopVelocity: CGPoint(0,0))
+        
+//        let animator = PointEaser(Easer4.initValues,Easer4.initConfig){ (value:CGPoint) in
+//            Swift.print("value: " + "\(value)")
+//        }
+//        animator.start()
+//        
+        
     }
     /**
      *
