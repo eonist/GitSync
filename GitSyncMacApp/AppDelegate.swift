@@ -56,12 +56,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //let initial = AnimationState(value: CGPoint(0.0,0.0), velocity: CGPoint(0.2,0.2), target: CGPoint(0,0), stopVelocity: CGPoint(0,0))
         //let target = AnimationState(value: CGPoint(0.0,0.0), velocity: CGPoint(0.2,0.2), target: CGPoint(100,100), stopVelocity: CGPoint(0,0))
         
-        let animator:Easer4<CGFloat> = Easer4(Easer4<CGFloat>.initValues,Easer4<CGFloat>.initConfig){ (value:CGFloat) in
-            Swift.print("value: " + "\(value)")
+        let animator:Easer4<CGFloat> = .init(initValues,initConfig){ val in
+            Swift.print("val: " + "\(val)")
         }
         animator.start()
         
+        let pointAnimator:Easer4<CGPoint> = .init(initPointValues,initPointConfig){ val in
+            Swift.print("val: " + "\(val)")
+        }
+        pointAnimator.start()
         
+        //make the Springer by extending easer
     }
     /**
      *
