@@ -47,15 +47,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //circle2RectAnimTest()
         //zoomBackAndForthAnimTest()
     }
-    struct Something{
-        var color:CGFloat = 0
-    }
-    class Testing{
-        func test(){
-            let animState:Something = .init(color: 0)
-            _ = animState
-        }
-    }
+
     
     /**
      *
