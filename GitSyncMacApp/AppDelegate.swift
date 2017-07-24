@@ -44,11 +44,24 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //also add bgSleep(1.5){anim.start} aka a non blocking sleep method ✅
         
         //animator2Test()
-        circle2RectAnimTest()
+        //circle2RectAnimTest()
         //zoomBackAndForthAnimTest()
     }
     //circle to rect and color test
-    
+    /**
+     *
+     */
+    func easer3Test(){
+        func progress(value:CGPoint){/*This method gets called 60FPS, add the values to be manipulated here*/
+            Swift.print("value: " + "\(value)")
+        }
+        //(progress, PointEaser.initValues,PointEaser.initConfig)/*Setup interuptable animator*/
+        let animator = Easer3
+        animator.targetValue = bg!.localPos()
+        animator.start()
+        //animator.stopped
+        
+    }
     /**
      *
      */
