@@ -110,6 +110,22 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func zoomBackAndForthAnimTest(){
+        //Setup window 200x300,white
+        let rect = CGRect(0,0,200,300)
+        window.size = rect.size
+        window.contentView = InteractiveView2()
+        window.title = ""
+        
+        StyleManager.addStyle("#bg{fill:white;}")
+        window.contentView?.addSubview(Section(window.size.w,window.size.h,nil,"bg"))
+        
+        //circle, 100x100,centered
+        
+        //roundRect, 150x150, Fillet:25, centered
+        
+        //elastic anim to roundRect state
+        
+        //reverse
         
     }
     /**
