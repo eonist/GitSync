@@ -59,13 +59,20 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         StyleManager.addStyle("#bg{fill:white;}")
         window.contentView?.addSubview(Section(window.size.w,window.size.h,nil,"bg"))
         
-        let startSize = CGSize(100,100)
-        let roundRect = RoundRectGraphic(0,0,startSize.w,startSize.h,Fillet(50),FillStyle(.blue),nil)
         
-        window.contentView?.addSubview(roundRect.graphic)
-        roundRect.draw()
+        let startSize = CGSize(100,100)
         let startP = CGPoint(50,100)
-        roundRect.graphic.layer?.position = startP
+        
+        let roundRect:RoundRectGraphic = {
+            let roundRect = RoundRectGraphic(0,0,startSize.w,startSize.h,Fillet(50),FillStyle(.blue),nil)
+            window.contentView?.addSubview(roundRect.graphic)
+            roundRect.draw()
+            roundRect.graphic.layer?.position = startP
+            return roundRect
+        }()
+        
+        
+        
         
         let anim1 = Animator2.init(initValues:(dur:0.6,from:0,to:1), easing:Easing.expo.easeOut) { value in
             disableAnim {
