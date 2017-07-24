@@ -44,8 +44,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //also add bgSleep(1.5){anim.start} aka a non blocking sleep method ✅
         
         //animator2Test()
-        //circle2RectAnimTest()
-        zoomBackAndForthAnimTest()
+        circle2RectAnimTest()
+        //zoomBackAndForthAnimTest()
     }
     //circle to rect and color test
     
@@ -143,7 +143,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         anim1.completed = {
-            bgSleep(2){//delay anim for 2 secs
+            bgSleep(2){/*delay anim for 2 secs*/
                 anim1.initValues = (dur:0.6,from:1,to:0)/*reverse*/
                 anim1.currentFrameCount = 0/*reset*/
                 anim1.completed = {}/*reset*/
@@ -152,7 +152,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         
         
-        bgSleep(2){//delay anim for 2 secs
+        bgSleep(30){/*delay anim for 2 secs*/
             anim1.start()
         }
 
