@@ -128,7 +128,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             return CGRect(p,size)
         }()
         
-        let startColor:NSColor = .blue
+        let startColor:NSColor = .gray
         let startFillet:CGFloat = 20
         let roundRect:RoundRectGraphic = {
             let roundRect = RoundRectGraphic(0,0,startRect.w,startRect.h,Fillet(startFillet),FillStyle(startColor.alpha(1)),nil)
@@ -143,7 +143,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
-        let endColor:NSColor = .red
+        let endColor:NSColor = .black
         let endFillet:CGFloat = 35
 
         /*Elastic anim to roundRect state*/
@@ -178,7 +178,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         
-        bgSleep(2){/*delay anim for 2 secs*/
+        bgSleep(30){/*delay anim for 2 secs*/
             anim.start()
         }
         //reverse
