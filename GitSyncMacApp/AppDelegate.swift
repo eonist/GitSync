@@ -36,7 +36,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //simultaniouse anims etc, color and position at the same time etc ✅
                     //add modal box reveal, alpha, size, color, position
                     //try with out disableAnim
-                //do circle to roundRect z-zoom effect, maybedropShadow increase, with bounce back and forth 👈
+                //do circle to roundRect z-zoom effect, maybedropShadow increase, with bounce back and forth ✅
                 //try to do a rotation test back and forth with elastic
                 //Playground testing 👈👈👈
         
@@ -136,9 +136,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         anim1.completed = {
             bgSleep(2){//delay anim for 2 secs
-                anim1.initValues = (dur:0.6,from:1,to:0)
-                anim1.currentFrameCount = 0
-                anim1.start()
+                anim1.initValues = (dur:0.6,from:1,to:0)/*reverse*/
+                anim1.currentFrameCount = 0/*reset*/
+                anim1.completed = {}/*reset*/
+                anim1.start()/*start the reverse anim*/
             }
         }
         
