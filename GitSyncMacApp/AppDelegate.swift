@@ -48,7 +48,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //zoomBackAndForthAnimTest()
     }
 
-    
+    /**
+     *
+     */
+    func springer4Test(){
+        
+    }
     /**
      *
      */
