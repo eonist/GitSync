@@ -52,7 +52,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func springer4Test(){
+        let animator:Springer4<CGFloat> = .init(initValues,initSpringerConfig){ val in
+            Swift.print("val: " + "\(val)")
+        }
+        animator.start()
         
+        let pointAnimator:Springer4<CGPoint> = .init(initPointValues,initPointSpringerConfig){ val in
+            Swift.print("val: " + "\(val)")
+        }
+        pointAnimator.start()
     }
     /**
      *
