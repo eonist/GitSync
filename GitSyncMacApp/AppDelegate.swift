@@ -56,9 +56,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             Swift.print("value: " + "\(value)")
         }
         //(progress, PointEaser.initValues,PointEaser.initConfig)/*Setup interuptable animator*/
-        let animator = Easer3
-        animator.targetValue = bg!.localPos()
-        animator.start()
+//        Easer3.
+//        animator.targetValue = 100
+//        animator.start()
+//        
         //animator.stopped
         
     }
