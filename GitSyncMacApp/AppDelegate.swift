@@ -74,6 +74,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             let animator = Easer4<CGFloat>(initValues,initConfig){ val in
                 Swift.print("val: " + "\(val)")
             }
+            animator.targetValue = 100
             animator.start()
         }()
         _ = {
