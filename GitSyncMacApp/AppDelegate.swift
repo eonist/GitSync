@@ -83,26 +83,43 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let anim1 = Animator2.init(initValues:(dur:0.6,from:0,to:1), easing:Easing.expo.easeOut) { value in
             disableAnim {
+                let a = {
+                    /*Fillet*/
+                    let fillet:Fillet = Fillet(50+(-25*value))
+                    roundRect.fillet = fillet
+                    
+                    /*Color*/
+                    let color = NSColor.blue.interpolate(.red, value)
+                    roundRect.graphic.fillStyle = FillStyle(color)
+                    
+                    /*Size*/
+                    let endSize = CGSize(150,50)
+                    let newSize = startRect.size.interpolate(endSize, value)
+                    roundRect.size = newSize
+                    
+                    /*Position*/
+                    let endP = CGPoint(25,25)
+                    let newP = startRect.origin.interpolate(endP, value)
+                    roundRect.graphic.layer?.position = newP
+                    
+                    /*Draw it all*/
+                    roundRect.draw()
+                }()
                 
-                /*fillet*/
-                let fillet:Fillet = Fillet(50+(-25*value))
-                roundRect.fillet = fillet
-                
-                /*color*/
-                let color = NSColor.blue.interpolate(.red, value)
-                roundRect.graphic.fillStyle = FillStyle(color)
-                
-                let endSize = CGSize(150,50)
-                let newSize = startRect.size.interpolate(endSize, value)
-                roundRect.size = newSize
-                
-                /*Position*/
-                let endP = CGPoint(25,25)
-                let newP = startRect.origin.interpolate(endP, value)
-                roundRect.graphic.layer?.position = newP
-                
-                /*Draw it all*/
-                roundRect.draw()
+                let b = {
+                    /*Fillet*/
+                    let fillet:Fillet = Fillet((25*value))
+                    roundRect.fillet = fillet
+                    
+                    /*Color*/
+                    
+                    /*Size*/
+                    
+                    /*Position*/
+                    
+                    /*Draw it all*/
+
+                }()
             }
         }.onComplete {
                 Swift.print("animation completed 🏁")
