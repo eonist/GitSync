@@ -52,17 +52,29 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func circle2RectAnimTest(){
         /*Setup a window*/
-        window.size = CGSize(200,300)
+        let rect = CGRect(0,0,200,300)
+        window.size = rect.size
         window.contentView = InteractiveView2()
         window.title = ""
         
         StyleManager.addStyle("#bg{fill:white;}")
         window.contentView?.addSubview(Section(window.size.w,window.size.h,nil,"bg"))
         
-        let startRect:CGRect = CGRect.init(CGPoint(50,100),CGSize(100,100))
+        let startRect = CGRect.init(CGPoint(50,100),CGSize(100,100))
         
         let roundRect:RoundRectGraphic = {
             let roundRect = RoundRectGraphic(0,0,startRect.w,startRect.h,Fillet(50),FillStyle(.blue),nil)
+            window.contentView?.addSubview(roundRect.graphic)
+            roundRect.draw()
+            roundRect.graphic.layer?.position = startRect.origin
+            return roundRect
+        }()
+        
+        
+        let startRect2 = CGRect.init(rect.center,CGSize(0,0))
+        
+        let roundRect2:RoundRectGraphic = {
+            let roundRect = RoundRectGraphic(startRect2.x,startRect2.y,startRect2.w,startRect2.h,Fillet(0),FillStyle(.green),nil)
             window.contentView?.addSubview(roundRect.graphic)
             roundRect.draw()
             roundRect.graphic.layer?.position = startRect.origin
