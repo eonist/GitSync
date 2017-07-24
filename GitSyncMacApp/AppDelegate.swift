@@ -143,7 +143,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         anim1.completed = {
-            bgSleep(2){/*delay anim for 2 secs*/
+            bgSleep(1){/*delay anim for 1 secs*/
                 anim1.initValues = (dur:0.6,from:1,to:0)/*reverse*/
                 anim1.currentFrameCount = 0/*reset*/
                 anim1.completed = {}/*reset*/
