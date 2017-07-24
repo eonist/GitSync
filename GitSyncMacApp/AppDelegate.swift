@@ -130,14 +130,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let startColor:NSColor = .gray
         let startFillet:CGFloat = 20
-        let roundRect:RoundRectGraphic = {
-            let roundRect = RoundRectGraphic(0,0,startRect.w,startRect.h,Fillet(startFillet),FillStyle(startColor),nil)
-            window.contentView?.addSubview(roundRect.graphic)
-            roundRect.draw()
-            roundRect.graphic.layer?.position = startRect.origin
-            return roundRect
-        }()
-        //roundRect, 150x150, Fillet:25, centered
+                //roundRect, 150x150, Fillet:25, centered
         let endRect:CGRect = {
             let size:CGSize = CGSize(150,150)
             let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
@@ -146,9 +139,19 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let endColor:NSColor = .black
         let endFillet:CGFloat = 35
 
+        let roundRect:RoundRectGraphic = {
+            let roundRect = RoundRectGraphic(0,0,startRect.w,startRect.h,Fillet(startFillet),FillStyle( startColor.interpolate(endColor, 0)),nil)
+            window.contentView?.addSubview(roundRect.graphic)
+            roundRect.draw()
+            roundRect.graphic.layer?.position = startRect.origin
+            return roundRect
+        }()
+
+        
         /*Elastic anim to roundRect state*/
         let anim = Animator2.init(initValues:(dur:0.8,from:0,to:1), easing:Easing.elastic.easeOut) { value in
             disableAnim {
+                Swift.print("value: " + "\(value)")
                 /*Fillet*/
                 let fillet:Fillet = Fillet(startFillet.interpolate(endFillet, value))
                 roundRect.fillet = fillet
@@ -178,7 +181,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         
-        bgSleep(30){/*delay anim for 2 secs*/
+        bgSleep(3){/*delay anim for 2 secs*/
             anim.start()
         }
         //reverse
