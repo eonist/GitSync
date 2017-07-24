@@ -83,7 +83,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let anim1 = Animator2.init(initValues:(dur:0.6,from:0,to:1), easing:Easing.expo.easeOut) { value in
             disableAnim {
-                let a = {
+                /*roundRect1*/
+                _ = {
                     /*Fillet*/
                     let fillet:Fillet = Fillet(50+(-25*value))
                     roundRect.fillet = fillet
@@ -105,16 +106,21 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     /*Draw it all*/
                     roundRect.draw()
                 }()
-                
-                let b = {
+                /*roundRect2*/
+                _ = {
                     /*Fillet*/
                     let fillet:Fillet = Fillet((25*value))
-                    roundRect.fillet = fillet
+                    roundRect2.fillet = fillet
                     
                     /*Color*/
+                    let color = NSColor.green.interpolate(.blue, value)
+                    roundRect2.graphic.fillStyle = FillStyle(color)
                     
                     /*Size*/
-                    
+                    let endSize = CGSize(150,50)
+                    let newSize = startRect.size.interpolate(endSize, value)
+                    roundRect.size = newSize
+
                     /*Position*/
                     
                     /*Draw it all*/
