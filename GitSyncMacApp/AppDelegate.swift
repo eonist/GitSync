@@ -52,12 +52,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func springer4Test(){
-        let animator:Springer4<CGFloat> = .init(initValues,initSpringerConfig){ val in
+        let animator = Springer4<CGFloat>(initValues,initSpringerConfig){ val in
             Swift.print("val: " + "\(val)")
         }
         animator.start()
-        
-        let pointAnimator:Springer4<CGPoint> = .init(initPointValues,initPointSpringerConfig){ val in
+        let pointAnimator = Springer4<CGPoint>(initPointValues,initPointSpringerConfig){ val in
             Swift.print("val: " + "\(val)")
         }
         pointAnimator.start()
@@ -66,20 +65,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      *
      */
     func easer4Test(){
-        //let initial = AnimationState(value: CGPoint(0.0,0.0), velocity: CGPoint(0.2,0.2), target: CGPoint(0,0), stopVelocity: CGPoint(0,0))
-        //let target = AnimationState(value: CGPoint(0.0,0.0), velocity: CGPoint(0.2,0.2), target: CGPoint(100,100), stopVelocity: CGPoint(0,0))
-        
-        let animator:Easer4<CGFloat> = .init(initValues,initConfig){ val in
+        let animator = Easer4<CGFloat>(initValues,initConfig){ val in
             Swift.print("val: " + "\(val)")
         }
         animator.start()
-        
-        let pointAnimator:Easer4<CGPoint> = .init(initPointValues,initPointConfig){ val in
+        let pointAnimator = Easer4<CGPoint>(initPointValues,initPointConfig){ val in
             Swift.print("val: " + "\(val)")
         }
         pointAnimator.start()
-        
-        //make the Springer by extending easer
     }
     /**
      *
