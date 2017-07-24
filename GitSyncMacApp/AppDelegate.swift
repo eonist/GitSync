@@ -120,8 +120,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView?.addSubview(Section(window.size.w,window.size.h,nil,"bg"))
         
         //circle, 70-radius,centered
-        let startP = Align.
-        let startRect = CGRect.init(rect.center,CGSize(70,70))
+        
+        let startRect:CGRect = {
+            let size:CGSize = CGSize(70,70)
+            let p:CGPoint = Align.alignmentPoint(size, rect.size, Alignment.centerCenter, Alignment.centerCenter)
+            return CGRect(p,size)
+        }()
+        
         let roundRect:RoundRectGraphic = {
             let roundRect = RoundRectGraphic(0,0,startRect.w,startRect.h,Fillet(35),FillStyle(NSColor.yellow.alpha(1)),nil)
             window.contentView?.addSubview(roundRect.graphic)
@@ -130,7 +135,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             return roundRect
         }()
         //roundRect, 150x150, Fillet:25, centered
-        let endRect = CGRect(150,150)
+        let endRect:CGRect = {
+            let size:CGSize = CGSize(150,150)
+            let p:CGPoint = Align.alignmentPoint(size, rect.size, Alignment.centerCenter, Alignment.centerCenter)
+            return CGRect(p,size)
+        }()
 
         //elastic anim to roundRect state
         let anim = Animator2.init(initValues:(dur:0.6,from:0,to:1), easing:Easing.elastic.easeOut) { value in
