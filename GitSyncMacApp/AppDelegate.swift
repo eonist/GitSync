@@ -74,14 +74,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let startRect2 = CGRect.init(rect.center,CGSize(0,0))
         
         let roundRect2:RoundRectGraphic = {
-            let roundRect = RoundRectGraphic(0,0,startRect2.w,startRect2.h,Fillet(0),FillStyle(.green),nil)
+            let roundRect = RoundRectGraphic(0,0,startRect2.w,startRect2.h,Fillet(0),FillStyle(NSColor.green.alpha(0)),nil)
             window.contentView?.addSubview(roundRect.graphic)
             roundRect.draw()
             roundRect.graphic.layer?.position = startRect.origin
             return roundRect
         }()
         
-        let anim1 = Animator2.init(initValues:(dur:0.6,from:0,to:1), easing:Easing.expo.easeOut) { value in
+        let anim1 = Animator2.init(initValues:(dur:2.6,from:0,to:1), easing:Easing.expo.easeOut) { value in
             disableAnim {
                 /*roundRect1*/
                 _ = {
@@ -113,7 +113,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     roundRect2.fillet = fillet
                     
                     /*Color*/
-                    let color = NSColor.green.interpolate(.blue, value)
+                    let color = NSColor.green.interpolate(NSColor.blue.alpha(1), value)
                     roundRect2.graphic.fillStyle = FillStyle(color)
                     
                     /*Size*/
