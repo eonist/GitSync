@@ -129,7 +129,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }()
         
         let startColor:NSColor = .blue
-        let startFillet:CGFloat = 35
+        let startFillet:CGFloat = 20
         let roundRect:RoundRectGraphic = {
             let roundRect = RoundRectGraphic(0,0,startRect.w,startRect.h,Fillet(startFillet),FillStyle(startColor.alpha(1)),nil)
             window.contentView?.addSubview(roundRect.graphic)
@@ -144,17 +144,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             return CGRect(p,size)
         }()
         let endColor:NSColor = .red
-        let endFillet:CGFloat = 20
+        let endFillet:CGFloat = 35
 
         /*Elastic anim to roundRect state*/
-        let anim = Animator2.init(initValues:(dur:0.8,from:0,to:1), easing:Easing.bounce.easeOut) { value in
+        let anim = Animator2.init(initValues:(dur:0.8,from:0,to:1), easing:Easing.elastic.easeOut) { value in
             disableAnim {
                 /*Fillet*/
                 let fillet:Fillet = Fillet(startFillet.interpolate(endFillet, value))
                 roundRect.fillet = fillet
                 
                 /*Color*/
-                let color = NSColor.yellow.interpolate(endColor, value)
+                let color = startColor.interpolate(endColor, value)
                 roundRect.graphic.fillStyle = FillStyle(color)
                 
                 /*Size*/
