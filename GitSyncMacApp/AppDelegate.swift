@@ -47,6 +47,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let text = Text(200,24,"0.0",section,"pressureText")
         section?.addSubview(text)
         
+        let text2 = Text(200,24,"idle",section,"stageText")
+        section?.addSubview(text2)
+
+        
         
         
         
@@ -92,12 +96,15 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 if stage == 0 {
                     StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.blue)
                     Swift.print("override to blue")
+                    text2.setText("idle")
                 }else if stage == 1{
                     StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.red)
                     Swift.print("override to red")
+                    text2.setText("click")
                 }else /*if stage == 2*/{
                     StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.green)
                     Swift.print("override to green")
+                    text2.setText("deep click")
                 }
             }
             if event.type == ForceTouchEvent.pressureChange {
