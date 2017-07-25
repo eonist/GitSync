@@ -83,14 +83,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 let newPoint = initRect.origin.interpolate(minRect.origin, scalar)
                 
                 //Edit the shape of the button, TODO: ⚠️️ clean the bellow up later. no forced unwraps and more direct calls plz
-                let style:IStyle = btn.skin!.style!
+                var style:Style = btn.skin!.style! as! Style
                 var widthProp = style.getStyleProperty("width")
                 widthProp!.value = newSize.w
+                StyleModifier.overrideStyleProperty(&style, widthProp!)
                 var heightProp = style.getStyleProperty("height")
                 heightProp!.value = newSize.h
-                StylePropertyParser
-                btn.skin!.setStyle(style)
-                btn.layer?.position = newPoint
+                StyleModifier.overrideStyleProperty(&style, heightProp!)
+                disableAnim {
+                    btn.skin!.setStyle(style)
+                    btn.layer?.position = newPoint
+                }
+                
             }
         }
         
