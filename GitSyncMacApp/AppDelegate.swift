@@ -47,12 +47,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
+        let initFillet:CGFloat = 20
         
         let minRect:CGRect = {
             let size = initRect.size * 0.5
             let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
+        let minFillet:CGFloat = initFillet * 0.5
         
         let btn:Button = {//button
             StyleManager.addStyle("#btn{fill:blue,corner-radius:20px;clear:none;float:none;}")
@@ -79,19 +81,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 let newPoint = initRect.origin.interpolate(minRect.origin, scalar)
                 
                 //
-                let style:IStyle = skin!.style!
-                var offsetProp = skin!.style!.getStyleProperty("width")
-                let thumbWidth:CGFloat = 100//thumbWidth is always 100
-                let thumbX = HSliderUtils.thumbPosition(progress, width, thumbWidth)
-                offsetProp!.value = [thumbX, 0]
-                
-                /*ThumbLine*/
-                var thumbLineProp = style.getStyleProperty("line",2) /*edits the style*/
-                if(thumbLineProp != nil){//temp
-                    let color:NSColor = grey.blended(withFraction: value, of: green)!
-                    thumbLineProp!.value = color
-                }
-                skin!.setStyle(style)
+                let style:IStyle = btn.skin!.style!
+                var widthProp = style.getStyleProperty("width")
+                widthProp!.value = newSize.w
+                var heightProp = style.getStyleProperty("height")
+                heightProp!.value = newSize.h
+                btn.skin!.setStyle(style)
             }
         }
         
