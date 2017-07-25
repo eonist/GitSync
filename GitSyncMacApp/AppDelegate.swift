@@ -38,13 +38,17 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView = InteractiveView2()
         window.title = ""
         
-        StyleManager.addStyle("#bg{fill:white;}")
-        window.contentView?.addSubview(Section(window.size.w,window.size.h,nil,"bg"))
+        StyleManager.addStyle("#bg{fill:white;padding-top:24px;}")
+        let section = window.contentView?.addSubView(Section(window.size.w,window.size.h,nil,"bg"))
         
-        let textCSS:String = "Text{float:left;clear:left;font:Helvetica Neue;size:12px;align:left;type:dynamic;color:grey6;selectable:true;wordWrap:true;}"
+        let textCSS:String = "Text{margin-top:0px;float:left;clear:left;font:Helvetica Neue;size:18px;align:center;type:dynamic;color:grey6;selectable:true;wordWrap:true;}"
         StyleManager.addStyle(textCSS)
         
-        Text(80,24,"This is text: ",nil,"pressureText")
+        let text = Text(200,24,"This is text: ",section,"pressureText")
+        section?.addSubview(text)
+        
+        
+        
         
         let initRect:CGRect = {
             let size:CGSize = CGSize(100,100)
