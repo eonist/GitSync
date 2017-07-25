@@ -64,8 +64,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }()
         
         func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
-            var style:Style = btn.skin!.style! as! Style
             
+            var style:Style = btn.skin!.style! as! Style
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
             }else if event.type == ForceTouchEvent.deepClickDown{
@@ -77,12 +77,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
             if event.type == ForceTouchEvent.stageChange {
                 let stage = (event as! ForceTouchEvent).stage
+                
                 if stage == 0 {
-                    
+                    StyleModifier.overrideStylePropVal(&style, ("color",0), NSColor.blue)
                 }else if stage == 1{
-                    
+                    StyleModifier.overrideStylePropVal(&style, ("color",0), NSColor.red)
                 }else /*if stage == 2*/{
-                    
+                    StyleModifier.overrideStylePropVal(&style, ("color",0), NSColor.green)
                 }
             }
             if event.type == ForceTouchEvent.pressureChange {
@@ -99,10 +100,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 StyleModifier.overrideStylePropVal(&style, ("width",0), newSize.w)
                 StyleModifier.overrideStylePropVal(&style, ("height",0), newSize.h)
                 StyleModifier.overrideStylePropVal(&style, ("corner-radius",0), newFillet)
-                disableAnim {
-                    btn.skin!.setStyle(style)
-                    btn.layer?.position = newPoint
-                }
+                
+            }
+            disableAnim {
+                btn.skin!.setStyle(style)
+                btn.layer?.position = newPoint
             }
         }
         
