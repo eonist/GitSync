@@ -19,7 +19,8 @@ class ForceTouchEvent:Event{
 
 //event.stage
 
-//maybe create stageChange event ¯\_(ツ)_/¯
+//maybe create stageChange event ¯\_(ツ)_/¯ (it would be useful when chaning color of a button for instance)
+    //also add stage as a var to ForceTouchEvent
 
 //maybe create something called linearPressure?
     //which calculates the entire range of the stage pressures so from stage 0 to 1 the pressure goes from 0 to 0.5 
