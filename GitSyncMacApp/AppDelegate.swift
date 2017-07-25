@@ -44,7 +44,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //button
         
         StyleManager.addStyle("#btn{fill:white;}")
-        let btn = window.contentView?.addSubView(Button(window.size.w,window.size.h,nil,"btn"))
+        let btn = window.contentView?.addSubView(Button(70,70,nil,"btn"))
         
         /*Ellipse*/
         let ellipse = EllipseGraphic(-50,-50,100,100,FillStyle(.blue),nil)
