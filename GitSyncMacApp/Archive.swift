@@ -407,4 +407,147 @@ class Archive {
         let test = window.contentView!.addSubView(GraphView2(winSize.w,winSize.h))
         _ = test
     }
+    func themeSwitchTest(){
+        
+        //Continue here: 🏀
+        //deprecated the last of gitsync old css files ✅
+        //setup the themes for styleTest 👈
+        //You then store the colors in light and dark theme ✅
+        //then hook up the switch to the css switcher code ✅
+        //COntinue here:
+        
+        window.contentView = InteractiveView2()
+        
+        StyleManager.addStylesByURL("~/Desktop/theme/lighttheme.css")
+        
+        let section = window.contentView!.addSubView(Section(200,300))
+        let btn = section.addSubView(Button(NaN,NaN,section,"btn"))
+        _ = section.addSubView(Element(100,100,section,"one"))
+        
+        btn.event = { event in
+            if event.type == ButtonEvent.upInside {
+                Swift.print("value: " + "\(StyleManager.getStylePropVal("Theme", "fill"))")//white
+                StyleManager.reset()
+                StyleManager.addStylesByURL("~/Desktop/theme/darktheme.css")
+                ElementModifier.refreshSkin(section)
+                Swift.print("newVal: " + "\(StyleManager.getStylePropVal("Theme", "fill")))")//black
+            }
+        }
+    }
+    func stateTest(){
+        window.contentView = InteractiveView2()
+        var css:String = "#btn{fill:blue;width:100px;height:24px;float:left;clear:left;}"
+        css += "#green{fill:green;clear:left;float:left;display:block;}"
+        css += "#green:hidden{fill:orange;display:none;}"
+        StyleManager.addStyle(css)
+        
+        let section = window.contentView!.addSubView(Section(200,300))
+        let btn = section.addSubView(Button(NaN,NaN,section,"btn"))
+        
+        let one = section.addSubView(Element(100,100,section,"green"))
+        btn.event = { event in
+            if event.type == ButtonEvent.upInside {
+                Swift.print("test")
+                one.setSkinState("hidden")
+            }
+        }
+    }
+    
+//    func jsonTest(){
+//        Swift.print("jsonTest")
+//        JSONParser.dictArr("[{\"title\":\"doctor\"}]".json)?.forEach{
+//            Swift.print("\(JSONParser.dict($0)?["title"])")//doctor
+//        }
+//        //let content = "~/Desktop/gitsync.json".content
+//        //Swift.print("content: " + "\(content)")
+//        //let json = "~/Desktop/gitsync.json".content!.json
+//        //Swift.print("json: " + "\(json)")
+//        //let dict = JSONParser.dict("~/Desktop/gitsync.json".content?.json)
+//        //Swift.print("dict: " + "\(dict)")
+//        
+//        StyleManager.addStylesByURL("~/Desktop/ElCapitan/styletest.css")
+//        JSONParser.dictArr(JSONParser.dict("~/Desktop/gitsync.json".content?.json)?["repoDetailView"])?.forEach{
+//            if let element:IElement = UnFoldUtils.unFold($0) {
+//                Swift.print("created an element")
+//                _ = element
+//            }else{
+//                Swift.print("did not create an element")
+//            }
+//        }
+//    }
+//    func initTestWin(){
+//        //StyleManager.addStylesByURL("~/Desktop/ElCapitan/explorer.css",false)
+//        StyleManager.addStylesByURL("~/Desktop/ElCapitan/test.css",false)
+//        win = TestWin(500,400)/*Debugging Different List components*/
+//        
+//        /*fileWatcher =*/
+//        //StyleWatcher.watch("~/Desktop/ElCapitan/","~/Desktop/ElCapitan/gitsync.css", self.win!.contentView!)
+//    }
+    
+    
+//    func initMinimalWin(){
+//        NSApp.windows[0].close()
+//        StyleManager.addStylesByURL("~/Desktop/ElCapitan/minimal.css",true)
+//        //Swift.print("StyleManager.styles.count: " + "\(StyleManager.styles.count)")
+//        //Swift.print("StyleManager.styles: " + "\(StyleManager.styles)")
+//        win = MinimalWin(500,400)
+//    }
+//    class Label:Flexible{
+//        //graphic bg
+//        //text that is centeres
+//        //implement Flexible
+//        // that also repos the text etc
+//        lazy var txtBtn:NSView = {
+//            let textButton:TextButton = TextButton.init(self.w, self.h, self.title, nil)
+//            return textButton
+//        }()
+//        init(_ rect:CGRect){
+//            
+//        }
+//    }
+    func calcTest(){
+        window.contentView = InteractiveView2()
+        var css:String = "#btn{fill:blue;width:calc(100% -20px);height:50;float:left;clear:left;}"
+        css += "Section{fill:silver;padding:12px;}"
+        StyleManager.addStyle(css)
+        
+        let section = window.contentView!.addSubView(Section(200,200))
+        let btn = section.addSubView(Element(NaN,NaN,section,"btn"))
+        
+        section.addSubview(btn)
+    }
+    func paddingTest(){
+        window.contentView = InteractiveView2()
+        var css:String = "#btn{fill:blue;width:100%;height:100%;float:left;clear:left;}"
+        css += "Section{fill:silver;padding:12px;}"
+        StyleManager.addStyle(css)
+        
+        let section = window.contentView!.addSubView(Section(200,300))
+        let btn = section.addSubView(Element(NaN,NaN,section,"btn"))
+        
+        section.addSubview(btn)
+    }
+    func hitTesting(){
+        window.contentView = InteractiveView2()
+        StyleManager.addStyle("Button{fill:blue;}")
+        
+        let btn = Button(50,50)
+        let container = window.contentView!.addSubView(Container(0,0,nil))
+        
+        container.addSubview(btn)
+        /*container.layer?.position.x = 100
+         container.layer?.position.y = 100*/
+        container.layer?.position = CGPoint(40,20)
+        //container.frame.origin = CGPoint(100,100)
+//        Swift.print("container.layer?.position: " + "\(container.layer?.position)")
+        Swift.print("container.frame.origin: " + "\(container.frame.origin)")
+        
+        btn.layer?.position = CGPoint(40,20)
+        //btn.frame
+//        Swift.print("btn.layer?.position: " + "\(btn.layer?.position)")
+        Swift.print("btn.frame.origin: " + "\(btn.frame.origin)")
+        btn.event = { event in
+            if(event.type == ButtonEvent.upInside){Swift.print("hello world")}
+        }
+    }
 }
