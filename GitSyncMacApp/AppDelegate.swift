@@ -37,13 +37,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //pressure just return 0 - 2 and then use min max to get stage 1 and stage 2 pressures, you can add this via extensions 👌
             //stage 1 pressure 0-1
             //stage 2 pressure 0-1
-        weak var event:NSEvent?
-        init(_ type:String = "", _ origin:AnyObject,_ event:NSEvent? = nil){
+        weak var event:NSEvent
+        init(_ type:String = "", _ origin:AnyObject,_ event:NSEvent){
             self.event = event
             super.init(type, origin)
         }
         var pressure:CGFloat {
-            return event!.pressure.cgFloat
+            return event.pressure.cgFloat
         }
     }
     class ForceTouchButton:Button{
@@ -59,37 +59,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     }
                     prevState = curState
                 }
+                super.onEvent(ForceTouchButtonEvent(ForceTouchButtonEvent.pressureChange,self,event))
             }
             
-            
-            /*A value from 0.0 through 1.0 indicating the degree of pressure applied to an appropriate input device.*/
-            Swift.print("event.pressure: " + "\(event.pressure)")
-            
-            /*The pressure behavior and progression for an event of type pressure.*/
-            switch event.pressureBehavior {//<-NSPressureBehavior
-                case .primaryAccelerator:
-                    Swift.print("primaryAccelerator")
-                case .primaryDeepClick:
-                    Swift.print("primaryDeepClick")
-                
-                case .primaryDeepDrag:
-                    Swift.print("primaryDeepDrag")
-                case .primaryDefault:
-                    Swift.print("primaryDefault")
-                case .primaryGeneric:
-                    Swift.print("primaryGeneric")
-                case .unknown:
-                    Swift.print("unknown")
-                case .primaryClick:
-                    Swift.print("primaryClick")
-            }
-            
-            /*A value of 0, 1, or 2, indicating the stage of a gesture event of type pressure.*/
-            Swift.print("event.stage: " + "\(event.stage)")
-            
-            /*The transition value for the stage of a pressure gesture event of type pressure.*/
-            Swift.print("event.stageTransition: " + "\(event.stageTransition)")
-            super.pressureChange(with: event)//forward the event
         }
         override func getClassType() -> String {
             return "\(Button.self)"
