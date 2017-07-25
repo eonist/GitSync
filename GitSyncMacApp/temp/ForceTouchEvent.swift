@@ -21,7 +21,10 @@ class ForceTouchEvent:Event{
 
 //maybe create stageChange event ¯\_(ツ)_/¯
 
-//
+//maybe create something called linearPressure?
+    //which calculates the entire range of the stage pressures so from stage 0 to 1 the pressure goes from 0 to 0.5 
+    //and from stage 1 to 2 the lienar pressure goes from 0.5 to 1
+    //this makes it easier to scale things in a linear fashion
 
 //maybe do clickDown, clickUp, deepClickDown, deepClickUp
 
