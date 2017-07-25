@@ -60,6 +60,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             if event.type == ButtonEvent.upInside {
                 Swift.print("upInside()")
             }
+            if event.type == ForceTouchButtonEvent.click{
+                Swift.print("click")
+            }else if event.type == ForceTouchButtonEvent.deepClick{
+                Swift.print("deepClick")
+            }
+            if 
+            
         }
         
         btn.event = onViewEvent
