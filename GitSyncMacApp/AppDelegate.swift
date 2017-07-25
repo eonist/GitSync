@@ -37,9 +37,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //4. spring modal in the .y axis to your mouse.position, offset by center
         
-        //5. when modal.bottom moves beyond a threshold, spring in button bellow modal (you may need to do the relational spring test first)
+        //5. when modal.bottom moves beyond a threshold, spring in button bellow modal (you may need to dto the relational spring test first)
         
-        //6. 
+        //6. when button release in peek mode, transition modal to button
+        
+        //7. when button release in input mode, 
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
