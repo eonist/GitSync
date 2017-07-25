@@ -28,8 +28,32 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     }
     class TouchButton:Button{
         override func pressureChange(with event: NSEvent) {
+            /*A value from 0.0 through 1.0 indicating the degree of pressure applied to an appropriate input device.*/
             Swift.print("event.pressure: " + "\(event.pressure)")
-            event.pressureBehavior
+            
+            /*The pressure behavior and progression for an event of type pressure.*/
+            switch event.pressureBehavior {//<-NSPressureBehavior
+                case .primaryAccelerator:
+                    Swift.print("primaryAccelerator")
+                case .primaryClick:
+                    Swift.print("primaryClick")
+                case .primaryDeepClick:
+                    Swift.print("primaryDeepClick")
+                case .primaryDeepDrag:
+                    Swift.print("primaryDeepDrag")
+                case .primaryDefault:
+                    Swift.print("primaryDefault")
+                case .primaryGeneric:
+                    Swift.print("primaryGeneric")
+                case .unknown:
+                    Swift.print("unknown")
+            }
+            
+            /*A value of 0, 1, or 2, indicating the stage of a gesture event of type pressure.*/
+            Swift.print("event.stage: " + "\(event.stage)")
+            
+            /*The transition value for the stage of a pressure gesture event of type pressure.*/
+            Swift.print("event.stageTransition: " + "\(event.stageTransition)")
         }
         override func getClassType() -> String {
             return "\(Button.self)"
