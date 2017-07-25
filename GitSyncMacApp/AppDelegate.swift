@@ -77,16 +77,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //Swift.print("pressure: " + "\((event as! ForceTouchEvent).pressure)")
                 Swift.print("event.linearPressure: " + "\((event as! ForceTouchEvent).linearPressure)")
                 let scalar = (event as! ForceTouchEvent).linearPressure
+                //interpolate size and position
                 let newSize = initRect.size.interpolate(minRect.size, scalar)
                 let newPoint = initRect.origin.interpolate(minRect.origin, scalar)
                 
-                //
+                //Edit the shape of the button, TODO: ⚠️️ clean the bellow up later. no forced unwraps and more direct calls plz
                 let style:IStyle = btn.skin!.style!
                 var widthProp = style.getStyleProperty("width")
                 widthProp!.value = newSize.w
                 var heightProp = style.getStyleProperty("height")
                 heightProp!.value = newSize.h
                 btn.skin!.setStyle(style)
+                btn.layer?.position = newPoint
             }
         }
         
