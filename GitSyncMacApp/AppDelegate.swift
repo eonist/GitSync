@@ -57,7 +57,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let minFillet:CGFloat = initFillet * 0.5
         
         let btn:Button = {//button
-            StyleManager.addStyle("Button{width:\(initRect.size.w)px;height:\(initRect.size.h)px;fill:blue,corner-radius:20px;clear:none;float:none;}")
+            StyleManager.addStyle("Button{width:\(initRect.size.w)px;height:\(initRect.size.h)px;fill:blue;corner-radius:20px;clear:none;float:none;}")
             let btn = window.contentView!.addSubView(ForceTouchButton(initRect.size.w,initRect.size.h,nil,"btn"))
             btn.point = initRect.origin//center button
             return btn
@@ -79,24 +79,18 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 let scalar = (event as! ForceTouchEvent).linearPressure
                 //interpolate size and position
                 let newSize = initRect.size.interpolate(minRect.size, scalar)
-                Swift.print("newSize: " + "\(newSize)")
+                //Swift.print("newSize: " + "\(newSize)")
                 let newPoint = initRect.origin.interpolate(minRect.origin, scalar)
-                
+                let newFillet = initFillet.interpolate(minFillet, scalar)
                 //Edit the shape of the button, TODO: ⚠️️ clean the bellow up later. no forced unwraps and more direct calls plz
                 var style:Style = btn.skin!.style! as! Style
                 StyleModifier.overrideStylePropVal(&style, ("width",0), newSize.w)
                 StyleModifier.overrideStylePropVal(&style, ("height",0), newSize.h)
-                var widthProp = style.getStyleProperty("width")
-                widthProp!.value = newSize.w
-                StyleModifier.overrideStyleProperty(&style, widthProp!)
-                var heightProp = style.getStyleProperty("height")
-                heightProp!.value = newSize.h
-                StyleModifier.overrideStyleProperty(&style, heightProp!)
+                StyleModifier.overrideStylePropVal(&style, ("corner-radius",0), newFillet)
                 disableAnim {
                     btn.skin!.setStyle(style)
                     btn.layer?.position = newPoint
                 }
-                
             }
         }
         
