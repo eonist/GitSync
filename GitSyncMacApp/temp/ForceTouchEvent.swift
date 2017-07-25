@@ -32,7 +32,9 @@ extension ForceTouchEvent {
      * this makes it easier to scale things in a linear fashion from 0 to 1 in the entire stage range
      */
     var linearPressure:CGFloat{
-        if stage == 1{
+        if stage == 0 {
+            return 0
+        }else if stage == 1{
             return pressure / 2
         }else /*if stage == 2*/ {
             return 0.5 + (pressure / 2)
