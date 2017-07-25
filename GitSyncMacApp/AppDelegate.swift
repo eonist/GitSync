@@ -76,7 +76,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //Check your bouncy ball code if you used z depth or if you just scaled width and height
             //make cgsize support for Springer4
             //add Easer4 to the Color transition for each stage 👌
-            //write article about ForceTouch
+            //write article about ForceTouch macOS swift
         
         
         btn.event = onViewEvent
