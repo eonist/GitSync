@@ -81,16 +81,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             if event.type == ForceTouchEvent.stageChange {
                 let stage:Int = (event as! ForceTouchEvent).stage
                 Swift.print("stage: " + "\(stage)")
-                
                 if stage == 0 {
-                    //StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.blue)
+                    StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.blue)
                     Swift.print("override to blue")
                 }else if stage == 1{
                     StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.red)
                     Swift.print("override to red")
-                    disableAnim {
-                        btn.skin!.setStyle(style)
-                    }
                 }else /*if stage == 2*/{
                     StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.green)
                     Swift.print("override to green")
@@ -112,9 +108,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 StyleModifier.overrideStylePropVal(&style, ("corner-radius",0), newFillet)
                 disableAnim {
                     btn.layer?.position = newPoint
-                    
                     btn.skin!.setStyle(style)
-                    
                 }
             }
             
