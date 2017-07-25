@@ -63,9 +63,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             return btn
         }()
         
+        var style:Style = btn.skin!.style! as! Style
+        
         func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
             
-            var style:Style = btn.skin!.style! as! Style
+            
             
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
@@ -79,8 +81,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             if event.type == ForceTouchEvent.stageChange {
                 let stage:Int = (event as! ForceTouchEvent).stage
                 Swift.print("stage: " + "\(stage)")
+                
                 if stage == 0 {
-                    StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.blue)
+                    //StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.blue)
                     Swift.print("override to blue")
                 }else if stage == 1{
                     StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.red)
@@ -109,11 +112,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 StyleModifier.overrideStylePropVal(&style, ("corner-radius",0), newFillet)
                 disableAnim {
                     btn.layer?.position = newPoint
+                    
+                    btn.skin!.setStyle(style)
+                    
                 }
             }
-            disableAnim {
-                btn.skin!.setStyle(style)
-            }
+            
         }
         
         //continue here: 🏀
