@@ -13,7 +13,14 @@ class ForceTouchButton:Button {
         let curState:Int = event.stage
         if event.pressureBehavior == NSPressureBehavior.primaryDeepClick {
             if prevState != curState {
-                if curState == 1 {
+                if curState == 0 {
+                    
+                }else if curState == 1 {
+                    if prevState == 0 {
+                        
+                    }else if prevState == 2{
+                        
+                    }
                     super.onEvent(ForceTouchButtonEvent(ForceTouchButtonEvent.click,self,event))
                 }else if curState == 2{
                     super.onEvent(ForceTouchButtonEvent(ForceTouchButtonEvent.deepClick,self,event))
