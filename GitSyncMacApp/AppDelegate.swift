@@ -45,8 +45,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     class ForceTouchButton:Button{
         var prevState = 0
         override func pressureChange(with event: NSEvent) {
+            let curState:Int = event.stage
             if event.pressureBehavior == NSPressureBehavior.primaryDeepClick {
-                if prevState == 
+                if prevState != curState {
+                    if curState == 1 {
+                        super.onEvent(ForceTouchButtonEvent(ForceTouchButtonEvent.click,self,event))
+                    }else if curState == 2{
+                        super.onEvent(ForceTouchButtonEvent(ForceTouchButtonEvent.deepClick,self,event))
+                    }
+                    prevState = curState
+                }
             }
             
             
