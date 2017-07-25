@@ -43,7 +43,13 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
     }
     class ForceTouchButton:Button{
+        var prevState = 0
         override func pressureChange(with event: NSEvent) {
+            if event.pressureBehavior == NSPressureBehavior.primaryDeepClick {
+                if prevState == 
+            }
+            
+            
             /*A value from 0.0 through 1.0 indicating the degree of pressure applied to an appropriate input device.*/
             Swift.print("event.pressure: " + "\(event.pressure)")
             
@@ -53,6 +59,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     Swift.print("primaryAccelerator")
                 case .primaryDeepClick:
                     Swift.print("primaryDeepClick")
+                
                 case .primaryDeepDrag:
                     Swift.print("primaryDeepDrag")
                 case .primaryDefault:
