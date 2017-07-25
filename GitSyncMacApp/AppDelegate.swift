@@ -34,6 +34,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         static var deepClick:String = "forceTouchButtonDeepClick"/*Stage 2 - forceTouch click*/
         //continue here:
             //pressure just return 0 - 2 and then use min max to get stage 1 and stage 2 pressures, you can add this via extensions 👌
+            //stage 1 pressure 0-1
+            //stage 2 pressure 0-1
         weak var event:NSEvent?
         init(_ type:String = "", _ origin:AnyObject,_ event:NSEvent? = nil){
             self.event = event
