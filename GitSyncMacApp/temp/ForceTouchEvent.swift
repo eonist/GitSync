@@ -3,9 +3,13 @@ import Cocoa
 @testable import Element
 
 class ForceTouchEvent:Event{
-    static var click:String = "forceTouchButtonClick"/*Stage 1 - forceTouch click*/
-    static var deepClick:String = "forceTouchButtonDeepClick"/*Stage 2 - forceTouch click*/
-    static var pressureChange:String = "forceTouchButtonPressureChangek"/*Stage 2 - forceTouch click*/
+    static var clickDown:String = "forceTouchButtonClickDown"//from noStage to clickStage
+    static var deepClickDown:String = "forceTouchButtonDeepClickDown"//from clickStage to deepClickStage
+    static var clickUp:String = "forceTouchButtonClickUp"//from clickStage to noStage
+    static var deepClickUp:String = "forceTouchButtonDeepClickUp"//from deepStage to clickStage
+    /**/
+    static var pressureChange:String = "forceTouchButtonPressureChange"/*Stage 2 - forceTouch click*/
+    static var stageChange:String = "forceTouchButtonStageChange"
     
     weak var event:NSEvent?
     init(_ type:String = "", _ origin:AnyObject,_ event:NSEvent){
