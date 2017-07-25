@@ -28,12 +28,10 @@ extension ForceTouchEvent {
     }
     var linearPressure:CGFloat{
         if stage == 0 || stage == 1{
-            pressure /
-        }else if stage == 2 {
-            
-            
+            return pressure / 2
+        }else /*if stage == 2*/ {
+            return 0.5 + (pressure / 2)
         }
-        return 0
     }
 }
 
