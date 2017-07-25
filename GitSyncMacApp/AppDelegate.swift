@@ -35,7 +35,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //3. spring circular button into bigger square modal, centered
         
-        //4. spring modal to 
+        //4. spring modal in the .y axis to your mouse.position, offset by center
+        
+        //5. 
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
