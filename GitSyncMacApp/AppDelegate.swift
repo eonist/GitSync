@@ -24,13 +24,23 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //try to do a rotation test back and forth with elastic
             //Playground testing
         //add interuptabable animators to the fold
+        peekAndPopTest()
     }
     /**
-     * It's all abbout making bespoke interactions 👌
+     * It's all about making bespoke interactions 👌
      */
     func peekAndPopTest(){
         //1. circular button,centered
             //window
+        let winRect = CGRect(0,0,200,300)
+        window.size = winRect.size
+        window.contentView = InteractiveView2()
+        window.title = ""
+        
+        StyleManager.addStyle("#bg{fill:white;}")
+        window.contentView?.addSubview(Section(window.size.w,window.size.h,nil,"bg"))
+        
+
             //button
             //event handler for deep press
         
