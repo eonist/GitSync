@@ -26,7 +26,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //add interuptabable animators to the fold
     }
     /**
-     *
+     * It's all abbout making bespoke interactions 👌
      */
     func peekAndPopTest(){
         //1. circular button,centered
@@ -41,7 +41,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //6. when button release in peek mode, transition modal to button
         
-        //7. when button release in input mode, 
+        //7. when button release in input mode, dont transition anything
+        
+        //8. when user clicks the button bellow modal, transition modal to circular button and spring inputButton bellow screen
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
