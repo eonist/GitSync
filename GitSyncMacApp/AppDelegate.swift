@@ -15,8 +15,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification:Notification) {
         Swift.print("GitSync - Automates git")//Simple git automation for macOS, The autonomouse git client,The future is automated
-        //jsonTest()
-        
         //initApp()
         
         
@@ -26,11 +24,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //try to do a rotation test back and forth with elastic
             //Playground testing
         //add interuptabable animators to the fold
-    
-    
-        
     }
-   
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
@@ -42,7 +36,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         win = StyleTestWin(rect.w, rect.h)/*⬅️️🚪*/
         menu = Menu()/*This creates the App menu*/
     }
-    
     func applicationWillTerminate(_ aNotification:Notification) {
         _ = FileModifier.write(Config.prefs.tildePath, PrefsView.xml.xmlString)/*Stores the app prefs*/
         Swift.print("💾 Write PrefsView to: prefs.xml")
