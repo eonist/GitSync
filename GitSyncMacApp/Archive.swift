@@ -544,7 +544,7 @@ class Archive {
         
         btn.layer?.position = CGPoint(40,20)
         //btn.frame
-//        o Swift.print("btn.layer?.position: " + "\(btn.layer?.position)")
+//        Swift.print("btn.layer?.position: " + "\(btn.layer?.position)")
         Swift.print("btn.frame.origin: " + "\(btn.frame.origin)")
         btn.event = { event in
             if(event.type == ButtonEvent.upInside){Swift.print("hello world")}
