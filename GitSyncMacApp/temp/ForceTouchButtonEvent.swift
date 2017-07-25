@@ -22,3 +22,17 @@ class ForceTouchButtonEvent:Event{
 //maybe create stageChange event
 
 //maybe do clickDown, clickUp, deepClickDown, deepClickUp
+
+
+/*
+ 
+if event.type == ForcTouchEvent.clickDown {
+ 
+}else if event.type == ForcTouchEvent.deepClickDown {
+ 
+}else if event.type == ForcTouchEvent.clickUp {
+
+}else if event.type == ForcTouchEvent.deepClickUp {
+ 
+}
+*/
