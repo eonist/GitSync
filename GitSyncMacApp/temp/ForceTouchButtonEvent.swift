@@ -16,3 +16,9 @@ class ForceTouchButtonEvent:Event{
         return event!.pressure.cgFloat
     }
 }
+
+//event.stage
+
+//maybe create stageChange event
+
+//maybe create 
