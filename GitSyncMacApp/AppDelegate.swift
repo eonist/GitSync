@@ -54,6 +54,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             
             /*The transition value for the stage of a pressure gesture event of type pressure.*/
             Swift.print("event.stageTransition: " + "\(event.stageTransition)")
+            super.pressureChange(with: event)//forward the event
         }
         override func getClassType() -> String {
             return "\(Button.self)"
