@@ -41,17 +41,22 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         StyleManager.addStyle("#bg{fill:white;}")
         window.contentView?.addSubview(Section(window.size.w,window.size.h,nil,"bg"))
         
-        let startRect:CGRect = {
+        let initRect:CGRect = {
             let size:CGSize = CGSize(70,70)
             let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
         
+        let minRect:CGRect = {
+            let size = initRect.size * 0.5
+//            let p 
+        }()
+        
         
         let btn:Button = {//button
             StyleManager.addStyle("#btn{fill:blue,corner-radius:20px;clear:none;float:none;}")
-            let btn = window.contentView!.addSubView(ForceTouchButton(startRect.w,startRect.h,nil,"btn"))
-            btn.point = startRect.origin//center button
+            let btn = window.contentView!.addSubView(ForceTouchButton(initRect.w,initRect.h,nil,"btn"))
+            btn.point = initRect.origin//center button
             return btn
         }()
         
@@ -68,12 +73,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             if event.type == ForceTouchEvent.pressureChange {
                 //Swift.print("pressure: " + "\((event as! ForceTouchEvent).pressure)")
                 Swift.print("event.linearPressure: " + "\((event as! ForceTouchEvent).linearPressure)")
+                
+                //
             }
         }
         
         //continue here: 🏀
             //scale the button uniformly 50% off full size 25% for each stage of  forceTouch
-            //Check your bouncy ball code if you used z depth or if you just scaled width and height 👈
+            //Check your bouncy ball code if you used z depth or if you just scaled width and height ✅
             //make cgsize support for Springer4
             //add Easer4 to the Color transition for each stage 👌
             //write article about ForceTouch macOS swift
