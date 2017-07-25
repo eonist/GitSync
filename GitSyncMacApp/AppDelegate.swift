@@ -49,7 +49,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let minRect:CGRect = {
             let size = initRect.size * 0.5
-//            let p 
+//            let p:CGPoint = 
         }()
         
         
