@@ -8,21 +8,22 @@ import Cocoa
  * NOTE: stage 2 pressure 0-1
  */
 class ForceTouchButton:Button {
-    var prevState = 0
+    var prevStage = 0
     override func pressureChange(with event: NSEvent) {
-        let curState:Int = event.stage
+        let curStage:Int = event.stage
         if event.pressureBehavior == NSPressureBehavior.primaryDeepClick {
-            if prevState != curState {
-                if curState == 0 && prevState == 1 {
+            if prevStage != curStage {
+                if curStage == 0 && prevStage == 1 {
                     super.onEvent(ForceTouchEvent(ForceTouchEvent.clickUp,self,event))
-                }else if curState == 1 && prevState == 0{
+                }else if curStage == 1 && prevStage == 0{
                     super.onEvent(ForceTouchEvent(ForceTouchEvent.clickDown,self,event))
-                }else if curState == 1 && prevState == 2 {
+                }else if curStage == 1 && prevStage == 2 {
                     super.onEvent(ForceTouchEvent(ForceTouchEvent.deepClickUp,self,event))
-                }else if curState == 2 && prevState == 1{
+                }else if curStage == 2 && prevStage == 1{
                     super.onEvent(ForceTouchEvent(ForceTouchEvent.deepClickDown,self,event))
                 }
-                prevState = curState
+                super.onEvent(ForceTouchEvent(ForceTouchEvent.stageChange,self,event))
+                prevStage = curStage//always set prevStage to curStage on stage change
             }
             super.onEvent(ForceTouchEvent(ForceTouchEvent.pressureChange,self,event))
         }
