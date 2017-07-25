@@ -19,7 +19,9 @@ class ForceTouchEvent:Event{
 
 //event.stage
 
-//maybe create stageChange event
+//maybe create stageChange event ¯\_(ツ)_/¯
+
+//
 
 //maybe do clickDown, clickUp, deepClickDown, deepClickUp
 
