@@ -1,7 +1,9 @@
 import Cocoa
 @testable import Utils
 @testable import Element
-
+/**
+ * PARAM: stageChange: it would be useful when chaning color of a button for instance
+ */
 class ForceTouchEvent:Event{
     static var clickDown:String = "forceTouchButtonClickDown"//from noStage to clickStage
     static var deepClickDown:String = "forceTouchButtonDeepClickDown"//from clickStage to deepClickStage
@@ -16,15 +18,19 @@ class ForceTouchEvent:Event{
         self.event = event
         super.init(type, origin)
     }
+}
+extension ForceTouchEvent {
     var pressure:CGFloat {
         return event!.pressure.cgFloat
     }
+    var stage:Int {
+        return event!.stage
+    }
+    var linearPressure:CGFloat{
+        
+        return 0
+    }
 }
-
-//event.stage
-
-//maybe create stageChange event ¯\_(ツ)_/¯ (it would be useful when chaning color of a button for instance)
-    //also add stage as a var to ForceTouchEvent
 
 //maybe create something called linearPressure?
     //which calculates the entire range of the stage pressures so from stage 0 to 1 the pressure goes from 0 to 0.5 
