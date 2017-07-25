@@ -21,4 +21,4 @@ class ForceTouchButtonEvent:Event{
 
 //maybe create stageChange event
 
-//maybe create 
+//maybe do clickDown, clickUp, deepClickDown, deepClickUp
