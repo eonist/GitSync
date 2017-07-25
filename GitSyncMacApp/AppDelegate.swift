@@ -57,7 +57,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let minFillet:CGFloat = initFillet * 0.5
         
         let btn:Button = {//button
-            StyleManager.addStyle("Button{width:170px;height:170px;fill:blue,corner-radius:20px;clear:none;float:none;}")
+            StyleManager.addStyle("Button{width:70px;height:70px;fill:blue,corner-radius:20px;clear:none;float:none;}")
             let btn = window.contentView!.addSubView(ForceTouchButton(70,70,nil,"btn"))
             btn.point = initRect.origin//center button
             return btn
@@ -75,10 +75,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
             if event.type == ForceTouchEvent.pressureChange {
                 //Swift.print("pressure: " + "\((event as! ForceTouchEvent).pressure)")
-                Swift.print("event.linearPressure: " + "\((event as! ForceTouchEvent).linearPressure)")
+                //Swift.print("event.linearPressure: " + "\((event as! ForceTouchEvent).linearPressure)")
                 let scalar = (event as! ForceTouchEvent).linearPressure
                 //interpolate size and position
                 let newSize = initRect.size.interpolate(minRect.size, scalar)
+                Swift.print("newSize: " + "\(newSize)")
                 let newPoint = initRect.origin.interpolate(minRect.origin, scalar)
                 
                 //Edit the shape of the button, TODO: ⚠️️ clean the bellow up later. no forced unwraps and more direct calls plz
