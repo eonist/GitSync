@@ -72,7 +72,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }
         
         //continue here: 🏀
-            //scale the button uniformly
+            //scale the button uniformly 50% off full size 25% for each stage of  forceTouch
+            //Check your bouncy ball code if you used z depth or if you just scaled width and height
             //
         
         
