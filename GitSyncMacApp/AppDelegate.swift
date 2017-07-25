@@ -76,14 +76,14 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 Swift.print("deepClickUp")
             }
             if event.type == ForceTouchEvent.stageChange {
-                let stage = (event as! ForceTouchEvent).stage
-                
+                let stage:Int = (event as! ForceTouchEvent).stage
+                Swift.print("stage: " + "\(stage)")
                 if stage == 0 {
-                    StyleModifier.overrideStylePropVal(&style, ("color",0), NSColor.blue)
+                    StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.blue)
                 }else if stage == 1{
-                    StyleModifier.overrideStylePropVal(&style, ("color",0), NSColor.red)
+                    StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.red)
                 }else /*if stage == 2*/{
-                    StyleModifier.overrideStylePropVal(&style, ("color",0), NSColor.green)
+                    StyleModifier.overrideStylePropVal(&style, ("fill",0), NSColor.green)
                 }
             }
             if event.type == ForceTouchEvent.pressureChange {
@@ -100,11 +100,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 StyleModifier.overrideStylePropVal(&style, ("width",0), newSize.w)
                 StyleModifier.overrideStylePropVal(&style, ("height",0), newSize.h)
                 StyleModifier.overrideStylePropVal(&style, ("corner-radius",0), newFillet)
-                
+                disableAnim {
+                    btn.layer?.position = newPoint
+                }
             }
             disableAnim {
                 btn.skin!.setStyle(style)
-                btn.layer?.position = newPoint
             }
         }
         
