@@ -42,7 +42,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         window.contentView?.addSubview(Section(window.size.w,window.size.h,nil,"bg"))
         
         let textCSS:String = "Text{float:left;clear:left;font:Helvetica Neue;size:12px;align:left;type:dynamic;color:grey6;selectable:true;wordWrap:true;}"
-       
+        StyleManager.addStyle(textCSS)
+        
+        Text(80,24,"This is text: ",nil,"pressureText")
+        
         let initRect:CGRect = {
             let size:CGSize = CGSize(100,100)
             let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
