@@ -44,7 +44,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let textCSS:String = "Text{margin-top:0px;float:left;clear:left;font:Helvetica Neue;size:18px;align:center;type:dynamic;color:grey6;selectable:true;wordWrap:true;}"
         StyleManager.addStyle(textCSS)
         
-        let text = Text(200,24,"This is text: ",section,"pressureText")
+        let text = Text(200,24,"0.0",section,"pressureText")
         section?.addSubview(text)
         
         
@@ -104,6 +104,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 //Swift.print("pressure: " + "\((event as! ForceTouchEvent).pressure)")
                 //Swift.print("event.linearPressure: " + "\((event as! ForceTouchEvent).linearPressure)")
                 let scalar = (event as! ForceTouchEvent).linearPressure
+                text.setText(scalar.toFixed(1).string)
                 //interpolate size and position
                 let newSize = initRect.size.interpolate(minRect.size, scalar)
                 //Swift.print("newSize: " + "\(newSize)")
