@@ -41,6 +41,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         StyleManager.addStyle("#bg{fill:white;}")
         window.contentView?.addSubview(Section(window.size.w,window.size.h,nil,"bg"))
         
+        let textCSS:String = "Text{float:left;clear:left;font:Helvetica Neue;size:12px;align:left;type:dynamic;color:grey6;selectable:true;wordWrap:true;}"
        
         let initRect:CGRect = {
             let size:CGSize = CGSize(100,100)
