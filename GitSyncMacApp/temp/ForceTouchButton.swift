@@ -19,16 +19,18 @@ class ForceTouchButton:Button {
                     }
                 }else if curState == 1 {
                     if prevState == 0 {
-                        
+                        super.onEvent(ForceTouchEvent(ForceTouchEvent.clickDown,self,event))
                     }else if prevState == 2{
-                        
+                        super.onEvent(ForceTouchEvent(ForceTouchEvent.deepClickUp,self,event))
                     }
                 }else if curState == 2{
-                    super.onEvent(ForceTouchButtonEvent(ForceTouchButtonEvent.deepClick,self,event))
+                    if prevState == 1{
+                        super.onEvent(ForceTouchEvent(ForceTouchEvent.deepClickDown,self,event))
+                    }
                 }
                 prevState = curState
             }
-            super.onEvent(ForceTouchButtonEvent(ForceTouchButtonEvent.pressureChange,self,event))
+            super.onEvent(ForceTouchEvent(ForceTouchEvent.pressureChange,self,event))
         }
         
     }
