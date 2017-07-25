@@ -43,7 +43,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
        
         let initRect:CGRect = {
-            let size:CGSize = CGSize(70,70)
+            let size:CGSize = CGSize(100,100)
             let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
             return CGRect(p,size)
         }()
@@ -57,8 +57,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         let minFillet:CGFloat = initFillet * 0.5
         
         let btn:Button = {//button
-            StyleManager.addStyle("Button{width:70px;height:70px;fill:blue,corner-radius:20px;clear:none;float:none;}")
-            let btn = window.contentView!.addSubView(ForceTouchButton(70,70,nil,"btn"))
+            StyleManager.addStyle("Button{width:\(initRect.size.w)px;height:\(initRect.size.h)px;fill:blue,corner-radius:20px;clear:none;float:none;}")
+            let btn = window.contentView!.addSubView(ForceTouchButton(initRect.size.w,initRect.size.h,nil,"btn"))
             btn.point = initRect.origin//center button
             return btn
         }()
