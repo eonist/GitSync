@@ -64,6 +64,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }()
         
         func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
+            var style:Style = btn.skin!.style! as! Style
+            
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
             }else if event.type == ForceTouchEvent.deepClickDown{
@@ -93,7 +95,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                 let newPoint = initRect.origin.interpolate(minRect.origin, scalar)
                 let newFillet = initFillet.interpolate(minFillet, scalar)
                 //Edit the shape of the button, TODO: ⚠️️ clean the bellow up later. no forced unwraps and more direct calls plz
-                var style:Style = btn.skin!.style! as! Style
+                
                 StyleModifier.overrideStylePropVal(&style, ("width",0), newSize.w)
                 StyleModifier.overrideStylePropVal(&style, ("height",0), newSize.h)
                 StyleModifier.overrideStylePropVal(&style, ("corner-radius",0), newFillet)
