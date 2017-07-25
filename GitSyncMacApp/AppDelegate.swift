@@ -33,7 +33,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         //2. hardpress button to activate pop
         
-        //3. 
+        //3. transform circular button into square modal, centered
+        
+        //4.
     }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
