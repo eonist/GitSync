@@ -27,6 +27,10 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         peekAndPopTest()
     }
     class TouchButton:Button{
+        override func pressureChange(with event: NSEvent) {
+            Swift.print("event.pressure: " + "\(event.pressure)")
+            event.pressureBehavior
+        }
         override func getClassType() -> String {
             return "\(Button.self)"
         }
@@ -54,7 +58,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let btn:Button = {//button
             StyleManager.addStyle("#btn{fill:blue,fillet:20px;;clear:none;float:none;}")
-            let btn:TouchButton = window.contentView!.addSubView(TouchButton(startRect.w,startRect.h,nil,"btn"))
+            let btn = window.contentView!.addSubView(TouchButton(startRect.w,startRect.h,nil,"btn"))
             btn.point = startRect.origin//center button
             return btn
         }()
