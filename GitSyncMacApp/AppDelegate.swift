@@ -41,6 +41,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         StyleManager.addStyle("#bg{fill:white;}")
         window.contentView?.addSubview(Section(window.size.w,window.size.h,nil,"bg"))
         
+        let closure { size:CGSize
+            
+        }
         let initRect:CGRect = {
             let size:CGSize = CGSize(70,70)
             let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
@@ -49,7 +52,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let minRect:CGRect = {
             let size = initRect.size * 0.5
-//            let p:CGPoint = 
+            let p:CGPoint = Align.alignmentPoint(size, winRect.size, Alignment.centerCenter, Alignment.centerCenter)
+            return CGRect(p,size)
         }()
         
         
