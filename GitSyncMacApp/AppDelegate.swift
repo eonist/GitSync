@@ -25,6 +25,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             //Playground testing
         //add interuptabable animators to the fold
     }
+    /**
+     *
+     */
+    func peekAndPopTest(){
+        //1. circular button,centered
+        
+        //2. hardpress button to activate pop
+        
+        //3. 
+    }
     func initApp(){
         NSApp.windows[0].close()/*<--Close the initial non-optional default window*/
         
