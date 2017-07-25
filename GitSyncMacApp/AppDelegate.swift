@@ -49,7 +49,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         
         let btn:Button = {//button
-            StyleManager.addStyle("#btn{fill:blue,fillet:20px;clear:none;float:none;}")
+            StyleManager.addStyle("#btn{fill:blue,corner-radius:20px;clear:none;float:none;}")
             let btn = window.contentView!.addSubView(ForceTouchButton(startRect.w,startRect.h,nil,"btn"))
             btn.point = startRect.origin//center button
             return btn
