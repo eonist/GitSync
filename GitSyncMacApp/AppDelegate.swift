@@ -26,6 +26,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //add interuptabable animators to the fold
         peekAndPopTest()
     }
+    class TouchButton:Button{
+        override func getClassType() -> String {
+            return "\(Button.self)"
+        }
+    }
     /**
      * It's all about making bespoke interactions 👌
      */
@@ -49,7 +54,7 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         
         let btn:Button = {//button
             StyleManager.addStyle("#btn{fill:blue,fillet:20px;;clear:none;float:none;}")
-            let btn:Button =  window.contentView!.addSubView(Button(startRect.w,startRect.h,nil,"btn"))
+            let btn:TouchButton = window.contentView!.addSubView(TouchButton(startRect.w,startRect.h,nil,"btn"))
             btn.point = startRect.origin//center button
             return btn
         }()
