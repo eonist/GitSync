@@ -26,8 +26,12 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         //add interuptabable animators to the fold
         peekAndPopTest()
     }
+    /**
+     * NOTE: Use ButtonEvent.down to listen for mouseDown events
+     */
     class ForceTouchButtonEvent:Event{
-        static var deepClick:String = "forceTouchButtonDeepClick"
+        static var click:String = "forceTouchButtonClick"/*Stage 1 - forceTouch click*/
+        static var deepClick:String = "forceTouchButtonDeepClick"/*Stage 2 - forceTouch click*/
         weak var event:NSEvent?
         init(_ type:String = "", _ origin:AnyObject,_ event:NSEvent? = nil){
             self.event = event
