@@ -73,6 +73,16 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }else if event.type == ForceTouchEvent.deepClickUp {
                 Swift.print("deepClickUp")
             }
+            if event.type == ForceTouchEvent.stageChange {
+                let stage = (event as! ForceTouchEvent).stage
+                if stage == 0 {
+                    
+                }else if stage == 1{
+                    
+                }else /*if stage == 2*/{
+                    
+                }
+            }
             if event.type == ForceTouchEvent.pressureChange {
                 //Swift.print("pressure: " + "\((event as! ForceTouchEvent).pressure)")
                 //Swift.print("event.linearPressure: " + "\((event as! ForceTouchEvent).linearPressure)")
