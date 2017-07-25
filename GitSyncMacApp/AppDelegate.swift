@@ -56,9 +56,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
         }()
         
         func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
-            if event.type == ButtonEvent.upInside {
-                Swift.print("upInside()")
-            }
             if event.type == ForceTouchEvent.clickDown{
                 Swift.print("clickDown")
             }else if event.type == ForceTouchEvent.deepClickDown{
