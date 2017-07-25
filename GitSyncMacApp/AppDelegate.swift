@@ -30,6 +30,9 @@ class AppDelegate:NSObject, NSApplicationDelegate {
      */
     func peekAndPopTest(){
         //1. circular button,centered
+            //window
+            //button
+            //event handler for deep press
         
         //2. hardpress button to activate pop
         
