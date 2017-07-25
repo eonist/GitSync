@@ -71,6 +71,11 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             }
         }
         
+        //continue here: 🏀
+            //scale the button uniformly
+            //
+        
+        
         btn.event = onViewEvent
             //event handler for deep press
         
