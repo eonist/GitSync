@@ -35,8 +35,6 @@ class AppDelegate:NSObject, NSApplicationDelegate {
             switch event.pressureBehavior {//<-NSPressureBehavior
                 case .primaryAccelerator:
                     Swift.print("primaryAccelerator")
-                case .primaryClick:
-                    Swift.print("primaryClick")
                 case .primaryDeepClick:
                     Swift.print("primaryDeepClick")
                 case .primaryDeepDrag:
@@ -47,6 +45,8 @@ class AppDelegate:NSObject, NSApplicationDelegate {
                     Swift.print("primaryGeneric")
                 case .unknown:
                     Swift.print("unknown")
+                case .primaryClick:
+                    Swift.print("primaryClick")
             }
             
             /*A value of 0, 1, or 2, indicating the stage of a gesture event of type pressure.*/
